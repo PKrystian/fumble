@@ -1,0 +1,777 @@
+{
+ "cult-of-asmodeus": {
+  "name": "Kult Asmodeusza",
+  "entries": [
+   "{@deity Asmodeusz|Faerûnian|scag} żąda lojalności od wszystkich kultystów, którzy zyskują władzę i przywództwo w kultach Dziewięciu. Jego kult wchłania wszystkie pozostałe.",
+   "Każdy NPC, który przewodzi diabolicznemu kultowi, musi uznać potęgę Asmodeusza. W zamian najgodniejsi z tych przywódców zyskują cechę Żądania Nessus.",
+   {
+    "type": "entries",
+    "name": "Żądania Nessus",
+    "entries": [
+     "Na początku każdej swojej tury ten stwór może wybrać jednego widocznego przez siebie sojusznika w promieniu 30 stóp. Wybrany sojusznik traci 10 punktów wytrzymałości, a ten stwór odzyskuje tyle samo punktów wytrzymałości. Jeśli stwór ma stan {@condition Bezradny|incapacitated}, nie dokonuje wyboru; zamiast tego wybranym sojusznikiem jest najbliższy sojusznik w promieniu 30 stóp."
+    ]
+   }
+  ]
+ },
+ "cult-of-atropus-the-world-born-dead": {
+  "name": "Kult Atropusa, Świata Zrodzonego Martwym",
+  "entries": [
+   {
+    "name": "Spojrzenie Skażenia {@recharge}",
+    "type": "entries",
+    "entries": [
+     "Kultysta obiera za cel jednego widocznego przez siebie stwora w promieniu 30 stóp. Cel musi zdać rzut obronny Kondycji ({@dc 15}) albo otrzymać 16 ({@damage 3k10}) obrażeń nekrotycznych i otrzymać stan {@condition Zatruty|poisoned} na 1 minutę. Cel ze stanem {@condition Zatruty|poisoned} może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc ten efekt na sobie przy sukcesie."
+    ]
+   }
+  ]
+ },
+ "cult-of-baalzebul": {
+  "name": "Kult Baalzebula",
+  "entries": [
+   "Baalzebul zwykle rekrutuje pojedyncze osoby, a nie kulty. Oferuje nadzieję tym, których porażki popychają do poszukiwania odkupienia.",
+   "Udziela daru, cechy Ścieżka Baalzebula, która pozwala faworyzowanemu kultyście dobrze wypaść w następstwie porażki sojusznika.",
+   {
+    "type": "entries",
+    "name": "Ścieżka Baalzebula",
+    "entries": [
+     "Jako akcję dodatkową w swojej turze, ten stwór może wybrać jednego widocznego przez siebie sojusznika w promieniu 30 stóp. Do początku następnej tury tego stwora, zyskuje on przewagę na wszystkich testach zdolności i rzutach na atak, podczas gdy wybrany sojusznik ma utrudnienie na wszystkich testach zdolności, rzutach na atak i rzutach obronnych."
+    ]
+   }
+  ]
+ },
+ "cult-of-baphomet": {
+  "name": "Kult Baphometa",
+  "entries": [
+   "Baphomet obdarza swoich kultystów specjalnymi zdolnościami. Wszyscy jego wyznawcy zyskują poniższą cechę Labiryntowa Pamięć. Swoim szeregowym wyznawcom udziela cechy Nieomylny Tropiciel, a przywódcy kultu zyskują cechę Podburzenie Łowców.",
+   {
+    "type": "entries",
+    "entries": [
+     {
+      "type": "entries",
+      "name": "Labiryntowa Pamięć",
+      "entries": [
+       "Ten stwór potrafi doskonale odtworzyć z pamięci każdą przebytą trasę."
+      ]
+     },
+     {
+      "type": "entries",
+      "name": "Nieomylny Tropiciel",
+      "entries": [
+       "Jako akcję dodatkową, ten stwór magicznie tworzy psychiczną więź z jednym widocznym przez siebie stworem. Przez następną godzinę, jako akcję dodatkową ten stwór poznaje aktualną odległość i kierunek do celu, jeśli znajduje się na tej samej płaszczyźnie istnienia. Więź kończy się, jeśli ten stwór ma stan {@condition Bezradny|incapacitated} lub użyje tej zdolności na innym celu."
+      ]
+     },
+     {
+      "type": "entries",
+      "name": "Podburzenie Łowców (Odnawia się po Krótkim lub Długim Odpoczynku)",
+      "entries": [
+       "Jako akcję, ten stwór pozwala każdemu sojusznikowi w promieniu 30 stóp od siebie, który posiada cechę Nieomylny Tropiciel, wykonać jeden atak bronią jako reakcję przeciwko celowi Nieomylnego Tropiciela tego sojusznika."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "cult-of-belzenlok": {
+  "name": "Kult Belzenloka",
+  "entries": [
+   {
+    "type": "entries",
+    "name": "Kultyści Belzenloka",
+    "entries": [
+     "Kabaliści są jednolicie fanatyczni, doprowadzeni do zapamiętania bólem, chciwością i osobliwą mocą swojej magii szaleństwa. Od początku istnienia Kabały, rzucający zaklęcia znani jako dementyści manipulowali samą materią koszmarów, przekształcając rzeczywistość i tworząc przedmioty oraz stwory z równoległej krainy \"przestrzeni szaleństwa\". Choć stulecia trudów znacznie ją zmieniły, magia szaleństwa pozostaje potężnym atutem Kabały, a kabaliści cenią biegłość w takiej magii ponad wszystko poza łaską Belzenloka."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Kultyści, Nowicjusze i Kapłani",
+    "entries": [
+     "Większość członków Kabały służy jej w wymiarze religijnym. Komórki kultystów Kabały można znaleźć na całym świecie, gdzie w tajemnicy czczą Belzenloka. Po formalnym wprowadzeniu do Kabały, kultyści golą głowy i stają się nowicjuszami, wspomagającymi kapłanów w ich mrocznych obrzędach. W miarę awansu w hierarchii, kapłani Kabały ubierają się coraz bardziej ozdobnie, często nosząc nakrycia głowy lub wysokie kołnierze, które odróżniają ich od nowicjuszy. Większość kleryków Kabały to dementyści i noszą przy sobie narzędzia ofiary i czci. Ale nieliczni mają bardziej wojowniczą naturę, władając ciężkimi ostrzami i postrzegając walkę jako najbardziej aktywną formę ofiary dla Belzenloka."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Grimnanci",
+    "entries": [
+     "Rycerze Kabały są wszyscy członkami zakonu zwanego Grimnant. Zbroja, którą noszą, została przetopiona z pozyskanych lub skradzionych elementów i przekuta na nowo, pomalowana czarnym lakierem, z naostrzonymi krawędziami. Często zbroja jest ukształtowana tak, by odzwierciedlać cechy demona Belzenloka - forma bałwochwalstwa, która zdaniem rycerzy Grimnant przynosi im moc i łaskę.",
+     "Grimnanci to brutalni wojownicy, którzy pojawiają się po tym, jak infiltracja Kabały osłabiła cel. Większość ma niewielką wiedzę o magii szaleństwa lub nosi drobiazgi dające im zdolność władania mroczną magią w walce, ale nie są zazwyczaj znani jako rzucający zaklęcia. Wydając się z daleka stoiccy, większość rycerzy Grimnant doświadcza w walce żądzy krwi i lubi wchodzić w zwarcie, by zadać cios ostateczny."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Infiltratorzy i Zabójcy",
+    "entries": [
+     "W swoich komórkach na całym świecie Kabała potrzebuje czegoś więcej niż modlitwy. Czy uderzając z cienia, czy wyruszając w pełnym rynsztunku, by szerzyć jawny terror, infiltratorzy i zabójcy Belzenloka podkreślają to, czego wielu się obawia: że Kabała jest już wszędzie."
+    ]
+   },
+   "Kultyści Belzenloka mogą zyskać cechę Demoniczny Wigor. Faworyzowani kultyści lub przywódcy kultu mogą też posiadać cechę Nieświęte Powiązanie.",
+   {
+    "type": "entries",
+    "name": "Demoniczny Wigor (1/dzień)",
+    "entries": [
+     "Jako akcję dodatkową, lub jako reakcję, gdy ten stwór miałby spaść do 0 punktów wytrzymałości, odzyskuje on 1 punkt wytrzymałości i zyskuje tymczasowe punkty wytrzymałości równe swojemu modyfikatorowi Kondycji plus maksymalnej liczbie swoich Kości Wytrzymałości."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Nieświęte Powiązanie",
+    "entries": [
+     "Jako reakcję, gdy sojusznik tego stwora w promieniu 30 stóp od niego umiera, ten stwór odzyskuje punkty wytrzymałości równe dwukrotności modyfikatora Kondycji zmarłego stwora."
+    ]
+   }
+  ]
+ },
+ "cult-of-borem-of-the-lake-of-boiling-mud": {
+  "name": "Kult Borema z Jeziora Wrzącego Błota",
+  "entries": [
+   {
+    "type": "entries",
+    "name": "Uścisk Borema (1/dzień)",
+    "entries": [
+     "Kultysta dotyka jednego stwora w promieniu 5 stóp od siebie. Cel musi zdać rzut obronny Zręczności ({@dc 15}) albo zostanie pokryty lepkim, parującym błotem. Podczas gdy jest tak pokryty, prędkość celu zostaje zmniejszona o połowę, nie może wykonywać reakcji i otrzymuje 10 ({@damage 3k6}) obrażeń od ognia na początku każdej swojej tury. Efekt trwa 1 minutę, dopóki kultysta nie otrzyma stanu {@condition Bezradny|incapacitated} lub nie umrze, albo dopóki cel nie zostanie zanurzony w wodzie."
+    ]
+   }
+  ]
+ },
+ "cult-of-demogorgon": {
+  "name": "Kult Demogorgona",
+  "entries": [
+   "Wyznawcy Demogorgona to zazwyczaj samotni mordercy prowadzeni szeptem głosu swego pana. Jego najbardziej błogosławieni wyznawcy zyskują cechę Dwa Umysły Chaosu.",
+   {
+    "type": "entries",
+    "entries": [
+     {
+      "type": "entries",
+      "name": "Dwa Umysły Chaosu",
+      "entries": [
+       "Ten stwór ma przewagę na wszystkich rzutach obronnych Inteligencji, Mądrości i Charyzmy."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "cult-of-dispater": {
+  "name": "Kult Dispatera",
+  "entries": [
+   "Dispater handluje sekretami, oferując je w zamian za duszę stwora. Jego kulty zwykle wymieniają sekrety z diabłami w zamian za inne informacje. Często wysnuwają spiski mające na celu obalenie i zastąpienie rządów lub zakonów religijnych.",
+   "Zbuntowani {@creature mind flayer||pożeracze umysłów} czasem zawierają pakty z Dispaterem w poszukiwaniu sekretów potrzebnych, by na zawsze uciec spod dominacji {@creature Elder Brain|vgm|Starszego Mózgu}.",
+   "Kultyści mogą zyskać cechę Piekielny Wgląd. Przywódcy kultu mogą też posiadać cechę Frustrująca Ucieczka.",
+   {
+    "type": "entries",
+    "name": "Piekielny Wgląd (Odnawia się po Krótkim lub Długim Odpoczynku)",
+    "entries": [
+     "Jako akcję dodatkową, ten stwór zyskuje przewagę na wszystkich testach zdolności i rzutach na atak wykonywanych do końca obecnej tury."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Frustrująca Ucieczka (1/dzień)",
+    "entries": [
+     "Jako reakcję, gdy ten stwór otrzymuje obrażenia, redukuje te obrażenia do 0 i teleportuje się na odległość do 60 stóp do widocznej przez siebie wolnej przestrzeni."
+    ]
+   }
+  ]
+ },
+ "cult-of-fierna": {
+  "name": "Kult Fierny",
+  "entries": [
+   "Fierna jest mistrzynią manipulacji. Śmiertelnicy pragnący sukcesu w miłości lub dążący do zostania uwielbianymi przywódcami na czele bandy fanatyków są przyciągani do zawierania z nią umów.",
+   "Jej kultyści mogą zyskać cechę Piekielna Lojalność. Przywódcy kultu mogą też zyskać cechę Lojalność Poza Śmierć.",
+   {
+    "type": "entries",
+    "name": "Piekielna Lojalność",
+    "entries": [
+     "Ten stwór ma przewagę na rzutach obronnych, dopóki widzi stwora w promieniu 30 stóp od siebie posiadającego cechę Lojalność Poza Śmierć."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Lojalność Poza Śmierć (Odnawia się po Krótkim lub Długim Odpoczynku)",
+    "entries": [
+     "Jako reakcję, gdy widoczny przez tego stwora sojusznik zostaje zredukowany do 0 punktów wytrzymałości, ten sojusznik zamiast tego zostaje zredukowany do 1 punktu wytrzymałości i zyskuje tymczasowe punkty wytrzymałości równe wartości Charyzmy tego stwora plus połowa liczby jego Kości Wytrzymałości."
+    ]
+   }
+  ]
+ },
+ "cult-of-fraz-urb-luu": {
+  "name": "Kult Fraz-Urb'luu",
+  "entries": [
+   "Fraz-Urb'luu obdarza swoich kultystów cechą Oko Kłamcy.",
+   {
+    "type": "entries",
+    "name": "Oko Kłamcy",
+    "entries": [
+     "Ten stwór ma przewagę na testach Mądrości ({@skill Insight|Wnikliwość} lub {@skill Perception|Percepcja}).",
+     "Jako akcję dodatkową, stwór wykrywa lokalizację wszystkich iluzji i ukrytych stworów w promieniu 15 stóp od siebie."
+    ]
+   }
+  ]
+ },
+ "cult-of-geryon": {
+  "name": "Kult Geryona",
+  "entries": [
+   "Geryon obdarza swoich kultystów specjalnymi zdolnościami. Członkowie jego kultu mogą zyskać cechę Miażdżące Uderzenie. Przywódcy kultu mogą też zyskać cechę Niezłomna Siła.",
+   {
+    "type": "entries",
+    "entries": [
+     {
+      "name": "Miażdżące Uderzenie (Odnawia się po Krótkim lub Długim Odpoczynku)",
+      "type": "entries",
+      "entries": [
+       "Jako akcję dodatkową, stwór zyskuje premię do rzutu na obrażenia swojego następnego trafiającego ataku bronią wręcz w ciągu najbliższej minuty. Premia jest równa jego modyfikatorowi Siły (minimum +1)."
+      ]
+     },
+     {
+      "name": "Niezłomna Siła {@recharge 5}",
+      "type": "entries",
+      "entries": [
+       "Jako reakcję, gdy ten stwór otrzymuje obrażenia, może rzucić {@dice k10} i odjąć wyrzucony wynik od obrażeń."
+      ]
+     }
+    ]
+   }
+  ],
+  "otherVersions": [
+   {
+    "id": "cult-of-geryon-mtf",
+    "source": "MTF"
+   }
+  ]
+ },
+ "cult-of-geryon-mtf": {
+  "name": "Kult Geryona",
+  "entries": [
+   "Mimo detronizacji, Geryon wciąż potrafi zawierać umowy. Ma szczególnie do czynienia z tymi, którzy poszukują siły fizycznej. Każdy wojowniczy potwór - taki jak {@creature orc||orkowie}, {@creature ogre||ogry} i {@creature troll||trolle} - może zostać zwabiony do kultu Geryona.",
+   "Jego kultyści zwykle tworzą kompanie bojowe i bandy rozbójników, dowodząc swojej siły, pokonując innych w walce i biorąc to, czego pragną, jako łup.",
+   "Członkowie kultu mogą zyskać cechę Miażdżące Uderzenie. Przywódcy kultu mogą też zyskać cechę Niezłomna Siła.",
+   {
+    "type": "entries",
+    "name": "Miażdżące Uderzenie (Odnawia się po Krótkim lub Długim Odpoczynku)",
+    "entries": [
+     "Jako akcję dodatkową, stwór zyskuje premię do rzutu na obrażenia swojego następnego trafiającego ataku bronią wręcz w ciągu najbliższej minuty. Premia jest równa jego modyfikatorowi Siły (minimum +1)."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Niezłomna Siła {@recharge 5}",
+    "entries": [
+     "Jako reakcję, gdy ten stwór otrzymuje obrażenia, może rzucić {@dice k10} i odjąć wyrzucony wynik od obrażeń."
+    ]
+   }
+  ],
+  "otherVersions": [
+   {
+    "id": "cult-of-geryon",
+    "source": "MPMM"
+   }
+  ]
+ },
+ "cult-of-glasya": {
+  "name": "Kult Glasyi",
+  "entries": [
+   "Jako ekspertka w wyszukiwaniu luk i wykorzystywaniu prawa dla własnej korzyści, Glasya jest patronką złodziei i innych przestępców, zwłaszcza skorumpowanych szlachciców. Jej wpływ ma rzekomo wzmacniać więzy rodzinne, ale ona przyjęła liberalną interpretację tej idei i oferuje dary, które można obrócić przeciwko członkom rodziny.",
+   "{@creature goblin||Gobliny} ryzykujące bunt przeciwko swoim panom {@creature hobgoblin||hobgoblinom} zawierają pakty z Glasyą, podobnie jak {@creature kenku}, które tworzą przestępcze gangi.",
+   "Glasya udziela cechy Krok w Cienie. Przywódcy kultu mogą też zyskać cechę Piekielny Herszt.",
+   {
+    "type": "entries",
+    "name": "Krok w Cienie (Odnawia się po Krótkim lub Długim Odpoczynku)",
+    "entries": [
+     "Jako akcję, ten stwór, wraz ze wszystkim, co nosi i niesie, magicznie otrzymuje stan {@condition Niewidzialny|invisible} do końca swojej następnej tury."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Piekielny Herszt",
+    "entries": [
+     "Jako reakcję, gdy ten stwór zostaje trafiony atakiem, może wybrać jednego widocznego przez siebie sojusznika w promieniu 5 stóp i sprawić, że ten atak trafi zamiast tego jego."
+    ]
+   }
+  ]
+ },
+ "cult-of-graz-zt": {
+  "name": "Kult Graz'zta",
+  "entries": [
+   "Graz'zt obdarza swoich kultystów specjalnymi zdolnościami. Jego kultyści mogą zyskać cechę Radość z Bólu, podczas gdy przywódcy jego kultu mogą zyskać cechę Mistrz Przyjemności.",
+   {
+    "type": "entries",
+    "entries": [
+     {
+      "name": "Radość z Bólu",
+      "type": "entries",
+      "entries": [
+       "Ilekroć ten stwór otrzyma trafienie krytyczne, może wykonać jeden atak bronią wręcz jako reakcję."
+      ]
+     },
+     {
+      "name": "Mistrz Przyjemności",
+      "type": "entries",
+      "entries": [
+       "Jako reakcję, gdy ten stwór otrzymuje obrażenia, może magicznie udzielić 5 tymczasowych punktów wytrzymałości sobie i do trzem sojusznikom w promieniu 30 stóp od siebie."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "cult-of-haask-the-voice-of-hargut": {
+  "name": "Kult Haaska, Głosu Harguta",
+  "entries": [
+   {
+    "name": "Obecność Haaska (1/dzień)",
+    "type": "entries",
+    "entries": [
+     "Kultysta przemienia się w Drobną, ślimakopodobną istotę i teleportuje się na ramię widocznego przez siebie Humanoida w promieniu 30 stóp. Docelowy Humanoid musi zdać rzut obronny Charyzmy ({@dc 15}) albo otrzyma od kultysty stan {@condition Oczarowany|charmed}. Podczas gdy cel jest {@condition Oczarowany|charmed}, kultysta ma nad nim kontrolę w jego następnej turze. Na koniec tej tury kultysta teleportuje się do widocznej przez siebie wolnej przestrzeni w promieniu 30 stóp i powraca do swojej normalnej formy. Kultysta nie może zostać bezpośrednim celem żadnego ataku ani innego efektu, będąc w formie ślimakopodobnej, ale podlega normalnie obszarom działania efektów."
+    ]
+   }
+  ]
+ },
+ "cult-of-juiblex": {
+  "name": "Kult Juibleksa",
+  "entries": [
+   "Bezlicy Władca obdarza swoich kultystów specjalnymi zdolnościami. Mniej oddani wyznawcy mogą zyskać cechę Płynny Ruch. Najbardziej oddani czciciele mazi mogą też zyskać cechę Śluzowate Organy.",
+   {
+    "type": "entries",
+    "entries": [
+     {
+      "type": "entries",
+      "name": "Płynny Ruch",
+      "entries": [
+       "Jako akcję, ten stwór może przemieścić się o maksymalnie 20 stóp przez przestrzenie o średnicy nie większej niż cal. Musi zakończyć ten ruch w przestrzeni, która pomieści go w pełnym rozmiarze. W przeciwnym razie otrzymuje 5 obrażeń siłowych i wraca do przestrzeni, w której rozpoczął ten ruch."
+      ]
+     },
+     {
+      "type": "entries",
+      "name": "Śluzowate Organy",
+      "entries": [
+       "Ten stwór ma odporność na obrażenia obuchowe, kłute i sieczne od niemagicznych ataków.",
+       "Ilekroć ten stwór otrzyma trafienie krytyczne lub zostanie zredukowany do 0 punktów wytrzymałości, tryska kwasem; każdy stwór w promieniu 5 stóp od niego otrzymuje obrażenia kwasem równe liczbie jego Kości Wytrzymałości."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "cult-of-levistus": {
+  "name": "Kult Levistusa",
+  "entries": [
+   "Levistus nie posiada kultu w tradycyjnym sensie. Zamiast tego oferuje przysługi tym, którzy desperacko pragną uciec przed pozornie nieuniknionym losem.",
+   "{@creature Drow} są czasem czcicielami Levistusa, gdyż ich okrutne społeczeństwo często wpycha ich w sytuacje, z których czują, że nie mogą uciec.",
+   "Levistus zazwyczaj udziela tym, którzy zaprzysięgają mu swoje dusze, pojedynczej szansy na ucieczkę przed niebezpieczeństwem, ale niektórzy przebiegli osobnicy zawierają z Levistusem umowę, zaprzysięgając mu swoje dusze w zamian za ucieczkę w przyszłości. Ten dar przyjmuje formę cechy Ścieżka Levistusa.",
+   {
+    "type": "entries",
+    "name": "Ścieżka Levistusa",
+    "entries": [
+     "Ten stwór magicznie teleportuje się do lokalizacji wybranej przez Levistusa w promieniu 1 mili od swojej pozycji. Użycie tej zdolności przywraca też wszystkie punkty wytrzymałości stwora. Tę zdolność można przywołać jako akcję lub gdy stwór miałby umrzeć. Gdy stwór jej użyje, nie może użyć jej ponownie."
+    ]
+   }
+  ]
+ },
+ "cult-of-mammon": {
+  "name": "Kult Mammona",
+  "entries": [
+   "Chciwość Mammona przytłacza wszystko inne. Ma do czynienia ze śmiertelnikami pragnącymi materialnego bogactwa i zapewnia im zdolność szerzenia tej chciwości niczym zarazy.",
+   "Chciwi {@creature duergar} a nawet niektóre smoki są podatne na pokusy Mammona, a kupcy i cechy kupieckie są bezbronni wobec jego umów.",
+   "Kultyści Mammona mogą zyskać cechę Chwytające Dłonie. Przywódcy kultu mogą też zyskać cechę Obietnica Bogactwa.",
+   {
+    "type": "entries",
+    "name": "Chwytające Dłonie (Odnawia się po Krótkim lub Długim Odpoczynku)",
+    "entries": [
+     "Jako akcję dodatkową, ten stwór wykonuje test Zręczności (Zwinne Palce), przeciwstawiony testowi Mądrości (Wnikliwość) widocznego przez siebie stwora w promieniu 15 stóp. Jeśli ten stwór zwycięży, jeden wybrany, trzymany w dłoni przedmiot widoczny na celu magicznie teleportuje się do jego otwartej dłoni. Przedmiot nie może być tym, który cel akurat trzyma, i musi ważyć nie więcej niż 10 funtów."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Obietnica Bogactwa (Odnawia się po Krótkim lub Długim Odpoczynku)",
+    "entries": [
+     "Jako akcję dodatkową, ten stwór wybiera jednego widocznego przez siebie stwora. Do pięciu wybranych przez niego sojuszników zostaje przekonanych, że cel niesie wielkie bogactwo. Do końca następnej tury tego stwora, ci sojusznicy zyskują przewagę na wszystkich rzutach na atak przeciwko celowi."
+    ]
+   }
+  ]
+ },
+ "cult-of-mephistopheles": {
+  "name": "Kult Mefistofelesa",
+  "entries": [
+   "Jako mistrz sztuk tajemnych, Mefistofeles znajduje chętnych rekrutów wśród tych, którzy studiują magię. Mogą go czcić dowolne potwory posługujące się zaklęciami, takie jak {@creature storm giant||olbrzymy sztormowe} i {@creature oni}, a gildie czarodziejów i konklawe mędrców najczęściej podlegają jego wpływowi.",
+   "Kultyści Mefistofelesa mogą zyskać cechę Tarcza Zaklęć. Przywódcy kultu mogą też zyskać cechę Pijawka Zaklęć.",
+   {
+    "type": "entries",
+    "name": "Tarcza Zaklęć",
+    "entries": [
+     "Ten stwór zyskuje przewagę na rzutach obronnych przeciwko zaklęciom. Jeśli zda taki rzut obronny, zyskuje tymczasowe punkty wytrzymałości równe poziomowi zaklęcia."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Pijawka Zaklęć",
+    "entries": [
+     "Jako akcję dodatkową, ten stwór wybiera jednego widocznego przez siebie sojusznika w promieniu 30 stóp. Cel traci swoje miejsce zaklęcia najniższego poziomu, a ten stwór je zyskuje."
+    ]
+   }
+  ]
+ },
+ "cult-of-orcus": {
+  "name": "Kult Orkusa",
+  "entries": [
+   "Orkus udziela swoim szeregowym kultystom cechy Nieśmiertelna Dusza, a przywódcy jego kultu mogą zyskać cechę Aura Śmierci.",
+   {
+    "type": "entries",
+    "entries": [
+     {
+      "type": "entries",
+      "name": "Nieśmiertelna Dusza (Odnawia się po Krótkim lub Długim Odpoczynku)",
+      "entries": [
+       "Jeśli ten stwór zostanie zredukowany do 0 punktów wytrzymałości, natychmiast wykonuje rzut obronny Kondycji ({@dc 10}). Jeśli mu się powiedzie, zamiast tego zostaje zredukowany do 1 punktu wytrzymałości."
+      ]
+     },
+     {
+      "type": "entries",
+      "name": "Aura Śmierci",
+      "entries": [
+       "Ten stwór emanuje śmiertelną aurą sięgającą 30 stóp we wszystkich kierunkach od jego przestrzeni, dopóki nie ma stanu Bezradny. Aurę blokuje {@quickref pełna osłona||total cover}. Będąc w aurze, ten stwór i wszelkie zaprzyjaźnione Nieumarłe są odporne na stan {@condition Przestraszony|frightened} i mają odporność na obrażenia promieniste. Wrogowie mają utrudnienie na rzutach obronnych przed śmiercią, będąc w aurze."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "cult-of-tharizdun-the-chained-god": {
+  "name": "Kult Tharizduna, Okutego Boga",
+  "entries": [
+   {
+    "name": "Iskra Tharizduna {@recharge 6}",
+    "type": "entries",
+    "entries": [
+     "Jako akcję dodatkową, kultysta dotyka {@filter prostej lub wojskowej broni|items|type=martial weapon;simple weapon} lub naturalnej broni, jeśli taką posiada. Następny stwór trafiony dotkniętą bronią musi zdać rzut obronny Mądrości ({@dc 15}) albo otrzyma utrudnienie na wszystkich testach zdolności. Dotknięty efektem stwór może powtórzyć rzut obronny na koniec każdej minuty, kończąc ten efekt na sobie przy sukcesie."
+    ]
+   }
+  ]
+ },
+ "cult-of-tyranthraxus-the-flamed-one": {
+  "name": "Kult Tyranthraxusa, Rozpalonego",
+  "entries": [
+   {
+    "name": "Promienne Płomienie (1/dzień)",
+    "type": "entries",
+    "entries": [
+     "Wielobarwny płomień otacza kultystę na 1 minutę, dopóki kultysta nie otrzyma stanu {@condition Bezradny|incapacitated} lub nie umrze, albo dopóki kultysta nie zgasi płomienia (nie wymaga to akcji). Będąc w ogniu, kultysta ma telepatię o zasięgu 30 stóp i może teleportować się jako akcję dodatkową na odległość do 30 stóp do widocznej przez siebie wolnej przestrzeni. Dodatkowo, każdy stwór, który rozpoczyna swoją turę w promieniu 5 stóp od kultysty, musi wykonać rzut obronny Zręczności ({@dc 15}), otrzymując 16 ({@damage 3k10}) obrażeń promienistych przy nieudanym rzucie obronnym, lub połowę tych obrażeń przy udanym."
+    ]
+   }
+  ]
+ },
+ "cult-of-yeenoghu": {
+  "name": "Kult Yeenoghu",
+  "entries": [
+   "Yeenoghu obdarza swoich kultystów specjalnymi zdolnościami. Jego najbardziej oddani wyznawcy zyskują akcję Szczękające Szczęki i akcję dodatkową Szał, podczas gdy przywódcy kultu zyskują cechę Aura Krwiożerczości.",
+   {
+    "type": "entries",
+    "entries": [
+     {
+      "type": "entries",
+      "name": "Szczękające Szczęki",
+      "entries": [
+       "{@atk mw} premia do trafienia równa premii biegłości tego stwora plus jego modyfikator Siły, zasięg 5 stóp, jeden cel. {@h}{@damage 1k4} + modyfikator Siły tego stwora obrażeń kłutych."
+      ]
+     },
+     {
+      "type": "entries",
+      "name": "Szał",
+      "entries": [
+       "Gdy ten stwór zredukuje stwora do 0 punktów wytrzymałości atakiem wręcz w swojej turze, może wykorzystać akcję dodatkową, by przemieścić się o maksymalnie połowę swojej prędkości i wykonać jeden atak Szczękające Szczęki."
+      ]
+     },
+     {
+      "type": "entries",
+      "name": "Aura Krwiożerczości",
+      "entries": [
+       "Jeśli ten stwór nie ma stanu Bezradny, dowolny stwór posiadający cechę Szał może wykonać swój atak Szczękające Szczęki jako akcję dodatkową, będąc w promieniu 10 stóp od tego stwora."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "cult-of-zariel": {
+  "name": "Kult Zariel",
+  "entries": [
+   "Zariel obdarza swoich najwierniejszych kultystów specjalnymi zdolnościami. Mogą oni zyskać cechę Zajadły Zryw, a przywódcy jej kultu mogą też zyskać cechę Piekielna Taktyka.",
+   {
+    "type": "entries",
+    "entries": [
+     {
+      "type": "entries",
+      "name": "Zajadły Zryw (Odnawia się po Krótkim lub Długim Odpoczynku)",
+      "entries": [
+       "Gdy ten stwór trafi rzutem na atak, który nie jest trafieniem krytycznym, może zamienić to trafienie w trafienie krytyczne."
+      ]
+     },
+     {
+      "type": "entries",
+      "name": "Piekielna Taktyka",
+      "entries": [
+       "Natychmiast po rzucie na inicjatywę, ten stwór może wybrać siebie i do trzech widocznych przez siebie sojuszników, jeśli nie ma stanu Bezradny. Może zamienić wyniki inicjatywy wybranych stworów między nimi."
+      ]
+     }
+    ]
+   }
+  ],
+  "otherVersions": [
+   {
+    "id": "cult-of-zariel-mtf",
+    "source": "MTF"
+   }
+  ]
+ },
+ "cult-of-zariel-mtf": {
+  "name": "Kult Zariel",
+  "entries": [
+   "Kult Zariel oferuje wojskowy trening i talent. Rozkwita na obszarach dotkniętych wojną. Uchodźcy z wolą walki, ale bez doświadczenia, są przyciągani do Zariel, gdyż może zapewnić im umiejętności potrzebne do przetrwania. Doświadczeni wojownicy szukający przewagi to poza tym jej najczęstsi rekruci.",
+   "Zakony rycerskie, gildie wojowników i kompanie najemników najczęściej podlegają jej wpływowi. {@creature hobgoblin||Hobgobliny} czasem zwracają się do niej, ale tylko jeśli uciekły spod wpływu Maglubiyeta i jego kapłanów.",
+   "Kultyści Zariel mogą zyskać cechę Zajadły Zryw. Przywódcy kultu mogą też zyskać cechę Piekielna Taktyka.",
+   {
+    "type": "entries",
+    "name": "Zajadły Zryw (Odnawia się po Krótkim lub Długim Odpoczynku)",
+    "entries": [
+     "Gdy ten stwór trafi atakiem, który nie jest trafieniem krytycznym, może zamienić to trafienie w trafienie krytyczne."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Piekielna Taktyka",
+    "entries": [
+     "Ten stwór ma wyczulone oko na wykorzystywanie taktycznej przewagi. Natychmiast po rzucie na inicjatywę, może wybrać siebie i do trzech widocznych przez siebie sojuszników, jeśli nie ma stanu Bezradny. Może zamienić wyniki inicjatywy wybranych stworów między nimi."
+    ]
+   }
+  ],
+  "otherVersions": [
+   {
+    "id": "cult-of-zariel",
+    "source": "MPMM"
+   }
+  ]
+ },
+ "cult-of-zuggtmoy": {
+  "name": "Kult Zuggtmoy",
+  "entries": [
+   "Kultyści Zuggtmoy to głównie bezmyślne ofiary dziwnych zarodników jej dzieci. Zarodniki wwiercają się w mózg ofiary, zamieniając ją w fanatycznego sługę. Każda ofiara zyskuje cechę Ucałowany Zarodnikiem.",
+   {
+    "type": "entries",
+    "entries": [
+     {
+      "type": "entries",
+      "name": "Ucałowany Zarodnikiem",
+      "entries": [
+       "Ten stwór jest odporny na stany {@condition Oczarowany|charmed} i {@condition Przestraszony|frightened}. Dodatkowo, jeśli zostanie zredukowany do 0 punktów wytrzymałości, każdy stwór w promieniu 10 stóp od niego otrzymuje obrażenia trucizną równe liczbie jego Kości Wytrzymałości."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-balor": {
+  "name": "Demoniczny Dar Balora",
+  "entries": [
+   "Demony o wystarczającej przebiegłości i mocy mogą udzielać darów, wykorzystując ich odbiorców jako pionki. {@creature balor|balor} może udzielić następującej specjalnej cechy:",
+   {
+    "type": "entries",
+    "name": "Ognista Dusza",
+    "entries": [
+     "Ten stwór ma odporność na obrażenia od ognia. Gdy umiera, eksploduje; każdy stwór w promieniu 10 stóp od niego otrzymuje obrażenia od ognia równe liczbie jego Kości Wytrzymałości."
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-baphomet": {
+  "name": "Demoniczny Dar Baphometa",
+  "entries": [
+   "Baphomet udziela darów przebiegłości i siły fizycznej. Swoim szeregowym wyznawcom udziela cechy Nieomylny Tropiciel, a przywódcy kultu zyskują cechę Podburzenie Łowców. Wszyscy jego wyznawcy zyskują też cechę Labiryntowa Pamięć.",
+   {
+    "type": "entries",
+    "name": "Nieomylny Tropiciel",
+    "entries": [
+     "Jako akcję dodatkową, ten stwór magicznie tworzy psychiczną więź z jednym widocznym przez siebie stworem. Przez następną godzinę, jako akcję dodatkową ten stwór poznaje aktualną odległość i kierunek do celu, jeśli znajduje się na tej samej płaszczyźnie istnienia. Więź kończy się, jeśli ten stwór ma stan {@condition Bezradny|incapacitated} lub użyje tej zdolności na innym celu."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Podburzenie Łowców (Odnawia się po Krótkim lub Długim Odpoczynku)",
+    "entries": [
+     "Jako akcję, ten stwór pozwala każdemu sojusznikowi w promieniu 30 stóp od siebie, który posiada cechę Nieomylny Tropiciel, wykonać jeden atak bronią jako reakcję przeciwko celowi Nieomylnego Tropiciela tego sojusznika."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Labiryntowa Pamięć",
+    "entries": [
+     "Ten stwór potrafi doskonale odtworzyć z pamięci każdą przebytą trasę."
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-demogorgon": {
+  "name": "Demoniczny Dar Demogorgona",
+  "entries": [
+   "Wyznawcy Demogorgona to zazwyczaj samotni mordercy prowadzeni szeptem głosu swego pana. Jego najbardziej błogosławieni wyznawcy zyskują cechę Dwa Umysły Szaleństwa.",
+   {
+    "type": "entries",
+    "name": "Dwa Umysły Szaleństwa",
+    "entries": [
+     "Ten stwór ma przewagę na wszystkich rzutach obronnych Inteligencji, Mądrości i Charyzmy."
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-fraz-urb-luu": {
+  "name": "Demoniczny Dar Fraz-Urb'luu",
+  "entries": [
+   "Jako mistrz oszustwa, Fraz-Urb'luu naucza swoich wtajemniczonych sekretów kłamstw i iluzji. Mogą też zyskać cechę Oko Kłamcy.",
+   {
+    "type": "entries",
+    "name": "Oko Kłamcy",
+    "entries": [
+     "Ten stwór ma przewagę na testach Mądrości ({@skill Insight|Wnikliwość} lub {@skill Perception|Percepcja}).",
+     "Jako akcję dodatkową, automatycznie wykrywa lokalizację wszystkich iluzji i ukrytych stworów w promieniu 15 stóp od siebie."
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-goristro": {
+  "name": "Demoniczny Dar Goristro",
+  "entries": [
+   "Demony o wystarczającej przebiegłości i mocy mogą udzielać darów, wykorzystując ich odbiorców jako pionki. {@creature goristro|goristro} może udzielić następującej specjalnej cechy:",
+   {
+    "type": "entries",
+    "name": "Labiryntowa Pamięć",
+    "entries": [
+     "Ten stwór potrafi doskonale odtworzyć z pamięci każdą przebytą trasę."
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-graz-zt": {
+  "name": "Demoniczny Dar Graz'zta",
+  "entries": [
+   "Pan Zakazanych Przyjemności udziela swoim kultystom zdolności przemiany nawet najbardziej odrażającego bólu w przyjemność. Jego kultyści zyskują cechę Radość z Bólu, podczas gdy przywódcy jego kultu zyskują cechę Mistrz Przyjemności.",
+   {
+    "type": "entries",
+    "name": "Radość z Bólu",
+    "entries": [
+     "Ilekroć ten stwór otrzyma trafienie krytyczne, może wykonać jeden atak bronią wręcz jako reakcję."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Mistrz Przyjemności",
+    "entries": [
+     "Jako reakcję, gdy ten stwór otrzymuje obrażenia, może magicznie udzielić 5 tymczasowych punktów wytrzymałości sobie i do trzem sojusznikom w promieniu 30 stóp od siebie."
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-juiblex": {
+  "name": "Demoniczny Dar Juibleksa",
+  "entries": [
+   "Wyznawcy Bezlicego Władcy to osobliwi samotnicy, którzy wolą towarzystwo mazi i oślizgów niż innych stworów. Zyskują wytrzymałość mazi kosztem swoich umysłów. Mniej oddani wyznawcy zyskują cechę Płynny Ruch. Najbardziej oddani czciciele mazi zyskują też cechę Śluzowate Organy.",
+   {
+    "type": "entries",
+    "name": "Płynny Ruch",
+    "entries": [
+     "Jako akcję, ten stwór może przemieścić się o maksymalnie 20 stóp przez przestrzenie o średnicy nie większej niż cal. Musi zakończyć ten ruch w przestrzeni, która pomieści go w pełnym rozmiarze. W przeciwnym razie otrzymuje 5 obrażeń siłowych i wraca do przestrzeni, w której rozpoczął ten ruch."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Śluzowate Organy",
+    "entries": [
+     "Ten stwór ma odporność na obrażenia obuchowe, kłute i sieczne od niemagicznych ataków.",
+     "Ilekroć ten stwór otrzyma trafienie krytyczne lub zostanie zredukowany do 0 punktów wytrzymałości, wszystkie stwory w promieniu 5 stóp od niego otrzymują obrażenia kwasem równe liczbie jego Kości Wytrzymałości."
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-marilith": {
+  "name": "Demoniczny Dar Mariliki",
+  "entries": [
+   "Demony o wystarczającej przebiegłości i mocy mogą udzielać darów, wykorzystując ich odbiorców jako pionki. {@creature marilith|marilith} może udzielić następującej specjalnej cechy:",
+   {
+    "type": "entries",
+    "name": "Wężowa Reakcja",
+    "entries": [
+     "Ten stwór może wykonać dodatkową reakcję w każdej rundzie, ale ta reakcja może zostać użyta wyłącznie do wykonania ataku okazyjnego."
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-nalfeshnee": {
+  "name": "Demoniczny Dar Nalfeshnee",
+  "entries": [
+   "Demony o wystarczającej przebiegłości i mocy mogą udzielać darów, wykorzystując ich odbiorców jako pionki. {@creature nalfeshnee|nalfeshnee} może udzielić następującej specjalnej cechy:",
+   {
+    "type": "entries",
+    "name": "Strzeżony Umysł",
+    "entries": [
+     "Ten stwór jest odporny na stan {@condition Przestraszony|frightened}."
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-orcus": {
+  "name": "Demoniczny Dar Orkusa",
+  "entries": [
+   "W większości przypadków Orkus przemienia swoich wyznawców w nieumarłe stwory, takie jak ghule i widma. Czasem potrzebuje, by jego wyznawcy zachowali swoje śmiertelne formy, by łatwiej infiltrować królestwo lub miasto. Udziela szeregowym kultystom cechy Nieśmiertelna Dusza, a przywódcy jego kultu zyskują cechę Aura Śmierci.",
+   {
+    "type": "entries",
+    "name": "Nieśmiertelna Dusza (Odnawia się po Krótkim lub Długim Odpoczynku)",
+    "entries": [
+     "Jeśli ten stwór zostanie zredukowany do 0 punktów wytrzymałości, natychmiast wykonuje rzut obronny Kondycji ({@dc 10}). Jeśli mu się powiedzie, zamiast tego zostaje zredukowany do 1 punktu wytrzymałości."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Aura Śmierci",
+    "entries": [
+     "Ten stwór emanuje śmiertelną aurą sięgającą 30 stóp we wszystkich kierunkach od jego przestrzeni, dopóki nie ma stanu {@condition Bezradny|incapacitated}. Aurę blokuje {@quickref pełna osłona||total cover}. Będąc w aurze, ten stwór i wszelkie zaprzyjaźnione nieumarłe są odporne na stan {@condition Przestraszony|frightened} i mają odporność na obrażenia promieniste. Wrogowie mają utrudnienie na rzutach obronnych przed śmiercią, będąc w aurze."
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-yeenoghu": {
+  "name": "Demoniczny Dar Yeenoghu",
+  "entries": [
+   "Wyznawcy Yeenoghu tworzą watahy kanibalistycznych maruderów. Z każdym dniem stają się coraz bardziej podobni charakterem do {@creature gnoll||gnolli}. Jego najbardziej oddani wyznawcy zyskują opcję akcji Szczękające Szczęki i cechę Szał, podczas gdy przywódcy kultu zyskują cechę Aura Krwiożerczości.",
+   {
+    "type": "entries",
+    "name": "Szczękające Szczęki",
+    "entries": [
+     "{@i Atak Bronią Wręcz}: premia do trafienia równa premii biegłości tego stwora plus jego modyfikator Siły, zasięg 5 stóp, jeden cel. Trafienie: {@damage 1k4} + modyfikator Siły tego stwora obrażeń kłutych."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Szał",
+    "entries": [
+     "Gdy ten stwór zredukuje stwora do 0 punktów wytrzymałości atakiem wręcz w swojej turze, może wykorzystać akcję dodatkową, by przemieścić się o maksymalnie połowę swojej prędkości i wykonać swój atak Szczękające Szczęki raz."
+    ]
+   },
+   {
+    "type": "entries",
+    "name": "Aura Krwiożerczości",
+    "entries": [
+     "Jeśli ten stwór nie ma stanu {@condition Bezradny|incapacitated}, dowolny stwór posiadający cechę Szał może wykonać swój atak Szczękające Szczęki jako akcję dodatkową, będąc w promieniu 10 stóp od tego stwora."
+    ]
+   }
+  ]
+ },
+ "demonic-boon-of-zuggtmoy": {
+  "name": "Demoniczny Dar Zuggtmoy",
+  "entries": [
+   "Wyznawcy Zuggtmoy to głównie bezmyślne ofiary dziwnych zarodników jej dzieci. Zarodniki wwiercają się w mózg ofiary, zamieniając ją w fanatycznego sługę. Każda ofiara zyskuje cechę Ucałowany Zarodnikiem.",
+   {
+    "type": "entries",
+    "name": "Ucałowany Zarodnikiem",
+    "entries": [
+     "Ten stwór jest odporny na stany {@condition Oczarowany|charmed} i {@condition Przestraszony|frightened}. Dodatkowo, jeśli zostanie zredukowany do 0 punktów wytrzymałości, każdy stwór w promieniu 10 stóp od niego otrzymuje obrażenia trucizną równe liczbie jego Kości Wytrzymałości."
+    ]
+   }
+  ]
+ }
+}

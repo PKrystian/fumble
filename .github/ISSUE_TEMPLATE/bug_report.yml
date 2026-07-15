@@ -1,0 +1,50 @@
+name: Bug report
+description: Report something that is broken in Fumble.
+title: '[Bug]: '
+labels: ['bug']
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug.
+      placeholder: When I click X, Y happens instead of Z.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Character Sheet
+        - Compendium
+        - Dice Roller
+        - Session Log
+        - DM tools (initiative / bestiary / loot / encounter / soundboard)
+        - Wiki
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser & device
+      placeholder: e.g. Chrome 126 on Windows 11, or Safari on iPhone
+    validations:
+      required: true

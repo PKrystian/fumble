@@ -1,0 +1,2035 @@
+{
+  "human": {
+    "name": "Człowiek",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Zaradność",
+        "entries": [
+          "Zyskujesz {@variantrule Heroiczną Inspirację|XPHB|Heroiczną Inspirację}, gdy kończysz {@variantrule Długi Odpoczynek|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Umiejętność",
+        "entries": ["Zyskujesz biegłość w jednej wybranej umiejętności."]
+      },
+      {
+        "type": "entries",
+        "name": "Wszechstronność",
+        "entries": [
+          "Zyskujesz wybrany {@filter Cechę Źródła|feats|category=o}."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Spotykani w całym multiwersum, ludzie są tak zróżnicowani, jak i liczni, i starają się osiągnąć jak najwięcej w latach, które są im dane. Ich ambicja i zaradność są chwalone, szanowane i budzą lęk na wielu światach.",
+              "Ludzie są równie różnorodni w wyglądzie jak mieszkańcy Ziemi i czczą wielu bogów. Uczeni spierają się co do pochodzenia ludzkości, lecz jedno z najwcześniejszych znanych zgromadzeń ludzi miało podobno miejsce w Sigil, mieście w kształcie torusa leżącym w centrum multiwersum, gdzie narodził się Wspólny język. Stamtąd ludzie mogli rozprzestrzenić się na każdą część multiwersum, niosąc ze sobą kosmopolityzm Miasta Drzwi."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "elf": {
+    "name": "Elf",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": ["Masz {@sense Widzenie w Ciemności|XPHB} w zasięgu 60 stóp."]
+      },
+      {
+        "type": "entries",
+        "name": "Elfia Linia Krwi",
+        "entries": [
+          "Jesteś częścią rodu, który obdarza cię nadprzyrodzonymi zdolnościami. Wybierz linię krwi z tabeli Elfich Linii Krwi. Zyskujesz korzyść 1 poziomu wybranej linii.",
+          "Gdy osiągniesz 3 i 5 poziom postaci, poznajesz zaklęcie wyższego poziomu, jak pokazano w tabeli. Zawsze masz to zaklęcie przygotowane. Możesz rzucić je raz bez użycia miejsca zaklęć, a zdolność do rzucenia go w ten sposób odzyskujesz po zakończeniu {@variantrule Długiego Odpoczynku|XPHB}. Możesz też rzucić to zaklęcie, używając dowolnych posiadanych miejsc zaklęć odpowiedniego poziomu.",
+          "Inteligencja, Mądrość lub Charyzma jest twoją zdolnością rzucania zaklęć dla zaklęć rzucanych dzięki tej cesze (wybierz zdolność podczas wyboru linii krwi).",
+          {
+            "type": "table",
+            "caption": "Elfie Linie Krwi",
+            "colLabels": ["Linia Krwi", "Poziom 1", "Poziom 3", "Poziom 5"],
+            "colStyles": ["col-2", "col-6", "col-2", "col-2"],
+            "rows": [
+              [
+                "Drow",
+                "Zasięg twojego {@sense Widzenia w Ciemności|XPHB} zwiększa się do 120 stóp. Znasz też sztuczkę {@spell Tańczące Światła|XPHB}.",
+                "{@spell Wróżkowy Ogień|XPHB}",
+                "{@spell Ciemność|XPHB}"
+              ],
+              [
+                "Wysoki Elf",
+                "Znasz sztuczkę {@spell Prestidigitacja|XPHB}. Po zakończeniu {@variantrule Długiego Odpoczynku|XPHB} możesz zastąpić tę sztuczkę inną {@filter sztuczką z listy zaklęć Czarodzieja|spells|class=Wizard}.",
+                "{@spell Wykrycie Magii|XPHB}",
+                "{@spell Mglisty Krok|XPHB}"
+              ],
+              [
+                "Leśny Elf",
+                "Twoja {@variantrule Szybkość|XPHB} zwiększa się do 35 stóp. Znasz też sztuczkę {@spell Rzemiosło Druida|XPHB}.",
+                "{@spell Długi Krok|XPHB}",
+                "{@spell Przejście bez Śladu|XPHB}"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Dziedzictwo Fey",
+        "entries": [
+          "Masz {@variantrule Przewagę|XPHB} w rzutach obronnych mających uniknąć lub zakończyć stan {@condition Oczarowany|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wyczulone Zmysły",
+        "entries": [
+          "Masz biegłość w umiejętności {@skill Wnikliwość|XPHB}, {@skill Percepcja|XPHB} lub {@skill Przetrwanie|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Trans",
+        "entries": [
+          "Nie musisz spać, a magia nie może cię uśpić. Możesz zakończyć {@variantrule Długi Odpoczynek|XPHB} w 4 godziny, jeśli spędzisz ten czas w transopodobnej medytacji, podczas której zachowujesz świadomość."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          "Stworzeni przez boga Corellona, pierwsi elfowie potrafili dowolnie zmieniać swą postać. Utracili tę zdolność, gdy Corellon przeklął ich za spiskowanie z bóstwem Lolth, która próbowała, lecz nie zdołała, przejąć władzę Corellona. Gdy Lolth została strącona do Otchłani, większość elfów wyrzekła się jej i zyskała przebaczenie Corellona, lecz to, co Corellon im odebrał, przepadło na zawsze.",
+          "Nie mogąc już dowolnie zmieniać kształtu, elfowie wycofali się do Krainy Fey, gdzie ich smutek pogłębił wpływ tego planu. Z czasem ciekawość skłoniła wielu z nich do eksploracji innych planów istnienia, w tym światów Planu Materialnego.",
+          "Elfowie mają spiczaste uszy i nie posiadają owłosienia twarzy ani ciała. Żyją około 750 lat i nie śpią, lecz zamiast tego wchodzą w trans, gdy potrzebują odpoczynku. W tym stanie pozostają świadomi otoczenia, zanurzając się jednocześnie we wspomnieniach i medytacjach.",
+          "Otoczenie subtelnie przekształca elfów po tysiącu lub więcej lat zamieszkiwania w nim, obdarzając ich pewnymi rodzajami magii. Drowowie, wysokie elfy i leśne elfy to przykłady elfów przekształconych w ten sposób.",
+          {
+            "type": "entries",
+            "name": "Drowowie",
+            "entries": [
+              "Drowowie zazwyczaj zamieszkują Podmrok i zostali przez niego ukształtowani. Niektórzy drowowie i ich społeczności unikają Podmroku całkowicie, lecz mimo to noszą w sobie jego magię. W settingu Eberron drowowie zamieszkują na przykład deszczowe lasy i cyklopie ruiny kontynentu Xen'drik."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Wysokie Elfy",
+            "entries": [
+              "Wysokie elfy przesiąknięte są magią przejść między Krainą Fey a Planem Materialnym. Na niektórych światach wysokie elfy nazywają siebie inaczej. Na przykład w settingu Zapomnianych Krain nazywają się elfami słońca lub księżyca, w settingu Dragonlance - Silvanesti i Qualinesti, a w settingu Eberron - Aereni."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Leśne Elfy",
+            "entries": [
+              "Leśne elfy noszą w sobie magię pradawnych lasów. Znane są pod wieloma innymi nazwami, w tym dzikie elfy, zielone elfy czy elfy leśne. Grugachowie to skryte leśne elfy z settingu Greyhawk, podczas gdy Kagonesti i Tairnadal to leśne elfy odpowiednio z settingów Dragonlance i Eberron."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "dwarf": {
+    "name": "Krasnolud",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": ["Masz {@sense Widzenie w Ciemności|XPHB} w zasięgu 120 stóp."]
+      },
+      {
+        "type": "entries",
+        "name": "Krasnoludzka Odporność",
+        "entries": [
+          "Masz {@variantrule Odporność|XPHB} na obrażenia Trucizną. Masz też {@variantrule Przewagę|XPHB} w rzutach obronnych mających uniknąć lub zakończyć stan {@condition Zatruty|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Krasnoludzka Wytrzymałość",
+        "entries": [
+          "Twoje maksymalne {@variantrule Punkty Wytrzymałości|XPHB|Punkty Wytrzymałości} zwiększają się o 1, a zwiększają się o kolejny 1 za każdym razem, gdy zdobywasz poziom."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Znajomość Kamienia",
+        "entries": [
+          "Jako {@variantrule Akcję Dodatkową|XPHB}, zyskujesz {@sense Wyczuwanie Wstrząsów|XPHB} w zasięgu 60 stóp na 10 minut. Musisz stać na kamiennej powierzchni lub jej dotykać, aby użyć tego {@sense Wyczuwania Wstrząsów|XPHB}. Kamień może być naturalny lub obrobiony.",
+          "Możesz użyć tej {@variantrule Akcji Dodatkowej|XPHB} liczbę razy równą twojej {@variantrule Premii Biegłości|XPHB|Premii Biegłości}, a odzyskujesz wszystkie wykorzystane użycia po zakończeniu {@variantrule Długiego Odpoczynku|XPHB}."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Krasnoludy zostały wzniesione z ziemi w dawnych czasach przez bóstwo kuźni. Zwane różnymi imionami na różnych światach - Moradin, Reorx i inne - bóg ten obdarzył krasnoludy powinowactwem do kamienia i metalu oraz zamiłowaniem do życia pod ziemią. Bóg uczynił je też wytrzymałymi jak góry, z długością życia około 350 lat.",
+              "Przysadziste i często brodate, pierwotne krasnoludy wykuwały miasta i fortece w zboczach gór i pod ziemią. Ich najstarsze legendy opowiadają o konfliktach z potworami szczytów górskich i Podmroku, czy to olbrzymami, czy podziemnymi grozami. Zainspirowane tymi opowieściami, krasnoludy każdej kultury często śpiewają o dzielnych czynach - zwłaszcza o tym, jak mali pokonują potężnych.",
+              "Na niektórych światach multiwersum pierwsze osady krasnoludów zbudowano na wzgórzach lub w górach, a rodziny wywodzące swój ród z tych osad nazywają się odpowiednio krasnoludami wzgórz lub krasnoludami gór. Settingi Greyhawk i Dragonlance mają takie społeczności."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "halfling": {
+    "name": "Niziołek",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Odwaga",
+        "entries": [
+          "Masz {@variantrule Przewagę|XPHB} w rzutach obronnych mających uniknąć lub zakończyć stan {@condition Przerażony|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Niziołcza Zwinność",
+        "entries": [
+          "Możesz przemieszczać się przez przestrzeń zajmowaną przez każde stworzenie o jeden rozmiar większe od ciebie, lecz nie możesz zatrzymać się w tej samej przestrzeni."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Szczęście",
+        "entries": [
+          "Gdy wyrzucisz 1 na {@dice k20} w {@variantrule Teście k20|XPHB}, możesz przerzucić kość i musisz użyć nowego wyniku."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Naturalna Skrytość",
+        "entries": [
+          "Możesz wykonać akcję {@action Ukrycie się|XPHB} nawet wtedy, gdy jesteś przesłonięty jedynie przez stworzenie co najmniej o jeden rozmiar większe od ciebie."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Kochane i prowadzone przez bogów ceniących życie, dom i ognisko domowe, niziołki ciążą ku sielskim ostojom, gdzie rodzina i wspólnota pomagają kształtować ich życie. Mimo to wielu niziołków posiada odważnego i przygodowego ducha, który prowadzi je w podróże odkrywcze, dając im szansę na poznanie większego świata i zawarcie nowych przyjaźni po drodze. Ich rozmiar - podobny do ludzkiego dziecka - pomaga im przemykać przez tłumy niezauważonymi i wciskać się w ciasne przestrzenie.",
+              "Każdy, kto spędził czas wśród niziołków, zwłaszcza niziołczych poszukiwaczy przygód, prawdopodobnie był świadkiem legendarnego \"szczęścia niziołków\" w akcji. Gdy niziołek znajduje się w śmiertelnym niebezpieczeństwie, wydaje się, że niewidzialna siła interweniuje w jego imieniu. Wielu niziołków wierzy w moc szczęścia i przypisuje swój niezwykły dar jednemu lub więcej ze swych łaskawych bogów, w tym Yondalli, Brandobarisowi i Charmalaine. Ten sam dar może przyczyniać się do ich krzepkiej długości życia (około 150 lat).",
+              "Społeczności niziołków przybierają różne formy. Na każdą odosobnioną krainę ukrytą w niezepsutej części świata przypada organizacja przestępcza, jak Klan Boromar w settingu Eberron, lub terytorialny motłoch niziołków, jak te w settingu Dark Sun.",
+              "Niziołki preferujące życie pod ziemią bywają nazywane niziołkami krzepkiego serca lub krzepkimi. Nomadyczne niziołki, a także te żyjące wśród ludzi i innych wysokich ludów, bywają nazywane niziołkami lekkostopymi lub wysokoludami."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "dragonborn": {
+    "name": "Smokorodzony",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Smocze Pochodzenie",
+        "entries": [
+          "Twój ród wywodzi się od smoczego przodka. Wybierz rodzaj smoka z tabeli Smoczych Przodków. Twój wybór wpływa na twoje cechy Broni Oddechowej i {@variantrule Odporności|XPHB} na Obrażenia, a także na twój wygląd.",
+          {
+            "type": "table",
+            "caption": "Smoczy Przodkowie",
+            "colLabels": ["Smok", "Typ Obrażeń"],
+            "colStyles": ["col-6", "col-6"],
+            "rows": [
+              ["Czarny", "Kwas"],
+              ["Niebieski", "Piorun"],
+              ["Mosiężny", "Ogień"],
+              ["Brązowy", "Piorun"],
+              ["Miedziany", "Kwas"],
+              ["Złoty", "Ogień"],
+              ["Zielony", "Trucizna"],
+              ["Czerwony", "Ogień"],
+              ["Srebrny", "Zimno"],
+              ["Biały", "Zimno"]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Broń Oddechowa",
+        "entries": [
+          "Gdy wykonujesz akcję {@action Atak|XPHB} w swojej turze, możesz zastąpić jeden ze swoich ataków wydechem magicznej energii w postaci 15-stopowego {@variantrule Stożka [Obszar Działania]|XPHB|Stożka} lub 30-stopowej {@variantrule Linii [Obszar Działania]|XPHB|Linii} o szerokości 5 stóp (wybierz kształt za każdym razem). Każde stworzenie w tym obszarze musi wykonać rzut obronny Zręczności ({@dc 8} plus twój modyfikator Kondycji i {@variantrule Premia Biegłości|XPHB|Premia Biegłości}). W razie niepowodzenia stworzenie otrzymuje {@damage 1k10} obrażeń typu określonego przez twoją cechę Smocze Pochodzenie. W razie powodzenia stworzenie otrzymuje połowę tych obrażeń. Obrażenia te zwiększają się o {@damage 1k10}, gdy osiągniesz 5 poziom postaci ({@damage 2k10}), 11 poziom ({@damage 3k10}) i 17 poziom ({@damage 4k10}).",
+          "Możesz użyć tej Broni Oddechowej liczbę razy równą twojej {@variantrule Premii Biegłości|XPHB|Premii Biegłości}, a odzyskujesz wszystkie wykorzystane użycia po zakończeniu {@variantrule Długiego Odpoczynku|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Odporność na Obrażenia",
+        "entries": [
+          "Masz {@variantrule Odporność|XPHB} na typ obrażeń określony przez twoją cechę Smocze Pochodzenie."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": ["Masz {@sense Widzenie w Ciemności|XPHB} w zasięgu 60 stóp."]
+      },
+      {
+        "type": "entries",
+        "name": "Smoczy Lot",
+        "entries": [
+          "Gdy osiągniesz 5 poziom postaci, możesz kanalizować smoczą magię, aby zapewnić sobie tymczasowy lot. Jako {@variantrule Akcję Dodatkową|XPHB}, wyhodowujesz na plecach zjawowe skrzydła, które utrzymują się przez 10 minut lub do momentu, gdy je cofniesz (bez wymaganej akcji) lub uzyskasz stan {@condition Nieprzytomny|XPHB}. Przez ten czas masz {@variantrule Szybkość Lotu|XPHB} równą twojej {@variantrule Szybkości|XPHB}. Twoje skrzydła wyglądają, jakby były zbudowane z tej samej energii co twoja Broń Oddechowa. Gdy użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie zakończysz {@variantrule Długiego Odpoczynku|XPHB}."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Przodkowie smokorodzonych wykluli się z jaj smoków chromatycznych i metalicznych. Jedna z opowieści głosi, że jaja te zostały pobłogosławione przez smocze bóstwa Bahamuta i Tiamat, którzy chcieli zaludnić multiwersum ludem stworzonym na swój obraz. Inna opowieść twierdzi, że smoki stworzyły pierwszych smokorodzonych bez błogosławieństwa bogów. Niezależnie od pochodzenia, smokorodzeni znaleźli dla siebie domy na Planie Materialnym.",
+              "Smokorodzeni wyglądają jak bezskrzydłe, dwunożne smoki - łuskowate, o jasnych oczach i grubych kościach, z rogami na głowach - a ich ubarwienie i inne cechy przypominają ich smoczych przodków."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "gnome": {
+    "name": "Gnom",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": ["Masz {@sense Widzenie w Ciemności|XPHB} w zasięgu 60 stóp."]
+      },
+      {
+        "type": "entries",
+        "name": "Gnomia Przebiegłość",
+        "entries": [
+          "Masz {@variantrule Przewagę|XPHB} w rzutach obronnych Inteligencji, Mądrości i Charyzmy."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Gnomia Linia Krwi",
+        "entries": [
+          "Jesteś częścią rodu, który obdarza cię nadprzyrodzonymi zdolnościami. Wybierz jedną z poniższych opcji; niezależnie od wyboru, Inteligencja, Mądrość lub Charyzma jest twoją zdolnością rzucania zaklęć dla zaklęć rzucanych dzięki tej cesze (wybierz zdolność podczas wyboru linii krwi):",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Leśny Gnom",
+                "entries": [
+                  "Znasz sztuczkę {@spell Małe Złudzenie|XPHB}. Masz też zawsze przygotowane zaklęcie {@spell Mowa ze Zwierzętami|XPHB}. Możesz rzucić je bez użycia miejsca zaklęć liczbę razy równą twojej {@variantrule Premii Biegłości|XPHB|Premii Biegłości}, a odzyskujesz wszystkie wykorzystane użycia po zakończeniu {@variantrule Długiego Odpoczynku|XPHB}. Możesz też użyć dowolnych posiadanych miejsc zaklęć, aby rzucić to zaklęcie."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Skalny Gnom",
+                "entries": [
+                  "Znasz sztuczki {@spell Naprawianie|XPHB} i {@spell Prestidigitacja|XPHB}. Dodatkowo możesz poświęcić 10 minut na rzucenie {@spell Prestidigitacji|XPHB}, aby stworzyć Drobne mechaniczne urządzenie (KP 5, 1 PW), takie jak zabawka, krzesiwo lub pozytywka. Tworząc urządzenie, określasz jego funkcję, wybierając jeden efekt z {@spell Prestidigitacji|XPHB}; urządzenie wywołuje ten efekt za każdym razem, gdy ty lub inne stworzenie wykonuje {@variantrule Akcję Dodatkową|XPHB}, by aktywować je dotykiem. Jeśli wybrany efekt posiada opcje, wybierasz jedną z nich dla urządzenia podczas jego tworzenia. Na przykład, jeśli wybierzesz efekt zapalania-gaszenia zaklęcia, określasz, czy urządzenie zapala, czy gasi ogień; urządzenie nie robi obu rzeczy. Możesz posiadać jednocześnie trzy takie urządzenia, a każde z nich rozpada się 8 godzin po stworzeniu lub gdy rozmontujesz je dotykiem jako akcję {@action Użycie|XPHB}."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Gnomy to magiczny lud stworzony przez bogów wynalazku, iluzji i podziemnego życia. Pierwsze gnomy rzadko były widywane przez inne ludy z powodu swej skrytej natury i skłonności do zamieszkiwania lasów i nor. To, czego brakowało im w rozmiarze, nadrabiały sprytem. Myliły drapieżniki pułapkami i labiryntowymi tunelami. Uczyły się też magii od bogów takich jak Garl Glittergold, Baervan Wildwanderer i Baravar Cloakshadow, którzy odwiedzali je w przebraniu. Ta magia ostatecznie stworzyła linie leśnych gnomów i skalnych gnomów.",
+              "Gnomy to drobny lud o dużych oczach i spiczastych uszach, żyjący około 425 lat. Wiele gnomów lubi uczucie dachu nad głową, nawet jeśli tym \"dachem\" jest jedynie kapelusz."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "half-elf": {
+    "name": "Półelf",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Półelfy dojrzewają w tym samym tempie co ludzie i osiągają dorosłość w wieku około 20 lat. Żyją jednak znacznie dłużej niż ludzie, często przekraczając 180 lat."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Półelfy są mniej więcej tego samego rozmiaru co ludzie, mierząc od 5 do 6 stóp wzrostu. Twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Widzenie w Ciemności",
+        "entries": [
+          "Dzięki elfiej krwi masz doskonały wzrok w warunkach ciemności i półmroku. Widzisz w słabym świetle w zasięgu 60 stóp tak, jakby było jasne, a w ciemności tak, jakby był to półmrok. Nie rozróżniasz kolorów w ciemności, jedynie odcienie szarości."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Dziedzictwo Fey",
+        "entries": [
+          "Masz przewagę w rzutach obronnych przeciwko stanowi {@condition oczarowany}, a magia nie może cię uśpić."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Wszechstronność Umiejętności",
+        "entries": ["Zyskujesz biegłość w dwóch wybranych umiejętnościach."],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać we Wspólnym, Elfim oraz jednym dodatkowym języku wedle wyboru."
+        ],
+        "type": "entries"
+      }
+    ],
+    "lore": [
+      {
+        "type": "section",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Kroczące w dwóch światach, lecz w żadnym nie w pełni zadomowione, półelfy łączą to, co niektórzy uważają za najlepsze cechy swych elfich i ludzkich rodziców: ludzką ciekawość, pomysłowość i ambicję, złagodzone wysublimowanymi zmysłami, umiłowaniem natury i artystycznym gustem elfów. Niektóre półelfy żyją wśród ludzi, odróżniane przez emocjonalne i fizyczne różnice, patrząc jak przyjaciele i bliscy starzeją się, podczas gdy czas ledwie ich dotyka. Inne żyją wśród elfów, dorastając, gdy ich rówieśnicy wciąż żyją jak dzieci, niecierpliwiąc się w bezczasowych elfich krainach. Wiele półelfów, niezdolnych odnaleźć się w żadnym społeczeństwie, wybiera życie samotnej wędrówki lub dołącza do innych wyrzutków i odmieńców, prowadząc życie poszukiwaczy przygód.",
+              {
+                "type": "entries",
+                "name": "Z Dwóch Światów",
+                "entries": [
+                  "Dla ludzi półelfy wyglądają jak elfy, a dla elfów wyglądają jak ludzie. Wzrostem dorównują obojgu rodzicom, choć nie są ani tak smukłe jak elfy, ani tak krzepkie jak ludzie. Mierzą od niecałych 5 do około 6 stóp wzrostu i ważą od 100 do 180 funtów, przy czym mężczyźni są nieco wyżsi i cięższi od kobiet. Męskie półelfy posiadają owłosienie twarzy i czasem zapuszczają brody, by zamaskować elfie pochodzenie. Ubarwienie i cechy półelfów leżą gdzieś pomiędzy ich ludzkim a elfim rodzicem, wykazując przez to jeszcze większą różnorodność niż u każdej z tych ras z osobna. Zwykle mają oczy swych elfich rodziców."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Dyplomaci lub Wędrowcy",
+                "entries": [
+                  "Półelfy nie mają własnych ziem, choć są mile widziane w ludzkich miastach i nieco mniej mile widziane w elfich lasach. W wielkich miastach regionów, gdzie elfy i ludzie często się kontaktują, półelfy są czasem na tyle liczne, by tworzyć własne małe społeczności. Cieszą się towarzystwem innych półelfów, jedynych ludzi naprawdę rozumiejących, czym jest życie pomiędzy tymi dwoma światami.",
+                  "W większości części świata półelfy są jednak na tyle rzadkie, że można żyć latami, nie spotykając drugiego. Niektóre wolą całkowicie unikać towarzystwa, wędrując po dziczy jako leśnicy, myśliwi lub poszukiwacze przygód i odwiedzając cywilizację jedynie sporadycznie. Podobnie jak elfy, kierują nimi wędrówki wynikające z ich długowieczności. Inne z kolei rzucają się w wir społeczeństwa, wykorzystując swój urok i umiejętności społeczne w rolach dyplomatów lub oszustów."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Imiona Półelfów",
+                "entries": [
+                  "Półelfy używają zarówno ludzkich, jak i elfich konwencji nazewniczych. Jakby dla podkreślenia, że nie pasują naprawdę do żadnego społeczeństwa, półelfy wychowywane wśród ludzi często otrzymują elfie imiona, a te wychowywane wśród elfów często przyjmują ludzkie imiona."
+                ]
+              },
+              {
+                "type": "inset",
+                "name": "Doskonali Ambasadorowie",
+                "entries": [
+                  "Wiele półelfów uczy się od najmłodszych lat dogadywać z każdym, rozładowując wrogość i znajdując wspólny grunt. Jako rasa posiadają elfią gracje bez elfiej wyniosłości oraz ludzką energię bez ludzkiej gburowatości. Często stają się doskonałymi ambasadorami i pośrednikami (poza relacjami między elfami a ludźmi, gdyż każda ze stron podejrzewa półelfa o faworyzowanie drugiej)."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "half-orc": {
+    "name": "Półork",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Półorkowie dojrzewają nieco szybciej niż ludzie, osiągając dorosłość w wieku około 14 lat. Starzeją się zauważalnie szybciej i rzadko żyją dłużej niż 75 lat."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Półorkowie są nieco więksi i krzepsi niż ludzie, mierząc od 5 do ponad 6 stóp wzrostu. Twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Widzenie w Ciemności",
+        "entries": [
+          "Dzięki orkowej krwi masz doskonały wzrok w warunkach ciemności i półmroku. Widzisz w słabym świetle w zasięgu 60 stóp tak, jakby było jasne, a w ciemności tak, jakby był to półmrok. Nie rozróżniasz kolorów w ciemności, jedynie odcienie szarości."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Groźny",
+        "entries": ["Zyskujesz biegłość w umiejętności {@skill Zastraszanie}."],
+        "type": "entries"
+      },
+      {
+        "name": "Niezłomna Wytrzymałość",
+        "entries": [
+          "Gdy zostajesz zredukowany do 0 punktów wytrzymałości, lecz nie giniesz od razu, możesz zamiast tego spaść do 1 punktu wytrzymałości. Nie możesz użyć tej cechy ponownie, dopóki nie zakończysz długiego odpoczynku."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Dzikie Ataki",
+        "entries": [
+          "Gdy wykonasz trafienie krytyczne atakiem bronią do walki wręcz, możesz rzucić jedną z kości obrażeń broni dodatkowy raz i dodać ją do dodatkowych obrażeń trafienia krytycznego."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać we Wspólnym oraz Orkowym. Orkowy to szorstki, zgrzytliwy język o twardych spółgłoskach. Nie posiada własnego pisma, lecz zapisywany jest krasnoludzkim alfabetem."
+        ],
+        "type": "entries"
+      }
+    ],
+    "lore": [
+      {
+        "type": "section",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Czy to zjednoczone pod przywództwem potężnego czarnoksiężnika, czy walczące do impasu po latach konfliktu, plemiona orków i ludzi czasami zawierają sojusze, łącząc siły w większą hordę ku przerażeniu pobliskich cywilizowanych ziem. Gdy te sojusze zostają przypieczętowane małżeństwami, rodzą się półorkowie. Niektórzy półorkowie wznoszą się do rangi dumnych wodzów plemion orków, a ludzka krew daje im przewagę nad ich pełnokrwistymi orkowymi rywalami. Inni wyruszają w świat, by udowodnić swą wartość wśród ludzi i innych cywilizowanych ras. Wielu z nich zostaje poszukiwaczami przygód, zdobywając sławę za swe potężne czyny i rozgłos za barbarzyńskie obyczaje i dziką furię.",
+              {
+                "type": "entries",
+                "name": "Blizny i Siła",
+                "entries": [
+                  "Szarawa pigmentacja, pochyłe czoła, wystające szczęki, wydatne zęby i wysoka budowa ciała półorków sprawiają, że ich orkowe dziedzictwo jest widoczne dla wszystkich. Półorkowie mierzą od 6 do 7 stóp wzrostu i zwykle ważą od 180 do 250 funtów.",
+                  "Orkowie uważają blizny bojowe za oznaki dumy, a ozdobne blizny za rzecz piękną. Inne blizny znaczą jednak orka lub półorka jako byłego niewolnika lub zhańbionego wygnańca. Każdy półork, który żył wśród orków lub w ich pobliżu, ma blizny, niezależnie od tego, czy są oznakami upokorzenia czy dumy, opowiadające o jego przeszłych wyczynach i obrażeniach. Taki półork żyjący wśród ludzi może eksponować te blizny z dumą lub ukrywać je ze wstydem."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Piętno Gruumsha",
+                "entries": [
+                  "Jednooki bóg Gruumsh stworzył orków, i nawet ci orkowie, którzy odwracają się od jego kultu, nie mogą w pełni uciec przed jego wpływem. To samo dotyczy półorków, choć ich ludzka krew łagodzi wpływ ich orkowego dziedzictwa. Niektórzy półorkowie słyszą szepty Gruumsha w swych snach, wzywające ich do uwolnienia szału tlącego się w nich. Inni czują uniesienie Gruumsha, gdy przystępują do walki wręcz - i albo unoszą się razem z nim, albo drżą ze strachu i wstrętu. Półorkowie nie są z natury źli, lecz zło czai się w nich, niezależnie od tego, czy je przyjmują, czy się mu buntują.",
+                  "Poza szałem Gruumsha, półorkowie odczuwają emocje bardzo silnie. Gniew nie tylko przyspiesza ich puls, lecz sprawia, że ich ciała płoną. Zniewaga piecze jak kwas, a smutek osłabia ich siły. Lecz śmieją się głośno i serdecznie, a proste cielesne przyjemności - uczty, picie, zapasy, gra na bębnach i dziki taniec - wypełniają ich serca radością. Zwykle są porywczy i czasem ponurzy, bardziej skłonni do działania niż kontemplacji, do walki niż do sporów słownych. Najbardziej dostojni półorkowie to ci z wystarczającą samokontrolą, by odnaleźć się w cywilizowanej krainie."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Imiona Półorków",
+                "entries": [
+                  "Półorkowie zwykle mają imiona odpowiednie dla kultury, w której zostali wychowani. Półork, który chce dopasować się wśród ludzi, może zamienić orkowe imię na ludzkie. Niektóre półorkowie z ludzkimi imionami decydują się przyjąć gardłowe orkowe imię, sądząc, że czyni to je bardziej groźnymi.",
+                  {
+                    "type": "list",
+                    "style": "list-hang-notitle",
+                    "items": [
+                      {
+                        "type": "item",
+                        "name": "Męskie Imiona Orków:",
+                        "entry": "Dench, Feng, Gell, Henk, Holg, Imsh, Keth, Krusk, Mhurren, Ront, Shump, Thokk"
+                      },
+                      {
+                        "type": "item",
+                        "name": "Żeńskie Imiona Orków:",
+                        "entry": "Baggi, Emen, Engong, Kansif, Myev, Neega, Ovak, Ownka, Shautha, Vola, Volen, Yevelda"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "inset",
+                "name": "Niechętna Akceptacja",
+                "entries": [
+                  "Każdy półork znajduje sposób na zyskanie akceptacji od tych, którzy nienawidzą orków. Niektórzy są powściągliwi, starając się nie zwracać na siebie uwagi. Kilku demonstruje pobożność i dobroduszność tak publicznie, jak tylko potrafią (niezależnie od tego, czy takie demonstracje są szczere). A niektórzy po prostu starają się być tak twardzi, by inni po prostu ich unikali."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tiefling": {
+    "name": "Tiefling",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": ["Masz {@sense Widzenie w Ciemności|XPHB} w zasięgu 60 stóp."]
+      },
+      {
+        "type": "entries",
+        "name": "Diabelska Spuścizna",
+        "entries": [
+          "Jesteś odbiorcą spuścizny, która obdarza cię nadprzyrodzonymi zdolnościami. Wybierz spuściznę z tabeli Diabelskich Spuścizn. Zyskujesz korzyść 1 poziomu wybranej spuścizny.",
+          "Gdy osiągniesz 3 i 5 poziom postaci, poznajesz zaklęcie wyższego poziomu, jak pokazano w tabeli. Zawsze masz to zaklęcie przygotowane. Możesz rzucić je raz bez użycia miejsca zaklęć, a zdolność do rzucenia go w ten sposób odzyskujesz po zakończeniu {@variantrule Długiego Odpoczynku|XPHB}. Możesz też rzucić to zaklęcie, używając dowolnych posiadanych miejsc zaklęć odpowiedniego poziomu. Inteligencja, Mądrość lub Charyzma jest twoją zdolnością rzucania zaklęć dla zaklęć rzucanych dzięki tej cesze (wybierz zdolność podczas wyboru spuścizny).",
+          {
+            "type": "table",
+            "caption": "Diabelskie Spuścizny",
+            "colLabels": ["Spuścizna", "Poziom 1", "Poziom 3", "Poziom 5"],
+            "colStyles": ["col-2", "col-6", "col-2", "col-2"],
+            "rows": [
+              [
+                "Otchłani",
+                "Masz {@variantrule Odporność|XPHB} na obrażenia Trucizną. Znasz też sztuczkę {@spell Trująca Mgła|XPHB}.",
+                "{@spell Promień Choroby|XPHB}",
+                "{@spell Uwięzienie Osoby|XPHB}"
+              ],
+              [
+                "Chtoniczna",
+                "Masz {@variantrule Odporność|XPHB} na obrażenia Nekrotyczne. Znasz też sztuczkę {@spell Chłodny Dotyk|XPHB}.",
+                "{@spell Fałszywe Życie|XPHB}",
+                "{@spell Promień Osłabienia|XPHB}"
+              ],
+              [
+                "Piekielna",
+                "Masz {@variantrule Odporność|XPHB} na obrażenia Ogniem. Znasz też sztuczkę {@spell Ognisty Pocisk|XPHB}.",
+                "{@spell Piekielna Nagana|XPHB}",
+                "{@spell Ciemność|XPHB}"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Nieziemska Obecność",
+        "entries": [
+          "Znasz sztuczkę {@spell Taumaturgia|XPHB}. Gdy rzucasz ją dzięki tej cesze, zaklęcie korzysta z tej samej zdolności rzucania zaklęć, której używasz dla cechy Diabelska Spuścizna."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          "Tieflingowie rodzą się w Niższych Planach lub mają diabelskich przodków, którzy się stamtąd wywodzą. Tiefling jest połączony więzią krwi z diabłem, demonem lub innym Fiendem. Ten związek z Niższymi Planami to diabelska spuścizna tieflinga, która niesie ze sobą obietnicę mocy, lecz nie wpływa na moralne nastawienie tieflinga.",
+          "Tiefling wybiera, czy przyjąć, czy opłakiwać swą diabelską spuściznę. Trzy spuścizny opisano poniżej.",
+          {
+            "type": "entries",
+            "name": "Otchłani",
+            "entries": [
+              "Entropia Otchłani, chaos Pandemonium i rozpacz Carceri wzywają tieflingów o spuściźnie otchłani. Rogi, futro, kły i osobliwe zapachy to powszechne cechy fizyczne takich tieflingów, z których większość ma we krwi krew demonów."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Chtoniczna",
+            "entries": [
+              "Tieflingowie o spuściźnie chtonicznej czują nie tylko ciąg Carceri, lecz też chciwość Gehenny i mrok Hadesu. Niektórzy z tych tieflingów wyglądają trupio. Inni posiadają nieziemskie piękno sukkuba lub mają cechy fizyczne wspólne z nocną wiedźmą, yugolothem lub innym Neutralnie Złym diabelskim przodkiem."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Piekielna",
+            "entries": [
+              "Piekielna spuścizna łączy tieflingów nie tylko z Gehenną, lecz też z Dziewięcioma Piekłami i szalejącymi polami bitewnymi Acheronu. Rogi, kolce, ogony, złote oczy i lekki zapach siarki lub dymu to powszechne cechy fizyczne takich tieflingów, z których większość wywodzi swój ród od diabłów."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "aasimar": {
+    "name": "Aasimar",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Niebiańska Odporność",
+        "entries": [
+          "Masz {@variantrule Odporność|XPHB} na obrażenia Nekrotyczne i Promienne."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": ["Masz {@sense Widzenie w Ciemności|XPHB} w zasięgu 60 stóp."]
+      },
+      {
+        "type": "entries",
+        "name": "Uzdrawiające Dłonie",
+        "entries": [
+          "Jako akcję {@action Magii|XPHB}, dotykasz stworzenia i rzucasz liczbę k4 równą twojej {@variantrule Premii Biegłości|XPHB|Premii Biegłości}. Stworzenie odzyskuje liczbę {@variantrule Punktów Wytrzymałości|XPHB} równą sumie wyrzuconych wyników. Gdy użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie zakończysz {@variantrule Długiego Odpoczynku|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Nosiciel Światła",
+        "entries": [
+          "Znasz sztuczkę {@spell Światło|XPHB}. Charyzma jest twoją zdolnością rzucania zaklęć dla niej."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Niebiańskie Objawienie",
+        "entries": [
+          "Gdy osiągniesz 3 poziom postaci, możesz przemienić się jako {@variantrule Akcję Dodatkową|XPHB}, korzystając z jednej z poniższych opcji (wybierz opcję za każdym razem, gdy się przemieniasz). Przemiana trwa 1 minutę lub do momentu, gdy ją zakończysz (bez wymaganej akcji). Gdy się przemienisz, nie możesz zrobić tego ponownie, dopóki nie zakończysz {@variantrule Długiego Odpoczynku|XPHB}.",
+          "Raz w każdej swojej turze przed końcem przemiany możesz zadać dodatkowe obrażenia jednemu celowi, gdy zadajesz mu obrażenia atakiem lub zaklęciem. Dodatkowe obrażenia są równe twojej {@variantrule Premii Biegłości|XPHB|Premii Biegłości}, a ich typ to Nekrotyczny dla Nekrotycznego Całunu lub Promienny dla Niebiańskich Skrzydeł i Wewnętrznej Jasności.",
+          "Oto opcje przemiany:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Niebiańskie Skrzydła",
+                "entries": [
+                  "Na twoich plecach tymczasowo wyrastają dwa zjawowe skrzydła. Do końca przemiany masz {@variantrule Szybkość Lotu|XPHB} równą twojej {@variantrule Szybkości|XPHB}."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Wewnętrzna Jasność",
+                "entries": [
+                  "Palące światło tymczasowo promieniuje z twoich oczu i ust. Przez czas trwania emitujesz {@variantrule Jasne Światło|XPHB} w promieniu 10 stóp i {@variantrule Słabe Światło|XPHB} na kolejne 10 stóp, a na koniec każdej ze swoich tur każde stworzenie w zasięgu 10 stóp od ciebie otrzymuje obrażenia Promienne równe twojej {@variantrule Premii Biegłości|XPHB|Premii Biegłości}."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Nekrotyczny Całun",
+                "entries": [
+                  "Twoje oczy na chwilę stają się kałużami mroku, a na plecach tymczasowo wyrastają nielotne skrzydła. Stworzenia inne niż twoi sojusznicy w zasięgu 10 stóp od ciebie muszą zdać rzut obronny Charyzmy ({@dc 8} plus twój modyfikator Charyzmy i {@variantrule Premia Biegłości|XPHB|Premia Biegłości}) lub uzyskać stan {@condition Przerażony|XPHB} do końca twojej następnej tury."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Aasimarowie to śmiertelnicy noszący w swych duszach iskrę Wyższych Planów. Niezależnie od tego, czy pochodzą od anielskiej istoty, czy są przesiąknięci niebiańską mocą, mogą rozniecić tę iskrę, by przynieść światło, uzdrowienie i niebiańską furię.",
+              "Aasimarowie mogą pojawić się wśród każdej populacji śmiertelników. Przypominają swoich rodziców, lecz żyją do 160 lat i posiadają cechy zdradzające ich niebiańskie dziedzictwo, takie jak metaliczne piegi, świetliste oczy, aureolę lub kolor skóry anioła (srebrny, opalizująco zielony lub miedziano-czerwony). Cechy te początkowo są subtelne i stają się widoczne, gdy aasimar uczy się ujawniać swą pełną niebiańską naturę."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "goliath": {
+    "name": "Goliat",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Olbrzymie Pochodzenie",
+        "entries": [
+          "Wywodzisz się od Olbrzymów. Wybierz jedną z poniższych korzyści - nadprzyrodzony dar swego pochodzenia; możesz użyć wybranej korzyści liczbę razy równą twojej {@variantrule Premii Biegłości|XPHB|Premii Biegłości}, a odzyskujesz wszystkie wykorzystane użycia po zakończeniu {@variantrule Długiego Odpoczynku|XPHB}:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Skok Chmury (Olbrzym Chmur)",
+                "entries": [
+                  "Jako {@variantrule Akcję Dodatkową|XPHB}, magicznie teleportujesz się o maksymalnie 30 stóp do niezajętej przestrzeni, którą widzisz."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Poparzenie Ognia (Olbrzym Ognia)",
+                "entries": [
+                  "Gdy trafisz cel rzutem na atak i zadasz mu obrażenia, możesz też zadać temu celowi {@damage 1k10} obrażeń Ogniem."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Mróz Chłodu (Olbrzym Mrozu)",
+                "entries": [
+                  "Gdy trafisz cel rzutem na atak i zadasz mu obrażenia, możesz też zadać temu celowi {@damage 1k6} obrażeń Zimnem i zmniejszyć jego {@variantrule Szybkość|XPHB} o 10 stóp do początku swojej następnej tury."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Przewrót Wzgórza (Olbrzym Wzgórz)",
+                "entries": [
+                  "Gdy trafisz Duże lub mniejsze stworzenie rzutem na atak i zadasz mu obrażenia, możesz nadać temu celowi stan {@condition Powalony|XPHB}."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Wytrzymałość Kamienia (Olbrzym Kamienia)",
+                "entries": [
+                  "Gdy otrzymujesz obrażenia, możesz wykonać {@variantrule Reakcję|XPHB}, aby rzucić {@dice 1k12}. Dodaj swój modyfikator Kondycji do wyrzuconego wyniku i zmniejsz obrażenia o tę sumę."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Grzmot Burzy (Olbrzym Burzy)",
+                "entries": [
+                  "Gdy otrzymujesz obrażenia od stworzenia w zasięgu 60 stóp od ciebie, możesz wykonać {@variantrule Reakcję|XPHB}, aby zadać temu stworzeniu {@damage 1k8} obrażeń Dźwiękiem."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Duża Postać",
+        "entries": [
+          "Począwszy od 5 poziomu postaci, możesz zmienić swój rozmiar na Duży jako {@variantrule Akcję Dodatkową|XPHB}, jeśli znajdujesz się w wystarczająco dużej przestrzeni. Ta przemiana trwa 10 minut lub do momentu, gdy ją zakończysz (bez wymaganej akcji). Przez ten czas masz {@variantrule Przewagę|XPHB} w testach Siły, a twoja {@variantrule Szybkość|XPHB} zwiększa się o 10 stóp. Gdy użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie zakończysz {@variantrule Długiego Odpoczynku|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Potężna Budowa",
+        "entries": [
+          "Masz {@variantrule Przewagę|XPHB} w każdym teście zdolności wykonywanym w celu zakończenia stanu {@condition Chwycony|XPHB}. Liczysz się też jako o jeden rozmiar większy przy ustalaniu swojej udźwigu."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Górując nad większością ludów, goliaci są dalekimi potomkami olbrzymów. Każdy goliat nosi w sobie dary pierwszych olbrzymów - dary przejawiające się w różnorodnych nadprzyrodzonych błogosławieństwach, w tym zdolności szybkiego wzrostu i tymczasowego zbliżania się do wzrostu swych gigantycznych krewnych.",
+              "Goliaci posiadają cechy fizyczne przypominające olbrzymy z ich linii rodzinnych. Na przykład niektórzy goliaci wyglądają jak olbrzymy kamienne, podczas gdy inni przypominają olbrzymy ognia. Niezależnie od tego, jakich olbrzymów uznają za krewnych, goliaci wykuli własną drogę w multiwersum - nieobciążeni wewnętrznymi konfliktami, które od wieków pustoszyły ród olbrzymów - poszukując wyżyn wykraczających poza te osiągnięte przez ich przodków."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "orc": {
+    "name": "Ork",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Przypływ Adrenaliny",
+        "entries": [
+          "Możesz wykonać akcję {@action Pęd|XPHB} jako {@variantrule Akcję Dodatkową|XPHB}. Gdy to zrobisz, zyskujesz liczbę {@variantrule Tymczasowych Punktów Wytrzymałości|XPHB} równą twojej {@variantrule Premii Biegłości|XPHB|Premii Biegłości}.",
+          "Możesz użyć tej cechy liczbę razy równą twojej {@variantrule Premii Biegłości|XPHB|Premii Biegłości}, a odzyskujesz wszystkie wykorzystane użycia po zakończeniu {@variantrule Krótkiego Odpoczynku|XPHB|Krótkiego} lub {@variantrule Długiego Odpoczynku|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": ["Masz {@sense Widzenie w Ciemności|XPHB} w zasięgu 120 stóp."]
+      },
+      {
+        "type": "entries",
+        "name": "Niezłomna Wytrzymałość",
+        "entries": [
+          "Gdy zostajesz zredukowany do 0 {@variantrule Punktów Wytrzymałości|XPHB}, lecz nie giniesz od razu, możesz zamiast tego spaść do 1 {@variantrule Punktu Wytrzymałości|XPHB|Punktu Wytrzymałości}. Gdy użyjesz tej cechy, nie możesz zrobić tego ponownie, dopóki nie zakończysz {@variantrule Długiego Odpoczynku|XPHB}."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Orkowie wywodzą swe stworzenie od Gruumsha, potężnego boga wędrującego po rozległych przestrzeniach Planu Materialnego. Gruumsh wyposażył swe dzieci w dary pomagające przemierzać wielkie równiny, ogromne jaskinie i wzburzone morza oraz stawiać czoła czyhającym tam potworom. Nawet gdy zwracają swą pobożność ku innym bogom, orkowie zachowują dary Gruumsha: wytrzymałość, determinację i zdolność widzenia w ciemności.",
+              "Orkowie są przeciętnie wysocy i krzepcy. Mają szarą skórę, ostro zakończone uszy i wystające dolne kły przypominające małe kły. Orkowa młodzież na niektórych światach słyszy opowieści o wielkich podróżach i trudach swych przodków. Zainspirowani tymi opowieściami, wielu orków zastanawia się, kiedy Gruumsh wezwie ich do dorównania bohaterskim czynom z przeszłości i czy okażą się godni jego łaski. Inni orkowie chętnie pozostawiają stare opowieści w przeszłości i szukają własnej drogi."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tabaxi": {
+    "name": "Tabaxi",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": ["Jesteś Średni lub Mały. Wybierasz rozmiar podczas wyboru tej rasy."]
+      },
+      {
+        "type": "entries",
+        "name": "Szybkość",
+        "entries": [
+          "Twoja szybkość marszu wynosi 30 stóp, a szybkość wspinaczki jest równa szybkości marszu."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Kocie Pazury",
+        "entries": [
+          "Możesz używać pazurów do wykonywania ataków bez broni. Gdy nimi trafisz, atak zadaje {@damage 1k6} + twój modyfikator Siły obrażeń tnących, zamiast obrażeń obuchowych typowych dla ataku bez broni."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Kocia Zdolność",
+        "entries": [
+          "Masz biegłość w umiejętnościach {@skill Percepcja} i {@skill Skradanie się}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": [
+          "Widzisz w słabym świetle w zasięgu 60 stóp tak, jakby było jasne, a w ciemności tak, jakby był to półmrok. Rozróżniasz w tej ciemności jedynie odcienie szarości."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Kocia Zwinność",
+        "entries": [
+          "Twój refleks i zwinność pozwalają ci poruszać się z przypływem szybkości. Gdy poruszasz się w swojej turze podczas walki, możesz podwoić swoją szybkość do końca tury. Gdy użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie poruszysz się o 0 stóp w jednej ze swoich tur."
+        ]
+      }
+    ],
+    "lore": [
+      "Stworzone przez Kocego Władcę - boską istotę z Wyższych Planów - by łączyć cechy humanoidów i kotów, tabaxi to zróżnicowany lud zarówno pod względem usposobienia, jak i wyglądu. W niektórych krainach tabaxi żyją jak koty, które przypominają, z natury ciekawscy i czujący się jak w domu w zabawnym otoczeniu. W innych miejscach tabaxi żyją jak inne ludy, nie przejawiając kociego zachowania, jakie zamierzył Koci Władca.",
+      "Wygląd tabaxi jest równie zróżnicowany jak ich usposobienie. Niektóre tabaxi mają cechy lub umaszczenie futra jak tygrysy, jaguary czy inne wielkie koty, podczas gdy inne wyglądają bardziej jak domowe koty. Jeszcze inne mają unikalne wzory lub stylizują swoje futro według własnych upodobań - a niektóre mogą być nawet bezwłose!"
+    ]
+  },
+  "aarakocra": {
+    "name": "Aarakocra",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Lot",
+        "entries": [
+          "Dzięki swoim skrzydłom masz szybkość lotu równą szybkości marszu. Nie możesz korzystać z tej szybkości lotu, jeśli nosisz średnią lub ciężką zbroję."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Szpony",
+        "entries": [
+          "Masz szpony, których możesz używać do wykonywania ataków bez broni. Gdy nimi trafisz, atak zadaje {@damage 1k6} + twój modyfikator Siły obrażeń tnących, zamiast obrażeń obuchowych typowych dla ataku bez broni."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Zaklinacz Wiatru",
+        "entries": [
+          "Począwszy od 3 poziomu, możesz rzucić tą cechą zaklęcie {@spell podmuch wiatru}, bez konieczności użycia składnika materialnego. Gdy rzucisz to zaklęcie tą cechą, nie możesz zrobić tego ponownie, dopóki nie zakończysz długiego odpoczynku. Możesz też rzucić to zaklęcie, używając dowolnych posiadanych miejsc zaklęć 2 poziomu lub wyższego.",
+          "Inteligencja, Mądrość lub Charyzma jest twoją zdolnością rzucania zaklęć, gdy rzucasz {@spell podmuch wiatru} tą cechą (wybierz podczas wyboru tej rasy)."
+        ]
+      }
+    ],
+    "lore": [
+      "Skrzydlaty lud, który wywodzi się z Elementalnego Planu Powietrza, aarakocra szybują po niebie, gdziekolwiek wędrują. Pierwsi aarakocra służyli Książętom Wiatru Aaqa - potężnym istotom powietrza - i zostali obdarzeni częścią mocy swych panów nad wiatrami. Ich potomkowie wciąż władają echem tej mocy.",
+      "Z dołu aarakocra wyglądają jak wielkie ptaki, więc czasem nazywa się ich ludem ptaków. Dopiero gdy siadają na gałęzi lub kroczą po ziemi, ich Humanoidalna natura staje się jasna. Stojąc wyprostowani, aarakocra mierzą zwykle około 5 stóp wzrostu i mają długie, wąskie nogi zwężające się w ostre szpony. Ich ciała pokrywają pióra - zwykle czerwone, pomarańczowe, żółte, brązowe lub szare. Ich głowy są też ptasie, często przypominające papugi lub orły."
+    ]
+  },
+  "genasi": {
+    "name": "Genasi",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": ["Jesteś Średni lub Mały. Wybierasz rozmiar podczas wyboru tej rasy."]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": [
+          "Widzisz w słabym świetle w zasięgu 60 stóp tak, jakby było jasne, a w ciemności tak, jakby był to półmrok. Rozróżniasz w tej ciemności jedynie odcienie szarości."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "section",
+        "name": "Genasi",
+        "entries": [
+          "Wywodząc swój ród od dżinów Elementalnych Planów, każdy genasi może czerpać z mocy jednego z żywiołów. Powietrze, ziemia, ogień i woda - to cztery filary Planu Materialnego i cztery rodzaje genasi. Niektórzy genasi są bezpośrednimi potomkami dżina, podczas gdy inni urodzili się rodzicom niebędącym genasi, którzy żyli w pobliżu miejsca przesyconego magią dżina.",
+          "Typowy genasi żyje 120 lat."
+        ]
+      }
+    ]
+  },
+  "firbolg": {
+    "name": "Firbolg",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Magia Firbolga",
+        "entries": [
+          "Możesz rzucić tą cechą zaklęcia {@spell wykrycie magii} i {@spell przebranie}. Gdy używasz tej wersji {@spell przebrania}, możesz wydawać się do 3 stóp niższy lub wyższy. Gdy rzucisz którekolwiek z tych zaklęć tą cechą, nie możesz rzucić go nią ponownie, dopóki nie zakończysz długiego odpoczynku. Możesz też rzucić te zaklęcia, używając dowolnych posiadanych miejsc zaklęć.",
+          "Inteligencja, Mądrość lub Charyzma jest twoją zdolnością rzucania zaklęć dla tych zaklęć, gdy rzucasz je tą cechą (wybierz podczas wyboru tej rasy)."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Ukryty Krok",
+        "entries": [
+          "Jako akcję dodatkową możesz magicznie stać się {@condition niewidzialny} do początku swojej następnej tury lub do momentu, gdy zaatakujesz, wykonasz rzut obrażeń lub zmusisz kogoś do wykonania rzutu obronnego. Możesz użyć tej cechy liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie wykorzystane użycia po zakończeniu długiego odpoczynku."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Potężna Budowa",
+        "entries": [
+          "Liczysz się jako o jeden rozmiar większy przy ustalaniu swojego udźwigu oraz wagi, którą możesz pchać, ciągnąć lub podnosić."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Mowa Bestii i Liścia",
+        "entries": [
+          "Masz zdolność ograniczonej komunikacji z Bestiami, Roślinami i roślinnością. Mogą one zrozumieć znaczenie twoich słów, choć ty nie posiadasz specjalnej zdolności rozumienia ich w odpowiedzi. Masz przewagę we wszystkich testach Charyzmy wykonywanych w celu wpłynięcia na nie."
+        ]
+      }
+    ],
+    "lore": [
+      "Dalecy kuzyni olbrzymów, pierwsi firbolgowie wędrowali po pradawnych lasach multiwersum, a magia tych lasów spletła się z duszami firbolgów. Wieki później ta magia wciąż tętni wewnątrz firbolga, nawet takiego, który nigdy nie żył pod koronami wielkiego lasu.",
+      "Magia firbolga ma charakter maskujący, co pozwalało ich przodkom przemierzać las, nie zakłócając go. Więź między firbolgiem a dzikimi zakątkami świata jest tak głęboka, że mogą komunikować się z florą i fauną.",
+      "Firbolgowie mogą żyć do 500 lat."
+    ]
+  },
+  "kenku": {
+    "name": "Kenku",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": ["Twój rozmiar to Średni lub Mały. Wybierasz rozmiar podczas wyboru tej rasy."]
+      },
+      {
+        "type": "entries",
+        "name": "Ekspercka Duplikacja",
+        "entries": [
+          "Gdy kopiujesz pismo lub rzemiosło stworzone przez siebie lub kogoś innego, masz przewagę we wszystkich testach zdolności wykonywanych w celu stworzenia dokładnej kopii."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Pamięć Kenku",
+        "entries": [
+          "Dzięki nadprzyrodzenie dobrej pamięci masz biegłość w dwóch wybranych umiejętnościach.",
+          "Ponadto, gdy wykonujesz test zdolności z użyciem umiejętności, w której masz biegłość, możesz przyznać sobie przewagę w tym teście przed rzutem {@dice k20}. Możesz przyznać sobie przewagę w ten sposób liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie wykorzystane użycia po zakończeniu długiego odpoczynku."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Mimikra",
+        "entries": [
+          "Potrafisz dokładnie naśladować usłyszane dźwięki, w tym głosy. Stworzenie, które słyszy wydawane przez ciebie dźwięki, może rozpoznać, że są naśladownictwem, jedynie po udanym teście Mądrości ({@skill Wnikliwość}) wobec ST równego 8 + twoja premia biegłości + twój modyfikator Charyzmy."
+        ]
+      }
+    ],
+    "lore": [
+      "Upierzony lud przypominający kruki, kenku obdarzone są bystrą obserwacją i nadprzyrodzenie dokładną pamięcią. Żaden z nich nie pamięta jednak pochodzenia pierwszego kenku, więc często żartują, że istnieje tyle samo opowieści o pochodzeniu kenku, ile jest samych kenku. Niektórzy przedstawiają swoją genezę jako klątwę, będąc bezlotnym ludem ptasim skazanym na naśladowanie cudzych dzieł. Inne kenku recytują enigmatyczne, lecz piękne wiersze o tym, że ich przybycie było błogosławionym wydarzeniem, w którym zostali wysłani w multiwersum, by obserwować i katalogować jego liczne cuda.",
+      "Niezależnie od prawdziwego pochodzenia, kenku najczęściej spotyka się w Krainie Cieni i na Planie Materialnym, i zwykle mają ubarwienie typowe dla kruków."
+    ]
+  },
+  "lizardfolk": {
+    "name": "Jaszczuroczłowiek",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Szybkość",
+        "entries": [
+          "Twoja szybkość marszu wynosi 30 stóp, a szybkość pływania jest równa szybkości marszu."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Ugryzienie",
+        "entries": [
+          "Masz kłapiącą paszczę, której możesz używać do wykonywania ataków bez broni. Gdy nią trafisz, atak zadaje {@damage 1k6} + twój modyfikator Siły obrażeń tnących, zamiast obrażeń obuchowych typowych dla ataku bez broni."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wstrzymywanie Oddechu",
+        "entries": ["Możesz wstrzymać oddech na maksymalnie 15 minut."]
+      },
+      {
+        "type": "entries",
+        "name": "Głodne Szczęki",
+        "entries": [
+          "Możesz wpaść w szał żerowania. Jako akcję dodatkową możesz wykonać specjalny atak swoim Ugryzieniem. Jeśli atak trafi, zadaje normalne obrażenia, a ty zyskujesz tymczasowe punkty wytrzymałości równe twojej premii biegłości. Możesz użyć tej cechy liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie wykorzystane użycia po zakończeniu długiego odpoczynku."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Naturalny Pancerz",
+        "entries": [
+          "Masz twardą, łuskowatą skórę. Gdy nie nosisz zbroi, twoja bazowa KP wynosi 13 + modyfikator Zręczności. Możesz użyć swojego naturalnego pancerza do ustalenia swojej KP, jeśli noszona zbroja dawałaby ci niższą KP. Korzyści z tarczy działają normalnie, gdy korzystasz ze swojego naturalnego pancerza."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Intuicja Natury",
+        "entries": [
+          "Dzięki swojej mistycznej więzi z naturą zyskujesz biegłość w dwóch spośród następujących umiejętności wedle wyboru: {@skill Obchodzenie się ze Zwierzętami}, {@skill Medycyna}, {@skill Natura}, {@skill Percepcja}, {@skill Skradanie się} lub {@skill Przetrwanie}."
+        ]
+      }
+    ],
+    "lore": [
+      "Gadzi jaszczuroludzie uważani są przez niektórych mędrców za dalekich kuzynów smokorodzonych i koboldów. Mimo podobieństwa do tych innych łuskowatych ludów, jaszczuroludzie to jednak własny lud, żyjący na światach Planu Materialnego od czasu ich stworzenia. Obdarzeni przez bogów niezwykłą obroną fizyczną i mistyczną więzią z naturalnym światem, jaszczuroludzie mogą przetrwać, mając jedynie swój spryt, w sytuacjach, które byłyby śmiertelne dla innych ludów. Z tego powodu wiele mitów jaszczuroludzi głosi, że ich lud został umieszczony przez bogów na Planie Materialnym, by strzec jego naturalnych cudów.",
+      "Jaszczuroludzie mają kolorowe łuski i wykazują szeroki wachlarz wzorów łusek. Ich indywidualne rysy twarzy są równie zróżnicowane, jak u jaszczurek."
+    ]
+  },
+  "tortle": {
+    "name": "Żółwiołak",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": ["Jesteś Średni lub Mały. Wybierasz rozmiar podczas wyboru tej rasy."]
+      },
+      {
+        "type": "entries",
+        "name": "Pazury",
+        "entries": [
+          "Masz pazury, których możesz używać do wykonywania ataków bez broni. Gdy nimi trafisz, atak zadaje {@damage 1k6} + twój modyfikator Siły obrażeń tnących, zamiast obrażeń obuchowych typowych dla ataku bez broni."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wstrzymywanie Oddechu",
+        "entries": ["Możesz wstrzymać oddech na maksymalnie 1 godzinę."]
+      },
+      {
+        "type": "entries",
+        "name": "Naturalny Pancerz",
+        "entries": [
+          "Twoja skorupa zapewnia ci bazową KP równą 17 (twój modyfikator Zręczności nie wpływa na tę wartość). Nie możesz nosić lekkiej, średniej ani ciężkiej zbroi, lecz jeśli używasz tarczy, możesz zastosować jej premię normalnie."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Intuicja Natury",
+        "entries": [
+          "Dzięki swojej mistycznej więzi z naturą zyskujesz biegłość w jednej spośród następujących umiejętności wedle wyboru: {@skill Obchodzenie się ze Zwierzętami}, {@skill Medycyna}, {@skill Natura}, {@skill Percepcja}, {@skill Skradanie się} lub {@skill Przetrwanie}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Obrona Skorupy",
+        "entries": [
+          "Możesz schować się w swojej skorupie jako akcję. Dopóki nie wyjdziesz, zyskujesz premię +4 do KP i masz przewagę w rzutach obronnych Siły i Kondycji. Gdy jesteś w swojej skorupie, masz stan {@condition powalony}, twoja szybkość wynosi 0 i nie może się zwiększyć, masz utrudnienie w rzutach obronnych Zręczności, nie możesz wykonywać reakcji, a jedyną akcją, którą możesz wykonać, jest akcja dodatkowa wyjścia ze skorupy."
+        ]
+      }
+    ],
+    "lore": [
+      "Żółwiołaki mają powiedzenie: \"Nosimy nasze domy na plecach\". Ten żółwi lud żyje na wielu światach, najczęściej podróżując wzdłuż wybrzeży, szlaków wodnych i przez morze. Żółwiołaki nie mają jednolitej opowieści o swoim stworzeniu, lecz wszystkie odczuwają mistyczną więź z naturalnym światem. Noszenie schronienia na plecach daje żółwiołakom szczególne poczucie bezpieczeństwa, gdziekolwiek się udadzą, gdyż nawet odwiedzając odległy, nieznany kraj, mają gdzie złożyć głowę.",
+      "Żółwiołaki wykazują taką samą różnorodność ubarwienia i wzorów, jaka występuje u żółwi, a wiele żółwiołaków lubi ozdabiać swoje skorupy w charakterystyczny sposób."
+    ]
+  },
+  "triton": {
+    "name": "Tryton",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Szybkość",
+        "entries": [
+          "Twoja szybkość marszu wynosi 30 stóp, a szybkość pływania jest równa szybkości marszu."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Płazowatość",
+        "entries": ["Możesz oddychać powietrzem i wodą."]
+      },
+      {
+        "type": "entries",
+        "name": "Władanie Powietrzem i Wodą",
+        "entries": [
+          "Możesz rzucić tą cechą {@spell mglistą chmurę}. Począwszy od 3 poziomu, możesz rzucić tą cechą zaklęcie {@spell podmuch wiatru}. Począwszy od 5 poziomu, możesz też rzucić nią zaklęcie {@spell chodzenie po wodzie}. Gdy rzucisz którekolwiek z tych zaklęć tą cechą, nie możesz rzucić go nią ponownie, dopóki nie zakończysz długiego odpoczynku. Możesz też rzucić te zaklęcia, używając dowolnych posiadanych miejsc zaklęć odpowiedniego poziomu.",
+          "Inteligencja, Mądrość lub Charyzma jest twoją zdolnością rzucania zaklęć dla tych zaklęć, gdy rzucasz je tą cechą (wybierz podczas wyboru tej rasy)."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": [
+          "Widzisz w słabym świetle w zasięgu 60 stóp tak, jakby było jasne, a w ciemności tak, jakby był to półmrok. Rozróżniasz w tej ciemności jedynie odcienie szarości."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wysłannik Morza",
+        "entries": [
+          "Możesz komunikować proste idee każdej Bestii, Żywiołakowi lub Monstrualności posiadającej szybkość pływania. Może ono zrozumieć twoje słowa, choć ty nie posiadasz specjalnej zdolności rozumienia go w odpowiedzi."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Strażnik Głębin",
+        "entries": [
+          "Przystosowany do lodowatych głębin oceanu, masz odporność na obrażenia zimnem."
+        ]
+      }
+    ],
+    "lore": [
+      "Pochodzący pierwotnie z Elementalnego Planu Wody, wielu trytonów wkroczyło na Plan Materialny wieki temu w odpowiedzi na rosnące zagrożenie ze strony złych żywiołaków. Te trytony rozprzestrzeniły się po oceanach świata, chroniąc powierzchnię przed grozami z głębin. Z czasem trytoni rozszerzyli swoją opiekę nad dnem oceanicznym na powierzchnię oceanu.",
+      "Trytoni mają błoniaste dłonie i stopy, małe płetwy na łydkach oraz ubarwienie skłaniające się ku błękitom i zieleniom."
+    ]
+  },
+  "aarakocra-dmg": {
+    "name": "Aarakocra",
+    "entries": [
+      {
+        "name": "Atak z Nurkowania",
+        "entries": [
+          "Jeśli lecisz i nurkujesz co najmniej 30 stóp prosto w stronę celu, a następnie trafiasz go atakiem bronią do walki wręcz, atak zadaje celowi dodatkowe {@damage 1k6} obrażeń."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Szpony",
+        "entries": [
+          "Jesteś biegły w atakach bez broni, które przy trafieniu zadają {@damage 1k4} obrażeń tnących."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Język",
+        "entries": ["Potrafisz mówić, czytać i pisać w Auranie."],
+        "type": "entries"
+      }
+    ],
+    "hidden": true
+  },
+  "aasimar-mpmm": {
+    "name": "Aasimar",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": ["Jesteś Średni lub Mały. Wybierasz rozmiar podczas wyboru tej rasy."]
+      },
+      {
+        "type": "entries",
+        "name": "Niebiańska Odporność",
+        "entries": ["Masz odporność na obrażenia nekrotyczne i promienne."]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": [
+          "Widzisz w słabym świetle w zasięgu 60 stóp tak, jakby było jasne, a w ciemności tak, jakby był to półmrok. Rozróżniasz w tej ciemności jedynie odcienie szarości."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uzdrawiające Dłonie",
+        "entries": [
+          "Jako akcję możesz dotknąć stworzenia i rzucić liczbę k4 równą twojej premii biegłości. Stworzenie odzyskuje liczbę punktów wytrzymałości równą sumie wyrzuconych wyników. Gdy użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie zakończysz długiego odpoczynku."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Nosiciel Światła",
+        "entries": [
+          "Znasz sztuczkę {@spell światło}. Charyzma jest twoją zdolnością rzucania zaklęć dla niej."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Niebiańskie Objawienie",
+        "entries": [
+          "Gdy osiągniesz 3 poziom, wybierz jedną z poniższych opcji objawienia. Odtąd możesz użyć akcji dodatkowej, by uwolnić w sobie niebiańską energię, zyskując korzyści tego objawienia. Twoja przemiana trwa 1 minutę lub do momentu, gdy zakończysz ją akcją dodatkową. Gdy przemienisz się, korzystając z poniższego objawienia, nie możesz zrobić tego ponownie, dopóki nie zakończysz długiego odpoczynku.",
+          {
+            "type": "list",
+            "items": [
+              {
+                "type": "item",
+                "name": "Nekrotyczny Całun",
+                "entry": "Twoje oczy na chwilę stają się kałużami mroku, a na plecach tymczasowo wyrastają widmowe, nielotne skrzydła. Stworzenia inne niż twoi sojusznicy w zasięgu 10 stóp od ciebie, które cię widzą, muszą zdać rzut obronny Charyzmy ({@dc 8} + twoja premia biegłości + twój modyfikator Charyzmy) lub uzyskać stan {@condition przerażony} wobec ciebie do końca twojej następnej tury. Do końca przemiany, raz w każdej swojej turze, możesz zadać dodatkowe obrażenia nekrotyczne jednemu celowi, gdy zadajesz mu obrażenia atakiem lub zaklęciem. Dodatkowe obrażenia są równe twojej premii biegłości."
+              },
+              {
+                "type": "item",
+                "name": "Promienna Konsumpcja",
+                "entry": "Palące światło tymczasowo promieniuje z twoich oczu i ust. Przez czas trwania emitujesz jasne światło w promieniu 10 stóp i słabe światło na kolejne 10 stóp, a na koniec każdej ze swoich tur każde stworzenie w zasięgu 10 stóp od ciebie otrzymuje obrażenia promienne równe twojej premii biegłości. Do końca przemiany, raz w każdej swojej turze, możesz zadać dodatkowe obrażenia promienne jednemu celowi, gdy zadajesz mu obrażenia atakiem lub zaklęciem. Dodatkowe obrażenia są równe twojej premii biegłości."
+              },
+              {
+                "type": "item",
+                "name": "Promienna Dusza",
+                "entry": "Na twoich plecach tymczasowo wyrastają dwa świetliste, zjawowe skrzydła. Do końca przemiany masz szybkość lotu równą szybkości marszu, a raz w każdej swojej turze możesz zadać dodatkowe obrażenia promienne jednemu celowi, gdy zadajesz mu obrażenia atakiem lub zaklęciem. Dodatkowe obrażenia są równe twojej premii biegłości."
+              }
+            ],
+            "style": "list-hang-notitle"
+          }
+        ]
+      }
+    ],
+    "lore": [
+      "Niezależnie od tego, czy pochodzą od niebiańskiej istoty, czy są przesiąknięci niebiańską mocą, aasimarowie to śmiertelnicy noszący w swych duszach iskrę Wyższych Planów. Mogą rozniecić tę iskrę, by przynieść światło, ukoić rany i uwolnić furię niebios.",
+      "Aasimarowie mogą pojawić się wśród każdej populacji śmiertelników. Przypominają swoich rodziców, lecz żyją do 160 lat i często posiadają cechy zdradzające ich niebiańskie dziedzictwo. Cechy te początkowo są subtelne i stają się bardziej widoczne, gdy aasimar zyskuje zdolność ujawniania swej pełnej niebiańskiej natury. Tabela Niebiańskie Cechy Aasimara zawiera przykłady, które możesz wybrać lub wykorzystać jako inspirację do stworzenia własnych.",
+      {
+        "type": "table",
+        "caption": "Niebiańskie Cechy Aasimara",
+        "colLabels": ["k6", "Niebiańska Cecha"],
+        "colStyles": ["col-1 text-center", "col-11"],
+        "rows": [
+          ["1", "Posypka metalicznych, białych lub węglistych piegów"],
+          ["2", "Metaliczne, świetliste lub ciemne oczy"],
+          ["3", "Wyraziście zabarwione włosy"],
+          ["4", "Niezwykły odcień barwiący twój cień"],
+          ["5", "Widmowa aureola wieńcząca twoją głowę"],
+          ["6", "Tęcze połyskujące na twojej skórze"]
+        ]
+      }
+    ],
+    "hidden": true
+  },
+  "aasimar-vgm": {
+    "name": "Aasimar",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": ["Aasimarowie dojrzewają w tym samym tempie co ludzie, lecz mogą żyć do 160 lat."]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": ["Aasimarowie mają taki sam zakres wzrostu i wagi jak ludzie."]
+      },
+      {
+        "name": "Widzenie w Ciemności",
+        "entries": [
+          "Błogosławiony promienną duszą, twój wzrok z łatwością przenika ciemność. Widzisz w słabym świetle w zasięgu 60 stóp tak, jakby było jasne, a w ciemności tak, jakby był to półmrok. Nie rozróżniasz kolorów w ciemności, jedynie odcienie szarości."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Niebiańska Odporność",
+        "entries": ["Masz odporność na obrażenia nekrotyczne i promienne."],
+        "type": "entries"
+      },
+      {
+        "name": "Uzdrawiające Dłonie",
+        "entries": [
+          "Jako akcję możesz dotknąć stworzenia i sprawić, że odzyska liczbę punktów wytrzymałości równą twojemu poziomowi. Gdy użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie zakończysz długiego odpoczynku."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Nosiciel Światła",
+        "entries": [
+          "Znasz sztuczkę {@spell światło}. Charyzma jest twoją zdolnością rzucania zaklęć dla niej."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": ["Potrafisz mówić, czytać i pisać we Wspólnym oraz Niebiańskim."],
+        "type": "entries"
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Aasimarowie noszą w swych duszach światło niebios. Wywodzą się od ludzi naznaczonych odrobiną mocy Góry Celestii, boskiej krainy wielu praworządnie dobrych bóstw. Aasimarowie rodzą się, by służyć jako mistrzowie bogów, a ich narodziny są opiewane jako błogosławione wydarzenia. Są ludem o nieziemskich obliczach, o świetlistych cechach zdradzających ich niebiańskie dziedzictwo.",
+              {
+                "type": "inset",
+                "name": "Upadek z Łaski lub Wzniesienie się ku Niej",
+                "entries": [
+                  "Za zgodą Mistrza Gry możesz zmienić podrasę swojej postaci na upadłego aasimara, jeśli twój aasimar-opiekun/plaga zwróci się ku złu. W tym celu zastąp korzyści swojej podrasy, w tym zwiększenie wartości zdolności, korzyściami upadłego aasimara.",
+                  "Podobnie, jeśli twój upadły aasimar zwróci się ku dobru, Mistrz Gry może pozwolić ci stać się aasimarem-opiekunem lub plagą."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Niebiańscy Mistrzowie",
+                "entries": [
+                  "Aasimarowie są umieszczani w świecie, by służyć jako strażnicy prawa i dobra. Ich patroni oczekują, że będą uderzać w zło, przewodzić przykładem i wspierać sprawę sprawiedliwości.",
+                  "Od najmłodszych lat aasimar otrzymuje wizje i wskazówki od niebiańskich istot poprzez sny. Sny te pomagają kształtować aasimara, nadając mu poczucie przeznaczenia i pragnienie prawości.",
+                  "Każdy aasimar może liczyć na konkretnego niebiańskiego wysłannika bogów jako przewodnika. Ta istota to zwykle dewa, anioł działający jako posłaniec do świata śmiertelników."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Ukryci Wędrowcy",
+                "entries": [
+                  "Choć aasimarowie są zawziętymi wrogami zła, zwykle wolą zachowywać niski profil. Aasimar nieuchronnie przyciąga uwagę złych kultystów, fiendów i innych wrogów dobra, z których wszyscy chętnie uderzyliby na niebiańskiego mistrza, gdyby tylko mieli okazję.",
+                  "Podczas podróży aasimarowie preferują kaptury, zamknięte hełmy i inny sprzęt pozwalający ukryć ich tożsamość. Mimo to nie mają skrupułów przed jawnym uderzeniem w zło. Pragnienie skrytości nigdy nie jest warte narażenia niewinnych."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Przewodnicy Aasimarów",
+                "entries": [
+                  "Aasimar, z wyjątkiem tego, który zwrócił się ku złu, posiada więź z anielską istotą. Istota ta - zwykle dewa - udziela aasimarowi wskazówek, choć ta więź działa jedynie we snach. Wskazówki te nie są zatem bezpośrednim rozkazem czy prostym słowem, lecz aasimar otrzymuje wizje, proroctwa i odczucia.",
+                  "Anielska istota jest daleka od wszechwiedzy. Jej wskazówki opierają się na jej rozumieniu zasad prawa i dobra i może posiadać wgląd w zwalczanie szczególnie potężnych zła, o których wie.",
+                  "Tworząc postać aasimara, rozważ naturę jej anielskiego przewodnika. Tabele Anielski Przewodnik oferują imiona i cechy charakteru, które możesz wykorzystać do rozbudowania przewodnika swojej postaci.",
+                  {
+                    "type": "table",
+                    "colLabels": ["k6", "Imię"],
+                    "colStyles": ["col-2 text-center", "col-10"],
+                    "rows": [
+                      ["1", "Tadriel"],
+                      ["2", "Myllandra"],
+                      ["3", "Serafina"],
+                      ["4", "Galladia"],
+                      ["5", "Mykiel"],
+                      ["6", "Valandras"]
+                    ]
+                  },
+                  {
+                    "type": "table",
+                    "colLabels": ["k6", "Natura"],
+                    "colStyles": ["col-2 text-center", "col-10"],
+                    "rows": [
+                      ["1", "Książkowa i pouczająca"],
+                      ["2", "Współczująca i pełna nadziei"],
+                      ["3", "Praktyczna i beztroska"],
+                      ["4", "Zawzięta i mściwa"],
+                      ["5", "Surowa i osądzająca"],
+                      ["6", "Życzliwa i opiekuńcza"]
+                    ]
+                  },
+                  {
+                    "type": "inset",
+                    "name": "Notatka dla Mistrza Gry: Granie Anielskim Przewodnikiem",
+                    "entries": [
+                      "Jako Mistrz Gry przyjmujesz rolę anielskiego przewodnika aasimara i decydujesz, jakie rady lub znaki wysyłać we snach.",
+                      "Dewa lub inna niebiańska istota to twoja szansa na dodanie specjalnych okazji do odgrywania roli w grze. Pamiętaj, że dewa żyje w krainie absolutnego prawa i dobra. Dewa może nie rozumieć kompromisów i trudnych wyborów, z którymi muszą mierzyć się śmiertelnicy w świecie. Dla dewy aasimar jest cennym uczniem, który musi sprostać wysokim, czasem nieelastycznym standardom."
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Rozdarte Dusze",
+                "entries": [
+                  "Mimo swego niebiańskiego pochodzenia aasimar jest śmiertelnikiem i posiada wolną wolę. Większość aasimarów podąża swą wyznaczoną ścieżką, lecz niektórzy zaczynają postrzegać swe zdolności jako klątwę. Ci rozgoryczeni aasimarowie zwykle poprzestają na odwróceniu się od świata, lecz nieliczni stają się agentami zła. W ich umysłach kontakt z niebiańskimi mocami sprowadzał się niemal do prania mózgu.",
+                  "Źli aasimarowie są śmiertelnie niebezpiecznymi wrogami. Promienna moc, którą niegdyś władali, ulega skażeniu w straszliwą, wysysającą magię. A ich anielscy przewodnicy ich opuszczają.",
+                  "Nawet aasimarowie w pełni oddani dobru czasem czują się rozdarci między dwoma światami. Anioły, które ich prowadzą, widzą świat z odległej perspektywy. Aasimar pragnący zatrzymać się, by pomóc miastu otrząsnąć się z suszy, może usłyszeć od anielskiego przewodnika, by parł naprzód ku większej wyprawie. Dla odległego anioła ocalenie kilku prostych mieszkańców może blednąć w porównaniu z pokonaniem kultu Orcusa. Przewodnik aasimara jest mądry, lecz nieomylny nie jest."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Imiona Aasimarów",
+                "entries": [
+                  "Większość aasimarów rodzi się z ludzkich rodziców i stosuje te same konwencje nazewnicze co ich rodzima kultura."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "hidden": true
+  },
+  "aasimar-dmg": {
+    "name": "Aasimar",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": ["Aasimarowie dojrzewają w tym samym tempie co ludzie, lecz żyją nieco dłużej."]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": ["Aasimarowie zbudowani są jak proporcjonalni ludzie. Twój rozmiar to Średni."]
+      },
+      {
+        "name": "Widzenie w Ciemności",
+        "entries": [
+          "Dzięki niebiańskiemu dziedzictwu masz doskonały wzrok w warunkach ciemności i półmroku. Widzisz w słabym świetle w zasięgu 60 stóp tak, jakby było jasne, a w ciemności tak, jakby był to półmrok. Nie rozróżniasz kolorów w ciemności, jedynie odcienie szarości."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Niebiańska Odporność",
+        "entries": ["Masz odporność na obrażenia nekrotyczne i promienne."],
+        "type": "entries"
+      },
+      {
+        "name": "Niebiańska Spuścizna",
+        "entries": [
+          "Znasz sztuczkę {@spell światło}. Gdy osiągniesz 3 poziom, możesz rzucić tą cechą zaklęcie {@spell mniejsze uzdrowienie} raz, a zdolność ta odnawia się po zakończeniu długiego odpoczynku. Gdy osiągniesz 5 poziom, możesz rzucić tą cechą zaklęcie {@spell światło dzienne} raz, a zdolność ta odnawia się po zakończeniu długiego odpoczynku. Charyzma jest twoją zdolnością rzucania zaklęć dla tych zaklęć."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Język",
+        "entries": ["Potrafisz mówić, czytać i pisać we Wspólnym oraz Niebiańskim."],
+        "type": "entries"
+      }
+    ],
+    "hidden": true
+  },
+  "aasimar-fallen": {
+    "name": "Aasimar (Upadły)",
+    "entries": [
+      {
+        "name": "Nekrotyczny Całun",
+        "entries": [
+          "Począwszy od 3 poziomu, możesz użyć akcji, by uwolnić w sobie boską energię, sprawiając, że twoje oczy zamieniają się w kałuże mroku, a na plecach wyrastają dwa szkieletowe, widmowe, nielotne skrzydła. W chwili przemiany inne stworzenia w zasięgu 10 stóp od ciebie, które cię widzą, muszą zdać rzut obronny Charyzmy ({@dc 8} + twoja premia biegłości + twój modyfikator Charyzmy) lub uzyskać stan {@condition przerażony} wobec ciebie do końca twojej następnej tury.",
+          "Twoja przemiana trwa 1 minutę lub do momentu, gdy zakończysz ją akcją dodatkową. Podczas niej, raz w każdej swojej turze, możesz zadać dodatkowe obrażenia nekrotyczne jednemu celowi, gdy zadajesz mu obrażenia atakiem lub zaklęciem. Dodatkowe obrażenia nekrotyczne są równe twojemu poziomowi.",
+          "Gdy użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie zakończysz długiego odpoczynku."
+        ],
+        "type": "entries"
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Aasimarowie noszą w swych duszach światło niebios. Wywodzą się od ludzi naznaczonych odrobiną mocy Góry Celestii, boskiej krainy wielu praworządnie dobrych bóstw. Aasimarowie rodzą się, by służyć jako mistrzowie bogów, a ich narodziny są opiewane jako błogosławione wydarzenia. Są ludem o nieziemskich obliczach, o świetlistych cechach zdradzających ich niebiańskie dziedzictwo.",
+              {
+                "type": "inset",
+                "name": "Upadek z Łaski lub Wzniesienie się ku Niej",
+                "entries": [
+                  "Za zgodą Mistrza Gry możesz zmienić podrasę swojej postaci na upadłego aasimara, jeśli twój aasimar-opiekun/plaga zwróci się ku złu. W tym celu zastąp korzyści swojej podrasy, w tym zwiększenie wartości zdolności, korzyściami upadłego aasimara.",
+                  "Podobnie, jeśli twój upadły aasimar zwróci się ku dobru, Mistrz Gry może pozwolić ci stać się aasimarem-opiekunem lub plagą."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Niebiańscy Mistrzowie",
+                "entries": [
+                  "Aasimarowie są umieszczani w świecie, by służyć jako strażnicy prawa i dobra. Ich patroni oczekują, że będą uderzać w zło, przewodzić przykładem i wspierać sprawę sprawiedliwości.",
+                  "Od najmłodszych lat aasimar otrzymuje wizje i wskazówki od niebiańskich istot poprzez sny. Sny te pomagają kształtować aasimara, nadając mu poczucie przeznaczenia i pragnienie prawości.",
+                  "Każdy aasimar może liczyć na konkretnego niebiańskiego wysłannika bogów jako przewodnika. Ta istota to zwykle dewa, anioł działający jako posłaniec do świata śmiertelników."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Ukryci Wędrowcy",
+                "entries": [
+                  "Choć aasimarowie są zawziętymi wrogami zła, zwykle wolą zachowywać niski profil. Aasimar nieuchronnie przyciąga uwagę złych kultystów, fiendów i innych wrogów dobra, z których wszyscy chętnie uderzyliby na niebiańskiego mistrza, gdyby tylko mieli okazję.",
+                  "Podczas podróży aasimarowie preferują kaptury, zamknięte hełmy i inny sprzęt pozwalający ukryć ich tożsamość. Mimo to nie mają skrupułów przed jawnym uderzeniem w zło. Pragnienie skrytości nigdy nie jest warte narażenia niewinnych."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Przewodnicy Aasimarów",
+                "entries": [
+                  "Aasimar, z wyjątkiem tego, który zwrócił się ku złu, posiada więź z anielską istotą. Istota ta - zwykle dewa - udziela aasimarowi wskazówek, choć ta więź działa jedynie we snach. Wskazówki te nie są zatem bezpośrednim rozkazem czy prostym słowem, lecz aasimar otrzymuje wizje, proroctwa i odczucia.",
+                  "Anielska istota jest daleka od wszechwiedzy. Jej wskazówki opierają się na jej rozumieniu zasad prawa i dobra i może posiadać wgląd w zwalczanie szczególnie potężnych zła, o których wie.",
+                  "Tworząc postać aasimara, rozważ naturę jej anielskiego przewodnika. Tabele Anielski Przewodnik oferują imiona i cechy charakteru, które możesz wykorzystać do rozbudowania przewodnika swojej postaci.",
+                  {
+                    "type": "table",
+                    "colLabels": ["k6", "Imię"],
+                    "colStyles": ["col-2 text-center", "col-10"],
+                    "rows": [
+                      ["1", "Tadriel"],
+                      ["2", "Myllandra"],
+                      ["3", "Serafina"],
+                      ["4", "Galladia"],
+                      ["5", "Mykiel"],
+                      ["6", "Valandras"]
+                    ]
+                  },
+                  {
+                    "type": "table",
+                    "colLabels": ["k6", "Natura"],
+                    "colStyles": ["col-2 text-center", "col-10"],
+                    "rows": [
+                      ["1", "Książkowa i pouczająca"],
+                      ["2", "Współczująca i pełna nadziei"],
+                      ["3", "Praktyczna i beztroska"],
+                      ["4", "Zawzięta i mściwa"],
+                      ["5", "Surowa i osądzająca"],
+                      ["6", "Życzliwa i opiekuńcza"]
+                    ]
+                  },
+                  {
+                    "type": "inset",
+                    "name": "Notatka dla Mistrza Gry: Granie Anielskim Przewodnikiem",
+                    "entries": [
+                      "Jako Mistrz Gry przyjmujesz rolę anielskiego przewodnika aasimara i decydujesz, jakie rady lub znaki wysyłać we snach.",
+                      "Dewa lub inna niebiańska istota to twoja szansa na dodanie specjalnych okazji do odgrywania roli w grze. Pamiętaj, że dewa żyje w krainie absolutnego prawa i dobra. Dewa może nie rozumieć kompromisów i trudnych wyborów, z którymi muszą mierzyć się śmiertelnicy w świecie. Dla dewy aasimar jest cennym uczniem, który musi sprostać wysokim, czasem nieelastycznym standardom."
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Rozdarte Dusze",
+                "entries": [
+                  "Mimo swego niebiańskiego pochodzenia aasimar jest śmiertelnikiem i posiada wolną wolę. Większość aasimarów podąża swą wyznaczoną ścieżką, lecz niektórzy zaczynają postrzegać swe zdolności jako klątwę. Ci rozgoryczeni aasimarowie zwykle poprzestają na odwróceniu się od świata, lecz nieliczni stają się agentami zła. W ich umysłach kontakt z niebiańskimi mocami sprowadzał się niemal do prania mózgu.",
+                  "Źli aasimarowie są śmiertelnie niebezpiecznymi wrogami. Promienna moc, którą niegdyś władali, ulega skażeniu w straszliwą, wysysającą magię. A ich anielscy przewodnicy ich opuszczają.",
+                  "Nawet aasimarowie w pełni oddani dobru czasem czują się rozdarci między dwoma światami. Anioły, które ich prowadzą, widzą świat z odległej perspektywy. Aasimar pragnący zatrzymać się, by pomóc miastu otrząsnąć się z suszy, może usłyszeć od anielskiego przewodnika, by parł naprzód ku większej wyprawie. Dla odległego anioła ocalenie kilku prostych mieszkańców może blednąć w porównaniu z pokonaniem kultu Orcusa. Przewodnik aasimara jest mądry, lecz nieomylny nie jest."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Imiona Aasimarów",
+                "entries": [
+                  "Większość aasimarów rodzi się z ludzkich rodziców i stosuje te same konwencje nazewnicze co ich rodzima kultura."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "aasimar-protector": {
+    "name": "Aasimar (Opiekun)",
+    "entries": [
+      {
+        "name": "Promienna Dusza",
+        "entries": [
+          "Począwszy od 3 poziomu, możesz użyć akcji, by uwolnić w sobie boską energię, sprawiając, że twoje oczy zaczynają błyszczeć, a na plecach wyrastają dwa świetliste, niematerialne skrzydła.",
+          "Twoja przemiana trwa 1 minutę lub do momentu, gdy zakończysz ją akcją dodatkową. Podczas niej masz szybkość lotu 30 stóp, a raz w każdej swojej turze możesz zadać dodatkowe obrażenia promienne jednemu celowi, gdy zadajesz mu obrażenia atakiem lub zaklęciem. Dodatkowe obrażenia promienne są równe twojemu poziomowi.",
+          "Gdy użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie zakończysz długiego odpoczynku."
+        ],
+        "type": "entries"
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Aasimarowie noszą w swych duszach światło niebios. Wywodzą się od ludzi naznaczonych odrobiną mocy Góry Celestii, boskiej krainy wielu praworządnie dobrych bóstw. Aasimarowie rodzą się, by służyć jako mistrzowie bogów, a ich narodziny są opiewane jako błogosławione wydarzenia. Są ludem o nieziemskich obliczach, o świetlistych cechach zdradzających ich niebiańskie dziedzictwo.",
+              {
+                "type": "inset",
+                "name": "Upadek z Łaski lub Wzniesienie się ku Niej",
+                "entries": [
+                  "Za zgodą Mistrza Gry możesz zmienić podrasę swojej postaci na upadłego aasimara, jeśli twój aasimar-opiekun/plaga zwróci się ku złu. W tym celu zastąp korzyści swojej podrasy, w tym zwiększenie wartości zdolności, korzyściami upadłego aasimara.",
+                  "Podobnie, jeśli twój upadły aasimar zwróci się ku dobru, Mistrz Gry może pozwolić ci stać się aasimarem-opiekunem lub plagą."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Niebiańscy Mistrzowie",
+                "entries": [
+                  "Aasimarowie są umieszczani w świecie, by służyć jako strażnicy prawa i dobra. Ich patroni oczekują, że będą uderzać w zło, przewodzić przykładem i wspierać sprawę sprawiedliwości.",
+                  "Od najmłodszych lat aasimar otrzymuje wizje i wskazówki od niebiańskich istot poprzez sny. Sny te pomagają kształtować aasimara, nadając mu poczucie przeznaczenia i pragnienie prawości.",
+                  "Każdy aasimar może liczyć na konkretnego niebiańskiego wysłannika bogów jako przewodnika. Ta istota to zwykle dewa, anioł działający jako posłaniec do świata śmiertelników."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Ukryci Wędrowcy",
+                "entries": [
+                  "Choć aasimarowie są zawziętymi wrogami zła, zwykle wolą zachowywać niski profil. Aasimar nieuchronnie przyciąga uwagę złych kultystów, fiendów i innych wrogów dobra, z których wszyscy chętnie uderzyliby na niebiańskiego mistrza, gdyby tylko mieli okazję.",
+                  "Podczas podróży aasimarowie preferują kaptury, zamknięte hełmy i inny sprzęt pozwalający ukryć ich tożsamość. Mimo to nie mają skrupułów przed jawnym uderzeniem w zło. Pragnienie skrytości nigdy nie jest warte narażenia niewinnych."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Przewodnicy Aasimarów",
+                "entries": [
+                  "Aasimar, z wyjątkiem tego, który zwrócił się ku złu, posiada więź z anielską istotą. Istota ta - zwykle dewa - udziela aasimarowi wskazówek, choć ta więź działa jedynie we snach. Wskazówki te nie są zatem bezpośrednim rozkazem czy prostym słowem, lecz aasimar otrzymuje wizje, proroctwa i odczucia.",
+                  "Anielska istota jest daleka od wszechwiedzy. Jej wskazówki opierają się na jej rozumieniu zasad prawa i dobra i może posiadać wgląd w zwalczanie szczególnie potężnych zła, o których wie.",
+                  "Tworząc postać aasimara, rozważ naturę jej anielskiego przewodnika. Tabele Anielski Przewodnik oferują imiona i cechy charakteru, które możesz wykorzystać do rozbudowania przewodnika swojej postaci.",
+                  {
+                    "type": "table",
+                    "colLabels": ["k6", "Imię"],
+                    "colStyles": ["col-2 text-center", "col-10"],
+                    "rows": [
+                      ["1", "Tadriel"],
+                      ["2", "Myllandra"],
+                      ["3", "Serafina"],
+                      ["4", "Galladia"],
+                      ["5", "Mykiel"],
+                      ["6", "Valandras"]
+                    ]
+                  },
+                  {
+                    "type": "table",
+                    "colLabels": ["k6", "Natura"],
+                    "colStyles": ["col-2 text-center", "col-10"],
+                    "rows": [
+                      ["1", "Książkowa i pouczająca"],
+                      ["2", "Współczująca i pełna nadziei"],
+                      ["3", "Praktyczna i beztroska"],
+                      ["4", "Zawzięta i mściwa"],
+                      ["5", "Surowa i osądzająca"],
+                      ["6", "Życzliwa i opiekuńcza"]
+                    ]
+                  },
+                  {
+                    "type": "inset",
+                    "name": "Notatka dla Mistrza Gry: Granie Anielskim Przewodnikiem",
+                    "entries": [
+                      "Jako Mistrz Gry przyjmujesz rolę anielskiego przewodnika aasimara i decydujesz, jakie rady lub znaki wysyłać we snach.",
+                      "Dewa lub inna niebiańska istota to twoja szansa na dodanie specjalnych okazji do odgrywania roli w grze. Pamiętaj, że dewa żyje w krainie absolutnego prawa i dobra. Dewa może nie rozumieć kompromisów i trudnych wyborów, z którymi muszą mierzyć się śmiertelnicy w świecie. Dla dewy aasimar jest cennym uczniem, który musi sprostać wysokim, czasem nieelastycznym standardom."
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Rozdarte Dusze",
+                "entries": [
+                  "Mimo swego niebiańskiego pochodzenia aasimar jest śmiertelnikiem i posiada wolną wolę. Większość aasimarów podąża swą wyznaczoną ścieżką, lecz niektórzy zaczynają postrzegać swe zdolności jako klątwę. Ci rozgoryczeni aasimarowie zwykle poprzestają na odwróceniu się od świata, lecz nieliczni stają się agentami zła. W ich umysłach kontakt z niebiańskimi mocami sprowadzał się niemal do prania mózgu.",
+                  "Źli aasimarowie są śmiertelnie niebezpiecznymi wrogami. Promienna moc, którą niegdyś władali, ulega skażeniu w straszliwą, wysysającą magię. A ich anielscy przewodnicy ich opuszczają.",
+                  "Nawet aasimarowie w pełni oddani dobru czasem czują się rozdarci między dwoma światami. Anioły, które ich prowadzą, widzą świat z odległej perspektywy. Aasimar pragnący zatrzymać się, by pomóc miastu otrząsnąć się z suszy, może usłyszeć od anielskiego przewodnika, by parł naprzód ku większej wyprawie. Dla odległego anioła ocalenie kilku prostych mieszkańców może blednąć w porównaniu z pokonaniem kultu Orcusa. Przewodnik aasimara jest mądry, lecz nieomylny nie jest."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Imiona Aasimarów",
+                "entries": [
+                  "Większość aasimarów rodzi się z ludzkich rodziców i stosuje te same konwencje nazewnicze co ich rodzima kultura."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "aasimar-scourge": {
+    "name": "Aasimar (Plaga)",
+    "entries": [
+      {
+        "name": "Promienna Konsumpcja",
+        "entries": [
+          "Począwszy od 3 poziomu, możesz użyć akcji, by uwolnić w sobie boską energię, sprawiając, że palące światło zaczyna z ciebie promieniować, wylewać się z twoich oczu i ust i grozić poparzeniem.",
+          "Twoja przemiana trwa 1 minutę lub do momentu, gdy zakończysz ją akcją dodatkową. Podczas niej emitujesz jasne światło w promieniu 10 stóp i słabe światło na kolejne 10 stóp, a na koniec każdej ze swoich tur ty i każde stworzenie w zasięgu 10 stóp od ciebie otrzymujecie obrażenia promienne równe połowie twojego poziomu (zaokrąglonej w górę). Dodatkowo, raz w każdej swojej turze, możesz zadać dodatkowe obrażenia promienne jednemu celowi, gdy zadajesz mu obrażenia atakiem lub zaklęciem. Dodatkowe obrażenia promienne są równe twojemu poziomowi.",
+          "Gdy użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie zakończysz długiego odpoczynku."
+        ],
+        "type": "entries"
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Aasimarowie noszą w swych duszach światło niebios. Wywodzą się od ludzi naznaczonych odrobiną mocy Góry Celestii, boskiej krainy wielu praworządnie dobrych bóstw. Aasimarowie rodzą się, by służyć jako mistrzowie bogów, a ich narodziny są opiewane jako błogosławione wydarzenia. Są ludem o nieziemskich obliczach, o świetlistych cechach zdradzających ich niebiańskie dziedzictwo."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "aetherborn": {
+    "name": "Eterorodny",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": ["Eterorodni przychodzą na świat jako dorośli i żyją nie dłużej niż kilka lat."]
+      },
+      {
+        "name": "Charakter",
+        "type": "entries",
+        "entries": [
+          "Z reguły eterorodni kierują się hedonizmem i egoizmem, co czyni ich w najlepszym razie neutralnymi, a w najgorszym całkowicie złymi. Neutralni eterorodni mogą poświęcać wiele czasu (i bogactwa) na przyjęcia i aktywność towarzyską, podczas gdy źli eterorodni zwykle są zamieszani w przestępczy półświatek."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Eterorodni są mniej więcej rozmiaru ludzi, mierząc od 5 do 6 stóp wzrostu. Są dość lekcy - ważą tylko około 100 funtów - a ich waga maleje wraz z wiekiem, gdy coraz więcej ich substancji powraca do eterosfery. Twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Widzenie w Ciemności",
+        "entries": [
+          "Dzięki swemu dziedzictwu masz doskonały wzrok w warunkach ciemności i półmroku. Widzisz w słabym świetle w zasięgu 60 stóp tak, jakby było jasne, a w ciemności tak, jakby był to półmrok. Nie rozróżniasz kolorów w ciemności, jedynie odcienie szarości."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Zrodzony z Eteru",
+        "entries": ["Masz odporność na obrażenia nekrotyczne."],
+        "type": "entries"
+      },
+      {
+        "name": "Groźny",
+        "entries": ["Masz biegłość w umiejętności {@skill Zastraszanie}."],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": ["Potrafisz mówić, czytać i pisać we Wspólnym oraz dwóch innych językach wedle wyboru."],
+        "type": "entries"
+      },
+      {
+        "type": "inset",
+        "name": "Dar Eterorodnych",
+        "entries": [
+          "Nieznany eterorodny, rozpaczliwie szukając sposobu na przedłużenie swojego krótkiego życia, odkrył proces przemiany, który wydłużał jego istnienie - dając mu zdolność żerowania na esencji życiowej innych istot. Od tamtej pory inni eterorodni nauczyli się i przeprowadzali tę potworną przemianę, a eterorodni obdarzeni tym \"darem\" stali się małą mniejszością w i tak już nielicznej populacji.",
+          "Obdarzony eterorodny ma zdolność wysysania esencji życiowej innych istot. Podobnie jak ciepło przenosi się z ciepłego przedmiotu na zimny, obdarzony eterorodny musi jedynie dotknąć innej żywej istoty pazurzastą dłonią, by wyssać z niej esencję życiową, podsycając własne dalsze istnienie i wysysając siłę oraz witalność ofiary.",
+          "Dla wielu eterorodnych, żyjących jak żyją dla rozkoszy i natychmiastowej gratyfikacji, pojęcia \"chcę\" i \"potrzebuję\" są niemal tożsame. Lecz eterorodni obdarzeni tym darem rozumieją, czym jest prawdziwa potrzeba, gdyż rozwijają głód esencji życiowej znacznie przewyższający wszelkie pragnienia, które mogli odczuwać przed przemianą. Obdarzony eterorodny, który powstrzymuje się od tego żerowania, degeneruje się jeszcze szybciej niż inni eterorodni, znosząc przy tym niewysłowioną agonię spowodowaną deprywacją energii życiowej.",
+          "Wedle uznania Mistrza Gry postać eterorodnego może badać metody osiągnięcia tego mrocznego \"daru\". Proces ten jest podobny do wynajdywania i wytwarzania rzadkiego magicznego przedmiotu (zobacz \"{@book Wynajdywanie i Wytwarzanie Urządzeń|PS-K|Wynajdywanie i Wytwarzanie Urządzeń}\" wcześniej w tym dokumencie). Lecz zamiast eteru, proces wymaga różnorodnych rzadkich maści i niezwykłych składników, które składają się na koszt badania i poddania się przemianie.",
+          "Eterorodny z tym darem zyskuje zdolność Wysysania Życia: naturalny atak zadający {@damage 1k6} obrażeń nekrotycznych i przywracający eterorodnemu tę samą liczbę punktów wytrzymałości. Jeśli jednak eterorodny przez 7 dni nie zada tych obrażeń, jego maksymalna liczba punktów wytrzymałości zmniejsza się o {@dice 1k6} na tydzień. Zmniejszenia tego nie można usunąć, dopóki eterorodny nie użyje swojej zdolności Wysysania Życia i nie zakończy długiego odpoczynku."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "quote",
+        "entries": ["Dzień niespędzony na dogadzaniu zmysłom jest dniem straconym"]
+      },
+      "Gdy wydarzenia całego życia zostają skompresowane niemal do zera, każda ulotna chwila musi być smakowana - wysączona z każdej kropli przyjemności, jaką może zaoferować. Taka filozofia kształtuje życie i umysły eterorodnych. Mając zaledwie kilka krótkich lat - a czasem tylko kilka miesięcy - życia, każdy eterorodny postrzega czas jako niezwykle cenny. Każda chwila spędzona w sposób niedostarczający rozkoszy jest chwilą zmarnowaną. I choć eterorodni różnią się w swoich pragnieniach i przyjemnościach, niemal wszyscy podzielają to pragnienie wyciśnięcia jak najwięcej z krótkiego czasu, jaki im dano.",
+      "Eterorodni powstają samorzutnie w ramach procesu rafinacji eteru. Ich ciała i umysły powstają najwyraźniej z interakcji między niestabilnymi pierwiastkami eteru usuwanymi podczas rafinacji a psychicznymi odciskami tworzonymi przez ludzi zaangażowanych w ten proces. Lecz każdy eterorodny jest unikalną jednostką, nie zaledwie kopią umysłu i kształtu innej osoby. Ta rasa jest słabo poznana, a niewielu eterorodnych jest skłonnych marnować cokolwiek ze swojego krótkiego życia, pozwalając uczonym vedalkenom badać ich cechy biologiczne i psychologiczne.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Eterorodni i Płeć",
+            "entries": [
+              "Eterorodni są dziwnym żywym produktem ubocznym procesu rafinacji eteru, odlanym w humanoidalnej formie, lecz pozbawionym jakichkolwiek biologicznych cech innych ras. Nie jedzą ani nie śpią i się nie rozmnażają - nie mają też żadnych fizycznych cech płciowych. Język kategoryzujący ludzi na płeć męską lub żeńską zatem zawodzi w przypadku eterorodnych. Większość eterorodnych woli, by inni używali wobec nich zaimka \"oni\", gdyż nie przypisuje on płci, której nie posiadają. Tylko stosunkowo nieliczni wolą \"on\" lub \"ona\", decydując się przyjąć płeć."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Polityka Eterorodnych",
+            "entries": [
+              "Relacja między eterorodnymi a Konsulatem jest skomplikowana. Z jednej strony eterorodni rozumieją, że ich rasa nie istniałaby bez działań Konsulatu związanych z rafinacją eteru, więc czują przynajmniej pewną motywację, by zapewnić sprawne funkcjonowanie tych operacji. Z drugiej strony niewielu eterorodnych ma cierpliwość do żmudnej i uciążliwej polityki i regulacji Konsulatu, co daje im przynajmniej odrobinę sympatii wobec filozofii renegatów. Zwykle eterorodnych do jednej lub drugiej strony przyciąga bardziej urok ekscytacji i rozrywki niż jakiekolwiek poważne przekonania polityczne."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "astral-elf": {
+    "name": "Astralny Elf",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Typ Istoty",
+        "entries": [
+          "Jesteś Humanoidem. Jesteś też uznawany za elfa dla wszelkich wymogów lub efektów wymagających bycia elfem."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Astralny Ogień",
+        "entries": [
+          "Znasz jedną z następujących sztuczek wedle wyboru: {@spell tańczące światła}, {@spell światło} lub {@spell święty płomień}. Inteligencja, Mądrość lub Charyzma jest twoją zdolnością rzucania zaklęć dla niej (wybierz podczas wyboru tej rasy)."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w Ciemności",
+        "entries": [
+          "Widzisz w słabym świetle w zasięgu 60 stóp tak, jakby było jasne, a w ciemności tak, jakby był to półmrok. Rozróżniasz w tej ciemności jedynie odcienie szarości."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Dziedzictwo Fey",
+        "entries": [
+          "Masz przewagę w rzutach obronnych mających uniknąć lub zakończyć na tobie stan {@condition oczarowany}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wyczulone Zmysły",
+        "entries": ["Masz biegłość w umiejętności {@skill Percepcja}."]
+      },
+      {
+        "type": "entries",
+        "name": "Gwiezdny Krok",
+        "entries": [
+          "Jako akcję dodatkową możesz magicznie teleportować się o maksymalnie 30 stóp do niezajętej przestrzeni, którą widzisz. Możesz użyć tej cechy liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie wykorzystane użycia po zakończeniu długiego odpoczynku."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Astralny Trans",
+        "entries": [
+          "Nie musisz spać, a magia nie może cię uśpić. Możesz zakończyć długi odpoczynek w 4 godziny, jeśli spędzisz ten czas w transopodobnej medytacji, podczas której pozostajesz przytomny.",
+          "Za każdym razem, gdy kończysz ten trans, zyskujesz biegłość w jednej wybranej umiejętności oraz w jednej wybranej broni lub narzędziu, spośród tych z {@book Podręcznika Gracza|PHB}. Mistycznie zdobywasz te biegłości, czerpiąc je ze wspólnej pamięci elfów i doświadczeń istot z Planu Astralnego, i zachowujesz je do zakończenia następnego długiego odpoczynku."
+        ]
+      }
+    ],
+    "lore": [
+      "Dawno temu grupy elfów wyruszyły z Krainy Fey na Plan Astralny, by być bliżej swych bogów. Życie w Srebrnej Pustce przesyciło ich dusze iskrą boskiego światła. To światło objawia się jako gwiezdny blask w oczach astralnego elfa.",
+      "Ponieważ nic nie starzeje się na Planie Astralnym, astralne elfy zamieszkujące ten plan mogą być bardzo stare, a ich długowieczność daje im niezwykłą perspektywę na upływ czasu. Niektóre skłaniają się ku melancholii, podczas gdy inne mogą przejawiać brak uczuć. Wiele z nich szuka twórczych sposobów na zajęcie się. Czy to decydując się na życie w cichej kontemplacji, czy wyruszając na eksplorację zakątków multiwersum, astralne elfy mają tendencję postrzegać wszystko przez pryzmat czasu jako mającego dla nich niewielkie lub żadne znaczenie. Astralne elfy niezamieszkujące Planu Astralnego mogą żyć ponad 750 lat."
+    ]
+  },
+  "autognome": {
+    "name": "Autognom",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Typ Istoty",
+        "entries": ["Jesteś Konstruktem."]
+      },
+      {
+        "type": "entries",
+        "name": "Pancerna Powłoka",
+        "entries": [
+          "Jesteś ukryty w cienkim metalu lub innym wytrzymałym materiale. Gdy nie nosisz zbroi, twoja bazowa Klasa Pancerza wynosi 13 + twój modyfikator Zręczności."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Zbudowany do Sukcesu",
+        "entries": [
+          "Możesz dodać {@dice k4} do jednego rzutu na atak, testu zdolności lub rzutu obronnego, który wykonujesz, i możesz to zrobić po zobaczeniu wyniku rzutu {@dice k20}, lecz przed rozstrzygnięciem efektów tego rzutu. Możesz użyć tej cechy liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie wykorzystane użycia po zakończeniu długiego odpoczynku."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Maszyna Lecznicza",
+        "entries": [
+          "Jeśli rzucone zostanie na ciebie zaklęcie {@spell naprawianie}, możesz wydać kość wytrzymałości, rzucić nią i odzyskać liczbę punktów wytrzymałości równą wynikowi rzutu plus twój modyfikator Kondycji (minimum 1 punkt wytrzymałości).",
+          "Dodatkowo twój twórca zaprojektował cię tak, byś czerpał korzyści z kilku zaklęć chroniących życie, które normalnie nie działają na Konstrukty: {@spell leczenie ran}, {@spell leczące słowo}, {@spell masowe leczenie ran}, {@spell masowe leczące słowo} i {@spell oszczędzenie umierającego}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Mechaniczna Natura",
+        "entries": [
+          "Masz odporność na obrażenia trucizną i odporność na choroby, a także masz przewagę w rzutach obronnych mających uniknąć stanu {@condition sparaliżowany} lub {@condition zatruty}. Nie musisz jeść, pić ani oddychać."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Spoczynek Wartownika",
+        "entries": [
+          "Gdy odbywasz długi odpoczynek, spędzasz co najmniej 6 godzin w nieaktywnym, bezruchu, stanie, zamiast spać. W tym stanie wyglądasz jak bezwładny, lecz pozostajesz przytomny."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wyspecjalizowana Konstrukcja",
+        "entries": [
+          "Zyskujesz dwie wybrane biegłości z narzędziami, wybrane z {@book Podręcznika Gracza|PHB}."
+        ]
+      }
+    ],
+    "lore": [
+      "Autognomy to mechaniczne istoty zbudowane przez skalne gnomy. Czasem, z powodu usterki lub wyjątkowych okoliczności, autognom zostaje oddzielony od swojego twórcy i wyrusza samodzielnie.",
+      "Autognom przypomina swojego twórcę, a większość autognomów jest zaprogramowana, by mówić i rozumieć Gnomi. Wewnętrzne komponenty użyte w konstrukcji autognoma mogą się drastycznie różnić; jeden autognom może mieć w klatce piersiowej prawdziwie bijące serce, podczas gdy inny może być zasilany gwiezdnym pyłem lub misternymi mechanizmami zegarowymi.",
+      "Rzuć na tabeli Historia Autognoma lub wybierz wpis, który ci się podoba, by ustalić, jakie wydarzenie skierowało cię na drogę poszukiwacza przygód. Jeśli nic w tabeli ci nie odpowiada, współpracuj z Mistrzem Gry, by stworzyć historię pochodzenia swojej postaci.",
+      "Podobnie jak gnomy, autognomy mogą żyć przez wieki, zwykle do 500 lat.",
+      {
+        "type": "table",
+        "caption": "Historia Autognoma",
+        "colLabels": ["k6", "Historia"],
+        "colStyles": ["col-2 text-center", "col-10"],
+        "rows": [
+          ["1", "Twój twórca dał ci autonomię i zachęcił do podążania za marzeniami."],
+          ["2", "Twój twórca zmarł, pozostawiając cię, byś radził sobie sam."],
+          ["3", "Usterka sprawiła, że zapomniałeś swojego pierwotnego programowania. Nie pamiętasz, kto cię stworzył ani skąd pochodzisz."],
+          ["4", "Nie podobało ci się, jak traktował cię twórca, więc uciekłeś z domu."],
+          ["5", "Zostałeś zbudowany, by wypełnić specjalną misję."],
+          ["6", "Czułeś się uwięziony w roli, do której zostałeś zbudowany, i porzuciłeś swego twórcę, zdeterminowany, by znaleźć większy cel."]
+        ]
+      }
+    ]
+  },
+  "aven": {
+    "name": "Aven",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": ["Podobnie jak ludzie, aveny osiągają dorosłość pod koniec wieku nastoletniego i mogą żyć nawet do 80 lat."]
+      },
+      {
+        "name": "Charakter",
+        "type": "entries",
+        "entries": ["Aveny skłaniają się ku praworządnie dobremu charakterowi Kościoła Serry."]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Aveny mierzą od 5 do 6 stóp wzrostu, lecz ich ciała są smukłe, a kości częściowo puste, by ułatwić lot. Twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Lot",
+        "entries": [
+          "Masz szybkość lotu równą 30 stóp. Nie możesz korzystać z tej szybkości lotu, gdy nosisz średnią lub ciężką zbroję. (Jeśli twoja kampania korzysta z wariantowej zasady {@variantrule obciążenia|PHB}, nie możesz korzystać z szybkości lotu, gdy jesteś obciążony.)"
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": ["Potrafisz mówić, czytać i pisać we Wspólnym oraz {@language Aveńskim|PSD}."],
+        "type": "entries"
+      },
+      {
+        "name": "Sokoli Wzrok",
+        "entries": [
+          "Masz biegłość w umiejętności {@skill Percepcja}. Dodatkowo atakowanie na duży dystans nie nakłada utrudnienia na twoje rzuty na atak bronią dystansową."
+        ],
+        "type": "entries"
+      }
+    ],
+    "lore": [
+      "Po zniszczeniu odległego kontynentu Otaria w Wojnie Karony około dwustu pięćdziesięciu lat temu, ludzie wielu ras opuścili tę krainę, by znaleźć schronienie gdzie indziej. Wśród nich byli ptasi ludzie zwani avenami, którzy przed swym exodusem byli w dużej mierze nieznani poza Otarią. Zamiast rozproszyć się po świecie i zasymilować z lokalnymi kulturami, wędrowali w wielkich stadach, tworząc odrębne społeczności w kilku gościnnych lokalizacjach. Największe takie stado osiedliło się w Benalii, gdzie jego lud poddał się benalijskiemu prawu w zamian za gościnność. Aveny nie mają reprezentacji w Radzie Siedmiu, lecz wiele z nich ma nadzieję to zmienić.",
+      "Aveny mają humanoidalne ciała, ramiona i nogi, ze skrzydłami i głowami przypominającymi orły. Ich smukłe sylwetki pokryte są piórami, a ich ramiona i nogi kończą się ostrymi szponami.",
+      "Aveny tworzą własne powietrzne kompanie, czyli skrzydła, w ramach armii benalijskiej. Służą jako żołnierze, kapłani bojowi, a czasem bohaterowie, lecz nie zostają rycerzami, chyba że w naprawdę wyjątkowych okolicznościach. Kult Serry jest niemal powszechny wśród awenów z powodu synkretycznego połączenia z ich tradycyjnymi wierzeniami religijnymi, a wiele awenów to akolici Serry."
+    ]
+  },
+  "aven-psa": {
+    "name": "Aven",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Podobnie jak ludzie, aveny osiągają dorosłość pod koniec wieku nastoletniego i teoretycznie mogą żyć nawet do 80 lat. Oczywiście większość znajduje chwalebną (lub niechlubną) śmierć na długo przed tym momentem."
+        ]
+      },
+      {
+        "name": "Charakter",
+        "type": "entries",
+        "entries": [
+          "Większość awenów skłania się ku jakiejś formie neutralności. Aveny o głowach ibisów, skupione bardziej na wiedzy niż jakiejkolwiek innej cnocie, są zwykle neutralne. Aveny o głowach jastrzębi skłaniają się ku praworządnej neutralności."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Aveny mierzą od 5 do 6 stóp wzrostu, lecz ich ciała są smukłe, a kości częściowo puste, by ułatwić lot. Twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Lot",
+        "entries": [
+          "Masz szybkość lotu równą 30 stóp. Nie możesz korzystać z tej szybkości lotu, gdy nosisz średnią lub ciężką zbroję. (Jeśli twoja kampania korzysta z wariantowej zasady obciążenia, nie możesz korzystać z szybkości lotu, gdy jesteś obciążony.)"
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": ["Potrafisz mówić, czytać i pisać we Wspólnym oraz Aveńskim."],
+        "type": "entries"
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          "Aveny mają humanoidalne ciała, ramiona i nogi, wraz z ptasimi skrzydłami i głowami. W Naktamun spotyka się dwie odrębne odmiany awenów. Jedna ma głowę jastrzębia lub podobnego ptaka drapieżnego, z krótkimi skrzydłami umożliwiającymi szybki lot. Druga odmiana ma głowę ibisa osadzoną na długiej szyi, z szerokimi, kanciastymi skrzydłami lepiej dostosowanymi do szybowania. Wszystkie aveny mają smukłe ciała z piórami rozciągającymi się od głów aż po ramiona.",
+          "Aveny uwielbiają latać nad swoimi wrogami, wykorzystując swą przewyższającą mobilność, by dezorientować i wyprzedzać przeciwników. Uwielbiają też szybować po niebie, choć Hekma ogranicza ich wysokość. Podobnie jak wszyscy mieszkańcy Naktamun, są oczywiście wdzięczni za ochronną magię Hekmy. Lecz gorliwie wyczekują godziny, gdy Bóg-Faraon powróci i rozwieje zasłonę, pozwalając im latać bez ograniczeń w zaświatach.",
+          {
+            "type": "entries",
+            "name": "Klasy Bojowe",
+            "entries": [
+              "Rzucający zaklęcia są powszechni wśród {@race Aven (o Głowie Ibisa)|PSA|awenów o głowach ibisów}, podążających za naukami Kefneta. Ich fizyczne podobieństwo do boga wiedzy odzwierciedla się w metalowej dyscyplinie, skupieniu i pewności siebie, z których słyną rzucający zaklęcia aveny. Władają magią powietrza, wiatru, a czasem wody, by uderzać w swoich wrogów, wzmacniać własny lot i przeciwdziałać atakom przeciwników. Aveny o głowach jastrzębi podążające ścieżką maga częściej uczą się magii opartej na piasku, która może zasnuwać powietrze, razić wrogów lub zasypywać przeciwników żywymi wydmami.",
+              "{@race Aven (o Głowie Jastrzębia)|PSA|Aveny o głowach jastrzębi} często dążą do opanowania technik walki na duży dystans, czy to za pomocą {@item oszczepu|PHB} będącego ulubioną bronią wielu z nich, łuku, czy innej broni miotanej. Niezależnie od używanej broni, aveny unoszą się i pikują w powietrzu nad polem bitwy, szukając dogodnej chwili, by uderzyć dokładnie we właściwe miejsce. Zgodnie z naukami boga solidarności, często latają w ścisłych formacjach z innymi awenami ze swojego plonu, wspierając się i chroniąc nawzajem. Aveny są bardzo dumne z precyzji swoich ataków, polegając na swoim bystrym wzroku i przewyższających punktach obserwacyjnych. Postrzegają ostry czubek {@item oszczepu|PHB} lub {@item strzały|PHB} jako symbol swej miłości do precyzji, a niektórzy inicjowani starannie pielęgnują kolekcje grotów włóczni lub strzał.",
+              "Stosunkowo niewielka liczba awenów obu odmian skupia się na walce wręcz. Nawet wtedy wykorzystują swoją zdolność lotu z wielką korzyścią, często spadając na wrogów z dużej wysokości. Prędkość i siła ciosu nurkującego awena mogą być całkowicie druzgocące, lecz takie uderzenie niesie ze sobą ogromne ryzyko zarówno dla awena, jak i celu. Awen, który nie zdoła wyjść z nurkowania na czas, może odnieść jeszcze poważniejsze obrażenia niż cel ataku. Aveny często minimalizują to ryzyko, ciskając {@item oszczepy|PHB} podczas nurkowania, a następnie wychodząc z niego wcześniej po udanym rzucie."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

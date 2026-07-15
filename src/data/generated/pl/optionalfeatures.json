@@ -1,0 +1,1168 @@
+{
+ "agonizing-blast": {
+  "name": "Bolesny Wybuch",
+  "entries": [
+   "Wybierz jeden ze znanych ci {@filter Zaklęć Prostych Czarownika|spells|damage type=acid;bludgeoning;cold;fire;force;lightning;necrotic;piercing;poison;psychic;radiant;slashing;thunder}, który zadaje obrażenia. Możesz dodać swój modyfikator Charyzmy do rzutów obrażeń tego zaklęcia.",
+   {"type": "entries", "entries": [{"type": "entries", "name": "Powtarzalna", "entries": ["Możesz zdobyć tę inwokację więcej niż raz. Za każdym razem wybierz inne kwalifikujące się zaklęcie proste."]}]}
+  ]
+ },
+ "agonizing-blast-phb": {
+  "name": "Bolesny Wybuch",
+  "entries": [
+   "Gdy rzucasz {@spell eldritch blast|mroczny wybuch}, dodaj swój modyfikator Charyzmy do obrażeń, jakie zadaje przy trafieniu."
+  ]
+ },
+ "ambush": {
+  "name": "Zasadzka",
+  "entries": [
+   "Gdy wykonujesz test Zręczności ({@skill Stealth|XPHB|Skradanie się}) lub rzut na {@variantrule Initiative|XPHB|Inicjatywę}, możesz wydać jedną Kość Przewagi i dodać ją do rzutu, chyba że masz stan {@condition Incapacitated|XPHB|Bezradny}."
+  ]
+ },
+ "ambush-tce": {
+  "name": "Zasadzka",
+  "entries": [
+   "Gdy wykonujesz test Zręczności ({@skill Stealth|Skradanie się}) lub rzut na inicjatywę, możesz wydać jedną kość przewagi i dodać ją do rzutu, pod warunkiem że nie jesteś {@condition incapacitated|bezradny}."
+  ]
+ },
+ "arcane-propulsion-armor": {
+  "name": "Zbroja Arkanicznego Napędu",
+  "entries": [
+   "Osoba nosząca tę zbroję zyskuje następujące korzyści:",
+   {"type": "list", "items": [
+    "Prędkość marszu noszącego zwiększa się o 5 stóp.",
+    "Zbroja zawiera rękawice, z których każda jest magiczną bronią do walki wręcz, którą można władać tylko wtedy, gdy dłoń niczego nie trzyma. Noszący jest biegły w posługiwaniu się rękawicami, a każda z nich zadaje {@damage 1d8} obrażeń siłą przy trafieniu i posiada właściwość rzucania, z normalnym zasięgiem 20 stóp i dalekim zasięgiem 60 stóp. Rzucona rękawica odłącza się i leci w kierunku celu ataku, po czym natychmiast wraca do noszącego i ponownie się przyczepia.",
+    "Zbroi nie można zdjąć wbrew woli noszącego.",
+    "Jeśli noszącemu brakuje jakichkolwiek kończyn, zbroja je zastępuje — dłonie, ramiona, stopy, nogi lub podobne wyrostki. Zamienniki działają identycznie jak części ciała, które zastępują."
+   ]}
+  ]
+ },
+ "archery": {
+  "name": "Łucznictwo",
+  "entries": ["Zyskujesz premię +2 do rzutów na atak wykonywanych bronią dystansową."]
+ },
+ "armor-of-magical-strength": {
+  "name": "Zbroja Magicznej Siły",
+  "entries": [
+   "Ta zbroja ma 6 ładunków. Noszący może wydawać ładunki zbroi w następujące sposoby:",
+   {"type": "list", "items": [
+    "Gdy noszący wykonuje test Siły lub rzut obronny Siły, może wydać 1 ładunek, by dodać do rzutu premię równą jego modyfikatorowi Inteligencji.",
+    "Jeśli stwór miałby zostać powalony ({@condition prone}), może użyć reakcji, by wydać 1 ładunek i uniknąć powalenia."
+   ]},
+   "Zbroja odzyskuje {@dice 1d6} wydanych ładunków codziennie o świcie."
+  ]
+ },
+ "armor-of-shadows": {
+  "name": "Zbroja Cieni",
+  "entries": ["Możesz rzucić {@spell Mage Armor|XPHB|Zbroja Maga} na siebie bez wydawania miejsca zaklęcia."]
+ },
+ "armor-of-shadows-phb": {
+  "name": "Zbroja Cieni",
+  "entries": ["Możesz rzucić {@spell mage armor|zbroja maga} na siebie dowolną liczbę razy, bez wydawania miejsca zaklęcia ani komponentów materialnych."]
+ },
+ "ascendant-step": {
+  "name": "Wstępujący Krok",
+  "entries": ["Możesz rzucić {@spell Levitate|XPHB|Lewitacja} na siebie bez wydawania miejsca zaklęcia."]
+ },
+ "ascendant-step-phb": {
+  "name": "Wstępujący Krok",
+  "entries": ["Możesz rzucić {@spell levitate|lewitacja} na siebie dowolną liczbę razy, bez wydawania miejsca zaklęcia ani komponentów materialnych."]
+ },
+ "aspect-of-the-moon": {
+  "name": "Oblicze Księżyca",
+  "entries": ["Nie musisz już spać i nie można cię zmusić do snu w żaden sposób. Aby zyskać korzyści z długiego odpoczynku, możesz spędzić wszystkie 8 godzin na lekkiej aktywności, takiej jak czytanie swojej Księgi Cieni i pełnienie warty."]
+ },
+ "bait-and-switch": {
+  "name": "Przynęta i Zamiana",
+  "entries": [
+   "Gdy znajdujesz się w promieniu 5 stóp od stwora podczas swojej tury, możesz wydać jedną Kość Przewagi i zamienić się miejscami z tym stworem, pod warunkiem że wydasz co najmniej 5 stóp ruchu, a stwór jest chętny i nie ma stanu {@condition Incapacitated|XPHB|Bezradny}. Ten ruch nie prowokuje {@action Opportunity Attack|XPHB|Ataków Okazyjnych}.",
+   "Rzuć Kością Przewagi. Do początku swojej następnej tury ty lub drugi stwór (twój wybór) zyskuje premię do KP równą wyrzuconej liczbie."
+  ]
+ },
+ "bait-and-switch-tce": {
+  "name": "Przynęta i Zamiana",
+  "entries": [
+   "Gdy znajdujesz się w promieniu 5 stóp od stwora podczas swojej tury, możesz wydać jedną kość przewagi i zamienić się miejscami z tym stworem, pod warunkiem że wydasz co najmniej 5 stóp ruchu, a stwór jest chętny i nie jest {@condition incapacitated|bezradny}. Ten ruch nie prowokuje ataków okazyjnych.",
+   "Rzuć kością przewagi. Do początku swojej następnej tury ty lub drugi stwór (twój wybór) zyskuje premię do KP równą wyrzuconej liczbie."
+  ]
+ },
+ "banishing-arrow": {
+  "name": "Wygnańcza Strzała",
+  "entries": [
+   "Używasz magii abjuracji, by spróbować tymczasowo wygnać swój cel do nieszkodliwego miejsca na Krainie Fey. Stwór trafiony strzałą musi także zdać rzut obronny Charyzmy lub zostać wygnany. Podczas wygnania w ten sposób prędkość celu wynosi 0, a cel jest {@condition incapacitated|bezradny}. Pod koniec swojej następnej tury cel pojawia się ponownie w opuszczonej przestrzeni lub w najbliższej wolnej przestrzeni, jeśli tamta jest zajęta.",
+   "Po osiągnięciu 18. poziomu w tej klasie cel otrzymuje także {@damage 2d6} obrażeń siłą, gdy strzała go trafi."
+  ]
+ },
+ "beast-speech": {
+  "name": "Mowa Bestii",
+  "entries": ["Możesz rzucić {@spell speak with animals|mowa zwierząt} dowolną liczbę razy, bez wydawania miejsca zaklęcia."]
+ },
+ "beguiling-arrow": {
+  "name": "Zwodnicza Strzała",
+  "entries": [
+   "Twoja magia zauroczenia sprawia, że ta strzała chwilowo zwodzi swój cel. Stwór trafiony strzałą otrzymuje dodatkowe {@damage 2d6} obrażeń psychicznych, a ty wybierz jednego ze swoich sojuszników w promieniu 30 stóp od celu. Cel musi zdać rzut obronny Mądrości, w przeciwnym razie zostaje {@condition charmed|oczarowany} przez wybranego sojusznika do początku twojej następnej tury. Ten efekt kończy się wcześniej, jeśli wybrany sojusznik zaatakuje oczarowany cel, zada mu obrażenia lub zmusi go do wykonania rzutu obronnego.",
+   "Obrażenia psychiczne wzrastają do {@damage 4d6}, gdy osiągniesz 18. poziom w tej klasie."
+  ]
+ },
+ "beguiling-influence": {
+  "name": "Zwodniczy Wpływ",
+  "entries": ["Zyskujesz biegłość w umiejętnościach {@skill Deception|Oszustwo} i {@skill Persuasion|Perswazja}."]
+ },
+ "bewitching-whispers": {
+  "name": "Czarujące Szepty",
+  "entries": ["Możesz raz rzucić {@spell compulsion|przymus}, używając miejsca zaklęcia czarownika. Nie możesz zrobić tego ponownie, dopóki nie zakończysz długiego odpoczynku."]
+ },
+ "blessed-warrior": {
+  "name": "Błogosławiony Wojownik",
+  "entries": ["Uczysz się dwóch zaklęć prostych do wyboru z {@filter listy zaklęć kapłana|spells|class=Cleric}. Liczą się dla ciebie jako zaklęcia paladyna, a twoją zdolnością czarodziejską dla nich jest Charyzma. Za każdym razem, gdy zdobywasz poziom w tej klasie, możesz zamienić jedno z tych zaklęć prostych na inne z listy zaklęć kapłana."]
+ },
+ "blind-fighting": {
+  "name": "Walka po Omacku",
+  "entries": ["Masz {@sense blindsight|ślepowzrok} o zasięgu 10 stóp. W tym zasięgu możesz efektywnie widzieć wszystko, co nie znajduje się za {@quickref Cover||pełną osłoną}, nawet jeśli jesteś {@condition blinded|oślepiony} lub w ciemności. Ponadto możesz widzieć {@condition invisible|niewidzialnego} stwora w tym zasięgu, chyba że stwór skutecznie się przed tobą ukrywa."]
+ },
+ "bond-of-the-talisman": {
+  "name": "Więź Talizmanu",
+  "entries": ["Gdy ktoś inny nosi twój talizman, możesz użyć swojej akcji, by teleportować się do najbliższej wolnej przestrzeni przy nim, pod warunkiem że oboje jesteście na tym samym planie istnienia. Osoba nosząca twój talizman może zrobić to samo, używając swojej akcji, by teleportować się do ciebie. Teleportacji można użyć liczbę razy równą twojej premii biegłości, a wszystkie wydane użycia odnawiają się, gdy kończysz długi odpoczynek."]
+ },
+ "book-of-ancient-secrets": {
+  "name": "Księga Pradawnych Sekretów",
+  "entries": [
+   "W twojej Księdze Cieni pojawia się teraz możliwość zapisywania magicznych rytuałów. Wybierz dwa {@filter zaklęcia 1. poziomu posiadające znacznik rytuału z dowolnej listy zaklęć jakiejkolwiek klasy|spells|level=1}. Zaklęcia nie muszą pochodzić z tej samej listy. Zaklęcia pojawiają się w księdze i nie liczą się do liczby znanych ci zaklęć. Trzymając Księgę Cieni w dłoni, możesz rzucać wybrane zaklęcia jako rytuały. Nie możesz rzucać tych zaklęć inaczej niż jako rytuały, chyba że nauczyłeś się ich w inny sposób. Możesz też rzucić jako rytuał znane ci zaklęcie czarownika, jeśli posiada znacznik rytuału.",
+   "Podczas swoich przygód możesz dodawać do Księgi Cieni kolejne zaklęcia rytualne. Gdy znajdziesz takie zaklęcie, możesz je dodać do księgi, jeśli poziom zaklęcia jest równy lub niższy niż połowa twojego poziomu czarownika (zaokrąglona w górę) i jeśli możesz poświęcić czas na przepisanie zaklęcia. Za każdy poziom zaklęcia proces przepisywania zajmuje 2 godziny i kosztuje 50 sz na rzadkie atramenty potrzebne do jego zapisania."
+  ]
+ },
+ "boots-of-the-winding-path": {
+  "name": "Buty Wijącej się Ścieżki",
+  "entries": ["Nosząc te buty, stwór może jako akcję dodatkową teleportować się na odległość do 15 stóp do wolnej przestrzeni, którą widzi. Stwór musiał zajmować tę przestrzeń w pewnym momencie podczas obecnej tury."]
+ },
+ "brace": {
+  "name": "Osłona",
+  "entries": ["Gdy widoczny stwór wchodzi w zasięg broni do walki wręcz, którą władasz, możesz użyć reakcji, by wydać jedną kość przewagi i wykonać jeden atak przeciwko temu stworowi, używając tej broni. Jeśli atak trafi, dodaj kość przewagi do rzutu obrażeń broni."]
+ },
+ "breath-of-winter": {
+  "name": "Oddech Zimy",
+  "entries": ["Możesz wydać 6 punktów ki, by rzucić {@spell cone of cold|stożek zimna}."]
+ },
+ "bursting-arrow": {
+  "name": "Wybuchająca Strzała",
+  "entries": [
+   "Nasycasz swoją strzałę energią siły zaczerpniętą ze szkoły ewokacji. Energia detonuje po twoim ataku. Natychmiast po tym, jak strzała trafi stwora, cel oraz wszystkie inne stwory w promieniu 10 stóp od niego otrzymują po {@damage 2d6} obrażeń siłą.",
+   "Obrażenia siłą wzrastają do {@damage 4d6}, gdy osiągniesz 18. poziom w tej klasie."
+  ]
+ },
+ "careful-spell": {
+  "name": "Ostrożne Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie, które zmusza inne stwory do wykonania rzutu obronnego, możesz ochronić niektóre z nich przed pełną mocą zaklęcia. W tym celu wydaj 1 Punkt Czarodziejstwa i wybierz liczbę stworów do wysokości swojego modyfikatora Charyzmy (minimum jeden stwór). Wybrany stwór automatycznie zdaje rzut obronny przeciwko zaklęciu, a jeśli normalnie otrzymałby połowę obrażeń przy udanym rzucie, nie otrzymuje ich wcale."]
+ },
+ "careful-spell-phb": {
+  "name": "Ostrożne Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie, które zmusza inne stwory do wykonania rzutu obronnego, możesz ochronić niektóre z nich przed pełną mocą zaklęcia. W tym celu wydajesz 1 punkt czarodziejstwa i wybierasz liczbę stworów do wysokości swojego modyfikatora Charyzmy (minimum jeden stwór). Wybrany stwór automatycznie zdaje rzut obronny przeciwko zaklęciu."]
+ },
+ "celebrated-in-house": {
+  "name": "Wysławiany w Rodzie",
+  "entries": [
+   "Gdy prosisz swój ród o przysługę (jak opisano w „{@optfeature Favored in House|EFA|Ulubieniec Rodu}”), może ona przyjąć jedną z poniższych dodatkowych form:",
+   {"type": "list", "items": [
+    "Naznaczony smoczym znamieniem członek rodu rzuca dla ciebie zaklęcie 3. lub 4. poziomu związane ze znamieniem rodu bez żadnego kosztu.",
+    "Członek rodu rzuca dla ciebie inne zaklęcie 6. poziomu lub niższe za połowę zwykłego kosztu.",
+    "Zyskujesz ochroniarza na czas trwania twojej następnej misji dla rodu (maksymalnie 1 tydzień). Ochroniarz — stwór o {@variantrule Challenge Rating|XPHB|Poziomie Wyzwania} nie wyższym niż połowa twojego poziomu (zaokrąglona w górę) — jest odpowiedni dla twojego rodu."
+   ]},
+   "Dodatkowo twoje stypendium rodowe wzrasta, wspierając twój Zamożny styl życia (4 sz dziennie)."
+  ]
+ },
+ "chains-of-carceri": {
+  "name": "Łańcuchy Carceri",
+  "entries": ["Możesz rzucić {@spell hold monster|paraliż potwora} dowolną liczbę razy — celując w istotę niebiańską, diabelstwo lub żywiołaka — bez wydawania miejsca zaklęcia ani komponentów materialnych. Musisz zakończyć długi odpoczynek, zanim ponownie użyjesz tej inwokacji na tym samym stworze."]
+ },
+ "clench-of-the-north-wind": {
+  "name": "Uścisk Północnego Wiatru",
+  "entries": ["Możesz wydać 3 punkty ki, by rzucić {@spell hold person|paraliż osoby}."]
+ },
+ "cloak-of-flies": {
+  "name": "Płaszcz Much",
+  "entries": [
+   "Jako akcję dodatkową możesz otoczyć się magiczną aurą przypominającą brzęczące muchy. Aura rozciąga się na 5 stóp od ciebie we wszystkich kierunkach, ale nie przez {@quickref Cover||pełną osłonę}. Trwa, dopóki nie staniesz się {@condition incapacitated|bezradny} lub nie odwołasz jej jako akcję dodatkową.",
+   "Aura daje ci przewagę w testach Charyzmy ({@skill Intimidation|Zastraszanie}), ale utrudnienie we wszystkich innych testach Charyzmy. Każdy inny stwór, który zaczyna swoją turę w aurze, otrzymuje obrażenia trucizną równe twojemu modyfikatorowi Charyzmy (minimum 0 obrażeń).",
+   "Gdy raz użyjesz tej inwokacji, nie możesz jej użyć ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+  ]
+ },
+ "cloud-rune": {
+  "name": "Runa Chmury",
+  "entries": [
+   "Ta runa naśladuje zwodniczą magię używaną przez niektórych olbrzymów chmur. Nosząc lub trzymając przedmiot naznaczony tą runą, masz przewagę w testach Zręczności ({@skill Sleight of Hand|Zręczne Palce}) i Charyzmy ({@skill Deception|Oszustwo}).",
+   "Dodatkowo, gdy ty lub widoczny przez ciebie stwór w promieniu 30 stóp od ciebie zostaje trafiony rzutem na atak, możesz użyć reakcji, by przywołać runę i wybrać innego stwora w promieniu 30 stóp od ciebie, innego niż atakujący. Wybrany stwór staje się celem ataku, przy użyciu tego samego rzutu. Ta magia może przenieść efekty ataku niezależnie od jego zasięgu. Gdy raz przywołasz tę runę, nie możesz zrobić tego ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+  ]
+ },
+ "commander-s-strike": {
+  "name": "Uderzenie Dowódcy",
+  "entries": ["Gdy podejmujesz akcję {@action Attack|XPHB|Atak} podczas swojej tury, możesz zastąpić jeden ze swoich ataków, wydając polecenie jednemu ze swoich towarzyszy, by uderzył. Gdy to robisz, wybierz chętny stwór, który cię widzi lub słyszy, i wydaj jedną Kość Przewagi. Ten stwór może natychmiast użyć swojej {@variantrule Reaction|XPHB|Reakcji}, by wykonać jeden atak bronią lub {@variantrule Unarmed Strike|XPHB|Uderzeniem Bez Broni}, dodając Kość Przewagi do rzutu obrażeń ataku przy trafieniu."]
+ },
+ "commander-s-strike-phb": {
+  "name": "Uderzenie Dowódcy",
+  "entries": ["Gdy podejmujesz akcję {@action Attack|Atak} podczas swojej tury, możesz zrezygnować z jednego ze swoich ataków i użyć akcji dodatkowej, by wydać polecenie jednemu ze swoich towarzyszy, by uderzył. Gdy to robisz, wybierz przyjazny stwór, który cię widzi lub słyszy, i wydaj jedną kość przewagi. Ten stwór może natychmiast użyć swojej reakcji, by wykonać jeden atak bronią, dodając kość przewagi do rzutu obrażeń ataku."]
+ },
+ "commanding-presence": {
+  "name": "Rozkazująca Obecność",
+  "entries": ["Gdy wykonujesz test Charyzmy ({@skill Intimidation|XPHB|Zastraszanie}, {@skill Performance|XPHB|Występy} lub {@skill Persuasion|XPHB|Perswazja}), możesz wydać jedną Kość Przewagi i dodać ją do rzutu."]
+ },
+ "commanding-presence-tce": {
+  "name": "Rozkazująca Obecność",
+  "entries": ["Gdy wykonujesz test Charyzmy ({@skill Intimidation|Zastraszanie}), Charyzmy ({@skill Performance|Występy}) lub Charyzmy ({@skill Persuasion|Perswazja}), możesz wydać jedną kość przewagi i dodać ją do testu zdolności."]
+ },
+ "defense": {
+  "name": "Obrona",
+  "entries": ["Nosząc zbroję, zyskujesz premię +1 do KP."]
+ },
+ "devil-s-sight": {
+  "name": "Wzrok Diabła",
+  "entries": ["Możesz normalnie widzieć w {@variantrule Dim Light|XPHB|Półmroku} i {@variantrule Darkness|XPHB|Ciemności} — zarówno magicznej, jak i niemagicznej — w promieniu 120 stóp od siebie."]
+ },
+ "devil-s-sight-phb": {
+  "name": "Wzrok Diabła",
+  "entries": ["Możesz normalnie widzieć w ciemności, zarówno magicznej, jak i niemagicznej, na odległość 120 stóp."]
+ },
+ "devouring-blade": {
+  "name": "Pożerające Ostrze",
+  "entries": ["Dodatkowy Atak z twojej inwokacji {@optfeature Thirsting Blade|XPHB|Spragnione Ostrze} daje dwa dodatkowe ataki zamiast jednego."]
+ },
+ "disarming-attack": {
+  "name": "Rozbrajający Atak",
+  "entries": ["Gdy trafisz stwora rzutem na atak, możesz wydać jedną Kość Przewagi, by spróbować rozbroić cel. Dodaj wynik rzutu Kością Przewagi do rzutu obrażeń ataku. Cel musi zdać rzut obronny Siły lub upuścić jeden wybrany przez ciebie przedmiot, który trzyma, przy czym przedmiot ląduje w jego przestrzeni."]
+ },
+ "disarming-attack-phb": {
+  "name": "Rozbrajający Atak",
+  "entries": ["Gdy trafisz stwora atakiem bronią, możesz wydać jedną kość przewagi, by spróbować rozbroić cel, zmuszając go do upuszczenia jednego wybranego przez ciebie przedmiotu, który trzyma. Dodajesz kość przewagi do rzutu obrażeń ataku, a cel musi wykonać rzut obronny Siły. Przy nieudanym rzucie upuszcza wybrany przez ciebie przedmiot. Przedmiot ląduje u jego stóp."]
+ },
+ "distant-spell": {
+  "name": "Odległe Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie o zasięgu co najmniej 5 stóp, możesz wydać 1 Punkt Czarodziejstwa, by podwoić zasięg zaklęcia. Lub gdy rzucasz zaklęcie o zasięgu Dotyk, możesz wydać 1 Punkt Czarodziejstwa, by zasięg zaklęcia wynosił 30 stóp."]
+ },
+ "distant-spell-phb": {
+  "name": "Odległe Zaklęcie",
+  "entries": [
+   "Gdy rzucasz zaklęcie o zasięgu 5 stóp lub większym, możesz wydać 1 punkt czarodziejstwa, by podwoić zasięg zaklęcia.",
+   "Gdy rzucasz zaklęcie o zasięgu dotyku, możesz wydać 1 punkt czarodziejstwa, by zasięg zaklęcia wynosił 30 stóp."
+  ]
+ },
+ "distracting-strike": {
+  "name": "Rozpraszające Uderzenie",
+  "entries": ["Gdy trafisz stwora rzutem na atak, możesz wydać jedną Kość Przewagi, by rozproszyć cel. Dodaj wynik rzutu Kością Przewagi do rzutu obrażeń ataku. Następny rzut na atak przeciwko celowi wykonany przez atakującego innego niż ty ma {@variantrule Advantage|XPHB|Przewagę}, jeśli atak zostanie wykonany przed początkiem twojej następnej tury."]
+ },
+ "distracting-strike-phb": {
+  "name": "Rozpraszające Uderzenie",
+  "entries": ["Gdy trafisz stwora atakiem bronią, możesz wydać jedną kość przewagi, by rozproszyć stwora, dając twoim sojusznikom okazję. Dodajesz kość przewagi do rzutu obrażeń ataku. Następny rzut na atak przeciwko celowi wykonany przez atakującego innego niż ty ma przewagę, jeśli atak zostanie wykonany przed początkiem twojej następnej tury."]
+ },
+ "dreadful-word": {
+  "name": "Straszliwe Słowo",
+  "entries": ["Możesz raz rzucić {@spell confusion|zamęt}, używając miejsca zaklęcia czarownika. Nie możesz zrobić tego ponownie, dopóki nie zakończysz długiego odpoczynku."]
+ },
+ "druidic-warrior": {
+  "name": "Druidzki Wojownik",
+  "entries": ["Uczysz się dwóch zaklęć prostych do wyboru z {@filter listy zaklęć druida|spells|class=druid}. Liczą się dla ciebie jako zaklęcia rangera, a twoją zdolnością czarodziejską dla nich jest Mądrość. Za każdym razem, gdy zdobywasz poziom w tej klasie, możesz zamienić jedno z tych zaklęć prostych na inne z listy zaklęć druida."]
+ },
+ "dueling": {
+  "name": "Pojedynkowanie",
+  "entries": ["Gdy władasz bronią do walki wręcz w jednej dłoni i nie trzymasz żadnej innej broni, zyskujesz premię +2 do rzutów obrażeń tą bronią."]
+ },
+ "eldritch-mind": {
+  "name": "Mroczny Umysł",
+  "entries": ["Masz {@variantrule Advantage|XPHB|Przewagę} w rzutach obronnych Kondycji wykonywanych, by utrzymać {@status Concentration|XPHB|Koncentrację}."]
+ },
+ "eldritch-mind-tce": {
+  "name": "Mroczny Umysł",
+  "entries": ["Masz przewagę w rzutach obronnych Kondycji wykonywanych, by utrzymać {@status concentration|koncentrację} na zaklęciu."]
+ },
+ "eldritch-sight": {
+  "name": "Mroczny Wzrok",
+  "entries": ["Możesz rzucić {@spell detect magic|wykrycie magii} dowolną liczbę razy, bez wydawania miejsca zaklęcia."]
+ },
+ "eldritch-smite": {
+  "name": "Mroczne Smagnięcie",
+  "entries": ["Raz na turę, gdy trafisz stwora swoją bronią paktu, możesz wydać miejsce Magii Paktu, by zadać dodatkowe {@damage 1d8} obrażeń Siłą celowi, plus kolejne {@dice 1d8} za każdy poziom miejsca zaklęcia, i możesz nadać celowi stan {@condition Prone|XPHB|Powalony}, jeśli jest Wielki lub mniejszy."]
+ },
+ "eldritch-smite-xge": {
+  "name": "Mroczne Smagnięcie",
+  "entries": ["Raz na turę, gdy trafisz stwora swoją bronią paktu, możesz wydać miejsce zaklęcia czarownika, by zadać dodatkowe {@damage 1d8} obrażeń siłą celowi, plus kolejne {@damage 1d8} za każdy poziom miejsca zaklęcia, i możesz powalić cel ({@condition prone}), jeśli jest Wielki lub mniejszy."]
+ },
+ "eldritch-spear": {
+  "name": "Mroczna Włócznia",
+  "entries": [
+   "Wybierz jedno ze znanych ci {@filter Zaklęć Prostych Czarownika|spells|range=point}, które zadaje obrażenia i ma zasięg co najmniej 10 stóp. Gdy rzucasz to zaklęcie, jego zasięg zwiększa się o liczbę stóp równą 30 razy twój poziom Czarownika.",
+   {"type": "entries", "entries": [{"type": "entries", "name": "Powtarzalna", "entries": ["Możesz zdobyć tę inwokację więcej niż raz. Za każdym razem wybierz inne kwalifikujące się zaklęcie proste."]}]}
+  ]
+ },
+ "eldritch-spear-phb": {
+  "name": "Mroczna Włócznia",
+  "entries": ["Gdy rzucasz {@spell eldritch blast|mroczny wybuch}, jego zasięg wynosi 300 stóp."]
+ },
+ "elemental-attunement": {
+  "name": "Dostrojenie Żywiołów",
+  "entries": [
+   "Możesz użyć akcji, by chwilowo kontrolować siły żywiołów w promieniu 30 stóp od siebie, powodując jeden z poniższych efektów do wyboru:",
+   {"type": "list", "items": [
+    "Stworzenie nieszkodliwego, natychmiastowego efektu zmysłowego związanego z powietrzem, ziemią, ogniem lub wodą, takiego jak deszcz iskier, podmuch wiatru, tryskająca mgiełka lub delikatny pomruk kamienia.",
+    "Natychmiastowe zapalenie lub zgaszenie świecy, pochodni lub małego ogniska.",
+    "Ochłodzenie lub ogrzanie do 1 funta nieożywionego materiału na okres do 1 godziny.",
+    "Sprawienie, że ziemia, ogień, woda lub mgła mieszczące się w sześcianie o boku 1 stopy przybierają prymitywny kształt wskazany przez ciebie na 1 minutę."
+   ]}
+  ]
+ },
+ "empowered-spell": {
+  "name": "Wzmocnione Zaklęcie",
+  "entries": [
+   "Gdy rzucasz kości obrażeń zaklęcia, możesz wydać 1 Punkt Czarodziejstwa, by przerzucić liczbę kości obrażeń do wysokości swojego modyfikatora Charyzmy (minimum jedną), a musisz użyć nowych wyników.",
+   "Możesz użyć Wzmocnionego Zaklęcia, nawet jeśli użyłeś już innej opcji Metamagii podczas rzucania tego zaklęcia."
+  ]
+ },
+ "empowered-spell-phb": {
+  "name": "Wzmocnione Zaklęcie",
+  "entries": [
+   "Gdy rzucasz kości obrażeń zaklęcia, możesz wydać 1 punkt czarodziejstwa, by przerzucić liczbę kości obrażeń do wysokości swojego modyfikatora Charyzmy (minimum jedną). Musisz użyć nowych wyników.",
+   "Możesz użyć Wzmocnionego Zaklęcia, nawet jeśli użyłeś już innej opcji Metamagii podczas rzucania tego zaklęcia."
+  ]
+ },
+ "enfeebling-arrow": {
+  "name": "Osłabiająca Strzała",
+  "entries": [
+   "Wplatasz magię nekromancji w swoją strzałę. Stwór trafiony strzałą otrzymuje dodatkowe {@damage 2d6} obrażeń nekrotycznych. Cel musi także zdać rzut obronny Kondycji, w przeciwnym razie obrażenia zadawane przez jego ataki bronią zostają zmniejszone o połowę do początku twojej następnej tury.",
+   "Obrażenia nekrotyczne wzrastają do {@damage 4d6}, gdy osiągniesz 18. poziom w tej klasie."
+  ]
+ },
+ "enhanced-arcane-focus": {
+  "name": "Ulepszone Ognisko Arkaniczne",
+  "entries": [
+   "Trzymając ten przedmiot, stwór zyskuje premię +1 do rzutów na atak zaklęciem. Dodatkowo stwór ignoruje {@quickref Cover||połowiczną osłonę} podczas ataku zaklęciem.",
+   "Premia wzrasta do +2, gdy osiągniesz 10. poziom w tej klasie."
+  ]
+ },
+ "enhanced-defense": {
+  "name": "Ulepszona Obrona",
+  "entries": [
+   "Stwór zyskuje premię +1 do Klasy Pancerza, nosząc (zbroja) lub władając (tarcza) naznaczonym przedmiotem.",
+   "Premia wzrasta do +2, gdy osiągniesz 10. poziom w tej klasie."
+  ]
+ },
+ "enhanced-weapon": {
+  "name": "Ulepszona Broń",
+  "entries": [
+   "Ta magiczna broń daje premię +1 do rzutów na atak i obrażenia wykonywanych nią.",
+   "Premia wzrasta do +2, gdy osiągniesz 10. poziom w tej klasie."
+  ]
+ },
+ "eternal-mountain-defense": {
+  "name": "Obrona Wiecznej Góry",
+  "entries": ["Możesz wydać 5 punktów ki, by rzucić {@spell stoneskin|kamienna skóra} na siebie."]
+ },
+ "evasive-footwork": {
+  "name": "Wymijający Krok",
+  "entries": ["Jako {@variantrule Bonus Action|XPHB|Akcję Dodatkową}, możesz wydać jedną Kość Przewagi i podjąć akcję {@action Disengage|XPHB|Wycofania}. Rzucasz też kością i dodajesz wyrzuconą liczbę do swojego KP do początku swojej następnej tury."]
+ },
+ "evasive-footwork-phb": {
+  "name": "Wymijający Krok",
+  "entries": ["Gdy się poruszasz, możesz wydać jedną kość przewagi, rzucając nią i dodając wyrzuconą liczbę do swojego KP, dopóki się nie zatrzymasz."]
+ },
+ "extended-spell": {
+  "name": "Rozciągnięte Zaklęcie",
+  "entries": [
+   "Gdy rzucasz zaklęcie o czasie trwania 1 minuty lub dłuższym, możesz wydać 1 Punkt Czarodziejstwa, by podwoić jego czas trwania do maksymalnie 24 godzin.",
+   "Jeśli dotknięte zaklęcie wymaga {@status Concentration|XPHB|Koncentracji}, masz {@variantrule Advantage|XPHB|Przewagę} w każdym rzucie obronnym wykonywanym, by ją utrzymać."
+  ]
+ },
+ "extended-spell-phb": {
+  "name": "Rozciągnięte Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie o czasie trwania 1 minuty lub dłuższym, możesz wydać 1 punkt czarodziejstwa, by podwoić jego czas trwania, do maksymalnie 24 godzin."]
+ },
+ "eyes-of-the-rune-keeper": {
+  "name": "Oczy Strażnika Run",
+  "entries": ["Potrafisz odczytać każde pismo."]
+ },
+ "fangs-of-the-fire-snake": {
+  "name": "Kły Ognistego Węża",
+  "entries": ["Gdy podejmujesz akcję {@action Attack|Atak} podczas swojej tury, możesz wydać 1 punkt ki, by wywołać macki płomienia rozciągające się od pięści i stóp. Twój zasięg dla uderzeń bez broni zwiększa się o 10 stóp na tę akcję oraz resztę tury. Trafienie takim atakiem zadaje obrażenia ogniem zamiast obuchowych, a jeśli wydasz 1 punkt ki, gdy atak trafi, zadaje także dodatkowe {@damage 1d10} obrażeń ognia."]
+ },
+ "far-scribe": {
+  "name": "Odległy Skryba",
+  "entries": [
+   "W twojej Księdze Cieni pojawia się nowa strona. Za twoim pozwoleniem stwór może użyć swojej akcji, by wpisać swoje imię na tej stronie, która może zawierać liczbę imion równą twojej premii biegłości.",
+   "Możesz rzucić zaklęcie {@spell sending|wysłanie}, celując w stwora, którego imię jest na stronie, bez użycia miejsca zaklęcia i bez komponentów materialnych. W tym celu musisz zapisać wiadomość na stronie. Cel słyszy wiadomość w swoim umyśle, a jeśli odpowie, jego wiadomość pojawia się na stronie, a nie w twoim umyśle. Napis znika po 1 minucie.",
+   "Jako akcję możesz magicznie usunąć imię ze strony, dotykając go."
+  ]
+ },
+ "favored-in-house": {
+  "name": "Ulubieniec Rodu",
+  "entries": [
+   "Możesz poprosić swój ród o przysługę, która może przyjąć jedną z poniższych form:",
+   {"type": "list", "items": ["Członek rodu rzuca dla ciebie inne zaklęcie 3. poziomu lub niższe za połowę zwykłego kosztu."]},
+   "Możesz poprosić o taką przysługę liczbę razy równą twojemu Wynikowi Sławy. Jeśli twój Wynik Sławy spadnie poniżej łącznej liczby przysług, o które poprosiłeś, wyżej postawiony członek rodu może zażądać od ciebie przysługi rewanżowej, wysyłając cię na misję dla rodu lub w sprawach osobistych.",
+   "Dodatkowo twój ród wypłaca ci stypendium wspierające twój Skromny styl życia (1 sz dziennie)."
+  ]
+ },
+ "feinting-attack": {
+  "name": "Zwodniczy Atak",
+  "entries": ["Jako {@variantrule Bonus Action|XPHB|Akcję Dodatkową}, możesz wydać jedną Kość Przewagi, by zastosować zwód, wybierając jeden stwór w promieniu 5 stóp od siebie jako cel. Masz {@variantrule Advantage|XPHB|Przewagę} w swoim następnym rzucie na atak przeciwko temu celowi w tej turze. Jeśli ten atak trafi, dodaj Kość Przewagi do rzutu obrażeń ataku."]
+ },
+ "feinting-attack-phb": {
+  "name": "Zwodniczy Atak",
+  "entries": ["Możesz wydać jedną kość przewagi i użyć akcji dodatkowej podczas swojej tury, by zastosować zwód, wybierając jeden stwór w promieniu 5 stóp od siebie jako cel. Masz przewagę w swoim następnym rzucie na atak przeciwko temu stworowi w tej turze. Jeśli ten atak trafi, dodaj kość przewagi do rzutu obrażeń ataku."]
+ },
+ "fiendish-vigor": {
+  "name": "Diabelska Żywotność",
+  "entries": ["Możesz rzucić {@spell False Life|XPHB|Fałszywe Życie} na siebie bez wydawania miejsca zaklęcia. Gdy rzucasz to zaklęcie dzięki tej cesze, nie rzucasz kością dla {@variantrule Temporary Hit Points|XPHB|Tymczasowych Punktów Wytrzymałości}; automatycznie otrzymujesz najwyższy wynik na kości."]
+ },
+ "fiendish-vigor-phb": {
+  "name": "Diabelska Żywotność",
+  "entries": ["Możesz rzucić {@spell false life|fałszywe życie} na siebie dowolną liczbę razy jako zaklęcie 1. poziomu, bez wydawania miejsca zaklęcia ani komponentów materialnych."]
+ },
+ "fire-rune": {
+  "name": "Runa Ognia",
+  "entries": [
+   "Magia tej runy kanalizuje mistrzowskie rzemiosło wielkich kowali. Nosząc lub trzymając przedmiot naznaczony tą runą, twoja premia biegłości jest podwojona dla każdego testu zdolności, który wykorzystuje twoją biegłość w narzędziu.",
+   "Dodatkowo, gdy trafisz stwora atakiem przy użyciu broni, możesz przywołać runę, by przyzwać ogniste kajdany: cel otrzymuje dodatkowe {@damage 2d6} obrażeń ognia i musi zdać rzut obronny Siły lub zostać {@condition restrained|unieruchomiony} na 1 minutę. Będąc unieruchomiony przez kajdany, cel otrzymuje {@damage 2d6} obrażeń ognia na początku każdej swojej tury. Cel może powtórzyć rzut obronny pod koniec każdej swojej tury, przy sukcesie odpędzając kajdany. Gdy raz przywołasz tę runę, nie możesz zrobić tego ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+  ]
+ },
+ "fist-of-four-thunders": {
+  "name": "Pięść Czterech Grzmotów",
+  "entries": ["Możesz wydać 2 punkty ki, by rzucić {@spell thunderwave|fala grzmotu}."]
+ },
+ "flames-of-the-phoenix": {
+  "name": "Płomienie Feniksa",
+  "entries": ["Możesz wydać 4 punkty ki, by rzucić {@spell fireball|kula ognia}."]
+ },
+ "frost-rune": {
+  "name": "Runa Mrozu",
+  "entries": [
+   "Magia tej runy przywołuje moc tych, którzy przetrwają w mroźnej dziczy, takich jak olbrzymy mrozu. Nosząc lub trzymając przedmiot naznaczony tą runą, masz przewagę w testach Mądrości ({@skill Animal Handling|Obchodzenie się ze Zwierzętami}) i Charyzmy ({@skill Intimidation|Zastraszanie}).",
+   "Dodatkowo możesz przywołać runę jako akcję dodatkową, by zwiększyć swoją wytrzymałość. Przez 10 minut zyskujesz premię +2 do wszystkich testów zdolności i rzutów obronnych wykorzystujących Siłę lub Kondycję. Gdy raz przywołasz tę runę, nie możesz zrobić tego ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+  ]
+ },
+ "gaze-of-two-minds": {
+  "name": "Spojrzenie Dwóch Umysłów",
+  "entries": [
+   "Możesz użyć {@variantrule Bonus Action|XPHB|Akcji Dodatkowej}, by dotknąć chętnego stwora i postrzegać przez jego zmysły do końca swojej następnej tury. Dopóki stwór znajduje się na tym samym planie istnienia co ty, możesz w kolejnych turach użyć {@variantrule Bonus Action|XPHB|Akcji Dodatkowej}, by utrzymać to połączenie, przedłużając jego czas trwania do końca swojej następnej tury. Połączenie kończy się, jeśli go w ten sposób nie utrzymasz.",
+   "Postrzegając przez zmysły drugiego stwora, korzystasz z wszelkich specjalnych zmysłów, jakie ten stwór posiada, i możesz rzucać zaklęcia, jakbyś znajdował się w swojej przestrzeni lub w przestrzeni drugiego stwora, jeśli oboje znajdujecie się w promieniu 60 stóp od siebie."
+  ]
+ },
+ "gaze-of-two-minds-phb": {
+  "name": "Spojrzenie Dwóch Umysłów",
+  "entries": ["Możesz użyć swojej akcji, by dotknąć chętnego humanoida i postrzegać przez jego zmysły do końca swojej następnej tury. Dopóki stwór znajduje się na tym samym planie istnienia co ty, możesz w kolejnych turach użyć swojej akcji, by utrzymać to połączenie, przedłużając jego czas trwania do końca swojej następnej tury. Postrzegając przez zmysły drugiego stwora, korzystasz z wszelkich specjalnych zmysłów, jakie ten stwór posiada, oraz jesteś {@condition blinded|oślepiony} i {@condition deafened|ogłuchły} na własne otoczenie."]
+ },
+ "ghostly-gaze": {
+  "name": "Widmowe Spojrzenie",
+  "entries": [
+   "Jako akcję zyskujesz zdolność widzenia przez lite przedmioty na odległość do 30 stóp. W tym zasięgu masz {@sense darkvision|widzenie w ciemności}, jeśli jeszcze go nie posiadasz. Ta specjalna zdolność widzenia trwa 1 minutę lub do końca twojej {@status concentration|koncentracji} (tak jakbyś koncentrował się na zaklęciu). W tym czasie postrzegasz przedmioty jako widmowe, przezroczyste obrazy.",
+   "Gdy raz użyjesz tej inwokacji, nie możesz jej użyć ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+  ]
+ },
+ "gift-of-the-depths": {
+  "name": "Dar Głębin",
+  "entries": [
+   "Możesz oddychać pod wodą i zyskujesz {@variantrule Swim Speed|XPHB|Prędkość Pływania} równą twojej {@variantrule Speed|XPHB|Prędkości}.",
+   "Możesz też raz rzucić {@spell Water Breathing|XPHB|Oddychanie Wodą} bez wydawania miejsca zaklęcia. Odzyskujesz zdolność ponownego rzucenia go w ten sposób, gdy kończysz {@variantrule Long Rest|XPHB|Długi Odpoczynek}."
+  ]
+ },
+ "gift-of-the-depths-xge": {
+  "name": "Dar Głębin",
+  "entries": [
+   "Możesz oddychać pod wodą i zyskujesz prędkość pływania równą twojej prędkości marszu.",
+   "Możesz też raz rzucić {@spell water breathing|oddychanie wodą} bez wydawania miejsca zaklęcia. Odzyskujesz tę zdolność, gdy kończysz długi odpoczynek."
+  ]
+ },
+ "gift-of-the-ever-living-ones": {
+  "name": "Dar Wiecznie Żywych",
+  "entries": ["Za każdym razem, gdy odzyskujesz punkty wytrzymałości, mając swojego zwierzaka w promieniu 100 stóp od siebie, traktuj wszelkie rzucone kości określające liczbę odzyskanych punktów wytrzymałości, jakby wyrzuciły dla ciebie maksymalną wartość."]
+ },
+ "gift-of-the-protectors": {
+  "name": "Dar Obrońców",
+  "entries": [
+   "Gdy przywołujesz swoją Księgę Cieni, pojawia się w niej nowa strona. Za twoim pozwoleniem stwór może podjąć akcję, by wpisać swoje imię na tej stronie, która może zawierać liczbę imion równą twojemu modyfikatorowi Charyzmy (minimum jedno imię).",
+   "Gdy dowolny stwór, którego imię widnieje na stronie, zostaje sprowadzony do 0 {@variantrule Hit Points|XPHB|Punktów Wytrzymałości}, ale nie zabity od razu, magicznie spada zamiast tego do 1 {@variantrule Hit Points|XPHB|Punktu Wytrzymałości}. Gdy ta magia zostanie wyzwolona, żaden stwór nie może z niej ponownie skorzystać, dopóki nie zakończysz {@variantrule Long Rest|XPHB|Długiego Odpoczynku}.",
+   "Jako akcję {@action Magic|XPHB|Magii} możesz usunąć imię ze strony, dotykając go."
+  ]
+ },
+ "gift-of-the-protectors-tce": {
+  "name": "Dar Obrońców",
+  "entries": [
+   "W twojej Księdze Cieni pojawia się nowa strona. Za twoim pozwoleniem stwór może użyć swojej akcji, by wpisać swoje imię na tej stronie, która może zawierać liczbę imion równą twojej premii biegłości.",
+   "Gdy dowolny stwór, którego imię widnieje na stronie, zostaje sprowadzony do 0 punktów wytrzymałości, ale nie zabity od razu, magicznie spada zamiast tego do 1 punktu wytrzymałości. Gdy ta magia zostanie wyzwolona, żaden stwór nie może z niej ponownie skorzystać, dopóki nie zakończysz długiego odpoczynku.",
+   "Jako akcję możesz magicznie usunąć imię ze strony, dotykając go."
+  ]
+ },
+ "goading-attack": {
+  "name": "Prowokujący Atak",
+  "entries": ["Gdy trafisz stwora rzutem na atak, możesz wydać jedną Kość Przewagi, by spróbować sprowokować cel do zaatakowania ciebie. Dodaj Kość Przewagi do rzutu obrażeń ataku. Cel musi zdać rzut obronny Mądrości, w przeciwnym razie ma {@variantrule Disadvantage|XPHB|Utrudnienie} w rzutach na atak przeciwko celom innym niż ty do końca twojej następnej tury."]
+ },
+ "goading-attack-phb": {
+  "name": "Prowokujący Atak",
+  "entries": ["Gdy trafisz stwora atakiem bronią, możesz wydać jedną kość przewagi, by spróbować sprowokować cel do zaatakowania ciebie. Dodajesz kość przewagi do rzutu obrażeń ataku, a cel musi wykonać rzut obronny Mądrości. Przy nieudanym rzucie cel ma utrudnienie we wszystkich rzutach na atak przeciwko celom innym niż ty do końca twojej następnej tury."]
+ },
+ "gong-of-the-summit": {
+  "name": "Gong Szczytu",
+  "entries": ["Możesz wydać 3 punkty ki, by rzucić {@spell shatter|roztrzaskanie}."]
+ },
+ "grappling-strike": {
+  "name": "Chwytające Uderzenie",
+  "entries": ["Natychmiast po tym, jak trafisz stwora atakiem w walce wręcz podczas swojej tury, możesz wydać jedną kość przewagi, a następnie spróbować schwycić cel jako akcję dodatkową (zasady chwytania znajdziesz w Podręczniku Gracza). Dodaj kość przewagi do swojego testu Siły ({@skill Athletics|Atletyka})."]
+ },
+ "grasp-of-hadar": {
+  "name": "Uchwyt Hadara",
+  "entries": ["Raz w każdej swojej turze, gdy trafisz stwora swoim {@spell eldritch blast|mrocznym wybuchem}, możesz przesunąć tego stwora po linii prostej o 10 stóp bliżej siebie."]
+ },
+ "grasping-arrow": {
+  "name": "Chwytająca Strzała",
+  "entries": [
+   "Gdy ta strzała trafia w cel, magia przywołania tworzy chwytające, zatrute ciernie, które owijają się wokół celu. Stwór trafiony strzałą otrzymuje dodatkowe {@damage 2d6} obrażeń trucizną, jego prędkość zmniejsza się o 10 stóp, a otrzymuje {@damage 2d6} obrażeń tnących za pierwszym razem w każdej turze, gdy porusza się o 1 stopę lub więcej bez teleportacji. Cel lub dowolny stwór, który może go dosięgnąć, może użyć swojej akcji, by usunąć ciernie udanym testem Siły ({@skill Athletics|Atletyka}) przeciwko twojej CT Arkanicznego Strzału. W przeciwnym razie ciernie utrzymują się przez 1 minutę lub do czasu, gdy ponownie użyjesz tej opcji.",
+   "Zarówno obrażenia trucizną, jak i tnące wzrastają do {@damage 4d6}, gdy osiągniesz 18. poziom w tej klasie."
+  ]
+ },
+ "great-weapon-fighting": {
+  "name": "Walka Wielką Bronią",
+  "entries": ["Gdy podczas ataku bronią do walki wręcz, którą władasz oburącz, wyrzucisz 1 lub 2 na kości obrażeń, możesz przerzucić kość i musisz użyć nowego wyniku, nawet jeśli nowy wynik to również 1 lub 2. Broń musi posiadać właściwość oburęczną lub uniwersalną, byś mógł skorzystać z tej korzyści."]
+ },
+ "heightened-spell": {
+  "name": "Wzmożone Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie, które zmusza stwora do wykonania rzutu obronnego, możesz wydać 2 Punkty Czarodziejstwa, by dać jednemu celowi zaklęcia {@variantrule Disadvantage|XPHB|Utrudnienie} w rzutach obronnych przeciwko temu zaklęciu."]
+ },
+ "heightened-spell-phb": {
+  "name": "Wzmożone Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie, które zmusza stwora do wykonania rzutu obronnego, by oprzeć się jego efektom, możesz wydać 3 punkty czarodziejstwa, by dać jednemu celowi zaklęcia utrudnienie w jego pierwszym rzucie obronnym wykonanym przeciwko temu zaklęciu."]
+ },
+ "helm-of-awareness": {
+  "name": "Hełm Czujności",
+  "entries": ["Nosząc ten hełm, stwór ma przewagę w rzutach na inicjatywę. Dodatkowo noszący nie może zostać {@status surprised|zaskoczony}, pod warunkiem że nie jest {@condition incapacitated|bezradny}."]
+ },
+ "hill-rune": {
+  "name": "Runa Wzgórz",
+  "entries": [
+   "Magia tej runy obdarza odpornością przywodzącą na myśl olbrzyma wzgórz. Nosząc lub trzymając przedmiot naznaczony tą runą, masz przewagę w rzutach obronnych przeciwko zostaniu {@condition poisoned|zatrutym} i posiadasz odporność na obrażenia trucizną.",
+   "Dodatkowo możesz przywołać runę jako akcję dodatkową, zyskując odporność na obrażenia obuchowe, kłujące i tnące na 1 minutę. Gdy raz przywołasz tę runę, nie możesz zrobić tego ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+  ]
+ },
+ "homunculus-servant": {
+  "name": "Sługa Homunkulus",
+  "entries": [
+   "Uczysz się skomplikowanych metod magicznego tworzenia specjalnego {@creature Homunculus Servant|TCE|homunkulusa}, który ci służy. Przedmiot, który infuzujesz, służy jako serce stwora, wokół którego natychmiast formuje się jego ciało.",
+   "To ty określasz wygląd homunkulusa. Niektórzy artificerowie preferują mechaniczne ptaki, podczas gdy inni wolą uskrzydlone fiolki lub miniaturowe, ożywione kotły.",
+   "Homunkulus jest przyjazny tobie i twoim towarzyszom i wykonuje twoje polecenia. Statystyki tego stwora znajdziesz w bloku statystyk Sługi Homunkulusa, który w kilku miejscach wykorzystuje twoją premię biegłości (PB).",
+   "W walce homunkulus dzieli twoją liczbę inicjatywy, ale wykonuje swoją turę bezpośrednio po twojej. Może poruszać się i użyć reakcji samodzielnie, ale jedyną akcją, jaką podejmuje w swojej turze, jest akcja {@action Dodge|Unik}, chyba że użyjesz akcji dodatkowej podczas swojej tury, by rozkazać mu podjąć inną akcję. Ta akcja może pochodzić z jego bloku statystyk lub być inną akcją. Jeśli jesteś {@condition incapacitated|bezradny}, homunkulus może podjąć dowolną wybraną przez siebie akcję, nie tylko {@action Dodge|Unik}.",
+   "Homunkulus odzyskuje {@dice 2d6} punktów wytrzymałości, jeśli rzucone zostanie na niego zaklęcie {@spell mending|naprawa}. Jeśli ty lub homunkulus umrzecie, znika, pozostawiając swoje serce w swojej przestrzeni."
+  ]
+ },
+ "improved-pact-weapon": {
+  "name": "Ulepszona Broń Paktu",
+  "entries": [
+   "Możesz używać dowolnej broni przywołanej za pomocą cechy Pakt Ostrza jako ogniska czarodziejskiego dla swoich zaklęć czarownika.",
+   "Dodatkowo broń zyskuje premię +1 do rzutów na atak i obrażenia, chyba że jest to magiczna broń, która już posiada premię do tych rzutów.",
+   "Wreszcie, przywoływana przez ciebie broń może być {@item shortbow|phb|krótkim łukiem}, {@item longbow|phb|długim łukiem}, {@item light crossbow|phb|lekką kuszą} lub {@item heavy crossbow|phb|ciężką kuszą}."
+  ]
+ },
+ "interception": {
+  "name": "Przechwycenie",
+  "entries": ["Gdy widoczny przez ciebie stwór trafia atakiem cel inny niż ty, znajdujący się w promieniu 5 stóp od ciebie, możesz użyć reakcji, by zmniejszyć otrzymane przez cel obrażenia o {@dice 1d10} + twoją premię biegłości (do minimum 0 obrażeń). Musisz władać {@item shield|phb|tarczą} lub {@filter zwykłą lub wojskową bronią|items|type=martial weapon;simple weapon}, by użyć tej reakcji."]
+ },
+ "investment-of-the-chain-master": {
+  "name": "Nasycenie Mistrza Łańcucha",
+  "entries": [
+   "Gdy rzucasz {@spell Find Familiar|XPHB|Przywołanie Zwierzaka}, nasycasz przywołanego zwierzaka porcją swojej mrocznej mocy, dając stworowi poniższe korzyści.",
+   {"type": "entries", "entries": [
+    {"type": "entries", "name": "Powietrzny lub Wodny", "entries": ["Zwierzak zyskuje albo {@variantrule Fly Speed|XPHB|Prędkość Lotu}, albo {@variantrule Swim Speed|XPHB|Prędkość Pływania} (twój wybór) wynoszącą 40 stóp."]},
+    {"type": "entries", "name": "Szybki Atak", "entries": ["Jako {@variantrule Bonus Action|XPHB|Akcję Dodatkową}, możesz rozkazać zwierzakowi podjąć akcję {@action Attack|XPHB|Atak}."]},
+    {"type": "entries", "name": "Obrażenia Nekrotyczne lub Blaskiem", "entries": ["Za każdym razem, gdy zwierzak zadaje obrażenia Obuchowe, Kłujące lub Tnące, możesz sprawić, że zada zamiast tego obrażenia Nekrotyczne lub Blaskiem."]},
+    {"type": "entries", "name": "Twoja CT Rzutu Obronnego", "entries": ["Jeśli zwierzak zmusza stwora do wykonania rzutu obronnego, używa twojej CT rzutu obronnego zaklęć."]},
+    {"type": "entries", "name": "Odporność", "entries": ["Gdy zwierzak otrzymuje obrażenia, możesz użyć {@variantrule Reaction|XPHB|Reakcji}, by dać mu {@variantrule Resistance|XPHB|Odporność} na te obrażenia."]}
+   ]}
+  ]
+ },
+ "investment-of-the-chain-master-tce": {
+  "name": "Nasycenie Mistrza Łańcucha",
+  "entries": [
+   "Gdy rzucasz {@spell find familiar|przywołanie zwierzaka}, nasycasz przywołanego zwierzaka porcją swojej mrocznej mocy, dając stworowi poniższe korzyści:",
+   {"type": "list", "items": [
+    "Zwierzak zyskuje albo prędkość lotu, albo prędkość pływania (twój wybór) wynoszącą 40 stóp.",
+    "Jako akcję dodatkową możesz rozkazać zwierzakowi podjąć akcję {@action Attack|Atak}.",
+    "Ataki bronią zwierzaka są uznawane za magiczne dla celów pokonywania immunitetu i odporności na niemagiczne ataki.",
+    "Jeśli zwierzak zmusza stwora do wykonania rzutu obronnego, używa twojej CT rzutu obronnego zaklęć.",
+    "Gdy zwierzak otrzymuje obrażenia, możesz użyć reakcji, by dać mu odporność na te obrażenia."
+   ]}
+  ]
+ },
+ "lance-of-lethargy": {
+  "name": "Lanca Ospałości",
+  "entries": ["Raz w każdej swojej turze, gdy trafisz stwora swoim {@spell eldritch blast|mrocznym wybuchem}, możesz zmniejszyć prędkość tego stwora o 10 stóp do końca swojej następnej tury."]
+ },
+ "lessons-of-the-first-ones": {
+  "name": "Lekcje Pierwszych",
+  "entries": [
+   "Otrzymałeś wiedzę od starożytnej istoty z multiwersum, pozwalającą ci zdobyć jeden wybrany {@filter cechę Pochodzenia|feats|category=o}.",
+   {"type": "entries", "entries": [{"type": "entries", "name": "Powtarzalna", "entries": ["Możesz zdobyć tę inwokację więcej niż raz. Za każdym razem wybierz inną cechę Pochodzenia."]}]}
+  ]
+ },
+ "lifedrinker": {
+  "name": "Pożeracz Życia",
+  "entries": ["Raz na turę, gdy trafisz stwora swoją bronią paktu, możesz zadać dodatkowe {@damage 1d6} obrażeń Nekrotycznych, Psychicznych lub Blaskiem (twój wybór) temu stworowi i możesz wydać jedną ze swoich {@variantrule Hit Point Dice|XPHB|Kości Punktów Wytrzymałości}, by ją rzucić i odzyskać liczbę {@variantrule Hit Points|XPHB|Punktów Wytrzymałości} równą wynikowi plus twój modyfikator Kondycji (minimum 1 {@variantrule Hit Points|XPHB|Punkt Wytrzymałości})."]
+ },
+ "lifedrinker-phb": {
+  "name": "Pożeracz Życia",
+  "entries": ["Gdy trafisz stwora swoją bronią paktu, stwór otrzymuje dodatkowe obrażenia nekrotyczne równe twojemu modyfikatorowi Charyzmy (minimum 1)."]
+ },
+ "lunging-attack": {
+  "name": "Wypadowy Atak",
+  "entries": ["Jako {@variantrule Bonus Action|XPHB|Akcję Dodatkową}, możesz wydać jedną Kość Przewagi i podjąć akcję {@action Dash|XPHB|Biegu}. Jeśli poruszysz się co najmniej 5 stóp po linii prostej bezpośrednio przed trafieniem atakiem w walce wręcz w ramach akcji {@action Attack|XPHB|Atak} w tej turze, możesz dodać Kość Przewagi do rzutu obrażeń ataku."]
+ },
+ "lunging-attack-phb": {
+  "name": "Wypadowy Atak",
+  "entries": ["Gdy wykonujesz atak bronią w walce wręcz podczas swojej tury, możesz wydać jedną kość przewagi, by zwiększyć swój zasięg dla tego ataku o 5 stóp. Jeśli trafisz, dodajesz kość przewagi do rzutu obrażeń ataku."]
+ },
+ "maddening-hex": {
+  "name": "Szalejąca Klątwa",
+  "entries": ["Jako akcję dodatkową wywołujesz psychiczne zaburzenie wokół celu przeklętego twoim zaklęciem {@spell hex|klątwa} lub cechą czarownika, taką jak Klątwa Ostrza Hexblade'a lub Znak Złej Wróżby. Gdy to robisz, zadajesz obrażenia psychiczne przeklętemu celowi oraz każdemu wybranemu przez ciebie widocznemu stworowi w promieniu 5 stóp od niego. Obrażenia psychiczne są równe twojemu modyfikatorowi Charyzmy (minimum 1 obrażenie). Aby użyć tej inwokacji, musisz widzieć przeklęty cel, a on musi znajdować się w promieniu 30 stóp od ciebie."]
+ },
+ "maneuvering-attack": {
+  "name": "Manewrujący Atak",
+  "entries": ["Gdy trafisz stwora rzutem na atak, możesz wydać jedną Kość Przewagi, by przemanewrować jednego z twoich towarzyszy w inną pozycję. Dodaj wynik rzutu Kością Przewagi do rzutu obrażeń ataku i wybierz chętny stwór, który cię widzi lub słyszy. Ten stwór może użyć swojej {@variantrule Reaction|XPHB|Reakcji}, by poruszyć się o połowę swojej {@variantrule Speed|XPHB|Prędkości}, nie prowokując {@action Opportunity Attack|XPHB|Ataku Okazyjnego} od celu twojego ataku."]
+ },
+ "maneuvering-attack-phb": {
+  "name": "Manewrujący Atak",
+  "entries": ["Gdy trafisz stwora atakiem bronią, możesz wydać jedną kość przewagi, by przemanewrować jednego z twoich towarzyszy w bardziej korzystną pozycję. Dodajesz kość przewagi do rzutu obrażeń ataku i wybierasz przyjazny stwór, który cię widzi lub słyszy. Ten stwór może użyć swojej reakcji, by poruszyć się o połowę swojej prędkości, nie prowokując ataków okazyjnych od celu twojego ataku."]
+ },
+ "mask-of-many-faces": {
+  "name": "Maska Wielu Twarzy",
+  "entries": ["Możesz rzucić {@spell Disguise Self|XPHB|Przebranie} bez wydawania miejsca zaklęcia."]
+ },
+ "mask-of-many-faces-phb": {
+  "name": "Maska Wielu Twarzy",
+  "entries": ["Możesz rzucić {@spell disguise self|przebranie} dowolną liczbę razy, bez wydawania miejsca zaklęcia."]
+ },
+ "master-of-myriad-forms": {
+  "name": "Mistrz Niezliczonych Form",
+  "entries": ["Możesz rzucić {@spell Alter Self|XPHB|Zmiana Postaci} bez wydawania miejsca zaklęcia."]
+ },
+ "master-of-myriad-forms-phb": {
+  "name": "Mistrz Niezliczonych Form",
+  "entries": ["Możesz rzucić {@spell alter self|zmiana postaci} dowolną liczbę razy, bez wydawania miejsca zaklęcia."]
+ },
+ "menacing-attack": {
+  "name": "Groźny Atak",
+  "entries": ["Gdy trafisz stwora rzutem na atak, możesz wydać jedną Kość Przewagi, by spróbować przestraszyć cel. Dodaj Kość Przewagi do rzutu obrażeń ataku. Cel musi zdać rzut obronny Mądrości, w przeciwnym razie uzyskuje stan {@condition Frightened|XPHB|Przestraszony} do końca twojej następnej tury."]
+ },
+ "menacing-attack-phb": {
+  "name": "Groźny Atak",
+  "entries": ["Gdy trafisz stwora atakiem bronią, możesz wydać jedną kość przewagi, by spróbować przestraszyć cel. Dodajesz kość przewagi do rzutu obrażeń ataku, a cel musi wykonać rzut obronny Mądrości. Przy nieudanym rzucie jest {@condition frightened|przestraszony} tobą do końca twojej następnej tury."]
+ },
+ "mind-sharpener": {
+  "name": "Wyostrzacz Umysłu",
+  "entries": ["Naznaczony przedmiot może wysłać impuls do noszącego, by naostrzyć jego umysł. Przedmiot ma 4 ładunki. Gdy noszący nie zda rzutu obronnego Kondycji, by utrzymać {@status concentration|koncentrację} na zaklęciu, może użyć reakcji, by wydać 1 ładunek przedmiotu i zamiast tego zdać rzut. Przedmiot odzyskuje {@dice 1d4} wydanych ładunków codziennie o świcie."]
+ },
+ "minions-of-chaos": {
+  "name": "Słudzy Chaosu",
+  "entries": ["Możesz raz rzucić {@spell conjure elemental|przywołanie żywiołaka}, używając miejsca zaklęcia czarownika. Nie możesz zrobić tego ponownie, dopóki nie zakończysz długiego odpoczynku."]
+ },
+ "mire-the-mind": {
+  "name": "Otumanienie Umysłu",
+  "entries": ["Możesz raz rzucić {@spell slow|spowolnienie}, używając miejsca zaklęcia czarownika. Nie możesz zrobić tego ponownie, dopóki nie zakończysz długiego odpoczynku."]
+ },
+ "mist-stance": {
+  "name": "Postawa Mgły",
+  "entries": ["Możesz wydać 4 punkty ki, by rzucić {@spell gaseous form|postać gazowa} na siebie."]
+ },
+ "misty-visions": {
+  "name": "Mgliste Wizje",
+  "entries": ["Możesz rzucić {@spell Silent Image|XPHB|Cichy Obraz} bez wydawania miejsca zaklęcia."]
+ },
+ "misty-visions-phb": {
+  "name": "Mgliste Wizje",
+  "entries": ["Możesz rzucić {@spell silent image|cichy obraz} dowolną liczbę razy, bez wydawania miejsca zaklęcia ani komponentów materialnych."]
+ },
+ "one-with-shadows": {
+  "name": "Jedność z Cieniami",
+  "entries": ["Będąc w obszarze {@variantrule Dim Light|XPHB|Półmroku} lub {@variantrule Darkness|XPHB|Ciemności}, możesz rzucić {@spell Invisibility|XPHB|Niewidzialność} na siebie bez wydawania miejsca zaklęcia."]
+ },
+ "one-with-shadows-phb": {
+  "name": "Jedność z Cieniami",
+  "entries": ["Gdy jesteś w obszarze półmroku lub ciemności, możesz użyć akcji, by stać się {@condition invisible|niewidzialnym}, dopóki się nie poruszysz lub nie podejmiesz akcji bądź reakcji."]
+ },
+ "otherworldly-leap": {
+  "name": "Pozaświatowy Skok",
+  "entries": ["Możesz rzucić {@spell Jump|XPHB|Skok} na siebie bez wydawania miejsca zaklęcia."]
+ },
+ "otherworldly-leap-phb": {
+  "name": "Pozaświatowy Skok",
+  "entries": ["Możesz rzucić {@spell jump|skok} na siebie dowolną liczbę razy, bez wydawania miejsca zaklęcia ani komponentów materialnych."]
+ },
+ "pact-of-the-blade": {
+  "name": "Pakt Ostrza",
+  "entries": [
+   "Jako {@variantrule Bonus Action|XPHB|Akcję Dodatkową}, możesz przyzwać broń paktu w swojej dłoni — wybraną przez ciebie prostą lub wojskową broń do walki wręcz, z którą się wiążesz — lub stworzyć więź z magiczną bronią, której dotykasz; nie możesz związać się z magiczną bronią, jeśli ktoś inny jest z nią dostrojony lub inny Czarownik jest z nią związany. Dopóki więź trwa, masz biegłość w tej broni i możesz jej używać jako {@variantrule Spellcasting Focus|XPHB|Ogniska Czarodziejskiego}.",
+   "Za każdym razem, gdy atakujesz związaną bronią, możesz użyć modyfikatora Charyzmy do rzutów na atak i obrażenia zamiast Siły lub Zręczności; oraz możesz sprawić, że broń zadaje obrażenia Nekrotyczne, Psychiczne lub Blaskiem, bądź swój normalny typ obrażeń.",
+   "Twoja więź z bronią kończy się, jeśli ponownie użyjesz {@variantrule Bonus Action|XPHB|Akcji Dodatkowej} tej cechy, jeśli broń znajdzie się dalej niż 5 stóp od ciebie przez 1 minutę lub dłużej, lub jeśli umrzesz. Przyzwana broń znika, gdy więź się kończy."
+  ]
+ },
+ "pact-of-the-blade-phb": {
+  "name": "Pakt Ostrza",
+  "entries": [
+   "Możesz użyć akcji, by stworzyć broń paktu w swojej pustej dłoni. Za każdym razem, gdy ją tworzysz, możesz wybrać formę, jaką przybiera ta broń do walki wręcz (opcje broni znajdziesz w rozdziale 5). Jesteś w niej biegły, gdy nią władasz. Ta broń jest uznawana za magiczną dla celów pokonywania odporności i immunitetu na niemagiczne ataki i obrażenia.",
+   "Twoja broń paktu znika, jeśli znajdzie się dalej niż 5 stóp od ciebie przez 1 minutę lub dłużej. Znika także, jeśli ponownie użyjesz tej cechy, jeśli odwołasz broń (bez wymaganej akcji) lub jeśli umrzesz.",
+   "Możesz przekształcić jedną magiczną broń w swoją broń paktu, wykonując specjalny rytuał, trzymając broń. Rytuał wykonujesz w ciągu 1 godziny, co można zrobić podczas krótkiego odpoczynku. Możesz następnie odwołać broń, przenosząc ją do pozawymiarowej przestrzeni, skąd pojawia się za każdym razem, gdy tworzysz swoją broń paktu. Nie możesz w ten sposób wpłynąć na artefakt ani na świadomą broń. Broń przestaje być twoją bronią paktu, jeśli umrzesz, jeśli wykonasz godzinny rytuał na innej broni, lub jeśli użyjesz godzinnego rytuału, by zerwać z nią więź. Broń pojawia się u twoich stóp, jeśli znajdowała się w pozawymiarowej przestrzeni, gdy więź się zrywa."
+  ]
+ },
+ "pact-of-the-chain": {
+  "name": "Pakt Łańcucha",
+  "entries": [
+   "Uczysz się zaklęcia {@spell Find Familiar|XPHB|Przywołanie Zwierzaka} i możesz je rzucić jako akcję {@action Magic|XPHB|Magii} bez wydawania miejsca zaklęcia.",
+   "Gdy rzucasz to zaklęcie, wybierasz jedną z normalnych form dla swojego zwierzaka lub jedną z poniższych specjalnych form: {@creature Imp|XMM|diablik}, {@creature Pseudodragon|XMM|pseudosmok}, {@creature Quasit|XMM|kwazyt}, {@creature Skeleton|XMM|szkielet}, {@creature Slaad Tadpole|XMM|kijanka slaada}, {@creature Sphinx of Wonder|XMM|sfinks cudów}, {@creature Sprite|XMM|chochlik} lub {@creature Venomous Snake|XMM|jadowity wąż} (statystyki zwierzaka znajdziesz w dodatku B).",
+   "Dodatkowo, gdy podejmujesz akcję {@action Attack|XPHB|Atak}, możesz zrezygnować z jednego ze swoich ataków, by pozwolić zwierzakowi wykonać jeden własny atak przy użyciu swojej {@variantrule Reaction|XPHB|Reakcji}."
+  ]
+ },
+ "pact-of-the-chain-phb": {
+  "name": "Pakt Łańcucha",
+  "entries": [
+   "Uczysz się zaklęcia {@spell find familiar|przywołanie zwierzaka} i możesz je rzucić jako rytuał. Zaklęcie nie liczy się do liczby znanych ci zaklęć.",
+   "Gdy rzucasz to zaklęcie, możesz wybrać jedną z normalnych form dla swojego zwierzaka lub jedną z poniższych specjalnych form: {@creature imp|diablik}, {@creature pseudodragon|pseudosmok}, {@creature quasit|kwazyt} lub {@creature sprite|chochlik}.",
+   "Dodatkowo, gdy podejmujesz akcję {@action Attack|Atak}, możesz zrezygnować z jednego ze swoich ataków, by pozwolić zwierzakowi użyć reakcji do wykonania jednego własnego ataku."
+  ]
+ },
+ "pact-of-the-talisman": {
+  "name": "Pakt Talizmanu",
+  "entries": [
+   "Twój patron daje ci amulet, talizman, który może pomóc noszącemu, gdy potrzeba jest wielka. Gdy noszący nie zda testu zdolności, może dodać {@dice d4} do rzutu, potencjalnie zamieniając rzut w sukces. Z tej korzyści można skorzystać liczbę razy równą twojej premii biegłości, a wszystkie wydane użycia odnawiają się, gdy kończysz długi odpoczynek.",
+   "Jeśli zgubisz talizman, możesz odprawić godzinną ceremonię, by otrzymać zamiennik od swojego patrona. Tę ceremonię można odprawić podczas krótkiego lub długiego odpoczynku, a niszczy ona poprzedni amulet. Talizman zamienia się w popiół, gdy umierasz."
+  ]
+ },
+ "pact-of-the-tome": {
+  "name": "Pakt Tomu",
+  "entries": [
+   "Splatając pasma cienia, przyzywasz w dłoni księgę pod koniec {@variantrule Short Rest|XPHB|Krótkiego} lub {@variantrule Long Rest|XPHB|Długiego Odpoczynku}. Ta Księga Cieni (ty określasz jej wygląd) zawiera mroczną magię, do której tylko ty masz dostęp, dając ci poniższe korzyści. Księga znika, jeśli przyzwiesz inną księgę dzięki tej cesze lub jeśli umrzesz.",
+   {"type": "entries", "entries": [
+    {"type": "entries", "name": "Zaklęcia Proste i Rytuały", "entries": ["Gdy księga się pojawia, wybierz trzy {@filter zaklęcia proste|spells|level=0} i wybierz dwa {@filter zaklęcia 1. poziomu|spells|components & miscellaneous=ritual} posiadające znacznik {@variantrule Ritual|XPHB|Rytuału}. Zaklęcia mogą pochodzić z dowolnej listy zaklęć jakiejkolwiek klasy i muszą być zaklęciami, których jeszcze nie masz przygotowanych. Gdy masz księgę przy sobie, wybrane zaklęcia są dla ciebie przygotowane i funkcjonują jako zaklęcia Czarownika."]},
+    {"type": "entries", "name": "Ognisko Czarodziejskie", "entries": ["Możesz używać księgi jako {@variantrule Spellcasting Focus|XPHB|Ogniska Czarodziejskiego}."]}
+   ]}
+  ]
+ },
+ "pact-of-the-tome-phb": {
+  "name": "Pakt Tomu",
+  "entries": ["Twój patron daje ci grimuar zwany Księgą Cieni. Gdy zdobywasz tę cechę, wybierz trzy {@filter zaklęcia proste|spells|level=0} z dowolnej listy zaklęć jakiejkolwiek klasy. Zaklęcia proste nie muszą pochodzić z tej samej listy. Gdy masz księgę przy sobie, możesz rzucać te zaklęcia proste dowolną liczbę razy. Nie liczą się do liczby znanych ci zaklęć prostych. Każde zaklęcie proste, które rzucasz dzięki tej cesze, uznawane jest za twoje zaklęcie proste czarownika. Jeśli zgubisz swoją Księgę Cieni, możesz odprawić godzinną ceremonię, by otrzymać zamiennik od swojego patrona. Tę ceremonię można odprawić podczas krótkiego lub długiego odpoczynku, a niszczy ona poprzednią księgę. Księga zamienia się w popiół, gdy umierasz."]
+ },
+ "parry": {
+  "name": "Parowanie",
+  "entries": ["Gdy inny stwór zadaje ci obrażenia rzutem na atak w walce wręcz, możesz podjąć {@variantrule Reaction|XPHB|Reakcję} i wydać jedną Kość Przewagi, by zmniejszyć obrażenia o liczbę wyrzuconą na Kości Przewagi plus twój modyfikator Siły lub Zręczności (twój wybór)."]
+ },
+ "parry-phb": {
+  "name": "Parowanie",
+  "entries": ["Gdy inny stwór zadaje ci obrażenia atakiem w walce wręcz, możesz użyć reakcji i wydać jedną kość przewagi, by zmniejszyć obrażenia o liczbę wyrzuconą na kości przewagi plus twój modyfikator Zręczności."]
+ },
+ "piercing-arrow": {
+  "name": "Przeszywająca Strzała",
+  "entries": [
+   "Używasz magii transmutacji, by nadać swojej strzale eteryczną właściwość. Gdy używasz tej opcji, nie wykonujesz rzutu na atak. Zamiast tego strzała leci naprzód po linii o szerokości 1 stopy i długości 30 stóp, po czym znika. Strzała przechodzi nieszkodliwie przez przedmioty, ignorując osłonę. Każdy stwór w tej linii musi wykonać rzut obronny Zręczności. Przy nieudanym rzucie stwór otrzymuje obrażenia, jakby został trafiony strzałą, plus dodatkowe {@damage 1d6} obrażeń kłujących. Przy udanym rzucie cel otrzymuje połowę tych obrażeń.",
+   "Obrażenia kłujące wzrastają do {@damage 2d6}, gdy osiągniesz 18. poziom w tej klasie."
+  ]
+ },
+ "precision-attack": {
+  "name": "Precyzyjny Atak",
+  "entries": ["Gdy chybisz rzutem na atak, możesz wydać jedną Kość Przewagi, rzucić nią i dodać ją do rzutu na atak, potencjalnie sprawiając, że atak trafi."]
+ },
+ "precision-attack-phb": {
+  "name": "Precyzyjny Atak",
+  "entries": ["Gdy wykonujesz rzut na atak bronią przeciwko stworowi, możesz wydać jedną kość przewagi, by dodać ją do rzutu. Możesz użyć tego manewru przed lub po wykonaniu rzutu na atak, ale przed zastosowaniem jakichkolwiek efektów ataku."]
+ },
+ "preeminent-in-house": {
+  "name": "Wybitny w Rodzie",
+  "entries": [
+   "Gdy prosisz swój ród o przysługę (jak opisano w „{@optfeature Favored in House|EFA|Ulubieniec Rodu}”), może ona przyjąć jedną z poniższych dodatkowych form:",
+   {"type": "list", "items": [
+    "Naznaczony smoczym znamieniem członek rodu rzuca dla ciebie zaklęcie 5. poziomu związane ze znamieniem rodu bez żadnego kosztu.",
+    "Członek rodu rzuca dla ciebie inne zaklęcie 8. poziomu lub niższe za połowę zwykłego kosztu."
+   ]},
+   "Dodatkowo twoje stypendium rodowe wzrasta, wspierając twój Arystokratyczny styl życia (10 sz dziennie)."
+  ]
+ },
+ "protection": {
+  "name": "Ochrona",
+  "entries": ["Gdy widoczny przez ciebie stwór atakuje cel inny niż ty, znajdujący się w promieniu 5 stóp od ciebie, możesz użyć reakcji, by nałożyć utrudnienie na rzut na atak. Musisz władać tarczą."]
+ },
+ "protection-of-the-talisman": {
+  "name": "Ochrona Talizmanu",
+  "entries": ["Gdy osoba nosząca twój talizman nie zda rzutu obronnego, może dodać {@dice d4} do rzutu, potencjalnie zamieniając rzut obronny w sukces. Z tej korzyści można skorzystać liczbę razy równą twojej premii biegłości, a wszystkie wydane użycia odnawiają się, gdy kończysz długi odpoczynek."]
+ },
+ "pushing-attack": {
+  "name": "Odpychający Atak",
+  "entries": ["Gdy trafisz stwora rzutem na atak bronią lub {@variantrule Unarmed Strike|XPHB|Uderzeniem Bez Broni}, możesz wydać jedną Kość Przewagi, by spróbować odepchnąć cel. Dodaj Kość Przewagi do rzutu obrażeń ataku. Jeśli cel jest Duży lub mniejszy, musi zdać rzut obronny Siły lub zostać odepchnięty na odległość do 15 stóp bezpośrednio od ciebie."]
+ },
+ "pushing-attack-phb": {
+  "name": "Odpychający Atak",
+  "entries": ["Gdy trafisz stwora atakiem bronią, możesz wydać jedną kość przewagi, by spróbować odepchnąć cel. Dodajesz kość przewagi do rzutu obrażeń ataku, a jeśli cel jest Duży lub mniejszy, musi wykonać rzut obronny Siły. Przy nieudanym rzucie odpychasz cel na odległość do 15 stóp od siebie."]
+ },
+ "quick-toss": {
+  "name": "Szybki Rzut",
+  "entries": ["Jako akcję dodatkową możesz wydać jedną kość przewagi i wykonać atak dystansowy bronią posiadającą właściwość rzucania. Możesz dobyć broń w ramach wykonywania tego ataku. Jeśli trafisz, dodaj kość przewagi do rzutu obrażeń broni."]
+ },
+ "quickened-spell": {
+  "name": "Przyspieszone Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie o czasie rzucania wynoszącym akcję, możesz wydać 2 Punkty Czarodziejstwa, by zmienić czas rzucania na {@variantrule Bonus Action|XPHB|Akcję Dodatkową} dla tego rzucenia. Nie możesz zmodyfikować zaklęcia w ten sposób, jeśli już rzuciłeś zaklęcie poziomu 1+ w bieżącej turze, ani nie możesz rzucić zaklęcia poziomu 1+ w tej turze po zmodyfikowaniu zaklęcia w ten sposób."]
+ },
+ "quickened-spell-phb": {
+  "name": "Przyspieszone Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie o czasie rzucania wynoszącym 1 akcję, możesz wydać 2 punkty czarodziejstwa, by zmienić czas rzucania na 1 akcję dodatkową dla tego rzucenia."]
+ },
+ "radiant-weapon": {
+  "name": "Świetlista Broń",
+  "entries": [
+   "Ta magiczna broń daje premię +1 do rzutów na atak i obrażenia wykonywanych nią. Trzymając ją, władający może użyć akcji dodatkowej, by sprawić, że rzuca jasne światło w promieniu 30 stóp i półmrok w dodatkowym promieniu 30 stóp. Władający może zgasić światło jako akcję dodatkową.",
+   "Broń ma 4 ładunki. Jako reakcję natychmiast po trafieniu atakiem władający może wydać 1 ładunek, by sprawić, że atakujący zostanie {@condition blinded|oślepiony} do końca swojej następnej tury, chyba że atakujący zda rzut obronny Kondycji przeciwko twojej CT rzutu obronnego zaklęć. Broń odzyskuje {@dice 1d4} wydanych ładunków codziennie o świcie."
+  ]
+ },
+ "rally": {
+  "name": "Zbiórka",
+  "entries": ["Jako {@variantrule Bonus Action|XPHB|Akcję Dodatkową}, możesz wydać jedną Kość Przewagi, by wzmocnić determinację towarzysza. Wybierz sojusznika w promieniu 30 stóp od siebie, który cię widzi lub słyszy. Ten stwór zyskuje {@variantrule Temporary Hit Points|XPHB|Tymczasowe Punkty Wytrzymałości} równe wynikowi rzutu Kością Przewagi plus połowa twojego poziomu Wojownika (zaokrąglona w dół)."]
+ },
+ "rally-phb": {
+  "name": "Zbiórka",
+  "entries": ["Podczas swojej tury możesz użyć akcji dodatkowej i wydać jedną kość przewagi, by wzmocnić determinację jednego ze swoich towarzyszy. Gdy to robisz, wybierz przyjazny stwór, który cię widzi lub słyszy. Ten stwór zyskuje tymczasowe punkty wytrzymałości równe wynikowi rzutu kością przewagi + twój modyfikator Charyzmy."]
+ },
+ "rebuke-of-the-talisman": {
+  "name": "Zgromienie Talizmanu",
+  "entries": ["Gdy osoba nosząca twój talizman zostaje trafiona przez widocznego przez ciebie atakującego w promieniu 30 stóp od ciebie, możesz użyć reakcji, by zadać atakującemu obrażenia psychiczne równe twojej premii biegłości i odepchnąć go na odległość do 10 stóp od osoby noszącej talizman."]
+ },
+ "recognized-in-house": {
+  "name": "Rozpoznawany w Rodzie",
+  "entries": [
+   "Gdy prosisz swój ród o przysługę (jak opisano w „{@optfeature Favored in House|EFA|Ulubieniec Rodu}”), może ona przyjąć jedną z poniższych dodatkowych form:",
+   {"type": "list", "items": [
+    "Naznaczony smoczym znamieniem członek rodu rzuca dla ciebie zaklęcie 2. poziomu związane ze znamieniem rodu bez żadnego kosztu.",
+    "Członek rodu rzuca dla ciebie inne zaklęcie 4. poziomu lub niższe za połowę zwykłego kosztu.",
+    "Za każdym razem, gdy podejmujesz turę Bastionu, możesz wydać rodowi polecenie, tak jakby był specjalnym obiektem w twoim Bastionie. Twój ród określa rodzaj dostępnego dla ciebie specjalnego obiektu, jak zaznaczono w opisie każdego rodu dalej w tym rozdziale."
+   ]},
+   "Dodatkowo twoje stypendium rodowe wzrasta, wspierając twój Wygodny styl życia (2 sz dziennie)."
+  ]
+ },
+ "relentless-hex": {
+  "name": "Nieustępliwa Klątwa",
+  "entries": ["Twoja klątwa tworzy tymczasową więź między tobą a twoim celem. Jako akcję dodatkową możesz magicznie teleportować się na odległość do 30 stóp do wolnej, widocznej przez ciebie przestrzeni w promieniu 5 stóp od celu przeklętego twoim zaklęciem {@spell hex|klątwa} lub cechą czarownika, taką jak Klątwa Ostrza Hexblade'a lub Znak Złej Wróżby. By teleportować się w ten sposób, musisz widzieć przeklęty cel."]
+ },
+ "repeating-shot": {
+  "name": "Powtarzający Strzał",
+  "entries": [
+   "Ta magiczna broń daje premię +1 do rzutów na atak i obrażenia wykonywanych nią, gdy jest używana do ataku dystansowego, oraz ignoruje właściwość ładowania, jeśli ją posiada.",
+   "Jeśli broni brakuje amunicji, wytwarza własną, automatycznie tworząc jedną sztukę magicznej amunicji, gdy władający wykonuje nią atak dystansowy. Amunicja stworzona przez broń znika natychmiast po trafieniu lub chybieniu celu."
+  ]
+ },
+ "repelling-blast": {
+  "name": "Odpychający Wybuch",
+  "entries": [
+   "Wybierz jedno ze znanych ci {@filter Zaklęć Prostych Czarownika|spells|spell attack=m;r;o}, które wymaga rzutu na atak. Gdy trafisz Dużego lub mniejszego stwora tym zaklęciem prostym, możesz odepchnąć stwora na odległość do 10 stóp po linii prostej od siebie.",
+   {"type": "entries", "entries": [{"type": "entries", "name": "Powtarzalna", "entries": ["Możesz zdobyć tę inwokację więcej niż raz. Za każdym razem wybierz inne kwalifikujące się zaklęcie proste."]}]}
+  ]
+ },
+ "repelling-blast-phb": {
+  "name": "Odpychający Wybuch",
+  "entries": ["Gdy trafisz stwora {@spell eldritch blast|mrocznym wybuchem}, możesz odepchnąć stwora na odległość do 10 stóp od siebie po linii prostej."]
+ },
+ "replicate-magic-item": {
+  "name": "Replikacja Magicznego Przedmiotu",
+  "entries": [
+   "Dzięki tej infuzji replikujesz konkretny magiczny przedmiot. Możesz nauczyć się tej infuzji wielokrotnie; za każdym razem wybierz magiczny przedmiot, który możesz nią stworzyć, spośród poniższych tabel Przedmiotów do Replikacji. Tytuł tabeli mówi, na jakim poziomie w klasie musisz być, by wybrać z niej przedmiot. Alternatywnie możesz wybrać magiczny przedmiot spośród {@filter zwykłych magicznych przedmiotów|items|rarity=common} w grze, z wyłączeniem mikstur i zwojów.",
+   "W tabelach wpis przedmiotu informuje, czy przedmiot wymaga dostrojenia. Zobacz opis przedmiotu w {@book Podręczniku Mistrza Podziemi|DMG}, by dowiedzieć się więcej, w tym o rodzaju obiektu potrzebnego do jego wykonania.",
+   {"type": "table", "caption": "Przedmioty do Replikacji (2. poziom Artificera)", "colLabels": ["Magiczny Przedmiot", "Dostrojenie"], "colStyles": ["col-10", "col-2 text-center"], "rows": [
+    ["{@item Alchemy jug|Dzban alchemiczny}", "Nie"],
+    ["{@item Bag of holding|Torba przechowywania}", "Nie"],
+    ["{@item Cap of water breathing|Czapka oddychania wodą}", "Nie"],
+    ["{@item Goggles of night|Gogle nocy}", "Nie"],
+    ["{@item Rope of climbing|Lina wspinaczkowa}", "Nie"],
+    ["{@item Sending stones|Kamienie wysyłania}", "Nie"],
+    ["{@item Wand of magic detection|Różdżka wykrywania magii}", "Nie"],
+    ["{@item Wand of secrets|Różdżka sekretów}", "Nie"]
+   ]},
+   {"type": "table", "caption": "Przedmioty do Replikacji (6. poziom Artificera)", "colLabels": ["Magiczny Przedmiot", "Dostrojenie"], "colStyles": ["col-10", "col-2 text-center"], "rows": [
+    ["{@item Boots of elvenkind|Buty elfiego rodu}", "Nie"],
+    ["{@item Cloak of elvenkind|Płaszcz elfiego rodu}", "Tak"],
+    ["{@item Cloak of the manta ray|Płaszcz mancie}", "Nie"],
+    ["{@item Eyes of charming|Oczy uroku}", "Tak"],
+    ["{@item Gloves of thievery|Rękawice złodziejskie}", "Nie"],
+    ["{@item Lantern of revealing|Latarnia odsłonięcia}", "Nie"],
+    ["{@item Pipes of haunting|Piszczałki nawiedzenia}", "Nie"],
+    ["{@item Ring of water walking|Pierścień chodzenia po wodzie}", "Nie"]
+   ]},
+   {"type": "table", "caption": "Przedmioty do Replikacji (10. poziom Artificera)", "colLabels": ["Magiczny Przedmiot", "Dostrojenie"], "colStyles": ["col-11", "col-2 text-center"], "rows": [
+    ["{@item Boots of striding and springing|Buty kroczenia i skakania}", "Tak"],
+    ["{@item Boots of the Winterlands|Buty Krain Zimy}", "Tak"],
+    ["{@item Bracers of archery|Naramienniki łucznictwa}", "Tak"],
+    ["{@item Brooch of shielding|Broszka osłony}", "Tak"],
+    ["{@item Cloak of protection|Płaszcz ochrony}", "Tak"],
+    ["{@item Eyes of the eagle|Oczy orła}", "Tak"],
+    ["{@item Gauntlets of ogre power|Rękawice mocy ogra}", "Tak"],
+    ["{@item Gloves of missile snaring|Rękawice chwytania pocisków}", "Tak"],
+    ["{@item Gloves of swimming and climbing|Rękawice pływania i wspinaczki}", "Tak"],
+    ["{@item Hat of disguise|Kapelusz przebrania}", "Tak"],
+    ["{@item Headband of intellect|Opaska intelektu}", "Tak"],
+    ["{@item Helm of telepathy|Hełm telepatii}", "Tak"],
+    ["{@item Medallion of thoughts|Medalion myśli}", "Tak"],
+    ["{@item Necklace of adaptation|Naszyjnik adaptacji}", "Tak"],
+    ["{@item Periapt of wound closure|Amulet zamykania ran}", "Tak"],
+    ["{@item Pipes of the sewers|Piszczałki kanałów}", "Tak"],
+    ["{@item Quiver of Ehlonna|Kołczan Ehlonny}", "Nie"],
+    ["{@item Ring of jumping|Pierścień skakania}", "Tak"],
+    ["{@item Ring of mind shielding|Pierścień osłony umysłu}", "Tak"],
+    ["{@item Slippers of spider climbing|Kapcie pajęczej wspinaczki}", "Tak"],
+    ["{@item Ventilating lungs|ERLW|Wentylujące płuca} (opisane w {@book rozdziale 5|ERLW|13})", "Tak"],
+    ["{@item Winged boots|Skrzydlate buty}", "Tak"]
+   ]},
+   {"type": "table", "caption": "Przedmioty do Replikacji (14. poziom Artificera)", "colLabels": ["Magiczny Przedmiot", "Dostrojenie"], "colStyles": ["col-11", "col-1 text-center"], "rows": [
+    ["{@item Amulet of health|Amulet zdrowia}", "Tak"],
+    ["{@item Arcane propulsion arm|ERLW|Arkaniczne ramię napędowe} (opisane w {@book rozdziale 5|ERLW|13})", "Tak"],
+    ["{@item Belt of hill giant strength|Pas siły olbrzyma wzgórz}", "Tak"],
+    ["{@item Boots of levitation|Buty lewitacji}", "Tak"],
+    ["{@item Boots of speed|Buty prędkości}", "Tak"],
+    ["{@item Bracers of defense|Naramienniki obrony}", "Tak"],
+    ["{@item Cloak of the bat|Płaszcz nietoperza}", "Tak"],
+    ["{@item Dimensional shackles|Wymiarowe kajdany}", "Nie"],
+    ["{@item Gem of seeing|Klejnot widzenia}", "Tak"],
+    ["{@item Horn of blasting|Róg wybuchu}", "Nie"],
+    ["{@item Ring of free action|Pierścień swobodnego działania}", "Tak"],
+    ["{@item Ring of protection|Pierścień ochrony}", "Tak"],
+    ["{@item Ring of the ram|Pierścień barana}", "Tak"]
+   ]}
+  ]
+ },
+ "repulsion-shield": {
+  "name": "Tarcza Odpychania",
+  "entries": [
+   "Stwór zyskuje premię +1 do Klasy Pancerza, władając tą tarczą.",
+   "Tarcza ma 4 ładunki. Trzymając ją, władający może użyć reakcji natychmiast po trafieniu atakiem w walce wręcz, by wydać 1 ładunek tarczy i odepchnąć atakującego na odległość do 15 stóp. Tarcza odzyskuje {@dice 1d4} wydanych ładunków codziennie o świcie."
+  ]
+ },
+ "resistant-armor": {
+  "name": "Odporna Zbroja",
+  "entries": ["Nosząc tę zbroję, stwór ma odporność na jeden z poniższych typów obrażeń, który wybierasz podczas infuzowania przedmiotu: kwas, zimno, ogień, siła, piorun, nekrotyczne, trucizna, psychiczne, blask lub grzmot."]
+ },
+ "returning-weapon": {
+  "name": "Powracająca Broń",
+  "entries": ["Ta magiczna broń daje premię +1 do rzutów na atak i obrażenia wykonywanych nią i wraca do dłoni władającego natychmiast po użyciu jej do ataku dystansowego."]
+ },
+ "ride-the-wind": {
+  "name": "Jazda na Wietrze",
+  "entries": ["Możesz wydać 4 punkty ki, by rzucić {@spell fly|lot} na siebie."]
+ },
+ "riposte": {
+  "name": "Riposta",
+  "entries": ["Gdy stwór chybia cię rzutem na atak w walce wręcz, możesz podjąć {@variantrule Reaction|XPHB|Reakcję} i wydać jedną Kość Przewagi, by wykonać rzut na atak w walce wręcz bronią lub {@variantrule Unarmed Strike|XPHB|Uderzeniem Bez Broni} przeciwko temu stworowi. Jeśli trafisz, dodaj Kość Przewagi do obrażeń ataku."]
+ },
+ "riposte-phb": {
+  "name": "Riposta",
+  "entries": ["Gdy stwór chybia cię atakiem w walce wręcz, możesz użyć reakcji i wydać jedną kość przewagi, by wykonać atak bronią w walce wręcz przeciwko temu stworowi. Jeśli trafisz, dodajesz kość przewagi do rzutu obrażeń ataku."]
+ },
+ "river-of-hungry-flame": {
+  "name": "Rzeka Głodnego Płomienia",
+  "entries": ["Możesz wydać 5 punktów ki, by rzucić {@spell wall of fire|ściana ognia}."]
+ },
+ "rush-of-the-gale-spirits": {
+  "name": "Napór Duchów Wichru",
+  "entries": ["Możesz wydać 2 punkty ki, by rzucić {@spell gust of wind|podmuch wiatru}."]
+ },
+ "sculptor-of-flesh": {
+  "name": "Rzeźbiarz Ciała",
+  "entries": ["Możesz raz rzucić {@spell polymorph|polimorfia}, używając miejsca zaklęcia czarownika. Nie możesz zrobić tego ponownie, dopóki nie zakończysz długiego odpoczynku."]
+ },
+ "seeking-arrow": {
+  "name": "Poszukująca Strzała",
+  "entries": [
+   "Używając magii wróżbiarstwa, dajesz swojej strzale zdolność wyszukiwania celu. Gdy używasz tej opcji, nie wykonujesz rzutu na atak. Zamiast tego wybierz jeden stwór, którego widziałeś w ciągu ostatniej minuty. Strzała leci w kierunku tego stwora, omijając w razie potrzeby rogi i ignorując {@quickref Cover||trzy czwarte osłony} oraz {@quickref Cover||połowiczną osłonę}. Jeśli cel znajduje się w zasięgu broni i istnieje wystarczająco duża droga dla strzały, by dotrzeć do celu, cel musi wykonać rzut obronny Zręczności. W przeciwnym razie strzała znika po przebyciu maksymalnego dystansu. Przy nieudanym rzucie cel otrzymuje obrażenia, jakby został trafiony strzałą, plus dodatkowe {@damage 1d6} obrażeń siłą, a ty poznajesz obecne położenie celu. Przy udanym rzucie cel otrzymuje połowę tych obrażeń, a ty nie poznajesz jego położenia.",
+   "Obrażenia siłą wzrastają do {@damage 2d6}, gdy osiągniesz 18. poziom w tej klasie."
+  ]
+ },
+ "seeking-spell": {
+  "name": "Poszukujące Zaklęcie",
+  "entries": [
+   "Jeśli wykonujesz rzut na atak zaklęciem i chybisz, możesz wydać 1 Punkt Czarodziejstwa, by przerzucić {@dice d20}, i musisz użyć nowego wyniku.",
+   "Możesz użyć Poszukującego Zaklęcia, nawet jeśli użyłeś już innej opcji Metamagii podczas rzucania tego zaklęcia."
+  ]
+ },
+ "seeking-spell-tce": {
+  "name": "Poszukujące Zaklęcie",
+  "entries": [
+   "Jeśli wykonujesz rzut na atak zaklęciem i chybisz, możesz wydać 2 punkty czarodziejstwa, by przerzucić {@dice d20}, i musisz użyć nowego wyniku.",
+   "Możesz użyć Poszukującego Zaklęcia, nawet jeśli użyłeś już innej opcji Metamagii podczas rzucania tego zaklęcia."
+  ]
+ },
+ "shadow-arrow": {
+  "name": "Cienista Strzała",
+  "entries": [
+   "Wplatasz magię iluzji w swoją strzałę, przesłaniając cieniami wzrok wroga. Stwór trafiony strzałą otrzymuje dodatkowe {@damage 2d6} obrażeń psychicznych i musi zdać rzut obronny Mądrości, w przeciwnym razie nie widzi niczego dalej niż 5 stóp do początku twojej następnej tury.",
+   "Obrażenia psychiczne wzrastają do {@damage 4d6}, gdy osiągniesz 18. poziom w tej klasie."
+  ]
+ },
+ "shape-the-flowing-river": {
+  "name": "Kształtowanie Płynącej Rzeki",
+  "entries": ["Jako akcję możesz wydać 1 punkt ki, by wybrać obszar lodu lub wody nie większy niż 30 stóp z każdej strony, w promieniu 120 stóp od ciebie. Możesz zmienić wodę w lód i odwrotnie, a także dowolnie kształtować lód w tym obszarze. Możesz podnieść lub obniżyć poziom lodu, stworzyć lub wypełnić rów, wznieść lub spłaszczyć ścianę, bądź uformować kolumnę. Zakres takich zmian nie może przekraczać połowy największego wymiaru obszaru. Na przykład, jeśli oddziałujesz na kwadrat o boku 30 stóp, możesz stworzyć kolumnę o wysokości do 15 stóp, podnieść lub obniżyć poziom kwadratu o do 15 stóp, wykopać rów o głębokości do 15 stóp i tak dalej. Nie możesz ukształtować lodu tak, by uwięzić lub zranić stwora w tym obszarze."]
+ },
+ "shroud-of-shadow": {
+  "name": "Całun Cienia",
+  "entries": ["Możesz rzucić {@spell invisibility|niewidzialność} dowolną liczbę razy, bez wydawania miejsca zaklęcia."]
+ },
+ "sign-of-ill-omen": {
+  "name": "Znak Złej Wróżby",
+  "entries": ["Możesz raz rzucić {@spell bestow curse|rzucenie klątwy}, używając miejsca zaklęcia czarownika. Nie możesz zrobić tego ponownie, dopóki nie zakończysz długiego odpoczynku."]
+ },
+ "spell-refueling-ring": {
+  "name": "Pierścień Doładowania Zaklęć",
+  "entries": ["Nosząc ten pierścień, stwór może jako akcję odzyskać jedno wydane miejsce zaklęcia. Odzyskane miejsce może być 3. poziomu lub niższe. Po użyciu pierścienia nie można go użyć ponownie aż do następnego świtu."]
+ },
+ "stone-rune": {
+  "name": "Runa Kamienia",
+  "entries": [
+   "Magia tej runy kanalizuje roztropność kojarzoną z olbrzymami kamienia. Nosząc lub trzymając przedmiot naznaczony tą runą, masz przewagę w testach Mądrości ({@skill Insight|Wnikliwość}) i posiadasz {@sense darkvision|widzenie w ciemności} na odległość do 120 stóp.",
+   "Dodatkowo, gdy widoczny przez ciebie stwór kończy swoją turę w promieniu 30 stóp od ciebie, możesz użyć reakcji, by przywołać runę i zmusić stwora do wykonania rzutu obronnego Mądrości. O ile rzut się nie powiedzie, stwór zostaje {@condition charmed|oczarowany} przez ciebie na 1 minutę. Będąc oczarowany w ten sposób, stwór ma prędkość 0 i jest {@condition incapacitated|bezradny}, popadając w senne odrętwienie. Stwór powtarza rzut obronny pod koniec każdej swojej tury, kończąc efekt przy sukcesie. Gdy raz przywołasz tę runę, nie możesz zrobić tego ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+  ]
+ },
+ "storm-rune": {
+  "name": "Runa Burzy",
+  "entries": [
+   "Używając tej runy, możesz dostrzec przyszłość jak jasnowidz olbrzymów burzy. Nosząc lub trzymając przedmiot naznaczony tą runą, masz przewagę w testach Inteligencji ({@skill Arcana|Wiedza Tajemna}) i nie możesz zostać {@status surprised|zaskoczony}, dopóki nie jesteś {@condition incapacitated|bezradny}.",
+   "Dodatkowo możesz przywołać runę jako akcję dodatkową, by wejść w prorocze stan na 1 minutę lub dopóki nie staniesz się {@condition incapacitated|bezradny}. Dopóki ten stan trwa, gdy ty lub widoczny przez ciebie stwór w promieniu 60 stóp wykonuje rzut na atak, rzut obronny lub test zdolności, możesz użyć reakcji, by sprawić, że rzut ma przewagę lub utrudnienie. Gdy raz przywołasz tę runę, nie możesz zrobić tego ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+  ]
+ },
+ "subtle-spell": {
+  "name": "Subtelne Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie, możesz wydać 1 Punkt Czarodziejstwa, by rzucić je bez żadnych komponentów Werbalnych, Somatycznych lub Materialnych, z wyjątkiem komponentów Materialnych, które są zużywane przez zaklęcie lub mają koszt określony w zaklęciu."]
+ },
+ "subtle-spell-phb": {
+  "name": "Subtelne Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie, możesz wydać 1 punkt czarodziejstwa, by rzucić je bez żadnych komponentów somatycznych lub werbalnych."]
+ },
+ "superior-technique": {
+  "name": "Doskonała Technika",
+  "entries": [
+   "Uczysz się jednego wybranego {@filter manewru|optionalfeatures|feature type=MV:B} spośród dostępnych dla archetypu {@class fighter|phb|2-0}. Jeśli użyty przez ciebie manewr wymaga od celu wykonania rzutu obronnego, by oprzeć się jego efektom, CT rzutu obronnego wynosi 8 + twoja premia biegłości + twój modyfikator Siły lub Zręczności (twój wybór).",
+   "Zyskujesz jedną kość przewagi, którą jest {@dice d6} (ta kość jest dodawana do wszelkich kości przewagi, które posiadasz z innego źródła). Ta kość zasila twoje manewry. Kość przewagi zostaje wydana, gdy jej użyjesz. Odzyskujesz wydane kości przewagi, gdy kończysz krótki lub długi odpoczynek."
+  ]
+ },
+ "sweeping-attack": {
+  "name": "Szeroki Atak",
+  "entries": ["Gdy trafisz stwora rzutem na atak w walce wręcz bronią lub {@variantrule Unarmed Strike|XPHB|Uderzeniem Bez Broni}, możesz wydać jedną Kość Przewagi, by spróbować zranić innego stwora. Wybierz innego stwora w promieniu 5 stóp od pierwotnego celu i w swoim zasięgu. Jeśli pierwotny rzut na atak trafiłby drugiego stwora, otrzymuje on obrażenia równe liczbie wyrzuconej na Kości Przewagi. Obrażenia są tego samego typu, co zadane pierwotnym atakiem."]
+ },
+ "sweeping-attack-phb": {
+  "name": "Szeroki Atak",
+  "entries": ["Gdy trafisz stwora atakiem bronią w walce wręcz, możesz wydać jedną kość przewagi, by spróbować zranić tym samym atakiem innego stwora. Wybierz innego stwora w promieniu 5 stóp od pierwotnego celu i w swoim zasięgu. Jeśli pierwotny rzut na atak trafiłby drugiego stwora, otrzymuje on obrażenia równe liczbie wyrzuconej na kości przewagi. Obrażenia są tego samego typu, co zadane pierwotnym atakiem."]
+ },
+ "sweeping-cinder-strike": {
+  "name": "Uderzenie Zamiatającego Żaru",
+  "entries": ["Możesz wydać 2 punkty ki, by rzucić {@spell burning hands|płonące dłonie}."]
+ },
+ "tactical-assessment": {
+  "name": "Ocena Taktyczna",
+  "entries": ["Gdy wykonujesz test Inteligencji ({@skill History|XPHB|Historia} lub {@skill Investigation|XPHB|Dochodzenie}) lub test Mądrości ({@skill Insight|XPHB|Wnikliwość}), możesz wydać jedną Kość Przewagi i dodać ją do testu zdolności."]
+ },
+ "tactical-assessment-tce": {
+  "name": "Ocena Taktyczna",
+  "entries": ["Gdy wykonujesz test Inteligencji ({@skill Investigation|Dochodzenie}), Inteligencji ({@skill History|Historia}) lub Mądrości ({@skill Insight|Wnikliwość}), możesz wydać jedną kość przewagi i dodać ją do testu zdolności."]
+ },
+ "thief-of-five-fates": {
+  "name": "Złodziej Pięciu Losów",
+  "entries": ["Możesz raz rzucić {@spell bane|zguba}, używając miejsca zaklęcia czarownika. Nie możesz zrobić tego ponownie, dopóki nie zakończysz długiego odpoczynku."]
+ },
+ "thirsting-blade": {
+  "name": "Spragnione Ostrze",
+  "entries": ["Zyskujesz cechę Dodatkowy Atak wyłącznie dla swojej broni paktu. Dzięki tej cesze możesz zaatakować dwa razy tą bronią zamiast raz, gdy podejmujesz akcję {@action Attack|XPHB|Atak} podczas swojej tury."]
+ },
+ "thirsting-blade-phb": {
+  "name": "Spragnione Ostrze",
+  "entries": ["Możesz zaatakować swoją bronią paktu dwa razy, zamiast raz, za każdym razem, gdy podejmujesz akcję {@action Attack|Atak} podczas swojej tury."]
+ },
+ "thrown-weapon-fighting": {
+  "name": "Walka Bronią Rzucaną",
+  "entries": [
+   "Możesz dobyć broń posiadającą właściwość rzucania w ramach ataku, który nią wykonujesz.",
+   "Dodatkowo, gdy trafisz atakiem dystansowym bronią rzucaną, zyskujesz premię +2 do rzutu obrażeń."
+  ]
+ },
+ "tomb-of-levistus": {
+  "name": "Grobowiec Levistusa",
+  "entries": [
+   "Jako reakcję, gdy otrzymujesz obrażenia, możesz zamknąć się w lodzie, który topnieje pod koniec twojej następnej tury. Zyskujesz 10 tymczasowych punktów wytrzymałości za poziom czarownika, które pochłaniają jak najwięcej wywołujących ten efekt obrażeń. Natychmiast po otrzymaniu obrażeń zyskujesz podatność na obrażenia ogniem, twoja prędkość spada do 0, a jesteś {@condition incapacitated|bezradny}. Te efekty, wraz z pozostałymi tymczasowymi punktami wytrzymałości, kończą się, gdy lód topnieje.",
+   "Gdy raz użyjesz tej inwokacji, nie możesz jej użyć ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+  ]
+ },
+ "transmuted-spell": {
+  "name": "Przemienione Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie zadające typ obrażeń z poniższej listy, możesz wydać 1 Punkt Czarodziejstwa, by zmienić ten typ obrażeń na jeden z pozostałych wymienionych typów: Kwas, Zimno, Ogień, Piorun, Trucizna, Grzmot."]
+ },
+ "transmuted-spell-tce": {
+  "name": "Przemienione Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie zadające typ obrażeń z poniższej listy, możesz wydać 1 punkt czarodziejstwa, by zmienić ten typ obrażeń na jeden z pozostałych wymienionych typów: kwas, zimno, ogień, piorun, trucizna, grzmot."]
+ },
+ "trickster-s-escape": {
+  "name": "Ucieczka Kanciarza",
+  "entries": ["Możesz raz rzucić {@spell freedom of movement|swoboda ruchu} na siebie bez wydawania miejsca zaklęcia. Odzyskujesz tę zdolność, gdy kończysz długi odpoczynek."]
+ },
+ "trip-attack": {
+  "name": "Atak Podcinający",
+  "entries": ["Gdy trafisz stwora rzutem na atak bronią lub {@variantrule Unarmed Strike|XPHB|Uderzeniem Bez Broni}, możesz wydać jedną Kość Przewagi i dodać ją do rzutu obrażeń ataku. Jeśli cel jest Duży lub mniejszy, musi zdać rzut obronny Siły, w przeciwnym razie uzyskuje stan {@condition Prone|XPHB|Powalony}."]
+ },
+ "trip-attack-phb": {
+  "name": "Atak Podcinający",
+  "entries": ["Gdy trafisz stwora atakiem bronią, możesz wydać jedną kość przewagi, by spróbować powalić cel. Dodajesz kość przewagi do rzutu obrażeń ataku, a jeśli cel jest Duży lub mniejszy, musi wykonać rzut obronny Siły. Przy nieudanym rzucie powalasz cel na ziemię ({@condition prone})."]
+ },
+ "twinned-spell": {
+  "name": "Podwojone Zaklęcie",
+  "entries": ["Gdy rzucasz zaklęcie, takie jak {@spell Charm Person|XPHB|Oczarowanie Osoby}, które można rzucić przy użyciu miejsca zaklęcia wyższego poziomu, by objąć nim dodatkowy cel, możesz wydać 1 Punkt Czarodziejstwa, by zwiększyć efektywny poziom zaklęcia o 1."]
+ },
+ "twinned-spell-phb": {
+  "name": "Podwojone Zaklęcie",
+  "entries": [
+   "Gdy rzucasz zaklęcie celujące tylko w jeden stwór i niemające zasięgu samego siebie, możesz wydać liczbę punktów czarodziejstwa równą poziomowi zaklęcia, by objąć nim drugi stwór w zasięgu tym samym zaklęciem (1 punkt czarodziejstwa, jeśli zaklęcie jest zaklęciem prostym).",
+   "By kwalifikować się, zaklęcie nie może być zdolne do objęcia więcej niż jednego stwora na obecnym poziomie zaklęcia. Na przykład {@spell magic missile|pocisk czarodziejski} i {@spell scorching ray|parzący promień} nie kwalifikują się, ale {@spell ray of frost|promień mrozu} i {@spell chromatic orb|chromatyczna kula} tak."
+  ]
+ },
+ "two-weapon-fighting": {
+  "name": "Walka Dwiema Broniami",
+  "entries": ["Gdy walczysz dwiema broniami, możesz dodać swój modyfikator zdolności do obrażeń drugiego ataku."]
+ },
+ "unarmed-fighting": {
+  "name": "Walka Wręcz",
+  "entries": [
+   "Twoje uderzenia bez broni mogą zadawać obrażenia obuchowe równe {@damage 1d6} + twój modyfikator Siły przy trafieniu. Jeśli nie władasz żadną bronią ani {@item shield|phb|tarczą}, gdy wykonujesz rzut na atak, {@damage d6} zamienia się w {@damage d8}.",
+   "Na początku każdej swojej tury możesz zadać {@damage 1d4} obrażeń obuchowych jednemu stworowi {@condition grappled|chwyconemu} przez ciebie."
+  ]
+ },
+ "unbroken-air": {
+  "name": "Nieprzerwane Powietrze",
+  "entries": ["Możesz stworzyć podmuch sprężonego powietrza, który uderza jak potężna pięść. Jako akcję możesz wydać 2 punkty ki i wybrać stwora w promieniu 30 stóp od siebie. Ten stwór musi wykonać rzut obronny Siły. Przy nieudanym rzucie stwór otrzymuje {@damage 3d10} obrażeń obuchowych, plus dodatkowe {@damage 1d10} obrażeń obuchowych za każdy dodatkowy wydany punkt ki, i możesz odepchnąć stwora na odległość do 20 stóp od siebie oraz powalić go ({@condition prone}). Przy udanym rzucie stwór otrzymuje połowę tych obrażeń, a ty go nie odpychasz ani nie powalasz."]
+ },
+ "undying-servitude": {
+  "name": "Nieumarłe Służebnictwo",
+  "entries": ["Możesz rzucić {@spell animate dead|ożywienie zmarłych} bez użycia miejsca zaklęcia. Gdy to zrobisz, nie możesz rzucić go w ten sposób ponownie, dopóki nie zakończysz długiego odpoczynku."]
+ },
+ "visions-of-distant-realms": {
+  "name": "Wizje Odległych Krain",
+  "entries": ["Możesz rzucić {@spell Arcane Eye|XPHB|Arkaniczne Oko} bez wydawania miejsca zaklęcia."]
+ },
+ "visions-of-distant-realms-phb": {
+  "name": "Wizje Odległych Krain",
+  "entries": ["Możesz rzucić {@spell arcane eye|arkaniczne oko} dowolną liczbę razy, bez wydawania miejsca zaklęcia."]
+ },
+ "voice-of-the-chain-master": {
+  "name": "Głos Mistrza Łańcucha",
+  "entries": ["Możesz komunikować się telepatycznie ze swoim zwierzakiem i postrzegać przez jego zmysły, dopóki jesteście na tym samym planie istnienia. Dodatkowo, postrzegając przez zmysły swojego zwierzaka, możesz również mówić przez niego swoim własnym głosem, nawet jeśli twój zwierzak normalnie nie jest zdolny do mowy."]
+ },
+ "water-whip": {
+  "name": "Wodny Bicz",
+  "entries": ["Możesz wydać 2 punkty ki jako akcję, by stworzyć bicz z wody, który popycha i ciągnie stwora, by wytrącić go z równowagi. Widoczny przez ciebie stwór w promieniu 30 stóp od ciebie musi wykonać rzut obronny Zręczności. Przy nieudanym rzucie stwór otrzymuje {@damage 3d10} obrażeń obuchowych, plus dodatkowe {@damage 1d10} obrażeń obuchowych za każdy dodatkowy wydany punkt ki, a ty możesz albo powalić go ({@condition prone}), albo przyciągnąć go na odległość do 25 stóp bliżej siebie. Przy udanym rzucie stwór otrzymuje połowę tych obrażeń, a ty go nie przyciągasz ani nie powalasz."]
+ },
+ "wave-of-rolling-earth": {
+  "name": "Fala Toczącej się Ziemi",
+  "entries": ["Możesz wydać 6 punktów ki, by rzucić {@spell wall of stone|ściana kamienia}."]
+ },
+ "whispers-of-the-grave": {
+  "name": "Szepty Grobu",
+  "entries": ["Możesz rzucić {@spell Speak with Dead|XPHB|Mowa ze Zmarłymi} bez wydawania miejsca zaklęcia."]
+ },
+ "whispers-of-the-grave-phb": {
+  "name": "Szepty Grobu",
+  "entries": ["Możesz rzucić {@spell speak with dead|mowa ze zmarłymi} dowolną liczbę razy, bez wydawania miejsca zaklęcia."]
+ },
+ "witch-sight": {
+  "name": "Wzrok Wiedźmy",
+  "entries": ["Masz {@sense Truesight|XPHB|Prawdziwy Wzrok} o zasięgu 30 stóp."]
+ },
+ "witch-sight-phb": {
+  "name": "Wzrok Wiedźmy",
+  "entries": ["Możesz widzieć prawdziwą postać każdego zmiennokształtnego lub stwora ukrytego magią iluzji bądź transmutacji, dopóki stwór znajduje się w promieniu 30 stóp od ciebie i w polu widzenia."]
+ }
+}

@@ -1,0 +1,129 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { Link, useLocale } from '@/i18n/path';
+import { useT } from '@/i18n/useT';
+import {
+  loadReferenceHint,
+  loadReferenceName,
+  type ReferenceHint,
+} from './referenceHint';
+
+interface ReferenceLinkProps {
+  category: string;
+  slug: string;
+  label: string;
+}
+
+interface Anchor {
+  left: number;
+  top: number;
+  bottom: number;
+}
+
+const POPOVER_WIDTH = 288;
+
+export function ReferenceLink({ category, slug, label }: ReferenceLinkProps) {
+  const { t } = useT();
+  const locale = useLocale();
+  const ref = useRef<HTMLAnchorElement>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const [hint, setHint] = useState<ReferenceHint | null | undefined>(undefined);
+  const [anchor, setAnchor] = useState<Anchor | null>(null);
+
+  const [localizedLabel, setLocalizedLabel] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    setLocalizedLabel(null);
+    void loadReferenceName(category, slug, locale, label).then((name) => {
+      if (!cancelled && name) setLocalizedLabel(name);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [category, slug, locale, label]);
+
+  const hide = useCallback(() => {
+    if (timerRef.current !== null) clearTimeout(timerRef.current);
+    timerRef.current = null;
+    setAnchor(null);
+  }, []);
+
+  const show = useCallback(() => {
+    if (typeof window !== 'undefined' && !window.matchMedia('(hover: hover)').matches) {
+      return;
+    }
+    if (timerRef.current !== null) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      const el = ref.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      setHint(undefined);
+      setAnchor({ left: rect.left, top: rect.top, bottom: rect.bottom });
+      void loadReferenceHint(category, slug, locale).then(setHint);
+    }, 220);
+  }, [category, slug, locale]);
+
+  useEffect(() => {
+    if (!anchor) return;
+
+    window.addEventListener('scroll', hide, true);
+    window.addEventListener('resize', hide);
+    return () => {
+      window.removeEventListener('scroll', hide, true);
+      window.removeEventListener('resize', hide);
+    };
+  }, [anchor, hide]);
+
+  useEffect(() => () => hide(), [hide]);
+
+  const placeBelow = anchor ? anchor.top < 180 : false;
+  const left = anchor
+    ? Math.max(8, Math.min(anchor.left, window.innerWidth - POPOVER_WIDTH - 8))
+    : 0;
+
+  return (
+    <>
+      <Link
+        ref={ref}
+        to={`/compendium/${category}/${slug}`}
+        onMouseEnter={show}
+        onMouseLeave={hide}
+        onFocus={show}
+        onBlur={hide}
+        className="text-arcane-300 underline decoration-dotted underline-offset-2 hover:text-arcane-500"
+      >
+        {localizedLabel ?? label}
+      </Link>
+      {anchor &&
+        createPortal(
+          <div
+            role="tooltip"
+            style={{
+              position: 'fixed',
+              left,
+              width: POPOVER_WIDTH,
+              ...(placeBelow
+                ? { top: anchor.bottom + 8 }
+                : { bottom: window.innerHeight - anchor.top + 8 }),
+            }}
+            className="z-[60] animate-fade-in-up rounded-lg border border-ink-700 bg-ink-800 p-3 text-sm shadow-xl"
+          >
+            <p className="font-display font-bold text-ink-50">{hint?.name ?? label}</p>
+            {hint?.subtitle && (
+              <p className="mt-0.5 text-xs uppercase tracking-wide text-arcane-300">
+                {hint.subtitle}
+              </p>
+            )}
+            <p className="mt-1.5 leading-snug text-ink-200">
+              {hint === undefined
+                ? t('common.loading')
+                : (hint?.description ?? '') || t('compendium.referenceOpenFull')}
+            </p>
+          </div>,
+          document.body,
+        )}
+    </>
+  );
+}

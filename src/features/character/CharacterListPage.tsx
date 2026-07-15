@@ -1,0 +1,153 @@
+import { useRef } from 'react';
+import { Plus, Trash2, Upload, UserRound } from 'lucide-react';
+import { alertDialog, confirmDialog } from '@/features/ui/confirmStore';
+import { useNavigate } from '@/i18n/path';
+import { useT } from '@/i18n/useT';
+import { useSeo } from '@/seo/useSeo';
+import { type Character, isDmCharacter } from './model';
+import { type LayoutZone, useLayoutStore } from './layoutStore';
+import { useCharacterList, useCharacterStore } from './store';
+
+interface CharacterExportFile {
+  version: number;
+  character: Character;
+  layout?: Record<LayoutZone, string[]>;
+}
+
+export function CharacterListPage() {
+  const { t } = useT();
+  useSeo(t('character.list.title'));
+  const navigate = useNavigate();
+  const characters = useCharacterList();
+  const addCharacter = useCharacterStore((state) => state.addCharacter);
+  const saveCharacter = useCharacterStore((state) => state.saveCharacter);
+  const deleteCharacter = useCharacterStore((state) => state.deleteCharacter);
+  const fileInput = useRef<HTMLInputElement>(null);
+
+  const handleCreate = () => {
+    const id = addCharacter();
+    navigate(`/character/${id}`);
+  };
+
+  const handleImport = async (file: File) => {
+    try {
+      const parsed = JSON.parse(await file.text()) as Partial<CharacterExportFile> &
+        Partial<Character>;
+
+      const character = (parsed.character ?? parsed) as Character;
+      if (!character.id || !character.name) throw new Error('Invalid character file');
+      saveCharacter(character);
+      if (parsed.layout) {
+        useLayoutStore.setState({ zones: parsed.layout });
+      }
+    } catch {
+      await alertDialog(t('character.list.importFailedMessage'), {
+        title: t('character.list.importFailedTitle'),
+      });
+    }
+  };
+
+  return (
+    <div className="mx-auto max-w-5xl px-6 py-10">
+      <header className="mb-8 flex items-center justify-between">
+        <h1 className="font-display text-3xl font-bold text-ink-50">
+          {t('character.list.title')}
+        </h1>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={() => fileInput.current?.click()}
+            className="inline-flex items-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm font-medium text-ink-200 hover:bg-ink-800"
+          >
+            <Upload size={16} /> {t('character.list.import')}
+          </button>
+          <input
+            ref={fileInput}
+            type="file"
+            accept="application/json"
+            className="hidden"
+            onChange={(event) => {
+              const file = event.target.files?.[0];
+              if (file) void handleImport(file);
+              event.target.value = '';
+            }}
+          />
+          <button
+            type="button"
+            onClick={handleCreate}
+            className="inline-flex items-center gap-2 rounded-lg bg-arcane-700 px-3 py-2 text-sm font-medium text-ink-50 hover:bg-arcane-500"
+          >
+            <Plus size={16} /> {t('character.list.newCharacter')}
+          </button>
+        </div>
+      </header>
+
+      {characters.length === 0 ? (
+        <div className="rounded-xl border border-dashed border-ink-700 p-12 text-center text-ink-300">
+          {t('character.list.emptyState')}
+        </div>
+      ) : (
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {characters.map((character) => (
+            <li key={character.id}>
+              <div className="group relative flex flex-col gap-2 rounded-xl border border-ink-700 bg-ink-900 p-4 transition-colors hover:border-arcane-500">
+                <button
+                  type="button"
+                  onClick={() => navigate(`/character/${character.id}`)}
+                  className="flex items-center gap-3 text-left"
+                >
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-ink-700 bg-ink-950">
+                    {character.portrait ? (
+                      <img
+                        src={character.portrait}
+                        alt=""
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <UserRound
+                        className="text-arcane-300"
+                        size={24}
+                        aria-hidden="true"
+                      />
+                    )}
+                  </span>
+                  <div>
+                    <p className="flex items-center gap-2 font-display text-lg font-semibold text-ink-50">
+                      {character.name || t('character.unnamed')}
+                      {isDmCharacter(character) && (
+                        <span className="rounded-full border border-ember-500/50 px-1.5 text-[0.65rem] uppercase tracking-wide text-ember-400">
+                          {t('character.dmBadge')}
+                        </span>
+                      )}
+                    </p>
+                    <p className="text-sm text-ink-400">
+                      {t('character.list.level', { level: character.level })}
+                      {character.className && ` ${character.className}`}
+                      {character.species && ` · ${character.species}`}
+                    </p>
+                  </div>
+                </button>
+                <button
+                  type="button"
+                  aria-label={t('character.list.deleteLabel', { name: character.name })}
+                  onClick={async () => {
+                    const ok = await confirmDialog(
+                      t('character.list.deleteConfirm', {
+                        name: character.name || t('character.list.thisCharacter'),
+                      }),
+                      { tone: 'danger', confirmLabel: t('common.delete') },
+                    );
+                    if (ok) deleteCharacter(character.id);
+                  }}
+                  className="absolute right-3 top-3 rounded p-1 text-ink-400 opacity-0 transition-opacity hover:bg-ink-800 hover:text-red-400 group-hover:opacity-100"
+                >
+                  <Trash2 size={16} />
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}

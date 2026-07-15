@@ -1,0 +1,670 @@
+{
+  "aberrant-heir": {
+    "name": "Aberracyjny Dziedzic",
+    "entries": [
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Wartości Zdolności:",
+            "entry": "Siła, Kondycja, Charyzma"
+          },
+          {
+            "type": "item",
+            "name": "Cecha:",
+            "entry": "{@feat Aberracyjne Smocze Znamię|EFA}"
+          },
+          {
+            "type": "item",
+            "name": "Biegłości w Umiejętnościach:",
+            "entry": "{@skill Historia|XPHB} i {@skill Zastraszanie|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Biegłość z Narzędziami:",
+            "entry": "{@item Zestaw do Przebrań|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Ekwipunek:",
+            "entry": "Wybierz A lub B: (A) {@item Sztylet|XPHB}, {@item Zestaw do Przebrań|XPHB}, {@item Kostium|XPHB}, {@item Strój Podróżnika|XPHB}, 16 SZ; lub (B) 50 SZ"
+          }
+        ]
+      }
+    ],
+    "lore": [
+      "Twoje aberracyjne smocze znamię czyniło życie trudnym, odkąd się objawiło. Być może udało ci się je skutecznie ukrywać przez większość życia lub unikać uwagi. Alternatywnie mogłeś napotkać podejrzliwość i strach, być może połączone z jawną wrogością jednego lub więcej domów smoczoznamiennych. Mogłeś nawiązać związek z organizacją przestępczą Domu Tarkanan (nazwaną na cześć jednego z najbardziej niesławnych przywódców aberracyjnych smoczoznamiennych podczas Wojny Znamienia dwadzieścia pięć wieków temu). Albo możesz zmagać się ze znalezieniem własnej drogi w świecie, polegając na swoim sprycie i mocy swego znamienia."
+    ]
+  },
+  "acolyte": {
+    "name": "Akolita",
+    "entries": [
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Wartości Zdolności:",
+            "entry": "Inteligencja, Mądrość, Charyzma"
+          },
+          {
+            "type": "item",
+            "name": "Cecha:",
+            "entry": "{@feat Magiczny Inicjant|XPHB} (Kleryk)"
+          },
+          {
+            "type": "item",
+            "name": "Biegłości w Umiejętnościach:",
+            "entry": "{@skill Wnikliwość|XPHB}, {@skill Religia|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Biegłość z Narzędziami:",
+            "entry": "{@item Przybory Kaligrafa|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Ekwipunek:",
+            "entry": "Wybierz A lub B: (A) {@item Przybory Kaligrafa|XPHB}, {@item Księga|XPHB|Księga (modlitwy)}, {@item Symbol Wiary|XPHB}, {@item Pergamin|XPHB} (10 arkuszy), {@item Szata|xphb}, 8 SZ; lub (B) 50 SZ"
+          }
+        ]
+      }
+    ],
+    "lore": [
+      "Poświęciłeś się służbie w świątyni, ulokowanej w mieście lub odosobnionej w świętym gaju. Tam sprawowałeś obrzędy na cześć boga lub panteonu. Służyłeś pod kapłanem i studiowałeś religię. Dzięki nauce swojego kapłana i własnemu oddaniu nauczyłeś się też, jak kanalizować odrobinę boskiej mocy w służbie swemu miejscu kultu i modlącym się tam ludziom."
+    ]
+  },
+  "acolyte-phb": {
+    "name": "Akolita",
+    "entries": [
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Biegłości w Umiejętnościach:",
+            "entry": "{@skill Wnikliwość}, {@skill Religia}"
+          },
+          {
+            "type": "item",
+            "name": "Języki:",
+            "entry": "Dwa wedle wyboru"
+          },
+          {
+            "type": "item",
+            "name": "Ekwipunek:",
+            "entry": "{@item symbol wiary|phb} (podarunek otrzymany przy wstąpieniu do kapłaństwa), {@item księga|phb} modlitw lub młynek modlitewny, 5 laseczek kadzidła, szaty liturgiczne, komplet {@item zwykłego stroju|phb} oraz {@item sakiewka|phb} przy pasie zawierająca 15 sz"
+          }
+        ]
+      },
+      {
+        "name": "Cecha: Schronienie Wiernych",
+        "type": "entries",
+        "entries": [
+          "Jako akolita cieszysz się szacunkiem tych, którzy podzielają twoją wiarę, i możesz sprawować obrzędy religijne swojego bóstwa. Ty i twoi towarzysze wyprawy możecie liczyć na darmowe leczenie i opiekę w świątyni, kapliczce lub innej ustanowionej placówce twojej wiary, choć musisz dostarczyć wszelkie składniki materialne potrzebne do zaklęć. Ci, którzy podzielają twoją religię, będą cię wspierać (ale tylko ciebie) na skromnym poziomie życia.",
+          "Możesz też mieć powiązania z konkretną świątynią poświęconą twojemu wybranemu bóstwu lub panteonowi, i posiadasz tam rezydencję. Może to być świątynia, w której niegdyś służyłeś, jeśli pozostajesz z nią w dobrych stosunkach, lub świątynia, w której znalazłeś nowy dom. Przebywając w pobliżu swojej świątyni, możesz zwrócić się o pomoc do kapłanów, o ile prośba, o którą pytasz, nie jest niebezpieczna i pozostajesz w dobrej komitywie ze swoją świątynią."
+        ],
+        "data": { "isFeature": true }
+      },
+      {
+        "name": "Sugerowane Cechy Charakteru",
+        "type": "entries",
+        "entries": [
+          "Akolitów kształtuje ich doświadczenie w świątyniach lub innych wspólnotach religijnych. Ich studia nad historią i zasadami wiary oraz relacje ze świątyniami, kapliczkami czy hierarchiami wpływają na ich maniery i ideały. Ich wady mogą przejawiać się w ukrytej hipokryzji, heretyckiej myśli lub ideale czy więzi doprowadzonych do skrajności.",
+          {
+            "type": "table",
+            "colLabels": ["k8", "Cecha Osobowości"],
+            "colStyles": ["col-1 text-center", "col-11"],
+            "rows": [
+              ["1", "Wielbię pewnego konkretnego bohatera swej wiary i nieustannie odwołuję się do jego czynów i przykładu."],
+              ["2", "Potrafię znaleźć wspólny grunt między najzawziętszymi wrogami, wczuwając się w nich i zawsze dążąc do pokoju."],
+              ["3", "Widzę znaki w każdym wydarzeniu i działaniu. Bogowie próbują z nami rozmawiać, wystarczy tylko słuchać."],
+              ["4", "Nic nie może zachwiać moim optymistycznym nastawieniem."],
+              ["5", "Cytuję (lub błędnie cytuję) święte teksty i przysłowia niemal w każdej sytuacji."],
+              ["6", "Jestem tolerancyjny (lub nietolerancyjny) wobec innych wiar i szanuję (lub potępiam) kult innych bogów."],
+              ["7", "Cieszyłem się wykwintnym jedzeniem, trunkami i wysokim towarzystwem wśród elity mojej świątyni. Surowe życie mnie drażni."],
+              ["8", "Spędziłem tyle czasu w świątyni, że mam niewielkie praktyczne doświadczenie w kontaktach z ludźmi w zewnętrznym świecie."]
+            ]
+          },
+          {
+            "type": "table",
+            "colLabels": ["k6", "Ideał"],
+            "colStyles": ["col-1 text-center", "col-11"],
+            "rows": [
+              ["1", "Tradycja. Starożytne tradycje kultu i ofiary muszą być zachowane i podtrzymywane. (Praworządny)"],
+              ["2", "Dobroczynność. Zawsze staram się pomagać potrzebującym, niezależnie od osobistego kosztu. (Dobry)"],
+              ["3", "Zmiana. Musimy pomóc urzeczywistnić zmiany, które bogowie nieustannie wprowadzają w świecie. (Chaotyczny)"],
+              ["4", "Władza. Mam nadzieję pewnego dnia wznieść się na szczyt hierarchii religijnej mojej wiary. (Praworządny)"],
+              ["5", "Wiara. Ufam, że moje bóstwo poprowadzi moje działania. Wierzę, że jeśli będę ciężko pracować, wszystko się ułoży. (Praworządny)"],
+              ["6", "Aspiracja. Dążę do udowodnienia, że jestem godny łaski mojego boga, dopasowując swoje czyny do jego nauk. (Dowolny)"]
+            ]
+          },
+          {
+            "type": "table",
+            "colLabels": ["k6", "Więź"],
+            "colStyles": ["col-1 text-center", "col-11"],
+            "rows": [
+              ["1", "Umarłbym, by odzyskać starożytną relikwię mojej wiary, utraconą dawno temu."],
+              ["2", "Pewnego dnia zemszczę się na skorumpowanej hierarchii świątyni, która napiętnowała mnie jako heretyka."],
+              ["3", "Zawdzięczam życie kapłanowi, który przygarnął mnie, gdy zmarli moi rodzice."],
+              ["4", "Wszystko, co robię, jest dla zwykłych ludzi."],
+              ["5", "Zrobię wszystko, by chronić świątynię, w której służyłem."],
+              ["6", "Dążę do zachowania świętego tekstu, który moi wrogowie uważają za heretycki i chcą zniszczyć."]
+            ]
+          },
+          {
+            "type": "table",
+            "colLabels": ["k6", "Wada"],
+            "colStyles": ["col-1 text-center", "col-11"],
+            "rows": [
+              ["1", "Osądzam innych surowo, a siebie jeszcze surowiej."],
+              ["2", "Pokładam zbyt wiele zaufania w tych, którzy sprawują władzę w hierarchii mojej świątyni."],
+              ["3", "Moja pobożność czasem prowadzi mnie do ślepego zaufania tym, którzy wyznają wiarę w mojego boga."],
+              ["4", "Jestem nieelastyczny w swoim myśleniu."],
+              ["5", "Jestem podejrzliwy wobec nieznajomych i spodziewam się po nich najgorszego."],
+              ["6", "Gdy raz wybiorę cel, staję się nim obsesyjnie zajęty ze szkodą dla wszystkiego innego w moim życiu."]
+            ]
+          }
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Spędziłeś życie w służbie świątyni poświęconej konkretnemu bogu lub panteonowi bogów. Działasz jako pośrednik między sferą świętości a światem śmiertelników, sprawując święte obrzędy i składając ofiary, by wprowadzić wiernych w obecność boskości. Niekoniecznie jesteś klerykiem - sprawowanie świętych obrzędów to nie to samo, co kanalizowanie boskiej mocy.",
+              "Wybierz boga, panteon bogów lub inną quasi-boską istotę i współpracuj z Mistrzem Gry, aby ustalić naturę swojej służby religijnej. Rozdział Bogowie Multiwersum zawiera przykładowy panteon z settingu Zapomnianych Krain. Czy byłeś niższym urzędnikiem świątyni, wychowanym od dzieciństwa, by wspomagać kapłanów w świętych obrzędach? A może byłeś wysokim kapłanem, który nagle doświadczył wezwania do służenia swemu bogu w inny sposób? Może byłeś przywódcą małego kultu poza jakąkolwiek ustanowioną strukturą świątynną, a nawet grupy okultystycznej służącej diabelskiemu panu, którego teraz się wypierasz."
+            ]
+          }
+        ]
+      }
+    ],
+    "hidden": true
+  },
+  "archaeologist": {
+    "name": "Archeolog",
+    "entries": [
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Wartości Zdolności:",
+            "entry": "Zręczność, Inteligencja, Mądrość"
+          },
+          {
+            "type": "item",
+            "name": "Cecha:",
+            "entry": "{@feat Wykwalifikowany|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Biegłości w Umiejętnościach:",
+            "entry": "{@skill Historia|XPHB} i {@skill Przetrwanie|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Biegłość z Narzędziami:",
+            "entry": "{@item Przybory Kartografa|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Ekwipunek:",
+            "entry": "Wybierz A lub B: (A) {@item Przybory Kartografa|XPHB}, {@item Lampa Ślepa|XPHB}, {@item Mapa|XPHB}, {@item Etui na Mapę lub Zwój|XPHB}, {@item Łopata|XPHB}, {@item Namiot|XPHB}, {@item Strój Podróżnika|XPHB}, 17 SZ; lub (B) 50 SZ"
+          }
+        ]
+      }
+    ],
+    "lore": [
+      "Poświęciłeś życie na studiowanie zaginionych i upadłych kultur przeszłości, odwiedzając ich ruiny, odczytując ich zapisy pisane i badając zachowane arcydzieła. Być może studiowałeś na Uniwersytecie Morgrave lub podobnej instytucji, uzupełniając czas spędzony w bibliotece pracą terenową wśród starożytnych ruin w odległych miejscach. Niektórzy archeolodzy grabią skarby przeszłości w poszukiwaniu bogactwa lub sławy, lecz większość uważa naukę z przeszłości za swoje powołanie. W każdym razie archeolodzy z Eberronu łączą cechy uczonych historyków z zawziętością łowców skarbów."
+    ]
+  },
+  "artisan": {
+    "name": "Rzemieślnik",
+    "entries": [
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Wartości Zdolności:",
+            "entry": "Siła, Zręczność, Inteligencja"
+          },
+          {
+            "type": "item",
+            "name": "Cecha:",
+            "entry": "{@feat Twórca|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Biegłości w Umiejętnościach:",
+            "entry": "{@skill Dochodzenie|XPHB}, {@skill Perswazja|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Biegłość z Narzędziami:",
+            "entry": "Wybierz jeden rodzaj {@item Przyborów Rzemieślniczych|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Ekwipunek:",
+            "entry": "Wybierz A lub B: (A) {@item Przybory Rzemieślnicze|XPHB} (te same, co powyżej), 2 {@item Sakiewka|XPHB|Sakiewki}, {@item Strój Podróżnika|XPHB}, 32 SZ; lub (B) 50 SZ"
+          }
+        ]
+      }
+    ],
+    "lore": [
+      "Zacząłeś zamiatać podłogi i szorować lady w warsztacie rzemieślniczym za kilka miedziaków dziennie, gdy tylko byłeś wystarczająco silny, by nosić wiadro. Gdy byłeś wystarczająco dorosły, by zostać terminatorem, nauczyłeś się tworzyć własne podstawowe wyroby, a także jak przekonywać niekiedy wymagających klientów. Twój fach wyostrzył też twój zmysł do detali."
+    ]
+  },
+  "astral-drifter": {
+    "name": "Astralny Wędrowiec",
+    "entries": [
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Biegłości w Umiejętnościach:",
+            "entry": "{@skill Wnikliwość}, {@skill Religia}"
+          },
+          {
+            "type": "item",
+            "name": "Języki:",
+            "entry": "Dwa wedle wyboru (zalecane {@language Niebiański} lub {@language Gith|MM})"
+          },
+          {
+            "type": "item",
+            "name": "Ekwipunek:",
+            "entry": "Komplet {@item stroju podróżnika|PHB}, dziennik, {@item pióro do pisania|PHB}, {@item butelka atramentu (1 uncja)|PHB|butelka atramentu} oraz {@item sakiewka|phb} zawierająca 10 sz"
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Długowieczność",
+        "entries": [
+          "Jesteś o {@dice 20k6} lat starszy, niż wyglądasz, ponieważ spędziłeś tyle czasu w Astralnym Morzu, nie starzejąc się."
+        ]
+      },
+      {
+        "name": "Cecha: Boski Kontakt",
+        "type": "entries",
+        "entries": [
+          "Otrzymujesz {@feat Magiczny Inicjant||cechę Magiczny Inicjant} z {@book Podręcznika Gracza|PHB} i musisz wybrać dla niej klasę kleryka.",
+          "W Astralnym Morzu przecięły się twoje ścieżki z wędrującym bóstwem. Spotkanie było krótkie i pokojowe, lecz wywarło na tobie trwałe wrażenie. Bóstwo to postanowiło podzielić się z tobą jedną tajemnicą lub niejasnym fragmentem kosmicznej wiedzy. Współpracuj z Mistrzem Gry, aby ustalić szczegóły tej wiedzy i jej wpływ na kampanię.",
+          "Rzuć na tabeli Boski Kontakt, aby ustalić, jakie bóstwo napotkałeś, lub współpracuj z Mistrzem Gry, aby wybrać bardziej odpowiednią opcję.",
+          {
+            "type": "table",
+            "caption": "Boski Kontakt",
+            "colLabels": ["k10", "Wędrujące Bóstwo"],
+            "colStyles": ["col-2 text-center", "col-10"],
+            "rows": [
+              ["1", "Corellon, bóg sztuki i magii (chaotyczno dobry)"],
+              ["2", "Tymora, bogini szczęścia (chaotyczno dobra)"],
+              ["3", "Fharlanghn, bóg horyzontów i podróży (neutralno dobry)"],
+              ["4", "Istus, bóstwo losu i przeznaczenia (neutralne)"],
+              ["5", "Nuada, bóg wojny i wojowników (neutralny)"],
+              ["6", "Zivilyn, bóg mądrości (neutralny)"],
+              ["7", "Arawn, bóg życia i śmierci (neutralno zły)"],
+              ["8", "Hekate, bogini magii i księżyców (chaotyczno zła)"],
+              ["9", "Celestian, bóg gwiazd i wędrowców (neutralny)"],
+              ["10", "Ptah, bóg wiedzy i tajemnic (praworządno neutralny)"]
+            ]
+          }
+        ],
+        "data": { "isFeature": true }
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Dłużej, niż pamiętasz, przemierzałeś Astralne Morze. Tam doświadczyłeś na własnej skórze cudów Srebrnej Pustki: przestałeś się starzeć i nie odczuwałeś już głodu ani pragnienia. Kierowany żądzą wędrówki, dryfowałeś z jednej części Astralnego Morza do drugiej, jak pyłek kurzu na wietrze. Straciłeś rachubę dekad, które minęły, odkąd tu przybyłeś.",
+              "W swoich podróżach obozowałeś na skamieniałych szczątkach martwych bogów i ledwo uniknąłeś psychicznych wiatrów przemierzających Astralne Morze, unikając jednocześnie przedłużonego kontaktu z najniebezpieczniejszymi mieszkańcami tego planu."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "athlete": {
+    "name": "Atleta",
+    "entries": [
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Biegłości w Umiejętnościach:",
+            "entry": "{@skill Akrobatyka}, {@skill Atletyka}"
+          },
+          {
+            "type": "item",
+            "name": "Języki:",
+            "entry": "Jeden wedle wyboru"
+          },
+          {
+            "type": "item",
+            "name": "Biegłości z Narzędziami:",
+            "entry": "{@filter Pojazdy (lądowe)|items|type=vehicle (land)}"
+          },
+          {
+            "type": "item",
+            "name": "Ekwipunek:",
+            "entry": "Brązowy dysk lub skórzana piłka, talizman szczęścia lub dawne trofeum, komplet {@item stroju podróżnika|phb} oraz {@item sakiewka|phb} zawierająca 10 sz"
+          }
+        ]
+      },
+      {
+        "name": "Cecha: Echa Zwycięstwa",
+        "type": "entries",
+        "entries": [
+          "Zyskałeś podziw wśród widzów, kolegów sportowców i trenerów w regionie, w którym odniosłeś swoje dawne sportowe zwycięstwa. Odwiedzając dowolną osadę w promieniu 100 mil od miejsca, w którym dorastałeś, masz {@chance 50} szansę na znalezienie tam kogoś, kto cię podziwia i jest gotów udzielić informacji lub tymczasowego schronienia.",
+          "Między wyprawami możesz startować w wydarzeniach sportowych wystarczających, by utrzymać wygodny poziom życia, zgodnie z aktywnością czasu wolnego \"{@book Wykonywanie Zawodu|PHB|Wykonywanie Zawodu}\" z rozdziału 8 {@book Podręcznika Gracza|PHB}."
+        ],
+        "data": { "isFeature": true }
+      },
+      {
+        "type": "entries",
+        "name": "Ulubiona Dyscyplina",
+        "entries": [
+          "Choć wielu atletów uprawia różne gry i konkurencje, większość celuje w jednej formie rywalizacji. Rzuć lub wybierz z opcji w tabeli Ulubiona Dyscyplina, aby ustalić dyscyplinę sportową, w której się wyróżniasz.",
+          {
+            "type": "table",
+            "caption": "Ulubiona Dyscyplina",
+            "colLabels": ["k8", "Ulubiona Dyscyplina"],
+            "colStyles": ["col-2 text-center", "col-10"],
+            "rows": [
+              ["1", "Maraton"],
+              ["2", "Bieg długodystansowy"],
+              ["3", "Zapasy"],
+              ["4", "Boks"],
+              ["5", "Wyścig rydwanów lub koni"],
+              ["6", "Pankration (mieszana walka bez broni)"],
+              ["7", "Bieg hoplitów (bieg w pełnej zbroi z oddziałem)"],
+              ["8", "Pięciobój (bieg, skok w dal, dysk, oszczep, zapasy)"]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Sugerowane Cechy Charakteru",
+        "type": "entries",
+        "entries": [
+          "Rywalizacja może wykuwać silne więzi między drużynowymi partnerami i rywalami lub rozpalać zawzięte spory wykraczające poza arenę. Atleci często stosują lekcje z treningów do swojego życia w ogóle.",
+          {
+            "type": "table",
+            "caption": "Cechy Osobowości Atlety",
+            "colLabels": ["k8", "Cecha Osobowości"],
+            "colStyles": ["col-2 text-center", "col-10"],
+            "rows": [
+              ["1", "Czuję się najspokojniej podczas wysiłku fizycznego, czy to ćwiczeń, czy walki."],
+              ["2", "Nie lubię siedzieć bezczynnie."],
+              ["3", "Mam codzienną rutynę ćwiczeń, której odmawiam przerwać."],
+              ["4", "Przeszkody istnieją po to, by je pokonywać."],
+              ["5", "Gdy widzę innych zmagających się, oferuję pomoc."],
+              ["6", "Uwielbiam wymieniać żarty i docinki."],
+              ["7", "Wszystko, co warto robić, warto robić najlepiej."],
+              ["8", "Denerwuję się, gdy ludzie chwalą kogoś innego, a nie mnie."]
+            ]
+          },
+          {
+            "type": "table",
+            "caption": "Ideały Atlety",
+            "colLabels": ["k6", "Ideał"],
+            "colStyles": ["col-2 text-center", "col-10"],
+            "rows": [
+              ["1", "Rywalizacja. Dążę do sprawdzenia się we wszystkim. (Chaotyczny)"],
+              ["2", "Triumf. Najlepszą częścią zwycięstwa jest widok upokorzonych rywali. (Zły)"],
+              ["3", "Braterstwo. Najsilniejsze więzi wykuwa się poprzez zmagania. (Dobry)"],
+              ["4", "Ludzie. Dążę do inspirowania moich widzów. (Neutralny)"],
+              ["5", "Tradycja. Każda gra ma zasady, a boisko musi być równe. (Praworządny)"],
+              ["6", "Rozwój. Lekcje kryją się zarówno w zwycięstwie, jak i w porażce. (Dowolny)"]
+            ]
+          },
+          {
+            "type": "table",
+            "caption": "Więzi Atlety",
+            "colLabels": ["k6", "Więź"],
+            "colStyles": ["col-2 text-center", "col-10"],
+            "rows": [
+              ["1", "Moi koledzy z drużyny są moją rodziną."],
+              ["2", "Pokonam rywala i udowodnię, że jestem od niego lepszy."],
+              ["3", "Mój błąd kogoś zranił. Nigdy więcej nie popełnię tego błędu."],
+              ["4", "Będę najlepszy dla honoru i chwały mego domu."],
+              ["5", "Osoba, która mnie trenowała, jest najważniejszą osobą w moim świecie."],
+              ["6", "Dążę, by dorównać przykładowi konkretnego bohatera."]
+            ]
+          },
+          {
+            "type": "table",
+            "caption": "Wady Atlety",
+            "colLabels": ["k6", "Wada"],
+            "colStyles": ["col-2 text-center", "col-10"],
+            "rows": [
+              ["1", "Oddaję się nałogowi, który zagraża mej reputacji lub zdrowiu."],
+              ["2", "Zrobię absolutnie wszystko, by wygrać."],
+              ["3", "Ignoruję każdego, kto nie rywalizuje, i każdego, kto ze mną przegrywa."],
+              ["4", "Odczuwam uporczywy ból po dawnych kontuzjach."],
+              ["5", "Każda moja porażka czy niepowodzenie wynika z oszustwa przeciwnika."],
+              ["6", "Muszę być kapitanem każdej grupy, do której dołączam."]
+            ]
+          }
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Dążysz do udoskonalenia się fizycznie i w wykonaniu wszystkiego, co robisz. Dreszcz rywalizacji rozpala ogień w twojej krwi, a ryk tłumu popycha cię naprzód. Opowieści o twoich wyczynach cię wyprzedzają i mogą otwierać drzwi lub rozwiązywać języki.",
+              "Czy to w jednej z polis, między nimi, czy wśród nieludzkich ludów Theros, zawody fizyczne i ci, którzy je uprawiają, budzą szacunek graniczący z czcią. Atleci wywodzą się ze wszystkich warstw społecznych i kultur i dość często ich ścieżki się krzyżują."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "azorius-functionary": {
+    "name": "Urzędnik Azoriusa",
+    "entries": [
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Biegłości w Umiejętnościach:",
+            "entry": "{@skill Wnikliwość}, {@skill Zastraszanie}"
+          },
+          {
+            "type": "item",
+            "name": "Języki:",
+            "entry": "Dwa wedle wyboru"
+          },
+          {
+            "type": "item",
+            "name": "Ekwipunek:",
+            "entry": "Odznaka Azoriusa, zwój zawierający tekst ważnego dla ciebie prawa, {@item butelka atramentu (1 uncja)|phb|butelka błękitnego atramentu}, {@item pióro do pisania|phb|pióro}, komplet {@item eleganckiego stroju|phb} oraz {@item sakiewka|phb} przy pasie zawierająca 10 sz (monety 1-zino bite przez Azoriusa)"
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Cecha: Władza Prawna",
+        "entries": [
+          "Posiadasz uprawnienia do egzekwowania praw Ravniki, a ten status budzi w społeczeństwie pewien szacunek, a nawet strach. Ludzie pilnują manier w twojej obecności i unikają zwracania na siebie twojej uwagi; zakładają, że masz prawo być tam, gdzie jesteś. Okazanie odznaki Azoriusa daje ci posłuchanie u każdego, z kim chcesz porozmawiać (choć może to spowodować więcej problemów, niż rozwiązać, gdy masz do czynienia z niepoprawnymi łamiącymi prawo). Jeśli jednak nadużyjesz tego przywileju, możesz wpaść w poważne kłopoty u swoich zwierzchników, a nawet zostać pozbawiony stanowiska."
+        ],
+        "data": { "isFeature": true }
+      },
+      {
+        "type": "entries",
+        "name": "Zaklęcia Gildii Azoriusa",
+        "entries": [
+          "{@i Wymóg: cecha klasowa Rzucanie Zaklęć lub Magia Paktu}",
+          "Dla ciebie zaklęcia z tabeli Zaklęcia Gildii Azoriusa dodawane są do listy zaklęć twojej klasy rzucającej zaklęcia. (Jeśli jesteś postacią wieloklasową z kilkoma listami zaklęć, zaklęcia te dodawane są do wszystkich z nich.)",
+          {
+            "type": "table",
+            "caption": "Zaklęcia Gildii Azoriusa",
+            "colStyles": ["col-2 text-center", "col-10"],
+            "colLabels": ["Poziom Zaklęcia", "Zaklęcia"],
+            "rows": [
+              ["Sztuczka", "{@spell przyjaciele}, {@spell wiadomość}"],
+              ["1", "{@spell rozkaz}, {@spell usidlające uderzenie}"],
+              ["2", "{@spell tajemny zamek}, {@spell uspokojenie emocji}, {@spell uwięzienie osoby}"],
+              ["3", "{@spell jasnowidzenie}, {@spell kontrzaklęcie}"],
+              ["4", "{@spell przymus}, {@spell wróżenie}"],
+              ["5", "{@spell zniewolenie osoby}"]
+            ]
+          },
+          "Twoja magia często przybiera postać niebieskich lub złotych run unoszących się i jarzących się w powietrzu w kolistych wzorach lub migoczących lazurowych barier magicznej energii. Jeśli rzucisz na przykład {@spell usidlające uderzenie}, pnącza stworzone przez zaklęcie mogą pojawiać się jako jarzące się pasma pokryte runami, owijające się wokół celu i przytrzymujące go w miejscu."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Prostacy stoją u bram, chaos się zbliża, a jedyną rzeczą stojącą na drodze do katastrofy jest fundament prawa i porządku - uosabiany przez Senat Azoriusa. Jesteś dumnym członkiem gildii Azoriusa, która zarówno stanowi, jak i egzekwuje prawa umożliwiające sprawne i bezpieczne funkcjonowanie ravnickiego społeczeństwa."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "boros-legionnaire": {
+    "name": "Legionista Borosa",
+    "entries": [
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Biegłości w Umiejętnościach:",
+            "entry": "{@skill Atletyka}, {@skill Zastraszanie}"
+          },
+          {
+            "type": "item",
+            "name": "Biegłości z Narzędziami:",
+            "entry": "Jeden rodzaj {@filter zestawu do gier|items|type=gaming set}"
+          },
+          {
+            "type": "item",
+            "name": "Języki:",
+            "entry": "Wybierz jeden z: Niebiański, Smoczy, Goblinowy lub Minotaurzy"
+          },
+          {
+            "type": "item",
+            "name": "Ekwipunek:",
+            "entry": "Odznaka Borosa, pióro ze skrzydła anioła, postrzępiony fragment sztandaru Borosa (pamiątka ze słynnej bitwy), komplet {@item zwykłego stroju|phb} oraz {@item sakiewka|phb} przy pasie zawierająca 2 sz (monety 1-zino bite przez Borosa)"
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Cecha: Placówka Legionu",
+        "entries": [
+          "Masz ustaloną pozycję w hierarchii Legionu Borosa. Możesz zarekwirować proste wyposażenie do tymczasowego użytku i możesz uzyskać dostęp do dowolnego garnizonu Borosa na Ravnice, gdzie możesz bezpiecznie odpocząć i otrzymać opiekę medyków. Otrzymujesz też pensję 1 sz (moneta 1-zino bita przez Borosa) tygodniowo, która (w połączeniu z darmowym zakwaterowaniem w twoim garnizonie) pozwala ci utrzymać ubogi poziom życia między wyprawami."
+        ],
+        "data": { "isFeature": true }
+      },
+      {
+        "type": "entries",
+        "name": "Zaklęcia Gildii Borosa",
+        "entries": [
+          "{@i Wymóg: cecha klasowa Rzucanie Zaklęć lub Magia Paktu}",
+          "Dla ciebie zaklęcia z tabeli Zaklęcia Gildii Borosa dodawane są do listy zaklęć twojej klasy rzucającej zaklęcia. (Jeśli jesteś postacią wieloklasową z kilkoma listami zaklęć, zaklęcia te dodawane są do wszystkich z nich.)",
+          {
+            "type": "table",
+            "caption": "Zaklęcia Gildii Borosa",
+            "colStyles": ["col-2 text-center", "col-10"],
+            "colLabels": ["Poziom Zaklęcia", "Zaklęcia"],
+            "rows": [
+              ["Sztuczka", "{@spell ognisty pocisk}, {@spell święty płomień}"],
+              ["1", "{@spell prowadzący pocisk}, {@spell heroizm}"],
+              ["2", "{@spell wsparcie}, {@spell parzący promień}"],
+              ["3", "{@spell latarnia nadziei}, {@spell oślepiające uderzenie}"],
+              ["4", "{@spell straż przed śmiercią}, {@spell ściana ognia}"],
+              ["5", "{@spell uderzenie płomieni}"]
+            ]
+          },
+          "Twoja magia często przejawia się dramatycznymi wybuchami płomieni lub blasku. Gdy rzucasz korzystne zaklęcia na swoich sojuszników, przez chwilę otacza ich aureola jasnego ognia."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Jako członek Legionu Borosa twoje życie poświęcone jest służbie aniołom i konsekrowane pracy nad ustanowieniem sprawiedliwości i pokoju na ulicach Ravniki. Możesz być prawdziwym wyznawcą, inspirowanym przykładem aniołów, poruszonym losem uciśnionych i oddanym sprawie sprawiedliwości. Możesz też być cynikiem w szeregach, być może dlatego, że niechętnie poszedłeś w ślady rodzica z Borosa, uległeś perswazji wzniosłych obietnic charyzmatycznego rekrutera, lub zostałeś wciągnięty perspektywą życia pełnego akcji."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "carouser": {
+    "name": "Hulaka",
+    "entries": [
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Wartości Zdolności:",
+            "entry": "Zręczność, Inteligencja, Charyzma"
+          },
+          {
+            "type": "item",
+            "name": "Cecha:",
+            "entry": "{@feat Niestrudzony Biesiadnik|ABH}"
+          },
+          {
+            "type": "item",
+            "name": "Biegłości w Umiejętnościach:",
+            "entry": "{@skill Oszustwo|XPHB} i {@skill Perswazja|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Biegłość z Narzędziami:",
+            "entry": "Wybierz jeden rodzaj {@item Zestawu do Gier|XPHB}"
+          },
+          {
+            "type": "item",
+            "name": "Ekwipunek:",
+            "entry": "Wybierz A lub B: (A) {@item Sztylet|XPHB}, {@item Zestaw do Gier|XPHB} (ten sam, co powyżej), {@item Elegancki Strój|XPHB}, {@item Szklana Butelka|XPHB}, {@item Lustro|XPHB}, {@item Perfumy|XPHB}, {@item Sakiewka|XPHB}, {@item Krzesiwo|XPHB}, 19 SZ; lub (B) 50 SZ"
+          }
+        ]
+      }
+    ],
+    "lore": [
+      "Dorastałeś w tętniącym życiem sercu wielkiego miasta, takiego jak Wrota Baldura. Spędziłeś niezliczone wieczory w tawernach, teatrach, salonach i domach hazardowych, delektując się wszystkim, co miasto miało do zaoferowania. Masz naturalny talent do rozmawiania z ludźmi w celu poznania ich sekretów, czy to podczas gry o wysoką stawkę, czy na wykwintnym przyjęciu. Być może zostałeś wyrzucony z jednego lokalu, albo i dziesięciu, lecz tylko przez ludzi, którzy nie wiedzą, jak się bawić."
+    ]
+  }
+}
