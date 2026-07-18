@@ -1,0 +1,281 @@
+{
+  "ballista": {
+    "name": "Balista",
+    "actions": [
+      {
+        "name": "Bełt balisty (wymaga załadowania i wycelowania)",
+        "entries": [
+          "{@atkr r} {@hit 6}, zasięg 120/480 stóp. {@h}16 ({@damage 3d10}) obrażeń Kłutych."
+        ]
+      }
+    ]
+  },
+  "cannon": {
+    "name": "Armata",
+    "actions": [
+      {
+        "name": "Kula armatnia (wymaga załadowania i wycelowania)",
+        "entries": [
+          "{@atkr r} {@hit 6}, zasięg 600/2400 stóp. {@h}44 ({@damage 8d10}) obrażeń Obuchowych."
+        ]
+      }
+    ]
+  },
+  "eldritch-cannon": {
+    "name": "Upiorna Armata",
+    "hp": "5 × poziom twojego rzemieślnika (rzucenie {@spell Mending|XPHB|Naprawa} na armatę przywraca jej {@dice 2d6} punktów wytrzymałości)",
+    "actions": [
+      {
+        "name": "Aktywacja armaty (wymaga przebywania w promieniu 60 stóp od armaty)",
+        "entries": [
+          "Jako {@variantrule Bonus Action|XPHB|Akcję Dodatkową} rozkazujesz armacie użyć poniższej opcji: Miotacz Ognia, Balista Siłowa lub Obrońca; możesz nakazać armacie przemieścić się o maksymalnie 15 stóp przed lub po tej opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "page": 10,
+            "items": [
+              {
+                "type": "item",
+                "name": "Miotacz Ognia",
+                "entries": [
+                  "Armata wystrzeliwuje ogień w 15-stopowym {@variantrule Cone [Area of Effect]|XPHB|Stożku}. Każdy stwór w tym obszarze wykonuje rzut obronny Zręczności przeciwko {@dcYourSpellSave}, otrzymując {@damage 2d8} obrażeń Ognia przy nieudanym rzucie lub połowę tych obrażeń przy udanym. Łatwopalne przedmioty w {@variantrule Cone [Area of Effect]|XPHB|Stożku}, które nie są noszone ani trzymane, zaczynają płonąć."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Balista Siłowa",
+                "entries": [
+                  "Wykonaj zasięgowy atak zaklęciem wychodzący z armaty przeciwko jednemu stworowi lub przedmiotowi w promieniu 120 stóp od niej. W przypadku trafienia cel otrzymuje {@damage 2d8} obrażeń Siłowych, a jeśli celem jest stwór, zostaje odepchnięty o maksymalnie 5 stóp od armaty."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Obrońca",
+                "entries": [
+                  "Armata emituje wybuch pozytywnej energii, który przyznaje jej samej oraz każdemu wybranemu przez ciebie stworowi w promieniu 10 stóp od armaty liczbę {@variantrule Temporary Hit Points|XPHB|Tymczasowych Punktów Wytrzymałości} równą {@dice 1d8} plus twój modyfikator Inteligencji (minimum +1)."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "eldritch-cannon-flamethrower": {
+    "name": "Upiorna Armata, Miotacz Ognia",
+    "hp": "równe pięciokrotności twojego poziomu rzemieślnika",
+    "actions": [
+      {
+        "name": "Miotacz Ognia",
+        "entries": [
+          "Armata wydycha ogień w sąsiadującym 15-stopowym stożku, który wskazujesz. Każdy stwór w tym obszarze musi wykonać rzut obronny Zręczności przeciwko twojej klasie trudności rzutu obronnego zaklęcia, otrzymując {@damage 2d8} obrażeń ognia przy nieudanym rzucie lub połowę tych obrażeń przy udanym. Ogień podpala wszelkie łatwopalne przedmioty w tym obszarze, które nie są noszone ani trzymane."
+        ]
+      }
+    ]
+  },
+  "eldritch-cannon-force-ballista": {
+    "name": "Upiorna Armata, Balista Siłowa",
+    "hp": "równe pięciokrotności twojego poziomu rzemieślnika",
+    "actions": [
+      {
+        "name": "Balista Siłowa",
+        "entries": [
+          "Wykonaj zasięgowy atak zaklęciem, wychodzący z armaty, przeciwko jednemu stworowi lub przedmiotowi w promieniu 120 stóp od niej. W przypadku trafienia cel otrzymuje {@damage 2d8} obrażeń siłowych, a jeśli celem jest stwór, zostaje odepchnięty o maksymalnie 5 stóp od armaty."
+        ]
+      }
+    ]
+  },
+  "eldritch-cannon-protector": {
+    "name": "Upiorna Armata, Obrońca",
+    "hp": "równe pięciokrotności twojego poziomu rzemieślnika",
+    "actions": [
+      {
+        "name": "Obrońca",
+        "entries": [
+          "Armata emituje wybuch pozytywnej energii, który przyznaje jej samej oraz każdemu wybranemu przez ciebie stworowi w promieniu 10 stóp od niej liczbę tymczasowych punktów wytrzymałości równą {@damage 1d8} + twój modyfikator Inteligencji (minimum +1)."
+        ]
+      }
+    ]
+  },
+  "flamethrower-coach": {
+    "name": "Powóz z Miotaczem Ognia",
+    "actions": [
+      {
+        "name": "Miotacz Ognia",
+        "entries": [
+          "{@actSave dex} {@dc 15}, każdy stwór w {@variantrule Line [Area of Effect]|XPHB|Linii} o długości 60 stóp i szerokości 5 stóp. {@actSaveFail} 14 ({@damage 4d6}) obrażeń Ognia, a stwór zaczyna płonąć. {@actSaveSuccess} Tylko połowa obrażeń."
+        ]
+      }
+    ]
+  },
+  "generic-object": {
+    "name": "Ogólny Obiekt",
+    "hp": "Zmienne (patrz niżej)"
+  },
+  "keg-launcher": {
+    "name": "Wyrzutnia Beczek",
+    "actions": [
+      {
+        "name": "Toksyczna Beczka (wymaga załadowania i wycelowania)",
+        "entries": [
+          "{@actSave con} {@dc 15}, każdy stwór w {@variantrule Sphere [Area of Effect]|XPHB|Kuli} o promieniu 20 stóp, wyśrodkowanej w punkcie od 30 do 300 stóp od wyrzutni. {@actSaveFail} 14 ({@damage 4d6}) obrażeń Trucizny. {@actSaveSuccess} Połowa obrażeń."
+        ]
+      }
+    ]
+  },
+  "lightning-cannon": {
+    "name": "Armata Błyskawic",
+    "actions": [
+      {
+        "name": "Kula Błyskawic (wymaga wycelowania)",
+        "entries": [
+          "{@atkr r} {@hit 6}, zasięg 300/1200 stóp. {@h}22 ({@damage 4d10}) obrażeń Piorunowych."
+        ]
+      }
+    ]
+  },
+  "mangonel": {
+    "name": "Mangonel",
+    "actions": [
+      {
+        "name": "Kamień z mangonelu (wymaga załadowania i wycelowania)",
+        "entries": [
+          "{@atkr r} {@hit 5}, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie). {@h}27 ({@damage 5d10}) obrażeń Obuchowych."
+        ]
+      }
+    ]
+  },
+  "ram": {
+    "name": "Taran",
+    "actions": [
+      {
+        "name": "Taran (wymaga ustawienia)",
+        "entries": [
+          "{@atkr m} {@hit 8}, zasięg 5 stóp. {@h}16 ({@damage 3d10}) obrażeń Obuchowych."
+        ]
+      }
+    ]
+  },
+  "siege-tower": {
+    "name": "Wieża Oblężnicza"
+  },
+  "suspended-cauldron": {
+    "name": "Zawieszony Kocioł",
+    "actions": [
+      {
+        "name": "Wylanie (wymaga pełnego kotła)",
+        "entries": [
+          "{@actSave dex} {@dc 15}, każdy stwór w 10-stopowym kwadracie bezpośrednio pod kotłem. {@actSaveFail} 10 ({@damage 3d6}) obrażeń Ognia. {@actSaveSuccess} Połowa obrażeń."
+        ]
+      }
+    ]
+  },
+  "trebuchet": {
+    "name": "Trebusz",
+    "actions": [
+      {
+        "name": "Kamień z trebusza (wymaga załadowania i wycelowania)",
+        "entries": [
+          "{@atkr r} {@hit 5}, zasięg 300/1200 stóp (nie może trafić celów w promieniu 60 stóp od siebie). {@h}44 ({@damage 8d10}) obrażeń Obuchowych."
+        ]
+      }
+    ]
+  },
+  "unborn-palanquin": {
+    "name": "Palankin Nienarodzonego"
+  },
+  "ballista-dmg": {
+    "name": "Balista",
+    "actions": [
+      {
+        "name": "Bełt",
+        "entries": [
+          {
+            "type": "attack",
+            "attackType": "RW",
+            "attackEntries": ["{@hit +6} do trafienia, zasięg 120/480 stóp, jeden cel."],
+            "hitEntries": ["16 ({@damage 3d10}) obrażeń Kłutych."]
+          }
+        ]
+      }
+    ]
+  },
+  "cannon-dmg": {
+    "name": "Armata",
+    "actions": [
+      {
+        "name": "Kula Armatnia",
+        "entries": [
+          {
+            "type": "attack",
+            "attackType": "RW",
+            "attackEntries": ["{@hit +6} do trafienia, zasięg 600/2400 stóp, jeden cel."],
+            "hitEntries": ["44 ({@damage 8d10}) obrażeń Obuchowych."]
+          }
+        ]
+      }
+    ]
+  },
+  "mangonel-dmg": {
+    "name": "Mangonel",
+    "actions": [
+      {
+        "name": "Kamień z Mangonelu",
+        "entries": [
+          {
+            "type": "attack",
+            "attackType": "RW",
+            "attackEntries": ["{@hit +5} do trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel."],
+            "hitEntries": ["27 ({@damage 5d10}) obrażeń Obuchowych."]
+          }
+        ]
+      }
+    ]
+  },
+  "ram-dmg": {
+    "name": "Taran",
+    "actions": [
+      {
+        "name": "Taran",
+        "entries": [
+          {
+            "type": "attack",
+            "attackType": "MW",
+            "attackEntries": ["{@hit +8} do trafienia, zasięg 5 stóp, jeden obiekt."],
+            "hitEntries": ["16 ({@damage 3d10}) obrażeń Obuchowych."]
+          }
+        ]
+      }
+    ]
+  },
+  "siege-tower-dmg": {
+    "name": "Wieża Oblężnicza"
+  },
+  "suspended-cauldron-dmg": {
+    "name": "Zawieszony Kocioł",
+    "actions": [
+      {
+        "name": "Wrzący Olej",
+        "entries": [
+          "Kocioł wylewa wrzący olej na 10-stopowy kwadratowy obszar bezpośrednio pod nim. Każdy stwór w tym obszarze musi wykonać rzut obronny Zręczności przeciwko {@dc 15}, otrzymując 10 ({@damage 3d6}) obrażeń Ognia przy nieudanym rzucie lub połowę tych obrażeń przy udanym."
+        ]
+      }
+    ]
+  },
+  "trebuchet-dmg": {
+    "name": "Trebusz",
+    "actions": [
+      {
+        "name": "Kamień z Trebusza",
+        "entries": [
+          {
+            "type": "attack",
+            "attackType": "RW",
+            "attackEntries": ["{@hit +5} do trafienia, zasięg 300/1200 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel."],
+            "hitEntries": ["44 ({@damage 8d10}) obrażeń Obuchowych."]
+          }
+        ]
+      }
+    ]
+  }
+}

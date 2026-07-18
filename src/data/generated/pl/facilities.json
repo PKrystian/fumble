@@ -1,0 +1,1865 @@
+{
+  "amethyst-dragon-den": {
+    "name": "Legowisko Ametystowego Smoka",
+    "entries": [
+      "To legowisko dla ametystowego smoka to zamknięta, otwarta komnata z basenem, a jedno z jej wejść znajduje się pod wodą. Najemnik pomieszczenia utrzymuje legowisko i pomaga odwiedzającym je ametystowym smokom poczuć się swobodnie.",
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Obrony Psioniczne",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Empower|XDMG|Wzmocnij} temu pomieszczeniu, utajona smocza moc wypełnia pomieszczenie, pozwalając ci trenować walkę psioniczną. Ten trening zajmuje 8 godzin dziennie przez 7 dni, po czym zyskujesz {@variantrule Resistance|XPHB|Odporność} na obrażenia Psychiczne. Ta korzyść trwa 7 dni."
+        ]
+      }
+    ]
+  },
+  "ancient-altar": {
+    "name": "Starożytny Ołtarz",
+    "entries": [
+      "Starożytny Ołtarz to uroczysta komnata, w której możesz składać ofiary tajemniczym siłom.",
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Oczyszczenie Nawiedzonego Pomieszczenia",
+        "entries": [
+          "Zlecasz swojemu najemnikowi poprowadzenie rytuału trwającego 7 dni, podczas których musisz pozostać w Bastionie. Na koniec rytuału musisz złożyć godną ofiarę, która może być pieniężna (1000 SZ) lub krwawa (świeże zwłoki co najmniej jednego Dużego stworzenia lub czterech Średnich stworzeń, które nie są Konstruktami ani Nieumarłymi). Jeśli składasz ofiarę z krwi, rzuć na {@book tabelę Nawiedzeń Bastionu|RHW|Bastion Hauntings}. Gdy rytuał dobiegnie końca, ofiara zostaje zniszczona. Wybierz Nawiedzone pomieszczenie specjalne w tym Bastionie lub w Bastionie połączonym z nim; to pomieszczenie przestaje być Nawiedzone."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Bluźnierczy Amulet",
+        "entries": [
+          "Po spędzeniu Długiego Odpoczynku w swoim Starożytnym Ołtarzu zyskujesz magiczny {@reward Blasphemous Charm|RHW|Bluźnierczy Amulet}, który trwa 7 dni lub dopóki go nie użyjesz."
+        ]
+      }
+    ]
+  },
+  "arcane-study": {
+    "name": "Pracownia Arkanów",
+    "entries": [
+      "Pracownia Arkanów to miejsce cichych badań, zawierające jedno lub więcej biurek i regałów z książkami.",
+      {
+        "type": "entries",
+        "name": "Amulet Pracowni Arkanów",
+        "entries": [
+          "Po spędzeniu {@variantrule Long Rest|XPHB} w swoim Bastionie zyskujesz magiczny {@reward Arcane Study Charm|XDMG|Amulet Pracowni Arkanów} (patrz „{@book Dary Nadprzyrodzone|XDMG|Supernatural Gifts}\" w {@book rozdziale 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala rzucić {@spell Identify|XPHB} bez wydawania miejsca czarodziejskiego ani używania komponentów materialnych. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Opcje Wytwarzania",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Craft|XDMG|Wytwórz} temu pomieszczeniu, wybierz jedną z poniższych opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Ogniskowa Arkanów. Zlecasz najemnikowi pomieszczenia wykonanie {@item Arcane Focus|XPHB|Ogniskowej Arkanów}. Praca zajmuje 7 dni i nie kosztuje pieniędzy. Ogniskowa pozostaje w twoim Bastionie, dopóki jej nie odbierzesz."
+              },
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Księgę. Zlecasz najemnikowi pomieszczenia wykonanie pustej księgi. Praca zajmuje 7 dni i kosztuje cię 10 SZ. Księga pozostaje w twoim Bastionie, dopóki jej nie odbierzesz."
+              },
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Magiczny Przedmiot (Arkana). Jeśli masz 9. poziom lub wyższy, możesz zlecić najemnikowi pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z {@book tabel Arkanów|XDMG|Arcana Tables} w {@book rozdziale 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnik ma biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja „{@book Tworzenie Magicznych Przedmiotów|XDMG|Crafting Magic Items}\" w {@book rozdziale 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnik pomieszczenia może pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "archive": {
+    "name": "Archiwum",
+    "entries": [
+      "Archiwum to skarbnica cennych ksiąg, map i zwojów. Zwykle przylega do Biblioteki za zamkniętymi lub ukrytymi drzwiami.",
+      {
+        "type": "entries",
+        "name": "Badania: Pomocna Wiedza",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Research|XDMG|Badaj} temu pomieszczeniu, zlecasz najemnikowi pomieszczenia przeszukanie Archiwum w poszukiwaniu pomocnej wiedzy. Praca zajmuje 7 dni. Najemnik zdobywa wiedzę, jakby rzucił zaklęcie {@spell Legend Lore|XPHB}, a następnie dzieli się tą wiedzą z tobą przy następnej rozmowie."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Księga Podręczna",
+        "entries": [
+          "Twoje Archiwum zawiera jeden egzemplarz rzadkiej i cennej księgi podręcznej, która daje ci korzyść, dopóki ty i księga znajdujecie się w twoim Bastionie. Możesz wybrać jedną z poniższych opcji (twój MG może udostępnić więcej opcji):",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Poręczny Kodeks Arkanów Bigby'ego",
+                "entry": "Masz {@variantrule Advantage|XPHB|Przewagę} na dowolny test Inteligencji ({@skill Arcana|XPHB}), wykonywany podczas akcji {@action Study|XPHB}, by przypomnieć sobie wiedzę o zaklęciach, magicznych przedmiotach, mrocznych symbolach, tradycjach magicznych i płaszczyznach istnienia."
+              },
+              {
+                "type": "item",
+                "name": "Kroniki Chronepsisa",
+                "entry": "Masz {@variantrule Advantage|XPHB|Przewagę} na dowolny test Inteligencji ({@skill History|XPHB}), wykonywany podczas akcji {@action Study|XPHB}, by przypomnieć sobie wiedzę o wydarzeniach historycznych, legendarnych postaciach, starożytnych królestwach, dawnych sporach, wojnach i zaginionych cywilizacjach."
+              },
+              {
+                "type": "item",
+                "name": "Śledztwa Detektywa",
+                "entry": "Masz {@variantrule Advantage|XPHB|Przewagę} na dowolny test Inteligencji ({@skill Investigation|XPHB}), wykonywany podczas akcji {@action Study|XPHB}, by wyciągać wnioski na podstawie poszlak lub dowodów, lub przypomnieć sobie wiedzę o pułapkach, szyfrach, zagadkach i mechanizmach."
+              },
+              {
+                "type": "item",
+                "name": "Materialne Rozważania o Naturze Świata",
+                "entry": "Masz {@variantrule Advantage|XPHB|Przewagę} na dowolny test Inteligencji ({@skill Nature|XPHB}), wykonywany podczas akcji {@action Study|XPHB}, by przypomnieć sobie wiedzę o terenie, roślinach, zwierzętach i pogodzie."
+              },
+              {
+                "type": "item",
+                "name": "Stara Wiara i Inne Religie",
+                "entry": "Masz {@variantrule Advantage|XPHB|Przewagę} na dowolny test Inteligencji ({@skill Religion|XPHB}), wykonywany podczas akcji {@action Study|XPHB}, by przypomnieć sobie wiedzę o bóstwach, obrzędach i modlitwach, hierarchiach, świętych symbolach oraz praktykach tajnych kultów."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Powiększanie Pomieszczenia",
+        "entries": [
+          "Możesz powiększyć swoje Archiwum do rozmiaru Ogromnego pomieszczenia, wydając 2000 SZ. Jeśli to zrobisz, zyskujesz dwie dodatkowe księgi podręczne wybrane z powyższej listy."
+        ]
+      }
+    ]
+  },
+  "armory": {
+    "name": "Zbrojownia",
+    "entries": [
+      "Zbrojownia zawiera manekiny do wystawiania zbroi, haki na Tarcze, stojaki na broń i skrzynie na amunicję.",
+      {
+        "type": "entries",
+        "name": "Handluj: Zaopatrz Zbrojownię",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Trade|XDMG|Handluj} temu pomieszczeniu, zlecasz najemnikowi pomieszczenia zaopatrzenie Zbrojowni w zbroje, {@item Shield|XPHB|Tarcze}, broń i amunicję. Ten sprzęt kosztuje cię 100 SZ plus dodatkowe 100 SZ za każdego Obrońcę Bastionu w twoim Bastionie. Jeśli twój Bastion posiada {@book Smithy|XDMG|Kuźnię}, całkowity koszt jest zmniejszony o połowę.",
+          "Dopóki twoja Zbrojownia jest zaopatrzona, twoi Obrońcy Bastionu są trudniejsi do zabicia. Gdy jakiekolwiek wydarzenie każe ci rzucić kośćmi, by określić, czy twój Bastion traci jednego lub więcej obrońców (patrz „{@book Bastion Events|XDMG|Wydarzenia Bastionu}\" na końcu tego rozdziału), rzuć {@dice 1k8} zamiast każdej {@dice k6}, którą normalnie byś rzucił. Gdy wydarzenie się kończy, sprzęt w twojej Zbrojowni zostaje zużyty niezależnie od tego, ilu masz Obrońców Bastionu lub ilu straciłeś, pozostawiając Zbrojownię wyczerpaną, dopóki nie wydasz pomieszczeniu kolejnego rozkazu Handluj i nie zapłacisz za jej ponowne zaopatrzenie."
+        ]
+      }
+    ]
+  },
+  "artificer-s-forge": {
+    "name": "Kuźnia Artificera",
+    "entries": [
+      "Kuźnia Artificera obejmuje dwóch najemników-magorobotników biegłych w tworzeniu magicznych przedmiotów.",
+      {
+        "type": "entries",
+        "name": "Pomocnicy Wytwarzania",
+        "entries": [
+          "Jeśli {@book tworzysz magiczny przedmiot|XDMG|Creating a Magic Item} w swoim Bastionie, korzystając z zasad z {@book Dungeon Master's Guide|XDMG}, jeden lub obaj najemnicy tego pomieszczenia mogą ci pomóc, skracając czas potrzebny na wytworzenie."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wytwórz: Magiczny Przedmiot",
+        "entries": [
+          "Gdy wydajesz rozkaz Wytwórz temu pomieszczeniu, zlecasz najemnikom pomieszczenia wykonanie {@book Zwykłego lub Niepospolitego magicznego przedmiotu|XDMG|Magic Items} wybranego przez ciebie z {@book Dungeon Master's Guide|XDMG}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnicy mają biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Dwaj najemnicy wspomagają się nawzajem, skracając czas potrzebny na wytworzenie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, najemnicy mają te zaklęcia przygotowane."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Odświeżenie Ładunków",
+        "entries": [
+          "Za każdym razem, gdy magiczny przedmiot w twoim Bastionie odzyskuje ładunki, odzyskuje 1 dodatkowy zużyty ładunek."
+        ]
+      }
+    ]
+  },
+  "barrack": {
+    "name": "Koszary",
+    "entries": [
+      "Bastion może posiadać więcej niż jedne Koszary, każde umeblowane jako kwatery sypialne dla maksymalnie dwunastu Obrońców Bastionu.",
+      {
+        "type": "entries",
+        "name": "Rekrutuj: Obrońcy Bastionu",
+        "entries": [
+          "Za każdym razem, gdy wydajesz rozkaz {@book Recruit|XDMG|Rekrutuj} temu pomieszczeniu, do czterech Obrońców Bastionu zostaje zrekrutowanych do twojego Bastionu i przydzielonych do kwater w tych Koszarach. Rekrutacja nie kosztuje pieniędzy. Nie możesz wydać rozkazu Rekrutuj temu pomieszczeniu, jeśli jest w pełni zajęte.",
+          "Prowadź ewidencję Obrońców Bastionu zakwaterowanych w każdych z twoich Koszar. Jeśli tracisz Obrońców Bastionu, odejmij ich od swojego składu. Nadaj imiona i osobowości swoim Obrońcom Bastionu według uznania."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Powiększanie Pomieszczenia",
+        "entries": [
+          "Możesz powiększyć swoje Koszary do rozmiaru Ogromnego pomieszczenia, wydając 2000 SZ. Ogromne Koszary mogą pomieścić do dwudziestu pięciu Obrońców Bastionu."
+        ]
+      }
+    ]
+  },
+  "bedroom": {
+    "name": "Sypialnia",
+    "entries": [
+      "Podstawowe pomieszczenie posiada niemagiczne umeblowanie i wystrój odpowiedni dla tego typu pomieszczenia."
+    ]
+  },
+  "cabinet-of-curiosities": {
+    "name": "Gabinet Osobliwości",
+    "entries": [
+      "Gabinet Osobliwości to mały salon, schowek lub przedpokój, w którym możesz przechowywać i katalogować dziwaczne przedmioty i fascynujące osobliwości.",
+      {
+        "type": "entries",
+        "name": "Handluj: Zdobądź Osobliwości",
+        "entries": [
+          "Gdy wydajesz rozkaz Handluj temu pomieszczeniu, zaopatrujesz najemnika tego pomieszczenia w pewną ilość złota i zlecasz mu zakup dziwnych przedmiotów z niezwykłych źródeł. Najemnik potrzebuje 28 dni, by wrócić do Bastionu z jednym lub większą liczbą magicznych przedmiotów dla ciebie. Twoja inwestycja określa rzadkość tych przedmiotów, a ich ilość zależy od liczby Nawiedzonych pomieszczeń specjalnych w twoim Bastionie w momencie powrotu najemnika, jak pokazano w tabelach Inwestycja w Osobliwości i Zebrane Osobliwości.",
+          {
+            "type": "table",
+            "caption": "Inwestycja w Osobliwości",
+            "colLabels": [
+              "Inwestycja",
+              "Rzadkość Przedmiotu"
+            ],
+            "colStyles": [
+              "col-6",
+              "col-6"
+            ],
+            "rows": [
+              [
+                "150 SZ",
+                "{@filter Zwykły|items|rarity=common}"
+              ],
+              [
+                "600 SZ",
+                "{@filter Niepospolity|items|rarity=uncommon}"
+              ],
+              [
+                "6000 SZ",
+                "{@filter Rzadki|items|rarity=rare}"
+              ],
+              [
+                "60 000 SZ",
+                "{@filter Bardzo Rzadki|items|rarity=very rare}"
+              ]
+            ]
+          },
+          {
+            "type": "table",
+            "caption": "Zebrane Osobliwości",
+            "colLabels": [
+              "Nawiedzone Pomieszczenia",
+              "Zdobyte Magiczne Przedmioty",
+              "Szansa na Przeklęty Przedmiot (1k100)"
+            ],
+            "colStyles": [
+              "col-4 text-center",
+              "col-4 text-center",
+              "col-4 text-center"
+            ],
+            "rows": [
+              [
+                "0",
+                "1",
+                "—"
+              ],
+              [
+                "1–2",
+                "{@dice 1k2|1–2} (rzuć monetą)",
+                "{@chance 10|01–10|10% Szansy na Klątwę}"
+              ],
+              [
+                "3–5",
+                "{@dice 1k3}",
+                "{@chance 20|01–20|20% Szansy na Klątwę}"
+              ],
+              [
+                "6",
+                "{@dice 1k4}",
+                "{@chance 25|01–25|25% Szansy na Klątwę}"
+              ]
+            ]
+          },
+          "Aby określić, ile magicznych przedmiotów przynosi twój najemnik, policz Nawiedzone pomieszczenia specjalne w swoim Bastionie, a następnie rzuć kością wskazaną w kolumnie Zdobyte Magiczne Przedmioty w tabeli Zebrane Osobliwości. MG rzuca w kolumnie Szansa na Przeklęty Przedmiot ({@dice 1k100}), by określić, czy jeden z magicznych przedmiotów niesie klątwę. MG wybiera, który przedmiot jest przeklęty, i ustala naturę klątwy.",
+          "Dla każdego zdobytego magicznego przedmiotu rzuć na tabelę w sekcji „{@book Losowe Magiczne Przedmioty|XDMG|9}\" w {@book Dungeon Master's Guide|XDMG} odpowiadającą tej rzadkości, by określić, czym jest przedmiot. (Motyw skarbu wybierz losowo.)"
+        ]
+      }
+    ]
+  },
+  "construct-forge": {
+    "name": "Kuźnia Konstruktów",
+    "entries": [
+      "Kuźnia Konstruktów służy do tworzenia Konstruktów.",
+      {
+        "type": "entries",
+        "name": "Rekrutuj: Konstrukt",
+        "entries": [
+          "Gdy wydajesz rozkaz Rekrutuj temu pomieszczeniu, zlecasz najemnikom pomieszczenia wykonanie Konstruktu z tabeli Konstrukty Kuźni. Budowa zajmuje czas i kosztuje cię kwotę podaną w tabeli.",
+          "Konstrukty stworzone w tym pomieszczeniu liczą się jako Obrońcy Bastionu. Odejmij od swojego składu Obrońców Bastionu każdego, którego stracisz. Możesz zdecydować, by nie liczyć jednego lub więcej z tych stworzeń jako Obrońców Bastionu; w takim wypadku nie mogą zostać wezwane do obrony Bastionu. Zamiast tego działają zgodnie ze swoją naturą, korzystając ze swoich kart statystyk z {@book Monster Manual|XMM}.",
+          {
+            "type": "table",
+            "caption": "Konstrukty Kuźni",
+            "colLabels": [
+              "Stworzenie",
+              "Czas",
+              "Koszt"
+            ],
+            "colStyles": [
+              "col-8",
+              "col-2",
+              "col-2"
+            ],
+            "rows": [
+              [
+                "{@creature Animated Armor|XMM}",
+                "14 dni",
+                "1000 SZ"
+              ],
+              [
+                "{@creature Animated Broom|XMM}",
+                "7 dni",
+                "250 SZ"
+              ],
+              [
+                "{@creature Animated Flying Sword|XMM}",
+                "7 dni",
+                "250 SZ"
+              ],
+              [
+                "{@creature Animated Rug of Smothering|XMM}",
+                "21 dni",
+                "2000 SZ"
+              ],
+              [
+                "{@creature Helmed Horror|XMM}",
+                "42 dni",
+                "5000 SZ"
+              ],
+              [
+                "{@creature Scarecrow|XMM}",
+                "14 dni",
+                "1000 SZ"
+              ],
+              [
+                "{@creature Shield Guardian|XMM}",
+                "63 dni",
+                "25 000 SZ"
+              ],
+              [
+                "{@creature Warforged Titan|ERLW}*",
+                "250 dni",
+                "200 000 SZ"
+              ]
+            ],
+            "footnotes": [
+              "*{@creature Warforged Titan|ERLW|Karta statystyk Tytana Kuty Wojną} pojawia się w {@book Eberron: Rising from the Last War|ERLW}. Tworzenie nowych Tytanów Kutych Wojną jest nielegalne na mocy Traktatu z Korth, który zakończył Ostatnią Wojnę. Złamanie tego traktatu grozi ponownym wybuchem otwartej wojny w całym Khorvaire."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "courtyard": {
+    "name": "Dziedziniec",
+    "entries": [
+      "Podstawowe pomieszczenie posiada niemagiczne umeblowanie i wystrój odpowiedni dla tego typu pomieszczenia."
+    ]
+  },
+  "cult-of-the-dragon-archive": {
+    "name": "Archiwum Kultu Smoka",
+    "entries": [
+      "Archiwum Kultu Smoka zawiera obszerne zapiski na konkretne tematy, w tym o smokach.",
+      {
+        "type": "entries",
+        "name": "Badania: Pomocna Wiedza",
+        "entries": [
+          "Gdy wydajesz rozkaz Badaj temu pomieszczeniu, zlecasz najemnikowi pomieszczenia przeszukanie archiwum w poszukiwaniu wiedzy. Praca zajmuje 7 dni. Najemnik zdobywa wiedzę, jakby rzucił zaklęcie {@spell Legend Lore|XPHB}, a następnie dzieli się tą wiedzą z tobą przy następnej rozmowie."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Księgi Podręczne",
+        "entries": [
+          "Twoje Archiwum Kultu Smoka zawiera zbiór wiedzy smoczej. Masz {@variantrule Advantage|XPHB|Przewagę} na testy Inteligencji ({@skill Nature|XPHB} lub {@skill Religion|XPHB}) wykonywane w swoim Bastionie podczas akcji {@action Study|XPHB}, by przypomnieć sobie wiedzę o Smokach, Tiamat lub Kulcie Smoka."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Powiększanie Pomieszczenia",
+        "entries": [
+          "Możesz powiększyć swoje Archiwum Kultu Smoka do rozmiaru Ogromnego pomieszczenia, wydając 2000 SZ. Jeśli to zrobisz, zyskujesz dwie księgi podręczne wybrane z tych wymienionych we wpisie Archiwum w {@book rozdziale 8|XDMG|7} {@book Dungeon Master's Guide|XDMG}."
+        ]
+      }
+    ]
+  },
+  "demiplane": {
+    "name": "Demipłaszczyzna",
+    "entries": [
+      "Drzwi o szerokości do 5 stóp i wysokości do 10 stóp pojawiają się na płaskiej, solidnej powierzchni w jednym z innych pomieszczeń twojego Bastionu. Ty wybierasz lokalizację. Jeśli przebywasz w swoim Bastionie podczas tury Bastionu, możesz przenieść te drzwi do innego pomieszczenia w swoim Bastionie.",
+      "Tylko ty i najemnicy twojego Bastionu mogą otworzyć te drzwi, prowadzące do Demipłaszczyzny przybierającej formę kamiennej komnaty. Demipłaszczyzna istnieje w przestrzeni pozawymiarowej i dlatego nie jest fizycznie połączona z innymi lokacjami w twoim Bastionie. Ani Demipłaszczyzny, ani jej drzwi nie można rozproszyć.",
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Arkaniczna Odporność",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Empower|XDMG|Wzmocnij} temu pomieszczeniu, na ścianach Demipłaszczyzny pojawiają się magiczne runy, trwające 7 dni. Dopóki runy nie znikną, po spędzeniu całego {@variantrule Long Rest|XPHB|Długiego Odpoczynku} w Demipłaszczyźnie zyskujesz {@variantrule Temporary Hit Points|XPHB|Tymczasowe Punkty Wytrzymałości} równe pięciokrotności twojego poziomu."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Fabrykacja",
+        "entries": [
+          "Będąc w Demipłaszczyźnie, możesz wykonać akcję {@action Magic|XPHB}, by stworzyć z niczego wybrany przez siebie niemagiczny przedmiot, sprawiając, że pojawia się on w wolnej przestrzeni w Demipłaszczyźnie. Przedmiot nie może być większy niż 5 stóp w żadnym wymiarze, jego wartość nie może przekraczać 5 SZ, i musi być wykonany z drewna, kamienia, gliny, porcelany, szkła, papieru, niedrogocennego kryształu lub niedrogocennego metalu. Musisz zakończyć {@variantrule Long Rest|XPHB|Długi Odpoczynek}, zanim ponownie wykonasz tę akcję."
+        ]
+      }
+    ]
+  },
+  "dining-room": {
+    "name": "Jadalnia",
+    "entries": [
+      "Podstawowe pomieszczenie posiada niemagiczne umeblowanie i wystrój odpowiedni dla tego typu pomieszczenia."
+    ]
+  },
+  "dragonmark-outpost": {
+    "name": "Placówka Smoczego Znamienia",
+    "entries": [
+      "Placówka Smoczego Znamienia to obszar przeznaczony do użytku przez twój dom smoczoznamienny. Najemnik jest agentem domu i pełni funkcję łącznika między tobą a twoimi przełożonymi w domu.",
+      "Gdy dodajesz to pomieszczenie do swojego Bastionu, twój Wynik Sławy w twoim domu zwiększa się o 1.",
+      {
+        "type": "entries",
+        "name": "Wzmocnienie Smoczego Znamienia (Wymaga Dowolnego Talentu Smoczego Znamienia)",
+        "entries": [
+          "Gdy kończysz {@variantrule Long Rest|XPHB|Długi Odpoczynek} w swoim Bastionie, zyskujesz jedno dodatkowe miejsce czarodziejskie 2. poziomu. Możesz użyć tego miejsca czarodziejskiego wyłącznie, by rzucić zaklęcie, które masz przygotowane dzięki {@book talentowi Smoczego Znamienia|EFA|Dragonmark Feats}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Przysługa Domu",
+        "entries": [
+          "Gdy wydajesz rozkaz Wzmocnij temu pomieszczeniu, polecasz swojemu najemnikowi wykorzystać przysługę u twojego domu smoczoznamiennego. Możesz skorzystać z dowolnej korzyści twojego domu, jaką daje ci twój Wynik Sławy (jak opisano w {@book rozdziale 5|EFA|Dragonmarked House Renown}), a ta przysługa nie liczy się do całkowitej liczby dostępnych ci przysług. Gdy raz użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki twój Wynik Sławy w twoim domu się nie zwiększy."
+        ]
+      }
+    ]
+  },
+  "emerald-enclave-grove": {
+    "name": "Gaj Szmaragdowego Kręgu",
+    "entries": [
+      "Doświadczeni agenci Szmaragdowego Kręgu tworzą bezpieczne ostoje z drzewami, trawą i płynącą wodą, w których magiczne stworzenia ucieleśniające moc natury żyją w spokoju i bezpieczeństwie. Gaj Szmaragdowego Kręgu może pomieścić jedno Ogromne stworzenie lub dwa Duże stworzenia; cztery Małe lub Średnie stworzenia albo osiem Drobnych stworzeń może zajmować tę samą przestrzeń co jedno Duże stworzenie.",
+      {
+        "type": "entries",
+        "name": "Rekrutuj: Stworzenie Natury",
+        "entries": [
+          "Gdy wydajesz rozkaz Rekrutuj temu pomieszczeniu, zapraszasz stworzenie z tabeli Stworzenia Gaju Szmaragdowego Kręgu do swojego Gaju. Rzuć dowolną kością. Jeśli wynik jest nieparzysty, stworzenie nie przyjmuje zaproszenia i nie zyskujesz żadnej korzyści z wydania rozkazu. Jeśli wynik jest parzysty, stworzenie przyjmuje zaproszenie i wprowadza się do twojego Gaju po 7 dniach. Twoi najemnicy opiekują się stworzeniem i zajmują się utrzymaniem pomieszczenia.",
+          "Stworzenia w twoim Gaju Szmaragdowego Kręgu liczą się jako Obrońcy Bastionu. Odejmij od swojego składu Obrońców Bastionu każde, które stracisz. Możesz zdecydować, by nie liczyć jednego lub więcej z tych stworzeń jako Obrońców Bastionu; w takim wypadku nie mogą zostać wezwane do obrony Bastionu. Zamiast tego działają zgodnie ze swoją naturą, korzystając ze swoich kart statystyk z {@book Monster Manual|XMM}.",
+          {
+            "type": "table",
+            "caption": "Stworzenia Gaju Szmaragdowego Kręgu",
+            "colLabels": [
+              "Stworzenie",
+              "Rozmiar"
+            ],
+            "colStyles": [
+              "col-6",
+              "col-6"
+            ],
+            "rows": [
+              [
+                "{@creature Awakened Shrub|XMM}",
+                "Mały"
+              ],
+              [
+                "{@creature Awakened Tree|XMM}",
+                "Ogromny"
+              ],
+              [
+                "{@creature Blink Dog|XMM}",
+                "Średni"
+              ],
+              [
+                "{@creature Centaur Trooper|XMM}",
+                "Duży"
+              ],
+              [
+                "{@creature Dryad|XMM}",
+                "Średni"
+              ],
+              [
+                "{@creature Myconid Adult|XMM}",
+                "Średni"
+              ],
+              [
+                "{@creature Myconid Sprout|XMM}",
+                "Mały"
+              ],
+              [
+                "{@creature Pixie|XMM}",
+                "Drobny"
+              ],
+              [
+                "{@creature Satyr|XMM}",
+                "Średni"
+              ],
+              [
+                "{@creature Sprite|XMM}",
+                "Drobny"
+              ],
+              [
+                "{@creature Treant|XMM}",
+                "Duży"
+              ],
+              [
+                "{@creature Unicorn|XMM}",
+                "Duży"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "gaming-hall": {
+    "name": "Sala Gier",
+    "entries": [
+      "Sala Gier oferuje rozrywki takie jak szachy oraz gry w rzutki, karty lub kości.",
+      {
+        "type": "entries",
+        "name": "Handluj: Salon Gier Hazardowych",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Trade|XDMG|Handluj} temu pomieszczeniu, najemnicy pomieszczenia zamieniają Salę Gier w salon hazardowy na 7 dni. Na koniec siódmego dnia rzuć {@dice 1k100} i skonsultuj poniższą tabelę, by określić swoją część wygranych domu.",
+          {
+            "type": "table",
+            "colLabels": [
+              "1k100",
+              "Wygrana"
+            ],
+            "colStyles": [
+              "col-2 text-center",
+              "col-10"
+            ],
+            "rows": [
+              [
+                "01–50",
+                "{@dice 1k6 × 10} SZ"
+              ],
+              [
+                "51–85",
+                "{@dice 2k6 × 10} SZ"
+              ],
+              [
+                "86–95",
+                "{@dice 4k6 × 10} SZ"
+              ],
+              [
+                "96–00",
+                "{@dice 10k6 × 10} SZ"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "garden": {
+    "name": "Ogród",
+    "entries": [
+      "Bastion może posiadać więcej niż jeden Ogród. Za każdym razem, gdy dodajesz Ogród do swojego Bastionu, wybierz jego rodzaj spośród opcji w tabeli Rodzaje Ogrodów.",
+      "Będąc w swoim Bastionie, możesz polecić najemnikowi pomieszczenia zmienić Ogród z jednego rodzaju na inny. Ta praca zajmuje 21 dni, podczas których w tym pomieszczeniu nie może zachodzić żadna inna aktywność.",
+      {
+        "type": "entries",
+        "name": "Zbieraj: Plony Ogrodu",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Harvest|XDMG|Zbieraj} temu pomieszczeniu, zlecasz najemnikowi pomieszczenia zebranie przedmiotów z Ogrodu, jak wskazano w tabeli Rodzaje Ogrodów. Praca zajmuje 7 dni i nie kosztuje pieniędzy.",
+          {
+            "type": "table",
+            "caption": "Rodzaje Ogrodów",
+            "colLabels": [
+              "Rodzaj Ogrodu",
+              "Opis",
+              "Zbiory"
+            ],
+            "colStyles": [
+              "col-2",
+              "col-5",
+              "col-5"
+            ],
+            "rows": [
+              [
+                "Dekoracyjny",
+                "Estetyczny ogród pełen kwiatów i topiariów.",
+                "Dziesięć wykwintnych bukietów kwiatów (wartych 5 SZ każdy), dziesięć fiolek {@item Perfume|XPHB|Perfum} lub dziesięć {@item Candle|XPHB|Świec}"
+              ],
+              [
+                "Spożywczy",
+                "Ogród pysznych grzybów lub warzyw",
+                "Zapas {@item Rations|XPHB|Racji Żywnościowych} na 100 dni"
+              ],
+              [
+                "Ziołowy",
+                "Ogród rzadkich ziół, z których niektóre mają zastosowanie lecznicze",
+                "Zioła, z których tworzy się dziesięć {@item Healer's Kit|XPHB|Zestawów Uzdrowiciela} lub jedną {@item Potion of Healing|XDMG|Miksturę Leczenia}"
+              ],
+              [
+                "Trujący",
+                "Ogród zaopatrzony w rośliny i grzyby, z których można wydobyć trucizny i antytoksynę",
+                "Rośliny, z których tworzy się dwie fiolki {@item Antitoxin|XPHB|Antytoksyny} lub jedną fiolkę {@item Basic Poison|XPHB|Podstawowej Trucizny}"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Powiększanie Pomieszczenia",
+        "entries": [
+          "Możesz powiększyć swój Ogród do rozmiaru Ogromnego pomieszczenia, wydając 2000 SZ. Ogromny Ogród odpowiada dwóm Przestronnym Ogrodom i może obejmować dwa ogrody tego samego rodzaju lub dwa różne rodzaje. Gdy wydajesz rozkaz Zbieraj Ogromnemu Ogrodowi, każdy składowy ogród daje własne zbiory. Ogromny Ogród zyskuje jednego dodatkowego najemnika."
+        ]
+      }
+    ]
+  },
+  "greenhouse": {
+    "name": "Szklarnia",
+    "entries": [
+      "Szklarnia to zabudowana przestrzeń, w której pielęgnuje się rzadkie rośliny i grzyby w kontrolowanym klimacie.",
+      {
+        "type": "entries",
+        "name": "Owoc Regeneracji",
+        "entries": [
+          "Jedna roślina w twojej Szklarni ma trzy magiczne owoce. Każde stworzenie, które zje jeden z tych owoców, zyskuje korzyść zaklęcia {@spell Lesser Restoration|XPHB}. Owoce niezjedzone w ciągu 24 godzin od zerwania tracą swoją magię. Roślina codziennie o świcie odnawia wszystkie zerwane owoce i nie da się jej przesadzić bez zabicia jej."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Opcje Zbioru",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Harvest|XDMG|Zbieraj} temu pomieszczeniu, wybierz jedną z poniższych opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Zbieraj:",
+                "entry": "Zioła Lecznicze. Zlecasz najemnikowi pomieszczenia wykonanie {@item Potion of Greater Healing|XDMG|Miksturę Większego Leczenia} z ziół leczniczych. Praca zajmuje 7 dni i nie kosztuje pieniędzy."
+              },
+              {
+                "type": "item",
+                "name": "Zbieraj:",
+                "entry": "Truciznę. Zlecasz najemnikowi pomieszczenia wydobycie jednej dawki trucizny z rzadkich roślin lub grzybów. Wybierz rodzaj trucizny spośród: {@item Assassin's Blood|XDMG}, {@item Malice|XDMG}, {@item Pale Tincture|XDMG} lub {@item Truth Serum|XDMG}. Patrz „{@book Poison|XDMG|Trucizna}\" w {@book rozdziale 3|XDMG|2}, by poznać efekt każdej trucizny. Po wydobyciu truciznę można umieścić w fiolce. Praca zajmuje 7 dni i nie kosztuje pieniędzy."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "guildhall": {
+    "name": "Siedziba Gildii",
+    "entries": [
+      "Siedziba Gildii wiąże się z gildią, dla której jesteś mistrzem gildii. Wybierz rodzaj gildii spośród opcji w tabeli Przykładowe Gildie, lub stwórz z MG nową gildię. Pomieszczenie jest salą spotkań, w której członkowie twojej gildii mogą omawiać ważne sprawy w twojej obecności.",
+      "Twoja gildia liczy około pięćdziesięciu członków, złożonych z wykwalifikowanych osób mieszkających i pracujących poza twoim Bastionem, zwykle w pobliskich osadach.",
+      {
+        "type": "entries",
+        "name": "Rekrutuj: Zadanie Gildii",
+        "entries": [
+          "Za każdym razem, gdy wydajesz rozkaz {@book Recruit|XDMG|Rekrutuj} temu pomieszczeniu, zlecasz najemnikowi pomieszczenia zwerbowanie członków gildii do wykonania specjalnego zadania. Każda gildia w tabeli Przykładowe Gildie określa naturę tego zadania. Za zgodą i pomocą MG możesz tworzyć nowe zadania dla członków gildii.",
+          {
+            "type": "table",
+            "caption": "Przykładowe Gildie",
+            "colLabels": [
+              "Gildia",
+              "Symbol",
+              "Zadanie"
+            ],
+            "colStyles": [
+              "col-2",
+              "col-2",
+              "col-8"
+            ],
+            "rows": [
+              [
+                "Gildia Poszukiwaczy Przygód",
+                "Zapalona pochodnia",
+                "Wysyłasz poszukiwaczy przygód, by wytropili Bestię o {@variantrule Challenge Rating|XPHB|Progu Wyzwania} 2 lub niższym, znaną z legowiska w promieniu 50 mil od twojego Bastionu. Poszukiwacze zabijają lub chwytają stworzenie (twój wybór) w ciągu {@dice 1k6 + 1} dni. Jeśli stworzenie zostanie zabite, a twój Bastion ma Salę Trofeów, możesz dodać do niej trofeum zdobyte na stworzeniu. Jeśli stworzenie zostanie schwytane, a twój Bastion ma Menażerię, możesz dodać stworzenie do tego pomieszczenia, pod warunkiem że ma ono miejsce, by je pomieścić."
+              ],
+              [
+                "Gildia Piekarzy",
+                "Ciastko",
+                "Wyznaczasz piekarzy do przygotowania wypieków na prestiżowe wydarzenie odbywające się w ciągu najbliższych 7 dni. Możesz otrzymać zapłatę w monetach (500 SZ) lub w formie przysługi od gospodarza wydarzenia, której szczegóły ustalasz z MG."
+              ],
+              [
+                "Gildia Piwowarów",
+                "Pieniący się kufel",
+                "Wyznaczasz piwowarów do dostarczenia pięćdziesięciu 40-galonowych beczek piwa (wartych 10 SZ każda) do twojego Bastionu w ciągu 7 dni."
+              ],
+              [
+                "Gildia Murarzy",
+                "Kamienna maska",
+                "Wyznaczasz murarzy do dodania muru obronnego do twojego Bastionu bez kosztów. Alternatywnie, możesz zlecić murarzom wykonanie tej pracy dla Bastionu innej postaci, pod warunkiem że jej Bastion znajduje się w promieniu 1 mili od twojego. Każdy 5-stopowy kwadrat muru obronnego zajmuje 1 dzień budowy zamiast 10 (patrz „{@book Bastion Map|XDMG|Mapa Bastionu}\")."
+              ],
+              [
+                "Gildia Budowniczych Statków",
+                "Skrzyżowane wiosła",
+                "Wyznaczasz budowniczych statków do zbudowania jednego z pojazdów z tabeli {@table Large Vehicles; Airborne and Waterborne Vehicles|XPHB|Duże Pojazdy; Pojazdy Powietrzne i Wodne} w {@book Player's Handbook|XPHB}. Płacisz pełny koszt pojazdu, a praca zajmuje 1 dzień na każde 1000 SZ kosztu pojazdu ({@item Rowboat|XPHB|Łódź Wiosłowa} może zostać wykonana w 1 dzień)."
+              ],
+              [
+                "Gildia Złodziei",
+                "Biały klucz",
+                "Wyznaczasz złodziei do infiltracji lokacji w promieniu 50 mil od twojego Bastionu i kradzieży niemagicznego przedmiotu. Przedmiot nie może być większy niż 5 stóp w żadnym wymiarze i zostaje dostarczony do twojego Bastionu w ciągu {@dice 1k6 + 1} dni. MG może uznać, że ta działalność naraża cię na odwet ze strony organów ścigania lub ofiary."
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "harper-hideout": {
+    "name": "Kryjówka Harfiarzy",
+    "entries": [
+      "Masz kryjówkę ukrytą w pobliżu swojego Bastionu, połączoną z nim tunelem o długości nie większej niż ćwierć mili. Twój najemnik utrzymuje kryjówkę, posługując się tożsamością zastępczą, która nie łączy go z twoim Bastionem. Możesz zmienić lokalizację swojej Kryjówki Harfiarzy za każdym razem, gdy zdobywasz poziom.",
+      {
+        "type": "entries",
+        "name": "Zabezpieczenia Kryjówki",
+        "entries": [
+          "Twoja Kryjówka Harfiarzy jest nieustannie chroniona zaklęciem {@spell Alarm|XPHB}. Na 9. poziomie twoja Kryjówka Harfiarzy może być połączona z Bastionem magicznym przejściem zamiast tunelu; każdy przechodzący przez drzwi z Kryjówki Harfiarzy wynurza się z konkretnych drzwi w twoim Bastionie lub odwrotnie, a twoja Kryjówka Harfiarzy może znajdować się w promieniu 100 mil od twojego Bastionu. Na 13. poziomie pomieszczenie może znajdować się w dowolnym miejscu w Faerûnie. Na 17. poziomie magiczne przejście działa między płaszczyznami, a pomieszczenie może znajdować się w dowolnym miejscu w multiwersum."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Szkolenie Harfiarzy",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Empower|XDMG|Wzmocnij} temu pomieszczeniu, najemnik pomieszczenia wysyła zaproszenie do innego pobliskiego agenta Harfiarzy. Rzuć dowolną kością. Jeśli wynik jest nieparzysty, żaden Harfiarz nie potrzebuje twojego pomieszczenia i nie zyskujesz żadnej korzyści z wydania rozkazu. Jeśli wynik jest parzysty, {@variantrule Friendly [Attitude]|XPHB|Przyjazny} Harfiarz zamieszkuje tymczasowo w twojej kryjówce.",
+          "Harfiarz zostaje na 7 dni. Przebywając w twoim Bastionie, Harfiarz może dzielić się swoją wiedzą. Każda postać, która trenuje z Harfiarzem tutaj przez co najmniej 8 godzin każdego z tych dni, zyskuje biegłość w jednej z następujących umiejętności do wyboru: {@skill Deception|XPHB}, {@skill Investigation|XPHB} lub {@skill Performance|XPHB}. Ta korzyść trwa 7 dni.",
+          "Harfiarz nie będzie bronić twojego Bastionu i natychmiast odchodzi, jeśli Bastion zostanie zaatakowany."
+        ]
+      }
+    ]
+  },
+  "infirmary": {
+    "name": "Lazaret",
+    "entries": [
+      "Lazaret zapewnia doraźne leczenie i ciągłą opiekę rannym lub chorym mieszkańcom Bastionu.",
+      {
+        "type": "entries",
+        "name": "Opcje Wytwarzania",
+        "entries": [
+          "Gdy wydajesz rozkaz Wytwórz temu pomieszczeniu, wybierz jedną z poniższych opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Antytoksynę. Zlecasz najemnikom pomieszczenia wykonanie dwóch fiolek {@item Antitoxin|XPHB|Antytoksyny}. Praca zajmuje 7 dni i nie kosztuje pieniędzy. Możesz wydać 50 SZ podczas procesu tworzenia, by wzmocnić jedną fiolkę Antytoksyny, lub 100 SZ, by wzmocnić obie. Wzmocniona Antytoksyna kończy stan {@condition Poisoned|XPHB|Zatruty} u stworzenia, które ją wypije. Wzmocniona Antytoksyna traci to wzmocnienie po 28 dniach."
+              },
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Wzmocnioną Miksturę Leczenia. Zlecasz najemnikom tego pomieszczenia zwiększenie mocy do dwóch {@item Potion of Healing|XDMG|Mikstur Leczenia}. Musisz dostarczyć mikstury do wzmocnienia, a proces zajmuje 14 dni. Mikstura Leczenia staje się {@item Potion of Greater Healing|XDMG|Miksturą Większego Leczenia}. Gdy osiągniesz 13. poziom, możesz dostarczyć do dwóch Mikstur Większego Leczenia, z których każda staje się {@item Potion of Superior Healing|XDMG|Miksturą Znakomitego Leczenia}."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Segregacja Medyczna",
+        "entries": [
+          "Gdy twój Bastion zostaje zaatakowany i rzucasz pewną liczbą kości, by określić, ilu Obrońców Bastionu tracisz, możesz przerzucić liczbę tych kości równą liczbie najemników w tym pomieszczeniu. Musisz użyć nowego wyniku."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Powiększanie Pomieszczenia",
+        "entries": [
+          "Możesz powiększyć swój Lazaret do rozmiaru Ogromnego pomieszczenia, wydając 2000 SZ. Jeśli to zrobisz, Lazaret zyskuje dwóch najemników, a liczba Antytoksyn lub Mikstur Leczenia, które możesz jednocześnie wzmocnić, wzrasta do czterech."
+        ]
+      }
+    ]
+  },
+  "inquisitive-agency": {
+    "name": "Agencja Detektywistyczna",
+    "entries": [
+      "To pomieszczenie jest biurem agencji detektywistycznej — czy to siedzibą agencji, którą kontrolujesz, czy oddziałem większej agencji (takiej jak {@book Middle Dura|EFA|Middle Dura} lub {@book Karr'Aashta's Investigations|EFA|Śledztwa Karr'Aashty}, obie omówione w rozdziale 4). Jego jedynym najemnikiem jest sekretarz, który prowadzi obszerny spis przydatnych kontaktów i pomocnych agentów.",
+      {
+        "type": "entries",
+        "name": "Badania: Zbieranie Informacji",
+        "entries": [
+          "Gdy wydajesz rozkaz Badaj temu pomieszczeniu, zlecasz sekretarzowi agencji zebranie informacji od kontaktów i agentów na temat wskazanej przez ciebie konkretnej osoby, tworząc pełny obraz działań tej osoby w ciągu poprzednich 7 dni oraz w ciągu następnych 7 dni, w promieniu 10 mil od twojego Bastionu. O ile MG nie uzna, że pewne informacje wykraczają poza możliwości tych agentów, poznajesz następujące informacje:",
+          {
+            "type": "list",
+            "items": [
+              "Gdzie ta osoba przebywa i przebywała",
+              "Na co wydawała pieniądze",
+              "Z kim się spotykała",
+              "Gdzie okazywała dokumenty tożsamości władzom"
+            ]
+          },
+          "Jeśli twój Bastion jest mobilny, ustanowienie tej sieci agentów w nowym miejscu zajmuje czas. Gdy twój Bastion podróżuje, nie możesz wydać temu pomieszczeniu rozkazu Badaj. Po dotarciu do celu, przy pierwszym wydaniu rozkazu Badaj, najemnik tego pomieszczenia spędza 7 dni na ustanawianiu nowej sieci, po czym możesz normalnie korzystać z rozkazu Badaj."
+        ]
+      }
+    ]
+  },
+  "kitchen": {
+    "name": "Kuchnia",
+    "entries": [
+      "Podstawowe pomieszczenie posiada niemagiczne umeblowanie i wystrój odpowiedni dla tego typu pomieszczenia."
+    ]
+  },
+  "kundarak-vault": {
+    "name": "Skarbiec Kundarak",
+    "entries": [
+      "Skarbiec Kundarak zajmuje przestrzeń w twoim Bastionie jak każde inne pomieszczenie specjalne, lecz jest przestrzenią pozawymiarową, dostępną z innych miejsc. Jako pomieszczenie Kundarak, zapewnia wyjątkowo bezpieczne przechowywanie twoich towarów handlowych i innych skarbów. Tylko ty i najemnicy twojego Bastionu możecie otworzyć drzwi skarbca.",
+      {
+        "type": "entries",
+        "name": "Dostęp Kundarak",
+        "entries": [
+          "Ponieważ skarbiec jest przestrzenią pozawymiarową, ty (i tylko ty) możesz uzyskać dostęp do jego zawartości z dowolnego banku Kundarak na świecie. Takie banki znajdują się w miastach na terenie {@book Khorvaire|ERLW|Nations of Khorvaire} (a także w {@book Stormreach, na Xen'drik|ERLW|3})."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Handluj: Towary",
+        "entries": [
+          "Gdy wydajesz rozkaz Handluj temu pomieszczeniu, jego najemnik spędza kolejne 7 dni, zaopatrując się w niemagiczne przedmioty o łącznej wartości do 2000 SZ i przechowując je w Skarbcu Kundarak, albo wykorzystuje te 7 dni na sprzedaż towarów ze Skarbca. Ty ponosisz całkowity koszt wszelkich zakupów, a maksymalna wartość zakupionych przedmiotów wzrasta do 5000 SZ, gdy osiągniesz 13. poziom.",
+          "Gdy sprzedajesz towary ze swojego Skarbca Kundarak, kupujący płaci ci o 20 procent więcej niż standardowa cena; ten zysk wzrasta do 50 procent, gdy osiągniesz 13. poziom, i do 100 procent, gdy osiągniesz 17. poziom."
+        ]
+      }
+    ]
+  },
+  "laboratory": {
+    "name": "Laboratorium",
+    "entries": [
+      "Laboratorium zawiera przestrzeń magazynową na materiały alchemiczne oraz stanowiska robocze do wytwarzania rozmaitych mikstur.",
+      {
+        "type": "entries",
+        "name": "Opcje Wytwarzania",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Craft|XDMG|Wytwórz} temu pomieszczeniu, wybierz jedną z poniższych opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Zestaw Alchemika. Najemnik pomieszczenia wytwarza dowolny przedmiot, który można wykonać za pomocą {@item Alchemist's Supplies|XPHB|Zestawu Alchemika}, korzystając z zasad z {@book Player's Handbook|XPHB} i {@book rozdziału 7|XDMG|6} tej książki."
+              },
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Truciznę. Zlecasz najemnikowi pomieszczenia wykonanie fiolki zawierającej jedną dawkę trucizny. Trucizna musi być jedną z następujących: {@item Burnt Othur Fumes|XDMG}, {@item Essence of Ether|XDMG} lub {@item Torpor|XDMG}. Ta praca zajmuje 7 dni, a ty musisz zapłacić połowę kosztu trucizny. Patrz „{@book Poison|XDMG|Trucizna}\" w {@book rozdziale 3|XDMG|2}, by poznać opisy i koszty trucizn."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "library": {
+    "name": "Biblioteka",
+    "entries": [
+      "Ta Biblioteka zawiera kolekcję książek oraz jedno lub więcej biurek i foteli do czytania.",
+      {
+        "type": "entries",
+        "name": "Badania: Tematyczna Wiedza",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Research|XDMG|Badaj} temu pomieszczeniu, zlecasz najemnikowi pomieszczenia zbadanie jakiegoś tematu. Tematem może być legenda, znane wydarzenie lub miejsce, ważna osoba, rodzaj stworzenia lub sławny przedmiot. Praca zajmuje 7 dni. Gdy badania dobiegną końca, najemnik zdobywa do trzech dokładnych informacji na dany temat, wcześniej ci nieznanych, i dzieli się tą wiedzą z tobą przy następnej rozmowie. MG określa, jakie informacje poznajesz."
+        ]
+      }
+    ]
+  },
+  "lightning-generator": {
+    "name": "Generator Piorunów",
+    "entries": [
+      "Generator Piorunów potrafi przekształcać atmosferyczną elektryczność, by służyć wielu przydatnym funkcjom.",
+      {
+        "type": "entries",
+        "name": "Amulet Elektromancji",
+        "entries": [
+          "Po spędzeniu Długiego Odpoczynku w swoim Generatorze Piorunów otrzymujesz {@damage 8k6} obrażeń Piorunem i zyskujesz magiczny {@reward Charm of Electromancy|RHW|Amulet Elektromancji}, który trwa 7 dni (patrz {@book Dungeon Master's Guide|XDMG} po zasady dotyczące {@book Amuletów|XDMG|Charms})."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rewitalizacja",
+        "entries": [
+          "Gdy rzucasz zaklęcie {@spell Raise Dead|XPHB} lub {@spell Resurrection|XPHB}, przebywając w tym pomieszczeniu, koszt komponentów materialnych tego zaklęcia zmniejsza się o 1000 SZ (minimum 0)."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Piorunowe Życie",
+        "entries": [
+          "Najemnik pomieszczenia kanalizuje energię Generatora, by rzucić {@spell Animate Objects|XPHB}, celując w jeden wybrany przez ciebie Duży lub Ogromny obiekt w Bastionie. Czas trwania zaklęcia wynosi 7 dni i nie wymaga {@status Concentration|XPHB|Koncentracji}."
+        ]
+      }
+    ]
+  },
+  "liminal-space": {
+    "name": "Przestrzeń Progowa",
+    "entries": [
+      "Twój Bastion łączy się z niezgłębioną demipłaszczyzną, wypełnioną rozległymi, pustymi przestrzeniami i dziwnymi istotami. To pomieszczenie specjalne nie zajmuje przestrzeni w twoim Bastionie; zamiast tego wejście do niego pojawia się w schowkach, wnękach i cieniach innych podstawowych i specjalnych pomieszczeń Bastionu. Najemnik odpowiedzialny za to pomieszczenie chroni mieszkańców Bastionu przed zabłąkanymi istotami wymykającymi się z demipłaszczyzny. To pomieszczenie zawsze liczy się jako Nawiedzone.",
+      {
+        "type": "entries",
+        "name": "Mroczne Targi",
+        "entries": [
+          "Możesz wejść do tego pomieszczenia i wędrować w nim przez 7 dni, konsultując się i targując z tamtejszymi dziwnymi istotami. Jeśli w tym czasie opuścisz Bastion, nie zyskujesz żadnej korzyści. Na koniec siódmego dnia zyskujesz wybrany przez siebie talent {@filter Dark Gift|feats|Mrocznego Daru}. Możesz posiadać tylko jeden talent z tej korzyści naraz; jeśli skorzystasz z niej, gdy masz już talent stąd zdobyty, talent zdobyty na koniec siedmiu dni zastępuje wcześniej zdobyty talent z tego pomieszczenia."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rekrutuj: Nieznajomy",
+        "entries": [
+          "Gdy wydajesz rozkaz Rekrutuj temu pomieszczeniu, polecasz najemnikowi pomieszczenia przeprowadzić rytuał i błagać istotę z demipłaszczyzny o pomoc. Ten rytuał zajmuje 7 dni i kosztuje 1000 SZ. Na koniec rytuału rzuć dowolną kością. Przy nieparzystym wyniku przywołana istota odmawia twojej prośbie i zabija najemnika, a to pomieszczenie nie może być używane aż do następnej tury twojego Bastionu, kiedy to najemnik zostaje zastąpiony bez żadnych kosztów dla ciebie; przy parzystym wyniku przywołana istota zgadza się na twoją prośbę i zamieszkuje w twojej Przestrzeni Progowej.",
+          "Przebywając w twojej Przestrzeni Progowej, istota liczy się jako Obrońca Bastionu, a jeśli twój Bastion zostanie zaatakowany, każda istota w twojej Przestrzeni Progowej zmniejsza o 1 liczbę kości, które rzucasz, by określić, ilu Obrońców Bastionu zostaje utraconych w ataku. Możesz zdecydować, by nie liczyć istoty jako Obrońcy Bastionu; w takim wypadku nie możesz jej wezwać do obrony Bastionu, a zamiast tego działa zgodnie ze swoją naturą, korzystając z karty statystyk {@creature Unspeakable Horror|RHW}. Możesz mieć do trzech istot w swojej Przestrzeni Progowej naraz. Odejmij od swojego składu Obrońców Bastionu każdą, którą stracisz."
+        ]
+      }
+    ]
+  },
+  "lords-alliance-noble-residence": {
+    "name": "Rezydencja Szlachecka Sojuszu Władców",
+    "entries": [
+      "Utrzymujesz luksusowy apartament godny władcy miasta takiego jak Neverwinter, Waterdeep czy Baldur's Gate. Twoim najemnikiem jest kamerdyner dbający o potrzeby mieszkańca.",
+      "Po spędzeniu {@variantrule Long Rest|XPHB|Długiego Odpoczynku} w swojej Rezydencji Szlacheckiej zyskujesz {@variantrule Heroic Inspiration|XPHB|Heroiczną Inspirację}.",
+      {
+        "type": "entries",
+        "name": "Rekrutuj: Odwiedzający Szlachcic",
+        "entries": [
+          "Gdy wydajesz rozkaz Rekrutuj swojej Rezydencji Szlacheckiej Sojuszu Władców, rezygnujesz ze spania w niej przez 14 dni i zamiast tego udostępniasz ją szlachcicowi z osady będącej członkiem Sojuszu Władców. Rzuć dowolną kością. Jeśli wynik jest nieparzysty, nikt nie przyjmuje twojego zaproszenia i nie zyskujesz żadnej korzyści z wydania rozkazu. Jeśli wynik jest parzysty, szlachcic z wybranej przez ciebie osady przyjmuje zaproszenie, przybywając w ciągu 7 dni i zostając na kolejne 7 dni.",
+          "Odwiedzający szlachcic plotkuje o wydarzeniach i mieszkańcach swojej rodzinnej osady, ujawniając ci lokalizację dowolnego znanego ci stworzenia, jeśli znajduje się ono w promieniu 50 mil od osady, z której przybył szlachcic, jeśli to stworzenie nie jest ukryte magią, i jeśli nie znajduje się w miejscu, które MG uzna za wykraczające poza wiedzę szlachcica. Jeśli szlachcic zna lokalizację tej osoby, mówi ci również, gdzie to stworzenie przebywało przez 7 dni poprzedzających wyjazd szlachcica do twojego Bastionu.",
+          "Odwiedzający szlachcic nie będzie bronić twojego Bastionu i natychmiast odjeżdża, jeśli Bastion zostanie zaatakowany."
+        ]
+      }
+    ]
+  },
+  "lyrandar-helm": {
+    "name": "Ster Lyrandar",
+    "entries": [
+      "Ster Lyrandar pozwala mobilnemu Bastionowi zbudowanemu w żywiołakowym sterowcu lub żywiołakowym galeonie podróżować. Najemnik tego pomieszczenia jest {@book dziedzicem znamienia smoczego Domu Lyrandar|EFA|House Lyrandar}. Na żywiołakowym sterowcu stanowisko załogi {@book Ster|EFA|Helm} statku stanowi część tego pomieszczenia (patrz {@book rozdział 7|EFA|Crew Members and Stations}).",
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Podróż",
+        "entries": [
+          "Gdy wydajesz rozkaz Wzmocnij temu pomieszczeniu, polecasz jego najemnikowi pokierować Bastionem do wskazanego celu. Bastion podróżuje z prędkością pojazdu, 8 godzin dziennie, przez czas trwania tury Bastionu. Bastion zatrzymuje się wcześniej, gdy osiągnie wskazany cel lub jeśli coś przerwie podróż.",
+          "Gdy wydajesz rozkaz Wzmocnij temu pomieszczeniu, MG rzuca na {@book tabelę Wydarzeń Bastionu|XDMG|Bastion Events}, tak jakbyś wydał swojemu Bastionowi rozkaz Utrzymuj."
+        ]
+      }
+    ]
+  },
+  "manifest-zone": {
+    "name": "Strefa Manifestacji",
+    "entries": [
+      "Bastion ze Strefą Manifestacji jest przesycony energią planarną jednej z płaszczyzn istnienia Eberronu. Wybierz płaszczyznę, budując to pomieszczenie.",
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Amulet Manifestacji",
+        "entries": [
+          "Gdy wydajesz rozkaz Wzmocnij temu pomieszczeniu, najemnik pomieszczenia przeprowadza magiczne obrzędy przez kolejne 7 dni. Na koniec tego okresu zyskujesz specjalny {@filter Amulet|rewards|type=charm}, (patrz „{@book Dary Nadprzyrodzone|XDMG|Supernatural Gifts}\" w {@book Dungeon Master's Guide|XDMG}) zwany Amuletem Manifestacji, który trwa, dopóki go nie użyjesz. Nie musisz przebywać w Bastionie podczas wykonywania obrzędów, by zyskać ich korzyść. Efekty Amuletu zależą od płaszczyzny powiązanej z pomieszczeniem:",
+          {
+            "type": "list",
+            "items": [
+              "{@reward Manifest Charm of Daanvi, the Perfect Order|EFA} ({@book Daanvi, Doskonały Porządek|ERLW|Daanvi, the Perfect Order})",
+              "{@reward Manifest Charm of Dolurrh, the Realm of the Dead|EFA} ({@book Dolurrh, Kraina Umarłych|ERLW|Dolurrh, the Realm of the Dead})",
+              "{@reward Manifest Charm of Fernia, the Sea of Fire|EFA} ({@book Fernia, Morze Ognia|ERLW|Fernia, the Sea of Fire})",
+              "{@reward Manifest Charm of Irian, the Eternal Dawn|EFA} ({@book Irian, Wieczny Świt|ERLW|Irian, the Eternal Dawn})",
+              "{@reward Manifest Charm of Lamannia, the Twilight Forest|EFA} ({@book Lamannia, Zmierzchowy Las|ERLW|Lamannia, the Twilight Forest})",
+              "{@reward Manifest Charm of Mabar, the Endless Night|EFA} ({@book Mabar, Nieskończona Noc|ERLW|Mabar, the Endless Night})",
+              "{@reward Manifest Charm of Risia, the Plain of Ice|EFA} ({@book Risia, Lodowa Równina|ERLW|Risia, the Plain of Ice})",
+              "{@reward Manifest Charm of Shavarath, the Battleground|EFA} ({@book Shavarath, Pole Bitwy|ERLW|Shavarath, the Battleground})",
+              "{@reward Manifest Charm of Syrania, the Azure Sky|EFA} ({@book Syrania, Lazurowe Niebo|ERLW|Syrania, the Azure Sky})",
+              "{@reward Manifest Charm of Thelanis, the Faerie Court|EFA} ({@book Thelanis, Dwór Wróżek|ERLW|Thelanis, the Faerie Court})",
+              "{@reward Manifest Charm of Xoriat, the Realm of Delirium|EFA} ({@book Xoriat, Kraina Szaleństwa|ERLW|Xoriat, the Realm of Madness})"
+            ]
+          },
+          "Jeśli twój Bastion jest mobilny, jego połączenie z powiązaną płaszczyzną istnienia zostaje zawieszone podczas ruchu Bastionu, i nie możesz wydać temu pomieszczeniu rozkazu Wzmocnij, gdy jest ono w drodze. Gdy Bastion dotrze do celu, możesz wydać rozkaz Wzmocnij, by ustanowić nowe połączenie planarne, łącząc Bastion z tą samą płaszczyzną istnienia lub inną, wybraną przez ciebie. Ustanowienie nowego połączenia zajmuje 7 dni, po czym możesz normalnie korzystać z rozkazu Wzmocnij."
+        ]
+      }
+    ]
+  },
+  "meditation-chamber": {
+    "name": "Komnata Medytacji",
+    "entries": [
+      "Komnata Medytacji to relaksująca przestrzeń, pomagająca dostroić umysł, ciało i ducha.",
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Wewnętrzny Spokój",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Empower|XDMG|Wzmocnij} temu pomieszczeniu, najemnicy twojego Bastionu mogą użyć Komnaty Medytacji, by osiągnąć pewien poziom wewnętrznego spokoju. Następnym razem, gdy rzucasz na wydarzenie Bastionu, możesz rzucić dwukrotnie i wybrać jeden z wyników."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wzmocnienie Siebie",
+        "entries": [
+          "Możesz medytować w tym pomieszczeniu przez okres 7 dni. Jeśli w tym czasie opuścisz Bastion, nie zyskujesz żadnej korzyści. W przeciwnym razie, na koniec siódmego dnia zyskujesz {@variantrule Advantage|XPHB|Przewagę} na dwa rodzaje rzutów obronnych przez następne 7 dni, ustalone losowo przez rzut na poniższą tabelę. Przerzuć, jeśli otrzymasz powtórzony wynik.",
+          {
+            "type": "table",
+            "colLabels": [
+              "1k6",
+              "Rzut Obronny"
+            ],
+            "colStyles": [
+              "col-2 text-center",
+              "col-10"
+            ],
+            "rows": [
+              [
+                "1",
+                "Siła"
+              ],
+              [
+                "2",
+                "Zręczność"
+              ],
+              [
+                "3",
+                "Kondycja"
+              ],
+              [
+                "4",
+                "Inteligencja"
+              ],
+              [
+                "5",
+                "Mądrość"
+              ],
+              [
+                "6",
+                "Charyzma"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "menagerie": {
+    "name": "Menażeria",
+    "entries": [
+      "Menażeria posiada wybiegi wystarczająco duże, by pomieścić do czterech Dużych stworzeń. Cztery Małe lub Średnie stworzenia mogą zajmować tę samą przestrzeń co jedno Duże stworzenie.",
+      {
+        "type": "entries",
+        "name": "Rekrutuj: Stworzenie",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Recruit|XDMG|Rekrutuj} temu pomieszczeniu, zlecasz najemnikom pomieszczenia dodanie stworzenia z tabeli Stworzenia Menażerii do twojej Menażerii. Rekrutacja zajmuje 7 dni i kosztuje cię kwotę podaną w tabeli. Najemnicy opiekują się stworzeniem.",
+          "Stworzenia w twojej Menażerii liczą się jako Obrońcy Bastionu. Odejmij od swojego składu Obrońców Bastionu każde, które stracisz. Możesz zdecydować, by nie liczyć jednego lub więcej z tych stworzeń jako Obrońców Bastionu; w takim wypadku nie mogą zostać wezwane do obrony Bastionu. Zamiast tego działają zgodnie ze swoją naturą, korzystając ze swoich kart statystyk z {@book Monster Manual|XMM}.",
+          {
+            "type": "table",
+            "caption": "Stworzenia Menażerii",
+            "colLabels": [
+              "Stworzenie",
+              "Rozmiar",
+              "Koszt"
+            ],
+            "colStyles": [
+              "col-4",
+              "col-4",
+              "col-4 text-right"
+            ],
+            "rows": [
+              [
+                "{@creature Ape|XMM}",
+                "Średni",
+                "500 SZ"
+              ],
+              [
+                "{@creature Black Bear|XMM}",
+                "Średni",
+                "500 SZ"
+              ],
+              [
+                "{@creature Brown Bear|XMM}",
+                "Duży",
+                "1000 SZ"
+              ],
+              [
+                "{@creature Constrictor Snake|XMM}",
+                "Duży",
+                "250 SZ"
+              ],
+              [
+                "{@creature Crocodile|XMM}",
+                "Duży",
+                "500 SZ"
+              ],
+              [
+                "{@creature Dire Wolf|XMM}",
+                "Duży",
+                "1000 SZ"
+              ],
+              [
+                "{@creature Giant Vulture|XMM}",
+                "Duży",
+                "1000 SZ"
+              ],
+              [
+                "{@creature Hyena|XMM}",
+                "Średni",
+                "50 SZ"
+              ],
+              [
+                "{@creature Jackal|XMM}",
+                "Mały",
+                "50 SZ"
+              ],
+              [
+                "{@creature Lion|XMM}",
+                "Duży",
+                "1000 SZ"
+              ],
+              [
+                "{@creature Owlbear|XMM}",
+                "Duży",
+                "3500 SZ"
+              ],
+              [
+                "{@creature Panther|XMM}",
+                "Średni",
+                "250 SZ"
+              ],
+              [
+                "{@creature Tiger|XMM}",
+                "Duży",
+                "1000 SZ"
+              ]
+            ]
+          },
+          "Za zgodą MG możesz dodać do swojej Menażerii inne stworzenia niż te pokazane w tabeli Stworzenia Menażerii. Koszt stworzenia zależy od jego {@variantrule Challenge Rating|XPHB|Progu Wyzwania}, jak pokazano w tabeli Koszty Stworzeń wg Progu Wyzwania. Zwykle w Menażerii można trzymać tylko Bestie i niektóre Monstra, choć MG może zezwolić na inne stworzenia.",
+          {
+            "type": "table",
+            "caption": "Koszty Stworzeń wg Progu Wyzwania",
+            "colLabels": [
+              "Próg Wyzwania",
+              "Koszt"
+            ],
+            "colStyles": [
+              "col-6 text-center",
+              "col-6 text-right"
+            ],
+            "rows": [
+              [
+                "0 lub 1/8",
+                "50 SZ"
+              ],
+              [
+                "1/4",
+                "250 SZ"
+              ],
+              [
+                "1/2",
+                "500 SZ"
+              ],
+              [
+                "1",
+                "1000 SZ"
+              ],
+              [
+                "2",
+                "2000 SZ"
+              ],
+              [
+                "3",
+                "3500 SZ"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "museum": {
+    "name": "Muzeum",
+    "entries": [
+      "Muzeum zawiera relikty i skarby przywiezione z ekspedycji, w których uczestniczyłeś lub które sponsorowałeś, starannie skatalogowane i wystawione.",
+      {
+        "type": "entries",
+        "name": "Badania: Specjalistyczna Wiedza",
+        "entries": [
+          "Gdy wydajesz rozkaz Badaj temu pomieszczeniu, zlecasz najemnikowi zbadanie konkretnych skarbów w muzeum. Praca zajmuje 7 dni. Najemnik zdobywa wiedzę na temat pewnego pytania dotyczącego starożytnej historii, jakby rzucił zaklęcie {@spell Legend Lore|XPHB}, a następnie dzieli się tą wiedzą z tobą przy następnej rozmowie."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Sekrety Przeszłości",
+        "entries": [
+          "Twoje Muzeum zawiera jeden skarb, który daje ci magiczny {@filter Amulet|rewards|type=charm}, (patrz „{@book Dary Nadprzyrodzone|XDMG|Supernatural Gifts}\" w {@book Dungeon Master's Guide|XDMG}), gdy spędzisz 7 dni na jego badaniu, a następnie zakończysz Długi Odpoczynek w swoim Bastionie. Amulet trwa 7 dni lub dopóki go nie użyjesz. Nie możesz zyskać kolejnego Amuletu z tego pomieszczenia, dopóki wciąż go posiadasz. Efekt Amuletu zależy od pochodzenia skarbu w twoim Muzeum. Możesz wybrać jedną z poniższych opcji (twój MG może udostępnić więcej opcji lub ograniczyć istniejące na podstawie twoich dotychczasowych ekspedycji):",
+          {
+            "type": "list",
+            "items": [
+              "{@reward Charm of Argonnessen|EFA}",
+              "{@reward Charm of Ashtakala|EFA}",
+              "{@reward Charm of Dhakaan|EFA}",
+              "{@reward Charm of Khyber|EFA}",
+              "{@reward Charm of Xen'drik|EFA}"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Powiększanie Pomieszczenia",
+        "entries": [
+          "Możesz powiększyć swoje Muzeum do rozmiaru Ogromnego pomieszczenia, wydając 2000 SZ. Jeśli to zrobisz, Muzeum może zawierać dwa skarby o różnym pochodzeniu. Ogromne Muzeum zyskuje dwóch dodatkowych najemników, łącznie trzech. Nadaj im imiona i osobowości według uznania."
+        ]
+      }
+    ]
+  },
+  "navigator-s-helm": {
+    "name": "Ster Nawigatora",
+    "entries": [
+      "Ster Nawigatora pozwala mobilnemu Bastionowi zbudowanemu w niemagicznym pojeździe wodnym podróżować.",
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Podróż",
+        "entries": [
+          "Gdy wydajesz rozkaz Wzmocnij temu pomieszczeniu, polecasz jego najemnikowi pokierować Bastionem do wskazanego celu. Bastion płynie z prędkością pojazdu, 8 godzin dziennie, przez czas trwania tury Bastionu. Bastion zatrzymuje się wcześniej, gdy osiągnie wskazany cel lub jeśli coś przerwie podróż.",
+          "Gdy wydajesz rozkaz Wzmocnij temu pomieszczeniu, MG rzuca na {@book tabelę Wydarzeń Bastionu|XDMG|Bastion Events}, tak jakbyś wydał swojemu Bastionowi rozkaz Utrzymuj."
+        ]
+      }
+    ]
+  },
+  "observatory": {
+    "name": "Obserwatorium",
+    "entries": [
+      "Znajdujące się na szczycie twojego Bastionu, Obserwatorium zawiera teleskop wycelowany w nocne niebo.",
+      {
+        "type": "entries",
+        "name": "Amulet Obserwatorium",
+        "entries": [
+          "Możesz użyć swojego Obserwatorium, by zerknąć w odległe zakątki {@book Wildspace|XDMG|Dzikiej Przestrzeni} i {@book Płaszczyzny Astralnej|XDMG|Astral Plane}. Po spędzeniu {@variantrule Long Rest|XPHB|Długiego Odpoczynku} w swoim Obserwatorium zyskujesz magiczny {@reward Observatory Charm|XDMG|Amulet Obserwatorium} (patrz „{@book Dary Nadprzyrodzone|XDMG|Supernatural Gifts}\" w {@book rozdziale 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala rzucić {@spell Contact Other Plane|XPHB} bez wydawania miejsca czarodziejskiego. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Mroczne Odkrycie",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Empower|XDMG|Wzmocnij} temu pomieszczeniu, umożliwiasz sobie lub najemnikowi pomieszczenia eksplorację mrocznych tajemnic gwiazd przez 7 kolejnych nocy. Na koniec tego czasu rzuć kością. Jeśli wynik jest parzysty, nic nie zyskujesz. Jeśli wynik jest nieparzysty, nieznana moc obdarza ciebie lub inne wybrane przez ciebie stworzenie znajdujące się na tej samej płaszczyźnie istnienia co ty jednym z następujących Amuletów: {@book Charm of Darkvision|XDMG|Amulet Widzenia w Ciemności}, {@book Charm of Heroism|XDMG|Amulet Heroizmu} lub {@book Charm of Vitality|XDMG|Amulet Witalności} (wszystkie opisane w {@book rozdziale 3|XDMG|2})."
+        ]
+      }
+    ]
+  },
+  "order-of-the-gauntlet-tournament-field": {
+    "name": "Pole Turniejowe Zakonu Rękawicy",
+    "entries": [
+      "Pole Turniejowe Zakonu Rękawicy to wydzielony obszar przeznaczony do walki między dwiema uzbrojonymi osobami. Obejmuje też miejsce dla widzów.",
+      "Twoim najemnikiem jest {@creature Knight|XMM|Rycerz} o charakterze zgodnym z twoim własnym. Jeśli twój Bastion nie ma pomieszczeń, by zakwaterować tego rycerza, zabezpiecza on sobie zakwaterowanie w gospodzie lub osadzie najbliższej Bastionowi. Ten rycerz nie jest Obrońcą Bastionu, lecz jeśli twój Bastion zostanie zaatakowany, rycerz zmniejsza o 1 liczbę kości, które rzucasz, by określić, ilu Obrońców Bastionu zostaje utraconych w ataku.",
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Zorganizuj Turniej",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Empower|XDMG|Wzmocnij} temu pomieszczeniu, organizujesz turniej w swoim Bastionie. Wieść o turnieju potrzebuje 7 dni, by rozejść się do pobliskich osad, i kolejnych 7 dni, by uczestnicy dotarli do twojego Bastionu i wzięli udział w turnieju. Musisz wydać 2000 SZ na nagrody. Po zakończeniu turnieju twój Wynik Sławy w Zakonie Rękawicy zwiększa się o 1."
+        ]
+      }
+    ]
+  },
+  "orien-helm": {
+    "name": "Ster Orien",
+    "entries": [
+      "Ster Orien pozwala mobilnemu Bastionowi zbudowanemu w wagonie Błyskawicznej Kolei podróżować. Najemnik tego pomieszczenia jest {@book dziedzicem znamienia smoczego Domu Orien|EFA|House Orien}.",
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Podróż",
+        "entries": [
+          "Gdy wydajesz rozkaz Wzmocnij temu pomieszczeniu, polecasz jego najemnikowi pokierować Bastionem do wskazanego celu. Bastion podróżuje z prędkością 30 mil na godzinę, 8 godzin dziennie, wzdłuż istniejącej trasy kamieni przewodzących, przez czas trwania tury Bastionu. Bastion zatrzymuje się wcześniej, gdy osiągnie wskazany cel lub jeśli coś przerwie podróż.",
+          "Gdy wydajesz rozkaz Wzmocnij temu pomieszczeniu, MG rzuca na {@book tabelę Wydarzeń Bastionu|XDMG|Bastion Events}, tak jakbyś wydał swojemu Bastionowi rozkaz Utrzymuj."
+        ]
+      }
+    ]
+  },
+  "parlor": {
+    "name": "Salon",
+    "entries": [
+      "Podstawowe pomieszczenie posiada niemagiczne umeblowanie i wystrój odpowiedni dla tego typu pomieszczenia."
+    ]
+  },
+  "pub": {
+    "name": "Tawerna",
+    "entries": [
+      "Ludzie przychodzą tu, by delektować się smacznymi trunkami i pobyć w towarzystwie. Twoja Tawerna może być barem, kawiarnią lub herbaciarnią, i może mieć barwną nazwę, taką jak Zardzewiały Dzban czy Smocze Poddasze. Najemnik pomieszczenia, pełniący funkcję karczmarza, utrzymuje sieć szpiegów rozsianych po pobliskich społecznościach. Ci szpiedzy są cennym źródłem informacji i często bywają w Tawernie, zwykle incognito.",
+      {
+        "type": "entries",
+        "name": "Badania: Zbieranie Informacji",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Research|XDMG|Badaj} temu pomieszczeniu, zlecasz karczmarzowi Tawerny zebranie informacji od szpiegów świadomych wszystkich ważnych wydarzeń mających miejsce w promieniu 10 mil od twojego Bastionu w ciągu następnych 7 dni. W tym czasie szpiedzy mogą ujawnić lokalizację dowolnego znanego ci stworzenia, pod warunkiem że znajduje się ono w promieniu 50 mil od twojego Bastionu i nie jest ukryte magią ani nie przebywa w miejscu, które MG uzna za wykraczające poza możliwości sieci szpiegowskiej. Jeśli szpiedzy poznają lokalizację celu, dowiadują się też, gdzie to stworzenie przebywało przez poprzednie 7 dni."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Specjał Tawerny",
+        "entries": [
+          "Tawerna ma jeden magiczny trunek na czopie, wybrany z poniższych opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Brzemię Bigby'ego",
+                "entry": "Wypicie kufla tego trunku daje ci efekt „powiększenia\" z zaklęcia {@spell Enlarge/Reduce|XPHB}, trwający 24 godziny (bez możliwości rzutu obronnego)."
+              },
+              {
+                "type": "item",
+                "name": "Pocałunek Pajęczej Królowej",
+                "entry": "Wypicie kufla tego trunku daje ci efekt zaklęcia {@spell Spider Climb|XPHB}, trwający 24 godziny."
+              },
+              {
+                "type": "item",
+                "name": "Nokturn w Blasku Księżyca",
+                "entry": "Wypicie kufla tego trunku daje ci {@sense Darkvision|XPHB|Widzenie w Ciemności} na 60 stóp na 24 godziny. Jeśli już masz {@sense Darkvision|XPHB|Widzenie w Ciemności}, jego zasięg wydłuża się o 60 stóp na ten sam czas."
+              },
+              {
+                "type": "item",
+                "name": "Pozytywne Wzmocnienie",
+                "entry": "Wypicie kufla tego trunku daje ci {@variantrule Resistance|XPHB|Odporność} na obrażenia Nekrotyczne na 24 godziny."
+              },
+              {
+                "type": "item",
+                "name": "Twardszy Charakter",
+                "entry": "Przez 24 godziny po wypiciu kufla tego trunku automatycznie zdajesz rzuty obronne mające uniknąć lub zakończyć stan {@condition Frightened|XPHB|Przestraszony}."
+              }
+            ]
+          },
+          "Na początku tury Bastionu możesz zmienić na jedną z pozostałych opcji. Twój MG może stworzyć nowe opcje. Kufel tego magicznego trunku traci swoją magię 24 godziny po nalaniu."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Powiększanie Pomieszczenia",
+        "entries": [
+          "Możesz powiększyć swoją Tawernę do rozmiaru Ogromnego pomieszczenia, wydając 2000 SZ. Jeśli to zrobisz, Tawerna może mieć na czopie dwa magiczne trunki z listy Specjał Tawerny naraz. Ogromna Tawerna zyskuje trzech dodatkowych najemników, łącznie czterech. Ci nowi najemnicy są kelnerami. Nadaj im imiona i osobowości według uznania."
+        ]
+      }
+    ]
+  },
+  "red-wizard-necropolis": {
+    "name": "Nekropolia Czerwonych Magów",
+    "entries": [
+      "Czerwoni Magowie bronią swoich twierdz za pomocą Nieumarłych sług. Nekropolia Czerwonych Magów może pomieścić do ośmiu Obrońców Bastionu.",
+      {
+        "type": "entries",
+        "name": "Rekrutuj: Nieumarli Obrońcy",
+        "entries": [
+          "Za każdym razem, gdy wydajesz temu pomieszczeniu akcję Rekrutuj, do czterech Nieumarłych Obrońców Bastionu zostaje stworzonych i znajduje schronienie w kryptach i komorach grobowych twojej Nekropolii Czerwonych Magów. Nie możesz wydać rozkazu Rekrutuj temu pomieszczeniu, jeśli jest w pełni zajęte.",
+          "Prowadź ewidencję Nieumarłych Obrońców Bastionu, których tracisz, i odejmuj ich od swojego składu Obrońców Bastionu. Nieumarły Obrońca Bastionu wraca do twojej Nekropolii Czerwonych Magów 14 dni po zniszczeniu. Nieumarli Obrońcy Bastionu nie mogą powrócić z martwych, jeśli pomieszczenie jest zamknięte lub w pełni zajęte."
+        ]
+      }
+    ]
+  },
+  "reliquary": {
+    "name": "Relikwiarz",
+    "entries": [
+      "Ten skarbiec przechowuje święte przedmioty.",
+      {
+        "type": "entries",
+        "name": "Amulet Relikwiarza",
+        "entries": [
+          "Po spędzeniu {@variantrule Long Rest|XPHB|Długiego Odpoczynku} w swoim Bastionie zyskujesz magiczny {@reward Reliquary Charm|XDMG|Amulet Relikwiarza} (patrz „{@book Dary Nadprzyrodzone|XDMG|Supernatural Gifts}\" w {@book rozdziale 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala jednokrotnie rzucić {@spell Greater Restoration|XPHB} bez wydawania miejsca czarodziejskiego ani używania komponentów materialnych. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Zbieraj: Talizman",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Harvest|XDMG|Zbieraj} temu pomieszczeniu, zlecasz jego najemnikowi wykonanie specjalnie przygotowanego talizmanu do twojego użytku. Talizman zwykle przybiera formę amuletu, szkatułki pokrytej runami lub statuetki, lecz może być dowolnym Drobnym, niemagicznym przedmiotem o znaczeniu religijnym. Praca zajmuje 7 dni i nie kosztuje pieniędzy. Możesz użyć tego talizmanu zamiast komponentów materialnych jednego zaklęcia, pod warunkiem że koszt tych komponentów wynosi 1000 SZ lub mniej. Jeśli zaklęcie normalnie zużywa swoje komponenty, talizman nie zostaje zużyty. Po użyciu w ten sposób talizmanu, nie można go ponownie użyć, dopóki nie zwrócisz go do swojego Relikwiarza i nie wydasz kolejnego rozkazu Zbieraj, by go przygotować."
+        ]
+      }
+    ]
+  },
+  "rookery": {
+    "name": "Gołębnik",
+    "entries": [
+      "W Gołębniku gnieździ się liczba kruków równa twojemu poziomowi postaci. Gdy stworzenie wchodzi do pomieszczenia, ptaki w niesamowity sposób śledzą jego ruchy, a za ich koralikowatymi oczami kryje się niezgłębiona inteligencja.",
+      {
+        "type": "entries",
+        "name": "Wytwórz: Talizman Mgły",
+        "entries": [
+          "Gdy wydajesz rozkaz Wytwórz temu pomieszczeniu, możesz zlecić najemnikowi wysłanie kruków do różnych kontaktów w Domenie Grozy, którą wcześniej odwiedziłeś lub o której usłyszałeś od stworzenia przebywającego w tej domenie. Ta praca zajmuje 21 dni, podczas których w tym pomieszczeniu nie może zachodzić żadna inna aktywność.",
+          "Na koniec tego okresu najemnik wytwarza {@book talizman Mgły|RHW|Mist Talismans} powiązany z wybraną Domeną Grozy."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Kruki Posłańcy",
+        "entries": [
+          "Za każdym razem, gdy kończysz Długi Odpoczynek w swoim Bastionie, możesz wysłać jednego kruka z pisemną wiadomością o długości do 25 słów do stworzenia, które poznałeś, lub stworzenia opisanego ci przez kogoś, kto je poznał. Po otrzymaniu tej wiadomości odbiorca może odpowiedzieć w podobny sposób, dołączając swoją odpowiedź do kruka. Niezależnie od tego, czy odbiorca odpowie, kruk wraca do gołębnika po upływie 7 dni.",
+          "Możesz wysłać w ten sposób wiadomość przez kruka na dowolną odległość, choć odbiorca wiadomości musi znajdować się na tej samej płaszczyźnie istnienia co twój Bastion lub w demipłaszczyźnie połączonej z twoją przez Mgły Ravenloftu. Kruk-posłaniec dostarcza wiadomość niezależnie od jakichkolwiek magicznych osłon lub innych przeszkadzających sił, w tym Mgieł i zamkniętych granic Domeny Grozy. Jeśli kruk nie jest w stanie dostarczyć twojej wiadomości, wraca do twojego gołębnika po 7 dniach z wciąż dołączoną oryginalną wiadomością."
+        ]
+      }
+    ]
+  },
+  "sacristy": {
+    "name": "Zakrystia",
+    "entries": [
+      "Zakrystia służy jako pomieszczenie przygotowawcze i magazyn dla świętych przedmiotów i szat liturgicznych.",
+      {
+        "type": "entries",
+        "name": "Opcje Wytwarzania",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Craft|XDMG|Wytwórz} temu pomieszczeniu, wybierz jedną z poniższych opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Święconą Wodę. Zlecasz najemnikowi pomieszczenia wykonanie flakonika {@item Holy Water|XPHB|Święconej Wody}. Praca zajmuje 7 dni i nie kosztuje pieniędzy. Możesz wydać SZ podczas procesu tworzenia, by zwiększyć moc Święconej Wody. Za każde 100 SZ wydane, do maksymalnie 500 SZ, obrażenia zadawane przez Święconą Wodę zwiększają się o {@dice 1k8}."
+              },
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Magiczny Przedmiot (Relikwia). Zlecasz najemnikowi pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z tabel {@book Relikwie|XDMG|Relics Tables} w {@book rozdziale 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnik ma biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja „{@book Tworzenie Magicznych Przedmiotów|XDMG|Crafting Magic Items}\" w {@book rozdziale 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnik pomieszczenia może pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Odświeżenie Zaklęć",
+        "entries": [
+          "Posiadanie Zakrystii pozwala odzyskać jedno zużyte miejsce czarodziejskie 5. poziomu lub niższe po spędzeniu całego {@variantrule Short Rest|XPHB|Krótkiego Odpoczynku} w twoim Bastionie. Nie możesz ponownie zyskać tej korzyści, dopóki nie skończysz {@variantrule Long Rest|XPHB|Długiego Odpoczynku}."
+        ]
+      }
+    ]
+  },
+  "sanctuary": {
+    "name": "Sanktuarium",
+    "entries": [
+      "W tym pomieszczeniu wystawione są ikony twojej religii, a samo pomieszczenie zawiera ciche miejsce do modlitwy.",
+      {
+        "type": "entries",
+        "name": "Amulet Sanktuarium",
+        "entries": [
+          "Po spędzeniu {@variantrule Long Rest|XPHB|Długiego Odpoczynku} w swoim Bastionie zyskujesz magiczny {@reward Sanctuary Charm|XDMG|Amulet Sanktuarium} (patrz „{@book Dary Nadprzyrodzone|XDMG|Supernatural Gifts}\" w {@book rozdziale 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala jednokrotnie rzucić {@spell Healing Word|XPHB} bez wydawania miejsca czarodziejskiego. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wytwórz: Świętą Ogniskową",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Craft|XDMG|Wytwórz} temu pomieszczeniu, zlecasz najemnikowi pomieszczenia wykonanie {@item Druidic Focus|XPHB|Ogniskowej Druida} ({@item wooden staff|XPHB|drewnianego kostura}) lub {@item Holy Symbol|XPHB|Świętego Symbolu}. Praca zajmuje 7 dni i nie kosztuje pieniędzy. Przedmiot pozostaje w twoim Bastionie, dopóki go nie odbierzesz."
+        ]
+      }
+    ]
+  },
+  "sanctum": {
+    "name": "Sanktum",
+    "entries": [
+      "Sanktum to miejsce ukojenia i uzdrowienia.",
+      {
+        "type": "entries",
+        "name": "Amulet Sanktum",
+        "entries": [
+          "Po spędzeniu {@variantrule Long Rest|XPHB|Długiego Odpoczynku} w swoim Bastionie zyskujesz magiczny {@reward Sanctum Charm|XDMG|Amulet Sanktum} (patrz „{@book Dary Nadprzyrodzone|XDMG|Supernatural Gifts}\" w {@book rozdziale 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala jednokrotnie rzucić {@spell Heal|XPHB} bez wydawania miejsca czarodziejskiego. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Wzmacniające Obrzędy",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Empower|XDMG|Wzmocnij} temu pomieszczeniu, inspirujesz jego najemników do wykonywania codziennych obrzędów przynoszących korzyść tobie lub innej wskazanej przez ciebie postaci. Beneficjent nie musi przebywać w Bastionie podczas wykonywania obrzędów, by zyskać ich korzyść. Za każdym razem, gdy beneficjent kończy {@variantrule Long Rest|XPHB|Długi Odpoczynek}, zyskuje {@variantrule Temporary Hit Points|XPHB|Tymczasowe Punkty Wytrzymałości} równe twojemu poziomowi. Ten efekt trwa 7 dni."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przywołanie do Sanktum",
+        "entries": [
+          "Dopóki Sanktum istnieje, zawsze masz przygotowane zaklęcie {@spell Word of Recall|XPHB}. Gdy rzucasz {@spell Word of Recall|XPHB}, możesz uczynić swoje Sanktum celem tego zaklęcia zamiast innego miejsca wcześniej przez ciebie wyznaczonego. Dodatkowo, jedno wybrane przez ciebie stworzenie, które przybywa do Sanktum za pomocą tego zaklęcia, zyskuje korzyść zaklęcia {@spell Heal|XPHB}."
+        ]
+      }
+    ]
+  },
+  "scriptorium": {
+    "name": "Skryptorium",
+    "entries": [
+      "Skryptorium zawiera biurka i przybory do pisania.",
+      {
+        "type": "entries",
+        "name": "Opcje Wytwarzania",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Craft|XDMG|Wytwórz} temu pomieszczeniu, wybierz jedną z poniższych opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Replikę Księgi. Zlecasz najemnikowi pomieszczenia wykonanie kopii niemagicznej Księgi. Wymaga to pustej księgi. Praca zajmuje 7 dni."
+              },
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Zwój Zaklęcia. Zlecasz najemnikowi pomieszczenia spisanie {@item Spell Scroll|XDMG|Zwoju Zaklęcia} zawierającego jedno zaklęcie Kleryka lub Czarodzieja 3. poziomu lub niższe. Pomieszczenie posiada niezbędny {@item Calligrapher's Supplies|XPHB|Zestaw Kaligrafa}, a najemnik spełnia wszystkie wymagania potrzebne do spisania zwoju. Sekcja „{@book Crafting Equipment|XPHB|Wytwarzanie Sprzętu}\" w {@book Player's Handbook|XPHB} określa czas potrzebny na spisanie zwoju oraz jego koszt, który musisz zapłacić."
+              },
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Dokumenty. Zlecasz najemnikowi pomieszczenia wykonanie do pięćdziesięciu kopii ulotki, broszury lub innego luźnego produktu papierowego. Praca zajmuje 7 dni i kosztuje cię 1 SZ za kopię. Bez dodatkowego kosztu w czasie lub pieniądzach, najemnik pomieszczenia może rozprowadzić dokumenty do jednego lub więcej miejsc w promieniu 50 mil od twojego Bastionu."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "seance-parlor": {
+    "name": "Salon Seansów",
+    "entries": [
+      "W Salonie Seansów zasłona między światem żywych a umarłych staje się cienka.",
+      {
+        "type": "entries",
+        "name": "Badania: Wróżenie",
+        "entries": [
+          "Gdy wydajesz rozkaz Badaj temu pomieszczeniu, zlecasz jego najemnikowi odczytanie twojej przyszłości poprzez rzucanie kośćmi, odczytywanie fusów herbacianych, przeprowadzenie odczytu tarokki lub inny sposób. Po odczytaniu przyszłości zyskujesz {@variantrule Heroic Inspiration|XPHB|Heroiczną Inspirację}. Nie możesz ponownie zyskać tej korzyści, dopóki nie skończysz Długiego Odpoczynku."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmowa ze Zmarłymi",
+        "entries": [
+          "Po spędzeniu Długiego Odpoczynku w swoim Salonie Seansów możesz natychmiast rzucić {@spell Speak with Dead|XPHB} bez wydawania miejsca czarodziejskiego ani potrzeby komponentów materialnych. Rzucając je w ten sposób, możesz celować w dowolne zmarłe stworzenie, którego imię znasz, o ile posiadasz fragment jego szczątków (na przykład prochy lub kość) lub przedmiot, który był dla tego stworzenia ważny za życia (na przykład broszkę lub charakterystyczną broń). Cel przemawia poprzez narzędzie znajdujące się w Sali Seansów, takie jak kryształowa kula lub plansza spirytystyczna."
+        ]
+      }
+    ]
+  },
+  "smithy": {
+    "name": "Kuźnia",
+    "entries": [
+      "Ta Kuźnia zawiera piec, kowadło i inne narzędzia potrzebne do wytwarzania broni, zbroi i innego wyposażenia.",
+      {
+        "type": "entries",
+        "name": "Opcje Wytwarzania",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Craft|XDMG|Wytwórz} temu pomieszczeniu, wybierz jedną z poniższych opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Zestaw Kowala. Najemnicy pomieszczenia wytwarzają dowolny przedmiot, który można wykonać za pomocą {@item Smith's Tools|XPHB|Zestawu Kowala}, korzystając z zasad z {@book Player's Handbook|XPHB}."
+              },
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Magiczny Przedmiot (Uzbrojenie). Jeśli masz 9. poziom lub wyższy, możesz zlecić najemnikom pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z tabel {@book Uzbrojenie|XDMG|Armaments Tables} w {@book rozdziale 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnicy mają biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja „{@book Tworzenie Magicznych Przedmiotów|XDMG|Crafting Magic Items}\" w {@book rozdziale 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnicy pomieszczenia mogą pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "spirit-vault": {
+    "name": "Skarbiec Duchów",
+    "entries": [
+      "Skarbiec Duchów jest magicznie zabezpieczony, by więzić i egzorcyzmować złośliwe duchy oraz inne nadprzyrodzone siły. Nawiedzone portrety, przeklęte relikwie i inne niesamowite osobliwości zapełniają półki tego mrocznego skarbca. To pomieszczenie zawsze liczy się jako Nawiedzone.",
+      {
+        "type": "entries",
+        "name": "Ezoteryczna Wiedza",
+        "entries": [
+          "Po spędzeniu Długiego Odpoczynku w swoim Skarbcu Duchów zyskujesz jeden z następujących magicznych Amuletów:",
+          {
+            "type": "list",
+            "items": [
+              "{@reward Charm of Exorcism|RHW}",
+              "{@reward Charm of Malediction|RHW}"
+            ]
+          },
+          "Amulet trwa 7 dni lub dopóki go nie użyjesz. Inteligencja, Mądrość lub Charyzma jest twoją zdolnością rzucania zaklęć dla zaklęć tego Amuletu (wybierasz za każdym razem, gdy zyskujesz ten Amulet)."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Badania: Zapytaj Okultystów",
+        "entries": [
+          "Gdy wydajesz rozkaz Badaj temu pomieszczeniu, ty lub jego najemnik badacie rozmaite relikwie i przesłuchujecie uwięzione istoty w swoim Skarbcu Duchów. Ta praca zajmuje 7 dni. Na jej koniec rzuć {@dice 1k6}. Przy wyniku 1 praca jest psychicznie wyczerpująca; jeśli to ty prowadziłeś badania, otrzymujesz {@damage 6k6} obrażeń psychicznych, a jeśli robił to najemnik, natychmiast umiera, a to pomieszczenie nie może być ponownie użyte aż do następnej tury twojego Bastionu. W przeciwnym razie ty lub najemnik zdobywacie informacje, jakbyście z powodzeniem rzucili zaklęcie {@spell Contact Other Plane|XPHB}. Najemnik dzieli się z tobą wszelkimi zdobytymi informacjami przy następnej rozmowie."
+        ]
+      }
+    ]
+  },
+  "stable": {
+    "name": "Stajnia",
+    "entries": [
+      "Bastion może posiadać więcej niż jedną Stajnię. Każda Stajnia dodana do twojego Bastionu jest wyposażona w jednego {@creature Riding Horse|XMM|Wierzchowca} lub {@creature Camel|XMM|Wielbłąda} oraz dwa {@creature Pony|XMM|Kucyki} lub {@creature Mule|XMM|Muły}; patrz {@book Player's Handbook|XPHB} lub {@book Monster Manual|XMM} po karty statystyk tych stworzeń. Pomieszczenie jest wystarczająco duże, by pomieścić trzy Duże zwierzęta. Dwa Średnie stworzenia zajmują tam tyle samo miejsca co jedno Duże. Najemnik pomieszczenia opiekuje się tymi stworzeniami.",
+      "Gdy Bestia zdolna służyć jako wierzchowiec spędzi w tym pomieszczeniu co najmniej 14 dni, wszystkie testy Mądrości ({@skill Animal Handling|XPHB}) dotyczące jej mają {@variantrule Advantage|XPHB|Przewagę}.",
+      {
+        "type": "entries",
+        "name": "Handluj: Zwierzęta",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Trade|XDMG|Handluj} temu pomieszczeniu, zlecasz najemnikowi pomieszczenia kupno lub sprzedaż jednego lub więcej wierzchowców po normalnej cenie, trzymając zakupione zwierzęta w swojej Stajni. Praca zajmuje 7 dni, a MG decyduje, jakie rodzaje zwierząt są dostępne do kupienia — konie, kucyki i muły są najczęstsze. Tabela {@table Mounts and Vehicles; Mounts and Other Animals|XPHB|Wierzchowce i Inne Zwierzęta} w {@book Player's Handbook|XPHB} podaje standardowe ceny różnych wierzchowców. Ty ponosisz całkowity koszt wszelkich zakupów.",
+          "Gdy sprzedajesz wierzchowca ze swojej Stajni, kupujący płaci ci o 20 procent więcej niż standardowa cena; ten zysk wzrasta do 50 procent, gdy osiągniesz 13. poziom, i do 100 procent, gdy osiągniesz 17. poziom."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Powiększanie Pomieszczenia",
+        "entries": [
+          "Możesz powiększyć swoją Stajnię do rozmiaru Ogromnego pomieszczenia, wydając 2000 SZ. Jeśli to zrobisz, Stajnia jest wystarczająco duża, by pomieścić sześć Dużych zwierząt."
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "name": "Schowek",
+    "entries": [
+      "Podstawowe pomieszczenie posiada niemagiczne umeblowanie i wystrój odpowiedni dla tego typu pomieszczenia."
+    ]
+  },
+  "storehouse": {
+    "name": "Skład",
+    "entries": [
+      "Skład to chłodne, ciemne pomieszczenie przeznaczone do przechowywania towarów handlowych z {@book tabeli Towarów Handlowych|XDMG|Trade Goods} w {@book rozdziale 7|XDMG|6} oraz z {@book rozdziału 6|XDMG|5} {@book Player's Handbook|XPHB}.",
+      {
+        "type": "entries",
+        "name": "Handluj: Towary",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Trade|XDMG|Handluj} temu pomieszczeniu, jego najemnik spędza kolejne 7 dni, zaopatrując się w niemagiczne przedmioty o łącznej wartości do 500 SZ i przechowując je w Składzie, albo wykorzystuje te 7 dni na sprzedaż towarów ze Składu. Ty ponosisz całkowity koszt wszelkich zakupów, a maksymalna wartość zakupionych przedmiotów wzrasta do 2000 SZ, gdy osiągniesz 9. poziom, i do 5000 SZ, gdy osiągniesz 13. poziom.",
+          "Gdy sprzedajesz towary ze swojego Składu, kupujący płaci ci o 10 procent więcej niż standardowa cena; ten zysk wzrasta do 20 procent, gdy osiągniesz 9. poziom, do 50 procent, gdy osiągniesz 13. poziom, i do 100 procent, gdy osiągniesz 17. poziom."
+        ]
+      }
+    ]
+  },
+  "teleportation-circle": {
+    "name": "Krąg Teleportacji",
+    "entries": [
+      "Na podłodze tego pomieszczenia wyryty jest trwały krąg teleportacji, stworzony zaklęciem {@spell Teleportation Circle|XPHB}.",
+      {
+        "type": "entries",
+        "name": "Rekrutuj: Zaklinacz",
+        "entries": [
+          "Za każdym razem, gdy wydajesz rozkaz {@book Recruit|XDMG|Rekrutuj} temu pomieszczeniu, jego najemnik wysyła zaproszenie do {@variantrule Friendly [Attitude]|XPHB|Przyjaznego} NPC-zaklinacza. Rzuć dowolną kością. Jeśli wynik jest nieparzysty, zaproszony odmawia, i nie zyskujesz żadnej korzyści z wydania rozkazu. Jeśli wynik jest parzysty, zaproszony przyjmuje zaproszenie i przybywa do twojego Bastionu przez twój Krąg Teleportacji.",
+          "Będąc w swoim Bastionie, możesz poprosić zaklinacza o rzucenie jednego zaklęcia Czarodzieja 4. poziomu lub niższego; jeśli masz 17. poziom lub wyższy, maksymalny poziom zaklęcia wzrasta do 8. Zakłada się, że zaklinacz ma to zaklęcie przygotowane. Jeśli zaklęcie ma komponenty materialne kosztujące pieniądze, musisz za nie zapłacić, zanim zaklęcie zostanie rzucone.",
+          "Zaklinacz zostaje na 14 dni lub dopóki nie rzuci dla ciebie zaklęcia. Zaklinacz nie będzie bronić twojego Bastionu i natychmiast odchodzi, jeśli Bastion zostanie zaatakowany (patrz „{@book Bastion Events|XDMG|Wydarzenia Bastionu}\" na końcu rozdziału)."
+        ]
+      }
+    ]
+  },
+  "theater": {
+    "name": "Teatr",
+    "entries": [
+      "Teatr zawiera scenę, zaplecze, gdzie przechowywane są rekwizyty i dekoracje, oraz widownię dla niewielkiej publiczności.",
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Wydarzenie Teatralne",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Empower|XDMG|Wzmocnij} temu pomieszczeniu, jego najemnicy rozpoczynają pracę nad przedstawieniem teatralnym lub koncertem. Próby i inne przygotowania zajmują 14 dni, po czym następuje co najmniej 7 dni występów. Występy mogą trwać w nieskończoność, dopóki nie rozpocznie się nowa produkcja.",
+          "Ty lub inna postać możecie przyczynić się do produkcji na następujące sposoby:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Kompozytor/Autor",
+                "entry": "Postać może skomponować muzykę lub napisać scenariusz do koncertu lub produkcji, które jeszcze nie rozpoczęły prób. Ten wysiłek zajmuje 14 dni."
+              },
+              {
+                "type": "item",
+                "name": "Dyrygent/Reżyser",
+                "entry": "Postać, która pozostaje w Bastionie przez cały czas trwania produkcji, może pełnić funkcję dyrygenta koncertu lub reżysera produkcji."
+              },
+              {
+                "type": "item",
+                "name": "Wykonawca",
+                "entry": "Postać, która pozostaje w Bastionie przez cały okres prób, może być gwiazdą jednego lub więcej występów; jeden z najemników Teatru może pełnić funkcję dublera przy dodatkowych występach."
+              }
+            ]
+          },
+          "Na koniec okresu prób każda postać, która przyczyniła się do koncertu lub produkcji, może wykonać test Charyzmy ({@skill Performance|XPHB}) o {@dc 15}. Jeśli więcej z tych testów się powiedzie niż nie powiedzie, ty i każda inna postać, która przyczyniła się do koncertu lub produkcji, zyskujecie kość Teatru, {@dice k6}. Ta kość zmienia się na {@dice k8}, gdy osiągniesz 13. poziom, i na {@dice k10}, gdy osiągniesz 17. poziom. W dowolnym momencie po zakończeniu prób postać może wydać swoją kość Teatru, by ją rzucić i dodać wyrzuconą liczbę do jednego wykonywanego {@variantrule D20 Test|XPHB|Testu K20}, natychmiast po rzuceniu {@dice k20}. Jeśli postać nie wyda swojej kości Teatru przed zdobyciem kolejnej, jej pierwsza kość przepada."
+        ]
+      }
+    ]
+  },
+  "training-area": {
+    "name": "Strefa Treningowa",
+    "entries": [
+      "Bastion może posiadać więcej niż jedną Strefę Treningową. Strefa Treningowa może być otwartym dziedzińcem, salą gimnastyczną, salą muzyczną lub taneczną, albo pomysłowo zbudowanym torem pułapek i zagrożeń. Może zawierać nieożywione cele (do ćwiczeń z bronią), wyściełane maty i inny sprzęt. Jeden z najemników pomieszczenia jest doświadczonym trenerem; pozostali służą jako partnerzy treningowi.",
+      "Gdy Strefa Treningowa staje się częścią twojego Bastionu, wybierz jednego trenera z tabeli {@book Doświadczeni Trenerzy|XDMG|Expert Trainers}. W każdej turze Bastionu możesz zastąpić tego trenera innym z tabeli.",
+      {
+        "type": "table",
+        "caption": "Doświadczeni Trenerzy",
+        "colLabels": [
+          "Rodzaj Trenera",
+          "Efekt Wzmocnij"
+        ],
+        "colStyles": [
+          "col-2",
+          "col-10"
+        ],
+        "rows": [
+          [
+            "Ekspert Walki",
+            "Gdy otrzymujesz obrażenia od ataku wykonanego {@variantrule Unarmed Strike|XPHB|Uderzeniem bez Broni} lub bronią, możesz wykonać {@variantrule Reaction|XPHB|Reakcję}, by zmniejszyć te obrażenia o {@dice 1k4}."
+          ],
+          [
+            "Ekspert Umiejętności",
+            "Zyskujesz biegłość w jednej z następujących umiejętności do wyboru: {@skill Acrobatics|XPHB}, {@skill Athletics|XPHB}, {@skill Performance|XPHB}, {@skill Sleight of Hand|XPHB} lub {@skill Stealth|XPHB}."
+          ],
+          [
+            "Ekspert Narzędzi",
+            "Zyskujesz biegłość w jednym wybranym narzędziu."
+          ],
+          [
+            "Ekspert Walki Wręcz",
+            "Gdy trafisz {@variantrule Unarmed Strike|XPHB|Uderzeniem bez Broni} i zadasz obrażenia, atak zadaje dodatkowe {@damage 1k4} obrażeń obuchowych."
+          ],
+          [
+            "Ekspert Broni",
+            "Wybierz rodzaj broni Prostej lub Wojskowej, taki jak {@item Spear|XPHB} lub {@item Longbow|XPHB}. Jeśli nie masz biegłości w tej broni, zyskujesz ją. Jeśli już masz biegłość w tej broni, możesz korzystać z jej właściwości maestrii."
+          ]
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wzmocnij: Trening",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Empower|XDMG|Wzmocnij} temu pomieszczeniu, najemnicy pomieszczenia prowadzą ćwiczenia treningowe przez kolejne 7 dni. Każda postać, która trenuje tutaj przez co najmniej 8 godzin każdego z tych dni, zyskuje korzyść na koniec okresu treningowego. Korzyść zależy od tego, który trener jest obecny w pomieszczeniu, jak wskazano w tabeli Doświadczeni Trenerzy. Korzyść trwa 7 dni."
+        ]
+      }
+    ]
+  },
+  "trophy-room": {
+    "name": "Sala Trofeów",
+    "entries": [
+      "To pomieszczenie mieści kolekcję pamiątek, takich jak broń ze starych bitew, zamontowane głowy zabitych stworzeń, drobiazgi wyrwane z lochów i ruin, oraz trofea przekazywane przez przodków.",
+      {
+        "type": "entries",
+        "name": "Opcje Badań",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Research|XDMG|Badaj} temu pomieszczeniu, wybierz jedną z poniższych opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Badaj:",
+                "entry": "Wiedzę. Zlecasz najemnikowi pomieszczenia zbadanie wybranego przez ciebie tematu. Tematem może być legenda, dowolny rodzaj stworzenia lub sławny przedmiot. Temat nie musi być bezpośrednio związany z eksponatami w pomieszczeniu, gdyż trofea dają wskazówki do badania szerokiego zakresu innych zagadnień. Praca zajmuje 7 dni. Gdy badania dobiegną końca, najemnik zdobywa do trzech dokładnych informacji na dany temat, wcześniej ci nieznanych, i dzieli się tą wiedzą z tobą przy następnej rozmowie. MG określa, jakie informacje poznajesz."
+              },
+              {
+                "type": "item",
+                "name": "Badaj:",
+                "entry": "Trofeum-Drobiazg. Zlecasz najemnikowi pomieszczenia poszukiwanie drobiazgu, który mógłby ci się przydać. Praca zajmuje 7 dni. Gdy badania dobiegną końca, rzuć dowolną kością. Jeśli wynik jest nieparzysty, najemnik nie znajduje niczego przydatnego. Jeśli wynik jest parzysty, najemnik znajduje magiczny przedmiot. Rzuć na tabelę {@book Implementy — Zwykłe|XDMG|Implements—Common} w {@book rozdziale 7|XDMG|6}, by określić, czym on jest."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "war-room": {
+    "name": "Sala Wojenna",
+    "entries": [
+      "Sala Wojenna to miejsce, w którym planujesz działania militarne w konsultacji z wewnętrznym kręgiem lojalnych porucznikóww, z których każdy jest zaprawionym w boju {@b Weteranem Wojownikiem} (patrz {@book Monster Manual|XMM}) o charakterze zgodnym z twoim. Zaczynasz z dwoma porucznikami, lecz możesz dodawać kolejnych, jak opisano poniżej. Jeśli twój Bastion nie ma pomieszczeń, by zakwaterować twoich porucznikóww, zabezpieczają sobie zakwaterowanie w gospodzie lub osadzie najbliższej twojemu Bastionowi. Porucznicy są najemnikami, nie Obrońcami Bastionu; jednak jeśli twój Bastion zostanie zaatakowany (patrz „{@book Bastion Events|XDMG|Atak}\" na końcu tego rozdziału), każdy porucznik zakwaterowany w twoim Bastionie zmniejsza o 1 liczbę kości, które rzucasz, by określić, ilu Obrońców Bastionu zostaje utraconych w ataku.",
+      "Sala Wojenna zawiera pamiątki wojenne oraz duży stół otoczony wystarczającą liczbą krzeseł dla ciebie i twoich porucznikóww.",
+      {
+        "type": "entries",
+        "name": "Opcje Rekrutacji",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Recruit|XDMG|Rekrutuj} temu pomieszczeniu, wybierz jedną z poniższych opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Rekrutuj:",
+                "entry": "Porucznika. Zyskujesz jednego nowego porucznika. Możesz mieć do dziesięciu porucznikóww naraz. Nadaj im imiona i osobowości według uznania."
+              },
+              {
+                "type": "item",
+                "name": "Rekrutuj:",
+                "entry": "Żołnierzy. Zlecasz jednemu lub więcej swoim porucznikom zebranie małej armii. Każdy porucznik może zwerbować stu {@creature Guard|XMM|Strażników} (patrz {@book Monster Manual|XMM}) w ciągu 7 dni, by walczyli w twojej sprawie. Zmniejsz tę liczbę do dwudziestu, jeśli chcesz, by byli dosiadali {@creature Riding Horse|XMM|Wierzchowców} (patrz {@book Monster Manual|XMM}). Wyżywienie każdego strażnika i każdego konia w twojej armii kosztuje cię 1 SZ dziennie. Gdziekolwiek armia się udaje, musi być prowadzona przez ciebie lub co najmniej jednego z twoich porucznikóww, w przeciwnym razie natychmiast się rozwiązuje. Armia rozwiązuje się także, jeśli przez 1 dzień nie zostanie nakarmiona. W przeciwnym razie armia pozostaje, dopóki nie zostanie zniszczona lub nie rozkażesz jej się rozwiązać. Nie możesz ponownie wydać tego rozkazu Rekrutuj, dopóki twoja obecna armia się nie rozwiąże lub nie zostanie zniszczona."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "workshop": {
+    "name": "Warsztat",
+    "entries": [
+      "Ten Warsztat to twórcza przestrzeń, w której można wytwarzać przydatne przedmioty.",
+      {
+        "type": "entries",
+        "name": "Narzędzia Rzemieślnicze",
+        "entries": [
+          "Warsztat jest wyposażony w sześć różnych rodzajów {@item Artisan's Tools|XPHB|Narzędzi Rzemieślniczych}, wybranych z poniższej listy:",
+          {
+            "type": "list",
+            "columns": 3,
+            "items": [
+              "{@item Carpenter's Tools|XPHB}",
+              "{@item Cobbler's Tools|XPHB}",
+              "{@item Glassblower's Tools|XPHB}",
+              "{@item Jeweler's Tools|XPHB}",
+              "{@item Leatherworker's Tools|XPHB}",
+              "{@item Mason's Tools|XPHB}",
+              "{@item Painter's Supplies|XPHB|Painter's Tools}",
+              "{@item Potter's Tools|XPHB}",
+              "{@item Tinker's Tools|XPHB}",
+              "{@item Weaver's Tools|XPHB}",
+              "{@item Woodcarver's Tools|XPHB}"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Opcje Wytwarzania",
+        "entries": [
+          "Gdy wydajesz rozkaz {@book Craft|XDMG|Wytwórz} temu pomieszczeniu, wybierz jedną z poniższych opcji:",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Ekwipunek Podróżny. Najemnicy pomieszczenia wytwarzają dowolny przedmiot, który można wykonać za pomocą narzędzi wybranych przez ciebie przy dodawaniu Warsztatu do Bastionu (patrz wyżej), korzystając z zasad z {@book Player's Handbook|XPHB}."
+              },
+              {
+                "type": "item",
+                "name": "Wytwórz:",
+                "entry": "Magiczny Przedmiot (Implement). Jeśli masz 9. poziom lub wyższy, możesz zlecić najemnikom pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z tabel {@book Implementy|XDMG|Implements Tables} w {@book rozdziale 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnicy mają biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja „{@book Tworzenie Magicznych Przedmiotów|XDMG|Crafting Magic Items}\" w {@book rozdziale 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnicy pomieszczenia mogą pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Źródło Inspiracji",
+        "entries": [
+          "Po spędzeniu całego {@variantrule Short Rest|XPHB|Krótkiego Odpoczynku} w swoim Warsztacie zyskujesz {@variantrule Heroic Inspiration|XPHB|Heroiczną Inspirację}. Nie możesz ponownie zyskać tej korzyści, dopóki nie skończysz {@variantrule Long Rest|XPHB|Długiego Odpoczynku}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Powiększanie Pomieszczenia",
+        "entries": [
+          "Możesz powiększyć swój Warsztat do rozmiaru Ogromnego pomieszczenia, wydając 2000 SZ. Jeśli to zrobisz, Warsztat zyskuje dwóch dodatkowych najemników i trzy dodatkowe {@item Artisan's Tools|XPHB|Narzędzia Rzemieślnicze} (wybrane z powyższej listy)."
+        ]
+      }
+    ]
+  },
+  "zhentarim-travel-station": {
+    "name": "Stacja Podróżna Zhentarimów",
+    "entries": [
+      "Zhentarimowie utrzymują stacje, by ułatwić bezpieczne i szybkie podróże na dalekie dystanse (patrz {@book rozdział 2|XDMG|Travel} {@book Dungeon Master's Guide|XDMG}). Twoja stacja podróżna obejmuje tymczasowe stajnie dla czterech Dużych stworzeń; dwa Średnie stworzenia zajmują tam tyle samo miejsca co jedno Duże. Najemnicy pomieszczenia opiekują się tymi stworzeniami.",
+      {
+        "type": "entries",
+        "name": "Prędkość Podróży na Dalekie Dystanse",
+        "entries": [
+          "Zakończenie {@variantrule Long Rest|XPHB|Długiego Odpoczynku} w twoim Bastionie lepiej przygotowuje cię do podróży; maksymalne tempo podróży twojej grupy zwiększa się o jeden stopień (z Wolnego na Normalne lub z Normalnego na Szybkie)."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Badania: Rozpoznanie",
+        "entries": [
+          "Gdy wydajesz rozkaz Badaj temu pomieszczeniu, zlecasz najemnikom Stacji Podróżnej Zhentarimów zebranie informacji ułatwiających nadchodzącą podróż. Ta praca zajmuje 7 dni. Przez czas trwania podróży masz {@variantrule Advantage|XPHB|Przewagę} na testy Mądrości ({@skill Survival|XPHB}) wykonywane, by zdobywać żywność lub nawigować."
+        ]
+      }
+    ]
+  }
+}

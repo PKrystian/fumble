@@ -1,0 +1,958 @@
+{
+  "blinded": {
+    "name": "Oślepiony",
+    "entries": [
+      "Podczas gdy masz stan Oślepiony, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Nie widzisz",
+            "entries": [
+              "Nie widzisz i automatycznie nie zdajesz każdego testu umiejętności wymagającego wzroku."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Ataki pod wpływem",
+            "entries": [
+              "Rzuty na {@action Attack|XPHB|Atak} przeciwko tobie mają {@variantrule Advantage|XPHB|Przewagę}, a twoje rzuty na atak mają {@variantrule Disadvantage|XPHB|Utrudnienie}."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "bloodied": {
+    "name": "Skrwawiony",
+    "entries": [
+      "Stwór jest Skrwawiony, gdy pozostało mu połowa lub mniej jego {@variantrule Hit Points|XPHB|Punktów Wytrzymałości}."
+    ]
+  },
+  "charmed": {
+    "name": "Oczarowany",
+    "entries": [
+      "Podczas gdy masz stan Oczarowany, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Nie możesz skrzywdzić czarującego",
+            "entries": [
+              "Nie możesz atakować czarującego ani obierać go za cel szkodliwymi zdolnościami lub {@variantrule Magical Effect|XPHB|efektami magicznymi}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Przewaga społeczna",
+            "entries": [
+              "Czarujący ma {@variantrule Advantage|XPHB|Przewagę} przy każdym teście umiejętności mającym na celu interakcję z tobą w sferze towarzyskiej."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "concentration": {
+    "name": "Koncentracja",
+    "entries": [
+      "Niektóre zaklęcia i inne efekty wymagają Koncentracji, aby pozostać aktywne, zgodnie z ich opisami. Jeśli twórca efektu utraci Koncentrację, efekt kończy działanie. Jeśli efekt ma maksymalny czas trwania, jego opis określa, jak długo twórca może się na nim koncentrować: do 1 minuty, 1 godziny lub przez inny czas. Twórca może zakończyć Koncentrację w dowolnym momencie (bez potrzeby akcji). Poniższe czynniki przerywają Koncentrację.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Inny efekt wymagający koncentracji",
+            "entries": [
+              "Tracisz Koncentrację na efekcie w momencie, gdy zaczynasz rzucać zaklęcie wymagające Koncentracji lub aktywujesz inny efekt wymagający Koncentracji."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Obrażenia",
+            "entries": [
+              "Jeśli otrzymasz obrażenia, musisz wykonać udany {@variantrule Saving Throw|XPHB|rzut obronny} Kondycji, aby utrzymać Koncentrację. KT wynosi 10 lub połowę otrzymanych obrażeń (zaokrąglając w dół), zależnie od tego, która wartość jest wyższa, maksymalnie do KT 30."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Nieprzytomność lub śmierć",
+            "entries": [
+              "Twoja Koncentracja kończy się, jeśli masz stan {@condition Incapacitated|XPHB|Bezradny} lub umierasz."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "deafened": {
+    "name": "Ogłuchły",
+    "entries": [
+      "Podczas gdy masz stan Ogłuchły, doświadczasz następującego efektu.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Nie słyszysz",
+            "entries": [
+              "Nie słyszysz i automatycznie nie zdajesz każdego testu umiejętności wymagającego słuchu."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "exhaustion": {
+    "name": "Wyczerpanie",
+    "entries": [
+      "Podczas gdy masz stan Wyczerpanie, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Poziomy wyczerpania",
+            "entries": [
+              "Ten stan jest kumulatywny. Za każdym razem, gdy go otrzymujesz, zyskujesz 1 poziom Wyczerpania. Umierasz, jeśli twój poziom Wyczerpania wynosi 6."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na testy K20",
+            "entries": [
+              "Gdy wykonujesz Test K20, wynik rzutu jest zmniejszany o 2 razy twój poziom Wyczerpania."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Zmniejszona prędkość",
+            "entries": [
+              "Twoja {@variantrule Speed|XPHB|Prędkość} jest zmniejszona o liczbę stóp równą 5 razy twój poziom Wyczerpania."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Usuwanie poziomów wyczerpania",
+            "entries": [
+              "Zakończenie {@variantrule Long Rest|XPHB|Długiego Odpoczynku} usuwa 1 poziom Wyczerpania. Gdy twój poziom Wyczerpania osiągnie 0, stan się kończy."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "frightened": {
+    "name": "Przestraszony",
+    "entries": [
+      "Podczas gdy masz stan Przestraszony, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Wpływ na testy umiejętności i ataki",
+            "entries": [
+              "Masz {@variantrule Disadvantage|XPHB|Utrudnienie} przy testach umiejętności i rzutach na atak, dopóki źródło strachu znajduje się w polu widzenia."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Nie możesz się zbliżyć",
+            "entries": ["Nie możesz dobrowolnie zbliżyć się do źródła strachu."]
+          }
+        ]
+      }
+    ]
+  },
+  "grappled": {
+    "name": "Chwycony",
+    "entries": [
+      "Podczas gdy masz stan Chwycony, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Prędkość 0",
+            "entries": ["Twoja {@variantrule Speed|XPHB|Prędkość} wynosi 0 i nie może wzrosnąć."]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na ataki",
+            "entries": [
+              "Masz {@variantrule Disadvantage|XPHB|Utrudnienie} przy rzutach na atak przeciwko każdemu celowi innemu niż chwytający."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Możliwość przemieszczenia",
+            "entries": [
+              "Chwytający może cię ciągnąć lub nieść podczas ruchu, ale każda stopa ruchu kosztuje go 1 dodatkową stopę, chyba że jesteś Filigranowy lub o dwa lub więcej rozmiarów mniejszy od niego."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "incapacitated": {
+    "name": "Bezradny",
+    "entries": [
+      "Podczas gdy masz stan Bezradny, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Bezczynność",
+            "entries": [
+              "Nie możesz wykonać żadnej {@variantrule Action|XPHB|Akcji}, {@variantrule Bonus Action|XPHB|Akcji Dodatkowej} ani {@variantrule Reaction|XPHB|Reakcji}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Brak koncentracji",
+            "entries": ["Twoja {@status Concentration|XPHB|Koncentracja} zostaje przerwana."]
+          },
+          {
+            "type": "entries",
+            "name": "Brak mowy",
+            "entries": ["Nie możesz mówić."]
+          },
+          {
+            "type": "entries",
+            "name": "Zaskoczenie",
+            "entries": [
+              "Jeśli jesteś Bezradny w momencie rzutu na {@variantrule Initiative|XPHB|Inicjatywę}, masz {@variantrule Disadvantage|XPHB|Utrudnienie} przy tym rzucie."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "invisible": {
+    "name": "Niewidzialny",
+    "entries": [
+      "Podczas gdy masz stan Niewidzialny, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Zaskoczenie",
+            "entries": [
+              "Jeśli jesteś Niewidzialny w momencie rzutu na {@variantrule Initiative|XPHB|Inicjatywę}, masz {@variantrule Advantage|XPHB|Przewagę} przy tym rzucie."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Ukrycie",
+            "entries": [
+              "Nie podlegasz żadnemu efektowi, który wymaga, aby jego cel był widziany, chyba że twórca efektu w jakiś sposób może cię zobaczyć. Wszelki sprzęt, który nosisz lub niesiesz, jest również ukryty."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na ataki",
+            "entries": [
+              "Rzuty na {@action Attack|XPHB|Atak} przeciwko tobie mają {@variantrule Disadvantage|XPHB|Utrudnienie}, a twoje rzuty na atak mają {@variantrule Advantage|XPHB|Przewagę}. Jeśli jakiś stwór w jakiś sposób może cię zobaczyć, nie zyskujesz tej korzyści przeciwko niemu."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "paralyzed": {
+    "name": "Sparaliżowany",
+    "entries": [
+      "Podczas gdy masz stan Sparaliżowany, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Bezradność",
+            "entries": ["Masz stan {@condition Incapacitated|XPHB|Bezradny}."]
+          },
+          {
+            "type": "entries",
+            "name": "Prędkość 0",
+            "entries": ["Twoja {@variantrule Speed|XPHB|Prędkość} wynosi 0 i nie może wzrosnąć."]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na rzuty obronne",
+            "entries": [
+              "Automatycznie nie zdajesz {@variantrule Saving Throw|XPHB|rzutów obronnych} Siły i Zręczności."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na ataki",
+            "entries": ["Rzuty na {@action Attack|XPHB|Atak} przeciwko tobie mają {@variantrule Advantage|XPHB|Przewagę}."]
+          },
+          {
+            "type": "entries",
+            "name": "Automatyczne trafienia krytyczne",
+            "entries": [
+              "Każdy rzut na atak, który cię trafia, jest {@variantrule Critical Hit|XPHB|Trafieniem Krytycznym}, jeśli atakujący znajduje się w promieniu 5 stóp od ciebie."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "petrified": {
+    "name": "Skamieniały",
+    "entries": [
+      "Podczas gdy masz stan Skamieniały, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Przemiana w nieożywioną substancję",
+            "entries": [
+              "Zostajesz przemieniony, wraz z wszelkimi niemagicznymi przedmiotami, które nosisz i niesiesz, w litą nieożywioną substancję (zwykle kamień). Twoja waga wzrasta dziesięciokrotnie, a ty przestajesz się starzeć."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Bezradność",
+            "entries": ["Masz stan {@condition Incapacitated|XPHB|Bezradny}."]
+          },
+          {
+            "type": "entries",
+            "name": "Prędkość 0",
+            "entries": ["Twoja {@variantrule Speed|XPHB|Prędkość} wynosi 0 i nie może wzrosnąć."]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na ataki",
+            "entries": ["Rzuty na {@action Attack|XPHB|Atak} przeciwko tobie mają {@variantrule Advantage|XPHB|Przewagę}."]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na rzuty obronne",
+            "entries": [
+              "Automatycznie nie zdajesz {@variantrule Saving Throw|XPHB|rzutów obronnych} Siły i Zręczności."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Odporność na obrażenia",
+            "entries": ["Masz {@variantrule Resistance|XPHB|Odporność} na wszystkie obrażenia."]
+          },
+          {
+            "type": "entries",
+            "name": "Odporność na truciznę",
+            "entries": ["Masz {@variantrule Immunity|XPHB|Immunitet} na stan {@condition Poisoned|XPHB|Zatruty}."]
+          }
+        ]
+      }
+    ]
+  },
+  "poisoned": {
+    "name": "Zatruty",
+    "entries": [
+      "Podczas gdy masz stan Zatruty, doświadczasz następującego efektu.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Wpływ na testy umiejętności i ataki",
+            "entries": ["Masz {@variantrule Disadvantage|XPHB|Utrudnienie} przy rzutach na atak i testach umiejętności."]
+          }
+        ]
+      }
+    ]
+  },
+  "prone": {
+    "name": "Powalony",
+    "entries": [
+      "Podczas gdy masz stan Powalony, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Ograniczony ruch",
+            "entries": [
+              "Twoimi jedynymi opcjami ruchu są {@variantrule Crawling|XPHB|czołganie się} lub wydanie ruchu równego połowie twojej {@variantrule Speed|XPHB|Prędkości} (zaokrąglając w dół), aby się podnieść i tym samym zakończyć ten stan. Jeśli twoja {@variantrule Speed|XPHB|Prędkość} wynosi 0, nie możesz się podnieść."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na ataki",
+            "entries": [
+              "Masz {@variantrule Disadvantage|XPHB|Utrudnienie} przy rzutach na atak. Rzut na atak przeciwko tobie ma {@variantrule Advantage|XPHB|Przewagę}, jeśli atakujący znajduje się w promieniu 5 stóp od ciebie. W przeciwnym razie ten rzut na atak ma {@variantrule Disadvantage|XPHB|Utrudnienie}."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "restrained": {
+    "name": "Unieruchomiony",
+    "entries": [
+      "Podczas gdy masz stan Unieruchomiony, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Prędkość 0",
+            "entries": ["Twoja {@variantrule Speed|XPHB|Prędkość} wynosi 0 i nie może wzrosnąć."]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na ataki",
+            "entries": [
+              "Rzuty na {@action Attack|XPHB|Atak} przeciwko tobie mają {@variantrule Advantage|XPHB|Przewagę}, a twoje rzuty na atak mają {@variantrule Disadvantage|XPHB|Utrudnienie}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na rzuty obronne",
+            "entries": [
+              "Masz {@variantrule Disadvantage|XPHB|Utrudnienie} przy {@variantrule Saving Throw|XPHB|rzutach obronnych} Zręczności."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "stunned": {
+    "name": "Oszołomiony",
+    "entries": [
+      "Podczas gdy masz stan Oszołomiony, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Bezradność",
+            "entries": ["Masz stan {@condition Incapacitated|XPHB|Bezradny}."]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na rzuty obronne",
+            "entries": [
+              "Automatycznie nie zdajesz {@variantrule Saving Throw|XPHB|rzutów obronnych} Siły i Zręczności."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na ataki",
+            "entries": ["Rzuty na {@action Attack|XPHB|Atak} przeciwko tobie mają {@variantrule Advantage|XPHB|Przewagę}."]
+          }
+        ]
+      }
+    ]
+  },
+  "surprised": {
+    "name": "Zaskoczony",
+    "entries": [
+      "Jeśli stwór zostaje zaskoczony na początku starcia, jest Zaskoczony, co powoduje, że ma {@variantrule Disadvantage|XPHB|Utrudnienie} przy rzucie na {@variantrule Initiative|XPHB|Inicjatywę}."
+    ]
+  },
+  "unconscious": {
+    "name": "Nieprzytomny",
+    "entries": [
+      "Podczas gdy masz stan Nieprzytomny, doświadczasz następujących efektów.",
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Bezruch",
+            "entries": [
+              "Masz stany {@condition Incapacitated|XPHB|Bezradny} i {@condition Prone|XPHB|Powalony}, i upuszczasz to, co trzymasz. Gdy ten stan się kończy, pozostajesz {@condition Prone|XPHB|Powalony}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Prędkość 0",
+            "entries": ["Twoja {@variantrule Speed|XPHB|Prędkość} wynosi 0 i nie może wzrosnąć."]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na ataki",
+            "entries": ["Rzuty na {@action Attack|XPHB|Atak} przeciwko tobie mają {@variantrule Advantage|XPHB|Przewagę}."]
+          },
+          {
+            "type": "entries",
+            "name": "Wpływ na rzuty obronne",
+            "entries": [
+              "Automatycznie nie zdajesz {@variantrule Saving Throw|XPHB|rzutów obronnych} Siły i Zręczności."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Automatyczne trafienia krytyczne",
+            "entries": [
+              "Każdy rzut na atak, który cię trafia, jest {@variantrule Critical Hit|XPHB|Trafieniem Krytycznym}, jeśli atakujący znajduje się w promieniu 5 stóp od ciebie."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Nieświadomość",
+            "entries": ["Nie jesteś świadomy swojego otoczenia."]
+          }
+        ]
+      }
+    ]
+  },
+  "blinded-phb": {
+    "name": "Oślepiony",
+    "entries": [
+      {
+        "type": "list",
+        "items": [
+          "Oślepiony stwór nie widzi i automatycznie nie zdaje żadnego testu cechy wymagającego wzroku.",
+          "Rzuty na atak przeciwko takiemu stworowi mają przewagę, a jego rzuty na atak mają utrudnienie."
+        ]
+      }
+    ]
+  },
+  "blinding-sickness": {
+    "name": "Ślepnąca Choroba",
+    "entries": [
+      "Ból ściska umysł stwora, a jego oczy stają się mleczno białe. Stwór ma utrudnienie przy testach Mądrości i rzutach obronnych Mądrości oraz ma stan {@condition blinded|XPHB|Oślepiony}.",
+      "{@note Ta choroba może zostać wywołana zaklęciem {@spell contagion|PHB|zaraza}.}"
+    ]
+  },
+  "cackle-fever": {
+    "name": "Chichocząca Gorączka",
+    "entries": [
+      "Tanio wykonane eliksiry i mikstury bywają zanieczyszczone Chichoczącą Gorączką, która atakuje wyłącznie Humanoidów (gnomy są dziwnym trafem odporne). Stwór doświadcza następujących efektów {@dice 1k4} dni po zarażeniu:",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {"type": "item", "name": "Gorączka", "entry": "Stwór zyskuje 1 poziom {@condition Exhaustion|XPHB|Wyczerpania}, który utrzymuje się, dopóki zaraza się na nim nie zakończy."},
+          {"type": "item", "name": "Niekontrolowany Śmiech", "entry": "Dopóki stwór ma stan {@condition Exhaustion|XPHB|Wyczerpanie}, wykonuje rzut obronny Kondycji o KT {@dc 13} za każdym razem, gdy otrzymuje obrażenia inne niż Psychiczne. Przy nieudanym rzucie stwór otrzymuje 5 ({@dice 1k10}) obrażeń Psychicznych i ma stan {@condition Incapacitated|XPHB|Bezradny}, gdy niekontrolowanie się śmieje. Na koniec każdej swojej tury stwór powtarza ten rzut obronny, kończąc efekt na sobie w przypadku sukcesu. Po 1 minucie sukces jest automatyczny."}
+        ]
+      },
+      {
+        "type": "entries",
+        "entries": [
+          {"type": "entries", "name": "Zwalczanie Zarazy", "entries": ["Na koniec każdego Długiego Odpoczynku zarażony stwór wykonuje rzut obronny Kondycji o KT {@dc 13}. Gdy stwór zda trzy z tych rzutów obronnych, zaraza kończy się na nim, a stwór jest odporny na Chichoczącą Gorączkę przez 1 rok."]},
+          {"type": "entries", "name": "Rozprzestrzenianie Zarazy", "entries": ["Każdy Humanoid (inny niż gnom), który zaczyna swoją turę w promieniu 10 stóp {@variantrule Emanation [Area of Effect]|XPHB|Emanacji} pochodzącej od stwora zarażonego Chichoczącą Gorączką, musi zdać rzut obronny Kondycji o KT {@dc 10} lub również zostaje zarażony zarazą. Przy udanym rzucie obronnym Humanoid nie może zarazić się od tego konkretnego zarażonego stwora przez kolejne 24 godziny."]}
+        ]
+      }
+    ]
+  },
+  "cackle-fever-dmg": {
+    "name": "Chichocząca Gorączka",
+    "entries": [
+      "Ta choroba atakuje humanoidów, choć gnomy są dziwnym trafem odporne. W szponach tej choroby ofiary często ulegają napadom szalonego śmiechu, co dało chorobie jej potoczną nazwę oraz makabryczny przydomek: „wrzaski”.",
+      "Objawy pojawiają się {@dice 1k4} godziny po zarażeniu i obejmują gorączkę oraz dezorientację. Zarażony stwór zyskuje jeden poziom {@condition exhaustion|XPHB|Wyczerpania}, którego nie można usunąć, dopóki choroba nie zostanie wyleczona.",
+      "Każde wydarzenie powodujące u zarażonego stwora duży stres — w tym wejście do walki, otrzymanie obrażeń, doświadczenie strachu lub koszmar senny — zmusza stwora do wykonania rzutu obronnego Kondycji o KT {@dc 13}.",
+      "Przy nieudanym rzucie stwór otrzymuje 5 ({@dice 1k10}) obrażeń psychicznych i staje się {@condition incapacitated|XPHB|Bezradny} z powodu szalonego śmiechu na 1 minutę. Stwór może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc szalony śmiech i stan {@condition incapacitated|XPHB|Bezradny} w przypadku sukcesu. Każdy humanoidalny stwór, który zaczyna swoją turę w promieniu 10 stóp od zarażonego stwora ogarniętego szalonym śmiechem, musi zdać rzut obronny Kondycji o KT {@dc 10} lub również zostać zarażony chorobą. Gdy stwór zda ten rzut obronny, jest odporny na szalony śmiech tego konkretnego zarażonego stwora przez 24 godziny.",
+      "Na koniec każdego długiego odpoczynku zarażony stwór może wykonać rzut obronny Kondycji o KT {@dc 13}. Przy udanym rzucie KT tego rzutu obronnego oraz rzutu obronnego chroniącego przed atakiem szalonego śmiechu spada o {@dice 1k6}. Gdy KT rzutu obronnego spadnie do 0, stwór wyzdrowieje z choroby. Stwór, który nie zda trzech takich rzutów obronnych, zyskuje losowo określoną formę {@variantrule Madness|DMG|nieokreślonego szaleństwa}."
+    ]
+  },
+  "charmed-phb": {
+    "name": "Oczarowany",
+    "entries": [
+      {
+        "type": "list",
+        "items": [
+          "Oczarowany stwór nie może zaatakować czarującego ani obrać go za cel szkodliwymi zdolnościami lub efektami magicznymi.",
+          "Czarujący ma przewagę przy każdym teście cechy mającym na celu towarzyską interakcję z tym stworem."
+        ]
+      }
+    ]
+  },
+  "concentration-phb": {
+    "name": "Koncentracja",
+    "entries": [
+      "Niektóre zaklęcia wymagają, byś utrzymywał {@status concentration||koncentrację}, aby ich magia pozostała aktywna. Jeśli utracisz {@status concentration||koncentrację}, takie zaklęcie się kończy.",
+      "Jeśli zaklęcie musi być utrzymywane {@status concentration||koncentracją}, fakt ten pojawia się w polu Czas trwania, a zaklęcie określa, jak długo możesz się na nim koncentrować. Możesz zakończyć {@status concentration||koncentrację} w dowolnym momencie (bez potrzeby akcji).",
+      "Normalna aktywność, taka jak poruszanie się i atakowanie, nie zakłóca {@status concentration||koncentracji}. Następujące czynniki mogą przerwać {@status concentration||koncentrację}:",
+      {
+        "type": "list",
+        "items": [
+          {"type": "entries", "name": "Rzucanie innego zaklęcia wymagającego koncentracji", "entries": ["Tracisz {@status concentration||koncentrację} na zaklęciu, jeśli rzucisz inne zaklęcie wymagające {@status concentration||koncentracji}. Nie możesz koncentrować się na dwóch zaklęciach jednocześnie."]},
+          {"type": "entries", "name": "Otrzymanie obrażeń", "entries": ["Ilekroć otrzymujesz obrażenia, będąc {@status concentration||skoncentrowanym} na zaklęciu, musisz wykonać rzut obronny Kondycji, by utrzymać {@status concentration||koncentrację}. KT wynosi 10 lub połowę otrzymanych obrażeń, zależnie od tego, która wartość jest wyższa. Jeśli otrzymujesz obrażenia z wielu źródeł, na przykład strzały i oddechu smoka, wykonujesz osobny rzut obronny dla każdego źródła obrażeń."]},
+          {"type": "entries", "name": "Bezradność lub śmierć", "entries": ["Tracisz {@status concentration||koncentrację} na zaklęciu, jeśli jesteś {@condition incapacitated|XPHB|Bezradny} lub jeśli umierasz."]}
+        ]
+      },
+      "MG może również zdecydować, że pewne zjawiska środowiskowe, na przykład fala uderzająca w ciebie, gdy jesteś na miotanym przez sztorm statku, wymagają zdania rzutu obronnego Kondycji o KT {@dc 10}, by utrzymać {@status concentration||koncentrację} na zaklęciu."
+    ]
+  },
+  "deafened-phb": {
+    "name": "Ogłuchły",
+    "entries": [
+      {
+        "type": "list",
+        "items": ["Ogłuchły stwór nie słyszy i automatycznie nie zdaje żadnego testu cechy wymagającego słuchu."]
+      }
+    ]
+  },
+  "exhaustion-phb": {
+    "name": "Wyczerpanie",
+    "entries": [
+      "Niektóre specjalne zdolności i zagrożenia środowiskowe, takie jak głód czy długotrwałe skutki mrozu lub upału, mogą prowadzić do specjalnego stanu zwanego wyczerpaniem. Wyczerpanie mierzone jest w sześciu poziomach. Efekt może nadać stworowi jeden lub więcej poziomów wyczerpania, zgodnie z opisem efektu.",
+      {
+        "type": "table",
+        "colLabels": ["Poziom", "Efekt"],
+        "colStyles": ["col-1 text-center", "col-11"],
+        "rows": [
+          ["1", "Utrudnienie przy testach cech"],
+          ["2", "Prędkość zmniejszona o połowę"],
+          ["3", "Utrudnienie przy rzutach na atak i rzutach obronnych"],
+          ["4", "Maksimum punktów wytrzymałości zmniejszone o połowę"],
+          ["5", "Prędkość zmniejszona do 0"],
+          ["6", "Śmierć"]
+        ]
+      },
+      "Jeśli stwór, który jest już wyczerpany, doświadcza kolejnego efektu powodującego wyczerpanie, jego aktualny poziom wyczerpania wzrasta o wartość określoną w opisie efektu.",
+      "Stwór doświadcza efektu swojego aktualnego poziomu wyczerpania, a także wszystkich niższych poziomów. Na przykład stwór doświadczający wyczerpania na poziomie 2 ma zmniejszoną o połowę prędkość i utrudnienie przy testach cech.",
+      "Efekt usuwający wyczerpanie zmniejsza jego poziom zgodnie z opisem tego efektu, przy czym wszystkie efekty wyczerpania kończą się, jeśli poziom wyczerpania stwora spadnie poniżej 1.",
+      "Zakończenie długiego odpoczynku zmniejsza poziom wyczerpania stwora o 1, pod warunkiem że stwór spożył również jakieś jedzenie i napój. Ponadto wskrzeszenie z martwych zmniejsza poziom wyczerpania stwora o 1."
+    ]
+  },
+  "filth-fever": {
+    "name": "Gorączka Brudu",
+    "entries": [
+      "Szalejąca gorączka przenika ciało stwora. Stwór ma utrudnienie przy testach Siły, rzutach obronnych Siły oraz rzutach na atak korzystających z Siły.",
+      "{@note Ta choroba może zostać wywołana zaklęciem {@spell contagion|PHB|zaraza}.}"
+    ]
+  },
+  "flesh-rot": {
+    "name": "Gnicie Ciała",
+    "entries": [
+      "Ciało stwora się rozkłada. Stwór ma utrudnienie przy testach Charyzmy oraz podatność na wszystkie obrażenia.",
+      "{@note Ta choroba może zostać wywołana zaklęciem {@spell contagion|PHB|zaraza}.}"
+    ]
+  },
+  "frightened-phb": {
+    "name": "Przestraszony",
+    "entries": [
+      {
+        "type": "list",
+        "items": [
+          "Przestraszony stwór ma utrudnienie przy testach cech i rzutach na atak, dopóki źródło jego strachu znajduje się w polu widzenia.",
+          "Stwór nie może dobrowolnie zbliżyć się do źródła swojego strachu."
+        ]
+      }
+    ]
+  },
+  "frigid-woe": {
+    "name": "Mroźny Żal",
+    "entries": [
+      "Mroźny żal to specjalna choroba opracowana przez magów Aeoru, której nie da się wyleczyć konwencjonalnym leczeniem ani magią. Jedynym sposobem na wyleczenie zarażonego nią stwora jest odnalezienie i wypicie wytworzonego antidotum, mlecznego płynu przechowywanego w złotych fiolkach znajdowanych w ruinach Eiselcross. Choroba ta została stworzona, by spowolnić siły bogów i obejść uzdrawiającą moc ich kleryków i aniołów.",
+      "Choroba przenoszona jest poprzez wdychanie niebieskich zarodników stworzonych dawno temu przez magów Aeoru. Gdy stwór zetknie się z tymi zarodnikami, musi zdać rzut obronny Kondycji o KT {@dc 11} lub zostaje zarażony mroźnym żalem. Objawy u zarażonego stwora pojawiają się po {@dice 1k4} dniach. Obejmują one zmęczenie, dreszcze i widoczne niebieskie żyły pojawiające się na ciele stwora. Prędkość zarażonego stwora zostaje zmniejszona o 5 stóp, dopóki pozostaje zarażony. Co 10 dni po pojawieniu się objawów zarażony stwór musi zdać rzut obronny Kondycji o KT {@dc 11}, albo jego prędkość zostaje zmniejszona o kolejne 5 stóp. Jeśli prędkość stwora zostanie zmniejszona do 0 w wyniku tej choroby, stwór umiera, a jego ciało zamienia się w lodowy posąg.",
+      "Stwór może wypić antidotum jako akcję, natychmiast kończąc wszystkie objawy i efekty choroby."
+    ]
+  },
+  "grappled-phb": {
+    "name": "Chwycony",
+    "entries": [
+      {
+        "type": "list",
+        "items": [
+          "Prędkość chwyconego stwora zostaje zmniejszona do 0 i stwór nie może skorzystać z żadnego bonusu do swojej prędkości.",
+          "Stan kończy się, jeśli chwytający ma stan {@condition incapacitated|XPHB|Bezradny}.",
+          "Stan kończy się również, jeśli jakiś efekt usunie chwyconego stwora z zasięgu chwytającego lub efektu chwytającego, na przykład gdy stwór zostaje odrzucony przez zaklęcie fala grzmotu."
+        ]
+      }
+    ]
+  },
+  "incapacitated-phb": {
+    "name": "Bezradny",
+    "entries": [
+      {
+        "type": "list",
+        "items": ["Bezradny stwór nie może wykonywać akcji ani reakcji."]
+      }
+    ]
+  },
+  "invisible-phb": {
+    "name": "Niewidzialny",
+    "entries": [
+      {
+        "type": "list",
+        "items": [
+          "Niewidzialnego stwora nie da się dostrzec bez pomocy magii lub specjalnego zmysłu. Na potrzeby ukrywania się stwór ten jest mocno zasłonięty. Lokalizację stwora można wykryć po hałasie, jaki wydaje, lub śladach, jakie pozostawia.",
+          "Rzuty na atak przeciwko takiemu stworowi mają utrudnienie, a jego rzuty na atak mają przewagę."
+        ]
+      }
+    ]
+  },
+  "lichen-plague": {
+    "name": "Zaraza Porostów",
+    "entries": [
+      "Bestia, Olbrzym, Humanoid lub Monstrualność, która wejdzie w kontakt z zarodnikami żółciowego porostu, jest narażona na zarażenie się okropną chorobą, gdy porost zapuszcza korzenie w jej ciele i wrasta w jej mózg. Stwór doświadcza następujących efektów {@dice 1k4} dni po zarażeniu:",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {"type": "item", "name": "Korzeń Skóry", "entry": "Zaraza pojawia się najpierw jako plamka zielono-żółtego porostu nie większa niż 1 cal kwadratowy, w losowym miejscu na ciele. Gdy kończy Długi Odpoczynek, zarażony stwór musi zdać rzut obronny Kondycji o KT {@dc 14} lub zyskuje 1 poziom Wyczerpania, gdy porost rozprzestrzenia się w kierunku głowy stwora. Ten poziom Wyczerpania utrzymuje się, dopóki zaraza się na nim nie zakończy."},
+          {"type": "item", "name": "Korzeń Umysłu", "entry": "Humanoid, który umiera będąc zarażony Zarazą Porostów, natychmiast powstaje jako {@creature Zombie|XMM|zombi} pod kontrolą MG."}
+        ]
+      },
+      {
+        "type": "entries",
+        "entries": [
+          {"type": "entries", "name": "Zwalczanie Zarazy", "entries": ["Gdy kończy Długi Odpoczynek, zarażony stwór wykonuje rzut obronny Kondycji o KT {@dc 14}. Jeśli stwór zda trzy z tych rzutów obronnych, zaraza kończy się na nim, a stwór jest odporny na Zarazę Porostów na zawsze. Udane rzuty obronne nie muszą następować po sobie."]},
+          {"type": "entries", "name": "Rozprzestrzenianie Zarazy", "entries": ["Każda Bestia, Olbrzym, Humanoid lub Monstrualność, która dotknie skórą porostu na zarażonym stworze, musi zdać rzut obronny Kondycji o KT {@dc 14} lub zostaje zarażona Zarazą Porostów. Przy udanym rzucie obronnym stwór nie może zarazić się Zarazą Porostów przez kolejne 24 godziny."]}
+        ]
+      }
+    ]
+  },
+  "mindfire": {
+    "name": "Ogień Umysłu",
+    "entries": [
+      "Umysł stwora ogarnia gorączka. Stwór ma utrudnienie przy testach Inteligencji i rzutach obronnych Inteligencji, a podczas walki zachowuje się tak, jakby był pod wpływem zaklęcia zamęt.",
+      "{@note Ta choroba może zostać wywołana zaklęciem {@spell contagion|PHB|zaraza}.}"
+    ]
+  },
+  "mudpox": {
+    "name": "Błotna Ospa",
+    "entries": [
+      "Kontakt z martwymi maziskami z Podmroku, zmieszanymi z topniejącym śniegiem i błotem, powoduje u ludzi choroby. Każda Bestia lub Humanoid, który dotknie błota zanieczyszczonego Błotną Ospą, musi zdać rzut obronny Kondycji o KT {@dc 12} lub zostaje zarażony, doświadczając następującego efektu:",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {"type": "item", "name": "Zaburzone Trawienie", "entry": "Codziennie o świcie stwór musi zdać rzut obronny Kondycji o KT {@dc 12} lub zwymiotować jedzenie zjedzone poprzedniego dnia, zyskując 1 poziom Wyczerpania. Jeśli stwór zda ten rzut obronny trzy razy z rzędu, zaraza się kończy."}
+        ]
+      },
+      {
+        "type": "entries",
+        "entries": [
+          {"type": "entries", "name": "Zwalczanie Zarazy", "entries": ["Zaklęcie {@spell Heal|XPHB|uleczenie} lub {@spell Lesser Restoration|XPHB|mniejsze przywrócenie} natychmiast kończy zarazę."]},
+          {"type": "entries", "name": "Rozprzestrzenianie Zarazy", "entries": ["Każdy Humanoid, który dotknie skórą stwora zarażonego Błotną Ospą, musi zdać rzut obronny Kondycji o KT {@dc 12} lub również zostaje zarażony zarazą. Jeśli stwór zda ten rzut obronny, nie może zarazić się od tego konkretnego zarażonego stwora przez kolejne 24 godziny."]}
+        ]
+      }
+    ]
+  },
+  "paralyzed-phb": {
+    "name": "Sparaliżowany",
+    "entries": [
+      {
+        "type": "list",
+        "items": [
+          "Sparaliżowany stwór jest {@condition incapacitated|XPHB|Bezradny} i nie może się poruszać ani mówić.",
+          "Stwór automatycznie nie zdaje rzutów obronnych Siły i Zręczności.",
+          "Rzuty na atak przeciwko takiemu stworowi mają przewagę.",
+          "Każdy atak, który trafia stwora, jest trafieniem krytycznym, jeśli atakujący znajduje się w promieniu 5 stóp od stwora."
+        ]
+      }
+    ]
+  },
+  "petrified-phb": {
+    "name": "Skamieniały",
+    "entries": [
+      {
+        "type": "list",
+        "items": [
+          "Skamieniały stwór zostaje przemieniony, wraz z wszelkimi niemagicznymi przedmiotami, które nosi lub niesie, w litą nieożywioną substancję (zwykle kamień). Jego waga wzrasta dziesięciokrotnie, a on przestaje się starzeć.",
+          "Stwór jest {@condition incapacitated|XPHB|Bezradny}, nie może się poruszać ani mówić i jest nieświadomy swojego otoczenia.",
+          "Rzuty na atak przeciwko takiemu stworowi mają przewagę.",
+          "Stwór automatycznie nie zdaje rzutów obronnych Siły i Zręczności.",
+          "Stwór ma odporność na wszystkie obrażenia.",
+          "Stwór jest odporny na truciznę i choroby, chociaż trucizna lub choroba już obecna w jego organizmie zostaje zawieszona, a nie zneutralizowana."
+        ]
+      }
+    ]
+  },
+  "poisoned-phb": {
+    "name": "Zatruty",
+    "entries": [
+      {
+        "type": "list",
+        "items": ["Zatruty stwór ma utrudnienie przy rzutach na atak i testach cech."]
+      }
+    ]
+  },
+  "prone-phb": {
+    "name": "Powalony",
+    "entries": [
+      {
+        "type": "list",
+        "items": [
+          "Jedyną opcją ruchu powalonego stwora jest czołganie się, chyba że wstanie i tym samym zakończy ten stan.",
+          "Stwór ma utrudnienie przy rzutach na atak.",
+          "Rzut na atak przeciwko takiemu stworowi ma przewagę, jeśli atakujący znajduje się w promieniu 5 stóp od stwora. W przeciwnym razie ten rzut na atak ma utrudnienie."
+        ]
+      }
+    ]
+  },
+  "restrained-phb": {
+    "name": "Unieruchomiony",
+    "entries": [
+      {
+        "type": "list",
+        "items": [
+          "Prędkość unieruchomionego stwora zostaje zmniejszona do 0 i stwór nie może skorzystać z żadnego bonusu do swojej prędkości.",
+          "Rzuty na atak przeciwko takiemu stworowi mają przewagę, a jego rzuty na atak mają utrudnienie.",
+          "Stwór ma utrudnienie przy rzutach obronnych Zręczności."
+        ]
+      }
+    ]
+  },
+  "seizure": {
+    "name": "Drgawki",
+    "entries": [
+      "Stwór ogarnięty jest drżeniem. Stwór ma utrudnienie przy testach Zręczności, rzutach obronnych Zręczności oraz rzutach na atak korzystających ze Zręczności.",
+      "{@note Ta choroba może zostać wywołana zaklęciem {@spell contagion|PHB|zaraza}.}"
+    ]
+  },
+  "sewer-plague": {
+    "name": "Kanałowa Zaraza",
+    "entries": [
+      "Zepsute eliksiry i alchemiczne odpady mogą prowadzić do powstania Kanałowej Zarazy, która wylęga się w kanałach ściekowych i stertach śmieci, a czasem przenoszona jest przez stwory zamieszkujące takie miejsca, w tym otyugi i szczury. Każdy Humanoid, który zostanie zraniony przez stwora będącego nosicielem zarazy lub który wejdzie w kontakt ze skażonym brudem lub padliną, musi zdać rzut obronny Kondycji o KT {@dc 11} lub zostaje zarażony Kanałową Zarazą. Stwór doświadcza następujących efektów {@dice 1k4} dni po zarażeniu:",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {"type": "item", "name": "Zmęczenie", "entry": "Stwór zyskuje 1 poziom {@condition Exhaustion|XPHB|Wyczerpania}."},
+          {"type": "item", "name": "Osłabienie", "entry": "Dopóki stwór ma jakikolwiek poziom Wyczerpania, odzyskuje jedynie połowę normalnej liczby punktów wytrzymałości przy wydawaniu Kości Wytrzymałości."},
+          {"type": "item", "name": "Niepokój", "entry": "Dopóki stwór ma jakikolwiek poziom Wyczerpania, zakończenie Długiego Odpoczynku ani nie przywraca utraconych punktów wytrzymałości, ani nie zmniejsza poziomu Wyczerpania stwora."}
+        ]
+      },
+      {
+        "type": "entries",
+        "entries": [
+          {"type": "entries", "name": "Zwalczanie Zarazy", "entries": ["Codziennie o świcie zarażony stwór wykonuje rzut obronny Kondycji o KT {@dc 11}. Przy nieudanym rzucie stwór zyskuje 1 poziom {@condition Exhaustion|XPHB|Wyczerpania}, gdy jego zmęczenie się nasila. Przy udanym rzucie poziom Wyczerpania stwora zmniejsza się o 1. Jeśli poziom Wyczerpania stwora zostanie zmniejszony do 0, zaraza kończy się na nim."]}
+        ]
+      }
+    ]
+  },
+  "sewer-plague-dmg": {
+    "name": "Kanałowa Zaraza",
+    "entries": [
+      "Kanałowa zaraza to ogólne określenie szerokiej kategorii chorób, które wylęgają się w kanałach ściekowych, stertach śmieci i stojących bagnach, a czasem przenoszone są przez stwory zamieszkujące te obszary, takie jak szczury i otyugi.",
+      "Gdy humanoidalny stwór zostaje ugryziony przez stwora będącego nosicielem tej choroby, lub gdy wejdzie w kontakt z brudem lub padliną skażoną chorobą, musi zdać rzut obronny Kondycji o KT {@dc 11} lub zostaje zarażony.",
+      "Objawy kanałowej zarazy pojawiają się u zarażonego stwora po {@dice 1k4} dniach. Objawy obejmują zmęczenie i skurcze. Zarażony stwór doświadcza jednego poziomu {@condition exhaustion|XPHB|Wyczerpania} i odzyskuje jedynie połowę normalnej liczby punktów wytrzymałości przy wydawaniu Kości Wytrzymałości, a żadnych punktów wytrzymałości po zakończeniu długiego odpoczynku.",
+      "Na koniec każdego długiego odpoczynku zarażony stwór musi wykonać rzut obronny Kondycji o KT {@dc 11}. Przy nieudanym rzucie postać zyskuje jeden poziom {@condition exhaustion|XPHB|Wyczerpania}.",
+      "Przy udanym rzucie poziom {@condition exhaustion|XPHB|Wyczerpania} postaci zmniejsza się o jeden. Jeśli udany rzut obronny zmniejszy poziom Wyczerpania zarażonego stwora poniżej 1, stwór wyzdrowieje z choroby."
+    ]
+  },
+  "shaking-plague": {
+    "name": "Trzęsąca Zaraza",
+    "entries": [
+      "Nieudane eksperymenty magiczne dały początek Trzęsącej Zarazie, która atakuje Humanoidów. Stwór doświadcza następujących efektów {@dice 1k4} dni po zarażeniu:",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {"type": "item", "name": "Zmęczenie", "entry": "Stwór zyskuje 1 poziom {@condition Exhaustion|XPHB|Wyczerpania}. Dopóki stwór ma jakikolwiek poziom {@condition Exhaustion|XPHB|Wyczerpania}, zakończenie {@variantrule Long Rest|XPHB|Długiego Odpoczynku} nie zmniejsza poziomu Wyczerpania stwora."},
+          {"type": "item", "name": "Ropne Wrzody", "entry": "Dopóki stwór ma jakikolwiek poziom {@condition Exhaustion|XPHB|Wyczerpania}, jego skóra pokryta jest wypełnionymi ropą wrzodami."},
+          {"type": "item", "name": "Drżenie", "entry": "Dopóki stwór ma jakikolwiek poziom {@condition Exhaustion|XPHB|Wyczerpania}, dręczą go tłumiące magię drżenia. Stwór ma utrudnienie przy testach Zręczności i rzutach obronnych, a ilekroć rzuca zaklęcie z komponentem Somatycznym, musi zdać rzut obronny Kondycji o KT {@dc 11}, w przeciwnym razie zaklęcie rozprasza się bez efektu, a akcja, {@variantrule Bonus Action|XPHB|Akcja Dodatkowa} lub {@variantrule Reaction|XPHB|Reakcja} użyta do jego rzucenia zostaje zmarnowana. Jeśli to zaklęcie zostało rzucone z użyciem miejsca na zaklęcie, to miejsce nie zostaje zużyte."}
+        ]
+      },
+      {
+        "type": "entries",
+        "entries": [
+          {"type": "entries", "name": "Zwalczanie Zarazy", "entries": ["Codziennie o świcie zarażony stwór wykonuje rzut obronny Kondycji o KT {@dc 11}. Przy nieudanym rzucie stwór zyskuje 1 poziom {@condition Exhaustion|XPHB|Wyczerpania}, gdy jego zmęczenie się nasila. Przy udanym rzucie poziom {@condition Exhaustion|XPHB|Wyczerpania} stwora zmniejsza się o 1. Jeśli poziom {@condition Exhaustion|XPHB|Wyczerpania} stwora zostanie zmniejszony do 0, zaraza kończy się na nim."]},
+          {"type": "entries", "name": "Rozprzestrzenianie Zarazy", "entries": ["Każdy Humanoid, który dotknie skórą stwora zarażonego Trzęsącą Zarazą, musi zdać rzut obronny Kondycji o KT {@dc 11} lub również zostaje zarażony zarazą. Przy udanym rzucie Humanoid nie może zarazić się od tego konkretnego zarażonego stwora przez kolejne 24 godziny."]}
+        ]
+      }
+    ]
+  },
+  "sight-rot": {
+    "name": "Gnicie Wzroku",
+    "entries": [
+      "Każda Bestia lub Humanoid, który wypije wodę skażoną Gniciem Wzroku, musi zdać rzut obronny Kondycji o KT {@dc 15} lub zyskuje stan {@condition Blinded|XPHB|Oślepiony}, dopóki zaraza się nie zakończy.",
+      {
+        "type": "entries",
+        "entries": [
+          {"type": "entries", "name": "Zwalczanie Zarazy", "entries": ["Magia taka jak zaklęcie {@spell Heal|XPHB|uleczenie} lub {@spell Lesser Restoration|XPHB|mniejsze przywrócenie} natychmiast kończy zarazę. Postać biegła w użyciu {@item Herbalism Kit|XPHB|Zestawu Zielarskiego} może użyć go, by stworzyć jedną dawkę niemagicznej maści, co zajmuje 1 godzinę. Nałożona na oczy stwora cierpiącego na Gnicie Wzroku, maść tłumi zarazę na tym stworze na 24 godziny. Jeśli zaraza zostanie w ten sposób stłumiona łącznie na 72 godziny (wymagając trzech dawek i aplikacji maści), zaraza kończy się na stworze."]},
+          {"type": "entries", "name": "Rozprzestrzenianie Zarazy", "entries": ["Każdy Humanoid, który dotknie skórą stwora zarażonego Gniciem Wzroku, musi zdać rzut obronny Kondycji o KT {@dc 15} lub również zostaje zarażony zarazą. Przy udanym rzucie Humanoid nie może zarazić się od tego konkretnego zarażonego stwora przez kolejne 24 godziny."]}
+        ]
+      }
+    ]
+  },
+  "sight-rot-dmg": {
+    "name": "Gnicie Wzroku",
+    "entries": [
+      "Ta bolesna infekcja powoduje krwawienie z oczu i ostatecznie oślepia ofiarę.",
+      "Bestia lub humanoid, który wypije wodę skażoną gniciem wzroku, musi zdać rzut obronny Kondycji o KT {@dc 15} lub zostaje zarażony. Dzień po zarażeniu wzrok stwora zaczyna się rozmazywać. Stwór otrzymuje karę -1 do rzutów na atak i testów cech opierających się na wzroku. Na koniec każdego długiego odpoczynku po pojawieniu się objawów kara pogarsza się o 1. Gdy osiągnie -5, ofiara zostaje {@condition blinded|XPHB|Oślepiona}, dopóki jej wzrok nie zostanie przywrócony magią, taką jak {@spell lesser restoration|XPHB|mniejsze przywrócenie} lub {@spell heal|XPHB|uleczenie}.",
+      "Gnicie wzroku można wyleczyć za pomocą rzadkiego kwiatu zwanego jasnookiem, który rośnie na niektórych bagnach. W ciągu godziny postać biegła w użyciu {@item herbalism kit|phb|zestawu zielarskiego} może przemienić kwiat w jedną dawkę maści. Nałożona na oczy przed długim odpoczynkiem, jedna dawka zapobiega pogorszeniu się choroby po tym odpoczynku. Po trzech dawkach maść całkowicie leczy chorobę."
+    ]
+  },
+  "slimy-doom": {
+    "name": "Śluzowata Zagłada",
+    "entries": [
+      "Stwór zaczyna niekontrolowanie krwawić. Stwór ma utrudnienie przy testach Kondycji i rzutach obronnych Kondycji. Dodatkowo, ilekroć stwór otrzymuje obrażenia, zostaje {@condition stunned|XPHB|Oszołomiony} do końca swojej następnej tury.",
+      "{@note Ta choroba może zostać wywołana zaklęciem {@spell contagion|PHB|zaraza}.}"
+    ]
+  },
+  "stunned-phb": {
+    "name": "Oszołomiony",
+    "entries": [
+      {
+        "type": "list",
+        "items": [
+          "Oszołomiony stwór jest {@condition incapacitated|XPHB|Bezradny}, nie może się poruszać i może mówić tylko z trudem.",
+          "Stwór automatycznie nie zdaje rzutów obronnych Siły i Zręczności.",
+          "Rzuty na atak przeciwko takiemu stworowi mają przewagę."
+        ]
+      }
+    ]
+  },
+  "surprised-phb": {
+    "name": "Zaskoczony",
+    "entries": [
+      "Drużyna poszukiwaczy przygód podkrada się do obozu bandytów, wyskakując zza drzew, by ich zaatakować. {@creature gelatinous cube||Galaretowaty sześcian} sunie korytarzem lochu, niezauważony przez poszukiwaczy przygód, dopóki sześcian nie pochłonie jednego z nich. W takich sytuacjach jedna strona bitwy zyskuje zaskoczenie nad drugą.",
+      "MG określa, kto może zostać zaskoczony. Jeśli żadna ze stron nie stara się zachować skrycie, obie strony automatycznie się zauważają. W przeciwnym razie MG porównuje testy Zręczności ({@skill Stealth||Skradania się}) każdego ukrywającego się z pasywną wartością Mądrości ({@skill Perception||Percepcji}) każdego stwora po przeciwnej stronie. Każda postać lub potwór, który nie zauważy zagrożenia, jest {@status surprised||zaskoczony} na początku starcia.",
+      "Jeśli jesteś zaskoczony, nie możesz się poruszyć ani wykonać akcji w swojej pierwszej turze walki i nie możesz wykonać reakcji, dopóki ta tura się nie skończy. Członek grupy może być {@status surprised||zaskoczony}, nawet jeśli pozostali członkowie nie są."
+    ]
+  },
+  "the-gnawing-plague": {
+    "name": "Gryząca Zaraza",
+    "entries": [
+      "Gryząca Zaraza, znana również jako „Gryzy”, jest znana w każdym zakątku Richemulot.",
+      {"type": "entries", "name": "Przenoszenie", "page": 153, "entries": ["Gryzy rozprzestrzeniają się, gdy stwór zostaje ugryziony przez {@creature rat|XMM|szczura}, {@creature giant rat|XMM|olbrzymiego szczura}, {@creature swarm of rats|XMM|rój szczurów} lub {@creature wererat|XMM|szczuroczłeka}, który jest nosicielem choroby, lub poprzez fizyczny kontakt z zarażonym stworem."]},
+      {"type": "entries", "name": "Zarażenie", "page": 153, "entries": ["Stwory narażone na kontakt z chorobą muszą zdać rzut obronny Kondycji o KT {@dc 10} lub zostają zarażone. KT tego rzutu obronnego może wzrosnąć w zależności od nasilenia rozprzestrzeniania się zarazy (patrz „Cykl Zarazy” poniżej)."]},
+      {"type": "entries", "name": "Objawy", "page": 153, "entries": ["Objawy Gryzącej Zarazy pojawiają się u zarażonego stwora po {@dice 1k2} dniach. Zarażony stwór zyskuje wtedy 1 poziom {@condition exhaustion|XPHB|Wyczerpania}, odzyskuje jedynie połowę normalnej liczby punktów wytrzymałości przy wydawaniu Kości Wytrzymałości i nie odzyskuje punktów wytrzymałości po zakończeniu długiego odpoczynku.", "Objawy zarazy obejmują dymienice, zmęczenie, plamiste wysypki, poty i drżenie, zwłaszcza drżenie twarzy. Miejscowi porównują te drgawki do węszenia szczurów. Chorym często wkłada się do ust skrawki skóry, by zapobiec szczękaniu zębami, choć nieuchronnie przegryzają te skrawki na wylot."]},
+      {"type": "entries", "name": "Powrót do Zdrowia", "page": 154, "entries": ["Na koniec każdego długiego odpoczynku zarażony stwór musi wykonać rzut obronny Kondycji o KT {@dc 10}. Przy nieudanym rzucie stwór zyskuje 1 poziom {@condition exhaustion|XPHB|Wyczerpania}. Przy udanym rzucie poziom {@condition exhaustion|XPHB|Wyczerpania} stwora zmniejsza się o 1. Jeśli udany rzut obronny zmniejszy poziom Wyczerpania zarażonego stwora poniżej 1, stwór wyzdrowieje z choroby."]},
+      {"type": "entries", "name": "Odporność", "page": 154, "entries": ["Wszystkie formy szczurów i szczuroczłeków są odporne na Gryzącą Zarazę."]}
+    ]
+  },
+  "the-rusting": {
+    "name": "Rdzewienie",
+    "entries": [
+      "Rdzewienie objawia się jako cienka, żelazna powłoka narastająca na ciele ofiary. Gdy wystawiona jest na wilgoć, ta żelazna skóra koroduje, zmieniając się w rdzawy nalot. W miarę jak Rdzewienie pokrywa ofiarę, ta ostatecznie przemienia się w rodzaj stwora znanego jako Zardzewiały.",
+      "Każdy stwór, który zostanie zraniony przez Zardzewiałego lub spędzi 1 godzinę w obszarze, w którym pojawiło się Rdzewienie, wykonuje rzut obronny Kondycji o KT {@dc 10}. Konstrukty i Nieumarli automatycznie zdają ten rzut obronny. Przy nieudanym rzucie stwór zostaje dotknięty Rdzewieniem i doświadcza następujących efektów:",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {"type": "item", "name": "Klątwa", "entry": "Stwór zyskuje 1 poziom {@condition Exhaustion|XPHB|Wyczerpania} i zostaje przeklęty. Dopóki stwór jest przeklęty, zakończenie {@variantrule Long Rest|XPHB|Długiego Odpoczynku} nie zmniejsza poziomu Wyczerpania stwora."},
+          {"type": "item", "name": "Opancerzone Stawy", "entry": "{@variantrule Speed|XPHB|Prędkość} stwora zostaje zmniejszona o 5 stóp."},
+          {"type": "item", "name": "Zardzewiały Los", "entry": "Gdy poziom {@condition Exhaustion|XPHB|Wyczerpania} przeklętego stwora osiągnie 6, stwór nie umiera. Zamiast tego przemienia się w Zardzewiałą wersję samego siebie; jego typ stwora zmienia się na Konstrukt, a on zyskuje {@variantrule Immunity|XPHB|Immunitet} na obrażenia Trucizną oraz stany {@condition Exhaustion|XPHB|Wyczerpanie}, {@condition Petrified|XPHB|Skamieniały} i {@condition Poisoned|XPHB|Zatruty}. Klątwa wtedy kończy się dla tego stwora."}
+        ]
+      },
+      {
+        "type": "entries",
+        "entries": [
+          {"type": "entries", "name": "Zwalczanie Zarazy", "entries": ["Codziennie o świcie dotknięty stwór wykonuje rzut obronny Kondycji o KT {@dc 10}. Przy nieudanym rzucie stwór zyskuje 1 poziom {@condition Exhaustion|XPHB|Wyczerpania}, gdy więcej żelaza pokrywa jego skórę. Przy udanym rzucie poziom {@condition Exhaustion|XPHB|Wyczerpania} stwora zmniejsza się o 1. Jeśli poziom {@condition Exhaustion|XPHB|Wyczerpania} stwora zostanie zmniejszony do 0, zaraza kończy się na nim.", "Usunięcie klątwy natychmiast kończy zarazę u stwora."]}
+        ]
+      }
+    ]
+  },
+  "unconscious-phb": {
+    "name": "Nieprzytomny",
+    "entries": [
+      {
+        "type": "list",
+        "items": [
+          "Nieprzytomny stwór jest {@condition incapacitated|XPHB|Bezradny}, nie może się poruszać ani mówić i jest nieświadomy swojego otoczenia.",
+          "Stwór upuszcza to, co trzyma, i pada {@condition prone|XPHB|Powalony}.",
+          "Stwór automatycznie nie zdaje rzutów obronnych Siły i Zręczności.",
+          "Rzuty na atak przeciwko takiemu stworowi mają przewagę.",
+          "Każdy atak, który trafia stwora, jest trafieniem krytycznym, jeśli atakujący znajduje się w promieniu 5 stóp od stwora."
+        ]
+      }
+    ]
+  }
+}

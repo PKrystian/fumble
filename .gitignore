@@ -1,0 +1,31 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+
+# Test / coverage artifacts
+coverage
+playwright-report
+test-results
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.idea
+.vscode
+.DS_Store
+*.local
+
+# Vite cache
+node_modules/.vite
+
+# Local cache of the upstream 5etools data source (not vendored raw)
+.cache
+
+# Local AI assistant config and working notes
+.claude
+CLAUDE.md

@@ -1,0 +1,62 @@
+import { useEffect, useRef } from 'react';
+import { useDialogStore } from './confirmStore';
+
+export function ConfirmDialog() {
+  const request = useDialogStore((s) => s.request);
+  const respond = useDialogStore((s) => s.respond);
+  const confirmRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!request) return;
+    confirmRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && respond(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [request, respond]);
+
+  if (!request) return null;
+
+  const isAlert = request.kind === 'alert';
+
+  return (
+    <div
+      role="alertdialog"
+      aria-modal="true"
+      aria-label={request.title}
+      onClick={() => respond(false)}
+      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/70 p-4"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="w-full max-w-sm rounded-xl border border-ink-700 bg-ink-900 p-5 shadow-xl"
+      >
+        <h2 className="font-display text-lg font-bold text-ink-50">{request.title}</h2>
+        <p className="mt-2 whitespace-pre-line text-sm text-ink-300">{request.message}</p>
+        <div className="mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+          {!isAlert && (
+            <button
+              type="button"
+              onClick={() => respond(false)}
+              className="rounded-md border border-ink-700 px-4 py-2 text-sm font-medium text-ink-200 hover:bg-ink-800"
+            >
+              {request.cancelLabel}
+            </button>
+          )}
+          <button
+            ref={confirmRef}
+            type="button"
+            onClick={() => respond(true)}
+            className={[
+              'rounded-md px-4 py-2 text-sm font-medium text-ink-50',
+              request.tone === 'danger'
+                ? 'bg-red-600 hover:bg-red-500'
+                : 'bg-arcane-700 hover:bg-arcane-500',
+            ].join(' ')}
+          >
+            {request.confirmLabel}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

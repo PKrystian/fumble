@@ -1,0 +1,845 @@
+{
+  "apparatus-of-kwalish": {
+    "name": "Aparat Kwalisza",
+    "entries": [
+      "Ten przedmiot z wyglądu przypomina zapieczętowaną żelazną beczkę ważącą 500 funtów. Beczka posiada ukrytą zapadkę, którą można znaleźć po udanym teście Inteligencji ({@skill Investigation|XPHB}) o {@dc 20}. Zwolnienie zapadki odblokowuje właz na jednym końcu beczki, umożliwiając dwóm Średnim lub mniejszym stworzeniom wpełznięcie do środka. Na dalszym końcu znajduje się dziesięć dźwigni ustawionych w rzędzie, każda w pozycji neutralnej, mogąca poruszać się w górę lub w dół. Gdy użyje się określonych dźwigni, aparat przekształca się, przypominając olbrzymiego homara.",
+      "Aby użyć go jako pojazdu, aparat wymaga jednego pilota. Gdy właz aparatu jest zamknięty, komora jest szczelna i wodoszczelna. Komora zawiera wystarczająco dużo powietrza na 10 godzin oddychania, podzielonych między liczbę oddychających stworzeń wewnątrz.",
+      "Aparat unosi się na wodzie. Może również zanurzyć się pod wodę na głębokość do 900 stóp. Poniżej tej głębokości pojazd otrzymuje co minutę {@damage 2k6} obrażeń obuchowych od ciśnienia.",
+      "Stworzenie znajdujące się w komorze może wykonać akcję {@action Utilize|XPHB}, by przesunąć maksymalnie dwie dźwignie aparatu w górę lub w dół. Po każdym użyciu dźwignia wraca do pozycji neutralnej. Każda dźwignia, licząc od lewej do prawej, działa zgodnie z tabelą Dźwignie Aparatu Kwalisza.",
+      {
+        "type": "table",
+        "caption": "Dźwignie Aparatu Kwalisza",
+        "colStyles": [
+          "col-1 text-center",
+          "col-5-5",
+          "col-5-5"
+        ],
+        "colLabels": [
+          "Dźwignia",
+          "Góra",
+          "Dół"
+        ],
+        "rows": [
+          [
+            "1",
+            "Nogi wysuwają się, umożliwiając aparatowi chodzenie i pływanie.",
+            "Nogi chowają się, redukując {@variantrule Speed|XPHB} i {@variantrule Swim Speed|XPHB} aparatu do 0 i uniemożliwiając korzystanie z premii do prędkości."
+          ],
+          [
+            "2",
+            "Przednia okiennica otwiera się.",
+            "Przednia okiennica zamyka się."
+          ],
+          [
+            "3",
+            "Boczne okiennice otwierają się (po dwie z każdej strony).",
+            "Boczne okiennice zamykają się (po dwie z każdej strony)."
+          ],
+          [
+            "4",
+            "Dwa szczypce wysuwają się z przedniej strony aparatu.",
+            "Szczypce chowają się."
+          ],
+          [
+            "5",
+            "Każde wysunięte szczypce wykonują następujący atak w zwarciu: {@hit 8} trafienia, zasięg 5 stóp. {@h}7 ({@damage 2k6}) obrażeń obuchowych.",
+            "Każde wysunięte szczypce wykonują następujący atak w zwarciu: {@hit 8} trafienia, zasięg 5 stóp. {@h}Cel otrzymuje stan {@condition Grappled|XPHB} (ucieczka {@dc 15})."
+          ],
+          [
+            "6",
+            "Aparat idzie lub płynie do przodu, pod warunkiem że jego nogi są wysunięte.",
+            "Aparat idzie lub płynie do tyłu, pod warunkiem że jego nogi są wysunięte."
+          ],
+          [
+            "7",
+            "Aparat obraca się o 90 stopni przeciwnie do ruchu wskazówek zegara, pod warunkiem że jego nogi są wysunięte.",
+            "Aparat obraca się o 90 stopni zgodnie z ruchem wskazówek zegara, pod warunkiem że jego nogi są wysunięte."
+          ],
+          [
+            "8",
+            "Elementy przypominające oczy emitują {@variantrule Bright Light|XPHB} w promieniu 30 stóp i {@variantrule Dim Light|XPHB} na kolejne 30 stóp.",
+            "Światło gaśnie."
+          ],
+          [
+            "9",
+            "Aparat opada nawet o 20 stóp, jeśli znajduje się w cieczy.",
+            "Aparat wznosi się nawet o 20 stóp, jeśli znajduje się w cieczy."
+          ],
+          [
+            "10",
+            "Tylny właz odblokowuje się i otwiera.",
+            "Tylny właz zamyka się i pieczętuje."
+          ]
+        ]
+      }
+    ]
+  },
+  "apparatus-of-kwalish-dmg": {
+    "name": "Aparat Kwalisza",
+    "entries": [
+      "Ten przedmiot z wyglądu przypomina zapieczętowaną żelazną beczkę ważącą 500 funtów. Beczka posiada ukrytą zapadkę, którą można znaleźć po udanym teście Inteligencji ({@skill Investigation|XPHB}) o {@dc 20}. Zwolnienie zapadki odblokowuje właz na jednym końcu beczki, umożliwiając dwóm Średnim lub mniejszym stworzeniom wpełznięcie do środka. Na dalszym końcu znajduje się dziesięć dźwigni ustawionych w rzędzie, każda w pozycji neutralnej, mogąca poruszać się w górę lub w dół. Gdy użyje się określonych dźwigni, aparat przekształca się, przypominając olbrzymiego homara.",
+      "Aby użyć go jako pojazdu, aparat wymaga jednego pilota. Gdy właz aparatu jest zamknięty, komora jest szczelna i wodoszczelna. Komora zawiera wystarczająco dużo powietrza na 10 godzin oddychania, podzielonych między liczbę oddychających stworzeń wewnątrz.",
+      "Aparat unosi się na wodzie. Może również zanurzyć się pod wodę na głębokość do 900 stóp. Poniżej tej głębokości pojazd otrzymuje co minutę {@damage 2k6} obrażeń obuchowych od ciśnienia.",
+      "Stworzenie znajdujące się w komorze może wykonać akcję {@action Utilize|XPHB}, by przesunąć maksymalnie dwie dźwignie aparatu w górę lub w dół. Po każdym użyciu dźwignia wraca do pozycji neutralnej. Każda dźwignia, licząc od lewej do prawej, działa zgodnie z tabelą Dźwignie Aparatu Kwalisza.",
+      {
+        "type": "table",
+        "caption": "Dźwignie Aparatu Kwalisza",
+        "colStyles": [
+          "col-1 text-center",
+          "col-5-5",
+          "col-5-5"
+        ],
+        "colLabels": [
+          "Dźwignia",
+          "Góra",
+          "Dół"
+        ],
+        "rows": [
+          [
+            "1",
+            "Nogi wysuwają się, umożliwiając aparatowi chodzenie i pływanie.",
+            "Nogi chowają się, redukując {@variantrule Speed|XPHB} i {@variantrule Swim Speed|XPHB} aparatu do 0 i uniemożliwiając korzystanie z premii do prędkości."
+          ],
+          [
+            "2",
+            "Przednia okiennica otwiera się.",
+            "Przednia okiennica zamyka się."
+          ],
+          [
+            "3",
+            "Boczne okiennice otwierają się (po dwie z każdej strony).",
+            "Boczne okiennice zamykają się (po dwie z każdej strony)."
+          ],
+          [
+            "4",
+            "Dwa szczypce wysuwają się z przedniej strony aparatu.",
+            "Szczypce chowają się."
+          ],
+          [
+            "5",
+            "Każde wysunięte szczypce wykonują następujący atak w zwarciu: {@hit 8} trafienia, zasięg 5 stóp. {@h}7 ({@damage 2k6}) obrażeń obuchowych.",
+            "Każde wysunięte szczypce wykonują następujący atak w zwarciu: {@hit 8} trafienia, zasięg 5 stóp. {@h}Cel otrzymuje stan {@condition Grappled|XPHB} (ucieczka {@dc 15})."
+          ],
+          [
+            "6",
+            "Aparat idzie lub płynie do przodu, pod warunkiem że jego nogi są wysunięte.",
+            "Aparat idzie lub płynie do tyłu, pod warunkiem że jego nogi są wysunięte."
+          ],
+          [
+            "7",
+            "Aparat obraca się o 90 stopni przeciwnie do ruchu wskazówek zegara, pod warunkiem że jego nogi są wysunięte.",
+            "Aparat obraca się o 90 stopni zgodnie z ruchem wskazówek zegara, pod warunkiem że jego nogi są wysunięte."
+          ],
+          [
+            "8",
+            "Elementy przypominające oczy emitują {@variantrule Bright Light|XPHB} w promieniu 30 stóp i {@variantrule Dim Light|XPHB} na kolejne 30 stóp.",
+            "Światło gaśnie."
+          ],
+          [
+            "9",
+            "Aparat opada nawet o 20 stóp, jeśli znajduje się w cieczy.",
+            "Aparat wznosi się nawet o 20 stóp, jeśli znajduje się w cieczy."
+          ],
+          [
+            "10",
+            "Tylny właz odblokowuje się i otwiera.",
+            "Tylny właz zamyka się i pieczętuje."
+          ]
+        ]
+      }
+    ]
+  },
+  "astral-brig": {
+    "name": "Astralny Bryg",
+    "weapons": [
+      {
+        "name": "Balisty (×2)",
+        "entries": [
+          "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+        ]
+      }
+    ]
+  },
+  "astral-skiff": {
+    "name": "Astralna Łódź"
+  },
+  "battle-balloon": {
+    "name": "Balon Bojowy",
+    "weapons": [
+      {
+        "name": "Arbaleta Zielonego Ognia",
+        "entries": [
+          "KP 15, PW 75",
+          "{@atk rw} {@hit 8} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie) jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych i 22 ({@damage 4k10}) obrażeń ognia. Jeśli atak chybi, MG określa, gdzie trafia bełt arbalety. Każde stworzenie w promieniu 10 stóp od tego miejsca musi wykonać rzut obronny Zręczności o {@dc 15}, by uniknąć bełtu, gdy ten się roztrzaskuje, otrzymując przy nieudanym rzucie 5 ({@damage 1k10}) obrażeń kłutych i 5 ({@damage 1k10}) obrażeń ognia."
+        ]
+      },
+      {
+        "name": "Wyrzutnia Harpunów (×3)",
+        "entries": [
+          "KP 15, PW 50",
+          "{@atk rw} {@hit 8} trafienia, zasięg 120/480 stóp, jeden cel. {@h}11 ({@damage 2k10}) obrażeń kłutych, a cel otrzymuje stan {@condition grappled} (ucieczka {@dc 16}). Dopóki chwyt trwa, prędkość celu jest zmniejszona o połowę i nie może on oddalić się od balonu bojowego. Każda wyrzutnia harpunów balonu bojowego może chwycić jeden cel. Gdy trzyma w ten sposób co najmniej jeden cel, prędkość balonu bojowego nie jest zmniejszana o połowę."
+        ]
+      }
+    ]
+  },
+  "bombard": {
+    "name": "Bombarda",
+    "weapons": [
+      {
+        "name": "Balisty (×2)",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Wielkie Działo",
+        "entries": [
+          "KP 19, PW 250, Załoga 4",
+          "Załadowanie ogromnego działa zajmuje 3 akcje, a wystrzelenie 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Kula Armatnia",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 600/2400 stóp, jeden cel. {@h}88 ({@damage 16k10}) obrażeń obuchowych."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "damselfly-ship": {
+    "name": "Statek-Ważka",
+    "weapons": [
+      {
+        "name": "Balista",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mangonel",
+        "entries": [
+          "KP 15, PW 100, Załoga 4",
+          "Załadowanie mangonelu zajmuje 2 akcje, wycelowanie za pomocą obrotnicy wieżyczki (obszar 2 na dołączonym planie pokładu) 1 akcję, a wystrzelenie 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Kamień Mangonelu",
+            "entries": [
+              "{@atk rw} {@hit 5} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel. {@h}27 ({@damage 5k10}) obrażeń obuchowych."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "flying-fish-ship": {
+    "name": "Statek Latającej Ryby",
+    "weapons": [
+      {
+        "name": "Balista",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mangonel",
+        "entries": [
+          "KP 15, PW 100, Załoga 5",
+          "Załadowanie mangonelu zajmuje 2 akcje, wycelowanie zajmuje 2 akcje, a wystrzelenie 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Kamień Mangonelu",
+            "entries": [
+              "{@atk rw} {@hit 5} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel. {@h}27 ({@damage 5k10}) obrażeń obuchowych."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "hammerhead-ship": {
+    "name": "Statek Głowomłota",
+    "weapons": [
+      {
+        "name": "Balista",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mangonele (×2)",
+        "entries": [
+          "KP 15, PW 100, Załoga 5",
+          "Załadowanie mangonelu zajmuje 2 akcje, wycelowanie zajmuje 2 akcje, a wystrzelenie 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Kamień Mangonelu",
+            "entries": [
+              "{@atk rw} {@hit 5} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel. {@h}27 ({@damage 5k10}) obrażeń obuchowych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Tępy Taran",
+        "entries": [
+          "Spelljammer statku może wykonać następujący atak, gdy statek wpada na inny obiekt lub na Kolosalne stworzenie (patrz „Zderzenia\" w rozdziale 2 Astral Adventurer's Guide).",
+          {
+            "type": "entries",
+            "name": "Tępy Taran",
+            "entries": [
+              "{@atk mw} {@hit 8} trafienia, zasięg 0 stóp, jeden obiekt lub Kolosalne stworzenie. {@h}88 ({@damage 16k10}) obrażeń obuchowych. Statek głowomłota otrzymuje połowę tych obrażeń i zatrzymuje się w miejscu. {@m}Atak nie zadaje obrażeń, cel przesuwa się do najbliższej wolnej przestrzeni poza torem statku głowomłota, a statek może kontynuować ruch, jeśli pozostało mu jakiekolwiek przemieszczenie."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "lamprey-ship": {
+    "name": "Statek Minoga",
+    "weapons": [
+      {
+        "name": "Balisty (×4)",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Szczęki Chwytające",
+        "entries": [
+          "Załoga 1",
+          "Wykonanie ataku Szczękami Chwytającymi zajmuje 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Szczęki Chwytające",
+            "entries": [
+              "{@atk mw} {@hit 6} trafienia, zasięg 10 stóp, jeden statek lub Kolosalne stworzenie. {@h}22 ({@damage 4k10}) obrażeń kłutych, a prędkość statku minoga i celu staje się 0, dopóki chwyt nie ustanie. Jako akcję, stworzenie może użyć sterowania szczękami chwytającymi, by uwolnić cel. W przeciwnym razie efekt kończy się, gdy cel lub statek minoga spadnie do 0 punktów wytrzymałości."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "living-ship": {
+    "name": "Żywy Statek",
+    "weapons": [
+      {
+        "name": "Balista",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "lyrandar-air-cruiser": {
+    "name": "Krążownik Powietrzny Lyrandar",
+    "weapons": [
+      {
+        "name": "Wieżyczka Piorunowa (×6)",
+        "entries": [
+          "KP 17, PW 50, Załoga 1",
+          "Ta wieżyczka obraca się, by strzelać wyładowaniami piorunowymi, i może pomieścić do jednego Średniego stworzenia.",
+          "Stworzenie wewnątrz wieżyczki ma {@table Cover|XPHB|Three-Quarters Cover} przed atakami i innymi efektami pochodzącymi spoza niej. Będąc wewnątrz, stworzenie może wykonać akcję Wystrzał Piorunowy, by wycelować i wystrzelić z wieżyczki.",
+          {
+            "type": "entries",
+            "name": "Wystrzał Piorunowy (Wymaga Rdzenia Żywiołaka)",
+            "entries": [
+              "{@atkr rw} {@hit 9} trafienia, zasięg 80/320 stóp. {@h}22 ({@damage 4k10}) obrażeń piorunem."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "lyrandar-skyskiff": {
+    "name": "Niebołódź Lyrandar",
+    "weapons": [
+      {
+        "name": "Lina Holownicza",
+        "entries": [
+          "KP 10, PW 40, Załoga 1",
+          "To stanowisko składa się z kompaktowego haka chwytającego, wzmocnionej liny i wyrzutni. Jedno stworzenie może obsługiwać to stanowisko naraz. Członek załogi obsługujący to stanowisko może wykonać akcje Harpun i Nawijanie.",
+          {
+            "type": "entries",
+            "name": "Harpun",
+            "entries": [
+              "{@atkr rw} {@hit 6}, zasięg 50/100 stóp. {@h}5 ({@damage 2k4}) obrażeń kłutych, a cel zostaje zaharpunowany. Dopóki jest zaharpunowany, cel i statek nie mogą oddalić się od siebie o więcej niż 100 stóp, a jeśli cel jest Średnim lub mniejszym stworzeniem, otrzymuje stan {@condition Grappled|XPHB}. Członek załogi obsługujący to stanowisko może uwolnić zaharpunowany cel (bez wymaganej akcji)."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Nawijanie (Wymaga Rdzenia Żywiołaka)",
+            "entries": [
+              "Cel Chwycony przez Harpun tego stanowiska zostaje przyciągnięty nawet o 50 stóp po linii prostej w stronę statku."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "mechanical-beholder": {
+    "name": "Mechaniczny Oko-Potwór",
+    "weapons": [
+      {
+        "name": "Macki z Promieniami Oczu (×6)",
+        "entries": [
+          "KP 14, PW 50",
+          "Mechaniczny oko-potwór wystrzeliwuje następujące magiczne promienie oczu w maksymalnie trzy cele widoczne dla załogi i znajdujące się w promieniu 120 stóp od niego.",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Promień Dezintegracji",
+                "entry": "Jeśli cel jest stworzeniem, musi wykonać udany rzut obronny Zręczności o {@dc 15} lub otrzymać 18 ({@damage 4k8}) obrażeń siłowych. Jeśli te obrażenia zredukują stworzenie do 0 punktów wytrzymałości, jego ciało zamienia się w stertę drobnego szarego pyłu. Jeśli cel jest Dużym lub mniejszym niemagicznym obiektem lub tworem magicznej siły, ulega dezintegracji bez rzutu obronnego. Jeśli cel jest Ogromnym lub większym obiektem lub tworem magicznej siły, promień ten dezintegruje 10-stopowy sześcian tego obiektu."
+              },
+              {
+                "type": "item",
+                "name": "Promień Wyczerpania",
+                "entry": "Docelowe stworzenie musi wykonać rzut obronny Kondycji o {@dc 15}, otrzymując przy nieudanym rzucie 18 ({@damage 4k8}) obrażeń nekrotycznych, a przy udanym połowę tej wartości."
+              },
+              {
+                "type": "item",
+                "name": "Promień Paraliżujący",
+                "entry": "Docelowe stworzenie musi wykonać udany rzut obronny Kondycji o {@dc 15}, w przeciwnym razie otrzymuje stan {@condition paralyzed} na 1 minutę. Cel może powtarzać rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie przy sukcesie."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "nautiloid": {
+    "name": "Nautiloid",
+    "weapons": [
+      {
+        "name": "Balisty (×4)",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mangonel",
+        "entries": [
+          "KP 15, PW 100, Załoga 5",
+          "Załadowanie mangonelu zajmuje 2 akcje, wycelowanie zajmuje 2 akcje, a wystrzelenie 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Kamień Mangonelu",
+            "entries": [
+              "{@atk rw} {@hit 5} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel. {@h}27 ({@damage 5k10}) obrażeń obuchowych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Macki",
+        "entries": [
+          "Jako akcję, spelljammer statku może wykonać jeden z poniższych ataków mackami statku.",
+          {
+            "type": "entries",
+            "name": "Macki Chwytające",
+            "entries": [
+              "{@atk mw} {@hit 8} trafienia, zasięg 30 stóp, jeden Ogromny lub Kolosalny cel. {@h}22 ({@damage 4k10}) obrażeń obuchowych, a prędkość nautiloida staje się 0, dopóki jego spelljammer nie użyje akcji, by uwolnić cel. Jeśli cel jest stworzeniem, otrzymuje stan {@condition grappled} (ucieczka {@dc 16}). Jeśli cel jest innym statkiem, jego prędkość staje się 0, dopóki nautiloid go nie uwolni lub dopóki cel lub nautiloid nie spadną do 0 punktów wytrzymałości."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Teleportacja",
+            "entries": [
+              "{@atk ms} {@hit 8} trafienia, zasięg 30 stóp, jedno stworzenie. {@h}Cel musi wykonać udany rzut obronny Kondycji o {@dc 15} lub zostać teleportowany do wolnej przestrzeni na pokładzie nautiloida, którą widzi spelljammer nautiloida."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "nightspider": {
+    "name": "Nocny Pająk",
+    "weapons": [
+      {
+        "name": "Balisty (×4)",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mangonel",
+        "entries": [
+          "KP 15, PW 100, Załoga 5",
+          "Załadowanie mangonelu zajmuje 2 akcje, wycelowanie zajmuje 2 akcje, a wystrzelenie 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Kamień Mangonelu",
+            "entries": [
+              "{@atk rw} {@hit 5} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel. {@h}27 ({@damage 5k10}) obrażeń obuchowych."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "planar-raider": {
+    "name": "Płaszczyznowy Najeźdźca",
+    "weapons": [
+      {
+        "name": "Balisty (×2)",
+        "entries": [
+          "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+        ]
+      },
+      {
+        "name": "Katapulta",
+        "entries": [
+          "{@atk rw} {@hit 5} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel. {@h}27 ({@damage 5k10}) obrażeń obuchowych."
+        ]
+      }
+    ]
+  },
+  "scorpion-ship": {
+    "name": "Statek Skorpiona",
+    "weapons": [
+      {
+        "name": "Balista",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Szczypce (×2)",
+        "entries": [
+          "Załoga 1",
+          "Wykonanie ataku Szczypcami zajmuje 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Szczypce",
+            "entries": [
+              "{@atk mw} {@hit 3} trafienia, zasięg 20 stóp, jeden cel. {@h}11 ({@damage 2k10}) obrażeń obuchowych. Jeśli cel jest Ogromnym lub mniejszym stworzeniem, otrzymuje również stan {@condition grappled} (ucieczka {@dc 13}). Dopóki ten chwyt trwa, stworzenie otrzymuje 11 ({@damage 2k10}) obrażeń obuchowych na początku każdej swojej tury."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mangonel",
+        "entries": [
+          "KP 15, PW 100, Załoga 5",
+          "Załadowanie mangonelu zajmuje 2 akcje, wycelowanie zajmuje 2 akcje, a wystrzelenie 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Kamień Mangonelu",
+            "entries": [
+              "{@atk rw} {@hit 5} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel. {@h}27 ({@damage 5k10}) obrażeń obuchowych."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "shrike-ship": {
+    "name": "Statek Dzierzby",
+    "weapons": [
+      {
+        "name": "Balisty (×3)",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Kolczasty Taran",
+        "entries": [
+          "Spelljammer statku może wykonać następujący atak, gdy statek wpada na inny obiekt lub na Kolosalne stworzenie (patrz „{@book Crashing|AAG|Crashing}\" wcześniej w tym rozdziale).",
+          {
+            "type": "entries",
+            "name": "Kolczasty Taran",
+            "entries": [
+              "{@atk mw} {@hit 8} trafienia, zasięg 0 stóp, jeden obiekt lub Kolosalne stworzenie. {@h}88 ({@damage 16k10}) obrażeń kłutych. Statek dzierzby otrzymuje połowę tych obrażeń i zatrzymuje się w miejscu. Chybienie: Atak nie zadaje obrażeń, cel przesuwa się do najbliższej wolnej przestrzeni poza torem statku dzierzby, a statek może kontynuować ruch, jeśli pozostało mu jakiekolwiek przemieszczenie."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "space-galleon": {
+    "name": "Kosmiczny Galeon",
+    "weapons": [
+      {
+        "name": "Balisty (×2)",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mangonel",
+        "entries": [
+          "KP 15, PW 100, Załoga 5",
+          "Załadowanie mangonelu zajmuje 2 akcje, wycelowanie zajmuje 2 akcje, a wystrzelenie 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Kamień Mangonelu",
+            "entries": [
+              "{@atk rw} {@hit 5} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel. {@h}27 ({@damage 5k10}) obrażeń obuchowych."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "squid-ship": {
+    "name": "Statek Kałamarnicy",
+    "weapons": [
+      {
+        "name": "Balista (×2)",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mangonele",
+        "entries": [
+          "KP 15, PW 100, Załoga 5",
+          "Załadowanie mangonelu zajmuje 2 akcje, wycelowanie zajmuje 2 akcje, a wystrzelenie 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Kamień Mangonelu",
+            "entries": [
+              "{@atk rw} {@hit 5} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel. {@h}27 ({@damage 5k10}) obrażeń obuchowych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Kolczasty Taran",
+        "entries": [
+          "Spelljammer statku może wykonać następujący atak, gdy statek wpada na inny obiekt lub na Kolosalne stworzenie (patrz „Zderzenia\" w rozdziale 2 Astral Adventurer's Guide).",
+          {
+            "type": "entries",
+            "name": "Kolczasty Taran",
+            "entries": [
+              "{@atk mw} {@hit 8} trafienia, zasięg 0 stóp, jeden obiekt lub Kolosalne stworzenie. {@h}88 ({@damage 16k10}) obrażeń kłutych. Statek kałamarnicy otrzymuje połowę tych obrażeń i zatrzymuje się w miejscu. {@m}Atak nie zadaje obrażeń, cel przesuwa się do najbliższej wolnej przestrzeni poza torem statku kałamarnicy, a statek może kontynuować ruch, jeśli pozostało mu jakiekolwiek przemieszczenie."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "star-moth": {
+    "name": "Gwiezdny Ćma",
+    "weapons": [
+      {
+        "name": "Balisty (×2)",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mangonel",
+        "entries": [
+          "KP 15, PW 100, Załoga 5",
+          "Załadowanie mangonelu zajmuje 2 akcje, wycelowanie zajmuje 2 akcje, a wystrzelenie 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Kamień Mangonelu",
+            "entries": [
+              "{@atk rw} {@hit 5} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel. {@h}27 ({@damage 5k10}) obrażeń obuchowych."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "strider-airship": {
+    "name": "Sterowiec Wędrowiec",
+    "weapons": [
+      {
+        "name": "Wyrzutnia Arkanów (×4)",
+        "entries": [
+          "KP 17, PW 30, Załoga 1",
+          "To miniaturowe działo wystrzeliwuje wybuchy magicznej siły. Stworzenie obsługujące Wyrzutnię Arkanów może wykonać akcję Wystrzał Energii, by wycelować i wystrzelić z działa.",
+          {
+            "type": "entries",
+            "name": "Wystrzał Energii",
+            "entries": [
+              "{@atkr rw} {@hit 7}, zasięg 100/500 stóp. {@h}14 ({@damage 4k6}) obrażeń siłowych."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "turtle-ship": {
+    "name": "Statek Żółwia",
+    "weapons": [
+      {
+        "name": "Balisty (×3)",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mangonel",
+        "entries": [
+          "KP 15, PW 100, Załoga 5",
+          "Załadowanie mangonelu zajmuje 2 akcje, wycelowanie zajmuje 2 akcje, a wystrzelenie 1 akcję.",
+          {
+            "type": "entries",
+            "name": "Kamień Mangonelu",
+            "entries": [
+              "{@atk rw} {@hit 5} trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel. {@h}27 ({@damage 5k10}) obrażeń obuchowych."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "tyrant-ship": {
+    "name": "Statek Tyrana",
+    "weapons": [
+      {
+        "name": "Działa Oczostopowe (×3)",
+        "entries": [
+          "Załoga 1",
+          "Ta broń wygląda jak oko osadzone na trzonku niczym łodyga. Beholder stacjonujący w jednej z kapsuł medytacyjnych statku tyrana może widzieć przez oko, {@status concentration||koncentrując się} na nim (jak przy koncentracji na zaklęciu), i wykonać akcję, by przeprowadzić następujący atak.",
+          {
+            "type": "entries",
+            "name": "Promień Niszczący",
+            "entries": [
+              "{@atk rs} {@hit 8} trafienia, zasięg 120/480 stóp, jeden cel. {@h}35 ({@damage 10k6}) obrażeń siłowych."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "wasp-ship": {
+    "name": "Statek Osy",
+    "weapons": [
+      {
+        "name": "Balista",
+        "entries": [
+          "KP 15, PW 50, Załoga 3",
+          "It takes 1 action to load balistę",
+          {
+            "type": "entries",
+            "name": "Bełt",
+            "entries": [
+              "{@atk rw} {@hit 6} trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3k10}) obrażeń kłutych."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
