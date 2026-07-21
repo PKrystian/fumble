@@ -17,6 +17,7 @@ export function CompendiumPicker({
   placeholder,
   onPick,
 }: CompendiumPickerProps) {
+  const { t } = useT();
   const [query, setQuery] = useState('');
   const [showFilters, setShowFilters] = useState(false);
   const [selectedSources, setSelectedSources] = useState<string[]>([]);
@@ -57,7 +58,11 @@ export function CompendiumPicker({
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder={status === 'loading' ? 'Loading compendium…' : placeholder}
+          placeholder={
+            status === 'loading'
+              ? t('character.sheet.picker.loadingCompendium')
+              : placeholder
+          }
           aria-label={placeholder}
           className="w-full bg-transparent text-sm text-ink-50 placeholder:text-ink-400 focus:outline-none"
         />
@@ -66,7 +71,7 @@ export function CompendiumPicker({
             type="button"
             onClick={() => setShowFilters((v) => !v)}
             aria-pressed={showFilters}
-            aria-label="Filter by source"
+            aria-label={t('character.sheet.picker.filterBySource')}
             className={[
               'inline-flex items-center rounded p-0.5 transition-colors',
               showFilters || selectedSources.length > 0

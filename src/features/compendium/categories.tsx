@@ -72,13 +72,15 @@ export interface CategoryFilter {
   labelFor?: (value: string) => string;
 }
 
+export type TranslateFn = (key: string, vars?: Record<string, string | number>) => string;
+
 export interface CompendiumCategory {
   id: CompendiumCategoryId;
   label: string;
 
   load: () => Promise<CompendiumEntryBase[]>;
 
-  subtitle: (item: CompendiumEntryBase) => string;
+  subtitle: (item: CompendiumEntryBase, t: TranslateFn) => string;
   renderDetail: (item: CompendiumEntryBase) => ReactNode;
 
   filters?: CategoryFilter[];
@@ -138,11 +140,18 @@ function presenceField<T>(
 }
 
 const sourceFilter: CategoryFilter = {
-  ...field('source', 'Source', (i: CompendiumEntryBase) => i.source),
+  ...field(
+    'source',
+    'compendium.filters.labels.source',
+    (i: CompendiumEntryBase) => i.source,
+  ),
   labelFor: sourceName,
 };
 
-const spellLevel = (level: number) => (level === 0 ? 'Cantrip' : `Level ${level}`);
+const spellLevel = (level: number, t: TranslateFn) =>
+  level === 0
+    ? t('compendium.detail.cantripShort')
+    : t('compendium.detail.levelShort', { level });
 
 function loader<T>(load: () => Promise<{ default: unknown }>): () => Promise<T[]> {
   return async () => {
@@ -163,21 +172,24 @@ export const categories: CompendiumCategory[] = [
     id: 'classes',
     label: 'Classes',
     load: loader<ClassEntry>(() => import('@/data/generated/classes.json')),
-    subtitle: (item) => `Hit Die ${(item as ClassEntry).hitDie}`,
+    subtitle: (item, t) =>
+      t('compendium.detail.hitDieValue', { die: (item as ClassEntry).hitDie }),
     renderDetail: (item) => <ClassDetail cls={item as ClassEntry} />,
   },
   {
     id: 'backgrounds',
     label: 'Backgrounds',
     load: loader<BackgroundEntry>(() => import('@/data/generated/backgrounds.json')),
-    subtitle: (item) => (item as BackgroundEntry).feat || 'Background',
+    subtitle: (item, t) =>
+      (item as BackgroundEntry).feat || t('compendium.detail.background'),
     renderDetail: (item) => <BackgroundDetail background={item as BackgroundEntry} />,
   },
   {
     id: 'feats',
     label: 'Feats',
     load: loader<FeatEntry>(() => import('@/data/generated/feats.json')),
-    subtitle: (item) => `${(item as FeatEntry).category} feat`,
+    subtitle: (item, t) =>
+      t('compendium.detail.featCategory', { category: (item as FeatEntry).category }),
     renderDetail: (item) => <FeatDetail feat={item as FeatEntry} />,
   },
   {
@@ -195,9 +207,9 @@ export const categories: CompendiumCategory[] = [
     id: 'spells',
     label: 'Spells',
     load: loader<SpellEntry>(() => import('@/data/generated/spells.json')),
-    subtitle: (item) => {
+    subtitle: (item, t) => {
       const spell = item as SpellEntry;
-      return `${spellLevel(spell.level)} · ${spell.school}`;
+      return `${spellLevel(spell.level, t)} · ${spell.school}`;
     },
     renderDetail: (item) => <SpellDetail spell={item as SpellEntry} />,
   },
@@ -215,9 +227,9 @@ export const categories: CompendiumCategory[] = [
     id: 'bestiary',
     label: 'Bestiary',
     load: loader<MonsterEntry>(() => import('@/data/generated/bestiary.json')),
-    subtitle: (item) => {
+    subtitle: (item, t) => {
       const m = item as MonsterEntry;
-      return `CR ${m.cr} · ${[m.size, m.creatureType].filter(Boolean).join(' ')}`;
+      return `${t('compendium.detail.crValue', { cr: m.cr })} · ${[m.size, m.creatureType].filter(Boolean).join(' ')}`;
     },
     renderDetail: (item) => <MonsterDetail monster={item as MonsterEntry} />,
   },
@@ -225,7 +237,7 @@ export const categories: CompendiumCategory[] = [
     id: 'actions',
     label: 'Actions',
     load: loader<ActionEntry>(() => import('@/data/generated/actions.json')),
-    subtitle: (item) => (item as ActionEntry).time || 'Action',
+    subtitle: (item, t) => (item as ActionEntry).time || t('compendium.detail.action'),
     renderDetail: (item) => <ActionDetail action={item as ActionEntry} />,
   },
   {
@@ -239,14 +251,15 @@ export const categories: CompendiumCategory[] = [
     id: 'rules',
     label: 'Rules',
     load: loader<RuleEntry>(() => import('@/data/generated/rules.json')),
-    subtitle: (item) => `${(item as RuleEntry).ruleType} rule`,
+    subtitle: (item, t) =>
+      t('compendium.detail.ruleType', { type: (item as RuleEntry).ruleType }),
     renderDetail: (item) => <RuleDetail rule={item as RuleEntry} />,
   },
   {
     id: 'deities',
     label: 'Deities',
     load: loader<DeityEntry>(() => import('@/data/generated/deities.json')),
-    subtitle: (item) => (item as DeityEntry).pantheon || 'Deity',
+    subtitle: (item, t) => (item as DeityEntry).pantheon || t('compendium.detail.deity'),
     renderDetail: (item) => <DeityDetail deity={item as DeityEntry} />,
   },
   {
@@ -267,14 +280,14 @@ export const categories: CompendiumCategory[] = [
     id: 'skills',
     label: 'Skills',
     load: loader<SkillEntry>(() => import('@/data/generated/skills.json')),
-    subtitle: (item) => (item as SkillEntry).ability || 'Skill',
+    subtitle: (item, t) => (item as SkillEntry).ability || t('compendium.detail.skill'),
     renderDetail: (item) => <SkillDetail skill={item as SkillEntry} />,
   },
   {
     id: 'senses',
     label: 'Senses',
     load: loader<SenseEntry>(() => import('@/data/generated/senses.json')),
-    subtitle: () => 'Sense',
+    subtitle: (_, t) => t('compendium.detail.sense'),
     renderDetail: (item) => <SenseDetail sense={item as SenseEntry} />,
   },
   {
@@ -298,9 +311,14 @@ export const categories: CompendiumCategory[] = [
     id: 'facilities',
     label: 'Bastions',
     load: loader<FacilityEntry>(() => import('@/data/generated/facilities.json')),
-    subtitle: (item) => {
+    subtitle: (item, t) => {
       const f = item as FacilityEntry;
-      return [f.facilityType, f.level && `Level ${f.level}`].filter(Boolean).join(' · ');
+      return [
+        f.facilityType,
+        f.level && t('compendium.detail.levelValue', { level: f.level }),
+      ]
+        .filter(Boolean)
+        .join(' · ');
     },
     renderDetail: (item) => <FacilityDetail facility={item as FacilityEntry} />,
   },
@@ -335,7 +353,7 @@ export const categories: CompendiumCategory[] = [
     id: 'masteries',
     label: 'Weapon Masteries',
     load: loader<MasteryEntry>(() => import('@/data/generated/masteries.json')),
-    subtitle: () => 'Weapon Mastery',
+    subtitle: (_, t) => t('compendium.detail.weaponMastery'),
     renderDetail: (item) => <MasteryDetail mastery={item as MasteryEntry} />,
   },
   {
@@ -349,91 +367,126 @@ export const categories: CompendiumCategory[] = [
     id: 'tables',
     label: 'Tables',
     load: loader<TableEntry>(() => import('@/data/generated/tables.json')),
-    subtitle: () => 'Table',
+    subtitle: (_, t) => t('compendium.detail.table'),
     renderDetail: (item) => <TableDetail table={item as TableEntry} />,
   },
   {
     id: 'decks',
     label: 'Decks',
     load: loader<DeckEntry>(() => import('@/data/generated/decks.json')),
-    subtitle: (item) => `${(item as DeckEntry).cardCount} cards`,
+    subtitle: (item, t) =>
+      t('compendium.detail.deckCardsShort', { count: (item as DeckEntry).cardCount }),
     renderDetail: (item) => <DeckDetail deck={item as DeckEntry} />,
   },
 ];
 
+function filterLabel(key: string): string {
+  return `compendium.filters.labels.${key}`;
+}
+
 const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
   species: [
-    field<SpeciesEntry>('size', 'Size', (i) => i.size),
-    field<SpeciesEntry>('creatureType', 'Creature Type', (i) => i.creatureType),
+    field<SpeciesEntry>('size', filterLabel('size'), (i) => i.size),
+    field<SpeciesEntry>(
+      'creatureType',
+      filterLabel('creatureType'),
+      (i) => i.creatureType,
+    ),
   ],
-  feats: [field<FeatEntry>('category', 'Category', (i) => i.category)],
+  feats: [field<FeatEntry>('category', filterLabel('category'), (i) => i.category)],
   spells: [
     {
       id: 'level',
-      label: 'Level',
+      label: filterLabel('level'),
       valuesFor: (i) => {
         const level = (i as SpellEntry).level;
         return [level === 0 ? 'Cantrip' : `Level ${level}`];
       },
       sortKey: (v) => (v === 'Cantrip' ? 0 : Number(v.replace('Level ', ''))),
     },
-    field<SpellEntry>('school', 'School', (i) => i.school),
-    presenceField<SpellEntry>('concentration', 'Concentration', (i) => i.concentration),
-    presenceField<SpellEntry>('ritual', 'Ritual', (i) => i.ritual),
+    field<SpellEntry>('school', filterLabel('school'), (i) => i.school),
+    presenceField<SpellEntry>(
+      'concentration',
+      filterLabel('concentration'),
+      (i) => i.concentration,
+    ),
+    presenceField<SpellEntry>('ritual', filterLabel('ritual'), (i) => i.ritual),
   ],
   items: [
-    field<ItemEntry>('type', 'Type', (i) => i.type),
-    field<ItemEntry>('rarity', 'Rarity', (i) => i.rarity),
-    presenceField<ItemEntry>('attunement', 'Attunement', (i) => i.attunement),
-    splitField<ItemEntry>('properties', 'Properties', (i) => i.properties),
+    field<ItemEntry>('type', filterLabel('type'), (i) => i.type),
+    field<ItemEntry>('rarity', filterLabel('rarity'), (i) => i.rarity),
+    presenceField<ItemEntry>(
+      'attunement',
+      filterLabel('attunement'),
+      (i) => i.attunement,
+    ),
+    splitField<ItemEntry>('properties', filterLabel('properties'), (i) => i.properties),
   ],
   bestiary: [
     {
       id: 'cr',
-      label: 'CR',
+      label: filterLabel('cr'),
       valuesFor: (i) => [(i as MonsterEntry).cr],
       sortKey: (v) => XP_BY_CR[v] ?? -1,
     },
-    field<MonsterEntry>('type', 'Type', (i) =>
+    field<MonsterEntry>('type', filterLabel('type'), (i) =>
       (i.creatureType ?? '').replace(/\s*\(.*\)$/, ''),
     ),
-    field<MonsterEntry>('size', 'Size', (i) => i.size),
-    field<MonsterEntry>('alignment', 'Alignment', (i) => i.alignment),
+    field<MonsterEntry>('size', filterLabel('size'), (i) => i.size),
+    field<MonsterEntry>('alignment', filterLabel('alignment'), (i) => i.alignment),
 
-    splitField<MonsterEntry>('resistances', 'Resistances', (i) => i.resistances, ';'),
-    splitField<MonsterEntry>('immunities', 'Immunities', (i) => i.immunities, ';'),
+    splitField<MonsterEntry>(
+      'resistances',
+      filterLabel('resistances'),
+      (i) => i.resistances,
+      ';',
+    ),
+    splitField<MonsterEntry>(
+      'immunities',
+      filterLabel('immunities'),
+      (i) => i.immunities,
+      ';',
+    ),
     splitField<MonsterEntry>(
       'conditionImmunities',
-      'Condition Immunities',
+      filterLabel('conditionImmunities'),
       (i) => i.conditionImmunities,
       ';',
     ),
-    splitField<MonsterEntry>('languages', 'Languages', (i) => i.languages),
+    splitField<MonsterEntry>('languages', filterLabel('languages'), (i) => i.languages),
   ],
-  conditions: [field<ConditionEntry>('kind', 'Kind', (i) => i.kind)],
+  conditions: [field<ConditionEntry>('kind', filterLabel('kind'), (i) => i.kind)],
   optionalfeatures: [
     {
       id: 'featureType',
-      label: 'Type',
+      label: filterLabel('type'),
       valuesFor: (i) =>
         ((i as OptionalFeatureEntry).featureType ?? '').split(', ').filter(Boolean),
     },
   ],
-  rules: [field<RuleEntry>('ruleType', 'Type', (i) => i.ruleType)],
-  deities: [field<DeityEntry>('pantheon', 'Pantheon', (i) => i.pantheon)],
-  hazards: [field<HazardEntry>('hazardType', 'Type', (i) => i.hazardType)],
-  boons: [field<BoonEntry>('boonType', 'Type', (i) => i.boonType)],
-  skills: [field<SkillEntry>('ability', 'Ability', (i) => i.ability)],
-  languages: [field<LanguageEntry>('languageType', 'Type', (i) => i.languageType)],
-  cultsboons: [
-    field<CultBoonEntry>('kind', 'Kind', (i) => i.kind),
-    field<CultBoonEntry>('category', 'Category', (i) => i.category),
+  rules: [field<RuleEntry>('ruleType', filterLabel('type'), (i) => i.ruleType)],
+  deities: [field<DeityEntry>('pantheon', filterLabel('pantheon'), (i) => i.pantheon)],
+  hazards: [field<HazardEntry>('hazardType', filterLabel('type'), (i) => i.hazardType)],
+  boons: [field<BoonEntry>('boonType', filterLabel('type'), (i) => i.boonType)],
+  skills: [field<SkillEntry>('ability', filterLabel('ability'), (i) => i.ability)],
+  languages: [
+    field<LanguageEntry>('languageType', filterLabel('type'), (i) => i.languageType),
   ],
-  facilities: [field<FacilityEntry>('facilityType', 'Type', (i) => i.facilityType)],
-  recipes: [field<RecipeEntry>('recipeType', 'Type', (i) => i.recipeType)],
-  objects: [field<ObjectEntry>('objectType', 'Type', (i) => i.objectType)],
-  vehicles: [field<VehicleEntry>('vehicleType', 'Type', (i) => i.vehicleType)],
-  charoptions: [field<CharOptionEntry>('optionType', 'Type', (i) => i.optionType)],
+  cultsboons: [
+    field<CultBoonEntry>('kind', filterLabel('kind'), (i) => i.kind),
+    field<CultBoonEntry>('category', filterLabel('category'), (i) => i.category),
+  ],
+  facilities: [
+    field<FacilityEntry>('facilityType', filterLabel('type'), (i) => i.facilityType),
+  ],
+  recipes: [field<RecipeEntry>('recipeType', filterLabel('type'), (i) => i.recipeType)],
+  objects: [field<ObjectEntry>('objectType', filterLabel('type'), (i) => i.objectType)],
+  vehicles: [
+    field<VehicleEntry>('vehicleType', filterLabel('type'), (i) => i.vehicleType),
+  ],
+  charoptions: [
+    field<CharOptionEntry>('optionType', filterLabel('type'), (i) => i.optionType),
+  ],
 };
 
 for (const category of categories) {

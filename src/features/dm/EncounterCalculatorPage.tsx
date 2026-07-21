@@ -23,6 +23,14 @@ const RATING_COLORS: Record<string, string> = {
   Deadly: 'text-red-400',
 };
 
+const RATING_LABEL_KEYS: Record<string, string> = {
+  Trivial: 'encounter.trivial',
+  Low: 'encounter.low',
+  Moderate: 'encounter.moderate',
+  High: 'encounter.high',
+  Deadly: 'encounter.deadly',
+};
+
 export function EncounterCalculatorPage() {
   const { t } = useT();
   useSeo(t('nav.encounterCr'));
@@ -68,18 +76,18 @@ export function EncounterCalculatorPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-8">
       <h1 className="mb-6 font-display text-3xl font-bold text-ink-50">
-        Encounter Builder
+        {t('encounter.title')}
       </h1>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <section className="flex flex-col gap-3 rounded-xl border border-ink-700 bg-ink-900 p-4">
           <h2 className="font-display text-sm font-bold uppercase tracking-wide text-ember-400">
-            Party
+            {t('encounter.party')}
           </h2>
           {party.map((member, index) => (
             <div key={index} className="flex items-end gap-2">
               <label className="flex flex-col gap-1 text-sm">
-                <span className="text-xs text-ink-400">Count</span>
+                <span className="text-xs text-ink-400">{t('encounter.count')}</span>
                 <input
                   type="number"
                   min={1}
@@ -95,7 +103,7 @@ export function EncounterCalculatorPage() {
                 />
               </label>
               <label className="flex flex-col gap-1 text-sm">
-                <span className="text-xs text-ink-400">Level</span>
+                <span className="text-xs text-ink-400">{t('encounter.level')}</span>
                 <input
                   type="number"
                   min={1}
@@ -114,7 +122,7 @@ export function EncounterCalculatorPage() {
               {party.length > 1 && (
                 <button
                   type="button"
-                  aria-label="Remove party group"
+                  aria-label={t('encounter.removePartyGroup')}
                   onClick={() => setParty((p) => p.filter((_, i) => i !== index))}
                   className="rounded p-2 text-ink-400 hover:bg-ink-800 hover:text-red-400"
                 >
@@ -128,19 +136,19 @@ export function EncounterCalculatorPage() {
             onClick={() => setParty((p) => [...p, { level: 1, count: 1 }])}
             className="inline-flex items-center gap-1 self-start rounded-md border border-ink-700 px-3 py-1 text-sm text-ink-200 hover:bg-ink-800"
           >
-            <Plus size={14} /> Add level group
+            <Plus size={14} /> {t('encounter.addLevelGroup')}
           </button>
 
           <dl className="mt-2 grid grid-cols-3 gap-2 border-t border-ink-700 pt-3 text-center">
-            <Budget label="Low" value={budget.low} />
-            <Budget label="Moderate" value={budget.moderate} />
-            <Budget label="High" value={budget.high} />
+            <Budget label={t('encounter.low')} value={budget.low} />
+            <Budget label={t('encounter.moderate')} value={budget.moderate} />
+            <Budget label={t('encounter.high')} value={budget.high} />
           </dl>
         </section>
 
         <section className="flex flex-col gap-3 rounded-xl border border-ink-700 bg-ink-900 p-4">
           <h2 className="font-display text-sm font-bold uppercase tracking-wide text-ember-400">
-            Monsters
+            {t('encounter.monsters')}
           </h2>
           <div className="relative">
             <div className="flex items-center gap-2 rounded-lg bg-ink-800 px-3 py-2">
@@ -150,9 +158,11 @@ export function EncounterCalculatorPage() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={
-                  status === 'loading' ? 'Loading bestiary…' : 'Search monsters…'
+                  status === 'loading'
+                    ? t('encounter.loadingBestiary')
+                    : t('encounter.searchMonsters')
                 }
-                aria-label="Search monsters"
+                aria-label={t('encounter.searchMonsters')}
                 className="w-full bg-transparent text-sm text-ink-50 placeholder:text-ink-400 focus:outline-none"
               />
             </div>
@@ -167,8 +177,10 @@ export function EncounterCalculatorPage() {
                     >
                       <span className="text-ink-50">{item.name}</span>
                       <span className="text-ink-400">
-                        CR {(item as MonsterEntry).cr} ·{' '}
-                        {crToXp((item as MonsterEntry).cr)} XP
+                        {t('encounter.crXp', {
+                          cr: (item as MonsterEntry).cr,
+                          xp: crToXp((item as MonsterEntry).cr),
+                        })}
                       </span>
                     </button>
                   </li>
@@ -182,7 +194,7 @@ export function EncounterCalculatorPage() {
               <li key={m.id} className="flex items-center gap-2 text-sm">
                 <button
                   type="button"
-                  aria-label={`Fewer ${m.name}`}
+                  aria-label={t('encounter.fewer', { name: m.name })}
                   onClick={() => setCount(m.id, m.count - 1)}
                   className="rounded border border-ink-700 p-1 text-ink-200 hover:bg-ink-800"
                 >
@@ -191,19 +203,25 @@ export function EncounterCalculatorPage() {
                 <span className="w-6 text-center font-mono text-ink-50">{m.count}</span>
                 <button
                   type="button"
-                  aria-label={`More ${m.name}`}
+                  aria-label={t('encounter.more', { name: m.name })}
                   onClick={() => setCount(m.id, m.count + 1)}
                   className="rounded border border-ink-700 p-1 text-ink-200 hover:bg-ink-800"
                 >
                   <Plus size={12} />
                 </button>
                 <span className="flex-1 text-ink-50">{m.name}</span>
-                <span className="text-ink-400">CR {m.cr}</span>
-                <span className="w-16 text-right text-ink-300">{m.xp * m.count} XP</span>
+                <span className="text-ink-400">
+                  {t('encounter.crValue', { cr: m.cr })}
+                </span>
+                <span className="w-16 text-right text-ink-300">
+                  {t('encounter.xpValue', { xp: m.xp * m.count })}
+                </span>
               </li>
             ))}
             {monsters.length === 0 && (
-              <li className="py-2 text-sm text-ink-400">No monsters added yet.</li>
+              <li className="py-2 text-sm text-ink-400">
+                {t('encounter.noMonstersYet')}
+              </li>
             )}
           </ul>
         </section>
@@ -211,13 +229,13 @@ export function EncounterCalculatorPage() {
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-arcane-700 bg-ink-900 p-5">
         <div>
-          <p className="text-sm text-ink-400">Total encounter XP</p>
+          <p className="text-sm text-ink-400">{t('encounter.totalXp')}</p>
           <p className="font-display text-3xl font-bold text-ink-50">{totalXp}</p>
         </div>
         <div className="text-right">
-          <p className="text-sm text-ink-400">Difficulty</p>
+          <p className="text-sm text-ink-400">{t('encounter.difficulty')}</p>
           <p className={`font-display text-3xl font-bold ${RATING_COLORS[rating]}`}>
-            {rating}
+            {t(RATING_LABEL_KEYS[rating] ?? 'encounter.trivial')}
           </p>
         </div>
       </div>

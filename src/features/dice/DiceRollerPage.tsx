@@ -7,15 +7,15 @@ import { useRollStore } from './rollStore';
 
 const DICE = [4, 6, 8, 10, 12, 20, 100];
 const MODES: RollMode[] = ['normal', 'advantage', 'disadvantage'];
-const MODE_LABELS: Record<RollMode, string> = {
-  normal: 'Normal',
-  advantage: 'Advantage',
-  disadvantage: 'Disadvantage',
-};
 
 export function DiceRollerPage() {
   const { t } = useT();
   useSeo(t('nav.diceRoller'));
+  const MODE_LABELS: Record<RollMode, string> = {
+    normal: t('dice.modeNormal'),
+    advantage: t('dice.modeAdvantage'),
+    disadvantage: t('dice.modeDisadvantage'),
+  };
   const [pool, setPool] = useState<Record<number, number>>({});
   const [modifier, setModifier] = useState(0);
   const [mode, setMode] = useState<RollMode>('normal');
@@ -53,7 +53,9 @@ export function DiceRollerPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-8">
-      <h1 className="mb-6 font-display text-3xl font-bold text-ink-50">Dice Roller</h1>
+      <h1 className="mb-6 font-display text-3xl font-bold text-ink-50">
+        {t('dice.title')}
+      </h1>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <div className="flex flex-col gap-4">
@@ -88,7 +90,9 @@ export function DiceRollerPage() {
 
           <div className="flex items-end gap-3">
             <label className="flex flex-col gap-1 text-sm">
-              <span className="text-xs font-semibold text-ink-400">Modifier</span>
+              <span className="text-xs font-semibold text-ink-400">
+                {t('dice.modifier')}
+              </span>
               <input
                 type="number"
                 value={modifier}
@@ -104,7 +108,7 @@ export function DiceRollerPage() {
               }}
               className="inline-flex items-center gap-1 rounded-md border border-ink-700 px-3 py-2 text-sm text-ink-300 hover:bg-ink-800"
             >
-              <Eraser size={14} /> Clear pool
+              <Eraser size={14} /> {t('dice.clearPool')}
             </button>
           </div>
 
@@ -131,18 +135,18 @@ export function DiceRollerPage() {
             onClick={rollPool}
             className="rounded-lg bg-arcane-700 px-4 py-3 font-display text-lg font-bold text-ink-50 hover:bg-arcane-500"
           >
-            Roll
+            {t('dice.roll')}
           </button>
 
           <div className="flex items-end gap-2">
             <label className="flex flex-1 flex-col gap-1 text-sm">
               <span className="text-xs font-semibold text-ink-400">
-                Or type an expression
+                {t('dice.orTypeExpression')}
               </span>
               <input
                 type="text"
                 value={expression}
-                placeholder="e.g. 2d6 + 1d8 + 3"
+                placeholder={t('dice.expressionPlaceholder')}
                 onChange={(event) => setExpression(event.target.value)}
                 onKeyDown={(event) => event.key === 'Enter' && rollFromExpression()}
                 className="rounded-md border border-ink-700 bg-ink-900 px-2 py-1 text-ink-50 focus:border-arcane-500 focus:outline-none"
@@ -161,7 +165,7 @@ export function DiceRollerPage() {
         <div className="flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-sm font-bold uppercase tracking-wide text-ink-400">
-              History
+              {t('dice.history')}
             </h2>
             {log.length > 0 && (
               <button
@@ -169,14 +173,12 @@ export function DiceRollerPage() {
                 onClick={clearLog}
                 className="text-xs text-ink-400 hover:text-ink-50"
               >
-                Clear
+                {t('dice.clear')}
               </button>
             )}
           </div>
           {log.length === 0 ? (
-            <p className="text-sm text-ink-500">
-              Roll a pool or expression - results appear here and in the floating dock.
-            </p>
+            <p className="text-sm text-ink-500">{t('dice.emptyState')}</p>
           ) : (
             <ul className="flex flex-col gap-1">
               {log.map((entry) => (

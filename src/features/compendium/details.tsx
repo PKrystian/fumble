@@ -92,6 +92,7 @@ function RollableRow({ label, value }: { label: string; value: string }) {
 }
 
 function LanguageLinks({ text }: { text: string }) {
+  const { t } = useT();
   if (!text) return null;
   const [langsPart, ...rest] = text.split(';');
   const special = rest.join(';').trim();
@@ -101,7 +102,9 @@ function LanguageLinks({ text }: { text: string }) {
     .filter(Boolean);
   return (
     <p className="text-sm text-ink-200">
-      <span className="font-semibold text-ink-50">Languages: </span>
+      <span className="font-semibold text-ink-50">
+        {t('compendium.detail.languages')}:{' '}
+      </span>
       {langs.map((lang, index) => (
         <Fragment key={index}>
           {index > 0 && ', '}
@@ -149,10 +152,11 @@ function MetaCell({ label, value }: { label: string; value: string }) {
 }
 
 export function SpellDetail({ spell }: { spell: SpellEntry }) {
+  const { t } = useT();
   const levelLabel =
     spell.level === 0
-      ? `${spell.school} cantrip`
-      : `Level ${spell.level} ${spell.school}`;
+      ? t('compendium.detail.cantrip', { school: spell.school })
+      : t('compendium.detail.levelSchool', { level: spell.level, school: spell.school });
 
   return (
     <article className="flex flex-col gap-5">
@@ -160,15 +164,15 @@ export function SpellDetail({ spell }: { spell: SpellEntry }) {
         <h2 className="font-display text-2xl font-bold text-ink-50">{spell.name}</h2>
         <p className="text-sm italic text-ink-300">
           {levelLabel}
-          {spell.ritual && ' (ritual)'}
+          {spell.ritual && t('compendium.detail.ritualSuffix')}
         </p>
       </header>
 
       <dl className="grid grid-cols-2 gap-3 rounded-lg border border-ink-700 bg-ink-900 p-4 sm:grid-cols-4">
-        <MetaCell label="Casting Time" value={spell.castingTime} />
-        <MetaCell label="Range" value={spell.range} />
-        <MetaCell label="Components" value={spell.components} />
-        <MetaCell label="Duration" value={spell.duration} />
+        <MetaCell label={t('compendium.detail.castingTime')} value={spell.castingTime} />
+        <MetaCell label={t('compendium.detail.range')} value={spell.range} />
+        <MetaCell label={t('compendium.detail.components')} value={spell.components} />
+        <MetaCell label={t('compendium.detail.duration')} value={spell.duration} />
       </dl>
 
       <div className="flex flex-col gap-3">
@@ -180,15 +184,16 @@ export function SpellDetail({ spell }: { spell: SpellEntry }) {
 }
 
 export function SpeciesDetail({ species }: { species: SpeciesEntry }) {
+  const { t } = useT();
   const subtitle = species.parentRace
-    ? `Subrace of ${species.parentRace}`
+    ? t('compendium.detail.subraceOf', { parent: species.parentRace })
     : species.creatureType;
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader title={species.name} subtitle={subtitle} />
       <div className="flex flex-col gap-1">
-        <MetaRow label="Size" value={species.size} />
-        <MetaRow label="Speed" value={species.speed} />
+        <MetaRow label={t('compendium.detail.size')} value={species.size} />
+        <MetaRow label={t('compendium.detail.speed')} value={species.speed} />
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={species.entries} />
@@ -198,11 +203,15 @@ export function SpeciesDetail({ species }: { species: SpeciesEntry }) {
 }
 
 export function FeatDetail({ feat }: { feat: FeatEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={feat.name} subtitle={`${feat.category} feat`} />
+      <DetailHeader
+        title={feat.name}
+        subtitle={t('compendium.detail.featCategory', { category: feat.category })}
+      />
       <div className="flex flex-col gap-1">
-        <MetaRow label="Prerequisite" value={feat.prerequisite} />
+        <MetaRow label={t('compendium.detail.prerequisite')} value={feat.prerequisite} />
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={feat.entries} />
@@ -212,14 +221,27 @@ export function FeatDetail({ feat }: { feat: FeatEntry }) {
 }
 
 export function BackgroundDetail({ background }: { background: BackgroundEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={background.name} subtitle="Background" />
+      <DetailHeader
+        title={background.name}
+        subtitle={t('compendium.detail.background')}
+      />
       <div className="flex flex-col gap-1">
-        <MetaRow label="Ability Scores" value={background.abilityScores} />
-        <MetaRow label="Skill Proficiencies" value={background.skills} />
-        <MetaRow label="Tool Proficiencies" value={background.tools} />
-        <MetaRow label="Feat" value={background.feat} />
+        <MetaRow
+          label={t('compendium.detail.abilityScores')}
+          value={background.abilityScores}
+        />
+        <MetaRow
+          label={t('compendium.detail.skillProficiencies')}
+          value={background.skills}
+        />
+        <MetaRow
+          label={t('compendium.detail.toolProficiencies')}
+          value={background.tools}
+        />
+        <MetaRow label={t('compendium.detail.feat')} value={background.feat} />
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={background.entries} />
@@ -229,9 +251,13 @@ export function BackgroundDetail({ background }: { background: BackgroundEntry }
 }
 
 export function RuleDetail({ rule }: { rule: RuleEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={rule.name} subtitle={`${rule.ruleType} rule`} />
+      <DetailHeader
+        title={rule.name}
+        subtitle={t('compendium.detail.ruleType', { type: rule.ruleType })}
+      />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={rule.entries} />
       </div>
@@ -240,10 +266,11 @@ export function RuleDetail({ rule }: { rule: RuleEntry }) {
 }
 
 export function ActionDetail({ action }: { action: ActionEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={action.name} subtitle="Action" />
-      {action.time && <MetaRow label="Time" value={action.time} />}
+      <DetailHeader title={action.name} subtitle={t('compendium.detail.action')} />
+      {action.time && <MetaRow label={t('compendium.detail.time')} value={action.time} />}
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={action.entries} />
       </div>
@@ -252,11 +279,15 @@ export function ActionDetail({ action }: { action: ActionEntry }) {
 }
 
 export function OptionalFeatureDetail({ feature }: { feature: OptionalFeatureEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader title={feature.name} subtitle={feature.featureType} />
       <div className="flex flex-col gap-1">
-        <MetaRow label="Prerequisite" value={feature.prerequisite} />
+        <MetaRow
+          label={t('compendium.detail.prerequisite')}
+          value={feature.prerequisite}
+        />
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={feature.entries} />
@@ -266,13 +297,14 @@ export function OptionalFeatureDetail({ feature }: { feature: OptionalFeatureEnt
 }
 
 export function DeityDetail({ deity }: { deity: DeityEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader title={deity.name} subtitle={deity.pantheon} />
       <div className="flex flex-col gap-1">
-        <MetaRow label="Alignment" value={deity.alignment} />
-        <MetaRow label="Domains" value={deity.domains} />
-        <MetaRow label="Symbol" value={deity.symbol} />
+        <MetaRow label={t('compendium.detail.alignment')} value={deity.alignment} />
+        <MetaRow label={t('compendium.detail.domains')} value={deity.domains} />
+        <MetaRow label={t('compendium.detail.symbol')} value={deity.symbol} />
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={deity.entries} />
@@ -304,17 +336,18 @@ export function BoonDetail({ boon }: { boon: BoonEntry }) {
 }
 
 export function ItemDetail({ item }: { item: ItemEntry }) {
+  const { t } = useT();
   const subtitle = [item.type, item.rarity].filter(Boolean).join(', ');
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader title={item.name} subtitle={subtitle} />
       <div className="flex flex-col gap-1">
-        <MetaRow label="Damage" value={item.damage} />
-        <MetaRow label="Armor Class" value={item.ac} />
-        <MetaRow label="Properties" value={item.properties} />
-        <MetaRow label="Attunement" value={item.attunement} />
-        <MetaRow label="Weight" value={item.weight} />
-        <MetaRow label="Value" value={item.value} />
+        <MetaRow label={t('compendium.detail.damage')} value={item.damage} />
+        <MetaRow label={t('compendium.detail.armorClass')} value={item.ac} />
+        <MetaRow label={t('compendium.detail.properties')} value={item.properties} />
+        <MetaRow label={t('compendium.detail.attunement')} value={item.attunement} />
+        <MetaRow label={t('compendium.detail.weight')} value={item.weight} />
+        <MetaRow label={t('compendium.detail.value')} value={item.value} />
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={item.entries} />
@@ -330,10 +363,13 @@ function ProgressionTable({
   table: ClassTable;
   featuresByLevel: Map<number, string[]>;
 }) {
+  const { t } = useT();
   const featureCol = table.headers.indexOf('Features');
   return (
     <section className="flex flex-col gap-3">
-      <h3 className="font-display text-xl font-bold text-ember-400">Progression</h3>
+      <h3 className="font-display text-xl font-bold text-ember-400">
+        {t('compendium.detail.progression')}
+      </h3>
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left text-sm">
           <thead>
@@ -658,13 +694,14 @@ function SectionGroup({
 }
 
 export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
+  const { t } = useT();
   const abilities = [
-    ['STR', monster.str],
-    ['DEX', monster.dex],
-    ['CON', monster.con],
-    ['INT', monster.int],
-    ['WIS', monster.wis],
-    ['CHA', monster.cha],
+    [t('compendium.detail.abbrStr'), monster.str],
+    [t('compendium.detail.abbrDex'), monster.dex],
+    [t('compendium.detail.abbrCon'), monster.con],
+    [t('compendium.detail.abbrInt'), monster.int],
+    [t('compendium.detail.abbrWis'), monster.wis],
+    [t('compendium.detail.abbrCha'), monster.cha],
   ] as const;
 
   const crText = monster.crDisplay || monster.cr;
@@ -690,10 +727,13 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
 
       <div className="flex flex-col gap-3 rounded-lg border border-ink-700 bg-ink-900 p-4">
         <div className="flex flex-col gap-1">
-          <MetaRow label="AC" value={monster.ac} />
-          <RollableRow label="Initiative" value={monster.initiative} />
-          <MetaRow label="HP" value={monster.hp} />
-          <MetaRow label="Speed" value={monster.speed} />
+          <MetaRow label={t('compendium.detail.ac')} value={monster.ac} />
+          <RollableRow
+            label={t('compendium.detail.initiative')}
+            value={monster.initiative}
+          />
+          <MetaRow label={t('compendium.detail.hp')} value={monster.hp} />
+          <MetaRow label={t('compendium.detail.speed')} value={monster.speed} />
         </div>
 
         <dl className="grid grid-cols-6 gap-2 border-y border-ink-700 py-3 text-center">
@@ -709,7 +749,7 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
                     variant="attack"
                     expression={expr}
                     display={`(${mod >= 0 ? `+${mod}` : mod})`}
-                    label={`${label} check`}
+                    label={t('compendium.detail.abilityCheck', { ability: label })}
                   />
                 </dd>
               </div>
@@ -718,17 +758,31 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
         </dl>
 
         <div className="flex flex-col gap-1">
-          <RollableRow label="Saving Throws" value={monster.saves} />
-          <RollableRow label="Skills" value={monster.skills} />
-          <MetaRow label="Vulnerabilities" value={monster.vulnerabilities} />
-          <MetaRow label="Resistances" value={monster.resistances} />
-          <MetaRow label="Immunities" value={monster.immunities} />
-          <MetaRow label="Condition Immunities" value={monster.conditionImmunities} />
-          <MetaRow label="Senses" value={monster.senses} />
+          <RollableRow
+            label={t('compendium.detail.savingThrows')}
+            value={monster.saves}
+          />
+          <RollableRow label={t('compendium.detail.skills')} value={monster.skills} />
+          <MetaRow
+            label={t('compendium.detail.vulnerabilities')}
+            value={monster.vulnerabilities}
+          />
+          <MetaRow
+            label={t('compendium.detail.resistances')}
+            value={monster.resistances}
+          />
+          <MetaRow label={t('compendium.detail.immunities')} value={monster.immunities} />
+          <MetaRow
+            label={t('compendium.detail.conditionImmunities')}
+            value={monster.conditionImmunities}
+          />
+          <MetaRow label={t('compendium.detail.senses')} value={monster.senses} />
           <LanguageLinks text={monster.languages} />
           {crText && (
             <p className="text-sm text-ink-200">
-              <span className="font-semibold text-ink-50">CR: </span>
+              <span className="font-semibold text-ink-50">
+                {t('compendium.detail.cr')}:{' '}
+              </span>
               <Link
                 to="/dm/encounter"
                 className="underline decoration-dotted decoration-ink-500 underline-offset-2 hover:text-arcane-300"
@@ -738,10 +792,12 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
               {crMatch?.[2]}
             </p>
           )}
-          <MetaRow label="Habitat" value={monster.habitat} />
+          <MetaRow label={t('compendium.detail.habitat')} value={monster.habitat} />
           {monster.treasure && (
             <p className="text-sm text-ink-200">
-              <span className="font-semibold text-ink-50">Treasure: </span>
+              <span className="font-semibold text-ink-50">
+                {t('compendium.detail.treasure')}:{' '}
+              </span>
               <Link
                 to="/dm/loot"
                 className="underline decoration-dotted decoration-ink-500 underline-offset-2 hover:text-arcane-300"
@@ -755,13 +811,19 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
 
       <SectionGroup sections={monster.traits} />
       <SectionGroup sections={monster.spellcasting} />
-      <SectionGroup title="Actions" sections={monster.actions} />
-      <SectionGroup title="Bonus Actions" sections={monster.bonusActions} />
-      <SectionGroup title="Reactions" sections={monster.reactions} />
+      <SectionGroup title={t('compendium.detail.actions')} sections={monster.actions} />
+      <SectionGroup
+        title={t('compendium.detail.bonusActions')}
+        sections={monster.bonusActions}
+      />
+      <SectionGroup
+        title={t('compendium.detail.reactions')}
+        sections={monster.reactions}
+      />
       {monster.legendaryActions.length > 0 && (
         <section className="flex flex-col gap-3">
           <h3 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
-            Legendary Actions
+            {t('compendium.detail.legendaryActions')}
           </h3>
           {monster.legendaryIntro && (
             <p className="text-sm italic text-ink-300">
@@ -783,7 +845,7 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
       {monster.lairActions.length > 0 && (
         <section className="flex flex-col gap-2">
           <h3 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
-            Lair Actions
+            {t('compendium.detail.lairActions')}
           </h3>
           <EntryRenderer entries={monster.lairActions} />
         </section>
@@ -791,7 +853,7 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
       {monster.regionalEffects.length > 0 && (
         <section className="flex flex-col gap-2">
           <h3 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
-            Regional Effects
+            {t('compendium.detail.regionalEffects')}
           </h3>
           <EntryRenderer entries={monster.regionalEffects} />
         </section>
@@ -817,11 +879,16 @@ export function ConditionDetail({ condition }: { condition: ConditionEntry }) {
 }
 
 export function SkillDetail({ skill }: { skill: SkillEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={skill.name}
-        subtitle={skill.ability ? `${skill.ability} skill` : 'Skill'}
+        subtitle={
+          skill.ability
+            ? t('compendium.detail.abilitySkill', { ability: skill.ability })
+            : t('compendium.detail.skill')
+        }
       />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={skill.entries} />
@@ -831,9 +898,10 @@ export function SkillDetail({ skill }: { skill: SkillEntry }) {
 }
 
 export function SenseDetail({ sense }: { sense: SenseEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={sense.name} subtitle="Sense" />
+      <DetailHeader title={sense.name} subtitle={t('compendium.detail.sense')} />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={sense.entries} />
       </div>
@@ -842,15 +910,21 @@ export function SenseDetail({ sense }: { sense: SenseEntry }) {
 }
 
 export function LanguageDetail({ language }: { language: LanguageEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={language.name}
-        subtitle={`${language.languageType} language`}
+        subtitle={t('compendium.detail.languageTypeLanguage', {
+          type: language.languageType,
+        })}
       />
       <div className="flex flex-col gap-1">
-        <MetaRow label="Script" value={language.script} />
-        <MetaRow label="Typical Speakers" value={language.typicalSpeakers} />
+        <MetaRow label={t('compendium.detail.script')} value={language.script} />
+        <MetaRow
+          label={t('compendium.detail.typicalSpeakers')}
+          value={language.typicalSpeakers}
+        />
       </div>
       {language.entries.length > 0 && (
         <div className="flex flex-col gap-3">
@@ -876,17 +950,23 @@ export function CultBoonDetail({ cultBoon }: { cultBoon: CultBoonEntry }) {
 }
 
 export function FacilityDetail({ facility }: { facility: FacilityEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={facility.name}
-        subtitle={`${facility.facilityType} bastion facility`}
+        subtitle={t('compendium.detail.bastionFacility', {
+          type: facility.facilityType,
+        })}
       />
       <div className="flex flex-col gap-1">
-        <MetaRow label="Level" value={facility.level} />
-        <MetaRow label="Prerequisite" value={facility.prerequisite} />
-        <MetaRow label="Space" value={facility.space} />
-        <MetaRow label="Orders" value={facility.orders} />
+        <MetaRow label={t('compendium.detail.level')} value={facility.level} />
+        <MetaRow
+          label={t('compendium.detail.prerequisite')}
+          value={facility.prerequisite}
+        />
+        <MetaRow label={t('compendium.detail.space')} value={facility.space} />
+        <MetaRow label={t('compendium.detail.orders')} value={facility.orders} />
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={facility.entries} />
@@ -896,12 +976,13 @@ export function FacilityDetail({ facility }: { facility: FacilityEntry }) {
 }
 
 export function RecipeDetail({ recipe }: { recipe: RecipeEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader title={recipe.name} subtitle={recipe.recipeType} />
       <div className="flex flex-col gap-1">
-        <MetaRow label="Serves" value={recipe.serves} />
-        <MetaRow label="Diet" value={recipe.diet} />
+        <MetaRow label={t('compendium.detail.serves')} value={recipe.serves} />
+        <MetaRow label={t('compendium.detail.diet')} value={recipe.diet} />
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={recipe.entries} />
@@ -911,13 +992,14 @@ export function RecipeDetail({ recipe }: { recipe: RecipeEntry }) {
 }
 
 export function ObjectDetail({ object }: { object: ObjectEntry }) {
+  const { t } = useT();
   const abilities = [
-    ['STR', object.str],
-    ['DEX', object.dex],
-    ['CON', object.con],
-    ['INT', object.int],
-    ['WIS', object.wis],
-    ['CHA', object.cha],
+    [t('compendium.detail.abbrStr'), object.str],
+    [t('compendium.detail.abbrDex'), object.dex],
+    [t('compendium.detail.abbrCon'), object.con],
+    [t('compendium.detail.abbrInt'), object.int],
+    [t('compendium.detail.abbrWis'), object.wis],
+    [t('compendium.detail.abbrCha'), object.cha],
   ] as const;
 
   return (
@@ -928,8 +1010,8 @@ export function ObjectDetail({ object }: { object: ObjectEntry }) {
       />
       <div className="flex flex-col gap-3 rounded-lg border border-ink-700 bg-ink-900 p-4">
         <div className="flex flex-col gap-1">
-          <MetaRow label="AC" value={object.ac} />
-          <MetaRow label="HP" value={object.hp} />
+          <MetaRow label={t('compendium.detail.ac')} value={object.ac} />
+          <MetaRow label={t('compendium.detail.hp')} value={object.hp} />
         </div>
         <dl className="grid grid-cols-6 gap-2 border-y border-ink-700 py-3 text-center">
           {abilities.map(([label, score]) => (
@@ -942,16 +1024,17 @@ export function ObjectDetail({ object }: { object: ObjectEntry }) {
           ))}
         </dl>
         <div className="flex flex-col gap-1">
-          <MetaRow label="Immunities" value={object.immune} />
-          <MetaRow label="Senses" value={object.senses} />
+          <MetaRow label={t('compendium.detail.immunities')} value={object.immune} />
+          <MetaRow label={t('compendium.detail.senses')} value={object.senses} />
         </div>
       </div>
-      <SectionGroup title="Actions" sections={object.actions} />
+      <SectionGroup title={t('compendium.detail.actions')} sections={object.actions} />
     </article>
   );
 }
 
 export function VehicleDetail({ vehicle }: { vehicle: VehicleEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-4">
       <DetailHeader
@@ -959,30 +1042,34 @@ export function VehicleDetail({ vehicle }: { vehicle: VehicleEntry }) {
         subtitle={[vehicle.size, vehicle.vehicleType].filter(Boolean).join(' ')}
       />
       <div className="flex flex-col gap-1 rounded-lg border border-ink-700 bg-ink-900 p-4">
-        <MetaRow label="Dimensions" value={vehicle.dimensions} />
-        <MetaRow label="Terrain" value={vehicle.terrain} />
-        <MetaRow label="Capacity" value={vehicle.capacity} />
-        <MetaRow label="Travel Pace" value={vehicle.pace} />
-        <MetaRow label="Speed" value={vehicle.speed} />
-        <MetaRow label="Armor Class" value={vehicle.ac} />
-        <MetaRow label="Hit Points" value={vehicle.hp} />
-        <MetaRow label="Immunities" value={vehicle.immune} />
-        <MetaRow label="Cost" value={vehicle.cost} />
+        <MetaRow label={t('compendium.detail.dimensions')} value={vehicle.dimensions} />
+        <MetaRow label={t('compendium.detail.terrain')} value={vehicle.terrain} />
+        <MetaRow label={t('compendium.detail.capacity')} value={vehicle.capacity} />
+        <MetaRow label={t('compendium.detail.travelPace')} value={vehicle.pace} />
+        <MetaRow label={t('compendium.detail.speed')} value={vehicle.speed} />
+        <MetaRow label={t('compendium.detail.armorClass')} value={vehicle.ac} />
+        <MetaRow label={t('compendium.detail.hitPoints')} value={vehicle.hp} />
+        <MetaRow label={t('compendium.detail.immunities')} value={vehicle.immune} />
+        <MetaRow label={t('compendium.detail.cost')} value={vehicle.cost} />
       </div>
       {vehicle.entries.length > 0 && (
         <div className="flex flex-col gap-3">
           <EntryRenderer entries={vehicle.entries} />
         </div>
       )}
-      <SectionGroup title="Weapons" sections={vehicle.weapons} />
+      <SectionGroup title={t('compendium.detail.weapons')} sections={vehicle.weapons} />
     </article>
   );
 }
 
 export function MasteryDetail({ mastery }: { mastery: MasteryEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={mastery.name} subtitle="Weapon Mastery" />
+      <DetailHeader
+        title={mastery.name}
+        subtitle={t('compendium.detail.weaponMastery')}
+      />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={mastery.entries} />
       </div>
@@ -991,11 +1078,15 @@ export function MasteryDetail({ mastery }: { mastery: MasteryEntry }) {
 }
 
 export function CharOptionDetail({ option }: { option: CharOptionEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader title={option.name} subtitle={option.optionType} />
       <div className="flex flex-col gap-1">
-        <MetaRow label="Prerequisite" value={option.prerequisite} />
+        <MetaRow
+          label={t('compendium.detail.prerequisite')}
+          value={option.prerequisite}
+        />
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={option.entries} />
@@ -1005,9 +1096,10 @@ export function CharOptionDetail({ option }: { option: CharOptionEntry }) {
 }
 
 export function TableDetail({ table }: { table: TableEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-4">
-      <DetailHeader title={table.name} subtitle="Table" />
+      <DetailHeader title={table.name} subtitle={t('compendium.detail.table')} />
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left text-sm text-ink-200">
           {table.colLabels.length > 0 && (
@@ -1042,9 +1134,13 @@ export function TableDetail({ table }: { table: TableEntry }) {
 }
 
 export function DeckDetail({ deck }: { deck: DeckEntry }) {
+  const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={deck.name} subtitle={`Deck · ${deck.cardCount} cards`} />
+      <DetailHeader
+        title={deck.name}
+        subtitle={t('compendium.detail.deckCards', { count: deck.cardCount })}
+      />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={deck.entries} />
       </div>

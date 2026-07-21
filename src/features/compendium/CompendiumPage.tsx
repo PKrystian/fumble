@@ -96,7 +96,10 @@ function CompendiumBrowser({
         <h1 className="font-display text-2xl font-bold text-ink-50">
           {t('compendium.title')}
         </h1>
-        <nav className="mt-3 flex flex-wrap gap-2" aria-label="Compendium categories">
+        <nav
+          className="mt-3 flex flex-wrap gap-2"
+          aria-label={t('compendium.categoriesNav')}
+        >
           {categories.map((cat) => (
             <Link
               key={cat.id}
@@ -111,6 +114,12 @@ function CompendiumBrowser({
               {categoryLabel(cat, t)}
             </Link>
           ))}
+          <Link
+            to="/books"
+            className="rounded-full border border-dashed border-ink-600 px-3 py-1 text-sm font-medium text-ink-300 transition-colors hover:bg-ink-800"
+          >
+            {t('nav.books')}
+          </Link>
         </nav>
       </div>
 
@@ -180,7 +189,7 @@ function CompendiumBrowser({
                   <span className="block text-xs text-ink-400">
                     {isHomebrew(item) && item._manual
                       ? item.subtitle
-                      : category.subtitle(item)}
+                      : category.subtitle(item, t)}
                   </span>
                 </Link>
               </li>
@@ -218,8 +227,8 @@ function CompendiumBrowser({
                   {selected.token && selected.token !== selected.image && (
                     <img
                       src={imageUrl(selected.token)}
-                      alt={`${selected.name} token`}
-                      title="Token"
+                      alt={`${selected.name} ${t('compendium.token')}`}
+                      title={t('compendium.token')}
                       loading="lazy"
                       onClick={() =>
                         openLightbox(

@@ -226,7 +226,10 @@ export function BookReaderPage() {
           <h1 className="font-display text-lg font-bold text-ink-50">{book.name}</h1>
           {book.author && <p className="text-xs text-ink-400">{book.author}</p>}
         </div>
-        <nav className="min-h-0 flex-1 overflow-y-auto p-2" aria-label="Chapters">
+        <nav
+          className="min-h-0 flex-1 overflow-y-auto p-2"
+          aria-label={t('books.chaptersNav')}
+        >
           {(chapters ?? book.contents).map((entry, index) => {
             const title =
               chapters != null

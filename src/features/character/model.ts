@@ -263,12 +263,25 @@ export interface ArmorClassBreakdown {
   manual: boolean;
 }
 
+export interface ArmorClassLabels {
+  base: string;
+  abilityAbbr: (key: AbilityKey) => string;
+}
+
+const DEFAULT_AC_LABELS: ArmorClassLabels = {
+  base: 'Base',
+  abilityAbbr: (key) => ABILITY_NAMES[key].slice(0, 3),
+};
+
 /**
  * Derive AC from equipped armor, a shield, and Dexterity (capped by armor type),
  * falling back to an unarmored-defense formula or plain 10 + Dex. A manual
  * `acOverride` always wins so the sheet can be corrected by hand.
  */
-export function armorClassBreakdown(character: Character): ArmorClassBreakdown {
+export function armorClassBreakdown(
+  character: Character,
+  labels: ArmorClassLabels = DEFAULT_AC_LABELS,
+): ArmorClassBreakdown {
   if (character.acOverride !== null) {
     return { total: character.acOverride, parts: ['manual'], manual: true };
   }
@@ -287,7 +300,8 @@ export function armorClassBreakdown(character: Character): ArmorClassBreakdown {
     const dexBonus = cap === null ? dex : Math.min(dex, cap);
     total = base + dexBonus;
     parts.push(`${armor.name} ${base}`);
-    if (dexBonus !== 0) parts.push(`Dex ${formatModifier(dexBonus)}`);
+    if (dexBonus !== 0)
+      parts.push(`${labels.abilityAbbr('dex')} ${formatModifier(dexBonus)}`);
   } else if (character.unarmoredDefense) {
     const { base, abilities } = character.unarmoredDefense;
     total = base;
@@ -295,12 +309,12 @@ export function armorClassBreakdown(character: Character): ArmorClassBreakdown {
     for (const key of abilities) {
       const mod = abilityModifier(character.abilities[key]);
       total += mod;
-      parts.push(`${ABILITY_NAMES[key].slice(0, 3)} ${formatModifier(mod)}`);
+      parts.push(`${labels.abilityAbbr(key)} ${formatModifier(mod)}`);
     }
   } else {
     total = 10 + dex;
-    parts.push('Base 10');
-    if (dex !== 0) parts.push(`Dex ${formatModifier(dex)}`);
+    parts.push(`${labels.base} 10`);
+    if (dex !== 0) parts.push(`${labels.abilityAbbr('dex')} ${formatModifier(dex)}`);
   }
 
   const shieldAllowed =

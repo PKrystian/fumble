@@ -6,8 +6,10 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { GripVertical } from 'lucide-react';
+import { useT } from '@/i18n/useT';
 
 export function SortablePanel({ id, children }: { id: string; children: ReactNode }) {
+  const { t } = useT();
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
     useSortable({ id });
 
@@ -21,7 +23,7 @@ export function SortablePanel({ id, children }: { id: string; children: ReactNod
         type="button"
         {...attributes}
         {...listeners}
-        aria-label="Drag to reorder"
+        aria-label={t('common.dragToReorder')}
         className="absolute right-2 top-2 z-10 cursor-grab touch-none rounded p-1 text-ink-600 hover:bg-ink-800 hover:text-ink-200 active:cursor-grabbing"
       >
         <GripVertical size={14} />

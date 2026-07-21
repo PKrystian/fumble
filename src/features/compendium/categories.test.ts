@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { categories, getCategory } from './categories';
 import type { ConditionEntry, SpellEntry } from '@/data/compendium/types';
+import { translate } from '@/i18n/useT';
+
+const t = (key: string, vars?: Record<string, string | number>) =>
+  translate('en', key, vars);
 
 describe('compendium categories', () => {
   it('resolves a known category by id', () => {
@@ -15,13 +19,13 @@ describe('compendium categories', () => {
     const spells = getCategory('spells')!;
     const cantrip = { level: 0, school: 'Evocation' } as SpellEntry;
     const leveled = { level: 3, school: 'Evocation' } as SpellEntry;
-    expect(spells.subtitle(cantrip)).toBe('Cantrip · Evocation');
-    expect(spells.subtitle(leveled)).toBe('Level 3 · Evocation');
+    expect(spells.subtitle(cantrip, t)).toBe('Cantrip · Evocation');
+    expect(spells.subtitle(leveled, t)).toBe('Level 3 · Evocation');
   });
 
   it('uses the kind as a condition subtitle', () => {
     const conditions = getCategory('conditions')!;
-    expect(conditions.subtitle({ kind: 'disease' } as ConditionEntry)).toBe('disease');
+    expect(conditions.subtitle({ kind: 'disease' } as ConditionEntry, t)).toBe('disease');
   });
 
   it('exposes a stable category order', () => {
@@ -56,10 +60,10 @@ describe('compendium categories', () => {
   });
 
   it('summarizes feats and rules by type', () => {
-    expect(getCategory('feats')!.subtitle({ category: 'General' } as never)).toBe(
+    expect(getCategory('feats')!.subtitle({ category: 'General' } as never, t)).toBe(
       'General feat',
     );
-    expect(getCategory('rules')!.subtitle({ ruleType: 'Core' } as never)).toBe(
+    expect(getCategory('rules')!.subtitle({ ruleType: 'Core' } as never, t)).toBe(
       'Core rule',
     );
   });

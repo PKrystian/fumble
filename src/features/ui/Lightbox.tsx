@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { X } from 'lucide-react';
+import { useT } from '@/i18n/useT';
 import { useLightbox } from './lightboxStore';
 
 export function Lightbox() {
+  const { t } = useT();
   const src = useLightbox((s) => s.src);
   const caption = useLightbox((s) => s.caption);
   const close = useLightbox((s) => s.close);
@@ -20,14 +22,14 @@ export function Lightbox() {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Image viewer"
+      aria-label={t('common.imageViewer')}
       onClick={close}
       className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-black/85 p-4"
     >
       <button
         type="button"
         onClick={close}
-        aria-label="Close image"
+        aria-label={t('common.closeImage')}
         className="absolute right-4 top-4 rounded-full bg-ink-900/80 p-2 text-ink-100 hover:bg-ink-800"
       >
         <X size={22} />

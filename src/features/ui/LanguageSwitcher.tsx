@@ -4,12 +4,14 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Check, ChevronDown, Globe } from 'lucide-react';
 import { SUPPORTED_LOCALES } from '@/i18n/locales';
 import { localizePath, stripLocale, useLocale } from '@/i18n/path';
+import { useT } from '@/i18n/useT';
 
 interface LanguageSwitcherProps {
   compact?: boolean;
 }
 
 export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
+  const { t } = useT();
   const [open, setOpen] = useState(false);
   const locale = useLocale();
   const location = useLocation();
@@ -47,7 +49,7 @@ export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label="Change language"
+        aria-label={t('common.changeLanguage')}
         className={[
           'flex items-center gap-2 rounded-md border border-ink-700 text-sm text-ink-200 transition-colors hover:border-arcane-500 hover:text-ink-50',
           compact ? 'justify-center p-2' : 'w-full justify-between px-3 py-1.5',
@@ -62,7 +64,7 @@ export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
       {open && (
         <ul
           role="listbox"
-          aria-label="Language"
+          aria-label={t('common.language')}
           className="absolute left-0 top-full z-20 mt-1 w-40 overflow-hidden rounded-md border border-ink-700 bg-ink-900 py-1 shadow-xl"
         >
           {SUPPORTED_LOCALES.map((l) => (

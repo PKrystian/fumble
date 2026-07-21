@@ -1,6 +1,8 @@
 import type { CompendiumEntryBase } from '@/data/compendium/types';
 import type { Entry } from '@/data/compendium/entry';
 import { loadLocalizedItems } from '@/data/compendium/overlay';
+import { translate } from '@/i18n/useT';
+import type { Locale } from '@/i18n/locales';
 import { getCategory } from './categories';
 
 export interface ReferenceHint {
@@ -90,7 +92,9 @@ export async function loadReferenceHint(
   if (!item) return null;
 
   const category = getCategory(categoryId);
-  const subtitle = category ? category.subtitle(item) : '';
+  const subtitle = category
+    ? category.subtitle(item, (key, vars) => translate(locale as Locale, key, vars))
+    : '';
   const description = truncate(firstText(describableEntries(item)));
   return { name: item.name, subtitle, description };
 }

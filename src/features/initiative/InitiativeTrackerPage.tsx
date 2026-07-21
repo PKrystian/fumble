@@ -66,15 +66,18 @@ export function InitiativeTrackerPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-8">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <h1 className="font-display text-3xl font-bold text-ink-50">Initiative</h1>
+        <h1 className="font-display text-3xl font-bold text-ink-50">
+          {t('initiative.title')}
+        </h1>
         <div className="flex items-center gap-2">
           <span className="rounded-lg bg-ink-800 px-3 py-2 text-sm text-ink-200">
-            Round <span className="font-bold text-ember-400">{round || '-'}</span>
+            {t('initiative.round')}{' '}
+            <span className="font-bold text-ember-400">{round || '-'}</span>
           </span>
           <button
             type="button"
             onClick={previous}
-            aria-label="Previous turn"
+            aria-label={t('initiative.previousTurn')}
             className="rounded-md border border-ink-700 p-2 text-ink-200 hover:bg-ink-800"
           >
             <ChevronLeft size={18} />
@@ -84,20 +87,20 @@ export function InitiativeTrackerPage() {
             onClick={next}
             className="inline-flex items-center gap-1 rounded-md bg-arcane-700 px-3 py-2 text-sm font-medium text-ink-50 hover:bg-arcane-500"
           >
-            Next turn <ChevronRight size={16} />
+            {t('initiative.nextTurn')} <ChevronRight size={16} />
           </button>
           {combatants.length > 0 && (
             <button
               type="button"
               onClick={async () => {
-                const ok = await confirmDialog('Clear all combatants?', {
+                const ok = await confirmDialog(t('initiative.clearAllConfirm'), {
                   tone: 'danger',
-                  confirmLabel: 'Clear',
+                  confirmLabel: t('common.delete'),
                 });
                 if (ok) clear();
               }}
               className="rounded-md border border-ink-700 p-2 text-ink-400 hover:bg-ink-800 hover:text-red-400"
-              aria-label="Clear all"
+              aria-label={t('initiative.clearAll')}
             >
               <Trash2 size={18} />
             </button>
@@ -108,23 +111,25 @@ export function InitiativeTrackerPage() {
       {characters.length > 0 && (
         <div className="mb-4 flex flex-wrap items-end gap-2 rounded-xl border border-ink-700 bg-ink-900 p-4">
           <label className="flex flex-1 flex-col gap-1 text-sm">
-            <span className="text-xs font-semibold text-ink-400">Add from roster</span>
+            <span className="text-xs font-semibold text-ink-400">
+              {t('initiative.addFromRoster')}
+            </span>
             <select
               value={rosterId}
               onChange={(e) => setRosterId(e.target.value)}
               className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
             >
-              <option value="">Choose a character…</option>
+              <option value="">{t('initiative.chooseCharacter')}</option>
               {characters.map((character) => (
                 <option key={character.id} value={character.id}>
-                  {character.name || 'Unnamed'}
+                  {character.name || t('initiative.unnamed')}
                   {isDmCharacter(character) ? ' (DM)' : ''}
                 </option>
               ))}
             </select>
           </label>
           <NumberInput
-            label="Init"
+            label={t('initiative.init')}
             value={rosterInitiative}
             onChange={setRosterInitiative}
           />
@@ -134,33 +139,39 @@ export function InitiativeTrackerPage() {
             disabled={!rosterId}
             className="inline-flex items-center gap-1 rounded-md bg-arcane-700 px-4 py-2 text-sm font-medium text-ink-50 hover:bg-arcane-500 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            <UserPlus size={16} /> Add
+            <UserPlus size={16} /> {t('initiative.add')}
           </button>
         </div>
       )}
 
       <div className="mb-6 flex flex-wrap items-end gap-2 rounded-xl border border-ink-700 bg-ink-900 p-4">
         <label className="flex flex-1 flex-col gap-1 text-sm">
-          <span className="text-xs font-semibold text-ink-400">Name</span>
+          <span className="text-xs font-semibold text-ink-400">
+            {t('initiative.name')}
+          </span>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && add()}
-            placeholder="Goblin, Aragorn…"
+            placeholder={t('initiative.namePlaceholder')}
             className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1 text-ink-50 focus:border-arcane-500 focus:outline-none"
           />
         </label>
-        <NumberInput label="Init" value={initiative} onChange={setInitiative} />
+        <NumberInput
+          label={t('initiative.init')}
+          value={initiative}
+          onChange={setInitiative}
+        />
         <button
           type="button"
-          aria-label="Roll initiative"
+          aria-label={t('initiative.rollInitiative')}
           onClick={() => setInitiative(rollExpression('1d20')?.total ?? initiative)}
           className="rounded-md border border-ink-700 p-2 text-arcane-300 hover:bg-ink-800"
         >
           <Dices size={18} />
         </button>
-        <NumberInput label="HP" value={hp} onChange={setHp} />
-        <NumberInput label="AC" value={ac} onChange={setAc} />
+        <NumberInput label={t('initiative.hp')} value={hp} onChange={setHp} />
+        <NumberInput label={t('initiative.ac')} value={ac} onChange={setAc} />
         <label className="flex items-center gap-1 px-1 text-sm text-ink-200">
           <input
             type="checkbox"
@@ -168,20 +179,20 @@ export function InitiativeTrackerPage() {
             onChange={(e) => setIsPlayer(e.target.checked)}
             className="accent-arcane-500"
           />
-          PC
+          {t('initiative.pc')}
         </label>
         <button
           type="button"
           onClick={add}
           className="rounded-md bg-arcane-700 px-4 py-2 text-sm font-medium text-ink-50 hover:bg-arcane-500"
         >
-          Add
+          {t('initiative.add')}
         </button>
       </div>
 
       {sorted.length === 0 ? (
         <p className="rounded-xl border border-dashed border-ink-700 p-12 text-center text-ink-400">
-          Add combatants to begin tracking initiative.
+          {t('initiative.emptyState')}
         </p>
       ) : (
         <ul className="flex flex-col gap-2">
@@ -202,12 +213,12 @@ export function InitiativeTrackerPage() {
                 {c.name}
                 {c.isPlayer && (
                   <span className="ml-2 rounded bg-arcane-700 px-1.5 py-0.5 text-[10px] uppercase text-ink-50">
-                    PC
+                    {t('initiative.pc')}
                   </span>
                 )}
               </span>
               <label className="flex items-center gap-1 text-sm text-ink-300">
-                HP
+                {t('initiative.hp')}
                 <input
                   type="number"
                   value={c.hpCurrent}
@@ -218,16 +229,20 @@ export function InitiativeTrackerPage() {
                 />
                 {c.hpMax > 0 && <span className="text-ink-500">/ {c.hpMax}</span>}
               </label>
-              {c.ac != null && <span className="text-sm text-ink-300">AC {c.ac}</span>}
+              {c.ac != null && (
+                <span className="text-sm text-ink-300">
+                  {t('initiative.ac')} {c.ac}
+                </span>
+              )}
               <input
                 value={c.conditions}
                 onChange={(e) => updateCombatant(c.id, { conditions: e.target.value })}
-                placeholder="conditions"
+                placeholder={t('initiative.conditionsPlaceholder')}
                 className="w-32 rounded border border-ink-700 bg-ink-950 px-2 py-0.5 text-sm text-ink-50 focus:border-arcane-500 focus:outline-none"
               />
               <button
                 type="button"
-                aria-label={`Remove ${c.name}`}
+                aria-label={t('initiative.removeCombatant', { name: c.name })}
                 onClick={() => removeCombatant(c.id)}
                 className="rounded p-1 text-ink-400 hover:bg-ink-800 hover:text-red-400"
               >

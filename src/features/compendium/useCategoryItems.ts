@@ -49,10 +49,10 @@ export function useCategoryItems(
         (e): e is HomebrewManualEntry | HomebrewImportedEntry =>
           e.kind !== 'subclass' && e.category === category.id,
       )
-      .map(homebrewToItem);
+      .map((e) => homebrewToItem(e, locale));
     if (hb.length === 0) return state.items;
     return [...hb, ...state.items].sort((a, b) => a.name.localeCompare(b.name));
-  }, [state.items, homebrew, category]);
+  }, [state.items, homebrew, category, locale]);
 
   return { status: state.status, items };
 }

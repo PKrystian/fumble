@@ -62,7 +62,7 @@ export function LootGeneratorPage() {
         {t('dm.loot.title')}
       </h1>
 
-      <nav className="mb-6 flex flex-wrap gap-2" aria-label="Loot generator mode">
+      <nav className="mb-6 flex flex-wrap gap-2" aria-label={t('dm.loot.modeNav')}>
         {MODES.map((m) => (
           <button
             key={m.id}

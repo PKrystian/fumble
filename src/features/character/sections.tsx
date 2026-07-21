@@ -4,7 +4,6 @@ import { useSessionStore } from '@/features/session-log/store';
 import { Link } from '@/i18n/path';
 import {
   ABILITY_KEYS,
-  ABILITY_NAMES,
   MAX_SPELL_LEVEL,
   SKILLS,
   type Character,
@@ -104,6 +103,7 @@ function SubclassField({ character, update }: SectionProps) {
 }
 
 function PortraitField({ character, update }: SectionProps) {
+  const { t } = useT();
   const fileInput = useRef<HTMLInputElement>(null);
   const [pendingFile, setPendingFile] = useState<File | null>(null);
 
@@ -112,7 +112,11 @@ function PortraitField({ character, update }: SectionProps) {
       <button
         type="button"
         onClick={() => fileInput.current?.click()}
-        aria-label={character.portrait ? 'Change portrait' : 'Add portrait'}
+        aria-label={
+          character.portrait
+            ? t('character.sheet.changePortrait')
+            : t('character.sheet.addPortrait')
+        }
         className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-lg border border-ink-700 bg-ink-950 hover:border-arcane-500"
       >
         {character.portrait ? (
@@ -135,7 +139,7 @@ function PortraitField({ character, update }: SectionProps) {
       {character.portrait && (
         <button
           type="button"
-          aria-label="Remove portrait"
+          aria-label={t('character.sheet.removePortrait')}
           onClick={() => update({ portrait: '' })}
           className="absolute -right-1.5 -top-1.5 rounded-full bg-ink-800 p-0.5 text-ink-300 hover:text-red-400"
         >
@@ -147,7 +151,7 @@ function PortraitField({ character, update }: SectionProps) {
           file={pendingFile}
           aspect={1}
           outputWidth={320}
-          title="Adjust portrait"
+          title={t('character.sheet.adjustPortrait')}
           onCancel={() => setPendingFile(null)}
           onSave={(dataUrl) => {
             update({ portrait: dataUrl });
@@ -202,7 +206,10 @@ export function IdentityHeader({ character, update }: SectionProps) {
 
 function ArmorClassField({ character, update }: SectionProps) {
   const { t } = useT();
-  const breakdown = armorClassBreakdown(character);
+  const breakdown = armorClassBreakdown(character, {
+    base: t('character.sheet.acBase'),
+    abilityAbbr: (key) => t(`character.sheet.abilityAbbr.${key}`),
+  });
 
   return (
     <div className="flex flex-col gap-1">
@@ -232,8 +239,9 @@ function ArmorClassField({ character, update }: SectionProps) {
 }
 
 export function AbilityScoresPanel({ character, update }: SectionProps) {
+  const { t } = useT();
   return (
-    <Panel title="Ability Scores">
+    <Panel title={t('character.sheet.panels.abilityScores')}>
       <div className="grid grid-cols-3 gap-2 sm:grid-cols-6 lg:grid-cols-2 xl:grid-cols-3">
         {ABILITY_KEYS.map((key) => {
           const mod = abilityModifier(character.abilities[key]);
@@ -242,13 +250,15 @@ export function AbilityScoresPanel({ character, update }: SectionProps) {
               key={key}
               className="flex flex-col items-center gap-1 rounded-lg border border-ink-700 bg-ink-800 p-2"
             >
-              <span className="text-xs font-semibold uppercase text-ink-400">{key}</span>
+              <span className="text-xs font-semibold uppercase text-ink-400">
+                {t(`character.sheet.abilityAbbr.${key}`)}
+              </span>
               <span className="font-display text-2xl font-bold text-ink-50">
                 {formatModifier(mod)}
               </span>
               <input
                 type="number"
-                aria-label={ABILITY_NAMES[key]}
+                aria-label={t(`character.sheet.abilities.${key}`)}
                 className="w-14 rounded-md border border-ink-700 bg-ink-900 px-1 py-0.5 text-center text-sm text-ink-50 focus:border-arcane-500 focus:outline-none"
                 value={character.abilities[key]}
                 onChange={(event) =>
@@ -275,16 +285,20 @@ function toggle<T>(list: T[], value: T): T[] {
 }
 
 export function SavingThrowsPanel({ character, update }: SectionProps) {
+  const { t } = useT();
   return (
-    <Panel title="Saving Throws">
+    <Panel title={t('character.sheet.panels.savingThrows')}>
       <ul className="flex flex-col gap-1">
         {ABILITY_KEYS.map((key) => {
           const proficient = character.savingThrowProficiencies.includes(key);
+          const abilityName = t(`character.sheet.abilities.${key}`);
           return (
             <li key={key} className="flex items-center gap-2 text-sm">
               <input
                 type="checkbox"
-                aria-label={`${ABILITY_NAMES[key]} saving throw proficiency`}
+                aria-label={t('character.sheet.skillsPanel.savingThrowProficiencyAria', {
+                  ability: abilityName,
+                })}
                 checked={proficient}
                 onChange={() =>
                   update({
@@ -299,7 +313,7 @@ export function SavingThrowsPanel({ character, update }: SectionProps) {
               <span className="w-12 font-mono text-ink-50">
                 {formatModifier(savingThrowBonus(character, key))}
               </span>
-              <span className="text-ink-200">{ABILITY_NAMES[key]}</span>
+              <span className="text-ink-200">{abilityName}</span>
             </li>
           );
         })}
@@ -309,6 +323,7 @@ export function SavingThrowsPanel({ character, update }: SectionProps) {
 }
 
 export function SkillsPanel({ character, update }: SectionProps) {
+  const { t } = useT();
   const cycleSkill = (id: string) => {
     const isProf = character.skillProficiencies.includes(id);
     const isExp = character.skillExpertise.includes(id);
@@ -325,19 +340,22 @@ export function SkillsPanel({ character, update }: SectionProps) {
   };
 
   return (
-    <Panel title="Skills">
+    <Panel title={t('character.sheet.panels.skills')}>
       <ul className="flex flex-col gap-0.5">
         {SKILLS.map((skill) => {
           const isProf = character.skillProficiencies.includes(skill.id);
           const isExp = character.skillExpertise.includes(skill.id);
+          const skillName = t(`character.sheet.skillNames.${skill.id}`);
           return (
             <li key={skill.id} className="flex items-center gap-2 text-sm">
               <button
                 type="button"
-                aria-label={`${skill.name} proficiency`}
+                aria-label={t('character.sheet.skillsPanel.proficiencyAria', {
+                  skill: skillName,
+                })}
                 aria-pressed={isProf || isExp}
                 onClick={() => cycleSkill(skill.id)}
-                title="Click to cycle: none → proficient → expertise"
+                title={t('character.sheet.skillsPanel.cycleTitle')}
                 className={[
                   'flex h-4 w-4 items-center justify-center rounded-full border text-[8px]',
                   isExp
@@ -352,9 +370,9 @@ export function SkillsPanel({ character, update }: SectionProps) {
               <span className="w-10 font-mono text-ink-50">
                 {formatModifier(skillBonus(character, skill))}
               </span>
-              <span className="text-ink-200">{skill.name}</span>
+              <span className="text-ink-200">{skillName}</span>
               <span className="ml-auto text-xs uppercase text-ink-500">
-                {skill.ability}
+                {t(`character.sheet.abilityAbbr.${skill.ability}`)}
               </span>
             </li>
           );
@@ -374,35 +392,39 @@ function StatBox({ label, value }: { label: string; value: string }) {
 }
 
 export function CombatPanel({ character, update }: SectionProps) {
+  const { t } = useT();
   return (
-    <Panel title="Combat">
+    <Panel title={t('character.sheet.panels.combat')}>
       <div className="grid grid-cols-3 gap-2">
         <StatBox
-          label="Prof. Bonus"
+          label={t('character.sheet.combat.profBonus')}
           value={formatModifier(proficiencyBonus(character))}
         />
-        <StatBox label="Initiative" value={formatModifier(initiativeBonus(character))} />
+        <StatBox
+          label={t('character.sheet.combat.initiative')}
+          value={formatModifier(initiativeBonus(character))}
+        />
         <ArmorClassField character={character} update={update} />
       </div>
 
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
         <NumberField
-          label="Walk"
+          label={t('character.sheet.combat.walk')}
           value={character.speed.walk}
           onChange={(walk) => update({ speed: { ...character.speed, walk } })}
         />
         <NumberField
-          label="Swim"
+          label={t('character.sheet.combat.swim')}
           value={character.speed.swim}
           onChange={(swim) => update({ speed: { ...character.speed, swim } })}
         />
         <NumberField
-          label="Climb"
+          label={t('character.sheet.combat.climb')}
           value={character.speed.climb}
           onChange={(climb) => update({ speed: { ...character.speed, climb } })}
         />
         <NumberField
-          label="Fly"
+          label={t('character.sheet.combat.fly')}
           value={character.speed.fly}
           onChange={(fly) => update({ speed: { ...character.speed, fly } })}
         />
@@ -415,13 +437,14 @@ export function CombatPanel({ character, update }: SectionProps) {
           onChange={(event) => update({ inspiration: event.target.checked })}
           className="accent-ember-400"
         />
-        Heroic Inspiration
+        {t('character.sheet.combat.heroicInspiration')}
       </label>
     </Panel>
   );
 }
 
 export function HitPointsPanel({ character, update }: SectionProps) {
+  const { t } = useT();
   const [amount, setAmount] = useState(0);
   const { hp } = character;
 
@@ -440,39 +463,44 @@ export function HitPointsPanel({ character, update }: SectionProps) {
   };
 
   return (
-    <Panel title="Hit Points">
+    <Panel title={t('character.sheet.panels.hitPoints')}>
       <div className="grid grid-cols-3 gap-2">
         <NumberField
-          label="Current"
+          label={t('character.sheet.hpFields.current')}
           value={hp.current}
           onChange={(current) => update({ hp: { ...hp, current } })}
         />
         <NumberField
-          label="Max"
+          label={t('character.sheet.hpFields.max')}
           value={hp.max}
           onChange={(max) => update({ hp: { ...hp, max } })}
         />
         <NumberField
-          label="Temp"
+          label={t('character.sheet.hpFields.temp')}
           value={hp.temp}
           onChange={(temp) => update({ hp: { ...hp, temp } })}
         />
       </div>
       <div className="flex items-end gap-2">
-        <NumberField label="Amount" value={amount} onChange={setAmount} min={0} />
+        <NumberField
+          label={t('character.sheet.hpFields.amount')}
+          value={amount}
+          onChange={setAmount}
+          min={0}
+        />
         <button
           type="button"
           onClick={heal}
           className="rounded-md bg-green-700 px-3 py-1 text-sm font-medium text-ink-50 hover:bg-green-600"
         >
-          Heal
+          {t('character.sheet.hpFields.heal')}
         </button>
         <button
           type="button"
           onClick={damage}
           className="rounded-md bg-red-700 px-3 py-1 text-sm font-medium text-ink-50 hover:bg-red-600"
         >
-          Damage
+          {t('character.sheet.hpFields.damage')}
         </button>
       </div>
     </Panel>
@@ -480,13 +508,20 @@ export function HitPointsPanel({ character, update }: SectionProps) {
 }
 
 export function PassivesPanel({ character }: { character: Character }) {
+  const { t } = useT();
   return (
-    <Panel title="Passive Senses">
+    <Panel title={t('character.sheet.panels.passiveSenses')}>
       <div className="grid grid-cols-3 gap-2">
-        <StatBox label="Perception" value={`${passiveScore(character, 'perception')}`} />
-        <StatBox label="Insight" value={`${passiveScore(character, 'insight')}`} />
         <StatBox
-          label="Investigation"
+          label={t('character.sheet.passives.perception')}
+          value={`${passiveScore(character, 'perception')}`}
+        />
+        <StatBox
+          label={t('character.sheet.passives.insight')}
+          value={`${passiveScore(character, 'insight')}`}
+        />
+        <StatBox
+          label={t('character.sheet.passives.investigation')}
           value={`${passiveScore(character, 'investigation')}`}
         />
       </div>
@@ -495,25 +530,26 @@ export function PassivesPanel({ character }: { character: Character }) {
 }
 
 export function ProficienciesPanel({ character, update }: SectionProps) {
+  const { t } = useT();
   return (
-    <Panel title="Proficiencies & Languages">
+    <Panel title={t('character.sheet.panels.proficienciesLanguages')}>
       <TextField
-        label="Armor"
+        label={t('character.sheet.proficiencies.armor')}
         value={character.armorProficiencies}
         onChange={(armorProficiencies) => update({ armorProficiencies })}
       />
       <TextField
-        label="Weapons"
+        label={t('character.sheet.proficiencies.weapons')}
         value={character.weaponProficiencies}
         onChange={(weaponProficiencies) => update({ weaponProficiencies })}
       />
       <TextField
-        label="Tools"
+        label={t('character.sheet.proficiencies.tools')}
         value={character.toolProficiencies}
         onChange={(toolProficiencies) => update({ toolProficiencies })}
       />
       <TextField
-        label="Languages"
+        label={t('character.sheet.proficiencies.languages')}
         value={character.languages}
         onChange={(languages) => update({ languages })}
       />
@@ -522,22 +558,23 @@ export function ProficienciesPanel({ character, update }: SectionProps) {
 }
 
 export function TrackingPanel({ character, update }: SectionProps) {
+  const { t } = useT();
   return (
-    <Panel title="Defenses & Tracking">
+    <Panel title={t('character.sheet.panels.defensesTracking')}>
       <TextField
-        label="Concentration"
+        label={t('character.sheet.tracking.concentration')}
         value={character.concentration}
         onChange={(concentration) => update({ concentration })}
-        placeholder="e.g. Bless"
+        placeholder={t('character.sheet.tracking.concentrationPlaceholder')}
       />
       <TextField
-        label="Active Conditions"
+        label={t('character.sheet.tracking.activeConditions')}
         value={character.conditions}
         onChange={(conditions) => update({ conditions })}
-        placeholder="e.g. Poisoned"
+        placeholder={t('character.sheet.tracking.conditionsPlaceholder')}
       />
       <TextArea
-        label="Resistances / Immunities"
+        label={t('character.sheet.tracking.resistancesImmunities')}
         value={character.defenses}
         onChange={(defenses) => update({ defenses })}
         rows={3}
@@ -547,10 +584,13 @@ export function TrackingPanel({ character, update }: SectionProps) {
 }
 
 export function SpellcastingPanel({ character }: { character: Character }) {
+  const { t } = useT();
   if (!character.spellcastingAbility) {
     return (
-      <Panel title="Spellcasting">
-        <p className="text-sm text-ink-400">Not a spellcaster.</p>
+      <Panel title={t('character.sheet.panels.spellcasting')}>
+        <p className="text-sm text-ink-400">
+          {t('character.sheet.spellcasting.notSpellcaster')}
+        </p>
       </Panel>
     );
   }
@@ -566,14 +606,25 @@ export function SpellcastingPanel({ character }: { character: Character }) {
   });
 
   return (
-    <Panel title="Spellcasting">
+    <Panel title={t('character.sheet.panels.spellcasting')}>
       <div className="grid grid-cols-3 gap-2">
-        <StatBox label="Ability" value={ABILITY_NAMES[character.spellcastingAbility]} />
-        <StatBox label="Save DC" value={dc == null ? '-' : `${dc}`} />
-        <StatBox label="Attack" value={attack == null ? '-' : formatModifier(attack)} />
+        <StatBox
+          label={t('character.sheet.spellcasting.ability')}
+          value={t(`character.sheet.abilities.${character.spellcastingAbility}`)}
+        />
+        <StatBox
+          label={t('character.sheet.spellcasting.saveDc')}
+          value={dc == null ? '-' : `${dc}`}
+        />
+        <StatBox
+          label={t('character.sheet.spellcasting.attack')}
+          value={attack == null ? '-' : formatModifier(attack)}
+        />
       </div>
       {configuredLevels.length === 0 ? (
-        <p className="text-sm text-ink-400">No spell slots configured.</p>
+        <p className="text-sm text-ink-400">
+          {t('character.sheet.spellcasting.noSlots')}
+        </p>
       ) : (
         <div className="flex flex-col gap-1.5">
           {configuredLevels.map((level) => {
@@ -582,7 +633,9 @@ export function SpellcastingPanel({ character }: { character: Character }) {
             const used = slot.usedLongRest + slot.usedShortRest;
             return (
               <div key={level} className="flex items-center gap-2 text-sm">
-                <span className="w-14 shrink-0 text-ink-300">Lvl {level}</span>
+                <span className="w-14 shrink-0 text-ink-300">
+                  {t('character.sheet.spellcasting.spellLevelShort', { level })}
+                </span>
                 <div className="flex flex-wrap gap-1">
                   {Array.from({ length: max }, (_, i) => (
                     <span
@@ -606,6 +659,7 @@ export function SpellcastingPanel({ character }: { character: Character }) {
 }
 
 export function SessionLogQuickPanel() {
+  const { t } = useT();
   const [text, setText] = useState('');
   const sessions = useSessionStore((s) => s.sessions);
   const addSession = useSessionStore((s) => s.addSession);
@@ -620,26 +674,26 @@ export function SessionLogQuickPanel() {
   };
 
   return (
-    <Panel title="Session Log">
+    <Panel title={t('character.sheet.panels.sessionLog')}>
       <div className="flex items-center gap-2">
         <input
           value={text}
           onChange={(event) => setText(event.target.value)}
           onKeyDown={(event) => event.key === 'Enter' && send()}
-          placeholder="Write a quick note…"
+          placeholder={t('character.sheet.sessionQuick.placeholder')}
           className="flex-1 rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-sm text-ink-50 placeholder:text-ink-400 focus:border-arcane-500 focus:outline-none"
         />
         <button
           type="button"
           onClick={send}
-          aria-label="Add note to session log"
+          aria-label={t('character.sheet.sessionQuick.addNote')}
           className="rounded-md bg-arcane-700 p-1.5 text-ink-50 hover:bg-arcane-500"
         >
           <Send size={16} />
         </button>
       </div>
       <Link to="/session-log" className="text-xs text-arcane-300 hover:underline">
-        Open full session log →
+        {t('character.sheet.sessionQuick.openFull')}
       </Link>
     </Panel>
   );

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BookOpen, Scroll, Search } from 'lucide-react';
 import type { BookIndexEntry } from '@/data/compendium/types';
+import { imageUrl } from '@/data/compendium/images';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
@@ -9,13 +10,25 @@ import { adventures, books } from './data';
 function DocList({ items }: { items: BookIndexEntry[] }) {
   const { t } = useT();
   return (
-    <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
       {items.map((doc) => (
         <li key={`${doc.type}-${doc.id}`}>
           <Link
             to={`/books/${doc.id}`}
-            className="group flex h-full flex-col gap-1 rounded-lg border border-ink-700 bg-ink-900 p-4 transition-all hover:-translate-y-0.5 hover:border-arcane-500 hover:bg-ink-800"
+            className="group flex h-full flex-col gap-2 rounded-lg border border-ink-700 bg-ink-900 p-3 transition-all hover:-translate-y-0.5 hover:border-arcane-500 hover:bg-ink-800"
           >
+            {doc.cover ? (
+              <img
+                src={imageUrl(doc.cover)}
+                alt=""
+                loading="lazy"
+                className="aspect-[2/3] w-full rounded object-cover"
+              />
+            ) : (
+              <span className="flex aspect-[2/3] w-full items-center justify-center rounded bg-ink-800 text-ink-600">
+                {doc.type === 'adventure' ? <Scroll size={28} /> : <BookOpen size={28} />}
+              </span>
+            )}
             <span className="font-medium text-ink-50 group-hover:text-arcane-300">
               {doc.name}
             </span>

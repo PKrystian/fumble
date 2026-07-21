@@ -19,7 +19,7 @@ export function Sidebar({ onNavigate, collapsible = true }: SidebarProps) {
 
   return (
     <nav
-      aria-label="Primary"
+      aria-label={t('common.primaryNav')}
       className={[
         'flex h-full flex-col gap-1 overflow-y-auto overflow-x-hidden py-4',
         showLabels ? '' : 'items-center',
@@ -40,7 +40,9 @@ export function Sidebar({ onNavigate, collapsible = true }: SidebarProps) {
           <button
             type="button"
             onClick={toggle}
-            aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            aria-label={
+              collapsed ? t('common.expandSidebar') : t('common.collapseSidebar')
+            }
             className="rounded-md p-1.5 text-ink-400 hover:bg-ink-800 hover:text-ink-100"
           >
             {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}

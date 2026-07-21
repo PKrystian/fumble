@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Check, X, ZoomIn, ZoomOut } from 'lucide-react';
+import { useT } from '@/i18n/useT';
 
 interface ImageCropperModalProps {
   file: File | Blob;
@@ -34,10 +35,11 @@ export function ImageCropperModal({
   aspect = 1,
   shape = 'rounded',
   outputWidth = 480,
-  title = 'Adjust image',
+  title,
   onCancel,
   onSave,
 }: ImageCropperModalProps) {
+  const { t } = useT();
   const [src, setSrc] = useState<string | null>(null);
   const [natural, setNatural] = useState({ width: 0, height: 0 });
   const [frame, setFrame] = useState({ width: 0, height: 0 });
@@ -193,11 +195,13 @@ export function ImageCropperModal({
         className="flex w-full max-w-sm flex-col gap-4 rounded-xl border border-ink-700 bg-ink-900 p-5 shadow-xl"
       >
         <div className="flex items-center justify-between">
-          <h2 className="font-display text-lg font-bold text-ink-50">{title}</h2>
+          <h2 className="font-display text-lg font-bold text-ink-50">
+            {title ?? t('common.adjustImage')}
+          </h2>
           <button
             type="button"
             onClick={onCancel}
-            aria-label="Cancel"
+            aria-label={t('common.cancel')}
             className="rounded-full p-1 text-ink-400 hover:text-ink-50"
           >
             <X size={18} />
@@ -247,15 +251,13 @@ export function ImageCropperModal({
             step={0.01}
             value={zoom}
             onChange={(e) => setZoom(clampZoom(Number(e.target.value)))}
-            aria-label="Zoom"
+            aria-label={t('common.zoom')}
             className="flex-1 accent-arcane-500"
           />
           <ZoomIn size={16} className="shrink-0 text-ink-400" aria-hidden="true" />
         </div>
 
-        <p className="text-center text-xs text-ink-400">
-          Drag to reposition, pinch or use the slider to zoom.
-        </p>
+        <p className="text-center text-xs text-ink-400">{t('common.cropperHint')}</p>
 
         <div className="flex justify-end gap-2">
           <button
@@ -263,7 +265,7 @@ export function ImageCropperModal({
             onClick={onCancel}
             className="rounded-md border border-ink-700 px-4 py-2 text-sm font-medium text-ink-200 hover:bg-ink-800"
           >
-            Cancel
+            {t('common.cancel')}
           </button>
           <button
             type="button"
@@ -271,7 +273,7 @@ export function ImageCropperModal({
             disabled={saving || !natural.width}
             className="inline-flex items-center gap-2 rounded-md bg-arcane-700 px-4 py-2 text-sm font-medium text-ink-50 hover:bg-arcane-500 disabled:opacity-50"
           >
-            <Check size={16} /> Save
+            <Check size={16} /> {t('common.save')}
           </button>
         </div>
       </div>

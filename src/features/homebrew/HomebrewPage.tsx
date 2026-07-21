@@ -15,15 +15,18 @@ import type { ClassEntry, CompendiumCategoryId } from '@/data/compendium/types';
 import { slugify } from '@/data/transform/util';
 import { confirmDialog } from '@/features/ui/confirmStore';
 import { ImageCropperModal } from '@/features/ui/ImageCropperModal';
+import { type Locale, SUPPORTED_LOCALES } from '@/i18n/locales';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
-import { type HomebrewEntry, useHomebrewStore } from './store';
+import { type HomebrewEntry, type HomebrewTranslation, useHomebrewStore } from './store';
 import { looks5etools, parse5etoolsHomebrew } from './import5etools';
 
 const DEFAULT_CATEGORY = categories[0]!.id;
 
 type EntryType = 'entry' | 'subclass';
+
+type FormLang = 'base' | Locale;
 
 interface FormState {
   id: string | null;
@@ -32,6 +35,7 @@ interface FormState {
   subtitle: string;
   body: string;
   image: string;
+  translations: Partial<Record<Locale, HomebrewTranslation>>;
 }
 
 const EMPTY_FORM: FormState = {
@@ -41,7 +45,10 @@ const EMPTY_FORM: FormState = {
   subtitle: '',
   body: '',
   image: '',
+  translations: {},
 };
+
+const EMPTY_TRANSLATION: HomebrewTranslation = { name: '', subtitle: '', body: '' };
 
 interface SubclassFormState {
   className: string;
@@ -74,6 +81,7 @@ export function HomebrewPage() {
 
   const [entryType, setEntryType] = useState<EntryType>('entry');
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
+  const [formLang, setFormLang] = useState<FormLang>('base');
   const [subclassForm, setSubclassForm] =
     useState<SubclassFormState>(EMPTY_SUBCLASS_FORM);
   const [notice, setNotice] = useState('');
@@ -84,16 +92,53 @@ export function HomebrewPage() {
   const imageFileRef = useRef<HTMLInputElement>(null);
 
   const editing = form.id !== null;
-  const resetForm = () => setForm(EMPTY_FORM);
+  const resetForm = () => {
+    setForm(EMPTY_FORM);
+    setFormLang('base');
+  };
+
+  const activeTranslation =
+    formLang === 'base' ? null : (form.translations[formLang] ?? EMPTY_TRANSLATION);
+
+  const field = (key: keyof HomebrewTranslation): string =>
+    formLang === 'base' ? form[key] : (activeTranslation?.[key] ?? '');
+
+  const setField = (key: keyof HomebrewTranslation, value: string) => {
+    if (formLang === 'base') {
+      setForm((f) => ({ ...f, [key]: value }));
+      return;
+    }
+    setForm((f) => ({
+      ...f,
+      translations: {
+        ...f.translations,
+        [formLang]: {
+          ...(f.translations[formLang] ?? EMPTY_TRANSLATION),
+          [key]: value,
+        },
+      },
+    }));
+  };
 
   const submit = () => {
     if (!form.name.trim()) return;
+    const translations: Partial<Record<Locale, HomebrewTranslation>> = {};
+    for (const [locale, tr] of Object.entries(form.translations)) {
+      if (tr && (tr.name.trim() || tr.subtitle.trim() || tr.body.trim())) {
+        translations[locale as Locale] = {
+          name: tr.name.trim(),
+          subtitle: tr.subtitle.trim(),
+          body: tr.body,
+        };
+      }
+    }
     const payload = {
       name: form.name.trim(),
       category: form.category,
       subtitle: form.subtitle.trim(),
       body: form.body,
       image: form.image,
+      translations,
     };
     if (form.id) updateManual(form.id, payload);
     else addManual(payload);
@@ -116,6 +161,7 @@ export function HomebrewPage() {
   const startEdit = (entry: HomebrewEntry) => {
     if (entry.kind !== 'manual') return;
     setEntryType('entry');
+    setFormLang('base');
     setForm({
       id: entry.id,
       name: entry.name,
@@ -123,6 +169,7 @@ export function HomebrewPage() {
       subtitle: entry.subtitle,
       body: entry.body,
       image: entry.image ?? '',
+      translations: entry.translations ?? {},
     });
   };
 
@@ -339,85 +386,155 @@ export function HomebrewPage() {
 
           {entryType === 'entry' || editing ? (
             <>
-              <label className="flex flex-col gap-1 text-sm">
-                <span className="text-xs font-semibold text-ink-400">Name</span>
-                <input
-                  value={form.name}
-                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                  placeholder="e.g. Blade of the Rift"
-                  className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
-                />
-              </label>
-
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-1 rounded-lg border border-ink-700 bg-ink-950 p-1 text-xs">
                 <button
                   type="button"
-                  onClick={() => imageFileRef.current?.click()}
-                  aria-label={form.image ? 'Change artwork' : 'Add artwork'}
-                  className="flex h-20 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-ink-700 bg-ink-950 hover:border-arcane-500"
+                  onClick={() => setFormLang('base')}
+                  className={[
+                    'rounded-md px-2 py-1 transition-colors',
+                    formLang === 'base'
+                      ? 'bg-arcane-700 text-ink-50'
+                      : 'text-ink-300 hover:bg-ink-800',
+                  ].join(' ')}
                 >
-                  {form.image ? (
-                    <img src={form.image} alt="" className="h-full w-full object-cover" />
-                  ) : (
-                    <ImagePlus className="text-ink-600" size={22} aria-hidden="true" />
-                  )}
+                  {t('homebrew.baseLanguage')}
                 </button>
-                <div className="flex flex-col gap-1 text-xs text-ink-400">
-                  <span className="font-semibold text-ink-300">Artwork (optional)</span>
-                  <span>Shown on the entry&apos;s Compendium page.</span>
-                  {form.image && (
+                {SUPPORTED_LOCALES.map((loc) => {
+                  const tr = form.translations[loc.code];
+                  const hasContent = Boolean(
+                    tr && (tr.name.trim() || tr.subtitle.trim() || tr.body.trim()),
+                  );
+                  return (
                     <button
+                      key={loc.code}
                       type="button"
-                      onClick={() => setForm((f) => ({ ...f, image: '' }))}
-                      className="inline-flex w-fit items-center gap-1 text-red-400 hover:text-red-300"
+                      onClick={() => setFormLang(loc.code)}
+                      className={[
+                        'inline-flex items-center gap-1 rounded-md px-2 py-1 transition-colors',
+                        formLang === loc.code
+                          ? 'bg-arcane-700 text-ink-50'
+                          : 'text-ink-300 hover:bg-ink-800',
+                      ].join(' ')}
                     >
-                      <X size={12} /> Remove
+                      {loc.nativeLabel}
+                      {hasContent && (
+                        <span className="h-1.5 w-1.5 rounded-full bg-ember-400" />
+                      )}
                     </button>
-                  )}
-                </div>
-                <input
-                  ref={imageFileRef}
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => {
-                    const file = e.target.files?.[0];
-                    if (file) setPendingImageFile(file);
-                    e.target.value = '';
-                  }}
-                />
+                  );
+                })}
               </div>
+              {formLang !== 'base' && (
+                <p className="text-xs text-ink-400">{t('homebrew.translationHint')}</p>
+              )}
 
               <label className="flex flex-col gap-1 text-sm">
                 <span className="text-xs font-semibold text-ink-400">
-                  {t('homebrew.category')}
+                  {t('homebrew.nameLabel')}
                 </span>
-                <select
-                  value={form.category}
-                  onChange={(e) =>
-                    setForm((f) => ({
-                      ...f,
-                      category: e.target.value as CompendiumCategoryId,
-                    }))
+                <input
+                  value={field('name')}
+                  onChange={(e) => setField('name', e.target.value)}
+                  placeholder={
+                    formLang === 'base'
+                      ? t('homebrew.namePlaceholder')
+                      : form.name || t('homebrew.namePlaceholder')
                   }
                   className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
-                >
-                  {categories.map((c) => (
-                    <option key={c.id} value={c.id}>
-                      {t(`compendium.categories.${c.id}`)}
-                    </option>
-                  ))}
-                </select>
+                />
               </label>
+
+              {formLang === 'base' && (
+                <>
+                  <div className="flex items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={() => imageFileRef.current?.click()}
+                      aria-label={
+                        form.image
+                          ? t('homebrew.changeArtwork')
+                          : t('homebrew.addArtwork')
+                      }
+                      className="flex h-20 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-ink-700 bg-ink-950 hover:border-arcane-500"
+                    >
+                      {form.image ? (
+                        <img
+                          src={form.image}
+                          alt=""
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <ImagePlus
+                          className="text-ink-600"
+                          size={22}
+                          aria-hidden="true"
+                        />
+                      )}
+                    </button>
+                    <div className="flex flex-col gap-1 text-xs text-ink-400">
+                      <span className="font-semibold text-ink-300">
+                        {t('homebrew.artworkOptional')}
+                      </span>
+                      <span>{t('homebrew.artworkShownOn')}</span>
+                      {form.image && (
+                        <button
+                          type="button"
+                          onClick={() => setForm((f) => ({ ...f, image: '' }))}
+                          className="inline-flex w-fit items-center gap-1 text-red-400 hover:text-red-300"
+                        >
+                          <X size={12} /> {t('homebrew.removeImage')}
+                        </button>
+                      )}
+                    </div>
+                    <input
+                      ref={imageFileRef}
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) setPendingImageFile(file);
+                        e.target.value = '';
+                      }}
+                    />
+                  </div>
+
+                  <label className="flex flex-col gap-1 text-sm">
+                    <span className="text-xs font-semibold text-ink-400">
+                      {t('homebrew.category')}
+                    </span>
+                    <select
+                      value={form.category}
+                      onChange={(e) =>
+                        setForm((f) => ({
+                          ...f,
+                          category: e.target.value as CompendiumCategoryId,
+                        }))
+                      }
+                      className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
+                    >
+                      {categories.map((c) => (
+                        <option key={c.id} value={c.id}>
+                          {t(`compendium.categories.${c.id}`)}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </>
+              )}
 
               <label className="flex flex-col gap-1 text-sm">
                 <span className="text-xs font-semibold text-ink-400">
                   {t('homebrew.subtitle')}
                 </span>
                 <input
-                  value={form.subtitle}
-                  onChange={(e) => setForm((f) => ({ ...f, subtitle: e.target.value }))}
-                  placeholder="e.g. Rare weapon (requires attunement)"
+                  value={field('subtitle')}
+                  onChange={(e) => setField('subtitle', e.target.value)}
+                  placeholder={
+                    formLang === 'base'
+                      ? t('homebrew.subtitlePlaceholder')
+                      : form.subtitle || t('homebrew.subtitlePlaceholder')
+                  }
                   className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
                 />
               </label>
@@ -427,10 +544,14 @@ export function HomebrewPage() {
                   {t('homebrew.descriptionLabel')}
                 </span>
                 <textarea
-                  value={form.body}
-                  onChange={(e) => setForm((f) => ({ ...f, body: e.target.value }))}
+                  value={field('body')}
+                  onChange={(e) => setField('body', e.target.value)}
                   rows={8}
-                  placeholder="You deal an extra {@damage 1d6} radiant damage on a hit.&#10;&#10;While attuned, you have the {@condition Blessed} condition."
+                  placeholder={
+                    formLang === 'base'
+                      ? t('homebrew.descriptionPlaceholder')
+                      : form.body || t('homebrew.descriptionPlaceholder')
+                  }
                   className="resize-y rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-100 focus:border-arcane-500 focus:outline-none"
                 />
               </label>
@@ -450,7 +571,7 @@ export function HomebrewPage() {
                   file={pendingImageFile}
                   aspect={3 / 4}
                   outputWidth={480}
-                  title="Adjust artwork"
+                  title={t('homebrew.adjustArtwork')}
                   onCancel={() => setPendingImageFile(null)}
                   onSave={(dataUrl) => {
                     setForm((f) => ({ ...f, image: dataUrl }));
@@ -492,7 +613,7 @@ export function HomebrewPage() {
                   onChange={(e) =>
                     setSubclassForm((f) => ({ ...f, name: e.target.value }))
                   }
-                  placeholder="e.g. Oath of the Rift"
+                  placeholder={t('homebrew.subclassNamePlaceholder')}
                   className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
                 />
               </label>
@@ -506,7 +627,7 @@ export function HomebrewPage() {
                   onChange={(e) =>
                     setSubclassForm((f) => ({ ...f, source: e.target.value }))
                   }
-                  placeholder="e.g. Homebrew"
+                  placeholder={t('homebrew.sourcePlaceholder')}
                   className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
                 />
               </label>
@@ -521,7 +642,7 @@ export function HomebrewPage() {
                     setSubclassForm((f) => ({ ...f, body: e.target.value }))
                   }
                   rows={8}
-                  placeholder="At 3rd level, you gain..."
+                  placeholder={t('homebrew.featuresPlaceholder')}
                   className="resize-y rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-100 focus:border-arcane-500 focus:outline-none"
                 />
               </label>
@@ -582,7 +703,7 @@ export function HomebrewPage() {
                         <span className="truncate">{entry.name}</span>
                         {entry.kind === 'imported' && (
                           <span className="shrink-0 rounded-full border border-ink-600 px-1.5 text-[0.6rem] uppercase text-ink-400">
-                            5etools
+                            {t('homebrew.fromEtoolsBadge')}
                           </span>
                         )}
                       </Link>
@@ -597,7 +718,7 @@ export function HomebrewPage() {
                   {entry.kind === 'manual' && (
                     <button
                       type="button"
-                      aria-label={`Edit ${entry.name}`}
+                      aria-label={t('homebrew.editLabel', { name: entry.name })}
                       onClick={() => startEdit(entry)}
                       className="rounded p-1.5 text-ink-400 hover:bg-ink-800 hover:text-ink-50"
                     >

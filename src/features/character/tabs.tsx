@@ -2,7 +2,6 @@ import { type ReactNode, useState } from 'react';
 import { Minus, Plus, Trash2 } from 'lucide-react';
 import {
   ABILITY_KEYS,
-  ABILITY_NAMES,
   MAX_SPELL_LEVEL,
   SKILLS,
   type AbilityKey,
@@ -38,7 +37,17 @@ interface TabProps {
 const TABS = ['Actions', 'Spells', 'Inventory', 'Features', 'Rolls', 'Notes'] as const;
 type TabName = (typeof TABS)[number];
 
+const TAB_LABEL_KEYS: Record<TabName, string> = {
+  Actions: 'character.sheet.tabs.actions',
+  Spells: 'character.sheet.tabs.spells',
+  Inventory: 'character.sheet.tabs.inventory',
+  Features: 'character.sheet.tabs.features',
+  Rolls: 'character.sheet.tabs.rolls',
+  Notes: 'character.sheet.tabs.notes',
+};
+
 export function SheetTabs({ character, update }: TabProps) {
+  const { t } = useT();
   const [active, setActive] = useState<TabName>('Actions');
 
   return (
@@ -56,7 +65,7 @@ export function SheetTabs({ character, update }: TabProps) {
                 : 'text-ink-300 hover:bg-ink-800 hover:text-ink-50',
             ].join(' ')}
           >
-            {tab}
+            {t(TAB_LABEL_KEYS[tab])}
           </button>
         ))}
       </nav>
@@ -97,6 +106,7 @@ function RemoveButton({ onClick, label }: { onClick: () => void; label: string }
 }
 
 function ActionsTab({ character, update }: TabProps) {
+  const { t } = useT();
   const add = () =>
     update({ actions: [...character.actions, { id: uid(), name: '', notes: '' }] });
   const patch = (id: string, key: 'name' | 'notes', value: string) =>
@@ -114,19 +124,22 @@ function ActionsTab({ character, update }: TabProps) {
             <TextField
               value={action.name}
               onChange={(v) => patch(action.id, 'name', v)}
-              placeholder="Action name (e.g. Longsword Attack)"
+              placeholder={t('character.sheet.actionsTab.namePlaceholder')}
             />
             <TextArea
               value={action.notes}
               onChange={(v) => patch(action.id, 'notes', v)}
               rows={2}
-              placeholder="Details, to-hit, damage…"
+              placeholder={t('character.sheet.actionsTab.detailsPlaceholder')}
             />
           </div>
-          <RemoveButton onClick={() => remove(action.id)} label="Remove action" />
+          <RemoveButton
+            onClick={() => remove(action.id)}
+            label={t('character.sheet.actionsTab.remove')}
+          />
         </div>
       ))}
-      <AddButton label="Add action" onClick={add} />
+      <AddButton label={t('character.sheet.actionsTab.add')} onClick={add} />
     </div>
   );
 }
@@ -174,7 +187,7 @@ function InventoryTab({ character, update }: TabProps) {
     <div className="flex flex-col gap-3">
       <CompendiumPicker
         categoryId="items"
-        placeholder="Add an item from the compendium…"
+        placeholder={t('character.sheet.inventoryTab.addFromCompendium')}
         onPick={(item) => addFromCompendium(item as ItemEntry)}
       />
       {character.inventory.map((item) => (
@@ -193,12 +206,12 @@ function InventoryTab({ character, update }: TabProps) {
             <TextField
               value={item.name}
               onChange={(name) => patch(item.id, { name })}
-              placeholder="Item name"
+              placeholder={t('character.sheet.inventoryTab.namePlaceholder')}
             />
             <TextField
               value={item.notes}
               onChange={(notes) => patch(item.id, { notes })}
-              placeholder="Short description"
+              placeholder={t('character.sheet.inventoryTab.descPlaceholder')}
             />
             {item.armorType && (
               <label className="flex items-center gap-2 text-xs text-ink-300">
@@ -212,15 +225,19 @@ function InventoryTab({ character, update }: TabProps) {
               </label>
             )}
           </div>
-          <RemoveButton onClick={() => remove(item.id)} label="Remove item" />
+          <RemoveButton
+            onClick={() => remove(item.id)}
+            label={t('character.sheet.inventoryTab.remove')}
+          />
         </div>
       ))}
-      <AddButton label="Add item" onClick={add} />
+      <AddButton label={t('character.sheet.inventoryTab.add')} onClick={add} />
     </div>
   );
 }
 
 function FeaturesTab({ character, update }: TabProps) {
+  const { t } = useT();
   const add = () =>
     update({
       features: [...character.features, { id: uid(), name: '', source: '', notes: '' }],
@@ -243,7 +260,7 @@ function FeaturesTab({ character, update }: TabProps) {
     <div className="flex flex-col gap-3">
       <CompendiumPicker
         categoryId="feats"
-        placeholder="Add a feat from the compendium…"
+        placeholder={t('character.sheet.featuresTab.addFromCompendium')}
         onPick={(item) => addFromCompendium(item as FeatEntry)}
       />
       {character.features.map((feature) => (
@@ -254,14 +271,14 @@ function FeaturesTab({ character, update }: TabProps) {
                 <TextField
                   value={feature.name}
                   onChange={(name) => patch(feature.id, { name })}
-                  placeholder="Feature / trait / feat"
+                  placeholder={t('character.sheet.featuresTab.namePlaceholder')}
                 />
               </div>
               <div className="w-40">
                 <TextField
                   value={feature.source}
                   onChange={(source) => patch(feature.id, { source })}
-                  placeholder="Source"
+                  placeholder={t('character.sheet.featuresTab.sourcePlaceholder')}
                 />
               </div>
             </div>
@@ -269,18 +286,22 @@ function FeaturesTab({ character, update }: TabProps) {
               value={feature.notes}
               onChange={(notes) => patch(feature.id, { notes })}
               rows={2}
-              placeholder="Description"
+              placeholder={t('character.sheet.featuresTab.descPlaceholder')}
             />
           </div>
-          <RemoveButton onClick={() => remove(feature.id)} label="Remove feature" />
+          <RemoveButton
+            onClick={() => remove(feature.id)}
+            label={t('character.sheet.featuresTab.remove')}
+          />
         </div>
       ))}
-      <AddButton label="Add feature" onClick={add} />
+      <AddButton label={t('character.sheet.featuresTab.add')} onClick={add} />
     </div>
   );
 }
 
 function SpellsTab({ character, update }: TabProps) {
+  const { t } = useT();
   const dc = spellSaveDc(character);
   const attack = spellAttackBonus(character);
 
@@ -359,7 +380,9 @@ function SpellsTab({ character, update }: TabProps) {
     <div className="flex flex-col gap-4">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <label className="flex flex-col gap-1 text-sm">
-          <span className="text-xs font-semibold text-ink-400">Spellcasting Ability</span>
+          <span className="text-xs font-semibold text-ink-400">
+            {t('character.sheet.spellsTab.spellcastingAbility')}
+          </span>
           <select
             className="rounded-md border border-ink-700 bg-ink-900 px-2 py-1 text-ink-50 focus:border-arcane-500 focus:outline-none"
             value={character.spellcastingAbility ?? ''}
@@ -369,23 +392,23 @@ function SpellsTab({ character, update }: TabProps) {
               })
             }
           >
-            <option value="">None</option>
+            <option value="">{t('character.sheet.spellsTab.none')}</option>
             {ABILITY_KEYS.map((key) => (
               <option key={key} value={key}>
-                {ABILITY_NAMES[key]}
+                {t(`character.sheet.abilities.${key}`)}
               </option>
             ))}
           </select>
         </label>
         <div className="flex flex-col items-center justify-center rounded-lg border border-ink-700 bg-ink-800 p-2">
           <span className="text-xs font-semibold uppercase text-ink-400">
-            Spell Save DC
+            {t('character.sheet.spellsTab.saveDc')}
           </span>
           <span className="font-display text-xl font-bold text-ink-50">{dc ?? '-'}</span>
         </div>
         <div className="flex flex-col items-center justify-center rounded-lg border border-ink-700 bg-ink-800 p-2">
           <span className="text-xs font-semibold uppercase text-ink-400">
-            Spell Attack
+            {t('character.sheet.spellsTab.attack')}
           </span>
           <span className="font-display text-xl font-bold text-ink-50">
             {attack == null ? '-' : formatModifier(attack)}
@@ -395,27 +418,29 @@ function SpellsTab({ character, update }: TabProps) {
 
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-semibold text-ink-200">Spell Slots</h3>
+          <h3 className="text-sm font-semibold text-ink-200">
+            {t('character.sheet.spellsTab.slots')}
+          </h3>
           <div className="flex gap-2">
             <button
               type="button"
               onClick={shortRest}
               className="rounded-md border border-ink-700 px-2 py-1 text-xs text-ink-200 hover:bg-ink-800"
             >
-              Short Rest
+              {t('character.sheet.spellsTab.shortRest')}
             </button>
             <button
               type="button"
               onClick={longRest}
               className="rounded-md border border-ink-700 px-2 py-1 text-xs text-ink-200 hover:bg-ink-800"
             >
-              Long Rest
+              {t('character.sheet.spellsTab.longRest')}
             </button>
           </div>
         </div>
         {configuredLevels.length === 0 && (
           <p className="text-sm text-ink-400">
-            No spell slots configured - set them in Character Settings.
+            {t('character.sheet.spellsTab.noSlotsHint')}
           </p>
         )}
         {configuredLevels.map((level) => {
@@ -424,10 +449,12 @@ function SpellsTab({ character, update }: TabProps) {
           const remaining = max - slot.usedLongRest - slot.usedShortRest;
           return (
             <div key={level} className="flex items-center gap-2 text-sm">
-              <span className="w-16 text-ink-300">Level {level}</span>
+              <span className="w-16 text-ink-300">
+                {t('character.sheet.spellsTab.level', { level })}
+              </span>
               <button
                 type="button"
-                aria-label={`Spend a level ${level} slot`}
+                aria-label={t('character.sheet.spellsTab.spendSlot', { level })}
                 onClick={() => spendSlot(level)}
                 disabled={remaining <= 0}
                 className="rounded border border-ink-700 p-1 text-ink-200 hover:bg-ink-800 disabled:opacity-40"
@@ -439,7 +466,7 @@ function SpellsTab({ character, update }: TabProps) {
               </span>
               <button
                 type="button"
-                aria-label={`Recover a level ${level} slot`}
+                aria-label={t('character.sheet.spellsTab.recoverSlot', { level })}
                 onClick={() => recoverSlot(level)}
                 disabled={remaining >= max}
                 className="rounded border border-ink-700 p-1 text-ink-200 hover:bg-ink-800 disabled:opacity-40"
@@ -452,10 +479,12 @@ function SpellsTab({ character, update }: TabProps) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <h3 className="text-sm font-semibold text-ink-200">Spells</h3>
+        <h3 className="text-sm font-semibold text-ink-200">
+          {t('character.sheet.spellsTab.spells')}
+        </h3>
         <CompendiumPicker
           categoryId="spells"
-          placeholder="Add a spell from the compendium…"
+          placeholder={t('character.sheet.spellsTab.addFromCompendium')}
           onPick={(item) => addFromCompendium(item as CompendiumSpell)}
         />
         {character.spells.map((spell) => (
@@ -469,7 +498,7 @@ function SpellsTab({ character, update }: TabProps) {
                 }
                 className="accent-arcane-500"
               />
-              Prep
+              {t('character.sheet.spellsTab.prep')}
             </label>
             <div className="w-16">
               <NumberField
@@ -483,23 +512,26 @@ function SpellsTab({ character, update }: TabProps) {
               <TextField
                 value={spell.name}
                 onChange={(name) => patchSpell(spell.id, { name })}
-                placeholder="Spell name"
+                placeholder={t('character.sheet.spellsTab.namePlaceholder')}
               />
             </div>
-            <RemoveButton onClick={() => removeSpell(spell.id)} label="Remove spell" />
+            <RemoveButton
+              onClick={() => removeSpell(spell.id)}
+              label={t('character.sheet.spellsTab.remove')}
+            />
           </div>
         ))}
-        <AddButton label="Add spell" onClick={addSpell} />
+        <AddButton label={t('character.sheet.spellsTab.add')} onClick={addSpell} />
       </div>
     </div>
   );
 }
 
 const ROLL_MODES: RollMode[] = ['normal', 'advantage', 'disadvantage'];
-const ROLL_MODE_LABELS: Record<RollMode, string> = {
-  normal: 'Normal',
-  advantage: 'Advantage',
-  disadvantage: 'Disadvantage',
+const ROLL_MODE_KEYS: Record<RollMode, string> = {
+  normal: 'dice.modeNormal',
+  advantage: 'dice.modeAdvantage',
+  disadvantage: 'dice.modeDisadvantage',
 };
 
 interface NamedRoll {
@@ -508,9 +540,11 @@ interface NamedRoll {
 }
 
 function RollsTab({ character }: { character: Character }) {
+  const { t } = useT();
   const [mode, setMode] = useState<RollMode>('normal');
   const [last, setLast] = useState<NamedRoll | null>(null);
   const [history, setHistory] = useState<NamedRoll[]>([]);
+  const modeLabel = (m: RollMode) => t(ROLL_MODE_KEYS[m]);
 
   const roll = (label: string, bonus: number) => {
     const outcome = rollParsed(
@@ -536,7 +570,7 @@ function RollsTab({ character }: { character: Character }) {
                 : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
             ].join(' ')}
           >
-            {ROLL_MODE_LABELS[m]}
+            {modeLabel(m)}
           </button>
         ))}
       </div>
@@ -545,8 +579,7 @@ function RollsTab({ character }: { character: Character }) {
         <div className="rounded-xl border border-arcane-700 bg-ink-950 p-4 text-center">
           <p className="text-sm text-ink-300">
             {last.label}
-            {last.outcome.mode !== 'normal' &&
-              ` (${ROLL_MODE_LABELS[last.outcome.mode]})`}
+            {last.outcome.mode !== 'normal' && ` (${modeLabel(last.outcome.mode)})`}
           </p>
           <p className="my-1 font-display text-4xl font-bold text-ember-400">
             {last.outcome.total}
@@ -560,37 +593,43 @@ function RollsTab({ character }: { character: Character }) {
         </div>
       )}
 
-      <RollGroup title="Quick">
-        <RollButton label="Initiative" bonus={initiativeBonus(character)} onRoll={roll} />
+      <RollGroup title={t('character.sheet.rollsTab.quick')}>
+        <RollButton
+          label={t('character.sheet.combat.initiative')}
+          bonus={initiativeBonus(character)}
+          onRoll={roll}
+        />
       </RollGroup>
 
-      <RollGroup title="Ability Checks">
+      <RollGroup title={t('character.sheet.rollsTab.abilityChecks')}>
         {ABILITY_KEYS.map((key) => (
           <RollButton
             key={key}
-            label={ABILITY_NAMES[key]}
+            label={t(`character.sheet.abilities.${key}`)}
             bonus={abilityModifier(character.abilities[key])}
             onRoll={roll}
           />
         ))}
       </RollGroup>
 
-      <RollGroup title="Saving Throws">
+      <RollGroup title={t('character.sheet.rollsTab.savingThrows')}>
         {ABILITY_KEYS.map((key) => (
           <RollButton
             key={key}
-            label={`${ABILITY_NAMES[key]} save`}
+            label={t('character.sheet.rollsTab.saveLabel', {
+              ability: t(`character.sheet.abilities.${key}`),
+            })}
             bonus={savingThrowBonus(character, key)}
             onRoll={roll}
           />
         ))}
       </RollGroup>
 
-      <RollGroup title="Skills">
+      <RollGroup title={t('character.sheet.rollsTab.skills')}>
         {SKILLS.map((skill) => (
           <RollButton
             key={skill.id}
-            label={skill.name}
+            label={t(`character.sheet.skillNames.${skill.id}`)}
             bonus={skillBonus(character, skill)}
             onRoll={roll}
           />
@@ -600,7 +639,7 @@ function RollsTab({ character }: { character: Character }) {
       {history.length > 1 && (
         <div>
           <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-ink-400">
-            Recent
+            {t('character.sheet.rollsTab.recent')}
           </h3>
           <ul className="flex flex-col gap-0.5 text-sm">
             {history.slice(1).map((entry, index) => (
@@ -648,12 +687,13 @@ function RollButton({
 }
 
 function NotesTab({ character, update }: TabProps) {
+  const { t } = useT();
   return (
     <TextArea
       value={character.notes}
       onChange={(notes) => update({ notes })}
       rows={12}
-      placeholder="Backstory, session notes, anything…"
+      placeholder={t('character.sheet.notesTab.placeholder')}
     />
   );
 }

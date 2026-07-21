@@ -84,11 +84,13 @@ export function SessionLogPage() {
     <div className="flex h-full">
       <aside className="flex w-64 shrink-0 flex-col border-r border-ink-700">
         <div className="flex items-center justify-between border-b border-ink-700 p-3">
-          <h1 className="font-display text-lg font-bold text-ink-50">Sessions</h1>
+          <h1 className="font-display text-lg font-bold text-ink-50">
+            {t('sessionLog.sessions')}
+          </h1>
           <button
             type="button"
             onClick={createSession}
-            aria-label="New session"
+            aria-label={t('sessionLog.newSession')}
             className="rounded-md bg-arcane-700 p-1.5 text-ink-50 hover:bg-arcane-500"
           >
             <Plus size={16} />
@@ -120,13 +122,13 @@ export function SessionLogPage() {
       <main className="min-w-0 flex-1 overflow-y-auto p-5">
         {!session ? (
           <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-ink-300">
-            <p>No session selected.</p>
+            <p>{t('sessionLog.noSessionSelected')}</p>
             <button
               type="button"
               onClick={createSession}
               className="rounded-lg bg-arcane-700 px-4 py-2 font-medium text-ink-50 hover:bg-arcane-500"
             >
-              Start a new session
+              {t('sessionLog.startNewSession')}
             </button>
           </div>
         ) : (
@@ -139,11 +141,11 @@ export function SessionLogPage() {
               />
               <button
                 type="button"
-                aria-label="Delete session"
+                aria-label={t('sessionLog.deleteSession')}
                 onClick={async () => {
-                  const ok = await confirmDialog('Delete this session?', {
+                  const ok = await confirmDialog(t('sessionLog.deleteSessionConfirm'), {
                     tone: 'danger',
-                    confirmLabel: 'Delete',
+                    confirmLabel: t('common.delete'),
                   });
                   if (ok) {
                     deleteSession(session.id);
@@ -170,22 +172,22 @@ export function SessionLogPage() {
                     ].join(' ')}
                   >
                     {listening ? <Square size={16} /> : <Mic size={16} />}
-                    {listening ? 'Stop' : 'Record'}
+                    {listening ? t('sessionLog.stop') : t('sessionLog.record')}
                   </button>
                   <select
                     value={transcriptionLang}
                     onChange={(e) => setTranscriptionLang(e.target.value)}
                     disabled={listening}
-                    aria-label="Transcription language"
+                    aria-label={t('sessionLog.transcriptionLanguage')}
                     className="rounded-md border border-ink-700 bg-ink-900 px-2 py-1.5 text-sm text-ink-200 focus:border-arcane-500 focus:outline-none disabled:opacity-50"
                   >
-                    <option value="english">English</option>
-                    <option value="polish">Polish</option>
+                    <option value="english">{t('sessionLog.english')}</option>
+                    <option value="polish">{t('sessionLog.polish')}</option>
                   </select>
                 </>
               ) : (
                 <span className="text-sm text-ink-400">
-                  Voice capture isn't supported in this browser.
+                  {t('sessionLog.voiceNotSupported')}
                 </span>
               )}
               <span className="font-mono text-lg text-ink-200">
@@ -194,7 +196,7 @@ export function SessionLogPage() {
               {listening && (
                 <span className="flex items-center gap-1 text-sm text-red-400">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />{' '}
-                  recording
+                  {t('sessionLog.recording')}
                 </span>
               )}
               <div className="ml-auto flex items-center gap-2">
@@ -205,17 +207,19 @@ export function SessionLogPage() {
                   className="inline-flex items-center gap-2 rounded-lg border border-ink-700 px-3 py-1.5 text-sm font-medium text-ink-100 hover:bg-ink-800 disabled:opacity-50"
                 >
                   {copied ? <Check size={16} /> : <Copy size={16} />}
-                  {copied ? 'Copied' : 'Copy transcript'}
+                  {copied ? t('sessionLog.copied') : t('sessionLog.copyTranscript')}
                 </button>
                 <button
                   type="button"
                   onClick={copyWithPrompt}
                   disabled={session.entries.length === 0}
-                  title="Copies a ready-to-paste AI prompt that asks for a numbered plot-point summary"
+                  title={t('sessionLog.copyWithAiPromptTitle')}
                   className="inline-flex items-center gap-2 rounded-lg bg-arcane-700 px-3 py-1.5 text-sm font-medium text-ink-50 hover:bg-arcane-500 disabled:opacity-50"
                 >
                   {promptCopied ? <Check size={16} /> : <Sparkles size={16} />}
-                  {promptCopied ? 'Copied' : 'Copy with AI prompt'}
+                  {promptCopied
+                    ? t('sessionLog.copied')
+                    : t('sessionLog.copyWithAiPrompt')}
                 </button>
               </div>
             </div>
@@ -229,9 +233,7 @@ export function SessionLogPage() {
 
             <div className="flex min-h-[20rem] flex-col gap-2 rounded-lg border border-ink-700 bg-ink-900 p-3">
               {session.entries.length === 0 ? (
-                <p className="text-ink-500">
-                  Your session transcript will appear here as you speak…
-                </p>
+                <p className="text-ink-500">{t('sessionLog.transcriptEmptyState')}</p>
               ) : (
                 session.entries.map((entry, i) => (
                   <p key={`${entry.time}-${i}`} className="leading-relaxed text-ink-100">

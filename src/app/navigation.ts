@@ -7,7 +7,6 @@ import {
   Music,
   ScrollText,
   Shield,
-  Skull,
   Swords,
   Coins,
   Calculator,
@@ -41,7 +40,6 @@ export const navSections: NavSection[] = [
     titleKey: 'nav.sectionDm',
     items: [
       { labelKey: 'nav.initiative', to: '/dm/initiative', icon: Swords },
-      { labelKey: 'nav.bestiary', to: '/compendium/bestiary', icon: Skull },
       { labelKey: 'nav.lootGenerator', to: '/dm/loot', icon: Coins },
       { labelKey: 'nav.encounterCr', to: '/dm/encounter', icon: Calculator },
       { labelKey: 'nav.soundboard', to: '/dm/soundboard', icon: Music },
@@ -49,10 +47,7 @@ export const navSections: NavSection[] = [
   },
   {
     titleKey: 'nav.sectionCampaign',
-    items: [
-      { labelKey: 'nav.books', to: '/books', icon: BookOpen },
-      { labelKey: 'nav.wiki', to: '/wiki', icon: Shield },
-    ],
+    items: [{ labelKey: 'nav.wiki', to: '/wiki', icon: Shield }],
   },
 ];
 

@@ -6,6 +6,13 @@ import type {
   CompendiumCategoryId,
   CompendiumEntryBase,
 } from '@/data/compendium/types';
+import type { Locale } from '@/i18n/locales';
+
+export interface HomebrewTranslation {
+  name: string;
+  subtitle: string;
+  body: string;
+}
 
 export interface HomebrewManualEntry {
   kind: 'manual';
@@ -19,6 +26,8 @@ export interface HomebrewManualEntry {
 
   image?: string;
   createdAt: number;
+
+  translations?: Partial<Record<Locale, HomebrewTranslation>>;
 }
 
 export interface HomebrewImportedEntry {
@@ -76,17 +85,22 @@ export function bodyToEntries(body: string): Entry[] {
 
 export function homebrewToItem(
   entry: HomebrewManualEntry | HomebrewImportedEntry,
+  locale?: Locale,
 ): HomebrewCompendiumItem {
   if (entry.kind === 'manual') {
+    const translation = locale ? entry.translations?.[locale] : undefined;
+    const name = translation?.name.trim() || entry.name;
+    const subtitle = translation?.subtitle.trim() || entry.subtitle;
+    const body = translation?.body.trim() || entry.body;
     return {
       id: entry.id,
-      name: entry.name,
+      name,
       source: HOMEBREW_SOURCE,
       srd: false,
       _homebrew: true,
       _manual: true,
-      subtitle: entry.subtitle,
-      entries: bodyToEntries(entry.body),
+      subtitle,
+      entries: bodyToEntries(body),
       ...(entry.image ? { image: entry.image } : {}),
     };
   }
@@ -113,6 +127,7 @@ interface ManualInput {
   subtitle: string;
   body: string;
   image?: string;
+  translations?: Partial<Record<Locale, HomebrewTranslation>>;
 }
 
 interface SubclassInput {

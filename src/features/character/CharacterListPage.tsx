@@ -25,7 +25,7 @@ export function CharacterListPage() {
   const fileInput = useRef<HTMLInputElement>(null);
 
   const handleCreate = () => {
-    const id = addCharacter();
+    const id = addCharacter(t('character.list.newCharacter'));
     navigate(`/character/${id}`);
   };
 
