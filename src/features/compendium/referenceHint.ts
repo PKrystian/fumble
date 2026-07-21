@@ -7,6 +7,7 @@ import { getCategory } from './categories';
 
 export interface ReferenceHint {
   name: string;
+  englishName?: string;
   subtitle: string;
   description: string;
 }
@@ -96,5 +97,10 @@ export async function loadReferenceHint(
     ? category.subtitle(item, (key, vars) => translate(locale as Locale, key, vars))
     : '';
   const description = truncate(firstText(describableEntries(item)));
-  return { name: item.name, subtitle, description };
+  return {
+    name: item.name,
+    ...(item.englishName ? { englishName: item.englishName } : {}),
+    subtitle,
+    description,
+  };
 }

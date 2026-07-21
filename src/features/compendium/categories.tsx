@@ -31,6 +31,7 @@ import type {
   VehicleEntry,
 } from '@/data/compendium/types';
 import { sourceName } from '@/data/compendium/sources';
+import type { Locale } from '@/i18n/locales';
 import { XP_BY_CR } from '@/features/dm/xp';
 import {
   ActionDetail,
@@ -69,7 +70,7 @@ export interface CategoryFilter {
 
   sortKey?: (value: string) => number;
 
-  labelFor?: (value: string) => string;
+  labelFor?: (value: string, locale?: Locale) => string;
 }
 
 export type TranslateFn = (key: string, vars?: Record<string, string | number>) => string;
@@ -145,7 +146,7 @@ const sourceFilter: CategoryFilter = {
     'compendium.filters.labels.source',
     (i: CompendiumEntryBase) => i.source,
   ),
-  labelFor: sourceName,
+  labelFor: (value, locale) => sourceName(value, locale),
 };
 
 const spellLevel = (level: number, t: TranslateFn) =>

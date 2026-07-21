@@ -3,6 +3,8 @@ import { Pencil, Search, SlidersHorizontal, X } from 'lucide-react';
 import type { CompendiumCategoryId, CompendiumEntryBase } from '@/data/compendium/types';
 import { getCategory } from '@/features/compendium/categories';
 import { useCategoryItems } from '@/features/compendium/useCategoryItems';
+import { applyContentMode } from '@/features/compendium/contentFilter';
+import { useContentModeStore } from '@/features/ui/contentModeStore';
 import { useT } from '@/i18n/useT';
 import { sourceName } from '@/data/compendium/sources';
 
@@ -17,20 +19,24 @@ export function CompendiumPicker({
   placeholder,
   onPick,
 }: CompendiumPickerProps) {
-  const { t } = useT();
+  const { t, locale } = useT();
   const [query, setQuery] = useState('');
   const [showFilters, setShowFilters] = useState(false);
   const [selectedSources, setSelectedSources] = useState<string[]>([]);
   const { status, items } = useCategoryItems(getCategory(categoryId));
+  const contentMode = useContentModeStore((s) => s.mode);
 
-  const visibleItems = useMemo(() => items.filter((item) => !item.hidden), [items]);
+  const visibleItems = useMemo(
+    () => applyContentMode(items, contentMode),
+    [items, contentMode],
+  );
 
   const availableSources = useMemo(
     () =>
       [...new Set(visibleItems.map((item) => item.source))].sort((a, b) =>
-        sourceName(a).localeCompare(sourceName(b)),
+        sourceName(a, locale).localeCompare(sourceName(b, locale)),
       ),
-    [visibleItems],
+    [visibleItems, locale],
   );
 
   const toggleSource = (source: string) =>
@@ -105,7 +111,7 @@ export function CompendiumPicker({
                     : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
                 ].join(' ')}
               >
-                {sourceName(source)}
+                {sourceName(source, locale)}
               </button>
             );
           })}

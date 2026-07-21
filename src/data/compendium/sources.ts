@@ -1,20 +1,46 @@
 import data from '@/data/generated/sources.json';
 import booksIndex from '@/data/generated/books.json';
+import plBooks from '@/data/generated/pl/books.json';
+import type { Locale } from '@/i18n/locales';
 import type { BookIndexEntry } from './types';
 
 const names = data as Record<string, string>;
+const plBookNames = plBooks as Record<string, { name?: string }>;
+
+const TRANSLATED_SOURCES = new Set(['XPHB', 'XMM', 'XDMG', 'FRHoF']);
+const plSourceNames: Record<string, string> = {};
 
 const ranks = new Map<string, number>();
 for (const book of booksIndex as BookIndexEntry[]) {
   ranks.set(book.source, book.published ? Date.parse(book.published) : 0);
+  if (TRANSLATED_SOURCES.has(book.source)) {
+    const name = plBookNames[book.id]?.name;
+    if (name) plSourceNames[book.source] = name;
+  }
 }
 
-export function sourceName(code: string): string {
+export function sourceName(code: string, locale?: Locale): string {
+  if (locale === 'pl' && plSourceNames[code]) return plSourceNames[code]!;
   return names[code] ?? code;
+}
+
+export function localizedBookName(entry: BookIndexEntry, locale?: Locale): string {
+  if (locale === 'pl' && TRANSLATED_SOURCES.has(entry.source)) {
+    return plBookNames[entry.id]?.name ?? entry.name;
+  }
+  return entry.name;
 }
 
 export function sourceRank(code: string): number {
   return ranks.get(code) ?? 0;
+}
+
+export type Edition = '2024' | '2014';
+
+const EDITION_CUTOFF_TS = Date.parse('2024-09-17');
+
+export function sourceEdition(code: string): Edition {
+  return sourceRank(code) >= EDITION_CUTOFF_TS ? '2024' : '2014';
 }
 
 const CORE_2024 = new Set(['XPHB', 'XDMG', 'XMM']);

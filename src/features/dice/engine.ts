@@ -35,7 +35,7 @@ export function rollDie(sides: number, rng: Rng = Math.random): number {
 const TERM_PATTERN = /^(\d*)d(\d+)$/i;
 
 export function parseExpression(input: string): ParsedExpression | null {
-  const cleaned = input.replace(/\s+/g, '');
+  const cleaned = input.replace(/\s+/g, '').replace(/(\d*)[kK](?=\d)/g, '$1d');
   if (!cleaned) return null;
 
   const tokens = cleaned.match(/[+-]?[^+-]+/g);

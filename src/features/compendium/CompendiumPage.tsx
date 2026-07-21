@@ -8,6 +8,7 @@ import {
   getCategory,
 } from './categories';
 import { useCategoryItems } from './useCategoryItems';
+import { applyContentMode } from './contentFilter';
 import { EntryRenderer } from './EntryRenderer';
 import { FilterBar } from './FilterBar';
 import { imageUrl } from '@/data/compendium/images';
@@ -16,6 +17,8 @@ import { isHomebrew } from '@/features/homebrew/store';
 import { HomebrewDetail } from '@/features/homebrew/HomebrewDetail';
 import { getBook } from '@/features/books/data';
 import { useLightbox } from '@/features/ui/lightboxStore';
+import { useContentModeStore } from '@/features/ui/contentModeStore';
+import { OriginalName } from '@/features/ui/OriginalName';
 import { Link, Navigate, useNavigate } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
@@ -55,7 +58,7 @@ function CompendiumBrowser({
   const { status, items } = useCategoryItems(category);
   const openLightbox = useLightbox((s) => s.open);
   const navigate = useNavigate();
-  const { t } = useT();
+  const { t, locale } = useT();
 
   const toggleFilter = (filterId: string, value: string) =>
     setSelectedFilters((prev) => {
@@ -66,12 +69,21 @@ function CompendiumBrowser({
       return { ...prev, [filterId]: next };
     });
 
-  const visibleItems = useMemo(() => items.filter((item) => !item.hidden), [items]);
+  const contentMode = useContentModeStore((s) => s.mode);
+  const visibleItems = useMemo(
+    () => applyContentMode(items, contentMode),
+    [items, contentMode],
+  );
 
   const filtered = useMemo(() => {
     const term = query.trim().toLowerCase();
     return visibleItems.filter((item) => {
-      if (term && !item.name.toLowerCase().includes(term)) return false;
+      if (
+        term &&
+        !item.name.toLowerCase().includes(term) &&
+        !item.englishName?.toLowerCase().includes(term)
+      )
+        return false;
       return filters.every((filter) => {
         const chosen = selectedFilters[filter.id];
         if (!chosen || chosen.length === 0) return true;
@@ -178,8 +190,9 @@ function CompendiumBrowser({
                     item.id === selectedId ? 'bg-ink-800' : '',
                   ].join(' ')}
                 >
-                  <span className="flex items-center gap-2">
+                  <span className="flex flex-wrap items-baseline gap-x-2">
                     <span className="font-medium text-ink-50">{item.name}</span>
+                    <OriginalName name={item.englishName} className="text-xs" />
                     {isHomebrew(item) && (
                       <span className="rounded-full border border-ember-500/50 px-1.5 text-[0.65rem] uppercase tracking-wide text-ember-400">
                         {t('compendium.homebrewBadge')}
@@ -321,12 +334,12 @@ function CompendiumBrowser({
                       }}
                       className="text-arcane-300 hover:text-arcane-500"
                     >
-                      {sourceName(selected.source)}
+                      {sourceName(selected.source, locale)}
                       {selected.page ? `, p. ${selected.page}` : ''}
                     </Link>
                   ) : (
                     <span className="text-ink-200">
-                      {sourceName(selected.source)}
+                      {sourceName(selected.source, locale)}
                       {selected.page ? `, p. ${selected.page}` : ''}
                     </span>
                   )}
@@ -340,7 +353,7 @@ function CompendiumBrowser({
                         to={`/compendium/${categoryId}/${version.id}`}
                         className="rounded-full bg-ink-800 px-2.5 py-0.5 text-xs text-arcane-300 hover:bg-ink-700"
                       >
-                        {sourceName(version.source)}
+                        {sourceName(version.source, locale)}
                       </Link>
                     ))}
                   </div>

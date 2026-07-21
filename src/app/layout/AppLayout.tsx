@@ -5,6 +5,8 @@ import { RollResultDock } from '@/features/dice/RollResultDock';
 import { ConfirmDialog } from '@/features/ui/ConfirmDialog';
 import { Lightbox } from '@/features/ui/Lightbox';
 import { useSidebarStore } from '@/features/ui/sidebarStore';
+import { Logo } from '@/features/ui/Logo';
+import { SearchPalette } from '@/features/search/SearchPalette';
 import { useT } from '@/i18n/useT';
 import { Sidebar } from './Sidebar';
 
@@ -54,8 +56,9 @@ export function AppLayout() {
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
-          <span className="font-display text-xl font-black tracking-tight text-ink-50">
-            Fumble<span className="text-ember-400">.</span>
+          <span className="flex items-center gap-1.5 font-display text-xl font-black tracking-tight text-ink-50">
+            <Logo className="h-7 w-7 text-ink-50" />
+            Fumble
           </span>
         </header>
 
@@ -64,6 +67,7 @@ export function AppLayout() {
         </main>
       </div>
 
+      <SearchPalette />
       <RollResultDock />
       <Lightbox />
       <ConfirmDialog />

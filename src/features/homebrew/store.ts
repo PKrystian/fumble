@@ -95,6 +95,7 @@ export function homebrewToItem(
     return {
       id: entry.id,
       name,
+      ...(name !== entry.name ? { englishName: entry.name } : {}),
       source: HOMEBREW_SOURCE,
       srd: false,
       _homebrew: true,

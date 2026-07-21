@@ -8,7 +8,13 @@ export function localizeEntry<T extends CompendiumEntryBase>(
   overlay: CategoryOverlay | undefined,
 ): T {
   const translation = overlay?.[entry.id];
-  return translation ? ({ ...entry, ...translation } as T) : entry;
+  if (!translation) return entry;
+  const merged = { ...entry, ...translation } as T;
+  const translatedName = (translation as { name?: unknown }).name;
+  if (typeof translatedName === 'string' && translatedName !== entry.name) {
+    merged.englishName = entry.name;
+  }
+  return merged;
 }
 
 export function localizeItems<T extends CompendiumEntryBase>(

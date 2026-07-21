@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocale } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
+import { OriginalName } from '@/features/ui/OriginalName';
 import {
   loadReferenceHint,
   loadReferenceName,
@@ -110,7 +111,10 @@ export function ReferenceLink({ category, slug, label }: ReferenceLinkProps) {
             }}
             className="z-[60] animate-fade-in-up rounded-lg border border-ink-700 bg-ink-800 p-3 text-sm shadow-xl"
           >
-            <p className="font-display font-bold text-ink-50">{hint?.name ?? label}</p>
+            <p className="font-display font-bold text-ink-50">
+              {hint?.name ?? label}
+              <OriginalName name={hint?.englishName} className="ml-1.5 text-sm" />
+            </p>
             {hint?.subtitle && (
               <p className="mt-0.5 text-xs uppercase tracking-wide text-arcane-300">
                 {hint.subtitle}

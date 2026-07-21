@@ -3,6 +3,7 @@ import { RotateCcw, Search, Shuffle, SlidersHorizontal, X } from 'lucide-react';
 import type { CompendiumEntryBase } from '@/data/compendium/types';
 import { HOMEBREW_SOURCE } from '@/features/homebrew/store';
 import { useT } from '@/i18n/useT';
+import type { Locale } from '@/i18n/locales';
 import type { CategoryFilter } from './categories';
 
 type TranslateFn = (key: string, vars?: Record<string, string | number>) => string;
@@ -12,8 +13,13 @@ type TranslateFn = (key: string, vars?: Record<string, string | number>) => stri
  * those known tokens to translations for display; everything else is already
  * localized by the item overlay.
  */
-function displayValue(filter: CategoryFilter, value: string, t: TranslateFn): string {
-  if (filter.labelFor) return filter.labelFor(value);
+function displayValue(
+  filter: CategoryFilter,
+  value: string,
+  t: TranslateFn,
+  locale: Locale,
+): string {
+  if (filter.labelFor) return filter.labelFor(value, locale);
   if (value === 'Cantrip') return t('compendium.filters.cantrip');
   const levelMatch = /^Level (\d+)$/.exec(value);
   if (levelMatch) return t('compendium.filters.levelN', { level: levelMatch[1]! });
@@ -50,6 +56,7 @@ function FacetSection({
   search,
   hideLabel,
   t,
+  locale,
 }: {
   group: FilterGroup;
   selected: string[];
@@ -57,11 +64,14 @@ function FacetSection({
   search: string;
   hideLabel?: boolean;
   t: TranslateFn;
+  locale: Locale;
 }) {
   const { filter, values } = group;
   const term = search.trim().toLowerCase();
   const visible = term
-    ? values.filter((v) => displayValue(filter, v, t).toLowerCase().includes(term))
+    ? values.filter((v) =>
+        displayValue(filter, v, t, locale).toLowerCase().includes(term),
+      )
     : values;
   if (visible.length === 0) return null;
 
@@ -99,7 +109,7 @@ function FacetSection({
             aria-pressed={selected.includes(value)}
             className={chipClass(selected.includes(value))}
           >
-            {displayValue(filter, value, t)}
+            {displayValue(filter, value, t, locale)}
           </button>
         ))}
       </div>
@@ -115,7 +125,7 @@ export function FilterBar({
   onClear,
   onRandom,
 }: FilterBarProps) {
-  const { t } = useT();
+  const { t, locale } = useT();
   const [modalOpen, setModalOpen] = useState(false);
   const [summaryOpen, setSummaryOpen] = useState(false);
   const [search, setSearch] = useState('');
@@ -136,11 +146,13 @@ export function FilterBar({
         const sorted = [...values].sort((a, b) =>
           filter.sortKey
             ? filter.sortKey(a) - filter.sortKey(b)
-            : displayValue(filter, a, t).localeCompare(displayValue(filter, b, t)),
+            : displayValue(filter, a, t, locale).localeCompare(
+                displayValue(filter, b, t, locale),
+              ),
         );
         return { filter, values: sorted };
       }),
-    [filters, items, t],
+    [filters, items, t, locale],
   );
 
   const sourceGroup = groups.find((g) => g.filter.id === 'source');
@@ -154,7 +166,7 @@ export function FilterBar({
       .map((value) => ({
         filterId: filter.id,
         value,
-        label: displayValue(filter, value, t),
+        label: displayValue(filter, value, t, locale),
       })),
   );
   const activeCount = activeChips.length;
@@ -290,6 +302,7 @@ export function FilterBar({
                         search={search}
                         hideLabel
                         t={t}
+                        locale={locale}
                       />
                     </div>
                   )}
@@ -305,6 +318,7 @@ export function FilterBar({
                         search={search}
                         hideLabel
                         t={t}
+                        locale={locale}
                       />
                     </div>
                   )}
@@ -319,6 +333,7 @@ export function FilterBar({
                   onToggle={(value) => onToggle(group.filter.id, value)}
                   search={search}
                   t={t}
+                  locale={locale}
                 />
               ))}
             </div>

@@ -236,7 +236,10 @@ function renderListItem(item: Entry): ReactNode {
 
 function diceHeader(label: string | undefined): string | null {
   if (typeof label !== 'string') return null;
-  const cleaned = label.replace(/\{@\w+\s*([^|}]*)[^}]*\}/g, '$1').trim();
+  const cleaned = label
+    .replace(/\{@\w+\s*([^|}]*)[^}]*\}/g, '$1')
+    .trim()
+    .replace(/(\d*)[kK](?=\d)/g, '$1d');
   return /^\d*d\d+$/i.test(cleaned) ? cleaned.replace(/^d/, '1d') : null;
 }
 

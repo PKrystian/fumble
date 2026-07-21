@@ -37,6 +37,7 @@ import { sourceAbbrev, sourceRank } from '@/data/compendium/sources';
 import { useHomebrewStore } from '@/features/homebrew/store';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
+import { OriginalName } from '@/features/ui/OriginalName';
 import { EntryRenderer } from './EntryRenderer';
 import { parseMarkup } from './markup';
 
@@ -121,10 +122,21 @@ function LanguageLinks({ text }: { text: string }) {
   );
 }
 
-function DetailHeader({ title, subtitle }: { title: string; subtitle?: string }) {
+function DetailHeader({
+  title,
+  original,
+  subtitle,
+}: {
+  title: string;
+  original?: string | undefined;
+  subtitle?: string | undefined;
+}) {
   return (
     <header>
-      <h2 className="font-display text-2xl font-bold text-ink-50">{title}</h2>
+      <h2 className="font-display text-2xl font-bold text-ink-50">
+        {title}
+        <OriginalName name={original} className="ml-2 text-lg" />
+      </h2>
       {subtitle && <p className="text-sm italic text-ink-300">{subtitle}</p>}
     </header>
   );
@@ -161,7 +173,10 @@ export function SpellDetail({ spell }: { spell: SpellEntry }) {
   return (
     <article className="flex flex-col gap-5">
       <header>
-        <h2 className="font-display text-2xl font-bold text-ink-50">{spell.name}</h2>
+        <h2 className="font-display text-2xl font-bold text-ink-50">
+          {spell.name}
+          <OriginalName name={spell.englishName} className="ml-2 text-lg" />
+        </h2>
         <p className="text-sm italic text-ink-300">
           {levelLabel}
           {spell.ritual && t('compendium.detail.ritualSuffix')}
@@ -190,7 +205,11 @@ export function SpeciesDetail({ species }: { species: SpeciesEntry }) {
     : species.creatureType;
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={species.name} subtitle={subtitle} />
+      <DetailHeader
+        title={species.name}
+        original={species.englishName}
+        subtitle={subtitle}
+      />
       <div className="flex flex-col gap-1">
         <MetaRow label={t('compendium.detail.size')} value={species.size} />
         <MetaRow label={t('compendium.detail.speed')} value={species.speed} />
@@ -208,6 +227,7 @@ export function FeatDetail({ feat }: { feat: FeatEntry }) {
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={feat.name}
+        original={feat.englishName}
         subtitle={t('compendium.detail.featCategory', { category: feat.category })}
       />
       <div className="flex flex-col gap-1">
@@ -226,6 +246,7 @@ export function BackgroundDetail({ background }: { background: BackgroundEntry }
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={background.name}
+        original={background.englishName}
         subtitle={t('compendium.detail.background')}
       />
       <div className="flex flex-col gap-1">
@@ -256,6 +277,7 @@ export function RuleDetail({ rule }: { rule: RuleEntry }) {
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={rule.name}
+        original={rule.englishName}
         subtitle={t('compendium.detail.ruleType', { type: rule.ruleType })}
       />
       <div className="flex flex-col gap-3">
@@ -269,7 +291,11 @@ export function ActionDetail({ action }: { action: ActionEntry }) {
   const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={action.name} subtitle={t('compendium.detail.action')} />
+      <DetailHeader
+        title={action.name}
+        original={action.englishName}
+        subtitle={t('compendium.detail.action')}
+      />
       {action.time && <MetaRow label={t('compendium.detail.time')} value={action.time} />}
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={action.entries} />
@@ -282,7 +308,11 @@ export function OptionalFeatureDetail({ feature }: { feature: OptionalFeatureEnt
   const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={feature.name} subtitle={feature.featureType} />
+      <DetailHeader
+        title={feature.name}
+        original={feature.englishName}
+        subtitle={feature.featureType}
+      />
       <div className="flex flex-col gap-1">
         <MetaRow
           label={t('compendium.detail.prerequisite')}
@@ -300,7 +330,11 @@ export function DeityDetail({ deity }: { deity: DeityEntry }) {
   const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={deity.name} subtitle={deity.pantheon} />
+      <DetailHeader
+        title={deity.name}
+        original={deity.englishName}
+        subtitle={deity.pantheon}
+      />
       <div className="flex flex-col gap-1">
         <MetaRow label={t('compendium.detail.alignment')} value={deity.alignment} />
         <MetaRow label={t('compendium.detail.domains')} value={deity.domains} />
@@ -316,7 +350,11 @@ export function DeityDetail({ deity }: { deity: DeityEntry }) {
 export function HazardDetail({ hazard }: { hazard: HazardEntry }) {
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={hazard.name} subtitle={hazard.hazardType} />
+      <DetailHeader
+        title={hazard.name}
+        original={hazard.englishName}
+        subtitle={hazard.hazardType}
+      />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={hazard.entries} />
       </div>
@@ -327,7 +365,11 @@ export function HazardDetail({ hazard }: { hazard: HazardEntry }) {
 export function BoonDetail({ boon }: { boon: BoonEntry }) {
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={boon.name} subtitle={boon.boonType} />
+      <DetailHeader
+        title={boon.name}
+        original={boon.englishName}
+        subtitle={boon.boonType}
+      />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={boon.entries} />
       </div>
@@ -340,7 +382,7 @@ export function ItemDetail({ item }: { item: ItemEntry }) {
   const subtitle = [item.type, item.rarity].filter(Boolean).join(', ');
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={item.name} subtitle={subtitle} />
+      <DetailHeader title={item.name} original={item.englishName} subtitle={subtitle} />
       <div className="flex flex-col gap-1">
         <MetaRow label={t('compendium.detail.damage')} value={item.damage} />
         <MetaRow label={t('compendium.detail.armorClass')} value={item.ac} />
@@ -511,7 +553,11 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
 
   return (
     <article className="flex flex-col gap-6">
-      <DetailHeader title={cls.name} subtitle={t('compendium.classDetail.subtitle')} />
+      <DetailHeader
+        title={cls.name}
+        original={cls.englishName}
+        subtitle={t('compendium.classDetail.subtitle')}
+      />
       <dl className="grid grid-cols-2 gap-3 rounded-lg border border-ink-700 bg-ink-900 p-4 sm:grid-cols-3">
         <MetaCell label={t('compendium.classDetail.hitDie')} value={cls.hitDie} />
         <MetaCell
@@ -710,7 +756,10 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
   return (
     <article className="flex flex-col gap-4">
       <header>
-        <h2 className="font-display text-2xl font-bold text-ink-50">{monster.name}</h2>
+        <h2 className="font-display text-2xl font-bold text-ink-50">
+          {monster.name}
+          <OriginalName name={monster.englishName} className="ml-2 text-lg" />
+        </h2>
         <p className="text-sm italic text-ink-300">
           {monster.size && <RulesLink rule="size">{monster.size}</RulesLink>}
           {monster.size && monster.creatureType && ' '}
@@ -866,7 +915,10 @@ export function ConditionDetail({ condition }: { condition: ConditionEntry }) {
   return (
     <article className="flex flex-col gap-5">
       <header className="flex items-center gap-3">
-        <h2 className="font-display text-2xl font-bold text-ink-50">{condition.name}</h2>
+        <h2 className="font-display text-2xl font-bold text-ink-50">
+          {condition.name}
+          <OriginalName name={condition.englishName} className="ml-2 text-lg" />
+        </h2>
         <span className="rounded-full border border-ink-600 px-2 py-0.5 text-xs uppercase tracking-wide text-ink-300">
           {condition.kind}
         </span>
@@ -884,6 +936,7 @@ export function SkillDetail({ skill }: { skill: SkillEntry }) {
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={skill.name}
+        original={skill.englishName}
         subtitle={
           skill.ability
             ? t('compendium.detail.abilitySkill', { ability: skill.ability })
@@ -901,7 +954,11 @@ export function SenseDetail({ sense }: { sense: SenseEntry }) {
   const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={sense.name} subtitle={t('compendium.detail.sense')} />
+      <DetailHeader
+        title={sense.name}
+        original={sense.englishName}
+        subtitle={t('compendium.detail.sense')}
+      />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={sense.entries} />
       </div>
@@ -915,6 +972,7 @@ export function LanguageDetail({ language }: { language: LanguageEntry }) {
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={language.name}
+        original={language.englishName}
         subtitle={t('compendium.detail.languageTypeLanguage', {
           type: language.languageType,
         })}
@@ -940,6 +998,7 @@ export function CultBoonDetail({ cultBoon }: { cultBoon: CultBoonEntry }) {
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={cultBoon.name}
+        original={cultBoon.englishName}
         subtitle={[cultBoon.category, cultBoon.kind].filter(Boolean).join(' ')}
       />
       <div className="flex flex-col gap-3">
@@ -955,6 +1014,7 @@ export function FacilityDetail({ facility }: { facility: FacilityEntry }) {
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={facility.name}
+        original={facility.englishName}
         subtitle={t('compendium.detail.bastionFacility', {
           type: facility.facilityType,
         })}
@@ -979,7 +1039,11 @@ export function RecipeDetail({ recipe }: { recipe: RecipeEntry }) {
   const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={recipe.name} subtitle={recipe.recipeType} />
+      <DetailHeader
+        title={recipe.name}
+        original={recipe.englishName}
+        subtitle={recipe.recipeType}
+      />
       <div className="flex flex-col gap-1">
         <MetaRow label={t('compendium.detail.serves')} value={recipe.serves} />
         <MetaRow label={t('compendium.detail.diet')} value={recipe.diet} />
@@ -1006,6 +1070,7 @@ export function ObjectDetail({ object }: { object: ObjectEntry }) {
     <article className="flex flex-col gap-4">
       <DetailHeader
         title={object.name}
+        original={object.englishName}
         subtitle={[object.size, object.objectType].filter(Boolean).join(' ')}
       />
       <div className="flex flex-col gap-3 rounded-lg border border-ink-700 bg-ink-900 p-4">
@@ -1039,6 +1104,7 @@ export function VehicleDetail({ vehicle }: { vehicle: VehicleEntry }) {
     <article className="flex flex-col gap-4">
       <DetailHeader
         title={vehicle.name}
+        original={vehicle.englishName}
         subtitle={[vehicle.size, vehicle.vehicleType].filter(Boolean).join(' ')}
       />
       <div className="flex flex-col gap-1 rounded-lg border border-ink-700 bg-ink-900 p-4">
@@ -1068,6 +1134,7 @@ export function MasteryDetail({ mastery }: { mastery: MasteryEntry }) {
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={mastery.name}
+        original={mastery.englishName}
         subtitle={t('compendium.detail.weaponMastery')}
       />
       <div className="flex flex-col gap-3">
@@ -1081,7 +1148,11 @@ export function CharOptionDetail({ option }: { option: CharOptionEntry }) {
   const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={option.name} subtitle={option.optionType} />
+      <DetailHeader
+        title={option.name}
+        original={option.englishName}
+        subtitle={option.optionType}
+      />
       <div className="flex flex-col gap-1">
         <MetaRow
           label={t('compendium.detail.prerequisite')}
@@ -1099,7 +1170,11 @@ export function TableDetail({ table }: { table: TableEntry }) {
   const { t } = useT();
   return (
     <article className="flex flex-col gap-4">
-      <DetailHeader title={table.name} subtitle={t('compendium.detail.table')} />
+      <DetailHeader
+        title={table.name}
+        original={table.englishName}
+        subtitle={t('compendium.detail.table')}
+      />
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left text-sm text-ink-200">
           {table.colLabels.length > 0 && (
@@ -1139,6 +1214,7 @@ export function DeckDetail({ deck }: { deck: DeckEntry }) {
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={deck.name}
+        original={deck.englishName}
         subtitle={t('compendium.detail.deckCards', { count: deck.cardCount })}
       />
       <div className="flex flex-col gap-3">

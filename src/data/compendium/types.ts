@@ -27,6 +27,8 @@ export interface BookIndexEntry {
 export interface CompendiumEntryBase {
   id: string;
   name: string;
+
+  englishName?: string;
   source: string;
   page?: number;
   srd: boolean;

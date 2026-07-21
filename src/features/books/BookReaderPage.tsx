@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import type { Entry, EntryNode } from '@/data/compendium/entry';
 import { EntryRenderer } from '@/features/compendium/EntryRenderer';
+import { localizedBookName } from '@/data/compendium/sources';
 import { Link, Navigate } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
@@ -206,8 +207,8 @@ export function BookReaderPage() {
   useSeo(
     book
       ? active
-        ? `${book.name} - ${chapterTitle(active, `Chapter ${chapterIndex + 1}`)}`
-        : book.name
+        ? `${localizedBookName(book, locale)} - ${chapterTitle(active, `Chapter ${chapterIndex + 1}`)}`
+        : localizedBookName(book, locale)
       : '',
   );
 
@@ -223,7 +224,9 @@ export function BookReaderPage() {
           >
             <ArrowLeft size={16} aria-hidden="true" /> {t('common.allBooks')}
           </Link>
-          <h1 className="font-display text-lg font-bold text-ink-50">{book.name}</h1>
+          <h1 className="font-display text-lg font-bold text-ink-50">
+            {localizedBookName(book, locale)}
+          </h1>
           {book.author && <p className="text-xs text-ink-400">{book.author}</p>}
         </div>
         <nav

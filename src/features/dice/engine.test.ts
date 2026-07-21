@@ -29,6 +29,24 @@ describe('parseExpression', () => {
     expect(parseExpression('')).toBeNull();
     expect(parseExpression('2d')).toBeNull();
   });
+
+  it('accepts the Polish k dice notation', () => {
+    expect(parseExpression('8k10')).toEqual({
+      terms: [{ count: 8, sides: 10 }],
+      modifier: 0,
+    });
+    expect(parseExpression('k100')).toEqual({
+      terms: [{ count: 1, sides: 100 }],
+      modifier: 0,
+    });
+    expect(parseExpression('2k6 + 1k4 - 2')).toEqual({
+      terms: [
+        { count: 2, sides: 6 },
+        { count: 1, sides: 4 },
+      ],
+      modifier: -2,
+    });
+  });
 });
 
 describe('rollParsed', () => {
