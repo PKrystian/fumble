@@ -4,8 +4,10 @@ import { imageUrl } from '@/data/compendium/images';
 import { stripMarkup } from '@/data/transform/util';
 import { useRollStore } from '@/features/dice/rollStore';
 import { useLightbox } from '@/features/ui/lightboxStore';
-import { Link } from '@/i18n/path';
-import { parseMarkup } from './markup';
+import { Link, useLocale } from '@/i18n/path';
+import type { Locale } from '@/i18n/locales';
+import { translate } from '@/i18n/useT';
+import { markupLabel, parseMarkup } from './markup';
 
 const STATBLOCK_CATEGORY: Record<string, string> = {
   creature: 'bestiary',
@@ -41,6 +43,7 @@ function slug(value: string): string {
 
 function BookImage({ src, title }: { src: string; title?: string }) {
   const open = useLightbox((s) => s.open);
+  const locale = useLocale();
   const plainTitle = title ? stripMarkup(title) : '';
   return (
     <figure className="my-2 flex flex-col items-center gap-1">
@@ -56,7 +59,9 @@ function BookImage({ src, title }: { src: string; title?: string }) {
         className="max-h-[32rem] cursor-zoom-in rounded-lg border border-ink-700 object-contain"
       />
       {title && (
-        <figcaption className="text-xs text-ink-400">{parseMarkup(title)}</figcaption>
+        <figcaption className="text-xs text-ink-400">
+          {parseMarkup(title, locale)}
+        </figcaption>
       )}
     </figure>
   );
@@ -67,21 +72,22 @@ interface EntryRendererProps {
 }
 
 export function EntryRenderer({ entries }: EntryRendererProps) {
-  return <>{entries.map((entry, index) => renderEntry(entry, index))}</>;
+  const locale = useLocale();
+  return <>{entries.map((entry, index) => renderEntry(entry, index, locale))}</>;
 }
 
-function renderEntry(entry: Entry, key: number): ReactNode {
+function renderEntry(entry: Entry, key: number, locale: Locale): ReactNode {
   if (typeof entry === 'string') {
     return (
       <p key={key} className="leading-relaxed text-ink-200">
-        {parseMarkup(entry)}
+        {parseMarkup(entry, locale)}
       </p>
     );
   }
-  return renderNode(entry, key);
+  return renderNode(entry, key, locale);
 }
 
-function renderNode(node: EntryNode, key: number): ReactNode {
+function renderNode(node: EntryNode, key: number, locale: Locale): ReactNode {
   switch (node.type) {
     case 'entries':
     case 'section':
@@ -98,7 +104,7 @@ function renderNode(node: EntryNode, key: number): ReactNode {
         >
           {node.name && (
             <h4 className="font-display text-lg font-semibold text-ink-50">
-              {parseMarkup(node.name)}
+              {parseMarkup(node.name, locale)}
             </h4>
           )}
           {node.entries && <EntryRenderer entries={node.entries} />}
@@ -109,7 +115,7 @@ function renderNode(node: EntryNode, key: number): ReactNode {
       return (
         <ul key={key} className="ml-5 list-disc space-y-1 text-ink-200">
           {(node.items ?? []).map((item, index) => (
-            <li key={index}>{renderListItem(item)}</li>
+            <li key={index}>{renderListItem(item, locale)}</li>
           ))}
         </ul>
       );
@@ -118,9 +124,11 @@ function renderNode(node: EntryNode, key: number): ReactNode {
       return (
         <li key={key}>
           {node.name && (
-            <span className="font-semibold text-ink-50">{parseMarkup(node.name)}. </span>
+            <span className="font-semibold text-ink-50">
+              {parseMarkup(node.name, locale)}.{' '}
+            </span>
           )}
-          {renderListItem(node.entry ?? '')}
+          {renderListItem(node.entry ?? '', locale)}
           {node.entries && <EntryRenderer entries={node.entries} />}
         </li>
       );
@@ -133,19 +141,19 @@ function renderNode(node: EntryNode, key: number): ReactNode {
           {attackEntries.map((e, index) => (
             <Fragment key={`a${index}`}>
               {index > 0 ? ' ' : ''}
-              {renderListItem(e)}
+              {renderListItem(e, locale)}
             </Fragment>
           ))}
           {hitEntries.length > 0 && (
             <>
               {' '}
-              <em className="text-ink-300">Hit:</em>{' '}
+              <em className="text-ink-300">{markupLabel(locale, 'hit')}</em>{' '}
             </>
           )}
           {hitEntries.map((e, index) => (
             <Fragment key={`h${index}`}>
               {index > 0 ? ' ' : ''}
-              {renderListItem(e)}
+              {renderListItem(e, locale)}
             </Fragment>
           ))}
         </p>
@@ -166,7 +174,7 @@ function renderNode(node: EntryNode, key: number): ReactNode {
       const images = (node.images as EntryNode[] | undefined) ?? [];
       return (
         <div key={key} className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {images.map((img, index) => renderNode(img, index))}
+          {images.map((img, index) => renderNode(img, index, locale))}
         </div>
       );
     }
@@ -188,7 +196,7 @@ function renderNode(node: EntryNode, key: number): ReactNode {
           ) : (
             <span className="font-semibold text-ink-50">{name}</span>
           )}{' '}
-          <span className="text-xs text-ink-400">(stat block)</span>
+          <span className="text-xs text-ink-400">{markupLabel(locale, 'statBlock')}</span>
         </p>
       );
     }
@@ -205,7 +213,7 @@ function renderNode(node: EntryNode, key: number): ReactNode {
         >
           {node.name && (
             <p className="mb-2 font-display font-semibold text-ink-50">
-              {parseMarkup(node.name)}
+              {parseMarkup(node.name, locale)}
             </p>
           )}
           {node.entries && <EntryRenderer entries={node.entries} />}
@@ -224,14 +232,14 @@ function renderNode(node: EntryNode, key: number): ReactNode {
 
     default:
       if (node.entries) return <EntryRenderer key={key} entries={node.entries} />;
-      if (node.entry != null) return renderEntry(node.entry, key);
+      if (node.entry != null) return renderEntry(node.entry, key, locale);
       return null;
   }
 }
 
-function renderListItem(item: Entry): ReactNode {
-  if (typeof item === 'string') return parseMarkup(item);
-  return renderNode(item, 0);
+function renderListItem(item: Entry, locale: Locale): ReactNode {
+  if (typeof item === 'string') return parseMarkup(item, locale);
+  return renderNode(item, 0, locale);
 }
 
 function diceHeader(label: string | undefined): string | null {
@@ -262,20 +270,27 @@ function rowCells(row: Entry[] | EntryNode): { cells: Entry[]; indentFirst: bool
 
 function RollableTable({ node }: { node: EntryNode }) {
   const roll = useRollStore((s) => s.roll);
+  const locale = useLocale();
   const [rolled, setRolled] = useState<number | null>(null);
   const rows = node.rows ?? [];
   const dice = diceHeader(node.colLabels?.[0]);
 
   const doRoll = () => {
     if (!dice) return;
-    const outcome = roll(dice, 'normal', node.caption || 'Table roll');
+    const outcome = roll(
+      dice,
+      'normal',
+      node.caption || translate(locale, 'compendium.detail.tableRoll'),
+    );
     setRolled(outcome ? outcome.total : null);
   };
 
   return (
     <div className="overflow-x-auto">
       {node.caption && (
-        <p className="mb-1 font-semibold text-ink-50">{parseMarkup(node.caption)}</p>
+        <p className="mb-1 font-semibold text-ink-50">
+          {parseMarkup(node.caption, locale)}
+        </p>
       )}
       <table className="w-full border-collapse text-left text-sm text-ink-200">
         {node.colLabels && (
@@ -290,13 +305,15 @@ function RollableTable({ node }: { node: EntryNode }) {
                     <button
                       type="button"
                       onClick={doRoll}
-                      title={`Roll ${dice} on this table`}
+                      title={translate(locale, 'compendium.detail.rollOnTable', {
+                        dice,
+                      })}
                       className="cursor-pointer text-arcane-300 underline decoration-dotted underline-offset-2 hover:text-arcane-500"
                     >
-                      {parseMarkup(label)}
+                      {parseMarkup(label, locale)}
                     </button>
                   ) : (
-                    parseMarkup(label)
+                    parseMarkup(label, locale)
                   )}
                 </th>
               ))}
@@ -318,7 +335,7 @@ function RollableTable({ node }: { node: EntryNode }) {
                       cellIndex === 0 && indentFirst ? 'pl-6' : '',
                     ].join(' ')}
                   >
-                    {renderListItem(cell)}
+                    {renderListItem(cell, locale)}
                   </td>
                 ))}
               </tr>

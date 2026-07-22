@@ -13,16 +13,45 @@ export { SPELL_SCHOOLS, proficiencyBonus, slugify, stripMarkup };
 
 export const SOURCE_REPO = 'https://github.com/5etools-mirror-3/5etools-src';
 
-let allowedSources = new Set<string>();
-
-export function setAllowedSources(sources: Set<string>): void {
-  allowedSources = sources;
+interface BookMeta {
+  source: string;
+  name: string;
+  published?: string;
 }
 
-export function loadCoreSupplementSources(inputDir: string): Set<string> {
-  const data = readDataFile<{ book: Array<{ source: string }> }>(inputDir, 'books.json');
-  return new Set(data.book.map((b) => b.source));
+function loadBookAndAdventureMeta(inputDir: string): BookMeta[] {
+  const books = readDataFile<{ book?: BookMeta[] }>(inputDir, 'books.json').book ?? [];
+  let adventures: BookMeta[] = [];
+  try {
+    adventures =
+      readDataFile<{ adventure?: BookMeta[] }>(inputDir, 'adventures.json').adventure ??
+      [];
+  } catch {
+    // adventures.json is optional
+  }
+  return [...books, ...adventures];
 }
+
+// Full names for official sources 5etools ships as data but does not list in its
+// books.json / adventures.json index (web supplements, anthologies, promos, UA).
+const EXTRA_SOURCE_NAMES: Record<string, string> = {
+  TftYP: 'Tales from the Yawning Portal',
+  ESK: 'Dragon of Icespire Peak',
+  MFF: "Mordenkainen's Fiendish Folio Volume 1: Toil and Trouble",
+  MCV1SC: 'Monstrous Compendium Volume 1: Spelljammer Creatures',
+  MCV2DC: 'Monstrous Compendium Volume 2: Dragonlance Creatures',
+  MCV3MC: 'Monstrous Compendium Volume 3: Minecraft Creatures',
+  MisMV1: 'Misplaced Monsters: Volume 1',
+  EEPC: "Elemental Evil Player's Companion",
+  EET: 'Elemental Evil: Trinkets',
+  'HAT-LMI': 'Honor Among Thieves: Legendary Magic Items',
+  RoTOS: 'The Rise of Tiamat Online Supplement',
+  HFDoMM: "Heroes' Feast: The Deck of Many Morsels",
+  DrDe: 'Dragon Delves',
+  SADS: 'Sapphire Anniversary Dice Set',
+  VD: 'The Vecna Dossier',
+  UATheMysticClass: 'Unearthed Arcana: The Mystic',
+};
 
 export function resolveInputDir(argv: string[]): string {
   const flagIndex = argv.indexOf('--input');
@@ -48,16 +77,12 @@ export function readSourceCommit(inputDir: string): string {
 }
 
 export function keepEntry(raw: { source: string; _copy?: unknown }): boolean {
-  return allowedSources.has(raw.source) && !raw._copy;
+  return !raw._copy;
 }
 
 export function loadSourceNames(inputDir: string): Record<string, string> {
-  const data = readDataFile<{ book: Array<{ source: string; name: string }> }>(
-    inputDir,
-    'books.json',
-  );
-  const names: Record<string, string> = {};
-  for (const book of data.book) names[book.source] = book.name;
+  const names: Record<string, string> = { ...EXTRA_SOURCE_NAMES };
+  for (const meta of loadBookAndAdventureMeta(inputDir)) names[meta.source] = meta.name;
   return names;
 }
 
@@ -72,13 +97,9 @@ export function sourceRank(source: string): number {
 }
 
 export function loadSourceRanks(inputDir: string): Map<string, number> {
-  const data = readDataFile<{ book: Array<{ source: string; published?: string }> }>(
-    inputDir,
-    'books.json',
-  );
   const ranks = new Map<string, number>();
-  for (const book of data.book) {
-    ranks.set(book.source, book.published ? Date.parse(book.published) : 0);
+  for (const meta of loadBookAndAdventureMeta(inputDir)) {
+    ranks.set(meta.source, meta.published ? Date.parse(meta.published) : 0);
   }
   return ranks;
 }

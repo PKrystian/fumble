@@ -25,7 +25,7 @@ export function sourceName(code: string, locale?: Locale): string {
 }
 
 export function localizedBookName(entry: BookIndexEntry, locale?: Locale): string {
-  if (locale === 'pl' && TRANSLATED_SOURCES.has(entry.source)) {
+  if (locale === 'pl') {
     return plBookNames[entry.id]?.name ?? entry.name;
   }
   return entry.name;
@@ -41,6 +41,10 @@ const EDITION_CUTOFF_TS = Date.parse('2024-09-17');
 
 export function sourceEdition(code: string): Edition {
   return sourceRank(code) >= EDITION_CUTOFF_TS ? '2024' : '2014';
+}
+
+export function isUaSource(code: string): boolean {
+  return code.startsWith('UA');
 }
 
 const CORE_2024 = new Set(['XPHB', 'XDMG', 'XMM']);

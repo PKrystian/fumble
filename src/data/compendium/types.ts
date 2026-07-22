@@ -43,6 +43,8 @@ export interface CompendiumEntryBase {
 
   hidden?: boolean;
 
+  ua?: boolean;
+
   otherVersions?: Array<{ id: string; source: string }>;
 }
 

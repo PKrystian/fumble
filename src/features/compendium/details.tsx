@@ -717,6 +717,7 @@ function SectionGroup({
   title?: string;
   sections: StatBlockSection[];
 }) {
+  const { locale } = useT();
   if (sections.length === 0) return null;
   return (
     <section className="flex flex-col gap-3">
@@ -729,7 +730,7 @@ function SectionGroup({
         <div key={`${section.name}-${index}`} className="text-ink-200">
           {section.name && (
             <span className="font-semibold text-ink-50">
-              {parseMarkup(section.name)}.{' '}
+              {parseMarkup(section.name, locale)}.{' '}
             </span>
           )}
           <EntryRenderer entries={section.entries} />
@@ -740,7 +741,7 @@ function SectionGroup({
 }
 
 export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
-  const { t } = useT();
+  const { t, locale } = useT();
   const abilities = [
     [t('compendium.detail.abbrStr'), monster.str],
     [t('compendium.detail.abbrDex'), monster.dex],
@@ -876,14 +877,14 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
           </h3>
           {monster.legendaryIntro && (
             <p className="text-sm italic text-ink-300">
-              {parseMarkup(monster.legendaryIntro)}
+              {parseMarkup(monster.legendaryIntro, locale)}
             </p>
           )}
           {monster.legendaryActions.map((section, index) => (
             <div key={`${section.name}-${index}`} className="text-ink-200">
               {section.name && (
                 <span className="font-semibold text-ink-50">
-                  {parseMarkup(section.name)}.{' '}
+                  {parseMarkup(section.name, locale)}.{' '}
                 </span>
               )}
               <EntryRenderer entries={section.entries} />
@@ -1167,7 +1168,7 @@ export function CharOptionDetail({ option }: { option: CharOptionEntry }) {
 }
 
 export function TableDetail({ table }: { table: TableEntry }) {
-  const { t } = useT();
+  const { t, locale } = useT();
   return (
     <article className="flex flex-col gap-4">
       <DetailHeader
@@ -1185,7 +1186,7 @@ export function TableDetail({ table }: { table: TableEntry }) {
                     key={index}
                     className="border-b border-ink-700 px-2 py-1 font-semibold text-ink-50"
                   >
-                    {parseMarkup(label)}
+                    {parseMarkup(label, locale)}
                   </th>
                 ))}
               </tr>
@@ -1196,7 +1197,7 @@ export function TableDetail({ table }: { table: TableEntry }) {
               <tr key={rowIndex} className="odd:bg-ink-950 even:bg-ink-800/60">
                 {row.map((cell, cellIndex) => (
                   <td key={cellIndex} className="border-b border-ink-800 px-2 py-1">
-                    {typeof cell === 'string' ? parseMarkup(cell) : ''}
+                    {typeof cell === 'string' ? parseMarkup(cell, locale) : ''}
                   </td>
                 ))}
               </tr>

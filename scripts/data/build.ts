@@ -82,7 +82,6 @@ import {
   SPELL_SCHOOLS,
   fluffFilesIn,
   keepEntry,
-  loadCoreSupplementSources,
   loadAllFluffImages,
   loadFluff,
   loadFluffImages,
@@ -92,7 +91,6 @@ import {
   readDataFile,
   readSourceCommit,
   resolveInputDir,
-  setAllowedSources,
   setSourceRanks,
   slugify,
   sourceRank,
@@ -1140,18 +1138,13 @@ function buildBooks(inputDir: string): void {
 function main(): void {
   const inputDir = resolveInputDir(process.argv.slice(2));
   const sourceCommit = readSourceCommit(inputDir);
-  const sources = loadCoreSupplementSources(inputDir);
-  setAllowedSources(sources);
   setSourceRanks(loadSourceRanks(inputDir));
   mkdirSync(OUTPUT_DIR, { recursive: true });
   writeFileSync(
     join(OUTPUT_DIR, 'sources.json'),
     JSON.stringify(loadSourceNames(inputDir)),
   );
-  console.log(
-    `Building compendium data from ${inputDir} @ ${sourceCommit} ` +
-      `(${sources.size} Core/Supplement sources)`,
-  );
+  console.log(`Building compendium data from ${inputDir} @ ${sourceCommit}`);
 
   const fluff = (file: string, key: string) => loadFluff(inputDir, [file], key);
 

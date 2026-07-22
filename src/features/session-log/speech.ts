@@ -1,11 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
+import { useT } from '@/i18n/useT';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyPipeline = (audio: Float32Array, opts?: Record<string, unknown>) => Promise<any>;
 
 let pipelinePromise: Promise<AnyPipeline> | null = null;
 
-async function getWhisperPipeline(onStatus?: (s: string) => void): Promise<AnyPipeline> {
+async function getWhisperPipeline(
+  onStatus?: (s: string) => void,
+  downloadLabel = 'Downloading Whisper model',
+): Promise<AnyPipeline> {
   if (!pipelinePromise) {
     pipelinePromise = import('@huggingface/transformers').then(
       async ({ pipeline, env }) => {
@@ -19,7 +23,7 @@ async function getWhisperPipeline(onStatus?: (s: string) => void): Promise<AnyPi
               typeof p.progress === 'number'
                 ? ` ${Math.round(p.progress as number)}%`
                 : '';
-            onStatus?.(`Downloading Whisper model${pct}…`);
+            onStatus?.(`${downloadLabel}${pct}…`);
           }
         };
 
@@ -85,8 +89,9 @@ async function transcribeBlob(
   blob: Blob,
   language: string,
   onStatus?: (s: string) => void,
+  downloadLabel?: string,
 ): Promise<string> {
-  const pipe = await getWhisperPipeline(onStatus);
+  const pipe = await getWhisperPipeline(onStatus, downloadLabel);
   const audio = await blobToFloat32(blob);
   if (!hasSpeech(audio)) return '';
 
@@ -125,6 +130,7 @@ export function useSpeechRecognition(
       'MediaRecorder' in window &&
       'AudioContext' in window,
   );
+  const { t } = useT();
   const [listening, setListening] = useState(false);
   const [interim, setInterim] = useState('');
   const [speechError, setSpeechError] = useState('');
@@ -145,7 +151,7 @@ export function useSpeechRecognition(
       shouldListenRef.current = false;
       if (chunkTimerRef.current !== null) clearTimeout(chunkTimerRef.current);
       if (recorderRef.current?.state === 'recording') recorderRef.current.stop();
-      streamRef.current?.getTracks().forEach((t) => t.stop());
+      streamRef.current?.getTracks().forEach((track) => track.stop());
     };
   }, []);
 
@@ -155,12 +161,19 @@ export function useSpeechRecognition(
     try {
       while (queueRef.current.length > 0) {
         const blob = queueRef.current.shift()!;
-        setInterim('Transcribing…');
+        setInterim(t('sessionLog.transcribing'));
         try {
-          const text = await transcribeBlob(blob, languageRef.current, setInterim);
+          const text = await transcribeBlob(
+            blob,
+            languageRef.current,
+            setInterim,
+            t('sessionLog.downloadingModel'),
+          );
           if (text) onFinalRef.current(text);
         } catch (e) {
-          setSpeechError(e instanceof Error ? e.message : 'Transcription failed');
+          setSpeechError(
+            e instanceof Error ? e.message : t('sessionLog.speechErrTranscribe'),
+          );
         }
       }
     } finally {
@@ -210,14 +223,16 @@ export function useSpeechRecognition(
       stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
     } catch (e) {
       shouldListenRef.current = false;
-      setSpeechError(e instanceof Error ? e.message : 'Microphone access denied');
+      setSpeechError(e instanceof Error ? e.message : t('sessionLog.speechErrMic'));
       return;
     }
     streamRef.current = stream;
 
-    getWhisperPipeline(setInterim).catch((e: unknown) => {
-      setSpeechError(e instanceof Error ? e.message : 'Failed to load Whisper model');
-    });
+    getWhisperPipeline(setInterim, t('sessionLog.downloadingModel')).catch(
+      (e: unknown) => {
+        setSpeechError(e instanceof Error ? e.message : t('sessionLog.speechErrModel'));
+      },
+    );
 
     startChunk(stream);
     setListening(true);
@@ -231,7 +246,7 @@ export function useSpeechRecognition(
     }
 
     if (recorderRef.current?.state === 'recording') recorderRef.current.stop();
-    streamRef.current?.getTracks().forEach((t) => t.stop());
+    streamRef.current?.getTracks().forEach((track) => track.stop());
     recorderRef.current = null;
     streamRef.current = null;
     setListening(false);

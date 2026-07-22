@@ -7,6 +7,7 @@ import type {
   CompendiumEntryBase,
 } from '@/data/compendium/types';
 import type { Locale } from '@/i18n/locales';
+import { isUaSource } from '@/data/compendium/sources';
 
 export interface HomebrewTranslation {
   name: string;
@@ -35,6 +36,8 @@ export interface HomebrewImportedEntry {
   id: string;
   category: CompendiumCategoryId;
   name: string;
+
+  ua?: boolean;
 
   data: CompendiumEntryBase & Record<string, unknown>;
   createdAt: number;
@@ -113,6 +116,7 @@ export function homebrewToItem(
     srd: false,
     _homebrew: true,
     _manual: false,
+    ...(entry.ua ? { ua: true } : {}),
     subtitle: '',
     entries: Array.isArray(entry.data.entries) ? (entry.data.entries as Entry[]) : [],
   };
@@ -191,6 +195,7 @@ export const useHomebrewStore = create<HomebrewState>()(
               id: makeId(e.data.name),
               category: e.category,
               name: e.data.name,
+              ...(isUaSource(String(e.data.source ?? '')) ? { ua: true } : {}),
               data: e.data as CompendiumEntryBase & Record<string, unknown>,
               createdAt: Date.now(),
             })),

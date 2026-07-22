@@ -45,10 +45,10 @@ export function confirmDialog(
     useDialogStore.setState({
       request: {
         kind: 'confirm',
-        title: options.title ?? 'Are you sure?',
+        title: options.title ?? '',
         message,
-        confirmLabel: options.confirmLabel ?? 'Confirm',
-        cancelLabel: options.cancelLabel ?? 'Cancel',
+        confirmLabel: options.confirmLabel ?? '',
+        cancelLabel: options.cancelLabel ?? '',
         tone: options.tone ?? 'default',
         resolve,
       },
@@ -61,9 +61,9 @@ export function alertDialog(message: string, options: AlertOptions = {}): Promis
     useDialogStore.setState({
       request: {
         kind: 'alert',
-        title: options.title ?? 'Notice',
+        title: options.title ?? '',
         message,
-        confirmLabel: options.okLabel ?? 'OK',
+        confirmLabel: options.okLabel ?? '',
         cancelLabel: '',
         tone: 'default',
         resolve: () => resolve(),

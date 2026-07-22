@@ -12,7 +12,7 @@ import { applyContentMode } from './contentFilter';
 import { EntryRenderer } from './EntryRenderer';
 import { FilterBar } from './FilterBar';
 import { imageUrl } from '@/data/compendium/images';
-import { sourceName } from '@/data/compendium/sources';
+import { isUaSource, sourceName } from '@/data/compendium/sources';
 import { isHomebrew } from '@/features/homebrew/store';
 import { HomebrewDetail } from '@/features/homebrew/HomebrewDetail';
 import { getBook } from '@/features/books/data';
@@ -198,6 +198,11 @@ function CompendiumBrowser({
                         {t('compendium.homebrewBadge')}
                       </span>
                     )}
+                    {(isUaSource(item.source) || item.ua) && (
+                      <span className="rounded-full border border-arcane-500/50 px-1.5 text-[0.65rem] uppercase tracking-wide text-arcane-300">
+                        {t('compendium.uaBadge')}
+                      </span>
+                    )}
                   </span>
                   <span className="block text-xs text-ink-400">
                     {isHomebrew(item) && item._manual
@@ -260,6 +265,11 @@ function CompendiumBrowser({
               {isHomebrew(selected) && !selected._manual && (
                 <span className="mb-3 inline-block rounded-full border border-ember-500/50 px-2 py-0.5 text-xs uppercase tracking-wide text-ember-400">
                   {t('compendium.homebrewLabel')}
+                </span>
+              )}
+              {(isUaSource(selected.source) || selected.ua) && (
+                <span className="mb-3 inline-block rounded-full border border-arcane-500/50 px-2 py-0.5 text-xs uppercase tracking-wide text-arcane-300">
+                  {t('compendium.uaLabel')}
                 </span>
               )}
               {isHomebrew(selected) && selected._manual ? (
