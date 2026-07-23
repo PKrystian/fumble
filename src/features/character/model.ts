@@ -46,7 +46,6 @@ export interface NamedItem {
 
 export type ArmorType = 'light' | 'medium' | 'heavy' | 'shield';
 
-/** Map a compendium item type ("Heavy Armor", "Shield") to an armor slot. */
 export function parseArmorType(type: string): ArmorType | undefined {
   const value = type.toLowerCase();
   if (value.includes('shield')) return 'shield';
@@ -65,7 +64,6 @@ export interface InventoryItem extends NamedItem {
   equipped?: boolean;
 }
 
-/** An "unarmored defense" style formula, e.g. Monk's 10 + Dex + Wis. */
 export interface UnarmoredDefense {
   base: number;
   abilities: AbilityKey[];
@@ -249,7 +247,6 @@ export function passiveScore(character: Character, skillId: string): number {
   return 10 + skillBonus(character, skill);
 }
 
-/** How much Dexterity a worn armor lets you add to AC. */
 const DEX_CAP: Record<ArmorType, number | null> = {
   light: null,
   medium: 2,
@@ -273,11 +270,6 @@ const DEFAULT_AC_LABELS: ArmorClassLabels = {
   abilityAbbr: (key) => ABILITY_NAMES[key].slice(0, 3),
 };
 
-/**
- * Derive AC from equipped armor, a shield, and Dexterity (capped by armor type),
- * falling back to an unarmored-defense formula or plain 10 + Dex. A manual
- * `acOverride` always wins so the sheet can be corrected by hand.
- */
 export function armorClassBreakdown(
   character: Character,
   labels: ArmorClassLabels = DEFAULT_AC_LABELS,

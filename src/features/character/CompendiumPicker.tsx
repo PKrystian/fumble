@@ -159,7 +159,6 @@ export function CompendiumSelectModalField({
   const [query, setQuery] = useState('');
   const { status, items } = useCategoryItems(getCategory(categoryId));
 
-  // `value` is a stable compendium id; older sheets stored a (localized) name.
   const selected =
     items.find((item) => item.id === value) ??
     items.find((item) => item.name.toLowerCase() === value.trim().toLowerCase());

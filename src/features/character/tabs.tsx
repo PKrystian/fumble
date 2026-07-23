@@ -175,8 +175,6 @@ function InventoryTab({ character, update }: TabProps) {
           itemId: entry.id,
           ...(armorType ? { armorType } : {}),
           ...(Number.isFinite(baseAc) ? { baseAc } : {}),
-          // Armor is worn as soon as it is added; AC updates immediately and the
-          // user can unequip it without deleting it.
           ...(armorType ? { equipped: true } : {}),
         },
       ],

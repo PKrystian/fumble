@@ -712,7 +712,7 @@ export function formatServes(
   let count = '';
   if (serves.exact != null) count = `${serves.exact}`;
   else if (serves.min != null && serves.max != null)
-    count = `${serves.min}–${serves.max}`;
+    count = `${serves.min}-${serves.max}`;
   return [count, serves.note].filter(Boolean).join(' ');
 }
 

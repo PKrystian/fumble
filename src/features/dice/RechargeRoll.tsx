@@ -7,7 +7,7 @@ export function RechargeRoll({ min }: { min: number }) {
   const roll = useRollStore((s) => s.roll);
   const [result, setResult] = useState<number | null>(null);
 
-  const range = min >= 6 ? '6' : `${min}–6`;
+  const range = min >= 6 ? '6' : `${min}-6`;
   const recharged = result != null && result >= min;
 
   const onClick = () => {

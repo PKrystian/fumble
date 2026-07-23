@@ -371,10 +371,10 @@ const en = {
       sessionQuick: {
         placeholder: 'Write a quick note…',
         addNote: 'Add note to session log',
-        openFull: 'Open full session log →',
+        openFull: 'Open full session log',
       },
       skillsPanel: {
-        cycleTitle: 'Click to cycle: none → proficient → expertise',
+        cycleTitle: 'Click to cycle: none, proficient, expertise',
         proficiencyAria: '{{skill}} proficiency',
         savingThrowProficiencyAria: '{{ability}} saving throw proficiency',
       },

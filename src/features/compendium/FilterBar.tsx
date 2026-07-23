@@ -8,11 +8,6 @@ import type { CategoryFilter } from './categories';
 
 type TranslateFn = (key: string, vars?: Record<string, string | number>) => string;
 
-/**
- * Some filter values are constructed literals (not localized item data), so map
- * those known tokens to translations for display; everything else is already
- * localized by the item overlay.
- */
 function displayValue(
   filter: CategoryFilter,
   value: string,

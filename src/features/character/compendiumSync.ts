@@ -62,12 +62,6 @@ function findByName<T extends { name: string; hidden?: boolean }>(
   return matches.find((i) => !i.hidden) ?? matches[0];
 }
 
-/**
- * Characters store a picked entry as its stable compendium id, but older sheets
- * stored the display name - which was localized, so a Polish name never matched
- * the English data. Resolve id first, then fall back to a name in either the
- * active locale or English so legacy sheets keep working in any language.
- */
 function resolveEntry<T extends Identifiable>(
   value: string,
   localized: T[],
@@ -83,11 +77,6 @@ function resolveEntry<T extends Identifiable>(
   return legacy ? (localized.find((i) => i.id === legacy.id) ?? legacy) : undefined;
 }
 
-/**
- * Resolved entry pair. `localized` drives everything the user reads; `english`
- * backs the fields we parse for game mechanics (ability and skill names), which
- * would otherwise stop matching as soon as the UI is not in English.
- */
 export interface EntryPair<T> {
   localized: T | undefined;
   english: T | undefined;
@@ -144,7 +133,6 @@ export function useClassEntry(className: string): ClassEntry | undefined {
 
 export type SpellIndex = Map<string, SpellEntry>;
 
-/** Spell lookup by compendium id, localized so granted spells read in-language. */
 export function useSpellIndex(): SpellIndex {
   const locale = useLocale();
   const [index, setIndex] = useState<SpellIndex>(new Map());
@@ -165,11 +153,6 @@ export function useSpellIndex(): SpellIndex {
   return index;
 }
 
-/**
- * Pair a chosen subclass with its English counterpart. The overlay replaces the
- * subclass array wholesale but preserves order, so align by index and fall back
- * to name matching if the shapes ever diverge.
- */
 export function findSubclassPair(
   pair: EntryPair<ClassEntry>,
   subclass: string,
@@ -216,7 +199,6 @@ function spellSlugsIn(text: string): string[] {
   return [...text.matchAll(/\{@spell\s+([^}|]+)/gi)].map((m) => slugifySpell(m[1] ?? ''));
 }
 
-/** "3rd" / "5th" / "3." -> 3. Returns null when the cell is not a level. */
 function parseTableLevel(cell: string): number | null {
   const match = /^\s*(\d+)/.exec(cell);
   return match ? Number(match[1]) : null;
@@ -228,11 +210,6 @@ function isSpellTable(node: EntryNode): boolean {
   return labels.some((label) => /spell/i.test(label));
 }
 
-/**
- * Spells a class or subclass hands the character outright: the level-gated rows
- * of a "<Domain> Spells" table, plus prose like "You always have the {@spell X}
- * spell prepared". Parsed from the English entry, since the wording is matched.
- */
 function collectGrantedSpellSlugs(
   features: ClassFeature[] | undefined,
   characterLevel: number,
@@ -282,8 +259,6 @@ function parseUnarmoredDefense(
 
   for (const feature of features) {
     if (feature.level > characterLevel) continue;
-    // The rules text carries markup ("{@variantrule Armor Class|XPHB} equals..."),
-    // so flatten it to plain prose before matching.
     const text = entriesToPlainText(feature.entries);
     const match =
       /Armor Class equals (\d+) plus your ([A-Za-z]+)(?: and your| and) ([A-Za-z]+) modifiers/i.exec(
@@ -330,8 +305,6 @@ export function syncClassFeatures(
     spellIndex?: SpellIndex;
   } = {},
 ): Partial<Character> {
-  // Ability and skill names are parsed from the English entry so the mapping
-  // keeps working when the sheet is shown in another language.
   const clsMechanics = mechanics.cls ?? cls;
   const backgroundMechanics = mechanics.background ?? background;
   const manualFeatures = character.features.filter((f) => !f.auto);

@@ -69,8 +69,6 @@ function SubclassField({ character, update }: SectionProps) {
   const { t } = useT();
   const cls = useClassEntry(character.className);
   const selected = findSubclass(cls, character.subclass);
-  // The same subclass can appear once per printing; show the newest of each name
-  // (sourceRank is the publication date, so higher wins).
   const byName = new Map<string, ClassSubclass>();
   for (const sub of cls?.subclasses ?? []) {
     const current = byName.get(sub.name);

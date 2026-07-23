@@ -373,10 +373,10 @@ const pl: Dictionary = {
       sessionQuick: {
         placeholder: 'Zapisz szybką notatkę…',
         addNote: 'Dodaj notatkę do dziennika sesji',
-        openFull: 'Otwórz pełny dziennik sesji →',
+        openFull: 'Otwórz pełny dziennik sesji',
       },
       skillsPanel: {
-        cycleTitle: 'Kliknij, aby przełączać: brak → biegłość → ekspertyza',
+        cycleTitle: 'Kliknij, aby przełączać: brak, biegłość, ekspertyza',
         proficiencyAria: 'Biegłość: {{skill}}',
         savingThrowProficiencyAria: 'Biegłość w rzucie obronnym {{ability}}',
       },

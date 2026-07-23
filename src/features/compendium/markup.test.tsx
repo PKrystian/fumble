@@ -72,7 +72,7 @@ describe('parseMarkup', () => {
       'Tongue (Recharge 6)',
     );
     expect(renderMarkup('Fire Breath {@recharge 5}').container).toHaveTextContent(
-      'Fire Breath (Recharge 5–6)',
+      'Fire Breath (Recharge 5-6)',
     );
   });
 

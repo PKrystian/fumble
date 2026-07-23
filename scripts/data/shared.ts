@@ -32,8 +32,6 @@ function loadBookAndAdventureMeta(inputDir: string): BookMeta[] {
   return [...books, ...adventures];
 }
 
-// Full names for official sources 5etools ships as data but does not list in its
-// books.json / adventures.json index (web supplements, anthologies, promos, UA).
 const EXTRA_SOURCE_NAMES: Record<string, string> = {
   TftYP: 'Tales from the Yawning Portal',
   ESK: 'Dragon of Icespire Peak',

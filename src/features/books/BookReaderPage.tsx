@@ -94,7 +94,7 @@ function OutlineList({
               depth === 0 ? 'pl-6' : 'pl-9',
             ].join(' ')}
           >
-            {depth > 0 && <span aria-hidden="true">–</span>}
+            {depth > 0 && <span aria-hidden="true">-</span>}
             <span className="truncate">{node.name}</span>
           </Link>
           <OutlineList
