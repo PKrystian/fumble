@@ -1,27 +1,21 @@
 import { useEffect, useMemo, useState } from 'react';
-import { RotateCcw, Search, Shuffle, SlidersHorizontal, X } from 'lucide-react';
+import {
+  ArrowDownWideNarrow,
+  ArrowUpNarrowWide,
+  RotateCcw,
+  Search,
+  Shuffle,
+  SlidersHorizontal,
+  X,
+} from 'lucide-react';
 import type { CompendiumEntryBase } from '@/data/compendium/types';
 import { HOMEBREW_SOURCE } from '@/features/homebrew/store';
 import { useT } from '@/i18n/useT';
 import type { Locale } from '@/i18n/locales';
 import type { CategoryFilter } from './categories';
+import { type SortDir, displayValue } from './filterSort';
 
 type TranslateFn = (key: string, vars?: Record<string, string | number>) => string;
-
-function displayValue(
-  filter: CategoryFilter,
-  value: string,
-  t: TranslateFn,
-  locale: Locale,
-): string {
-  if (filter.labelFor) return filter.labelFor(value, locale);
-  if (value === 'Cantrip') return t('compendium.filters.cantrip');
-  const levelMatch = /^Level (\d+)$/.exec(value);
-  if (levelMatch) return t('compendium.filters.levelN', { level: levelMatch[1]! });
-  if (value === 'Yes') return t('compendium.filters.yes');
-  if (value === 'No') return t('compendium.filters.no');
-  return value;
-}
 
 interface FilterBarProps {
   filters: CategoryFilter[];
@@ -30,6 +24,10 @@ interface FilterBarProps {
   onToggle: (filterId: string, value: string) => void;
   onClear: () => void;
   onRandom: () => void;
+  sortField: string;
+  sortDir: SortDir;
+  onSortField: (field: string) => void;
+  onToggleSortDir: () => void;
 }
 
 interface FilterGroup {
@@ -119,6 +117,10 @@ export function FilterBar({
   onToggle,
   onClear,
   onRandom,
+  sortField,
+  sortDir,
+  onSortField,
+  onToggleSortDir,
 }: FilterBarProps) {
   const { t, locale } = useT();
   const [modalOpen, setModalOpen] = useState(false);
@@ -183,6 +185,37 @@ export function FilterBar({
           )}
         </button>
         <div className="flex items-center gap-1">
+          <select
+            value={sortField}
+            onChange={(e) => onSortField(e.target.value)}
+            aria-label={t('compendium.sort.label')}
+            title={t('compendium.sort.label')}
+            className="max-w-[8rem] truncate rounded bg-ink-800 px-1.5 py-1 text-xs text-ink-200 transition-colors hover:bg-ink-700 focus:outline-none"
+          >
+            <option value="name">{t('compendium.sort.byName')}</option>
+            {filters.map((filter) => (
+              <option key={filter.id} value={filter.id}>
+                {t(filter.label)}
+              </option>
+            ))}
+          </select>
+          <button
+            type="button"
+            onClick={onToggleSortDir}
+            title={t('compendium.sort.toggleDirection')}
+            aria-label={t(
+              sortDir === 'asc'
+                ? 'compendium.sort.ascending'
+                : 'compendium.sort.descending',
+            )}
+            className="rounded p-1 text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50"
+          >
+            {sortDir === 'asc' ? (
+              <ArrowUpNarrowWide size={14} />
+            ) : (
+              <ArrowDownWideNarrow size={14} />
+            )}
+          </button>
           <button
             type="button"
             onClick={() => setSummaryOpen((v) => !v)}

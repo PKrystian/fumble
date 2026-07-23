@@ -86,6 +86,13 @@ const en = {
     referenceOpenFull: 'Open to view the full entry.',
     token: 'Token',
     categoriesNav: 'Compendium categories',
+    sort: {
+      label: 'Sort by',
+      byName: 'Name',
+      ascending: 'Sorted ascending',
+      descending: 'Sorted descending',
+      toggleDirection: 'Toggle sort direction',
+    },
     filters: {
       button: 'Filters',
       all: 'All',

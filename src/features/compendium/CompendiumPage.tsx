@@ -11,6 +11,7 @@ import { useCategoryItems } from './useCategoryItems';
 import { applyContentMode } from './contentFilter';
 import { EntryRenderer } from './EntryRenderer';
 import { FilterBar } from './FilterBar';
+import { type SortDir, compareItems } from './filterSort';
 import { imageUrl } from '@/data/compendium/images';
 import { isUaSource, sourceName } from '@/data/compendium/sources';
 import { isHomebrew } from '@/features/homebrew/store';
@@ -55,6 +56,8 @@ function CompendiumBrowser({
   const filters = category.filters ?? NO_FILTERS;
   const [query, setQuery] = useState('');
   const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({});
+  const [sortField, setSortField] = useState('name');
+  const [sortDir, setSortDir] = useState<SortDir>('asc');
   const { status, items } = useCategoryItems(category);
   const openLightbox = useLightbox((s) => s.open);
   const navigate = useNavigate();
@@ -91,6 +94,13 @@ function CompendiumBrowser({
       });
     });
   }, [visibleItems, query, filters, selectedFilters]);
+
+  const sorted = useMemo(() => {
+    if (sortField === 'name' && sortDir === 'asc') return filtered;
+    return [...filtered].sort((a, b) =>
+      compareItems(a, b, sortField, sortDir, filters, t, locale),
+    );
+  }, [filtered, sortField, sortDir, filters, t, locale]);
 
   const selected = selectedId ? items.find((item) => item.id === selectedId) : undefined;
 
@@ -168,6 +178,10 @@ function CompendiumBrowser({
               onToggle={toggleFilter}
               onClear={() => setSelectedFilters({})}
               onRandom={pickRandom}
+              sortField={sortField}
+              sortDir={sortDir}
+              onSortField={setSortField}
+              onToggleSortDir={() => setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'))}
             />
           )}
 
@@ -178,10 +192,10 @@ function CompendiumBrowser({
             {status === 'error' && (
               <li className="p-4 text-sm text-red-400">{t('compendium.failedToLoad')}</li>
             )}
-            {status === 'ready' && filtered.length === 0 && (
+            {status === 'ready' && sorted.length === 0 && (
               <li className="p-4 text-sm text-ink-400">{t('compendium.noMatches')}</li>
             )}
-            {filtered.map((item) => (
+            {sorted.map((item) => (
               <li key={item.id}>
                 <Link
                   to={`/compendium/${categoryId}/${item.id}`}

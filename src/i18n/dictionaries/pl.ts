@@ -89,6 +89,13 @@ const pl: Dictionary = {
     referenceOpenFull: 'Otwórz, aby zobaczyć pełny wpis.',
     token: 'Żeton',
     categoriesNav: 'Kategorie kompendium',
+    sort: {
+      label: 'Sortuj wg',
+      byName: 'Nazwa',
+      ascending: 'Sortowanie rosnąco',
+      descending: 'Sortowanie malejąco',
+      toggleDirection: 'Zmień kierunek sortowania',
+    },
     filters: {
       button: 'Filtry',
       all: 'Wszystkie',
