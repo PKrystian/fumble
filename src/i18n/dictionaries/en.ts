@@ -539,6 +539,8 @@ const en = {
       modeParty: 'Party',
       modeTier: 'Tier',
       modeWildcard: 'Wildcard',
+      tierLabel: 'Tier {{n}}',
+      tierLevels: 'Levels {{min}}-{{max}}',
       footerNote:
         'Coins scale by tier and magic items are drawn from the compendium at ' +
         'tier-appropriate rarities, inspired by the 2024 treasure tables.',
@@ -600,6 +602,7 @@ const en = {
     recharged: 'recharged',
     rechargeNotYet: 'not yet',
     rechargeRolled: 'rolled {{result}} · {{status}}',
+    rollTitle: 'Roll {{expression}}',
   },
   initiative: {
     title: 'Initiative',

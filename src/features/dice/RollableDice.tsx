@@ -1,3 +1,4 @@
+import { useT } from '@/i18n/useT';
 import { useRollStore } from './rollStore';
 
 interface RollableDiceProps {
@@ -17,6 +18,7 @@ export function RollableDice({
   variant = 'damage',
 }: RollableDiceProps) {
   const roll = useRollStore((s) => s.roll);
+  const { t } = useT();
 
   const color =
     variant === 'attack'
@@ -27,7 +29,7 @@ export function RollableDice({
     <button
       type="button"
       onClick={() => roll(expression, 'normal', label)}
-      title={`Roll ${expression}`}
+      title={t('dice.rollTitle', { expression })}
       className={`inline cursor-pointer rounded align-baseline font-medium underline decoration-dotted underline-offset-2 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-arcane-500 ${color}`}
     >
       {display}

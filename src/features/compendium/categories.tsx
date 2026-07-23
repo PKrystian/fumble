@@ -31,6 +31,7 @@ import type {
   VehicleEntry,
 } from '@/data/compendium/types';
 import { sourceName } from '@/data/compendium/sources';
+import { agreeSize } from './creatureMeta';
 import type { Locale } from '@/i18n/locales';
 import { XP_BY_CR } from '@/features/dm/xp';
 import {
@@ -230,7 +231,8 @@ export const categories: CompendiumCategory[] = [
     load: loader<MonsterEntry>(() => import('@/data/generated/bestiary.json')),
     subtitle: (item, t) => {
       const m = item as MonsterEntry;
-      return `${t('compendium.detail.crValue', { cr: m.cr })} · ${[m.size, m.creatureType].filter(Boolean).join(' ')}`;
+      const size = m.size ? agreeSize(m.size, m.creatureType) : m.size;
+      return `${t('compendium.detail.crValue', { cr: m.cr })} · ${[size, m.creatureType].filter(Boolean).join(' ')}`;
     },
     renderDetail: (item) => <MonsterDetail monster={item as MonsterEntry} />,
   },

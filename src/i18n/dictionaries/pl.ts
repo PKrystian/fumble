@@ -542,6 +542,8 @@ const pl: Dictionary = {
       modeParty: 'Drużyna',
       modeTier: 'Poziom',
       modeWildcard: 'Losowo',
+      tierLabel: 'Poziom {{n}}',
+      tierLevels: 'Poziomy {{min}}-{{max}}',
       footerNote:
         'Ilość złota skaluje się wraz z poziomem, a magiczne przedmioty są losowane ' +
         'z kompendium zgodnie z rzadkością odpowiednią dla danego poziomu, inspirowane ' +
@@ -560,7 +562,7 @@ const pl: Dictionary = {
       toGenerateLoot: 'aby wygenerować łupy, które faktycznie mogą wykorzystać.',
       partyCount: 'Drużyna ({{selected}} z {{total}})',
       level: 'Poz. {{level}}',
-      effectiveTier: 'Efektywny poziom: {{tier}} · średni poziom {{level}}',
+      effectiveTier: 'Efektywny {{tier}} · średni poziom {{level}}',
       rollWildcardLoot: 'Wylosuj łup',
       wildcardNote:
         'Wszystko może się zdarzyć: dowolny typ, bez filtrów biegłości - na ' +
@@ -605,6 +607,7 @@ const pl: Dictionary = {
     recharged: 'naładowano',
     rechargeNotYet: 'jeszcze nie',
     rechargeRolled: 'wyrzucono {{result}} · {{status}}',
+    rollTitle: 'Rzuć {{expression}}',
   },
   initiative: {
     title: 'Inicjatywa',
@@ -712,9 +715,9 @@ const pl: Dictionary = {
     allPages: 'Wszystkie strony',
   },
   homebrew: {
-    description: 'Twórz własne wpisy lub importuj plik',
+    description: 'Twórz własne wpisy lub zaimportuj plik',
     descriptionSuffix:
-      'homebrew z 5etools. Wszystko jest przechowywane tylko w tej przeglądarce i ' +
+      'do aplikacji. Wszystko jest przechowywane tylko w tej przeglądarce i ' +
       'pojawia się w Kompendium oznaczone jako',
     export: 'Eksportuj',
     importFile: 'Importuj plik',

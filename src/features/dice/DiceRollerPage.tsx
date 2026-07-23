@@ -157,7 +157,7 @@ export function DiceRollerPage() {
               onClick={rollFromExpression}
               className="rounded-md border border-ink-700 px-3 py-2 text-sm text-ink-200 hover:bg-ink-800"
             >
-              Roll
+              {t('dice.roll')}
             </button>
           </div>
         </div>

@@ -3,8 +3,6 @@ import type { ItemEntry } from '@/data/compendium/types';
 
 export interface Tier {
   id: number;
-  label: string;
-  levels: string;
   minLevel: number;
   maxLevel: number;
   rarities: string[];
@@ -17,8 +15,6 @@ export interface Tier {
 export const TIERS: Tier[] = [
   {
     id: 1,
-    label: 'Tier 1',
-    levels: 'Levels 1–4',
     minLevel: 1,
     maxLevel: 4,
     rarities: ['Common', 'Uncommon'],
@@ -29,8 +25,6 @@ export const TIERS: Tier[] = [
   },
   {
     id: 2,
-    label: 'Tier 2',
-    levels: 'Levels 5–10',
     minLevel: 5,
     maxLevel: 10,
     rarities: ['Uncommon', 'Rare'],
@@ -41,8 +35,6 @@ export const TIERS: Tier[] = [
   },
   {
     id: 3,
-    label: 'Tier 3',
-    levels: 'Levels 11–16',
     minLevel: 11,
     maxLevel: 16,
     rarities: ['Rare', 'Very Rare'],
@@ -53,8 +45,6 @@ export const TIERS: Tier[] = [
   },
   {
     id: 4,
-    label: 'Tier 4',
-    levels: 'Levels 17–20',
     minLevel: 17,
     maxLevel: 20,
     rarities: ['Very Rare', 'Legendary'],

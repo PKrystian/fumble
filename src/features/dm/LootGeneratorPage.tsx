@@ -134,20 +134,24 @@ function TierMode({ status, pool, hoard, setHoard }: ModeProps) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap gap-2">
-        {TIERS.map((t) => (
+        {TIERS.map((option) => (
           <button
-            key={t.id}
+            key={option.id}
             type="button"
-            onClick={() => setTierId(t.id)}
+            onClick={() => setTierId(option.id)}
             className={[
               'rounded-lg border px-4 py-2 text-left transition-colors',
-              t.id === tierId
+              option.id === tierId
                 ? 'border-arcane-500 bg-ink-800'
                 : 'border-ink-700 bg-ink-900 hover:bg-ink-800',
             ].join(' ')}
           >
-            <span className="block font-display font-bold text-ink-50">{t.label}</span>
-            <span className="block text-xs text-ink-400">{t.levels}</span>
+            <span className="block font-display font-bold text-ink-50">
+              {t('dm.loot.tierLabel', { n: option.id })}
+            </span>
+            <span className="block text-xs text-ink-400">
+              {t('dm.loot.tierLevels', { min: option.minLevel, max: option.maxLevel })}
+            </span>
           </button>
         ))}
       </div>
@@ -286,7 +290,7 @@ function PartyMode({ status, pool, hoard, setHoard }: ModeProps) {
         </ul>
         <p className="mt-3 text-xs text-ink-400">
           {t('dm.loot.effectiveTier', {
-            tier: tier.label,
+            tier: t('dm.loot.tierLabel', { n: tier.id }),
             level: averageLevel(selected.map((c) => c.level)),
           })}
         </p>
@@ -354,7 +358,7 @@ function WildcardMode({ status, pool, hoard, setHoard }: ModeProps) {
         {t('dm.loot.wildcardNote', {
           ceiling: ceiling || t('dm.loot.mundane'),
           level: averageLevel(characters.map((c) => c.level)),
-          tier: tier.label,
+          tier: t('dm.loot.tierLabel', { n: tier.id }),
         })}
       </p>
 

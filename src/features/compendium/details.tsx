@@ -38,6 +38,7 @@ import { useHomebrewStore } from '@/features/homebrew/store';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { OriginalName } from '@/features/ui/OriginalName';
+import { agreeSize } from './creatureMeta';
 import { EntryRenderer } from './EntryRenderer';
 import { parseMarkup } from './markup';
 
@@ -762,7 +763,11 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
           <OriginalName name={monster.englishName} className="ml-2 text-lg" />
         </h2>
         <p className="text-sm italic text-ink-300">
-          {monster.size && <RulesLink rule="size">{monster.size}</RulesLink>}
+          {monster.size && (
+            <RulesLink rule="size">
+              {agreeSize(monster.size, monster.creatureType)}
+            </RulesLink>
+          )}
           {monster.size && monster.creatureType && ' '}
           {monster.creatureType && (
             <RulesLink rule="creature-type">{monster.creatureType}</RulesLink>
