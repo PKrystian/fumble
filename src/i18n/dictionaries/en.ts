@@ -657,6 +657,8 @@ const en = {
     copyWithAiPromptTitle:
       'Copies a ready-to-paste AI prompt that asks for a numbered plot-point summary',
     copyWithAiPrompt: 'Copy with AI prompt',
+    notes: 'Session notes',
+    notesPlaceholder: 'Names, clues, decisions, reminders...',
     transcriptEmptyState: 'Your session transcript will appear here as you speak…',
   },
   encounter: {

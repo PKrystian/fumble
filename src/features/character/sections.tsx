@@ -661,13 +661,13 @@ export function SessionLogQuickPanel() {
   const [text, setText] = useState('');
   const sessions = useSessionStore((s) => s.sessions);
   const addSession = useSessionStore((s) => s.addSession);
-  const appendTranscript = useSessionStore((s) => s.appendTranscript);
+  const appendNote = useSessionStore((s) => s.appendNote);
 
   const send = () => {
     const trimmed = text.trim();
     if (!trimmed) return;
     const id = sessions[0]?.id ?? addSession();
-    appendTranscript(id, trimmed);
+    appendNote(id, trimmed);
     setText('');
   };
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Check, Copy, Mic, Plus, Sparkles, Square, Trash2 } from 'lucide-react';
+import { Check, Copy, List, Mic, Plus, Sparkles, Square, Trash2, X } from 'lucide-react';
 import { confirmDialog } from '@/features/ui/confirmStore';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
@@ -27,6 +27,7 @@ export function SessionLogPage() {
   const [, setTick] = useState(0);
   const [copied, setCopied] = useState(false);
   const [promptCopied, setPromptCopied] = useState(false);
+  const [mobileSessionsOpen, setMobileSessionsOpen] = useState(false);
   const recordStart = useRef<number | null>(null);
 
   const session = sessions.find((s) => s.id === selectedId) ?? null;
@@ -60,7 +61,10 @@ export function SessionLogPage() {
     recordStart.current = null;
   };
 
-  const createSession = () => setSelectedId(addSession());
+  const createSession = () => {
+    setSelectedId(addSession());
+    setMobileSessionsOpen(false);
+  };
 
   const copyTranscript = async () => {
     if (!session) return;
@@ -81,27 +85,54 @@ export function SessionLogPage() {
     (listening && recordStart.current ? Date.now() - recordStart.current : 0);
 
   return (
-    <div className="flex h-full">
-      <aside className="flex w-64 shrink-0 flex-col border-r border-ink-700">
+    <div className="relative flex h-full min-h-0">
+      {mobileSessionsOpen && (
+        <button
+          type="button"
+          aria-label={t('common.closeMenu')}
+          className="absolute inset-0 z-20 bg-black/60 md:hidden"
+          onClick={() => setMobileSessionsOpen(false)}
+        />
+      )}
+
+      <aside
+        className={[
+          'absolute inset-y-0 left-0 z-30 flex w-[min(20rem,85vw)] shrink-0 flex-col border-r border-ink-700 bg-ink-950 shadow-xl transition-transform md:static md:w-64 md:translate-x-0 md:shadow-none',
+          mobileSessionsOpen ? 'translate-x-0' : '-translate-x-full',
+        ].join(' ')}
+      >
         <div className="flex items-center justify-between border-b border-ink-700 p-3">
           <h1 className="font-display text-lg font-bold text-ink-50">
             {t('sessionLog.sessions')}
           </h1>
-          <button
-            type="button"
-            onClick={createSession}
-            aria-label={t('sessionLog.newSession')}
-            className="rounded-md bg-arcane-700 p-1.5 text-ink-50 hover:bg-arcane-500"
-          >
-            <Plus size={16} />
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={createSession}
+              aria-label={t('sessionLog.newSession')}
+              className="rounded-md bg-arcane-700 p-2 text-ink-50 hover:bg-arcane-500"
+            >
+              <Plus size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={() => setMobileSessionsOpen(false)}
+              aria-label={t('common.closeMenu')}
+              className="rounded-md p-2 text-ink-300 hover:bg-ink-800 hover:text-ink-50 md:hidden"
+            >
+              <X size={20} />
+            </button>
+          </div>
         </div>
         <ul className="flex-1 overflow-y-auto">
           {sessions.map((s) => (
             <li key={s.id}>
               <button
                 type="button"
-                onClick={() => setSelectedId(s.id)}
+                onClick={() => {
+                  setSelectedId(s.id);
+                  setMobileSessionsOpen(false);
+                }}
                 className={[
                   'block w-full border-b border-ink-800 px-3 py-2 text-left',
                   s.id === selectedId ? 'bg-ink-800' : 'hover:bg-ink-900',
@@ -119,7 +150,7 @@ export function SessionLogPage() {
         </ul>
       </aside>
 
-      <main className="min-w-0 flex-1 overflow-y-auto p-5">
+      <main className="min-w-0 flex-1 overflow-y-auto p-3 sm:p-5">
         {!session ? (
           <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-ink-300">
             <p>{t('sessionLog.noSessionSelected')}</p>
@@ -132,12 +163,20 @@ export function SessionLogPage() {
             </button>
           </div>
         ) : (
-          <div className="mx-auto flex max-w-3xl flex-col gap-4">
-            <div className="flex items-center gap-3">
+          <div className="mx-auto flex max-w-3xl flex-col gap-4 pb-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <button
+                type="button"
+                onClick={() => setMobileSessionsOpen(true)}
+                aria-label={t('sessionLog.sessions')}
+                className="shrink-0 rounded-md border border-ink-700 p-2.5 text-ink-200 hover:bg-ink-800 hover:text-ink-50 md:hidden"
+              >
+                <List size={20} />
+              </button>
               <input
                 value={session.title}
                 onChange={(e) => updateSession(session.id, { title: e.target.value })}
-                className="flex-1 rounded-md border border-ink-700 bg-ink-900 px-3 py-2 font-display text-xl font-bold text-ink-50 focus:border-arcane-500 focus:outline-none"
+                className="min-w-0 flex-1 rounded-md border border-ink-700 bg-ink-900 px-3 py-2 font-display text-lg font-bold text-ink-50 focus:border-arcane-500 focus:outline-none sm:text-xl"
               />
               <button
                 type="button"
@@ -158,7 +197,7 @@ export function SessionLogPage() {
               </button>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               {supported ? (
                 <>
                   <button
@@ -179,7 +218,7 @@ export function SessionLogPage() {
                     onChange={(e) => setTranscriptionLang(e.target.value)}
                     disabled={listening}
                     aria-label={t('sessionLog.transcriptionLanguage')}
-                    className="rounded-md border border-ink-700 bg-ink-900 px-2 py-1.5 text-sm text-ink-200 focus:border-arcane-500 focus:outline-none disabled:opacity-50"
+                    className="min-w-0 flex-1 rounded-md border border-ink-700 bg-ink-900 px-2 py-2 text-sm text-ink-200 focus:border-arcane-500 focus:outline-none disabled:opacity-50 sm:flex-none"
                   >
                     <option value="english">{t('sessionLog.english')}</option>
                     <option value="polish">{t('sessionLog.polish')}</option>
@@ -199,12 +238,12 @@ export function SessionLogPage() {
                   {t('sessionLog.recording')}
                 </span>
               )}
-              <div className="ml-auto flex items-center gap-2">
+              <div className="flex w-full items-stretch gap-2 sm:ml-auto sm:w-auto sm:items-center">
                 <button
                   type="button"
                   onClick={copyTranscript}
                   disabled={session.entries.length === 0}
-                  className="inline-flex items-center gap-2 rounded-lg border border-ink-700 px-3 py-1.5 text-sm font-medium text-ink-100 hover:bg-ink-800 disabled:opacity-50"
+                  className="inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm font-medium text-ink-100 hover:bg-ink-800 disabled:opacity-50 sm:flex-none sm:py-1.5"
                 >
                   {copied ? <Check size={16} /> : <Copy size={16} />}
                   {copied ? t('sessionLog.copied') : t('sessionLog.copyTranscript')}
@@ -214,7 +253,7 @@ export function SessionLogPage() {
                   onClick={copyWithPrompt}
                   disabled={session.entries.length === 0}
                   title={t('sessionLog.copyWithAiPromptTitle')}
-                  className="inline-flex items-center gap-2 rounded-lg bg-arcane-700 px-3 py-1.5 text-sm font-medium text-ink-50 hover:bg-arcane-500 disabled:opacity-50"
+                  className="inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-lg bg-arcane-700 px-3 py-2 text-sm font-medium text-ink-50 hover:bg-arcane-500 disabled:opacity-50 sm:flex-none sm:py-1.5"
                 >
                   {promptCopied ? <Check size={16} /> : <Sparkles size={16} />}
                   {promptCopied
@@ -231,12 +270,34 @@ export function SessionLogPage() {
               </p>
             )}
 
-            <div className="flex min-h-[20rem] flex-col gap-2 rounded-lg border border-ink-700 bg-ink-900 p-3">
+            <div className="flex flex-col gap-1.5">
+              <label
+                htmlFor="session-notes"
+                className="text-sm font-semibold text-ink-200"
+              >
+                {t('sessionLog.notes')}
+              </label>
+              <textarea
+                id="session-notes"
+                value={session.notes}
+                onChange={(event) =>
+                  updateSession(session.id, { notes: event.target.value })
+                }
+                rows={4}
+                placeholder={t('sessionLog.notesPlaceholder')}
+                className="w-full resize-y rounded-lg border border-ink-700 bg-ink-900 px-3 py-2 text-ink-100 placeholder:text-ink-500 focus:border-arcane-500 focus:outline-none"
+              />
+            </div>
+
+            <div className="flex min-h-[16rem] flex-col gap-2 overflow-hidden rounded-lg border border-ink-700 bg-ink-900 p-3 sm:min-h-[20rem]">
               {session.entries.length === 0 ? (
                 <p className="text-ink-500">{t('sessionLog.transcriptEmptyState')}</p>
               ) : (
                 session.entries.map((entry, i) => (
-                  <p key={`${entry.time}-${i}`} className="leading-relaxed text-ink-100">
+                  <p
+                    key={`${entry.time}-${i}`}
+                    className="break-words leading-relaxed text-ink-100"
+                  >
                     <span className="mr-2 font-mono text-xs text-ink-500">
                       [{formatClockTime(entry.time)}]
                     </span>

@@ -11,6 +11,7 @@ export interface Session {
   title: string;
   createdAt: number;
   durationMs: number;
+  notes: string;
   entries: TranscriptEntry[];
 }
 
@@ -20,6 +21,7 @@ interface SessionState {
   transcriptionLang: string;
   addSession: () => string;
   updateSession: (id: string, patch: Partial<Omit<Session, 'entries'>>) => void;
+  appendNote: (id: string, text: string) => void;
   appendTranscript: (id: string, text: string) => void;
   deleteSession: (id: string) => void;
   setTranscriptionLang: (lang: string) => void;
@@ -37,6 +39,7 @@ export const useSessionStore = create<SessionState>()(
           title: `Session ${new Date().toLocaleDateString()}`,
           createdAt: Date.now(),
           durationMs: 0,
+          notes: '',
           entries: [],
         };
         set((state) => ({ sessions: [session, ...state.sessions] }));
@@ -45,6 +48,12 @@ export const useSessionStore = create<SessionState>()(
       updateSession: (id, patch) =>
         set((state) => ({
           sessions: state.sessions.map((s) => (s.id === id ? { ...s, ...patch } : s)),
+        })),
+      appendNote: (id, text) =>
+        set((state) => ({
+          sessions: state.sessions.map((s) =>
+            s.id === id ? { ...s, notes: [s.notes, text].filter(Boolean).join('\n') } : s,
+          ),
         })),
       appendTranscript: (id, text) =>
         set((state) => ({
@@ -58,7 +67,20 @@ export const useSessionStore = create<SessionState>()(
         set((state) => ({ sessions: state.sessions.filter((s) => s.id !== id) })),
       setTranscriptionLang: (transcriptionLang) => set({ transcriptionLang }),
     }),
-    { name: 'fumble-sessions', version: 2 },
+    {
+      name: 'fumble-sessions',
+      version: 3,
+      migrate: (persisted) => {
+        const state = (persisted ?? {}) as Partial<SessionState>;
+        return {
+          ...state,
+          sessions: (state.sessions ?? []).map((session) => ({
+            ...session,
+            notes: session.notes ?? '',
+          })),
+        } as SessionState;
+      },
+    },
   ),
 );
 
@@ -81,8 +103,9 @@ export function formatClockTime(ms: number): string {
 
 export function formatTranscriptForExport(session: Session): string {
   const header = `${session.title} - ${new Date(session.createdAt).toLocaleString()}`;
+  const notes = session.notes.trim() ? ['Notes:', session.notes.trim(), ''] : [];
   const lines = session.entries.map((e) => `[${formatClockTime(e.time)}] ${e.text}`);
-  return [header, '', ...lines].join('\n');
+  return [header, '', ...notes, ...lines].join('\n');
 }
 
 export const SUMMARY_PROMPT =

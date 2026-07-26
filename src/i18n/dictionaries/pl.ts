@@ -662,6 +662,8 @@ const pl: Dictionary = {
     copyWithAiPromptTitle:
       'Kopiuje gotowy do wklejenia prompt AI, proszący o ponumerowane podsumowanie wątków fabularnych',
     copyWithAiPrompt: 'Kopiuj z promptem AI',
+    notes: 'Notatki z sesji',
+    notesPlaceholder: 'Imiona, wskazówki, decyzje, przypomnienia...',
     transcriptEmptyState:
       'Transkrypcja twojej sesji pojawi się tutaj, gdy zaczniesz mówić…',
   },
