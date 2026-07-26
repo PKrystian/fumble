@@ -269,7 +269,7 @@ export function BookReaderPage() {
                     className={[
                       'block flex-1 truncate rounded-md px-2 py-2 text-sm transition-colors',
                       index === chapterIndex
-                        ? 'bg-ink-800 font-semibold text-ink-50'
+                        ? 'bg-arcane-700 font-semibold text-white'
                         : 'text-ink-200 hover:bg-ink-800/60 hover:text-ink-50',
                     ].join(' ')}
                   >
@@ -300,7 +300,7 @@ export function BookReaderPage() {
               className={[
                 'inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors',
                 fullBook
-                  ? 'border-arcane-500 bg-arcane-700/20 text-arcane-300'
+                  ? 'border-arcane-300 bg-arcane-700 text-white'
                   : 'border-ink-700 text-ink-300 hover:bg-ink-800 hover:text-ink-50',
               ].join(' ')}
             >
@@ -314,7 +314,7 @@ export function BookReaderPage() {
               className={[
                 'inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors',
                 wide
-                  ? 'border-arcane-500 bg-arcane-700/20 text-arcane-300'
+                  ? 'border-arcane-300 bg-arcane-700 text-white'
                   : 'border-ink-700 text-ink-300 hover:bg-ink-800 hover:text-ink-50',
               ].join(' ')}
             >

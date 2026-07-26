@@ -135,7 +135,7 @@ export function SessionLogPage() {
                 }}
                 className={[
                   'block w-full border-b border-ink-800 px-3 py-2 text-left',
-                  s.id === selectedId ? 'bg-ink-800' : 'hover:bg-ink-900',
+                  s.id === selectedId ? 'bg-arcane-700 text-white' : 'hover:bg-ink-900',
                 ].join(' ')}
               >
                 <span className="block truncate text-sm font-medium text-ink-50">

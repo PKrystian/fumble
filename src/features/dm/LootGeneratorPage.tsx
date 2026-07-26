@@ -142,7 +142,7 @@ function TierMode({ status, pool, hoard, setHoard }: ModeProps) {
             className={[
               'rounded-lg border px-4 py-2 text-left transition-colors',
               option.id === tierId
-                ? 'border-arcane-500 bg-ink-800'
+                ? 'border-arcane-300 bg-arcane-700 text-white'
                 : 'border-ink-700 bg-ink-900 hover:bg-ink-800',
             ].join(' ')}
           >

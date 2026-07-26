@@ -23,6 +23,23 @@ describe('compendium categories', () => {
     expect(spells.subtitle(leveled, t)).toBe('Level 3 · Evocation');
   });
 
+  it('filters spells by their class and subclass lists', () => {
+    const spell = {
+      classes: ['Sorcerer', 'Wizard'],
+      subclasses: ['Fighter: Eldritch Knight', 'Wizard: Evoker'],
+    } as SpellEntry;
+    const filters = getCategory('spells')!.filters!;
+
+    expect(filters.find((filter) => filter.id === 'class')!.valuesFor(spell)).toEqual([
+      'Sorcerer',
+      'Wizard',
+    ]);
+    expect(filters.find((filter) => filter.id === 'subclass')!.valuesFor(spell)).toEqual([
+      'Fighter: Eldritch Knight',
+      'Wizard: Evoker',
+    ]);
+  });
+
   it('uses the kind as a condition subtitle', () => {
     const conditions = getCategory('conditions')!;
     expect(conditions.subtitle({ kind: 'disease' } as ConditionEntry, t)).toBe('disease');

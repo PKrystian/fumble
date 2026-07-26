@@ -57,6 +57,8 @@ export interface SpellEntry extends CompendiumEntryBase {
   duration: string;
   concentration: boolean;
   ritual: boolean;
+  classes?: string[];
+  subclasses?: string[];
   entries: Entry[];
   entriesHigherLevel?: Entry[];
 }

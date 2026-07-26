@@ -107,7 +107,7 @@ export function CompendiumPicker({
                 className={[
                   'rounded-full px-2 py-0.5 text-xs transition-colors',
                   active
-                    ? 'bg-arcane-600 text-ink-50'
+                    ? 'bg-arcane-700 text-white ring-1 ring-arcane-300'
                     : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
                 ].join(' ')}
               >
@@ -247,7 +247,7 @@ export function CompendiumSelectModalField({
                     className={[
                       'block w-full rounded-md px-3 py-1.5 text-left text-sm hover:bg-ink-800',
                       item.id === selected?.id
-                        ? 'bg-ink-800 text-arcane-300'
+                        ? 'bg-arcane-700 text-white'
                         : 'text-ink-100',
                     ].join(' ')}
                   >

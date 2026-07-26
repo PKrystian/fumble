@@ -35,6 +35,12 @@ describe('url builders', () => {
     expect(embedUrl('abc12345678')).toContain('loop=1');
   });
 
+  it('builds a playlist embed url', () => {
+    expect(embedUrl('abc12345678', 'playlist-id')).toBe(
+      'https://www.youtube.com/embed/videoseries?list=playlist-id&autoplay=1',
+    );
+  });
+
   it('builds a thumbnail url', () => {
     expect(thumbnailUrl('abc12345678')).toBe(
       'https://img.youtube.com/vi/abc12345678/mqdefault.jpg',

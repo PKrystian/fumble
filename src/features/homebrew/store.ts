@@ -38,8 +38,10 @@ export interface HomebrewImportedEntry {
   name: string;
 
   ua?: boolean;
+  baseLocale: Locale;
 
   data: CompendiumEntryBase & Record<string, unknown>;
+  translations?: Partial<Record<Locale, CompendiumEntryBase & Record<string, unknown>>>;
   createdAt: number;
 }
 
@@ -89,6 +91,7 @@ export function bodyToEntries(body: string): Entry[] {
 export function homebrewToItem(
   entry: HomebrewManualEntry | HomebrewImportedEntry,
   locale?: Locale,
+  entries: HomebrewEntry[] = [],
 ): HomebrewCompendiumItem {
   if (entry.kind === 'manual') {
     const translation = locale ? entry.translations?.[locale] : undefined;
@@ -108,17 +111,80 @@ export function homebrewToItem(
       ...(entry.image ? { image: entry.image } : {}),
     };
   }
+  const translation =
+    locale && locale !== entry.baseLocale ? entry.translations?.[locale] : undefined;
+  const data = translation ? { ...entry.data, ...translation } : entry.data;
+  const spellAvailability =
+    entry.category === 'spells'
+      ? inferSpellAvailability(entry, data, entries, locale)
+      : {};
   return {
-    ...entry.data,
+    ...data,
+    ...spellAvailability,
     id: entry.id,
-    name: entry.name,
+    name: data.name,
+    ...(locale === 'pl' && entry.baseLocale === 'en' && data.name !== entry.name
+      ? { englishName: entry.name }
+      : {}),
     source: HOMEBREW_SOURCE,
     srd: false,
     _homebrew: true,
     _manual: false,
     ...(entry.ua ? { ua: true } : {}),
     subtitle: '',
-    entries: Array.isArray(entry.data.entries) ? (entry.data.entries as Entry[]) : [],
+    entries: Array.isArray(data.entries) ? (data.entries as Entry[]) : [],
+  };
+}
+
+function unique(values: string[]): string[] {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function importedName(entry: HomebrewImportedEntry, locale?: Locale): string {
+  if (!locale || locale === entry.baseLocale) return entry.name;
+  return entry.translations?.[locale]?.name || entry.name;
+}
+
+function inferSpellAvailability(
+  spell: HomebrewImportedEntry,
+  data: CompendiumEntryBase & Record<string, unknown>,
+  entries: HomebrewEntry[],
+  locale?: Locale,
+): Pick<HomebrewCompendiumItem, 'classes' | 'subclasses'> {
+  const source = spell.data.source;
+  if (typeof source !== 'string' || !source) {
+    return {
+      classes: unique(Array.isArray(data.classes) ? (data.classes as string[]) : []),
+      subclasses: unique(
+        Array.isArray(data.subclasses) ? (data.subclasses as string[]) : [],
+      ),
+    };
+  }
+
+  const inferredClasses = entries
+    .filter(
+      (candidate): candidate is HomebrewImportedEntry =>
+        candidate.kind === 'imported' &&
+        candidate.category === 'classes' &&
+        candidate.data.source === source,
+    )
+    .map((candidate) => importedName(candidate, locale));
+  const inferredSubclasses = entries
+    .filter(
+      (candidate): candidate is HomebrewSubclassEntry =>
+        candidate.kind === 'subclass' && candidate.subclass.source === source,
+    )
+    .map((candidate) => `${candidate.className}: ${candidate.subclass.name}`);
+
+  return {
+    classes: unique([
+      ...(Array.isArray(data.classes) ? (data.classes as string[]) : []),
+      ...inferredClasses,
+    ]),
+    subclasses: unique([
+      ...(Array.isArray(data.subclasses) ? (data.subclasses as string[]) : []),
+      ...inferredSubclasses,
+    ]),
   };
 }
 
@@ -148,10 +214,20 @@ interface HomebrewState {
   entries: HomebrewEntry[];
   addManual: (input: ManualInput) => string;
   updateManual: (id: string, patch: Partial<ManualInput>) => void;
+  updateImported: (
+    id: string,
+    patch: Partial<
+      Pick<
+        HomebrewImportedEntry,
+        'category' | 'name' | 'baseLocale' | 'data' | 'translations'
+      >
+    >,
+  ) => void;
   deleteEntry: (id: string) => void;
 
   addImported: (
     list: Array<{ category: CompendiumCategoryId; data: CompendiumEntryBase }>,
+    baseLocale: Locale,
   ) => number;
 
   addSubclass: (input: SubclassInput) => string;
@@ -184,9 +260,15 @@ export const useHomebrewStore = create<HomebrewState>()(
             e.id === id && e.kind === 'manual' ? { ...e, ...patch } : e,
           ),
         })),
+      updateImported: (id, patch) =>
+        set((state) => ({
+          entries: state.entries.map((entry) =>
+            entry.id === id && entry.kind === 'imported' ? { ...entry, ...patch } : entry,
+          ),
+        })),
       deleteEntry: (id) =>
         set((state) => ({ entries: state.entries.filter((e) => e.id !== id) })),
-      addImported: (list) => {
+      addImported: (list, baseLocale) => {
         const valid = list.filter((e) => e.data && typeof e.data.name === 'string');
         set((state) => ({
           entries: [
@@ -195,6 +277,7 @@ export const useHomebrewStore = create<HomebrewState>()(
               id: makeId(e.data.name),
               category: e.category,
               name: e.data.name,
+              baseLocale,
               ...(isUaSource(String(e.data.source ?? '')) ? { ua: true } : {}),
               data: e.data as CompendiumEntryBase & Record<string, unknown>,
               createdAt: Date.now(),
@@ -258,6 +341,7 @@ export const useHomebrewStore = create<HomebrewState>()(
           entries: [
             ...valid.map((e) => ({
               ...e,
+              ...(e.kind === 'imported' ? { baseLocale: e.baseLocale ?? 'en' } : {}),
               id: makeId(e.kind === 'subclass' ? e.subclass.name : e.name),
               createdAt: Date.now(),
             })),
@@ -268,6 +352,20 @@ export const useHomebrewStore = create<HomebrewState>()(
       },
       clearAll: () => set({ entries: [] }),
     }),
-    { name: 'fumble-homebrew', version: 2 },
+    {
+      name: 'fumble-homebrew',
+      version: 3,
+      migrate: (persisted) => {
+        const state = (persisted ?? {}) as Partial<HomebrewState>;
+        return {
+          ...state,
+          entries: (state.entries ?? []).map((entry) =>
+            entry.kind === 'imported'
+              ? { ...entry, baseLocale: entry.baseLocale ?? 'en' }
+              : entry,
+          ),
+        } as HomebrewState;
+      },
+    },
   ),
 );

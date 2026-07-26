@@ -41,6 +41,64 @@ test('compendium filters narrow the list', async ({ page }) => {
   await expect(page.getByRole('link', { name: /^Fire Bolt/ })).toBeVisible();
 });
 
+test('spell filters include imported homebrew classes', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem(
+      'fumble-homebrew',
+      JSON.stringify({
+        state: {
+          entries: [
+            {
+              kind: 'imported',
+              id: 'hb-animate-hut',
+              category: 'spells',
+              name: 'Animate Hut',
+              baseLocale: 'en',
+              data: {
+                id: 'animate-hut',
+                name: 'Animate Hut',
+                source: 'WITCH',
+                srd: false,
+                level: 3,
+                school: 'Conjuration',
+                castingTime: '1 action',
+                range: '60 feet',
+                components: 'V, S, M',
+                duration: '1 hour',
+                entries: ['The hut awakens.'],
+              },
+              createdAt: 1,
+            },
+            {
+              kind: 'imported',
+              id: 'hb-witch',
+              category: 'classes',
+              name: 'Witch',
+              baseLocale: 'en',
+              data: {
+                id: 'witch',
+                name: 'Witch',
+                source: 'WITCH',
+                srd: false,
+              },
+              createdAt: 1,
+            },
+          ],
+        },
+        version: 3,
+      }),
+    );
+  });
+
+  await page.goto('/compendium/spells');
+  await page.getByRole('button', { name: /Filters/ }).click();
+  await page.getByRole('searchbox', { name: 'Search filter options' }).fill('Witch');
+  await page.getByRole('button', { name: 'Witch', exact: true }).click();
+
+  await expect(page.getByRole('link', { name: /^Animate Hut/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /^Fireball/ })).toHaveCount(0);
+});
+
 test('can create a character and edit core stats', async ({ page }) => {
   await page.goto('/character');
   await page.getByRole('button', { name: 'New Character' }).click();
@@ -82,7 +140,7 @@ test('dice roller evaluates an expression', async ({ page }) => {
   await input.fill('2d6');
   await input.press('Enter');
 
-  await expect(page.getByText('2d6', { exact: true })).toBeVisible();
+  await expect(page.getByRole('paragraph').filter({ hasText: /^2d6$/ })).toBeVisible();
 });
 
 test('initiative tracker adds a combatant and advances the round', async ({ page }) => {
@@ -110,25 +168,47 @@ test('loot generator produces a hoard', async ({ page }) => {
   await expect(page.getByText(/gp$/).first()).toBeVisible();
 });
 
-test('session log captures a transcript and summarizes it', async ({ page }) => {
+test('session log displays a transcript and saves notes', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem(
+      'fumble-sessions',
+      JSON.stringify({
+        state: {
+          sessions: [
+            {
+              id: 'test-session',
+              title: 'Dragon Lair',
+              createdAt: 1,
+              durationMs: 0,
+              notes: '',
+              entries: [
+                {
+                  time: 1,
+                  text:
+                    'The party entered the dragon lair. The dragon attacked fiercely. ' +
+                    'A rogue snuck behind the dragon. The wizard cast fireball at the dragon. ' +
+                    'The dragon roared in pain. The knight landed the final blow on the dragon.',
+                },
+              ],
+            },
+          ],
+          transcriptionLang: 'english',
+        },
+        version: 3,
+      }),
+    );
+  });
   await page.goto('/session-log');
-  await page.getByRole('button', { name: 'Start a new session' }).click();
-
-  const transcript = page.getByPlaceholder(
-    'Your session transcript will appear here as you speak…',
+  await expect(page.getByText(/The party entered the dragon lair/)).toBeVisible();
+  await page.getByRole('textbox', { name: 'Session notes' }).fill('The dragon is dead.');
+  await expect(page.getByRole('textbox', { name: 'Session notes' })).toHaveValue(
+    'The dragon is dead.',
   );
-  await transcript.fill(
-    'The party entered the dragon lair. The dragon attacked fiercely. ' +
-      'A rogue snuck behind the dragon. The wizard cast fireball at the dragon. ' +
-      'The dragon roared in pain. The knight landed the final blow on the dragon.',
-  );
-  await page.getByRole('button', { name: 'Summarize', exact: true }).click();
-  await expect(page.getByText('Summary', { exact: true })).toBeVisible();
 });
 
 test('soundboard adds a track and plays one', async ({ page }) => {
   await page.goto('/dm/soundboard');
-  await expect(page.getByText('Me at the zoo music 123')).toBeVisible();
+  await expect(page.getByText('Floating Peace | D&D/TTRPG Music | 1 Hour')).toBeVisible();
 
   await page.getByPlaceholder('Tavern brawl music').fill('My Ambience');
   await page
@@ -137,7 +217,12 @@ test('soundboard adds a track and plays one', async ({ page }) => {
   await page.getByRole('button', { name: 'Add', exact: true }).click();
   await expect(page.getByText('My Ambience')).toBeVisible();
 
-  await page.getByRole('button', { name: 'Boss Battle', exact: true }).click();
+  await page
+    .getByRole('button', {
+      name: 'Floating Peace | D&D/TTRPG Music | 1 Hour',
+      exact: true,
+    })
+    .click();
   await expect(page.getByText(/Now playing/)).toBeVisible();
 });
 

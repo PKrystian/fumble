@@ -195,6 +195,23 @@ export function SpellDetail({ spell }: { spell: SpellEntry }) {
         <EntryRenderer entries={spell.entries} />
         {spell.entriesHigherLevel && <EntryRenderer entries={spell.entriesHigherLevel} />}
       </div>
+
+      {(spell.classes?.length || spell.subclasses?.length) && (
+        <div className="flex flex-col gap-2 border-t border-ink-700 pt-4 text-sm">
+          {spell.classes?.length && (
+            <MetaRow
+              label={t('compendium.filters.labels.class')}
+              value={spell.classes.join(', ')}
+            />
+          )}
+          {spell.subclasses?.length && (
+            <MetaRow
+              label={t('compendium.filters.labels.subclass')}
+              value={spell.subclasses.join(', ')}
+            />
+          )}
+        </div>
+      )}
     </article>
   );
 }

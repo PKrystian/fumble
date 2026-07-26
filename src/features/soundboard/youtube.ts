@@ -8,7 +8,10 @@ export function parseYouTubeId(input: string): string | null {
   return match ? match[1]! : null;
 }
 
-export function embedUrl(videoId: string): string {
+export function embedUrl(videoId: string, playlistId?: string): string {
+  if (playlistId) {
+    return `https://www.youtube.com/embed/videoseries?list=${playlistId}&autoplay=1`;
+  }
   return `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
 }
 

@@ -201,7 +201,9 @@ function CompendiumBrowser({
                   to={`/compendium/${categoryId}/${item.id}`}
                   className={[
                     'block border-b border-ink-800 px-4 py-2 transition-colors hover:bg-ink-800',
-                    item.id === selectedId ? 'bg-ink-800' : '',
+                    item.id === selectedId
+                      ? 'border-l-2 border-l-arcane-300 bg-arcane-700/70'
+                      : '',
                   ].join(' ')}
                 >
                   <span className="flex flex-wrap items-baseline gap-x-2">

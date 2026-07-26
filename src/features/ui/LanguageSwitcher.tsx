@@ -74,11 +74,16 @@ export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
                 role="option"
                 aria-selected={l.code === locale}
                 onClick={() => switchTo(l.code)}
-                className="flex w-full items-center justify-between px-3 py-1.5 text-left text-sm text-ink-200 hover:bg-ink-800 hover:text-ink-50"
+                className={[
+                  'flex w-full items-center justify-between px-3 py-1.5 text-left text-sm',
+                  l.code === locale
+                    ? 'bg-arcane-700 text-white'
+                    : 'text-ink-200 hover:bg-ink-800 hover:text-ink-50',
+                ].join(' ')}
               >
                 {l.nativeLabel}
                 {l.code === locale && (
-                  <Check size={14} className="text-arcane-500" aria-hidden="true" />
+                  <Check size={14} className="text-white" aria-hidden="true" />
                 )}
               </button>
             </li>

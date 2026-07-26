@@ -163,7 +163,44 @@ interface RawSpell {
   entriesHigherLevel?: Entry[];
 }
 
-function transformSpell(raw: RawSpell): SpellEntry {
+interface SpellLookupEntry {
+  class?: Record<string, Record<string, unknown>>;
+  classVariant?: Record<string, Record<string, unknown>>;
+  subclass?: Record<
+    string,
+    Record<string, Record<string, Record<string, { name?: string }>>>
+  >;
+}
+
+type SpellSourceLookup = Record<string, Record<string, SpellLookupEntry>>;
+
+function spellClasses(entry: SpellLookupEntry | undefined): string[] {
+  const values = new Set<string>();
+  for (const group of [entry?.class, entry?.classVariant]) {
+    for (const classes of Object.values(group ?? {})) {
+      for (const className of Object.keys(classes)) values.add(className);
+    }
+  }
+  return [...values].sort((a, b) => a.localeCompare(b));
+}
+
+function spellSubclasses(entry: SpellLookupEntry | undefined): string[] {
+  const values = new Set<string>();
+  for (const classes of Object.values(entry?.subclass ?? {})) {
+    for (const [className, sources] of Object.entries(classes)) {
+      for (const subclasses of Object.values(sources)) {
+        for (const [shortName, meta] of Object.entries(subclasses)) {
+          values.add(`${className}: ${meta.name ?? shortName}`);
+        }
+      }
+    }
+  }
+  return [...values].sort((a, b) => a.localeCompare(b));
+}
+
+function transformSpell(raw: RawSpell, lookup?: SpellLookupEntry): SpellEntry {
+  const classes = spellClasses(lookup);
+  const subclasses = spellSubclasses(lookup);
   return {
     id: slugify(raw.name),
     name: raw.name,
@@ -178,6 +215,8 @@ function transformSpell(raw: RawSpell): SpellEntry {
     duration: formatDuration(raw.duration),
     concentration: hasConcentration(raw.duration),
     ritual: Boolean(raw.meta?.ritual),
+    ...(classes.length ? { classes } : {}),
+    ...(subclasses.length ? { subclasses } : {}),
     entries: raw.entries,
     ...(raw.entriesHigherLevel ? { entriesHigherLevel: raw.entriesHigherLevel } : {}),
   };
@@ -188,11 +227,17 @@ function buildSpells(inputDir: string): SpellEntry[] {
   const files = readdirSync(spellsDir).filter(
     (f) => f.startsWith('spells-') && f.endsWith('.json'),
   );
+  const lookup = readDataFile<SpellSourceLookup>(
+    inputDir,
+    'generated/gendata-spell-source-lookup.json',
+  );
   const spells: SpellEntry[] = [];
   for (const file of files) {
     const data = readDataFile<{ spell?: RawSpell[] }>(inputDir, join('spells', file));
     for (const raw of data.spell ?? []) {
-      if (keepEntry(raw)) spells.push(transformSpell(raw));
+      if (!keepEntry(raw)) continue;
+      const spellLookup = lookup[raw.source.toLowerCase()]?.[raw.name.toLowerCase()];
+      spells.push(transformSpell(raw, spellLookup));
     }
   }
   return spells.sort((a, b) => a.level - b.level || a.name.localeCompare(b.name));
@@ -1136,8 +1181,15 @@ function buildBooks(inputDir: string): void {
 }
 
 function main(): void {
-  const inputDir = resolveInputDir(process.argv.slice(2));
-  const sourceCommit = readSourceCommit(inputDir);
+  const args = process.argv.slice(2);
+  const inputDir = resolveInputDir(args);
+  const categoryIndex = args.indexOf('--category');
+  const category = categoryIndex === -1 ? undefined : args[categoryIndex + 1];
+  const sourceCommitIndex = args.indexOf('--source-commit');
+  const sourceCommit =
+    sourceCommitIndex === -1
+      ? readSourceCommit(inputDir)
+      : (args[sourceCommitIndex + 1] ?? 'unknown');
   setSourceRanks(loadSourceRanks(inputDir));
   mkdirSync(OUTPUT_DIR, { recursive: true });
   writeFileSync(
@@ -1147,6 +1199,11 @@ function main(): void {
   console.log(`Building compendium data from ${inputDir} @ ${sourceCommit}`);
 
   const fluff = (file: string, key: string) => loadFluff(inputDir, [file], key);
+
+  if (category === 'spells') {
+    writeCategory('spells', buildSpells(inputDir), sourceCommit);
+    return;
+  }
 
   writeCategory('spells', buildSpells(inputDir), sourceCommit);
   writeCategory('conditions', buildConditions(inputDir), sourceCommit, true);

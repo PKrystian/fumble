@@ -68,7 +68,9 @@ function sortDocs(docs: BookIndexEntry[]): BookIndexEntry[] {
 function chipClass(active: boolean): string {
   return [
     'rounded-full px-3 py-1 text-xs font-medium transition-colors',
-    active ? 'bg-arcane-600 text-ink-50' : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
+    active
+      ? 'bg-arcane-700 text-white ring-1 ring-arcane-300'
+      : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
   ].join(' ');
 }
 

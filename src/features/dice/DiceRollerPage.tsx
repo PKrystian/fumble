@@ -121,7 +121,7 @@ export function DiceRollerPage() {
                 className={[
                   'rounded-md px-3 py-1 text-sm font-medium transition-colors',
                   m === mode
-                    ? 'bg-ember-500 text-ink-950'
+                    ? 'bg-arcane-700 text-white ring-1 ring-arcane-300'
                     : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
                 ].join(' ')}
               >

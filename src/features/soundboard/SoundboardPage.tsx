@@ -3,7 +3,7 @@ import { GripVertical, Play, Plus, RotateCcw, Trash2, X } from 'lucide-react';
 import { confirmDialog } from '@/features/ui/confirmStore';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
-import { type Track, useSoundboardStore } from './store';
+import { type SoundboardCategory, type Track, useSoundboardStore } from './store';
 import { embedUrl, parseYouTubeId, thumbnailUrl } from './youtube';
 
 export function SoundboardPage() {
@@ -19,7 +19,11 @@ export function SoundboardPage() {
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
   const [error, setError] = useState('');
+  const [category, setCategory] = useState<SoundboardCategory | 'all'>('all');
   const dragIndex = useRef<number | null>(null);
+  const categories = [...new Set(tracks.map((track) => track.category))];
+  const visibleTracks =
+    category === 'all' ? tracks : tracks.filter((track) => track.category === category);
 
   const add = () => {
     const videoId = parseYouTubeId(url);
@@ -76,7 +80,7 @@ export function SoundboardPage() {
           <iframe
             key={active.id}
             title={active.name}
-            src={embedUrl(active.videoId)}
+            src={embedUrl(active.videoId, active.playlistId)}
             allow="autoplay; encrypted-media"
             className="aspect-video w-full"
           />
@@ -117,50 +121,81 @@ export function SoundboardPage() {
       </div>
       {error && <p className="mb-4 text-sm text-red-400">{error}</p>}
 
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-        {tracks.map((track, index) => (
-          <li
-            key={track.id}
-            draggable
-            onDragStart={() => (dragIndex.current = index)}
-            onDragOver={(e) => e.preventDefault()}
-            onDrop={() => onDrop(index)}
-            className="group relative overflow-hidden rounded-xl border border-ink-700 bg-ink-900"
-          >
+      <div className="mb-4 flex flex-wrap gap-2" aria-label={t('soundboard.categories')}>
+        {(['all', ...categories] as const).map((value) => {
+          const selected = category === value;
+          return (
             <button
+              key={value}
               type="button"
-              onClick={() => setActive(track)}
-              className="block w-full text-left"
+              aria-pressed={selected}
+              onClick={() => setCategory(value)}
+              className={[
+                'rounded-full px-3 py-1 text-sm font-medium transition-colors',
+                selected
+                  ? 'bg-arcane-700 text-white ring-1 ring-arcane-300'
+                  : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
+              ].join(' ')}
             >
-              <div className="relative aspect-video bg-ink-800">
-                <img
-                  src={thumbnailUrl(track.videoId)}
-                  alt=""
-                  loading="lazy"
-                  className="h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
-                />
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <Play className="text-ink-50 drop-shadow" size={36} />
-                </span>
-              </div>
-              <span className="block truncate px-3 py-2 text-sm font-medium text-ink-50">
-                {track.name}
-              </span>
+              {t(`soundboard.category.${value}`)}
             </button>
+          );
+        })}
+      </div>
 
-            <span className="absolute left-1 top-1 cursor-grab rounded bg-ink-950/70 p-1 text-ink-300 opacity-0 group-hover:opacity-100">
-              <GripVertical size={14} />
-            </span>
-            <button
-              type="button"
-              aria-label={t('soundboard.removeTrack', { name: track.name })}
-              onClick={() => removeTrack(track.id)}
-              className="absolute right-1 top-1 rounded bg-ink-950/70 p-1 text-ink-300 opacity-0 hover:text-red-400 group-hover:opacity-100"
+      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+        {visibleTracks.map((track) => {
+          const index = tracks.indexOf(track);
+          const selected = active?.id === track.id;
+          return (
+            <li
+              key={track.id}
+              draggable
+              onDragStart={() => (dragIndex.current = index)}
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={() => onDrop(index)}
+              className={[
+                'group relative overflow-hidden rounded-xl border bg-ink-900 transition-colors',
+                selected
+                  ? 'border-arcane-300 ring-2 ring-arcane-700'
+                  : 'border-ink-700 hover:border-arcane-500',
+              ].join(' ')}
             >
-              <Trash2 size={14} />
-            </button>
-          </li>
-        ))}
+              <button
+                type="button"
+                onClick={() => setActive(track)}
+                className="block w-full text-left"
+              >
+                <div className="relative aspect-video bg-ink-800">
+                  <img
+                    src={thumbnailUrl(track.videoId)}
+                    alt=""
+                    loading="lazy"
+                    className="h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
+                  />
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <Play className="text-ink-50 drop-shadow" size={36} />
+                  </span>
+                </div>
+                <span className="block truncate px-3 py-2 text-sm font-medium text-ink-50">
+                  {track.name}
+                </span>
+              </button>
+
+              <span className="absolute left-1 top-1 cursor-grab rounded bg-ink-950/70 p-1 text-ink-300 opacity-0 group-hover:opacity-100">
+                <GripVertical size={14} />
+              </span>
+              <button
+                type="button"
+                aria-label={t('soundboard.removeTrack', { name: track.name })}
+                onClick={() => removeTrack(track.id)}
+                className="absolute right-1 top-1 rounded bg-ink-950/70 p-1 text-ink-300 opacity-0 hover:text-red-400 group-hover:opacity-100"
+              >
+                <Trash2 size={14} />
+              </button>
+            </li>
+          );
+        })}
       </ul>
 
       <p className="mt-6 text-xs text-ink-500">{t('soundboard.footerNote')}</p>

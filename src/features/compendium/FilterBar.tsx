@@ -38,7 +38,9 @@ interface FilterGroup {
 function chipClass(active: boolean): string {
   return [
     'rounded-full px-2 py-0.5 text-xs transition-colors',
-    active ? 'bg-arcane-600 text-ink-50' : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
+    active
+      ? 'bg-arcane-700 text-white ring-1 ring-arcane-300'
+      : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
   ].join(' ');
 }
 
@@ -60,6 +62,7 @@ function FacetSection({
   locale: Locale;
 }) {
   const { filter, values } = group;
+  const [expanded, setExpanded] = useState(false);
   const term = search.trim().toLowerCase();
   const visible = term
     ? values.filter((v) =>
@@ -67,14 +70,25 @@ function FacetSection({
       )
     : values;
   if (visible.length === 0) return null;
+  const selectedFirst = [
+    ...visible.filter((value) => selected.includes(value)),
+    ...visible.filter((value) => !selected.includes(value)),
+  ];
+  const shown = term || expanded ? visible : selectedFirst.slice(0, 16);
+  const hasMore = !term && visible.length > 16;
 
   return (
     <div className="flex flex-col gap-1">
       <div className="flex items-center justify-between">
         {!hideLabel && (
-          <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">
-            {t(filter.label)}
-          </p>
+          <div className="flex items-baseline gap-1.5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">
+              {t(filter.label)}
+            </p>
+            <span className="text-[0.65rem] tabular-nums text-ink-500">
+              {visible.length}
+            </span>
+          </div>
         )}
         <div className="ml-auto flex gap-2 text-[0.65rem] text-ink-400">
           <button
@@ -94,7 +108,7 @@ function FacetSection({
         </div>
       </div>
       <div className="flex flex-wrap gap-1">
-        {visible.map((value) => (
+        {shown.map((value) => (
           <button
             key={value}
             type="button"
@@ -106,6 +120,17 @@ function FacetSection({
           </button>
         ))}
       </div>
+      {hasMore && (
+        <button
+          type="button"
+          onClick={() => setExpanded((value) => !value)}
+          className="mt-1 w-fit text-xs text-arcane-300 hover:text-arcane-200"
+        >
+          {expanded
+            ? t('compendium.filters.showLess')
+            : t('compendium.filters.showAllCount', { count: visible.length })}
+        </button>
+      )}
     </div>
   );
 }
@@ -260,7 +285,7 @@ export function FilterBar({
               key={`${chip.filterId}:${chip.value}`}
               type="button"
               onClick={() => onToggle(chip.filterId, chip.value)}
-              className="inline-flex items-center gap-1 rounded-full bg-arcane-700 px-2 py-0.5 text-xs text-ink-50 hover:bg-arcane-600"
+              className="inline-flex items-center gap-1 rounded-full bg-arcane-700 px-2 py-0.5 text-xs text-ink-50 hover:bg-arcane-500"
             >
               {chip.label}
               <X size={10} />

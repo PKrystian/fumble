@@ -104,7 +104,7 @@ export function Sidebar({ onNavigate, collapsible = true }: SidebarProps) {
                       'flex flex-1 items-center gap-3 rounded-md py-2 transition-colors',
                       showLabels ? 'mx-2 px-3' : 'mx-1 justify-center px-2',
                       isActive
-                        ? 'bg-ink-800 font-semibold text-ink-50'
+                        ? 'bg-arcane-700 font-semibold text-white'
                         : 'font-medium text-ink-200 group-hover:bg-ink-800/60 group-hover:text-ink-50',
                     ].join(' ')}
                   >
@@ -114,7 +114,7 @@ export function Sidebar({ onNavigate, collapsible = true }: SidebarProps) {
                       className={[
                         'shrink-0',
                         isActive
-                          ? 'text-arcane-500'
+                          ? 'text-white'
                           : 'text-ink-400 transition-colors group-hover:text-ink-200',
                       ].join(' ')}
                     />

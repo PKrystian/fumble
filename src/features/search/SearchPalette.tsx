@@ -166,7 +166,7 @@ export function SearchPalette() {
                 onMouseMove={() => setActive(i)}
                 className={[
                   'flex w-full items-center gap-3 border-b border-ink-800 px-4 py-2.5 text-left transition-colors',
-                  i === active ? 'bg-ink-800' : 'hover:bg-ink-800/60',
+                  i === active ? 'bg-arcane-700 text-white' : 'hover:bg-ink-800/60',
                 ].join(' ')}
               >
                 <KindIcon kind={result.kind} />

@@ -399,6 +399,16 @@ const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
   feats: [field<FeatEntry>('category', filterLabel('category'), (i) => i.category)],
   spells: [
     {
+      id: 'class',
+      label: filterLabel('class'),
+      valuesFor: (i) => (i as SpellEntry).classes ?? [],
+    },
+    {
+      id: 'subclass',
+      label: filterLabel('subclass'),
+      valuesFor: (i) => (i as SpellEntry).subclasses ?? [],
+    },
+    {
       id: 'level',
       label: filterLabel('level'),
       valuesFor: (i) => {

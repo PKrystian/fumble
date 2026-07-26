@@ -70,11 +70,16 @@ export function ContentModeSwitcher({ compact = false }: ContentModeSwitcherProp
                 role="option"
                 aria-selected={m === mode}
                 onClick={() => choose(m)}
-                className="flex w-full items-center justify-between px-3 py-1.5 text-left text-sm text-ink-200 hover:bg-ink-800 hover:text-ink-50"
+                className={[
+                  'flex w-full items-center justify-between px-3 py-1.5 text-left text-sm',
+                  m === mode
+                    ? 'bg-arcane-700 text-white'
+                    : 'text-ink-200 hover:bg-ink-800 hover:text-ink-50',
+                ].join(' ')}
               >
                 {label(m)}
                 {m === mode && (
-                  <Check size={14} className="text-arcane-500" aria-hidden="true" />
+                  <Check size={14} className="text-white" aria-hidden="true" />
                 )}
               </button>
             </li>

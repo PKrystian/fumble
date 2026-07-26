@@ -78,7 +78,7 @@ export function WikiPage() {
                 className={[
                   'block rounded-md px-2 py-1.5 text-sm transition-colors',
                   page.slug === selected?.slug
-                    ? 'bg-arcane-700/40 text-ink-50'
+                    ? 'bg-arcane-700 text-white'
                     : 'text-ink-200 hover:bg-ink-800',
                 ].join(' ')}
               >

@@ -129,7 +129,7 @@ export function buildHomebrewResults(
         entry.kind !== 'subclass',
     )
     .map((entry) => {
-      const item = homebrewToItem(entry, locale);
+      const item = homebrewToItem(entry, locale, entries);
       const category = getCategory(entry.category);
       const categoryLabel = category
         ? t(`compendium.categories.${category.id}`)
