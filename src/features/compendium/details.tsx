@@ -40,6 +40,7 @@ import { useT } from '@/i18n/useT';
 import { OriginalName } from '@/features/ui/OriginalName';
 import { agreeSize } from './creatureMeta';
 import { EntryRenderer } from './EntryRenderer';
+import { localizeFormula } from './formula';
 import { parseMarkup } from './markup';
 
 function slugify(value: string): string {
@@ -804,7 +805,10 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
             label={t('compendium.detail.initiative')}
             value={monster.initiative}
           />
-          <MetaRow label={t('compendium.detail.hp')} value={monster.hp} />
+          <MetaRow
+            label={t('compendium.detail.hp')}
+            value={localizeFormula(monster.hp, locale)}
+          />
           <MetaRow label={t('compendium.detail.speed')} value={monster.speed} />
         </div>
 

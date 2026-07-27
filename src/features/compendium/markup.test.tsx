@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { parseMarkup } from './markup';
 
-function renderMarkup(text: string) {
-  return render(<MemoryRouter>{parseMarkup(text)}</MemoryRouter>);
+function renderMarkup(text: string, locale: 'en' | 'pl' = 'en') {
+  return render(<MemoryRouter>{parseMarkup(text, locale)}</MemoryRouter>);
 }
 
 describe('parseMarkup', () => {
@@ -16,6 +16,15 @@ describe('parseMarkup', () => {
   it('renders damage tags as their dice expression', () => {
     const { container } = renderMarkup('takes {@damage 8d6} fire');
     expect(container).toHaveTextContent('takes 8d6 fire');
+  });
+
+  it('localizes variables in summon formulas', () => {
+    expect(
+      renderMarkup('{@damage 1d8 + summonSpellLevel}', 'pl').container,
+    ).toHaveTextContent('1d8 + poziom czaru');
+    expect(renderMarkup('{@damage 1d8 + PB}', 'pl').container).toHaveTextContent(
+      '1d8 + Bonus Biegłości',
+    );
   });
 
   it('formats dc and hit helper tags', () => {

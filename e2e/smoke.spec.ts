@@ -41,6 +41,17 @@ test('compendium filters narrow the list', async ({ page }) => {
   await expect(page.getByRole('link', { name: /^Fire Bolt/ })).toBeVisible();
 });
 
+test('Polish summoned creature formulas are localized', async ({ page }) => {
+  await page.goto('/pl/compendium/bestiary');
+  await page.getByRole('searchbox', { name: 'Szukaj: Bestiariusz' }).fill('Pozaświatowy');
+  await page.getByRole('link', { name: /Pozaświatowy Wierzchowiec/ }).click();
+
+  await expect(page.getByText(/5 \+ 10 za każdy poziom czaru/)).toBeVisible();
+  await expect(page.getByText(/1d8 \+ poziom czaru/)).toBeVisible();
+  await expect(page.getByText(/2d8 \+ poziom czaru/)).toBeVisible();
+  await expect(page.getByText(/summonSpellLevel|per spell level/)).toHaveCount(0);
+});
+
 test('spell filters include imported homebrew classes', async ({ page }) => {
   await page.addInitScript(() => {
     localStorage.setItem(
@@ -136,11 +147,28 @@ test('character rolls tab rolls a d20 with modifiers', async ({ page }) => {
 
 test('dice roller evaluates an expression', async ({ page }) => {
   await page.goto('/dice');
-  const input = page.getByPlaceholder('e.g. 2d6 + 1d8 + 3');
-  await input.fill('2d6');
+  const input = page.getByPlaceholder('e.g. (2d6 + 4) / 2');
+  await input.fill('(2k6 + 4) / 2');
   await input.press('Enter');
 
-  await expect(page.getByRole('paragraph').filter({ hasText: /^2d6$/ })).toBeVisible();
+  await expect(
+    page.getByRole('paragraph').filter({ hasText: /^\(2d6 \+ 4\) \/ 2$/ }),
+  ).toBeVisible();
+});
+
+test('dice roller saves and reuses a named roll', async ({ page }) => {
+  await page.goto('/dice');
+  await page.getByPlaceholder('Longsword').fill('Flame Blade');
+  await page.getByPlaceholder('e.g. 2d6 + 4').fill('2k6 + 4');
+  await page.getByRole('button', { name: 'Save', exact: true }).click();
+
+  await page.reload();
+  await page.getByRole('button', { name: /^Flame Blade 2k6/ }).click();
+
+  await expect(page.getByText('Flame Blade', { exact: true }).first()).toBeVisible();
+  await expect(
+    page.getByRole('paragraph').filter({ hasText: /^2d6 \+ 4$/ }),
+  ).toBeVisible();
 });
 
 test('initiative tracker adds a combatant and advances the round', async ({ page }) => {

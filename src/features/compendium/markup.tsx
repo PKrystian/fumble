@@ -3,6 +3,7 @@ import { parseExpression } from '@/features/dice/engine';
 import { RollableDice } from '@/features/dice/RollableDice';
 import { RechargeRoll } from '@/features/dice/RechargeRoll';
 import { DEFAULT_LOCALE, type Locale } from '@/i18n/locales';
+import { localizeFormula } from './formula';
 import { ReferenceLink } from './ReferenceLink';
 
 const LINKABLE: Record<string, string> = {
@@ -253,19 +254,20 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
     case 'scaledamage':
     case 'scaledice': {
       const rollExpr = parseExpression(display) ? display : first;
+      const localizedDisplay = localizeFormula(display, locale);
       if (parseExpression(rollExpr)) {
         return (
           <RollableDice
             key={key}
             variant="damage"
             expression={rollExpr}
-            display={display}
+            display={localizedDisplay}
           />
         );
       }
       return (
         <span key={key} className="font-medium text-ember-400">
-          {display}
+          {localizedDisplay}
         </span>
       );
     }

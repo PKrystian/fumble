@@ -594,7 +594,16 @@ const en = {
     clearPool: 'Clear pool',
     roll: 'Roll',
     orTypeExpression: 'Or type an expression',
-    expressionPlaceholder: 'e.g. 2d6 + 1d8 + 3',
+    expressionPlaceholder: 'e.g. (2d6 + 4) / 2',
+    savedRolls: 'Saved rolls',
+    savedRollsHelp:
+      'Save named expressions for weapons, spells, and other frequent rolls.',
+    savedRollName: 'Name',
+    savedRollNamePlaceholder: 'Longsword',
+    savedRollExpression: 'Expression',
+    savedRollExpressionPlaceholder: 'e.g. 2d6 + 4',
+    saveRoll: 'Save',
+    removeSavedRoll: 'Remove {{name}}',
     history: 'History',
     clear: 'Clear',
     emptyState:

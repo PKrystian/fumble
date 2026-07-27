@@ -47,6 +47,17 @@ describe('parseExpression', () => {
       modifier: -2,
     });
   });
+
+  it('parses multiplication, division, and parentheses', () => {
+    expect(parseExpression('(2k6 + 4) / 2')).not.toBeNull();
+    expect(parseExpression('2d6 * (1d4 + 1)')).not.toBeNull();
+  });
+
+  it('rejects incomplete mathematical expressions', () => {
+    expect(parseExpression('2d6 /')).toBeNull();
+    expect(parseExpression('(2d6 + 4')).toBeNull();
+    expect(parseExpression('2d6 ** 2')).toBeNull();
+  });
 });
 
 describe('rollParsed', () => {
@@ -97,5 +108,23 @@ describe('rollExpression', () => {
   it('produces a total within the possible range', () => {
     const outcome = rollExpression('4d6', 'normal', seqRng([0.99]));
     expect(outcome?.total).toBe(24);
+  });
+
+  it('evaluates operators in mathematical order', () => {
+    const outcome = rollExpression('1d6 + 2 * 3', 'normal', seqRng([0]));
+    expect(outcome?.total).toBe(7);
+  });
+
+  it('supports parentheses and rounds division down', () => {
+    const outcome = rollExpression('(2k6 + 3) / 2', 'normal', seqRng([0, 0.99]));
+    expect(outcome?.expression).toBe('(2d6 + 3) / 2');
+    expect(outcome?.total).toBe(5);
+  });
+
+  it('preserves significant parentheses when rerolling', () => {
+    const first = rollExpression('2d6 / (1d4 * 2)', 'normal', seqRng([0.99]));
+    expect(first?.expression).toBe('2d6 / (1d4 * 2)');
+    const rerolled = rollExpression(first!.expression, 'normal', seqRng([0.99]));
+    expect(rerolled?.total).toBe(first?.total);
   });
 });
