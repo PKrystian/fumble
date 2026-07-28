@@ -24,7 +24,7 @@ speaks for them all.
 
 ## Standing
 
-Broadly trusted, occasionally resented for its tariffs — but no one questions that the
+Broadly trusted, occasionally resented for its tariffs - but no one questions that the
 Guild keeps the harbor safe.
 
 :::locked

@@ -26,6 +26,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Dependency audit
+        run: npm run security:audit
+
       - name: Lint
         run: npm run lint
 
@@ -36,7 +39,7 @@ jobs:
         run: npm run typecheck
 
       - name: Unit tests
-        run: npm run test
+        run: npm run test:coverage
 
       - name: Build
         run: npm run build

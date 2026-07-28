@@ -24,10 +24,10 @@ quicker to notice a ship riding low in the water.
 ## History
 
 Born to a fishing family on the Argent Coast, Mira worked her way up from deckhand to
-harbormaster over twenty years — she knows every captain who's ever docked here.
+harbormaster over twenty years - she knows every captain who's ever docked here.
 
 :::locked
-Mira keeps a private log of ships that unload at night. She hasn't shown it to anyone —
+Mira keeps a private log of ships that unload at night. She hasn't shown it to anyone -
 yet. (See [[The Night Ledger]].)
 :::
 
@@ -39,7 +39,7 @@ Usually Carrying: Harbor whistle, ledger, cutlass
 ```
 
 :::secret
-DM note: Mira is Lawful Good and very much alive — but her night-log names three ships
+DM note: Mira is Lawful Good and very much alive - but her night-log names three ships
 tied to the Black Citadel's smuggling route. She'll share it only if the party earns
 real trust. Keep her alignment and this ledger out of the player-facing facts above.
 :::

@@ -55,9 +55,7 @@ export interface HomebrewSubclassEntry {
 }
 
 export type HomebrewEntry =
-  | HomebrewManualEntry
-  | HomebrewImportedEntry
-  | HomebrewSubclassEntry;
+  HomebrewManualEntry | HomebrewImportedEntry | HomebrewSubclassEntry;
 
 export type HomebrewCompendiumItem = CompendiumEntryBase & {
   _homebrew: true;

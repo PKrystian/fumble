@@ -162,8 +162,7 @@ function renderNode(node: EntryNode, key: number, locale: Locale): ReactNode {
 
     case 'image': {
       const href = node.href as
-        | { type?: string; path?: string; url?: string }
-        | undefined;
+        { type?: string; path?: string; url?: string } | undefined;
       const src = href?.path ? imageUrl(href.path) : href?.url;
       if (!src) return null;
       const title = typeof node.title === 'string' ? node.title : undefined;
@@ -255,7 +254,7 @@ function rowMatches(cell: Entry, value: number): boolean {
   const text = (typeof cell === 'string' ? cell : '')
     .replace(/\{@\w+\s*([^|}]*)[^}]*\}/g, '$1')
     .trim();
-  const range = text.match(/^(\d+)\s*[-–-]\s*(\d+)$/);
+  const range = text.match(/^(\d+)\s*[-\u2013]\s*(\d+)$/);
   if (range) return value >= Number(range[1]) && value <= Number(range[2]);
   return Number(text) === value;
 }

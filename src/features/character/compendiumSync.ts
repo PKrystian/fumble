@@ -244,13 +244,6 @@ function collectGrantedSpellSlugs(
   return [...new Set(slugs.filter(Boolean))];
 }
 
-/**
- * Read an unarmored-defense formula straight out of the rules text, e.g. Monk's
- * "your base Armor Class equals 10 plus your Dexterity and Wisdom modifiers" or
- * Draconic Resilience's "...equals 13 plus your Dexterity modifier". Parsing the
- * English wording keeps this working for any class that phrases it this way,
- * rather than hardcoding a class list.
- */
 function parseUnarmoredDefense(
   features: ClassFeature[] | undefined,
   characterLevel: number,

@@ -3,7 +3,7 @@ title: The Night Ledger
 category: Quests
 visibility: player
 type: quest
-summary: Mira Voss will trust the party with a dangerous secret — if they prove worthy first.
+summary: Mira Voss will trust the party with a dangerous secret - if they prove worthy first.
 tags: [side-quest]
 facts:
   Status: Active
@@ -15,7 +15,7 @@ facts:
 ## Summary
 
 [[Mira Voss]] has noticed ships unloading at Silverhaven's wharves after dark, off the
-books. She keeps a private ledger of them — but she won't share it with strangers.
+books. She keeps a private ledger of them - but she won't share it with strangers.
 
 ## Objectives
 

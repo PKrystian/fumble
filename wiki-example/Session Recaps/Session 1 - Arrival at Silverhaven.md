@@ -1,5 +1,5 @@
 ---
-title: Session 1 — Arrival at Silverhaven
+title: Session 1 - Arrival at Silverhaven
 category: Session Recaps
 visibility: player
 type: session-recap
@@ -14,7 +14,7 @@ facts:
 ## Recap
 
 The party sailed into [[Silverhaven]] ahead of the season's first storm and were met at
-the wharf by [[Mira Voss]]. Over dinner she mentioned — carefully — that ships had been
+the wharf by [[Mira Voss]]. Over dinner she mentioned - carefully - that ships had been
 unloading after dark without the [[Silverhaven Harbor Guild]]'s seal.
 
 ## Loot & Rewards
@@ -28,5 +28,5 @@ unloading after dark without the [[Silverhaven Harbor Guild]]'s seal.
 - What did the fishers mean about "the drake" in the coves?
 
 :::secret
-DM note: seed the Tideglass Lantern next session — Mira lights the party out with it.
+DM note: seed the Tideglass Lantern next session - Mira lights the party out with it.
 :::

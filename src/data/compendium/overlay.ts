@@ -1,9 +1,11 @@
 import type { CompendiumEntryBase } from './types';
 import { type CategoryOverlay, localizeItems } from './localize';
 
-const overlayModules = import.meta.glob<{ default: CategoryOverlay }>(
-  '../generated/*/*.json',
-);
+const overlayUrls = import.meta.glob<string>('../generated/*/*.json', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
 
 const overlayCache = new Map<string, Promise<CategoryOverlay | undefined>>();
 
@@ -16,9 +18,12 @@ export function loadCategoryOverlay(
   if (cached) return cached;
 
   const suffix = `/${locale}/${categoryId}.json`;
-  const key = Object.keys(overlayModules).find((k) => k.endsWith(suffix));
-  const promise = key
-    ? overlayModules[key]!().then((mod) => mod.default)
+  const url = Object.entries(overlayUrls).find(([path]) => path.endsWith(suffix))?.[1];
+  const promise = url
+    ? fetch(url).then(async (response) => {
+        if (!response.ok) throw new Error(`Failed to load overlay: ${cacheKey}`);
+        return (await response.json()) as CategoryOverlay;
+      })
     : Promise.resolve(undefined);
   overlayCache.set(cacheKey, promise);
   return promise;

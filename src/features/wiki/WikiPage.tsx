@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link, useNavigate } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
+import { sanitizeWikiHtml } from './html';
 import { useWiki } from './useWiki';
 import type { WikiPage as WikiPageData } from './types';
 
@@ -21,7 +22,10 @@ export function WikiPage() {
   useSeo(selected ? selected.title : t('nav.wiki'));
 
   const html = useMemo(
-    () => (selected ? selected.html.replaceAll('%BASE%', import.meta.env.BASE_URL) : ''),
+    () =>
+      selected
+        ? sanitizeWikiHtml(selected.html.replaceAll('%BASE%', import.meta.env.BASE_URL))
+        : '',
     [selected],
   );
 

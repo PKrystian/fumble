@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { RollResultDock } from '@/features/dice/RollResultDock';
@@ -6,13 +6,20 @@ import { ConfirmDialog } from '@/features/ui/ConfirmDialog';
 import { Lightbox } from '@/features/ui/Lightbox';
 import { useSidebarStore } from '@/features/ui/sidebarStore';
 import { Logo } from '@/features/ui/Logo';
-import { SearchPalette } from '@/features/search/SearchPalette';
+import { useSearchStore } from '@/features/search/searchStore';
 import { useT } from '@/i18n/useT';
 import { Sidebar } from './Sidebar';
+
+const SearchPalette = lazy(() =>
+  import('@/features/search/SearchPalette').then((module) => ({
+    default: module.SearchPalette,
+  })),
+);
 
 export function AppLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const collapsed = useSidebarStore((s) => s.collapsed);
+  const searchOpen = useSearchStore((s) => s.open);
   const location = useLocation();
   const { t } = useT();
 
@@ -67,7 +74,11 @@ export function AppLayout() {
         </main>
       </div>
 
-      <SearchPalette />
+      {searchOpen && (
+        <Suspense fallback={null}>
+          <SearchPalette />
+        </Suspense>
+      )}
       <RollResultDock />
       <Lightbox />
       <ConfirmDialog />

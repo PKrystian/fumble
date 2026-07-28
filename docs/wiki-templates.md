@@ -126,7 +126,7 @@ Use Obsidian image embeds. The file is copied into the wiki automatically:
 
 ## Maps with pins
 
-Drop a `fumble-map` fenced block. Coordinates are **percentages** (0–100) of the image.
+Drop a `fumble-map` fenced block. Coordinates are **percentages** (0-100) of the image.
 Add `dm` to any marker to hide it from players (your secret locations stay secret).
 
 ````markdown

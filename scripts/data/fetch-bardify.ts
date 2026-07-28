@@ -98,8 +98,7 @@ function collect(
   ) {
     const metadata = lockup.metadata as Record<string, unknown> | undefined;
     const lockupMetadata = metadata?.lockupMetadataViewModel as
-      | Record<string, unknown>
-      | undefined;
+      Record<string, unknown> | undefined;
     const name = text(lockupMetadata?.title);
     if (name) {
       videos.set(lockup.contentId, {

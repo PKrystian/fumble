@@ -155,10 +155,22 @@ const spellLevel = (level: number, t: TranslateFn) =>
     ? t('compendium.detail.cantripShort')
     : t('compendium.detail.levelShort', { level });
 
-function loader<T>(load: () => Promise<{ default: unknown }>): () => Promise<T[]> {
+const categoryDataUrls = import.meta.glob<string>('../../data/generated/*.json', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
+
+function loader<T>(categoryId: string): () => Promise<T[]> {
   return async () => {
-    const mod = await load();
-    return (mod.default as CompendiumFile<T>).items;
+    const suffix = `/generated/${categoryId}.json`;
+    const url = Object.entries(categoryDataUrls).find(([path]) =>
+      path.endsWith(suffix),
+    )?.[1];
+    if (!url) throw new Error(`Missing compendium data: ${categoryId}`);
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Failed to load compendium data: ${categoryId}`);
+    return ((await response.json()) as CompendiumFile<T>).items;
   };
 }
 
@@ -166,14 +178,14 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'species',
     label: 'Species',
-    load: loader<SpeciesEntry>(() => import('@/data/generated/species.json')),
+    load: loader<SpeciesEntry>('species'),
     subtitle: (item) => (item as SpeciesEntry).size,
     renderDetail: (item) => <SpeciesDetail species={item as SpeciesEntry} />,
   },
   {
     id: 'classes',
     label: 'Classes',
-    load: loader<ClassEntry>(() => import('@/data/generated/classes.json')),
+    load: loader<ClassEntry>('classes'),
     subtitle: (item, t) =>
       t('compendium.detail.hitDieValue', { die: (item as ClassEntry).hitDie }),
     renderDetail: (item) => <ClassDetail cls={item as ClassEntry} />,
@@ -181,7 +193,7 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'backgrounds',
     label: 'Backgrounds',
-    load: loader<BackgroundEntry>(() => import('@/data/generated/backgrounds.json')),
+    load: loader<BackgroundEntry>('backgrounds'),
     subtitle: (item, t) =>
       (item as BackgroundEntry).feat || t('compendium.detail.background'),
     renderDetail: (item) => <BackgroundDetail background={item as BackgroundEntry} />,
@@ -189,7 +201,7 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'feats',
     label: 'Feats',
-    load: loader<FeatEntry>(() => import('@/data/generated/feats.json')),
+    load: loader<FeatEntry>('feats'),
     subtitle: (item, t) =>
       t('compendium.detail.featCategory', { category: (item as FeatEntry).category }),
     renderDetail: (item) => <FeatDetail feat={item as FeatEntry} />,
@@ -197,9 +209,7 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'optionalfeatures',
     label: 'Options & Features',
-    load: loader<OptionalFeatureEntry>(
-      () => import('@/data/generated/optionalfeatures.json'),
-    ),
+    load: loader<OptionalFeatureEntry>('optionalfeatures'),
     subtitle: (item) => (item as OptionalFeatureEntry).featureType,
     renderDetail: (item) => (
       <OptionalFeatureDetail feature={item as OptionalFeatureEntry} />
@@ -208,7 +218,7 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'spells',
     label: 'Spells',
-    load: loader<SpellEntry>(() => import('@/data/generated/spells.json')),
+    load: loader<SpellEntry>('spells'),
     subtitle: (item, t) => {
       const spell = item as SpellEntry;
       return `${spellLevel(spell.level, t)} · ${spell.school}`;
@@ -218,7 +228,7 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'items',
     label: 'Items',
-    load: loader<ItemEntry>(() => import('@/data/generated/items.json')),
+    load: loader<ItemEntry>('items'),
     subtitle: (item) => {
       const it = item as ItemEntry;
       return [it.type, it.rarity].filter(Boolean).join(' · ');
@@ -228,7 +238,7 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'bestiary',
     label: 'Bestiary',
-    load: loader<MonsterEntry>(() => import('@/data/generated/bestiary.json')),
+    load: loader<MonsterEntry>('bestiary'),
     subtitle: (item, t) => {
       const m = item as MonsterEntry;
       const size = m.size ? agreeSize(m.size, m.creatureType) : m.size;
@@ -239,21 +249,21 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'actions',
     label: 'Actions',
-    load: loader<ActionEntry>(() => import('@/data/generated/actions.json')),
+    load: loader<ActionEntry>('actions'),
     subtitle: (item, t) => (item as ActionEntry).time || t('compendium.detail.action'),
     renderDetail: (item) => <ActionDetail action={item as ActionEntry} />,
   },
   {
     id: 'conditions',
     label: 'Conditions',
-    load: loader<ConditionEntry>(() => import('@/data/generated/conditions.json')),
+    load: loader<ConditionEntry>('conditions'),
     subtitle: (item) => (item as ConditionEntry).kind,
     renderDetail: (item) => <ConditionDetail condition={item as ConditionEntry} />,
   },
   {
     id: 'rules',
     label: 'Rules',
-    load: loader<RuleEntry>(() => import('@/data/generated/rules.json')),
+    load: loader<RuleEntry>('rules'),
     subtitle: (item, t) =>
       t('compendium.detail.ruleType', { type: (item as RuleEntry).ruleType }),
     renderDetail: (item) => <RuleDetail rule={item as RuleEntry} />,
@@ -261,49 +271,49 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'deities',
     label: 'Deities',
-    load: loader<DeityEntry>(() => import('@/data/generated/deities.json')),
+    load: loader<DeityEntry>('deities'),
     subtitle: (item, t) => (item as DeityEntry).pantheon || t('compendium.detail.deity'),
     renderDetail: (item) => <DeityDetail deity={item as DeityEntry} />,
   },
   {
     id: 'hazards',
     label: 'Hazards',
-    load: loader<HazardEntry>(() => import('@/data/generated/hazards.json')),
+    load: loader<HazardEntry>('hazards'),
     subtitle: (item) => (item as HazardEntry).hazardType,
     renderDetail: (item) => <HazardDetail hazard={item as HazardEntry} />,
   },
   {
     id: 'boons',
     label: 'Boons',
-    load: loader<BoonEntry>(() => import('@/data/generated/boons.json')),
+    load: loader<BoonEntry>('boons'),
     subtitle: (item) => (item as BoonEntry).boonType,
     renderDetail: (item) => <BoonDetail boon={item as BoonEntry} />,
   },
   {
     id: 'skills',
     label: 'Skills',
-    load: loader<SkillEntry>(() => import('@/data/generated/skills.json')),
+    load: loader<SkillEntry>('skills'),
     subtitle: (item, t) => (item as SkillEntry).ability || t('compendium.detail.skill'),
     renderDetail: (item) => <SkillDetail skill={item as SkillEntry} />,
   },
   {
     id: 'senses',
     label: 'Senses',
-    load: loader<SenseEntry>(() => import('@/data/generated/senses.json')),
+    load: loader<SenseEntry>('senses'),
     subtitle: (_, t) => t('compendium.detail.sense'),
     renderDetail: (item) => <SenseDetail sense={item as SenseEntry} />,
   },
   {
     id: 'languages',
     label: 'Languages',
-    load: loader<LanguageEntry>(() => import('@/data/generated/languages.json')),
+    load: loader<LanguageEntry>('languages'),
     subtitle: (item) => (item as LanguageEntry).languageType,
     renderDetail: (item) => <LanguageDetail language={item as LanguageEntry} />,
   },
   {
     id: 'cultsboons',
     label: 'Cults & Boons',
-    load: loader<CultBoonEntry>(() => import('@/data/generated/cultsboons.json')),
+    load: loader<CultBoonEntry>('cultsboons'),
     subtitle: (item) => {
       const cb = item as CultBoonEntry;
       return [cb.category, cb.kind].filter(Boolean).join(' ');
@@ -313,7 +323,7 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'facilities',
     label: 'Bastions',
-    load: loader<FacilityEntry>(() => import('@/data/generated/facilities.json')),
+    load: loader<FacilityEntry>('facilities'),
     subtitle: (item, t) => {
       const f = item as FacilityEntry;
       return [
@@ -328,14 +338,14 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'recipes',
     label: 'Recipes',
-    load: loader<RecipeEntry>(() => import('@/data/generated/recipes.json')),
+    load: loader<RecipeEntry>('recipes'),
     subtitle: (item) => (item as RecipeEntry).recipeType,
     renderDetail: (item) => <RecipeDetail recipe={item as RecipeEntry} />,
   },
   {
     id: 'objects',
     label: 'Objects',
-    load: loader<ObjectEntry>(() => import('@/data/generated/objects.json')),
+    load: loader<ObjectEntry>('objects'),
     subtitle: (item) => {
       const o = item as ObjectEntry;
       return [o.size, o.objectType].filter(Boolean).join(' ');
@@ -345,7 +355,7 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'vehicles',
     label: 'Vehicles',
-    load: loader<VehicleEntry>(() => import('@/data/generated/vehicles.json')),
+    load: loader<VehicleEntry>('vehicles'),
     subtitle: (item) => {
       const v = item as VehicleEntry;
       return [v.size, v.vehicleType].filter(Boolean).join(' ');
@@ -355,28 +365,28 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'masteries',
     label: 'Weapon Masteries',
-    load: loader<MasteryEntry>(() => import('@/data/generated/masteries.json')),
+    load: loader<MasteryEntry>('masteries'),
     subtitle: (_, t) => t('compendium.detail.weaponMastery'),
     renderDetail: (item) => <MasteryDetail mastery={item as MasteryEntry} />,
   },
   {
     id: 'charoptions',
     label: 'Character Options',
-    load: loader<CharOptionEntry>(() => import('@/data/generated/charoptions.json')),
+    load: loader<CharOptionEntry>('charoptions'),
     subtitle: (item) => (item as CharOptionEntry).optionType,
     renderDetail: (item) => <CharOptionDetail option={item as CharOptionEntry} />,
   },
   {
     id: 'tables',
     label: 'Tables',
-    load: loader<TableEntry>(() => import('@/data/generated/tables.json')),
+    load: loader<TableEntry>('tables'),
     subtitle: (_, t) => t('compendium.detail.table'),
     renderDetail: (item) => <TableDetail table={item as TableEntry} />,
   },
   {
     id: 'decks',
     label: 'Decks',
-    load: loader<DeckEntry>(() => import('@/data/generated/decks.json')),
+    load: loader<DeckEntry>('decks'),
     subtitle: (item, t) =>
       t('compendium.detail.deckCardsShort', { count: (item as DeckEntry).cardCount }),
     renderDetail: (item) => <DeckDetail deck={item as DeckEntry} />,

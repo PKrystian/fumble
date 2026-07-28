@@ -26,6 +26,12 @@ export default defineConfig(({ command, isPreview }) => ({
       reporter: ['text', 'html'],
       include: ['src/**/*.{ts,tsx}'],
       exclude: ['src/**/*.{test,spec}.{ts,tsx}', 'src/**/*.d.ts'],
+      thresholds: {
+        branches: 16,
+        functions: 13,
+        lines: 20,
+        statements: 20,
+      },
     },
   },
 }));

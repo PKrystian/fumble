@@ -4,7 +4,7 @@ category: Bestiary
 visibility: player
 type: creature
 image: harbor-drake.svg
-summary: A cove-dwelling drake that shadows fishing boats — usually a nuisance, sometimes worse.
+summary: A cove-dwelling drake that shadows fishing boats - usually a nuisance, sometimes worse.
 tags: [monster]
 facts:
   Type: Dragon (drake)
@@ -20,7 +20,7 @@ rowboat. It trails fishing craft for easy meals and sulks in the cliff caves out
 
 ## Behavior
 
-Territorial but rarely deadly — it prefers theft to a fight. A drake that has tasted
+Territorial but rarely deadly - it prefers theft to a fight. A drake that has tasted
 cargo, though, grows bold enough to raid the wharves.
 
 ## Sightings & Lore

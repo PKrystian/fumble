@@ -3,7 +3,7 @@ title: The Sundering Tide
 category: Lore
 visibility: player
 type: event
-summary: The night the sea rose and swallowed a temple whole — remembered in every harbor hymn.
+summary: The night the sea rose and swallowed a temple whole - remembered in every harbor hymn.
 tags: [history]
 facts:
   Era: The Drowning Age
@@ -16,7 +16,7 @@ facts:
 
 Three centuries past, a single monstrous tide rose over the Argent Coast in one night. When
 it drew back, a whole temple and the headland it stood on were simply gone beneath the
-waves — what sailors now call [[The Sunken Temple]].
+waves - what sailors now call [[The Sunken Temple]].
 
 ## Aftermath
 
@@ -28,6 +28,6 @@ Not everyone drowned that night. Some were taken, and something took them.
 :::
 
 :::secret
-DM note: the Sundering was no natural disaster — it was the Black Citadel's first attempt
+DM note: the Sundering was no natural disaster - it was the Black Citadel's first attempt
 to wake what sleeps in the Temple.
 :::

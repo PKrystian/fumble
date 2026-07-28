@@ -1,42 +1,126 @@
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 import type { RouteObject } from 'react-router-dom';
+import type { ComponentType } from 'react';
 import { LocaleLayout } from '@/app/layout/LocaleLayout';
 import { HomePage } from '@/features/home/HomePage';
-import { NotFoundPage } from '@/features/NotFoundPage';
-import { CompendiumPage } from '@/features/compendium/CompendiumPage';
-import { CharacterListPage } from '@/features/character/CharacterListPage';
-import { CharacterSheetPage } from '@/features/character/CharacterSheetPage';
-import { DiceRollerPage } from '@/features/dice/DiceRollerPage';
-import { InitiativeTrackerPage } from '@/features/initiative/InitiativeTrackerPage';
-import { EncounterCalculatorPage } from '@/features/dm/EncounterCalculatorPage';
-import { LootGeneratorPage } from '@/features/dm/LootGeneratorPage';
-import { HomebrewPage } from '@/features/homebrew/HomebrewPage';
-import { BooksPage } from '@/features/books/BooksPage';
-import { BookReaderPage } from '@/features/books/BookReaderPage';
-import { SessionLogPage } from '@/features/session-log/SessionLogPage';
-import { SoundboardPage } from '@/features/soundboard/SoundboardPage';
-import { WikiPage } from '@/features/wiki/WikiPage';
+
+function lazyComponent<T extends Record<string, unknown>>(
+  load: () => Promise<T>,
+  name: keyof T,
+): () => Promise<{ Component: ComponentType }> {
+  return async () => ({ Component: (await load())[name] as ComponentType });
+}
 
 const appRouteChildren: RouteObject[] = [
   { index: true, element: <HomePage /> },
-  { path: 'character', element: <CharacterListPage /> },
-  { path: 'character/:id', element: <CharacterSheetPage /> },
-  { path: 'compendium', element: <CompendiumPage /> },
-  { path: 'compendium/:category', element: <CompendiumPage /> },
-  { path: 'compendium/:category/:id', element: <CompendiumPage /> },
-  { path: 'homebrew', element: <HomebrewPage /> },
-  { path: 'books', element: <BooksPage /> },
-  { path: 'books/:id', element: <BookReaderPage /> },
-  { path: 'books/:id/:chapter', element: <BookReaderPage /> },
-  { path: 'dice', element: <DiceRollerPage /> },
-  { path: 'session-log', element: <SessionLogPage /> },
-  { path: 'dm/initiative', element: <InitiativeTrackerPage /> },
-  { path: 'dm/loot', element: <LootGeneratorPage /> },
-  { path: 'dm/encounter', element: <EncounterCalculatorPage /> },
-  { path: 'dm/soundboard', element: <SoundboardPage /> },
-  { path: 'wiki', element: <WikiPage /> },
-  { path: 'wiki/:slug', element: <WikiPage /> },
-  { path: '*', element: <NotFoundPage /> },
+  {
+    path: 'character',
+    lazy: lazyComponent(
+      () => import('@/features/character/CharacterListPage'),
+      'CharacterListPage',
+    ),
+  },
+  {
+    path: 'character/:id',
+    lazy: lazyComponent(
+      () => import('@/features/character/CharacterSheetPage'),
+      'CharacterSheetPage',
+    ),
+  },
+  {
+    path: 'compendium',
+    lazy: lazyComponent(
+      () => import('@/features/compendium/CompendiumPage'),
+      'CompendiumPage',
+    ),
+  },
+  {
+    path: 'compendium/:category',
+    lazy: lazyComponent(
+      () => import('@/features/compendium/CompendiumPage'),
+      'CompendiumPage',
+    ),
+  },
+  {
+    path: 'compendium/:category/:id',
+    lazy: lazyComponent(
+      () => import('@/features/compendium/CompendiumPage'),
+      'CompendiumPage',
+    ),
+  },
+  {
+    path: 'homebrew',
+    lazy: lazyComponent(() => import('@/features/homebrew/HomebrewPage'), 'HomebrewPage'),
+  },
+  {
+    path: 'books',
+    lazy: lazyComponent(() => import('@/features/books/BooksPage'), 'BooksPage'),
+  },
+  {
+    path: 'books/:id',
+    lazy: lazyComponent(
+      () => import('@/features/books/BookReaderPage'),
+      'BookReaderPage',
+    ),
+  },
+  {
+    path: 'books/:id/:chapter',
+    lazy: lazyComponent(
+      () => import('@/features/books/BookReaderPage'),
+      'BookReaderPage',
+    ),
+  },
+  {
+    path: 'dice',
+    lazy: lazyComponent(() => import('@/features/dice/DiceRollerPage'), 'DiceRollerPage'),
+  },
+  {
+    path: 'session-log',
+    lazy: lazyComponent(
+      () => import('@/features/session-log/SessionLogPage'),
+      'SessionLogPage',
+    ),
+  },
+  {
+    path: 'dm/initiative',
+    lazy: lazyComponent(
+      () => import('@/features/initiative/InitiativeTrackerPage'),
+      'InitiativeTrackerPage',
+    ),
+  },
+  {
+    path: 'dm/loot',
+    lazy: lazyComponent(
+      () => import('@/features/dm/LootGeneratorPage'),
+      'LootGeneratorPage',
+    ),
+  },
+  {
+    path: 'dm/encounter',
+    lazy: lazyComponent(
+      () => import('@/features/dm/EncounterCalculatorPage'),
+      'EncounterCalculatorPage',
+    ),
+  },
+  {
+    path: 'dm/soundboard',
+    lazy: lazyComponent(
+      () => import('@/features/soundboard/SoundboardPage'),
+      'SoundboardPage',
+    ),
+  },
+  {
+    path: 'wiki',
+    lazy: lazyComponent(() => import('@/features/wiki/WikiPage'), 'WikiPage'),
+  },
+  {
+    path: 'wiki/:slug',
+    lazy: lazyComponent(() => import('@/features/wiki/WikiPage'), 'WikiPage'),
+  },
+  {
+    path: '*',
+    lazy: lazyComponent(() => import('@/features/NotFoundPage'), 'NotFoundPage'),
+  },
 ];
 
 export const router = createBrowserRouter(

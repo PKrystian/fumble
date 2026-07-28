@@ -284,7 +284,7 @@ export function armorClassBreakdown(
   const shield = equipped.find((i) => i.armorType === 'shield');
 
   const parts: string[] = [];
-  let total = 0;
+  let total: number;
 
   if (armor?.armorType && armor.armorType !== 'shield') {
     const base = armor.baseAc ?? 10;
