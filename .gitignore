@@ -14,20 +14,30 @@ test-results
 *.log
 npm-debug.log*
 
+# Environment files
+.env
+.env.*
+!.env.example
+
 # Editor / OS
 .idea
 .vscode
 .DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
 *.local
-
-# Vite cache
-node_modules/.vite
 
 # Local cache of the upstream 5etools data source (not vendored raw)
 .cache
 
 # Local AI assistant config and working notes
+.agents
 .claude
+.codex
 CLAUDE.md
 .pnpm-store
-package-lock.json
+
+# Temporary scripts
+scripts/_tmp_*
