@@ -319,7 +319,7 @@ function SpellsTab({ character, update }: TabProps) {
           usedLongRest: slot.usedLongRest + 1,
         }),
       });
-    } else if (slot.usedShortRest < slot.shortRestMax) {
+    } else {
       update({
         spellSlots: setSpellSlot(character.spellSlots, level, {
           usedShortRest: slot.usedShortRest + 1,
@@ -335,7 +335,7 @@ function SpellsTab({ character, update }: TabProps) {
           usedShortRest: slot.usedShortRest - 1,
         }),
       });
-    } else if (slot.usedLongRest > 0) {
+    } else {
       update({
         spellSlots: setSpellSlot(character.spellSlots, level, {
           usedLongRest: slot.usedLongRest - 1,

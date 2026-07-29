@@ -25,6 +25,7 @@ describe('search index scoring', () => {
       result('Kula Ognia', 'Fireball'),
       result('Fire Bolt'),
       result('Wildfire Spirit'),
+      result('Magic Missile'),
     ];
 
     expect(searchResults(pool, 'fire', 2).map((entry) => entry.name)).toEqual([

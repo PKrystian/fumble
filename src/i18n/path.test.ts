@@ -4,6 +4,7 @@ import { localizePath, stripLocale } from './path';
 describe('stripLocale', () => {
   it('treats a root path as English with no prefix', () => {
     expect(stripLocale('/')).toEqual({ locale: 'en', rest: '/' });
+    expect(stripLocale('')).toEqual({ locale: 'en', rest: '/' });
   });
 
   it('treats an unprefixed path as English', () => {

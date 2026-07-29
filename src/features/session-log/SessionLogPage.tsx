@@ -67,15 +67,13 @@ export function SessionLogPage() {
   };
 
   const copyTranscript = async () => {
-    if (!session) return;
-    await navigator.clipboard.writeText(formatTranscriptForExport(session));
+    await navigator.clipboard.writeText(formatTranscriptForExport(session!));
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
 
   const copyWithPrompt = async () => {
-    if (!session) return;
-    await navigator.clipboard.writeText(formatPromptWithTranscript(session));
+    await navigator.clipboard.writeText(formatPromptWithTranscript(session!));
     setPromptCopied(true);
     setTimeout(() => setPromptCopied(false), 1500);
   };

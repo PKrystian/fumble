@@ -49,13 +49,13 @@ function typeRank(group: string): number {
   return index < 0 ? TYPE_ORDER.length : index;
 }
 
-function typeLabel(group: string, t: TranslateFn): string {
+export function typeLabel(group: string, t: TranslateFn): string {
   const key = `books.types.${group}`;
   const value = t(key);
   return value === key ? group : value;
 }
 
-function sortDocs(docs: BookIndexEntry[]): BookIndexEntry[] {
+export function sortDocs(docs: BookIndexEntry[]): BookIndexEntry[] {
   return [...docs].sort((a, b) => {
     const ra = CORE_SOURCE_RANK[a.source] ?? 99;
     const rb = CORE_SOURCE_RANK[b.source] ?? 99;
@@ -74,7 +74,7 @@ function chipClass(active: boolean): string {
   ].join(' ');
 }
 
-function FilterRow({
+export function FilterRow({
   label,
   options,
   selected,

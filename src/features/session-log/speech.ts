@@ -7,12 +7,12 @@ type AnyPipeline = (audio: Float32Array, opts?: Record<string, unknown>) => Prom
 let pipelinePromise: Promise<AnyPipeline> | null = null;
 
 async function getWhisperPipeline(
-  onStatus?: (s: string) => void,
-  downloadLabel = 'Downloading Whisper model',
+  onStatus: (s: string) => void,
+  downloadLabel: string,
 ): Promise<AnyPipeline> {
   if (!pipelinePromise) {
-    pipelinePromise = import('@huggingface/transformers').then(
-      async ({ pipeline, env }) => {
+    pipelinePromise = import('@huggingface/transformers')
+      .then(async ({ pipeline, env }) => {
         (env as Record<string, unknown>).useBrowserCache = true;
         (env as Record<string, unknown>).allowLocalModels = false;
 
@@ -23,7 +23,7 @@ async function getWhisperPipeline(
               typeof p.progress === 'number'
                 ? ` ${Math.round(p.progress as number)}%`
                 : '';
-            onStatus?.(`${downloadLabel}${pct}…`);
+            onStatus(`${downloadLabel}${pct}…`);
           }
         };
 
@@ -31,8 +31,11 @@ async function getWhisperPipeline(
           dtype: { encoder_model: 'q8', decoder_model_merged: 'fp32' },
           progress_callback: progressCallback,
         }) as Promise<AnyPipeline>;
-      },
-    );
+      })
+      .catch((error: unknown) => {
+        pipelinePromise = null;
+        throw error;
+      });
   }
   return pipelinePromise;
 }
@@ -47,7 +50,7 @@ async function blobToFloat32(blob: Blob): Promise<Float32Array> {
     const mono = new Float32Array(buf.length);
     for (let ch = 0; ch < channels; ch++) {
       const data = buf.getChannelData(ch);
-      for (let i = 0; i < buf.length; i++) mono[i]! += (data[i] ?? 0) / channels;
+      for (let i = 0; i < buf.length; i++) mono[i]! += data[i]! / channels;
     }
     return mono;
   } finally {
@@ -58,7 +61,7 @@ async function blobToFloat32(blob: Blob): Promise<Float32Array> {
 function hasSpeech(audio: Float32Array): boolean {
   let sumSq = 0;
   for (let i = 0; i < audio.length; i++) {
-    const v = audio[i] ?? 0;
+    const v = audio[i]!;
     sumSq += v * v;
   }
   const rms = Math.sqrt(sumSq / audio.length);
@@ -72,15 +75,15 @@ function trimRepetitions(text: string): string {
     .filter(Boolean);
   const result: string[] = [];
   for (let i = 0; i < parts.length; i++) {
-    const cur = (parts[i] ?? '').toLowerCase();
+    const cur = parts[i]!.toLowerCase();
 
     let streak = 0;
     for (let j = i - 1; j >= 0 && j >= i - 4; j--) {
-      if ((parts[j] ?? '').toLowerCase() === cur) streak++;
+      if (parts[j]!.toLowerCase() === cur) streak++;
       else break;
     }
     if (streak >= 2) break;
-    result.push(parts[i] ?? '');
+    result.push(parts[i]!);
   }
   return result.join(', ');
 }
@@ -88,8 +91,8 @@ function trimRepetitions(text: string): string {
 async function transcribeBlob(
   blob: Blob,
   language: string,
-  onStatus?: (s: string) => void,
-  downloadLabel?: string,
+  onStatus: (s: string) => void,
+  downloadLabel: string,
 ): Promise<string> {
   const pipe = await getWhisperPipeline(onStatus, downloadLabel);
   const audio = await blobToFloat32(blob);
@@ -180,13 +183,9 @@ export function useSpeechRecognition(
       processingRef.current = false;
       setInterim('');
     }
-
-    if (queueRef.current.length > 0) void processQueue();
   };
 
   const startChunk = (stream: MediaStream): void => {
-    if (!shouldListenRef.current) return;
-
     const localChunks: Blob[] = [];
     const rec = new MediaRecorder(stream);
     recorderRef.current = rec;

@@ -37,7 +37,7 @@ export function DiceRollerPage() {
   const removeDie = (sides: number) =>
     setPool((prev) => {
       const next = { ...prev };
-      const count = (next[sides] ?? 0) - 1;
+      const count = next[sides]! - 1;
       if (count <= 0) delete next[sides];
       else next[sides] = count;
       return next;

@@ -327,8 +327,7 @@ function CompendiumBrowser({
                                 )
                               }
                               onError={(e) => {
-                                const fig = e.currentTarget.closest('figure');
-                                if (fig) fig.style.display = 'none';
+                                e.currentTarget.closest('figure')!.style.display = 'none';
                               }}
                               className="cursor-zoom-in rounded-lg border border-ink-700 object-contain"
                             />

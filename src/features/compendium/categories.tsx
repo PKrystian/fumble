@@ -92,7 +92,6 @@ function field<T>(
   id: string,
   label: string,
   get: (item: T) => string | number | undefined,
-  sortKey?: (value: string) => number,
 ): CategoryFilter {
   return {
     id,
@@ -101,7 +100,6 @@ function field<T>(
       const value = get(item as T);
       return value == null || value === '' ? [] : [String(value)];
     },
-    ...(sortKey ? { sortKey } : {}),
   };
 }
 
@@ -166,8 +164,7 @@ function loader<T>(categoryId: string): () => Promise<T[]> {
     const suffix = `/generated/${categoryId}.json`;
     const url = Object.entries(categoryDataUrls).find(([path]) =>
       path.endsWith(suffix),
-    )?.[1];
-    if (!url) throw new Error(`Missing compendium data: ${categoryId}`);
+    )![1];
     const response = await fetch(url);
     if (!response.ok) throw new Error(`Failed to load compendium data: ${categoryId}`);
     return ((await response.json()) as CompendiumFile<T>).items;

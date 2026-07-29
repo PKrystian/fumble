@@ -57,7 +57,6 @@ function findByName<T extends { name: string; hidden?: boolean }>(
   name: string,
 ): T | undefined {
   const term = name.trim().toLowerCase();
-  if (!term) return undefined;
   const matches = items.filter((i) => i.name.toLowerCase() === term);
   return matches.find((i) => !i.hidden) ?? matches[0];
 }
@@ -160,7 +159,7 @@ export function findSubclassPair(
   const localized = findSubclass(pair.localized, subclass);
   if (!localized) return { localized: undefined, english: undefined };
 
-  const localizedList = pair.localized?.subclasses ?? [];
+  const localizedList = pair.localized!.subclasses;
   const englishList = pair.english?.subclasses ?? [];
   const index = localizedList.indexOf(localized);
   const english =
@@ -196,7 +195,7 @@ function slugifySpell(name: string): string {
 }
 
 function spellSlugsIn(text: string): string[] {
-  return [...text.matchAll(/\{@spell\s+([^}|]+)/gi)].map((m) => slugifySpell(m[1] ?? ''));
+  return [...text.matchAll(/\{@spell\s+([^}|]+)/gi)].map((m) => slugifySpell(m[1]!));
 }
 
 function parseTableLevel(cell: string): number | null {
@@ -220,13 +219,13 @@ function collectGrantedSpellSlugs(
   const visit = (entry: Entry): void => {
     if (typeof entry === 'string') {
       for (const m of entry.matchAll(/always have (?:the )?\{@spell\s+([^}|]+)/gi)) {
-        slugs.push(slugifySpell(m[1] ?? ''));
+        slugs.push(slugifySpell(m[1]!));
       }
       return;
     }
     const node = entry as EntryNode;
     if (isSpellTable(node)) {
-      for (const row of (node.rows ?? []) as string[][]) {
+      for (const row of node.rows as string[][]) {
         const rowLevel = parseTableLevel(row[0] ?? '');
         if (rowLevel !== null && rowLevel > characterLevel) continue;
         const cells = rowLevel === null ? row : row.slice(1);
@@ -354,7 +353,7 @@ export function syncClassFeatures(
 
   if (cls) {
     patch.hitDice = `${character.level}${cls.hitDie}`;
-    const saves = (clsMechanics?.savingThrows ?? '')
+    const saves = clsMechanics!.savingThrows
       .split(',')
       .map((s) => ABILITY_NAME_TO_KEY[s.trim().toLowerCase()])
       .filter((k): k is AbilityKey => Boolean(k));
@@ -392,12 +391,12 @@ export function syncClassFeatures(
   if (spellIndex && spellIndex.size > 0 && (cls || subclass)) {
     const granted = [
       ...collectGrantedSpellSlugs(clsMechanics?.features, character.level).map(
-        (slug) => [slug, clsMechanics?.name ?? ''] as const,
+        (slug) => [slug, clsMechanics!.name] as const,
       ),
       ...collectGrantedSpellSlugs(
         (mechanics.subclass ?? subclass)?.features,
         character.level,
-      ).map((slug) => [slug, (subclass ?? mechanics.subclass)?.name ?? ''] as const),
+      ).map((slug) => [slug, (subclass ?? mechanics.subclass)!.name] as const),
     ];
 
     const manualSpells = character.spells.filter((s) => !s.auto);

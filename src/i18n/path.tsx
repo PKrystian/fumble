@@ -22,7 +22,7 @@ export function stripLocale(pathname: string): { locale: Locale; rest: string } 
     const prefix = `/${code}`;
     if (pathname === prefix) return { locale: code, rest: '/' };
     if (pathname.startsWith(`${prefix}/`)) {
-      return { locale: code, rest: pathname.slice(prefix.length) || '/' };
+      return { locale: code, rest: pathname.slice(prefix.length) };
     }
   }
   return { locale: DEFAULT_LOCALE, rest: pathname || '/' };

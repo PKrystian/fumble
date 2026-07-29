@@ -126,11 +126,6 @@ function TierMode({ status, pool, hoard, setHoard }: ModeProps) {
     setHoard({ gold, gemCount, gemValue: tier.gemValue, items: rollItems() });
   };
 
-  const rerollItems = () => {
-    if (!hoard) return;
-    setHoard({ ...hoard, items: rollItems() });
-  };
-
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap gap-2">
@@ -169,7 +164,7 @@ function TierMode({ status, pool, hoard, setHoard }: ModeProps) {
         {hoard && (
           <button
             type="button"
-            onClick={rerollItems}
+            onClick={() => setHoard({ ...hoard, items: rollItems() })}
             className="inline-flex items-center gap-2 rounded-lg border border-ink-700 px-4 py-3 text-sm font-medium text-ink-200 hover:bg-ink-800"
           >
             <RefreshCw size={16} /> {t('dm.loot.rerollItems')}
@@ -356,7 +351,7 @@ function WildcardMode({ status, pool, hoard, setHoard }: ModeProps) {
       </button>
       <p className="text-xs text-ink-500">
         {t('dm.loot.wildcardNote', {
-          ceiling: ceiling || t('dm.loot.mundane'),
+          ceiling,
           level: averageLevel(characters.map((c) => c.level)),
           tier: t('dm.loot.tierLabel', { n: tier.id }),
         })}

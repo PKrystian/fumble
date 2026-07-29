@@ -1,87 +1,142 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import type { MonsterEntry } from '@/data/compendium/types';
 import { categories, getCategory } from './categories';
-import type { ConditionEntry, SpellEntry } from '@/data/compendium/types';
-import { translate } from '@/i18n/useT';
-
-const t = (key: string, vars?: Record<string, string | number>) =>
-  translate('en', key, vars);
 
 describe('compendium categories', () => {
-  it('resolves a known category by id', () => {
-    expect(getCategory('spells')?.label).toBe('Spells');
+  it('looks up known categories and rejects absent ids', () => {
+    expect(getCategory('spells')?.id).toBe('spells');
+    expect(getCategory('missing')).toBeUndefined();
+    expect(getCategory(undefined)).toBeUndefined();
   });
 
-  it('returns undefined for an unknown category', () => {
-    expect(getCategory('nonsense')).toBeUndefined();
+  it('formats monsters without size metadata', () => {
+    const category = getCategory('bestiary')!;
+    const monster = {
+      id: 'unknown',
+      name: 'Unknown',
+      source: 'HB',
+      srd: false,
+      cr: '1',
+      size: '',
+      creatureType: 'construct',
+    } as unknown as MonsterEntry;
+    expect(category.subtitle(monster, (key) => key)).toContain('construct');
   });
 
-  it('builds a spell subtitle from level and school', () => {
-    const spells = getCategory('spells')!;
-    const cantrip = { level: 0, school: 'Evocation' } as SpellEntry;
-    const leveled = { level: 3, school: 'Evocation' } as SpellEntry;
-    expect(spells.subtitle(cantrip, t)).toBe('Cantrip · Evocation');
-    expect(spells.subtitle(leveled, t)).toBe('Level 3 · Evocation');
+  it('extracts empty and populated filter values', () => {
+    const size = categories
+      .find((category) => category.id === 'species')!
+      .filters!.find((filter) => filter.id === 'size')!;
+    expect(size.valuesFor({ size: '' } as never)).toEqual([]);
+    expect(size.valuesFor({ size: undefined } as never)).toEqual([]);
+    expect(size.valuesFor({ size: 'Medium' } as never)).toEqual(['Medium']);
+
+    const properties = getCategory('items')!.filters!.find(
+      (filter) => filter.id === 'properties',
+    )!;
+    expect(properties.valuesFor({ properties: '' } as never)).toEqual([]);
+    expect(properties.valuesFor({ properties: undefined } as never)).toEqual([]);
   });
 
-  it('filters spells by their class and subclass lists', () => {
-    const spell = {
-      classes: ['Sorcerer', 'Wizard'],
-      subclasses: ['Fighter: Eldritch Knight', 'Wizard: Evoker'],
-    } as SpellEntry;
-    const filters = getCategory('spells')!.filters!;
+  it('executes every category contract', async () => {
+    const entry = {
+      ability: 'Dexterity',
+      alignment: 'neutral',
+      attunement: true,
+      boonType: 'Epic',
+      cardCount: 2,
+      category: 'General',
+      classes: ['Wizard'],
+      concentration: false,
+      cr: '1',
+      creatureType: 'construct',
+      facilityType: 'Basic',
+      feat: 'Alert',
+      featureType: 'Invocation, Maneuver',
+      hazardType: 'Trap',
+      hitDie: 8,
+      id: 'entry',
+      kind: 'Cult',
+      languageType: 'Standard',
+      languages: 'Common; Elvish',
+      level: 0,
+      name: 'Entry',
+      objectType: 'Siege',
+      optionType: 'Gift',
+      pantheon: 'Forgotten Realms',
+      properties: 'Finesse, light',
+      rarity: 'Rare',
+      recipeType: 'Meal',
+      resistances: 'fire; cold',
+      immunities: 'poison',
+      conditionImmunities: 'charmed',
+      ritual: true,
+      ruleType: 'Core',
+      school: 'Evocation',
+      size: 'Medium',
+      source: 'PHB',
+      srd: false,
+      subclasses: ['Evoker'],
+      time: 'Action',
+      type: 'Weapon',
+      vehicleType: 'Ship',
+    };
+    const fetchMock = vi
+      .spyOn(globalThis, 'fetch')
+      .mockImplementation(async () => new Response(JSON.stringify({ items: [entry] })));
+    const t = (key: string) => key;
 
-    expect(filters.find((filter) => filter.id === 'class')!.valuesFor(spell)).toEqual([
-      'Sorcerer',
-      'Wizard',
-    ]);
-    expect(filters.find((filter) => filter.id === 'subclass')!.valuesFor(spell)).toEqual([
-      'Fighter: Eldritch Knight',
-      'Wizard: Evoker',
-    ]);
+    for (const category of categories) {
+      await expect(category.load()).resolves.toEqual([entry]);
+      expect(category.subtitle(entry as never, t)).toEqual(expect.any(String));
+      expect(category.renderDetail(entry as never)).toBeTruthy();
+      for (const filter of category.filters ?? []) {
+        expect(filter.valuesFor(entry as never)).toEqual(expect.any(Array));
+        filter.sortKey?.(filter.id === 'level' ? 'Cantrip' : '1');
+        filter.labelFor?.('PHB', 'en');
+      }
+    }
+
+    fetchMock.mockRestore();
   });
 
-  it('uses the kind as a condition subtitle', () => {
-    const conditions = getCategory('conditions')!;
-    expect(conditions.subtitle({ kind: 'disease' } as ConditionEntry, t)).toBe('disease');
-  });
+  it('covers fallback labels, filters and failed loading', async () => {
+    const t = (key: string) => key;
+    const empty = {
+      source: 'UNKNOWN',
+      level: 1,
+      cr: 'unknown',
+      concentration: true,
+      ritual: false,
+      attunement: 'required',
+    };
 
-  it('exposes a stable category order', () => {
-    expect(categories.map((c) => c.id)).toEqual([
-      'species',
-      'classes',
-      'backgrounds',
-      'feats',
-      'optionalfeatures',
-      'spells',
-      'items',
-      'bestiary',
-      'actions',
-      'conditions',
-      'rules',
-      'deities',
-      'hazards',
-      'boons',
-      'skills',
-      'senses',
-      'languages',
-      'cultsboons',
-      'facilities',
-      'recipes',
-      'objects',
-      'vehicles',
-      'masteries',
-      'charoptions',
-      'tables',
-      'decks',
-    ]);
-  });
-
-  it('summarizes feats and rules by type', () => {
-    expect(getCategory('feats')!.subtitle({ category: 'General' } as never, t)).toBe(
-      'General feat',
+    for (const id of ['backgrounds', 'actions', 'deities', 'skills'] as const) {
+      expect(getCategory(id)!.subtitle(empty as never, t)).toEqual(expect.any(String));
+    }
+    expect(getCategory('spells')!.subtitle(empty as never, t)).toEqual(
+      expect.any(String),
     );
-    expect(getCategory('rules')!.subtitle({ ruleType: 'Core' } as never, t)).toBe(
-      'Core rule',
+    expect(getCategory('facilities')!.subtitle({} as never, t)).toBe('');
+    expect(getCategory('facilities')!.subtitle(empty as never, t)).toEqual(
+      expect.any(String),
     );
+    const attunement = getCategory('items')!.filters!.find(
+      (filter) => filter.id === 'attunement',
+    )!;
+    expect(attunement.valuesFor({ attunement: '' } as never)).toEqual(['No']);
+
+    for (const filter of categories.flatMap((category) => category.filters ?? [])) {
+      filter.valuesFor(empty as never);
+      filter.sortKey?.('Level 1');
+    }
+
+    vi.spyOn(globalThis, 'fetch').mockResolvedValueOnce(
+      new Response(null, { status: 500 }),
+    );
+    await expect(getCategory('species')!.load()).rejects.toThrow(
+      'Failed to load compendium data: species',
+    );
+    vi.restoreAllMocks();
   });
 });

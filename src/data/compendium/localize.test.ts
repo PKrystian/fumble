@@ -24,6 +24,14 @@ describe('localizeEntry', () => {
     expect(result.id).toBe('blinded');
     expect(result.source).toBe('XPHB');
   });
+
+  it('does not record an English name for unchanged or non-string names', () => {
+    const entry = makeEntry('blinded', 'Blinded');
+    expect(localizeEntry(entry, { blinded: { name: 'Blinded' } }).englishName).toBe(
+      undefined,
+    );
+    expect(localizeEntry(entry, { blinded: { name: 42 } }).englishName).toBe(undefined);
+  });
 });
 
 describe('localizeItems', () => {

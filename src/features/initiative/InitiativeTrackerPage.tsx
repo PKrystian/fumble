@@ -48,8 +48,7 @@ export function InitiativeTrackerPage() {
   };
 
   const addFromRoster = () => {
-    const character = characters.find((c) => c.id === rosterId);
-    if (!character) return;
+    const character = characters.find((c) => c.id === rosterId)!;
     addCombatant({
       name: character.name,
       initiative: rosterInitiative,

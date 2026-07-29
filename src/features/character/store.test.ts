@@ -1,6 +1,7 @@
+import { renderHook } from '@testing-library/react';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { createCharacter } from './model';
-import { useCharacterStore } from './store';
+import { useCharacter, useCharacterList, useCharacterStore } from './store';
 
 function reset() {
   useCharacterStore.setState({ characters: {}, order: [] });
@@ -57,6 +58,18 @@ describe('character store', () => {
     expect(stranded.order).toEqual(['b', 'a']);
   });
 
+  it('migrates empty and unordered persisted state', () => {
+    const migrate = useCharacterStore.persist.getOptions().migrate!;
+    expect((migrate(undefined, 1) as { order: string[] }).order).toEqual([]);
+    expect(
+      (
+        migrate({ characters: { a: { id: 'a', name: 'Recovered' } } }, 1) as {
+          order: string[];
+        }
+      ).order,
+    ).toEqual(['a']);
+  });
+
   it('deleting a character removes it from both the map and the order', () => {
     const id = useCharacterStore.getState().addCharacter('Hero');
     useCharacterStore.getState().deleteCharacter(id);
@@ -64,5 +77,21 @@ describe('character store', () => {
     const { characters, order } = useCharacterStore.getState();
     expect(characters[id]).toBeUndefined();
     expect(order).not.toContain(id);
+  });
+
+  it('selects ordered characters and filters stale ids', () => {
+    const character = { ...createCharacter('Hero'), id: 'hero' };
+    useCharacterStore.setState({
+      characters: { hero: character },
+      order: ['missing', 'hero'],
+    });
+
+    const list = renderHook(() => useCharacterList());
+    const selected = renderHook(() => useCharacter('hero'));
+    const missing = renderHook(() => useCharacter(undefined));
+
+    expect(list.result.current).toEqual([character]);
+    expect(selected.result.current).toBe(character);
+    expect(missing.result.current).toBeUndefined();
   });
 });

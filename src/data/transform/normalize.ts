@@ -967,7 +967,7 @@ function parseFeatureRef(ref: string | RawFeatureRef): {
   const raw =
     typeof ref === 'string' ? ref : (ref.classFeature ?? ref.subclassFeature ?? '');
   const parts = raw.split('|');
-  const name = parts[0] ?? '';
+  const name = parts[0]!;
   const source = parts[2] ?? '';
   let level = 0;
   for (let i = parts.length - 1; i >= 0; i -= 1) {

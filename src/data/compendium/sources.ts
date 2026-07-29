@@ -12,10 +12,9 @@ const plSourceNames: Record<string, string> = {};
 
 const ranks = new Map<string, number>();
 for (const book of booksIndex as BookIndexEntry[]) {
-  ranks.set(book.source, book.published ? Date.parse(book.published) : 0);
+  ranks.set(book.source, Date.parse(book.published!));
   if (TRANSLATED_SOURCES.has(book.source)) {
-    const name = plBookNames[book.id]?.name;
-    if (name) plSourceNames[book.source] = name;
+    plSourceNames[book.source] = plBookNames[book.id]!.name!;
   }
 }
 

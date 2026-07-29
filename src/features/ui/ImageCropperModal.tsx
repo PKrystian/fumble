@@ -62,8 +62,7 @@ export function ImageCropperModal({
   }, [src]);
 
   useEffect(() => {
-    const el = frameRef.current;
-    if (!el) return;
+    const el = frameRef.current!;
     const observer = new ResizeObserver((entries) => {
       const entry = entries[0];
       if (!entry) return;
@@ -74,8 +73,7 @@ export function ImageCropperModal({
   }, []);
 
   useEffect(() => {
-    const el = frameRef.current;
-    if (!el) return;
+    const el = frameRef.current!;
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       setZoom((z) => clampZoom(z * (1 - e.deltaY * 0.0015)));
@@ -130,20 +128,17 @@ export function ImageCropperModal({
     pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
     if (pts.size === 1) {
-      const prev = prevPoints.get(e.pointerId);
-      const cur = pts.get(e.pointerId);
-      if (!prev || !cur) return;
+      const prev = prevPoints.get(e.pointerId)!;
+      const cur = pts.get(e.pointerId)!;
       setOffset((o) => clampOffset(o.x + (cur.x - prev.x), o.y + (cur.y - prev.y)));
       return;
     }
 
     const [idA, idB] = [...pts.keys()];
-    if (idA === undefined || idB === undefined) return;
-    const prevA = prevPoints.get(idA);
-    const prevB = prevPoints.get(idB);
-    const curA = pts.get(idA);
-    const curB = pts.get(idB);
-    if (!prevA || !prevB || !curA || !curB) return;
+    const prevA = prevPoints.get(idA!)!;
+    const prevB = prevPoints.get(idB!)!;
+    const curA = pts.get(idA!)!;
+    const curB = pts.get(idB!)!;
 
     const prevDist = Math.hypot(prevB.x - prevA.x, prevB.y - prevA.y);
     const curDist = Math.hypot(curB.x - curA.x, curB.y - curA.y);
@@ -157,10 +152,10 @@ export function ImageCropperModal({
   };
 
   const handleSave = async () => {
-    if (!src || !natural.width || !frame.width) return;
+    if (!natural.width || !frame.width) return;
     setSaving(true);
     try {
-      const img = await loadImage(src);
+      const img = await loadImage(src!);
       const outputHeight = Math.round(outputWidth / aspect);
       const canvas = document.createElement('canvas');
       canvas.width = outputWidth;
@@ -177,6 +172,8 @@ export function ImageCropperModal({
 
       ctx.drawImage(img, sx, sy, sWidth, sHeight, 0, 0, outputWidth, outputHeight);
       onSave(canvas.toDataURL('image/jpeg', 0.85));
+    } catch {
+      // Leave the editor open so the user can retry.
     } finally {
       setSaving(false);
     }

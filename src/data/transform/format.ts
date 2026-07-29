@@ -38,7 +38,12 @@ export function formatRange(range: Range | undefined): string {
     case 'unlimited':
       return 'Unlimited';
     default: {
-      const unit = dist.amount === 1 ? dist.type.replace(/s$/, '') : dist.type;
+      const unit =
+        dist.amount === 1
+          ? dist.type === 'feet'
+            ? 'foot'
+            : dist.type.replace(/s$/, '')
+          : dist.type;
       const measure = `${dist.amount} ${unit}`;
       return range.type === 'point' ? measure : shapeSuffix(measure, range);
     }
@@ -46,7 +51,6 @@ export function formatRange(range: Range | undefined): string {
 }
 
 function shapeSuffix(prefix: string, range: Range): string {
-  if (range.type === 'point' || range.type === 'special') return prefix;
   const amount = range.distance?.amount;
   if (amount == null) return `${prefix} (${range.type})`;
   return `${prefix} (${amount}-foot ${range.type})`;
@@ -204,9 +208,9 @@ export function formatFeatRefs(
   const names: string[] = [];
   for (const group of feats) {
     for (const key of Object.keys(group)) {
-      const base = key.split('|')[0] ?? key;
+      const base = key.split('|')[0]!;
       const [name, sub] = base.split(';').map((part) => part.trim());
-      const titled = titleCase(name ?? base);
+      const titled = titleCase(name!);
       names.push(sub ? `${titled} (${titleCase(sub)})` : titled);
     }
   }
@@ -426,7 +430,7 @@ const DAMAGE_TYPES: Record<string, string> = {
   T: 'thunder',
 };
 
-const stripSource = (code: string) => code.split('|')[0] ?? code;
+const stripSource = (code: string) => code.split('|')[0]!;
 
 export function formatItemType(
   type: string | undefined,

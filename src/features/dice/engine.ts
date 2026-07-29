@@ -269,11 +269,8 @@ export function describeRolls(outcome: RollOutcome): string {
   return parts.join('  ·  ');
 }
 
-function precedence(node: ExpressionNode): number {
-  if (node.type === 'binary')
-    return node.operator === '+' || node.operator === '-' ? 1 : 2;
-  if (node.type === 'unary') return 3;
-  return 4;
+function precedence(node: Extract<ExpressionNode, { type: 'binary' }>): number {
+  return node.operator === '+' || node.operator === '-' ? 1 : 2;
 }
 
 function formatNode(node: ExpressionNode, parentPrecedence = 0): string {

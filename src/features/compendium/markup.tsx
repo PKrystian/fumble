@@ -150,7 +150,7 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
   const tag = spaceIndex === -1 ? content : content.slice(0, spaceIndex);
   const rest = spaceIndex === -1 ? '' : content.slice(spaceIndex + 1);
   const parts = rest.split('|');
-  const first = parts[0] ?? '';
+  const first = parts[0]!;
   const display = parts[2] || first;
 
   switch (tag) {

@@ -610,13 +610,10 @@ export function SpellcastingPanel({ character }: { character: Character }) {
           label={t('character.sheet.spellcasting.ability')}
           value={t(`character.sheet.abilities.${character.spellcastingAbility}`)}
         />
-        <StatBox
-          label={t('character.sheet.spellcasting.saveDc')}
-          value={dc == null ? '-' : `${dc}`}
-        />
+        <StatBox label={t('character.sheet.spellcasting.saveDc')} value={`${dc!}`} />
         <StatBox
           label={t('character.sheet.spellcasting.attack')}
-          value={attack == null ? '-' : formatModifier(attack)}
+          value={formatModifier(attack!)}
         />
       </div>
       {configuredLevels.length === 0 ? (

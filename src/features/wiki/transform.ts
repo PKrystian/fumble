@@ -52,11 +52,7 @@ export function parseFrontmatter(raw: string): { data: Frontmatter; body: string
     if (isIndented && mapKey) {
       const sub = /^([^:]+):\s*(.*)$/.exec(line);
       if (sub) {
-        const map = data[mapKey];
-        const target =
-          map && typeof map === 'object' && !Array.isArray(map)
-            ? (map as Record<string, string>)
-            : {};
+        const target = data[mapKey] as Record<string, string>;
         target[sub[1]!.trim()] = stripQuotes(sub[2]!.trim());
         data[mapKey] = target;
         continue;
@@ -111,7 +107,7 @@ export type AssetResolver = (file: string) => string;
 export function processImages(body: string, resolveAsset: AssetResolver): string {
   return body.replace(/!\[\[([^\]]+)\]\]/g, (_, inner: string) => {
     const [file, alt] = inner.split('|').map((part) => part.trim());
-    return `![${alt ?? ''}](${resolveAsset(file ?? '')})`;
+    return `![${alt ?? ''}](${resolveAsset(file!)})`;
   });
 }
 
@@ -130,7 +126,7 @@ function linkifyFactValue(value: string, resolveSlug: SlugResolver): string {
   for (const match of value.matchAll(/\[\[([^\]]+)\]\]/g)) {
     out += escapeHtml(value.slice(lastIndex, match.index));
     const [target, alias] = match[1]!.split('|').map((part) => part.trim());
-    const label = escapeHtml(alias ?? target ?? '');
+    const label = escapeHtml(alias ?? target!);
     const slug = target ? resolveSlug(target) : null;
     out += slug
       ? `<a data-wiki-link="${slug}" href="${BASE_TOKEN}wiki/${slug}">${label}</a>`
@@ -148,7 +144,7 @@ function renderFactsCard(opts: FactsCardOptions): string {
     )
     .join('');
   const parts = [
-    opts.image ? `<img src="${opts.image}" alt="${escapeHtml(opts.title ?? '')}" />` : '',
+    opts.image ? `<img src="${opts.image}" alt="${escapeHtml(opts.title)}" />` : '',
     opts.title ? `<h3>${escapeHtml(opts.title)}</h3>` : '',
     opts.summary ? `<p class="wiki-infobox-summary">${escapeHtml(opts.summary)}</p>` : '',
     rows ? `<table>${rows}</table>` : '',
@@ -218,8 +214,8 @@ export function processWikiLinks(
 ): string {
   return body.replace(/\[\[([^\]]+)\]\]/g, (_, inner: string) => {
     const [target, alias] = inner.split('|').map((part) => part.trim());
-    const label = alias ?? target ?? '';
-    const slug = resolveSlug(target ?? '');
+    const label = alias ?? target!;
+    const slug = resolveSlug(target!);
     if (!slug) return label;
     return `<a data-wiki-link="${slug}" href="${BASE_TOKEN}wiki/${slug}">${label}</a>`;
   });
@@ -235,7 +231,7 @@ interface MapMarker {
 
 function parseMarker(line: string): MapMarker | null {
   const fields = line.split('|').map((f) => f.trim());
-  const coords = /^(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)$/.exec(fields[0] ?? '');
+  const coords = /^(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)$/.exec(fields[0]!);
   if (!coords) return null;
   const dm = fields.includes('dm');
   const rest = fields.slice(1).filter((f) => f !== 'dm');
@@ -337,7 +333,7 @@ export function parseLeafletBlock(content: string): LeafletBlock {
     const lng = Number(parts[2]);
     if (Number.isNaN(lat) || Number.isNaN(lng)) continue;
     markers.push({
-      type: parts[0] ?? 'default',
+      type: parts[0]!,
       lat,
       lng,
       target: parts[3] ? parts[3] : null,

@@ -50,8 +50,7 @@ function stripMarkup(value: string): string {
     .trim();
 }
 
-function firstText(entries: Entry[] | undefined): string {
-  if (!entries) return '';
+function firstText(entries: Entry[]): string {
   for (const entry of entries) {
     if (typeof entry === 'string') {
       const text = stripMarkup(entry);
@@ -93,9 +92,9 @@ export async function loadReferenceHint(
   if (!item) return null;
 
   const category = getCategory(categoryId);
-  const subtitle = category
-    ? category.subtitle(item, (key, vars) => translate(locale as Locale, key, vars))
-    : '';
+  const subtitle = category!.subtitle(item, (key, vars) =>
+    translate(locale as Locale, key, vars),
+  );
   const description = truncate(firstText(describableEntries(item)));
   return {
     name: item.name,

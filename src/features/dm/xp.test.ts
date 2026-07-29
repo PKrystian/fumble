@@ -25,10 +25,26 @@ describe('encounter math', () => {
     expect(budget.moderate).toBe(75 * 2 + 225);
   });
 
+  it('clamps party levels to the supported range', () => {
+    expect(
+      partyBudget([
+        { level: -5, count: 1 },
+        { level: 99, count: 1 },
+      ]),
+    ).toEqual({
+      low: 50 + 6400,
+      moderate: 75 + 13200,
+      high: 100 + 22000,
+    });
+  });
+
   it('rates encounters against the budget thresholds', () => {
     const budget = { low: 2000, moderate: 3000, high: 4400 };
     expect(rateEncounter(0, budget)).toBe('Trivial');
+    expect(rateEncounter(1000, budget)).toBe('Trivial');
+    expect(rateEncounter(2000, budget)).toBe('Low');
     expect(rateEncounter(2500, budget)).toBe('Moderate');
+    expect(rateEncounter(3000, budget)).toBe('Moderate');
     expect(rateEncounter(4000, budget)).toBe('High');
     expect(rateEncounter(9000, budget)).toBe('Deadly');
   });

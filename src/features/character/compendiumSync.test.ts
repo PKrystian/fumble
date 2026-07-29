@@ -7,7 +7,12 @@ import type {
   SpellEntry,
 } from '@/data/compendium/types';
 import { createCharacter, type Character } from './model';
-import { syncClassFeatures } from './compendiumSync';
+import {
+  findSubclass,
+  findSubclassPair,
+  subclassKey,
+  syncClassFeatures,
+} from './compendiumSync';
 
 function makeCharacter(overrides: Partial<Character> = {}): Character {
   return { ...createCharacter('Tester'), ...overrides };
@@ -69,6 +74,105 @@ function makeBackground(overrides: Partial<BackgroundEntry> = {}): BackgroundEnt
 }
 
 describe('syncClassFeatures', () => {
+  it('builds automatic class, subclass, species and background features', () => {
+    const cls = makeClass({
+      features: [
+        {
+          level: 1,
+          name: 'Training',
+          entries: [
+            'First paragraph.',
+            {
+              type: 'entries',
+              name: 'Details',
+              entries: ['Nested text.'],
+            },
+            {
+              type: 'list',
+              items: ['One', { type: 'item', name: 'Two', entry: 'Second item.' }],
+            },
+          ],
+        },
+        { level: 10, name: 'Future', entries: ['Not yet.'] },
+      ],
+    });
+    const subclass = {
+      name: 'Champion',
+      source: 'XPHB',
+      features: [
+        { level: 3, name: 'Critical Hit', entries: ['Improved critical.'] },
+        { level: 10, name: 'Future Critical', entries: ['Not yet.'] },
+      ],
+    } as ClassSubclass;
+    const species = makeSpecies({ entries: ['Darkvision.'] });
+    const background = makeBackground({
+      feat: 'Alert',
+      entries: ['Always ready.'],
+    });
+    const character = makeCharacter({
+      level: 3,
+      features: [
+        { id: 'manual', name: 'Own Feature', source: '', notes: '' },
+        { id: 'old-auto', name: 'Old', source: '', notes: '', auto: true },
+      ],
+    });
+
+    const patch = syncClassFeatures(character, cls, subclass, species, background);
+    expect(patch.hitDice).toBe('3d10');
+    expect(patch.features?.map((feature) => feature.name)).toEqual([
+      'Own Feature',
+      'Training',
+      'Critical Hit',
+      'Elf',
+      'Alert',
+    ]);
+    expect(
+      patch.features?.find((feature) => feature.name === 'Training')?.notes,
+    ).toContain('Nested text.');
+  });
+
+  it('recognizes one- and two-ability unarmored defense formulas', () => {
+    const monk = makeClass({
+      features: [
+        {
+          level: 1,
+          name: 'Unarmored Defense',
+          entries: [
+            'Your Armor Class equals 10 plus your Dexterity and your Wisdom modifiers.',
+          ],
+        },
+      ],
+    });
+    expect(
+      syncClassFeatures(makeCharacter(), monk, undefined, undefined, undefined)
+        .unarmoredDefense,
+    ).toMatchObject({
+      base: 10,
+      abilities: ['dex', 'wis'],
+      allowShield: false,
+    });
+
+    const barbarian = makeClass({
+      features: [
+        {
+          level: 1,
+          name: 'Natural Guard',
+          entries: [
+            'Your Armor Class equals 12 plus your Constitution modifier. You can use a Shield and still gain this benefit.',
+          ],
+        },
+      ],
+    });
+    expect(
+      syncClassFeatures(makeCharacter(), barbarian, undefined, undefined, undefined)
+        .unarmoredDefense,
+    ).toMatchObject({
+      base: 12,
+      abilities: ['con'],
+      allowShield: true,
+    });
+  });
+
   it('overwrites armor and weapon proficiencies from the class', () => {
     const character = makeCharacter({ armorProficiencies: 'stale text' });
     const patch = syncClassFeatures(
@@ -124,6 +228,145 @@ describe('syncClassFeatures', () => {
       background,
     );
     expect(patch.skillProficiencies).toEqual([]);
+  });
+
+  it('returns only manual features when no compendium entries are selected', () => {
+    const character = makeCharacter({
+      features: [
+        { id: 'manual', name: 'Manual', source: '', notes: '' },
+        { id: 'auto', name: 'Old', source: '', notes: '', auto: true },
+      ],
+    });
+    const patch = syncClassFeatures(
+      character,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+    );
+    expect(patch.features).toEqual([character.features[0]]);
+    expect(patch.toolProficiencies).toBeUndefined();
+    expect(patch.speed).toBeUndefined();
+    expect(patch.unarmoredDefense).toBeNull();
+  });
+
+  it('handles named entry nodes, empty tools and unknown skill names', () => {
+    const cls = makeClass({
+      toolProficiencies: '',
+      savingThrows: 'Unknown',
+      features: [
+        {
+          level: 1,
+          name: 'Named',
+          entries: [
+            {
+              type: 'entries',
+              name: '{@b Heading}',
+              entries: [],
+            },
+          ],
+        },
+      ],
+    });
+    const background = makeBackground({
+      skills: 'Athletics, Unknown, ,',
+      tools: '',
+    });
+    const patch = syncClassFeatures(
+      makeCharacter(),
+      cls,
+      undefined,
+      undefined,
+      background,
+    );
+    expect(patch.features?.[0]?.notes).toBe('Heading');
+    expect(patch.toolProficiencies).toBe('');
+    expect(patch.savingThrowProficiencies).toBeUndefined();
+    expect(patch.skillProficiencies).toEqual(['athletics']);
+  });
+
+  it('falls back to valid subclass unarmored defense', () => {
+    const cls = makeClass({
+      features: [
+        {
+          level: 2,
+          name: 'Future Defense',
+          entries: ['Your Armor Class equals 10 plus your Dexterity modifier.'],
+        },
+        {
+          level: 1,
+          name: 'Invalid Defense',
+          entries: ['Your Armor Class equals 10 plus your Luck modifier.'],
+        },
+      ],
+    });
+    const subclass = {
+      name: 'Guard',
+      source: 'HB',
+      features: [
+        {
+          level: 1,
+          name: 'Guarded',
+          entries: ['Your Armor Class equals 11 plus your Wisdom modifier.'],
+        },
+      ],
+    } as ClassSubclass;
+    const patch = syncClassFeatures(
+      makeCharacter(),
+      cls,
+      subclass,
+      undefined,
+      undefined,
+      { subclass },
+    );
+    expect(patch.unarmoredDefense).toMatchObject({
+      base: 11,
+      abilities: ['wis'],
+      source: 'Guarded',
+    });
+  });
+});
+
+describe('subclass lookup', () => {
+  const oldSubclass = { name: 'Evoker', source: 'PHB', features: [] };
+  const newSubclass = { name: 'Evoker', source: 'XPHB', features: [] };
+  const localized = makeClass({
+    subclasses: [oldSubclass, newSubclass],
+  });
+
+  it('finds subclasses by composite key or legacy name', () => {
+    expect(subclassKey(newSubclass)).toBe('Evoker|XPHB');
+    expect(findSubclass(localized, 'evoker|xphb')).toBe(newSubclass);
+    expect(findSubclass(localized, 'Evoker')).toBe(oldSubclass);
+    expect(findSubclass(undefined, 'Evoker')).toBeUndefined();
+    expect(findSubclass(localized, ' ')).toBeUndefined();
+  });
+
+  it('pairs localized and English subclasses by index or source', () => {
+    const english = makeClass({
+      subclasses: [
+        { name: 'Evocation', source: 'PHB', features: [] },
+        { name: 'Evocation', source: 'XPHB', features: [] },
+      ],
+    });
+    expect(findSubclassPair({ localized, english }, 'Evoker|XPHB').english?.source).toBe(
+      'XPHB',
+    );
+
+    const mismatched = makeClass({
+      subclasses: [{ name: 'Evocation', source: 'XPHB', features: [] }],
+    });
+    expect(
+      findSubclassPair({ localized, english: mismatched }, 'Evoker|XPHB').english?.source,
+    ).toBe('XPHB');
+    expect(findSubclassPair({ localized, english }, 'Unknown')).toEqual({
+      localized: undefined,
+      english: undefined,
+    });
+    expect(findSubclassPair({ localized, english: undefined }, 'Evoker|XPHB')).toEqual({
+      localized: newSubclass,
+      english: undefined,
+    });
   });
 });
 
@@ -247,5 +490,110 @@ describe('granted spells', () => {
       { cls: english },
     );
     expect(patch.savingThrowProficiencies).toEqual(['wis', 'cha']);
+  });
+
+  it('handles irregular spell tables, nested entries and duplicate grants', () => {
+    const cls = makeClass({
+      features: [
+        {
+          level: 1,
+          name: 'Granted',
+          entries: [
+            {
+              type: 'table',
+              colLabels: ['Level', 'Feature'],
+              rows: [['1st', '{@spell sleep}']],
+            },
+            {
+              type: 'entries',
+              entries: [
+                'You always have {@spell Sleep|XPHB} prepared.',
+                'You always have {@spell Sleep|XPHB} prepared.',
+                {
+                  type: 'table',
+                  rows: [],
+                },
+                {
+                  type: 'table',
+                  colLabels: ['Spells'],
+                  rows: [
+                    [],
+                    ['', '{@spell sanctuary}'],
+                    ['9th', '{@spell counterspell}'],
+                    ['1st', '{@spell missing spell}'],
+                    ['1st', 'No spell here'],
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          level: 10,
+          name: 'Future',
+          entries: ['You always have {@spell counterspell} prepared.'],
+        },
+      ],
+    });
+    const patch = syncClassFeatures(
+      makeCharacter({
+        spells: [
+          { id: 'old', name: 'Old automatic', level: 1, prepared: true, auto: true },
+        ],
+      }),
+      cls,
+      undefined,
+      undefined,
+      undefined,
+      { cls, spellIndex },
+    );
+    expect(patch.spells?.map((spell) => spell.name)).toEqual(['Sen', 'Azyl']);
+  });
+
+  it('does not rebuild spells without a populated index or selected class', () => {
+    const character = makeCharacter();
+    expect(
+      syncClassFeatures(character, makeClass(), undefined, undefined, undefined, {
+        spellIndex: new Map(),
+      }).spells,
+    ).toBeUndefined();
+    expect(
+      syncClassFeatures(character, undefined, undefined, undefined, undefined, {
+        spellIndex,
+      }).spells,
+    ).toBeUndefined();
+  });
+
+  it('deduplicates table grants and reads a mechanics-only subclass', () => {
+    const cls = makeClass({
+      features: [
+        {
+          level: 1,
+          name: 'Repeated',
+          entries: [
+            {
+              type: 'table',
+              colLabels: ['Level', 'Spells'],
+              rows: [
+                ['1st', '{@spell sleep}'],
+                ['1st', '{@spell sleep}'],
+              ],
+            },
+          ],
+        },
+      ],
+    });
+    const subclass = makeSubclass();
+    const patch = syncClassFeatures(
+      makeCharacter({ level: 5 }),
+      cls,
+      undefined,
+      undefined,
+      undefined,
+      { cls, subclass, spellIndex },
+    );
+
+    expect(patch.spells?.filter((spell) => spell.name === 'Sen')).toHaveLength(1);
+    expect(patch.spells?.some((spell) => spell.source === subclass.name)).toBe(true);
   });
 });

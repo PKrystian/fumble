@@ -13,9 +13,12 @@ import {
   processMaps,
   processSecrets,
   processWikiLinks,
+  pinHtml,
+  renderMap,
   renderInfobox,
   slugify,
   validateFrontmatterKeys,
+  wrapMap,
 } from './transform';
 
 describe('parseFrontmatter', () => {
@@ -45,6 +48,13 @@ describe('parseFrontmatter', () => {
     expect(data.facts).toEqual({ Race: 'Elf', Class: 'Wizard' });
     expect(data.title).toBe('Aria');
     expect(data.summary).toBe('A mage.');
+  });
+
+  it('skips blank and malformed frontmatter lines', () => {
+    const { data } = parseFrontmatter(
+      '---\n\nnot a pair\n  ignored\nfacts:\n  invalid\nfacts:\n  Role: Guide\n---\n',
+    );
+    expect(data.facts).toEqual({ Role: 'Guide' });
   });
 });
 
@@ -86,6 +96,7 @@ describe('processImages', () => {
       (f) => `${BASE_TOKEN}wiki-assets/${f}`,
     );
     expect(out).toBe('![World Map](%BASE%wiki-assets/map.svg)');
+    expect(processImages('![[icon.png]]', (f) => f)).toBe('![](icon.png)');
   });
 });
 
@@ -104,6 +115,7 @@ describe('processWikiLinks', () => {
 
   it('degrades unknown/secret targets to plain text', () => {
     expect(processWikiLinks('[[Hidden Vault]]', resolve)).toBe('Hidden Vault');
+    expect(processWikiLinks('[[|Alias]]', resolve)).toBe('Alias');
   });
 });
 
@@ -126,6 +138,28 @@ describe('processMaps', () => {
     expect(html).toContain('Silverhaven');
     expect(html).not.toContain('Secret Lair');
   });
+
+  it('handles plain, external, unresolved and invalid markers', () => {
+    const html = renderMap(
+      [
+        'ignored',
+        'image: map.png',
+        'marker: invalid',
+        'marker: 5,10',
+        'marker: 10,20 | Plain',
+        'marker: 20,30 | Site | https://example.com',
+        'marker: 30,40 | Missing | [[Missing]]',
+      ].join('\n'),
+      (file) => file,
+      () => null,
+    );
+    expect(html).toContain('Plain');
+    expect(html).toContain('https://example.com');
+    expect(html).toContain('Missing');
+    expect(wrapMap('', [])).toBe('');
+    expect(pinHtml(1, 2, 'No target', null, () => null)).toContain('<span');
+    expect(pinHtml(1, 2, 'Plain target', 'Elsewhere', () => null)).toContain('<span');
+  });
 });
 
 describe('parseLeafletBlock', () => {
@@ -146,6 +180,19 @@ describe('parseLeafletBlock', () => {
       target: '[[Silverhaven]]',
     });
     expect(block.markers[1]!.type).toBe('dm');
+  });
+
+  it('skips malformed leaflet lines and supports missing targets', () => {
+    const block = parseLeafletBlock(
+      [
+        'ignored',
+        'marker: default, nope, 2',
+        'marker: default, 1, nope',
+        'marker: , 1, 2',
+      ].join('\n'),
+    );
+    expect(block.image).toBeNull();
+    expect(block.markers).toEqual([{ type: '', lat: 1, lng: 2, target: null }]);
   });
 });
 
@@ -199,6 +246,16 @@ describe('renderInfobox', () => {
     expect(html).toContain('<th>Rival</th><td>Nobody</td>');
   });
 
+  it('renders fact aliases with empty targets as plain text', () => {
+    const html = renderInfobox(
+      { facts: { Note: '[[|Alias]]' } },
+      'Page',
+      resolveAsset,
+      resolveSlug,
+    );
+    expect(html).toContain('<td>Alias</td>');
+  });
+
   it('escapes fact values', () => {
     const html = renderInfobox(
       { facts: { Note: '<script>x</script>' } },
@@ -232,6 +289,16 @@ describe('processBoxes', () => {
     expect(html).toContain('<h3>Quick Stats</h3>');
     expect(html).toContain('<th>Str</th><td>18 (+4)</td>');
   });
+
+  it('supports box images and ignores malformed lines', () => {
+    const html = processBoxes(
+      '```fumble-box\nignored\nimage: portrait.png\n```',
+      resolveAsset,
+      resolveSlug,
+    );
+    expect(html).toContain('portrait.png');
+    expect(html).not.toContain('<h3>');
+  });
 });
 
 describe('extractWikiLinkTargets', () => {
@@ -253,6 +320,10 @@ describe('extractWikiLinkTargets', () => {
     );
     expect(extractWikiLinkTargets(body)).toEqual(['Silverhaven']);
   });
+
+  it('ignores blank link targets', () => {
+    expect(extractWikiLinkTargets('[[   ]]')).toEqual([]);
+  });
 });
 
 describe('extractImageRefs', () => {
@@ -261,6 +332,10 @@ describe('extractImageRefs', () => {
       'map.svg',
       'icon.png',
     ]);
+  });
+
+  it('ignores blank image targets', () => {
+    expect(extractImageRefs('![[   ]]')).toEqual([]);
   });
 });
 

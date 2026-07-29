@@ -57,9 +57,7 @@ export function ReferenceLink({ category, slug, label }: ReferenceLinkProps) {
     }
     if (timerRef.current !== null) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => {
-      const el = ref.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
+      const rect = ref.current!.getBoundingClientRect();
       setHint(undefined);
       setAnchor({ left: rect.left, top: rect.top, bottom: rect.bottom });
       void loadReferenceHint(category, slug, locale).then(setHint);

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { parseMarkup } from './markup';
+import { markupLabel, parseMarkup } from './markup';
 
 function renderMarkup(text: string, locale: 'en' | 'pl' = 'en') {
   return render(<MemoryRouter>{parseMarkup(text, locale)}</MemoryRouter>);
@@ -11,6 +11,9 @@ describe('parseMarkup', () => {
   it('passes through plain text', () => {
     const { container } = renderMarkup('Just plain text.');
     expect(container).toHaveTextContent('Just plain text.');
+    expect(
+      render(<MemoryRouter>{parseMarkup('Default locale')}</MemoryRouter>).container,
+    ).toHaveTextContent('Default locale');
   });
 
   it('renders damage tags as their dice expression', () => {
@@ -99,5 +102,61 @@ describe('parseMarkup', () => {
     const emphasis = container.querySelector('em');
     expect(emphasis).not.toBeNull();
     expect(emphasis).toHaveTextContent('deals 1d6 cold');
+  });
+
+  it('renders bold, italic and note formatting aliases', () => {
+    const { container } = renderMarkup(
+      '{@b Bold} {@bold Strong} {@italic Italic} {@note Note}',
+    );
+    expect(container.querySelectorAll('strong')).toHaveLength(2);
+    expect(container.querySelectorAll('em')).toHaveLength(2);
+  });
+
+  it('renders attack helpers and localized attack types', () => {
+    expect(renderMarkup('{@hit -2}').container).toHaveTextContent('-2');
+    expect(renderMarkup('{@atk mw}').container).toHaveTextContent('Melee Weapon Attack:');
+    expect(renderMarkup('{@atkr custom}').container).toHaveTextContent('custom');
+    expect(renderMarkup('{@h}').container).toHaveTextContent('Hit:');
+    expect(renderMarkup('{@dcYourSpellSave}').container).toHaveTextContent(
+      'your spell save DC',
+    );
+    expect(renderMarkup('{@chance 25}').container).toHaveTextContent('25%');
+  });
+
+  it('renders every action label in both locales', () => {
+    const tags = [
+      '{@actSaveSuccess}',
+      '{@actSaveSuccessOrFail}',
+      '{@actSaveFailBy 5}',
+      '{@actTrigger}',
+      '{@actResponse}',
+    ].join(' ');
+    expect(renderMarkup(tags).container).toHaveTextContent(
+      'Success: Failure or Success: Failure by 5 or More: Trigger: Response:',
+    );
+    expect(
+      renderMarkup('{@actSave str} {@actSaveFailBy 3}', 'pl').container,
+    ).toHaveTextContent('Rzut Obronny Siły: Niepowodzenie o 3 lub Więcej:');
+    expect(renderMarkup('{@actSave luck}').container).toHaveTextContent(
+      'luck Saving Throw:',
+    );
+    expect(markupLabel('pl', 'statBlock')).toBe('(blok statystyk)');
+  });
+
+  it('renders simple helper tags and non-rollable formulas', () => {
+    const { container } = renderMarkup(
+      '{@footnote Foot} {@quickref Quick} {@hitYourSpellAttack Spell} {@dice variable}',
+    );
+    expect(container).toHaveTextContent('Foot Quick Spell variable');
+    expect(container.querySelector('.text-ember-400')).not.toBeNull();
+  });
+
+  it('uses translated display text and handles incomplete markup', () => {
+    expect(
+      renderMarkup('{@spell Fireball|XPHB|Kula Ognia}', 'pl').container,
+    ).toHaveTextContent('Kula Ognia');
+    expect(renderMarkup('before {@b unfinished').container).toHaveTextContent(
+      'before unfinished',
+    );
   });
 });

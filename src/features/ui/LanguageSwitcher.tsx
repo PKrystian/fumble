@@ -32,8 +32,7 @@ export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
     };
   }, [open]);
 
-  const current =
-    SUPPORTED_LOCALES.find((l) => l.code === locale) ?? SUPPORTED_LOCALES[0]!;
+  const current = SUPPORTED_LOCALES.find((l) => l.code === locale)!;
 
   const switchTo = (code: (typeof SUPPORTED_LOCALES)[number]['code']) => {
     setOpen(false);

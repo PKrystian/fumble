@@ -1,5 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { parseExpression, rollExpression, rollParsed, type Rng } from './engine';
+import {
+  describeRolls,
+  formatExpression,
+  parseExpression,
+  rollDie,
+  rollExpression,
+  rollParsed,
+  type Rng,
+} from './engine';
 
 function seqRng(values: number[]): Rng {
   let i = 0;
@@ -57,6 +65,21 @@ describe('parseExpression', () => {
     expect(parseExpression('2d6 /')).toBeNull();
     expect(parseExpression('(2d6 + 4')).toBeNull();
     expect(parseExpression('2d6 ** 2')).toBeNull();
+    expect(parseExpression('1 +')).toBeNull();
+  });
+
+  it('parses unary signs, subtraction and rejects non-positive dice', () => {
+    expect(parseExpression('-d6 + +2')).toMatchObject({
+      terms: [{ count: -1, sides: 6 }],
+      modifier: 2,
+    });
+    expect(parseExpression('3 - 1 - d4')).toMatchObject({
+      terms: [{ count: -1, sides: 4 }],
+      modifier: 2,
+    });
+    expect(parseExpression('0d6')).toBeNull();
+    expect(parseExpression('1d0')).toBeNull();
+    expect(parseExpression('+')).toBeNull();
   });
 });
 
@@ -98,6 +121,29 @@ describe('rollParsed', () => {
     );
     expect(outcome.groups[0]!.rolls).toHaveLength(1);
   });
+
+  it('supports negative direct terms and expression formatting', () => {
+    const parsed = {
+      terms: [
+        { count: -2, sides: 6 },
+        { count: 1, sides: 4 },
+      ],
+      modifier: -3,
+    };
+    const outcome = rollParsed(parsed, 'normal', seqRng([0]));
+    expect(outcome.total).toBe(-4);
+    expect(outcome.expression).toBe('-2d6 + 1d4 - 3');
+    expect(formatExpression({ terms: [], modifier: 0 })).toBe('0');
+    expect(formatExpression({ terms: [], modifier: 2 })).toBe(' + 2');
+    expect(describeRolls(outcome)).toContain('mod -3');
+    expect(
+      rollParsed(
+        { terms: [{ count: -1, sides: 20 }], modifier: 0 },
+        'advantage',
+        seqRng([0, 0.99]),
+      ).total,
+    ).toBe(-20);
+  });
 });
 
 describe('rollExpression', () => {
@@ -126,5 +172,42 @@ describe('rollExpression', () => {
     expect(first?.expression).toBe('2d6 / (1d4 * 2)');
     const rerolled = rollExpression(first!.expression, 'normal', seqRng([0.99]));
     expect(rerolled?.total).toBe(first?.total);
+  });
+
+  it('evaluates unary signs, subtraction and safe division by zero', () => {
+    expect(rollExpression('-1d6', 'normal', seqRng([0]))?.total).toBe(-1);
+    expect(rollExpression('+1d6', 'normal', seqRng([0]))?.total).toBe(1);
+    expect(rollExpression('8 - 2', 'normal', seqRng([0]))?.total).toBe(6);
+    expect(rollExpression('8 / 0', 'normal', seqRng([0]))?.total).toBe(0);
+    expect(rollExpression('2 * (8 / 2)', 'normal', seqRng([0]))?.expression).toBe(
+      '2 * (8 / 2)',
+    );
+  });
+
+  it('rolls directly with a supplied random source', () => {
+    expect(rollDie(6, seqRng([0.5]))).toBe(4);
+    expect(rollDie(1)).toBe(1);
+    expect(rollExpression('1d1')?.total).toBe(1);
+    expect(rollExpression('2 * -1d1', 'normal', seqRng([0]))?.total).toBe(-2);
+    expect(rollParsed({ terms: [{ count: 1, sides: 1 }], modifier: 0 }).total).toBe(1);
+    expect(
+      describeRolls({
+        expression: '1d1',
+        mode: 'normal',
+        groups: [],
+        modifier: 0,
+        total: 1,
+      }),
+    ).toBe('');
+    expect(
+      describeRolls({
+        expression: '1d1+1',
+        mode: 'normal',
+        groups: [],
+        modifier: 1,
+        total: 2,
+      }),
+    ).toContain('mod +1');
+    expect(formatExpression(parseExpression('1 + 1')!)).toBe('1 + 1');
   });
 });

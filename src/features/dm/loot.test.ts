@@ -97,6 +97,15 @@ describe('isUsableBy', () => {
     });
     expect(isUsableBy(potion, noProficiencies)).toBe(true);
   });
+
+  it('does not restrict a weapon without a category', () => {
+    expect(
+      isUsableBy(
+        makeItem({ type: 'Ranged Weapon' }),
+        makeCharacter({ weaponProficiencies: 'none' }),
+      ),
+    ).toBe(true);
+  });
 });
 
 describe('isUsableByParty / usableByNames', () => {
@@ -115,6 +124,12 @@ describe('isUsableByParty / usableByNames', () => {
     expect(isUsableByParty(heavyArmor, [rogue, monk])).toBe(false);
     expect(usableByNames(heavyArmor, [rogue, monk])).toEqual([]);
   });
+
+  it('allows an empty party and labels an unnamed qualifying character', () => {
+    const item = makeItem();
+    expect(isUsableByParty(item, [])).toBe(true);
+    expect(usableByNames(item, [makeCharacter({ name: '' })])).toEqual(['Unnamed']);
+  });
 });
 
 describe('rarityAtMost', () => {
@@ -130,5 +145,10 @@ describe('rarityAtMost', () => {
 
   it('always allows mundane (no-rarity) gear regardless of ceiling', () => {
     expect(rarityAtMost('', 'Common')).toBe(true);
+  });
+
+  it('allows unknown rarity values and unknown ceilings', () => {
+    expect(rarityAtMost('Unknown', 'Common')).toBe(true);
+    expect(rarityAtMost('Rare', 'Unknown')).toBe(true);
   });
 });

@@ -23,6 +23,7 @@ import { useSeo } from '@/seo/useSeo';
 import {
   type HomebrewEntry,
   type HomebrewImportedEntry,
+  type HomebrewManualEntry,
   type HomebrewTranslation,
   useHomebrewStore,
 } from './store';
@@ -157,7 +158,7 @@ export function HomebrewPage() {
     formLang === 'base' ? null : (form.translations[formLang] ?? EMPTY_TRANSLATION);
 
   const field = (key: keyof HomebrewTranslation): string =>
-    formLang === 'base' ? form[key] : (activeTranslation?.[key] ?? '');
+    formLang === 'base' ? form[key] : activeTranslation![key];
 
   const setField = (key: keyof HomebrewTranslation, value: string) => {
     if (formLang === 'base') {
@@ -177,7 +178,6 @@ export function HomebrewPage() {
   };
 
   const submit = () => {
-    if (!form.name.trim()) return;
     const translations: Partial<Record<Locale, HomebrewTranslation>> = {};
     for (const [locale, tr] of Object.entries(form.translations)) {
       if (tr && (tr.name.trim() || tr.subtitle.trim() || tr.body.trim())) {
@@ -203,7 +203,6 @@ export function HomebrewPage() {
   };
 
   const submitSubclass = () => {
-    if (!subclassForm.className.trim() || !subclassForm.name.trim()) return;
     addSubclass({
       className: subclassForm.className.trim(),
       name: subclassForm.name.trim(),
@@ -214,7 +213,7 @@ export function HomebrewPage() {
     setNotice(t('homebrew.subclassCreated'));
   };
 
-  const startEdit = (entry: HomebrewEntry) => {
+  const startEdit = (entry: HomebrewManualEntry | HomebrewImportedEntry) => {
     if (entry.kind === 'imported') {
       const baseDocument = JSON.stringify(entry.data, null, 2);
       setImportedForm({
@@ -235,7 +234,6 @@ export function HomebrewPage() {
       setEntryType('entry');
       return;
     }
-    if (entry.kind !== 'manual') return;
     setImportedForm(null);
     setEntryType('entry');
     setFormLang('base');
@@ -251,17 +249,17 @@ export function HomebrewPage() {
   };
 
   const saveImported = () => {
-    if (!importedForm) return;
+    const imported = importedForm!;
     try {
-      const data = JSON.parse(importedForm.documents.base) as Record<string, unknown>;
+      const data = JSON.parse(imported.documents.base) as Record<string, unknown>;
       if (typeof data.name !== 'string' || !data.name.trim()) {
         setNotice(t('homebrew.importedJsonNeedsName'));
         return;
       }
       const translations: HomebrewImportedEntry['translations'] = {};
-      for (const locale of importedForm.translatedLocales) {
-        if (locale === importedForm.baseLocale) continue;
-        const translation = JSON.parse(importedForm.documents[locale]) as Record<
+      for (const locale of imported.translatedLocales) {
+        if (locale === imported.baseLocale) continue;
+        const translation = JSON.parse(imported.documents[locale]) as Record<
           string,
           unknown
         >;
@@ -271,9 +269,9 @@ export function HomebrewPage() {
         }
         translations[locale] = translation as HomebrewImportedEntry['data'];
       }
-      updateImported(importedForm.id, {
-        category: importedForm.category,
-        baseLocale: importedForm.baseLocale,
+      updateImported(imported.id, {
+        category: imported.category,
+        baseLocale: imported.baseLocale,
         name: data.name.trim(),
         data: data as HomebrewImportedEntry['data'],
         translations,
@@ -345,7 +343,6 @@ export function HomebrewPage() {
   const importJson = async (file: File) => importText(await file.text(), 'file');
 
   const importPasted = () => {
-    if (!pasteText.trim()) return;
     importText(pasteText, 'text');
     setPasteText('');
     setPasteOpen(false);
@@ -389,7 +386,7 @@ export function HomebrewPage() {
           </button>
           <button
             type="button"
-            onClick={() => fileRef.current?.click()}
+            onClick={() => fileRef.current!.click()}
             className="inline-flex items-center gap-2 rounded-lg border border-ink-700 px-3 py-1.5 text-sm text-ink-100 hover:bg-ink-800"
           >
             <Upload size={16} /> {t('homebrew.importFile')}
@@ -516,9 +513,7 @@ export function HomebrewPage() {
                 <button
                   type="button"
                   onClick={() =>
-                    setImportedForm((current) =>
-                      current ? { ...current, lang: 'base' } : current,
-                    )
+                    setImportedForm((current) => ({ ...current!, lang: 'base' }))
                   }
                   className={[
                     'rounded-md px-2 py-1 transition-colors',
@@ -538,9 +533,10 @@ export function HomebrewPage() {
                       key={locale.code}
                       type="button"
                       onClick={() =>
-                        setImportedForm((current) =>
-                          current ? { ...current, lang: locale.code } : current,
-                        )
+                        setImportedForm((current) => ({
+                          ...current!,
+                          lang: locale.code,
+                        }))
                       }
                       className={[
                         'inline-flex items-center gap-1 rounded-md px-2 py-1 transition-colors',
@@ -566,15 +562,11 @@ export function HomebrewPage() {
                   <select
                     value={importedForm.baseLocale}
                     onChange={(event) =>
-                      setImportedForm((current) =>
-                        current
-                          ? {
-                              ...current,
-                              baseLocale: event.target.value as Locale,
-                              lang: 'base',
-                            }
-                          : current,
-                      )
+                      setImportedForm((current) => ({
+                        ...current!,
+                        baseLocale: event.target.value as Locale,
+                        lang: 'base',
+                      }))
                     }
                     className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
                   >
@@ -592,14 +584,10 @@ export function HomebrewPage() {
                   <select
                     value={importedForm.category}
                     onChange={(event) =>
-                      setImportedForm((current) =>
-                        current
-                          ? {
-                              ...current,
-                              category: event.target.value as CompendiumCategoryId,
-                            }
-                          : current,
-                      )
+                      setImportedForm((current) => ({
+                        ...current!,
+                        category: event.target.value as CompendiumCategoryId,
+                      }))
                     }
                     className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
                   >
@@ -619,18 +607,14 @@ export function HomebrewPage() {
                     checked={importedForm.translatedLocales.includes(importedForm.lang)}
                     onChange={(event) => {
                       const locale = importedForm.lang as Locale;
-                      setImportedForm((current) =>
-                        current
-                          ? {
-                              ...current,
-                              translatedLocales: event.target.checked
-                                ? [...new Set([...current.translatedLocales, locale])]
-                                : current.translatedLocales.filter(
-                                    (value) => value !== locale,
-                                  ),
-                            }
-                          : current,
-                      );
+                      setImportedForm((current) => ({
+                        ...current!,
+                        translatedLocales: event.target.checked
+                          ? [...new Set([...current!.translatedLocales, locale])]
+                          : current!.translatedLocales.filter(
+                              (value) => value !== locale,
+                            ),
+                      }));
                     }}
                     className="accent-arcane-500"
                   />
@@ -648,21 +632,17 @@ export function HomebrewPage() {
                   value={importedForm.documents[importedForm.lang]}
                   onChange={(event) => {
                     const lang = importedForm.lang;
-                    setImportedForm((current) =>
-                      current
-                        ? {
-                            ...current,
-                            documents: {
-                              ...current.documents,
-                              [lang]: event.target.value,
-                            },
-                            translatedLocales:
-                              lang !== 'base' && !current.translatedLocales.includes(lang)
-                                ? [...current.translatedLocales, lang]
-                                : current.translatedLocales,
-                          }
-                        : current,
-                    );
+                    setImportedForm((current) => ({
+                      ...current!,
+                      documents: {
+                        ...current!.documents,
+                        [lang]: event.target.value,
+                      },
+                      translatedLocales:
+                        lang !== 'base' && !current!.translatedLocales.includes(lang)
+                          ? [...current!.translatedLocales, lang]
+                          : current!.translatedLocales,
+                    }));
                   }}
                   rows={18}
                   spellCheck={false}
@@ -743,7 +723,7 @@ export function HomebrewPage() {
                   <div className="flex items-center gap-3">
                     <button
                       type="button"
-                      onClick={() => imageFileRef.current?.click()}
+                      onClick={() => imageFileRef.current!.click()}
                       aria-label={
                         form.image
                           ? t('homebrew.changeArtwork')
@@ -1067,7 +1047,7 @@ export function HomebrewPage() {
                         {entry.kind === 'imported' &&
                           Object.keys(entry.translations ?? {}).length > 0 &&
                           ` · ${t('homebrew.translationsBadge', {
-                            languages: Object.keys(entry.translations ?? {})
+                            languages: Object.keys(entry.translations!)
                               .map((locale) => locale.toUpperCase())
                               .join(', '),
                           })}`}

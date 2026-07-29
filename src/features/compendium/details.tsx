@@ -62,7 +62,6 @@ function RulesLink({ rule, children }: { rule: string; children: ReactNode }) {
 }
 
 function RollableBonuses({ text, label }: { text: string; label: string }) {
-  if (!text) return null;
   const parts = text.split(/([+-]\d+)/g);
   return (
     <>
@@ -99,7 +98,7 @@ function LanguageLinks({ text }: { text: string }) {
   if (!text) return null;
   const [langsPart, ...rest] = text.split(';');
   const special = rest.join(';').trim();
-  const langs = (langsPart ?? '')
+  const langs = langsPart!
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean);
@@ -544,15 +543,9 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
   const toggleSelectAll = () =>
     setSelected(allSelected ? [] : visibleSubclasses.map(subKey));
   const pickRandom = () =>
-    setSelected(
-      visibleSubclasses.length
-        ? [
-            subKey(
-              visibleSubclasses[Math.floor(Math.random() * visibleSubclasses.length)]!,
-            ),
-          ]
-        : [],
-    );
+    setSelected([
+      subKey(visibleSubclasses[Math.floor(Math.random() * visibleSubclasses.length)]!),
+    ]);
 
   const selectedSubs = visibleSubclasses.filter((s) => selected.includes(subKey(s)));
 
@@ -568,7 +561,7 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
   const merged: MergedFeature[] = [
     ...cls.features.map((f) => ({ ...f, sub: '' })),
     ...selectedSubs.flatMap((sub) => sub.features.map((f) => ({ ...f, sub: sub.name }))),
-  ].sort((a, b) => a.level - b.level || (a.sub ? 1 : 0) - (b.sub ? 1 : 0));
+  ].sort((a, b) => a.level - b.level || Number(Boolean(a.sub)) - Number(Boolean(b.sub)));
 
   return (
     <article className="flex flex-col gap-6">
@@ -687,11 +680,6 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
                 </button>
               );
             })}
-            {visibleSubclasses.length === 0 && (
-              <p className="text-sm text-ink-400">
-                {t('compendium.classDetail.noSubclassesInView')}
-              </p>
-            )}
           </div>
         </div>
       )}
@@ -863,7 +851,7 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
                 to="/dm/encounter"
                 className="underline decoration-dotted decoration-ink-500 underline-offset-2 hover:text-arcane-300"
               >
-                {crMatch?.[1] ?? crText}
+                {crMatch![1]}
               </Link>
               {crMatch?.[2]}
             </p>

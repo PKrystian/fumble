@@ -125,8 +125,7 @@ function build2024Fields(character: Character): FieldMap {
   }
 
   for (const skill of SKILLS) {
-    const mapping = SKILL_FIELD_2024[skill.id];
-    if (!mapping) continue;
+    const mapping = SKILL_FIELD_2024[skill.id]!;
     fields[mapping.text] = formatModifier(skillBonus(character, skill));
     fields[mapping.box] = isProficientSkill(character, skill.id);
   }
@@ -144,8 +143,8 @@ function build2024Fields(character: Character): FieldMap {
 
   if (character.spellcastingAbility) {
     fields.Text93 = ABILITY_NAMES[character.spellcastingAbility];
-    fields.Text94 = String(spellSaveDc(character) ?? '');
-    fields.Text95 = formatModifier(spellAttackBonus(character) ?? 0);
+    fields.Text94 = String(spellSaveDc(character));
+    fields.Text95 = formatModifier(spellAttackBonus(character)!);
   }
 
   return fields;
@@ -241,8 +240,7 @@ function build2014Fields(character: Character): FieldMap {
   }
 
   for (const skill of SKILLS) {
-    const mapping = SKILL_FIELD_2014[skill.id];
-    if (!mapping) continue;
+    const mapping = SKILL_FIELD_2014[skill.id]!;
     fields[mapping.text] = formatModifier(skillBonus(character, skill));
     fields[mapping.box] = isProficientSkill(character, skill.id);
   }

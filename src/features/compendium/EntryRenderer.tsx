@@ -53,8 +53,7 @@ function BookImage({ src, title }: { src: string; title?: string }) {
         loading="lazy"
         onClick={() => open(src, plainTitle)}
         onError={(e) => {
-          const fig = e.currentTarget.closest('figure');
-          if (fig) fig.style.display = 'none';
+          e.currentTarget.closest('figure')!.style.display = 'none';
         }}
         className="max-h-[32rem] cursor-zoom-in rounded-lg border border-ink-700 object-contain"
       />
@@ -275,9 +274,8 @@ function RollableTable({ node }: { node: EntryNode }) {
   const dice = diceHeader(node.colLabels?.[0]);
 
   const doRoll = () => {
-    if (!dice) return;
     const outcome = roll(
-      dice,
+      dice!,
       'normal',
       node.caption || translate(locale, 'compendium.detail.tableRoll'),
     );
