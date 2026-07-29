@@ -104,7 +104,7 @@ const pl: Dictionary = {
         'Istotne zmiany są publikowane na tej stronie i w historii repozytorium. Data obowiązywania wskazuje aktualną wersję.',
       contactHeading: 'Kontakt',
       contactBody:
-        'Ogólne pytania można zgłaszać przez issue lub dyskusję w repozytorium, a problemy bezpieczeństwa przez prywatne zgłoszenia podatności GitHub. W publicznym zgłoszeniu nie umieszczaj sekretów kampanii, danych osobowych, danych dostępowych ani chronionych plików.',
+        'Publiczną instancję utrzymuje Krystian Pińczak. Dane kontaktowe, w tym dostępne kanały zawodowe i e-mail, znajdują się na profilu GitHub: https://github.com/PKrystian. Problemy bezpieczeństwa zgłaszaj prywatnie przez GitHub. W publicznym zgłoszeniu nie umieszczaj sekretów kampanii, danych osobowych, danych dostępowych ani chronionych plików.',
     },
     connections: {
       title: 'Połączenia zewnętrzne',
@@ -153,7 +153,7 @@ const pl: Dictionary = {
         'Operator self-hostingu odpowiada za rozpowszechniane treści, logi, aktualizacje bezpieczeństwa, domenę, informacje o prywatności, analitykę, integracje, kontrolę dostępu oraz żądania użytkowników i właścicieli praw. Te informacje trzeba dostosować, jeśli wdrożenie działa inaczej.',
       contactHeading: 'Zgłoszenia i żądania usunięcia',
       contactBody:
-        'Błędy atrybucji, korekty źródeł i żądania usunięcia należy przesyłać szablonem zgłoszenia treści w repozytorium. Podaj dokładny adres lub ścieżkę i uzasadnienie. Podatności bezpieczeństwa zgłaszaj prywatnie.',
+        'Skontaktuj się z Krystianem Pińczakiem przez https://github.com/PKrystian albo użyj szablonu zgłoszenia treści w repozytorium do błędów atrybucji, korekt źródeł i żądań usunięcia. Podaj dokładny adres lub ścieżkę i uzasadnienie. Uzasadnione zgłoszenie właściciela praw może spowodować wyłączenie lub usunięcie danego źródła danych. Podatności bezpieczeństwa zgłaszaj prywatnie.',
     },
     licenses: {
       title: 'Licencje i atrybucja',
@@ -170,7 +170,36 @@ const pl: Dictionary = {
         'Fumble jest niezależnym projektem fanowskim. Nazwy Dungeons & Dragons, Wizards of the Coast, 5e.tools, GitHub, Hugging Face, YouTube, Google i inne identyfikują produkty, źródła lub usługi. Prawa pozostają przy ich właścicielach.',
       reportHeading: 'Korekty i kontakt właściciela praw',
       reportBody:
-        'Korekty atrybucji i zgłoszenia właścicieli praw można przesłać szablonem zgłoszenia treści w repozytorium. Wskaż materiał, lokalizację, podstawę żądania i bezpieczny kontakt. Nie publikuj zbędnych danych osobowych ani poufnych.',
+        'Korekty atrybucji i zgłoszenia właścicieli praw można przesłać przez https://github.com/PKrystian albo szablon zgłoszenia treści w repozytorium. Wskaż materiał, lokalizację, podstawę żądania i bezpieczny kontakt. Uzasadnione zgłoszenie może spowodować wyłączenie lub usunięcie danego źródła danych. Nie publikuj zbędnych danych osobowych ani poufnych.',
+    },
+    accessibility: {
+      title: 'Dostępność',
+      description:
+        'Fumble ma być dostępne przy użyciu klawiatury, czytników ekranu, powiększenia i ekranów o różnych rozmiarach.',
+      commitmentHeading: 'Zobowiązanie',
+      commitmentBody:
+        'Fumble dąży do zgodności z WCAG 2.2 na poziomie AA tam, gdzie jest to możliwe. Interfejs zawiera semantyczne obszary, odnośnik pomijający nawigację, widoczny fokus klawiatury, dostępne nazwy, responsywne układy i alternatywy dla obsługi wyłącznie wskaźnikiem.',
+      limitsHeading: 'Znane ograniczenia',
+      limitsBody:
+        'Złożone karty postaci, treści książek stron trzecich, mapy, importowane obrazy, pliki PDF, media YouTube i treść wiki użytkownika mogą nie zawsze mieć pełne opisy tekstowe lub idealną kolejność odczytu. Prace nad dostępnością trwają i mogą pojawiać się regresje.',
+      reportHeading: 'Zgłoś barierę',
+      reportBody:
+        'Skontaktuj się z Krystianem Pińczakiem przez https://github.com/PKrystian albo otwórz zgłoszenie dotyczące dostępności w repozytorium. Podaj stronę, przeglądarkę, technologię asystującą, oczekiwany rezultat i opis bariery. Nie umieszczaj w publicznym zgłoszeniu wrażliwych danych osobowych.',
+    },
+    contact: {
+      title: 'Właściciel i kontakt',
+      description:
+        'Informacje o właścicielu, kontakcie ogólnym, zgłoszeniach bezpieczeństwa i żądaniach usunięcia treści.',
+      ownerHeading: 'Właściciel i operator',
+      ownerBody:
+        'Fumble i jego publiczną instancję utrzymuje Krystian Pińczak. GitHub hostuje repozytorium źródłowe i wdrożenie GitHub Pages.',
+      profileLabel: 'Krystian Pińczak na GitHubie',
+      repositoryLabel: 'Repozytorium Fumble',
+      issuesLabel: 'Publiczne zgłoszenia i raporty treści',
+      securityLabel: 'Prywatne zgłaszanie podatności',
+      safetyHeading: 'Wybierz właściwy kanał',
+      safetyBody:
+        'Publiczne zgłoszenia służą do niewrażliwych błędów, problemów dostępności, korekt atrybucji i żądań usunięcia bez informacji poufnych. Problemy bezpieczeństwa zgłaszaj prywatnie. Dane kontaktowe, w tym dostępne kanały zawodowe i e-mail, znajdują się na profilu właściciela.',
     },
   },
   notFound: {

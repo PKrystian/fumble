@@ -59,6 +59,8 @@ export function LegalOverviewPage() {
     ['connections', '/legal/connections'],
     ['terms', '/legal/terms'],
     ['licenses', '/legal/licenses'],
+    ['accessibility', '/legal/accessibility'],
+    ['contact', '/legal/contact'],
   ] as const;
 
   return (
@@ -259,5 +261,84 @@ export function LicensesPage() {
         },
       ]}
     />
+  );
+}
+
+export function AccessibilityPage() {
+  const { t } = useT();
+  return (
+    <Page
+      title={t('legal.accessibility.title')}
+      description={t('legal.accessibility.description')}
+      updated={t('legal.updated')}
+      sections={[
+        {
+          heading: t('legal.accessibility.commitmentHeading'),
+          body: t('legal.accessibility.commitmentBody'),
+        },
+        {
+          heading: t('legal.accessibility.limitsHeading'),
+          body: t('legal.accessibility.limitsBody'),
+        },
+        {
+          heading: t('legal.accessibility.reportHeading'),
+          body: t('legal.accessibility.reportBody'),
+        },
+      ]}
+    />
+  );
+}
+
+export function ContactPage() {
+  const { t } = useT();
+  useSeo(t('legal.contact.title'), t('legal.contact.description'));
+  const links = [
+    ['https://github.com/PKrystian', t('legal.contact.profileLabel')],
+    ['https://github.com/PKrystian/Fumble', t('legal.contact.repositoryLabel')],
+    ['https://github.com/PKrystian/Fumble/issues', t('legal.contact.issuesLabel')],
+    [
+      'https://github.com/PKrystian/Fumble/security/advisories/new',
+      t('legal.contact.securityLabel'),
+    ],
+  ] as const;
+
+  return (
+    <article className="mx-auto max-w-3xl px-6 py-10 sm:py-14">
+      <Link to="/legal" className="text-sm text-arcane-300 hover:text-arcane-200">
+        {t('legal.overview.title')}
+      </Link>
+      <h1 className="mt-3 font-display text-3xl font-black text-ink-50 sm:text-4xl">
+        {t('legal.contact.title')}
+      </h1>
+      <p className="mt-3 leading-7 text-ink-300">{t('legal.contact.description')}</p>
+      <p className="mt-2 text-xs text-ink-500">{t('legal.updated')}</p>
+      <section className="mt-10">
+        <h2 className="font-display text-xl font-bold text-ink-100">
+          {t('legal.contact.ownerHeading')}
+        </h2>
+        <p className="mt-3 leading-7 text-ink-300">{t('legal.contact.ownerBody')}</p>
+        <ul className="mt-5 space-y-3">
+          {links.map(([href, label]) => (
+            <li key={href}>
+              <a
+                className="inline-flex items-center gap-2 text-arcane-300 hover:text-arcane-200"
+                href={href}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {label}
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="mt-10">
+        <h2 className="font-display text-xl font-bold text-ink-100">
+          {t('legal.contact.safetyHeading')}
+        </h2>
+        <p className="mt-3 leading-7 text-ink-300">{t('legal.contact.safetyBody')}</p>
+      </section>
+    </article>
   );
 }

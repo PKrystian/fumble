@@ -10,8 +10,16 @@ import {
 import { useHreflangTags } from './useHreflangTags';
 import { useSeo } from './useSeo';
 
-function SeoHarness({ title, description }: { title: string; description?: string }) {
-  useSeo(title, description);
+function SeoHarness({
+  title,
+  description,
+  indexable,
+}: {
+  title: string;
+  description?: string;
+  indexable?: boolean;
+}) {
+  useSeo(title, description, indexable);
   useHreflangTags();
   return null;
 }
@@ -21,7 +29,7 @@ describe('SEO head helpers', () => {
     document.title = '';
     document.head
       .querySelectorAll(
-        'meta[name="description"], link[rel="canonical"], link[rel="alternate"]',
+        'meta[name="description"], meta[name="robots"], meta[property^="og:"], meta[name^="twitter:"], link[rel="canonical"], link[rel="alternate"]',
       )
       .forEach((element) => element.remove());
   });
@@ -71,9 +79,13 @@ describe('SEO head helpers', () => {
     );
     expect(document.head.querySelector('link[rel="canonical"]')).toHaveAttribute(
       'href',
-      'https://pkrystian.github.io/fumble/pl/compendium/spells',
+      'https://fumble.krystianpinczak.com/pl/compendium/spells',
     );
     expect(document.head.querySelectorAll('link[rel="alternate"]')).toHaveLength(3);
+    expect(document.head.querySelector('meta[property="og:title"]')).toHaveAttribute(
+      'content',
+      'Spells - Fumble',
+    );
 
     rerender(
       <MemoryRouter initialEntries={['/pl/compendium/spells']}>
@@ -81,5 +93,21 @@ describe('SEO head helpers', () => {
       </MemoryRouter>,
     );
     expect(document.title).toBe('Updated - Fumble');
+    expect(document.head.querySelector('meta[name="description"]')).toHaveAttribute(
+      'content',
+      expect.stringContaining('Dungeons & Dragons 2024'),
+    );
+  });
+
+  it('marks private routes as noindex', () => {
+    render(
+      <MemoryRouter>
+        <SeoHarness title="Private character" indexable={false} />
+      </MemoryRouter>,
+    );
+    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      'noindex, nofollow',
+    );
   });
 });

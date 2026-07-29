@@ -3,8 +3,9 @@
 Fumble is a static client-side application. It has no Fumble account system, analytics
 backend, advertising system, or application server.
 
-The public instance is maintained by Krystian Pińczak through the GitHub profile
-`@pkrystian` and the Fumble repository. GitHub operates the hosting infrastructure.
+The public instance is maintained by Krystian Pińczak. Current professional and email
+contact channels are available at https://github.com/PKrystian. GitHub operates the
+hosting infrastructure.
 
 ## Data stored on the device
 
@@ -42,8 +43,9 @@ their deployment.
 
 ## Contact
 
-Privacy questions can be opened as a repository discussion or issue, provided the message
-does not contain sensitive personal information.
+Privacy questions can be sent through the contact channels listed at
+https://github.com/PKrystian. A repository discussion or issue can be used when the
+message does not contain sensitive personal information.
 
 The same information is available inside the application under `/legal/privacy` and
 `/legal/connections`.

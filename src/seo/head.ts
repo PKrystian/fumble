@@ -12,6 +12,21 @@ export function setMetaDescription(description: string): void {
   meta.content = description;
 }
 
+export function setMetaContent(
+  selector: string,
+  attribute: 'name' | 'property',
+  value: string,
+  content: string,
+): void {
+  let meta = document.head.querySelector<HTMLMetaElement>(selector);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute(attribute, value);
+    document.head.appendChild(meta);
+  }
+  meta.content = content;
+}
+
 export function setCanonical(href: string): void {
   let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!link) {

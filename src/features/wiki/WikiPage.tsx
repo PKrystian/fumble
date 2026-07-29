@@ -19,7 +19,10 @@ export function WikiPage() {
     pages.find((page) => page.slug === 'home') ??
     pages[0];
 
-  useSeo(selected ? selected.title : t('nav.wiki'));
+  useSeo(
+    selected ? selected.title : t('nav.wiki'),
+    selected ? `${selected.title} - ${selected.category}` : t('nav.wiki'),
+  );
 
   const html = useMemo(
     () =>

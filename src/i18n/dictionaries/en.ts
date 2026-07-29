@@ -102,7 +102,7 @@ const en = {
         'Material changes are published on this page and in the repository history. The effective date identifies the current version.',
       contactHeading: 'Contact',
       contactBody:
-        'Use a repository issue or discussion for general privacy questions and GitHub private vulnerability reporting for security issues. Do not include campaign secrets, personal data, credentials, or copyrighted source files in a public report.',
+        'The public instance is operated by Krystian Pińczak. Contact details, including available professional and email channels, are listed at https://github.com/PKrystian. Use GitHub private vulnerability reporting for security issues. Do not include campaign secrets, personal data, credentials, or copyrighted source files in a public report.',
     },
     connections: {
       title: 'External connections',
@@ -151,7 +151,7 @@ const en = {
         'A self-hosting operator is responsible for redistributed content, hosting logs, security updates, domain configuration, privacy notices, analytics, integrations, access controls, and requests from users or rights holders. These notices must be adapted when a deployment behaves differently.',
       contactHeading: 'Reports and removal requests',
       contactBody:
-        'Use the repository content-report template for attribution errors, source corrections, or removal requests. Provide an exact URL or file path and supporting information. Report security vulnerabilities privately under the security policy.',
+        'Contact Krystian Pińczak through https://github.com/PKrystian or use the repository content-report template for attribution errors, source corrections, or removal requests. Provide an exact URL or file path and supporting information. A substantiated rights-holder request may result in the affected data source being disabled or removed. Report security vulnerabilities privately under the security policy.',
     },
     licenses: {
       title: 'Licenses and attribution',
@@ -168,7 +168,36 @@ const en = {
         'Fumble is an independent fan project. Dungeons & Dragons, Wizards of the Coast, 5e.tools, GitHub, Hugging Face, YouTube, Google, and other names identify products, sources, or services. Ownership remains with their respective holders.',
       reportHeading: 'Corrections and rights-holder contact',
       reportBody:
-        'Attribution corrections and good-faith rights-holder requests can use the repository content-report template. Identify the material, location, basis of the request, and a safe follow-up method. Do not publish unnecessary personal or confidential information.',
+        'Attribution corrections and good-faith rights-holder requests can be sent through https://github.com/PKrystian or the repository content-report template. Identify the material, location, basis of the request, and a safe follow-up method. A substantiated request may result in the affected data source being disabled or removed. Do not publish unnecessary personal or confidential information.',
+    },
+    accessibility: {
+      title: 'Accessibility',
+      description:
+        'Fumble aims to remain usable with keyboards, screen readers, zoom, and different screen sizes.',
+      commitmentHeading: 'Commitment',
+      commitmentBody:
+        'Fumble aims to follow WCAG 2.2 Level AA where practical. The interface includes semantic landmarks, a skip link, visible keyboard focus, accessible names, responsive layouts, and alternatives to pointer-only interaction.',
+      limitsHeading: 'Known limitations',
+      limitsBody:
+        'Complex character sheets, third-party book content, maps, imported images, PDFs, YouTube media, and user-provided wiki content may not always have complete text alternatives or ideal reading order. Accessibility work is ongoing and regressions may occur.',
+      reportHeading: 'Report a barrier',
+      reportBody:
+        'Contact Krystian Pińczak through https://github.com/PKrystian or open an accessibility issue in the repository. Include the page, browser, assistive technology, expected result, and a description of the barrier. Do not include sensitive personal information in a public issue.',
+    },
+    contact: {
+      title: 'Owner and contact',
+      description:
+        'Ownership, general contact, security reporting, and content removal channels for Fumble.',
+      ownerHeading: 'Owner and operator',
+      ownerBody:
+        'Fumble and its public instance are maintained by Krystian Pińczak. GitHub hosts the source repository and GitHub Pages deployment.',
+      profileLabel: 'Krystian Pińczak on GitHub',
+      repositoryLabel: 'Fumble repository',
+      issuesLabel: 'Public issues and content reports',
+      securityLabel: 'Private security reporting',
+      safetyHeading: 'Choose the right channel',
+      safetyBody:
+        'Use public issues for non-sensitive bugs, accessibility problems, attribution corrections, and removal requests that contain no confidential information. Use private vulnerability reporting for security issues. Contact details, including available professional and email channels, are listed on the owner profile.',
     },
   },
   notFound: {

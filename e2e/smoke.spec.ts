@@ -18,6 +18,12 @@ test('legal pages are available in both languages', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'GitHub Pages' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Hugging Face' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'YouTube' })).toBeVisible();
+
+  await page.goto('/legal/accessibility');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Accessibility');
+
+  await page.goto('/pl/legal/contact');
+  await expect(page.getByRole('link', { name: /Krystian Pińczak/ })).toBeVisible();
 });
 
 test('compendium loads spells and opens an entry', async ({ page }) => {

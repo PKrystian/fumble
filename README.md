@@ -4,7 +4,7 @@ Fumble is a free, no-login, client-side toolkit for Dungeons & Dragons 2024
 (5.5e) with an Obsidian-powered campaign wiki. It runs entirely in the browser.
 Application state stays in localStorage and there is no Fumble account or backend.
 
-Live site: https://pkrystian.github.io/fumble/
+Live site: https://fumble.krystianpinczak.com/
 
 ## Features
 
@@ -105,7 +105,7 @@ For deployment below a subpath, set `BASE_PATH` before building. It must include
 and trailing slashes:
 
 ```bash
-BASE_PATH=/fumble/ npm run build
+BASE_PATH=/tools/fumble/ npm run build
 ```
 
 Serve the contents of `dist` from any static host. Configure unknown paths to return
@@ -131,4 +131,9 @@ See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) before redistributing a bui
 ## Contributing and security
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for development rules and
-[SECURITY.md](SECURITY.md) for vulnerability reporting.
+[SECURITY.md](SECURITY.md) for vulnerability reporting. General support, accessibility,
+and content-reporting information is available in [SUPPORT.md](SUPPORT.md),
+[ACCESSIBILITY.md](ACCESSIBILITY.md), and [COPYRIGHT.md](COPYRIGHT.md).
+
+The project and public instance are maintained by
+[Krystian Pińczak](https://github.com/PKrystian).

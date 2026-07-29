@@ -85,7 +85,7 @@ localized name automatically, so an untranslated tag still renders in Polish.
   (gitignored). CI does not rebuild; the committed JSON in `src/data/generated/` is what
   ships. Regenerating overwrites hand-fixes - prefer the `pl/` overlay.
 - `@mlc-ai/web-llm` is lazy-loaded on purpose (huge chunk; `chunkSizeWarningLimit: 7000`).
-- Vite `base` is `/fumble/` in prod, `/` in dev (`BASE_PATH` overrides).
+- Vite `base` is `/` for `fumble.krystianpinczak.com` (`BASE_PATH` overrides).
 - Strict TS: `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`,
   `verbatimModuleSyntax`. Match existing `?? []` / `!` / optional-spread patterns.
 - Never bulk-remove comments with regex - `//` appears in strings, URLs and regex

@@ -98,6 +98,7 @@ export function CharacterSheetPage() {
   const speciesPair = useSpeciesEntryPair(character?.species ?? '');
   const backgroundPair = useBackgroundEntryPair(character?.background ?? '');
   const spellIndex = useSpellIndex();
+  useSeo(character?.name || t('character.unnamed'), undefined, false);
   const cls = classPair.localized;
   const species = speciesPair.localized;
   const background = backgroundPair.localized;
@@ -156,7 +157,6 @@ function CharacterSheetBody({
   update: UpdateCharacter;
 }) {
   const { t } = useT();
-  useSeo(character.name || t('character.unnamed'));
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [pdfExporting, setPdfExporting] = useState<SheetEdition | null>(null);

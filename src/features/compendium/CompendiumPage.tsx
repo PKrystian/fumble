@@ -112,7 +112,18 @@ function CompendiumBrowser({
 
   const selected = selectedId ? items.find((item) => item.id === selectedId) : undefined;
 
-  useSeo(selected ? selected.name : categoryLabel(category, t));
+  useSeo(
+    selected ? selected.name : categoryLabel(category, t),
+    selected
+      ? [
+          category.subtitle(selected, t),
+          sourceName(selected.source, locale),
+          categoryLabel(category, t),
+        ]
+          .filter(Boolean)
+          .join('. ')
+      : `${categoryLabel(category, t)} - ${t('compendium.title')}`,
+  );
 
   const pickRandom = () => {
     if (filtered.length === 0) return;

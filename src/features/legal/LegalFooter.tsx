@@ -25,6 +25,12 @@ export function LegalFooter() {
         <Link className="hover:text-ink-100" to="/legal/licenses">
           {t('legal.licenses.title')}
         </Link>
+        <Link className="hover:text-ink-100" to="/legal/accessibility">
+          {t('legal.accessibility.title')}
+        </Link>
+        <Link className="hover:text-ink-100" to="/legal/contact">
+          {t('legal.contact.title')}
+        </Link>
       </nav>
     </footer>
   );

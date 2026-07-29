@@ -24,6 +24,10 @@ in the report.
 The maintainer will acknowledge a complete report when available, validate the issue, and
 coordinate disclosure after a fix is ready. No bounty program is currently offered.
 
+The project and public instance are maintained by Krystian Pińczak. Current contact
+channels are available at https://github.com/PKrystian. The deployed site also publishes
+`/.well-known/security.txt`.
+
 ## Security boundaries
 
 Fumble stores state in the browser and treats imported JSON, wiki Markdown, and remote

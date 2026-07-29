@@ -29,6 +29,24 @@ jobs:
       - name: Dependency audit
         run: npm run security:audit
 
+      - name: Generate SBOM
+        run: npm sbom --sbom-format cyclonedx > fumble-sbom.cdx.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: fumble-sbom.cdx.json
+          retention-days: 30
+
+      - name: Generate SBOM
+        run: npm sbom --sbom-format cyclonedx > fumble-sbom.cdx.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: fumble-sbom.cdx.json
+          retention-days: 30
+
       - name: Lint
         run: npm run lint
 
@@ -114,6 +132,9 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          GOOGLE_SITE_VERIFICATION: ${{ secrets.GOOGLE_SITE_VERIFICATION }}
+          BING_SITE_VERIFICATION: ${{ secrets.BING_SITE_VERIFICATION }}
 
       - name: Add 404 fallback
         run: cp dist/index.html dist/404.html

@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import istanbul from 'vite-plugin-istanbul';
 
-export default defineConfig(({ command, isPreview }) => ({
-  base: process.env.BASE_PATH ?? (command === 'build' || isPreview ? '/fumble/' : '/'),
+export default defineConfig(() => ({
+  base: process.env.BASE_PATH ?? '/',
   plugins: [
     react(),
     tailwindcss(),

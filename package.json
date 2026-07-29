@@ -6,7 +6,24 @@
   "description": "Fumble - a free, client-side D&D 2024 (5.5e) toolkit and Obsidian-powered campaign wiki.",
   "license": "MIT",
   "author": "Krystian Pińczak",
-  "homepage": "https://pkrystian.github.io/fumble/",
+  "homepage": "https://fumble.krystianpinczak.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PKrystian/Fumble.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PKrystian/Fumble/issues"
+  },
+  "keywords": [
+    "dnd",
+    "dnd5e",
+    "dnd-2024",
+    "character-sheet",
+    "dice-roller",
+    "campaign-wiki",
+    "react",
+    "typescript"
+  ],
   "packageManager": "npm@11.6.2",
   "engines": {
     "node": ">=22 <23"
@@ -15,7 +32,7 @@
     "dev": "vite",
     "dev:coverage": "cross-env E2E_COVERAGE=1 vite",
     "build": "tsc -b && vite build",
-    "postbuild": "tsx scripts/seo/sitemap.ts",
+    "postbuild": "tsx scripts/seo/sitemap.ts && tsx scripts/quality/validateRelease.ts",
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
     "lint": "eslint .",
@@ -23,6 +40,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "security:audit": "audit-ci --high --allowlist GHSA-qwww-vcr4-c8h2",
+    "release:validate": "tsx scripts/quality/validateRelease.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",

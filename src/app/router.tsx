@@ -138,6 +138,14 @@ const appRouteChildren: RouteObject[] = [
     lazy: lazyComponent(() => import('@/features/legal/LegalPages'), 'LicensesPage'),
   },
   {
+    path: 'legal/accessibility',
+    lazy: lazyComponent(() => import('@/features/legal/LegalPages'), 'AccessibilityPage'),
+  },
+  {
+    path: 'legal/contact',
+    lazy: lazyComponent(() => import('@/features/legal/LegalPages'), 'ContactPage'),
+  },
+  {
     path: '*',
     lazy: lazyComponent(() => import('@/features/NotFoundPage'), 'NotFoundPage'),
   },

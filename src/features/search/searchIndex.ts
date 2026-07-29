@@ -49,20 +49,6 @@ function toResult(
   };
 }
 
-async function loadWikiResults(t: TranslateFn): Promise<SearchResult[]> {
-  const mod = await import('@/data/generated/wiki.json');
-  const data = mod.default as unknown as WikiData;
-  const categoryLabel = t('nav.wiki');
-  return data.pages.map((page) => ({
-    kind: 'wiki',
-    id: page.slug,
-    name: page.title,
-    subtitle: page.category,
-    categoryLabel,
-    to: `/wiki/${page.slug}`,
-  }));
-}
-
 interface CategoryIndex {
   id: string;
   label: string;
@@ -74,19 +60,63 @@ export interface SearchIndex {
   wiki: SearchResult[];
 }
 
-const indexCache = new Map<Locale, Promise<SearchIndex>>();
-
-async function buildIndex(locale: Locale): Promise<SearchIndex> {
-  const t = translator(locale);
-  const cats = await Promise.all(
+async function buildFallbackIndex(locale: Locale, t: TranslateFn): Promise<SearchIndex> {
+  const categoryData = await Promise.all(
     categories.map(async (category) => ({
       id: category.id,
       label: t(`compendium.categories.${category.id}`),
       items: await loadLocalizedItems(category.id, category.load, locale),
     })),
   );
-  const wiki = await loadWikiResults(t).catch(() => [] as SearchResult[]);
-  return { categories: cats, wiki };
+  const wiki = await import('@/data/generated/wiki.json')
+    .then((module) => (module.default as unknown as WikiData).pages)
+    .catch(() => []);
+  return {
+    categories: categoryData,
+    wiki: wiki.map((page) => ({
+      kind: 'wiki',
+      id: page.slug,
+      name: page.title,
+      subtitle: page.category,
+      categoryLabel: t('nav.wiki'),
+      to: `/wiki/${page.slug}`,
+    })),
+  };
+}
+
+const indexCache = new Map<Locale, Promise<SearchIndex>>();
+
+async function buildIndex(locale: Locale): Promise<SearchIndex> {
+  const t = translator(locale);
+  const response = await fetch(
+    `${import.meta.env.BASE_URL}search-index-${locale}.json`,
+  ).catch(() => null);
+  if (!response?.ok) return buildFallbackIndex(locale, t);
+  const raw = await response
+    .json()
+    .then(
+      (value) =>
+        value as {
+          categories: Array<{ id: string; items: CompendiumEntryBase[] }>;
+          wiki: Array<{ slug: string; title: string; category?: string }>;
+        },
+    )
+    .catch(() => null);
+  if (!raw) return buildFallbackIndex(locale, t);
+  return {
+    categories: raw.categories.map((category) => ({
+      ...category,
+      label: t(`compendium.categories.${category.id}`),
+    })),
+    wiki: raw.wiki.map((page) => ({
+      kind: 'wiki',
+      id: page.slug,
+      name: page.title,
+      subtitle: page.category ?? '',
+      categoryLabel: t('nav.wiki'),
+      to: `/wiki/${page.slug}`,
+    })),
+  };
 }
 
 export function loadSearchIndex(locale: Locale): Promise<SearchIndex> {
