@@ -6,6 +6,7 @@ import { useCategoryItems } from '@/features/compendium/useCategoryItems';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { type PartyMember, crToXp, partyBudget, rateEncounter } from './xp';
+import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 
 interface EncounterMonster {
   id: string;
@@ -36,7 +37,8 @@ export function EncounterCalculatorPage() {
   useSeo(t('nav.encounterCr'));
   const [party, setParty] = useState<PartyMember[]>([{ level: 1, count: 4 }]);
   const [monsters, setMonsters] = useState<EncounterMonster[]>([]);
-  const [query, setQuery] = useState('');
+  const { params, update } = useUrlSearchState();
+  const query = params.get('q') ?? '';
 
   const { status, items } = useCategoryItems(getCategory('bestiary'));
 
@@ -59,7 +61,7 @@ export function EncounterCalculatorPage() {
         { id: item.id, name: item.name, cr: item.cr, xp: crToXp(item.cr), count: 1 },
       ];
     });
-    setQuery('');
+    update({ q: null }, true);
   };
 
   const setCount = (id: string, count: number) =>
@@ -156,7 +158,7 @@ export function EncounterCalculatorPage() {
               <input
                 type="search"
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => update({ q: e.target.value }, true)}
                 placeholder={
                   status === 'loading'
                     ? t('encounter.loadingBestiary')

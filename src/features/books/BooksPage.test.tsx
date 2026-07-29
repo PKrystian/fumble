@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { BooksPage, FilterRow, sortDocs, typeLabel } from './BooksPage';
+import { BooksPage, FilterRow } from './BooksPage';
+import { sortDocs, typeLabel } from './filters';
 
 const mocks = vi.hoisted(() => ({
   mode: 'all',
@@ -87,13 +89,20 @@ vi.mock('@/seo/useSeo', () => ({
 }));
 
 describe('BooksPage', () => {
+  const renderPage = (path = '/books') =>
+    render(
+      <MemoryRouter initialEntries={[path]}>
+        <BooksPage />
+      </MemoryRouter>,
+    );
+
   beforeEach(() => {
     mocks.mode = 'all';
     mocks.locale = 'en';
   });
 
   it('renders editions, covers and fallback artwork', () => {
-    render(<BooksPage />);
+    renderPage();
     expect(screen.getByText('books.edition2024')).toBeInTheDocument();
     expect(screen.getByText('books.edition2014')).toBeInTheDocument();
     expect(screen.getByRole('presentation')).toHaveAttribute('src', '/images/cover.webp');
@@ -108,7 +117,7 @@ describe('BooksPage', () => {
 
   it('searches localized names and reports empty results', () => {
     mocks.locale = 'pl';
-    render(<BooksPage />);
+    renderPage();
     const search = screen.getByLabelText('books.searchLabel');
     fireEvent.change(search, { target: { value: '  pl quest  ' } });
     expect(screen.getByText('PL Quest')).toBeInTheDocument();
@@ -117,8 +126,19 @@ describe('BooksPage', () => {
     expect(screen.getByText('books.noMatches')).toBeInTheDocument();
   });
 
+  it('restores search and filters from the URL', () => {
+    renderPage('/books?q=quest&format=adventure');
+    expect(screen.getByLabelText('books.searchLabel')).toHaveValue('quest');
+    expect(screen.getByText('Quest')).toBeInTheDocument();
+    expect(screen.queryByText('New Core')).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'books.adventures' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+  });
+
   it('toggles format and type filters and resets them', () => {
-    render(<BooksPage />);
+    renderPage();
     fireEvent.click(screen.getByRole('button', { name: 'books.adventures' }));
     expect(screen.getByText('Quest')).toBeInTheDocument();
     expect(screen.queryByText('New Core')).not.toBeInTheDocument();
@@ -133,7 +153,7 @@ describe('BooksPage', () => {
 
   it('filters books by content edition', () => {
     mocks.mode = '2024';
-    render(<BooksPage />);
+    renderPage();
     expect(screen.getByText('New Core')).toBeInTheDocument();
     expect(screen.queryByText('Old Core')).not.toBeInTheDocument();
   });

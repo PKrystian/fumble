@@ -20,6 +20,7 @@ import { type Locale, SUPPORTED_LOCALES } from '@/i18n/locales';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
+import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 import {
   type HomebrewEntry,
   type HomebrewImportedEntry,
@@ -107,9 +108,20 @@ export function HomebrewPage() {
   const [formLang, setFormLang] = useState<FormLang>('base');
   const [importLocale, setImportLocale] = useState<Locale>('en');
   const [importedForm, setImportedForm] = useState<ImportedFormState | null>(null);
-  const [entrySearch, setEntrySearch] = useState('');
-  const [entryFilter, setEntryFilter] = useState<EntryFilter>('all');
-  const [translationFilter, setTranslationFilter] = useState<TranslationFilter>('all');
+  const { params, update } = useUrlSearchState();
+  const entrySearch = params.get('q') ?? '';
+  const requestedEntryFilter = params.get('category');
+  const entryFilter: EntryFilter =
+    requestedEntryFilter === 'subclass' ||
+    categories.some((category) => category.id === requestedEntryFilter)
+      ? (requestedEntryFilter as EntryFilter)
+      : 'all';
+  const requestedTranslationFilter = params.get('translation');
+  const translationFilter: TranslationFilter =
+    requestedTranslationFilter === 'translated' ||
+    requestedTranslationFilter === 'untranslated'
+      ? requestedTranslationFilter
+      : 'all';
   const [subclassForm, setSubclassForm] =
     useState<SubclassFormState>(EMPTY_SUBCLASS_FORM);
   const [notice, setNotice] = useState('');
@@ -955,7 +967,7 @@ export function HomebrewPage() {
               <input
                 type="search"
                 value={entrySearch}
-                onChange={(event) => setEntrySearch(event.target.value)}
+                onChange={(event) => update({ q: event.target.value }, true)}
                 placeholder={t('homebrew.searchEntries')}
                 className="w-full rounded-md border border-ink-700 bg-ink-950 py-2 pl-8 pr-3 text-sm text-ink-50 placeholder:text-ink-500 focus:border-arcane-500 focus:outline-none"
               />
@@ -963,7 +975,11 @@ export function HomebrewPage() {
             <div className="grid grid-cols-2 gap-2">
               <select
                 value={entryFilter}
-                onChange={(event) => setEntryFilter(event.target.value as EntryFilter)}
+                onChange={(event) =>
+                  update({
+                    category: event.target.value === 'all' ? null : event.target.value,
+                  })
+                }
                 aria-label={t('homebrew.filterCategory')}
                 className="min-w-0 rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-sm text-ink-200 focus:border-arcane-500 focus:outline-none"
               >
@@ -978,7 +994,9 @@ export function HomebrewPage() {
               <select
                 value={translationFilter}
                 onChange={(event) =>
-                  setTranslationFilter(event.target.value as TranslationFilter)
+                  update({
+                    translation: event.target.value === 'all' ? null : event.target.value,
+                  })
                 }
                 aria-label={t('homebrew.filterTranslation')}
                 className="min-w-0 rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-sm text-ink-200 focus:border-arcane-500 focus:outline-none"

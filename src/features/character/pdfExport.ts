@@ -279,7 +279,7 @@ export async function fillCharacterSheetPdf(
         form.getTextField(name).setText(value);
       }
     } catch {
-      // skip fields the template doesn't define
+      // Missing optional PDF field
     }
   }
 

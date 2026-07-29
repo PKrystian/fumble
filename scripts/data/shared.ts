@@ -27,7 +27,7 @@ function loadBookAndAdventureMeta(inputDir: string): BookMeta[] {
       readDataFile<{ adventure?: BookMeta[] }>(inputDir, 'adventures.json').adventure ??
       [];
   } catch {
-    // adventures.json is optional
+    // Optional adventure index
   }
   return [...books, ...adventures];
 }

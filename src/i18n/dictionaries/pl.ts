@@ -21,11 +21,13 @@ const pl: Dictionary = {
     cropperHint:
       'Przeciągnij, aby zmienić położenie, zbliż palce lub użyj suwaka, aby powiększyć.',
     primaryNav: 'Główna',
+    returnHome: 'Wróć na stronę główną',
     collapseSidebar: 'Zwiń pasek boczny',
     expandSidebar: 'Rozwiń pasek boczny',
     dragToReorder: 'Przeciągnij, aby zmienić kolejność',
     imageViewer: 'Podgląd obrazu',
     closeImage: 'Zamknij obraz',
+    skipToContent: 'Przejdź do treści',
   },
   nav: {
     sectionPlayer: 'Gracz',
@@ -64,6 +66,112 @@ const pl: Dictionary = {
       'Darmowe narzędzie do Dungeons & Dragons 2024, niewymagające logowania. Twórz ' +
       'postacie, przeszukuj pełne kompendium, rzucaj kośćmi, prowadź starcia i czytaj ' +
       'wiki swojej kampanii - wszystko w przeglądarce.',
+  },
+  legal: {
+    footerLabel: 'Informacje prawne',
+    updated: 'Data obowiązywania: 29 lipca 2026 r.',
+    overview: {
+      title: 'Informacje prawne',
+      description:
+        'Jak Fumble zapisuje dane, z jakimi usługami się łączy oraz jakie warunki i licencje obowiązują.',
+    },
+    privacy: {
+      title: 'Polityka prywatności',
+      description: 'Fumble działa bez konta, analityki, reklam i serwera aplikacyjnego.',
+      controllerHeading: 'Kto odpowiada za Fumble',
+      controllerBody:
+        'Publiczną instancję utrzymuje Krystian Pińczak, dostępny przez profil GitHub @pkrystian i repozytorium Fumble. GitHub obsługuje infrastrukturę hostingową. Operator oddzielnej instancji self-hosted odpowiada za swoje wdrożenie, logi, konfigurację i dodatkowe usługi.',
+      localHeading: 'Dane zapisane w przeglądarce',
+      localBody:
+        'Postacie, obrazy postaci, układy, stan inicjatywy, transkrypcje i notatki z sesji, wpisy homebrew, ustawienia soundboardu, wyglądu, edycji treści i języka są zapisywane w localStorage tej strony. Importowane pliki są przetwarzane w przeglądarce. Fumble nie otrzymuje ich kopii.\n\nDane pozostają w profilu przeglądarki i w obrębie domeny, w której je utworzono. Inni użytkownicy tego samego profilu mogą mieć do nich dostęp. Nie zapisuj sekretów na współdzielonym urządzeniu.',
+      permissionsHeading: 'Mikrofon i schowek',
+      permissionsBody:
+        'Dostęp do mikrofonu jest wymagany dopiero po uruchomieniu transkrypcji. Dźwięk jest przetwarzany w przeglądarce i nie trafia do serwera Fumble. Przeglądarka może pobrać model transkrypcji z Hugging Face. Schowek jest używany wyłącznie po wybraniu funkcji kopiowania.',
+      cookiesHeading: 'Pliki cookie i analityka',
+      cookiesBody:
+        'Fumble nie ustawia własnych plików cookie i nie zawiera analityki, reklam, pikseli śledzących ani systemu zarządzania zgodami. Dostawcy zewnętrzni mogą przetwarzać dane żądań albo używać własnej pamięci zgodnie ze swoimi zasadami. Szczegóły zawiera strona Połączenia zewnętrzne.',
+      retentionHeading: 'Przechowywanie, eksport i usuwanie',
+      retentionBody:
+        'Dane lokalne pozostają do ich usunięcia w Fumble, wyczyszczenia danych strony, usunięcia profilu przeglądarki albo utraty urządzenia. Niektóre funkcje umożliwiają eksport JSON jako kopię zapasową. Fumble nie może odzyskać usuniętych danych. Pamięcią podręczną i pobranymi modelami zarządza przeglądarka.',
+      rightsHeading: 'Twoje wybory i prawa',
+      rightsBody:
+        'Dane aplikacji możesz sprawdzić lub usunąć przez Fumble i ustawienia danych witryny w przeglądarce. Utrzymujący projekt nie ma serwerowego rekordu aplikacyjnego do udostępnienia, poprawienia lub przeniesienia. Żądania dotyczące logów GitHub Pages albo innego dostawcy należy kierować do tego dostawcy.',
+      childrenHeading: 'Dzieci',
+      childrenBody:
+        'Fumble jest ogólnym narzędziem do gier fabularnych i nie jest kierowane do dzieci w celu zbierania danych. Projekt świadomie nie tworzy profili dzieci. Rodzic lub opiekun powinien nadzorować zewnętrzne media i współdzielone urządzenia, gdy jest to właściwe.',
+      changesHeading: 'Zmiany polityki',
+      changesBody:
+        'Istotne zmiany są publikowane na tej stronie i w historii repozytorium. Data obowiązywania wskazuje aktualną wersję.',
+      contactHeading: 'Kontakt',
+      contactBody:
+        'Ogólne pytania można zgłaszać przez issue lub dyskusję w repozytorium, a problemy bezpieczeństwa przez prywatne zgłoszenia podatności GitHub. W publicznym zgłoszeniu nie umieszczaj sekretów kampanii, danych osobowych, danych dostępowych ani chronionych plików.',
+    },
+    connections: {
+      title: 'Połączenia zewnętrzne',
+      description:
+        'Żądania sieciowe wykonywane przez Fumble, moment ich uruchomienia i informacje standardowo widoczne dla odbiorcy.',
+      hostingTitle: 'GitHub Pages',
+      hostingBody:
+        'Uruchomienie: każda wizyta na publicznej stronie. Cel: dostarczenie aplikacji i danych statycznych. Odbiorca: GitHub. GitHub może otrzymać adres IP, czas żądania, żądaną ścieżkę, nagłówki przeglądarki oraz logi diagnostyczne lub bezpieczeństwa. Fumble nie kontroluje logów infrastruktury GitHub.',
+      fiveToolsTitle: 'Obrazy z 5e.tools',
+      fiveToolsBody:
+        'Uruchomienie: otwarcie treści kompendium lub księgi ze zdalnym obrazem. Cel: wyświetlenie grafiki wpisu. Odbiorca: 5e.tools. Serwer może otrzymać adres IP, czas żądania, adres obrazu, nagłówki i stronę odsyłającą w zakresie dozwolonym przez przeglądarkę. Dane postaci i kampanii nie są celowo dołączane.',
+      huggingFaceTitle: 'Hugging Face',
+      huggingFaceBody:
+        'Uruchomienie: rozpoczęcie transkrypcji, gdy modelu nie ma w pamięci podręcznej. Cel: pobranie modelu i plików środowiska. Odbiorca: Hugging Face i jego infrastruktura. Dostawca może otrzymać adres IP, czas żądania, nazwy plików modelu i nagłówki. Dźwięk i tekst transkrypcji są przetwarzane lokalnie i nie są celowo wysyłane.',
+      youtubeTitle: 'YouTube',
+      youtubeBody:
+        'Uruchomienie: dodanie lub odtworzenie elementu YouTube w soundboardzie oraz wczytanie miniatury lub odtwarzacza. Cel: pokazanie i odtworzenie mediów. Odbiorca: Google/YouTube. Dostawca może otrzymać adres IP, czas żądania, identyfikator filmu lub playlisty, nagłówki i interakcje z odtwarzaczem. YouTube może używać własnych plików cookie lub pamięci lokalnej.',
+      remoteMediaTitle: 'Zdalne media wskazane przez użytkownika',
+      remoteMediaBody:
+        'Uruchomienie: otwarcie strony własnej wiki lub importowanej treści zawierającej adres obrazu HTTPS. Cel: wyświetlenie wskazanego obrazu. Odbiorca: operator domeny z podanego adresu. Może on otrzymać adres IP, czas żądania, adres obrazu, nagłówki i stronę odsyłającą w zakresie dozwolonym przez przeglądarkę. Używaj mediów wyłącznie z zaufanych serwerów.',
+      controlHeading: 'Jak ograniczyć połączenia',
+      controlBody:
+        'Podstawowe narzędzia działają bez transkrypcji i YouTube. Unikaj wpisów ze zdalnymi grafikami, aby zapobiec tym żądaniom. Blokowanie treści, filtrowanie DNS albo wersja self-hosted z usuniętymi integracjami dają większą kontrolę. Blokada dostawcy może wyłączyć obrazy, transkrypcję lub media.',
+      githubPolicy: 'Polityka prywatności GitHub',
+      huggingFacePolicy: 'Polityka prywatności Hugging Face',
+      googlePolicy: 'Polityka prywatności Google',
+    },
+    terms: {
+      title: 'Warunki i zastrzeżenia',
+      description:
+        'Warunki korzystania z publicznej instancji oraz obowiązki użytkowników i operatorów self-hostingu.',
+      serviceHeading: 'Status usługi',
+      serviceBody:
+        'Fumble jest darmowym, nieoficjalnym i otwartoźródłowym projektem fanowskim bez konta i gwarancji usługi. Funkcje, treści, adresy i dostępność mogą się zmienić albo zostać wycofane. Nie powstaje płatna relacja usługowa ani gwarantowany okres wsparcia.',
+      contentHeading: 'Treści gry i znaki towarowe',
+      contentBody:
+        'Fumble nie jest zatwierdzony, wspierany ani sponsorowany przez Wizards of the Coast. Dungeons & Dragons oraz powiązane nazwy, zasady, postacie, grafiki i znaki należą do odpowiednich właścicieli. Dane stron trzecich nie są ponownie licencjonowane na licencji MIT Fumble.',
+      userHeading: 'Twoje treści i obowiązki',
+      userBody:
+        'Odpowiadasz za importowane lub publikowane pliki, obrazy, homebrew, strony wiki, linki i identyfikatory mediów. Nie rozpowszechniaj materiałów bez uprawnienia, złośliwego kodu, danych osobowych bez podstawy ani treści niezgodnych z prawem. Zachowuj kopie ważnych danych.',
+      noWarrantyHeading: 'Brak gwarancji',
+      noWarrantyBody:
+        'Oprogramowanie i publiczna instancja są udostępniane w stanie takim, w jakim są, bez gwarancji dostępności, poprawności, przydatności, zachowania danych lub zgodności prawnej. Sprawdzaj obliczenia i wyniki. W zakresie dozwolonym prawem osoby utrzymujące projekt nie odpowiadają za utratę danych, przerwy ani decyzje oparte na aplikacji.',
+      selfHostHeading: 'Self-hosting',
+      selfHostBody:
+        'Operator self-hostingu odpowiada za rozpowszechniane treści, logi, aktualizacje bezpieczeństwa, domenę, informacje o prywatności, analitykę, integracje, kontrolę dostępu oraz żądania użytkowników i właścicieli praw. Te informacje trzeba dostosować, jeśli wdrożenie działa inaczej.',
+      contactHeading: 'Zgłoszenia i żądania usunięcia',
+      contactBody:
+        'Błędy atrybucji, korekty źródeł i żądania usunięcia należy przesyłać szablonem zgłoszenia treści w repozytorium. Podaj dokładny adres lub ścieżkę i uzasadnienie. Podatności bezpieczeństwa zgłaszaj prywatnie.',
+    },
+    licenses: {
+      title: 'Licencje i atrybucja',
+      description:
+        'Które materiały obejmuje licencja MIT, a które zachowują odrębne prawa lub warunki.',
+      codeHeading: 'Oryginalny kod Fumble',
+      codeBody:
+        'Oryginalny kod i materiały wyraźnie objęte plikiem LICENSE są dostępne na licencji MIT. Zachowaj wymaganą notę licencyjną i prawnoautorską.',
+      dataHeading: 'Dane i zasoby stron trzecich',
+      dataBody:
+        'Dane kompendium i ksiąg z ekosystemu 5etools, treść gry, zdalne obrazy, importowane wiki, pliki modeli, media YouTube i inne zasoby stron trzecich są wyłączone z licencji MIT Fumble. Obowiązują ich pierwotne prawa, licencje i polityki. Szczegóły zawiera THIRD_PARTY_NOTICES.md.',
+      trademarksHeading: 'Nazwy i znaki towarowe',
+      trademarksBody:
+        'Fumble jest niezależnym projektem fanowskim. Nazwy Dungeons & Dragons, Wizards of the Coast, 5e.tools, GitHub, Hugging Face, YouTube, Google i inne identyfikują produkty, źródła lub usługi. Prawa pozostają przy ich właścicielach.',
+      reportHeading: 'Korekty i kontakt właściciela praw',
+      reportBody:
+        'Korekty atrybucji i zgłoszenia właścicieli praw można przesłać szablonem zgłoszenia treści w repozytorium. Wskaż materiał, lokalizację, podstawę żądania i bezpieczny kontakt. Nie publikuj zbędnych danych osobowych ani poufnych.',
+    },
   },
   notFound: {
     title: 'Naturalna 1.',

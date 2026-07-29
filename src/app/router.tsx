@@ -118,6 +118,26 @@ const appRouteChildren: RouteObject[] = [
     lazy: lazyComponent(() => import('@/features/wiki/WikiPage'), 'WikiPage'),
   },
   {
+    path: 'legal',
+    lazy: lazyComponent(() => import('@/features/legal/LegalPages'), 'LegalOverviewPage'),
+  },
+  {
+    path: 'legal/privacy',
+    lazy: lazyComponent(() => import('@/features/legal/LegalPages'), 'PrivacyPage'),
+  },
+  {
+    path: 'legal/connections',
+    lazy: lazyComponent(() => import('@/features/legal/LegalPages'), 'ConnectionsPage'),
+  },
+  {
+    path: 'legal/terms',
+    lazy: lazyComponent(() => import('@/features/legal/LegalPages'), 'TermsPage'),
+  },
+  {
+    path: 'legal/licenses',
+    lazy: lazyComponent(() => import('@/features/legal/LegalPages'), 'LicensesPage'),
+  },
+  {
     path: '*',
     lazy: lazyComponent(() => import('@/features/NotFoundPage'), 'NotFoundPage'),
   },

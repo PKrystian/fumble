@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArrowLeft, Search } from 'lucide-react';
 import {
@@ -23,6 +23,7 @@ import { OriginalName } from '@/features/ui/OriginalName';
 import { Link, Navigate, useNavigate } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
+import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 
 function categoryLabel(category: CompendiumCategory, t: (key: string) => string): string {
   return t(`compendium.categories.${category.id}`);
@@ -54,23 +55,30 @@ function CompendiumBrowser({
 }) {
   const category = getCategory(categoryId)!;
   const filters = category.filters ?? NO_FILTERS;
-  const [query, setQuery] = useState('');
-  const [selectedFilters, setSelectedFilters] = useState<Record<string, string[]>>({});
-  const [sortField, setSortField] = useState('name');
-  const [sortDir, setSortDir] = useState<SortDir>('asc');
+  const { params, update } = useUrlSearchState();
+  const query = params.get('q') ?? '';
+  const requestedSort = params.get('sort');
+  const sortField =
+    requestedSort === 'name' || filters.some((filter) => filter.id === requestedSort)
+      ? (requestedSort ?? 'name')
+      : 'name';
+  const sortDir: SortDir = params.get('order') === 'desc' ? 'desc' : 'asc';
+  const selectedFilters = Object.fromEntries(
+    filters.map((filter) => [filter.id, params.getAll(filter.id).filter(Boolean)]),
+  );
   const { status, items } = useCategoryItems(category);
   const openLightbox = useLightbox((s) => s.open);
   const navigate = useNavigate();
   const { t, locale } = useT();
 
-  const toggleFilter = (filterId: string, value: string) =>
-    setSelectedFilters((prev) => {
-      const current = prev[filterId] ?? [];
-      const next = current.includes(value)
-        ? current.filter((v) => v !== value)
-        : [...current, value];
-      return { ...prev, [filterId]: next };
+  const toggleFilter = (filterId: string, value: string) => {
+    const current = selectedFilters[filterId] ?? [];
+    update({
+      [filterId]: current.includes(value)
+        ? current.filter((item) => item !== value)
+        : [...current, value],
     });
+  };
 
   const contentMode = useContentModeStore((s) => s.mode);
   const visibleItems = useMemo(
@@ -109,7 +117,10 @@ function CompendiumBrowser({
   const pickRandom = () => {
     if (filtered.length === 0) return;
     const pick = filtered[Math.floor(Math.random() * filtered.length)]!;
-    navigate(`/compendium/${categoryId}/${pick.id}`);
+    navigate({
+      pathname: `/compendium/${categoryId}/${pick.id}`,
+      search: params.toString(),
+    });
   };
 
   return (
@@ -158,7 +169,7 @@ function CompendiumBrowser({
               <input
                 type="search"
                 value={query}
-                onChange={(event) => setQuery(event.target.value)}
+                onChange={(event) => update({ q: event.target.value }, true)}
                 placeholder={t('compendium.searchPlaceholder', {
                   category: categoryLabel(category, t).toLowerCase(),
                 })}
@@ -176,12 +187,14 @@ function CompendiumBrowser({
               items={visibleItems}
               selected={selectedFilters}
               onToggle={toggleFilter}
-              onClear={() => setSelectedFilters({})}
+              onClear={() =>
+                update(Object.fromEntries(filters.map((filter) => [filter.id, null])))
+              }
               onRandom={pickRandom}
               sortField={sortField}
               sortDir={sortDir}
-              onSortField={setSortField}
-              onToggleSortDir={() => setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'))}
+              onSortField={(value) => update({ sort: value === 'name' ? null : value })}
+              onToggleSortDir={() => update({ order: sortDir === 'asc' ? 'desc' : null })}
             />
           )}
 
@@ -198,7 +211,10 @@ function CompendiumBrowser({
             {sorted.map((item) => (
               <li key={item.id}>
                 <Link
-                  to={`/compendium/${categoryId}/${item.id}`}
+                  to={{
+                    pathname: `/compendium/${categoryId}/${item.id}`,
+                    search: params.toString(),
+                  }}
                   className={[
                     'block border-b border-ink-800 px-4 py-2 transition-colors hover:bg-ink-800',
                     item.id === selectedId
@@ -238,7 +254,10 @@ function CompendiumBrowser({
           ].join(' ')}
         >
           <Link
-            to={`/compendium/${categoryId}`}
+            to={{
+              pathname: `/compendium/${categoryId}`,
+              search: params.toString(),
+            }}
             className="mb-4 inline-flex items-center gap-1 text-sm text-ink-300 hover:text-ink-50 md:hidden"
           >
             <ArrowLeft size={16} aria-hidden="true" /> {t('compendium.back')}

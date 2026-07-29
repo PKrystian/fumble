@@ -5,6 +5,7 @@ import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { type SoundboardCategory, type Track, useSoundboardStore } from './store';
 import { embedUrl, parseYouTubeId, thumbnailUrl } from './youtube';
+import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 
 export function SoundboardPage() {
   const { t } = useT();
@@ -19,9 +20,15 @@ export function SoundboardPage() {
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
   const [error, setError] = useState('');
-  const [category, setCategory] = useState<SoundboardCategory | 'all'>('all');
+  const { params, update } = useUrlSearchState();
   const dragIndex = useRef<number | null>(null);
   const categories = [...new Set(tracks.map((track) => track.category))];
+  const requestedCategory = params.get('category');
+  const category: SoundboardCategory | 'all' = categories.includes(
+    requestedCategory as SoundboardCategory,
+  )
+    ? (requestedCategory as SoundboardCategory)
+    : 'all';
   const visibleTracks =
     category === 'all' ? tracks : tracks.filter((track) => track.category === category);
 
@@ -129,7 +136,7 @@ export function SoundboardPage() {
               key={value}
               type="button"
               aria-pressed={selected}
-              onClick={() => setCategory(value)}
+              onClick={() => update({ category: value === 'all' ? null : value })}
               className={[
                 'rounded-full px-3 py-1 text-sm font-medium transition-colors',
                 selected

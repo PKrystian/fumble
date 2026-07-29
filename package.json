@@ -1,6 +1,6 @@
 {
   "name": "fumble",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "description": "Fumble - a free, client-side D&D 2024 (5.5e) toolkit and Obsidian-powered campaign wiki.",
@@ -9,7 +9,7 @@
   "homepage": "https://pkrystian.github.io/fumble/",
   "packageManager": "npm@11.6.2",
   "engines": {
-    "node": ">=22"
+    "node": ">=22 <23"
   },
   "scripts": {
     "dev": "vite",
@@ -40,7 +40,6 @@
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@huggingface/transformers": "^4.2.0",
-    "@mlc-ai/web-llm": "^0.2.79",
     "dompurify": "^3.4.12",
     "lucide-react": "^0.513.0",
     "pdf-lib": "^1.17.1",
@@ -63,7 +62,6 @@
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
     "@vitejs/plugin-react": "^4.5.1",
-    "@vitest/coverage-istanbul": "^4.1.10",
     "@vitest/coverage-v8": "^4.1.10",
     "@vitest/ui": "^4.1.10",
     "audit-ci": "^7.1.0",

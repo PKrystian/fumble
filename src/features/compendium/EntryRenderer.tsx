@@ -113,9 +113,13 @@ function renderNode(node: EntryNode, key: number, locale: Locale): ReactNode {
     case 'list':
       return (
         <ul key={key} className="ml-5 list-disc space-y-1 text-ink-200">
-          {(node.items ?? []).map((item, index) => (
-            <li key={index}>{renderListItem(item, locale)}</li>
-          ))}
+          {(node.items ?? []).map((item, index) =>
+            typeof item !== 'string' && item.type === 'item' ? (
+              renderNode(item, index, locale)
+            ) : (
+              <li key={index}>{renderListItem(item, locale)}</li>
+            ),
+          )}
         </ul>
       );
 

@@ -136,7 +136,7 @@ export function parse5etoolsHomebrew(obj: Record<string, unknown>): ParseResult 
       try {
         entries.push({ category: mapping.category, data: mapping.normalize(raw) });
       } catch {
-        // a malformed entry shouldn't abort the import
+        // Ignore malformed imported entry
       }
     }
   }

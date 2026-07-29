@@ -22,7 +22,7 @@ Hard constraints:
 | Topic                | Decision                                                                                                                                                                                                                                |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | D&D content source   | Bundle the full 5e.tools dataset. Keep it in an isolated, swappable data layer so it can be reduced to SRD-only later without rework.                                                                                                   |
-| Session summary      | In-browser local model by default, with an optional bring-your-own API key.                                                                                                                                                             |
+| Session notes        | Local speech-to-text with an exportable prompt for a summarization tool chosen by the user.                                                                                                                                             |
 | First feature        | Compendium / index.                                                                                                                                                                                                                     |
 | Wiki source location | Obsidian vault lives **outside** this repo and is never committed. The build script takes an `--input` path to the vault. We author the Obsidian markdown templates/conventions (frontmatter for secrets, player visibility, map pins). |
 | Stack                | React + TypeScript + Tailwind v4 + Vite, Docker, Vitest + Playwright, GitHub Actions.                                                                                                                                                   |
@@ -82,20 +82,17 @@ Hard constraints:
       (tested in `xp.test.ts`). **Loot generator** - tier-based coins (via the dice engine), gems,
       and random magic items drawn from the compendium at tier-appropriate rarities. The initiative
       tracker (Phase 4) and the bestiary (in the compendium) round out the DM toolkit.
-- [x] **Phase 6 - Session log:** free in-browser voice-to-text via the Web Speech API
-      (`features/session-log/speech.ts`), persisted sessions with a live recording timer and
-      editable transcript, and one-button summarization. Two summarizers: a tested, offline
-      **extractive** summarizer (zero-cost default) and an optional **bring-your-own Anthropic
-      key** AI summary (key stored locally, direct browser call).
-  - Plus a fully **on-device** AI summary via WebLLM (`webllm.ts`), shown when the browser has
-    WebGPU. The library and model are lazy-loaded on first use (~6 MB JS chunk + a one-time
-    ~1 GB model download, both cached) so they never affect initial page load.
+- [x] **Phase 6 - Session log:** free in-browser speech-to-text using a locally executed
+      Whisper model (`features/session-log/speech.ts`), persisted sessions with a live
+      recording timer and editable transcript. A copy action produces a ready-to-paste prompt
+      for summarization in a tool selected by the user. Fumble does not store an external AI
+      API key.
 - [x] **Phase 7 - Soundboard.** A grid of YouTube tiles (thumbnail + name) that play in a single
       looping embedded player. Users add their own tracks by pasting a link + custom name (tested
       URL parser in `youtube.ts` handles watch/short/embed/shorts/bare-id), drag tiles to reorder
-      (`reorder` helper is unit-tested), remove tiles, and reset to defaults. Ships with a starter
-      list; everything persists to localStorage. Default links are placeholders pointing at the
-      sample video - replace them with real ambience playlists.
+      (`reorder` helper is unit-tested), remove tiles, and reset to defaults. Ships with a
+      categorized Bardify starter list and curated playlists; everything persists to
+      localStorage.
 - [x] **Phase 8 - Wiki generator:** `npm run wiki:build -- --input <vault>` reads an external
       Obsidian vault and writes a player-facing wiki to `src/data/generated/wiki.json` (+ assets
       to `public/wiki-assets/`), rendered in-app at `/wiki`.
@@ -121,8 +118,10 @@ Hard constraints:
     `--input`/`WIKI_VAULT`, supports `--watch` to rebuild on save, and prints validation warnings
     for unknown frontmatter keys, broken `[[links]]`, and missing images.
 
-## Open questions / notes
+## Distribution note
 
-- Soundboard will embed YouTube ambience playlists via the IFrame API (playlist IDs TBD).
-- Legal note: the full 5e.tools dataset includes copyrighted, non-SRD content. The data layer
-  is intentionally isolated so a switch to SRD-only is low-effort if ever required.
+The public build intentionally includes the selected 5e.tools dataset, including non-SRD
+reference material. The code and data licenses are separated in `LICENSE` and
+`THIRD_PARTY_NOTICES.md`. The maintainer accepts that a rights holder may request removal
+of material. The data layer remains isolated so individual sources can be removed without
+redesigning the application.

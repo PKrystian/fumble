@@ -18,11 +18,13 @@ const en = {
     adjustImage: 'Adjust image',
     cropperHint: 'Drag to reposition, pinch or use the slider to zoom.',
     primaryNav: 'Primary',
+    returnHome: 'Return to home page',
     collapseSidebar: 'Collapse sidebar',
     expandSidebar: 'Expand sidebar',
     dragToReorder: 'Drag to reorder',
     imageViewer: 'Image viewer',
     closeImage: 'Close image',
+    skipToContent: 'Skip to content',
   },
   nav: {
     sectionPlayer: 'Player',
@@ -61,6 +63,113 @@ const en = {
       'A free, no-login toolkit for Dungeons & Dragons 2024. Build characters, ' +
       'search the full compendium, roll dice, run encounters, and read your campaign ' +
       'wiki - all in your browser.',
+  },
+  legal: {
+    footerLabel: 'Legal and information',
+    updated: 'Effective date: July 29, 2026',
+    overview: {
+      title: 'Legal and information',
+      description:
+        'How Fumble stores data, which external services it contacts, and the terms and licenses that apply.',
+    },
+    privacy: {
+      title: 'Privacy policy',
+      description:
+        'Fumble works without an account, analytics, advertising, or a Fumble application server.',
+      controllerHeading: 'Who operates Fumble',
+      controllerBody:
+        'The public instance is maintained by Krystian Pińczak, reachable through the GitHub profile @pkrystian and the Fumble repository. GitHub operates its hosting infrastructure. An operator of a separate self-hosted copy is responsible for that deployment, its logs, configuration, and added services.',
+      localHeading: 'Data stored in your browser',
+      localBody:
+        'Characters, character images, layouts, initiative state, session transcripts and notes, homebrew entries, soundboard settings, display settings, content edition, and language preference are stored in localStorage for this site. Imported files are processed in the browser. Fumble does not receive a copy.\n\nData remains in the browser profile and site origin where it was created. Other users of the same browser profile may be able to access it. Do not store secrets on a shared device.',
+      permissionsHeading: 'Microphone and clipboard',
+      permissionsBody:
+        'Microphone access is requested only after you start transcription. Audio is processed in the browser and is not uploaded to a Fumble server. The browser may download a transcription model from Hugging Face. Clipboard access is used only when you choose a copy action.',
+      cookiesHeading: 'Cookies and analytics',
+      cookiesBody:
+        'Fumble does not set its own cookies and does not include analytics, advertising, tracking pixels, or consent-management software. External providers may process request data or use their own storage under their policies. External connections lists the exact services and triggers.',
+      retentionHeading: 'Retention, export, and deletion',
+      retentionBody:
+        'Local data remains until you delete it in Fumble, clear site data, remove the browser profile, or lose access to the device. Some features provide JSON export for backups. Fumble cannot restore deleted local data. Browser settings control caches, downloaded models, and static files.',
+      rightsHeading: 'Your choices and data rights',
+      rightsBody:
+        'You can inspect or delete local application data through Fumble and browser site-data controls. The maintainer has no server-side application record to retrieve, correct, or transfer. Requests about GitHub Pages logs or another provider must be directed to that provider.',
+      childrenHeading: 'Children',
+      childrenBody:
+        'Fumble is a general tabletop-game utility and is not directed at children for data collection. It does not knowingly create profiles of children. A parent or guardian should supervise external media and shared-device use where appropriate.',
+      changesHeading: 'Policy changes',
+      changesBody:
+        'Material changes are published on this page and in the repository history. The effective date identifies the current version.',
+      contactHeading: 'Contact',
+      contactBody:
+        'Use a repository issue or discussion for general privacy questions and GitHub private vulnerability reporting for security issues. Do not include campaign secrets, personal data, credentials, or copyrighted source files in a public report.',
+    },
+    connections: {
+      title: 'External connections',
+      description:
+        'The network requests Fumble can make, when they occur, and what the recipient can normally observe.',
+      hostingTitle: 'GitHub Pages',
+      hostingBody:
+        'Trigger: every visit to the public site. Purpose: deliver the application and static data. Recipient: GitHub. GitHub can normally receive the IP address, request time, requested path, browser headers, and diagnostic or security logs. Fumble does not control GitHub infrastructure logs.',
+      fiveToolsTitle: '5e.tools images',
+      fiveToolsBody:
+        'Trigger: opening compendium or book content that references a remote image. Purpose: display entry artwork. Recipient: 5e.tools. The host can normally receive the IP address, request time, image URL, browser headers, and referring site subject to browser policy. Local character or campaign data is not intentionally included.',
+      huggingFaceTitle: 'Hugging Face',
+      huggingFaceBody:
+        'Trigger: starting browser transcription when the model is not cached. Purpose: download model and runtime files. Recipient: Hugging Face and its delivery infrastructure. It can normally receive the IP address, request time, requested model files, and browser headers. Microphone audio and transcript text are processed locally and are not intentionally sent.',
+      youtubeTitle: 'YouTube',
+      youtubeBody:
+        'Trigger: adding or playing a YouTube soundboard item and loading its thumbnail or player. Purpose: show and play selected media. Recipient: Google/YouTube. It can normally receive the IP address, request time, video or playlist identifier, browser headers, and player interactions. YouTube may use its own cookies or local storage.',
+      remoteMediaTitle: 'User-provided remote media',
+      remoteMediaBody:
+        'Trigger: opening a self-hosted wiki page or imported content that contains an HTTPS image URL. Purpose: display the referenced image. Recipient: the operator of the domain in that URL. It can normally receive the IP address, request time, image URL, browser headers, and referring site subject to browser policy. Only use remote media from a host you trust.',
+      controlHeading: 'How to limit connections',
+      controlBody:
+        'Core tools work without transcription or YouTube. Avoid entries with remote artwork to prevent those image requests. Browser content blocking, DNS filtering, or a self-hosted build with integrations removed can provide stricter control. Blocking a provider may disable images, transcription, or media playback.',
+      githubPolicy: 'GitHub Privacy Statement',
+      huggingFacePolicy: 'Hugging Face Privacy Policy',
+      googlePolicy: 'Google Privacy Policy',
+    },
+    terms: {
+      title: 'Terms and disclaimers',
+      description:
+        'Conditions for using the public instance and responsibilities of users and self-hosting operators.',
+      serviceHeading: 'Service status',
+      serviceBody:
+        'Fumble is a free, unofficial, open source fan project provided without an account or service guarantee. Features, content, URLs, and availability may change or be withdrawn. There is no paid service relationship or guaranteed support period.',
+      contentHeading: 'Game content and trademarks',
+      contentBody:
+        'Fumble is not approved, endorsed, or sponsored by Wizards of the Coast. Dungeons & Dragons and related names, rules, characters, artwork, and trademarks belong to their respective owners. Third-party data is not relicensed under the Fumble MIT license.',
+      userHeading: 'Your content and responsibilities',
+      userBody:
+        'You are responsible for files, images, homebrew, wiki pages, links, and media identifiers that you import or publish. Do not distribute material you are not entitled to share, malicious code, personal data without authority, or unlawful content. Keep backups of important local data.',
+      noWarrantyHeading: 'No warranty',
+      noWarrantyBody:
+        'The software and public instance are provided as-is, without warranties of availability, accuracy, fitness, data preservation, or legal suitability. Review game calculations and generated results. To the extent allowed by law, maintainers are not liable for lost browser data, interrupted access, or decisions based on the application.',
+      selfHostHeading: 'Self-hosting',
+      selfHostBody:
+        'A self-hosting operator is responsible for redistributed content, hosting logs, security updates, domain configuration, privacy notices, analytics, integrations, access controls, and requests from users or rights holders. These notices must be adapted when a deployment behaves differently.',
+      contactHeading: 'Reports and removal requests',
+      contactBody:
+        'Use the repository content-report template for attribution errors, source corrections, or removal requests. Provide an exact URL or file path and supporting information. Report security vulnerabilities privately under the security policy.',
+    },
+    licenses: {
+      title: 'Licenses and attribution',
+      description:
+        'Which repository materials use the MIT license and which retain separate ownership or terms.',
+      codeHeading: 'Original Fumble code',
+      codeBody:
+        'Original source code and project materials explicitly covered by the repository LICENSE file are available under the MIT License. Preserve its license notice and copyright statement.',
+      dataHeading: 'Third-party data and assets',
+      dataBody:
+        'Compendium and book data derived from the 5etools ecosystem, game text, remote images, imported wiki material, model files, YouTube media, and other third-party assets are excluded from the Fumble MIT grant. Their original licenses, policies, and copyrights continue to apply. See THIRD_PARTY_NOTICES.md for source details.',
+      trademarksHeading: 'Names and trademarks',
+      trademarksBody:
+        'Fumble is an independent fan project. Dungeons & Dragons, Wizards of the Coast, 5e.tools, GitHub, Hugging Face, YouTube, Google, and other names identify products, sources, or services. Ownership remains with their respective holders.',
+      reportHeading: 'Corrections and rights-holder contact',
+      reportBody:
+        'Attribution corrections and good-faith rights-holder requests can use the repository content-report template. Identify the material, location, basis of the request, and a safe follow-up method. Do not publish unnecessary personal or confidential information.',
+    },
   },
   notFound: {
     title: 'Natural 1.',

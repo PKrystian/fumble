@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { EncounterCalculatorPage } from './EncounterCalculatorPage';
 
@@ -48,6 +49,13 @@ const monster = (id: string, name: string, hidden = false) => ({
 });
 
 describe('EncounterCalculatorPage', () => {
+  const renderPage = (path = '/dm/encounter') =>
+    render(
+      <MemoryRouter initialEntries={[path]}>
+        <EncounterCalculatorPage />
+      </MemoryRouter>,
+    );
+
   beforeEach(() => {
     mocks.status = 'ready';
     mocks.rating = 'Trivial';
@@ -55,7 +63,7 @@ describe('EncounterCalculatorPage', () => {
   });
 
   it('edits party groups and handles numeric fallbacks', () => {
-    render(<EncounterCalculatorPage />);
+    renderPage();
 
     const count = screen.getByLabelText('encounter.count');
     const level = screen.getByLabelText('encounter.level');
@@ -86,7 +94,7 @@ describe('EncounterCalculatorPage', () => {
         monster(`goblin-${index}`, `Goblin ${index}`),
       ),
     ];
-    render(<EncounterCalculatorPage />);
+    renderPage();
 
     const search = screen.getByLabelText('encounter.searchMonsters');
     fireEvent.change(search, { target: { value: '  GOBLIN  ' } });
@@ -110,11 +118,19 @@ describe('EncounterCalculatorPage', () => {
     expect(screen.getByText('encounter.noMonstersYet')).toBeInTheDocument();
   });
 
+  it('restores the bestiary search from the URL', () => {
+    mocks.items = [monster('dragon', 'Dragon'), monster('goblin', 'Goblin')];
+    renderPage('/dm/encounter?q=dragon');
+    expect(screen.getByRole('searchbox')).toHaveValue('dragon');
+    expect(screen.getByText('Dragon')).toBeInTheDocument();
+    expect(screen.queryByText('Goblin')).not.toBeInTheDocument();
+  });
+
   it('shows the loading placeholder and clears empty searches', () => {
     mocks.status = 'loading';
     mocks.rating = 'Unknown';
     mocks.items = [monster('dragon', 'Dragon')];
-    render(<EncounterCalculatorPage />);
+    renderPage();
 
     const search = screen.getByLabelText('encounter.searchMonsters');
     expect(search).toHaveAttribute('placeholder', 'encounter.loadingBestiary');

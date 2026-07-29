@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { navSections } from '@/app/navigation';
-import { NavLink } from '@/i18n/path';
+import { Link, NavLink } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { LanguageSwitcher } from '@/features/ui/LanguageSwitcher';
 import { ContentModeSwitcher } from '@/features/ui/ContentModeSwitcher';
@@ -35,10 +35,15 @@ export function Sidebar({ onNavigate, collapsible = true }: SidebarProps) {
         ].join(' ')}
       >
         {showLabels && (
-          <span className="flex items-center gap-2 font-display text-2xl font-black tracking-tight text-ink-50">
+          <Link
+            to="/"
+            onClick={onNavigate}
+            aria-label={t('common.returnHome')}
+            className="flex items-center gap-2 rounded-md font-display text-2xl font-black tracking-tight text-ink-50 transition-colors hover:text-arcane-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-arcane-400"
+          >
             <Logo className="h-8 w-8 text-ink-50" />
             Fumble
-          </span>
+          </Link>
         )}
         {collapsible && (
           <button

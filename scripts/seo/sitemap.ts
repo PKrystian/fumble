@@ -11,6 +11,7 @@ const OUT_DIR = join(ROOT, 'dist');
 const STATIC_PATHS = [
   '/',
   '/character',
+  '/compendium',
   '/homebrew',
   '/books',
   '/dice',
@@ -19,20 +20,62 @@ const STATIC_PATHS = [
   '/dm/loot',
   '/dm/encounter',
   '/dm/soundboard',
+  '/wiki',
+  '/legal',
+  '/legal/privacy',
+  '/legal/connections',
+  '/legal/terms',
+  '/legal/licenses',
 ];
+
+const COMPENDIUM_CATEGORIES = new Set([
+  'actions',
+  'backgrounds',
+  'bestiary',
+  'boons',
+  'charoptions',
+  'classes',
+  'conditions',
+  'cultsboons',
+  'decks',
+  'deities',
+  'facilities',
+  'feats',
+  'hazards',
+  'items',
+  'languages',
+  'masteries',
+  'objects',
+  'optionalfeatures',
+  'recipes',
+  'rules',
+  'senses',
+  'skills',
+  'species',
+  'spells',
+  'tables',
+  'vehicles',
+]);
 
 function localizePath(path: string, locale: string): string {
   if (locale === DEFAULT_LOCALE) return path;
   return path === '/' ? `/${locale}` : `/${locale}${path}`;
 }
 
+function escapeXml(value: string): string {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&apos;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;');
+}
+
 function collectCategoryUrls(): string[] {
   const urls: string[] = [];
   for (const file of readdirSync(GENERATED_DIR)) {
-    if (!file.endsWith('.json') || file === 'books.json' || file === 'sources.json') {
-      continue;
-    }
     const categoryId = file.replace(/\.json$/, '');
+    if (!file.endsWith('.json') || !COMPENDIUM_CATEGORIES.has(categoryId)) continue;
     const raw = JSON.parse(readFileSync(join(GENERATED_DIR, file), 'utf8')) as {
       items?: Array<{ id: string; hidden?: boolean }>;
     };
@@ -43,6 +86,13 @@ function collectCategoryUrls(): string[] {
     }
   }
   return urls;
+}
+
+function collectWikiUrls(): string[] {
+  const raw = JSON.parse(readFileSync(join(GENERATED_DIR, 'wiki.json'), 'utf8')) as {
+    pages?: Array<{ slug: string }>;
+  };
+  return (raw.pages ?? []).map((page) => `/wiki/${page.slug}`);
 }
 
 function collectBookUrls(): string[] {
@@ -61,15 +111,27 @@ function collectBookUrls(): string[] {
 }
 
 function buildSitemap(paths: string[]): string {
-  const urlEntries = paths.map((path) => {
+  const urlEntries = paths.flatMap((path) => {
     const alternates = [
-      ...SUPPORTED_LOCALES.map(
-        (l) =>
-          `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${SITE_URL}${localizePath(path, l.code)}"/>`,
-      ),
-      `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${localizePath(path, DEFAULT_LOCALE)}"/>`,
-    ].join('\n');
-    return `  <url>\n    <loc>${SITE_URL}${localizePath(path, DEFAULT_LOCALE)}</loc>\n${alternates}\n  </url>`;
+      ...SUPPORTED_LOCALES.map(({ code }) => ({
+        hreflang: code,
+        href: `${SITE_URL}${localizePath(path, code)}`,
+      })),
+      {
+        hreflang: 'x-default',
+        href: `${SITE_URL}${localizePath(path, DEFAULT_LOCALE)}`,
+      },
+    ]
+      .map(
+        ({ hreflang, href }) =>
+          `    <xhtml:link rel="alternate" hreflang="${escapeXml(hreflang)}" href="${escapeXml(href)}"/>`,
+      )
+      .join('\n');
+
+    return SUPPORTED_LOCALES.map(({ code }) => {
+      const url = `${SITE_URL}${localizePath(path, code)}`;
+      return `  <url>\n    <loc>${escapeXml(url)}</loc>\n${alternates}\n  </url>`;
+    });
   });
   return (
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
@@ -80,9 +142,16 @@ function buildSitemap(paths: string[]): string {
   );
 }
 
-const paths = [...STATIC_PATHS, ...collectCategoryUrls(), ...collectBookUrls()];
+const paths = [
+  ...new Set([
+    ...STATIC_PATHS,
+    ...collectCategoryUrls(),
+    ...collectBookUrls(),
+    ...collectWikiUrls(),
+  ]),
+];
 mkdirSync(OUT_DIR, { recursive: true });
 writeFileSync(join(OUT_DIR, 'sitemap.xml'), buildSitemap(paths));
 console.log(
-  `Wrote dist/sitemap.xml with ${paths.length} URLs (× ${SUPPORTED_LOCALES.length} locales).`,
+  `Wrote dist/sitemap.xml with ${paths.length * SUPPORTED_LOCALES.length} URLs across ${SUPPORTED_LOCALES.length} locales.`,
 );

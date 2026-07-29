@@ -173,7 +173,7 @@ export function ImageCropperModal({
       ctx.drawImage(img, sx, sy, sWidth, sHeight, 0, 0, outputWidth, outputHeight);
       onSave(canvas.toDataURL('image/jpeg', 0.85));
     } catch {
-      // Leave the editor open so the user can retry.
+      // Keep editor open for retry
     } finally {
       setSaving(false);
     }

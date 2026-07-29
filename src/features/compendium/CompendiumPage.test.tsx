@@ -171,6 +171,20 @@ describe('CompendiumPage', () => {
     expect(screen.getByText('Detail Dragon')).toBeInTheDocument();
   });
 
+  it('restores search, filters and sorting from the URL', () => {
+    mocks.result.items.push({
+      ...official,
+      id: 'wyvern',
+      name: 'Wyvern',
+      englishName: 'Wyvern',
+      size: 'Medium',
+    });
+    renderPage('/compendium/species?q=dragon&size=Large&sort=size&order=desc');
+    expect(screen.getByRole('searchbox')).toHaveValue('dragon');
+    expect(screen.getByRole('link', { name: /Dragon/ })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /Wyvern/ })).not.toBeInTheDocument();
+  });
+
   it('renders rich selected entry media, lore, gallery and source links', () => {
     const { container } = renderPage('/compendium/species/dragon');
     expect(screen.getByText('Detail Dragon')).toBeInTheDocument();

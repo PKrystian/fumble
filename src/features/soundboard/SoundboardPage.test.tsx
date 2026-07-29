@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { SoundboardPage } from './SoundboardPage';
 
@@ -51,6 +52,13 @@ vi.mock('@/seo/useSeo', () => ({
 }));
 
 describe('SoundboardPage', () => {
+  const renderPage = (path = '/dm/soundboard') =>
+    render(
+      <MemoryRouter initialEntries={[path]}>
+        <SoundboardPage />
+      </MemoryRouter>,
+    );
+
   beforeEach(() => {
     mocks.state.addTrack.mockReset();
     mocks.state.removeTrack.mockReset();
@@ -61,7 +69,7 @@ describe('SoundboardPage', () => {
   });
 
   it('validates and adds tracks with custom and fallback names', () => {
-    render(<SoundboardPage />);
+    renderPage();
     const name = screen.getByPlaceholderText('soundboard.namePlaceholder');
     const url = screen.getByPlaceholderText(/youtube\.com/);
 
@@ -83,7 +91,7 @@ describe('SoundboardPage', () => {
   });
 
   it('plays, stops, filters, removes and reorders tracks', () => {
-    render(<SoundboardPage />);
+    renderPage();
     fireEvent.click(screen.getByRole('button', { name: /Forest/ }));
     expect(screen.getByTitle('Forest')).toHaveAttribute('src', '/embed/video-one/');
     fireEvent.click(screen.getByRole('button', { name: 'soundboard.stop' }));
@@ -110,8 +118,17 @@ describe('SoundboardPage', () => {
     expect(mocks.state.moveTrack).toHaveBeenCalledWith(0, 1);
   });
 
+  it('restores the category filter from the URL', () => {
+    renderPage('/dm/soundboard?category=combat');
+    expect(
+      screen.getByRole('button', { name: 'soundboard.category.combat' }),
+    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByText('Battle')).toBeInTheDocument();
+    expect(screen.queryByText('Forest')).not.toBeInTheDocument();
+  });
+
   it('confirms reset and preserves tracks when rejected', async () => {
-    render(<SoundboardPage />);
+    renderPage();
     fireEvent.click(screen.getByRole('button', { name: 'soundboard.reset' }));
     await waitFor(() => expect(mocks.state.resetToDefaults).toHaveBeenCalled());
 

@@ -42,9 +42,9 @@ vi.mock('@/features/ui/ImageCropperModal', () => ({
 
 import { HomebrewPage } from './HomebrewPage';
 
-const renderPage = () =>
+const renderPage = (path = '/homebrew') =>
   render(
-    <MemoryRouter>
+    <MemoryRouter initialEntries={[path]}>
       <HomebrewPage />
     </MemoryRouter>,
   );
@@ -273,6 +273,26 @@ describe('HomebrewPage', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Delete Alpha' }));
     await waitFor(() => expect(confirmDialog).toHaveBeenCalled());
     await waitFor(() => expect(useHomebrewStore.getState().entries).toHaveLength(1));
+  });
+
+  it('restores homebrew filters from the URL', () => {
+    useHomebrewStore.getState().addManual({
+      category: 'feats',
+      name: 'Translated Feat',
+      subtitle: '',
+      body: '',
+      translations: { pl: { name: 'Atut', subtitle: '', body: '' } },
+    });
+    useHomebrewStore.getState().addManual({
+      category: 'items',
+      name: 'Plain Item',
+      subtitle: '',
+      body: '',
+    });
+    renderPage('/homebrew?q=translated&category=feats&translation=translated');
+    expect(screen.getByRole('searchbox')).toHaveValue('translated');
+    expect(screen.getByRole('link', { name: 'Translated Feat' })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: 'Plain Item' })).not.toBeInTheDocument();
   });
 
   it('adds, replaces, removes and cancels entry artwork', () => {

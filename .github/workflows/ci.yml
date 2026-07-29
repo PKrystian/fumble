@@ -42,6 +42,7 @@ jobs:
         run: npm run test:coverage
 
       - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
         with:
           name: unit-coverage
           path: coverage/unit/coverage-final.json
@@ -89,3 +90,39 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+
+  deploy:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    needs: e2e
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Add 404 fallback
+        run: cp dist/index.html dist/404.html
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

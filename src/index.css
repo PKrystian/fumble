@@ -46,6 +46,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+:focus-visible {
+  outline: 2px solid var(--color-arcane-300);
+  outline-offset: 2px;
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-ink-600) transparent;

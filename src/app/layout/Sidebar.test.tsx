@@ -30,6 +30,10 @@ describe('Sidebar', () => {
   it('renders expanded navigation and toggles to compact controls', () => {
     renderSidebar(<Sidebar />);
     expect(screen.getByText('Fumble')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Return to home page' })).toHaveAttribute(
+      'href',
+      '/',
+    );
     expect(screen.getByText('Full search')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute(
       'aria-current',
@@ -49,7 +53,9 @@ describe('Sidebar', () => {
     renderSidebar(<Sidebar collapsible={false} onNavigate={onNavigate} />, '/dice');
     expect(screen.getByText('Full language')).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /sidebar/i })).toBeNull();
+    fireEvent.click(screen.getByRole('link', { name: 'Return to home page' }));
+    expect(onNavigate).toHaveBeenCalledTimes(1);
     fireEvent.click(screen.getByRole('link', { name: 'Home' }));
-    expect(onNavigate).toHaveBeenCalled();
+    expect(onNavigate).toHaveBeenCalledTimes(2);
   });
 });

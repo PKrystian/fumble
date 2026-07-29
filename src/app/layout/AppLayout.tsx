@@ -8,6 +8,7 @@ import { useSidebarStore } from '@/features/ui/sidebarStore';
 import { Logo } from '@/features/ui/Logo';
 import { useSearchStore } from '@/features/search/searchStore';
 import { useT } from '@/i18n/useT';
+import { LegalFooter } from '@/features/legal/LegalFooter';
 import { Sidebar } from './Sidebar';
 
 const SearchPalette = lazy(() =>
@@ -29,6 +30,12 @@ export function AppLayout() {
 
   return (
     <div className="flex h-full">
+      <a
+        href="#main-content"
+        className="sr-only fixed left-3 top-3 z-[100] rounded-md bg-ink-50 px-3 py-2 text-ink-950 focus:not-sr-only"
+      >
+        {t('common.skipToContent')}
+      </a>
       <aside
         className={[
           'hidden shrink-0 border-r border-ink-700 bg-ink-900 transition-[width] md:block',
@@ -69,8 +76,15 @@ export function AppLayout() {
           </span>
         </header>
 
-        <main className="min-w-0 flex-1 overflow-y-auto">
-          <Outlet />
+        <main
+          id="main-content"
+          className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto"
+          tabIndex={-1}
+        >
+          <div className="flex-1">
+            <Outlet />
+          </div>
+          <LegalFooter />
         </main>
       </div>
 

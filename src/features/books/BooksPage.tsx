@@ -1,4 +1,4 @@
-import { type Dispatch, type SetStateAction, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { BookOpen, RotateCcw, Scroll, Search } from 'lucide-react';
 import type { BookIndexEntry } from '@/data/compendium/types';
 import { imageUrl } from '@/data/compendium/images';
@@ -9,6 +9,8 @@ import type { Locale } from '@/i18n/locales';
 import { useContentModeStore } from '@/features/ui/contentModeStore';
 import { useSeo } from '@/seo/useSeo';
 import { adventures, books } from './data';
+import { sortDocs, typeLabel } from './filters';
+import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 
 type TranslateFn = (key: string, vars?: Record<string, string | number>) => string;
 
@@ -29,15 +31,6 @@ const TYPE_ORDER = [
   'other',
 ];
 
-const CORE_SOURCE_RANK: Record<string, number> = {
-  XPHB: 0,
-  PHB: 0,
-  XDMG: 1,
-  DMG: 1,
-  XMM: 2,
-  MM: 2,
-};
-
 const allDocs: BookIndexEntry[] = [...books, ...adventures];
 
 function editionOf(doc: BookIndexEntry): Edition {
@@ -47,22 +40,6 @@ function editionOf(doc: BookIndexEntry): Edition {
 function typeRank(group: string): number {
   const index = TYPE_ORDER.indexOf(group);
   return index < 0 ? TYPE_ORDER.length : index;
-}
-
-export function typeLabel(group: string, t: TranslateFn): string {
-  const key = `books.types.${group}`;
-  const value = t(key);
-  return value === key ? group : value;
-}
-
-export function sortDocs(docs: BookIndexEntry[]): BookIndexEntry[] {
-  return [...docs].sort((a, b) => {
-    const ra = CORE_SOURCE_RANK[a.source] ?? 99;
-    const rb = CORE_SOURCE_RANK[b.source] ?? 99;
-    if (ra !== rb) return ra - rb;
-    const dateDiff = (b.published ?? '').localeCompare(a.published ?? '');
-    return dateDiff !== 0 ? dateDiff : a.name.localeCompare(b.name);
-  });
 }
 
 function chipClass(active: boolean): string {
@@ -152,14 +129,17 @@ export function BooksPage() {
   useSeo(t('books.title'), t('books.subtitle'));
 
   const contentMode = useContentModeStore((s) => s.mode);
-  const [query, setQuery] = useState('');
-  const [types, setTypes] = useState<string[]>([]);
-  const [formats, setFormats] = useState<string[]>([]);
+  const { params, update } = useUrlSearchState();
+  const query = params.get('q') ?? '';
+  const types = params.getAll('type');
+  const formats = params.getAll('format');
 
-  const toggle = (setter: Dispatch<SetStateAction<string[]>>) => (value: string) =>
-    setter((prev) =>
-      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
-    );
+  const toggle = (key: 'type' | 'format', selected: string[]) => (value: string) =>
+    update({
+      [key]: selected.includes(value)
+        ? selected.filter((item) => item !== value)
+        : [...selected, value],
+    });
 
   const typeOptions = useMemo(
     () =>
@@ -226,7 +206,7 @@ export function BooksPage() {
         <input
           type="search"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => update({ q: e.target.value }, true)}
           placeholder={t('books.searchPlaceholder')}
           aria-label={t('books.searchLabel')}
           className="w-full bg-transparent text-sm text-ink-50 placeholder:text-ink-400 focus:outline-none"
@@ -238,20 +218,19 @@ export function BooksPage() {
           label={t('books.filterFormat')}
           options={formatOptions}
           selected={formats}
-          onToggle={toggle(setFormats)}
+          onToggle={toggle('format', formats)}
         />
         <FilterRow
           label={t('books.filterType')}
           options={typeOptions}
           selected={types}
-          onToggle={toggle(setTypes)}
+          onToggle={toggle('type', types)}
         />
         {hasFilters && (
           <button
             type="button"
             onClick={() => {
-              setTypes([]);
-              setFormats([]);
+              update({ type: null, format: null });
             }}
             className="mt-1 inline-flex items-center gap-1 self-start text-xs text-ink-400 hover:text-ink-50"
           >
