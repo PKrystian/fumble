@@ -30,7 +30,7 @@ describe('legal pages', () => {
     expect(screen.getAllByRole('link')).toHaveLength(6);
     expect(screen.getByRole('link', { name: /legal\.privacy\.title/ })).toHaveAttribute(
       'href',
-      '/legal/privacy',
+      '/legal/privacy/',
     );
   });
 

@@ -17,12 +17,22 @@ function requireValue(condition: boolean, message: string): void {
 }
 
 const sitemap = read('sitemap.xml');
-const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]!);
+const sitemapFiles = [...sitemap.matchAll(/<loc>[^<]+\/([^/]+\.xml)<\/loc>/g)].map(
+  (match) => match[1]!,
+);
+requireValue(sitemapFiles.length === 4, 'Sitemap index must contain four sitemaps');
+const urls = sitemapFiles.flatMap((file) =>
+  [...read(file).matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]!),
+);
 requireValue(urls.length > 0, 'Sitemap has no URLs');
 requireValue(new Set(urls).size === urls.length, 'Sitemap contains duplicate URLs');
 requireValue(
   urls.every((url) => url.startsWith(SITE_URL)),
   'Sitemap contains a URL outside the production domain',
+);
+requireValue(
+  urls.every((url) => url.endsWith('/')),
+  'Sitemap contains a URL without a trailing slash',
 );
 
 const home = read('index.html');
@@ -37,6 +47,8 @@ for (const html of [home, sample]) {
     (html.match(/property="og:image"/g) ?? []).length === 1,
     'HTML must contain one Open Graph image',
   );
+  const canonical = html.match(/rel="canonical" href="([^"]+)"/)?.[1];
+  requireValue(!!canonical?.endsWith('/'), 'Canonical URL must have a trailing slash');
 }
 
 const manifest = JSON.parse(read('manifest.webmanifest')) as {

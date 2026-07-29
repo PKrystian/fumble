@@ -262,7 +262,7 @@ describe('CompendiumPage', () => {
       items: [{ ...official, id: 'plain', source: 'HB' }],
     };
     const plain = renderPage('/compendium/species/plain');
-    expect(plain.container.querySelector('a[href*="/books/"]')).toBeNull();
+    expect(plain.container.querySelector('a[href*="/books/hb/"]')).toBeNull();
     plain.unmount();
 
     mocks.result = {

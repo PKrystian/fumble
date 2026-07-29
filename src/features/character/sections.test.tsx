@@ -381,7 +381,7 @@ describe('character sheet sections', () => {
     expect(useSessionStore.getState().sessions[0]?.notes).toBe('Found the key');
     expect(screen.getByText('character.sheet.sessionQuick.openFull')).toHaveAttribute(
       'href',
-      '/session-log',
+      '/session-log/',
     );
   });
 });

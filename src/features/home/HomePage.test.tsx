@@ -22,7 +22,7 @@ describe('HomePage', () => {
     );
     expect(screen.getByRole('link', { name: /character sheet/i })).toHaveAttribute(
       'href',
-      '/character',
+      '/character/',
     );
   });
 });

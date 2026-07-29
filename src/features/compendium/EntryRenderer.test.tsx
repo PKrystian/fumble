@@ -84,7 +84,7 @@ describe('entry renderer', () => {
     );
     expect(screen.getByRole('link', { name: 'Ancient Dragon' })).toHaveAttribute(
       'href',
-      '/compendium/bestiary/ancient-dragon',
+      '/compendium/bestiary/ancient-dragon/',
     );
     expect(view.container).toHaveTextContent('Unknown Block');
     expect(view.container).toHaveTextContent('Fallback entries');

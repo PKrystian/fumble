@@ -28,7 +28,7 @@ describe('LanguageSwitcher', () => {
 
     fireEvent.click(trigger);
     fireEvent.click(screen.getByRole('option', { name: 'Polski' }));
-    expect(screen.getByText('/pl/compendium?q=spell')).toBeInTheDocument();
+    expect(screen.getByText('/pl/compendium/?q=spell')).toBeInTheDocument();
   });
 
   it('closes from Escape and an outside click but not an inside click', () => {

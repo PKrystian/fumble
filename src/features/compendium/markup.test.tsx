@@ -38,7 +38,7 @@ describe('parseMarkup', () => {
   it('links condition references into the compendium', () => {
     renderMarkup('You have the {@condition Prone} condition');
     const link = screen.getByRole('link', { name: 'Prone' });
-    expect(link).toHaveAttribute('href', '/compendium/conditions/prone');
+    expect(link).toHaveAttribute('href', '/compendium/conditions/prone/');
   });
 
   it('does not link reference tags without a shipped target', () => {
@@ -51,7 +51,7 @@ describe('parseMarkup', () => {
     renderMarkup('make a {@skill Stealth} check');
     expect(screen.getByRole('link', { name: 'Stealth' })).toHaveAttribute(
       'href',
-      '/compendium/skills/stealth',
+      '/compendium/skills/stealth/',
     );
   });
 
@@ -59,7 +59,7 @@ describe('parseMarkup', () => {
     renderMarkup('you gain {@variantrule Advantage|XPHB}');
     expect(screen.getByRole('link', { name: 'Advantage' })).toHaveAttribute(
       'href',
-      '/compendium/rules/advantage',
+      '/compendium/rules/advantage/',
     );
   });
 
@@ -75,7 +75,7 @@ describe('parseMarkup', () => {
     renderMarkup('take the {@feat Grappler|XPHB} feat');
     expect(screen.getByRole('link', { name: 'Grappler' })).toHaveAttribute(
       'href',
-      '/compendium/feats/grappler',
+      '/compendium/feats/grappler/',
     );
   });
 
