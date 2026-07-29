@@ -1,0 +1,17 @@
+services:
+  dev:
+    image: node:22.23.1-alpine3.24
+    working_dir: /app
+    command: sh -c "npm ci && npm run dev -- --host"
+    ports:
+      - '5173:5173'
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  web:
+    build:
+      context: .
+      target: runtime
+    ports:
+      - '8080:80'

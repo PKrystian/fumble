@@ -1,0 +1,42 @@
+name: Content or attribution report
+description: Report incorrect attribution, source data, or material that should be reviewed.
+title: '[Content]: '
+labels:
+  - content
+body:
+  - type: markdown
+    attributes:
+      value: Do not include private information. For security vulnerabilities, follow SECURITY.md instead.
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Provide the page URL, entry name, or file path.
+    validations:
+      required: true
+  - type: dropdown
+    id: issue
+    attributes:
+      label: Report type
+      options:
+        - Attribution or licensing
+        - Incorrect source data
+        - Translation
+        - Removal request
+        - Other content issue
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Explain the issue and provide supporting references where possible.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have searched existing issues for the same report.
+          required: true

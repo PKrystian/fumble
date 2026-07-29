@@ -1,0 +1,30 @@
+name: Accessibility report
+description: Report a keyboard, screen reader, contrast, zoom, or reflow barrier.
+title: '[Accessibility]: '
+labels:
+  - accessibility
+body:
+  - type: markdown
+    attributes:
+      value: Do not include sensitive personal or medical information in a public issue.
+  - type: input
+    id: location
+    attributes:
+      label: Page or feature
+      description: Provide the public URL or name of the affected feature.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and assistive technology
+      placeholder: Firefox with NVDA, Safari with VoiceOver, keyboard only, or 400% zoom
+    validations:
+      required: true
+  - type: textarea
+    id: barrier
+    attributes:
+      label: Barrier
+      description: Explain what happened and what you expected.
+    validations:
+      required: true

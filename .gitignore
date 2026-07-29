@@ -1,0 +1,45 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+
+# Test / coverage artifacts
+coverage
+!scripts/coverage/
+!scripts/coverage/**
+playwright-report
+test-results
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Editor / OS
+.idea
+.vscode
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*.local
+
+# Local cache of the upstream 5etools data source (not vendored raw)
+.cache
+
+# Local AI assistant config and working notes
+.agents
+.claude
+.codex
+CLAUDE.md
+.pnpm-store
+
+# Temporary scripts
+scripts/_tmp_*

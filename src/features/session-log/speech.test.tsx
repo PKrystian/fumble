@@ -1,0 +1,344 @@
+import { act, renderHook, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { useSpeechRecognition } from './speech';
+
+const pipeline = vi.fn();
+const transformer = vi.hoisted(() => ({
+  failure: null as unknown,
+}));
+
+vi.mock('@huggingface/transformers', () => ({
+  env: {},
+  pipeline: vi.fn(async (_task, _model, options) => {
+    options.progress_callback({ status: 'downloading', progress: 42 });
+    options.progress_callback({ status: 'loading' });
+    options.progress_callback({ status: 'ready', progress: 100 });
+    if (transformer.failure) throw transformer.failure;
+    return pipeline;
+  }),
+}));
+
+class MediaRecorderMock {
+  static instances: MediaRecorderMock[] = [];
+  state = 'inactive';
+  mimeType = 'audio/webm';
+  ondataavailable: ((event: { data: Blob }) => void) | null = null;
+  onstop: (() => void) | null = null;
+
+  constructor(_stream: MediaStream) {
+    MediaRecorderMock.instances.push(this);
+  }
+
+  start() {
+    this.state = 'recording';
+  }
+
+  stop() {
+    this.state = 'inactive';
+    this.onstop?.();
+  }
+}
+
+const track = { stop: vi.fn() };
+const stream = { getTracks: () => [track] } as unknown as MediaStream;
+
+const wrapper = ({ children }: { children: React.ReactNode }) => (
+  <MemoryRouter>{children}</MemoryRouter>
+);
+
+describe('speech recognition hook', () => {
+  beforeEach(() => {
+    MediaRecorderMock.instances = [];
+    track.stop.mockClear();
+    pipeline.mockReset();
+    transformer.failure = null;
+    vi.stubGlobal('MediaRecorder', MediaRecorderMock);
+    Object.defineProperty(Blob.prototype, 'arrayBuffer', {
+      configurable: true,
+      value: vi.fn(async () => new ArrayBuffer(8)),
+    });
+    vi.stubGlobal(
+      'AudioContext',
+      class {
+        decodeAudioData = vi.fn(async () => ({
+          numberOfChannels: 1,
+          length: 4,
+          getChannelData: () => new Float32Array([0.2, 0.3, 0.2, 0.3]),
+        }));
+        close = vi.fn(async () => undefined);
+      },
+    );
+    Object.defineProperty(navigator, 'mediaDevices', {
+      configurable: true,
+      value: { getUserMedia: vi.fn(async () => stream) },
+    });
+  });
+
+  it('reports model initialization errors and retries after failure', async () => {
+    transformer.failure = 'model unavailable';
+    const first = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
+    await act(async () => first.result.current.start());
+    await waitFor(() =>
+      expect(first.result.current.speechError).toBe('Failed to load Whisper model'),
+    );
+    first.result.current.stop();
+    first.unmount();
+
+    transformer.failure = new Error('Model failed');
+    const second = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
+    await act(async () => second.result.current.start());
+    await waitFor(() => expect(second.result.current.speechError).toBe('Model failed'));
+    second.result.current.stop();
+    second.unmount();
+  });
+
+  it('starts, transcribes chunks and stops media resources', async () => {
+    pipeline.mockResolvedValue({
+      text: ' Dragon attacks, dragon attacks, dragon attacks, end ',
+    });
+    const onFinal = vi.fn();
+    const { result, unmount } = renderHook(() => useSpeechRecognition(onFinal), {
+      wrapper,
+    });
+
+    expect(result.current.supported).toBe(true);
+    await act(async () => result.current.start());
+    expect(result.current.listening).toBe(true);
+    expect(MediaRecorderMock.instances).toHaveLength(1);
+
+    const recorder = MediaRecorderMock.instances[0]!;
+    await act(async () => {
+      recorder.ondataavailable?.({ data: new Blob() });
+      recorder.ondataavailable?.({
+        data: new Blob([new Uint8Array(4000)], { type: 'audio/webm' }),
+      });
+      recorder.stop();
+    });
+    await waitFor(() =>
+      expect(onFinal).toHaveBeenCalledWith('Dragon attacks, dragon attacks'),
+    );
+
+    act(() => result.current.stop());
+    expect(result.current.listening).toBe(false);
+    expect(track.stop).toHaveBeenCalled();
+    unmount();
+  });
+
+  it('ignores silent and undersized chunks', async () => {
+    vi.stubGlobal(
+      'AudioContext',
+      class {
+        decodeAudioData = vi.fn(async () => ({
+          numberOfChannels: 2,
+          length: 2,
+          getChannelData: () => new Float32Array([0, 0]),
+        }));
+        close = vi.fn(async () => undefined);
+      },
+    );
+    const onFinal = vi.fn();
+    const { result } = renderHook(() => useSpeechRecognition(onFinal), { wrapper });
+    await act(async () => result.current.start());
+    const recorder = MediaRecorderMock.instances[0]!;
+    await act(async () => {
+      recorder.ondataavailable?.({ data: new Blob(['small']) });
+      recorder.ondataavailable?.({
+        data: new Blob([new Uint8Array(4000)], { type: 'audio/webm' }),
+      });
+      recorder.stop();
+    });
+    await waitFor(() => expect(result.current.interim).toBe(''));
+    expect(onFinal).not.toHaveBeenCalled();
+    result.current.stop();
+    result.current.stop();
+  });
+
+  it('reports microphone failures', async () => {
+    Object.defineProperty(navigator, 'mediaDevices', {
+      configurable: true,
+      value: {
+        getUserMedia: vi.fn(async () => {
+          throw new Error('Permission denied');
+        }),
+      },
+    });
+    const { result } = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
+    await act(async () => result.current.start());
+    expect(result.current.listening).toBe(false);
+    expect(result.current.speechError).toBe('Permission denied');
+  });
+
+  it('uses localized microphone errors for non-error rejections', async () => {
+    Object.defineProperty(navigator, 'mediaDevices', {
+      configurable: true,
+      value: {
+        getUserMedia: vi.fn(async () => {
+          throw 'denied';
+        }),
+      },
+    });
+    const { result } = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
+    await act(async () => result.current.start());
+    expect(result.current.speechError).toBe('Microphone access denied');
+  });
+
+  it('reports transcription failures and continues with the latest callback', async () => {
+    pipeline
+      .mockRejectedValueOnce(new Error('Transcription failed'))
+      .mockResolvedValueOnce({ text: 'one, two, one' });
+    const firstFinal = vi.fn();
+    const secondFinal = vi.fn();
+    const { result, rerender } = renderHook(
+      ({ onFinal, language }) => useSpeechRecognition(onFinal, language),
+      {
+        initialProps: { onFinal: firstFinal, language: 'english' },
+        wrapper,
+      },
+    );
+
+    await act(async () => result.current.start());
+    const firstRecorder = MediaRecorderMock.instances[0]!;
+    await act(async () => {
+      firstRecorder.ondataavailable?.({
+        data: new Blob([new Uint8Array(4000)], { type: 'audio/webm' }),
+      });
+      firstRecorder.stop();
+    });
+    await waitFor(() => expect(result.current.speechError).toBe('Transcription failed'));
+
+    rerender({ onFinal: secondFinal, language: 'polish' });
+    const secondRecorder = MediaRecorderMock.instances.at(-1)!;
+    await act(async () => {
+      secondRecorder.ondataavailable?.({
+        data: new Blob([new Uint8Array(4000)], { type: 'audio/webm' }),
+      });
+      secondRecorder.stop();
+    });
+    await waitFor(() => expect(secondFinal).toHaveBeenCalledWith('one, two, one'));
+    expect(firstFinal).not.toHaveBeenCalled();
+    expect(pipeline).toHaveBeenLastCalledWith(
+      expect.any(Float32Array),
+      expect.objectContaining({ language: 'polish' }),
+    );
+    result.current.stop();
+  });
+
+  it('uses localized transcription errors for non-error failures', async () => {
+    pipeline.mockRejectedValue('failed');
+    const { result } = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
+    await act(async () => result.current.start());
+    const recorder = MediaRecorderMock.instances[0]!;
+    await act(async () => {
+      recorder.ondataavailable?.({
+        data: new Blob([new Uint8Array(4000)], { type: 'audio/webm' }),
+      });
+      recorder.stop();
+    });
+    await waitFor(() => expect(result.current.speechError).toBe('Transcription failed'));
+    result.current.stop();
+  });
+
+  it('ignores transcription results without text', async () => {
+    pipeline.mockResolvedValue(null);
+    const onFinal = vi.fn();
+    const { result } = renderHook(() => useSpeechRecognition(onFinal), { wrapper });
+    await act(async () => result.current.start());
+    const recorder = MediaRecorderMock.instances[0]!;
+    await act(async () => {
+      recorder.ondataavailable?.({
+        data: new Blob([new Uint8Array(4000)], { type: 'audio/webm' }),
+      });
+      recorder.stop();
+    });
+    await waitFor(() => expect(result.current.interim).toBe(''));
+    expect(onFinal).not.toHaveBeenCalled();
+    result.current.stop();
+  });
+
+  it('does not start a second queue processor while transcription is pending', async () => {
+    let resolvePipeline: (value: { text: string }) => void = () => undefined;
+    pipeline
+      .mockImplementationOnce(
+        () =>
+          new Promise((resolve) => {
+            resolvePipeline = resolve;
+          }),
+      )
+      .mockResolvedValue({ text: 'Second chunk' });
+    const onFinal = vi.fn();
+    const { result } = renderHook(() => useSpeechRecognition(onFinal), { wrapper });
+    await act(async () => result.current.start());
+
+    const first = MediaRecorderMock.instances[0]!;
+    await act(async () => {
+      first.ondataavailable?.({
+        data: new Blob([new Uint8Array(4000)], { type: 'audio/webm' }),
+      });
+      first.stop();
+    });
+    const second = MediaRecorderMock.instances[1]!;
+    await act(async () => {
+      second.ondataavailable?.({
+        data: new Blob([new Uint8Array(4000)], { type: 'audio/webm' }),
+      });
+      second.stop();
+    });
+    await act(async () => resolvePipeline({ text: 'First chunk' }));
+    await waitFor(() => expect(onFinal).toHaveBeenCalledTimes(2));
+    result.current.stop();
+  });
+
+  it('stops an active recorder and stream when unmounted', async () => {
+    const clearTimeoutSpy = vi.spyOn(window, 'clearTimeout');
+    const { result, unmount } = renderHook(() => useSpeechRecognition(vi.fn()), {
+      wrapper,
+    });
+    await act(async () => result.current.start());
+    const recorder = MediaRecorderMock.instances[0]!;
+    const stopSpy = vi.spyOn(recorder, 'stop');
+
+    unmount();
+
+    expect(clearTimeoutSpy).toHaveBeenCalled();
+    expect(stopSpy).toHaveBeenCalled();
+    expect(track.stop).toHaveBeenCalled();
+    clearTimeoutSpy.mockRestore();
+  });
+
+  it('only stops recording timers for active recorders', async () => {
+    vi.useFakeTimers();
+    const { result } = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
+    await act(async () => result.current.start());
+    const recorder = MediaRecorderMock.instances[0]!;
+    recorder.state = 'inactive';
+    const stopSpy = vi.spyOn(recorder, 'stop');
+
+    act(() => vi.advanceTimersByTime(10000));
+
+    expect(stopSpy).not.toHaveBeenCalled();
+    result.current.stop();
+    vi.useRealTimers();
+  });
+
+  it('stops active recorders when the chunk timer expires', async () => {
+    vi.useFakeTimers();
+    const { result } = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
+    await act(async () => result.current.start());
+    const recorder = MediaRecorderMock.instances[0]!;
+    const stopSpy = vi.spyOn(recorder, 'stop');
+
+    act(() => vi.advanceTimersByTime(10000));
+
+    expect(stopSpy).toHaveBeenCalled();
+    result.current.stop();
+    vi.useRealTimers();
+  });
+
+  it('detects missing browser recording APIs', () => {
+    Reflect.deleteProperty(window, 'MediaRecorder');
+    Reflect.deleteProperty(window, 'AudioContext');
+    const { result } = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
+    expect(result.current.supported).toBe(false);
+  });
+});
