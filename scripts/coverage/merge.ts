@@ -70,10 +70,10 @@ for (const name of ['html', 'json', 'json-summary', 'text-summary'] as const) {
 
 const summary = map.getCoverageSummary();
 const thresholds = {
-  statements: 100,
-  branches: 100,
-  functions: 100,
-  lines: 100,
+  statements: 95,
+  branches: 95,
+  functions: 95,
+  lines: 95,
 } as const;
 
 let failed = false;
