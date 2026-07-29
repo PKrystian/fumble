@@ -36,31 +36,31 @@ describe('stripLocale', () => {
 
 describe('localizePath', () => {
   it('leaves English paths unprefixed', () => {
-    expect(localizePath('/compendium/spells', 'en')).toBe('/compendium/spells');
+    expect(localizePath('/compendium/spells', 'en')).toBe('/compendium/spells/');
   });
 
   it('prefixes non-English locales', () => {
-    expect(localizePath('/compendium/spells', 'pl')).toBe('/pl/compendium/spells');
+    expect(localizePath('/compendium/spells', 'pl')).toBe('/pl/compendium/spells/');
   });
 
   it('maps root to the bare locale prefix', () => {
-    expect(localizePath('/', 'pl')).toBe('/pl');
+    expect(localizePath('/', 'pl')).toBe('/pl/');
   });
 
   it('adds a leading slash if missing', () => {
-    expect(localizePath('character', 'pl')).toBe('/pl/character');
+    expect(localizePath('character', 'pl')).toBe('/pl/character/');
   });
 });
 
 describe('stripLocale + localizePath round-trip', () => {
   it('recovers the original path after stripping and re-localizing to the same locale', () => {
-    const original = '/pl/books/xphb/2';
+    const original = '/pl/books/xphb/2/';
     const { locale, rest } = stripLocale(original);
     expect(localizePath(rest, locale)).toBe(original);
   });
 
   it('switches locale while preserving the rest of the path', () => {
     const { rest } = stripLocale('/pl/compendium/conditions/blinded');
-    expect(localizePath(rest, 'en')).toBe('/compendium/conditions/blinded');
+    expect(localizePath(rest, 'en')).toBe('/compendium/conditions/blinded/');
   });
 });

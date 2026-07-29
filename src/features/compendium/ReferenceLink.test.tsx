@@ -42,7 +42,7 @@ describe('ReferenceLink', () => {
     await act(async () => undefined);
     expect(screen.getByRole('link', { name: 'Kula Ognia' })).toHaveAttribute(
       'href',
-      '/compendium/spells/fireball',
+      '/compendium/spells/fireball/',
     );
   });
 

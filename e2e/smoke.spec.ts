@@ -8,7 +8,7 @@ test('home page loads and shows the app name', async ({ page }) => {
 test('legal pages are available in both languages', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: 'Privacy policy' }).click();
-  await expect(page).toHaveURL(/\/legal\/privacy$/);
+  await expect(page).toHaveURL(/\/legal\/privacy\/$/);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Privacy policy');
 
   await page.goto('/pl/legal/connections');
@@ -30,18 +30,18 @@ test('compendium loads spells and opens an entry', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: 'Species' }).first().click();
 
-  await expect(page).toHaveURL(/\/compendium\/species$/);
+  await expect(page).toHaveURL(/\/compendium\/species\/$/);
 
   await page
     .getByRole('navigation', { name: 'Compendium categories' })
     .getByRole('link', { name: 'Spells', exact: true })
     .click();
-  await expect(page).toHaveURL(/\/compendium\/spells$/);
+  await expect(page).toHaveURL(/\/compendium\/spells\/$/);
 
   await page.getByRole('searchbox').fill('fireball');
   await page.getByRole('link', { name: /^Fireball/ }).click();
 
-  await expect(page).toHaveURL(/\/compendium\/spells\/fireball\?q=fireball$/);
+  await expect(page).toHaveURL(/\/compendium\/spells\/fireball\/\?q=fireball$/);
   await expect(page.getByRole('heading', { name: 'Fireball' })).toBeVisible();
   await page.goBack();
   await expect(page.getByRole('searchbox')).toHaveValue('fireball');
@@ -52,7 +52,7 @@ test('compendium links to older printings', async ({ page }) => {
   await expect(page.getByText('Source:')).toContainText("Player's Handbook (2024)");
 
   await page.getByRole('link', { name: "Player's Handbook (2014)" }).click();
-  await expect(page).toHaveURL(/\/compendium\/spells\/fireball-phb$/);
+  await expect(page).toHaveURL(/\/compendium\/spells\/fireball-phb\/$/);
   await expect(page.getByText('Source:')).toContainText("Player's Handbook (2014)");
 });
 
@@ -139,7 +139,7 @@ test('spell filters include imported homebrew classes', async ({ page }) => {
 test('can create a character and edit core stats', async ({ page }) => {
   await page.goto('/character');
   await page.getByRole('button', { name: 'New Character' }).click();
-  await expect(page).toHaveURL(/\/character\/[a-f0-9-]+$/);
+  await expect(page).toHaveURL(/\/character\/[a-f0-9-]+\/$/);
 
   const strength = page.getByRole('spinbutton', { name: 'Strength' });
   await expect(async () => {
@@ -463,7 +463,7 @@ test('wiki hides secrets and navigates wikilinks', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Secret Plot' })).toHaveCount(0);
 
   await page.locator('.wiki-content a', { hasText: 'Sunken Temple' }).click();
-  await expect(page).toHaveURL(/\/wiki\/the-sunken-temple$/);
+  await expect(page).toHaveURL(/\/wiki\/the-sunken-temple\/$/);
 });
 
 test('books can be searched, filtered and opened', async ({ page }) => {
@@ -502,7 +502,7 @@ test('global search navigates to a compendium entry', async ({ page }) => {
   await dialog.getByRole('searchbox').fill('Fireball');
   await expect(dialog.getByRole('button', { name: /Fireball/ }).first()).toBeVisible();
   await page.keyboard.press('Enter');
-  await expect(page).toHaveURL(/\/compendium\/spells\/fireball$/);
+  await expect(page).toHaveURL(/\/compendium\/spells\/fireball\/$/);
 });
 
 test('homebrew creates, filters and edits an entry', async ({ page }) => {

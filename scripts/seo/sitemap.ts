@@ -322,8 +322,9 @@ const POLISH_STATIC_PAGES: Record<string, Pick<PageInfo, 'title' | 'description'
 };
 
 function localizePath(path: string, locale: string): string {
-  if (locale === DEFAULT_LOCALE) return path;
-  return path === '/' ? `/${locale}` : `/${locale}${path}`;
+  const normalized = path === '/' ? path : `${path.replace(/\/+$/, '')}/`;
+  if (locale === DEFAULT_LOCALE) return normalized;
+  return normalized === '/' ? `/${locale}/` : `/${locale}${normalized}`;
 }
 
 function escapeXml(value: string): string {
@@ -347,6 +348,8 @@ function plainText(value: unknown): string {
   if (typeof value === 'string') {
     return cleanText(value)
       .replace(/\{@\w+\s+([^}|]+)(?:\|[^}]*)?}/g, '$1')
+      .replace(/\{#\w+\s+([^}|]+)(?:\|[^}]*)?}/g, '$1')
+      .replace(/\{(?:@|#)[^}]+}/g, ' ')
       .replace(/<[^>]+>/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
@@ -364,7 +367,7 @@ function plainText(value: unknown): string {
 
 function concise(value: string, fallback: string): string {
   const text = value.trim() || fallback;
-  return text.length <= 220 ? text : `${text.slice(0, 217).trimEnd()}...`;
+  return text.length <= 160 ? text : `${text.slice(0, 157).trimEnd()}...`;
 }
 
 function excerpt(value: string, fallback: string): string {
@@ -384,11 +387,16 @@ function collectPages(locale: string): PageInfo[] {
       locale === 'pl'
         ? (POLISH_CATEGORY_TITLES[categoryId] ?? categoryId.replaceAll('-', ' '))
         : categoryId.replaceAll('-', ' ');
+    const displayCategory =
+      categoryTitle.charAt(0).toLocaleUpperCase(locale) + categoryTitle.slice(1);
     const categoryPath = `/compendium/${categoryId}`;
     pages.push({
       path: categoryPath,
-      title: `${categoryTitle} - D&D Compendium - Fumble`,
-      description: `Browse ${categoryTitle} in the Fumble D&D compendium.`,
+      title: `${displayCategory} - D&D Compendium - Fumble`,
+      description:
+        locale === 'pl'
+          ? `Przeglądaj ${categoryTitle} w kompendium D&D Fumble.`
+          : `Browse ${categoryTitle} in the Fumble D&D compendium.`,
       kind: 'website',
       parent: { path: '/compendium', title: 'Compendium' },
     });
@@ -403,20 +411,40 @@ function collectPages(locale: string): PageInfo[] {
             string,
             CompendiumItem
           >);
-    for (const baseItem of raw.items ?? []) {
-      const item = { ...baseItem, ...(overlay[baseItem.id] ?? {}) };
-      if (item.hidden) continue;
+    const items = (raw.items ?? [])
+      .map((baseItem) => ({
+        baseItem,
+        item: { ...baseItem, ...(overlay[baseItem.id] ?? {}) },
+      }))
+      .filter(({ item }) => !item.hidden);
+    const localizedIdentityCounts = new Map<string, number>();
+    for (const { item } of items) {
+      const key = `${item.name}|${plainText(item.source)}`;
+      localizedIdentityCounts.set(key, (localizedIdentityCounts.get(key) ?? 0) + 1);
+    }
+    for (const { baseItem, item } of items) {
       const context = [item.subtitle, item.entries, item.body].map(plainText).join(' ');
+      const source = plainText(item.source);
+      const localizedIdentity = `${item.name}|${source}`;
+      const translationQualifier =
+        locale !== DEFAULT_LOCALE &&
+        (localizedIdentityCounts.get(localizedIdentity) ?? 0) > 1
+          ? ` (${baseItem.name})`
+          : '';
+      const identity =
+        locale === 'pl'
+          ? `${item.name}${translationQualifier} w kategorii ${displayCategory}${source ? `, źródło ${source}` : ''}.`
+          : `${item.name}${translationQualifier} in ${displayCategory}${source ? `, source ${source}` : ''}.`;
       pages.push({
         path: `${categoryPath}/${item.id}`,
-        title: `${item.name} - Fumble`,
+        title: `${item.name}${translationQualifier} - ${displayCategory}${source ? ` (${source})` : ''} - Fumble`,
         description: concise(
-          context,
-          `${item.name} in the Fumble D&D compendium. Source: ${plainText(item.source) || 'D&D'}.`,
+          `${identity} ${context}`,
+          `${identity} Fumble D&D compendium.`,
         ),
-        content: excerpt(context, `${item.name}. ${plainText(item.source)}`),
+        content: excerpt(context, identity),
         kind: 'article',
-        parent: { path: categoryPath, title: categoryTitle },
+        parent: { path: categoryPath, title: displayCategory },
       });
     }
   }
@@ -439,7 +467,7 @@ function collectPages(locale: string): PageInfo[] {
       path: bookPath,
       title: `${book.name} - Fumble`,
       description: concise(
-        [book.storyline, book.author].filter(Boolean).join('. '),
+        [book.name, book.storyline, book.author].filter(Boolean).join('. '),
         `Read ${book.name} in Fumble.`,
       ),
       kind: 'book',
@@ -463,7 +491,7 @@ function collectPages(locale: string): PageInfo[] {
   for (const page of wiki.pages ?? []) {
     pages.push({
       path: `/wiki/${page.slug}`,
-      title: `${page.title} - Fumble`,
+      title: `${page.title} - Campaign Wiki - Fumble`,
       description: concise(
         plainText(page.html),
         `${page.title}${page.category ? ` in ${page.category}` : ''} - Fumble campaign wiki.`,
@@ -509,6 +537,18 @@ function buildSitemap(pages: PageInfo[]): string {
     'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
     `${entries.join('\n')}\n` +
     '</urlset>\n'
+  );
+}
+
+function buildSitemapIndex(files: string[]): string {
+  const entries = files
+    .map((file) => `  <sitemap>\n    <loc>${SITE_URL}/${file}</loc>\n  </sitemap>`)
+    .join('\n');
+  return (
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    `${entries}\n` +
+    '</sitemapindex>\n'
   );
 }
 
@@ -746,7 +786,26 @@ for (const { code } of SUPPORTED_LOCALES) {
     writeRoute(localizePath(page.path, code), buildHtml(template, page, code));
   }
 }
-writeFileSync(join(OUT_DIR, 'sitemap.xml'), buildSitemap(pages));
+const sitemapGroups = new Map<string, PageInfo[]>([
+  ['sitemap-pages.xml', []],
+  ['sitemap-compendium.xml', []],
+  ['sitemap-books.xml', []],
+  ['sitemap-wiki.xml', []],
+]);
+for (const page of pages) {
+  const file = page.path.startsWith('/compendium')
+    ? 'sitemap-compendium.xml'
+    : page.path.startsWith('/books')
+      ? 'sitemap-books.xml'
+      : page.path.startsWith('/wiki')
+        ? 'sitemap-wiki.xml'
+        : 'sitemap-pages.xml';
+  sitemapGroups.get(file)!.push(page);
+}
+for (const [file, group] of sitemapGroups) {
+  writeFileSync(join(OUT_DIR, file), buildSitemap(group));
+}
+writeFileSync(join(OUT_DIR, 'sitemap.xml'), buildSitemapIndex([...sitemapGroups.keys()]));
 writeFileSync(join(OUT_DIR, 'llms-full.txt'), buildLlmsFull(pages));
 for (const { code } of SUPPORTED_LOCALES) {
   writeFileSync(join(OUT_DIR, `search-index-${code}.json`), buildSearchIndex(code));

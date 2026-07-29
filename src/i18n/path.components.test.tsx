@@ -32,7 +32,7 @@ function NavigationButtons() {
 describe('localized router components', () => {
   it('localizes absolute string and object links but keeps relative links', () => {
     render(
-      <MemoryRouter initialEntries={['/pl/current']}>
+      <MemoryRouter initialEntries={['/pl/current/']}>
         <Link to="/absolute">Absolute</Link>
         <Link to={{ pathname: '/object', search: '?q=1' }}>Object</Link>
         <Link to="relative">Relative</Link>
@@ -41,11 +41,11 @@ describe('localized router components', () => {
     );
     expect(screen.getByRole('link', { name: 'Absolute' })).toHaveAttribute(
       'href',
-      '/pl/absolute',
+      '/pl/absolute/',
     );
     expect(screen.getByRole('link', { name: 'Object' })).toHaveAttribute(
       'href',
-      '/pl/object?q=1',
+      '/pl/object/?q=1',
     );
     expect(screen.getByRole('link', { name: 'Relative' })).toHaveAttribute(
       'href',
@@ -59,7 +59,7 @@ describe('localized router components', () => {
 
   it('localizes nav links and exposes active state', () => {
     render(
-      <MemoryRouter initialEntries={['/pl/current']}>
+      <MemoryRouter initialEntries={['/pl/current/']}>
         <NavLink to="/current">Current</NavLink>
       </MemoryRouter>,
     );
@@ -78,7 +78,7 @@ describe('localized router components', () => {
         </Routes>
       </MemoryRouter>,
     );
-    expect(screen.getByText('pl:/pl/destination')).toBeInTheDocument();
+    expect(screen.getByText('pl:/pl/destination/')).toBeInTheDocument();
   });
 
   it('localizes imperative paths and supports history deltas', () => {
@@ -89,12 +89,12 @@ describe('localized router components', () => {
       </MemoryRouter>,
     );
     fireEvent.click(screen.getByRole('button', { name: 'Path' }));
-    expect(screen.getByText('pl:/pl/target')).toBeInTheDocument();
+    expect(screen.getByText('pl:/pl/target/')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Object' }));
-    expect(screen.getByText('pl:/pl/object')).toBeInTheDocument();
+    expect(screen.getByText('pl:/pl/object/')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Relative' }));
     expect(screen.getByText('en:/relative')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Back' }));
-    expect(screen.getByText('pl:/pl/object')).toBeInTheDocument();
+    expect(screen.getByText('pl:/pl/object/')).toBeInTheDocument();
   });
 });

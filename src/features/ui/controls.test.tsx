@@ -44,7 +44,7 @@ describe('UI controls', () => {
     renderAt(<LanguageSwitcher />, '/compendium/spells?level=1');
     fireEvent.click(screen.getByRole('button', { name: 'Change language' }));
     fireEvent.click(screen.getByRole('option', { name: 'Polski' }));
-    expect(screen.getByTestId('location')).toHaveTextContent('/pl/compendium/spells');
+    expect(screen.getByTestId('location')).toHaveTextContent('/pl/compendium/spells/');
   });
 
   it('closes language and content menus with Escape or outside clicks', () => {

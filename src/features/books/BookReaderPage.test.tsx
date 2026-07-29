@@ -116,7 +116,7 @@ describe('BookReaderPage', () => {
     await screen.findByRole('heading', { name: 'Second Chapter' });
     expect(screen.getByRole('link', { name: /^← First Chapter$/ })).toHaveAttribute(
       'href',
-      '/books/test-book/0',
+      '/books/test-book/0/',
     );
     await waitFor(() => expect(Element.prototype.scrollIntoView).toHaveBeenCalled());
   });

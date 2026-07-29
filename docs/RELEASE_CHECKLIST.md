@@ -33,6 +33,12 @@
 
 - Confirm the `fumble.krystianpinczak.com` CNAME points to the GitHub Pages site.
 - Confirm HTTPS is enforced in GitHub Pages settings.
+- In Cloudflare, disable Web Analytics unless it is intentionally configured and covered by
+  the site's privacy information.
+- In Cloudflare Cache Rules, match
+  `http.host eq "fumble.krystianpinczak.com" and starts_with(http.request.uri.path, "/assets/")`.
+- Set Edge Cache TTL and Browser Cache TTL to one year for the `/assets/` cache rule.
+- Confirm a hashed asset returns a one-year browser cache policy after deployment.
 - Confirm the previous deployment can be restored.
 - Test a direct route, a Polish route, and a missing route after deployment.
 
@@ -47,7 +53,13 @@
 
 ## Search
 
+- Add a domain property for `fumble.krystianpinczak.com` in Google Search Console and
+  verify it with DNS.
 - Submit `https://fumble.krystianpinczak.com/sitemap.xml` to Google Search Console.
 - Submit the same sitemap to Bing Webmaster Tools.
-- Inspect representative URLs and review indexing, duplicate, and soft 404 reports.
+- Inspect the home page, a category, a compendium detail, a book, a wiki page, and their
+  Polish equivalents.
+- Request indexing only for representative pages and let Google discover the remaining
+  URLs from the sitemap.
+- Review indexing, duplicate, redirect, and soft 404 reports.
 - Review Core Web Vitals after real traffic is available.
