@@ -38,7 +38,7 @@ jobs:
       - name: Generate SBOM
         run: npm sbom --sbom-format cyclonedx > fumble-sbom.cdx.json
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: sbom
           path: fumble-sbom.cdx.json
@@ -50,7 +50,7 @@ jobs:
       - name: Unit tests
         run: npm run test:coverage
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: unit-coverage
@@ -87,13 +87,13 @@ jobs:
       - name: Merge coverage
         run: npm run test:coverage:merge
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: coverage-report
           path: coverage/merged/
           retention-days: 7
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
