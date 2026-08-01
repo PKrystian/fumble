@@ -1,0 +1,235 @@
+{
+  "monsterfeatures-constrict-dmg": {
+    "name": "Zwężać",
+    "data": {
+      "name": "Zwężać",
+      "example": "Olbrzymi wąż dusiciel",
+      "effect": "Stworzenie ma zdolność powstrzymywania i/lub chwytania celu w ramach ataku.",
+      "ac": "1"
+    }
+  },
+  "monsterfeatures-blood-frenzy-dmg": {
+    "name": "Krwawe szaleństwo",
+    "data": {
+      "name": "Krwawe szaleństwo",
+      "example": "Sahuagina",
+      "effect": "Stworzenie ma przewagę w rzutach ataku wręcz przeciwko każdemu stworzeniu, które nie ma wszystkich swoich punktów wytrzymałości.",
+      "attackBonus": "4"
+    }
+  },
+  "monsterfeatures-ambusher-dmg": {
+    "name": "Napastnik",
+    "data": {
+      "name": "Napastnik",
+      "example": "Sobowtór",
+      "effect": "Stworzenie ma przewagę w rzutach ataku przeciwko dowolnemu stworzeniu, które posiada {@status surprised}.",
+      "attackBonus": "1"
+    }
+  },
+  "monsterfeatures-enlarge-dmg": {
+    "name": "Powiększać",
+    "data": {
+      "name": "Powiększać",
+      "example": "Duergara",
+      "effect": "Stworzenie w magiczny sposób powiększa się wraz ze wszystkim, co ma na sobie lub nosi. Wprowadź dodatkowe obrażenia zadawane na rundę, gdy są powiększone.",
+      "dpr": "cecha",
+      "hasNumberParam": true
+    }
+  },
+  "monsterfeatures-avoidance-dmg": {
+    "name": "Unikanie",
+    "data": {
+      "name": "Unikanie",
+      "example": "Demilich",
+      "effect": "Jeśli stworzenie zostanie poddane efektowi, który pozwala mu wykonać rzut obronny i otrzymać tylko połowę obrażeń, zamiast tego nie otrzymuje żadnych obrażeń, jeśli rzut obronny się powiedzie, a tylko połowę obrażeń, jeśli rzut się nie powiedzie.",
+      "ac": "1"
+    }
+  },
+  "monsterfeatures-aggressive-dmg": {
+    "name": "Agresywny",
+    "data": {
+      "name": "Agresywny",
+      "example": "Ork",
+      "effect": "Jako akcja dodatkowa, stworzenie może poruszyć się ze swoją prędkością w kierunku wrogiego stworzenia, które widzi.",
+      "dpr": "2"
+    }
+  },
+  "monsterfeatures-horrifying-visage-dmg": {
+    "name": "Przerażający obraz",
+    "data": {
+      "name": "Przerażający obraz",
+      "example": "Banshee",
+      "effect": "Każda nieumarła, wybrana przez nią istota w zasięgu musi wykonać rzut obronny na Mądrość, w przeciwnym razie zostanie przerażona przez 1 minutę.",
+      "hp": "Math.floor((oczekiwaneCr <= 10) ? hp * 0,25 : 0)"
+    }
+  },
+  "monsterfeatures-frightful-presence-dmg": {
+    "name": "Przerażająca obecność",
+    "data": {
+      "name": "Przerażająca obecność",
+      "example": "Starożytny Złoty Smok",
+      "effect": "Każde wybrane przez siebie stworzenie w zasięgu musi wykonać rzut obronny na Mądrość, w przeciwnym razie zostanie przestraszone na 1 minutę.",
+      "hp": "Math.floor((oczekiwaneCr <= 10) ? hp * 0,25 : 0)"
+    }
+  },
+  "monsterfeatures-angelic-weapons-dmg": {
+    "name": "Anielska broń",
+    "data": {
+      "name": "Anielska broń",
+      "example": "Deva",
+      "effect": "Ataki broni tego stworzenia są magiczne. Kiedy stworzenie uderza jakąkolwiek bronią, broń ta zadaje dodatkowe obrażenia od promieniowania. Wprowadź dodatkowe obrażenia na rundę.",
+      "dpr": "cecha",
+      "hasNumberParam": true
+    }
+  },
+  "monsterfeatures-damage-transfer-dmg": {
+    "name": "Przeniesienie szkód",
+    "data": {
+      "name": "Przeniesienie szkód",
+      "example": "Cloaker",
+      "effect": "Kiedy dołączysz lub złapiesz stworzenie, stworzenie to otrzymuje tylko połowę zadanych mu obrażeń (zaokrąglając w dół), a drugie stworzenie otrzymuje drugą połowę.",
+      "hp": "KM",
+      "dpr": "hpRzeczywiste * 0,33"
+    }
+  },
+  "monsterfeatures-martial-advantage-dmg": {
+    "name": "Przewaga bojowa",
+    "data": {
+      "name": "Przewaga bojowa",
+      "example": "Chochlik",
+      "effect": "Stworzenie może zadać dodatkowe obrażenia trafionemu stworzeniu, jeśli znajduje się ono w odległości 5 stóp od sojusznika tego stworzenia, które nie jest obezwładnione. Wprowadź dodatkowe obrażenia zadawane w każdej rundzie.",
+      "dpr": "cecha",
+      "hasNumberParam": true
+    }
+  },
+  "monsterfeatures-nimble-escape-dmg": {
+    "name": "Zwinna ucieczka",
+    "data": {
+      "name": "Zwinna ucieczka",
+      "example": "Chochlik",
+      "effect": "Stworzenie może wykonać akcję Wycofania się lub Ukrycia jako akcję dodatkową w każdej swojej turze.",
+      "ac": "4",
+      "attackBonus": "4"
+    }
+  },
+  "monsterfeatures-magic-resistance-dmg": {
+    "name": "Odporność na magię",
+    "data": {
+      "name": "Odporność na magię",
+      "example": "Balora",
+      "effect": "Stworzenie ma przewagę w rzutach obronnych przeciwko zaklęciom i innym efektom magicznym.",
+      "ac": "2"
+    }
+  },
+  "monsterfeatures-heated-body-dmg": {
+    "name": "Rozgrzane ciało",
+    "data": {
+      "name": "Rozgrzane ciało",
+      "example": "Azer",
+      "effect": "Dotknięcie lub uderzenie stworzenia w promieniu 5 stóp od niego powoduje obrażenia.",
+      "dpr": "cecha",
+      "hasNumberParam": true
+    }
+  },
+  "monsterfeatures-pack-tactics-dmg": {
+    "name": "Taktyka pakowania",
+    "data": {
+      "name": "Taktyka pakowania",
+      "example": "Kobold",
+      "effect": "Stworzenie ma przewagę w rzucie ataku przeciwko stworzeniu, jeśli przynajmniej jeden z jego sojuszników znajduje się w promieniu 5 stóp od stworzenia, a sojusznik nie jest obezwładniony.",
+      "attackBonus": "1"
+    }
+  },
+  "monsterfeatures-possession-dmg": {
+    "name": "Posiadanie",
+    "data": {
+      "name": "Posiadanie",
+      "example": "Duch",
+      "effect": "Stworzenie może kontrolować inne stworzenie i w tym czasie nie może być celem prawie żadnego efektu.",
+      "hp": "KM"
+    }
+  },
+  "monsterfeatures-legendary-resistance-dmg": {
+    "name": "Legendarny ruch oporu",
+    "data": {
+      "name": "Legendarny ruch oporu",
+      "example": "Tarrasque",
+      "effect": "Jeśli stworzeniu nie powiedzie się rzut obronny, może zamiast tego zdecydować się na sukces. Wprowadź liczbę zastosowań dziennie.",
+      "hp": "((oczekiwaneCr >= 0 && oczekiwaneCr <= 4) ? 10*cecha: ((oczekiwaneCr >= 5 && oczekiwaneCr <= 10) ? 20*cecha: ((oczekiwaneCr >= 11) ? 30*cecha : 0)))",
+      "hasNumberParam": true
+    }
+  },
+  "monsterfeatures-shadow-stealth-dmg": {
+    "name": "Ukrycie Cienia",
+    "data": {
+      "name": "Ukrycie Cienia",
+      "example": "Demon Cienia",
+      "effect": "Będąc w przyćmionym świetle lub ciemności, istota może wykonać akcję {@action Hide} jako akcję dodatkową.",
+      "ac": "4"
+    }
+  },
+  "monsterfeatures-stench-dmg": {
+    "name": "Smród",
+    "data": {
+      "name": "Smród",
+      "example": "Troglodyta",
+      "effect": "Każde stworzenie inne niż potwór w promieniu 5 stóp od niego musi wykonać rzut obronny, w przeciwnym razie zostanie otrute.",
+      "ac": "1"
+    }
+  },
+  "monsterfeatures-superior-invisibility-dmg": {
+    "name": "Doskonała niewidzialność",
+    "data": {
+      "name": "Doskonała niewidzialność",
+      "example": "Pixie",
+      "effect": "Stworzenie może stać się niewidzialne w ramach akcji lub akcji dodatkowej.",
+      "ac": "2"
+    }
+  },
+  "monsterfeatures-regeneration-dmg": {
+    "name": "Regeneracja",
+    "data": {
+      "name": "Regeneracja",
+      "example": "Troll",
+      "effect": "Na początku tury stworzenie odzyskuje punkty wytrzymałości i nie może zostać zabite, dopóki ten efekt nie zostanie w jakiś sposób złagodzony, zwykle poprzez obrażenia od kwasu lub ognia. Wpisz, ile punktów wytrzymałości odzyskuje na początku swojej tury.",
+      "hp": "cecha*3",
+      "hasNumberParam": true
+    }
+  },
+  "monsterfeatures-web-dmg": {
+    "name": "Sieć",
+    "data": {
+      "name": "Sieć",
+      "example": "Gigantyczny Pająk",
+      "effect": "Atak bronią dystansową, który przy trafieniu powstrzymuje cel.",
+      "ac": "1"
+    }
+  },
+  "monsterfeatures-parry-dmg": {
+    "name": "Parowanie",
+    "data": {
+      "name": "Parowanie",
+      "example": "Hobgobliński watażka",
+      "effect": "Istota dodaje swoją premię za biegłość do swojego KP przeciwko jednemu atakowi wręcz, który uderzyłby ją w reakcji.",
+      "ac": "1"
+    }
+  },
+  "monsterfeatures-relentless-dmg": {
+    "name": "Nieustępliwy",
+    "data": {
+      "name": "Nieustępliwy",
+      "example": "Dzik",
+      "effect": "Jeśli istota miałaby zostać zredukowana do 0 punktów wytrzymałości, istnieje szansa, że ​​zamiast tego może zostać zredukowana tylko do 1.",
+      "hp": "((oczekiwaneCr >= 0 && oczekiwaneCr <= 4) ? 7 : ((oczekiwaneCr >= 5 && oczekiwaneCr <= 10) ? 14 : ((oczekiwaneCr >= 11 && oczekiwaneCr <= 16) ? 21 : ((oczekiwaneCr >= 17) ? 28 : 0))))"
+    }
+  },
+  "monsterfeatures-undead-fortitude-dmg": {
+    "name": "Nieumarła siła",
+    "data": {
+      "name": "Nieumarła siła",
+      "example": "Bałwan",
+      "effect": "Jeśli punkty wytrzymałości stworzenia zostałyby zredukowane do 0, istnieje szansa, że ​​zamiast tego można je zmniejszyć tylko do 1. Ta cecha jest zanegowana, jeśli obrażenia pochodzą od promiennej natury.",
+      "hp": "((oczekiwaneCr >= 0 && oczekiwaneCr <= 4) ? 7 : ((oczekiwaneCr >= 5 && oczekiwaneCr <= 10) ? 14 : ((oczekiwaneCr >= 11 && oczekiwaneCr <= 16) ? 21 : ((oczekiwaneCr >= 17) ? 28 : 0))))"
+    }
+  }
+}

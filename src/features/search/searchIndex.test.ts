@@ -34,4 +34,10 @@ describe('search index scoring', () => {
     ]);
     expect(searchResults(pool, '   ')).toEqual([]);
   });
+
+  it('matches Polish names without diacritics', () => {
+    expect(searchResults([result('Człowiek')], 'Czlow')).toEqual([
+      expect.objectContaining({ name: 'Człowiek' }),
+    ]);
+  });
 });

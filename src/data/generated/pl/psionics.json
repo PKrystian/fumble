@@ -1,0 +1,2939 @@
+{
+  "psionic-blade-meld-uathemysticclass": {
+    "name": "Połączenie ostrzy",
+    "data": {
+      "name": "Połączenie ostrzy",
+      "source": "UATheMysticClass",
+      "page": 27,
+      "type": "T",
+      "entries": [
+        "Jako akcja dodatkowa, jednoręczna broń do walki wręcz, którą trzymasz, staje się jedną z twojej ręki. Przez następną minutę nie możesz puścić broni ani wyrwać jej z uścisku."
+      ]
+    }
+  },
+  "psionic-beacon-uathemysticclass": {
+    "name": "Latarnia morska",
+    "data": {
+      "name": "Latarnia morska",
+      "source": "UATheMysticClass",
+      "page": 27,
+      "type": "T",
+      "entries": [
+        "Jako akcja dodatkowa powodujesz, że jasne światło promieniuje z twojego ciała w promieniu 20 stóp i przyćmione światło na dodatkowe 20 stóp. Światło można dowolnie kolorować. Światło trwa 1 godzinę i możesz je wcześniej zgasić jako akcję bonusową."
+      ]
+    }
+  },
+  "psionic-blind-spot-uathemysticclass": {
+    "name": "Ślepy punkt",
+    "data": {
+      "name": "Ślepy punkt",
+      "source": "UATheMysticClass",
+      "page": 27,
+      "type": "T",
+      "entries": [
+        "W ramach akcji wymazujesz swój obraz z umysłu jednej istoty, którą widzisz w promieniu 30 metrów od ciebie; cel musi odnieść sukces w rzucie obronnym na Mądrość, w przeciwnym razie jesteś wobec niego {@condition invisible} do końca twojej następnej tury."
+      ]
+    }
+  },
+  "psionic-adaptive-body-uathemysticclass": {
+    "name": "Ciało adaptacyjne",
+    "data": {
+      "name": "Ciało adaptacyjne",
+      "source": "UATheMysticClass",
+      "page": 10,
+      "type": "D",
+      "order": "Nieśmiertelny",
+      "entries": [
+        "Możesz zmienić swoje ciało, aby dopasować je do otoczenia, co pozwoli ci wytrzymać karzące środowiska. Dzięki większej energii psi możesz rozszerzyć tę ochronę na innych."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, nie musisz jeść, oddychać ani spać. Aby zyskać korzyści z długiego odpoczynku, możesz przeznaczyć 8 godzin na lekką aktywność, zamiast spać w jej trakcie.",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Adaptacja środowiskowa",
+          "entries": [
+            "W ramach akcji ty lub dotknięta przez ciebie istota ignorujesz skutki ekstremalnego gorąca lub zimna (ale nie obrażeń od zimna lub ognia) przez następną godzinę."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "name": "Tarcza adaptacyjna",
+          "entries": [
+            "Kiedy otrzymujesz obrażenia od kwasu, zimna, ognia, błyskawicy lub grzmotu, możesz wykorzystać swoją reakcję, aby zyskać odporność na obrażenia tego typu – łącznie z obrażeniami aktywującymi – do końca swojej następnej tury."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Adaptacja energetyczna",
+          "entries": [
+            "W ramach akcji możesz dotknąć jednego stworzenia i nadać mu odporność na obrażenia od kwasu, zimna, ognia, błyskawic lub grzmotów (twój wybór), która trwa do końca twojego {@status concentration}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Odporność energetyczna",
+          "entries": [
+            "W ramach akcji możesz dotknąć jednego stworzenia i zapewnić mu odporność na obrażenia od kwasu, zimna, ognia, błyskawic lub grzmotów (twój wybór), która trwa do zakończenia {@status concentration}."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-brute-force-uathemysticclass": {
+    "name": "Brutalna siła",
+    "data": {
+      "name": "Brutalna siła",
+      "source": "UATheMysticClass",
+      "page": 11,
+      "type": "D",
+      "order": "Nieśmiertelny",
+      "entries": [
+        "Zwiększasz swoją naturalną siłę energią psioniczną, dając ci możliwość dokonywania niesamowitych wyczynów mocy."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w testach Siły ({@skill Athletics}).",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Brutalne uderzenie",
+          "entries": [
+            "Jako akcja dodatkowa otrzymujesz premię do następnego rzutu na obrażenia przeciwko celowi, który trafisz atakiem wręcz w bieżącej turze. Premia wynosi +{@scaledamage 1d6|1-7|1d6|psi} za każdy wydany punkt psi, a dodatkowe obrażenia są tego samego typu co atak. Jeśli atak ma więcej niż jeden rodzaj obrażeń, wybierasz, którego z nich użyjesz, aby uzyskać dodatkowe obrażenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Odepchnij",
+          "entries": [
+            "Kiedy trafisz cel atakiem wręcz, możesz aktywować tę umiejętność w reakcji. Cel musi odnieść sukces w rzucie obronnym na Siłę lub zostać odrzucony na odległość 3 metrów od ciebie za każdy wydany punkt psi. Cel porusza się po linii prostej. Jeśli trafi w obiekt, ruch ten natychmiast się kończy, a cel otrzymuje {@scaledamage 1d6|1-7|1d6|psi} obrażenia tłuczące za każdy wydany punkt psi."
+          ]
+        },
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Potężny Skok",
+          "entries": [
+            "W ramach ruchu skaczesz w dowolnym kierunku na odległość do 20 stóp za każdy wydany punkt psi."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Wyczyn Siły",
+          "entries": [
+            "Jako akcja bonusowa otrzymujesz premię +5 do testów Siły do ​​końca twojej następnej tury."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-aura-sight-uathemysticclass": {
+    "name": "Wzrok aury",
+    "data": {
+      "name": "Wzrok aury",
+      "source": "UATheMysticClass",
+      "page": 10,
+      "type": "D",
+      "order": "Przebudzony",
+      "entries": [
+        "Ponownie skupiasz swój wzrok, aby zobaczyć energię otaczającą wszystkie stworzenia. Dostrzegasz aury, sygnatury energetyczne, które mogą ujawnić kluczowe elementy natury istoty."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w testach Mądrości ({@skill Insight}).",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Oceń wroga",
+          "entries": [
+            "Jako akcję dodatkową analizujesz aurę jednego stworzenia, które widzisz. Poznajesz jego aktualną całkowitą liczbę punktów wytrzymałości oraz wszystkie jego odporności, odporności i słabe punkty."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Przeczytaj Nastroje",
+          "entries": [
+            "Jako dodatkową akcję poznasz jednowyrazowe podsumowanie stanu emocjonalnego maksymalnie sześciu stworzeń, które możesz zobaczyć, takich jak szczęśliwe, zdezorientowane, przestraszone lub agresywne."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Zobacz Aurę",
+          "entries": [
+            "W ramach akcji badasz aurę jednego stworzenia. Dopóki twój {@status concentration} się nie skończy, kiedy będziesz mógł zobaczyć cel, dowiesz się, czy jest on pod wpływem jakichkolwiek efektów magicznych lub psionicznych, dowiesz się, jaki jest jego aktualny całkowity punkt życia i jego podstawowy stan emocjonalny. Dopóki ten efekt trwa, masz przewagę nad Mądrością ({@skill Insight}) i testami Charyzmy, które wykonujesz przeciwko niemu."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Dostrzegaj niewidzialne",
+          "entries": [
+            "Jako akcja bonusowa zyskujesz zdolność widzenia aury nawet {@condition invisible} lub ukrytych stworzeń. Dopóki Twój {@status concentration} się nie skończy, możesz zobaczyć wszystkie stworzenia, w tym ukryte i {@condition invisible}, niezależnie od warunków oświetlenia."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-celerity-uathemysticclass": {
+    "name": "Skwapliwość",
+    "data": {
+      "name": "Skwapliwość",
+      "source": "UATheMysticClass",
+      "page": 12,
+      "type": "D",
+      "order": "Nieśmiertelny",
+      "entries": [
+        "Kierujesz moc psioniczną do swojego ciała, doskonaląc swój refleks i zwinność do niewiarygodnego stopnia. Świat wydaje się zwalniać, podczas gdy ty poruszasz się normalnie."
+      ],
+      "focus": "Kiedy koncentrujesz się na tej dyscyplinie, Twoja prędkość chodzenia wzrasta o 3 metry.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Szybki krok",
+          "entries": [
+            "Jako akcję dodatkową zwiększasz swoją prędkość chodzenia o 3 metry za każdy punkt psi wydany do końca bieżącej tury. Jeśli masz prędkość wspinaczki lub pływania, wzrost ten dotyczy również tej prędkości."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Zwinna obrona",
+          "entries": [
+            "Jako akcję dodatkową wykonujesz akcję Uniku."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Rozmycie ruchu",
+          "entries": [
+            "W ramach akcji powodujesz, że stajesz się {@condition invisible} podczas dowolnego ruchu w bieżącej turze."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Przypływ prędkości",
+          "entries": [
+            "W ramach akcji dodatkowej zyskujesz dwie korzyści do końca bieżącej tury: nie prowokujesz ataków okazyjnych i masz prędkość wspinania równą szybkości chodzenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Fala Akcji",
+          "entries": [
+            "Jako akcję dodatkową możesz wykonać Doskok lub wykonać jeden atak bronią."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-delusion-uathemysticclass": {
+    "name": "Złudzenie",
+    "data": {
+      "name": "Złudzenie",
+      "source": "UATheMysticClass",
+      "page": 27,
+      "type": "T",
+      "entries": [
+        "W ramach akcji zaszczepiasz fałszywą wiarę w umyśle jednej istoty, którą widzisz w promieniu 60 stóp od ciebie. Możesz stworzyć dźwięk lub obraz. Tylko cel tego talentu odbiera dźwięk lub obraz, który tworzysz.",
+        "Jeśli stworzysz dźwięk, jego głośność może wahać się od szeptu do krzyku. Może to być Twój głos, głos innej osoby, ryk stworzenia, instrument muzyczny lub dowolny inny wybrany przez Ciebie dźwięk. Trwa 1 minutę.",
+        "Jeśli utworzysz obiekt, musi on mieścić się w sześcianie o boku 5 stóp i nie może się poruszać ani odbijać światła. Obraz nie może wywoływać żadnego efektu oddziałującego na zmysły inne niż wzrok. Obraz utrzymuje się przez 1 minutę i znika, jeśli stworzenie go dotknie."
+      ]
+    }
+  },
+  "psionic-bestial-form-uathemysticclass": {
+    "name": "Bestialska forma",
+    "data": {
+      "name": "Bestialska forma",
+      "source": "UATheMysticClass",
+      "page": 11,
+      "type": "D",
+      "order": "Nieśmiertelny",
+      "entries": [
+        "Przemieniasz swoje ciało, zyskując cechy różnych bestii."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w testach Mądrości ({@skill Animal Handling}).",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Bestialne pazury",
+          "entries": [
+            "Na chwilę manifestujesz długie pazury i wykonujesz atak bronią białą przeciwko jednej istocie w promieniu 5 stóp od ciebie. Po trafieniu ten atak zadaje {@scaledamage 1d10|1-7|1d10|psi} obrażenia tnące za każdy wydany punkt psi."
+          ]
+        },
+        {
+          "name": "Bestialska Transformacja",
+          "entries": [
+            "Jako akcja dodatkowa zmieniasz swoją formę fizyczną, aby zyskać inne cechy. Kiedy korzystasz z tej zdolności, możesz wybrać jeden lub więcej z poniższych efektów. Każdy efekt ma swój własny koszt w punktach psi. Dodaj je do siebie, aby określić całkowity koszt. Ta transformacja trwa 1 godzinę, aż do śmierci lub do momentu zakończenia jej w ramach akcji dodatkowej."
+          ],
+          "submodes": [
+            {
+              "cost": {
+                "min": 2,
+                "max": 2
+              },
+              "name": "Amfibia",
+              "entries": [
+                "Zyskujesz skrzela; możesz oddychać powietrzem i wodą."
+              ]
+            },
+            {
+              "cost": {
+                "min": 2,
+                "max": 2
+              },
+              "name": "Wspinaczka",
+              "entries": [
+                "Wyhodujesz maleńkie haczykowate pazury, dzięki którym uzyskasz prędkość wspinania równą prędkości chodzenia."
+              ]
+            },
+            {
+              "cost": {
+                "min": 5,
+                "max": 5
+              },
+              "name": "Lot",
+              "entries": [
+                "Z twoich pleców wyrastają skrzydła. Zyskujesz prędkość lotu równą szybkości chodzenia."
+              ]
+            },
+            {
+              "cost": {
+                "min": 2,
+                "max": 2
+              },
+              "name": "Wyostrzone zmysły",
+              "entries": [
+                "Twoje oczy i uszy stają się bardziej wrażliwe. Zyskujesz przewagę w testach Mądrości ({@skill Perception})."
+              ]
+            },
+            {
+              "cost": {
+                "min": 3,
+                "max": 3
+              },
+              "name": "Doskonałe zmysły",
+              "entries": [
+                "Zyskujesz wyostrzony zmysł węchu i instynkt wykrywania ofiary. Możesz zobaczyć stworzenia i przedmioty {@condition invisible} w promieniu 3 stóp od ciebie, nawet jeśli jesteś {@condition blinded}."
+              ]
+            },
+            {
+              "cost": {
+                "min": 2,
+                "max": 2
+              },
+              "name": "Pływacki",
+              "entries": [
+                "Zyskujesz płetwy i błony między palcami u rąk i nóg; zyskujesz prędkość pływania równą prędkości chodzenia."
+              ]
+            },
+            {
+              "cost": {
+                "min": 2,
+                "max": 2
+              },
+              "name": "Twarda skóra",
+              "entries": [
+                "Twoja skóra staje się twarda jak skóra; zyskujesz premię +2 do KP."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-corrosive-metabolism-uathemysticclass": {
+    "name": "Metabolizm żrący",
+    "data": {
+      "name": "Metabolizm żrący",
+      "source": "UATheMysticClass",
+      "page": 12,
+      "type": "D",
+      "order": "Nieśmiertelny",
+      "entries": [
+        "Twoja kontrola nad swoim ciałem pozwala ci dostarczać ataki kwasem lub trucizną."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, zyskujesz odporność na obrażenia od kwasów i trucizn.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Żrący dotyk",
+          "entries": [
+            "W ramach akcji dostarczasz odrobinę kwasu jednej istocie w twoim zasięgu. Cel musi wykonać rzut obronny na Zręczność, otrzymując {@scaledamage 1d10|1-7|1d10|psi} obrażenia od kwasu za każdy punkt psi wydany na nieudany rzut obronny lub o połowę mniej w przypadku udanego rzutu."
+          ]
+        },
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Uderzenie Jadu",
+          "entries": [
+            "W ramach akcji tworzysz trujący spray, którego celem jest jedno stworzenie, które widzisz w promieniu 30 stóp od ciebie. Cel musi wykonać rzut obronny na Kondycję. W przypadku nieudanego zapisu obrażenia od trucizny otrzymują {@scaledamage 1d6|1-7|1d6|psi} za każdy wydany punkt psi i wynoszą {@condition poisoned} do końca twojej następnej tury. Po udanym rzucie cel otrzymuje o połowę mniejsze obrażenia i nie jest {@condition poisoned}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Kwaśny spray",
+          "entries": [
+            "W reakcji na otrzymanie obrażeń kłutych lub tnących powodujesz wytrysk kwasu z rany; każde stworzenie w promieniu 5 stóp od ciebie otrzymuje {@damage 2d6} obrażenia od kwasu."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Oddech Czarnego Smoka",
+          "entries": [
+            "Wydychasz falę kwasu w linii o długości 60 stóp i szerokości 5 stóp. Każde stworzenie w linii musi wykonać rzut obronny na Kondycję, zadając obrażenia od kwasu {@damage 6d6} w przypadku nieudanego rzutu lub o połowę mniej w przypadku udanego rzutu. Możesz zwiększyć obrażenia o {@scaledamage 6d6|5-7|1d6|psi} za każdy dodatkowy wydany na nie punkt psi."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "name": "Oddech Zielonego Smoka",
+          "entries": [
+            "Wydychasz chmurę trucizny w stożku o długości 30 metrów. Każde stworzenie w linii musi wykonać rzut obronny na Kondycję, zadając obrażenia od trucizny {@damage 10d6} w przypadku nieudanego rzutu lub o połowę mniej w przypadku udanego rzutu."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-crown-of-despair-uathemysticclass": {
+    "name": "Korona rozpaczy",
+    "data": {
+      "name": "Korona rozpaczy",
+      "source": "UATheMysticClass",
+      "page": 12,
+      "type": "D",
+      "order": "Awatara",
+      "entries": [
+        "Nauczyłeś się zbierać nasiona rozpaczy w psychice istoty, niszcząc ją zwątpieniem i biernością."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w testach Charyzmy ({@skill Intimidation}).",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Koronowany w smutku",
+          "entries": [
+            "W ramach akcji jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie, musi wykonać rzut obronny na Charyzmę. W przypadku nieudanego rzutu obronnego otrzymuje {@damage 1d8} obrażeń psychicznych za każdy wydany punkt psi i nie może przyjmować reakcji aż do początku swojej następnej tury. Przy udanym rzucie zadaje o połowę mniejsze obrażenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Wezwanie do bezczynności",
+          "entries": [
+            "Jeśli spędzisz 1 minutę na rozmowie ze stworzeniem, możesz spróbować zaszczepić je wszechogarniającą nudą. Na koniec minuty możesz użyć akcji, aby zmusić stworzenie do wykonania rzutu obronnego na Mądrość. Zapis zakończy się automatycznie sukcesem, jeśli cel jest odporny na {@condition charmed}. W przypadku nieudanego zapisu siedzi i ma wartość {@condition incapacitated}, aż do zakończenia {@status concentration}. Efekt ten natychmiast się kończy, jeśli cel lub dowolny widziany przez niego sojusznik zostanie zaatakowany lub otrzyma obrażenia. Po udanym rzucie na istotę nie ma to żadnego wpływu i nie ma pojęcia, że ​​próbujesz nagiąć jej wolę."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "name": "Wizje rozpaczy",
+          "entries": [
+            "W ramach akcji zmuszasz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie, do wykonania rzutu obronnego na Charyzmę. W przypadku nieudanego rzutu obronnego otrzymuje obrażenia psychiczne {@damage 3d6}, a jego prędkość zostaje zmniejszona do 0 do końca następnej tury. Przy udanym rzucie zadaje o połowę mniejsze obrażenia. Możesz zwiększyć obrażenia o {@scaledamage 3d6|3-7|1d6|psi} za każdy dodatkowy wydany na nie punkt psi."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Smutny Umysł",
+          "entries": [
+            "Jako akcję wybierasz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Musi zakończyć się sukcesem w rzucie obronnym na Charyzmę, w przeciwnym razie będzie to {@condition incapacitated} i będzie miał prędkość 0 do czasu zakończenia twojego {@status concentration}. Może powtórzyć ten rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie w przypadku sukcesu."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-energy-beam-uathemysticclass": {
+    "name": "Promień Energii",
+    "data": {
+      "name": "Promień Energii",
+      "source": "UATheMysticClass",
+      "page": 27,
+      "type": "T",
+      "entries": [
+        "W ramach akcji obierasz za cel jedno stworzenie, które widzisz w promieniu 30 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Zręczność lub otrzymać {@damage 1d8} obrażenia od kwasu, zimna, ognia, błyskawicy lub grzmotu (twój wybór).",
+        "Obrażenia talentu zwiększają się o {@damage 1d8} po osiągnięciu 5. poziomu ({@damage 2d8}), 11. poziomu ({@damage 3d8}) i 17. poziomu ({@damage 4d8})."
+      ]
+    }
+  },
+  "psionic-crown-of-rage-uathemysticclass": {
+    "name": "Korona wściekłości",
+    "data": {
+      "name": "Korona wściekłości",
+      "source": "UATheMysticClass",
+      "page": 13,
+      "type": "D",
+      "order": "Awatara",
+      "entries": [
+        "Umieszczasz cząstkę czystej wściekłości w umyśle stworzenia, powodując, że jego żądza krwi przezwycięża zmysły i sprawia, że ​​zachowuje się tak, jak sobie tego życzysz."
+      ],
+      "focus": "Kiedy jesteś skupiony na tej dyscyplinie, każdy wróg w promieniu 5 stóp od ciebie, który wykonuje atak wręcz, rzuca rzut przeciwko stworzeniom innym niż ty, robi to z niekorzyścią",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Pierwotna Furia",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Charyzmę lub otrzymać {@scaledamage 1d6|1-7|1d6|psi} obrażenia psychiczne za każdy punkt psi wydany na tę umiejętność i natychmiast wykorzystać swoją reakcję, aby przesunąć swoją prędkość w linii prostej w stronę najbliższego wroga. Zapis zakończy się automatycznie sukcesem, jeśli cel jest odporny na {@condition charmed}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Walczące słowa",
+          "entries": [
+            "Jeśli spędzisz 1 minutę na rozmowie ze stworzeniem, możesz spróbować pozostawić w jego umyśle wrzącą przemoc. Na koniec minuty możesz użyć akcji, aby zmusić stworzenie do wykonania rzutu obronnego na Mądrość, aby oprzeć się gwałtownym popędom przeciwko jednemu stworzeniu, które mu opisujesz lub nazywasz. Zapis zakończy się automatycznie sukcesem, jeśli cel jest odporny na {@condition charmed}. W przypadku nieudanego rzutu obronnego cel atakuje wybrane stworzenie, jeśli zobaczy je przed zakończeniem twojego {@status concentration}, używając broni lub zaklęć przeciwko stworzeniu, do którego był już wrogi, lub uderza bez broni przeciwko sojusznikowi lub stworzeniu, wobec którego był neutralny. Gdy walka się rozpocznie, atak będzie kontynuowany przez 5 rund, zanim ten efekt się skończy. Efekt ten natychmiast się kończy, jeśli cel lub dowolny widziany przez niego sojusznik zostanie zaatakowany lub otrzyma obrażenia od jakiejkolwiek istoty innej niż ta, przeciwko której został podburzony. Po udanym rzucie na istotę nie ma to żadnego wpływu i nie ma pojęcia, że ​​próbujesz nagiąć jej wolę."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Bezmyślna odwaga",
+          "entries": [
+            "Sprawiasz, że żądza krwi istoty przezwycięża jej poczucie przetrwania. Jako akcję dodatkową wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Mądrość, w przeciwnym razie do końca twojej następnej tury nie może się dobrowolnie poruszyć, chyba że jego ruch zbliży go do najbliższego wroga, którego widzi. Zapis zakończy się automatycznie sukcesem, jeśli cel jest odporny na {@condition charmed}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Karząca Furia",
+          "entries": [
+            "Sprawiasz, że wściekłość stworzenia staje się tak gorąca, że ​​atakuje, nie zważając na własne bezpieczeństwo. Jako akcję dodatkową wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Mądrość lub, do czasu zakończenia {@status concentration}, dowolna istota w promieniu 5 stóp od niego może użyć reakcji, aby wykonać atak wręcz za każdym razem, gdy cel wykona atak wręcz. Zapis zakończy się automatycznie sukcesem, jeśli cel jest odporny na {@condition charmed}."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-diminution-uathemysticclass": {
+    "name": "Zmniejszenie",
+    "data": {
+      "name": "Zmniejszenie",
+      "source": "UATheMysticClass",
+      "page": 14,
+      "type": "D",
+      "order": "Nieśmiertelny",
+      "entries": [
+        "Manipulujesz materią, z której składa się twoje ciało, drastycznie zmniejszając swój rozmiar, nie rezygnując przy tym ze swojej mocy."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w testach Zręczności ({@skill Stealth}).",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Miniaturowa forma",
+          "entries": [
+            "W ramach akcji dodatkowej staniesz się Mały do ​​czasu zakończenia {@status concentration}. W tym rozmiarze zyskujesz premię +5 do testów Zręczności ({@skill Stealth}) i możesz przechodzić przez szczeliny o średnicy do 6 cali bez ściskania."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Przewracająca się zmiana",
+          "entries": [
+            "Jako dodatkowa akcja, zmieniasz się do niewiarygodnie małego rozmiaru, a następnie nagle wracasz do normalnego stanu, wyrzucając przeciwnika w tył. Wybierz jedno stworzenie, które widzisz w promieniu 5 stóp od ciebie. Musi odnieść sukces w rzucie obronnym na Siłę, w przeciwnym razie zostanie powalony {@condition prone}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Nagła zmiana",
+          "entries": [
+            "W reakcji na atak zmniejszasz rozmiar do rozmiaru minutowego, aby uniknąć ataku. Atak chybia, a ty poruszasz się na odległość do 1,5 metra bez prowokowania ataków okazyjnych, zanim powrócisz do normalnego rozmiaru."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Forma mikroskopowa",
+          "entries": [
+            "W ramach akcji dodatkowej stajesz się mniejszy od Tiny'ego, aż do zakończenia {@status concentration}. W tym rozmiarze zyskujesz premię +10 do testów Zręczności ({@skill Stealth}) i premię +5 do KP, możesz poruszać się przez szczeliny o średnicy do 1 cala bez ściskania i nie możesz wykonywać ataków bronią."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-crown-of-disgust-uathemysticclass": {
+    "name": "Korona obrzydzenia",
+    "data": {
+      "name": "Korona obrzydzenia",
+      "source": "UATheMysticClass",
+      "page": 13,
+      "type": "D",
+      "order": "Awatara",
+      "entries": [
+        "Sprawiasz, że stworzenie zalewają emocje obrzydzenia."
+      ],
+      "focus": "Kiedy jesteś skupiony na tej dyscyplinie, obszar w promieniu 5 stóp wokół ciebie to {@quickref difficult terrain||3} dla każdego wroga, który nie jest odporny na bycie {@condition frightened}.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Oko grozy",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Charyzmę. W przypadku nieudanego rzutu obronnego otrzymuje {@scaledamage 1d6|1-7|1d6|psi} obrażeń psychicznych za każdy wydany punkt psi i nie może zbliżyć się do ciebie aż do końca swojej następnej tury. Przy udanym rzucie zadaje o połowę mniejsze obrażenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Ściana Odpychania",
+          "entries": [
+            "W ramach akcji tworzysz niewidzialną, nieistotną ścianę energii w promieniu 60 stóp od ciebie, która ma do 30 stóp długości, 3 stóp wysokości i 1 stopę grubości. Ściana będzie trwała aż do końca Twojego {@status concentration}. Każde stworzenie próbujące przez nie przejść musi wykonać rzut obronny na Mądrość. W przypadku nieudanego rzutu obronnego, istota nie może przejść przez ścianę aż do rozpoczęcia swojej następnej tury. Po udanym rzucie, istota może przez nią przejść. Istota musi wykonać ten rzut obronny za każdym razem, gdy próbuje przejść przez ścianę, czy tego chce, czy nie."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Wizje obrzydzenia",
+          "entries": [
+            "Sprawiasz, że stworzenie uważa wszystkie inne istoty za okropne, obce istoty. Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Mądrość. W przypadku nieudanego rzutu obronnego otrzymuje obrażenia psychiczne {@damage 5d6} i dopóki {@status concentration} się nie skończy, na koniec każdej swojej tury otrzymuje obrażenia psychiczne {@damage 1d6} na każdą istotę w promieniu 5 stóp od niej. Po udanym rzucie obronnym cel otrzymuje tylko połowę początkowych obrażeń i nie podlega żadnym innym efektom."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Świat Horroru",
+          "entries": [
+            "Jako akcję wybierz maksymalnie sześć stworzeń w promieniu 60 stóp od ciebie. Każdy cel musi wykonać rzut obronny na Charyzmę. W przypadku nieudanego rzutu obronnego, cel otrzymuje {@damage 8d6} obrażenia psychiczne i pozostaje ono {@condition frightened} do czasu zakończenia {@status concentration}. Po udanym rzucie obronnym cel otrzymuje o połowę mniejsze obrażenia. Podczas gdy {@condition frightened} przez ten efekt, prędkość celu zostaje zmniejszona do 0, a cel może wykorzystać swoją akcję oraz jakąkolwiek dodatkową akcję, którą może posiadać, tylko do wykonywania ataków wręcz. Cel {@condition frightened} może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie sukcesem."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-giant-growth-uathemysticclass": {
+    "name": "Gigantyczny wzrost",
+    "data": {
+      "name": "Gigantyczny wzrost",
+      "source": "UATheMysticClass",
+      "page": 14,
+      "type": "D",
+      "order": "Nieśmiertelny",
+      "entries": [
+        "Napełniasz się energią psioniczną, aby urosnąć do ogromnych rozmiarów, zwiększając swoją siłę i wytrzymałość."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, twój zasięg zwiększa się o 5 stóp.",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Forma Ogra",
+          "entries": [
+            "Jako akcja bonusowa zyskujesz 10 tymczasowych punktów wytrzymałości. Dodatkowo, dopóki twój {@status concentration} się nie skończy, twoje ataki bronią białą zadają dodatkowe obrażenia obuchowe {@damage 1d4} przy trafieniu, a twój zasięg wzrasta o 5 stóp. Jeśli jesteś mniejszy niż Duży, na czas trwania efektu również stajesz się Duży."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Gigantyczna forma",
+          "entries": [
+            "Jako akcja bonusowa zyskujesz 30 tymczasowych punktów wytrzymałości. Dodatkowo, dopóki twój {@status concentration} się nie skończy, twoje ataki bronią białą zadają dodatkowe obrażenia obuchowe {@damage 2d6} przy trafieniu, a twój zasięg wzrasta o 3 metry. Jeśli jesteś mniejszy od Ogromnego, na pewien czas także stajesz się Wielkim."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-light-step-uathemysticclass": {
+    "name": "Lekki krok",
+    "data": {
+      "name": "Lekki krok",
+      "source": "UATheMysticClass",
+      "page": 27,
+      "type": "T",
+      "entries": [
+        "Jako akcja dodatkowa zmieniasz swoją gęstość i wagę, aby poprawić swoją mobilność. Przez resztę twojej tury twoja prędkość chodzenia wzrasta o 3 metry, a kiedy po raz pierwszy wstajesz w tej turze, robisz to bez wydawania żadnego ruchu, jeśli twoja prędkość jest większa niż 0."
+      ]
+    }
+  },
+  "psionic-iron-durability-uathemysticclass": {
+    "name": "Trwałość żelaza",
+    "data": {
+      "name": "Trwałość żelaza",
+      "source": "UATheMysticClass",
+      "page": 15,
+      "type": "D",
+      "order": "Nieśmiertelny",
+      "entries": [
+        "Przemieniasz swoje ciało w żywy metal, co pozwala ci odpierać ataki, które okaleczają słabsze stworzenia."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, zyskujesz premię +1 do KP.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Żelazna skóra",
+          "entries": [
+            "W reakcji na trafienie atakiem otrzymujesz premię +1 do KP za każdy punkt psi wydany na tę umiejętność. Bonus trwa do końca Twojej następnej tury. Premia ta dotyczy ataku wyzwalającego."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Stalowa skóra",
+          "entries": [
+            "Jako akcję dodatkową zyskujesz odporność na obrażenia obuchowe, kłute i sieczne do końca swojej następnej tury."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Odporność na żelazo",
+          "entries": [
+            "W ramach akcji zyskujesz odporność na obrażenia tłuczone, kłute lub tnące (twój wybór), która trwa do końca twojego {@status concentration}."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-intellect-fortress-uathemysticclass": {
+    "name": "Twierdza Intelektu",
+    "data": {
+      "name": "Twierdza Intelektu",
+      "source": "UATheMysticClass",
+      "page": 14,
+      "type": "D",
+      "order": "Przebudzony",
+      "entries": [
+        "Tworzysz wokół swojego umysłu niezłomną ścianę psionicznej energii, która pozwala ci przeprowadzać kontrataki na przeciwników."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, zyskujesz odporność na obrażenia psychiczne.",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Reakcja psychiczna",
+          "entries": [
+            "W reakcji możesz nałożyć na siebie niekorzystną sytuację w rzucie ataku, jeśli widzisz atakującego. Jeśli atak nadal cię uderza, atakujący otrzymuje {@damage 2d10} obrażenia psychiczne."
+          ]
+        },
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Parowanie psychiczne",
+          "entries": [
+            "W reakcji na wykonanie rzutu obronnego na Inteligencję, Mądrość lub Charyzmę otrzymujesz premię +1 do tego rzutu obronnego za każdy punkt psi wydany na tę umiejętność. Możesz użyć tej zdolności po rzucie kostką, ale zanim odniesiesz skutki."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Reduta psychiczna",
+          "entries": [
+            "W ramach działania tworzysz pole ochronnej energii psychicznej. Wybierz dowolną liczbę stworzeń w promieniu 30 stóp od ciebie. Do czasu zakończenia {@status concentration} każdy cel ma odporność na obrażenia psychiczne i przewagę w rzutach obronnych na Inteligencję, Mądrość i Charyzmę."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mantle-of-fear-uathemysticclass": {
+    "name": "Płaszcz Strachu",
+    "data": {
+      "name": "Płaszcz Strachu",
+      "source": "UATheMysticClass",
+      "page": 16,
+      "type": "D",
+      "order": "Awatara",
+      "entries": [
+        "Sięgasz do źródła pierwotnego strachu i zamieniasz się w latarnię terroru dla swoich wrogów."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w testach Charyzmy ({@skill Intimidation}).",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Wzbudzać strach",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Mądrość lub stać się {@condition frightened} ciebie, aż do zakończenia twojego {@status concentration}. Ilekroć cel {@condition frightened} zakończy swoją turę w miejscu, w którym cię nie widzi, może powtórzyć rzut obronny, kończąc efekt na sobie."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Niepokojąca aura",
+          "entries": [
+            "Jako akcja dodatkowa okrywasz się niepokojącą energią psychiczną. Dopóki twoje {@status concentration} się nie skończy, każdy wróg w promieniu 60 stóp od ciebie, który cię widzi, musi wydać 1 dodatkową stopę ruchu za każdą stopę, którą poruszy w twoją stronę. Stworzenie ignoruje ten efekt, jeśli jest odporne na bycie {@condition frightened}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Wzniecać panikę",
+          "entries": [
+            "Jako akcję wybierz maksymalnie osiem stworzeń, które widzisz w promieniu 30 stóp od ciebie i które mogą cię widzieć. Na początku każdej tury celu, przed zakończeniem {@status concentration}, cel musi wykonać rzut obronny na Mądrość. W przypadku nieudanego zapisu celem jest {@condition frightened} aż do rozpoczęcia następnej tury, a ty rzucasz kostką. Jeśli wyrzucisz nieparzystą liczbę, cel {@condition frightened} porusza się o połowę swojej prędkości w losowym kierunku i nie wykonuje w tej turze żadnej akcji poza krzykiem z przerażenia. Jeśli wyrzucisz parzystą liczbę, cel {@condition frightened} wykonuje jeden atak wręcz przeciwko losowemu celowi w jego zasięgu. Jeśli nie ma takiego celu, porusza się o połowę swojej prędkości w losowym kierunku i nie wykonuje w tej turze żadnej akcji. Efekt ten kończy się na celu, jeśli uda mu się wykonać przeciwko niemu trzy rzuty obronne."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mantle-of-awe-uathemysticclass": {
+    "name": "Płaszcz Grozy",
+    "data": {
+      "name": "Płaszcz Grozy",
+      "source": "UATheMysticClass",
+      "page": 15,
+      "type": "D",
+      "order": "Przebudzony",
+      "entries": [
+        "Uczysz się wykorzystywać energię psioniczną do manipulowania innymi za pomocą subtelnej kombinacji psi i własnego, naturalnego uroku."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, zyskujesz premię do testów Charyzmy. Premia równa się połowie twojego modyfikatora Inteligencji (minimum +1).",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Urocza obecność",
+          "entries": [
+            "W ramach działania wywierasz aurę współczującej mocy. Rzuć {@dice 2d8} za każdy punkt psi wydany na tę umiejętność; suma oznacza, na ile punktów wytrzymałości stworzeń może wpłynąć ta opcja. Na stworzenia w promieniu 30 stóp od ciebie wpływa rosnąca liczba ich maksymalnych punktów wytrzymałości, ignorując stworzenia {@condition incapacitated}, stworzenia odporne na {@condition charmed} i stworzenia biorące udział w walce.",
+            "Zaczynając od stworzenia, które ma najniższą maksymalną liczbę punktów wytrzymałości, każde stworzenie objęte tą opcją jest przez ciebie {@condition charmed} przez 10 minut, traktując cię jako przyjaznego znajomego. Odejmij maksymalną liczbę punktów wytrzymałości każdego stworzenia od sumy, zanim przejdziesz do następnego stworzenia. Maksymalna liczba punktów wytrzymałości istoty musi być równa lub mniejsza od pozostałej sumy, aby ta istota została dotknięta."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Centrum uwagi",
+          "entries": [
+            "W ramach akcji wywierasz aurę mocy, która przyciąga uwagę stworzenia. Wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od siebie. Musi wykonać rzut obronny na Charyzmę. W przypadku nieudanego zapisu, stworzenie jest przez ciebie tak całkowicie rozproszone, że wszystkie inne stworzenia są wobec niego {@condition invisible}, aż do zakończenia twojego {@status concentration}. Efekt ten kończy się, jeśli stworzenie nie może już cię widzieć ani słyszeć, lub jeśli otrzyma obrażenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Przywołaj Podziw",
+          "entries": [
+            "Jako działanie wywierasz aurę, która budzi podziw u innych. Wybierz maksymalnie 5 stworzeń, które widzisz w promieniu 60 stóp od siebie. Każdy cel musi odnieść sukces w rzucie obronnym na Inteligencję lub być przez ciebie {@condition charmed} do czasu zakończenia {@status concentration}. Podczas gdy {@condition charmed}, cel wykonuje wszystkie Twoje polecenia słowne najlepiej jak potrafi i nie robi nic wyraźnie autodestrukcyjnego. Cel {@condition charmed} zaatakuje tylko stworzenia, które widział, jak atakują cię od czasu, gdy był {@condition charmed} lub do których był już wrogi. Na koniec każdej swojej tury może powtórzyć rzut obronny, kończąc efekt na sobie."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mantle-of-courage-uathemysticclass": {
+    "name": "Płaszcz Odwagi",
+    "data": {
+      "name": "Płaszcz Odwagi",
+      "source": "UATheMysticClass",
+      "page": 16,
+      "type": "D",
+      "order": "Awatara",
+      "entries": [
+        "Skupiasz swój umysł na odwadze, promieniując pewnością siebie i brawurą na swoich sojuszników."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, ty i sojusznicy w promieniu 3 metrów od ciebie, którzy widzą, że masz przewagę w rzutach obronnych przeciwko byciu {@condition frightened}.",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Wzbudzaj odwagę",
+          "entries": [
+            "Jako akcję dodatkową wybierz maksymalnie sześć stworzeń, które widzisz w promieniu 60 stóp od ciebie. Jeśli którekolwiek z tych stworzeń to {@condition frightened}, warunek ten kończy się na tym stworzeniu."
+          ]
+        },
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Aura Zwycięstwa",
+          "entries": [
+            "Jako akcja dodatkowa, emitujesz energię psioniczną do momentu zakończenia {@status concentration}. Energia wzmacnia ciebie i twoich sojuszników, gdy twoi wrogowie zostaną powaleni; ilekroć wróg, którego widzisz, zostaje zredukowany do 0 punktów wytrzymałości, ty i każdy z twoich sojuszników w promieniu 30 stóp od ciebie zyskujesz tymczasowe punkty wytrzymałości równe dwukrotności punktów psi wydanych na aktywację tego efektu."
+          ]
+        },
+        {
+          "cost": {
+            "min": 6,
+            "max": 6
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "koniec"
+          },
+          "name": "Filar zaufania",
+          "entries": [
+            "W ramach akcji ty i maksymalnie pięć stworzeń, które widzisz w promieniu 60 stóp od siebie, zyskujecie jedną dodatkową akcję do wykorzystania w swoich indywidualnych turach. Akcja przepada, jeśli nie zostanie wykorzystana przed końcem twojej następnej tury. akcja może zostać wykorzystana tylko do wykonania jednego ataku bronią lub do wykonania akcji Doskoku lub Wycofania się."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mantle-of-fury-uathemysticclass": {
+    "name": "Płaszcz Furii",
+    "data": {
+      "name": "Płaszcz Furii",
+      "source": "UATheMysticClass",
+      "page": 16,
+      "type": "D",
+      "order": "Awatara",
+      "entries": [
+        "Pozwalasz, aby pierwotna furia czaiła się głęboko w twoim umyśle, wybuchła, porywając ciebie i twoich sojuszników w nieubłaganej żądzy krwi."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie w walce, ty i każdy sojusznik, który rozpoczyna swoją turę w promieniu 3 stóp od ciebie, zyskujecie podczas tej tury wzrost szybkości chodzenia o 5 stóp.",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Wzbudzaj wściekłość",
+          "entries": [
+            "Jako akcję dodatkową wybierz maksymalnie trzech sojuszników, których widzisz w promieniu 60 stóp od ciebie (możesz wybrać siebie zamiast jednego z sojuszników). Dopóki twój {@status concentration} się nie skończy, każdy cel może rzucić {@diced4} podczas rzucania obrażeń za atak bronią białą i dodać wyrzuconą liczbę do rzutu obrażeń."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Bezmyślna Szarża",
+          "entries": [
+            "Jako akcję dodatkową wybierz maksymalnie trzy stworzenia, które widzisz w promieniu 60 stóp od ciebie. Każdy cel może natychmiast wykorzystać swoją reakcję, aby poruszyć się ze swoją prędkością w linii prostej w stronę najbliższego wroga."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Aura Rozlewu Krwi",
+          "entries": [
+            "Jako akcja bonusowa wyzwalasz aurę wściekłości. Dopóki twój {@status concentration} się nie skończy, ty i każda istota w promieniu 60 stóp od ciebie macie przewagę w testach ataku wręcz."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Obezwładniająca wściekłość",
+          "entries": [
+            "W ramach akcji zalewasz wściekłość jedną istotą, którą widzisz w promieniu 60 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Charyzmę, w przeciwnym razie może wykorzystywać swoje akcje wyłącznie do wykonywania ataków wręcz, aż do zakończenia {@status concentration}. Może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie w przypadku sukcesu."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mantle-of-command-uathemysticclass": {
+    "name": "Płaszcz dowodzenia",
+    "data": {
+      "name": "Płaszcz dowodzenia",
+      "source": "UATheMysticClass",
+      "page": 15,
+      "type": "D",
+      "order": "Awatara",
+      "entries": [
+        "Wywołujesz aurę zaufania i autorytetu, poprawiając koordynację wśród sojuszników."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, kiedy zakończysz swoją turę i nie poruszysz się w jej trakcie, możesz wykorzystać swoją reakcję, aby pozwolić jednemu sojusznikowi, którego widzisz w promieniu 9 metrów od ciebie, na poruszanie się z prędkością o połowę mniejszą, podążając wybraną przez ciebie ścieżką. Aby poruszać się w ten sposób, sojusznikiem nie może być {@condition incapacitated}.",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Skoordynowany ruch",
+          "entries": [
+            "Jako akcję dodatkową wybierz maksymalnie pięciu sojuszników, których widzisz w promieniu 60 stóp od ciebie. Każdy z tych sojuszników może wykorzystać swoją reakcję, aby poruszyć się o połowę szybciej, podążając wybraną przez ciebie ścieżką."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "koniec"
+          },
+          "name": "Wzrok dowódcy",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Do początku twojej następnej tury twoi sojusznicy mają przewagę w testach ataku przeciwko temu celowi."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "name": "Rozkaz do uderzenia",
+          "entries": [
+            "Jako akcję wybierz jednego sojusznika, którego widzisz w promieniu 60 stóp od ciebie. Ten sojusznik może wykorzystać swoją reakcję, aby natychmiast wykonać akcję Ataku. Ty wybierasz cele."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Strategiczny umysł",
+          "entries": [
+            "Jako akcja wywołujesz aurę zaufania i dowodzenia, która jednoczy twoich sojuszników w spójną jednostkę. Dopóki twój {@status concentration} się nie skończy, każdy sojusznik znajdujący się w promieniu 60 stóp od ciebie w swojej turze może, jako akcję dodatkową, wykonać akcję Doskoku lub Wycofania się albo rzucić {@diced4} i dodać liczbę wyrzuconą do każdego rzutu ataku, który wykona w tej turze."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "name": "Przytłaczający atak",
+          "entries": [
+            "Jako akcję wybierz maksymalnie pięciu sojuszników, których widzisz w promieniu 60 stóp od ciebie. Każdy z tych sojuszników może wykorzystać swoją reakcję, aby wykonać akcję Ataku. Wybierasz cel ataków."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mastery-of-fire-uathemysticclass": {
+    "name": "Mistrzostwo Ognia",
+    "data": {
+      "name": "Mistrzostwo Ognia",
+      "source": "UATheMysticClass",
+      "page": 17,
+      "type": "D",
+      "order": "Wu Jen",
+      "entries": [
+        "Dostrajasz swój umysł do energii żywiołu ognia."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, zyskujesz odporność na obrażenia od ognia i zyskujesz premię +2 do rzutów na obrażenia od ognia.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Spalanie",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie lub obiekt, który widzisz w promieniu 30 metrów od ciebie. Cel musi wykonać rzut obronny na Kondycję. W przypadku nieudanego rzutu obronnego cel otrzymuje {@scaledamage 1d10|1-7|1d10|psi} obrażenia od ognia za każdy wydany punkt psi i zapala się, otrzymując obrażenia od ognia {@damage 1d6} na koniec każdej swojej tury, aż do zakończenia twojego {@status concentration} lub do czasu, gdy on lub sąsiadujące z nim stworzenie zgaśnie płomienie jakąś akcją. Po udanym rzucie cel otrzymuje o połowę mniejsze obrażenia i nie zapala się."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Toczący się płomień",
+          "entries": [
+            "W ramach akcji tworzysz ogień w sześcianie o wymiarach 20 na 20 stóp w odległości 5 stóp od ciebie. Ogień trwa do momentu zakończenia {@status concentration}. Każde stworzenie na tym obszarze, gdy użyjesz tej zdolności, oraz każde stworzenie, które zakończy tam swoją turę, otrzymuje 5 obrażeń od ognia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Detonacja",
+          "entries": [
+            "W ramach akcji tworzysz ognistą eksplozję w punkcie widocznym w promieniu 30 metrów od ciebie. Każde stworzenie w kuli o promieniu 20 stóp, wyśrodkowanej w tym punkcie, musi wykonać rzut obronny na Kondycję, który otrzymuje {@damage 7d6} obrażenia od ognia i zostaje powalony {@condition prone} przy nieudanym rzucie obronnym lub o połowę mniej obrażeń przy udanym."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Forma Ognia",
+          "entries": [
+            "Jako dodatkowa akcja, zostaniesz spowity płomieniami, aż do zakończenia {@status concentration}. Każde stworzenie, które zakończy swoją turę w promieniu 5 stóp od ciebie, otrzymuje obrażenia od ognia {@damage 3d6}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Animuj ogień",
+          "entries": [
+            "W ramach akcji powodujesz pojawienie się {@creature fire elemental} w niezajętym miejscu, które widzisz w promieniu 30 metrów od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mastery-of-air-uathemysticclass": {
+    "name": "Mistrzostwo powietrza",
+    "data": {
+      "name": "Mistrzostwo powietrza",
+      "source": "UATheMysticClass",
+      "page": 17,
+      "type": "D",
+      "order": "Wu Jen",
+      "entries": [
+        "Stajesz się jednością z mocą żywiołu powietrza."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, nie otrzymujesz obrażeń od upadku, a podczas chodzenia ignorujesz {@quickref difficult terrain||3}.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Krok Wiatru",
+          "entries": [
+            "W ramach ruchu w swojej turze możesz polecieć na odległość do 20 stóp za każdy wydany punkt psi. Jeśli zakończysz ten lot w powietrzu, upadniesz, chyba że coś innego utrzyma cię w górze."
+          ]
+        },
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Strumień Wiatru",
+          "entries": [
+            "W ramach akcji tworzysz linię skupionego powietrza o długości 30 stóp i szerokości 5 stóp. Każde stworzenie na tym obszarze musi wykonać rzut obronny na Siłę, który otrzymuje {@scaledamage 1d8|1-7|1d8|psi} obrażenia obuchowe za każdy wydany punkt psi i zostaje powalony {@condition prone} przy nieudanym rzucie obronnym lub o połowę mniej obrażeń przy udanym."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Płaszcz Powietrza",
+          "entries": [
+            "Jako dodatkową akcję przejmujesz kontrolę nad otaczającym cię powietrzem, aby stworzyć ochronną zasłonę. Dopóki twoje {@status concentration} się nie skończy, rzuty ataku przeciwko tobie będą miały wadę, a kiedy istota, którą widzisz, spudłuje cię atakiem wręcz, możesz użyć swojej reakcji, aby zmusić tę istotę do powtórzenia rzutu ataku przeciwko sobie."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Forma Wiatru",
+          "entries": [
+            "Jako akcja bonusowa zyskujesz prędkość lotu wynoszącą 60 stóp, która utrzymuje się do zakończenia {@status concentration}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 6,
+            "max": 6
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Mglista forma",
+          "entries": [
+            "W ramach działania Twoje ciało staje się jak mglista chmura, dopóki {@status concentration} się nie skończy. W tej formie zyskujesz odporność na obrażenia obuchowe, kłute i sieczne i nie możesz wykonywać żadnych innych akcji poza akcją Doskoku. Można przejść przez otwory o szerokości nie większej niż 1 cal bez ściskania."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Animuj powietrze",
+          "entries": [
+            "W ramach akcji powodujesz pojawienie się {@creature air elemental} w niezajętym miejscu, które widzisz w promieniu 30 metrów od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mantle-of-joy-uathemysticclass": {
+    "name": "Płaszcz Radości",
+    "data": {
+      "name": "Płaszcz Radości",
+      "source": "UATheMysticClass",
+      "page": 17,
+      "type": "D",
+      "order": "Awatara",
+      "entries": [
+        "Czerpiesz radość z siebie i promieniujesz nią na zewnątrz w kojącej, psychicznej energii, która przynosi nadzieję i pocieszenie otaczającym cię istotom."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w testach Charyzmy ({@skill Persuasion})",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Kojąca obecność",
+          "entries": [
+            "Jako akcję dodatkową wybierz maksymalnie trzy stworzenia, które widzisz w promieniu 60 stóp od ciebie. Każdy cel zyskuje 3 tymczasowe punkty wytrzymałości za każdy punkt psi wydany na ten efekt."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Pocieszająca aura",
+          "entries": [
+            "Jako akcję bonusową wybierz maksymalnie trzech sojuszników, których widzisz (możesz wybrać siebie zamiast jednego z sojuszników). Dopóki twój {@status concentration} się nie skończy, każdy cel może rzucić {@diced4} podczas wykonywania rzutu obronnego i dodać wyrzuconą liczbę do sumy."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Aura radości",
+          "entries": [
+            "Jako akcja dodatkowa promieniujesz rozpraszającą wesołością, aż do zakończenia {@status concentration}. Każda istota w promieniu 60 stóp od ciebie, która może cię zobaczyć, ponosi stratę w testach wykorzystujących umiejętności {@skill Perception} i {@skill Investigation}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Światło powrotu do zdrowia",
+          "entries": [
+            "Jako dodatkowa akcja, ty i maksymalnie pięciu sojuszników, których widzisz w promieniu 60 stóp od ciebie, możecie natychmiast wykonać rzuty obronne przeciwko wszystkim efektom, na które cierpią, co pozwala na rzut obronny na początku lub na końcu ich tur."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mastery-of-light-and-darkness-uathemysticclass": {
+    "name": "Panowanie nad Światłem i Ciemnością",
+    "data": {
+      "name": "Panowanie nad Światłem i Ciemnością",
+      "source": "UATheMysticClass",
+      "page": 19,
+      "type": "D",
+      "order": "Wu Jen",
+      "entries": [
+        "Swoim umysłem rościsz sobie władzę nad światłem i ciemnością."
+      ],
+      "focus": "Kiedy skupiasz się na tej dyscyplinie, naturalna i magiczna ciemność w promieniu 30 stóp od ciebie nie ma wpływu na twój wzrok.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Ciemność",
+          "entries": [
+            "W ramach akcji tworzysz obszar magicznej ciemności, która uniemożliwia widzenie w ciemności. Wybierz miejsce, które widzisz w promieniu 60 stóp od siebie. Magiczna ciemność promieniuje z tego punktu w kuli o promieniu 3 stóp na każdy punkt psi wydany na tę umiejętność. Światło wytwarzane przez zaklęcia poziomu 2 lub niższego jest tłumione w tym obszarze."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Światło",
+          "entries": [
+            "W ramach akcji dotknięty obiekt emituje światło w promieniu 20 stóp i przyćmione światło w promieniu dodatkowych 20 stóp. Światło trwa do momentu zakończenia działania {@status concentration}. Alternatywnie, istota, której dotkniesz, promieniuje światłem w ten sam sposób, jeśli nie powiedzie mu się rzut obronny na Zręczność. Podświetlony w ten sposób nie może się ukryć, a rzuty ataku przeciwko niemu zyskują przewagę."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Bestie Cienia",
+          "entries": [
+            "W ramach akcji powodujesz pojawienie się dwóch {@creature shadow||shadows} na niezajętych polach, które widzisz w promieniu 60 stóp od ciebie. {@creature shadow||shadows} działają do końca Twojego {@status concentration} i wykonują Twoje polecenia słowne. Podczas walki rzuć na ich inicjatywę i wybierz ich zachowanie podczas swoich tur. Kiedy ten efekt się skończy, {@creature shadow||shadows} zniknie. Zobacz Księgę Potworów, aby zapoznać się z ich blokiem statystyk."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Promienny promień",
+          "entries": [
+            "W ramach akcji rzucasz wiązkę światła na jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Zręczność. W przypadku nieudanego zapisu otrzymuje obrażenia od promieniowania {@damage 6d6} i pozostaje {@condition blinded} do czasu zakończenia {@status concentration}. Przy udanym rzucie zadaje o połowę mniejsze obrażenia. Cel {@condition blinded} może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie.",
+            "Możesz zwiększyć obrażenia tego efektu o {@scaledamage 6d6|5-7|1d6|psi} za każdy dodatkowy punkt psi wydany na ten efekt."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mastery-of-ice-uathemysticclass": {
+    "name": "Mistrzostwo lodu",
+    "data": {
+      "name": "Mistrzostwo lodu",
+      "source": "UATheMysticClass",
+      "page": 19,
+      "type": "D",
+      "order": "Wu Jen",
+      "entries": [
+        "Opanujesz moc lodu, kształtując go tak, aby spełniał Twoje wymagania."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, zyskujesz odporność na obrażenia od zimna.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Lodowy Kolec",
+          "entries": [
+            "W ramach akcji rzucasz cząstką lodu w jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie. Cel musi wykonać rzut obronny na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje {@scaledamage 1d8|1-7|1d8|psi} obrażenia od zimna za każdy wydany punkt psi, a jego prędkość zostaje zmniejszona o połowę do początku twojej następnej tury. Po udanym rzucie obronnym cel otrzymuje o połowę mniejsze obrażenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Pokrywa lodowa",
+          "entries": [
+            "Jako akcję wybierz punkt na ziemi, który widzisz w promieniu 60 stóp od siebie. Ziemia w promieniu 20 stóp, którego środek znajduje się w tym punkcie, pokrywa się lodem na 10 minut. Jest to {@quickref difficult terrain||3} i każde stworzenie, które poruszy się na nim na odległość większą niż 3 metry, musi wykonać pomyślny rzut obronny na Zręczność, w przeciwnym razie upadnie {@condition prone}. Jeśli powierzchnia jest nachylona, ​​istota, która spadnie {@condition prone} w obszar, natychmiast ześlizguje się na dół zbocza."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "name": "Zamarznięte Sanktuarium",
+          "entries": [
+            "Jako dodatkowa akcja, okryjesz się lodowatą odpornością. Otrzymujesz 20 tymczasowych punktów wytrzymałości."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Zamarznięty deszcz",
+          "entries": [
+            "Jako akcję wybierz punkt, który widzisz w promieniu 30 metrów od siebie. Powietrze w kuli o promieniu 20 stóp, której środkiem jest ten punkt, staje się śmiertelnie zimne i nasycone wilgocią. Każde stworzenie na tym obszarze musi wykonać rzut obronny na Kondycję. W przypadku nieudanego zapisu, cel otrzymuje {@damage 6d6} obrażenia od zimna, a jego prędkość zostaje zmniejszona do 0, aż do zakończenia {@status concentration}. Po udanym rzucie obronnym cel otrzymuje o połowę mniejsze obrażenia.",
+            "Jako akcja, cel, którego prędkość została zmniejszona, może zakończyć efekt wcześniej, jeśli pomyślnie przejdzie test Siły (Atletyka) ze ST równym ST rzutu obronnego tego efektu.",
+            "Możesz zwiększyć obrażenia tego efektu o {@scaledamage 6d6|5-7|1d6|psi} za każdy dodatkowy punkt psi wydany na ten efekt."
+          ]
+        },
+        {
+          "cost": {
+            "min": 6,
+            "max": 6
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Bariera Lodowa",
+          "entries": [
+            "W ramach akcji tworzysz ścianę lodu, której przynajmniej jedna część musi znajdować się w promieniu 60 stóp od ciebie. Mur ma 60 stóp długości, 15 stóp wysokości i 1 stopę grubości. Ściana będzie trwała aż do końca Twojego {@status concentration}. Każdy odcinek ściany o długości 3 metrów ma 12 KP i 30 punktów wytrzymałości. Istota, która uszkadza ścianę atakiem wręcz, otrzymuje obrażenia od zimna równe obrażeniom, jakie ta istota zadała ścianie."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mastery-of-wood-and-earth-uathemysticclass": {
+    "name": "Opanowanie Drewna i Ziemi",
+    "data": {
+      "name": "Opanowanie Drewna i Ziemi",
+      "source": "UATheMysticClass",
+      "page": 21,
+      "type": "D",
+      "order": "Wu Jen",
+      "entries": [
+        "Dostrajasz swój umysł, aby przejąć kontrolę nad drewnem i ziemią."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, zyskujesz premię +1 do KP.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Animuj broń",
+          "entries": [
+            "W ramach akcji twój umysł przejmuje kontrolę nad jednoręczną bronią do walki wręcz, którą trzymasz. Broń leci w stronę stworzenia, które widzisz w promieniu 30 stóp od ciebie i wykonuje przeciwko niemu jednoręczny atak bronią białą, wykorzystując modyfikator ataku dyscypliny do testów ataku i obrażeń. Przy trafieniu broń zadaje normalne obrażenia plus dodatkowe obrażenia od siły {@scaledamage 1d10|1-7|1d10|psi} za każdy punkt psi wydany na tę umiejętność. Broń wraca do Twojego uścisku po wykonaniu ataku."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Broń Warp",
+          "entries": [
+            "Jako akcję wybierz jedną niemagiczną broń trzymaną przez jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Stworzenie to musi odnieść sukces w rzucie obronnym na Siłę, w przeciwnym razie wybrana broń nie będzie mogła zostać użyta do ataku aż do końca twojej następnej tury."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "name": "Pancerz Warp",
+          "entries": [
+            "Jako akcję wybierz niemagiczną zbroję noszoną przez jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Stworzenie to musi odnieść sukces w rzucie obronnym na Kondycję, w przeciwnym razie KP tego stworzenia osiągnie 10 + jego modyfikator ze Zręczności do końca twojej następnej tury."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Ściana z drewna",
+          "entries": [
+            "W ramach akcji tworzysz ścianę z drewna, której przynajmniej jedna część musi znajdować się w promieniu 60 stóp od ciebie. Mur ma 60 stóp długości, 15 stóp wysokości i 1 stopę grubości. Ściana będzie trwała aż do końca Twojego {@status concentration}. Każdy odcinek ściany o szerokości 5 stóp ma 12 KP i 100 punktów wytrzymałości. Złamanie jednej sekcji powoduje powstanie w niej dziury o wymiarach 5 na 5 stóp, ale poza tym ściana pozostaje nienaruszona."
+          ]
+        },
+        {
+          "cost": {
+            "min": 6,
+            "max": 6
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Forma pancerna",
+          "entries": [
+            "Jako akcja dodatkowa zyskujesz odporność na obrażenia obuchowe, kłute i sieczne, która trwa aż do zakończenia działania {@status concentration}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Animuj Ziemię",
+          "entries": [
+            "W ramach akcji powodujesz pojawienie się {@creature earth elemental} w niezajętym miejscu, które widzisz w promieniu 30 metrów od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mastery-of-force-uathemysticclass": {
+    "name": "Mistrzostwo Mocy",
+    "data": {
+      "name": "Mistrzostwo Mocy",
+      "source": "UATheMysticClass",
+      "page": 18,
+      "type": "D",
+      "order": "Wu Jen",
+      "entries": [
+        "Jako student mocy psionicznej dostrzegasz potencjalną energię, która przepływa przez wszystko. Sięgasz swoim umysłem, przekształcając potencjał w rzeczywistość. Przedmioty i stworzenia poruszają się na Twój rozkaz."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w testach Siły.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Pchnij",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego otrzymuje {@scaledamage 1d8|1-7|1d8|psi} obrażenia od siły za każdy wydany punkt psi i jest odpychany do 5 stóp za każdy wydany punkt w linii prostej od ciebie. Przy udanym rzucie zadaje o połowę mniejsze obrażenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 7
+          },
+          "name": "Rusz się",
+          "entries": [
+            "Wybierz jeden przedmiot, który widzisz w promieniu 60 stóp od ciebie, który nie jest noszony ani noszony przez inne stworzenie i który nie jest zamocowany na swoim miejscu. Nie może mieć boku większego niż 20 stóp, a jego maksymalna waga zależy od punktów psi wydanych na tę umiejętność, jak pokazano poniżej.",
+            "W ramach akcji przesuwasz obiekt na odległość maksymalnie 60 stóp i podczas tego ruchu musisz trzymać obiekt w zasięgu wzroku. Jeśli obiekt zakończy ten ruch w powietrzu, spada. Jeżeli obiekt miałby spaść na stworzenie, stworzenie to musi wykonać pomyślny rzut obronny na Zręczność {@dc 10}, w przeciwnym razie otrzyma obrażenia zgodnie z tabelą poniżej.",
+            {
+              "type": "table",
+              "colLabels": [
+                "Psi wydane",
+                "Maksymalna waga",
+                "Obrażenia tłuczące"
+              ],
+              "colStyles": [
+                "col-3 centrum tekstowe",
+                "col-6 centrum tekstowe",
+                "col-3 centrum tekstowe"
+              ],
+              "rows": [
+                [
+                  "2",
+                  "25 funtów",
+                  "{@damage 2d6}"
+                ],
+                [
+                  "3",
+                  "50 funtów",
+                  "{@damage 4d6}"
+                ],
+                [
+                  "5",
+                  "250 funtów",
+                  "{@damage 6d6}"
+                ],
+                [
+                  "6",
+                  "500 funtów",
+                  "{@damage 7d6}"
+                ],
+                [
+                  "7",
+                  "1000 funtów",
+                  "{@damage 8d6}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Pancerz inercyjny",
+          "entries": [
+            "W ramach akcji zamykasz się w nieuchwytnym polu magicznej siły. Przez 8 godzin twoje podstawowe KP wynosi 14 + twój modyfikator Zręczności i zyskujesz odporność na obrażenia od Mocy. Efekt ten kończy się, jeśli nosisz lub zakładasz zbroję."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Bariera Telekinetyczna",
+          "entries": [
+            "W ramach akcji tworzysz przezroczystą ścianę energii telekinetycznej, której przynajmniej jedna część musi znajdować się w promieniu 60 stóp od ciebie. Ściana ma 40 stóp długości, 10 stóp wysokości i 1 cal grubości. Ściana będzie trwała aż do końca Twojego {@status concentration}. Każdy odcinek ściany o długości 3 metrów ma KP wynoszącą 10 i 10 punktów wytrzymałości."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Chwyt",
+          "entries": [
+            "Próbujesz chwycić istotę energią telekinetyczną i trzymać ją w niewoli. Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Siłę lub zostać {@condition grappled} przez ciebie, aż do zakończenia {@status concentration} lub do chwili, gdy cel opuści twój zasięg, który w przypadku tego chwytu wynosi 60 stóp.",
+            "Cel {@condition grappled} może uciec, pomyślnie wykonując test Siły (Atletyka) lub Zręczności (Akrobatyka), który jest kwestionowany przez Twoje zdolności psioniczne oraz premię za biegłość. Kiedy cel próbuje uciec w ten sposób, możesz wydać punkty psi, aby zwiększyć swój test, przestrzegając limitu psi. Otrzymujesz premię +1 za każdy wydany punkt psi.",
+            "Podczas gdy celem jest w ten sposób {@condition grappled}, jako akcję tworzysz jeden z następujących efektów:"
+          ]
+        },
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Zmiażdżyć",
+          "entries": [
+            "Cel otrzymuje {@scaledamage 1d6|1-7|1d6|psi} obrażenia obuchowe za każdy wydany punkt psi."
+          ]
+        },
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Rusz się",
+          "entries": [
+            "Za każdy wydany punkt psi przesuwasz cel o maksymalnie 5 stóp. Możesz przenieść go w powietrze i tam przytrzymać. Upadnie, jeśli chwyt się zakończy."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mind-meld-uathemysticclass": {
+    "name": "Połączenie umysłów",
+    "data": {
+      "name": "Połączenie umysłów",
+      "source": "UATheMysticClass",
+      "page": 27,
+      "type": "T",
+      "entries": [
+        "Jako akcja dodatkowa możesz porozumieć się telepatycznie z jedną ochotną istotą, którą widzisz w promieniu 30 metrów od ciebie. Cel musi mieć Inteligencję co najmniej 2, w przeciwnym razie talent ten zawiedzie i akcja zostanie zmarnowana.",
+        "Ta komunikacja może nastąpić do końca bieżącej tury. Nie musisz dzielić języka z celem, aby zrozumiał twoje wypowiedzi telepatyczne, a on cię rozumie, nawet jeśli nie ma języka. Uzyskujesz także dostęp do jednego wspomnienia wybranego przez cel, uzyskując doskonałe przypomnienie jednej rzeczy, którą widział lub zrobił."
+      ]
+    }
+  },
+  "psionic-mastery-of-water-uathemysticclass": {
+    "name": "Mistrzostwo wody",
+    "data": {
+      "name": "Mistrzostwo wody",
+      "source": "UATheMysticClass",
+      "page": 19,
+      "type": "D",
+      "order": "Wu Jen",
+      "entries": [
+        "Twój umysł staje się jednym z żywiołową wodą, dostrajając swoje myśli do jej przypływów i odpływów."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz prędkość pływania równą prędkości chodzenia i możesz oddychać pod wodą.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Wysuszyć",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Kondycję, zadając {@scaledamage 1d10|1-7|1d10|psi} obrażenia nekrotyczne za każdy punkt psi wydany na tę umiejętność lub połowę mniej w przypadku udanej umiejętności."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Wodny uścisk",
+          "entries": [
+            "W ramach akcji wyzwalasz falę, która się pojawia, a następnie cofa do ciebie niczym przypływ. Tworzysz falę na kwadracie o wymiarach 20 na 20 stóp. Przynajmniej część granicy kwadratu musi znajdować się w promieniu 5 stóp od ciebie. Każde stworzenie na tym polu musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 2d6} obrażenia tłuczące, zostaje powalony {@condition prone} i przyciągnięty do 3 metrów bliżej ciebie. Po udanym rzucie obronnym cel otrzymuje o połowę mniejsze obrażenia. Możesz zwiększyć obrażenia tej umiejętności o {@scaledamage 2d6|2-7|1d6|psi} za każdy dodatkowy punkt psi wydany na nią."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "name": "Bicz wodny",
+          "entries": [
+            "W ramach akcji wypuszczasz strumień wody w linii o długości 60 stóp i szerokości 5 stóp. Każde stworzenie w linii musi wykonać rzut obronny na Siłę, zadając {@damage 3d6} obrażenia obuchowe w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu. Dodatkowo możesz przesunąć każdy cel, któremu nie powiedzie się rzut obronny, na dowolne niezajęte pole dotykające linii. Możesz zwiększyć obrażenia tej umiejętności o {@scaledamage 3d6|3-7|1d6|psi} za każdy dodatkowy punkt psi wydany na nią."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Oddychanie wodą",
+          "entries": [
+            "W ramach akcji dajesz sobie i maksymalnie dziesięciu chętnym stworzeniom, które widzisz w promieniu 60 stóp od ciebie, możliwość oddychania pod wodą przez następne 24 godziny."
+          ]
+        },
+        {
+          "cost": {
+            "min": 6,
+            "max": 6
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Kula Wodna",
+          "entries": [
+            "W ramach akcji powodujesz, że wokół stworzenia tworzy się kula wody. Wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od siebie. Cel musi wykonać rzut obronny na Zręczność. W przypadku nieudanego zapisu zostaje uwięziony w kuli wodnej, aż do zakończenia {@status concentration}. Kiedy cel jest uwięziony, jego prędkość zmniejsza się o połowę, ma niekorzystne skutki w testach ataku i nie widzi niczego dalej niż 3 metry od niego. Jednak rzuty ataku przeciwko niemu również są niekorzystne. Cel może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie w przypadku udanego rzutu."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Animuj wodę",
+          "entries": [
+            "W ramach akcji powodujesz pojawienie się {@creature water elemental} w niezajętym miejscu, które widzisz w promieniu 30 metrów od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-mind-slam-uathemysticclass": {
+    "name": "Uderzenie umysłu",
+    "data": {
+      "name": "Uderzenie umysłu",
+      "source": "UATheMysticClass",
+      "page": 28,
+      "type": "T",
+      "entries": [
+        "Jako akcję obierasz za cel jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Kondycję, w przeciwnym razie otrzyma obrażenia od mocy {@damage 1d6}. Jeśli otrzyma którekolwiek z tych obrażeń i jest Duży lub mniejszy, zostaje powalony {@condition prone}.",
+        "Obrażenia talentu zwiększają się o {@damage 1d6} po osiągnięciu 5. poziomu ({@damage 2d6}), 11. poziomu ({@damage 3d6}) i 17. poziomu ({@damage 4d6})."
+      ]
+    }
+  },
+  "psionic-mystic-charm-uathemysticclass": {
+    "name": "Mistyczny urok",
+    "data": {
+      "name": "Mistyczny urok",
+      "source": "UATheMysticClass",
+      "page": 28,
+      "type": "T",
+      "entries": [
+        "W ramach akcji zwodzisz jednego humanoida, którego widzisz w promieniu 30 metrów od ciebie. Cel musi odnieść sukces w rzucie obronnym na Charyzmę lub być przez ciebie {@condition charmed} do końca twojej następnej tury."
+      ]
+    }
+  },
+  "psionic-mind-thrust-uathemysticclass": {
+    "name": "Pchnięcie umysłu",
+    "data": {
+      "name": "Pchnięcie umysłu",
+      "source": "UATheMysticClass",
+      "page": 28,
+      "type": "T",
+      "entries": [
+        "W ramach akcji obierasz za cel jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie. Cel musi odnieść sukces w rzucie obronnym na Inteligencję, w przeciwnym razie otrzyma obrażenia psychiczne {@damage 1d10}.",
+        "Obrażenia talentu zwiększają się o {@damage 1d10} po osiągnięciu 5. poziomu ({@damage 2d10}), 11. poziomu ({@damage 3d10}) i 17. poziomu ({@damage 4d10})."
+      ]
+    }
+  },
+  "psionic-mystic-hand-uathemysticclass": {
+    "name": "Mistyczna Ręka",
+    "data": {
+      "name": "Mistyczna Ręka",
+      "source": "UATheMysticClass",
+      "page": 28,
+      "type": "T",
+      "entries": [
+        "Możesz użyć swojej akcji, aby manipulować lub przesuwać jeden obiekt w promieniu 30 stóp od siebie. Obiekt nie może ważyć więcej niż 10 funtów i nie możesz wpływać na przedmiot noszony lub noszony przez inną istotę. Jeśli obiekt jest luźny, możesz go przesunąć na odległość do 30 stóp w dowolnym kierunku.",
+        "Talent ten pozwala otworzyć odblokowane drzwi, nalać kufel piwa i tak dalej.",
+        "Obiekt spada na ziemię pod koniec twojej tury, jeśli zostawisz go zawieszonego w powietrzu."
+      ]
+    }
+  },
+  "psionic-mastery-of-weather-uathemysticclass": {
+    "name": "Opanowanie pogody",
+    "data": {
+      "name": "Opanowanie pogody",
+      "source": "UATheMysticClass",
+      "page": 20,
+      "type": "D",
+      "order": "Wu Jen",
+      "entries": [
+        "Twój umysł sięga nieba, przekształcając materię burz tak, aby służyła Twoim potrzebom."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, zyskujesz odporność na obrażenia od błyskawic i grzmotów.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Kroki w chmurze",
+          "entries": [
+            "W ramach akcji przywołujesz chmury, aby stworzyć solidne, półprzezroczyste schody, które przetrwają do zakończenia {@status concentration}. Schody tworzą spiralę, która wypełnia obszar o wymiarach 3 na 10 stóp i osiąga wysokość 20 stóp w górę na każdy wydany punkt psi."
+          ]
+        },
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Głodna błyskawica",
+          "entries": [
+            "W ramach akcji atakujesz jedną istotę, którą widzisz w promieniu 60 stóp od ciebie, za pomocą macek błyskawic. Cel musi wykonać rzut obronny na Zręczność, co jest niekorzystne, jeśli nosi ciężki pancerz. Cel otrzymuje {@scaledamage 1d8|1-7|1d8|psi} obrażenia od błyskawic za każdy punkt psi wydany na nieudany rzut obronny lub połowę mniej w przypadku udanego rzutu."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Ściana Chmur",
+          "entries": [
+            "W ramach akcji tworzysz ścianę chmur, której przynajmniej jedna część musi znajdować się w promieniu 60 stóp od ciebie. Mur ma 60 stóp długości, 15 stóp wysokości i 1 stopę grubości. Ściana będzie trwała aż do końca Twojego {@status concentration}. Istoty mogą przez nią przechodzić bez przeszkód, ale ściana blokuje widoczność."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Trąba powietrzna",
+          "entries": [
+            "Jako akcję wybierz punkt, który widzisz w promieniu 60 stóp od siebie. Wiatry wyją w kuli o promieniu 20 stóp, której środkiem jest ten punkt. Każde stworzenie w kuli musi wykonać pomyślny rzut obronny na Siłę, w przeciwnym razie otrzyma {@damage 1d6} obrażenia tłuczące i zostanie przesunięte na wybrane przez ciebie wolne miejsce w kuli. Każdy luźny obiekt w kuli jest przenoszony na wybrane przez ciebie wolne miejsce w kuli, jeśli obiekt waży nie więcej niż 100 funtów."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Błyskawiczny skok",
+          "entries": [
+            "W ramach akcji wypuszczasz linię błyskawic o długości 60 stóp i szerokości 5 stóp. Każde stworzenie w linii musi wykonać rzut obronny na Zręczność, zadając obrażenia od błyskawic {@damage 6d6} w przypadku nieudanego rzutu lub o połowę mniej w przypadku udanego rzutu. Następnie możesz teleportować się na niezajęte miejsce dotknięte linią.",
+            "Możesz zwiększyć obrażenia tej umiejętności o {@scaledamage 6d6|5-7|1d6|psi} za każdy dodatkowy punkt psi wydany na nią."
+          ]
+        },
+        {
+          "cost": {
+            "min": 6,
+            "max": 6
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Ściana Gromu",
+          "entries": [
+            "W ramach akcji tworzysz ścianę piorunów, której przynajmniej jedna część musi znajdować się w promieniu 60 stóp od ciebie. Mur ma 60 stóp długości, 15 stóp wysokości i 1 stopę grubości. Ściana będzie trwała aż do końca Twojego {@status concentration}. Każda stopa przebita przez ścianę kosztuje 1 dodatkową stopę ruchu. Kiedy istota poruszy się na obszar ściany po raz pierwszy w swojej turze lub rozpocznie tam swoją turę, istota ta musi wykonać udany rzut obronny na Siłę, w przeciwnym razie otrzyma obrażenia od piorunów {@damage 6d6}, zostanie odepchnięta w linii prostej na odległość do 30 stóp od ściany i zostanie powalona {@condition prone}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "name": "Klaśnięcie pioruna",
+          "entries": [
+            "Jako akcję wybierz punkt, który widzisz w promieniu 60 stóp od siebie. Energia grzmotu wybucha w kuli o promieniu 20 stóp, której środkiem jest ten punkt. Każde stworzenie na tym obszarze musi wykonać rzut obronny na Kondycję. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 8d6} obrażenia od piorunów i pozostają one {@condition stunned} do końca twojej następnej tury. Po udanym rzucie obronnym cel otrzymuje o połowę mniejsze obrażenia."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-nomadic-chameleon-uathemysticclass": {
+    "name": "Nomadyczny kameleon",
+    "data": {
+      "name": "Nomadyczny kameleon",
+      "source": "UATheMysticClass",
+      "page": 22,
+      "type": "D",
+      "order": "Koczownik",
+      "entries": [
+        "Tworzysz ekran mocy psychicznej, który zniekształca Twój wygląd, pozwalając Ci wtopić się w tło, a nawet stać się niewidzialnym."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w testach Zręczności ({@skill Stealth}).",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Kameleon",
+          "entries": [
+            "W ramach akcji możesz podjąć próbę ukrycia się, nawet jeśli nie spełnisz wymaganych do tego wymagań. Na koniec bieżącej tury pozostajesz w ukryciu tylko wtedy, gdy spełnisz normalne wymagania dotyczące ukrywania się."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Krok od wzroku",
+          "entries": [
+            "Jako dodatkową akcję, zakryj się przed wzrokiem. Możesz obrać za cel jedno dodatkowe stworzenie za każdy dodatkowy punkt psi wydany na tę umiejętność. Dodane cele muszą być dla Ciebie widoczne i znajdować się w promieniu 60 stóp od Ciebie. Każdy cel zmienia kolor na {@condition invisible} i pozostaje nim do momentu zakończenia {@status concentration} lub do chwili, gdy celuje, zada obrażenia lub w inny sposób wpływa na dowolne stworzenie za pomocą ataku, zaklęcia lub innej zdolności."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Trwała niewidzialność",
+          "entries": [
+            "W ramach akcji dodatkowej obracasz {@condition invisible} i pozostajesz tak, aż do zakończenia {@status concentration}."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-nomadic-arrow-uathemysticclass": {
+    "name": "Nomadyczna strzała",
+    "data": {
+      "name": "Nomadyczna strzała",
+      "source": "UATheMysticClass",
+      "page": 21,
+      "type": "D",
+      "order": "Koczownik",
+      "entries": [
+        "Nasycasz broń dystansową dziwnym pozorem świadomości, pozwalając jej bezbłędnie znaleźć swój cel."
+      ],
+      "focus": "Kiedy jesteś skupiony na tej dyscyplinie, każdy rzut ataku wykonany w przypadku ataku bronią dystansową ignoruje niekorzystne skutki. Jeśli wada normalnie dotyczyłaby rzutu, to w tym rzucie również nie można skorzystać z przewagi.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Szybka strzałka",
+          "entries": [
+            "Jako akcja dodatkowa nasycasz jedną trzymaną broń dystansową mocą psioniczną. Następny atak, który nim wykonasz, który trafi przed końcem bieżącej tury, zadaje dodatkowe obrażenia psychiczne {@scaledamage 1d10|1-7|1d10|psi} za każdy wydany punkt psi."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Poszukiwany pocisk",
+          "entries": [
+            "W reakcji na spudłowanie atakiem z broni dystansowej możesz powtórzyć rzut ataku na ten sam cel."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Wierny łucznik",
+          "entries": [
+            "Jako akcja dodatkowa, nadajesz broni dystansowej ograniczoną wrażliwość. Dopóki Twój {@status concentration} się nie skończy, możesz wykonać dodatkowy atak tą bronią na początku każdej swojej tury (nie jest wymagane żadne działanie). Jeśli jest to broń rzucona, wraca ona do twojego uścisku za każdym razem, gdy wykonasz nią jakikolwiek atak."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-nomadic-mind-uathemysticclass": {
+    "name": "Nomadyczny umysł",
+    "data": {
+      "name": "Nomadyczny umysł",
+      "source": "UATheMysticClass",
+      "page": 22,
+      "type": "D",
+      "order": "Koczownik",
+      "entries": [
+        "Wysyłasz część swojej psychiki do Noosfery, zbiorowej perspektywy umysłów i wiedzy posiadanej przez żywe istoty."
+      ],
+      "focus": "Ilekroć skupiasz się na tej dyscyplinie, wybierasz jedną umiejętność lub narzędzie i doskonalisz się w jej posługiwaniu, aż do zakończenia skupienia. Alternatywnie zyskujesz umiejętność czytania i pisania w wybranym przez siebie języku, aż do zakończenia skupienia.",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 6
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Wędrujący umysł",
+          "entries": [
+            "Wchodzisz w głęboką kontemplację. Jeśli skoncentrujesz się przez cały czas trwania tej opcji, zyskasz biegłość w maksymalnie trzech z następujących umiejętności (jedna umiejętność za każde wydane 2 punkty psi): {@skill Animal Handling}, {@skill Arcana}, {@skill History}, {@skill Medicine}, {@skill Nature}, {@skill Performance}, {@skill Religion} i {@skill Survival}. Korzyści trwają 1 godzinę i nie jest wymagany żaden {@status concentration}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Znajdź stworzenie",
+          "entries": [
+            "Rozglądasz się w poszukiwaniu informacji o konkretnym stworzeniu. Jeśli skoncentrujesz się przez cały czas trwania tej opcji, zyskasz ogólne zrozumienie aktualnej lokalizacji stworzenia. Poznajesz region, miasto, miasteczko, wieś lub dzielnicę, w której się znajduje, wskazując obszar o boku od 1 do 3 mil (wybór DM). Jeśli stworzenie znajduje się na innej płaszczyźnie istnienia, zamiast tego dowiadujesz się, na której płaszczyźnie."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Wiedza o przedmiotach",
+          "entries": [
+            "Uważnie studiujesz przedmiot. Jeśli skoncentrujesz się przez cały czas trwania tej opcji, pozostając w promieniu 5 stóp od przedmiotu, zyskasz korzyści z zaklęcia identyfikującego rzuconego na ten przedmiot."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Mowa psychiczna",
+          "entries": [
+            "W ramach działania dostrajasz swój umysł do psychicznego wzorca całego języka. Na 1 godzinę zyskujesz zdolność rozumienia dowolnego języka, który słyszysz lub próbujesz czytać. Ponadto, kiedy mówisz, wszystkie stworzenia rozumiejące język rozumieją, co mówisz, niezależnie od tego, jakiego języka używasz."
+          ]
+        },
+        {
+          "cost": {
+            "min": 6,
+            "max": 6
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Wędrujące oko",
+          "entries": [
+            "W ramach akcji tworzysz psychiczny czujnik w promieniu 60 stóp od ciebie. Czujnik działa do końca {@status concentration}. Czujnik jest niewidoczny i unosi się w powietrzu. Otrzymujesz z niego mentalnie informacje wizualne, które mają normalne widzenie i widzenie w ciemności z zasięgiem 60 stóp. Czujnik może patrzeć we wszystkich kierunkach. W ramach akcji możesz przesunąć czujnik o maksymalnie 30 stóp w dowolnym kierunku. Nie ma ograniczeń co do tego, jak daleko od ciebie może się oddalić oko, ale nie może ono wejść na inny poziom istnienia. Solidna bariera blokuje ruch oka, ale oko może przejść przez otwór o średnicy zaledwie 1 cala."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Fazujące oko",
+          "entries": [
+            "Jak Wędrujące Oko powyżej, z tą różnicą, że oko może poruszać się po stałych obiektach, ale nie może zakończyć swojego ruchu w jednym. Jeśli tak się stanie, efekt natychmiast się kończy."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-psionic-restoration-uathemysticclass": {
+    "name": "Przywrócenie psioniczne",
+    "data": {
+      "name": "Przywrócenie psioniczne",
+      "source": "UATheMysticClass",
+      "page": 23,
+      "type": "D",
+      "order": "Nieśmiertelny",
+      "entries": [
+        "Dzierżysz energię psioniczną, aby leczyć rany i przywracać zdrowie sobie i innym."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, możesz użyć akcji dodatkowej, aby dotknąć stworzenia, które ma 0 punktów wytrzymałości i ustabilizować je.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Leczyć rany",
+          "entries": [
+            "W ramach akcji możesz wydać punkty psi, aby przywrócić punkty wytrzymałości jednemu stworzeniu, którego dotkniesz. Stworzenie odzyskuje {@scaledice 1d8|1-7|1d8|psi} punkty wytrzymałości za każdy wydany punkt psi."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "name": "Przywróć zdrowie",
+          "entries": [
+            "W ramach akcji dotykasz jednego stworzenia i usuwasz z niego jeden z następujących warunków: {@condition blinded}, {@condition deafened}, {@condition paralyzed} lub {@condition poisoned}. Alternatywnie możesz usunąć jedną chorobę ze stworzenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Przywróć życie",
+          "entries": [
+            "W ramach akcji dotykasz jednego stworzenia, które zginęło w ciągu ostatniej minuty. Stworzenie powraca do życia z 1 punktem wytrzymałości. Zdolność ta nie może przywrócić do życia istoty, która zdechła ze starości, ani też nie może przywrócić istoty, której brakuje jakichkolwiek ważnych części ciała."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "name": "Przywróć wigor",
+          "entries": [
+            "W ramach akcji możesz dotknąć jednego stworzenia i wybrać jedną z następujących opcji: usunąć wszelkie redukcje jednej z jego zdolności, usunąć jeden efekt, który zmniejsza jego maksymalną liczbę punktów wytrzymałości lub zmniejszyć jego poziom {@condition exhaustion} o jeden."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-nomadic-step-uathemysticclass": {
+    "name": "Krok nomadyczny",
+    "data": {
+      "name": "Krok nomadyczny",
+      "source": "UATheMysticClass",
+      "page": 22,
+      "type": "D",
+      "order": "Koczownik",
+      "entries": [
+        "Wytężasz umysł na obszarze wokół siebie, skręcając postrzegane przez siebie ścieżki wewnątrzplanarne, aby umożliwić natychmiastową podróż."
+      ],
+      "focus": "Po teleportacji w swojej turze, będąc skupionym na tej dyscyplinie, twoja prędkość chodzenia wzrasta o 3 metry aż do końca tury, ponieważ napędza cię magia twojej teleportacji. Możesz otrzymać to zwiększenie tylko raz na turę.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Krok kilkunastu kroków",
+          "entries": [
+            "Jeśli jeszcze się nie poruszyłeś w swojej turze, wykonujesz dodatkową akcję polegającą na teleportacji do 20 stóp za każdy wydany punkt psi do niezajętego miejsca, które widzisz, a twoja prędkość zostaje zmniejszona do 0 do końca tury."
+          ]
+        },
+        {
+          "cost": {
+            "min": 1,
+            "max": 1
+          },
+          "name": "Kotwica Nomadów",
+          "entries": [
+            "W ramach akcji tworzysz niewidzialną, nieuchwytną kotwicę teleportacyjną w sześcianie o boku 5 stóp, który widzisz w promieniu 30 metrów od ciebie. Za każdym razem, gdy przez następne 8 godzin użyjesz tej psionicznej dyscypliny do teleportacji, możesz zamiast tego teleportować się do kotwicy, nawet jeśli jej nie widzisz, ale musi ona znajdować się w zasięgu zdolności teleportacji."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Krok obronny",
+          "entries": [
+            "Kiedy zostaniesz trafiony atakiem, możesz wykorzystać swoją reakcję, aby zyskać premię +4 do KP przeciwko temu atakowi, prawdopodobnie zamieniając go w pudło. Następnie teleportujesz się na odległość do 3 metrów do niezajętego miejsca, które widzisz."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Tam i z powrotem",
+          "entries": [
+            "Jako akcja dodatkowa teleportujesz się na odległość do 20 stóp do niezajętego miejsca, które widzisz, a następnie poruszasz się z prędkością o połowę mniejszą. Na koniec swojej tury możesz teleportować się z powrotem do miejsca, które zajmowałeś przed teleportacją, chyba że jest ono teraz zajęte lub znajduje się na innym poziomie istnienia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "name": "Transpozycja",
+          "entries": [
+            "Jeśli w swojej turze nie wykonałeś jeszcze ruchu, wybierz sojusznika, którego widzisz w promieniu 60 stóp od ciebie. W ramach akcji dodatkowej ty i to stworzenie teleportujecie się, zamieniając się miejscami, a wasza prędkość zostaje zmniejszona do 0 do końca tury. Ta umiejętność zawodzi i zostaje zmarnowana, jeśli któryś z was nie zmieści się na docelowym obszarze."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Zgubna transpozycja",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie. To stworzenie musi wykonać rzut obronny na Mądrość. W przypadku nieudanego rzutu obronnego ty i to stworzenie teleportujecie się, zamieniając się miejscami. Ta umiejętność zawodzi i zostaje zmarnowana, jeśli któryś z was nie zmieści się na docelowym obszarze."
+          ]
+        },
+        {
+          "cost": {
+            "min": 6,
+            "max": 6
+          },
+          "name": "Widmowa karawana",
+          "entries": [
+            "W ramach akcji ty i maksymalnie sześć wybranych, chętnych stworzeń, które widzisz w promieniu 60 stóp od ciebie, teleportujesz się na odległość do 1 mili do miejsca, które widzisz. Jeśli w punkcie przybycia nie ma wolnego miejsca dla wszystkich celów, zdolność ta zawodzi i zostaje zmarnowana."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Brama Nomada",
+          "entries": [
+            "W ramach akcji tworzysz 1,5-metrowy sześcian przyćmionego, szarego światła w odległości 1,5 metra od ciebie. Tworzysz identyczną kostkę w dowolnym miejscu w promieniu 1 mili, którą oglądałeś w ciągu ostatnich 24 godzin. Dopóki Twoje {@status concentration} się nie skończy, każdy, kto wejdzie do jednej z kostek, natychmiast teleportuje się do drugiej, pojawiając się na niezajętym miejscu obok. Teleportacja nie powiedzie się, jeśli nie ma miejsca, w którym stworzenie mogłoby się pojawić."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-psychic-hammer-uathemysticclass": {
+    "name": "Młot psychiczny",
+    "data": {
+      "name": "Młot psychiczny",
+      "source": "UATheMysticClass",
+      "page": 28,
+      "type": "T",
+      "entries": [
+        "W ramach akcji próbujesz chwycić jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie, ręką wykonaną z energii telekinetycznej. Cel musi odnieść sukces w rzucie obronnym na Siłę, w przeciwnym razie otrzyma obrażenia od mocy {@damage 1d6}. Jeśli otrzyma którekolwiek z tych obrażeń i jest Duży lub mniejszy, możesz go przesunąć o maksymalnie 3 metry w linii prostej w wybranym przez siebie kierunku. Nie możesz podnieść celu z ziemi, chyba że jest już w powietrzu lub pod wodą.",
+        "Obrażenia talentu zwiększają się o {@damage 1d6} po osiągnięciu 5. poziomu ({@damage 2d6}), 11. poziomu ({@damage 3d6}) i 17. poziomu ({@damage 4d6})."
+      ]
+    }
+  },
+  "psionic-precognition-uathemysticclass": {
+    "name": "Prekognicja",
+    "data": {
+      "name": "Prekognicja",
+      "source": "UATheMysticClass",
+      "page": 23,
+      "type": "D",
+      "order": "Przebudzony",
+      "entries": [
+        "Analizując informacje wokół siebie, od subtelnych wskazówek po pozornie niepowiązane ze sobą fakty, uczysz się w jednej chwili tkać ciąg prawdopodobieństw, co zapewnia niezwykłe spostrzeżenia."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w rzutach na inicjatywę.",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Przeczucie prekognitywne",
+          "entries": [
+            "Jako działanie dodatkowe otwierasz się na otrzymywanie chwilowych spostrzeżeń, które zwiększają Twoje szanse na sukces; dopóki twoje {@status concentration} się nie skończy, za każdym razem, gdy wykonasz rzut ataku, rzut obronny lub test umiejętności, rzucisz {@diced4} i dodasz go do sumy."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "name": "Widoczność dookoła",
+          "entries": [
+            "W odpowiedzi na trafiony atak wykorzystujesz swoją reakcję, aby nałożyć niekorzystne skutki na ten rzut ataku, co może spowodować, że chybi."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 8,
+            "unit": "godz"
+          },
+          "name": "Poczucie zagrożenia",
+          "entries": [
+            "W ramach działania tworzysz w umyśle psychiczny model rzeczywistości i ustawiasz go tak, aby pokazywał ci kilka sekund w przyszłość. Dopóki twoje {@status concentration} się nie skończy, nie możesz być {@status surprised}, rzuty ataku przeciwko tobie nie mogą zyskać przewagi i zyskujesz premię +10 do inicjatywy."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "name": "Zwycięstwo Przed Bitwą",
+          "entries": [
+            "Kiedy rzucasz na inicjatywę, możesz użyć tej zdolności, aby przyznać sobie i maksymalnie pięciu wybranym stworzeniom w promieniu 60 stóp premię +10 do inicjatywy."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-psychic-assault-uathemysticclass": {
+    "name": "Atak psychiczny",
+    "data": {
+      "name": "Atak psychiczny",
+      "source": "UATheMysticClass",
+      "page": 24,
+      "type": "D",
+      "order": "Przebudzony",
+      "entries": [
+        "Dzierżysz swój umysł jak broń, uwalniając salwy energii psionicznej."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, zyskujesz premię +2 do testów obrażeń przy użyciu talentów psionicznych zadających obrażenia psychiczne.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Psioniczny Wybuch",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel otrzymuje {@scaledamage 1d8|1-7|1d8|psi} obrażeń psychicznych za każdy punkt psi wydany na tę umiejętność."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "name": "Bicz ego",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego, istota otrzymuje {@damage 3d8} obrażenia psychiczne i wypełnia ją zwątpienie, przez co w następnej turze może wykorzystać swoją akcję jedynie do wykonania akcji Uniku, Wycofania się lub Ukrycia. Przy udanym rzucie obronnym zadaje o połowę mniejsze obrażenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Insynuacja identyfikacyjna",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego, istota otrzymuje obrażenia psychiczne {@damage 5d8} i wpada w furię, gdy jej id szaleje. W swojej następnej turze może wykorzystać swoją akcję jedynie do wykonania akcji Uniku lub Ataku. Przy udanym rzucie zadaje o połowę mniejsze obrażenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 6,
+            "max": 6
+          },
+          "name": "Wybuch psychiczny",
+          "entries": [
+            "W ramach akcji uwalniasz niszczycielską energię psychiczną w stożku o długości 60 stóp. Każda istota na tym obszarze musi wykonać rzut obronny na Inteligencję, zadając obrażenia psychiczne {@damage 8d8} w przypadku nieudanego rzutu lub połowę mniej w przypadku udanego rzutu. Możesz zwiększyć obrażenia o {@scaledamage 8d8|6-7|2d8|psi}, jeśli wydasz 1 punkt psi więcej na tę umiejętność."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "name": "Psychiczne zauroczenie",
+          "entries": [
+            "W ramach akcji tworzysz 6-metrowy sześcian energii psychicznej w odległości 30 metrów od ciebie. Każde stworzenie na tym obszarze musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 8d8} obrażenia psychiczne i pozostaje {@condition stunned} do końca twojej następnej tury. Po udanym rzucie obronnym cel otrzymuje o połowę mniejsze obrażenia."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-psychic-disruption-uathemysticclass": {
+    "name": "Zakłócenie psychiczne",
+    "data": {
+      "name": "Zakłócenie psychiczne",
+      "source": "UATheMysticClass",
+      "page": 24,
+      "type": "D",
+      "order": "Przebudzony",
+      "entries": [
+        "Tworzysz zakłócenia psychiczne, które zakłócają zdolność innych stworzeń do jasnego myślenia."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w testach Charyzmy ({@skill Deception}).",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Rozpraszająca mgła",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. To stworzenie musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego zapisu otrzymuje obrażenia psychiczne {@scaledamage 1d10|1-7|1d10|psi} na każdy wydany punkt psi i nie widzi niczego dalej niż 3 metry od niego, dopóki {@status concentration} się nie skończy. Przy udanym rzucie zadaje o połowę mniejsze obrażenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "name": "Oszołomienie",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. To stworzenie musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego zapisu celem jest {@condition incapacitated} do końca twojej następnej tury lub do momentu otrzymania jakichkolwiek obrażeń."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Burza Umysłów",
+          "entries": [
+            "Jako akcję wybierz punkt, który widzisz w promieniu 60 stóp od siebie. Każde stworzenie w sferze o promieniu 20 stóp, której środkiem jest ten punkt, musi wykonać rzut obronny na Mądrość. W przypadku nieudanego rzutu obronnego, cel otrzymuje {@damage 6d8} obrażenia psychiczne i do końca twojej następnej tury cierpi na niekorzyść wszystkich rzutów obronnych. Po udanym rzucie obronnym istota otrzymuje o połowę mniejsze obrażenia. Możesz zwiększyć obrażenia o {@scaledamage 6d8|5-7|1d6|psi} za każdy dodatkowy punkt psi wydany na tę umiejętność."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-psychic-inquisition-uathemysticclass": {
+    "name": "Inkwizycja psychiczna",
+    "data": {
+      "name": "Inkwizycja psychiczna",
+      "source": "UATheMysticClass",
+      "page": 25,
+      "type": "D",
+      "order": "Przebudzony",
+      "entries": [
+        "Sięgasz do umysłu stworzenia, aby odkryć informacje lub zasiać w nim pomysły."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, wiesz, kiedy istota komunikująca się z tobą za pomocą telepatii kłamie.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Młot Inkwizycji",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego otrzymuje {@scaledamage 1d10|1-7|1d10|psi} obrażeń psychicznych za każdy wydany punkt psi, a w następnym rzucie obronnym na Mądrość przed końcem twojej następnej tury znajduje się w niekorzystnej sytuacji. Przy udanym rzucie zadaje o połowę mniejsze obrażenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Wymuszone zapytanie",
+          "entries": [
+            "W ramach akcji zadajesz pytanie jednej istocie, która widzi i słyszy cię w promieniu 30 stóp od ciebie. Pytanie musi być tak sformułowane, aby można było na nie odpowiedzieć tak lub nie, w przeciwnym razie ta umiejętność zawiedzie. Cel musi odnieść sukces w rzucie obronnym na Mądrość, w przeciwnym razie odpowie prawdziwą odpowiedzią. Stworzenie jest odporne na tę zdolność, jeśli jest odporne na bycie {@condition charmed}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Splądrowanie umysłu",
+          "entries": [
+            "Koncentrując się na tej zdolności, badasz umysł jednej istoty. Stworzenie musi pozostać w promieniu 30 stóp od ciebie, a ty musisz je widzieć. Jeśli osiągniesz pełny czas trwania umiejętności, cel musi wykonać trzy rzuty obronne na Inteligencję, a ty wyciągasz z nich informacje w oparciu o liczbę nieudanych rzutów obronnych. Jednym nieudanym rzutem obronnym poznajesz jego kluczowe wspomnienia z ostatnich 12 godzin. Dzięki dwóm nieudanym rzutom obronnym poznajesz jego kluczowe wspomnienia z ostatnich 24 godzin. Dzięki trzem nieudanym rzutom obronnym poznajesz jego kluczowe wspomnienia z ostatnich 48 godzin."
+          ]
+        },
+        {
+          "cost": {
+            "min": 6,
+            "max": 6
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "godz"
+          },
+          "name": "Pomysł fantomowy",
+          "entries": [
+            "Koncentrując się na tej zdolności, badasz umysł jednej istoty. Stworzenie musi pozostać w promieniu 30 stóp od ciebie, a ty musisz je widzieć. Jeśli osiągniesz pełny czas trwania umiejętności, cel musi wykonać trzy rzuty obronne na Inteligencję, a ty zaszczepiasz w nim wspomnienie lub ideę, które trwają przez liczbę godzin w zależności od liczby nieudanych rzutów obronnych. Ty wybierasz, czy pomysł lub wspomnienie jest trywialne (np. „Zjadłem owsiankę na śniadanie” lub „Piwo jest najgorsze”), czy definiujące osobowość („Nie udało mi się ocalić mojej wioski przed orczymi rabusiami i dlatego jestem tchórzem” lub „Magia to plaga, więc się jej wyrzekam”). Po jednym nieudanym rzucie obronnym pomysł lub wspomnienie przetrwa kolejne 4 godziny. Po dwóch nieudanych rzutach obronnych trwa 24 godziny. Po trzech nieudanych rzutach obronnych trwa 48 godzin."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-psionic-weapon-uathemysticclass": {
+    "name": "Broń psioniczna",
+    "data": {
+      "name": "Broń psioniczna",
+      "source": "UATheMysticClass",
+      "page": 24,
+      "type": "D",
+      "order": "Nieśmiertelny",
+      "entries": [
+        "Nauczyłeś się, jak kierować energię psioniczną do swoich ataków, nadając im niszczycielską moc."
+      ],
+      "focus": "Ilekroć skupiasz się na tej dyscyplinie, wybierz jedną broń, którą trzymasz lub atak bez broni. Kiedy atakujesz nim, będąc skupionym na tej dyscyplinie, zadawane przez niego obrażenia są psychiczne i magiczne, a nie normalne obrażenia. Dopóki nie osiągniesz 6. poziomu jako mistyk, nie dodajesz modyfikatora Siły ani Zręczności do testów obrażeń ataku psychicznego.",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 1
+          },
+          "name": "Eteryczna broń",
+          "entries": [
+            "Jako akcja dodatkowa tymczasowo przekształcasz jedną trzymaną broń lub atak bez broni w czystą energię psioniczną. Następny atak, który wykonasz przed końcem twojej tury, ignoruje zbroję celu i nie wymaga rzutu ataku. Zamiast tego cel wykonuje rzut obronny na Zręczność przeciwko tej dyscyplinie. W przypadku nieudanego rzutu obronnego cel otrzymuje normalne obrażenia ataku i jego dodatkowe efekty. Po udanym rzucie obronnym cel otrzymuje połowę obrażeń od ataku, ale nie otrzymuje żadnych dodatkowych efektów, które normalnie zostałyby nałożone przy trafieniu."
+          ]
+        },
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Zabójczy Uderzenie",
+          "entries": [
+            "Jako akcja dodatkowa nasycasz trzymaną broń lub atak bez broni energią psychiczną. Następnym razem, gdy uderzysz nim przed końcem twojej tury, zadaje on dodatkowe obrażenia psychiczne {@scaledamage 1d10|1-7|1d10|psi} za każdy wydany punkt psi."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 10,
+            "unit": "min"
+          },
+          "name": "Ulepszona broń",
+          "entries": [
+            "Jako dodatkową akcję dotknij jednego {@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon}. Dopóki twój {@status concentration} się nie skończy, ta broń stanie się bronią magiczną z premią +3 do testów ataku i obrażeń."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-psychic-phantoms-uathemysticclass": {
+    "name": "Psychiczne fantomy",
+    "data": {
+      "name": "Psychiczne fantomy",
+      "source": "UATheMysticClass",
+      "page": 25,
+      "type": "D",
+      "order": "Przebudzony",
+      "entries": [
+        "Twoja moc dociera do umysłu istoty i powoduje w niej fałszywe postrzeganie."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, masz przewagę w testach Charyzmy ({@skill Deception}).",
+      "modes": [
+        {
+          "cost": {
+            "min": 1,
+            "max": 7
+          },
+          "name": "Rozpraszający obraz",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego otrzymuje {@scaledamage 1d10|1-7|1d10|psi} obrażeń psychicznych za każdy wydany punkt psi i myśli, że dostrzega groźną istotę tuż poza swoim zasięgiem; do końca twojej następnej tury nie może używać reakcji, a rzuty na atak wręcz mają przewagę. Przy udanym rzucie zadaje o połowę mniejsze obrażenia."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Widmowy wróg",
+          "entries": [
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego zapisu dostrzega sąsiadujące z nim okropne stworzenie, aż do zakończenia {@status concentration}. W tym czasie cel nie może przyjmować reakcji i na początku każdej swojej tury otrzymuje {@damage 1d8} obrażenia psychiczne. Cel może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie. Możesz zwiększyć obrażenia o {@scaledamage 1d8|3-7|1d8|psi} za każdy dodatkowy punkt psi wydany na umiejętność."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Widmowa zdrada",
+          "entries": [
+            "W ramach akcji zasiewasz urojeniową paranoję w umyśle istoty. Wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od siebie. Cel musi odnieść sukces w rzucie obronnym na Inteligencję lub do czasu zakończenia {@status concentration} musi zaatakować swoich sojuszników atakami i innymi szkodliwymi efektami. Cel może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie. Stworzenie jest odporne na tę zdolność, jeśli jest odporne na bycie {@condition charmed}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Widmowe bogactwa",
+          "entries": [
+            "W ramach akcji umieszczasz widmo bardzo pożądanego obiektu w umyśle istoty. Wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od siebie. Cel musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego zapisu zyskujesz częściową kontrolę nad zachowaniem celu, aż do zakończenia {@status concentration}; cel porusza się według własnego uznania w każdej swojej turze, ponieważ myśli, że ściga upragniony obiekt widmowy. Jeśli od ostatniej tury nie otrzymał żadnych obrażeń, może wykorzystać swoją akcję jedynie do podziwiania w jego percepcji obiektu, który stworzyłeś. Cel może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-telepathic-contact-uathemysticclass": {
+    "name": "Kontakt telepatyczny",
+    "data": {
+      "name": "Kontakt telepatyczny",
+      "source": "UATheMysticClass",
+      "page": 26,
+      "type": "D",
+      "order": "Przebudzony",
+      "entries": [
+        "Kierując mocą psioniczną, zyskujesz zdolność kontrolowania innych stworzeń, zastępując swoją wolę ich własną."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, zyskujesz możliwość użycia cechy telepatii z maksymalnie sześcioma stworzeniami jednocześnie. Jeśli nie posiadasz tej cechy klasy mistycznej, zamiast tego zyskujesz ją, skupiając się na tej dyscyplinie.",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Dokładne zapytanie",
+          "entries": [
+            "Jako akcję obierasz za cel jedno stworzenie, z którym możesz się porozumieć za pomocą telepatii. Cel musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego cel zgodnie z prawdą odpowiada na jedno pytanie, które zadajesz mu telepatycznie. W przypadku pomyślnego rzutu obronnego, cel pozostaje nienaruszony i nie możesz użyć na nim tej umiejętności ponownie, dopóki nie zakończysz długiego odpoczynku. Stworzenie jest odporne na tę zdolność, jeśli jest odporne na bycie {@condition charmed}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Zamknięty umysł",
+          "entries": [
+            "Jako akcję obierasz za cel jedno stworzenie, z którym możesz się porozumieć za pomocą telepatii. Cel musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu, cel przez następne 5 minut wierzy w jedno wybrane przez ciebie stwierdzenie, które przekazujesz mu telepatycznie. Oświadczenie może składać się z maksymalnie dziesięciu słów i musi opisywać ciebie, stworzenie lub obiekt, który widzi cel. W przypadku pomyślnego rzutu obronnego, cel pozostaje nienaruszony i nie możesz użyć na nim tej umiejętności ponownie, dopóki nie zakończysz długiego odpoczynku. Stworzenie jest odporne na tę zdolność, jeśli jest odporne na bycie {@condition charmed}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "name": "Złamana wola",
+          "entries": [
+            "Jako akcję obierasz za cel jedno stworzenie, z którym możesz się porozumieć za pomocą telepatii. Cel musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego wybierasz ruch i akcję celu w jego następnej turze. W przypadku pomyślnego rzutu obronnego, cel pozostaje nienaruszony i nie możesz użyć na nim tej umiejętności ponownie, dopóki nie zakończysz długiego odpoczynku. Stworzenie jest odporne na tę zdolność, jeśli jest odporne na bycie {@condition charmed}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 6,
+            "max": 6
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Psychiczny uścisk",
+          "entries": [
+            "Jako akcję obierasz za cel jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Inteligencję lub będzie to {@condition paralyzed} do czasu zakończenia {@status concentration}. Na koniec każdej swojej tury może powtórzyć rzut obronny. W przypadku sukcesu efekt ten kończy się. W przypadku niepowodzenia możesz użyć swojej reakcji, aby zmusić cel do przyspieszenia o połowę, nawet jeśli jest to {@condition paralyzed}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 7,
+            "max": 7
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Dominacja psychiczna",
+          "entries": [
+            "Jako akcję obierasz za cel jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Inteligencję, w przeciwnym razie to ty wybierasz działania i ruch stworzenia w jego turach, aż do zakończenia {@status concentration}. Na koniec każdej swojej tury może powtórzyć rzut obronny, kończąc efekt na sobie. Stworzenie jest odporne na tę zdolność, jeśli jest odporne na bycie {@condition charmed}."
+          ]
+        }
+      ]
+    }
+  },
+  "psionic-third-eye-uathemysticclass": {
+    "name": "Trzecie oko",
+    "data": {
+      "name": "Trzecie oko",
+      "source": "UATheMysticClass",
+      "page": 26,
+      "type": "D",
+      "order": "Koczownik",
+      "entries": [
+        "Tworzysz w swoim umyśle trzecie, psychiczne oko, które rzucasz na świat. Kieruje myśli i wiedzę z powrotem do Ciebie, znacznie wzmacniając Twoje zmysły."
+      ],
+      "focus": "Koncentrując się na tej dyscyplinie, możesz widzieć w ciemnościach na odległość 60 stóp. Jeśli masz już widzenie w ciemności o takim lub większym zasięgu, zwiększ jego zasięg o 3 metry.",
+      "modes": [
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Drżenie",
+          "entries": [
+            "Jako dodatkową akcję zyskujesz drżenie w promieniu 30 stóp, które trwa do zakończenia {@status concentration}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 2,
+            "max": 2
+          },
+          "name": "Niezachwiane Oko",
+          "entries": [
+            "Jako akcja dodatkowa zyskujesz przewagę w testach Mądrości na 1 minutę."
+          ]
+        },
+        {
+          "cost": {
+            "min": 3,
+            "max": 3
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Przeszywający wzrok",
+          "entries": [
+            "Jako akcja dodatkowa zyskujesz zdolność widzenia przez obiekty o grubości do 1 stopy w promieniu 30 stóp od ciebie. Ten widok trwa do końca Twojego {@status concentration}."
+          ]
+        },
+        {
+          "cost": {
+            "min": 5,
+            "max": 5
+          },
+          "concentration": {
+            "duration": 1,
+            "unit": "min"
+          },
+          "name": "Prawdziwość",
+          "entries": [
+            "Jako akcja bonusowa zyskujesz prawdziwy wzrok w promieniu 30 stóp, który trwa do zakończenia {@status concentration}."
+          ]
+        }
+      ]
+    }
+  }
+}

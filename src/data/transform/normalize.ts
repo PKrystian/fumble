@@ -60,6 +60,8 @@ import {
   formatHazardType,
   formatImmunities,
   formatInitiative,
+  formatItemReferenceNames,
+  formatItemReferences,
   formatItemProperties,
   formatItemType,
   formatKeyedBonuses,
@@ -348,7 +350,9 @@ export interface RawItem {
   dmg1?: string;
   dmgType?: string;
   property?: Array<string | { uid?: string }>;
+  mastery?: Array<string | { uid?: string }>;
   ac?: number;
+  weaponCategory?: 'simple' | 'martial';
   entries?: Entry[];
 }
 
@@ -367,6 +371,14 @@ export function normalizeItem(
     damage: formatWeaponDamage(raw.dmg1, raw.dmgType),
     ac: raw.ac != null ? `${raw.ac}` : '',
     properties: formatItemProperties(raw.property),
+    ...(raw.weaponCategory ? { weaponCategory: raw.weaponCategory } : {}),
+    ...(raw.property?.length ? { propertyRefs: formatItemReferences(raw.property) } : {}),
+    ...(raw.mastery?.length
+      ? {
+          mastery: formatItemReferenceNames(raw.mastery),
+          masteryRefs: formatItemReferences(raw.mastery),
+        }
+      : {}),
     entries: raw.entries ?? [],
   };
 }
