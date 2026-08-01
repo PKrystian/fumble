@@ -66,11 +66,17 @@ export function readDataFile<T>(inputDir: string, relativePath: string): T {
 
 export function readSourceCommit(inputDir: string): string {
   try {
-    return execFileSync('git', ['-C', inputDir, 'rev-parse', 'HEAD'], {
-      encoding: 'utf8',
-    }).trim();
+    const head = readFileSync(join(inputDir, '.git', 'HEAD'), 'utf8').trim();
+    const ref = head.startsWith('ref: ') ? head.slice(5) : undefined;
+    return ref ? readFileSync(join(inputDir, '.git', ref), 'utf8').trim() : head;
   } catch {
-    return 'unknown';
+    try {
+      return execFileSync('git', ['-C', inputDir, 'rev-parse', 'HEAD'], {
+        encoding: 'utf8',
+      }).trim();
+    } catch {
+      return 'unknown';
+    }
   }
 }
 
