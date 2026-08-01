@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link, useNavigate } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
+import { useLightbox } from '@/features/ui/lightboxStore';
 import { sanitizeWikiHtml } from './html';
 import { useWiki } from './useWiki';
 import type { WikiPage as WikiPageData } from './types';
@@ -11,6 +12,7 @@ export function WikiPage() {
   const { t } = useT();
   const { slug } = useParams();
   const navigate = useNavigate();
+  const openLightbox = useLightbox((state) => state.open);
   const { status, data } = useWiki();
 
   const pages = data?.pages ?? [];
@@ -33,7 +35,15 @@ export function WikiPage() {
   );
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
-    const anchor = (event.target as HTMLElement).closest('a[data-wiki-link]');
+    const eventTarget = event.target as HTMLElement;
+    const image = eventTarget.closest('img');
+    if (image) {
+      event.preventDefault();
+      openLightbox(image.currentSrc || image.src, image.alt);
+      return;
+    }
+
+    const anchor = eventTarget.closest('a[data-wiki-link]');
     if (!anchor) return;
     event.preventDefault();
     const target = anchor.getAttribute('data-wiki-link');
