@@ -12,6 +12,7 @@ import type { ContentMode } from '@/features/ui/contentModeStore';
 import type { WikiData } from '@/features/wiki/types';
 import { translate } from '@/i18n/useT';
 import type { Locale } from '@/i18n/locales';
+import { normalizeSearchText } from '@/data/compendium/searchText';
 
 export type SearchKind = 'compendium' | 'homebrew' | 'wiki';
 
@@ -170,12 +171,17 @@ export function buildHomebrewResults(
 }
 
 export function scoreResult(result: SearchResult, term: string): number {
-  const name = result.name.toLowerCase();
-  const english = result.englishName?.toLowerCase() ?? '';
-  if (name === term || english === term) return 100;
-  if (name.startsWith(term) || english.startsWith(term)) return 80;
-  if (` ${name}`.includes(` ${term}`) || ` ${english}`.includes(` ${term}`)) return 60;
-  if (name.includes(term) || english.includes(term)) return 40;
+  const name = normalizeSearchText(result.name);
+  const english = result.englishName ? normalizeSearchText(result.englishName) : '';
+  const normalizedTerm = normalizeSearchText(term);
+  if (name === normalizedTerm || english === normalizedTerm) return 100;
+  if (name.startsWith(normalizedTerm) || english.startsWith(normalizedTerm)) return 80;
+  if (
+    ` ${name}`.includes(` ${normalizedTerm}`) ||
+    ` ${english}`.includes(` ${normalizedTerm}`)
+  )
+    return 60;
+  if (name.includes(normalizedTerm) || english.includes(normalizedTerm)) return 40;
   return 0;
 }
 
@@ -184,7 +190,7 @@ export function searchResults(
   query: string,
   limit = 50,
 ): SearchResult[] {
-  const term = query.trim().toLowerCase();
+  const term = normalizeSearchText(query.trim());
   if (!term) return [];
   const scored: Array<{ result: SearchResult; score: number }> = [];
   for (const result of pool) {

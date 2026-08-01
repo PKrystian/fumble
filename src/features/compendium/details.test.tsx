@@ -27,6 +27,7 @@ import {
   RuleDetail,
   SenseDetail,
   SkillDetail,
+  SourceDataDetail,
   SpeciesDetail,
   SpellDetail,
   TableDetail,
@@ -76,6 +77,17 @@ describe('compendium detail renderers', () => {
       <CharOptionDetail option={normalize.normalizeCharOption(base)} />,
       <TableDetail table={normalize.normalizeTable(base)} />,
       <DeckDetail deck={normalize.normalizeDeck(base)} />,
+      <SourceDataDetail
+        entry={{
+          id: 'source-entry',
+          name: 'Test Entry',
+          source: 'TEST',
+          srd: false,
+          collection: 'test',
+          data: { name: 'Test Entry', source: 'TEST', entries: ['Source text.'] },
+          entries: ['Source text.'],
+        }}
+      />,
     ];
 
     for (const node of nodes) {
@@ -83,6 +95,43 @@ describe('compendium detail renderers', () => {
       expect(screen.getByRole('heading', { name: 'Test Entry' })).toBeVisible();
       view.unmount();
     }
+  });
+
+  it('renders nested source loot tables as rollable tables', () => {
+    const view = show(
+      <SourceDataDetail
+        entry={{
+          id: 'ancient-dragon',
+          name: 'Ancient',
+          source: 'FTD',
+          srd: false,
+          collection: 'dragon',
+          data: {
+            name: 'Ancient',
+            source: 'FTD',
+            gems: {
+              amount: '6d6',
+              typeTable: [
+                { min: 1, max: 50, type: 100 },
+                { min: 51, max: 100, type: 500 },
+              ],
+            },
+            magicItems: [
+              {
+                amount: '2d6',
+                typeTable: [{ min: 1, max: 100, type: 'I' }],
+              },
+            ],
+          },
+          entries: [],
+        }}
+      />,
+    );
+    expect(view.getAllByRole('table')).toHaveLength(2);
+    expect(view.getByText('6d6')).toBeVisible();
+    expect(view.getByText('2d6')).toBeVisible();
+    expect(view.getAllByText('Gemstones')).toHaveLength(2);
+    view.unmount();
   });
 
   it('renders populated monster, item, table and vehicle fields', () => {
@@ -231,6 +280,28 @@ describe('compendium detail renderers', () => {
       <ObjectDetail object={normalize.normalizeObject({ ...base, str: 8 })} />,
     );
     expect(objectView.container).toHaveTextContent('-1');
+  });
+
+  it('renders weapon mastery and property rules', () => {
+    const view = show(
+      <ItemDetail
+        item={normalize.normalizeItem({
+          ...base,
+          source: 'XPHB',
+          type: 'M|XPHB',
+          property: ['H|XPHB', '2H|XPHB'],
+          mastery: ['Graze|XPHB'],
+        })}
+      />,
+    );
+
+    expect(view.container).toHaveTextContent('Weapon Mastery');
+    expect(view.container).toHaveTextContent('Graze');
+    expect(view.container).toHaveTextContent(
+      'You have Disadvantage on attack rolls with a Heavy weapon',
+    );
+    expect(view.container).toHaveTextContent('A Two-Handed weapon requires two hands');
+    view.unmount();
   });
 
   it('switches, selects and merges class subclasses', () => {

@@ -19,6 +19,8 @@ import type {
   FeatEntry,
   HazardEntry,
   ItemEntry,
+  JsonObject,
+  JsonValue,
   LanguageEntry,
   MasteryEntry,
   MonsterEntry,
@@ -31,6 +33,7 @@ import type {
   SkillEntry,
   SpeciesEntry,
   SpellEntry,
+  SourceDataEntry,
   StatBlockSection,
   VehicleEntry,
 } from '../../src/data/compendium/types';
@@ -56,6 +59,8 @@ import {
   formatPace,
   formatVehicleCapacity,
   formatVehicleType,
+  formatItemReferenceNames,
+  formatItemReferences,
   formatItemProperties,
   formatItemType,
   formatLanguageType,
@@ -393,9 +398,36 @@ interface RawItem {
   dmg1?: string;
   dmgType?: string;
   property?: Array<string | { uid?: string }>;
+  mastery?: Array<string | { uid?: string }>;
   ac?: number;
   weaponCategory?: 'simple' | 'martial';
   entries?: Entry[];
+}
+
+interface RawMagicVariant {
+  name: string;
+  type?: string;
+  inherits: Omit<RawItem, 'name'> & Record<string, unknown>;
+  [key: string]: unknown;
+}
+
+interface RawItemProperty {
+  abbreviation: string;
+  source: string;
+  page?: number;
+  srd52?: boolean;
+  entries?: Entry[];
+  _copy?: unknown;
+}
+
+interface ItemPropertyEntry {
+  id: string;
+  name: string;
+  source: string;
+  page?: number;
+  srd: boolean;
+  abbreviation: string;
+  entries: Entry[];
 }
 
 function normalizeItem(raw: RawItem): ItemEntry {
@@ -414,8 +446,139 @@ function normalizeItem(raw: RawItem): ItemEntry {
     ac: raw.ac != null ? `${raw.ac}` : '',
     properties: formatItemProperties(raw.property),
     ...(raw.weaponCategory ? { weaponCategory: raw.weaponCategory } : {}),
+    ...(raw.property?.length ? { propertyRefs: formatItemReferences(raw.property) } : {}),
+    ...(raw.mastery?.length
+      ? {
+          mastery: formatItemReferenceNames(raw.mastery),
+          masteryRefs: formatItemReferences(raw.mastery),
+        }
+      : {}),
     entries: raw.entries ?? [],
   };
+}
+
+function buildMagicVariantItems(
+  inputDir: string,
+  fluff: Map<string, string>,
+): ItemEntry[] {
+  const data = readDataFile<{ magicvariant?: RawMagicVariant[] }>(
+    inputDir,
+    'magicvariants.json',
+  );
+  return (data.magicvariant ?? [])
+    .slice()
+    .sort(
+      (a, b) =>
+        a.name.localeCompare(b.name) ||
+        sourceRank(b.inherits.source) - sourceRank(a.inherits.source),
+    )
+    .map((raw) => {
+      const item: RawItem = {
+        name: raw.name,
+        ...raw.inherits,
+        ...(raw.type ? { type: raw.type } : {}),
+      };
+      return {
+        ...normalizeItem(item),
+        variant: raw as unknown as JsonObject,
+        ...imageField(fluff, item.name, item.source),
+      };
+    });
+}
+
+interface RawSourceRecord {
+  name?: string;
+  source?: string;
+  page?: number;
+  srd52?: boolean;
+  _copy?: unknown;
+  entries?: Entry[];
+  [key: string]: unknown;
+}
+
+function isRawSourceRecord(value: unknown): value is RawSourceRecord {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function sourceDataEntry(
+  collection: string,
+  name: string,
+  source: string,
+  data: JsonObject,
+  entries: Entry[] = [],
+): SourceDataEntry {
+  return {
+    id: slugify(`${collection}-${name}-${source}`),
+    name,
+    source,
+    ...(typeof data.page === 'number' ? { page: data.page } : {}),
+    srd: Boolean(data.srd52),
+    collection,
+    data,
+    entries,
+  };
+}
+
+function buildSourceDataCategory(
+  inputDir: string,
+  file: string,
+  category: string,
+  collections: string[],
+): SourceDataEntry[] {
+  const data = readDataFile<Record<string, unknown[]>>(inputDir, file);
+  const items: SourceDataEntry[] = [];
+  for (const collection of collections) {
+    const records = data[collection] ?? [];
+    if (
+      collection === 'lifeTrinket' &&
+      records.every((record) => typeof record === 'string')
+    ) {
+      const source = 'PHB';
+      const table = records.map((result, index) => ({
+        min: index + 1,
+        max: index + 1,
+        result: result as JsonValue,
+      }));
+      items.push(
+        sourceDataEntry(collection, 'Life Trinkets', source, {
+          name: 'Life Trinkets',
+          source,
+          diceExpression: 'd100',
+          table,
+        }),
+      );
+      continue;
+    }
+    if (
+      collection === 'dragonMundaneItems' &&
+      records.every((record) => isRawSourceRecord(record))
+    ) {
+      const source = 'DMG';
+      items.push(
+        sourceDataEntry(collection, 'Dragon Mundane Items', source, {
+          name: 'Dragon Mundane Items',
+          source,
+          diceExpression: 'd100',
+          table: records as JsonValue[],
+        }),
+      );
+      continue;
+    }
+    for (const [index, value] of records.entries()) {
+      if (!isRawSourceRecord(value) || value._copy) continue;
+      const name =
+        typeof value.name === 'string' ? value.name : `${category} ${index + 1}`;
+      const source =
+        typeof value.source === 'string'
+          ? value.source
+          : collection === 'monsterfeatures'
+            ? 'DMG'
+            : category;
+      const raw = value as unknown as JsonObject;
+      items.push(sourceDataEntry(collection, name, source, raw, value.entries ?? []));
+    }
+  }
+  return items;
 }
 
 function buildItems(inputDir: string): ItemEntry[] {
@@ -423,10 +586,36 @@ function buildItems(inputDir: string): ItemEntry[] {
     readDataFile<{ baseitem?: RawItem[] }>(inputDir, 'items-base.json').baseitem ?? [];
   const magic = readDataFile<{ item?: RawItem[] }>(inputDir, 'items.json').item ?? [];
   const fluff = loadFluffImages(inputDir, 'fluff-items.json', 'itemFluff');
-  return [...base, ...magic]
+  const standardItems = [...base, ...magic]
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({ ...normalizeItem(raw), ...imageField(fluff, raw.name, raw.source) }))
     .sort((a, b) => a.name.localeCompare(b.name));
+  return [...standardItems, ...buildMagicVariantItems(inputDir, fluff)];
+}
+
+function buildItemProperties(inputDir: string): ItemPropertyEntry[] {
+  const data = readDataFile<{ itemProperty?: RawItemProperty[] }>(
+    inputDir,
+    'items-base.json',
+  );
+  return (data.itemProperty ?? [])
+    .filter((raw) => keepEntry(raw))
+    .map((raw) => {
+      const first = raw.entries?.[0];
+      const name =
+        typeof first === 'object' && first !== null && typeof first.name === 'string'
+          ? first.name
+          : raw.abbreviation;
+      return {
+        id: slugify(`${name}-${raw.abbreviation}-${raw.source}`),
+        name,
+        source: raw.source,
+        ...(raw.page != null ? { page: raw.page } : {}),
+        srd: Boolean(raw.srd52),
+        abbreviation: raw.abbreviation,
+        entries: raw.entries ?? [],
+      };
+    });
 }
 
 function buildClasses(inputDir: string): ClassEntry[] {
@@ -1199,9 +1388,54 @@ function main(): void {
   console.log(`Building compendium data from ${inputDir} @ ${sourceCommit}`);
 
   const fluff = (file: string, key: string) => loadFluff(inputDir, [file], key);
+  const sourceBuilders: Record<string, () => SourceDataEntry[]> = {
+    psionics: () =>
+      buildSourceDataCategory(inputDir, 'psionics.json', 'psionics', ['psionic']),
+    encounters: () =>
+      buildSourceDataCategory(inputDir, 'encounters.json', 'encounters', ['encounter']),
+    loot: () =>
+      buildSourceDataCategory(inputDir, 'loot.json', 'loot', [
+        'individual',
+        'hoard',
+        'dragon',
+        'gems',
+        'artObjects',
+        'magicItems',
+        'dragonMundaneItems',
+      ]),
+    life: () =>
+      buildSourceDataCategory(inputDir, 'life.json', 'life', [
+        'lifeClass',
+        'lifeBackground',
+        'lifeTrinket',
+      ]),
+    names: () => buildSourceDataCategory(inputDir, 'names.json', 'names', ['name']),
+    monsterfeatures: () =>
+      buildSourceDataCategory(inputDir, 'monsterfeatures.json', 'monsterfeatures', [
+        'monsterfeatures',
+      ]),
+    homecrafts: () =>
+      buildSourceDataCategory(inputDir, 'homecrafts.json', 'homecrafts', [
+        'crochetPattern',
+      ]),
+  };
 
   if (category === 'spells') {
     writeCategory('spells', buildSpells(inputDir), sourceCommit);
+    return;
+  }
+  if (category === 'items') {
+    writeCategory(
+      'items',
+      attachFluff(buildItems(inputDir), fluff('fluff-items.json', 'itemFluff')),
+      sourceCommit,
+    );
+    writeCategory('item-properties', buildItemProperties(inputDir), sourceCommit);
+    return;
+  }
+  const sourceBuilder = category ? sourceBuilders[category] : undefined;
+  if (sourceBuilder) {
+    writeCategory(category!, sourceBuilder(), sourceCommit);
     return;
   }
 
@@ -1234,6 +1468,7 @@ function main(): void {
     attachFluff(buildItems(inputDir), fluff('fluff-items.json', 'itemFluff')),
     sourceCommit,
   );
+  writeCategory('item-properties', buildItemProperties(inputDir), sourceCommit);
   writeCategory('classes', buildClasses(inputDir), sourceCommit);
   writeCategory('bestiary', buildMonsters(inputDir), sourceCommit);
   writeCategory('actions', buildActions(inputDir), sourceCommit, true);
@@ -1269,6 +1504,9 @@ function main(): void {
   writeCategory('charoptions', buildCharOptions(inputDir), sourceCommit, true);
   writeCategory('tables', buildTables(inputDir), sourceCommit);
   writeCategory('decks', buildDecks(inputDir), sourceCommit, true);
+  for (const [categoryId, build] of Object.entries(sourceBuilders)) {
+    writeCategory(categoryId, build(), sourceCommit);
+  }
   buildBooks(inputDir);
 
   console.log('Done.');

@@ -15,6 +15,8 @@ import type {
   FeatEntry,
   HazardEntry,
   ItemEntry,
+  JsonObject,
+  JsonValue,
   LanguageEntry,
   MasteryEntry,
   MonsterEntry,
@@ -26,22 +28,100 @@ import type {
   SkillEntry,
   SpeciesEntry,
   SpellEntry,
+  SourceDataEntry,
   StatBlockSection,
   TableEntry,
   VehicleEntry,
 } from '@/data/compendium/types';
+import itemPropertiesData from '@/data/generated/item-properties.json';
+import itemPropertyOverlay from '@/data/generated/pl/item-properties.json';
+import masteriesData from '@/data/generated/masteries.json';
+import masteryOverlay from '@/data/generated/pl/masteries.json';
+import type { Entry, EntryNode } from '@/data/compendium/entry';
 import { Fragment, type ReactNode, useMemo, useState } from 'react';
 import { CheckSquare, RotateCcw, Shuffle, Tag } from 'lucide-react';
 import { RollableDice } from '@/features/dice/RollableDice';
 import { sourceAbbrev, sourceRank } from '@/data/compendium/sources';
 import { useHomebrewStore } from '@/features/homebrew/store';
-import { Link } from '@/i18n/path';
+import { Link, useLocale } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { OriginalName } from '@/features/ui/OriginalName';
 import { agreeSize } from './creatureMeta';
 import { EntryRenderer } from './EntryRenderer';
 import { localizeFormula } from './formula';
 import { parseMarkup } from './markup';
+
+interface ItemRuleRecord {
+  id: string;
+  source: string;
+  name: string;
+  abbreviation?: string;
+  entries: Entry[];
+}
+
+const itemPropertyRecords = itemPropertiesData.items as unknown as ItemRuleRecord[];
+const itemPropertyTranslations = itemPropertyOverlay as unknown as Record<
+  string,
+  Partial<ItemRuleRecord>
+>;
+const masteryRecords = masteriesData.items as unknown as ItemRuleRecord[];
+const masteryTranslations = masteryOverlay as unknown as Record<
+  string,
+  Partial<ItemRuleRecord>
+>;
+
+function ruleMap(
+  records: ItemRuleRecord[],
+  translations: Record<string, Partial<ItemRuleRecord>>,
+  locale: string,
+): Map<string, ItemRuleRecord> {
+  return new Map(
+    records.map((record) => [
+      `${record.abbreviation ?? record.name}|${record.source}`,
+      locale === 'pl' ? { ...record, ...translations[record.id] } : record,
+    ]),
+  );
+}
+
+function findRule(
+  rules: Map<string, ItemRuleRecord>,
+  reference: string,
+  fallbackSource: string,
+): ItemRuleRecord | undefined {
+  const [name, source] = reference.split('|');
+  if (!name) return undefined;
+  for (const candidate of [source, fallbackSource, 'XPHB', 'PHB']) {
+    if (!candidate) continue;
+    const rule = rules.get(`${name}|${candidate}`);
+    if (rule) return rule;
+  }
+  return undefined;
+}
+
+function itemRuleEntries(
+  item: ItemEntry,
+  locale: string,
+  masteryLabel: string,
+): { entries: Entry[]; masteryNames: string } {
+  const properties = ruleMap(itemPropertyRecords, itemPropertyTranslations, locale);
+  const masteries = ruleMap(masteryRecords, masteryTranslations, locale);
+  const propertyEntries = (item.propertyRefs ?? [])
+    .map((reference) => findRule(properties, reference, item.source))
+    .filter((rule): rule is ItemRuleRecord => rule !== undefined)
+    .flatMap((rule) => rule.entries);
+  const masteryRules = (item.masteryRefs ?? [])
+    .map((reference) => findRule(masteries, reference, item.source))
+    .filter((rule): rule is ItemRuleRecord => rule !== undefined);
+  const masteryEntries = masteryRules.map((rule) => ({
+    type: 'entries',
+    name: `${masteryLabel}: ${rule.name}`,
+    entries: rule.entries,
+  }));
+  return {
+    entries: [...propertyEntries, ...masteryEntries],
+    masteryNames: masteryRules.map((rule) => rule.name).join(', ') || item.mastery || '',
+  };
+}
 
 function slugify(value: string): string {
   return value
@@ -135,8 +215,7 @@ function DetailHeader({
   return (
     <header>
       <h2 className="font-display text-2xl font-bold text-ink-50">
-        {title}
-        <OriginalName name={original} className="ml-2 text-lg" />
+        {title} <OriginalName name={original} className="ml-2 text-lg" />
       </h2>
       {subtitle && <p className="text-sm italic text-ink-300">{subtitle}</p>}
     </header>
@@ -164,6 +243,380 @@ function MetaCell({ label, value }: { label: string; value: string }) {
   );
 }
 
+type SourceTranslator = ReturnType<typeof useT>['t'];
+
+const SOURCE_FIELD_KEYS: Record<string, string> = {
+  abbreviations: 'compendium.sourceData.fields.abbreviations',
+  ac: 'compendium.sourceData.fields.ac',
+  artObjects: 'compendium.sourceData.fields.artObjects',
+  attackBonus: 'compendium.sourceData.fields.attackBonus',
+  coins: 'compendium.sourceData.fields.coins',
+  concentration: 'compendium.sourceData.fields.concentration',
+  cp: 'compendium.sourceData.fields.cp',
+  crMax: 'compendium.sourceData.fields.crMax',
+  crMin: 'compendium.sourceData.fields.crMin',
+  designers: 'compendium.sourceData.fields.designers',
+  dpr: 'compendium.sourceData.fields.dpr',
+  effect: 'compendium.sourceData.fields.effect',
+  entries: 'compendium.sourceData.fields.entries',
+  example: 'compendium.sourceData.fields.example',
+  footnotes: 'compendium.sourceData.fields.footnotes',
+  finishing: 'compendium.sourceData.fields.finishing',
+  focus: 'compendium.sourceData.fields.focus',
+  gauge: 'compendium.sourceData.fields.gauge',
+  gems: 'compendium.sourceData.fields.gems',
+  hasNumberParam: 'compendium.sourceData.fields.hasNumberParam',
+  height: 'compendium.sourceData.fields.height',
+  hooks: 'compendium.sourceData.fields.hooks',
+  hp: 'compendium.sourceData.fields.hp',
+  instructions: 'compendium.sourceData.fields.instructions',
+  item: 'compendium.sourceData.fields.item',
+  level: 'compendium.sourceData.fields.level',
+  magicItems: 'compendium.sourceData.fields.magicItems',
+  max: 'compendium.sourceData.fields.max',
+  min: 'compendium.sourceData.fields.min',
+  modes: 'compendium.sourceData.fields.modes',
+  name: 'compendium.sourceData.fields.name',
+  notes: 'compendium.sourceData.fields.notes',
+  notions: 'compendium.sourceData.fields.notions',
+  option: 'compendium.sourceData.fields.option',
+  order: 'compendium.sourceData.fields.order',
+  other: 'compendium.sourceData.fields.other',
+  patternType: 'compendium.sourceData.fields.patternType',
+  reasons: 'compendium.sourceData.fields.reasons',
+  result: 'compendium.sourceData.fields.result',
+  resultAttitude: 'compendium.sourceData.fields.resultAttitude',
+  rollAttitude: 'compendium.sourceData.fields.rollAttitude',
+  seeAlsoCreature: 'compendium.sourceData.fields.seeAlsoCreature',
+  seeAlsoItem: 'compendium.sourceData.fields.seeAlsoItem',
+  size: 'compendium.sourceData.fields.size',
+  stitches: 'compendium.sourceData.fields.stitches',
+  sizeNote: 'compendium.sourceData.fields.sizeNote',
+  tables: 'compendium.sourceData.fields.tables',
+  table: 'compendium.sourceData.fields.table',
+  type: 'compendium.sourceData.fields.type',
+  yarn: 'compendium.sourceData.fields.yarn',
+  amount: 'compendium.sourceData.fields.amount',
+  duration: 'compendium.sourceData.fields.duration',
+  dragonMundaneItems: 'compendium.sourceData.fields.dragonMundaneItems',
+  gp: 'compendium.sourceData.fields.gp',
+  pp: 'compendium.sourceData.fields.pp',
+  rarity: 'compendium.sourceData.fields.rarity',
+  sp: 'compendium.sourceData.fields.sp',
+  tier: 'compendium.sourceData.fields.tier',
+  typeAltChoose: 'compendium.sourceData.fields.typeAltChoose',
+  unit: 'compendium.sourceData.fields.unit',
+  width: 'compendium.sourceData.fields.width',
+};
+
+function sourceFieldLabel(key: string, t: SourceTranslator): string {
+  const translationKey = SOURCE_FIELD_KEYS[key];
+  if (translationKey) return t(translationKey);
+  return key
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/^./, (letter) => letter.toUpperCase());
+}
+
+function isJsonObject(value: JsonValue): value is JsonObject {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function isSourceTable(value: JsonValue): value is JsonObject & { table: JsonValue[] } {
+  return isJsonObject(value) && Array.isArray(value.table);
+}
+
+function isSourceTypeTable(
+  value: JsonValue,
+): value is JsonObject & { typeTable: JsonValue[] } {
+  return isJsonObject(value) && Array.isArray(value.typeTable);
+}
+
+function sourceRange(value: JsonObject): string {
+  const min = typeof value.min === 'number' ? (value.min === 0 ? 100 : value.min) : null;
+  const max = typeof value.max === 'number' ? (value.max === 0 ? 100 : value.max) : null;
+  if (min == null || max == null) return '';
+  return min === max ? String(min) : `${min}-${max}`;
+}
+
+function sourceOptionLabel(option: string, t: SourceTranslator): string {
+  const options: Record<string, string> = {
+    Clan: 'compendium.sourceData.options.clan',
+    Female: 'compendium.sourceData.options.female',
+    Male: 'compendium.sourceData.options.male',
+  };
+  return options[option] ? t(options[option]) : option;
+}
+
+function sourceTableCaption(value: JsonObject, t: SourceTranslator): string | undefined {
+  if (typeof value.option === 'string') return sourceOptionLabel(value.option, t);
+  if (typeof value.minlvl === 'number' && typeof value.maxlvl === 'number') {
+    return t('compendium.sourceData.levelRange', {
+      min: value.minlvl,
+      max: value.maxlvl,
+    });
+  }
+  return undefined;
+}
+
+function formatSourceCell(value: JsonValue, key: string, t: SourceTranslator): string {
+  if (typeof value === 'string') return value;
+  if (typeof value === 'number' || typeof value === 'boolean') return String(value);
+  if (value === null) return '-';
+  if (key === 'cost' && isJsonObject(value)) {
+    const min = typeof value.min === 'number' ? value.min : null;
+    const max = typeof value.max === 'number' ? value.max : null;
+    if (min != null && max != null) return min === max ? String(min) : `${min}-${max}`;
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => formatSourceCell(item, key, t)).join(', ');
+  }
+  if (key === 'coins') {
+    return Object.entries(value)
+      .map(([currency, amount]) => `${formatSourceCell(amount, currency, t)} ${currency}`)
+      .join(', ');
+  }
+  if (key === 'gems' || key === 'artObjects') {
+    const amount = value.amount ? formatSourceCell(value.amount, 'amount', t) : '';
+    const type = value.type ? formatSourceCell(value.type, 'type', t) : '';
+    const unit =
+      key === 'gems'
+        ? t('compendium.sourceData.gemstones')
+        : t('compendium.sourceData.artObjects');
+    return [amount, unit, type ? `(${type} gp)` : ''].filter(Boolean).join(' ');
+  }
+  if (key === 'magicItems') {
+    return Object.entries(value)
+      .map(
+        ([field, child]) =>
+          `${sourceFieldLabel(field, t)}: ${formatSourceCell(child, field, t)}`,
+      )
+      .join(', ');
+  }
+  return Object.entries(value)
+    .map(
+      ([field, child]) =>
+        `${sourceFieldLabel(field, t)}: ${formatSourceCell(child, field, t)}`,
+    )
+    .join(', ');
+}
+
+function sourceTableNode(
+  value: JsonObject & { table: JsonValue[] },
+  caption: string | undefined,
+  t: SourceTranslator,
+): EntryNode {
+  const records = value.table.map((row, index) =>
+    isJsonObject(row) ? row : { min: index + 1, max: index + 1, result: row },
+  );
+  const fieldNames = new Set<string>();
+  for (const row of records) {
+    for (const key of Object.keys(row)) {
+      if (key !== 'min' && key !== 'max') fieldNames.add(key);
+    }
+  }
+  const fields = [...fieldNames].sort((a, b) => {
+    const order = ['result', 'item', 'coins', 'gems', 'artObjects', 'magicItems'];
+    return (
+      (order.indexOf(a) === -1 ? order.length : order.indexOf(a)) -
+      (order.indexOf(b) === -1 ? order.length : order.indexOf(b))
+    );
+  });
+  const dice =
+    typeof value.diceExpression === 'string' ? value.diceExpression : undefined;
+  return {
+    type: 'table',
+    ...(caption ? { caption } : {}),
+    colLabels: [
+      dice ?? t('compendium.sourceData.range'),
+      ...fields.map((field) => sourceFieldLabel(field, t)),
+    ],
+    rows: records.map((row) => [
+      sourceRange(row),
+      ...fields.map((field) => formatSourceCell(row[field] ?? null, field, t)),
+    ]),
+  };
+}
+
+function sourceTypeTableNode(
+  value: JsonObject & { typeTable: JsonValue[] },
+  caption: string | undefined,
+  t: SourceTranslator,
+): EntryNode {
+  const records = value.typeTable.map((row, index) =>
+    isJsonObject(row) ? row : { min: index + 1, max: index + 1, result: row },
+  );
+  const fieldNames = new Set<string>();
+  for (const row of records) {
+    for (const key of Object.keys(row)) {
+      if (key !== 'min' && key !== 'max') fieldNames.add(key);
+    }
+  }
+  const fields = [...fieldNames].sort((a, b) => {
+    const order = ['type', 'typeAltChoose', 'result'];
+    return (
+      (order.indexOf(a) === -1 ? order.length : order.indexOf(a)) -
+      (order.indexOf(b) === -1 ? order.length : order.indexOf(b))
+    );
+  });
+  return {
+    type: 'table',
+    ...(caption ? { caption } : {}),
+    colLabels: [
+      t('compendium.sourceData.range'),
+      ...fields.map((field) => sourceFieldLabel(field, t)),
+    ],
+    rows: records.map((row) => [
+      sourceRange(row),
+      ...fields.map((field) => formatSourceCell(row[field] ?? null, field, t)),
+    ]),
+  };
+}
+
+function SourceDataValue({ value, fieldKey }: { value: JsonValue; fieldKey?: string }) {
+  const { locale, t } = useT();
+  if (typeof value === 'string') {
+    return <p className="leading-relaxed text-ink-200">{parseMarkup(value, locale)}</p>;
+  }
+  if (typeof value === 'number' || typeof value === 'boolean') {
+    return <span className="text-ink-200">{String(value)}</span>;
+  }
+  if (value === null) return <span className="text-ink-400">-</span>;
+  if (Array.isArray(value)) {
+    if (value.every((item) => isJsonObject(item) && typeof item.type === 'string')) {
+      return <EntryRenderer entries={value as unknown as EntryNode[]} />;
+    }
+    if (value.every(isSourceTable)) {
+      return (
+        <div className="flex flex-col gap-4">
+          {value.map((table, index) => {
+            const caption = sourceTableCaption(table, t);
+            return (
+              <EntryRenderer key={index} entries={[sourceTableNode(table, caption, t)]} />
+            );
+          })}
+        </div>
+      );
+    }
+    if (value.every(isSourceTypeTable)) {
+      return (
+        <div className="flex flex-col gap-4">
+          {value.map((table, index) => (
+            <SourceDataValue
+              key={index}
+              value={table}
+              {...(fieldKey ? { fieldKey } : {})}
+            />
+          ))}
+        </div>
+      );
+    }
+    return (
+      <ul className="ml-5 list-disc space-y-2 text-ink-200">
+        {value.map((item, index) => (
+          <li key={index}>
+            <SourceDataValue value={item} {...(fieldKey ? { fieldKey } : {})} />
+          </li>
+        ))}
+      </ul>
+    );
+  }
+  if (isSourceTable(value)) {
+    const caption = sourceTableCaption(value, t);
+    return <EntryRenderer entries={[sourceTableNode(value, caption, t)]} />;
+  }
+  if (isSourceTypeTable(value)) {
+    const amount = value.amount;
+    const caption = fieldKey ? sourceFieldLabel(fieldKey, t) : undefined;
+    return (
+      <div className="flex flex-col gap-3">
+        {amount !== undefined && (
+          <MetaRow
+            label={t('compendium.sourceData.fields.amount')}
+            value={formatSourceCell(amount, 'amount', t)}
+          />
+        )}
+        <EntryRenderer entries={[sourceTypeTableNode(value, caption, t)]} />
+      </div>
+    );
+  }
+  if (typeof value.mm === 'number' && typeof value.entry === 'string') {
+    return (
+      <span className="text-ink-200">
+        {value.mm} mm ({parseMarkup(value.entry, locale)})
+      </span>
+    );
+  }
+  if (
+    typeof value.type === 'string' &&
+    ('entries' in value || 'rows' in value || 'items' in value || 'entry' in value)
+  ) {
+    return <EntryRenderer entries={[value as unknown as EntryNode]} />;
+  }
+  if (typeof value.name === 'string' && Array.isArray(value.entries)) {
+    const cost = value.cost ? formatSourceCell(value.cost, 'cost', t) : '';
+    return (
+      <section className="flex flex-col gap-2 rounded-lg border border-ink-800 bg-ink-950/40 p-3">
+        <h4 className="font-display text-lg font-semibold text-ink-50">
+          {parseMarkup(value.name, locale)}
+          {cost && (
+            <span className="ml-2 text-sm font-normal text-ember-400">({cost})</span>
+          )}
+        </h4>
+        <EntryRenderer entries={value.entries as unknown as EntryNode[]} />
+      </section>
+    );
+  }
+  return (
+    <dl className="flex flex-col gap-3">
+      {Object.entries(value).map(([key, child]) => (
+        <div key={key}>
+          <dt className="text-xs font-semibold uppercase tracking-wide text-ink-400">
+            {sourceFieldLabel(key, t)}
+          </dt>
+          <dd className="mt-1">
+            <SourceDataValue value={child} fieldKey={key} />
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+export function SourceDataDetail({ entry }: { entry: SourceDataEntry }) {
+  const { t } = useT();
+  const data = Object.fromEntries(
+    Object.entries(entry.data).filter(
+      ([key]) =>
+        ![
+          'name',
+          'source',
+          'page',
+          'srd52',
+          '_copy',
+          'entries',
+          'hasFluff',
+          'hasFluffImages',
+          'reprintedAs',
+        ].includes(key),
+    ),
+  ) as JsonObject;
+  return (
+    <article className="flex flex-col gap-5">
+      <DetailHeader
+        title={entry.name}
+        original={entry.englishName}
+        subtitle={t(`compendium.sourceData.collections.${entry.collection}`)}
+      />
+      {entry.entries.length > 0 && (
+        <div className="flex flex-col gap-3">
+          <EntryRenderer entries={entry.entries} />
+        </div>
+      )}
+      <SourceDataValue value={data} />
+    </article>
+  );
+}
+
 export function SpellDetail({ spell }: { spell: SpellEntry }) {
   const { t } = useT();
   const levelLabel =
@@ -175,8 +628,7 @@ export function SpellDetail({ spell }: { spell: SpellEntry }) {
     <article className="flex flex-col gap-5">
       <header>
         <h2 className="font-display text-2xl font-bold text-ink-50">
-          {spell.name}
-          <OriginalName name={spell.englishName} className="ml-2 text-lg" />
+          {spell.name} <OriginalName name={spell.englishName} className="ml-2 text-lg" />
         </h2>
         <p className="text-sm italic text-ink-300">
           {levelLabel}
@@ -397,7 +849,10 @@ export function BoonDetail({ boon }: { boon: BoonEntry }) {
 
 export function ItemDetail({ item }: { item: ItemEntry }) {
   const { t } = useT();
+  const locale = useLocale();
   const subtitle = [item.type, item.rarity].filter(Boolean).join(', ');
+  const rules = itemRuleEntries(item, locale, t('compendium.detail.weaponMastery'));
+  const entries = [...item.entries, ...rules.entries];
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader title={item.name} original={item.englishName} subtitle={subtitle} />
@@ -405,13 +860,24 @@ export function ItemDetail({ item }: { item: ItemEntry }) {
         <MetaRow label={t('compendium.detail.damage')} value={item.damage} />
         <MetaRow label={t('compendium.detail.armorClass')} value={item.ac} />
         <MetaRow label={t('compendium.detail.properties')} value={item.properties} />
+        <MetaRow label={t('compendium.detail.mastery')} value={rules.masteryNames} />
         <MetaRow label={t('compendium.detail.attunement')} value={item.attunement} />
         <MetaRow label={t('compendium.detail.weight')} value={item.weight} />
         <MetaRow label={t('compendium.detail.value')} value={item.value} />
       </div>
-      <div className="flex flex-col gap-3">
-        <EntryRenderer entries={item.entries} />
-      </div>
+      {entries.length > 0 && (
+        <div className="flex flex-col gap-3">
+          <EntryRenderer entries={entries} />
+        </div>
+      )}
+      {item.variant && (
+        <section className="flex flex-col gap-3 border-t border-ink-800 pt-4">
+          <h3 className="font-display text-lg font-bold text-ember-400">
+            {t('compendium.detail.variantData')}
+          </h3>
+          <SourceDataValue value={item.variant} />
+        </section>
+      )}
     </article>
   );
 }
@@ -765,7 +1231,7 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
     <article className="flex flex-col gap-4">
       <header>
         <h2 className="font-display text-2xl font-bold text-ink-50">
-          {monster.name}
+          {monster.name}{' '}
           <OriginalName name={monster.englishName} className="ml-2 text-lg" />
         </h2>
         <p className="text-sm italic text-ink-300">
@@ -931,7 +1397,7 @@ export function ConditionDetail({ condition }: { condition: ConditionEntry }) {
     <article className="flex flex-col gap-5">
       <header className="flex items-center gap-3">
         <h2 className="font-display text-2xl font-bold text-ink-50">
-          {condition.name}
+          {condition.name}{' '}
           <OriginalName name={condition.englishName} className="ml-2 text-lg" />
         </h2>
         <span className="rounded-full border border-ink-600 px-2 py-0.5 text-xs uppercase tracking-wide text-ink-300">

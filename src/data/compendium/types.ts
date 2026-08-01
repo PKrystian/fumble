@@ -1,5 +1,10 @@
 import type { Entry } from './entry';
 
+export type JsonValue =
+  string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
+
+export type JsonObject = { [key: string]: JsonValue };
+
 export interface GalleryImage {
   path: string;
   title?: string;
@@ -135,6 +140,16 @@ export interface ItemEntry extends CompendiumEntryBase {
   properties: string;
 
   weaponCategory?: 'simple' | 'martial';
+  propertyRefs?: string[];
+  mastery?: string;
+  masteryRefs?: string[];
+  variant?: JsonObject;
+  entries: Entry[];
+}
+
+export interface SourceDataEntry extends CompendiumEntryBase {
+  collection: string;
+  data: JsonObject;
   entries: Entry[];
 }
 
@@ -350,4 +365,11 @@ export type CompendiumCategoryId =
   | 'masteries'
   | 'charoptions'
   | 'tables'
-  | 'decks';
+  | 'decks'
+  | 'psionics'
+  | 'encounters'
+  | 'loot'
+  | 'life'
+  | 'names'
+  | 'monsterfeatures'
+  | 'homecrafts';
