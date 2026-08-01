@@ -3,6 +3,7 @@ import { expect, test } from './fixtures';
 test('home page loads and shows the app name', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Fumble');
+  await expect(page.getByText('Version 1.1.0', { exact: true })).toBeVisible();
 });
 
 test('legal pages are available in both languages', async ({ page }) => {
@@ -54,6 +55,79 @@ test('compendium links to older printings', async ({ page }) => {
   await page.getByRole('link', { name: "Player's Handbook (2014)" }).click();
   await expect(page).toHaveURL(/\/compendium\/spells\/fireball-phb\/$/);
   await expect(page.getByText('Source:')).toContainText("Player's Handbook (2014)");
+});
+
+test('compendium exposes magic variants and imported source collections', async ({
+  page,
+}) => {
+  await page.goto('/compendium/items');
+  await page.getByRole('searchbox').fill('Weapon of Warning');
+  await page.getByRole('link', { name: /^Weapon of Warning/ }).click();
+  await expect(page.getByRole('heading', { name: 'Weapon of Warning' })).toBeVisible();
+
+  await page.goto('/compendium/psionics');
+  await expect(page.getByRole('link', { name: /^Adaptive Body/ })).toBeVisible();
+});
+
+test('weapon details include mastery and property rules in Polish', async ({ page }) => {
+  await page.goto('/pl/compendium/items/greatsword');
+
+  const article = page.locator('article');
+  await expect(
+    article.getByText('Mistrzostwo broni: Musnięcie', { exact: true }),
+  ).toBeVisible();
+  await expect(article.getByText('Ciężka', { exact: true })).toBeVisible();
+  await expect(article.getByText('Dwuręczna', { exact: true })).toBeVisible();
+  await expect(article.getByText(/Masz Utrudnienie.*ciężką bronią/)).toBeVisible();
+  await expect(article.getByText(/Broń Dwuręczna wymaga użycia obu rąk/)).toBeVisible();
+});
+
+test('names render as readable rollable tables', async ({ page }) => {
+  await page.goto('/pl/compendium/names/name-dragonborn-xge');
+
+  await expect(page.getByRole('heading', { name: /Smokoludź/ })).toBeVisible();
+  await expect(page.getByRole('table')).toHaveCount(3);
+  await expect(
+    page.getByRole('columnheader', { name: 'Wynik', exact: true }),
+  ).toHaveCount(3);
+  await expect(page.getByText('Kobieta', { exact: true })).toBeVisible();
+  await expect(page.getByText('Mężczyzna', { exact: true })).toBeVisible();
+});
+
+test("monster features use the Dungeon Master's Guide source", async ({ page }) => {
+  await page.goto('/pl/compendium/monsterfeatures/monsterfeatures-aggressive-dmg');
+
+  await expect(page.getByRole('heading', { name: /Agresywny/ })).toBeVisible();
+  await expect(
+    page.getByText("Dungeon Master's Guide (2014)", { exact: true }),
+  ).toBeVisible();
+});
+
+test('source loot and craft details render structured Polish content', async ({
+  page,
+}) => {
+  await page.goto('/pl/compendium/loot/dragon-ancient-ftd');
+  await expect(page.getByRole('heading', { name: /^Starożytny/ })).toBeVisible();
+  await expect(page.getByRole('table')).toHaveCount(3);
+  const lootArticle = page.locator('article');
+  await expect(lootArticle.getByText('Klejnoty', { exact: true }).first()).toBeVisible();
+  await expect(
+    lootArticle.getByText('Dzieła sztuki', { exact: true }).first(),
+  ).toBeVisible();
+  await expect(
+    lootArticle.getByText('Przedmioty magiczne', { exact: true }).first(),
+  ).toBeVisible();
+
+  await page.goto(
+    '/pl/compendium/homecrafts/crochetpattern-eye-and-hand-of-vecna-cabomp',
+  );
+  await expect(page.getByRole('heading', { name: /^Oko i dłoń Vecny/ })).toBeVisible();
+  await expect(page.getByText('Runda 2–3:').first()).toBeVisible();
+  await expect(
+    page.getByText('215 mm (8½ cala / 21,5 cm)', { exact: true }),
+  ).toBeVisible();
+  await expect(page.getByText('Grudzień', { exact: true })).toHaveCount(0);
+  await expect(page.getByText('II miejsce', { exact: true })).toHaveCount(0);
 });
 
 test('compendium filters narrow the list', async ({ page }) => {
@@ -451,19 +525,28 @@ test('soundboard adds a track and plays one', async ({ page }) => {
     .click();
 });
 
-test('wiki hides secrets and navigates wikilinks', async ({ page }) => {
-  await page.goto('/wiki/silverhaven');
+test('wiki renders the campaign and navigates wikilinks', async ({ page }) => {
+  await page.goto('/wiki/home');
+  await expect(page.getByRole('heading', { name: 'Głód Smoka', level: 1 })).toBeVisible();
+
+  const sessionLink = page.locator(
+    '.wiki-content a[data-wiki-link="sesja-1-zew-s-onca"]',
+  );
+  await expect(sessionLink).toBeVisible();
+  await sessionLink.click();
+  await expect(page).toHaveURL(/\/wiki\/sesja-1-zew-s-onca\/$/);
   await expect(
-    page.getByRole('heading', { name: 'Silverhaven', level: 1 }),
+    page.getByRole('heading', { name: 'Sesja 1 - Zew Słońca', level: 1 }),
   ).toBeVisible();
 
-  await expect(page.getByText('Not yet unlocked')).toBeVisible();
-  await expect(page.getByText(/doppelganger/)).toHaveCount(0);
-
-  await expect(page.getByRole('link', { name: 'Secret Plot' })).toHaveCount(0);
-
-  await page.locator('.wiki-content a', { hasText: 'Sunken Temple' }).click();
-  await expect(page).toHaveURL(/\/wiki\/the-sunken-temple\/$/);
+  await page.goto('/wiki/aconeth');
+  await expect(page.getByRole('heading', { name: 'Aconeth', level: 1 })).toBeVisible();
+  await page.locator('.wiki-content img[alt="Aconeth"]').click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByRole('img', { name: 'Aconeth' })).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toHaveCount(0);
 });
 
 test('books can be searched, filtered and opened', async ({ page }) => {
@@ -503,6 +586,24 @@ test('global search navigates to a compendium entry', async ({ page }) => {
   await expect(dialog.getByRole('button', { name: /Fireball/ }).first()).toBeVisible();
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/\/compendium\/spells\/fireball\/$/);
+});
+
+test('Polish global search matches English names and ignores diacritics', async ({
+  page,
+}) => {
+  await page.goto('/pl/');
+  if ((page.viewportSize()?.width ?? 1000) < 768) {
+    await page.getByRole('button', { name: 'Otwórz menu' }).click();
+  }
+  await page.getByRole('button', { name: 'Szukaj' }).first().click();
+  const dialog = page.getByRole('dialog', { name: 'Szukaj' });
+  await expect(dialog).toBeVisible();
+
+  await dialog.getByRole('searchbox').fill('Weapon of Warning');
+  await expect(dialog.getByRole('button', { name: /Broń Ostrzegawcza/ })).toBeVisible();
+
+  await dialog.getByRole('searchbox').fill('Czlow');
+  await expect(dialog.getByRole('button', { name: /Człowiek/ }).first()).toBeVisible();
 });
 
 test('homebrew creates, filters and edits an entry', async ({ page }) => {

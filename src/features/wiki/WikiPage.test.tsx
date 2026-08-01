@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { useLightbox } from '@/features/ui/lightboxStore';
 import { WikiPage } from './WikiPage';
 
 const mocks = vi.hoisted(() => ({
@@ -68,6 +69,7 @@ describe('WikiPage', () => {
   beforeEach(() => {
     mocks.slug = undefined;
     mocks.navigate.mockReset();
+    useLightbox.getState().close();
     mocks.wiki.status = 'ready';
     mocks.wiki.data = {
       pages: [
@@ -136,6 +138,28 @@ describe('WikiPage', () => {
     fireEvent.click(screen.getByText('Empty target'));
     fireEvent.click(screen.getByText('Plain text'));
     expect(mocks.navigate).not.toHaveBeenCalled();
+  });
+
+  it('opens wiki images in the lightbox', () => {
+    mocks.slug = 'npc';
+    mocks.wiki.data = {
+      pages: [
+        {
+          slug: 'npc',
+          title: 'NPC',
+          category: 'People',
+          html: '<aside><img src="%BASE%wiki-assets/npc.png" alt="NPC portrait"></aside>',
+        },
+      ],
+    };
+
+    render(<WikiPage />);
+    fireEvent.click(screen.getByRole('img', { name: 'NPC portrait' }));
+
+    expect(useLightbox.getState()).toMatchObject({
+      src: expect.stringContaining('/wiki-assets/npc.png'),
+      caption: 'NPC portrait',
+    });
   });
 
   it('falls back to the home page and then the first page', () => {

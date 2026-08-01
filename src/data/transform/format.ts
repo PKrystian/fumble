@@ -485,6 +485,24 @@ export function formatItemProperties(
     .join(', ');
 }
 
+export function formatItemReferences(
+  references: Array<string | { uid?: string }> | undefined,
+): string[] {
+  return (references ?? [])
+    .map((reference) =>
+      typeof reference === 'string' ? reference : (reference.uid ?? ''),
+    )
+    .filter(Boolean);
+}
+
+export function formatItemReferenceNames(
+  references: Array<string | { uid?: string }> | undefined,
+): string {
+  return formatItemReferences(references)
+    .map((reference) => stripSource(reference))
+    .join(', ');
+}
+
 const ABILITY_ABBR: Record<string, string> = {
   str: 'Str',
   dex: 'Dex',

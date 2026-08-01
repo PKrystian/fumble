@@ -26,6 +26,7 @@ import { useSeo } from '@/seo/useSeo';
 import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 import { SearchField } from '@/features/ui/primitives';
 import { toggleChipClass } from '@/features/ui/styles';
+import { normalizeSearchText } from '@/data/compendium/searchText';
 
 function categoryLabel(category: CompendiumCategory, t: (key: string) => string): string {
   return t(`compendium.categories.${category.id}`);
@@ -89,12 +90,12 @@ function CompendiumBrowser({
   );
 
   const filtered = useMemo(() => {
-    const term = query.trim().toLowerCase();
+    const term = normalizeSearchText(query.trim());
     return visibleItems.filter((item) => {
       if (
         term &&
-        !item.name.toLowerCase().includes(term) &&
-        !item.englishName?.toLowerCase().includes(term)
+        !normalizeSearchText(item.name).includes(term) &&
+        !(item.englishName && normalizeSearchText(item.englishName).includes(term))
       )
         return false;
       return filters.every((filter) => {

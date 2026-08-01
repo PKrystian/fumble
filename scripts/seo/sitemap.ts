@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../../src/i18n/locales';
+import { withEnglishName } from '../../src/data/compendium/searchText';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const SITE_URL = 'https://fumble.krystianpinczak.com';
@@ -205,6 +206,13 @@ const COMPENDIUM_CATEGORIES = new Set([
   'spells',
   'tables',
   'vehicles',
+  'psionics',
+  'encounters',
+  'loot',
+  'life',
+  'names',
+  'monsterfeatures',
+  'homecrafts',
 ]);
 
 const POLISH_CATEGORY_TITLES: Record<string, string> = {
@@ -234,6 +242,13 @@ const POLISH_CATEGORY_TITLES: Record<string, string> = {
   spells: 'czary',
   tables: 'tabele',
   vehicles: 'pojazdy',
+  psionics: 'psionika',
+  encounters: 'spotkania',
+  loot: 'tabele łupów',
+  life: 'tabele życia',
+  names: 'imiona',
+  monsterfeatures: 'cechy potworów',
+  homecrafts: 'rzemiosło',
 };
 
 const POLISH_STATIC_PAGES: Record<string, Pick<PageInfo, 'title' | 'description'>> = {
@@ -759,7 +774,7 @@ function buildSearchIndex(locale: string): string {
     categories.push({
       id: categoryId,
       items: (raw.items ?? []).map((item) =>
-        searchItem({ ...item, ...(overlay[item.id] ?? {}) }),
+        searchItem(withEnglishName({ ...item, ...(overlay[item.id] ?? {}) }, item.name)),
       ),
     });
   }

@@ -25,6 +25,7 @@ import type {
   RuleEntry,
   SenseEntry,
   SkillEntry,
+  SourceDataEntry,
   SpeciesEntry,
   SpellEntry,
   TableEntry,
@@ -57,6 +58,7 @@ import {
   RuleDetail,
   SenseDetail,
   SkillDetail,
+  SourceDataDetail,
   SpeciesDetail,
   SpellDetail,
   TableDetail,
@@ -387,6 +389,62 @@ export const categories: CompendiumCategory[] = [
     subtitle: (item, t) =>
       t('compendium.detail.deckCardsShort', { count: (item as DeckEntry).cardCount }),
     renderDetail: (item) => <DeckDetail deck={item as DeckEntry} />,
+  },
+  {
+    id: 'psionics',
+    label: 'Psionics',
+    load: loader<SourceDataEntry>('psionics'),
+    subtitle: (item, t) =>
+      t(`compendium.sourceData.collections.${(item as SourceDataEntry).collection}`),
+    renderDetail: (item) => <SourceDataDetail entry={item as SourceDataEntry} />,
+  },
+  {
+    id: 'encounters',
+    label: 'Encounters',
+    load: loader<SourceDataEntry>('encounters'),
+    subtitle: (item, t) =>
+      t(`compendium.sourceData.collections.${(item as SourceDataEntry).collection}`),
+    renderDetail: (item) => <SourceDataDetail entry={item as SourceDataEntry} />,
+  },
+  {
+    id: 'loot',
+    label: 'Loot Tables',
+    load: loader<SourceDataEntry>('loot'),
+    subtitle: (item, t) =>
+      t(`compendium.sourceData.collections.${(item as SourceDataEntry).collection}`),
+    renderDetail: (item) => <SourceDataDetail entry={item as SourceDataEntry} />,
+  },
+  {
+    id: 'life',
+    label: 'Life Tables',
+    load: loader<SourceDataEntry>('life'),
+    subtitle: (item, t) =>
+      t(`compendium.sourceData.collections.${(item as SourceDataEntry).collection}`),
+    renderDetail: (item) => <SourceDataDetail entry={item as SourceDataEntry} />,
+  },
+  {
+    id: 'names',
+    label: 'Names',
+    load: loader<SourceDataEntry>('names'),
+    subtitle: (item, t) =>
+      t(`compendium.sourceData.collections.${(item as SourceDataEntry).collection}`),
+    renderDetail: (item) => <SourceDataDetail entry={item as SourceDataEntry} />,
+  },
+  {
+    id: 'monsterfeatures',
+    label: 'Monster Features',
+    load: loader<SourceDataEntry>('monsterfeatures'),
+    subtitle: (item, t) =>
+      t(`compendium.sourceData.collections.${(item as SourceDataEntry).collection}`),
+    renderDetail: (item) => <SourceDataDetail entry={item as SourceDataEntry} />,
+  },
+  {
+    id: 'homecrafts',
+    label: 'Homecrafts',
+    load: loader<SourceDataEntry>('homecrafts'),
+    subtitle: (item, t) =>
+      t(`compendium.sourceData.collections.${(item as SourceDataEntry).collection}`),
+    renderDetail: (item) => <SourceDataDetail entry={item as SourceDataEntry} />,
   },
 ];
 
