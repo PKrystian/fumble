@@ -1,9 +1,16 @@
+import { readFileSync } from 'node:fs';
 import { expect, test } from './fixtures';
+
+const packageInfo = JSON.parse(
+  readFileSync(new URL('../package.json', import.meta.url), 'utf8'),
+) as { version: string };
 
 test('home page loads and shows the app name', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Fumble');
-  await expect(page.getByText('Version 1.1.0', { exact: true })).toBeVisible();
+  await expect(
+    page.getByText(`Version ${packageInfo.version}`, { exact: true }),
+  ).toBeVisible();
 });
 
 test('legal pages are available in both languages', async ({ page }) => {
