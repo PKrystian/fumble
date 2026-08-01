@@ -451,19 +451,28 @@ test('soundboard adds a track and plays one', async ({ page }) => {
     .click();
 });
 
-test('wiki hides secrets and navigates wikilinks', async ({ page }) => {
-  await page.goto('/wiki/silverhaven');
+test('wiki renders the campaign and navigates wikilinks', async ({ page }) => {
+  await page.goto('/wiki/home');
+  await expect(page.getByRole('heading', { name: 'Głód Smoka', level: 1 })).toBeVisible();
+
+  const sessionLink = page.locator(
+    '.wiki-content a[data-wiki-link="sesja-1-zew-s-onca"]',
+  );
+  await expect(sessionLink).toBeVisible();
+  await sessionLink.click();
+  await expect(page).toHaveURL(/\/wiki\/sesja-1-zew-s-onca\/$/);
   await expect(
-    page.getByRole('heading', { name: 'Silverhaven', level: 1 }),
+    page.getByRole('heading', { name: 'Sesja 1 - Zew Słońca', level: 1 }),
   ).toBeVisible();
 
-  await expect(page.getByText('Not yet unlocked')).toBeVisible();
-  await expect(page.getByText(/doppelganger/)).toHaveCount(0);
-
-  await expect(page.getByRole('link', { name: 'Secret Plot' })).toHaveCount(0);
-
-  await page.locator('.wiki-content a', { hasText: 'Sunken Temple' }).click();
-  await expect(page).toHaveURL(/\/wiki\/the-sunken-temple\/$/);
+  await page.goto('/wiki/aconeth');
+  await expect(page.getByRole('heading', { name: 'Aconeth', level: 1 })).toBeVisible();
+  await page.locator('.wiki-content img[alt="Aconeth"]').click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByRole('img', { name: 'Aconeth' })).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toHaveCount(0);
 });
 
 test('books can be searched, filtered and opened', async ({ page }) => {
