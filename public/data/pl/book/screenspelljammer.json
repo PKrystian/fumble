@@ -1,0 +1,2274 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "entries": [
+        {
+          "type": "table",
+          "caption": "Ustawianie DC",
+          "colLabels": [
+            "Poziom trudności",
+            "DC",
+            "Poziom trudności",
+            "DC"
+          ],
+          "colStyles": [
+            "col-5",
+            "col-1 text-center",
+            "col-5",
+            "col-1 text-center"
+          ],
+          "rows": [
+            [
+              "Bardzo łatwe",
+              "5",
+              "Twardy",
+              "20"
+            ],
+            [
+              "Łatwy",
+              "10",
+              "Bardzo ciężko",
+              "25"
+            ],
+            [
+              "Umiarkowany",
+              "15",
+              "Prawie niemożliwe",
+              "30"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Umiejętności i powiązane zdolności",
+          "colLabels": [
+            "Umiejętność",
+            "Umiejętność",
+            "Umiejętność",
+            "Umiejętność"
+          ],
+          "colStyles": [
+            "col-3",
+            "col-3",
+            "col-3",
+            "col-3"
+          ],
+          "rows": [
+            [
+              "{@skill Acrobatics}",
+              "Zręczność",
+              "{@skill Medicine}",
+              "Mądrość"
+            ],
+            [
+              "{@skill Animal Handling}",
+              "Mądrość",
+              "{@skill Nature}",
+              "Inteligencja"
+            ],
+            [
+              "{@skill Arcana}",
+              "Inteligencja",
+              "{@skill Perception}",
+              "Mądrość"
+            ],
+            [
+              "{@skill Athletics}",
+              "Wytrzymałość",
+              "{@skill Performance}",
+              "Charyzma"
+            ],
+            [
+              "{@skill Deception}",
+              "Charyzma",
+              "{@skill Persuasion}",
+              "Charyzma"
+            ],
+            [
+              "{@skill History}",
+              "Inteligencja",
+              "{@skill Religion}",
+              "Inteligencja"
+            ],
+            [
+              "{@skill Insight}",
+              "Mądrość",
+              "{@skill Sleight of Hand}",
+              "Zręczność"
+            ],
+            [
+              "{@skill Intimidation}",
+              "Charyzma",
+              "{@skill Stealth}",
+              "Zręczność"
+            ],
+            [
+              "{@skill Investigation}",
+              "Inteligencja",
+              "{@skill Survival}",
+              "Mądrość"
+            ]
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Duszące",
+          "entries": [
+            "Możesz wstrzymać oddech na liczbę minut równą 1 + twój modyfikator Kondycji (minimum 30 sekund).",
+            "Jeśli zabraknie ci tchu lub się zadławisz, możesz przetrwać liczbę rund równą twojemu modyfikatorowi Kondycji (minimum 1 runda). Na początku następnej tury tracisz punkty wytrzymałości do 0 i umierasz. Nie możesz odzyskać punktów wytrzymałości ani ustabilizować się, dopóki nie odzyskasz oddechu."
+          ],
+          "id": "001"
+        },
+        {
+          "type": "entries",
+          "name": "Nieważkość",
+          "entries": [
+            "W każdym miejscu, w którym nie występuje grawitacja, obowiązują następujące zasady:",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Utrudniona walka wręcz",
+                  "entries": [
+                    "Wykonując atak wręcz bronią, istota, która nie ma prędkości latania ani pływania (naturalnej lub zapewnianej przez magię), ma wadę w rzucie ataku, chyba że broń zadaje obrażenia kłute."
+                  ],
+                  "id": "004"
+                },
+                {
+                  "type": "entries",
+                  "name": "Ruch",
+                  "entries": [
+                    "Stworzenie może wykorzystać akcję, aby odepchnąć coś cięższego od siebie i osiągnąć prędkość chodzenia, latania lub pływania po linii prostej. Stworzenie kontynuuje podróż tym kursem, poruszając się po linii prostej ze swoją prędkością w każdej ze swoich tur, dopóki coś go nie zatrzyma lub nie zmieni trajektorii."
+                  ],
+                  "id": "005"
+                }
+              ],
+              "id": "003"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/AAG/014-02-003.the-astral-plane.webp"
+              },
+              "width": 1700,
+              "height": 1100
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/AAG/013-02-002.air-and-gravity.webp"
+              },
+              "width": 1700,
+              "height": 1100
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Spotkania Astralne",
+          "id": "009",
+          "entries": [
+            "Możesz wygenerować losowe spotkanie na Planie Astralnym, rzucając odpowiednio na tabelę Spotkań w Dzikiej Przestrzeni lub tabeli Spotkań na Morzu Astralnym, lub wybierając spotkanie, które Ci się podoba. Jeśli spotkanie odbywa się ze statkiem zakłócającym zaklęcia, możesz rzucić na Spotkania Statków, aby określić statek i jego załogę, lub możesz stworzyć własne spotkanie ze statkiem (patrz {@book Astral Adventurer's Guide|AAG} dla {@book ship descriptions|AAG|2|Statki Spelljammer}).",
+            "W tej książce pojawiają się stworzenia oznaczone gwiazdką (*); reszta opisana jest w {@book Monster Manual|MM}. Każde stworzenie oznaczone sztyletem (†) może służyć jako zakłócacz zaklęć, ponieważ jest rzucającym zaklęcia.",
+            "Jeśli Humanoid nie ma określonej rasy, może należeć do dowolnej rasy, którą wybierzesz.",
+            {
+              "type": "entries",
+              "name": "Postawa początkowa",
+              "id": "00a",
+              "entries": [
+                "Aby losowo określić początkowe nastawienie napotkanych stworzeń, wykonaj rzut nastawienia wymagany we wpisie tabeli spotkań, a następnie zapoznaj się z odpowiednią linijką tabeli nastawienia początkowego.",
+                {
+                  "type": "table",
+                  "caption": "Postawa początkowa",
+                  "colLabels": [
+                    "Suma rzutu na postawę",
+                    "Postawa początkowa"
+                  ],
+                  "colStyles": [
+                    "col-6 text-center",
+                    "col-6 text-center"
+                  ],
+                  "rows": [
+                    [
+                      "4 lub mniej",
+                      "Wrogi"
+                    ],
+                    [
+                      "5-8",
+                      "Obojętny"
+                    ],
+                    [
+                      "9 lub więcej",
+                      "Przyjazny"
+                    ]
+                  ]
+                },
+                {
+                  "type": "table",
+                  "caption": "Spotkania w dzikiej przestrzeni",
+                  "colLabels": [
+                    "d100",
+                    "Spotkanie w dzikiej przestrzeni",
+                    "Rolka postawy"
+                  ],
+                  "colStyles": [
+                    "col-2 text-center",
+                    "col-8",
+                    "col-2 text-center"
+                  ],
+                  "rows": [
+                    [
+                      "01-03",
+                      "{@dice 1d4} {@creature Chwinga Astronaut|BAM|astronauci Chwinga},* każdy zamontowany na 1 {@creature space guppy|BAM}*",
+                      "{@dice 1d6 + 4}"
+                    ],
+                    [
+                      "04",
+                      "1 {@creature cosmic horror|BAM}* (30 procent szans, że śpi)",
+                      "{@dice 1d6}"
+                    ],
+                    [
+                      "05",
+                      "1 {@creature esthetic|BAM}* pilotowany przez 1 {@creature reigar|BAM}*†",
+                      "{@dice 1d12}"
+                    ],
+                    [
+                      "06-07",
+                      "1 {@creature eye monger|BAM}*",
+                      "{@dice 1d6}"
+                    ],
+                    [
+                      "08-11",
+                      "1 {@creature feyr|BAM}*",
+                      "{@dice 1d6}"
+                    ],
+                    [
+                      "12-13",
+                      "1 {@creature giant octopus}, który może latać z prędkością 60 stóp i nie musi oddychać powietrzem",
+                      "{@dice 1d10}"
+                    ],
+                    [
+                      "14-17",
+                      "{@dice 1d6} {@creature Jammer Leech|BAM|pijawki zakłócające}*",
+                      "{@dice 1d8}"
+                    ],
+                    [
+                      "18-23",
+                      "{@dice 1d4} {@creature kindori|BAM}*",
+                      "{@dice 1d6 + 3}"
+                    ],
+                    [
+                      "24-25",
+                      "1 {@creature kindori|BAM}* z 1 {@creature druid}† mieszkającym w chatce na grzbiecie",
+                      "{@dice 2d6 + 3}"
+                    ],
+                    [
+                      "26",
+                      "1 {@creature kraken}, który może latać z prędkością 60 stóp i nie musi oddychać powietrzem",
+                      "{@dice 1d6}"
+                    ],
+                    [
+                      "27",
+                      "1 księżycowy smok* (do wyboru {@creature Young Lunar Dragon|BAM|młody}, {@creature Adult Lunar Dragon|BAM|dorosły} lub {@creature Ancient Lunar Dragon|BAM|starożytny})",
+                      "{@dice 1d10}"
+                    ],
+                    [
+                      "28-35",
+                      "Tawerna lub zajazd zbudowany na asteroidzie, z dokami, w których mogą cumować statki",
+                      "-"
+                    ],
+                    [
+                      "36-39",
+                      "{@dice 1d6} {@creature Murder Comet|BAM|komety morderstwa}*",
+                      "{@dice 1d6}"
+                    ],
+                    [
+                      "40-44",
+                      "{@dice 1d4} {@creature Brown Scavver|BAM|brązowe śmieciarze}*",
+                      "{@dice 1d8}"
+                    ],
+                    [
+                      "45-48",
+                      "1 {@creature night scavver|BAM}* i {@dice 2d6} {@creature Gray Scavver|BAM|szare śmieciarze}*",
+                      "{@dice 1d8}"
+                    ],
+                    [
+                      "49-50",
+                      "1 {@creature void scavver|BAM}*",
+                      "{@dice 1d6}"
+                    ],
+                    [
+                      "51-52",
+                      "Wrak statku, na którym wciąż może znajdować się skarb lub stworzenia (wybierz statek z {@book chapter 2|AAG|2|Statki Spelljammer} z {@book Astral Adventurer's Guide|AAG})",
+                      "-"
+                    ],
+                    [
+                      "53-54",
+                      "1 słoneczny smok* (do wyboru {@creature Young Solar Dragon|BAM|młody}, {@creature Adult Solar Dragon|BAM|dorosły} lub {@creature Ancient Solar Dragon|BAM|starożytny})",
+                      "{@dice 2d6}"
+                    ],
+                    [
+                      "55-59",
+                      "{@dice 1d6} {@creature Space Eel|BAM|kosmiczne węgorze}*",
+                      "{@dice 1d10}"
+                    ],
+                    [
+                      "60",
+                      "1 {@creature starlight apparition|BAM}*",
+                      "{@dice 2d6 + 2}"
+                    ],
+                    [
+                      "61-64",
+                      "{@dice 3d6} {@creature Stirge||porusza się}, które nie muszą oddychać powietrzem",
+                      "{@dice 1d6}"
+                    ],
+                    [
+                      "65-70",
+                      "{@dice 1d6} {@creature Will-o'-Wisp||błędne ogniki}",
+                      "{@dice 1d10}"
+                    ],
+                    [
+                      "71-00",
+                      "1 statek zakłócający zaklęcia (rolka na {@book Ship Encounters table|BAM|0|Spotkania Statkowe})",
+                      "-"
+                    ]
+                  ],
+                  "data": {
+                    "genTables": {
+                      "tableIgnore": true
+                    }
+                  }
+                },
+                {
+                  "type": "table",
+                  "caption": "Spotkania Morza Astralnego",
+                  "colLabels": [
+                    "d100",
+                    "Spotkanie Morza Astralnego",
+                    "Rolka postawy"
+                  ],
+                  "colStyles": [
+                    "col-2 text-center",
+                    "col-8",
+                    "col-2 text-center"
+                  ],
+                  "rows": [
+                    [
+                      "01-02",
+                      "1 {@creature aartuk starhorror|BAM}*† i {@dice 2d4} {@creature Aartuk Weedling|BAM|chwasty aartuk}*",
+                      "{@dice 1d12}"
+                    ],
+                    [
+                      "03-09",
+                      "1 {@creature archmage}† używając zaklęcia {@spell astral projection}",
+                      "{@dice 1d10 + 3}"
+                    ],
+                    [
+                      "10-11",
+                      "1 {@creature braxat|BAM}*",
+                      "{@dice 1d8}"
+                    ],
+                    [
+                      "12",
+                      "1 {@creature cosmic horror|BAM}* (70 procent szans, że śpi)",
+                      "{@dice 1d6}"
+                    ],
+                    [
+                      "13-15",
+                      "{@dice 1d4} {@creature Deva||dewy}† w boskim zadaniu",
+                      "{@dice 1d12 + 3}"
+                    ],
+                    [
+                      "16-28",
+                      "1 {@creature githyanki knight}† i {@dice 1d6} {@creature Githyanki Warrior||wojownicy githyanki}†",
+                      "{@dice 1d10}"
+                    ],
+                    [
+                      "29-31",
+                      "1 {@creature githyanki knight}† zamontowany na {@creature young red dragon}",
+                      "{@dice 1d8}"
+                    ],
+                    [
+                      "32",
+                      "1 {@creature githzerai zerth}† ścigany przez githyanki",
+                      "{@dice 1d6 + 6}"
+                    ],
+                    [
+                      "33-38",
+                      "{@dice 1d4} {@creature kindori|BAM}*",
+                      "{@dice 1d6 + 3}"
+                    ],
+                    [
+                      "39",
+                      "1 {@creature mercane|BAM}*† i 1 {@creature beholder} ochroniarz",
+                      "{@dice 1d8 + 4}"
+                    ],
+                    [
+                      "40",
+                      "1 {@creature neh-thalggu|BAM}*† szukam portalu do Odległej Krainy",
+                      "{@dice 1d10}"
+                    ],
+                    [
+                      "41-42",
+                      "1 {@creature pentadrone}",
+                      "{@dice 1d6 + 3}"
+                    ],
+                    [
+                      "43-44",
+                      "1 {@creature planetar}† z pobliskiego królestwa astralnego",
+                      "{@dice 1d12 + 3}"
+                    ],
+                    [
+                      "45-47",
+                      "{@dice 2d4} {@creature Psurlon|BAM|psurlony}*†",
+                      "{@dice 1d8}"
+                    ],
+                    [
+                      "48-50",
+                      "Gigantyczny pływający kryształowy obelisk tajemniczego pochodzenia",
+                      "-"
+                    ],
+                    [
+                      "51-52",
+                      "{@dice 4d4} {@creature Quadrone||kwadrony}",
+                      "{@dice 1d6 + 3}"
+                    ],
+                    [
+                      "53",
+                      "1 {@creature monodrone}, który stał się nieuczciwy",
+                      "{@dice 2d6 + 3}"
+                    ],
+                    [
+                      "54-56",
+                      "{@dice 1d4} {@creature Gray Slaad||szary slaadi}† w formie humanoidalnej",
+                      "{@dice 1d10}"
+                    ],
+                    [
+                      "57-58",
+                      "1 {@creature green slaad}†",
+                      "{@dice 1d12}"
+                    ],
+                    [
+                      "59-63",
+                      "{@dice 3d6} {@creature Gray Scavver|BAM|szare śmieciarze}*",
+                      "{@dice 1d8}"
+                    ],
+                    [
+                      "64",
+                      "1 {@creature solar}† czuwa nad martwym bogiem, który dryfuje w pobliżu",
+                      "{@dice 1d12 + 3}"
+                    ],
+                    [
+                      "65-66",
+                      "1 słoneczny smok* (do wyboru {@creature Young Solar Dragon|BAM|młody}, {@creature Adult Solar Dragon|BAM|dorosły} lub {@creature Ancient Solar Dragon|BAM|starożytny})",
+                      "{@dice 2d6}"
+                    ],
+                    [
+                      "67",
+                      "1 {@creature starlight apparition|BAM}*",
+                      "{@dice 2d6 + 2}"
+                    ],
+                    [
+                      "68-70",
+                      "{@dice 1d8} {@creature Unicorn||jednorożce} wesoło galopujący przez Morze Astralne",
+                      "{@dice 1d6 + 6}"
+                    ],
+                    [
+                      "71-00",
+                      "1 statek zakłócający zaklęcia (rzut na stół Spotkań Statków)",
+                      "-"
+                    ]
+                  ],
+                  "data": {
+                    "genTables": {
+                      "tableIgnore": true
+                    }
+                  }
+                },
+                {
+                  "type": "table",
+                  "caption": "Spotkania Statkowe",
+                  "colLabels": [
+                    "d100",
+                    "Spotkanie statku",
+                    "Rolka postawy"
+                  ],
+                  "colStyles": [
+                    "col-2 text-center",
+                    "col-8",
+                    "col-2 text-center"
+                  ],
+                  "rows": [
+                    [
+                      "01-07",
+                      "{@vehicle Bombard|AAG} Lewiatan, którego kapitanem jest Myrtle Hunt ({@creature giff warlord|BAM}*), a załoga składa się z 8 {@creature Giff Shipmate|BAM|towarzysze gifów}* i 3 {@creature Mage||magowie}†",
+                      "{@dice 1d10 + 2}"
+                    ],
+                    [
+                      "08-16",
+                      "{@vehicle Damselfly ship|AAG} Voidwinder, dowodzony przez Krig Kalu ({@creature hadozee explorer|BAM}*), a załoga: 1 {@creature drow}† i 7 {@creature Hadozee Shipmate|BAM|towarzysze hadozee}*",
+                      "{@dice 2d6 + 3}"
+                    ],
+                    [
+                      "17-23",
+                      "{@vehicle Flying fish ship|AAG} Horizon, którego kapitanem jest Thaal Vod (renegat {@creature mind flayer arcanist}†), a załoga: 9 {@creature Plasmoid Warrior|BAM|plazmoidalni wojownicy}*",
+                      "{@dice 1d12}"
+                    ],
+                    [
+                      "24-31",
+                      "{@vehicle Hammerhead ship|AAG} Jander Sunstar, którego kapitanem jest Veluna Valderak ({@creature vampirate captain|BAM}*), a załoga składa się z 13 {@creature Vampirate|BAM|wampiry}* i 1 {@creature priest}†",
+                      "{@dice 1d12}"
+                    ],
+                    [
+                      "32-36",
+                      "{@vehicle Lamprey ship|AAG} Nagroda Astralna, załoga 15 {@creature Psurlon Ringer|BAM|dzwonnicy psurlon},*† w tym Kapitan Uscath",
+                      "{@dice 1d12}"
+                    ],
+                    [
+                      "37-39",
+                      "{@vehicle Living ship|AAG} Eldervine, którego kapitanem jest Queth ({@creature aartuk elder|BAM}*), a załoga składa się z 2 {@creature Aartuk Starhorror|BAM|aartuk-gwiezdne horrory},*† 8 {@creature Aartuk Weedling|BAM|chwasty aartuk},* i Eldervine ({@creature treant})",
+                      "{@dice 1d10}"
+                    ],
+                    [
+                      "40-45",
+                      "{@vehicle Nautiloid|AAG} Neurophage z załogą 4 {@creature Mind Flayer||łupieżcy umysłów}† i 16 {@creature kuo-toa}, z {@dice 1d6} {@creature Grell||grele} i {@dice 1d6} {@creature Intellect Devourer||pożeracze intelektu} jako pasażerami",
+                      "{@dice 1d6}"
+                    ],
+                    [
+                      "46-50",
+                      "{@vehicle Nightspider|AAG} Malevolence, którego kapitanem jest Yeshk ({@creature neogi void hunter|BAM}*†), a załogą jest 24 {@creature Neogi Pirate|BAM|piraci neogi}* i 5 {@creature Umber Hulk||umbrowe kadłuby}",
+                      "{@dice 1d6}"
+                    ],
+                    [
+                      "51-55",
+                      "{@vehicle Scorpion ship|AAG} Claws of Huraj, dowodzony przez Huraja ({@creature hobgoblin captain}) i załoga: 1 {@creature bugbear} (pierwszy oficer), 8 {@creature Hobgoblin||hobgobliny} i 2 hobgobliny {@creature Priest||księża}†",
+                      "{@dice 1d12}"
+                    ],
+                    [
+                      "56-61",
+                      "{@vehicle Shrike ship|AAG} Fedifensor, którego kapitanem jest Yaj ({@creature githyanki xenomancer|BAM}*†) i załogą 10 {@creature Githyanki Buccaneer|BAM|korsarze githyanki}*†",
+                      "{@dice 1d12}"
+                    ],
+                    [
+                      "62-66",
+                      "{@vehicle Space galleon|AAG} Jedenasty, dowodzony przez Xorpha Eleven-Eyes ({@creature beholder}), a załoga: 1 {@creature spectator} (pierwszy oficer), 3 {@creature Cult Fanatic||fanatycy kultu},† i 16 {@creature Cultist||kultyści}",
+                      "{@dice 1d12}"
+                    ],
+                    [
+                      "67-72",
+                      "{@vehicle Space galleon|AAG} Great Kindori, dowodzony przez Mystana Potężnego ({@creature djinni}†) i załoga: 1 {@creature invisible stalker} (pierwszy oficer), 1 {@creature couatl}, † 17 {@creature aarakocra} i 1 {@creature rug of smothering}",
+                      "{@dice 2d6 + 2}"
+                    ],
+                    [
+                      "73-78",
+                      "{@vehicle Squid ship|AAG} Syken's Reach, dowodzony przez pirata Arviglasa Sykena (człowiek {@creature bandit captain}), a załoga składa się z 1 {@creature cambion}† (córka Sykena, Tenebra) i 11 {@creature Thug||bandyci}",
+                      "{@dice 1d12}"
+                    ],
+                    [
+                      "79-84",
+                      "{@vehicle Star moth|AAG} Apex, którego kapitanem jest Xaleen ({@creature astral elf commander|BAM}*†), a załogą jest 11 {@creature Astral Elf Warrior|BAM|astralni elfi wojownicy}* i 1 {@creature astral elf aristocrat|BAM}*†",
+                      "{@dice 1d12}"
+                    ],
+                    [
+                      "85-90",
+                      "{@vehicle Turtle ship|AAG} Snorkel, którego kapitanem jest Shelby Norkel (gnom {@creature mage}†), a załoga: 15 {@creature Autognome|BAM|autognomy}*",
+                      "{@dice 1d10 + 3}"
+                    ],
+                    [
+                      "91-94",
+                      "{@vehicle Tyrant ship|AAG} Doomdreamer, załoga: {@dice 2d4 + 2} {@creature Beholder||obserwatorzy}",
+                      "{@dice 1d8}"
+                    ],
+                    [
+                      "95-00",
+                      "{@vehicle Wasp ship|AAG} Przygoda, porzucona i dryfująca (25 procent szans, że jego {@item spelljamming helm|AAG} wciąż znajduje się na pokładzie)",
+                      "-"
+                    ]
+                  ],
+                  "data": {
+                    "genTables": {
+                      "tableIgnore": true
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Odległość początkowa od statku do statku",
+              "entries": [
+                "Na początku starcia DM decyduje, jak daleko statek znajduje się od wrogów. W tabeli Dystans spotkania początkowego podane są trzy możliwości. Im krótszy dystans, tym mniej czasu załogi mają na załadowanie broni i inne przygotowania.",
+                {
+                  "type": "table",
+                  "colLabels": [
+                    "Dystans",
+                    "Notatki"
+                  ],
+                  "colStyles": [
+                    "col-2",
+                    "col-10"
+                  ],
+                  "rows": [
+                    [
+                      "250 stóp",
+                      "Daleki zasięg dla {@object ballista||balisty}, {@object Mangonel||mangonele}, {@item shortbow|phb|krótkie łuki}, {@item longbow|phb|długie łuki}, {@item light crossbow|phb|lekkie kusze}, I {@item heavy crossbow|phb|ciężkie kusze}"
+                    ],
+                    [
+                      "500 stóp",
+                      "Daleki zasięg dla {@item longbow|phb|długie łuki} I {@object Mangonel||mangonele}; poza zasięgiem {@object ballista||balisty} i kusze"
+                    ],
+                    [
+                      "1000 stóp",
+                      "Poza zasięgiem większości broni dystansowych"
+                    ]
+                  ]
+                }
+              ],
+              "id": "006"
+            },
+            {
+              "type": "entries",
+              "name": "Rozbicie",
+              "entries": [
+                "Kiedy statek zakłócający zaklęcia zderza się ze stworzeniem lub obiektem, który mógłby go w rozsądny sposób uszkodzić, zarówno statek, jak i uderzona przez niego istota lub obiekt otrzymują obrażenia tłuczące, zależne od rozmiaru trafionego obiektu, jak pokazano w poniższej tabeli.",
+                {
+                  "type": "table",
+                  "colLabels": [
+                    "Rozmiar istoty lub przedmiotu uderzonego",
+                    "Obrażenia tłuczące"
+                  ],
+                  "colStyles": [
+                    "col-6 text-center",
+                    "col-6 text-center"
+                  ],
+                  "rows": [
+                    [
+                      "Duży",
+                      "{@dice 4d10}"
+                    ],
+                    [
+                      "Ogromny",
+                      "{@dice 8d10}"
+                    ],
+                    [
+                      "Olbrzymi",
+                      "{@dice 16d10}"
+                    ]
+                  ]
+                },
+                "Jeśli statek wpadnie na coś, co nie ma punktów wytrzymałości (np. na planetę lub księżyc), zadaj obrażenia tylko statkowi. Statek zatrzymuje się po zderzeniu z gigantyczną lub nieruchomą istotą lub przedmiotem; w przeciwnym razie statek może kontynuować ruch, jeśli pozostał mu jeszcze jakiś ruch, a wszystko, w co uderzył, przesuwa się na najbliższe niezajęte pole, które nie znajduje się na trasie statku."
+              ],
+              "id": "007"
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Zadania na pokładzie statku",
+          "entries": [
+            "Podczas spokojnej części podróży kapitan statku zakłócającego zaklęcia może zmusić członków załogi do pracy na kilka sposobów. Jeśli postać szuka pracy do wykonania lub jeśli kapitan chce zająć jakąś postać, rzuć w tabeli Zadania na statku, aby określić, co należy zrobić. Czas potrzebny na wykonanie zadania wynosi co najmniej 1 godzinę, a niektóre zadania mogą zająć więcej czasu, według Twojego uznania.",
+            {
+              "type": "table",
+              "caption": "Zadania na pokładzie statku",
+              "colLabels": [
+                "d12",
+                "Zadanie"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Zeskrob pąkle z kadłuba."
+                ],
+                [
+                  "2",
+                  "Umyj garnki i naczynia w kuchni."
+                ],
+                [
+                  "3",
+                  "Posiekaj warzywa w kambuzie."
+                ],
+                [
+                  "4",
+                  "Przetrzyj pokład lub zamieść ładownię."
+                ],
+                [
+                  "5",
+                  "Aktualizuj mapy nawigacyjne statku, co wymaga narzędzi kartografa."
+                ],
+                [
+                  "6",
+                  "Napraw ulubioną parę butów kapitana, co wymaga narzędzi szewskich. (A {@spell mending} zaklęcie też działa.)"
+                ],
+                [
+                  "7",
+                  "Napraw powierzchowne uszkodzenia statku, co wymaga narzędzi stolarskich lub narzędzi snycerskich. (A {@spell mending} zaklęcie też działa.)"
+                ],
+                [
+                  "8",
+                  "Skomponuj nową pieśń, która wymaga instrumentu muzycznego."
+                ],
+                [
+                  "9",
+                  "Zabawiaj załogę niewiarygodnymi opowieściami i plotkami."
+                ],
+                [
+                  "10",
+                  "Napraw zepsutą lunetę kapitana, co wymaga narzędzi jubilerskich lub narzędzi majsterkowicza. (A {@spell mending} zaklęcie też działa.)"
+                ],
+                [
+                  "11",
+                  "Naucz kapitana podstaw języka, którego jeszcze nie zna."
+                ],
+                [
+                  "12",
+                  "Przygotuj smaczny obiad na kapitański stół, który wymaga przyborów kucharza."
+                ]
+              ]
+            }
+          ],
+          "id": "008"
+        },
+        {
+          "type": "entries",
+          "name": "Dziwactwa statku",
+          "entries": [
+            "Rzuć na tabelę Dziwactwa statku, jeśli chcesz dodać statkowi odrobinę „osobowości”.",
+            {
+              "type": "table",
+              "caption": "Dziwactwa statku",
+              "colLabels": [
+                "d10",
+                "Dziwactwo"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Rozmowny, ale nieszkodliwy duch nawiedza ładownię."
+                ],
+                [
+                  "2",
+                  "Nadmierne skrzypienie kadłuba odbija się echem po całym statku."
+                ],
+                [
+                  "3",
+                  "Każde stworzenie, które usuwa się ze statku {@item spelljamming helm|AAG} otrzymuje zaskakujący, ale nieszkodliwy magiczny szok."
+                ],
+                [
+                  "4",
+                  "Zejściówki statku są mniejsze niż te, które można znaleźć na większości innych podobnych statków."
+                ],
+                [
+                  "5",
+                  "Za każdym razem, gdy statek się zatrzymuje, wydaje jęczący dźwięk, który przypomina bunt."
+                ],
+                [
+                  "6",
+                  "Podłogę głównego pokładu zdobi stylizowany rendering tajemniczej mapy gwiazd, która od czasu do czasu pulsuje mieniącymi się kolorami."
+                ],
+                [
+                  "7",
+                  "Powłoka powietrzna statku ma słony, słony zapach."
+                ],
+                [
+                  "8",
+                  "Na grodziach na całym statku wypisane są wersety poetyckie."
+                ],
+                [
+                  "9",
+                  "Narzędzia pozostawione bez nadzoru często znikają i pojawiają się ponownie {@dice 1d4} kilka godzin później w innej części statku."
+                ],
+                [
+                  "10",
+                  "Stworzenie siedzące na statku {@item spelljamming helm|AAG} słyszy w myślach słabe pieśni kosmiczne, z wyjątkiem sytuacji, gdy statek jest atakowany."
+                ]
+              ]
+            }
+          ],
+          "id": "00b"
+        },
+        {
+          "type": "entries",
+          "name": "Ładunek statku",
+          "entries": [
+            "Aby losowo określić, co znajduje się w ładowni statku zakłócającego zaklęcia, wykonaj rzut {@dice 1d6} razy na tabeli Cheap Cargo i {@dice 1d4-1} razy w tabeli Drogie ładunki. Zduplikowany wynik wskazuje, że statek ma więcej tego samego ładunku.",
+            "Jeśli kontener ładunkowy jest zamknięty, klucz do niego ma przynajmniej jeden członek załogi (zwykle kapitan). Postać może podjąć próbę odblokowania pojemnika za pomocą narzędzi złodziei, co zakończy się sukcesem {@dc 20} Kontrola zręczności.",
+            {
+              "type": "table",
+              "caption": "Tani ładunek",
+              "colLabels": [
+                "d12",
+                "Ładunek"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Kufer zawierający dziesięć strojów {@item traveler's clothes|PHB} (2 sz każdy)"
+                ],
+                [
+                  "2",
+                  "Skrzynka zawierająca sto kostek mydła (po 2 sztuki)"
+                ],
+                [
+                  "3",
+                  "Dwadzieścia bełtów balistycznych (po 5 sztuk każda)"
+                ],
+                [
+                  "4",
+                  "Kurnik zawierający pięćdziesiąt żywych kurczaków (2 szt. każdy)"
+                ],
+                [
+                  "5",
+                  "Skrzynia zawierająca dwadzieścia krążków sera (po 5 szpul każdy)"
+                ],
+                [
+                  "6",
+                  "Zamknięta klatka zawierająca jedną wybraną przez ciebie przyjazną bestię"
+                ],
+                [
+                  "7",
+                  "Dziesięć 40-litrowych beczek świeżej wody"
+                ],
+                [
+                  "8",
+                  "Dziesięć skrzyń, każda zawierająca pięćdziesiąt dni racji żywnościowych (25 sz za skrzynkę)"
+                ],
+                [
+                  "9",
+                  "Zamknięta klatka zawierająca jedną wybraną wrogą bestię"
+                ],
+                [
+                  "10",
+                  "Skrzynia zawierająca pięćdziesiąt {@item Perfume (vial)|PHB|fiolki z perfumami} (2 sz każdy)"
+                ],
+                [
+                  "11",
+                  "Skrzynia zawierająca pięćdziesiąt bochenków chleba (po 2 szt. każdy)"
+                ],
+                [
+                  "12",
+                  "Dziesięć 40-litrowych beczek piwa (4 gp każda)"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "caption": "Drogi ładunek",
+              "colLabels": [
+                "d12",
+                "Ładunek"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Skrzynia zawierająca pięćdziesiąt pustych sztuk {@item Spellbook|PHB|księgi zaklęć} (50 sz za sztukę)"
+                ],
+                [
+                  "2",
+                  "Skrzynia zawierająca sto {@item Ink (1-ounce bottle)|PHB|Butelki z atramentem o pojemności 1 uncji} (10 gp każdy) i tysiąc arkuszy {@item Parchment (one sheet)|PHB|pergamin} (1 sp. każdy)"
+                ],
+                [
+                  "3",
+                  "Skrzynia zawierająca dwadzieścia {@item Potion of Healing||mikstury lecznicze}, {@item Alchemist's Fire (flask)|PHB|kolby ognia alchemika}, Lub {@item Antitoxin (vial)|PHB|fiolki z antytoksyną} (50 sz za sztukę)"
+                ],
+                [
+                  "4",
+                  "Skrzynia zawierająca sto butelek wyśmienitego wina (po 25 sztuk każda)"
+                ],
+                [
+                  "5",
+                  "Zestaw znakomicie wykonanych mebli (2500 szt.)"
+                ],
+                [
+                  "6",
+                  "Zamknięty bagażnik zawierający pięć rozładowanych {@item Pistol||pistolety} (250 sztuk sztuka) i pudełko zawierające 100 naboi"
+                ],
+                [
+                  "7",
+                  "Zamykana skrzynia zawierająca wykwintny zestaw Smoczych szachów wykonany z kryształu lub kości słoniowej (2500 sztuk)"
+                ],
+                [
+                  "8",
+                  "Zamknięty kufer zawierający dziesięć {@item Bomb||bomby} (150 sz każdy; patrz „{@book Explosives|DMG|9|Materiały wybuchowe}” w {@book Dungeon Master's Guide|DMG})"
+                ],
+                [
+                  "9",
+                  "Skrzynia zawierająca sto fajerwerków (po 25 sztuk każdy)"
+                ],
+                [
+                  "10",
+                  "Skrzynia zawierająca pięć rozładowanych {@item Musket||muszkiety} (500 sztuk każdy) i pudełko zawierające 100 naboi"
+                ],
+                [
+                  "11",
+                  "Zamknięta skrzynka zawierająca pięć {@item Spyglass|PHB|lunety} (1000 sz każdy)"
+                ],
+                [
+                  "12",
+                  "Dziesięć 20-funtowych {@item Gunpowder Keg||beczki prochu} (250 sz każdy; patrz „{@book Explosives|DMG|9|Materiały wybuchowe}” w {@book Dungeon Master's Guide|DMG})"
+                ]
+              ]
+            }
+          ],
+          "id": "00c"
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Duszące",
+      "entries": [
+        "Możesz wstrzymać oddech na liczbę minut równą 1 + twój modyfikator Kondycji (minimum 30 sekund).",
+        "Jeśli zabraknie ci tchu lub się zadławisz, możesz przetrwać liczbę rund równą twojemu modyfikatorowi Kondycji (minimum 1 runda). Na początku następnej tury tracisz punkty wytrzymałości do 0 i umierasz. Nie możesz odzyskać punktów wytrzymałości ani ustabilizować się, dopóki nie odzyskasz oddechu."
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "entries",
+      "name": "Nieważkość",
+      "entries": [
+        "W każdym miejscu, w którym nie występuje grawitacja, obowiązują następujące zasady:",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Utrudniona walka wręcz",
+              "entries": [
+                "Wykonując atak wręcz bronią, istota, która nie ma prędkości latania ani pływania (naturalnej lub zapewnianej przez magię), ma wadę w rzucie ataku, chyba że broń zadaje obrażenia kłute."
+              ],
+              "id": "004"
+            },
+            {
+              "type": "entries",
+              "name": "Ruch",
+              "entries": [
+                "Stworzenie może wykorzystać akcję, aby odepchnąć coś cięższego od siebie i osiągnąć prędkość chodzenia, latania lub pływania po linii prostej. Stworzenie kontynuuje podróż tym kursem, poruszając się po linii prostej ze swoją prędkością w każdej ze swoich tur, dopóki coś go nie zatrzyma lub nie zmieni trajektorii."
+              ],
+              "id": "005"
+            }
+          ],
+          "id": "003"
+        }
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Utrudniona walka wręcz",
+          "entries": [
+            "Wykonując atak wręcz bronią, istota, która nie ma prędkości latania ani pływania (naturalnej lub zapewnianej przez magię), ma wadę w rzucie ataku, chyba że broń zadaje obrażenia kłute."
+          ],
+          "id": "004"
+        },
+        {
+          "type": "entries",
+          "name": "Ruch",
+          "entries": [
+            "Stworzenie może wykorzystać akcję, aby odepchnąć coś cięższego od siebie i osiągnąć prędkość chodzenia, latania lub pływania po linii prostej. Stworzenie kontynuuje podróż tym kursem, poruszając się po linii prostej ze swoją prędkością w każdej ze swoich tur, dopóki coś go nie zatrzyma lub nie zmieni trajektorii."
+          ],
+          "id": "005"
+        }
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "entries",
+      "name": "Utrudniona walka wręcz",
+      "entries": [
+        "Wykonując atak wręcz bronią, istota, która nie ma prędkości latania ani pływania (naturalnej lub zapewnianej przez magię), ma wadę w rzucie ataku, chyba że broń zadaje obrażenia kłute."
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Ruch",
+      "entries": [
+        "Stworzenie może wykorzystać akcję, aby odepchnąć coś cięższego od siebie i osiągnąć prędkość chodzenia, latania lub pływania po linii prostej. Stworzenie kontynuuje podróż tym kursem, poruszając się po linii prostej ze swoją prędkością w każdej ze swoich tur, dopóki coś go nie zatrzyma lub nie zmieni trajektorii."
+      ],
+      "id": "005"
+    },
+    "0:009": {
+      "type": "entries",
+      "name": "Spotkania Astralne",
+      "id": "009",
+      "entries": [
+        "Możesz wygenerować losowe spotkanie na Planie Astralnym, rzucając odpowiednio na tabelę Spotkań w Dzikiej Przestrzeni lub tabeli Spotkań na Morzu Astralnym, lub wybierając spotkanie, które Ci się podoba. Jeśli spotkanie odbywa się ze statkiem zakłócającym zaklęcia, możesz rzucić na Spotkania Statków, aby określić statek i jego załogę, lub możesz stworzyć własne spotkanie ze statkiem (patrz {@book Astral Adventurer's Guide|AAG} dla {@book ship descriptions|AAG|2|Statki Spelljammer}).",
+        "W tej książce pojawiają się stworzenia oznaczone gwiazdką (*); reszta opisana jest w {@book Monster Manual|MM}. Każde stworzenie oznaczone sztyletem (†) może służyć jako zakłócacz zaklęć, ponieważ jest rzucającym zaklęcia.",
+        "Jeśli Humanoid nie ma określonej rasy, może należeć do dowolnej rasy, którą wybierzesz.",
+        {
+          "type": "entries",
+          "name": "Postawa początkowa",
+          "id": "00a",
+          "entries": [
+            "Aby losowo określić początkowe nastawienie napotkanych stworzeń, wykonaj rzut nastawienia wymagany we wpisie tabeli spotkań, a następnie zapoznaj się z odpowiednią linijką tabeli nastawienia początkowego.",
+            {
+              "type": "table",
+              "caption": "Postawa początkowa",
+              "colLabels": [
+                "Suma rzutu na postawę",
+                "Postawa początkowa"
+              ],
+              "colStyles": [
+                "col-6 text-center",
+                "col-6 text-center"
+              ],
+              "rows": [
+                [
+                  "4 lub mniej",
+                  "Wrogi"
+                ],
+                [
+                  "5-8",
+                  "Obojętny"
+                ],
+                [
+                  "9 lub więcej",
+                  "Przyjazny"
+                ]
+              ]
+            },
+            {
+              "type": "table",
+              "caption": "Spotkania w dzikiej przestrzeni",
+              "colLabels": [
+                "d100",
+                "Spotkanie w dzikiej przestrzeni",
+                "Rolka postawy"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-8",
+                "col-2 text-center"
+              ],
+              "rows": [
+                [
+                  "01-03",
+                  "{@dice 1d4} {@creature Chwinga Astronaut|BAM|astronauci Chwinga},* każdy zamontowany na 1 {@creature space guppy|BAM}*",
+                  "{@dice 1d6 + 4}"
+                ],
+                [
+                  "04",
+                  "1 {@creature cosmic horror|BAM}* (30 procent szans, że śpi)",
+                  "{@dice 1d6}"
+                ],
+                [
+                  "05",
+                  "1 {@creature esthetic|BAM}* pilotowany przez 1 {@creature reigar|BAM}*†",
+                  "{@dice 1d12}"
+                ],
+                [
+                  "06-07",
+                  "1 {@creature eye monger|BAM}*",
+                  "{@dice 1d6}"
+                ],
+                [
+                  "08-11",
+                  "1 {@creature feyr|BAM}*",
+                  "{@dice 1d6}"
+                ],
+                [
+                  "12-13",
+                  "1 {@creature giant octopus}, który może latać z prędkością 60 stóp i nie musi oddychać powietrzem",
+                  "{@dice 1d10}"
+                ],
+                [
+                  "14-17",
+                  "{@dice 1d6} {@creature Jammer Leech|BAM|pijawki zakłócające}*",
+                  "{@dice 1d8}"
+                ],
+                [
+                  "18-23",
+                  "{@dice 1d4} {@creature kindori|BAM}*",
+                  "{@dice 1d6 + 3}"
+                ],
+                [
+                  "24-25",
+                  "1 {@creature kindori|BAM}* z 1 {@creature druid}† mieszkającym w chatce na grzbiecie",
+                  "{@dice 2d6 + 3}"
+                ],
+                [
+                  "26",
+                  "1 {@creature kraken}, który może latać z prędkością 60 stóp i nie musi oddychać powietrzem",
+                  "{@dice 1d6}"
+                ],
+                [
+                  "27",
+                  "1 księżycowy smok* (do wyboru {@creature Young Lunar Dragon|BAM|młody}, {@creature Adult Lunar Dragon|BAM|dorosły} lub {@creature Ancient Lunar Dragon|BAM|starożytny})",
+                  "{@dice 1d10}"
+                ],
+                [
+                  "28-35",
+                  "Tawerna lub zajazd zbudowany na asteroidzie, z dokami, w których mogą cumować statki",
+                  "-"
+                ],
+                [
+                  "36-39",
+                  "{@dice 1d6} {@creature Murder Comet|BAM|komety morderstwa}*",
+                  "{@dice 1d6}"
+                ],
+                [
+                  "40-44",
+                  "{@dice 1d4} {@creature Brown Scavver|BAM|brązowe śmieciarze}*",
+                  "{@dice 1d8}"
+                ],
+                [
+                  "45-48",
+                  "1 {@creature night scavver|BAM}* i {@dice 2d6} {@creature Gray Scavver|BAM|szare śmieciarze}*",
+                  "{@dice 1d8}"
+                ],
+                [
+                  "49-50",
+                  "1 {@creature void scavver|BAM}*",
+                  "{@dice 1d6}"
+                ],
+                [
+                  "51-52",
+                  "Wrak statku, na którym wciąż może znajdować się skarb lub stworzenia (wybierz statek z {@book chapter 2|AAG|2|Statki Spelljammer} z {@book Astral Adventurer's Guide|AAG})",
+                  "-"
+                ],
+                [
+                  "53-54",
+                  "1 słoneczny smok* (do wyboru {@creature Young Solar Dragon|BAM|młody}, {@creature Adult Solar Dragon|BAM|dorosły} lub {@creature Ancient Solar Dragon|BAM|starożytny})",
+                  "{@dice 2d6}"
+                ],
+                [
+                  "55-59",
+                  "{@dice 1d6} {@creature Space Eel|BAM|kosmiczne węgorze}*",
+                  "{@dice 1d10}"
+                ],
+                [
+                  "60",
+                  "1 {@creature starlight apparition|BAM}*",
+                  "{@dice 2d6 + 2}"
+                ],
+                [
+                  "61-64",
+                  "{@dice 3d6} {@creature Stirge||porusza się}, które nie muszą oddychać powietrzem",
+                  "{@dice 1d6}"
+                ],
+                [
+                  "65-70",
+                  "{@dice 1d6} {@creature Will-o'-Wisp||błędne ogniki}",
+                  "{@dice 1d10}"
+                ],
+                [
+                  "71-00",
+                  "1 statek zakłócający zaklęcia (rolka na {@book Ship Encounters table|BAM|0|Spotkania Statkowe})",
+                  "-"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Spotkania Morza Astralnego",
+              "colLabels": [
+                "d100",
+                "Spotkanie Morza Astralnego",
+                "Rolka postawy"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-8",
+                "col-2 text-center"
+              ],
+              "rows": [
+                [
+                  "01-02",
+                  "1 {@creature aartuk starhorror|BAM}*† i {@dice 2d4} {@creature Aartuk Weedling|BAM|chwasty aartuk}*",
+                  "{@dice 1d12}"
+                ],
+                [
+                  "03-09",
+                  "1 {@creature archmage}† używając zaklęcia {@spell astral projection}",
+                  "{@dice 1d10 + 3}"
+                ],
+                [
+                  "10-11",
+                  "1 {@creature braxat|BAM}*",
+                  "{@dice 1d8}"
+                ],
+                [
+                  "12",
+                  "1 {@creature cosmic horror|BAM}* (70 procent szans, że śpi)",
+                  "{@dice 1d6}"
+                ],
+                [
+                  "13-15",
+                  "{@dice 1d4} {@creature Deva||dewy}† w boskim zadaniu",
+                  "{@dice 1d12 + 3}"
+                ],
+                [
+                  "16-28",
+                  "1 {@creature githyanki knight}† i {@dice 1d6} {@creature Githyanki Warrior||wojownicy githyanki}†",
+                  "{@dice 1d10}"
+                ],
+                [
+                  "29-31",
+                  "1 {@creature githyanki knight}† zamontowany na {@creature young red dragon}",
+                  "{@dice 1d8}"
+                ],
+                [
+                  "32",
+                  "1 {@creature githzerai zerth}† ścigany przez githyanki",
+                  "{@dice 1d6 + 6}"
+                ],
+                [
+                  "33-38",
+                  "{@dice 1d4} {@creature kindori|BAM}*",
+                  "{@dice 1d6 + 3}"
+                ],
+                [
+                  "39",
+                  "1 {@creature mercane|BAM}*† i 1 {@creature beholder} ochroniarz",
+                  "{@dice 1d8 + 4}"
+                ],
+                [
+                  "40",
+                  "1 {@creature neh-thalggu|BAM}*† szukam portalu do Odległej Krainy",
+                  "{@dice 1d10}"
+                ],
+                [
+                  "41-42",
+                  "1 {@creature pentadrone}",
+                  "{@dice 1d6 + 3}"
+                ],
+                [
+                  "43-44",
+                  "1 {@creature planetar}† z pobliskiego królestwa astralnego",
+                  "{@dice 1d12 + 3}"
+                ],
+                [
+                  "45-47",
+                  "{@dice 2d4} {@creature Psurlon|BAM|psurlony}*†",
+                  "{@dice 1d8}"
+                ],
+                [
+                  "48-50",
+                  "Gigantyczny pływający kryształowy obelisk tajemniczego pochodzenia",
+                  "-"
+                ],
+                [
+                  "51-52",
+                  "{@dice 4d4} {@creature Quadrone||kwadrony}",
+                  "{@dice 1d6 + 3}"
+                ],
+                [
+                  "53",
+                  "1 {@creature monodrone}, który stał się nieuczciwy",
+                  "{@dice 2d6 + 3}"
+                ],
+                [
+                  "54-56",
+                  "{@dice 1d4} {@creature Gray Slaad||szary slaadi}† w formie humanoidalnej",
+                  "{@dice 1d10}"
+                ],
+                [
+                  "57-58",
+                  "1 {@creature green slaad}†",
+                  "{@dice 1d12}"
+                ],
+                [
+                  "59-63",
+                  "{@dice 3d6} {@creature Gray Scavver|BAM|szare śmieciarze}*",
+                  "{@dice 1d8}"
+                ],
+                [
+                  "64",
+                  "1 {@creature solar}† czuwa nad martwym bogiem, który dryfuje w pobliżu",
+                  "{@dice 1d12 + 3}"
+                ],
+                [
+                  "65-66",
+                  "1 słoneczny smok* (do wyboru {@creature Young Solar Dragon|BAM|młody}, {@creature Adult Solar Dragon|BAM|dorosły} lub {@creature Ancient Solar Dragon|BAM|starożytny})",
+                  "{@dice 2d6}"
+                ],
+                [
+                  "67",
+                  "1 {@creature starlight apparition|BAM}*",
+                  "{@dice 2d6 + 2}"
+                ],
+                [
+                  "68-70",
+                  "{@dice 1d8} {@creature Unicorn||jednorożce} wesoło galopujący przez Morze Astralne",
+                  "{@dice 1d6 + 6}"
+                ],
+                [
+                  "71-00",
+                  "1 statek zakłócający zaklęcia (rzut na stół Spotkań Statków)",
+                  "-"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Spotkania Statkowe",
+              "colLabels": [
+                "d100",
+                "Spotkanie statku",
+                "Rolka postawy"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-8",
+                "col-2 text-center"
+              ],
+              "rows": [
+                [
+                  "01-07",
+                  "{@vehicle Bombard|AAG} Lewiatan, którego kapitanem jest Myrtle Hunt ({@creature giff warlord|BAM}*), a załoga składa się z 8 {@creature Giff Shipmate|BAM|towarzysze gifów}* i 3 {@creature Mage||magowie}†",
+                  "{@dice 1d10 + 2}"
+                ],
+                [
+                  "08-16",
+                  "{@vehicle Damselfly ship|AAG} Voidwinder, dowodzony przez Krig Kalu ({@creature hadozee explorer|BAM}*), a załoga: 1 {@creature drow}† i 7 {@creature Hadozee Shipmate|BAM|towarzysze hadozee}*",
+                  "{@dice 2d6 + 3}"
+                ],
+                [
+                  "17-23",
+                  "{@vehicle Flying fish ship|AAG} Horizon, którego kapitanem jest Thaal Vod (renegat {@creature mind flayer arcanist}†), a załoga: 9 {@creature Plasmoid Warrior|BAM|plazmoidalni wojownicy}*",
+                  "{@dice 1d12}"
+                ],
+                [
+                  "24-31",
+                  "{@vehicle Hammerhead ship|AAG} Jander Sunstar, którego kapitanem jest Veluna Valderak ({@creature vampirate captain|BAM}*), a załoga składa się z 13 {@creature Vampirate|BAM|wampiry}* i 1 {@creature priest}†",
+                  "{@dice 1d12}"
+                ],
+                [
+                  "32-36",
+                  "{@vehicle Lamprey ship|AAG} Nagroda Astralna, załoga 15 {@creature Psurlon Ringer|BAM|dzwonnicy psurlon},*† w tym Kapitan Uscath",
+                  "{@dice 1d12}"
+                ],
+                [
+                  "37-39",
+                  "{@vehicle Living ship|AAG} Eldervine, którego kapitanem jest Queth ({@creature aartuk elder|BAM}*), a załoga składa się z 2 {@creature Aartuk Starhorror|BAM|aartuk-gwiezdne horrory},*† 8 {@creature Aartuk Weedling|BAM|chwasty aartuk},* i Eldervine ({@creature treant})",
+                  "{@dice 1d10}"
+                ],
+                [
+                  "40-45",
+                  "{@vehicle Nautiloid|AAG} Neurophage z załogą 4 {@creature Mind Flayer||łupieżcy umysłów}† i 16 {@creature kuo-toa}, z {@dice 1d6} {@creature Grell||grele} i {@dice 1d6} {@creature Intellect Devourer||pożeracze intelektu} jako pasażerami",
+                  "{@dice 1d6}"
+                ],
+                [
+                  "46-50",
+                  "{@vehicle Nightspider|AAG} Malevolence, którego kapitanem jest Yeshk ({@creature neogi void hunter|BAM}*†), a załogą jest 24 {@creature Neogi Pirate|BAM|piraci neogi}* i 5 {@creature Umber Hulk||umbrowe kadłuby}",
+                  "{@dice 1d6}"
+                ],
+                [
+                  "51-55",
+                  "{@vehicle Scorpion ship|AAG} Claws of Huraj, dowodzony przez Huraja ({@creature hobgoblin captain}) i załoga: 1 {@creature bugbear} (pierwszy oficer), 8 {@creature Hobgoblin||hobgobliny} i 2 hobgobliny {@creature Priest||księża}†",
+                  "{@dice 1d12}"
+                ],
+                [
+                  "56-61",
+                  "{@vehicle Shrike ship|AAG} Fedifensor, którego kapitanem jest Yaj ({@creature githyanki xenomancer|BAM}*†) i załogą 10 {@creature Githyanki Buccaneer|BAM|korsarze githyanki}*†",
+                  "{@dice 1d12}"
+                ],
+                [
+                  "62-66",
+                  "{@vehicle Space galleon|AAG} Jedenasty, dowodzony przez Xorpha Eleven-Eyes ({@creature beholder}), a załoga: 1 {@creature spectator} (pierwszy oficer), 3 {@creature Cult Fanatic||fanatycy kultu},† i 16 {@creature Cultist||kultyści}",
+                  "{@dice 1d12}"
+                ],
+                [
+                  "67-72",
+                  "{@vehicle Space galleon|AAG} Great Kindori, dowodzony przez Mystana Potężnego ({@creature djinni}†) i załoga: 1 {@creature invisible stalker} (pierwszy oficer), 1 {@creature couatl}, † 17 {@creature aarakocra} i 1 {@creature rug of smothering}",
+                  "{@dice 2d6 + 2}"
+                ],
+                [
+                  "73-78",
+                  "{@vehicle Squid ship|AAG} Syken's Reach, dowodzony przez pirata Arviglasa Sykena (człowiek {@creature bandit captain}), a załoga składa się z 1 {@creature cambion}† (córka Sykena, Tenebra) i 11 {@creature Thug||bandyci}",
+                  "{@dice 1d12}"
+                ],
+                [
+                  "79-84",
+                  "{@vehicle Star moth|AAG} Apex, którego kapitanem jest Xaleen ({@creature astral elf commander|BAM}*†), a załogą jest 11 {@creature Astral Elf Warrior|BAM|astralni elfi wojownicy}* i 1 {@creature astral elf aristocrat|BAM}*†",
+                  "{@dice 1d12}"
+                ],
+                [
+                  "85-90",
+                  "{@vehicle Turtle ship|AAG} Snorkel, którego kapitanem jest Shelby Norkel (gnom {@creature mage}†), a załoga: 15 {@creature Autognome|BAM|autognomy}*",
+                  "{@dice 1d10 + 3}"
+                ],
+                [
+                  "91-94",
+                  "{@vehicle Tyrant ship|AAG} Doomdreamer, załoga: {@dice 2d4 + 2} {@creature Beholder||obserwatorzy}",
+                  "{@dice 1d8}"
+                ],
+                [
+                  "95-00",
+                  "{@vehicle Wasp ship|AAG} Przygoda, porzucona i dryfująca (25 procent szans, że jego {@item spelljamming helm|AAG} wciąż znajduje się na pokładzie)",
+                  "-"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableIgnore": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Odległość początkowa od statku do statku",
+          "entries": [
+            "Na początku starcia DM decyduje, jak daleko statek znajduje się od wrogów. W tabeli Dystans spotkania początkowego podane są trzy możliwości. Im krótszy dystans, tym mniej czasu załogi mają na załadowanie broni i inne przygotowania.",
+            {
+              "type": "table",
+              "colLabels": [
+                "Dystans",
+                "Notatki"
+              ],
+              "colStyles": [
+                "col-2",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "250 stóp",
+                  "Daleki zasięg dla {@object ballista||balisty}, {@object Mangonel||mangonele}, {@item shortbow|phb|krótkie łuki}, {@item longbow|phb|długie łuki}, {@item light crossbow|phb|lekkie kusze}, I {@item heavy crossbow|phb|ciężkie kusze}"
+                ],
+                [
+                  "500 stóp",
+                  "Daleki zasięg dla {@item longbow|phb|długie łuki} I {@object Mangonel||mangonele}; poza zasięgiem {@object ballista||balisty} i kusze"
+                ],
+                [
+                  "1000 stóp",
+                  "Poza zasięgiem większości broni dystansowych"
+                ]
+              ]
+            }
+          ],
+          "id": "006"
+        },
+        {
+          "type": "entries",
+          "name": "Rozbicie",
+          "entries": [
+            "Kiedy statek zakłócający zaklęcia zderza się ze stworzeniem lub obiektem, który mógłby go w rozsądny sposób uszkodzić, zarówno statek, jak i uderzona przez niego istota lub obiekt otrzymują obrażenia tłuczące, zależne od rozmiaru trafionego obiektu, jak pokazano w poniższej tabeli.",
+            {
+              "type": "table",
+              "colLabels": [
+                "Rozmiar istoty lub przedmiotu uderzonego",
+                "Obrażenia tłuczące"
+              ],
+              "colStyles": [
+                "col-6 text-center",
+                "col-6 text-center"
+              ],
+              "rows": [
+                [
+                  "Duży",
+                  "{@dice 4d10}"
+                ],
+                [
+                  "Ogromny",
+                  "{@dice 8d10}"
+                ],
+                [
+                  "Olbrzymi",
+                  "{@dice 16d10}"
+                ]
+              ]
+            },
+            "Jeśli statek wpadnie na coś, co nie ma punktów wytrzymałości (np. na planetę lub księżyc), zadaj obrażenia tylko statkowi. Statek zatrzymuje się po zderzeniu z gigantyczną lub nieruchomą istotą lub przedmiotem; w przeciwnym razie statek może kontynuować ruch, jeśli pozostał mu jeszcze jakiś ruch, a wszystko, w co uderzył, przesuwa się na najbliższe niezajęte pole, które nie znajduje się na trasie statku."
+          ],
+          "id": "007"
+        }
+      ]
+    },
+    "0:00a": {
+      "type": "entries",
+      "name": "Postawa początkowa",
+      "id": "00a",
+      "entries": [
+        "Aby losowo określić początkowe nastawienie napotkanych stworzeń, wykonaj rzut nastawienia wymagany we wpisie tabeli spotkań, a następnie zapoznaj się z odpowiednią linijką tabeli nastawienia początkowego.",
+        {
+          "type": "table",
+          "caption": "Postawa początkowa",
+          "colLabels": [
+            "Suma rzutu na postawę",
+            "Postawa początkowa"
+          ],
+          "colStyles": [
+            "col-6 text-center",
+            "col-6 text-center"
+          ],
+          "rows": [
+            [
+              "4 lub mniej",
+              "Wrogi"
+            ],
+            [
+              "5-8",
+              "Obojętny"
+            ],
+            [
+              "9 lub więcej",
+              "Przyjazny"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Spotkania w dzikiej przestrzeni",
+          "colLabels": [
+            "d100",
+            "Spotkanie w dzikiej przestrzeni",
+            "Rolka postawy"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-8",
+            "col-2 text-center"
+          ],
+          "rows": [
+            [
+              "01-03",
+              "{@dice 1d4} {@creature Chwinga Astronaut|BAM|astronauci Chwinga},* każdy zamontowany na 1 {@creature space guppy|BAM}*",
+              "{@dice 1d6 + 4}"
+            ],
+            [
+              "04",
+              "1 {@creature cosmic horror|BAM}* (30 procent szans, że śpi)",
+              "{@dice 1d6}"
+            ],
+            [
+              "05",
+              "1 {@creature esthetic|BAM}* pilotowany przez 1 {@creature reigar|BAM}*†",
+              "{@dice 1d12}"
+            ],
+            [
+              "06-07",
+              "1 {@creature eye monger|BAM}*",
+              "{@dice 1d6}"
+            ],
+            [
+              "08-11",
+              "1 {@creature feyr|BAM}*",
+              "{@dice 1d6}"
+            ],
+            [
+              "12-13",
+              "1 {@creature giant octopus}, który może latać z prędkością 60 stóp i nie musi oddychać powietrzem",
+              "{@dice 1d10}"
+            ],
+            [
+              "14-17",
+              "{@dice 1d6} {@creature Jammer Leech|BAM|pijawki zakłócające}*",
+              "{@dice 1d8}"
+            ],
+            [
+              "18-23",
+              "{@dice 1d4} {@creature kindori|BAM}*",
+              "{@dice 1d6 + 3}"
+            ],
+            [
+              "24-25",
+              "1 {@creature kindori|BAM}* z 1 {@creature druid}† mieszkającym w chatce na grzbiecie",
+              "{@dice 2d6 + 3}"
+            ],
+            [
+              "26",
+              "1 {@creature kraken}, który może latać z prędkością 60 stóp i nie musi oddychać powietrzem",
+              "{@dice 1d6}"
+            ],
+            [
+              "27",
+              "1 księżycowy smok* (do wyboru {@creature Young Lunar Dragon|BAM|młody}, {@creature Adult Lunar Dragon|BAM|dorosły} lub {@creature Ancient Lunar Dragon|BAM|starożytny})",
+              "{@dice 1d10}"
+            ],
+            [
+              "28-35",
+              "Tawerna lub zajazd zbudowany na asteroidzie, z dokami, w których mogą cumować statki",
+              "-"
+            ],
+            [
+              "36-39",
+              "{@dice 1d6} {@creature Murder Comet|BAM|komety morderstwa}*",
+              "{@dice 1d6}"
+            ],
+            [
+              "40-44",
+              "{@dice 1d4} {@creature Brown Scavver|BAM|brązowe śmieciarze}*",
+              "{@dice 1d8}"
+            ],
+            [
+              "45-48",
+              "1 {@creature night scavver|BAM}* i {@dice 2d6} {@creature Gray Scavver|BAM|szare śmieciarze}*",
+              "{@dice 1d8}"
+            ],
+            [
+              "49-50",
+              "1 {@creature void scavver|BAM}*",
+              "{@dice 1d6}"
+            ],
+            [
+              "51-52",
+              "Wrak statku, na którym wciąż może znajdować się skarb lub stworzenia (wybierz statek z {@book chapter 2|AAG|2|Statki Spelljammer} z {@book Astral Adventurer's Guide|AAG})",
+              "-"
+            ],
+            [
+              "53-54",
+              "1 słoneczny smok* (do wyboru {@creature Young Solar Dragon|BAM|młody}, {@creature Adult Solar Dragon|BAM|dorosły} lub {@creature Ancient Solar Dragon|BAM|starożytny})",
+              "{@dice 2d6}"
+            ],
+            [
+              "55-59",
+              "{@dice 1d6} {@creature Space Eel|BAM|kosmiczne węgorze}*",
+              "{@dice 1d10}"
+            ],
+            [
+              "60",
+              "1 {@creature starlight apparition|BAM}*",
+              "{@dice 2d6 + 2}"
+            ],
+            [
+              "61-64",
+              "{@dice 3d6} {@creature Stirge||porusza się}, które nie muszą oddychać powietrzem",
+              "{@dice 1d6}"
+            ],
+            [
+              "65-70",
+              "{@dice 1d6} {@creature Will-o'-Wisp||błędne ogniki}",
+              "{@dice 1d10}"
+            ],
+            [
+              "71-00",
+              "1 statek zakłócający zaklęcia (rolka na {@book Ship Encounters table|BAM|0|Spotkania Statkowe})",
+              "-"
+            ]
+          ],
+          "data": {
+            "genTables": {
+              "tableIgnore": true
+            }
+          }
+        },
+        {
+          "type": "table",
+          "caption": "Spotkania Morza Astralnego",
+          "colLabels": [
+            "d100",
+            "Spotkanie Morza Astralnego",
+            "Rolka postawy"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-8",
+            "col-2 text-center"
+          ],
+          "rows": [
+            [
+              "01-02",
+              "1 {@creature aartuk starhorror|BAM}*† i {@dice 2d4} {@creature Aartuk Weedling|BAM|chwasty aartuk}*",
+              "{@dice 1d12}"
+            ],
+            [
+              "03-09",
+              "1 {@creature archmage}† używając zaklęcia {@spell astral projection}",
+              "{@dice 1d10 + 3}"
+            ],
+            [
+              "10-11",
+              "1 {@creature braxat|BAM}*",
+              "{@dice 1d8}"
+            ],
+            [
+              "12",
+              "1 {@creature cosmic horror|BAM}* (70 procent szans, że śpi)",
+              "{@dice 1d6}"
+            ],
+            [
+              "13-15",
+              "{@dice 1d4} {@creature Deva||dewy}† w boskim zadaniu",
+              "{@dice 1d12 + 3}"
+            ],
+            [
+              "16-28",
+              "1 {@creature githyanki knight}† i {@dice 1d6} {@creature Githyanki Warrior||wojownicy githyanki}†",
+              "{@dice 1d10}"
+            ],
+            [
+              "29-31",
+              "1 {@creature githyanki knight}† zamontowany na {@creature young red dragon}",
+              "{@dice 1d8}"
+            ],
+            [
+              "32",
+              "1 {@creature githzerai zerth}† ścigany przez githyanki",
+              "{@dice 1d6 + 6}"
+            ],
+            [
+              "33-38",
+              "{@dice 1d4} {@creature kindori|BAM}*",
+              "{@dice 1d6 + 3}"
+            ],
+            [
+              "39",
+              "1 {@creature mercane|BAM}*† i 1 {@creature beholder} ochroniarz",
+              "{@dice 1d8 + 4}"
+            ],
+            [
+              "40",
+              "1 {@creature neh-thalggu|BAM}*† szukam portalu do Odległej Krainy",
+              "{@dice 1d10}"
+            ],
+            [
+              "41-42",
+              "1 {@creature pentadrone}",
+              "{@dice 1d6 + 3}"
+            ],
+            [
+              "43-44",
+              "1 {@creature planetar}† z pobliskiego królestwa astralnego",
+              "{@dice 1d12 + 3}"
+            ],
+            [
+              "45-47",
+              "{@dice 2d4} {@creature Psurlon|BAM|psurlony}*†",
+              "{@dice 1d8}"
+            ],
+            [
+              "48-50",
+              "Gigantyczny pływający kryształowy obelisk tajemniczego pochodzenia",
+              "-"
+            ],
+            [
+              "51-52",
+              "{@dice 4d4} {@creature Quadrone||kwadrony}",
+              "{@dice 1d6 + 3}"
+            ],
+            [
+              "53",
+              "1 {@creature monodrone}, który stał się nieuczciwy",
+              "{@dice 2d6 + 3}"
+            ],
+            [
+              "54-56",
+              "{@dice 1d4} {@creature Gray Slaad||szary slaadi}† w formie humanoidalnej",
+              "{@dice 1d10}"
+            ],
+            [
+              "57-58",
+              "1 {@creature green slaad}†",
+              "{@dice 1d12}"
+            ],
+            [
+              "59-63",
+              "{@dice 3d6} {@creature Gray Scavver|BAM|szare śmieciarze}*",
+              "{@dice 1d8}"
+            ],
+            [
+              "64",
+              "1 {@creature solar}† czuwa nad martwym bogiem, który dryfuje w pobliżu",
+              "{@dice 1d12 + 3}"
+            ],
+            [
+              "65-66",
+              "1 słoneczny smok* (do wyboru {@creature Young Solar Dragon|BAM|młody}, {@creature Adult Solar Dragon|BAM|dorosły} lub {@creature Ancient Solar Dragon|BAM|starożytny})",
+              "{@dice 2d6}"
+            ],
+            [
+              "67",
+              "1 {@creature starlight apparition|BAM}*",
+              "{@dice 2d6 + 2}"
+            ],
+            [
+              "68-70",
+              "{@dice 1d8} {@creature Unicorn||jednorożce} wesoło galopujący przez Morze Astralne",
+              "{@dice 1d6 + 6}"
+            ],
+            [
+              "71-00",
+              "1 statek zakłócający zaklęcia (rzut na stół Spotkań Statków)",
+              "-"
+            ]
+          ],
+          "data": {
+            "genTables": {
+              "tableIgnore": true
+            }
+          }
+        },
+        {
+          "type": "table",
+          "caption": "Spotkania Statkowe",
+          "colLabels": [
+            "d100",
+            "Spotkanie statku",
+            "Rolka postawy"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-8",
+            "col-2 text-center"
+          ],
+          "rows": [
+            [
+              "01-07",
+              "{@vehicle Bombard|AAG} Lewiatan, którego kapitanem jest Myrtle Hunt ({@creature giff warlord|BAM}*), a załoga składa się z 8 {@creature Giff Shipmate|BAM|towarzysze gifów}* i 3 {@creature Mage||magowie}†",
+              "{@dice 1d10 + 2}"
+            ],
+            [
+              "08-16",
+              "{@vehicle Damselfly ship|AAG} Voidwinder, dowodzony przez Krig Kalu ({@creature hadozee explorer|BAM}*), a załoga: 1 {@creature drow}† i 7 {@creature Hadozee Shipmate|BAM|towarzysze hadozee}*",
+              "{@dice 2d6 + 3}"
+            ],
+            [
+              "17-23",
+              "{@vehicle Flying fish ship|AAG} Horizon, którego kapitanem jest Thaal Vod (renegat {@creature mind flayer arcanist}†), a załoga: 9 {@creature Plasmoid Warrior|BAM|plazmoidalni wojownicy}*",
+              "{@dice 1d12}"
+            ],
+            [
+              "24-31",
+              "{@vehicle Hammerhead ship|AAG} Jander Sunstar, którego kapitanem jest Veluna Valderak ({@creature vampirate captain|BAM}*), a załoga składa się z 13 {@creature Vampirate|BAM|wampiry}* i 1 {@creature priest}†",
+              "{@dice 1d12}"
+            ],
+            [
+              "32-36",
+              "{@vehicle Lamprey ship|AAG} Nagroda Astralna, załoga 15 {@creature Psurlon Ringer|BAM|dzwonnicy psurlon},*† w tym Kapitan Uscath",
+              "{@dice 1d12}"
+            ],
+            [
+              "37-39",
+              "{@vehicle Living ship|AAG} Eldervine, którego kapitanem jest Queth ({@creature aartuk elder|BAM}*), a załoga składa się z 2 {@creature Aartuk Starhorror|BAM|aartuk-gwiezdne horrory},*† 8 {@creature Aartuk Weedling|BAM|chwasty aartuk},* i Eldervine ({@creature treant})",
+              "{@dice 1d10}"
+            ],
+            [
+              "40-45",
+              "{@vehicle Nautiloid|AAG} Neurophage z załogą 4 {@creature Mind Flayer||łupieżcy umysłów}† i 16 {@creature kuo-toa}, z {@dice 1d6} {@creature Grell||grele} i {@dice 1d6} {@creature Intellect Devourer||pożeracze intelektu} jako pasażerami",
+              "{@dice 1d6}"
+            ],
+            [
+              "46-50",
+              "{@vehicle Nightspider|AAG} Malevolence, którego kapitanem jest Yeshk ({@creature neogi void hunter|BAM}*†), a załogą jest 24 {@creature Neogi Pirate|BAM|piraci neogi}* i 5 {@creature Umber Hulk||umbrowe kadłuby}",
+              "{@dice 1d6}"
+            ],
+            [
+              "51-55",
+              "{@vehicle Scorpion ship|AAG} Claws of Huraj, dowodzony przez Huraja ({@creature hobgoblin captain}) i załoga: 1 {@creature bugbear} (pierwszy oficer), 8 {@creature Hobgoblin||hobgobliny} i 2 hobgobliny {@creature Priest||księża}†",
+              "{@dice 1d12}"
+            ],
+            [
+              "56-61",
+              "{@vehicle Shrike ship|AAG} Fedifensor, którego kapitanem jest Yaj ({@creature githyanki xenomancer|BAM}*†) i załogą 10 {@creature Githyanki Buccaneer|BAM|korsarze githyanki}*†",
+              "{@dice 1d12}"
+            ],
+            [
+              "62-66",
+              "{@vehicle Space galleon|AAG} Jedenasty, dowodzony przez Xorpha Eleven-Eyes ({@creature beholder}), a załoga: 1 {@creature spectator} (pierwszy oficer), 3 {@creature Cult Fanatic||fanatycy kultu},† i 16 {@creature Cultist||kultyści}",
+              "{@dice 1d12}"
+            ],
+            [
+              "67-72",
+              "{@vehicle Space galleon|AAG} Great Kindori, dowodzony przez Mystana Potężnego ({@creature djinni}†) i załoga: 1 {@creature invisible stalker} (pierwszy oficer), 1 {@creature couatl}, † 17 {@creature aarakocra} i 1 {@creature rug of smothering}",
+              "{@dice 2d6 + 2}"
+            ],
+            [
+              "73-78",
+              "{@vehicle Squid ship|AAG} Syken's Reach, dowodzony przez pirata Arviglasa Sykena (człowiek {@creature bandit captain}), a załoga składa się z 1 {@creature cambion}† (córka Sykena, Tenebra) i 11 {@creature Thug||bandyci}",
+              "{@dice 1d12}"
+            ],
+            [
+              "79-84",
+              "{@vehicle Star moth|AAG} Apex, którego kapitanem jest Xaleen ({@creature astral elf commander|BAM}*†), a załogą jest 11 {@creature Astral Elf Warrior|BAM|astralni elfi wojownicy}* i 1 {@creature astral elf aristocrat|BAM}*†",
+              "{@dice 1d12}"
+            ],
+            [
+              "85-90",
+              "{@vehicle Turtle ship|AAG} Snorkel, którego kapitanem jest Shelby Norkel (gnom {@creature mage}†), a załoga: 15 {@creature Autognome|BAM|autognomy}*",
+              "{@dice 1d10 + 3}"
+            ],
+            [
+              "91-94",
+              "{@vehicle Tyrant ship|AAG} Doomdreamer, załoga: {@dice 2d4 + 2} {@creature Beholder||obserwatorzy}",
+              "{@dice 1d8}"
+            ],
+            [
+              "95-00",
+              "{@vehicle Wasp ship|AAG} Przygoda, porzucona i dryfująca (25 procent szans, że jego {@item spelljamming helm|AAG} wciąż znajduje się na pokładzie)",
+              "-"
+            ]
+          ],
+          "data": {
+            "genTables": {
+              "tableIgnore": true
+            }
+          }
+        }
+      ]
+    },
+    "0:006": {
+      "type": "entries",
+      "name": "Odległość początkowa od statku do statku",
+      "entries": [
+        "Na początku starcia DM decyduje, jak daleko statek znajduje się od wrogów. W tabeli Dystans spotkania początkowego podane są trzy możliwości. Im krótszy dystans, tym mniej czasu załogi mają na załadowanie broni i inne przygotowania.",
+        {
+          "type": "table",
+          "colLabels": [
+            "Dystans",
+            "Notatki"
+          ],
+          "colStyles": [
+            "col-2",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "250 stóp",
+              "Daleki zasięg dla {@object ballista||balisty}, {@object Mangonel||mangonele}, {@item shortbow|phb|krótkie łuki}, {@item longbow|phb|długie łuki}, {@item light crossbow|phb|lekkie kusze}, I {@item heavy crossbow|phb|ciężkie kusze}"
+            ],
+            [
+              "500 stóp",
+              "Daleki zasięg dla {@item longbow|phb|długie łuki} I {@object Mangonel||mangonele}; poza zasięgiem {@object ballista||balisty} i kusze"
+            ],
+            [
+              "1000 stóp",
+              "Poza zasięgiem większości broni dystansowych"
+            ]
+          ]
+        }
+      ],
+      "id": "006"
+    },
+    "0:007": {
+      "type": "entries",
+      "name": "Rozbicie",
+      "entries": [
+        "Kiedy statek zakłócający zaklęcia zderza się ze stworzeniem lub obiektem, który mógłby go w rozsądny sposób uszkodzić, zarówno statek, jak i uderzona przez niego istota lub obiekt otrzymują obrażenia tłuczące, zależne od rozmiaru trafionego obiektu, jak pokazano w poniższej tabeli.",
+        {
+          "type": "table",
+          "colLabels": [
+            "Rozmiar istoty lub przedmiotu uderzonego",
+            "Obrażenia tłuczące"
+          ],
+          "colStyles": [
+            "col-6 text-center",
+            "col-6 text-center"
+          ],
+          "rows": [
+            [
+              "Duży",
+              "{@dice 4d10}"
+            ],
+            [
+              "Ogromny",
+              "{@dice 8d10}"
+            ],
+            [
+              "Olbrzymi",
+              "{@dice 16d10}"
+            ]
+          ]
+        },
+        "Jeśli statek wpadnie na coś, co nie ma punktów wytrzymałości (np. na planetę lub księżyc), zadaj obrażenia tylko statkowi. Statek zatrzymuje się po zderzeniu z gigantyczną lub nieruchomą istotą lub przedmiotem; w przeciwnym razie statek może kontynuować ruch, jeśli pozostał mu jeszcze jakiś ruch, a wszystko, w co uderzył, przesuwa się na najbliższe niezajęte pole, które nie znajduje się na trasie statku."
+      ],
+      "id": "007"
+    },
+    "0:008": {
+      "type": "entries",
+      "name": "Zadania na pokładzie statku",
+      "entries": [
+        "Podczas spokojnej części podróży kapitan statku zakłócającego zaklęcia może zmusić członków załogi do pracy na kilka sposobów. Jeśli postać szuka pracy do wykonania lub jeśli kapitan chce zająć jakąś postać, rzuć w tabeli Zadania na statku, aby określić, co należy zrobić. Czas potrzebny na wykonanie zadania wynosi co najmniej 1 godzinę, a niektóre zadania mogą zająć więcej czasu, według Twojego uznania.",
+        {
+          "type": "table",
+          "caption": "Zadania na pokładzie statku",
+          "colLabels": [
+            "d12",
+            "Zadanie"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "Zeskrob pąkle z kadłuba."
+            ],
+            [
+              "2",
+              "Umyj garnki i naczynia w kuchni."
+            ],
+            [
+              "3",
+              "Posiekaj warzywa w kambuzie."
+            ],
+            [
+              "4",
+              "Przetrzyj pokład lub zamieść ładownię."
+            ],
+            [
+              "5",
+              "Aktualizuj mapy nawigacyjne statku, co wymaga narzędzi kartografa."
+            ],
+            [
+              "6",
+              "Napraw ulubioną parę butów kapitana, co wymaga narzędzi szewskich. (A {@spell mending} zaklęcie też działa.)"
+            ],
+            [
+              "7",
+              "Napraw powierzchowne uszkodzenia statku, co wymaga narzędzi stolarskich lub narzędzi snycerskich. (A {@spell mending} zaklęcie też działa.)"
+            ],
+            [
+              "8",
+              "Skomponuj nową pieśń, która wymaga instrumentu muzycznego."
+            ],
+            [
+              "9",
+              "Zabawiaj załogę niewiarygodnymi opowieściami i plotkami."
+            ],
+            [
+              "10",
+              "Napraw zepsutą lunetę kapitana, co wymaga narzędzi jubilerskich lub narzędzi majsterkowicza. (A {@spell mending} zaklęcie też działa.)"
+            ],
+            [
+              "11",
+              "Naucz kapitana podstaw języka, którego jeszcze nie zna."
+            ],
+            [
+              "12",
+              "Przygotuj smaczny obiad na kapitański stół, który wymaga przyborów kucharza."
+            ]
+          ]
+        }
+      ],
+      "id": "008"
+    },
+    "0:00b": {
+      "type": "entries",
+      "name": "Dziwactwa statku",
+      "entries": [
+        "Rzuć na tabelę Dziwactwa statku, jeśli chcesz dodać statkowi odrobinę „osobowości”.",
+        {
+          "type": "table",
+          "caption": "Dziwactwa statku",
+          "colLabels": [
+            "d10",
+            "Dziwactwo"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "Rozmowny, ale nieszkodliwy duch nawiedza ładownię."
+            ],
+            [
+              "2",
+              "Nadmierne skrzypienie kadłuba odbija się echem po całym statku."
+            ],
+            [
+              "3",
+              "Każde stworzenie, które usuwa się ze statku {@item spelljamming helm|AAG} otrzymuje zaskakujący, ale nieszkodliwy magiczny szok."
+            ],
+            [
+              "4",
+              "Zejściówki statku są mniejsze niż te, które można znaleźć na większości innych podobnych statków."
+            ],
+            [
+              "5",
+              "Za każdym razem, gdy statek się zatrzymuje, wydaje jęczący dźwięk, który przypomina bunt."
+            ],
+            [
+              "6",
+              "Podłogę głównego pokładu zdobi stylizowany rendering tajemniczej mapy gwiazd, która od czasu do czasu pulsuje mieniącymi się kolorami."
+            ],
+            [
+              "7",
+              "Powłoka powietrzna statku ma słony, słony zapach."
+            ],
+            [
+              "8",
+              "Na grodziach na całym statku wypisane są wersety poetyckie."
+            ],
+            [
+              "9",
+              "Narzędzia pozostawione bez nadzoru często znikają i pojawiają się ponownie {@dice 1d4} kilka godzin później w innej części statku."
+            ],
+            [
+              "10",
+              "Stworzenie siedzące na statku {@item spelljamming helm|AAG} słyszy w myślach słabe pieśni kosmiczne, z wyjątkiem sytuacji, gdy statek jest atakowany."
+            ]
+          ]
+        }
+      ],
+      "id": "00b"
+    },
+    "0:00c": {
+      "type": "entries",
+      "name": "Ładunek statku",
+      "entries": [
+        "Aby losowo określić, co znajduje się w ładowni statku zakłócającego zaklęcia, wykonaj rzut {@dice 1d6} razy na tabeli Cheap Cargo i {@dice 1d4-1} razy w tabeli Drogie ładunki. Zduplikowany wynik wskazuje, że statek ma więcej tego samego ładunku.",
+        "Jeśli kontener ładunkowy jest zamknięty, klucz do niego ma przynajmniej jeden członek załogi (zwykle kapitan). Postać może podjąć próbę odblokowania pojemnika za pomocą narzędzi złodziei, co zakończy się sukcesem {@dc 20} Kontrola zręczności.",
+        {
+          "type": "table",
+          "caption": "Tani ładunek",
+          "colLabels": [
+            "d12",
+            "Ładunek"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "Kufer zawierający dziesięć strojów {@item traveler's clothes|PHB} (2 sz każdy)"
+            ],
+            [
+              "2",
+              "Skrzynka zawierająca sto kostek mydła (po 2 sztuki)"
+            ],
+            [
+              "3",
+              "Dwadzieścia bełtów balistycznych (po 5 sztuk każda)"
+            ],
+            [
+              "4",
+              "Kurnik zawierający pięćdziesiąt żywych kurczaków (2 szt. każdy)"
+            ],
+            [
+              "5",
+              "Skrzynia zawierająca dwadzieścia krążków sera (po 5 szpul każdy)"
+            ],
+            [
+              "6",
+              "Zamknięta klatka zawierająca jedną wybraną przez ciebie przyjazną bestię"
+            ],
+            [
+              "7",
+              "Dziesięć 40-litrowych beczek świeżej wody"
+            ],
+            [
+              "8",
+              "Dziesięć skrzyń, każda zawierająca pięćdziesiąt dni racji żywnościowych (25 sz za skrzynkę)"
+            ],
+            [
+              "9",
+              "Zamknięta klatka zawierająca jedną wybraną wrogą bestię"
+            ],
+            [
+              "10",
+              "Skrzynia zawierająca pięćdziesiąt {@item Perfume (vial)|PHB|fiolki z perfumami} (2 sz każdy)"
+            ],
+            [
+              "11",
+              "Skrzynia zawierająca pięćdziesiąt bochenków chleba (po 2 szt. każdy)"
+            ],
+            [
+              "12",
+              "Dziesięć 40-litrowych beczek piwa (4 gp każda)"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Drogi ładunek",
+          "colLabels": [
+            "d12",
+            "Ładunek"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "Skrzynia zawierająca pięćdziesiąt pustych sztuk {@item Spellbook|PHB|księgi zaklęć} (50 sz za sztukę)"
+            ],
+            [
+              "2",
+              "Skrzynia zawierająca sto {@item Ink (1-ounce bottle)|PHB|Butelki z atramentem o pojemności 1 uncji} (10 gp każdy) i tysiąc arkuszy {@item Parchment (one sheet)|PHB|pergamin} (1 sp. każdy)"
+            ],
+            [
+              "3",
+              "Skrzynia zawierająca dwadzieścia {@item Potion of Healing||mikstury lecznicze}, {@item Alchemist's Fire (flask)|PHB|kolby ognia alchemika}, Lub {@item Antitoxin (vial)|PHB|fiolki z antytoksyną} (50 sz za sztukę)"
+            ],
+            [
+              "4",
+              "Skrzynia zawierająca sto butelek wyśmienitego wina (po 25 sztuk każda)"
+            ],
+            [
+              "5",
+              "Zestaw znakomicie wykonanych mebli (2500 szt.)"
+            ],
+            [
+              "6",
+              "Zamknięty bagażnik zawierający pięć rozładowanych {@item Pistol||pistolety} (250 sztuk sztuka) i pudełko zawierające 100 naboi"
+            ],
+            [
+              "7",
+              "Zamykana skrzynia zawierająca wykwintny zestaw Smoczych szachów wykonany z kryształu lub kości słoniowej (2500 sztuk)"
+            ],
+            [
+              "8",
+              "Zamknięty kufer zawierający dziesięć {@item Bomb||bomby} (150 sz każdy; patrz „{@book Explosives|DMG|9|Materiały wybuchowe}” w {@book Dungeon Master's Guide|DMG})"
+            ],
+            [
+              "9",
+              "Skrzynia zawierająca sto fajerwerków (po 25 sztuk każdy)"
+            ],
+            [
+              "10",
+              "Skrzynia zawierająca pięć rozładowanych {@item Musket||muszkiety} (500 sztuk każdy) i pudełko zawierające 100 naboi"
+            ],
+            [
+              "11",
+              "Zamknięta skrzynka zawierająca pięć {@item Spyglass|PHB|lunety} (1000 sz każdy)"
+            ],
+            [
+              "12",
+              "Dziesięć 20-funtowych {@item Gunpowder Keg||beczki prochu} (250 sz każdy; patrz „{@book Explosives|DMG|9|Materiały wybuchowe}” w {@book Dungeon Master's Guide|DMG})"
+            ]
+          ]
+        }
+      ],
+      "id": "00c"
+    }
+  }
+}

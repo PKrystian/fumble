@@ -1,0 +1,2530 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Przywracanie harmonii: głos na pustyni",
+      "page": 2,
+      "entries": [
+        "Witamy w Restoring Harmony, serii przygodowej Dungeons & Dragons powstałej we współpracy ze smacznym i kolorowym światem NERDS.",
+        "Aby rozegrać tę przygodę, potrzebujesz piątej edycji Basic Rules for D&D, którą możesz pobrać bezpłatnie tutaj. Wszystkie potrzebne magiczne przedmioty i bloki statystyk potworów znajdują się na końcu tej przygody.",
+        "Restoring Harmony to kampania podzielona na sześć miniprzygód pierwszego poziomu dla pojedynczego gracza i jedną dłuższą przygodę dla wielu graczy. Każda mini przygoda trwa około 45 minut, a ostatnia przygoda zajmuje około 60-90 minut.",
+        "Miniprzygody można rozgrywać w dowolnej kolejności, ale ostateczną przygodę należy rozegrać jako ostatnią. Oto lista wszystkich przygód:",
+        {
+          "type": "list",
+          "items": [
+            "{@adventure Adventure 1 The Candy Mountain Caper|NRH-TCMC}",
+            "{@adventure Adventure 2 A Voice in the Wilderness|NRH-AVitW}",
+            "{@adventure Adventure 3 A Sticky Situation|NRH-ASS}",
+            "{@adventure Adventure 4 Circus of Illusions|NRH-CoI}",
+            "{@adventure Adventure 5 The Lost Tomb|NRH-TLT}",
+            "{@adventure Adventure 6 A Web of Lies|NRH-AWoL}",
+            "{@adventure Adventure 7 Adventure Together|NRH-AT}"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Podsumowanie historii",
+          "page": 2,
+          "entries": [
+            "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+            "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony. Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+            "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+          ],
+          "id": "001"
+        },
+        {
+          "type": "entries",
+          "name": "Gra solo",
+          "page": 2,
+          "entries": [
+            "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+            "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+            {
+              "type": "entries",
+              "name": "TPK: Całkowite zniszczenie drużyny",
+              "entries": [
+                "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+                "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+              ],
+              "id": "003"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "entries",
+          "name": "Zarys przygody",
+          "page": 3,
+          "entries": [
+            "Oto krótki opis przygody:",
+            {
+              "type": "list",
+              "items": [
+                "Red the Ranger otrzymuje tajemniczą wiadomość od „Pana Honeycutta” z prośbą o spotkanie z Elowen Greenleaf w Old Oak Grove. Jeśli Czerwony dotrze na miejsce na czas, uniknie zasadzki.",
+                "Elowen mówi Redowi, że należy do tajnego stowarzyszenia znanego jako Strażnicy Wiedzy. Próbują odkryć, kto lub co powoduje „przerwy w dostawie kolorów”. Elowen ma mapę, na której można znaleźć magiczny klejnot, który pomoże im w ich wyprawie.",
+                "Udają się do Lemondrop Ledges i znajdują wejście do świątyni. Aby się tam dostać, muszą jednak najpierw przejść przez wąwóz i wspiąć się na klif.",
+                "Następnie muszą stawić czoła Szkarłatnemu Strażnikowi, żywemu posągowi strzegącemu Karmazynowego Klejnotu."
+              ]
+            }
+          ],
+          "id": "004"
+        },
+        {
+          "type": "entries",
+          "name": "Rozpoczęcie gry",
+          "page": 3,
+          "entries": [
+            "Wręcz kartę postaci (patrz „Red the Ranger” poniżej) swojemu graczowi i pozwól mu zapoznać się z Redem.",
+            "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć. Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+          ],
+          "id": "005"
+        },
+        {
+          "type": "section",
+          "name": "Głos na pustyni",
+          "page": 3,
+          "entries": [
+            "Na początku tej przygody strażnik Red jest w swoim naturalnym żywiole - eksploruje las. Przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                "Jesteś w lasach na obrzeżach miasta Harmony i badasz, jak lokalni mieszkańcy nazywają „przerwy w dostawie kolorów”, występujące w całym mieście. Las jest zwykle wypełniony bujnymi kolorami roślin i dzikiej przyrody zamieszkującej ten obszar, ale zauważyłeś, że dziwne przerwy w kolorystyce przytępiające miasto również dały się we znaki - blaknięcie kwiatów i szarzenie liści.",
+                "Powierzono Ci ochronę i zachowanie lasu, więc szukałeś naturalnych przyczyn, które mogły stać za awariami, ale jak dotąd nie udało Ci się ustalić ich źródła. Gdy szukasz dalszych wskazówek, obok ciebie ląduje mały ptaszek z małym kawałkiem pergaminu w dziobie."
+              ],
+              "id": "007"
+            },
+            "Jeśli Czerwony odniesie sukces {@dc 12} Mądrość ({@skill Animal Handling}) sprawdź, ptak podlatuje i wrzuca im pergamin do ręki, po czym odlatuje. Jeśli Czerwony wyciągnie palec niczym żerdź lub zaoferuje ptakowi smaczne nasiona, ma przewagę w szachu. Jeśli Red otworzy notatkę, przeczytaj:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                {
+                  "type": "quote",
+                  "entries": [
+                    "Szlachetny strażniku, pomóż nam rozwiązać zagadkę przerw w dostawie kolorów. Wysłałem moją Sapling Scout, Elowen Greenleaf, aby czekała na ciebie w Old Oak Grove. Ona wie, kim jesteś i czeka na twoją pomoc. Pospiesz się, ona może być już w niebezpieczeństwie."
+                  ],
+                  "by": "Panie Honeycutt"
+                }
+              ],
+              "id": "008"
+            },
+            "Red zna pana Honeycutta jako życzliwego bibliotekarza o łagodnym głosie w Bibliotece Harmony.",
+            "Red wie też, gdzie jest Old Oak Grove. Z sukcesem {@dc 12} Inteligencja ({@skill Nature}) sprawdź, Czerwony pamięta, jak się tam dostać w mniej niż 15 minut i przybywa, zanim Elowen wpadnie w zasadzkę (patrz „Przybycie przed zasadzką” poniżej). W przypadku nieudanego testu dotarcie na miejsce zajmuje Czerwonemu 25 minut i pojawia się, gdy Elowen znajduje się w zasadzce (patrz „Przybycie podczas zasadzki” poniżej)."
+          ],
+          "id": "006"
+        },
+        {
+          "type": "entries",
+          "name": "Przybycie przed zasadzką",
+          "page": 4,
+          "entries": [
+            "Czerwony biegnie przez las i znajduje Stary Gaj Dębowy. Gdy Czerwony wejdzie do gaju, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 4,
+              "entries": [
+                "Wchodzisz do gaju wiekowych drzew. Szczególnie jeden, który dobrze znasz, Stary Dąb. Jego grube, sękate gałęzie wiją się ku niebu, a ptaki ćwierkają w delikatnie skrzypiących konarach. W pobliżu Starego Dębu małe drzewko z maleńką twarzą rozgląda się, jakby kogoś oczekiwała."
+              ],
+              "id": "00b"
+            },
+            "Jeśli Red pójdzie zbadać sprawę, drzewko, młoda {@creature awakened shrub}, przedstawia się jako Elowen Greenleaf. Wie wszystko o Red the Ranger i poleciła Reda panu Honeycuttowi, aby pomógł rozwikłać i rozwiązać zagadkę przerw w dostawie kolorów.",
+            {
+              "type": "entries",
+              "name": "Spotkanie z Elowen",
+              "page": 4,
+              "entries": [
+                "Elowen Greenleaf ubrana jest w mundur Sapling Scout z zieloną szarfą z naszytymi naszywkami. Jest nad wiek rozwinięta i pragnie zdobywać odznaki za zasługi, będąc pomocnym członkiem społeczności leśnej, ale jest też potajemnie członkinią Towarzystwa Strażników Wiedzy.",
+                "Mówi Redowi, że jest zaangażowana w sprawę o wielkim znaczeniu: pan Honeycutt powierzył jej misję odnalezienia Karmazynowego Klejnotu, jednego z sześciu Klejnotów Mocy. Ale jest problem i dlatego potrzebują pomocy strażnika. Klejnotu strzeże legendarny Szkarłatny Strażnik i nikt nie wie, jak go ominąć. Jedyne, co musi zrobić Elowen, to postrzępiona mapa."
+              ],
+              "id": "00c"
+            },
+            {
+              "type": "entries",
+              "name": "Sprzęt",
+              "page": 4,
+              "entries": [
+                "Elowen ma lornetkę, kompas, pudełko wafli Sapling Scout i zestaw do szycia."
+              ],
+              "id": "00d"
+            },
+            {
+              "type": "entries",
+              "name": "Co wie Elowen",
+              "page": 4,
+              "entries": [
+                "Jeśli zostanie poproszona o więcej informacji, Elowen może przekazać Redowi następujące informacje:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Pan Honeycutt to życzliwy człowiek, który jest szefem Towarzystwa Lorekeeperów.",
+                    "Towarzystwo Lorekeeperów to starożytna i tajna grupa zajmująca się obroną Harmonii.",
+                    "Karmazynowy Klejnot ma coś wspólnego z pomaganiem w powstrzymaniu przerw w dostawie kolorów w Harmonii.",
+                    "Szkarłatny Strażnik to starożytny posąg, który dawno temu Towarzystwo Strażników Wiedzy magicznie zaczarowało, aby chronić Karmazynowy Klejnot. Ale sposób na dezaktywację już dawno został utracony.",
+                    "Kilku złoczyńców również szuka Karmazynowego Klejnotu i pan Honeycutt uważa, że ​​to oni są odpowiedzialni za niedawne przerwy w dostawie kolorów. Nie wie jednak, kim oni są.",
+                    "Ma postrzępioną mapę (patrz „Mapa Elowen” poniżej) z biblioteki Towarzystwa Lorekeeperów, ale nie rozpoznaje miejsca, do którego odnosi się mapa."
+                  ]
+                },
+                "Elowen błaga Reda, aby pomógł jej znaleźć Karmazynowy Klejnot i słodko proponuje, że w nagrodę wyhaftuje dla nich odznakę zasługi Sapling Scout."
+              ],
+              "id": "00e"
+            },
+            {
+              "type": "entries",
+              "name": "Mapa Elowena",
+              "page": 4,
+              "entries": [
+                "Jeśli Red zgodzi się pomóc Towarzystwu Strażników Wiedzy, Elowen pokazuje Redowi poszarpaną pergaminową mapę. Mapa ilustruje przybliżoną lokalizację czegoś, co może być wejściem do jaskini lub wejściem.",
+                "Czerwony rozpoznaje również unikalny kształt drzew przedstawionych na mapie jako należących do drzewa cytrynowego. Red uważa, że ​​najbardziej prawdopodobną lokalizacją są Lemondrop Ledges - miejsce głęboko w dziczy, o którym Red słyszał, ale nigdy nie odkrył. Niektórzy mówią, że dawno temu w skałach wykuto świątynie i Red często zastanawiał się, czy te pogłoski są prawdziwe.",
+                "Ponadto, obok drzwi na mapie narysowane są tajemnicze glify:",
+                "🦊🧤",
+                "🕷️🌿",
+                "🐱🐾",
+                {
+                  "type": "entries",
+                  "name": "Tajemnica glifów",
+                  "page": 4,
+                  "entries": [
+                    "Glify reprezentują trzy rośliny, których należy dotknąć w odpowiedniej kolejności, aby otworzyć magiczne drzwi przy wejściu do świątyni (patrz obszar R1 poniżej). Roślinami są odpowiednio naparstnica, pająk i kocia łapa."
+                  ],
+                  "id": "010"
+                }
+              ],
+              "id": "00f"
+            }
+          ],
+          "id": "00a"
+        },
+        {
+          "type": "entries",
+          "name": "Przybycie po zasadzce",
+          "page": 4,
+          "entries": [
+            "Czerwony biegnie przez las, skręcając tu i ówdzie w złą stronę. Na koniec, gdy Czerwony zbliża się do gaju, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 4,
+              "entries": [
+                "Gdy wejdziesz do Old Oak Grove, usłyszysz krzyk alarmu i coś, co brzmi jak strzały gwiżdżące w powietrzu. W pobliżu Starego Dębu widzisz małą sadzonkę z maleńką, {@condition frightened} twarz otoczona dwoma sękatymi cierniami, które wyglądają groźnie."
+              ],
+              "id": "012"
+            },
+            "Sukces {@dc 10} Inteligencja ({@skill Nature}) sprawdzenie ujawnia, że ​​cierniowych krzaków jest dwa {@creature twig blight||zaraza gałązek}, podczas gdy {@condition frightened} drzewko noszące zieloną szarfę z naszytymi naszywkami to m.in {@creature awakened shrub}, Elowen Greenleaf.",
+            "Czerwony może radzić sobie z zarazą gałązek na wiele sposobów. Próba zastraszenia lub przekonania ich jest trudna i Czerwony musi odnieść sukces {@dc 15} Charyzma ({@skill Intimidation} Lub {@skill Persuasion}) sprawdź, czy zmienili zdanie.",
+            "{@creature twig blight||zaraza gałązek} mają rozkaz od mrocznego pana Greystone'a, aby odnaleźć Szkarłatnego Strażnika i odzyskać Karmazynowy Klejnot. Nie wiedzą, w jakim celu, ale wiedzą, że sprowadzenie Elowen Greenleaf z powrotem do ich pana to dobry pierwszy krok na drodze do odnalezienia klejnotu.",
+            "Jeśli wszystko przebiegnie pomyślnie, po konflikcie spotkają się Red i Elowen (patrz „Spotkanie z Elowen” powyżej)."
+          ],
+          "id": "011"
+        },
+        {
+          "type": "entries",
+          "name": "Podróż do Lemondrop Ledges",
+          "page": 5,
+          "entries": [
+            "Jeśli Red zdecyduje się pomóc Elowen, wyruszają do Lemondrop Ledges, które jest dwugodzinną wędrówką od Old Oak Grove. Podczas podróży Red zauważa, że ​​przerwy w wyświetlaniu kolorów rozciągają się na pustynię. Nawet zwierzęta są zauważalnie bardziej matowe, a niektóre mają teraz tylko odcienie szarości. Czerwony zauważa również a {@creature chimeric fox|NRH-AVitW} który zdaje się ich śledzić. Lis jest ciekawski i może nawet trochę wścibski, ale jest płochliwy i nie przepada za głośnymi dźwiękami. Jeśli Czerwony jest miły dla lisa, towarzyszy mu przez resztę przygody i pomaga drużynie najlepiej, jak potrafi - szczekając, gdy istnieje niebezpieczeństwo, lub odwracając uwagę niebezpiecznego wroga.",
+            "Jest to również dobre miejsce, aby Red odkrył rośliny lecznicze, z których Red (lub Elowen) może zaparzyć {@item potion of healing}. Znalezienie roślin leczniczych wymaga powodzenia {@dc 14} Inteligencja ({@skill Nature}) sprawdź, albo możesz pozwolić Redowi automatycznie znaleźć rośliny i uwarzyć miksturę.",
+            {
+              "type": "entries",
+              "name": "Znalezienie półek",
+              "page": 5,
+              "entries": [
+                "Aby znaleźć Lemondrop Ledges, Czerwony musi odnieść sukces w trzech kolejnych próbach {@dc 12} Mądrość ({@skill Survival}) sprawdza. Jeśli Czerwony użyje mapy Elowen, ma przewagę w testach. Jeśli test się nie powiedzie, Elowen może pomóc, przetaczając się, ale ponieważ nie ukończyła jeszcze kursu na orientację Sapling Scout, nie ma przewagi w swoim rzucie."
+              ],
+              "id": "014"
+            },
+            {
+              "type": "entries",
+              "name": "Dojazd do Ledges",
+              "page": 5,
+              "entries": [
+                "W końcu zaczynają czuć zapach świeżych cytryn, gdy docierają na szczyt urwiska porośniętego drzewami cytrynowymi. Strome klify opadają 30 metrów od urwiska do wąwozu poniżej.",
+                {
+                  "type": "inset",
+                  "name": "Drzewa cytrynowe",
+                  "page": 5,
+                  "entries": [
+                    "Te liściaste drzewa owocowe mają srebrzystą korę, charakterystyczne kolczaste, zielone liście i skupiska małych, słodko-cytrynowych owoców. Ptaki, pszczoły i inne zwierzęta leśne uwielbiają te owoce, ponieważ dodają im energii. Zjedzenie trzech lub więcej owoców zapewnia Czerwonemu korzyści wynikające z zaklęcia wzmacniającego zdolność (wytrzymałość niedźwiedzia) (nie jest wymagana koncentracja)."
+                  ],
+                  "id": "016"
+                }
+              ],
+              "id": "015"
+            },
+            {
+              "type": "entries",
+              "name": "Znalezienie wejścia",
+              "page": 5,
+              "entries": [
+                "Wejście do Świątyni Szkarłatnego Strażnika znajduje się w ścianie klifu po drugiej stronie wąwozu od Lemondrop Ledges i wymaga udanego {@dc 14} Mądrość ({@skill Perception}) sprawdź, czy widzisz. Jeśli Elowen lub Czerwony pamiętają o użyciu lornetki, którą Elowen ma w swoim zestawie Sapling Scout, mają przewagę w teście. Jeśli test się nie powiedzie, nadal znajdują wejście, ale dwie zarazy gałązek podkradają się do nich i atakują, gdy są zajęci ich szukaniem.",
+                "Dotarcie do wejścia oznacza zejście w dół po 30-metrowym klifie do wąwozu, przejście przez wąwóz i wspięcie się do połowy na drugą stronę. Jednakże na północy niebezpiecznie wyglądający most linowy przecina wąwóz, jeśli poszukiwacze przygód wybiorą tę ścieżkę."
+              ],
+              "id": "017"
+            },
+            {
+              "type": "entries",
+              "name": "Wspinaczka na klify",
+              "page": 5,
+              "entries": [
+                "Niezależnie od tego, czy Czerwony wspina się po klifie, czy zjeżdża po nim na linie, musi wykonać a {@dc 12} Wytrzymałość ({@skill Athletics}) sprawdzaj co 15 stóp ruchu (zaokrąglone w górę). Korzystanie ze sprzętu wspinaczkowego lub zakotwienie się na drzewie za pomocą liny daje im przewagę w teście. Jeśli test się nie powiedzie i postać nie jest przytwierdzona liną do drzewa, każda spadająca postać otrzymuje 3 ({@damage 1d6}) obrażenia tłuczące za każde upadek z 3 metrów.",
+                "Przeprawa przez podstawę wąwozu nie sprawia Redowi żadnych trudności."
+              ],
+              "id": "018"
+            },
+            {
+              "type": "entries",
+              "name": "Most linowy",
+              "page": 6,
+              "entries": [
+                "Most linowy o długości 250 stóp ma drewniane deski, po których można chodzić. Brakuje niektórych desek lub wyglądają one na bardziej zniszczone. Niektóre postrzępione liny wiszące zwisają z głównych linek w miejscach, w których ugięły się drewniane deski. Ogólnie rzecz biorąc, most wygląda na zużyty i zniszczony przez pogodę, ale wydaje się, że nadal będzie trochę obciążony.",
+                {
+                  "type": "inset",
+                  "name": "Zabawa z mostami linowymi!",
+                  "page": 6,
+                  "entries": [
+                    "Most linowy to świetne miejsce, w którym możesz rzucić na gracza niebezpieczeństwo. Możesz sprawić, że będzie ich ścigać horda zarazy igłowej, tak że będą musieli przejść przez most, lub możesz sprawić, że zaraza igłowa będzie ich nękać, gdy będą w połowie drogi. Możesz wymyślać zabawne komplikacje dla gracza, gdy będzie się po nim poruszał - nic nie wywołuje większego napięcia niż przepiłowanie mostu linowego, gdy twoi bohaterowie uciekają, by ratować życie, lub sytuacja, gdy bohaterowie muszą przeciąć liny, gdy banda igieł wspina się za nimi!"
+                  ],
+                  "id": "01a"
+                }
+              ],
+              "id": "019"
+            }
+          ],
+          "id": "013"
+        },
+        {
+          "type": "entries",
+          "name": "Świątynia Szkarłatnego Strażnika",
+          "page": 6,
+          "entries": [
+            "Świątynia Szkarłatnego Strażnika została wykuta w klifie dawno temu jako tajne miejsce do przechowywania i ochrony Karmazynowego Klejnotu.",
+            "Następujące lokalizacje są powiązane z mapą Świątyni Szkarłatnego Strażnika:",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AVitW/004.webp"
+              },
+              "width": 1330,
+              "height": 1330,
+              "mapRegions": [
+                {
+                  "area": "020",
+                  "points": [
+                    [
+                      469,
+                      443
+                    ],
+                    [
+                      481,
+                      392
+                    ],
+                    [
+                      497,
+                      356
+                    ],
+                    [
+                      519,
+                      322
+                    ],
+                    [
+                      551,
+                      293
+                    ],
+                    [
+                      595,
+                      268
+                    ],
+                    [
+                      629,
+                      258
+                    ],
+                    [
+                      671,
+                      257
+                    ],
+                    [
+                      711,
+                      265
+                    ],
+                    [
+                      752,
+                      280
+                    ],
+                    [
+                      777,
+                      301
+                    ],
+                    [
+                      806,
+                      324
+                    ],
+                    [
+                      830,
+                      363
+                    ],
+                    [
+                      848,
+                      394
+                    ],
+                    [
+                      854,
+                      441
+                    ],
+                    [
+                      851,
+                      489
+                    ],
+                    [
+                      835,
+                      535
+                    ],
+                    [
+                      813,
+                      574
+                    ],
+                    [
+                      771,
+                      616
+                    ],
+                    [
+                      725,
+                      638
+                    ],
+                    [
+                      682,
+                      649
+                    ],
+                    [
+                      640,
+                      648
+                    ],
+                    [
+                      602,
+                      641
+                    ],
+                    [
+                      552,
+                      611
+                    ],
+                    [
+                      512,
+                      573
+                    ],
+                    [
+                      486,
+                      538
+                    ],
+                    [
+                      470,
+                      493
+                    ]
+                  ]
+                },
+                {
+                  "area": "01e",
+                  "points": [
+                    [
+                      631,
+                      715
+                    ],
+                    [
+                      590,
+                      705
+                    ],
+                    [
+                      539,
+                      685
+                    ],
+                    [
+                      490,
+                      650
+                    ],
+                    [
+                      455,
+                      611
+                    ],
+                    [
+                      437,
+                      584
+                    ],
+                    [
+                      415,
+                      544
+                    ],
+                    [
+                      405,
+                      481
+                    ],
+                    [
+                      403,
+                      440
+                    ],
+                    [
+                      413,
+                      377
+                    ],
+                    [
+                      432,
+                      337
+                    ],
+                    [
+                      456,
+                      292
+                    ],
+                    [
+                      482,
+                      263
+                    ],
+                    [
+                      535,
+                      225
+                    ],
+                    [
+                      584,
+                      208
+                    ],
+                    [
+                      637,
+                      196
+                    ],
+                    [
+                      680,
+                      192
+                    ],
+                    [
+                      733,
+                      199
+                    ],
+                    [
+                      784,
+                      222
+                    ],
+                    [
+                      828,
+                      249
+                    ],
+                    [
+                      875,
+                      294
+                    ],
+                    [
+                      901,
+                      334
+                    ],
+                    [
+                      919,
+                      381
+                    ],
+                    [
+                      929,
+                      429
+                    ],
+                    [
+                      924,
+                      489
+                    ],
+                    [
+                      914,
+                      546
+                    ],
+                    [
+                      882,
+                      606
+                    ],
+                    [
+                      839,
+                      652
+                    ],
+                    [
+                      791,
+                      683
+                    ],
+                    [
+                      754,
+                      706
+                    ],
+                    [
+                      696,
+                      720
+                    ],
+                    [
+                      696,
+                      651
+                    ],
+                    [
+                      739,
+                      638
+                    ],
+                    [
+                      789,
+                      603
+                    ],
+                    [
+                      823,
+                      569
+                    ],
+                    [
+                      848,
+                      521
+                    ],
+                    [
+                      859,
+                      481
+                    ],
+                    [
+                      859,
+                      431
+                    ],
+                    [
+                      855,
+                      394
+                    ],
+                    [
+                      840,
+                      364
+                    ],
+                    [
+                      816,
+                      328
+                    ],
+                    [
+                      783,
+                      295
+                    ],
+                    [
+                      757,
+                      272
+                    ],
+                    [
+                      710,
+                      256
+                    ],
+                    [
+                      671,
+                      250
+                    ],
+                    [
+                      631,
+                      252
+                    ],
+                    [
+                      591,
+                      265
+                    ],
+                    [
+                      554,
+                      284
+                    ],
+                    [
+                      512,
+                      318
+                    ],
+                    [
+                      490,
+                      357
+                    ],
+                    [
+                      470,
+                      409
+                    ],
+                    [
+                      465,
+                      436
+                    ],
+                    [
+                      466,
+                      474
+                    ],
+                    [
+                      472,
+                      515
+                    ],
+                    [
+                      488,
+                      549
+                    ],
+                    [
+                      522,
+                      594
+                    ],
+                    [
+                      566,
+                      629
+                    ],
+                    [
+                      599,
+                      648
+                    ],
+                    [
+                      631,
+                      653
+                    ]
+                  ]
+                },
+                {
+                  "area": "01e",
+                  "points": [
+                    [
+                      631,
+                      655
+                    ],
+                    [
+                      631,
+                      1107
+                    ],
+                    [
+                      696,
+                      1107
+                    ],
+                    [
+                      696,
+                      655
+                    ]
+                  ]
+                },
+                {
+                  "area": "01c",
+                  "points": [
+                    [
+                      194,
+                      1137
+                    ],
+                    [
+                      250,
+                      1131
+                    ],
+                    [
+                      314,
+                      1130
+                    ],
+                    [
+                      357,
+                      1112
+                    ],
+                    [
+                      406,
+                      1111
+                    ],
+                    [
+                      455,
+                      1104
+                    ],
+                    [
+                      507,
+                      1108
+                    ],
+                    [
+                      561,
+                      1124
+                    ],
+                    [
+                      625,
+                      1125
+                    ],
+                    [
+                      663,
+                      1132
+                    ],
+                    [
+                      688,
+                      1130
+                    ],
+                    [
+                      703,
+                      1121
+                    ],
+                    [
+                      759,
+                      1120
+                    ],
+                    [
+                      797,
+                      1118
+                    ],
+                    [
+                      835,
+                      1108
+                    ],
+                    [
+                      882,
+                      1112
+                    ],
+                    [
+                      920,
+                      1121
+                    ],
+                    [
+                      968,
+                      1134
+                    ],
+                    [
+                      1034,
+                      1133
+                    ],
+                    [
+                      1094,
+                      1125
+                    ],
+                    [
+                      1138,
+                      1114
+                    ],
+                    [
+                      1106,
+                      1144
+                    ],
+                    [
+                      1064,
+                      1163
+                    ],
+                    [
+                      1026,
+                      1178
+                    ],
+                    [
+                      969,
+                      1185
+                    ],
+                    [
+                      931,
+                      1181
+                    ],
+                    [
+                      890,
+                      1179
+                    ],
+                    [
+                      842,
+                      1205
+                    ],
+                    [
+                      783,
+                      1205
+                    ],
+                    [
+                      702,
+                      1217
+                    ],
+                    [
+                      622,
+                      1218
+                    ],
+                    [
+                      560,
+                      1205
+                    ],
+                    [
+                      524,
+                      1185
+                    ],
+                    [
+                      469,
+                      1184
+                    ],
+                    [
+                      402,
+                      1195
+                    ],
+                    [
+                      363,
+                      1195
+                    ],
+                    [
+                      310,
+                      1181
+                    ],
+                    [
+                      244,
+                      1179
+                    ],
+                    [
+                      211,
+                      1152
+                    ]
+                  ]
+                }
+              ],
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 70,
+                "scale": 2
+              },
+              "hrefThumbnail": {
+                "type": "internal",
+                "path": "adventure/NRH-AVitW/thumbnail/004.webp"
+              },
+              "id": "025",
+              "credit": "Red Central"
+            },
+            {
+              "type": "entries",
+              "name": "R1. Wejście na półkę klifową",
+              "page": 6,
+              "entries": [
+                "Niezależnie od tego, w którą stronę Red dotrze do wejścia, w końcu docierają do cienkiej półki na klifie, 50 stóp nad ziemią. Drzwi do świątyni to płaskorzeźba wykuta w skale. Płaskorzeźba składa się z liści, kwiatów i roślin najróżniejszych odmian.",
+                {
+                  "type": "entries",
+                  "name": "Otwieranie drzwi",
+                  "page": 6,
+                  "entries": [
+                    "Jeśli Czerwony odniesie sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdzają, znajdują wyryte na drzwiach te same trzy gatunki roślin przedstawione na mapie: naparstnica, pająk i kocia łapa.",
+                    "Naciśnięcie ich w tej kolejności uruchamia magię drzwi. Świecące linie wyłaniają się wokół łuku, gdy w litym kamieniu tworzy się szew, a następnie kamień szlifuje o kamień, gdy drzwi się otwierają.",
+                    "Jeśli gracz ma trudności z rozwiązaniem zagadki, poproś Elowen o przekazanie Redowi istotnej wskazówki, która naprowadzi go na właściwą drogę."
+                  ],
+                  "id": "01d"
+                }
+              ],
+              "id": "01c"
+            },
+            {
+              "type": "entries",
+              "name": "R2. Korytarz",
+              "page": 6,
+              "entries": [
+                "Kiedy Czerwony wejdzie do korytarza, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 6,
+                  "entries": [
+                    "Kiedy patrzysz w ciemny tunel prowadzący do klifu, powietrze pachnie wilgocią i stęchlizną. Kolorowe piktogramy po obu stronach tunelu przedstawiają różne sceny: wesołe NERDY bawiące się przy studni, z której wylewa się tęcza kolorów; budowane jest miasto Harmonii; amulet zawierający sześć kolorowych kamieni szlachetnych; i scena budowy wielkiej biblioteki."
+                  ],
+                  "id": "01f"
+                },
+                "Wychodząc z pokoju na drugim końcu tunelu, Red widzi słabą, czerwonawą poświatę."
+              ],
+              "id": "01e"
+            },
+            {
+              "type": "entries",
+              "name": "R3. Komnata Strażnika",
+              "page": 6,
+              "entries": [
+                "Gdy Red zbliża się do wejścia do tego okrągłego pomieszczenia o średnicy 75 stóp i kopułowym suficie o wysokości 20 stóp, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 6,
+                  "entries": [
+                    "Na środku pokoju widzisz słabo świecący czerwony kamień szlachetny unoszący się nad wysokim na 3 metry posągiem wojownika, który stoi na kamiennym podwyższeniu. Blask klejnotu słabo oświetla pomieszczenie. Na podłodze duży czerwony okrąg z wyrytymi dziwnymi pieczęciami otacza posąg i rozciąga się przez większą część pomieszczenia, pozostawiając jedynie ścieżkę szeroką na 5 stóp wokół krawędzi okrągłej komnaty. Jakby wyczuwając twoją obecność, oczy posągu otwierają się i świecą na czerwono."
+                  ],
+                  "id": "021"
+                },
+                "Na podwyższeniu pośrodku pokoju stoi Szkarłatny Strażnik. Jest wykonany z krwawego onyksu i przedstawia dziwne, podobne do człowieka stworzenie z wydłużonymi ramionami i kłami wystającymi z jego szerokich ust. Każde stworzenie, które wejdzie w czerwony okrąg namalowany na podłodze, nawet jeśli przekroczy granicę bez dotykania podłogi, aktywuje wartownika, który natychmiast atakuje najbliższą żywą istotę. Gdy tylko w kręgu nie będzie już nic żywego, strażnik wraca na podwyższenie i przechodzi w stan uśpienia - z wyjątkiem złowieszczo świecących oczu.",
+                {
+                  "type": "entries",
+                  "name": "Zdobycie klejnotu",
+                  "page": 6,
+                  "entries": [
+                    "Klejnot magicznie lewituje 17 stóp nad ziemią (5 stóp nad głową wartownika). Czerwony może zdobyć klejnot na wiele sposobów. Oto dwie metody:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "Czerwony może wystrzelić unoszący się w powietrzu klejnot strzałą, aby wyrzucić go poza czerwone kółko. Klejnot ma KP 18, 3 punkty wytrzymałości oraz odporność na trucizny i obrażenia psychiczne. Czerwony musi umieścić podkładkę na grocie strzały, w przeciwnym razie Czerwony ryzykuje rozbicie klejnotu. Jeśli Czerwony trafi w klejnot zwykłą strzałą, gracz musi rzucić obrażenia. Jeśli Czerwony zada klejnotowi 4 lub więcej obrażeń, klejnot pęknie, a Elowen wyje z rozpaczy. Klejnot można ostatecznie naprawić, jeśli części zostaną zabrane z powrotem {@creature Mr. Honeycutt|NRH-TCMC}, ale wpada w panikę, kiedy po raz pierwszy widzi klejnot, zanim przypomni sobie, że zna czarodzieja, który może mu pomóc go przywrócić. Trafienie w klejnot wyściełaną strzałą odrzuca klejnot w stronę krawędzi. Niech gracz rzuci a {@dice d6}. Przy wyniku 1-4 klejnot wylatuje poza czerwone koło, przy wyniku 5 lub 6 klejnot wpada do koła, gdzie Czerwony może go ponownie uderzyć.",
+                        "Red i Elowen mogą współpracować z jednym z nich, odciągając strażnika, podczas gdy drugi chwyta klejnot siecią lub długą tyczką. Wymaga to szybkiego i bezbłędnego wykonania, ponieważ jedno trafienie strażnika może oznaczać pewną śmierć."
+                      ]
+                    }
+                  ],
+                  "id": "022"
+                }
+              ],
+              "id": "020"
+            }
+          ],
+          "id": "01b"
+        },
+        {
+          "type": "entries",
+          "name": "Ukończenie Misji",
+          "page": 7,
+          "entries": [
+            "Jeśli wszystko pójdzie dobrze, Elowen i Red zdobędą klejnot i wrócą do Harmony, gdzie Elowen podekscytowana chce przedstawić panu Honeycuttowi swojego nowego bohatera Reda. Możesz ich spotkać w Old Oak Grove, w tawernie lub bibliotece w Harmony.",
+            "Pan Honeycutt jest uszczęśliwiony powrotem Karmazynowego Klejnotu (chyba że jest w kawałkach) i chce wiedzieć wszystko o tej przygodzie, jednocześnie robiąc obszerne notatki w swoim czarnym notatniku.",
+            "Za ich kłopoty przyznaje Elowen błyszczącą odznakę za zasługi za wybitną służbę i awansuje ją do Sapling Scout First Class. Redowi daje sakiewkę zawierającą 20 sztuk złota i zaprasza Reda do przyłączenia się do Towarzystwa Lorekeeperów. Jeśli Red się zgodzi, pan Honeycutt wręcza Redowi magiczną przypinkę do płaszcza z emblematem Towarzystwa Strażników Wiedzy. Przypinka Lorekeepera działa jak {@item necklace of adaptation}.",
+            "Elowen daje także Redowi nowo uszytą odznakę za zasługi za czyny bohaterstwa i odwagi."
+          ],
+          "id": "023"
+        },
+        {
+          "type": "section",
+          "name": "Magiczne przedmioty",
+          "page": 7,
+          "entries": [
+            "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+            {
+              "type": "list",
+              "items": [
+                "{@item Necklace of Adaptation}"
+              ]
+            }
+          ],
+          "id": "024"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-AVitW/sheet003.webp"
+          },
+          "width": 1275,
+          "height": 825
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-AVitW/sheet004.webp"
+          },
+          "width": 1275,
+          "height": 825
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Podsumowanie historii",
+      "page": 2,
+      "entries": [
+        "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+        "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony. Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+        "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "entries",
+      "name": "Gra solo",
+      "page": 2,
+      "entries": [
+        "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+        "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+        {
+          "type": "entries",
+          "name": "TPK: Całkowite zniszczenie drużyny",
+          "entries": [
+            "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+            "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+          ],
+          "id": "003"
+        }
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "name": "TPK: Całkowite zniszczenie drużyny",
+      "entries": [
+        "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+        "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "entries",
+      "name": "Zarys przygody",
+      "page": 3,
+      "entries": [
+        "Oto krótki opis przygody:",
+        {
+          "type": "list",
+          "items": [
+            "Red the Ranger otrzymuje tajemniczą wiadomość od „Pana Honeycutta” z prośbą o spotkanie z Elowen Greenleaf w Old Oak Grove. Jeśli Czerwony dotrze na miejsce na czas, uniknie zasadzki.",
+            "Elowen mówi Redowi, że należy do tajnego stowarzyszenia znanego jako Strażnicy Wiedzy. Próbują odkryć, kto lub co powoduje „przerwy w dostawie kolorów”. Elowen ma mapę, na której można znaleźć magiczny klejnot, który pomoże im w ich wyprawie.",
+            "Udają się do Lemondrop Ledges i znajdują wejście do świątyni. Aby się tam dostać, muszą jednak najpierw przejść przez wąwóz i wspiąć się na klif.",
+            "Następnie muszą stawić czoła Szkarłatnemu Strażnikowi, żywemu posągowi strzegącemu Karmazynowego Klejnotu."
+          ]
+        }
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Rozpoczęcie gry",
+      "page": 3,
+      "entries": [
+        "Wręcz kartę postaci (patrz „Red the Ranger” poniżej) swojemu graczowi i pozwól mu zapoznać się z Redem.",
+        "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć. Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+      ],
+      "id": "005"
+    },
+    "0:006": {
+      "type": "section",
+      "name": "Głos na pustyni",
+      "page": 3,
+      "entries": [
+        "Na początku tej przygody strażnik Red jest w swoim naturalnym żywiole - eksploruje las. Przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            "Jesteś w lasach na obrzeżach miasta Harmony i badasz, jak lokalni mieszkańcy nazywają „przerwy w dostawie kolorów”, występujące w całym mieście. Las jest zwykle wypełniony bujnymi kolorami roślin i dzikiej przyrody zamieszkującej ten obszar, ale zauważyłeś, że dziwne przerwy w kolorystyce przytępiające miasto również dały się we znaki - blaknięcie kwiatów i szarzenie liści.",
+            "Powierzono Ci ochronę i zachowanie lasu, więc szukałeś naturalnych przyczyn, które mogły stać za awariami, ale jak dotąd nie udało Ci się ustalić ich źródła. Gdy szukasz dalszych wskazówek, obok ciebie ląduje mały ptaszek z małym kawałkiem pergaminu w dziobie."
+          ],
+          "id": "007"
+        },
+        "Jeśli Czerwony odniesie sukces {@dc 12} Mądrość ({@skill Animal Handling}) sprawdź, ptak podlatuje i wrzuca im pergamin do ręki, po czym odlatuje. Jeśli Czerwony wyciągnie palec niczym żerdź lub zaoferuje ptakowi smaczne nasiona, ma przewagę w szachu. Jeśli Red otworzy notatkę, przeczytaj:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            {
+              "type": "quote",
+              "entries": [
+                "Szlachetny strażniku, pomóż nam rozwiązać zagadkę przerw w dostawie kolorów. Wysłałem moją Sapling Scout, Elowen Greenleaf, aby czekała na ciebie w Old Oak Grove. Ona wie, kim jesteś i czeka na twoją pomoc. Pospiesz się, ona może być już w niebezpieczeństwie."
+              ],
+              "by": "Panie Honeycutt"
+            }
+          ],
+          "id": "008"
+        },
+        "Red zna pana Honeycutta jako życzliwego bibliotekarza o łagodnym głosie w Bibliotece Harmony.",
+        "Red wie też, gdzie jest Old Oak Grove. Z sukcesem {@dc 12} Inteligencja ({@skill Nature}) sprawdź, Czerwony pamięta, jak się tam dostać w mniej niż 15 minut i przybywa, zanim Elowen wpadnie w zasadzkę (patrz „Przybycie przed zasadzką” poniżej). W przypadku nieudanego testu dotarcie na miejsce zajmuje Czerwonemu 25 minut i pojawia się, gdy Elowen znajduje się w zasadzce (patrz „Przybycie podczas zasadzki” poniżej)."
+      ],
+      "id": "006"
+    },
+    "0:00a": {
+      "type": "entries",
+      "name": "Przybycie przed zasadzką",
+      "page": 4,
+      "entries": [
+        "Czerwony biegnie przez las i znajduje Stary Gaj Dębowy. Gdy Czerwony wejdzie do gaju, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 4,
+          "entries": [
+            "Wchodzisz do gaju wiekowych drzew. Szczególnie jeden, który dobrze znasz, Stary Dąb. Jego grube, sękate gałęzie wiją się ku niebu, a ptaki ćwierkają w delikatnie skrzypiących konarach. W pobliżu Starego Dębu małe drzewko z maleńką twarzą rozgląda się, jakby kogoś oczekiwała."
+          ],
+          "id": "00b"
+        },
+        "Jeśli Red pójdzie zbadać sprawę, drzewko, młoda {@creature awakened shrub}, przedstawia się jako Elowen Greenleaf. Wie wszystko o Red the Ranger i poleciła Reda panu Honeycuttowi, aby pomógł rozwikłać i rozwiązać zagadkę przerw w dostawie kolorów.",
+        {
+          "type": "entries",
+          "name": "Spotkanie z Elowen",
+          "page": 4,
+          "entries": [
+            "Elowen Greenleaf ubrana jest w mundur Sapling Scout z zieloną szarfą z naszytymi naszywkami. Jest nad wiek rozwinięta i pragnie zdobywać odznaki za zasługi, będąc pomocnym członkiem społeczności leśnej, ale jest też potajemnie członkinią Towarzystwa Strażników Wiedzy.",
+            "Mówi Redowi, że jest zaangażowana w sprawę o wielkim znaczeniu: pan Honeycutt powierzył jej misję odnalezienia Karmazynowego Klejnotu, jednego z sześciu Klejnotów Mocy. Ale jest problem i dlatego potrzebują pomocy strażnika. Klejnotu strzeże legendarny Szkarłatny Strażnik i nikt nie wie, jak go ominąć. Jedyne, co musi zrobić Elowen, to postrzępiona mapa."
+          ],
+          "id": "00c"
+        },
+        {
+          "type": "entries",
+          "name": "Sprzęt",
+          "page": 4,
+          "entries": [
+            "Elowen ma lornetkę, kompas, pudełko wafli Sapling Scout i zestaw do szycia."
+          ],
+          "id": "00d"
+        },
+        {
+          "type": "entries",
+          "name": "Co wie Elowen",
+          "page": 4,
+          "entries": [
+            "Jeśli zostanie poproszona o więcej informacji, Elowen może przekazać Redowi następujące informacje:",
+            {
+              "type": "list",
+              "items": [
+                "Pan Honeycutt to życzliwy człowiek, który jest szefem Towarzystwa Lorekeeperów.",
+                "Towarzystwo Lorekeeperów to starożytna i tajna grupa zajmująca się obroną Harmonii.",
+                "Karmazynowy Klejnot ma coś wspólnego z pomaganiem w powstrzymaniu przerw w dostawie kolorów w Harmonii.",
+                "Szkarłatny Strażnik to starożytny posąg, który dawno temu Towarzystwo Strażników Wiedzy magicznie zaczarowało, aby chronić Karmazynowy Klejnot. Ale sposób na dezaktywację już dawno został utracony.",
+                "Kilku złoczyńców również szuka Karmazynowego Klejnotu i pan Honeycutt uważa, że ​​to oni są odpowiedzialni za niedawne przerwy w dostawie kolorów. Nie wie jednak, kim oni są.",
+                "Ma postrzępioną mapę (patrz „Mapa Elowen” poniżej) z biblioteki Towarzystwa Lorekeeperów, ale nie rozpoznaje miejsca, do którego odnosi się mapa."
+              ]
+            },
+            "Elowen błaga Reda, aby pomógł jej znaleźć Karmazynowy Klejnot i słodko proponuje, że w nagrodę wyhaftuje dla nich odznakę zasługi Sapling Scout."
+          ],
+          "id": "00e"
+        },
+        {
+          "type": "entries",
+          "name": "Mapa Elowena",
+          "page": 4,
+          "entries": [
+            "Jeśli Red zgodzi się pomóc Towarzystwu Strażników Wiedzy, Elowen pokazuje Redowi poszarpaną pergaminową mapę. Mapa ilustruje przybliżoną lokalizację czegoś, co może być wejściem do jaskini lub wejściem.",
+            "Czerwony rozpoznaje również unikalny kształt drzew przedstawionych na mapie jako należących do drzewa cytrynowego. Red uważa, że ​​najbardziej prawdopodobną lokalizacją są Lemondrop Ledges - miejsce głęboko w dziczy, o którym Red słyszał, ale nigdy nie odkrył. Niektórzy mówią, że dawno temu w skałach wykuto świątynie i Red często zastanawiał się, czy te pogłoski są prawdziwe.",
+            "Ponadto, obok drzwi na mapie narysowane są tajemnicze glify:",
+            "🦊🧤",
+            "🕷️🌿",
+            "🐱🐾",
+            {
+              "type": "entries",
+              "name": "Tajemnica glifów",
+              "page": 4,
+              "entries": [
+                "Glify reprezentują trzy rośliny, których należy dotknąć w odpowiedniej kolejności, aby otworzyć magiczne drzwi przy wejściu do świątyni (patrz obszar R1 poniżej). Roślinami są odpowiednio naparstnica, pająk i kocia łapa."
+              ],
+              "id": "010"
+            }
+          ],
+          "id": "00f"
+        }
+      ],
+      "id": "00a"
+    },
+    "0:00c": {
+      "type": "entries",
+      "name": "Spotkanie z Elowen",
+      "page": 4,
+      "entries": [
+        "Elowen Greenleaf ubrana jest w mundur Sapling Scout z zieloną szarfą z naszytymi naszywkami. Jest nad wiek rozwinięta i pragnie zdobywać odznaki za zasługi, będąc pomocnym członkiem społeczności leśnej, ale jest też potajemnie członkinią Towarzystwa Strażników Wiedzy.",
+        "Mówi Redowi, że jest zaangażowana w sprawę o wielkim znaczeniu: pan Honeycutt powierzył jej misję odnalezienia Karmazynowego Klejnotu, jednego z sześciu Klejnotów Mocy. Ale jest problem i dlatego potrzebują pomocy strażnika. Klejnotu strzeże legendarny Szkarłatny Strażnik i nikt nie wie, jak go ominąć. Jedyne, co musi zrobić Elowen, to postrzępiona mapa."
+      ],
+      "id": "00c"
+    },
+    "0:00d": {
+      "type": "entries",
+      "name": "Sprzęt",
+      "page": 4,
+      "entries": [
+        "Elowen ma lornetkę, kompas, pudełko wafli Sapling Scout i zestaw do szycia."
+      ],
+      "id": "00d"
+    },
+    "0:00e": {
+      "type": "entries",
+      "name": "Co wie Elowen",
+      "page": 4,
+      "entries": [
+        "Jeśli zostanie poproszona o więcej informacji, Elowen może przekazać Redowi następujące informacje:",
+        {
+          "type": "list",
+          "items": [
+            "Pan Honeycutt to życzliwy człowiek, który jest szefem Towarzystwa Lorekeeperów.",
+            "Towarzystwo Lorekeeperów to starożytna i tajna grupa zajmująca się obroną Harmonii.",
+            "Karmazynowy Klejnot ma coś wspólnego z pomaganiem w powstrzymaniu przerw w dostawie kolorów w Harmonii.",
+            "Szkarłatny Strażnik to starożytny posąg, który dawno temu Towarzystwo Strażników Wiedzy magicznie zaczarowało, aby chronić Karmazynowy Klejnot. Ale sposób na dezaktywację już dawno został utracony.",
+            "Kilku złoczyńców również szuka Karmazynowego Klejnotu i pan Honeycutt uważa, że ​​to oni są odpowiedzialni za niedawne przerwy w dostawie kolorów. Nie wie jednak, kim oni są.",
+            "Ma postrzępioną mapę (patrz „Mapa Elowen” poniżej) z biblioteki Towarzystwa Lorekeeperów, ale nie rozpoznaje miejsca, do którego odnosi się mapa."
+          ]
+        },
+        "Elowen błaga Reda, aby pomógł jej znaleźć Karmazynowy Klejnot i słodko proponuje, że w nagrodę wyhaftuje dla nich odznakę zasługi Sapling Scout."
+      ],
+      "id": "00e"
+    },
+    "0:00f": {
+      "type": "entries",
+      "name": "Mapa Elowena",
+      "page": 4,
+      "entries": [
+        "Jeśli Red zgodzi się pomóc Towarzystwu Strażników Wiedzy, Elowen pokazuje Redowi poszarpaną pergaminową mapę. Mapa ilustruje przybliżoną lokalizację czegoś, co może być wejściem do jaskini lub wejściem.",
+        "Czerwony rozpoznaje również unikalny kształt drzew przedstawionych na mapie jako należących do drzewa cytrynowego. Red uważa, że ​​najbardziej prawdopodobną lokalizacją są Lemondrop Ledges - miejsce głęboko w dziczy, o którym Red słyszał, ale nigdy nie odkrył. Niektórzy mówią, że dawno temu w skałach wykuto świątynie i Red często zastanawiał się, czy te pogłoski są prawdziwe.",
+        "Ponadto, obok drzwi na mapie narysowane są tajemnicze glify:",
+        "🦊🧤",
+        "🕷️🌿",
+        "🐱🐾",
+        {
+          "type": "entries",
+          "name": "Tajemnica glifów",
+          "page": 4,
+          "entries": [
+            "Glify reprezentują trzy rośliny, których należy dotknąć w odpowiedniej kolejności, aby otworzyć magiczne drzwi przy wejściu do świątyni (patrz obszar R1 poniżej). Roślinami są odpowiednio naparstnica, pająk i kocia łapa."
+          ],
+          "id": "010"
+        }
+      ],
+      "id": "00f"
+    },
+    "0:010": {
+      "type": "entries",
+      "name": "Tajemnica glifów",
+      "page": 4,
+      "entries": [
+        "Glify reprezentują trzy rośliny, których należy dotknąć w odpowiedniej kolejności, aby otworzyć magiczne drzwi przy wejściu do świątyni (patrz obszar R1 poniżej). Roślinami są odpowiednio naparstnica, pająk i kocia łapa."
+      ],
+      "id": "010"
+    },
+    "0:011": {
+      "type": "entries",
+      "name": "Przybycie po zasadzce",
+      "page": 4,
+      "entries": [
+        "Czerwony biegnie przez las, skręcając tu i ówdzie w złą stronę. Na koniec, gdy Czerwony zbliża się do gaju, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 4,
+          "entries": [
+            "Gdy wejdziesz do Old Oak Grove, usłyszysz krzyk alarmu i coś, co brzmi jak strzały gwiżdżące w powietrzu. W pobliżu Starego Dębu widzisz małą sadzonkę z maleńką, {@condition frightened} twarz otoczona dwoma sękatymi cierniami, które wyglądają groźnie."
+          ],
+          "id": "012"
+        },
+        "Sukces {@dc 10} Inteligencja ({@skill Nature}) sprawdzenie ujawnia, że ​​cierniowych krzaków jest dwa {@creature twig blight||zaraza gałązek}, podczas gdy {@condition frightened} drzewko noszące zieloną szarfę z naszytymi naszywkami to m.in {@creature awakened shrub}, Elowen Greenleaf.",
+        "Czerwony może radzić sobie z zarazą gałązek na wiele sposobów. Próba zastraszenia lub przekonania ich jest trudna i Czerwony musi odnieść sukces {@dc 15} Charyzma ({@skill Intimidation} Lub {@skill Persuasion}) sprawdź, czy zmienili zdanie.",
+        "{@creature twig blight||zaraza gałązek} mają rozkaz od mrocznego pana Greystone'a, aby odnaleźć Szkarłatnego Strażnika i odzyskać Karmazynowy Klejnot. Nie wiedzą, w jakim celu, ale wiedzą, że sprowadzenie Elowen Greenleaf z powrotem do ich pana to dobry pierwszy krok na drodze do odnalezienia klejnotu.",
+        "Jeśli wszystko przebiegnie pomyślnie, po konflikcie spotkają się Red i Elowen (patrz „Spotkanie z Elowen” powyżej)."
+      ],
+      "id": "011"
+    },
+    "0:013": {
+      "type": "entries",
+      "name": "Podróż do Lemondrop Ledges",
+      "page": 5,
+      "entries": [
+        "Jeśli Red zdecyduje się pomóc Elowen, wyruszają do Lemondrop Ledges, które jest dwugodzinną wędrówką od Old Oak Grove. Podczas podróży Red zauważa, że ​​przerwy w wyświetlaniu kolorów rozciągają się na pustynię. Nawet zwierzęta są zauważalnie bardziej matowe, a niektóre mają teraz tylko odcienie szarości. Czerwony zauważa również a {@creature chimeric fox|NRH-AVitW} który zdaje się ich śledzić. Lis jest ciekawski i może nawet trochę wścibski, ale jest płochliwy i nie przepada za głośnymi dźwiękami. Jeśli Czerwony jest miły dla lisa, towarzyszy mu przez resztę przygody i pomaga drużynie najlepiej, jak potrafi - szczekając, gdy istnieje niebezpieczeństwo, lub odwracając uwagę niebezpiecznego wroga.",
+        "Jest to również dobre miejsce, aby Red odkrył rośliny lecznicze, z których Red (lub Elowen) może zaparzyć {@item potion of healing}. Znalezienie roślin leczniczych wymaga powodzenia {@dc 14} Inteligencja ({@skill Nature}) sprawdź, albo możesz pozwolić Redowi automatycznie znaleźć rośliny i uwarzyć miksturę.",
+        {
+          "type": "entries",
+          "name": "Znalezienie półek",
+          "page": 5,
+          "entries": [
+            "Aby znaleźć Lemondrop Ledges, Czerwony musi odnieść sukces w trzech kolejnych próbach {@dc 12} Mądrość ({@skill Survival}) sprawdza. Jeśli Czerwony użyje mapy Elowen, ma przewagę w testach. Jeśli test się nie powiedzie, Elowen może pomóc, przetaczając się, ale ponieważ nie ukończyła jeszcze kursu na orientację Sapling Scout, nie ma przewagi w swoim rzucie."
+          ],
+          "id": "014"
+        },
+        {
+          "type": "entries",
+          "name": "Dojazd do Ledges",
+          "page": 5,
+          "entries": [
+            "W końcu zaczynają czuć zapach świeżych cytryn, gdy docierają na szczyt urwiska porośniętego drzewami cytrynowymi. Strome klify opadają 30 metrów od urwiska do wąwozu poniżej.",
+            {
+              "type": "inset",
+              "name": "Drzewa cytrynowe",
+              "page": 5,
+              "entries": [
+                "Te liściaste drzewa owocowe mają srebrzystą korę, charakterystyczne kolczaste, zielone liście i skupiska małych, słodko-cytrynowych owoców. Ptaki, pszczoły i inne zwierzęta leśne uwielbiają te owoce, ponieważ dodają im energii. Zjedzenie trzech lub więcej owoców zapewnia Czerwonemu korzyści wynikające z zaklęcia wzmacniającego zdolność (wytrzymałość niedźwiedzia) (nie jest wymagana koncentracja)."
+              ],
+              "id": "016"
+            }
+          ],
+          "id": "015"
+        },
+        {
+          "type": "entries",
+          "name": "Znalezienie wejścia",
+          "page": 5,
+          "entries": [
+            "Wejście do Świątyni Szkarłatnego Strażnika znajduje się w ścianie klifu po drugiej stronie wąwozu od Lemondrop Ledges i wymaga udanego {@dc 14} Mądrość ({@skill Perception}) sprawdź, czy widzisz. Jeśli Elowen lub Czerwony pamiętają o użyciu lornetki, którą Elowen ma w swoim zestawie Sapling Scout, mają przewagę w teście. Jeśli test się nie powiedzie, nadal znajdują wejście, ale dwie zarazy gałązek podkradają się do nich i atakują, gdy są zajęci ich szukaniem.",
+            "Dotarcie do wejścia oznacza zejście w dół po 30-metrowym klifie do wąwozu, przejście przez wąwóz i wspięcie się do połowy na drugą stronę. Jednakże na północy niebezpiecznie wyglądający most linowy przecina wąwóz, jeśli poszukiwacze przygód wybiorą tę ścieżkę."
+          ],
+          "id": "017"
+        },
+        {
+          "type": "entries",
+          "name": "Wspinaczka na klify",
+          "page": 5,
+          "entries": [
+            "Niezależnie od tego, czy Czerwony wspina się po klifie, czy zjeżdża po nim na linie, musi wykonać a {@dc 12} Wytrzymałość ({@skill Athletics}) sprawdzaj co 15 stóp ruchu (zaokrąglone w górę). Korzystanie ze sprzętu wspinaczkowego lub zakotwienie się na drzewie za pomocą liny daje im przewagę w teście. Jeśli test się nie powiedzie i postać nie jest przytwierdzona liną do drzewa, każda spadająca postać otrzymuje 3 ({@damage 1d6}) obrażenia tłuczące za każde upadek z 3 metrów.",
+            "Przeprawa przez podstawę wąwozu nie sprawia Redowi żadnych trudności."
+          ],
+          "id": "018"
+        },
+        {
+          "type": "entries",
+          "name": "Most linowy",
+          "page": 6,
+          "entries": [
+            "Most linowy o długości 250 stóp ma drewniane deski, po których można chodzić. Brakuje niektórych desek lub wyglądają one na bardziej zniszczone. Niektóre postrzępione liny wiszące zwisają z głównych linek w miejscach, w których ugięły się drewniane deski. Ogólnie rzecz biorąc, most wygląda na zużyty i zniszczony przez pogodę, ale wydaje się, że nadal będzie trochę obciążony.",
+            {
+              "type": "inset",
+              "name": "Zabawa z mostami linowymi!",
+              "page": 6,
+              "entries": [
+                "Most linowy to świetne miejsce, w którym możesz rzucić na gracza niebezpieczeństwo. Możesz sprawić, że będzie ich ścigać horda zarazy igłowej, tak że będą musieli przejść przez most, lub możesz sprawić, że zaraza igłowa będzie ich nękać, gdy będą w połowie drogi. Możesz wymyślać zabawne komplikacje dla gracza, gdy będzie się po nim poruszał - nic nie wywołuje większego napięcia niż przepiłowanie mostu linowego, gdy twoi bohaterowie uciekają, by ratować życie, lub sytuacja, gdy bohaterowie muszą przeciąć liny, gdy banda igieł wspina się za nimi!"
+              ],
+              "id": "01a"
+            }
+          ],
+          "id": "019"
+        }
+      ],
+      "id": "013"
+    },
+    "0:014": {
+      "type": "entries",
+      "name": "Znalezienie półek",
+      "page": 5,
+      "entries": [
+        "Aby znaleźć Lemondrop Ledges, Czerwony musi odnieść sukces w trzech kolejnych próbach {@dc 12} Mądrość ({@skill Survival}) sprawdza. Jeśli Czerwony użyje mapy Elowen, ma przewagę w testach. Jeśli test się nie powiedzie, Elowen może pomóc, przetaczając się, ale ponieważ nie ukończyła jeszcze kursu na orientację Sapling Scout, nie ma przewagi w swoim rzucie."
+      ],
+      "id": "014"
+    },
+    "0:015": {
+      "type": "entries",
+      "name": "Dojazd do Ledges",
+      "page": 5,
+      "entries": [
+        "W końcu zaczynają czuć zapach świeżych cytryn, gdy docierają na szczyt urwiska porośniętego drzewami cytrynowymi. Strome klify opadają 30 metrów od urwiska do wąwozu poniżej.",
+        {
+          "type": "inset",
+          "name": "Drzewa cytrynowe",
+          "page": 5,
+          "entries": [
+            "Te liściaste drzewa owocowe mają srebrzystą korę, charakterystyczne kolczaste, zielone liście i skupiska małych, słodko-cytrynowych owoców. Ptaki, pszczoły i inne zwierzęta leśne uwielbiają te owoce, ponieważ dodają im energii. Zjedzenie trzech lub więcej owoców zapewnia Czerwonemu korzyści wynikające z zaklęcia wzmacniającego zdolność (wytrzymałość niedźwiedzia) (nie jest wymagana koncentracja)."
+          ],
+          "id": "016"
+        }
+      ],
+      "id": "015"
+    },
+    "0:017": {
+      "type": "entries",
+      "name": "Znalezienie wejścia",
+      "page": 5,
+      "entries": [
+        "Wejście do Świątyni Szkarłatnego Strażnika znajduje się w ścianie klifu po drugiej stronie wąwozu od Lemondrop Ledges i wymaga udanego {@dc 14} Mądrość ({@skill Perception}) sprawdź, czy widzisz. Jeśli Elowen lub Czerwony pamiętają o użyciu lornetki, którą Elowen ma w swoim zestawie Sapling Scout, mają przewagę w teście. Jeśli test się nie powiedzie, nadal znajdują wejście, ale dwie zarazy gałązek podkradają się do nich i atakują, gdy są zajęci ich szukaniem.",
+        "Dotarcie do wejścia oznacza zejście w dół po 30-metrowym klifie do wąwozu, przejście przez wąwóz i wspięcie się do połowy na drugą stronę. Jednakże na północy niebezpiecznie wyglądający most linowy przecina wąwóz, jeśli poszukiwacze przygód wybiorą tę ścieżkę."
+      ],
+      "id": "017"
+    },
+    "0:018": {
+      "type": "entries",
+      "name": "Wspinaczka na klify",
+      "page": 5,
+      "entries": [
+        "Niezależnie od tego, czy Czerwony wspina się po klifie, czy zjeżdża po nim na linie, musi wykonać a {@dc 12} Wytrzymałość ({@skill Athletics}) sprawdzaj co 15 stóp ruchu (zaokrąglone w górę). Korzystanie ze sprzętu wspinaczkowego lub zakotwienie się na drzewie za pomocą liny daje im przewagę w teście. Jeśli test się nie powiedzie i postać nie jest przytwierdzona liną do drzewa, każda spadająca postać otrzymuje 3 ({@damage 1d6}) obrażenia tłuczące za każde upadek z 3 metrów.",
+        "Przeprawa przez podstawę wąwozu nie sprawia Redowi żadnych trudności."
+      ],
+      "id": "018"
+    },
+    "0:019": {
+      "type": "entries",
+      "name": "Most linowy",
+      "page": 6,
+      "entries": [
+        "Most linowy o długości 250 stóp ma drewniane deski, po których można chodzić. Brakuje niektórych desek lub wyglądają one na bardziej zniszczone. Niektóre postrzępione liny wiszące zwisają z głównych linek w miejscach, w których ugięły się drewniane deski. Ogólnie rzecz biorąc, most wygląda na zużyty i zniszczony przez pogodę, ale wydaje się, że nadal będzie trochę obciążony.",
+        {
+          "type": "inset",
+          "name": "Zabawa z mostami linowymi!",
+          "page": 6,
+          "entries": [
+            "Most linowy to świetne miejsce, w którym możesz rzucić na gracza niebezpieczeństwo. Możesz sprawić, że będzie ich ścigać horda zarazy igłowej, tak że będą musieli przejść przez most, lub możesz sprawić, że zaraza igłowa będzie ich nękać, gdy będą w połowie drogi. Możesz wymyślać zabawne komplikacje dla gracza, gdy będzie się po nim poruszał - nic nie wywołuje większego napięcia niż przepiłowanie mostu linowego, gdy twoi bohaterowie uciekają, by ratować życie, lub sytuacja, gdy bohaterowie muszą przeciąć liny, gdy banda igieł wspina się za nimi!"
+          ],
+          "id": "01a"
+        }
+      ],
+      "id": "019"
+    },
+    "0:01b": {
+      "type": "entries",
+      "name": "Świątynia Szkarłatnego Strażnika",
+      "page": 6,
+      "entries": [
+        "Świątynia Szkarłatnego Strażnika została wykuta w klifie dawno temu jako tajne miejsce do przechowywania i ochrony Karmazynowego Klejnotu.",
+        "Następujące lokalizacje są powiązane z mapą Świątyni Szkarłatnego Strażnika:",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-AVitW/004.webp"
+          },
+          "width": 1330,
+          "height": 1330,
+          "mapRegions": [
+            {
+              "area": "020",
+              "points": [
+                [
+                  469,
+                  443
+                ],
+                [
+                  481,
+                  392
+                ],
+                [
+                  497,
+                  356
+                ],
+                [
+                  519,
+                  322
+                ],
+                [
+                  551,
+                  293
+                ],
+                [
+                  595,
+                  268
+                ],
+                [
+                  629,
+                  258
+                ],
+                [
+                  671,
+                  257
+                ],
+                [
+                  711,
+                  265
+                ],
+                [
+                  752,
+                  280
+                ],
+                [
+                  777,
+                  301
+                ],
+                [
+                  806,
+                  324
+                ],
+                [
+                  830,
+                  363
+                ],
+                [
+                  848,
+                  394
+                ],
+                [
+                  854,
+                  441
+                ],
+                [
+                  851,
+                  489
+                ],
+                [
+                  835,
+                  535
+                ],
+                [
+                  813,
+                  574
+                ],
+                [
+                  771,
+                  616
+                ],
+                [
+                  725,
+                  638
+                ],
+                [
+                  682,
+                  649
+                ],
+                [
+                  640,
+                  648
+                ],
+                [
+                  602,
+                  641
+                ],
+                [
+                  552,
+                  611
+                ],
+                [
+                  512,
+                  573
+                ],
+                [
+                  486,
+                  538
+                ],
+                [
+                  470,
+                  493
+                ]
+              ]
+            },
+            {
+              "area": "01e",
+              "points": [
+                [
+                  631,
+                  715
+                ],
+                [
+                  590,
+                  705
+                ],
+                [
+                  539,
+                  685
+                ],
+                [
+                  490,
+                  650
+                ],
+                [
+                  455,
+                  611
+                ],
+                [
+                  437,
+                  584
+                ],
+                [
+                  415,
+                  544
+                ],
+                [
+                  405,
+                  481
+                ],
+                [
+                  403,
+                  440
+                ],
+                [
+                  413,
+                  377
+                ],
+                [
+                  432,
+                  337
+                ],
+                [
+                  456,
+                  292
+                ],
+                [
+                  482,
+                  263
+                ],
+                [
+                  535,
+                  225
+                ],
+                [
+                  584,
+                  208
+                ],
+                [
+                  637,
+                  196
+                ],
+                [
+                  680,
+                  192
+                ],
+                [
+                  733,
+                  199
+                ],
+                [
+                  784,
+                  222
+                ],
+                [
+                  828,
+                  249
+                ],
+                [
+                  875,
+                  294
+                ],
+                [
+                  901,
+                  334
+                ],
+                [
+                  919,
+                  381
+                ],
+                [
+                  929,
+                  429
+                ],
+                [
+                  924,
+                  489
+                ],
+                [
+                  914,
+                  546
+                ],
+                [
+                  882,
+                  606
+                ],
+                [
+                  839,
+                  652
+                ],
+                [
+                  791,
+                  683
+                ],
+                [
+                  754,
+                  706
+                ],
+                [
+                  696,
+                  720
+                ],
+                [
+                  696,
+                  651
+                ],
+                [
+                  739,
+                  638
+                ],
+                [
+                  789,
+                  603
+                ],
+                [
+                  823,
+                  569
+                ],
+                [
+                  848,
+                  521
+                ],
+                [
+                  859,
+                  481
+                ],
+                [
+                  859,
+                  431
+                ],
+                [
+                  855,
+                  394
+                ],
+                [
+                  840,
+                  364
+                ],
+                [
+                  816,
+                  328
+                ],
+                [
+                  783,
+                  295
+                ],
+                [
+                  757,
+                  272
+                ],
+                [
+                  710,
+                  256
+                ],
+                [
+                  671,
+                  250
+                ],
+                [
+                  631,
+                  252
+                ],
+                [
+                  591,
+                  265
+                ],
+                [
+                  554,
+                  284
+                ],
+                [
+                  512,
+                  318
+                ],
+                [
+                  490,
+                  357
+                ],
+                [
+                  470,
+                  409
+                ],
+                [
+                  465,
+                  436
+                ],
+                [
+                  466,
+                  474
+                ],
+                [
+                  472,
+                  515
+                ],
+                [
+                  488,
+                  549
+                ],
+                [
+                  522,
+                  594
+                ],
+                [
+                  566,
+                  629
+                ],
+                [
+                  599,
+                  648
+                ],
+                [
+                  631,
+                  653
+                ]
+              ]
+            },
+            {
+              "area": "01e",
+              "points": [
+                [
+                  631,
+                  655
+                ],
+                [
+                  631,
+                  1107
+                ],
+                [
+                  696,
+                  1107
+                ],
+                [
+                  696,
+                  655
+                ]
+              ]
+            },
+            {
+              "area": "01c",
+              "points": [
+                [
+                  194,
+                  1137
+                ],
+                [
+                  250,
+                  1131
+                ],
+                [
+                  314,
+                  1130
+                ],
+                [
+                  357,
+                  1112
+                ],
+                [
+                  406,
+                  1111
+                ],
+                [
+                  455,
+                  1104
+                ],
+                [
+                  507,
+                  1108
+                ],
+                [
+                  561,
+                  1124
+                ],
+                [
+                  625,
+                  1125
+                ],
+                [
+                  663,
+                  1132
+                ],
+                [
+                  688,
+                  1130
+                ],
+                [
+                  703,
+                  1121
+                ],
+                [
+                  759,
+                  1120
+                ],
+                [
+                  797,
+                  1118
+                ],
+                [
+                  835,
+                  1108
+                ],
+                [
+                  882,
+                  1112
+                ],
+                [
+                  920,
+                  1121
+                ],
+                [
+                  968,
+                  1134
+                ],
+                [
+                  1034,
+                  1133
+                ],
+                [
+                  1094,
+                  1125
+                ],
+                [
+                  1138,
+                  1114
+                ],
+                [
+                  1106,
+                  1144
+                ],
+                [
+                  1064,
+                  1163
+                ],
+                [
+                  1026,
+                  1178
+                ],
+                [
+                  969,
+                  1185
+                ],
+                [
+                  931,
+                  1181
+                ],
+                [
+                  890,
+                  1179
+                ],
+                [
+                  842,
+                  1205
+                ],
+                [
+                  783,
+                  1205
+                ],
+                [
+                  702,
+                  1217
+                ],
+                [
+                  622,
+                  1218
+                ],
+                [
+                  560,
+                  1205
+                ],
+                [
+                  524,
+                  1185
+                ],
+                [
+                  469,
+                  1184
+                ],
+                [
+                  402,
+                  1195
+                ],
+                [
+                  363,
+                  1195
+                ],
+                [
+                  310,
+                  1181
+                ],
+                [
+                  244,
+                  1179
+                ],
+                [
+                  211,
+                  1152
+                ]
+              ]
+            }
+          ],
+          "imageType": "mapa",
+          "grid": {
+            "type": "square",
+            "size": 70,
+            "scale": 2
+          },
+          "hrefThumbnail": {
+            "type": "internal",
+            "path": "adventure/NRH-AVitW/thumbnail/004.webp"
+          },
+          "id": "025",
+          "credit": "Red Central"
+        },
+        {
+          "type": "entries",
+          "name": "R1. Wejście na półkę klifową",
+          "page": 6,
+          "entries": [
+            "Niezależnie od tego, w którą stronę Red dotrze do wejścia, w końcu docierają do cienkiej półki na klifie, 50 stóp nad ziemią. Drzwi do świątyni to płaskorzeźba wykuta w skale. Płaskorzeźba składa się z liści, kwiatów i roślin najróżniejszych odmian.",
+            {
+              "type": "entries",
+              "name": "Otwieranie drzwi",
+              "page": 6,
+              "entries": [
+                "Jeśli Czerwony odniesie sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdzają, znajdują wyryte na drzwiach te same trzy gatunki roślin przedstawione na mapie: naparstnica, pająk i kocia łapa.",
+                "Naciśnięcie ich w tej kolejności uruchamia magię drzwi. Świecące linie wyłaniają się wokół łuku, gdy w litym kamieniu tworzy się szew, a następnie kamień szlifuje o kamień, gdy drzwi się otwierają.",
+                "Jeśli gracz ma trudności z rozwiązaniem zagadki, poproś Elowen o przekazanie Redowi istotnej wskazówki, która naprowadzi go na właściwą drogę."
+              ],
+              "id": "01d"
+            }
+          ],
+          "id": "01c"
+        },
+        {
+          "type": "entries",
+          "name": "R2. Korytarz",
+          "page": 6,
+          "entries": [
+            "Kiedy Czerwony wejdzie do korytarza, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 6,
+              "entries": [
+                "Kiedy patrzysz w ciemny tunel prowadzący do klifu, powietrze pachnie wilgocią i stęchlizną. Kolorowe piktogramy po obu stronach tunelu przedstawiają różne sceny: wesołe NERDY bawiące się przy studni, z której wylewa się tęcza kolorów; budowane jest miasto Harmonii; amulet zawierający sześć kolorowych kamieni szlachetnych; i scena budowy wielkiej biblioteki."
+              ],
+              "id": "01f"
+            },
+            "Wychodząc z pokoju na drugim końcu tunelu, Red widzi słabą, czerwonawą poświatę."
+          ],
+          "id": "01e"
+        },
+        {
+          "type": "entries",
+          "name": "R3. Komnata Strażnika",
+          "page": 6,
+          "entries": [
+            "Gdy Red zbliża się do wejścia do tego okrągłego pomieszczenia o średnicy 75 stóp i kopułowym suficie o wysokości 20 stóp, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 6,
+              "entries": [
+                "Na środku pokoju widzisz słabo świecący czerwony kamień szlachetny unoszący się nad wysokim na 3 metry posągiem wojownika, który stoi na kamiennym podwyższeniu. Blask klejnotu słabo oświetla pomieszczenie. Na podłodze duży czerwony okrąg z wyrytymi dziwnymi pieczęciami otacza posąg i rozciąga się przez większą część pomieszczenia, pozostawiając jedynie ścieżkę szeroką na 5 stóp wokół krawędzi okrągłej komnaty. Jakby wyczuwając twoją obecność, oczy posągu otwierają się i świecą na czerwono."
+              ],
+              "id": "021"
+            },
+            "Na podwyższeniu pośrodku pokoju stoi Szkarłatny Strażnik. Jest wykonany z krwawego onyksu i przedstawia dziwne, podobne do człowieka stworzenie z wydłużonymi ramionami i kłami wystającymi z jego szerokich ust. Każde stworzenie, które wejdzie w czerwony okrąg namalowany na podłodze, nawet jeśli przekroczy granicę bez dotykania podłogi, aktywuje wartownika, który natychmiast atakuje najbliższą żywą istotę. Gdy tylko w kręgu nie będzie już nic żywego, strażnik wraca na podwyższenie i przechodzi w stan uśpienia - z wyjątkiem złowieszczo świecących oczu.",
+            {
+              "type": "entries",
+              "name": "Zdobycie klejnotu",
+              "page": 6,
+              "entries": [
+                "Klejnot magicznie lewituje 17 stóp nad ziemią (5 stóp nad głową wartownika). Czerwony może zdobyć klejnot na wiele sposobów. Oto dwie metody:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Czerwony może wystrzelić unoszący się w powietrzu klejnot strzałą, aby wyrzucić go poza czerwone kółko. Klejnot ma KP 18, 3 punkty wytrzymałości oraz odporność na trucizny i obrażenia psychiczne. Czerwony musi umieścić podkładkę na grocie strzały, w przeciwnym razie Czerwony ryzykuje rozbicie klejnotu. Jeśli Czerwony trafi w klejnot zwykłą strzałą, gracz musi rzucić obrażenia. Jeśli Czerwony zada klejnotowi 4 lub więcej obrażeń, klejnot pęknie, a Elowen wyje z rozpaczy. Klejnot można ostatecznie naprawić, jeśli części zostaną zabrane z powrotem {@creature Mr. Honeycutt|NRH-TCMC}, ale wpada w panikę, kiedy po raz pierwszy widzi klejnot, zanim przypomni sobie, że zna czarodzieja, który może mu pomóc go przywrócić. Trafienie w klejnot wyściełaną strzałą odrzuca klejnot w stronę krawędzi. Niech gracz rzuci a {@dice d6}. Przy wyniku 1-4 klejnot wylatuje poza czerwone koło, przy wyniku 5 lub 6 klejnot wpada do koła, gdzie Czerwony może go ponownie uderzyć.",
+                    "Red i Elowen mogą współpracować z jednym z nich, odciągając strażnika, podczas gdy drugi chwyta klejnot siecią lub długą tyczką. Wymaga to szybkiego i bezbłędnego wykonania, ponieważ jedno trafienie strażnika może oznaczać pewną śmierć."
+                  ]
+                }
+              ],
+              "id": "022"
+            }
+          ],
+          "id": "020"
+        }
+      ],
+      "id": "01b"
+    },
+    "0:01c": {
+      "type": "entries",
+      "name": "R1. Wejście na półkę klifową",
+      "page": 6,
+      "entries": [
+        "Niezależnie od tego, w którą stronę Red dotrze do wejścia, w końcu docierają do cienkiej półki na klifie, 50 stóp nad ziemią. Drzwi do świątyni to płaskorzeźba wykuta w skale. Płaskorzeźba składa się z liści, kwiatów i roślin najróżniejszych odmian.",
+        {
+          "type": "entries",
+          "name": "Otwieranie drzwi",
+          "page": 6,
+          "entries": [
+            "Jeśli Czerwony odniesie sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdzają, znajdują wyryte na drzwiach te same trzy gatunki roślin przedstawione na mapie: naparstnica, pająk i kocia łapa.",
+            "Naciśnięcie ich w tej kolejności uruchamia magię drzwi. Świecące linie wyłaniają się wokół łuku, gdy w litym kamieniu tworzy się szew, a następnie kamień szlifuje o kamień, gdy drzwi się otwierają.",
+            "Jeśli gracz ma trudności z rozwiązaniem zagadki, poproś Elowen o przekazanie Redowi istotnej wskazówki, która naprowadzi go na właściwą drogę."
+          ],
+          "id": "01d"
+        }
+      ],
+      "id": "01c"
+    },
+    "0:01d": {
+      "type": "entries",
+      "name": "Otwieranie drzwi",
+      "page": 6,
+      "entries": [
+        "Jeśli Czerwony odniesie sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdzają, znajdują wyryte na drzwiach te same trzy gatunki roślin przedstawione na mapie: naparstnica, pająk i kocia łapa.",
+        "Naciśnięcie ich w tej kolejności uruchamia magię drzwi. Świecące linie wyłaniają się wokół łuku, gdy w litym kamieniu tworzy się szew, a następnie kamień szlifuje o kamień, gdy drzwi się otwierają.",
+        "Jeśli gracz ma trudności z rozwiązaniem zagadki, poproś Elowen o przekazanie Redowi istotnej wskazówki, która naprowadzi go na właściwą drogę."
+      ],
+      "id": "01d"
+    },
+    "0:01e": {
+      "type": "entries",
+      "name": "R2. Korytarz",
+      "page": 6,
+      "entries": [
+        "Kiedy Czerwony wejdzie do korytarza, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 6,
+          "entries": [
+            "Kiedy patrzysz w ciemny tunel prowadzący do klifu, powietrze pachnie wilgocią i stęchlizną. Kolorowe piktogramy po obu stronach tunelu przedstawiają różne sceny: wesołe NERDY bawiące się przy studni, z której wylewa się tęcza kolorów; budowane jest miasto Harmonii; amulet zawierający sześć kolorowych kamieni szlachetnych; i scena budowy wielkiej biblioteki."
+          ],
+          "id": "01f"
+        },
+        "Wychodząc z pokoju na drugim końcu tunelu, Red widzi słabą, czerwonawą poświatę."
+      ],
+      "id": "01e"
+    },
+    "0:020": {
+      "type": "entries",
+      "name": "R3. Komnata Strażnika",
+      "page": 6,
+      "entries": [
+        "Gdy Red zbliża się do wejścia do tego okrągłego pomieszczenia o średnicy 75 stóp i kopułowym suficie o wysokości 20 stóp, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 6,
+          "entries": [
+            "Na środku pokoju widzisz słabo świecący czerwony kamień szlachetny unoszący się nad wysokim na 3 metry posągiem wojownika, który stoi na kamiennym podwyższeniu. Blask klejnotu słabo oświetla pomieszczenie. Na podłodze duży czerwony okrąg z wyrytymi dziwnymi pieczęciami otacza posąg i rozciąga się przez większą część pomieszczenia, pozostawiając jedynie ścieżkę szeroką na 5 stóp wokół krawędzi okrągłej komnaty. Jakby wyczuwając twoją obecność, oczy posągu otwierają się i świecą na czerwono."
+          ],
+          "id": "021"
+        },
+        "Na podwyższeniu pośrodku pokoju stoi Szkarłatny Strażnik. Jest wykonany z krwawego onyksu i przedstawia dziwne, podobne do człowieka stworzenie z wydłużonymi ramionami i kłami wystającymi z jego szerokich ust. Każde stworzenie, które wejdzie w czerwony okrąg namalowany na podłodze, nawet jeśli przekroczy granicę bez dotykania podłogi, aktywuje wartownika, który natychmiast atakuje najbliższą żywą istotę. Gdy tylko w kręgu nie będzie już nic żywego, strażnik wraca na podwyższenie i przechodzi w stan uśpienia - z wyjątkiem złowieszczo świecących oczu.",
+        {
+          "type": "entries",
+          "name": "Zdobycie klejnotu",
+          "page": 6,
+          "entries": [
+            "Klejnot magicznie lewituje 17 stóp nad ziemią (5 stóp nad głową wartownika). Czerwony może zdobyć klejnot na wiele sposobów. Oto dwie metody:",
+            {
+              "type": "list",
+              "items": [
+                "Czerwony może wystrzelić unoszący się w powietrzu klejnot strzałą, aby wyrzucić go poza czerwone kółko. Klejnot ma KP 18, 3 punkty wytrzymałości oraz odporność na trucizny i obrażenia psychiczne. Czerwony musi umieścić podkładkę na grocie strzały, w przeciwnym razie Czerwony ryzykuje rozbicie klejnotu. Jeśli Czerwony trafi w klejnot zwykłą strzałą, gracz musi rzucić obrażenia. Jeśli Czerwony zada klejnotowi 4 lub więcej obrażeń, klejnot pęknie, a Elowen wyje z rozpaczy. Klejnot można ostatecznie naprawić, jeśli części zostaną zabrane z powrotem {@creature Mr. Honeycutt|NRH-TCMC}, ale wpada w panikę, kiedy po raz pierwszy widzi klejnot, zanim przypomni sobie, że zna czarodzieja, który może mu pomóc go przywrócić. Trafienie w klejnot wyściełaną strzałą odrzuca klejnot w stronę krawędzi. Niech gracz rzuci a {@dice d6}. Przy wyniku 1-4 klejnot wylatuje poza czerwone koło, przy wyniku 5 lub 6 klejnot wpada do koła, gdzie Czerwony może go ponownie uderzyć.",
+                "Red i Elowen mogą współpracować z jednym z nich, odciągając strażnika, podczas gdy drugi chwyta klejnot siecią lub długą tyczką. Wymaga to szybkiego i bezbłędnego wykonania, ponieważ jedno trafienie strażnika może oznaczać pewną śmierć."
+              ]
+            }
+          ],
+          "id": "022"
+        }
+      ],
+      "id": "020"
+    },
+    "0:022": {
+      "type": "entries",
+      "name": "Zdobycie klejnotu",
+      "page": 6,
+      "entries": [
+        "Klejnot magicznie lewituje 17 stóp nad ziemią (5 stóp nad głową wartownika). Czerwony może zdobyć klejnot na wiele sposobów. Oto dwie metody:",
+        {
+          "type": "list",
+          "items": [
+            "Czerwony może wystrzelić unoszący się w powietrzu klejnot strzałą, aby wyrzucić go poza czerwone kółko. Klejnot ma KP 18, 3 punkty wytrzymałości oraz odporność na trucizny i obrażenia psychiczne. Czerwony musi umieścić podkładkę na grocie strzały, w przeciwnym razie Czerwony ryzykuje rozbicie klejnotu. Jeśli Czerwony trafi w klejnot zwykłą strzałą, gracz musi rzucić obrażenia. Jeśli Czerwony zada klejnotowi 4 lub więcej obrażeń, klejnot pęknie, a Elowen wyje z rozpaczy. Klejnot można ostatecznie naprawić, jeśli części zostaną zabrane z powrotem {@creature Mr. Honeycutt|NRH-TCMC}, ale wpada w panikę, kiedy po raz pierwszy widzi klejnot, zanim przypomni sobie, że zna czarodzieja, który może mu pomóc go przywrócić. Trafienie w klejnot wyściełaną strzałą odrzuca klejnot w stronę krawędzi. Niech gracz rzuci a {@dice d6}. Przy wyniku 1-4 klejnot wylatuje poza czerwone koło, przy wyniku 5 lub 6 klejnot wpada do koła, gdzie Czerwony może go ponownie uderzyć.",
+            "Red i Elowen mogą współpracować z jednym z nich, odciągając strażnika, podczas gdy drugi chwyta klejnot siecią lub długą tyczką. Wymaga to szybkiego i bezbłędnego wykonania, ponieważ jedno trafienie strażnika może oznaczać pewną śmierć."
+          ]
+        }
+      ],
+      "id": "022"
+    },
+    "0:023": {
+      "type": "entries",
+      "name": "Ukończenie Misji",
+      "page": 7,
+      "entries": [
+        "Jeśli wszystko pójdzie dobrze, Elowen i Red zdobędą klejnot i wrócą do Harmony, gdzie Elowen podekscytowana chce przedstawić panu Honeycuttowi swojego nowego bohatera Reda. Możesz ich spotkać w Old Oak Grove, w tawernie lub bibliotece w Harmony.",
+        "Pan Honeycutt jest uszczęśliwiony powrotem Karmazynowego Klejnotu (chyba że jest w kawałkach) i chce wiedzieć wszystko o tej przygodzie, jednocześnie robiąc obszerne notatki w swoim czarnym notatniku.",
+        "Za ich kłopoty przyznaje Elowen błyszczącą odznakę za zasługi za wybitną służbę i awansuje ją do Sapling Scout First Class. Redowi daje sakiewkę zawierającą 20 sztuk złota i zaprasza Reda do przyłączenia się do Towarzystwa Lorekeeperów. Jeśli Red się zgodzi, pan Honeycutt wręcza Redowi magiczną przypinkę do płaszcza z emblematem Towarzystwa Strażników Wiedzy. Przypinka Lorekeepera działa jak {@item necklace of adaptation}.",
+        "Elowen daje także Redowi nowo uszytą odznakę za zasługi za czyny bohaterstwa i odwagi."
+      ],
+      "id": "023"
+    },
+    "0:024": {
+      "type": "section",
+      "name": "Magiczne przedmioty",
+      "page": 7,
+      "entries": [
+        "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+        {
+          "type": "list",
+          "items": [
+            "{@item Necklace of Adaptation}"
+          ]
+        }
+      ],
+      "id": "024"
+    },
+    "1:026": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "columns": 2,
+              "items": [
+                {
+                  "type": "entries",
+                  "name": "Zespół Dungeons & Dragons:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Projekt przygody",
+                          "entries": [
+                            "Kat Kruger i Adam Lee"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowy rozwój",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt postaci",
+                          "entries": [
+                            "Krzysia Tulacha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt graficzny",
+                          "entries": [
+                            "Emmę Ekblad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Redaktorzy",
+                          "entries": [
+                            "Ashley Michaela Lawson i Hannah Rose"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer twórców",
+                          "entries": [
+                            "Pelhama Greene’a"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Ilustracje",
+                          "entries": [
+                            "Czerwona Centrala"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Producent",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki",
+                          "entries": [
+                            "Shelly Mazzanoble"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencjonowania kategorii",
+                          "entries": [
+                            "Ann Earp"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "028"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Ferrary:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Starszy zastępca menedżera marki, NERDS:",
+                          "entries": [
+                            "Łukasz Krause"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer treści, NERDS:",
+                          "entries": [
+                            "Annie Belgrad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki, NERDS:",
+                          "entries": [
+                            "Joey'a Ratha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                          "entries": [
+                            "Amy Pagels"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "029"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Tripplexlix:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Partner Zarządzający",
+                          "entries": [
+                            "Jennifer Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Założyciel, Partner Zarządzający",
+                          "entries": [
+                            "Krzysztof Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Wiceprezes, szef marketingu partnerskiego",
+                          "entries": [
+                            "Kennetha Lindenbauma"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowe wsparcie",
+                          "entries": [
+                            "VMLY&R Commerce, Taxi, Pep i Golin"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "02a"
+                }
+              ]
+            }
+          ],
+          "id": "027"
+        }
+      ],
+      "id": "026"
+    },
+    "1:027": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "entries",
+              "name": "Zespół Dungeons & Dragons:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Projekt przygody",
+                      "entries": [
+                        "Kat Kruger i Adam Lee"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowy rozwój",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt postaci",
+                      "entries": [
+                        "Krzysia Tulacha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt graficzny",
+                      "entries": [
+                        "Emmę Ekblad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Redaktorzy",
+                      "entries": [
+                        "Ashley Michaela Lawson i Hannah Rose"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer twórców",
+                      "entries": [
+                        "Pelhama Greene’a"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Ilustracje",
+                      "entries": [
+                        "Czerwona Centrala"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Producent",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki",
+                      "entries": [
+                        "Shelly Mazzanoble"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencjonowania kategorii",
+                      "entries": [
+                        "Ann Earp"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "028"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Ferrary:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Starszy zastępca menedżera marki, NERDS:",
+                      "entries": [
+                        "Łukasz Krause"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer treści, NERDS:",
+                      "entries": [
+                        "Annie Belgrad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki, NERDS:",
+                      "entries": [
+                        "Joey'a Ratha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                      "entries": [
+                        "Amy Pagels"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "029"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Tripplexlix:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Partner Zarządzający",
+                      "entries": [
+                        "Jennifer Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Założyciel, Partner Zarządzający",
+                      "entries": [
+                        "Krzysztof Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Wiceprezes, szef marketingu partnerskiego",
+                      "entries": [
+                        "Kennetha Lindenbauma"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowe wsparcie",
+                      "entries": [
+                        "VMLY&R Commerce, Taxi, Pep i Golin"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "02a"
+            }
+          ]
+        }
+      ],
+      "id": "027"
+    }
+  }
+}

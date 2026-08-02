@@ -106,7 +106,7 @@ test("monster features use the Dungeon Master's Guide source", async ({ page }) 
 
   await expect(page.getByRole('heading', { name: /Agresywny/ })).toBeVisible();
   await expect(
-    page.getByText("Dungeon Master's Guide (2014)", { exact: true }),
+    page.getByText('Podręcznik Mistrza Podziemi (2014)', { exact: true }),
   ).toBeVisible();
 });
 
@@ -129,7 +129,7 @@ test('source loot and craft details render structured Polish content', async ({
     '/pl/compendium/homecrafts/crochetpattern-eye-and-hand-of-vecna-cabomp',
   );
   await expect(page.getByRole('heading', { name: /^Oko i dłoń Vecny/ })).toBeVisible();
-  await expect(page.getByText('Runda 2–3:').first()).toBeVisible();
+  await expect(page.getByText('Runda 2-3:').first()).toBeVisible();
   await expect(
     page.getByText('215 mm (8½ cala / 21,5 cm)', { exact: true }),
   ).toBeVisible();

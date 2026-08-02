@@ -1,0 +1,1057 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Dzikie podróże",
+      "entries": [
+        "Ten arkusz zawiera wskazówki dotyczące podróży przez dziką przyrodę i śledzenia zapasów podczas podróży.",
+        {
+          "type": "entries",
+          "name": "Cykle podróży",
+          "entries": [
+            "Podróż odbywa się w cyklach, z których każdy reprezentuje dni spędzone wędrówce po pustyni. DM najpierw decyduje, czy podróż będzie krótka, czy długa, w zależności od tego, ile czasu zajmie postaciom dotarcie do celu. Długość podróży określa, ile dni reprezentuje cykl; każdy cykl to jeden dzień w przypadku krótkiej podróży lub 7 dni w przypadku długiej.",
+            "Dla każdego cyklu wykonaj następujące kroki w kolejności:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "1. Pogoda",
+                  "entry": "DM określa dominujące warunki pogodowe dla Cyklu. Albo wybierasz pogodę, albo rzucasz na nią {@table Weather|DMG} {@note ({@table weather; precipitation|DMG|Opady}; {@table weather; wind|DMG|Wiatr})} tabela na ekranie DM."
+                },
+                {
+                  "type": "item",
+                  "name": "2. Tempo",
+                  "entry": "gracze wybierają tempo podróży grup w cyklu: wolne, normalne lub szybkie. Zobacz {@table Travel Pace|PHB} tabeli na ekranie DM, aby uzyskać szczegółowe informacje na temat każdego tempa."
+                },
+                {
+                  "type": "item",
+                  "name": "3. Nawiguj",
+                  "entry": "DM decyduje, czy poszukiwaczom przygód grozi zagubienie się, postępując zgodnie ze wskazówkami zawartymi w sekcji „Zagubienie się” poniżej."
+                },
+                {
+                  "type": "item",
+                  "name": "4. Spotkanie",
+                  "entry": "Rzuć a {@dice d10}. Na 1 postacie napotykają coś w tym cyklu. DM albo decyduje, co się stanie, albo rzuca na stół Spotkań w Dziczy."
+                },
+                {
+                  "type": "item",
+                  "name": "5. Zapasy",
+                  "entry": "Wydaj żywność i wodę dla każdego stworzenia w drużynie, które musi jeść lub pić, zapoznając się z poniższymi sekcjami „Jedzenie i woda”."
+                },
+                {
+                  "type": "item",
+                  "name": "6. Postęp",
+                  "entry": "Śledź postęp imprezy w milach w cyklu. Możesz użyć mapy szesnastkowej zawartej w tym zestawie, aby śledzić aktualną lokalizację drużyny."
+                }
+              ]
+            }
+          ],
+          "id": "001"
+        },
+        {
+          "type": "entries",
+          "name": "Stawanie się zagubionym",
+          "entries": [
+            "Podróżni raczej się nie zgubią, podążając ustaloną ścieżką lub drogą lub mając w zasięgu wzroku punkt orientacyjny. W takich okolicznościach załóżmy, że grupa poszukiwaczy przygód nie zgubi się.",
+            "Oto okoliczności, które mogą spowodować, że grupa zbłądzi:",
+            {
+              "type": "list",
+              "items": [
+                "Pogoda zasłaniająca dany obszar, np. ulewny deszcz, śnieg lub mgła.",
+                "Podróżowanie w nocy, nawet ze źródłami światła lub {@sense darkvision}.",
+                "Gęsty las",
+                "Podróżowanie pod ziemią",
+                "Podróżowanie po morzu, gdy nie można zobaczyć nieba ani żadnego znanego lądu."
+              ]
+            },
+            "MG informuje grupę, kiedy znajduje się w jednej lub kilku z tych sytuacji, a następnie postacie wybierają spośród siebie jednego, który musi wyrobić Mądrość ({@skill Survival}) sprawdź w DC odpowiednim dla terenu (patrz „Nawigacja w dziczy” na ekranie DM). Pozostali członkowie grupy mogą wziąć udział w {@action Help} normalne działanie w ramach tego testu, a podróżowanie z dużą szybkością powoduje niekorzystne skutki testu.",
+            "Jeśli czek się nie powiedzie, grupa wydaje {@dice 1d6} godziny (krótki cykl) lub {@dice 1d6} dni (długi cykl) podróżowania w losowym kierunku. DM może rzucić kostką, aby określić, na którym heksie na mapie znajdzie się grupa, np. w tym zestawie."
+          ],
+          "id": "002"
+        },
+        {
+          "type": "entries",
+          "name": "Przypadkowe spotkanie",
+          "entries": [
+            "Jeśli dojdzie do losowego spotkania, DM może rzucić na stół z książki takiej jak Xanathar's Guide to Everything lub skorzystać z tabeli Spotkań w Dziczy, znajdującej się tutaj.",
+            {
+              "type": "table",
+              "caption": "Spotkanie z dziką przyrodą",
+              "colLabels": [
+                "d8",
+                "Spotkanie"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Pojawia się samotna, potężna istota! DM wybiera stworzenie, wybierając takiego, którego poziom wyzwania jest o 1-3 wyższy niż poziom grupy. Stworzenie żyje w okolicy lub przez nią przechodzi i jest wrogie wobec grupy tylko wtedy, gdy ją sprowokuje."
+                ],
+                [
+                  "2-4",
+                  "Wrogie stworzenia grasują w pobliżu! DM wybiera stworzenia, wybierając pięć z poziomem wyzwania równym poziomowi grupy. Te stworzenia to albo potwory zamieszkujące dany obszar, albo wrodzy podróżnicy"
+                ],
+                [
+                  "5-6",
+                  "Na ich drodze pojawia się grupa zaprzyjaźnionych podróżników. Podróżnicy tak mają {@dice 2d6} towary na sprzedaż, które kosztują 1 sz lub mniej, na tabeli Sprzętu Przygód w Podręczniku Gracza"
+                ],
+                [
+                  "7",
+                  "Grupa odkrywa pomnik. Rzuć na {@table Wilderness Journeys; Monuments|ScreenWildernessKit|Pomniki} tabela."
+                ],
+                [
+                  "8",
+                  "Grupa udaje się w dziwne miejsce. Rzuć na {@table Wilderness Journeys; Weird Locales|ScreenWildernessKit|Dziwne lokalizacje} tabela."
+                ]
+              ]
+            }
+          ],
+          "id": "003"
+        },
+        {
+          "type": "table",
+          "caption": "Pomniki",
+          "colLabels": [
+            "d20",
+            "Pomnik"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "Zamknięty kopiec lub piramida"
+            ],
+            [
+              "2",
+              "Splądrowany kopiec lub piramida"
+            ],
+            [
+              "3",
+              "Twarze wyrzeźbione w zboczu góry lub klifie"
+            ],
+            [
+              "4",
+              "Gigantyczne posągi wyrzeźbione w zboczu góry lub klifie"
+            ],
+            [
+              "5-6",
+              "nienaruszony obelisk z wyrytym ostrzeżeniem, informacjami historycznymi, dedykacją lub ikonografią religijną"
+            ],
+            [
+              "7-8",
+              "Zniszczony lub przewrócony obelisk"
+            ],
+            [
+              "9-10",
+              "Nienaruszony posąg osoby lub bóstwa"
+            ],
+            [
+              "11-13",
+              "Zniszczony lub przewrócony posąg osoby lub bóstwa"
+            ],
+            [
+              "14",
+              "Wielki kamienny mur, nienaruszony, z fortyfikacjami wieżowymi rozmieszczonymi w odstępach jednej mili"
+            ],
+            [
+              "15",
+              "Wielki kamienny mur w gruzach"
+            ],
+            [
+              "16",
+              "Wielki kamienny łuk"
+            ],
+            [
+              "17",
+              "Fontanna"
+            ],
+            [
+              "18",
+              "Nienaruszony krąg stojących kamieni"
+            ],
+            [
+              "19",
+              "Zniszczony lub przewrócony krąg stojących kamieni"
+            ],
+            [
+              "20",
+              "Kolumna z wyrzeźbionymi symbolami żywiołów lub fey"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Dziwne lokalizacje",
+          "colLabels": [
+            "d20",
+            "Widownia"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1-2",
+              "Strefa martwej magii (podobna do pola antymagicznego)"
+            ],
+            [
+              "3",
+              "Strefa dzikiej magii (rolka na {@table Wild Magic Surge|PHB} tabela w Podręczniku Gracza, ilekroć w strefie rzucone zostanie zaklęcie)"
+            ],
+            [
+              "4",
+              "Głaz z wyrzeźbionymi mówiącymi twarzami"
+            ],
+            [
+              "5",
+              "Kryształowa jaskinia, która w tajemniczy sposób odpowiada na pytania"
+            ],
+            [
+              "6",
+              "Starożytne drzewo zawierające uwięzionego ducha"
+            ],
+            [
+              "7-8",
+              "Pole bitwy, na którym zalegająca mgła czasami przybiera humanoidalne formy"
+            ],
+            [
+              "9-10",
+              "Portal do innego planu istnienia"
+            ],
+            [
+              "11",
+              "Życzę dobrze"
+            ],
+            [
+              "12",
+              "Gigantyczny kryształowy odłamek wystający z ziemi"
+            ],
+            [
+              "13",
+              "Rozbity statek, nawet jeśli wody nie ma w pobliżu"
+            ],
+            [
+              "14-15",
+              "Nawiedzone wzgórze lub kopiec kurhanowy"
+            ],
+            [
+              "16",
+              "Prom rzeczny prowadzony przez szkieletowego kapitana"
+            ],
+            [
+              "17",
+              "Pole {@condition petrified} żołnierzy lub innych stworzeń"
+            ],
+            [
+              "18",
+              "Las z {@condition petrified} Lub {@creature awakened tree||przebudzone drzewa}"
+            ],
+            [
+              "19",
+              "Kanion zawierający cmentarz smoków"
+            ],
+            [
+              "20",
+              "Pływający pyłek ziemi z wieżą na nim"
+            ]
+          ]
+        },
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Jedzenie i woda",
+              "entries": [
+                "Stworzenia wymagają jednostek pożywienia i wody w każdym cyklu. Tabela Zapotrzebowanie na żywność i wodę podaje liczbę jednostek pożywienia i wody potrzebnych stworzeniu na cykl, a tabela wskazuje, ile kosztuje każda jednostka pożywienia na stworzenie w cyklu. Masę jednostki wyznacza cykl:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Krótki cykl:",
+                      "entry": "1 jednostka = 1 funt/galon żywności/wody"
+                    },
+                    {
+                      "type": "item",
+                      "name": "Długi cykl:",
+                      "entry": "1 jednostka = 7 funtów/galonów żywności/wody"
+                    }
+                  ]
+                },
+                "Zapotrzebowanie istoty na wodę wzrasta dwukrotnie, jeśli jest gorąco, chyba że ma ona odporność lub odporność na obrażenia od ognia.",
+                {
+                  "type": "table",
+                  "caption": "Zapotrzebowanie na żywność i wodę",
+                  "colLabels": [
+                    "Rozmiar stworzenia",
+                    "Jedzenie/woda na cykl",
+                    "Koszt żywności na krótki cykl",
+                    "Koszt żywności na długi cykl"
+                  ],
+                  "colStyles": [
+                    "col-3",
+                    "col-3",
+                    "col-3",
+                    "col-3"
+                  ],
+                  "rows": [
+                    [
+                      "Malutki",
+                      "1/4 jednostki",
+                      "1 sp., 2 sp",
+                      "7 sp., 5 kp"
+                    ],
+                    [
+                      "Mały",
+                      "1 jednostka",
+                      "5 sp",
+                      "3 gp, 5 sp"
+                    ],
+                    [
+                      "Średni",
+                      "1 jednostka",
+                      "5 sp",
+                      "3 gp, 5 sp"
+                    ],
+                    [
+                      "Duży",
+                      "4 jednostki",
+                      "2 gp",
+                      "14 gp"
+                    ],
+                    [
+                      "Ogromny",
+                      "16 jednostek",
+                      "8 gp",
+                      "56 gp"
+                    ],
+                    [
+                      "Olbrzymi",
+                      "64 jednostki",
+                      "32 gp",
+                      "224 gp"
+                    ]
+                  ]
+                }
+              ],
+              "id": "005"
+            },
+            {
+              "type": "entries",
+              "name": "Śledzenie materiałów eksploatacyjnych",
+              "entries": [
+                "Skorzystaj z dołączonego narzędzia do śledzenia dostaw, aby sprawdzić, czy wybierasz się na krótką czy długą podróż rowerową oraz ile jednostek żywności i wody przewozisz. Na etapie Zaopatrzenia w każdym cyklu zaznacz pole dla każdej jednostki spożytej żywności lub wody.",
+                "Postać, która nie może jeść ani pić, zyskuje 1 poziom {@condition exhaustion} za każdy wymóg, którego nie spełniają. Zdobyte w ten sposób wyczerpanie nie może zostać usunięte, dopóki postać nie będzie w stanie spożyć wystarczającej ilości jedzenia i wody."
+              ],
+              "id": "006"
+            },
+            {
+              "type": "entries",
+              "name": "Żerowanie",
+              "entries": [
+                "Postacie mogą polować lub zbierać żywność i wodę, podczas gdy drużyna podróżuje w normalnym lub wolnym tempie. Postać żerująca tworzy Mądrość ({@skill Survival}) sprawdź przeciwko DC określonemu przez teren (patrz tabela Żerowania na ekranie DM). Po udanym teście postać gromadzi równe jednostki żywności {@dice 1d6} + ich modyfikator Mądrości. Powtórz rzut dla wody pitnej."
+              ],
+              "id": "007"
+            }
+          ],
+          "id": "004"
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Cykle podróży",
+      "entries": [
+        "Podróż odbywa się w cyklach, z których każdy reprezentuje dni spędzone wędrówce po pustyni. DM najpierw decyduje, czy podróż będzie krótka, czy długa, w zależności od tego, ile czasu zajmie postaciom dotarcie do celu. Długość podróży określa, ile dni reprezentuje cykl; każdy cykl to jeden dzień w przypadku krótkiej podróży lub 7 dni w przypadku długiej.",
+        "Dla każdego cyklu wykonaj następujące kroki w kolejności:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "1. Pogoda",
+              "entry": "DM określa dominujące warunki pogodowe dla Cyklu. Albo wybierasz pogodę, albo rzucasz na nią {@table Weather|DMG} {@note ({@table weather; precipitation|DMG|Opady}; {@table weather; wind|DMG|Wiatr})} tabela na ekranie DM."
+            },
+            {
+              "type": "item",
+              "name": "2. Tempo",
+              "entry": "gracze wybierają tempo podróży grup w cyklu: wolne, normalne lub szybkie. Zobacz {@table Travel Pace|PHB} tabeli na ekranie DM, aby uzyskać szczegółowe informacje na temat każdego tempa."
+            },
+            {
+              "type": "item",
+              "name": "3. Nawiguj",
+              "entry": "DM decyduje, czy poszukiwaczom przygód grozi zagubienie się, postępując zgodnie ze wskazówkami zawartymi w sekcji „Zagubienie się” poniżej."
+            },
+            {
+              "type": "item",
+              "name": "4. Spotkanie",
+              "entry": "Rzuć a {@dice d10}. Na 1 postacie napotykają coś w tym cyklu. DM albo decyduje, co się stanie, albo rzuca na stół Spotkań w Dziczy."
+            },
+            {
+              "type": "item",
+              "name": "5. Zapasy",
+              "entry": "Wydaj żywność i wodę dla każdego stworzenia w drużynie, które musi jeść lub pić, zapoznając się z poniższymi sekcjami „Jedzenie i woda”."
+            },
+            {
+              "type": "item",
+              "name": "6. Postęp",
+              "entry": "Śledź postęp imprezy w milach w cyklu. Możesz użyć mapy szesnastkowej zawartej w tym zestawie, aby śledzić aktualną lokalizację drużyny."
+            }
+          ]
+        }
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "entries",
+      "name": "Stawanie się zagubionym",
+      "entries": [
+        "Podróżni raczej się nie zgubią, podążając ustaloną ścieżką lub drogą lub mając w zasięgu wzroku punkt orientacyjny. W takich okolicznościach załóżmy, że grupa poszukiwaczy przygód nie zgubi się.",
+        "Oto okoliczności, które mogą spowodować, że grupa zbłądzi:",
+        {
+          "type": "list",
+          "items": [
+            "Pogoda zasłaniająca dany obszar, np. ulewny deszcz, śnieg lub mgła.",
+            "Podróżowanie w nocy, nawet ze źródłami światła lub {@sense darkvision}.",
+            "Gęsty las",
+            "Podróżowanie pod ziemią",
+            "Podróżowanie po morzu, gdy nie można zobaczyć nieba ani żadnego znanego lądu."
+          ]
+        },
+        "MG informuje grupę, kiedy znajduje się w jednej lub kilku z tych sytuacji, a następnie postacie wybierają spośród siebie jednego, który musi wyrobić Mądrość ({@skill Survival}) sprawdź w DC odpowiednim dla terenu (patrz „Nawigacja w dziczy” na ekranie DM). Pozostali członkowie grupy mogą wziąć udział w {@action Help} normalne działanie w ramach tego testu, a podróżowanie z dużą szybkością powoduje niekorzystne skutki testu.",
+        "Jeśli czek się nie powiedzie, grupa wydaje {@dice 1d6} godziny (krótki cykl) lub {@dice 1d6} dni (długi cykl) podróżowania w losowym kierunku. DM może rzucić kostką, aby określić, na którym heksie na mapie znajdzie się grupa, np. w tym zestawie."
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "name": "Przypadkowe spotkanie",
+      "entries": [
+        "Jeśli dojdzie do losowego spotkania, DM może rzucić na stół z książki takiej jak Xanathar's Guide to Everything lub skorzystać z tabeli Spotkań w Dziczy, znajdującej się tutaj.",
+        {
+          "type": "table",
+          "caption": "Spotkanie z dziką przyrodą",
+          "colLabels": [
+            "d8",
+            "Spotkanie"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "Pojawia się samotna, potężna istota! DM wybiera stworzenie, wybierając takiego, którego poziom wyzwania jest o 1-3 wyższy niż poziom grupy. Stworzenie żyje w okolicy lub przez nią przechodzi i jest wrogie wobec grupy tylko wtedy, gdy ją sprowokuje."
+            ],
+            [
+              "2-4",
+              "Wrogie stworzenia grasują w pobliżu! DM wybiera stworzenia, wybierając pięć z poziomem wyzwania równym poziomowi grupy. Te stworzenia to albo potwory zamieszkujące dany obszar, albo wrodzy podróżnicy"
+            ],
+            [
+              "5-6",
+              "Na ich drodze pojawia się grupa zaprzyjaźnionych podróżników. Podróżnicy tak mają {@dice 2d6} towary na sprzedaż, które kosztują 1 sz lub mniej, na tabeli Sprzętu Przygód w Podręczniku Gracza"
+            ],
+            [
+              "7",
+              "Grupa odkrywa pomnik. Rzuć na {@table Wilderness Journeys; Monuments|ScreenWildernessKit|Pomniki} tabela."
+            ],
+            [
+              "8",
+              "Grupa udaje się w dziwne miejsce. Rzuć na {@table Wilderness Journeys; Weird Locales|ScreenWildernessKit|Dziwne lokalizacje} tabela."
+            ]
+          ]
+        }
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Jedzenie i woda",
+          "entries": [
+            "Stworzenia wymagają jednostek pożywienia i wody w każdym cyklu. Tabela Zapotrzebowanie na żywność i wodę podaje liczbę jednostek pożywienia i wody potrzebnych stworzeniu na cykl, a tabela wskazuje, ile kosztuje każda jednostka pożywienia na stworzenie w cyklu. Masę jednostki wyznacza cykl:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Krótki cykl:",
+                  "entry": "1 jednostka = 1 funt/galon żywności/wody"
+                },
+                {
+                  "type": "item",
+                  "name": "Długi cykl:",
+                  "entry": "1 jednostka = 7 funtów/galonów żywności/wody"
+                }
+              ]
+            },
+            "Zapotrzebowanie istoty na wodę wzrasta dwukrotnie, jeśli jest gorąco, chyba że ma ona odporność lub odporność na obrażenia od ognia.",
+            {
+              "type": "table",
+              "caption": "Zapotrzebowanie na żywność i wodę",
+              "colLabels": [
+                "Rozmiar stworzenia",
+                "Jedzenie/woda na cykl",
+                "Koszt żywności na krótki cykl",
+                "Koszt żywności na długi cykl"
+              ],
+              "colStyles": [
+                "col-3",
+                "col-3",
+                "col-3",
+                "col-3"
+              ],
+              "rows": [
+                [
+                  "Malutki",
+                  "1/4 jednostki",
+                  "1 sp., 2 sp",
+                  "7 sp., 5 kp"
+                ],
+                [
+                  "Mały",
+                  "1 jednostka",
+                  "5 sp",
+                  "3 gp, 5 sp"
+                ],
+                [
+                  "Średni",
+                  "1 jednostka",
+                  "5 sp",
+                  "3 gp, 5 sp"
+                ],
+                [
+                  "Duży",
+                  "4 jednostki",
+                  "2 gp",
+                  "14 gp"
+                ],
+                [
+                  "Ogromny",
+                  "16 jednostek",
+                  "8 gp",
+                  "56 gp"
+                ],
+                [
+                  "Olbrzymi",
+                  "64 jednostki",
+                  "32 gp",
+                  "224 gp"
+                ]
+              ]
+            }
+          ],
+          "id": "005"
+        },
+        {
+          "type": "entries",
+          "name": "Śledzenie materiałów eksploatacyjnych",
+          "entries": [
+            "Skorzystaj z dołączonego narzędzia do śledzenia dostaw, aby sprawdzić, czy wybierasz się na krótką czy długą podróż rowerową oraz ile jednostek żywności i wody przewozisz. Na etapie Zaopatrzenia w każdym cyklu zaznacz pole dla każdej jednostki spożytej żywności lub wody.",
+            "Postać, która nie może jeść ani pić, zyskuje 1 poziom {@condition exhaustion} za każdy wymóg, którego nie spełniają. Zdobyte w ten sposób wyczerpanie nie może zostać usunięte, dopóki postać nie będzie w stanie spożyć wystarczającej ilości jedzenia i wody."
+          ],
+          "id": "006"
+        },
+        {
+          "type": "entries",
+          "name": "Żerowanie",
+          "entries": [
+            "Postacie mogą polować lub zbierać żywność i wodę, podczas gdy drużyna podróżuje w normalnym lub wolnym tempie. Postać żerująca tworzy Mądrość ({@skill Survival}) sprawdź przeciwko DC określonemu przez teren (patrz tabela Żerowania na ekranie DM). Po udanym teście postać gromadzi równe jednostki żywności {@dice 1d6} + ich modyfikator Mądrości. Powtórz rzut dla wody pitnej."
+          ],
+          "id": "007"
+        }
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Jedzenie i woda",
+      "entries": [
+        "Stworzenia wymagają jednostek pożywienia i wody w każdym cyklu. Tabela Zapotrzebowanie na żywność i wodę podaje liczbę jednostek pożywienia i wody potrzebnych stworzeniu na cykl, a tabela wskazuje, ile kosztuje każda jednostka pożywienia na stworzenie w cyklu. Masę jednostki wyznacza cykl:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Krótki cykl:",
+              "entry": "1 jednostka = 1 funt/galon żywności/wody"
+            },
+            {
+              "type": "item",
+              "name": "Długi cykl:",
+              "entry": "1 jednostka = 7 funtów/galonów żywności/wody"
+            }
+          ]
+        },
+        "Zapotrzebowanie istoty na wodę wzrasta dwukrotnie, jeśli jest gorąco, chyba że ma ona odporność lub odporność na obrażenia od ognia.",
+        {
+          "type": "table",
+          "caption": "Zapotrzebowanie na żywność i wodę",
+          "colLabels": [
+            "Rozmiar stworzenia",
+            "Jedzenie/woda na cykl",
+            "Koszt żywności na krótki cykl",
+            "Koszt żywności na długi cykl"
+          ],
+          "colStyles": [
+            "col-3",
+            "col-3",
+            "col-3",
+            "col-3"
+          ],
+          "rows": [
+            [
+              "Malutki",
+              "1/4 jednostki",
+              "1 sp., 2 sp",
+              "7 sp., 5 kp"
+            ],
+            [
+              "Mały",
+              "1 jednostka",
+              "5 sp",
+              "3 gp, 5 sp"
+            ],
+            [
+              "Średni",
+              "1 jednostka",
+              "5 sp",
+              "3 gp, 5 sp"
+            ],
+            [
+              "Duży",
+              "4 jednostki",
+              "2 gp",
+              "14 gp"
+            ],
+            [
+              "Ogromny",
+              "16 jednostek",
+              "8 gp",
+              "56 gp"
+            ],
+            [
+              "Olbrzymi",
+              "64 jednostki",
+              "32 gp",
+              "224 gp"
+            ]
+          ]
+        }
+      ],
+      "id": "005"
+    },
+    "0:006": {
+      "type": "entries",
+      "name": "Śledzenie materiałów eksploatacyjnych",
+      "entries": [
+        "Skorzystaj z dołączonego narzędzia do śledzenia dostaw, aby sprawdzić, czy wybierasz się na krótką czy długą podróż rowerową oraz ile jednostek żywności i wody przewozisz. Na etapie Zaopatrzenia w każdym cyklu zaznacz pole dla każdej jednostki spożytej żywności lub wody.",
+        "Postać, która nie może jeść ani pić, zyskuje 1 poziom {@condition exhaustion} za każdy wymóg, którego nie spełniają. Zdobyte w ten sposób wyczerpanie nie może zostać usunięte, dopóki postać nie będzie w stanie spożyć wystarczającej ilości jedzenia i wody."
+      ],
+      "id": "006"
+    },
+    "0:007": {
+      "type": "entries",
+      "name": "Żerowanie",
+      "entries": [
+        "Postacie mogą polować lub zbierać żywność i wodę, podczas gdy drużyna podróżuje w normalnym lub wolnym tempie. Postać żerująca tworzy Mądrość ({@skill Survival}) sprawdź przeciwko DC określonemu przez teren (patrz tabela Żerowania na ekranie DM). Po udanym teście postać gromadzi równe jednostki żywności {@dice 1d6} + ich modyfikator Mądrości. Powtórz rzut dla wody pitnej."
+      ],
+      "id": "007"
+    },
+    "1:008": {
+      "type": "section",
+      "name": "Pościgi w dziczy",
+      "entries": [
+        "Kiedy pościg rozpoczyna się na pustyni, DM może skorzystać z tych zasad, aby określić, czy ścigający dogoni swoją zdobycz.",
+        {
+          "type": "entries",
+          "name": "Gra w pościg",
+          "entries": [
+            "Pościg rozgrywany jest w rundach, podczas których każdy uczestnik pościgu wykonuje swoją turę.",
+            "Oto kroki, które należy wykonać w pościgu:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "1. Ustal stanowiska",
+                  "entry": "Określ, jak daleko od siebie znajduje się ofiara i prześladowca. Ofiara i prześladowca mogą być pojedynczą osobą lub grupą. W trakcie pościgu DM śledzi tę odległość. W tym zestawie możesz użyć suchościeralnej mapy szesnastkowej, aby śledzić odległość. Jeśli to zrobisz, określasz, ile stóp reprezentuje każdy heks: 5 stóp, 10 stóp lub więcej."
+                },
+                {
+                  "type": "item",
+                  "name": "2. Rzuć inicjatywę",
+                  "entry": "Wszyscy biorący udział w pościgu rzucają na inicjatywę, określając kolejność swoich tur w pościgu."
+                },
+                {
+                  "type": "item",
+                  "name": "3. Rzuć okiem na komplikację",
+                  "entry": "Kiedy zaczyna się Twoja tura, rzuć a {@dice d20} i sprawdź tabelę Komplikacje pościgu w dziczy, aby sprawdzić, czy nieoczekiwane wydarzenie nie skomplikuje Twojej tury."
+                },
+                {
+                  "type": "item",
+                  "name": "4. Rusz się i podejmij akcję",
+                  "entry": "Możesz wykonać jedną akcję w swojej turze, a przed lub po tej akcji możesz poruszyć się na odległość równą swojej szybkości. Zobacz kartę „Akcje w walce”, aby dowiedzieć się, jakie akcje możesz wykonać podczas pościgu (zobacz sekcję „Doskok” na drugiej stronie tego arkusza, jeśli weźmiesz {@action Dash} Działanie). Jeśli masz dostępną akcję dodatkową, możesz ją wykonać także podczas swojej tury, ale nie częściej niż raz na każdą turę."
+                },
+                {
+                  "type": "item",
+                  "name": "5. Rozpocznij następną rundę",
+                  "entry": "Kiedy wszyscy biorący udział w pościgu wykonają swoją turę, runda się kończy, a DM ustala, czy pościg się zakończy, jak opisano w sekcji „Zakończenie pościgu” na drugiej stronie tego arkusza. Jeśli pościg się nie zakończy, powtarzaj kroki 3-5, aż dobiegnie końca."
+                }
+              ]
+            },
+            {
+              "type": "table",
+              "caption": "Komplikacje w pościgu w dziczy",
+              "colLabels": [
+                "d20",
+                "Powikłania"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  1,
+                  "Twoja ścieżka prowadzi przez nierówny kawałek zarośli. Wykonaj {@dc 10} test Siły ({@skill Athletics}) lub Zręczności ({@skill Acrobatics}) (twój wybór), aby ominąć zarośla. W przypadku niepowodzenia kontroli szczotka liczy się jako 5 stóp {@quickref difficult terrain||3}."
+                ],
+                [
+                  2,
+                  "Nierówny teren może spowolnić Twoje postępy. Wykonaj test Zręczności {@dc 10} ({@skill Acrobatics}), aby poruszać się po obszarze. W przypadku niepowodzenia kontroli grunt liczy się jako 3 metry {@quickref difficult terrain||3}."
+                ],
+                [
+                  3,
+                  "Biegasz przez {@creature swarm of insects} (zobacz Księgę Potworów, aby zapoznać się ze statystykami gry). Rój wykonuje przeciwko tobie atak okazyjny ({@hit 3} uderzyć; {@damage 4d4} obrażenia przebijające przy trafieniu)."
+                ],
+                [
+                  4,
+                  "Strumień, wąwóz lub koryto skalne blokuje twoją ścieżkę. Wykonaj {@dc 10} test Siły ({@skill Athletics}) lub Zręczności ({@skill Acrobatics}) (twój wybór), aby przekroczyć przeszkodę. W przypadku nieudanego testu przeszkoda liczy się jako 10 stóp {@quickref difficult terrain||3}."
+                ],
+                [
+                  5,
+                  "Zrób {@dc 10} Rzut obronny na konstytucję. Ona nie udało się zapisać, jesteś {@condition blinded} wydmuchując piasek, ziemię, popiół, śnieg lub pyłki do końca swojej tury. Chwila {@condition blinded} w ten sposób Twoja prędkość zostanie zmniejszona o połowę."
+                ],
+                [
+                  6,
+                  "Nagły spadek zaskakuje Cię. Zrób {@dc 10} Rzut obronny na zręczność pozwalający ominąć przeszkodę. W przypadku nieudanego zapisu spadasz {@dice 1d4 x 5} stopy, biorąc {@damage 1d6} obrażenia tłuczące na każde 3 metry upadku w normalny sposób i ląduje {@condition prone}."
+                ],
+                [
+                  7,
+                  "Wpadasz w pułapkę. Zrób {@dc 15} Rzut obronny na zręczność. W przypadku nieudanego zapisu zostajesz złapany w sidła i {@condition restrained}. W ramach akcji ty lub osoba znajdująca się w promieniu 5 stóp od ciebie możesz wykonać: {@dc 10} Test siły, uwalniający cię od sukcesu. Sidła można również zniszczyć; ma KP 10 i 5 punktów wytrzymałości i jest odporny na trucizny i obrażenia psychiczne. Powikłanie"
+                ],
+                [
+                  8,
+                  "Wpadasz w panikę przestraszonych zwierząt. Zrób {@dc 10} Rzut obronny na zręczność. Gdy nie udało się zapisać, zostajesz przewrócony i zabrany {@damage 1d4} obrażenia tłuczące i {@damage 1d4} przeszywające obrażenia."
+                ],
+                [
+                  9,
+                  "Twoja ścieżka prowadzi w pobliżu kępy brzytwy. Zrób {@dc 15} Rzut obronny na zręczność lub wykonaj 3 metry ruchu (twój wybór), aby uniknąć brzytwy. W przypadku nieudanego zapisu bierzesz {@damage 1d10} obrażenia tnące."
+                ],
+                [
+                  10,
+                  "Jedno lub więcej stworzeń w okolicy goni cię! DM wybiera tych ścigających lub rzuca a {@dice d8} aby je określić: (1) 2 {@creature brown bear||niedźwiedzie brunatne}, (2) {@dice 2d4} {@creature giant toad||gigantyczne ropuchy}, (3) {@dice 1d4} {@creature poisonous snake||jadowite węże}, (4) {@dice 2d4} {@creature wolf||wilki}, (5) 1 {@creature giant boar}, (6) 2 {@creature dire wolf||straszne wilki}, (7) {@creature griffon}lub (8) {@dice 1d12} {@creature giant rat||gigantyczne szczury} (patrz {@book Monster Manual|MM} dla statystyk gry stworzeń)."
+                ],
+                [
+                  "11-20",
+                  "Żadnych komplikacji."
+                ]
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Ozdobny",
+              "entries": [
+                "W trakcie pościgu możesz zabrać {@action Dash} wykonaj ograniczoną liczbę razy, zanim podejmiesz ryzyko {@condition exhaustion}. Liczba ta równa się 3 + twój modyfikator Kondycji. Każde dodatkowe {@action Dash} akcja, którą podejmiesz po tej liczbie podczas pościgu, wymaga powodzenia na a {@dc 10} Sprawdź Kondycję na koniec swojej tury lub zyskaj 1 poziom {@condition exhaustion}.",
+                "Wycofujesz się z pościgu, jeśli {@condition exhaustion} osiągnie poziom 5, ponieważ Twoja prędkość wynosi 0. Kończąc krótki lub długi odpoczynek, możesz usunąć wszystkie poziomy {@condition exhaustion} zyskałeś, biorąc {@action Dash} akcję dodatkowe razy podczas pościgu."
+              ],
+              "id": "00a"
+            },
+            {
+              "type": "entries",
+              "name": "Reakcje",
+              "entries": [
+                "Podczas pościgu możesz normalnie reagować, ale nie możesz wykonywać ataków okazyjnych przeciwko innym uczestnikom pościgu, ponieważ zakłada się, że wszyscy poruszacie się w tym samym kierunku w tym samym czasie. Jednakże uczestnicy pościgu nadal mogą być celem ataków okazyjnych ze strony stworzeń nie biorących udziału w pościgu. Na przykład poszukiwacz przygód, który goni bandytę w lesie obok wilka, może sprowokować wilka do okazyjnego ataku."
+              ],
+              "id": "00b"
+            }
+          ],
+          "id": "009"
+        },
+        {
+          "type": "entries",
+          "name": "Zakończenie pościgu",
+          "entries": [
+            "Pościg kończy się, gdy jedna lub druga strona zatrzyma się, gdy ofiara ucieknie lub gdy przynajmniej jeden prześladowca znajdzie się w promieniu 5 stóp od ofiary.",
+            "Jeśli żadna ze stron nie zrezygnuje z pościgu, ofiara może wykonać Zręczność ({@skill Stealth}) sprawdź na koniec każdej rundy, gdy każdy uczestnik pościgu wykona swoją turę. Jakiś {@condition incapacitated} kamieniołom nie może tego sprawdzić, ani kamieniołom, który nie ma za czym się ukryć. Suma testu jest porównywana z pasywną Mądrością ({@skill Perception}) Wyniki prześladowców. Jeśli kamieniołom składa się z wielu stworzeń, wszystkie one wykonują test. Jeśli suma testów kamieniołomu jest większa niż najwyższy wynik pasywny, kamieniołom ucieka i nie uczestniczy już w pościgu.",
+            "W wyniku sprawdzenia, w oparciu o panujące okoliczności, kamieniołom zyskuje przewagę lub niekorzyść, jak pokazano w tabeli Współczynników ucieczki. Jeśli jeden lub więcej czynników daje kamieniołomowi zarówno przewagę, jak i wadę, to kamieniołom, jak zwykle, nie ma żadnego.",
+            {
+              "type": "table",
+              "caption": "Czynniki ucieczki",
+              "colLabels": [
+                "Czynnik",
+                "Sprawdź, czy..."
+              ],
+              "colStyles": [
+                "col-8",
+                "col-4"
+              ],
+              "rows": [
+                [
+                  "Kamieniołom kryje w sobie wiele rzeczy do ukrycia",
+                  "Korzyść"
+                ],
+                [
+                  "Kamieniołom znajduje się w bardzo zatłoczonym lub hałaśliwym miejscu",
+                  "Korzyść"
+                ],
+                [
+                  "Quarry nie ma za czym się ukryć",
+                  "Niekorzyść"
+                ],
+                [
+                  "Kamieniołom znajduje się w niezatłoczonej lub cichej okolicy",
+                  "Niekorzyść"
+                ],
+                [
+                  "Główny ścigający jest łowcą lub ma biegłość w {@skill Survival}",
+                  "Niekorzyść"
+                ]
+              ]
+            },
+            "Ucieczka nie musi oznaczać, że ofiara wyprzedziła pościg. Na przykład w górach ucieczka może oznaczać, że ofiara zanurkuje w szczelinę lub wydrążoną kłodę."
+          ],
+          "id": "00c"
+        },
+        {
+          "type": "entries",
+          "name": "Rozdzielenie",
+          "entries": [
+            "Ścigane istoty mogą podzielić się na mniejsze grupy. Ta taktyka zmusza pościgów do podzielenia sił lub umożliwienia części ofiary ucieczki. Jeżeli pościg dzieli się na kilka mniejszych pościgów, należy rozstrzygnąć każdy pościg osobno. Przeprowadź rundę jednego pościgu, potem rundę następnego i tak dalej, śledząc odległości dla każdej oddzielnej grupy."
+          ],
+          "id": "00d"
+        },
+        {
+          "type": "entries",
+          "name": "Odwrócenie ról",
+          "entries": [
+            "Podczas pościgu pościg może stać się ofiarą. Na przykład postacie goniące bandytę po lesie mogą zwrócić niechcianą uwagę innych bandytów. Ścigając uciekającego bandytę, muszą także unikać ścigających ich bandytów. Rzuć inicjatywę dla nowo przybyłych i prowadź oba pościgi jednocześnie. W innym scenariuszu uciekający bandyta może wpaść w czekające ramiona swoich wspólników. Przeważające postacie mogą zdecydować się na ucieczkę wraz z ścigającymi bandytami"
+          ],
+          "id": "00e"
+        }
+      ],
+      "id": "008"
+    },
+    "1:009": {
+      "type": "entries",
+      "name": "Gra w pościg",
+      "entries": [
+        "Pościg rozgrywany jest w rundach, podczas których każdy uczestnik pościgu wykonuje swoją turę.",
+        "Oto kroki, które należy wykonać w pościgu:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "1. Ustal stanowiska",
+              "entry": "Określ, jak daleko od siebie znajduje się ofiara i prześladowca. Ofiara i prześladowca mogą być pojedynczą osobą lub grupą. W trakcie pościgu DM śledzi tę odległość. W tym zestawie możesz użyć suchościeralnej mapy szesnastkowej, aby śledzić odległość. Jeśli to zrobisz, określasz, ile stóp reprezentuje każdy heks: 5 stóp, 10 stóp lub więcej."
+            },
+            {
+              "type": "item",
+              "name": "2. Rzuć inicjatywę",
+              "entry": "Wszyscy biorący udział w pościgu rzucają na inicjatywę, określając kolejność swoich tur w pościgu."
+            },
+            {
+              "type": "item",
+              "name": "3. Rzuć okiem na komplikację",
+              "entry": "Kiedy zaczyna się Twoja tura, rzuć a {@dice d20} i sprawdź tabelę Komplikacje pościgu w dziczy, aby sprawdzić, czy nieoczekiwane wydarzenie nie skomplikuje Twojej tury."
+            },
+            {
+              "type": "item",
+              "name": "4. Rusz się i podejmij akcję",
+              "entry": "Możesz wykonać jedną akcję w swojej turze, a przed lub po tej akcji możesz poruszyć się na odległość równą swojej szybkości. Zobacz kartę „Akcje w walce”, aby dowiedzieć się, jakie akcje możesz wykonać podczas pościgu (zobacz sekcję „Doskok” na drugiej stronie tego arkusza, jeśli weźmiesz {@action Dash} Działanie). Jeśli masz dostępną akcję dodatkową, możesz ją wykonać także podczas swojej tury, ale nie częściej niż raz na każdą turę."
+            },
+            {
+              "type": "item",
+              "name": "5. Rozpocznij następną rundę",
+              "entry": "Kiedy wszyscy biorący udział w pościgu wykonają swoją turę, runda się kończy, a DM ustala, czy pościg się zakończy, jak opisano w sekcji „Zakończenie pościgu” na drugiej stronie tego arkusza. Jeśli pościg się nie zakończy, powtarzaj kroki 3-5, aż dobiegnie końca."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Komplikacje w pościgu w dziczy",
+          "colLabels": [
+            "d20",
+            "Powikłania"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              1,
+              "Twoja ścieżka prowadzi przez nierówny kawałek zarośli. Wykonaj {@dc 10} test Siły ({@skill Athletics}) lub Zręczności ({@skill Acrobatics}) (twój wybór), aby ominąć zarośla. W przypadku niepowodzenia kontroli szczotka liczy się jako 5 stóp {@quickref difficult terrain||3}."
+            ],
+            [
+              2,
+              "Nierówny teren może spowolnić Twoje postępy. Wykonaj test Zręczności {@dc 10} ({@skill Acrobatics}), aby poruszać się po obszarze. W przypadku niepowodzenia kontroli grunt liczy się jako 3 metry {@quickref difficult terrain||3}."
+            ],
+            [
+              3,
+              "Biegasz przez {@creature swarm of insects} (zobacz Księgę Potworów, aby zapoznać się ze statystykami gry). Rój wykonuje przeciwko tobie atak okazyjny ({@hit 3} uderzyć; {@damage 4d4} obrażenia przebijające przy trafieniu)."
+            ],
+            [
+              4,
+              "Strumień, wąwóz lub koryto skalne blokuje twoją ścieżkę. Wykonaj {@dc 10} test Siły ({@skill Athletics}) lub Zręczności ({@skill Acrobatics}) (twój wybór), aby przekroczyć przeszkodę. W przypadku nieudanego testu przeszkoda liczy się jako 10 stóp {@quickref difficult terrain||3}."
+            ],
+            [
+              5,
+              "Zrób {@dc 10} Rzut obronny na konstytucję. Ona nie udało się zapisać, jesteś {@condition blinded} wydmuchując piasek, ziemię, popiół, śnieg lub pyłki do końca swojej tury. Chwila {@condition blinded} w ten sposób Twoja prędkość zostanie zmniejszona o połowę."
+            ],
+            [
+              6,
+              "Nagły spadek zaskakuje Cię. Zrób {@dc 10} Rzut obronny na zręczność pozwalający ominąć przeszkodę. W przypadku nieudanego zapisu spadasz {@dice 1d4 x 5} stopy, biorąc {@damage 1d6} obrażenia tłuczące na każde 3 metry upadku w normalny sposób i ląduje {@condition prone}."
+            ],
+            [
+              7,
+              "Wpadasz w pułapkę. Zrób {@dc 15} Rzut obronny na zręczność. W przypadku nieudanego zapisu zostajesz złapany w sidła i {@condition restrained}. W ramach akcji ty lub osoba znajdująca się w promieniu 5 stóp od ciebie możesz wykonać: {@dc 10} Test siły, uwalniający cię od sukcesu. Sidła można również zniszczyć; ma KP 10 i 5 punktów wytrzymałości i jest odporny na trucizny i obrażenia psychiczne. Powikłanie"
+            ],
+            [
+              8,
+              "Wpadasz w panikę przestraszonych zwierząt. Zrób {@dc 10} Rzut obronny na zręczność. Gdy nie udało się zapisać, zostajesz przewrócony i zabrany {@damage 1d4} obrażenia tłuczące i {@damage 1d4} przeszywające obrażenia."
+            ],
+            [
+              9,
+              "Twoja ścieżka prowadzi w pobliżu kępy brzytwy. Zrób {@dc 15} Rzut obronny na zręczność lub wykonaj 3 metry ruchu (twój wybór), aby uniknąć brzytwy. W przypadku nieudanego zapisu bierzesz {@damage 1d10} obrażenia tnące."
+            ],
+            [
+              10,
+              "Jedno lub więcej stworzeń w okolicy goni cię! DM wybiera tych ścigających lub rzuca a {@dice d8} aby je określić: (1) 2 {@creature brown bear||niedźwiedzie brunatne}, (2) {@dice 2d4} {@creature giant toad||gigantyczne ropuchy}, (3) {@dice 1d4} {@creature poisonous snake||jadowite węże}, (4) {@dice 2d4} {@creature wolf||wilki}, (5) 1 {@creature giant boar}, (6) 2 {@creature dire wolf||straszne wilki}, (7) {@creature griffon}lub (8) {@dice 1d12} {@creature giant rat||gigantyczne szczury} (patrz {@book Monster Manual|MM} dla statystyk gry stworzeń)."
+            ],
+            [
+              "11-20",
+              "Żadnych komplikacji."
+            ]
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ozdobny",
+          "entries": [
+            "W trakcie pościgu możesz zabrać {@action Dash} wykonaj ograniczoną liczbę razy, zanim podejmiesz ryzyko {@condition exhaustion}. Liczba ta równa się 3 + twój modyfikator Kondycji. Każde dodatkowe {@action Dash} akcja, którą podejmiesz po tej liczbie podczas pościgu, wymaga powodzenia na a {@dc 10} Sprawdź Kondycję na koniec swojej tury lub zyskaj 1 poziom {@condition exhaustion}.",
+            "Wycofujesz się z pościgu, jeśli {@condition exhaustion} osiągnie poziom 5, ponieważ Twoja prędkość wynosi 0. Kończąc krótki lub długi odpoczynek, możesz usunąć wszystkie poziomy {@condition exhaustion} zyskałeś, biorąc {@action Dash} akcję dodatkowe razy podczas pościgu."
+          ],
+          "id": "00a"
+        },
+        {
+          "type": "entries",
+          "name": "Reakcje",
+          "entries": [
+            "Podczas pościgu możesz normalnie reagować, ale nie możesz wykonywać ataków okazyjnych przeciwko innym uczestnikom pościgu, ponieważ zakłada się, że wszyscy poruszacie się w tym samym kierunku w tym samym czasie. Jednakże uczestnicy pościgu nadal mogą być celem ataków okazyjnych ze strony stworzeń nie biorących udziału w pościgu. Na przykład poszukiwacz przygód, który goni bandytę w lesie obok wilka, może sprowokować wilka do okazyjnego ataku."
+          ],
+          "id": "00b"
+        }
+      ],
+      "id": "009"
+    },
+    "1:00a": {
+      "type": "entries",
+      "name": "Ozdobny",
+      "entries": [
+        "W trakcie pościgu możesz zabrać {@action Dash} wykonaj ograniczoną liczbę razy, zanim podejmiesz ryzyko {@condition exhaustion}. Liczba ta równa się 3 + twój modyfikator Kondycji. Każde dodatkowe {@action Dash} akcja, którą podejmiesz po tej liczbie podczas pościgu, wymaga powodzenia na a {@dc 10} Sprawdź Kondycję na koniec swojej tury lub zyskaj 1 poziom {@condition exhaustion}.",
+        "Wycofujesz się z pościgu, jeśli {@condition exhaustion} osiągnie poziom 5, ponieważ Twoja prędkość wynosi 0. Kończąc krótki lub długi odpoczynek, możesz usunąć wszystkie poziomy {@condition exhaustion} zyskałeś, biorąc {@action Dash} akcję dodatkowe razy podczas pościgu."
+      ],
+      "id": "00a"
+    },
+    "1:00b": {
+      "type": "entries",
+      "name": "Reakcje",
+      "entries": [
+        "Podczas pościgu możesz normalnie reagować, ale nie możesz wykonywać ataków okazyjnych przeciwko innym uczestnikom pościgu, ponieważ zakłada się, że wszyscy poruszacie się w tym samym kierunku w tym samym czasie. Jednakże uczestnicy pościgu nadal mogą być celem ataków okazyjnych ze strony stworzeń nie biorących udziału w pościgu. Na przykład poszukiwacz przygód, który goni bandytę w lesie obok wilka, może sprowokować wilka do okazyjnego ataku."
+      ],
+      "id": "00b"
+    },
+    "1:00c": {
+      "type": "entries",
+      "name": "Zakończenie pościgu",
+      "entries": [
+        "Pościg kończy się, gdy jedna lub druga strona zatrzyma się, gdy ofiara ucieknie lub gdy przynajmniej jeden prześladowca znajdzie się w promieniu 5 stóp od ofiary.",
+        "Jeśli żadna ze stron nie zrezygnuje z pościgu, ofiara może wykonać Zręczność ({@skill Stealth}) sprawdź na koniec każdej rundy, gdy każdy uczestnik pościgu wykona swoją turę. Jakiś {@condition incapacitated} kamieniołom nie może tego sprawdzić, ani kamieniołom, który nie ma za czym się ukryć. Suma testu jest porównywana z pasywną Mądrością ({@skill Perception}) Wyniki prześladowców. Jeśli kamieniołom składa się z wielu stworzeń, wszystkie one wykonują test. Jeśli suma testów kamieniołomu jest większa niż najwyższy wynik pasywny, kamieniołom ucieka i nie uczestniczy już w pościgu.",
+        "W wyniku sprawdzenia, w oparciu o panujące okoliczności, kamieniołom zyskuje przewagę lub niekorzyść, jak pokazano w tabeli Współczynników ucieczki. Jeśli jeden lub więcej czynników daje kamieniołomowi zarówno przewagę, jak i wadę, to kamieniołom, jak zwykle, nie ma żadnego.",
+        {
+          "type": "table",
+          "caption": "Czynniki ucieczki",
+          "colLabels": [
+            "Czynnik",
+            "Sprawdź, czy..."
+          ],
+          "colStyles": [
+            "col-8",
+            "col-4"
+          ],
+          "rows": [
+            [
+              "Kamieniołom kryje w sobie wiele rzeczy do ukrycia",
+              "Korzyść"
+            ],
+            [
+              "Kamieniołom znajduje się w bardzo zatłoczonym lub hałaśliwym miejscu",
+              "Korzyść"
+            ],
+            [
+              "Quarry nie ma za czym się ukryć",
+              "Niekorzyść"
+            ],
+            [
+              "Kamieniołom znajduje się w niezatłoczonej lub cichej okolicy",
+              "Niekorzyść"
+            ],
+            [
+              "Główny ścigający jest łowcą lub ma biegłość w {@skill Survival}",
+              "Niekorzyść"
+            ]
+          ]
+        },
+        "Ucieczka nie musi oznaczać, że ofiara wyprzedziła pościg. Na przykład w górach ucieczka może oznaczać, że ofiara zanurkuje w szczelinę lub wydrążoną kłodę."
+      ],
+      "id": "00c"
+    },
+    "1:00d": {
+      "type": "entries",
+      "name": "Rozdzielenie",
+      "entries": [
+        "Ścigane istoty mogą podzielić się na mniejsze grupy. Ta taktyka zmusza pościgów do podzielenia sił lub umożliwienia części ofiary ucieczki. Jeżeli pościg dzieli się na kilka mniejszych pościgów, należy rozstrzygnąć każdy pościg osobno. Przeprowadź rundę jednego pościgu, potem rundę następnego i tak dalej, śledząc odległości dla każdej oddzielnej grupy."
+      ],
+      "id": "00d"
+    },
+    "1:00e": {
+      "type": "entries",
+      "name": "Odwrócenie ról",
+      "entries": [
+        "Podczas pościgu pościg może stać się ofiarą. Na przykład postacie goniące bandytę po lesie mogą zwrócić niechcianą uwagę innych bandytów. Ścigając uciekającego bandytę, muszą także unikać ścigających ich bandytów. Rzuć inicjatywę dla nowo przybyłych i prowadź oba pościgi jednocześnie. W innym scenariuszu uciekający bandyta może wpaść w czekające ramiona swoich wspólników. Przeważające postacie mogą zdecydować się na ucieczkę wraz z ścigającymi bandytami"
+      ],
+      "id": "00e"
+    }
+  }
+}

@@ -1,0 +1,2347 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Powstrzymaj zmarłych",
+      "page": 1,
+      "id": "000",
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/HBTD/000-00-001.cover-art.webp"
+          },
+          "credit": "Aurore Folny",
+          "width": 1700,
+          "height": 2200
+        },
+        "Twierdza Żelaznego Kręgosłupa to wszystko, co stoi przed potworną hordą wysłaną przez nikczemnego licza Szassa Tama. Bohaterowie muszą bronić części murów twierdzy przed nadciągającymi potworami i wewnętrznymi szpiegami, w przeciwnym razie region popadnie w falę śmierci Szassa Tama.",
+        "„Hold Back the Dead” jest częścią całorocznych obchodów Dungeons & Dragons i jego 50-lecia. Przygoda przeznaczona jest dla czterech do sześciu postaci na poziomie 4. Do przygody dołączone są karty postaci sześciu bohaterów ukochanego serialu animowanego {@i Lochy i smoki} z lat 80. XX w.: Bobby'ego, Diany, Erica, Hanka, Presto i Sheili, a wszyscy zostali przedstawieni w okresie wczesnej dorosłości. Siódma karta postaci przedstawia Niko, Kleryka z innej grupy poszukiwaczy przygód, którzy niedawno wpadli do multiwersum D&D. Każdy gracz może wybrać jedną z tych postaci lub udostępnić własną.",
+        {
+          "type": "section",
+          "name": "Korzystanie z tego dodatku",
+          "page": 1,
+          "id": "001",
+          "entries": [
+            "Niniejszy dokument oraz dokument z 2024 r {@book Player's Handbook|XPHB} zawierają wszystko, czego potrzebujesz do przeżycia przygody. W załączeniu znajdują się następujące załączniki:",
+            "{@area Appendix A|030|x} zapewnia bloki statystyk dla stworzeń napotkanych w tej przygodzie. Ich imiona pojawiają się w {@b pogrubiony} w przygodzie.",
+            "{@area Appendix B|031|x} udostępnia mapy stref obrony twierdzy; będziesz potrzebować tylko jednej z tych map.",
+            {
+              "type": "insetReadaloud",
+              "page": 1,
+              "id": "002",
+              "entries": [
+                "Tekst pojawiający się w takim ramce należy przeczytać na głos lub sparafrazować dla graczy, gdy ich postacie po raz pierwszy dotrą do miejsca lub w określonych okolicznościach, zgodnie z opisem w tekście."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Tło",
+          "page": 1,
+          "id": "003",
+          "entries": [
+            "Twierdza Żelaznego Kręgosłupa stała opuszczona przez wiele lat. Przedstawiciele Przymierza Lorda, organizacji zrzeszającej najsilniejsze miasta Wybrzeża Mieczy, niedawno sfinansowali wyprawę mającą na celu odzyskanie twierdzy. Twierdza umożliwiłaby Sojuszowi Pana dokładniejszą obserwację niebezpieczeństw w regionie. Postacie są początkowo wynajmowane do ochrony Twierdzy Żelaznego Grzbietu, co ma być łatwym zadaniem.",
+            "Szass Tam, podstępny licz dowodzący złowrogimi Czerwonymi Czarodziejami z Thay, planuje zgromadzić armię na tym obszarze zachodnich krain. Twierdza Żelaznego Grzbietu to idealne miejsce na sekwestrację jego sił, a Szass Tam nie może pozwolić, aby potężne miasta Wybrzeża Mieczy przejęły kontrolę nad twierdzą. Szybko wysłał legion dowodzony przez widmowego watażkę, aby zniechęcić do wysiłków naprawczych. Aby zaszczepić strach w motłochu naprawiającym fortyfikacje, Szass Tam wysłał nad fortecę imponującą iluzję siebie, ogłaszając jej nieuchronną zagładę.",
+            "Sojuszu Pana nie da się odstraszyć. Zamiast porzucić fortecę, pięć miast wspierających wysiłki odbudowy zaangażowało się w obronę Twierdzy Żelaznego Grzbietu przed hordą Szassa Tama.",
+            "Kiedy bohaterowie przybywają na rutynowe oddelegowanie strażników, dowiadują się o zbliżającej się hordzie i muszą sprzymierzyć się z jednym z pięciu miast. Od nich zależy obrona Twierdzy Żelaznego Grzbietu.",
+            {
+              "type": "entries",
+              "name": "Haczyki na przygody",
+              "page": 1,
+              "id": "004",
+              "entries": [
+                "Dowódca halflingów o imieniu Corlie Halvachar (Mały, Neutralny Dobry {@creature Knight|XMM}) wysyła znaki. Jest przedstawicielką Sojuszu Lorda, która ma ofertę łatwej pracy na straży w odległej fortecy, w której stacjonuje. Corlie prosi bohaterów, aby przybyli do twierdzy i służyli w imieniu pięciu wielkich miast Wybrzeża Mieczy, które wspólnie odnawiają fortecę. Bohaterowie przybywają do Twierdzy Żelaznego Grzbietu, aby spotkać się z rycerzem na początku przygody.",
+                "Jeśli to zatrudnienie nie wystarczy, aby zainteresować graczy, możesz zamiast tego użyć jednego z poniższych haków:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Sojusznicy w niebezpieczeństwie",
+                      "entry": "Rodzina postaci lub bliscy z Western Heartlands wysyłają informacje o tym, jak niebezpieczny stał się ten obszar i jak bardzo są szczęśliwi, słysząc, że pobliska Twierdza Żelaznego Grzbietu jest odnawiana. Zachęcają bohaterów do udzielenia pomocy Corlie Halvachar w fortecy, aby zapewnić, że ziemie znów będą bezpieczne."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Unikanie kary",
+                      "entry": "Jeśli bohaterowie znaleźli się po złej stronie prawa w Baldur's Gate, Mithral Hall, Neverwinter, Silverymoon lub Waterdeep, przywódca miasta oferuje wymazanie zbrodni bohaterów, jeśli odsiedzą trochę czasu strzegąc Twierdzy Żelaznego Grzbietu pod dowództwem Corlie Halvachar."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Ustawianie przygody",
+              "page": 2,
+              "id": "005",
+              "entries": [
+                "Ta przygoda rozgrywa się w zachodnich krainach regionu Wybrzeża Mieczy, w kampanii Zapomniane Krainy. Jeśli chcesz, możesz przenieść przygodę do innego świata. Rozważ następujące sugestie:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Smocza Lanca",
+                      "entry": "Stara twierdza wznosi się w regionie Hinterlund w Solamni. Został zbudowany przed Kataklizmem i do niedawna był niezamieszkany. Corlie Halvachar jest kawalerem koronnym. Siły Lorda Sotha maszerują z Twierdzy Dargaard."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Eberron",
+                      "entry": "Krasnoludy dawno temu zbudowały fortecę w Twierdzach Mrora, ale porzuciły ją, gdy wyczerpała się lokalna kopalnia. Siły sprzymierzone niedawno go odzyskały, ale forteca znajduje się na drodze hordy potworów wysłanych przez złowrogiego licza Lady Illmarrow."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Greyhawk",
+                      "entry": "Niedawno odzyskana twierdza stoi w północnej części Królestwa Furyondy. Zły kambion Iuz, zamiast Szass Tam, wysyła siły przeciwko twierdzy."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Przegląd",
+              "page": 2,
+              "id": "006",
+              "entries": [
+                "Ta przygoda ma trwać od trzech do czterech godzin gry i jest podzielona na następujące części:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Pierwsza fala",
+                      "entry": "Bohaterowie dowiadują się o zagrożeniu ze strony Szassa Tama, chwytają za broń i walczą z wrogami pragnącymi wspiąć się na mury twierdzy. Postacie mogą używać broni oblężniczej na swoim odcinku muru przeciwko obrońcom."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Druga fala",
+                      "entry": "Zdając sobie sprawę, że postacie stanowią silną obronę, armia stara się je wyeliminować, rzucając potwory na blanki."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Sabotaż broni oblężniczej",
+                      "entry": "Podczas gdy bohaterowie odpoczywają, zmiennokształtny szpieg i jego słudzy próbują sabotować broń oblężniczą bohaterów i mordować ich wszystkich."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Watażka",
+                      "entry": "Przywódca hordy postanawia osobiście wyeliminować postacie. Pokonując tego wodza, postacie pozostawiają wroga bez przywódcy i ratują fortecę."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Terminowe przybycie",
+          "page": 2,
+          "id": "007",
+          "entries": [
+            "Przygoda zaczyna się, gdy bohaterowie przybywają do Twierdzy Żelaznego Grzbietu, aby pełnić rutynową służbę wartowniczą. Kilku nieuzbrojonych robotników, w tym kamieniarze i kowale, gorączkowo pracuje przy naprawach z wyraźnym strachem i determinacją. Corlie Halvachar spotyka się z bohaterami zaraz po ich przybyciu.",
+            "Przeczytaj lub sparafrazuj następujący tekst, aby rozpocząć przygodę:",
+            {
+              "type": "insetReadaloud",
+              "page": 2,
+              "id": "008",
+              "entries": [
+                "Przy wejściu do twierdzy czeka na ciebie tęgi niziołek w zbroi płytowej.",
+                "„Co za szczęśliwy moment!” ona mówi. „Nazywam się Corlie Halvachar i reprezentuję Sojusz Pana. Sytuacja tutaj stała się znacznie, znacznie gorsza. Wprowadzę cię, ale najpierw proszę, powiedz mi trochę o sobie”."
+              ]
+            },
+            "Daj każdemu graczowi możliwość przedstawienia i opisania swojej postaci. Corlie wdaje się w przyjemną pogawędkę, wypytując bohaterów o ich zdolności, ale jasne jest, że ma coś pilnego na głowie.",
+            {
+              "type": "entries",
+              "name": "Odprawa Corlie",
+              "page": 2,
+              "id": "009",
+              "entries": [
+                "Po przedstawieniu Corlie uśmiecha się ponuro. Kontynuuj czytanie:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 2,
+                  "id": "00a",
+                  "entries": [
+                    "Corlie poprowadzi cię na północ przez fortecę. Robotnicy naprawiają ściany, układają włócznie i ostrzą miecze.",
+                    "„Pięć wielkich miast Wybrzeża Mieczy połączyło siły, aby odbudować tę fortecę” - wyjaśnia. „Spodziewaliśmy się, że dzięki temu będziemy lepiej widzieć kłopoty na granicy. Wygląda jednak na to, że Czerwoni Czarodzieje z Thay nie chcą nas tutaj.",
+                    "„Wcześniej dzisiaj na niebie nad fortecą pojawił się obraz podłego nekromanty Szassa Tama, przywódcy Czerwonych Czarodziejów. Rozkazał, aby wszyscy w twierdzy uciekali lub stawili czoła jego armii”.",
+                    "Corlie z dumą wskazuje na pracowników.",
+                    "„Nie damy się zastraszyć i nie opuścimy twierdzy, którą Czerwoni Czarodzieje mogliby wykorzystać jako przyczółek w regionie. Zostajemy.",
+                    "„Ale nie mamy wielu żołnierzy. Nie mam nawet giermków do pomocy. Potrzebujemy cię.",
+                    "„Zwiadowcy zidentyfikowali armię szkieletów, zombie i innych nieumarłych zmierzającą w tę stronę. Przybędą w ciągu godziny, prawdopodobnie w wielu falach. Potrzebujemy odważnych dusz takich jak ty na ścianie.",
+                    "„Ale który mur? Każde miasto wzmocniło część tej twierdzy, a ty będziesz stacjonować w strefie obronnej w imieniu jednego z pięciu miast. Możesz zdecydować, które”."
+                  ]
+                },
+                "Corlie prosi postacie o służbę w imieniu Baldur's Gate, Mithral Hall, Neverwinter, Silverymoon lub Waterdeep. Zaaranżowała już, że bohaterowie otrzymają wynagrodzenie za ryzyko w wysokości 1000 GP każdy z wybranego przez siebie miasta. Wszystkie postacie muszą zgodzić się na tego samego patrona miasta. Pokaż graczom {@adventure Map 1.1|HBTD|0|Map 1.1: Ironspine Keep} i wskaż, które strefy obrony odpowiadają jakiemu miastu.",
+                "Corlie opisuje miasta i ich strefy obronne w następujący sposób:",
+                {
+                  "type": "table",
+                  "colStyles": [
+                    "col-3",
+                    "col-9"
+                  ],
+                  "rows": [
+                    [
+                      {
+                        "type": "image",
+                        "href": {
+                          "type": "internal",
+                          "path": "adventure/HBTD/000-00-002.baldurs-gate.webp"
+                        },
+                        "maxHeight": 240,
+                        "maxWidth": 240,
+                        "width": 850,
+                        "height": 800
+                      },
+                      "{@b Brama Baldura} to zniszczone miasto portowe, pełne dekadenckiej szlachty, gangów i księży podobnych do tych, którzy podążają za Gondem, bogiem wynalazków. Jej strefą obronną jest krytyczny północny kraniec twierdzy. Wynalazcy zainstalowali tam Mechaniczny Trebusz, aby pomóc w obronie."
+                    ],
+                    [
+                      {
+                        "type": "image",
+                        "href": {
+                          "type": "internal",
+                          "path": "adventure/HBTD/000-00-003.mithral-hall.webp"
+                        },
+                        "maxHeight": 240,
+                        "maxWidth": 240,
+                        "width": 850,
+                        "height": 451
+                      },
+                      "{@b Sala Mithralowa} to krasnoludzkie miasto przodków, odzyskane w ostatnich latach od złych okupantów. Kopalnie i kuźnie czynią z niego rosnącą potęgę gospodarczą. Strefą obronną tego miasta jest północno-zachodnia część twierdzy. Inżynierowie zainstalowali Wyrzutnię Kuźni, która rzuca w atakujących kanistry z przegrzanym metalem."
+                    ],
+                    [
+                      {
+                        "type": "image",
+                        "href": {
+                          "type": "internal",
+                          "path": "adventure/HBTD/000-00-004.neverwinter.webp"
+                        },
+                        "maxHeight": 240,
+                        "maxWidth": 240,
+                        "width": 850,
+                        "height": 863
+                      },
+                      "{@b Nigdyzima} to miasto kupieckie, które podnosi się po kataklizmach. Jego wpływy wzrosły, gdy jego obywatele odzyskali zniszczone miasto i odbudowali sieci handlowe. W strefie obronnej po zachodniej stronie fortyfikacji znajduje się automatyczna balista."
+                    ],
+                    [
+                      {
+                        "type": "image",
+                        "href": {
+                          "type": "internal",
+                          "path": "adventure/HBTD/000-00-005.silverymoon.webp"
+                        },
+                        "maxHeight": 240,
+                        "maxWidth": 240,
+                        "width": 850,
+                        "height": 1058
+                      },
+                      "{@b Silverymoon} to spokojne miasto ze strzelistymi wieżami, żywymi drzewami i piękną architekturą. Przypomina wielkie miasta starożytnych czasów. Wkład Silverymoon w strefę obronną po wschodniej stronie twierdzy obejmuje Zaczarowaną Balistę."
+                    ],
+                    [
+                      {
+                        "type": "image",
+                        "href": {
+                          "type": "internal",
+                          "path": "adventure/HBTD/000-00-006.waterdeep.webp"
+                        },
+                        "maxHeight": 240,
+                        "maxWidth": 240,
+                        "width": 850,
+                        "height": 1324
+                      },
+                      "{@b Waterdeep}, Miasto Wspaniałości, to zamożna metropolia, w której kupcy rywalizują o prestiż, handlując wszelkiego rodzaju cudami. Strefa obronna Waterdeep to północno-wschodnia część twierdzy, gdzie bogaci kupcy dostarczyli drogie magiczne działo burzowe."
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Przesłuchuję Corlie",
+              "page": 3,
+              "id": "00b",
+              "entries": [
+                "Eskortując postacie do wybranej strefy obrony, Corlie odpowiada na ich pytania, które mogą obejmować:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Co jest w tej Hordzie?",
+                      "entry": "„Nasi zwiadowcy nie byli w stanie podejść zbyt blisko, ale mówią, że w całej tej części twierdzy będziemy musieli stawić czoła dziesiątkom, a nawet setkom szkieletów i zombie. Mają ze sobą kilka wozów, a może dużych stworzeń - to nie jest jasne. Mam sprzeczne raporty na temat przywódcy hordy, ale jest to jakiś rodzaj ducha lub stworzenia stworzonego z ciemnej mgły."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Kto broni pozostałych odcinków muru?",
+                      "entry": "„Mamy kilku żołnierzy gotowych stanąć na straży blanków. Kilku dzielnych robotników zgodziło się chwycić za włócznie i kusze również w obronie twierdzy. Jesteśmy rozproszeni, więc nie mogę wam udzielić żadnego wsparcia”."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Gdzie będziesz?",
+                      "entry": "„Żołnierze będą potrzebować mojego wsparcia bardziej niż ty. Będę koordynować obronę pozostałych odcinków murów. Nie zobaczysz mnie więcej, dopóki niebezpieczeństwo nie minie”."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Czy powinniśmy się wycofać?",
+                      "entry": "„I pozwolimy Czerwonym Czarodziejom założyć twierdzę tutaj, w Zachodnich Heartlands? Nie, musimy odeprzeć ich tu i teraz”."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Czy możesz zapłacić więcej?",
+                      "entry": "„Miasto, które cię sponsoruje, autoryzowało wynagrodzenie za ryzyko w wysokości 1000 GP każde. Poza tym możesz podzielić między siebie moje wynagrodzenie za ryzyko w wysokości 1000 GP. Naprawdę potrzebuję twojej pomocy”."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Twierdza Żelaznego Kręgosłupa",
+          "page": 3,
+          "id": "00c",
+          "entries": [
+            "Przymierze Lorda odzyskało fortecę zaledwie kilka dni temu i nie spodziewało się tak natychmiastowego i przytłaczającego ataku, więc nadal jest w opłakanym stanie. Stare pęknięcia niszczą kamieniarkę, a niegdyś zamontowane kamienie są nierówne. W całej fortecy rosną twarde chwasty. Grube zarośla urosły znacznie bliżej ścian, niż pozwoliłby na to jakikolwiek rozsądny obrońca. Nowi okupanci nie zdążyli ich przyciąć, a wysokie krzaki ukrywają ruchy hordy.",
+            "Mapa 1.1 przedstawia krytyczny północny kraniec Twierdzy Żelaznego Grzbietu, zwrócony twarzą w stronę najeźdźczej hordy; Twierdza rozciąga się poza mapą na południe.",
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/HBTD/001-map-0.01-Ironspine-Keep.webp"
+                  },
+                  "imageType": "mapa",
+                  "title": "Mapa 1.1: Twierdza Żelaznego Grzbietu",
+                  "credit": "Damien Mammoliti",
+                  "width": 4096,
+                  "height": 5811,
+                  "id": "011",
+                  "grid": {
+                    "type": "square",
+                    "size": 235,
+                    "offsetX": -32,
+                    "offsetY": 113,
+                    "scale": 4
+                  },
+                  "mapRegions": [
+                    {
+                      "area": "010",
+                      "points": [
+                        [
+                          1225,
+                          732
+                        ],
+                        [
+                          2990,
+                          732
+                        ],
+                        [
+                          2990,
+                          2022
+                        ],
+                        [
+                          1225,
+                          2022
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "013",
+                      "points": [
+                        [
+                          1575,
+                          2142
+                        ],
+                        [
+                          1575,
+                          3905
+                        ],
+                        [
+                          280,
+                          3905
+                        ],
+                        [
+                          280,
+                          2142
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01c",
+                      "points": [
+                        [
+                          2522,
+                          2262
+                        ],
+                        [
+                          3810,
+                          2262
+                        ],
+                        [
+                          3810,
+                          4027
+                        ],
+                        [
+                          2522,
+                          4027
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "016",
+                      "points": [
+                        [
+                          162,
+                          4022
+                        ],
+                        [
+                          1925,
+                          4022
+                        ],
+                        [
+                          1925,
+                          5320
+                        ],
+                        [
+                          162,
+                          5320
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "019",
+                      "points": [
+                        [
+                          2165,
+                          4147
+                        ],
+                        [
+                          3927,
+                          4147
+                        ],
+                        [
+                          3927,
+                          5432
+                        ],
+                        [
+                          2165,
+                          5432
+                        ]
+                      ]
+                    }
+                  ],
+                  "hrefThumbnail": {
+                    "type": "internal",
+                    "path": "adventure/HBTD/thumbnail/001-map-0.01-Ironspine-Keep.webp"
+                  }
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/HBTD/001-map-0.01-ironspine-keep-player.webp"
+                  },
+                  "imageType": "mapPlayer",
+                  "title": "Wersja odtwarzacza",
+                  "credit": "Damien Mammoliti",
+                  "width": 4096,
+                  "height": 5811,
+                  "mapParent": {
+                    "id": "011"
+                  },
+                  "grid": {
+                    "type": "square",
+                    "size": 235,
+                    "offsetX": -32,
+                    "offsetY": 113,
+                    "scale": 4
+                  }
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Funkcje twierdzy",
+              "page": 3,
+              "id": "00d",
+              "entries": [
+                "Twierdza ma następujące cechy:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Blanki i chodniki",
+                      "entry": "Szerokie chodniki otaczające twierdzę są wykonane z kruszącego się kamienia. Zewnętrzną część chodnika otaczają wysokie na trzy stopy blanki; zapewniają {@table Cover|XPHB|Pół okładka}. Wewnątrz chodników nie ma blanków ani balustrad. Chodnik znajduje się 20 stóp nad ziemią."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Zabudowania",
+                      "entry": "Wewnętrzne budynki twierdzy mają 40 stóp wysokości i zawierają przyziemne zapasy. Podczas ataku ukrywają się w nich osoby niewalczące. Postacie nie eksplorują ich podczas tej przygody, więc nie podano mapy wnętrz pomieszczeń."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Mgła",
+                      "entry": "Począwszy od pierwszej fali ataku, magiczna mgła otacza fortecę. Ta mgła zaczyna się na krawędzi mapy i rozciąga się kilkaset stóp poza krawędź mapy. Obszar we mgle to {@variantrule Heavily Obscured|XPHB}i mgły nie da się rozwiać. Mgła nie opadnie, dopóki bohaterowie nie pokonają przywódcy hordy."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Światło",
+                      "entry": "Ta przygoda zaczyna się w słoneczne popołudnie, ale niebo pokrywa cienka, magiczna mgła. Chociaż nie ma bezpośredniego światła słonecznego, {@variantrule Bright Light|XPHB} panuje we wszystkich obszarach z wyjątkiem mgły, która jest obszarem {@variantrule Darkness|XPHB}."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Sprzęt oblężniczy",
+                      "entry": "Twierdza posiada pięć machin oblężniczych dostarczonych przez miasta Przymierza Lorda. Każdy z nich to cud inżynierii magicznej lub mechanicznej, który obraca się, ale nie można go poruszyć. Każda broń oblężnicza jest opisana w sekcji „Strefy obrony” poniżej."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Schody i drabiny",
+                      "entry": "Strome kamienne schody prowadzą na chodniki z wnętrza twierdzy. Dodatkowo przy każdym chodniku znajdują się dwie zwinięte drabinki linowe, które można przerzucić przez blanki, aby w razie potrzeby uzyskać dostęp na zewnątrz. Postać może przyjąć {@action Utilize|XPHB} czynność polegającą na opuszczeniu lub podniesieniu drabiny linowej."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Ściany",
+                      "entry": "Mury twierdzy mają niewiele uchwytów, dlatego wspinanie się na nie wymaga powodzenia {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdzać."
+                    }
+                  ]
+                },
+                {
+                  "type": "inset",
+                  "name": "Sprzęt oblężniczy",
+                  "page": 3,
+                  "id": "00e",
+                  "entries": [
+                    "Sprzęt oblężniczy obejmuje obiekty przeznaczone do atakowania lub obrony zamków i innych fortyfikacji otoczonych murami. Większość machin oblężniczych wymaga stworzeń, które je poruszają, a także ładują, celują i strzelają. Opisy sprzętu oblężniczego określają działania wymagane do przygotowania go do ostrzału. Postacie nie muszą używać sprzętu oblężniczego, ale niektóre spotkania mogą być dla nich łatwiejsze, jeśli to zrobią. W „{@area Second Wave|023|x}” bohaterowie znajdują sprzęt oblężniczy użyty przeciwko nim!"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Strefy Obrony",
+          "page": 4,
+          "id": "00f",
+          "entries": [
+            "Udostępnij graczom mapę wybranej przez nich strefy obrony (patrz {@area appendix B|031|x}).",
+            "Poniżej znajduje się opis broni oblężniczej w każdej strefie obrony. Każda broń ma wystarczającą ilość amunicji, aby wystrzelić 20 razy.",
+            {
+              "type": "entries",
+              "name": "Wrota Baldura (północ)",
+              "page": 4,
+              "id": "010",
+              "entries": [
+                "Bronią oblężniczą w strefie obrony Baldur's Gate (patrz {@adventure Map 1.2|HBTD|0|Map 1.2: Baldur's Gate Defense Zone}) jest trebusz zmechanizowany przez kapłanów Gonda. Pociągnięcie pojedynczej dźwigni ładuje i celuje trebuszem.",
+                {
+                  "type": "statblock",
+                  "name": "Mechaniczny Trebusz",
+                  "page": 4,
+                  "tag": "object",
+                  "source": "HBTD",
+                  "style": "narrow"
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Sala Mithralowa (północny zachód)",
+              "page": 4,
+              "id": "013",
+              "entries": [
+                "Broń oblężnicza w strefie obrony Mithrilowej Hali (patrz {@adventure Map 1.3|HBTD|0|Map 1.3: Mithral Hall Defense Zone}) to zmodyfikowana katapulta, która wystrzeliwuje żelazne kanistry z przegrzanego metalu, które eksplodują przy uderzeniu. Przebiegłe, zmechanizowane urządzenie za pomocą odrzutu umieszcza nowy pojemnik na miejscu, ładując wyrzutnię natychmiast i automatycznie po wystrzale.",
+                {
+                  "type": "statblock",
+                  "name": "Wyrzutnia kuźni",
+                  "page": 4,
+                  "tag": "object",
+                  "source": "HBTD",
+                  "style": "narrow"
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Neverwinter (Zachód)",
+              "page": 4,
+              "id": "016",
+              "entries": [
+                "Broń oblężnicza w strefie obrony Neverwinter (patrz {@adventure Map 1.4|HBTD|0|Map 1.4: Neverwinter Defense Zone}) to balista zmodyfikowana w taki sposób, że jej odrzut automatycznie ładuje kolejny bełt z magazynka.",
+                {
+                  "type": "statblock",
+                  "name": "Automatyczna balista",
+                  "page": 4,
+                  "tag": "object",
+                  "source": "HBTD",
+                  "style": "narrow"
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Silverymoon (Wschód)",
+              "page": 4,
+              "id": "019",
+              "entries": [
+                "Bronią oblężniczą w strefie obrony Silverymoon (patrz {@adventure Map 1.4|HBTD|0|Map 1.5: Silverymoon Defense Zone}) jest balista. Niedostrzegalne duchy magiczne automatycznie celują w balistę. Jednak duchy nie są wystarczająco silne, aby unieść ciężkie bełty balisty, więc należy je ładować ręcznie.",
+                {
+                  "type": "statblock",
+                  "name": "Zaczarowana Balista",
+                  "page": 4,
+                  "tag": "object",
+                  "source": "HBTD",
+                  "style": "narrow"
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Waterdeep (północny wschód)",
+              "page": 4,
+              "id": "01c",
+              "entries": [
+                "Broń oblężnicza w strefie obronnej Waterdeep (patrz {@adventure Map 1.5|HBTD|0|Map 1.6: Waterdeep Defense Zone}) to mała armata z brązu inkrustowana tajemnymi runami, zamontowana na ciężkim statywie. Wystrzeliwuje kule trzaskającej energii elektrycznej.",
+                {
+                  "type": "statblock",
+                  "name": "Działo burzowe",
+                  "page": 4,
+                  "tag": "object",
+                  "source": "HBTD",
+                  "style": "narrow"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Pierwsza fala",
+          "page": 4,
+          "id": "01f",
+          "entries": [
+            "Kiedy gracze przejrzą odpowiednią mapę swojej strefy obrony z {@area appendix B|031|x} i ustawią swoje postacie, przeczytaj lub sparafrazuj poniższe:",
+            {
+              "type": "insetReadaloud",
+              "page": 5,
+              "id": "020",
+              "entries": [
+                "Zwiadowcy krzyczą zza murów, że horda się zbliża. Odległe kształty szkieletowych żołnierzy i walących się ciał pojawiają się wokół pobliskich wzgórz w kilku kierunkach. Właśnie wtedy z ziemi wydobywa się chorobliwa czarna mgła, tworząc pierścień wokół fortecy, przesłaniając wszystko w promieniu kilkudziesięciu metrów od murów.",
+                "Krzyki zamieszania rozbrzmiewają echem po fortecy, ponieważ nikt nie może zobaczyć ruchów hordy. Wkrótce zamiary hordy stają się jasne. Nieumarli wyłaniają się z mgły w stronę fortecy."
+              ]
+            },
+            "Osiem {@creature Skeleton|XMM|Szkielety} i dwa {@creature Ogre Zombie|XMM|Ogry zombie} wyłaniają się z ciemnej mgły. Każdy zombie ma wysoką na 20 stóp metalową drabinę przymocowaną do pleców za pomocą haków wbitych w gnijące ciało. Zombie zmierzają bezpośrednio w stronę ściany i tam pozostają. Żołnierze-szkielety posuwają się naprzód i wykonują ataki dystansowe, dopóki nie będą mogli wspiąć się po drabinie i walczyć w zwarciu. Zombie wspinają się po ścianach, gdy wszyscy żołnierze-szkielety znajdą się na szczycie ściany lub zostaną pokonani. Wszyscy ci wrogowie walczą, dopóki nie zostaną zniszczeni.",
+            {
+              "type": "entries",
+              "name": "Następstwa",
+              "page": 5,
+              "id": "021",
+              "entries": [
+                "Gdy rozpoczyna się druga fala, postacie mają tylko kilka minut na wyleczenie lub przegrupowanie się.",
+                {
+                  "type": "inset",
+                  "name": "Walki w innych obszarach murów",
+                  "page": 5,
+                  "id": "022",
+                  "entries": [
+                    "Postacie powinny mieć wystarczająco dużo wydarzeń na swoich własnych ścianach, aby nie martwić się tym, co dzieje się w innych strefach obrony, ale jeśli gracze są ciekawi, powinieneś opisać wściekłe walki w innych obszarach. Powiedz graczom, że gdy postacie są pod presją wrogów, ich sojusznicy również borykają się z trudnościami. Kiedy postacie zdobywają przewagę, ich sojusznicy również trzymają potwory na dystans."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Druga fala",
+          "page": 5,
+          "id": "023",
+          "entries": [
+            "Nie mogąc przebić się przez mur, którego bronią postacie, wrogowie używają dwóch Zgniłych Mangoneli (patrz statystyki na końcu tej sekcji), aby zaatakować tę pozycję.",
+            "Przeczytaj lub sparafrazuj następujące słowa wkrótce po poprzednim spotkaniu:",
+            {
+              "type": "insetReadaloud",
+              "page": 5,
+              "id": "024",
+              "entries": [
+                "We mgle otaczającej fortecę zapada chwilowa cisza. Słychać ostry brzęk skręconego drewna i liny. Nagle dwa zombie szybują w powietrzu, machając jak szmaciane lalki, i rozbijają się na chodniku."
+              ]
+            },
+            "Dwóch {@creature Zombie|XMM|Zombie} znajdują się na chodniku w pobliżu postaci. Każdy zombie ma {@condition Prone|XPHB} stan z jesieni.",
+            "Oprócz zombie rzuć na Inicjatywę za cztery {@creature Skeleton|XMM|Szkielety} którzy zaczynają poza zasięgiem wzroku we mgle.",
+            "Szkielety jako pierwsze ukazują Zgniłego Mangonela. Następnie szkielety ładują worki z wijącymi się, odciętymi rękami do mangonelu i wyrzucają je na chodnik.",
+            "Szkielety mają trzy worki, każdy zawierający: {@creature Swarm of Crawling Claws|XMM}. Gdy szkielety wystrzelą wszystkie trzy worki lub gdy Zgniły Mangonel zostanie zniszczony, szkielety pędzą po ścianach, aby się po nich wspiąć i rozpocząć walkę wręcz.",
+            {
+              "type": "statblock",
+              "name": "Zgrzybiały Mangonel",
+              "page": 5,
+              "tag": "object",
+              "source": "HBTD",
+              "style": "narrow"
+            },
+            {
+              "type": "entries",
+              "name": "Następstwa",
+              "page": 5,
+              "id": "028",
+              "entries": [
+                "Gdy postacie uporają się z atakiem machin oblężniczych wroga, wokół twierdzy słyszą okrzyki sukcesu. Wrogowie wykonują tymczasowy odwrót, który, jak bohaterowie zdają sobie sprawę, wystarczy im na krótki odpoczynek, jeśli tak zdecydują."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Sabotaż broni oblężniczej",
+          "page": 5,
+          "id": "029",
+          "entries": [
+            "Szass Tam ma do rozmieszczenia coś więcej niż tylko potworną hordę; zlecił wyspecjalizowanemu zespołowi infiltrację twierdzy. Ta zdradziecka grupa identyfikuje postacie jako najskuteczniejszych obrońców twierdzy i postanawia sabotować machinę oblężniczą, a następnie zabić postacie.",
+            "Przeczytaj lub sparafrazuj poniższe zdanie około godzinę po ich poprzednim spotkaniu (po krótkim odpoczynku postaci, jeśli taki odbędzie).",
+            {
+              "type": "insetReadaloud",
+              "page": 5,
+              "id": "02a",
+              "entries": [
+                "Corlie wychodzi od drzwi jednego z wewnętrznych budynków fortecy. Za nią podąża trzech ponuro wyglądających żołnierzy. Posyła ci szeroki uśmiech.",
+                "„Moi przyjaciele! Wasze wysiłki zapewniły nam bezpieczeństwo. Ale musimy przenieść waszą machinę oblężniczą do mniej bezpiecznej części muru. Moi giermkowie ją zdemontują i przeniosą. Nie kłopoczcie się; proszę po prostu się wycofajcie, podczas gdy będziemy pracować”."
+              ]
+            },
+            "„Corlie” to właściwie A {@creature Doppelganger|XMM}i trzech ludzkich giermków (Średni, Neutralny Zły {@creature Scout|XMM|Zwiadowcy}) są lojalni wobec Czerwonych Czarodziejów.",
+            "Postacie podejrzane o tę nieoczekiwaną zmianę mogą przyjąć: {@action Search|XPHB} działanie mające na celu wykonanie a {@dc 19} Mądrość ({@skill Insight|XPHB}) sprawdzać. Postać, która pamięta, jak Corlie mówiła jej, że nie ma żadnych giermków, wykonuje ten test z Przewagą. Po sukcesie postać zdaje sobie sprawę, że ta Corlie jest oszustem; jest trochę za wysoka i ma trochę za niski głos.",
+            "Jeśli postacie na to pozwalają, fałszywa Corlie i giermkowie podchodzą do machiny oblężniczej i zaczynają ją atakować. Od razu staje się jasne, że niszczą machinę oblężniczą, a nie ją rozkładają, co powinno zaalarmować bohaterów, że coś jest nie tak.",
+            "Gdy machina oblężnicza zostanie zniszczona lub jeśli postacie przerwają próbę sabotażu, fałszywi Corlie i giermkowie atakują postacie, walcząc na śmierć i życie.",
+            {
+              "type": "entries",
+              "name": "Następstwa",
+              "page": 6,
+              "id": "02b",
+              "entries": [
+                "Mniej więcej minutę po zakończeniu walki z sabotażystami watażka bierze sprawy w swoje bezcielesne ręce i bezpośrednio atakuje."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Watażka",
+          "page": 6,
+          "id": "02c",
+          "entries": [
+            "Po wysiłkach sabotażystów Czerwonych Czarodziejów, watażka hordy postanawia dać przykład niezłomnym postaciom, które dotychczas udaremniły atak. Przeczytaj lub sparafrazuj następujący tekst:",
+            {
+              "type": "insetReadaloud",
+              "page": 6,
+              "id": "02d",
+              "entries": [
+                "Czarna mgła zwija się i kształty wewnątrz zaczynają się rozdzielać. Imponująca postać, równie nieistotna jak mgła, ale przepełniona większą wrogością, szybuje w powietrzu.",
+                "Głos stworzenia odbija się echem po Twierdzy Żelaznego Grzbietu. „Położę kres tym wścibskim obrońcom. Gdy zginą, twierdza będzie nasza!”"
+              ]
+            },
+            "Władca wojny to A {@creature Wraith|XMM}. Cztery {@creature Zombie|XMM|Zombie} ślad za nim. Wraith leci na chodnik, podczas gdy Zombie pełzają po ziemi i wspinają się po ścianach, aby walczyć.",
+            "Duch watażki jest zbyt nieustępliwy, aby można go było łatwo zniszczyć. Gdy Wraith spadnie do 0 punktów wytrzymałości, jego forma eksploduje na trzy {@creature Shadow|XMM|Cienie}, z których każdy wygląda jak bardziej nieistotna wersja watażki. Cienie walczą aż do zniszczenia, woląc atakować dowolną postać, która pokonała watażkę.",
+            "Kiedy Cienie zostają pokonane, mgła wokół twierdzy znika. Ujawnione teraz kłębiące się grupy sługusów albo rozpraszają się po okolicznych terenach, albo wykonują nieskoordynowane ataki, które inni obrońcy twierdzy mogą z łatwością odeprzeć. Horda jest rozbita."
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Wnioski",
+          "page": 6,
+          "id": "02e",
+          "entries": [
+            "Po klęsce watażki i rozbiciu sił wroga, Twierdza Żelaznego Grzbietu jest teraz bezpiecznie w rękach Przymierza Lorda. Prawdziwa Corlie powraca, poobijana, ale radosna, i deklaruje, że bohaterowie są największymi obrońcami twierdzy.",
+            {
+              "type": "entries",
+              "name": "Nagrody",
+              "page": 6,
+              "id": "02f",
+              "entries": [
+                "Corlie zapewnia, że ​​miasto sponsorujące postacie wypłaci każdemu z nich kwotę 1000 GP. Jeśli Corlie zgodziła się wcześniej przekazać swój udział postaciom, dodaje to do ich nagrody.",
+                "Corlie musi wrócić na Wybrzeże Mieczy, ale upiera się, że Twierdza Żelaznego Grzbietu potrzebuje przywódców, którzy mogą zagwarantować jej obronę. Twierdza stanowi doskonałą bazę operacyjną dla przyszłych przygód na pograniczu, być może przy wykorzystaniu zasad {@book Bastions|XDMG|10} określonych w {@book Dungeon Master's Guide|XDMG} 2024. Nikt nie wie, dlaczego Szass Tam chce fortecy, ale z pewnością ponownie wystawi na próbę jej obrońców!"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:001": {
+      "type": "section",
+      "name": "Korzystanie z tego dodatku",
+      "page": 1,
+      "id": "001",
+      "entries": [
+        "Niniejszy dokument oraz dokument z 2024 r {@book Player's Handbook|XPHB} zawierają wszystko, czego potrzebujesz do przeżycia przygody. W załączeniu znajdują się następujące załączniki:",
+        "{@area Appendix A|030|x} zapewnia bloki statystyk dla stworzeń napotkanych w tej przygodzie. Ich imiona pojawiają się w {@b pogrubiony} w przygodzie.",
+        "{@area Appendix B|031|x} udostępnia mapy stref obrony twierdzy; będziesz potrzebować tylko jednej z tych map.",
+        {
+          "type": "insetReadaloud",
+          "page": 1,
+          "id": "002",
+          "entries": [
+            "Tekst pojawiający się w takim ramce należy przeczytać na głos lub sparafrazować dla graczy, gdy ich postacie po raz pierwszy dotrą do miejsca lub w określonych okolicznościach, zgodnie z opisem w tekście."
+          ]
+        }
+      ]
+    },
+    "0:003": {
+      "type": "section",
+      "name": "Tło",
+      "page": 1,
+      "id": "003",
+      "entries": [
+        "Twierdza Żelaznego Kręgosłupa stała opuszczona przez wiele lat. Przedstawiciele Przymierza Lorda, organizacji zrzeszającej najsilniejsze miasta Wybrzeża Mieczy, niedawno sfinansowali wyprawę mającą na celu odzyskanie twierdzy. Twierdza umożliwiłaby Sojuszowi Pana dokładniejszą obserwację niebezpieczeństw w regionie. Postacie są początkowo wynajmowane do ochrony Twierdzy Żelaznego Grzbietu, co ma być łatwym zadaniem.",
+        "Szass Tam, podstępny licz dowodzący złowrogimi Czerwonymi Czarodziejami z Thay, planuje zgromadzić armię na tym obszarze zachodnich krain. Twierdza Żelaznego Grzbietu to idealne miejsce na sekwestrację jego sił, a Szass Tam nie może pozwolić, aby potężne miasta Wybrzeża Mieczy przejęły kontrolę nad twierdzą. Szybko wysłał legion dowodzony przez widmowego watażkę, aby zniechęcić do wysiłków naprawczych. Aby zaszczepić strach w motłochu naprawiającym fortyfikacje, Szass Tam wysłał nad fortecę imponującą iluzję siebie, ogłaszając jej nieuchronną zagładę.",
+        "Sojuszu Pana nie da się odstraszyć. Zamiast porzucić fortecę, pięć miast wspierających wysiłki odbudowy zaangażowało się w obronę Twierdzy Żelaznego Grzbietu przed hordą Szassa Tama.",
+        "Kiedy bohaterowie przybywają na rutynowe oddelegowanie strażników, dowiadują się o zbliżającej się hordzie i muszą sprzymierzyć się z jednym z pięciu miast. Od nich zależy obrona Twierdzy Żelaznego Grzbietu.",
+        {
+          "type": "entries",
+          "name": "Haczyki na przygody",
+          "page": 1,
+          "id": "004",
+          "entries": [
+            "Dowódca halflingów o imieniu Corlie Halvachar (Mały, Neutralny Dobry {@creature Knight|XMM}) wysyła znaki. Jest przedstawicielką Sojuszu Lorda, która ma ofertę łatwej pracy na straży w odległej fortecy, w której stacjonuje. Corlie prosi bohaterów, aby przybyli do twierdzy i służyli w imieniu pięciu wielkich miast Wybrzeża Mieczy, które wspólnie odnawiają fortecę. Bohaterowie przybywają do Twierdzy Żelaznego Grzbietu, aby spotkać się z rycerzem na początku przygody.",
+            "Jeśli to zatrudnienie nie wystarczy, aby zainteresować graczy, możesz zamiast tego użyć jednego z poniższych haków:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Sojusznicy w niebezpieczeństwie",
+                  "entry": "Rodzina postaci lub bliscy z Western Heartlands wysyłają informacje o tym, jak niebezpieczny stał się ten obszar i jak bardzo są szczęśliwi, słysząc, że pobliska Twierdza Żelaznego Grzbietu jest odnawiana. Zachęcają bohaterów do udzielenia pomocy Corlie Halvachar w fortecy, aby zapewnić, że ziemie znów będą bezpieczne."
+                },
+                {
+                  "type": "item",
+                  "name": "Unikanie kary",
+                  "entry": "Jeśli bohaterowie znaleźli się po złej stronie prawa w Baldur's Gate, Mithral Hall, Neverwinter, Silverymoon lub Waterdeep, przywódca miasta oferuje wymazanie zbrodni bohaterów, jeśli odsiedzą trochę czasu strzegąc Twierdzy Żelaznego Grzbietu pod dowództwem Corlie Halvachar."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ustawianie przygody",
+          "page": 2,
+          "id": "005",
+          "entries": [
+            "Ta przygoda rozgrywa się w zachodnich krainach regionu Wybrzeża Mieczy, w kampanii Zapomniane Krainy. Jeśli chcesz, możesz przenieść przygodę do innego świata. Rozważ następujące sugestie:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Smocza Lanca",
+                  "entry": "Stara twierdza wznosi się w regionie Hinterlund w Solamni. Został zbudowany przed Kataklizmem i do niedawna był niezamieszkany. Corlie Halvachar jest kawalerem koronnym. Siły Lorda Sotha maszerują z Twierdzy Dargaard."
+                },
+                {
+                  "type": "item",
+                  "name": "Eberron",
+                  "entry": "Krasnoludy dawno temu zbudowały fortecę w Twierdzach Mrora, ale porzuciły ją, gdy wyczerpała się lokalna kopalnia. Siły sprzymierzone niedawno go odzyskały, ale forteca znajduje się na drodze hordy potworów wysłanych przez złowrogiego licza Lady Illmarrow."
+                },
+                {
+                  "type": "item",
+                  "name": "Greyhawk",
+                  "entry": "Niedawno odzyskana twierdza stoi w północnej części Królestwa Furyondy. Zły kambion Iuz, zamiast Szass Tam, wysyła siły przeciwko twierdzy."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Przegląd",
+          "page": 2,
+          "id": "006",
+          "entries": [
+            "Ta przygoda ma trwać od trzech do czterech godzin gry i jest podzielona na następujące części:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Pierwsza fala",
+                  "entry": "Bohaterowie dowiadują się o zagrożeniu ze strony Szassa Tama, chwytają za broń i walczą z wrogami pragnącymi wspiąć się na mury twierdzy. Postacie mogą używać broni oblężniczej na swoim odcinku muru przeciwko obrońcom."
+                },
+                {
+                  "type": "item",
+                  "name": "Druga fala",
+                  "entry": "Zdając sobie sprawę, że postacie stanowią silną obronę, armia stara się je wyeliminować, rzucając potwory na blanki."
+                },
+                {
+                  "type": "item",
+                  "name": "Sabotaż broni oblężniczej",
+                  "entry": "Podczas gdy bohaterowie odpoczywają, zmiennokształtny szpieg i jego słudzy próbują sabotować broń oblężniczą bohaterów i mordować ich wszystkich."
+                },
+                {
+                  "type": "item",
+                  "name": "Watażka",
+                  "entry": "Przywódca hordy postanawia osobiście wyeliminować postacie. Pokonując tego wodza, postacie pozostawiają wroga bez przywódcy i ratują fortecę."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:004": {
+      "type": "entries",
+      "name": "Haczyki na przygody",
+      "page": 1,
+      "id": "004",
+      "entries": [
+        "Dowódca halflingów o imieniu Corlie Halvachar (Mały, Neutralny Dobry {@creature Knight|XMM}) wysyła znaki. Jest przedstawicielką Sojuszu Lorda, która ma ofertę łatwej pracy na straży w odległej fortecy, w której stacjonuje. Corlie prosi bohaterów, aby przybyli do twierdzy i służyli w imieniu pięciu wielkich miast Wybrzeża Mieczy, które wspólnie odnawiają fortecę. Bohaterowie przybywają do Twierdzy Żelaznego Grzbietu, aby spotkać się z rycerzem na początku przygody.",
+        "Jeśli to zatrudnienie nie wystarczy, aby zainteresować graczy, możesz zamiast tego użyć jednego z poniższych haków:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Sojusznicy w niebezpieczeństwie",
+              "entry": "Rodzina postaci lub bliscy z Western Heartlands wysyłają informacje o tym, jak niebezpieczny stał się ten obszar i jak bardzo są szczęśliwi, słysząc, że pobliska Twierdza Żelaznego Grzbietu jest odnawiana. Zachęcają bohaterów do udzielenia pomocy Corlie Halvachar w fortecy, aby zapewnić, że ziemie znów będą bezpieczne."
+            },
+            {
+              "type": "item",
+              "name": "Unikanie kary",
+              "entry": "Jeśli bohaterowie znaleźli się po złej stronie prawa w Baldur's Gate, Mithral Hall, Neverwinter, Silverymoon lub Waterdeep, przywódca miasta oferuje wymazanie zbrodni bohaterów, jeśli odsiedzą trochę czasu strzegąc Twierdzy Żelaznego Grzbietu pod dowództwem Corlie Halvachar."
+            }
+          ]
+        }
+      ]
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Ustawianie przygody",
+      "page": 2,
+      "id": "005",
+      "entries": [
+        "Ta przygoda rozgrywa się w zachodnich krainach regionu Wybrzeża Mieczy, w kampanii Zapomniane Krainy. Jeśli chcesz, możesz przenieść przygodę do innego świata. Rozważ następujące sugestie:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Smocza Lanca",
+              "entry": "Stara twierdza wznosi się w regionie Hinterlund w Solamni. Został zbudowany przed Kataklizmem i do niedawna był niezamieszkany. Corlie Halvachar jest kawalerem koronnym. Siły Lorda Sotha maszerują z Twierdzy Dargaard."
+            },
+            {
+              "type": "item",
+              "name": "Eberron",
+              "entry": "Krasnoludy dawno temu zbudowały fortecę w Twierdzach Mrora, ale porzuciły ją, gdy wyczerpała się lokalna kopalnia. Siły sprzymierzone niedawno go odzyskały, ale forteca znajduje się na drodze hordy potworów wysłanych przez złowrogiego licza Lady Illmarrow."
+            },
+            {
+              "type": "item",
+              "name": "Greyhawk",
+              "entry": "Niedawno odzyskana twierdza stoi w północnej części Królestwa Furyondy. Zły kambion Iuz, zamiast Szass Tam, wysyła siły przeciwko twierdzy."
+            }
+          ]
+        }
+      ]
+    },
+    "0:006": {
+      "type": "entries",
+      "name": "Przegląd",
+      "page": 2,
+      "id": "006",
+      "entries": [
+        "Ta przygoda ma trwać od trzech do czterech godzin gry i jest podzielona na następujące części:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Pierwsza fala",
+              "entry": "Bohaterowie dowiadują się o zagrożeniu ze strony Szassa Tama, chwytają za broń i walczą z wrogami pragnącymi wspiąć się na mury twierdzy. Postacie mogą używać broni oblężniczej na swoim odcinku muru przeciwko obrońcom."
+            },
+            {
+              "type": "item",
+              "name": "Druga fala",
+              "entry": "Zdając sobie sprawę, że postacie stanowią silną obronę, armia stara się je wyeliminować, rzucając potwory na blanki."
+            },
+            {
+              "type": "item",
+              "name": "Sabotaż broni oblężniczej",
+              "entry": "Podczas gdy bohaterowie odpoczywają, zmiennokształtny szpieg i jego słudzy próbują sabotować broń oblężniczą bohaterów i mordować ich wszystkich."
+            },
+            {
+              "type": "item",
+              "name": "Watażka",
+              "entry": "Przywódca hordy postanawia osobiście wyeliminować postacie. Pokonując tego wodza, postacie pozostawiają wroga bez przywódcy i ratują fortecę."
+            }
+          ]
+        }
+      ]
+    },
+    "0:007": {
+      "type": "section",
+      "name": "Terminowe przybycie",
+      "page": 2,
+      "id": "007",
+      "entries": [
+        "Przygoda zaczyna się, gdy bohaterowie przybywają do Twierdzy Żelaznego Grzbietu, aby pełnić rutynową służbę wartowniczą. Kilku nieuzbrojonych robotników, w tym kamieniarze i kowale, gorączkowo pracuje przy naprawach z wyraźnym strachem i determinacją. Corlie Halvachar spotyka się z bohaterami zaraz po ich przybyciu.",
+        "Przeczytaj lub sparafrazuj następujący tekst, aby rozpocząć przygodę:",
+        {
+          "type": "insetReadaloud",
+          "page": 2,
+          "id": "008",
+          "entries": [
+            "Przy wejściu do twierdzy czeka na ciebie tęgi niziołek w zbroi płytowej.",
+            "„Co za szczęśliwy moment!” ona mówi. „Nazywam się Corlie Halvachar i reprezentuję Sojusz Pana. Sytuacja tutaj stała się znacznie, znacznie gorsza. Wprowadzę cię, ale najpierw proszę, powiedz mi trochę o sobie”."
+          ]
+        },
+        "Daj każdemu graczowi możliwość przedstawienia i opisania swojej postaci. Corlie wdaje się w przyjemną pogawędkę, wypytując bohaterów o ich zdolności, ale jasne jest, że ma coś pilnego na głowie.",
+        {
+          "type": "entries",
+          "name": "Odprawa Corlie",
+          "page": 2,
+          "id": "009",
+          "entries": [
+            "Po przedstawieniu Corlie uśmiecha się ponuro. Kontynuuj czytanie:",
+            {
+              "type": "insetReadaloud",
+              "page": 2,
+              "id": "00a",
+              "entries": [
+                "Corlie poprowadzi cię na północ przez fortecę. Robotnicy naprawiają ściany, układają włócznie i ostrzą miecze.",
+                "„Pięć wielkich miast Wybrzeża Mieczy połączyło siły, aby odbudować tę fortecę” - wyjaśnia. „Spodziewaliśmy się, że dzięki temu będziemy lepiej widzieć kłopoty na granicy. Wygląda jednak na to, że Czerwoni Czarodzieje z Thay nie chcą nas tutaj.",
+                "„Wcześniej dzisiaj na niebie nad fortecą pojawił się obraz podłego nekromanty Szassa Tama, przywódcy Czerwonych Czarodziejów. Rozkazał, aby wszyscy w twierdzy uciekali lub stawili czoła jego armii”.",
+                "Corlie z dumą wskazuje na pracowników.",
+                "„Nie damy się zastraszyć i nie opuścimy twierdzy, którą Czerwoni Czarodzieje mogliby wykorzystać jako przyczółek w regionie. Zostajemy.",
+                "„Ale nie mamy wielu żołnierzy. Nie mam nawet giermków do pomocy. Potrzebujemy cię.",
+                "„Zwiadowcy zidentyfikowali armię szkieletów, zombie i innych nieumarłych zmierzającą w tę stronę. Przybędą w ciągu godziny, prawdopodobnie w wielu falach. Potrzebujemy odważnych dusz takich jak ty na ścianie.",
+                "„Ale który mur? Każde miasto wzmocniło część tej twierdzy, a ty będziesz stacjonować w strefie obronnej w imieniu jednego z pięciu miast. Możesz zdecydować, które”."
+              ]
+            },
+            "Corlie prosi postacie o służbę w imieniu Baldur's Gate, Mithral Hall, Neverwinter, Silverymoon lub Waterdeep. Zaaranżowała już, że bohaterowie otrzymają wynagrodzenie za ryzyko w wysokości 1000 GP każdy z wybranego przez siebie miasta. Wszystkie postacie muszą zgodzić się na tego samego patrona miasta. Pokaż graczom {@adventure Map 1.1|HBTD|0|Map 1.1: Ironspine Keep} i wskaż, które strefy obrony odpowiadają jakiemu miastu.",
+            "Corlie opisuje miasta i ich strefy obronne w następujący sposób:",
+            {
+              "type": "table",
+              "colStyles": [
+                "col-3",
+                "col-9"
+              ],
+              "rows": [
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "adventure/HBTD/000-00-002.baldurs-gate.webp"
+                    },
+                    "maxHeight": 240,
+                    "maxWidth": 240,
+                    "width": 850,
+                    "height": 800
+                  },
+                  "{@b Brama Baldura} to zniszczone miasto portowe, pełne dekadenckiej szlachty, gangów i księży podobnych do tych, którzy podążają za Gondem, bogiem wynalazków. Jej strefą obronną jest krytyczny północny kraniec twierdzy. Wynalazcy zainstalowali tam Mechaniczny Trebusz, aby pomóc w obronie."
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "adventure/HBTD/000-00-003.mithral-hall.webp"
+                    },
+                    "maxHeight": 240,
+                    "maxWidth": 240,
+                    "width": 850,
+                    "height": 451
+                  },
+                  "{@b Sala Mithralowa} to krasnoludzkie miasto przodków, odzyskane w ostatnich latach od złych okupantów. Kopalnie i kuźnie czynią z niego rosnącą potęgę gospodarczą. Strefą obronną tego miasta jest północno-zachodnia część twierdzy. Inżynierowie zainstalowali Wyrzutnię Kuźni, która rzuca w atakujących kanistry z przegrzanym metalem."
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "adventure/HBTD/000-00-004.neverwinter.webp"
+                    },
+                    "maxHeight": 240,
+                    "maxWidth": 240,
+                    "width": 850,
+                    "height": 863
+                  },
+                  "{@b Nigdyzima} to miasto kupieckie, które podnosi się po kataklizmach. Jego wpływy wzrosły, gdy jego obywatele odzyskali zniszczone miasto i odbudowali sieci handlowe. W strefie obronnej po zachodniej stronie fortyfikacji znajduje się automatyczna balista."
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "adventure/HBTD/000-00-005.silverymoon.webp"
+                    },
+                    "maxHeight": 240,
+                    "maxWidth": 240,
+                    "width": 850,
+                    "height": 1058
+                  },
+                  "{@b Silverymoon} to spokojne miasto ze strzelistymi wieżami, żywymi drzewami i piękną architekturą. Przypomina wielkie miasta starożytnych czasów. Wkład Silverymoon w strefę obronną po wschodniej stronie twierdzy obejmuje Zaczarowaną Balistę."
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "adventure/HBTD/000-00-006.waterdeep.webp"
+                    },
+                    "maxHeight": 240,
+                    "maxWidth": 240,
+                    "width": 850,
+                    "height": 1324
+                  },
+                  "{@b Waterdeep}, Miasto Wspaniałości, to zamożna metropolia, w której kupcy rywalizują o prestiż, handlując wszelkiego rodzaju cudami. Strefa obronna Waterdeep to północno-wschodnia część twierdzy, gdzie bogaci kupcy dostarczyli drogie magiczne działo burzowe."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Przesłuchuję Corlie",
+          "page": 3,
+          "id": "00b",
+          "entries": [
+            "Eskortując postacie do wybranej strefy obrony, Corlie odpowiada na ich pytania, które mogą obejmować:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Co jest w tej Hordzie?",
+                  "entry": "„Nasi zwiadowcy nie byli w stanie podejść zbyt blisko, ale mówią, że w całej tej części twierdzy będziemy musieli stawić czoła dziesiątkom, a nawet setkom szkieletów i zombie. Mają ze sobą kilka wozów, a może dużych stworzeń - to nie jest jasne. Mam sprzeczne raporty na temat przywódcy hordy, ale jest to jakiś rodzaj ducha lub stworzenia stworzonego z ciemnej mgły."
+                },
+                {
+                  "type": "item",
+                  "name": "Kto broni pozostałych odcinków muru?",
+                  "entry": "„Mamy kilku żołnierzy gotowych stanąć na straży blanków. Kilku dzielnych robotników zgodziło się chwycić za włócznie i kusze również w obronie twierdzy. Jesteśmy rozproszeni, więc nie mogę wam udzielić żadnego wsparcia”."
+                },
+                {
+                  "type": "item",
+                  "name": "Gdzie będziesz?",
+                  "entry": "„Żołnierze będą potrzebować mojego wsparcia bardziej niż ty. Będę koordynować obronę pozostałych odcinków murów. Nie zobaczysz mnie więcej, dopóki niebezpieczeństwo nie minie”."
+                },
+                {
+                  "type": "item",
+                  "name": "Czy powinniśmy się wycofać?",
+                  "entry": "„I pozwolimy Czerwonym Czarodziejom założyć twierdzę tutaj, w Zachodnich Heartlands? Nie, musimy odeprzeć ich tu i teraz”."
+                },
+                {
+                  "type": "item",
+                  "name": "Czy możesz zapłacić więcej?",
+                  "entry": "„Miasto, które cię sponsoruje, autoryzowało wynagrodzenie za ryzyko w wysokości 1000 GP każde. Poza tym możesz podzielić między siebie moje wynagrodzenie za ryzyko w wysokości 1000 GP. Naprawdę potrzebuję twojej pomocy”."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:009": {
+      "type": "entries",
+      "name": "Odprawa Corlie",
+      "page": 2,
+      "id": "009",
+      "entries": [
+        "Po przedstawieniu Corlie uśmiecha się ponuro. Kontynuuj czytanie:",
+        {
+          "type": "insetReadaloud",
+          "page": 2,
+          "id": "00a",
+          "entries": [
+            "Corlie poprowadzi cię na północ przez fortecę. Robotnicy naprawiają ściany, układają włócznie i ostrzą miecze.",
+            "„Pięć wielkich miast Wybrzeża Mieczy połączyło siły, aby odbudować tę fortecę” - wyjaśnia. „Spodziewaliśmy się, że dzięki temu będziemy lepiej widzieć kłopoty na granicy. Wygląda jednak na to, że Czerwoni Czarodzieje z Thay nie chcą nas tutaj.",
+            "„Wcześniej dzisiaj na niebie nad fortecą pojawił się obraz podłego nekromanty Szassa Tama, przywódcy Czerwonych Czarodziejów. Rozkazał, aby wszyscy w twierdzy uciekali lub stawili czoła jego armii”.",
+            "Corlie z dumą wskazuje na pracowników.",
+            "„Nie damy się zastraszyć i nie opuścimy twierdzy, którą Czerwoni Czarodzieje mogliby wykorzystać jako przyczółek w regionie. Zostajemy.",
+            "„Ale nie mamy wielu żołnierzy. Nie mam nawet giermków do pomocy. Potrzebujemy cię.",
+            "„Zwiadowcy zidentyfikowali armię szkieletów, zombie i innych nieumarłych zmierzającą w tę stronę. Przybędą w ciągu godziny, prawdopodobnie w wielu falach. Potrzebujemy odważnych dusz takich jak ty na ścianie.",
+            "„Ale który mur? Każde miasto wzmocniło część tej twierdzy, a ty będziesz stacjonować w strefie obronnej w imieniu jednego z pięciu miast. Możesz zdecydować, które”."
+          ]
+        },
+        "Corlie prosi postacie o służbę w imieniu Baldur's Gate, Mithral Hall, Neverwinter, Silverymoon lub Waterdeep. Zaaranżowała już, że bohaterowie otrzymają wynagrodzenie za ryzyko w wysokości 1000 GP każdy z wybranego przez siebie miasta. Wszystkie postacie muszą zgodzić się na tego samego patrona miasta. Pokaż graczom {@adventure Map 1.1|HBTD|0|Map 1.1: Ironspine Keep} i wskaż, które strefy obrony odpowiadają jakiemu miastu.",
+        "Corlie opisuje miasta i ich strefy obronne w następujący sposób:",
+        {
+          "type": "table",
+          "colStyles": [
+            "col-3",
+            "col-9"
+          ],
+          "rows": [
+            [
+              {
+                "type": "image",
+                "href": {
+                  "type": "internal",
+                  "path": "adventure/HBTD/000-00-002.baldurs-gate.webp"
+                },
+                "maxHeight": 240,
+                "maxWidth": 240,
+                "width": 850,
+                "height": 800
+              },
+              "{@b Brama Baldura} to zniszczone miasto portowe, pełne dekadenckiej szlachty, gangów i księży podobnych do tych, którzy podążają za Gondem, bogiem wynalazków. Jej strefą obronną jest krytyczny północny kraniec twierdzy. Wynalazcy zainstalowali tam Mechaniczny Trebusz, aby pomóc w obronie."
+            ],
+            [
+              {
+                "type": "image",
+                "href": {
+                  "type": "internal",
+                  "path": "adventure/HBTD/000-00-003.mithral-hall.webp"
+                },
+                "maxHeight": 240,
+                "maxWidth": 240,
+                "width": 850,
+                "height": 451
+              },
+              "{@b Sala Mithralowa} to krasnoludzkie miasto przodków, odzyskane w ostatnich latach od złych okupantów. Kopalnie i kuźnie czynią z niego rosnącą potęgę gospodarczą. Strefą obronną tego miasta jest północno-zachodnia część twierdzy. Inżynierowie zainstalowali Wyrzutnię Kuźni, która rzuca w atakujących kanistry z przegrzanym metalem."
+            ],
+            [
+              {
+                "type": "image",
+                "href": {
+                  "type": "internal",
+                  "path": "adventure/HBTD/000-00-004.neverwinter.webp"
+                },
+                "maxHeight": 240,
+                "maxWidth": 240,
+                "width": 850,
+                "height": 863
+              },
+              "{@b Nigdyzima} to miasto kupieckie, które podnosi się po kataklizmach. Jego wpływy wzrosły, gdy jego obywatele odzyskali zniszczone miasto i odbudowali sieci handlowe. W strefie obronnej po zachodniej stronie fortyfikacji znajduje się automatyczna balista."
+            ],
+            [
+              {
+                "type": "image",
+                "href": {
+                  "type": "internal",
+                  "path": "adventure/HBTD/000-00-005.silverymoon.webp"
+                },
+                "maxHeight": 240,
+                "maxWidth": 240,
+                "width": 850,
+                "height": 1058
+              },
+              "{@b Silverymoon} to spokojne miasto ze strzelistymi wieżami, żywymi drzewami i piękną architekturą. Przypomina wielkie miasta starożytnych czasów. Wkład Silverymoon w strefę obronną po wschodniej stronie twierdzy obejmuje Zaczarowaną Balistę."
+            ],
+            [
+              {
+                "type": "image",
+                "href": {
+                  "type": "internal",
+                  "path": "adventure/HBTD/000-00-006.waterdeep.webp"
+                },
+                "maxHeight": 240,
+                "maxWidth": 240,
+                "width": 850,
+                "height": 1324
+              },
+              "{@b Waterdeep}, Miasto Wspaniałości, to zamożna metropolia, w której kupcy rywalizują o prestiż, handlując wszelkiego rodzaju cudami. Strefa obronna Waterdeep to północno-wschodnia część twierdzy, gdzie bogaci kupcy dostarczyli drogie magiczne działo burzowe."
+            ]
+          ]
+        }
+      ]
+    },
+    "0:00b": {
+      "type": "entries",
+      "name": "Przesłuchuję Corlie",
+      "page": 3,
+      "id": "00b",
+      "entries": [
+        "Eskortując postacie do wybranej strefy obrony, Corlie odpowiada na ich pytania, które mogą obejmować:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Co jest w tej Hordzie?",
+              "entry": "„Nasi zwiadowcy nie byli w stanie podejść zbyt blisko, ale mówią, że w całej tej części twierdzy będziemy musieli stawić czoła dziesiątkom, a nawet setkom szkieletów i zombie. Mają ze sobą kilka wozów, a może dużych stworzeń - to nie jest jasne. Mam sprzeczne raporty na temat przywódcy hordy, ale jest to jakiś rodzaj ducha lub stworzenia stworzonego z ciemnej mgły."
+            },
+            {
+              "type": "item",
+              "name": "Kto broni pozostałych odcinków muru?",
+              "entry": "„Mamy kilku żołnierzy gotowych stanąć na straży blanków. Kilku dzielnych robotników zgodziło się chwycić za włócznie i kusze również w obronie twierdzy. Jesteśmy rozproszeni, więc nie mogę wam udzielić żadnego wsparcia”."
+            },
+            {
+              "type": "item",
+              "name": "Gdzie będziesz?",
+              "entry": "„Żołnierze będą potrzebować mojego wsparcia bardziej niż ty. Będę koordynować obronę pozostałych odcinków murów. Nie zobaczysz mnie więcej, dopóki niebezpieczeństwo nie minie”."
+            },
+            {
+              "type": "item",
+              "name": "Czy powinniśmy się wycofać?",
+              "entry": "„I pozwolimy Czerwonym Czarodziejom założyć twierdzę tutaj, w Zachodnich Heartlands? Nie, musimy odeprzeć ich tu i teraz”."
+            },
+            {
+              "type": "item",
+              "name": "Czy możesz zapłacić więcej?",
+              "entry": "„Miasto, które cię sponsoruje, autoryzowało wynagrodzenie za ryzyko w wysokości 1000 GP każde. Poza tym możesz podzielić między siebie moje wynagrodzenie za ryzyko w wysokości 1000 GP. Naprawdę potrzebuję twojej pomocy”."
+            }
+          ]
+        }
+      ]
+    },
+    "0:00c": {
+      "type": "section",
+      "name": "Twierdza Żelaznego Kręgosłupa",
+      "page": 3,
+      "id": "00c",
+      "entries": [
+        "Przymierze Lorda odzyskało fortecę zaledwie kilka dni temu i nie spodziewało się tak natychmiastowego i przytłaczającego ataku, więc nadal jest w opłakanym stanie. Stare pęknięcia niszczą kamieniarkę, a niegdyś zamontowane kamienie są nierówne. W całej fortecy rosną twarde chwasty. Grube zarośla urosły znacznie bliżej ścian, niż pozwoliłby na to jakikolwiek rozsądny obrońca. Nowi okupanci nie zdążyli ich przyciąć, a wysokie krzaki ukrywają ruchy hordy.",
+        "Mapa 1.1 przedstawia krytyczny północny kraniec Twierdzy Żelaznego Grzbietu, zwrócony twarzą w stronę najeźdźczej hordy; Twierdza rozciąga się poza mapą na południe.",
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/001-map-0.01-Ironspine-Keep.webp"
+              },
+              "imageType": "mapa",
+              "title": "Mapa 1.1: Twierdza Żelaznego Grzbietu",
+              "credit": "Damien Mammoliti",
+              "width": 4096,
+              "height": 5811,
+              "id": "011",
+              "grid": {
+                "type": "square",
+                "size": 235,
+                "offsetX": -32,
+                "offsetY": 113,
+                "scale": 4
+              },
+              "mapRegions": [
+                {
+                  "area": "010",
+                  "points": [
+                    [
+                      1225,
+                      732
+                    ],
+                    [
+                      2990,
+                      732
+                    ],
+                    [
+                      2990,
+                      2022
+                    ],
+                    [
+                      1225,
+                      2022
+                    ]
+                  ]
+                },
+                {
+                  "area": "013",
+                  "points": [
+                    [
+                      1575,
+                      2142
+                    ],
+                    [
+                      1575,
+                      3905
+                    ],
+                    [
+                      280,
+                      3905
+                    ],
+                    [
+                      280,
+                      2142
+                    ]
+                  ]
+                },
+                {
+                  "area": "01c",
+                  "points": [
+                    [
+                      2522,
+                      2262
+                    ],
+                    [
+                      3810,
+                      2262
+                    ],
+                    [
+                      3810,
+                      4027
+                    ],
+                    [
+                      2522,
+                      4027
+                    ]
+                  ]
+                },
+                {
+                  "area": "016",
+                  "points": [
+                    [
+                      162,
+                      4022
+                    ],
+                    [
+                      1925,
+                      4022
+                    ],
+                    [
+                      1925,
+                      5320
+                    ],
+                    [
+                      162,
+                      5320
+                    ]
+                  ]
+                },
+                {
+                  "area": "019",
+                  "points": [
+                    [
+                      2165,
+                      4147
+                    ],
+                    [
+                      3927,
+                      4147
+                    ],
+                    [
+                      3927,
+                      5432
+                    ],
+                    [
+                      2165,
+                      5432
+                    ]
+                  ]
+                }
+              ],
+              "hrefThumbnail": {
+                "type": "internal",
+                "path": "adventure/HBTD/thumbnail/001-map-0.01-Ironspine-Keep.webp"
+              }
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/001-map-0.01-ironspine-keep-player.webp"
+              },
+              "imageType": "mapPlayer",
+              "title": "Wersja odtwarzacza",
+              "credit": "Damien Mammoliti",
+              "width": 4096,
+              "height": 5811,
+              "mapParent": {
+                "id": "011"
+              },
+              "grid": {
+                "type": "square",
+                "size": 235,
+                "offsetX": -32,
+                "offsetY": 113,
+                "scale": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Funkcje twierdzy",
+          "page": 3,
+          "id": "00d",
+          "entries": [
+            "Twierdza ma następujące cechy:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Blanki i chodniki",
+                  "entry": "Szerokie chodniki otaczające twierdzę są wykonane z kruszącego się kamienia. Zewnętrzną część chodnika otaczają wysokie na trzy stopy blanki; zapewniają {@table Cover|XPHB|Pół okładka}. Wewnątrz chodników nie ma blanków ani balustrad. Chodnik znajduje się 20 stóp nad ziemią."
+                },
+                {
+                  "type": "item",
+                  "name": "Zabudowania",
+                  "entry": "Wewnętrzne budynki twierdzy mają 40 stóp wysokości i zawierają przyziemne zapasy. Podczas ataku ukrywają się w nich osoby niewalczące. Postacie nie eksplorują ich podczas tej przygody, więc nie podano mapy wnętrz pomieszczeń."
+                },
+                {
+                  "type": "item",
+                  "name": "Mgła",
+                  "entry": "Począwszy od pierwszej fali ataku, magiczna mgła otacza fortecę. Ta mgła zaczyna się na krawędzi mapy i rozciąga się kilkaset stóp poza krawędź mapy. Obszar we mgle to {@variantrule Heavily Obscured|XPHB}i mgły nie da się rozwiać. Mgła nie opadnie, dopóki bohaterowie nie pokonają przywódcy hordy."
+                },
+                {
+                  "type": "item",
+                  "name": "Światło",
+                  "entry": "Ta przygoda zaczyna się w słoneczne popołudnie, ale niebo pokrywa cienka, magiczna mgła. Chociaż nie ma bezpośredniego światła słonecznego, {@variantrule Bright Light|XPHB} panuje we wszystkich obszarach z wyjątkiem mgły, która jest obszarem {@variantrule Darkness|XPHB}."
+                },
+                {
+                  "type": "item",
+                  "name": "Sprzęt oblężniczy",
+                  "entry": "Twierdza posiada pięć machin oblężniczych dostarczonych przez miasta Przymierza Lorda. Każdy z nich to cud inżynierii magicznej lub mechanicznej, który obraca się, ale nie można go poruszyć. Każda broń oblężnicza jest opisana w sekcji „Strefy obrony” poniżej."
+                },
+                {
+                  "type": "item",
+                  "name": "Schody i drabiny",
+                  "entry": "Strome kamienne schody prowadzą na chodniki z wnętrza twierdzy. Dodatkowo przy każdym chodniku znajdują się dwie zwinięte drabinki linowe, które można przerzucić przez blanki, aby w razie potrzeby uzyskać dostęp na zewnątrz. Postać może przyjąć {@action Utilize|XPHB} czynność polegającą na opuszczeniu lub podniesieniu drabiny linowej."
+                },
+                {
+                  "type": "item",
+                  "name": "Ściany",
+                  "entry": "Mury twierdzy mają niewiele uchwytów, dlatego wspinanie się na nie wymaga powodzenia {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdzać."
+                }
+              ]
+            },
+            {
+              "type": "inset",
+              "name": "Sprzęt oblężniczy",
+              "page": 3,
+              "id": "00e",
+              "entries": [
+                "Sprzęt oblężniczy obejmuje obiekty przeznaczone do atakowania lub obrony zamków i innych fortyfikacji otoczonych murami. Większość machin oblężniczych wymaga stworzeń, które je poruszają, a także ładują, celują i strzelają. Opisy sprzętu oblężniczego określają działania wymagane do przygotowania go do ostrzału. Postacie nie muszą używać sprzętu oblężniczego, ale niektóre spotkania mogą być dla nich łatwiejsze, jeśli to zrobią. W „{@area Second Wave|023|x}” bohaterowie znajdują sprzęt oblężniczy użyty przeciwko nim!"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:00d": {
+      "type": "entries",
+      "name": "Funkcje twierdzy",
+      "page": 3,
+      "id": "00d",
+      "entries": [
+        "Twierdza ma następujące cechy:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Blanki i chodniki",
+              "entry": "Szerokie chodniki otaczające twierdzę są wykonane z kruszącego się kamienia. Zewnętrzną część chodnika otaczają wysokie na trzy stopy blanki; zapewniają {@table Cover|XPHB|Pół okładka}. Wewnątrz chodników nie ma blanków ani balustrad. Chodnik znajduje się 20 stóp nad ziemią."
+            },
+            {
+              "type": "item",
+              "name": "Zabudowania",
+              "entry": "Wewnętrzne budynki twierdzy mają 40 stóp wysokości i zawierają przyziemne zapasy. Podczas ataku ukrywają się w nich osoby niewalczące. Postacie nie eksplorują ich podczas tej przygody, więc nie podano mapy wnętrz pomieszczeń."
+            },
+            {
+              "type": "item",
+              "name": "Mgła",
+              "entry": "Począwszy od pierwszej fali ataku, magiczna mgła otacza fortecę. Ta mgła zaczyna się na krawędzi mapy i rozciąga się kilkaset stóp poza krawędź mapy. Obszar we mgle to {@variantrule Heavily Obscured|XPHB}i mgły nie da się rozwiać. Mgła nie opadnie, dopóki bohaterowie nie pokonają przywódcy hordy."
+            },
+            {
+              "type": "item",
+              "name": "Światło",
+              "entry": "Ta przygoda zaczyna się w słoneczne popołudnie, ale niebo pokrywa cienka, magiczna mgła. Chociaż nie ma bezpośredniego światła słonecznego, {@variantrule Bright Light|XPHB} panuje we wszystkich obszarach z wyjątkiem mgły, która jest obszarem {@variantrule Darkness|XPHB}."
+            },
+            {
+              "type": "item",
+              "name": "Sprzęt oblężniczy",
+              "entry": "Twierdza posiada pięć machin oblężniczych dostarczonych przez miasta Przymierza Lorda. Każdy z nich to cud inżynierii magicznej lub mechanicznej, który obraca się, ale nie można go poruszyć. Każda broń oblężnicza jest opisana w sekcji „Strefy obrony” poniżej."
+            },
+            {
+              "type": "item",
+              "name": "Schody i drabiny",
+              "entry": "Strome kamienne schody prowadzą na chodniki z wnętrza twierdzy. Dodatkowo przy każdym chodniku znajdują się dwie zwinięte drabinki linowe, które można przerzucić przez blanki, aby w razie potrzeby uzyskać dostęp na zewnątrz. Postać może przyjąć {@action Utilize|XPHB} czynność polegającą na opuszczeniu lub podniesieniu drabiny linowej."
+            },
+            {
+              "type": "item",
+              "name": "Ściany",
+              "entry": "Mury twierdzy mają niewiele uchwytów, dlatego wspinanie się na nie wymaga powodzenia {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdzać."
+            }
+          ]
+        },
+        {
+          "type": "inset",
+          "name": "Sprzęt oblężniczy",
+          "page": 3,
+          "id": "00e",
+          "entries": [
+            "Sprzęt oblężniczy obejmuje obiekty przeznaczone do atakowania lub obrony zamków i innych fortyfikacji otoczonych murami. Większość machin oblężniczych wymaga stworzeń, które je poruszają, a także ładują, celują i strzelają. Opisy sprzętu oblężniczego określają działania wymagane do przygotowania go do ostrzału. Postacie nie muszą używać sprzętu oblężniczego, ale niektóre spotkania mogą być dla nich łatwiejsze, jeśli to zrobią. W „{@area Second Wave|023|x}” bohaterowie znajdują sprzęt oblężniczy użyty przeciwko nim!"
+          ]
+        }
+      ]
+    },
+    "0:00f": {
+      "type": "section",
+      "name": "Strefy Obrony",
+      "page": 4,
+      "id": "00f",
+      "entries": [
+        "Udostępnij graczom mapę wybranej przez nich strefy obrony (patrz {@area appendix B|031|x}).",
+        "Poniżej znajduje się opis broni oblężniczej w każdej strefie obrony. Każda broń ma wystarczającą ilość amunicji, aby wystrzelić 20 razy.",
+        {
+          "type": "entries",
+          "name": "Wrota Baldura (północ)",
+          "page": 4,
+          "id": "010",
+          "entries": [
+            "Bronią oblężniczą w strefie obrony Baldur's Gate (patrz {@adventure Map 1.2|HBTD|0|Map 1.2: Baldur's Gate Defense Zone}) jest trebusz zmechanizowany przez kapłanów Gonda. Pociągnięcie pojedynczej dźwigni ładuje i celuje trebuszem.",
+            {
+              "type": "statblock",
+              "name": "Mechaniczny Trebusz",
+              "page": 4,
+              "tag": "object",
+              "source": "HBTD",
+              "style": "narrow"
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sala Mithralowa (północny zachód)",
+          "page": 4,
+          "id": "013",
+          "entries": [
+            "Broń oblężnicza w strefie obrony Mithrilowej Hali (patrz {@adventure Map 1.3|HBTD|0|Map 1.3: Mithral Hall Defense Zone}) to zmodyfikowana katapulta, która wystrzeliwuje żelazne kanistry z przegrzanego metalu, które eksplodują przy uderzeniu. Przebiegłe, zmechanizowane urządzenie za pomocą odrzutu umieszcza nowy pojemnik na miejscu, ładując wyrzutnię natychmiast i automatycznie po wystrzale.",
+            {
+              "type": "statblock",
+              "name": "Wyrzutnia kuźni",
+              "page": 4,
+              "tag": "object",
+              "source": "HBTD",
+              "style": "narrow"
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Neverwinter (Zachód)",
+          "page": 4,
+          "id": "016",
+          "entries": [
+            "Broń oblężnicza w strefie obrony Neverwinter (patrz {@adventure Map 1.4|HBTD|0|Map 1.4: Neverwinter Defense Zone}) to balista zmodyfikowana w taki sposób, że jej odrzut automatycznie ładuje kolejny bełt z magazynka.",
+            {
+              "type": "statblock",
+              "name": "Automatyczna balista",
+              "page": 4,
+              "tag": "object",
+              "source": "HBTD",
+              "style": "narrow"
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Silverymoon (Wschód)",
+          "page": 4,
+          "id": "019",
+          "entries": [
+            "Bronią oblężniczą w strefie obrony Silverymoon (patrz {@adventure Map 1.4|HBTD|0|Map 1.5: Silverymoon Defense Zone}) jest balista. Niedostrzegalne duchy magiczne automatycznie celują w balistę. Jednak duchy nie są wystarczająco silne, aby unieść ciężkie bełty balisty, więc należy je ładować ręcznie.",
+            {
+              "type": "statblock",
+              "name": "Zaczarowana Balista",
+              "page": 4,
+              "tag": "object",
+              "source": "HBTD",
+              "style": "narrow"
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Waterdeep (północny wschód)",
+          "page": 4,
+          "id": "01c",
+          "entries": [
+            "Broń oblężnicza w strefie obronnej Waterdeep (patrz {@adventure Map 1.5|HBTD|0|Map 1.6: Waterdeep Defense Zone}) to mała armata z brązu inkrustowana tajemnymi runami, zamontowana na ciężkim statywie. Wystrzeliwuje kule trzaskającej energii elektrycznej.",
+            {
+              "type": "statblock",
+              "name": "Działo burzowe",
+              "page": 4,
+              "tag": "object",
+              "source": "HBTD",
+              "style": "narrow"
+            }
+          ]
+        }
+      ]
+    },
+    "0:010": {
+      "type": "entries",
+      "name": "Wrota Baldura (północ)",
+      "page": 4,
+      "id": "010",
+      "entries": [
+        "Bronią oblężniczą w strefie obrony Baldur's Gate (patrz {@adventure Map 1.2|HBTD|0|Map 1.2: Baldur's Gate Defense Zone}) jest trebusz zmechanizowany przez kapłanów Gonda. Pociągnięcie pojedynczej dźwigni ładuje i celuje trebuszem.",
+        {
+          "type": "statblock",
+          "name": "Mechaniczny Trebusz",
+          "page": 4,
+          "tag": "object",
+          "source": "HBTD",
+          "style": "narrow"
+        }
+      ]
+    },
+    "0:013": {
+      "type": "entries",
+      "name": "Sala Mithralowa (północny zachód)",
+      "page": 4,
+      "id": "013",
+      "entries": [
+        "Broń oblężnicza w strefie obrony Mithrilowej Hali (patrz {@adventure Map 1.3|HBTD|0|Map 1.3: Mithral Hall Defense Zone}) to zmodyfikowana katapulta, która wystrzeliwuje żelazne kanistry z przegrzanego metalu, które eksplodują przy uderzeniu. Przebiegłe, zmechanizowane urządzenie za pomocą odrzutu umieszcza nowy pojemnik na miejscu, ładując wyrzutnię natychmiast i automatycznie po wystrzale.",
+        {
+          "type": "statblock",
+          "name": "Wyrzutnia kuźni",
+          "page": 4,
+          "tag": "object",
+          "source": "HBTD",
+          "style": "narrow"
+        }
+      ]
+    },
+    "0:016": {
+      "type": "entries",
+      "name": "Neverwinter (Zachód)",
+      "page": 4,
+      "id": "016",
+      "entries": [
+        "Broń oblężnicza w strefie obrony Neverwinter (patrz {@adventure Map 1.4|HBTD|0|Map 1.4: Neverwinter Defense Zone}) to balista zmodyfikowana w taki sposób, że jej odrzut automatycznie ładuje kolejny bełt z magazynka.",
+        {
+          "type": "statblock",
+          "name": "Automatyczna balista",
+          "page": 4,
+          "tag": "object",
+          "source": "HBTD",
+          "style": "narrow"
+        }
+      ]
+    },
+    "0:019": {
+      "type": "entries",
+      "name": "Silverymoon (Wschód)",
+      "page": 4,
+      "id": "019",
+      "entries": [
+        "Bronią oblężniczą w strefie obrony Silverymoon (patrz {@adventure Map 1.4|HBTD|0|Map 1.5: Silverymoon Defense Zone}) jest balista. Niedostrzegalne duchy magiczne automatycznie celują w balistę. Jednak duchy nie są wystarczająco silne, aby unieść ciężkie bełty balisty, więc należy je ładować ręcznie.",
+        {
+          "type": "statblock",
+          "name": "Zaczarowana Balista",
+          "page": 4,
+          "tag": "object",
+          "source": "HBTD",
+          "style": "narrow"
+        }
+      ]
+    },
+    "0:01c": {
+      "type": "entries",
+      "name": "Waterdeep (północny wschód)",
+      "page": 4,
+      "id": "01c",
+      "entries": [
+        "Broń oblężnicza w strefie obronnej Waterdeep (patrz {@adventure Map 1.5|HBTD|0|Map 1.6: Waterdeep Defense Zone}) to mała armata z brązu inkrustowana tajemnymi runami, zamontowana na ciężkim statywie. Wystrzeliwuje kule trzaskającej energii elektrycznej.",
+        {
+          "type": "statblock",
+          "name": "Działo burzowe",
+          "page": 4,
+          "tag": "object",
+          "source": "HBTD",
+          "style": "narrow"
+        }
+      ]
+    },
+    "0:01f": {
+      "type": "section",
+      "name": "Pierwsza fala",
+      "page": 4,
+      "id": "01f",
+      "entries": [
+        "Kiedy gracze przejrzą odpowiednią mapę swojej strefy obrony z {@area appendix B|031|x} i ustawią swoje postacie, przeczytaj lub sparafrazuj poniższe:",
+        {
+          "type": "insetReadaloud",
+          "page": 5,
+          "id": "020",
+          "entries": [
+            "Zwiadowcy krzyczą zza murów, że horda się zbliża. Odległe kształty szkieletowych żołnierzy i walących się ciał pojawiają się wokół pobliskich wzgórz w kilku kierunkach. Właśnie wtedy z ziemi wydobywa się chorobliwa czarna mgła, tworząc pierścień wokół fortecy, przesłaniając wszystko w promieniu kilkudziesięciu metrów od murów.",
+            "Krzyki zamieszania rozbrzmiewają echem po fortecy, ponieważ nikt nie może zobaczyć ruchów hordy. Wkrótce zamiary hordy stają się jasne. Nieumarli wyłaniają się z mgły w stronę fortecy."
+          ]
+        },
+        "Osiem {@creature Skeleton|XMM|Szkielety} i dwa {@creature Ogre Zombie|XMM|Ogry zombie} wyłaniają się z ciemnej mgły. Każdy zombie ma wysoką na 20 stóp metalową drabinę przymocowaną do pleców za pomocą haków wbitych w gnijące ciało. Zombie zmierzają bezpośrednio w stronę ściany i tam pozostają. Żołnierze-szkielety posuwają się naprzód i wykonują ataki dystansowe, dopóki nie będą mogli wspiąć się po drabinie i walczyć w zwarciu. Zombie wspinają się po ścianach, gdy wszyscy żołnierze-szkielety znajdą się na szczycie ściany lub zostaną pokonani. Wszyscy ci wrogowie walczą, dopóki nie zostaną zniszczeni.",
+        {
+          "type": "entries",
+          "name": "Następstwa",
+          "page": 5,
+          "id": "021",
+          "entries": [
+            "Gdy rozpoczyna się druga fala, postacie mają tylko kilka minut na wyleczenie lub przegrupowanie się.",
+            {
+              "type": "inset",
+              "name": "Walki w innych obszarach murów",
+              "page": 5,
+              "id": "022",
+              "entries": [
+                "Postacie powinny mieć wystarczająco dużo wydarzeń na swoich własnych ścianach, aby nie martwić się tym, co dzieje się w innych strefach obrony, ale jeśli gracze są ciekawi, powinieneś opisać wściekłe walki w innych obszarach. Powiedz graczom, że gdy postacie są pod presją wrogów, ich sojusznicy również borykają się z trudnościami. Kiedy postacie zdobywają przewagę, ich sojusznicy również trzymają potwory na dystans."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:021": {
+      "type": "entries",
+      "name": "Następstwa",
+      "page": 5,
+      "id": "021",
+      "entries": [
+        "Gdy rozpoczyna się druga fala, postacie mają tylko kilka minut na wyleczenie lub przegrupowanie się.",
+        {
+          "type": "inset",
+          "name": "Walki w innych obszarach murów",
+          "page": 5,
+          "id": "022",
+          "entries": [
+            "Postacie powinny mieć wystarczająco dużo wydarzeń na swoich własnych ścianach, aby nie martwić się tym, co dzieje się w innych strefach obrony, ale jeśli gracze są ciekawi, powinieneś opisać wściekłe walki w innych obszarach. Powiedz graczom, że gdy postacie są pod presją wrogów, ich sojusznicy również borykają się z trudnościami. Kiedy postacie zdobywają przewagę, ich sojusznicy również trzymają potwory na dystans."
+          ]
+        }
+      ]
+    },
+    "0:023": {
+      "type": "section",
+      "name": "Druga fala",
+      "page": 5,
+      "id": "023",
+      "entries": [
+        "Nie mogąc przebić się przez mur, którego bronią postacie, wrogowie używają dwóch Zgniłych Mangoneli (patrz statystyki na końcu tej sekcji), aby zaatakować tę pozycję.",
+        "Przeczytaj lub sparafrazuj następujące słowa wkrótce po poprzednim spotkaniu:",
+        {
+          "type": "insetReadaloud",
+          "page": 5,
+          "id": "024",
+          "entries": [
+            "We mgle otaczającej fortecę zapada chwilowa cisza. Słychać ostry brzęk skręconego drewna i liny. Nagle dwa zombie szybują w powietrzu, machając jak szmaciane lalki, i rozbijają się na chodniku."
+          ]
+        },
+        "Dwóch {@creature Zombie|XMM|Zombie} znajdują się na chodniku w pobliżu postaci. Każdy zombie ma {@condition Prone|XPHB} stan z jesieni.",
+        "Oprócz zombie rzuć na Inicjatywę za cztery {@creature Skeleton|XMM|Szkielety} którzy zaczynają poza zasięgiem wzroku we mgle.",
+        "Szkielety jako pierwsze ukazują Zgniłego Mangonela. Następnie szkielety ładują worki z wijącymi się, odciętymi rękami do mangonelu i wyrzucają je na chodnik.",
+        "Szkielety mają trzy worki, każdy zawierający: {@creature Swarm of Crawling Claws|XMM}. Gdy szkielety wystrzelą wszystkie trzy worki lub gdy Zgniły Mangonel zostanie zniszczony, szkielety pędzą po ścianach, aby się po nich wspiąć i rozpocząć walkę wręcz.",
+        {
+          "type": "statblock",
+          "name": "Zgrzybiały Mangonel",
+          "page": 5,
+          "tag": "object",
+          "source": "HBTD",
+          "style": "narrow"
+        },
+        {
+          "type": "entries",
+          "name": "Następstwa",
+          "page": 5,
+          "id": "028",
+          "entries": [
+            "Gdy postacie uporają się z atakiem machin oblężniczych wroga, wokół twierdzy słyszą okrzyki sukcesu. Wrogowie wykonują tymczasowy odwrót, który, jak bohaterowie zdają sobie sprawę, wystarczy im na krótki odpoczynek, jeśli tak zdecydują."
+          ]
+        }
+      ]
+    },
+    "0:028": {
+      "type": "entries",
+      "name": "Następstwa",
+      "page": 5,
+      "id": "028",
+      "entries": [
+        "Gdy postacie uporają się z atakiem machin oblężniczych wroga, wokół twierdzy słyszą okrzyki sukcesu. Wrogowie wykonują tymczasowy odwrót, który, jak bohaterowie zdają sobie sprawę, wystarczy im na krótki odpoczynek, jeśli tak zdecydują."
+      ]
+    },
+    "0:029": {
+      "type": "section",
+      "name": "Sabotaż broni oblężniczej",
+      "page": 5,
+      "id": "029",
+      "entries": [
+        "Szass Tam ma do rozmieszczenia coś więcej niż tylko potworną hordę; zlecił wyspecjalizowanemu zespołowi infiltrację twierdzy. Ta zdradziecka grupa identyfikuje postacie jako najskuteczniejszych obrońców twierdzy i postanawia sabotować machinę oblężniczą, a następnie zabić postacie.",
+        "Przeczytaj lub sparafrazuj poniższe zdanie około godzinę po ich poprzednim spotkaniu (po krótkim odpoczynku postaci, jeśli taki odbędzie).",
+        {
+          "type": "insetReadaloud",
+          "page": 5,
+          "id": "02a",
+          "entries": [
+            "Corlie wychodzi od drzwi jednego z wewnętrznych budynków fortecy. Za nią podąża trzech ponuro wyglądających żołnierzy. Posyła ci szeroki uśmiech.",
+            "„Moi przyjaciele! Wasze wysiłki zapewniły nam bezpieczeństwo. Ale musimy przenieść waszą machinę oblężniczą do mniej bezpiecznej części muru. Moi giermkowie ją zdemontują i przeniosą. Nie kłopoczcie się; proszę po prostu się wycofajcie, podczas gdy będziemy pracować”."
+          ]
+        },
+        "„Corlie” to właściwie A {@creature Doppelganger|XMM}i trzech ludzkich giermków (Średni, Neutralny Zły {@creature Scout|XMM|Zwiadowcy}) są lojalni wobec Czerwonych Czarodziejów.",
+        "Postacie podejrzane o tę nieoczekiwaną zmianę mogą przyjąć: {@action Search|XPHB} działanie mające na celu wykonanie a {@dc 19} Mądrość ({@skill Insight|XPHB}) sprawdzać. Postać, która pamięta, jak Corlie mówiła jej, że nie ma żadnych giermków, wykonuje ten test z Przewagą. Po sukcesie postać zdaje sobie sprawę, że ta Corlie jest oszustem; jest trochę za wysoka i ma trochę za niski głos.",
+        "Jeśli postacie na to pozwalają, fałszywa Corlie i giermkowie podchodzą do machiny oblężniczej i zaczynają ją atakować. Od razu staje się jasne, że niszczą machinę oblężniczą, a nie ją rozkładają, co powinno zaalarmować bohaterów, że coś jest nie tak.",
+        "Gdy machina oblężnicza zostanie zniszczona lub jeśli postacie przerwają próbę sabotażu, fałszywi Corlie i giermkowie atakują postacie, walcząc na śmierć i życie.",
+        {
+          "type": "entries",
+          "name": "Następstwa",
+          "page": 6,
+          "id": "02b",
+          "entries": [
+            "Mniej więcej minutę po zakończeniu walki z sabotażystami watażka bierze sprawy w swoje bezcielesne ręce i bezpośrednio atakuje."
+          ]
+        }
+      ]
+    },
+    "0:02b": {
+      "type": "entries",
+      "name": "Następstwa",
+      "page": 6,
+      "id": "02b",
+      "entries": [
+        "Mniej więcej minutę po zakończeniu walki z sabotażystami watażka bierze sprawy w swoje bezcielesne ręce i bezpośrednio atakuje."
+      ]
+    },
+    "0:02c": {
+      "type": "section",
+      "name": "Watażka",
+      "page": 6,
+      "id": "02c",
+      "entries": [
+        "Po wysiłkach sabotażystów Czerwonych Czarodziejów, watażka hordy postanawia dać przykład niezłomnym postaciom, które dotychczas udaremniły atak. Przeczytaj lub sparafrazuj następujący tekst:",
+        {
+          "type": "insetReadaloud",
+          "page": 6,
+          "id": "02d",
+          "entries": [
+            "Czarna mgła zwija się i kształty wewnątrz zaczynają się rozdzielać. Imponująca postać, równie nieistotna jak mgła, ale przepełniona większą wrogością, szybuje w powietrzu.",
+            "Głos stworzenia odbija się echem po Twierdzy Żelaznego Grzbietu. „Położę kres tym wścibskim obrońcom. Gdy zginą, twierdza będzie nasza!”"
+          ]
+        },
+        "Władca wojny to A {@creature Wraith|XMM}. Cztery {@creature Zombie|XMM|Zombie} ślad za nim. Wraith leci na chodnik, podczas gdy Zombie pełzają po ziemi i wspinają się po ścianach, aby walczyć.",
+        "Duch watażki jest zbyt nieustępliwy, aby można go było łatwo zniszczyć. Gdy Wraith spadnie do 0 punktów wytrzymałości, jego forma eksploduje na trzy {@creature Shadow|XMM|Cienie}, z których każdy wygląda jak bardziej nieistotna wersja watażki. Cienie walczą aż do zniszczenia, woląc atakować dowolną postać, która pokonała watażkę.",
+        "Kiedy Cienie zostają pokonane, mgła wokół twierdzy znika. Ujawnione teraz kłębiące się grupy sługusów albo rozpraszają się po okolicznych terenach, albo wykonują nieskoordynowane ataki, które inni obrońcy twierdzy mogą z łatwością odeprzeć. Horda jest rozbita."
+      ]
+    },
+    "0:02e": {
+      "type": "section",
+      "name": "Wnioski",
+      "page": 6,
+      "id": "02e",
+      "entries": [
+        "Po klęsce watażki i rozbiciu sił wroga, Twierdza Żelaznego Grzbietu jest teraz bezpiecznie w rękach Przymierza Lorda. Prawdziwa Corlie powraca, poobijana, ale radosna, i deklaruje, że bohaterowie są największymi obrońcami twierdzy.",
+        {
+          "type": "entries",
+          "name": "Nagrody",
+          "page": 6,
+          "id": "02f",
+          "entries": [
+            "Corlie zapewnia, że ​​miasto sponsorujące postacie wypłaci każdemu z nich kwotę 1000 GP. Jeśli Corlie zgodziła się wcześniej przekazać swój udział postaciom, dodaje to do ich nagrody.",
+            "Corlie musi wrócić na Wybrzeże Mieczy, ale upiera się, że Twierdza Żelaznego Grzbietu potrzebuje przywódców, którzy mogą zagwarantować jej obronę. Twierdza stanowi doskonałą bazę operacyjną dla przyszłych przygód na pograniczu, być może przy wykorzystaniu zasad {@book Bastions|XDMG|10} określonych w {@book Dungeon Master's Guide|XDMG} 2024. Nikt nie wie, dlaczego Szass Tam chce fortecy, ale z pewnością ponownie wystawi na próbę jej obrońców!"
+          ]
+        }
+      ]
+    },
+    "0:02f": {
+      "type": "entries",
+      "name": "Nagrody",
+      "page": 6,
+      "id": "02f",
+      "entries": [
+        "Corlie zapewnia, że ​​miasto sponsorujące postacie wypłaci każdemu z nich kwotę 1000 GP. Jeśli Corlie zgodziła się wcześniej przekazać swój udział postaciom, dodaje to do ich nagrody.",
+        "Corlie musi wrócić na Wybrzeże Mieczy, ale upiera się, że Twierdza Żelaznego Grzbietu potrzebuje przywódców, którzy mogą zagwarantować jej obronę. Twierdza stanowi doskonałą bazę operacyjną dla przyszłych przygód na pograniczu, być może przy wykorzystaniu zasad {@book Bastions|XDMG|10} określonych w {@book Dungeon Master's Guide|XDMG} 2024. Nikt nie wie, dlaczego Szass Tam chce fortecy, ale z pewnością ponownie wystawi na próbę jej obrońców!"
+      ]
+    },
+    "1:030": {
+      "type": "section",
+      "name": "Dodatek A: Stworzenia",
+      "page": 7,
+      "id": "030",
+      "entries": [
+        "Następujące stworzenia z roku 2025 {@book Monster Manual|XMM} pojawić się w tej przygodzie.",
+        {
+          "type": "statblock",
+          "name": "Sobowtór",
+          "page": 7,
+          "tag": "creature",
+          "source": "XMM",
+          "style": "narrow"
+        },
+        {
+          "type": "statblock",
+          "name": "Rycerz",
+          "tag": "creature",
+          "page": 7,
+          "source": "XMM",
+          "style": "narrow"
+        },
+        {
+          "type": "statblock",
+          "name": "Ogrzy Zombie",
+          "page": 7,
+          "tag": "creature",
+          "source": "XMM",
+          "style": "narrow"
+        },
+        {
+          "type": "statblock",
+          "name": "Zwiadowca",
+          "tag": "creature",
+          "page": 7,
+          "source": "XMM",
+          "style": "narrow"
+        },
+        {
+          "type": "statblock",
+          "name": "Cień",
+          "tag": "creature",
+          "page": 7,
+          "source": "XMM",
+          "style": "narrow"
+        },
+        {
+          "type": "statblock",
+          "name": "Szkielet",
+          "tag": "creature",
+          "page": 7,
+          "source": "XMM",
+          "style": "narrow"
+        },
+        {
+          "type": "statblock",
+          "name": "Rój Pełzających Szponów",
+          "tag": "creature",
+          "page": 7,
+          "source": "XMM",
+          "style": "narrow"
+        },
+        {
+          "type": "statblock",
+          "name": "Wraith",
+          "page": 7,
+          "tag": "creature",
+          "source": "XMM",
+          "style": "narrow"
+        },
+        {
+          "type": "statblock",
+          "name": "Bałwan",
+          "page": 7,
+          "tag": "creature",
+          "source": "XMM",
+          "style": "narrow"
+        }
+      ]
+    },
+    "2:031": {
+      "type": "section",
+      "name": "Dodatek B: Mapy",
+      "id": "031",
+      "entries": [
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/002-map-0.02-baldurs-gate-defense-zone.webp"
+              },
+              "imageType": "mapa",
+              "title": "Mapa 1.2: Strefa Obrony Baldur's Gate",
+              "credit": "Damien Mammoliti",
+              "width": 4096,
+              "height": 3001,
+              "id": "012",
+              "grid": {
+                "type": "square",
+                "size": 273,
+                "scale": 2
+              }
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/003-map-0.03-mithral-hall-defense-zone.webp"
+              },
+              "imageType": "mapa",
+              "title": "Mapa 1.3: Strefa obronna Mithrilowej Hali",
+              "credit": "Damien Mammoliti",
+              "width": 4096,
+              "height": 5586,
+              "id": "014",
+              "grid": {
+                "type": "square",
+                "size": 375,
+                "offsetX": -29,
+                "offsetY": -43,
+                "scale": 2
+              }
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/004-map-0.04-neverwinter-defense-zone.webp"
+              },
+              "imageType": "mapa",
+              "title": "Mapa 1.4: Strefa Obrony Neverwinter",
+              "credit": "Damien Mammoliti",
+              "width": 4096,
+              "height": 3003,
+              "id": "015",
+              "grid": {
+                "type": "square",
+                "size": 275,
+                "offsetX": -32,
+                "offsetY": -23,
+                "scale": 2
+              }
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/005-map-0.05-silverymoon-defense-zone.webp"
+              },
+              "imageType": "mapa",
+              "title": "Mapa 1.5: Strefa Obrony Silverymoon",
+              "credit": "Damien Mammoliti",
+              "width": 4096,
+              "height": 3003,
+              "id": "017",
+              "grid": {
+                "type": "square",
+                "size": 275,
+                "offsetX": -34,
+                "offsetY": -24,
+                "scale": 2
+              }
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/006-map-0.06-waterdeep-defense-zone.webp"
+              },
+              "imageType": "mapa",
+              "title": "Mapa 1.6: Strefa Obrony Waterdeep",
+              "credit": "Damien Mammoliti",
+              "width": 4096,
+              "height": 5585,
+              "id": "018",
+              "grid": {
+                "type": "square",
+                "size": 375,
+                "offsetX": -26,
+                "offsetY": -37,
+                "scale": 2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "3:032": {
+      "type": "section",
+      "name": "Gotowe postacie",
+      "page": 8,
+      "id": "032",
+      "entries": [
+        "Jeśli gracz nie ma postaci odpowiedniej do poziomu, którą mógłby zagrać - lub jeśli chciałby zagrać postacią z serialu animowanego {@i Lochy i smoki} - niech wybierze jedną z tej sekcji. Tabela Gotowych Postaci zawiera podsumowanie postaci, z których wszystkie mają poziom 4.",
+        {
+          "type": "table",
+          "caption": "Gotowe postacie",
+          "page": 8,
+          "colLabels": [
+            "Nazwa",
+            "Klasa"
+          ],
+          "colStyles": [
+            "col-6 text-center",
+            "col-6 text-center"
+          ],
+          "rows": [
+            [
+              "{@5etoolsImg Konstabl|pdf/HBTD/bobby-character-sheet.pdf}",
+              "Barbarzyńca"
+            ],
+            [
+              "{@5etoolsImg Diana|pdf/HBTD/diana-character-sheet.pdf}",
+              "Mnich"
+            ],
+            [
+              "{@5etoolsImg Eryk|pdf/HBTD/eric-character-sheet.pdf}",
+              "Myśliwiec"
+            ],
+            [
+              "{@5etoolsImg Motek|pdf/HBTD/hank-character-sheet.pdf}",
+              "Leśniczy"
+            ],
+            [
+              "{@5etoolsImg Niko|pdf/HBTD/niko-character-sheet.pdf}",
+              "Duchowny"
+            ],
+            [
+              "{@5etoolsImg Presto|pdf/HBTD/presto-character-sheet.pdf}",
+              "Czarodziej"
+            ],
+            [
+              "{@5etoolsImg Sheila|pdf/HBTD/sheila-character-sheet.pdf}",
+              "Łobuz"
+            ]
+          ]
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/007-00-002.bobby.webp"
+              },
+              "title": "Konstabl",
+              "width": 850,
+              "height": 1184
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/008-00-003.diana.webp"
+              },
+              "title": "Diana",
+              "width": 850,
+              "height": 1184
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/009-00-004.eric.webp"
+              },
+              "title": "Eryk",
+              "width": 850,
+              "height": 1184
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/010-00-005.hank.webp"
+              },
+              "title": "Motek",
+              "width": 850,
+              "height": 1184
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/011-00-006.niko.webp"
+              },
+              "title": "Niko",
+              "width": 850,
+              "height": 1184
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/012-00-007.presto.webp"
+              },
+              "title": "Presto",
+              "width": 850,
+              "height": 1184
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/HBTD/013-00-008.sheila.webp"
+              },
+              "title": "Sheila",
+              "width": 850,
+              "height": 1184
+            }
+          ]
+        }
+      ]
+    },
+    "4:057": {
+      "type": "section",
+      "name": "Kredyty przygodowe",
+      "page": 9,
+      "id": "057",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "item",
+              "name": "Główny projektant:",
+              "entry": "Rona Lundeena"
+            },
+            {
+              "type": "item",
+              "name": "Zasady Twórca:",
+              "entry": "Makenzie De Armas"
+            },
+            {
+              "type": "item",
+              "name": "Redaktorzy:",
+              "entry": "Janica Carter (prowadząca), Judy Bauer"
+            },
+            {
+              "type": "item",
+              "name": "Dyrektorzy artystyczni:",
+              "entry": "Emi Tanji (prowadzący), Josh Herman"
+            },
+            {
+              "type": "item",
+              "name": "Projektant graficzny:",
+              "entry": "Matt Cole (prowadzący)"
+            },
+            {
+              "type": "item",
+              "name": "Ilustrator okładki:",
+              "entry": "Aurora Folny"
+            },
+            {
+              "type": "item",
+              "name": "Kartograf:",
+              "entry": "Damien Mammoliti"
+            },
+            {
+              "type": "item",
+              "name": "Ilustratorzy:",
+              "entry": "Alix Branwyn, Lake Hurwitz, Tyler Jacobson, Titus Lunter, Kieran Yanner"
+            },
+            {
+              "type": "item",
+              "name": "Konsultanci:",
+              "entry": "Shawna Banerjee i Jamesa Mendeza"
+            },
+            {
+              "type": "item",
+              "name": "Producenci:",
+              "entry": "Siera Bruggeman (prowadząca), Bill Benham"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

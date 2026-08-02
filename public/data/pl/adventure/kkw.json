@@ -1,0 +1,2645 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Droga Krenko",
+      "page": 160,
+      "id": "000",
+      "entries": [
+        "\"{@creature Krenko|KKW}'s Way” to krótka przygoda dla grupy składającej się z czterech do sześciu poszukiwaczy przygód pierwszego poziomu, którzy po zakończeniu przygody mogą awansować na drugi poziom. Akcja rozgrywa się w Dziesiątej Dzielnicy Ravnicy i służy jako przygoda wprowadzająca w to miejsce. Pomocna jest równowaga klas postaci, ponieważ poszukiwacze przygód staną przed różnymi wyzwaniami. Poszukiwacze przygód mogą należeć do dowolnej gildii.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/KKW/109-429.webp"
+          },
+          "width": 1001,
+          "height": 668,
+          "credit": "Karl Kopinski"
+        },
+        {
+          "type": "section",
+          "name": "Przegląd historii",
+          "page": 160,
+          "id": "001",
+          "entries": [
+            "{@creature Krenko|KKW} jest szefem osławionego tłumu goblinów, który dorobił się fortuny i zbudował swoją reputację głównie poprzez trzymanie się z daleka od gildii. Udało mu się sprawić nieskończone kłopoty mieszkańcom Dziesiątego Dystryktu, nie bez jednak zwrócenia na siebie uwagi gildii. Przebiegły oportunista, {@creature Krenko|KKW} spędził lata konsolidując uliczną motłoch goblinów w swoim zaciekle lojalnym gangu. Utrzymywał kontakty wśród bezwzględnych i potężnych, specjalizując się w kradzieżach i chaosie o dużej wartości. U szczytu swoich wpływów wdał się w paskudną wojnę o wpływy z Braćmi Shattergang, rywalizującym gangiem goblinów, który często handluje nielegalną bronią. Krążyły takie plotki {@creature Krenko|KKW} zabił Dargiga, najmłodszego z trzech braci, po tym, jak zrzut broni się nie udał.",
+            "Pozostali dwaj bracia, Rikkig i Gardagig, usiłowali zabić {@creature Krenko|KKW} w odwecie za śmierć swoich bliskich. Zanim zdążyli dokonać tego czynu, {@creature Krenko|KKW} został zatrzymany przez Legion Boros i wtrącony do Więzienia Sawtooth - niedaleko siedziby legionu w Sunhome - aby spędzić resztę życia za kratkami. Ale ktoś tak dobrze podłączony jak {@creature Krenko|KKW} ma sposoby na skrócenie własnego zdania.",
+            "Podżeganie do zamieszek w więzieniu zapewniło mu przeniesienie do Udzca, ośrodka o zaostrzonym rygorze w komisariacie drugim dziesiątej dzielnicy, administrowanym przez Senat Azoriusu. Podczas przeniesienia agenci byłego współpracownika {@creature Krenko|KKW}spowodowało odwrócenie uwagi i udało mu się wymknąć na spotkanie ze swoim gangiem. Teraz planuje swój następny ruch, odzyskując władzę nad swoim przestępczym przedsięwzięciem.",
+            "{@creature Krenko|KKW}ucieczka to niemała sprawa. Izba Paktu Gildii angażuje się w sprawę, zaniepokojona możliwością kolejnej wojny gangów goblinów, która może zagrozić wątłemu pokojowi między gildiami. Podczas przygody bracia Shattergang dowiadują się o czymś {@creature Krenko|KKW}wolności i desperacko chcą zmusić go do zapłaty.",
+            {
+              "type": "inset",
+              "name": "Bezgildiowi złoczyńcy",
+              "page": 160,
+              "id": "002",
+              "entries": [
+                "Nie każdy złoczyńca w kampanii Ravnica jest członkiem gildii i nie każdy plan ma swój początek w salach gildii. Tworząc własne przygody w Ravnicy, możesz skorzystać z sugestii zawartych w {@book Dungeon Master's Guide|DMG} za tworzenie złoczyńców w celu stworzenia złoczyńcy bez gildii, takiego, który woli niezależność działania poza strukturą gildii lub nawet stara się całkowicie podważyć tę strukturę. Najczęściej jednak gildie okazują się być uwikłane w intrygi nawet pomniejszych złoczyńców."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Prowadzenie przygody",
+          "page": 161,
+          "id": "003",
+          "entries": [
+            "Ta przygoda wymaga podręczników D&D piątej edycji ({@book Player's Handbook|PHB}, {@book Dungeon Master's Guide|DMG}, I {@book Monster Manual|MM}). Powinieneś przeczytać całą przygodę, zanim spróbujesz ją uruchomić. Jeśli wolisz zagrać, nie czytaj dalej.",
+            {
+              "type": "insetReadaloud",
+              "id": "004",
+              "entries": [
+                "Tekst pojawiający się w takim ramce należy przeczytać na głos lub sparafrazować dla graczy, gdy ich postacie po raz pierwszy dotrą do miejsca lub w określonych okolicznościach, zgodnie z opisem w tekście."
+              ]
+            },
+            "{@book Monster Manual|MM} zawiera statystyki dotyczące wielu stworzeń występujących w tej przygodzie. Kiedy imię stworzenia pojawia się w typie {@b pogrubiony}, jest to wizualna wskazówka wskazująca blok statystyk stworzenia w {@book Monster Manual|MM}. Jeśli blok statystyk pojawia się gdzie indziej, informuje Cię o tym tekst przygody.",
+            {
+              "type": "entries",
+              "name": "Podsumowanie przygody",
+              "page": 161,
+              "id": "005",
+              "entries": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/KKW/110-430.webp"
+                  },
+                  "width": 1989,
+                  "height": 1455,
+                  "credit": "Kev Walker"
+                },
+                "Przygoda rozpoczyna się w Więzieniu Sawtooth, gdy drużyna zostaje zwołana przez Nassiusa Vena, urzędnika Izby Paktu Gildii. Wyjaśnia to {@creature Krenko|KKW} uciekł podczas przeniesienia z więzienia i bohaterzy pilnie muszą go zlokalizować i jak najszybciej i dyskretnie postawić przed obliczem sprawiedliwości.",
+                "Bohaterowie mogą prześledzić trasę transferu, przeprowadzić wywiad ze strażnikami, aby uzyskać więcej informacji, a także skorzystać ze swoich kontaktów w mieście, aby dowiedzieć się więcej o {@creature Krenko|KKW}. Jeśli będą niedyskretni w dochodzeniu, mogą przyciągnąć uwagę Braci Shattergang, konkurencyjnego gangu chcącego zamordować {@creature Krenko|KKW}. Członkowie tego gangu będą podążać za drużyną po całym mieście, próbując znaleźć lokalizację bossa goblińskiej mafii.",
+                "W końcu poszukiwacze przygód znajdują {@creature Krenko|KKW}kryjówka: magazyn w pobliżu kanału. Następuje ostateczne starcie z bossem goblińskiej mafii, jego świtą i możliwymi intruzami Shattergang. Wtedy pozostaje już tylko kwestia dostarczenia {@creature Krenko|KKW} z powrotem do Nassiusa, zanim wybuchną kolejne kłopoty."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Patron Krenko",
+              "page": 161,
+              "id": "006",
+              "entries": [
+                "{@creature Krenko|KKW} podczas pobytu w więzieniu zawarł układ z frakcją. Podczas jego przeniesienia członkowie tej frakcji zabili jego eskortę i uwolnili go.",
+                "Na początku przygody możesz wylosować patrona z poniższej tabeli lub wybrać jednego z nich (najlepiej gildię, która nie jest reprezentowana przez poszukiwacza przygód w drużynie). Patron wpływa na historię {@creature Krenko|KKW}ucieczkę w określony sposób (jak wskazano w tabeli) i, jeśli tak zdecydujesz, może wpłynąć na przyszłe przygody.",
+                {
+                  "type": "table",
+                  "caption": "Patron Krenko",
+                  "colLabels": [
+                    "d6",
+                    "Gildia"
+                  ],
+                  "colStyles": [
+                    "text-center col-2",
+                    "col-10"
+                  ],
+                  "rows": [
+                    [
+                      "1",
+                      "{@b Dimir}. Pojawiła się nieprzenikniona mgła, dezorientując eskortę i zasłaniając im widok. {@creature Krenko|KKW} wypuścił pasy i pobiegł we mgłę."
+                    ],
+                    [
+                      "2",
+                      "{@b Golgari}. Rój stonogów wyskoczył z pobliskiego kanału i przytłoczył strażników, powalając ich {@condition unconscious} jadowitymi ukąszeniami. Kiedy strażnicy ożyli, {@creature Krenko|KKW} już nie było."
+                    ],
+                    [
+                      "3",
+                      "{@b Gruul}. Banda Gruulów krzyczała po ulicach, niszcząc wszystko, co stanęło na jej drodze. Strażnicy starli się z Gruulem; podczas walki jeden z nich zerwał więzy {@creature Krenko|KKW}, a goblin uciekł z miejsca zdarzenia."
+                    ],
+                    [
+                      "4",
+                      "{@b Izzeta}. Para opancerzonych magów zstąpiła z nieba na unoszących się dyskach. Wycelowali w strażników urządzenia przyczepione do ich ramion i odrzucili ich falą wstrząsową. Podczas gdy strażnicy wracali do zdrowia, magowie magicznie rozwiązali więzy {@creature Krenko|KKW} i ten uciekł."
+                    ],
+                    [
+                      "5",
+                      "{@b Rakdos}. Grupa wykonawców skrzyżowała ścieżki ze strażnikami, których urzekł ognisty pokaz akrobatyczny na ulicy. Kiedy występ się skończył, {@creature Krenko|KKW} zniknął."
+                    ],
+                    [
+                      "6",
+                      "{@b Simic}. Pływak przechwycił i zaatakował eskortę {@creature Krenko|KKW}. Wyzwolił potężną błyskawicę, która powaliła wszystkich strażników. Kiedy się obudzili, {@creature Krenko|KKW} zniknął."
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Rozpoczęcie przygody",
+          "page": 162,
+          "id": "007",
+          "entries": [
+            "Gdy gracze będą gotowi do rozpoczęcia, przeczytaj lub sparafrazuj następujący tekst wprowadzający:",
+            {
+              "type": "insetReadaloud",
+              "id": "008",
+              "entries": [
+                "Życie w Dziesiątej Dzielnicy nigdy nie jest nudne. Centrum ciągłej aktywności, zawsze oferuje nowe możliwości, nowe wyzwania, nowe intrygi. Jest to miejsce, w którym obiecujący poszukiwacz przygód, taki jak Ty, może znaleźć swoją drogę do chwały, bogactwa i władzy dzięki lojalności wobec swojej gildii. Ale najpierw będziesz potrzebować pracy, która pomoże ci udowodnić swoją wartość.",
+                "Dziś jest twój szczęśliwy dzień. Dziś po południu otrzymałeś krótką wiadomość od jednego ze swoich kontaktów: „Słyszałem dzisiaj od kogoś, kto szuka pomocy w znalezieniu czegoś. Wydaje się to poważne. Może to dla ciebie dobra okazja. Spotkaj się o zmierzchu pod więzieniem Sawtooth”.",
+                "O wyznaczonej godzinie spotykasz się z innymi podobnie myślącymi osobami przed frontowymi drzwiami funkcjonalnego i niczym nie wyróżniającego się więzienia Sawtooth."
+              ]
+            },
+            "Niech gracze przedstawią sobie nawzajem swoje postacie, jeśli jeszcze się nie znają. Może to być również czas, w którym bohaterowie identyfikują lub odkrywają osobiste powiązania, które mogą je łączyć, takie jak wspólni znajomi lub kontakty, wspólne pochodzenie lub mieszkanie w tej samej okolicy. Gdy bohaterowie będą mieli okazję bliżej się poznać, przeczytaj:",
+            {
+              "type": "insetReadaloud",
+              "id": "009",
+              "entries": [
+                "Lekki deszcz zaczyna bębnić po bruku, gdy słońce zachodzi za iglicami i wieżami miasta. Widzisz mężczyznę vedalkena w dobrze skrojonym ubraniu, który podchodzi do twojej grupy od strony więzienia. Jego ciemnoniebieska twarz ma łagodny, ale zaniepokojony wyraz. Podnosi rękę, żeby cię przywitać, i mówi cicho, gdy jego wzrok obejmuje twoją grupę i pobliskie otoczenie. - Czy jesteś tu, żeby pomóc nam coś znaleźć?"
+              ]
+            },
+            "To jest Nassius Ven, vedalken {@creature noble} i proktor z biura Paktu Gildii. Podczas gdy Azorius i Boros pomagają w utrzymaniu prawa i pokoju, biuro Paktu Gildii stara się pomóc w stłumieniu sporów między gildiami pod nieobecność Żywego Paktu Gildii. Nassius przybył, aby wynająć postacie do wyśledzenia {@creature Krenko|KKW} ponieważ podejrzewa udział jednej lub więcej gildii w ucieczce bossa goblinów, ale nie wie, kto jest w to zamieszany.",
+            {
+              "type": "entries",
+              "name": "Odgrywanie roli Nassiusa Ven",
+              "page": 162,
+              "id": "00a",
+              "entries": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/KKW/111-431.webp"
+                  },
+                  "width": 1000,
+                  "height": 888,
+                  "credit": "Richard Wright"
+                },
+                "Po otrzymaniu twierdzących odpowiedzi od drużyny, Nassius wręcza bohaterom akta z Więzienia Sawtooth z wizerunkiem zadowolonego z siebie, twardo wyglądającego goblina. Nassius podaje następujące informacje, które można przekazać w rozmowie z nim:",
+                {
+                  "type": "list",
+                  "items": [
+                    "„Potrzebujemy twoich szczególnych umiejętności, aby pomóc w odzyskaniu skazańca, który uwolnił się dziś rano tuż przed wschodem słońca. Uciekł podczas transportu do Udzca, więzienia o zaostrzonym rygorze, w którym spędził resztę swoich dni”.",
+                    "„Ma na imię {@creature Krenko|KKW}. Jest szefem dużego gangu goblinów, który działa wokół Foundry Street. Zatrzymano go, aby odpowiedzieć za długą listę przestępstw, w tym morderstwo. Rzekomo podżegał do zamieszek, które tydzień temu doprowadziły do ​​śmierci strażnika i dwóch więźniów tego więzienia. Naczelnik zdecydował, że wystarczy i zgodził się na przeniesienie”.",
+                    "\"{@creature Krenko|KKW} narobił sobie wielu wrogów, ale największym zagrożeniem są dla niego Bracia Shattergang. To rywalizujący gang goblinów specjalizujący się w nielegalnej broni i chcą {@creature Krenko|KKW} zmarł w odwecie za morderstwo jednego ze swoich poruczników. Tak się składa, że ​​zmarły porucznik jest najmłodszym z trójki rodzeństwa kierującego gangiem. Rozerwą całą okolicę, żeby go znaleźć, kiedy już dowiedzą się, że uciekł.",
+                    "„Normalnie pozwolilibyśmy Azoriusowi uporać się z tą sytuacją, ale mamy takie podejrzenia {@creature Krenko|KKW} mógł skorzystać z pomocy jednej z pozostałych gildii, kiedy uciekł. Wzywamy inne osoby do zbadania tego powiązania, ponieważ może to wskazywać na większy problem”.",
+                    "„Musimy cię wyśledzić {@creature Krenko|KKW} i sprowadź go żywego. Wtedy będziemy mogli go przesłuchać i na dobre trzymać go z dala od ulic”.",
+                    "„Jestem gotowy dać ci teraz dziesięć zinów na pokrycie wszelkich wydatków, jakie możesz ponieść w trakcie śledztwa. Po dostarczeniu przestępcy otrzymasz sto zinów i moją wdzięczność, którą przekażę przywódcom twojej gildii. Pod żadnym pozorem nie powinieneś próbować kwestionować {@creature Krenko|KKW} się.\""
+                  ]
+                },
+                "Jeśli zostanie o to poproszony, Nassius przedstawia strażnikom relację dotyczącą okoliczności swojej ucieczki (patrz „{@creature Krenko|KKW}Patrona”). Strażnicy zostali już dokładnie przesłuchani i {@creature Krenko|KKW}ślad zamarł. Nassiusowi zależy na jak najszybszym rozpoczęciu pracy nad postaciami, aby bracia Shattergang się o tym nie dowiedzieli {@creature Krenko|KKW}ucieczka.",
+                "Nassius prosi grupę o przyprowadzenie {@creature Krenko|KKW} do starego spichlerza Selesnya, który został uszkodzony podczas najazdu Gruulów na skraju dzielnicy. Tam, weźmie {@creature Krenko|KKW} do aresztu.",
+                "Nassius unika wszelkich pytań dotyczących przyczyny {@creature Krenko|KKW} nie powinien być przesłuchiwany ani dlaczego bohaterowie powinni go zaprowadzić do spichlerza. Jego oczy biegają tam i z powrotem, gdy stawiane są tego rodzaju pytania. Postać, która odniesie sukces na {@dc 15} Mądrość ({@skill Insight}) check wie, że Nassius nie jest całkowicie szczery. Nawet po naciśnięciu Nassius nie podaje żadnych innych informacji poza celami misji."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Poszukiwanie Krenko",
+          "page": 163,
+          "id": "00b",
+          "entries": [
+            "Po wyjściu Nassiusa bohaterowie mogą zabrać się do pracy. Mogą prowadzić śledztwo w dowolny sposób, ale czas odgrywa kluczową rolę, ponieważ w końcu wieści z ulicy docierają do Braci Shattergang i rozpoczynają kolejną wojnę o wpływy, aby wyrównać straty {@creature Krenko|KKW} na zewnątrz.",
+            {
+              "type": "entries",
+              "name": "Kalendarium wydarzeń",
+              "page": 163,
+              "id": "00c",
+              "entries": [
+                "Oto harmonogram tego, co wydarzyło się od tego czasu {@creature Krenko|KKW} uciekł i co będzie w przyszłości, brak ingerencji. Gdy tylko poszukiwacze przygód zostaną zaangażowani, wydarzenia mogą się drastycznie zmienić, ale poniższa oś czasu nadal może pomóc ci określić, jak różni NPC zaangażowani w historię zareagują na działania postaci gracza.",
+                {
+                  "type": "inset",
+                  "id": "00d",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        "{@b Wczesny poranek, dzień 1}: {@creature Krenko|KKW} ucieka.",
+                        "{@b Późny poranek, dzień 1}: {@creature Krenko|KKW} spotyka się ze swoim gangiem i przygotowuje dla siebie przebranie.",
+                        "{@b Południe, dzień 1}: {@creature Krenko|KKW} i jego gang zabezpieczają opuszczony magazyn jako tymczasową kryjówkę dla szefa mafii.",
+                        "{@b Zachód słońca, dzień 1}: Poszukiwacze przygód otrzymują misję.",
+                        "{@b Późny wieczór, dzień 1}: {@creature Krenko|KKW} składa zamówienie na broń u Falisha, handlarza ludzką bronią.",
+                        "{@b Południe, dzień 2}: Dodatkowi funkcjonariusze z gangu {@creature Krenko|KKW} przybywają do kryjówki {@creature Krenko|KKW}.",
+                        "{@b Zachód słońca, dzień 2}: Bracia Shattergang dowiadują się o ucieczce {@creature Krenko|KKW} i mobilizują się, aby go odnaleźć. Falish zostawia skład broni w punkcie zrzutu na Foundry Street, a goblin przenosi broń z powrotem do kryjówki {@creature Krenko|KKW}.",
+                        "{@b Późny wieczór, dzień 2}: Eksplozje wstrząsają Foundry Street, gdy Bracia Shattergang zaczynają brutalnie wywierać nacisk na obywateli, o których wiadomo, że mają interesy z {@creature Krenko|KKW}. Kolumna Ljewa (organy ścigania Azorius) zostaje wysłana na Foundry Street w celu zbadania zamieszania.",
+                        "{@b Przedświt, dzień 3}: Bracia Shattergang odkrywają lokalizację {@creature Krenko|KKW} i następuje tam wielka eksplozja, niszcząc budynek i zabijając wiele goblinów ({@creature Krenko|KKW} przetrwało).",
+                        "{@b Południe, dzień 3}: Okolice Foundry Street są przedmiotem straszliwej przemocy gangów goblinów. Legion Boros zostaje wezwany do spacyfikowania okolicy."
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Dokumentacja",
+              "page": 163,
+              "id": "00e",
+              "entries": [
+                "W aktach Więzienia Sawtooth poszukiwacze przygód mogą znaleźć następujące informacje:",
+                {
+                  "type": "list",
+                  "items": [
+                    "{@creature Krenko|KKW} jest szefem mafii goblinów od kilku lat. Jego teren znajdował się wokół ulicy Foundry. Był osobą zamieszaną w liczne przestępstwa godne gangstera, ale do niedawna udało mu się uniknąć prawa.",
+                    "{@creature Krenko|KKW} został aresztowany przez Gideona Jurę, wolnego strzelca współpracującego wówczas z Legionem Boros. {@creature Krenko|KKW} został uznany za winnego zamordowania Dargiga, jednego z braci Shattergang, oraz napaści z użyciem śmiercionośnego narzędzia na Gideona Jurę.",
+                    "Bronią, którą miał przy sobie w chwili aresztowania, był magiczny nóż (nóż więzienny). Według doniesień może przebić się przez bariery siłowe. Nie wiadomo jak {@creature Krenko|KKW} zdobył broń.",
+                    "{@creature Krenko|KKW}do godnych uwagi współpracowników zalicza się tajemniczy pan Taz (brak innych informacji) i zbuntowany wynalazca broni Izzet o imieniu Falish (kobieta, widziana w okolicach Tin Street). Obaj są także osobami zainteresowanymi Azoriusem."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Uderzanie w ulice",
+              "page": 163,
+              "id": "00f",
+              "entries": [
+                "Bohaterowie mogą podejść do śledztwa na kilka sposobów {@creature Krenko|KKW}miejsce pobytu: spotkania z kontaktami, rozsiewanie plotek lub odwiedzanie ważnych miejsc.",
+                {
+                  "type": "entries",
+                  "name": "Spotkaj się z Kontaktami",
+                  "page": 163,
+                  "id": "010",
+                  "entries": [
+                    "Jeśli postać ma odpowiedni kontakt, do którego może się zwrócić w celu uzyskania informacji, może zwrócić się do niego o pomoc. Umówienie się na spotkanie z osobą kontaktową zajmuje 1 godzinę {@dice 1d6} godziny, w których kontakt znajdzie jedną nieznaną wcześniej informację, chyba że będzie miał te informacje pod ręką."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Zbieraj plotki",
+                  "page": 163,
+                  "id": "011",
+                  "entries": [
+                    "Postacie mogą udawać się do miejsc publicznych w celu uzyskania informacji. Po {@dice 1d6} godzin, postać przeglądająca plotki tworzy {@dc 15} Charyzma ({@skill Persuasion}) sprawdzać. W przypadku powodzenia odkrywają jedną nieznaną wcześniej informację spośród podanych poniżej:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "{@creature Krenko|KKW}nieobecność zaszkodziła reputacji jego gangu. Inne gangi wkraczają na jego terytorium i to tylko kwestia czasu, zanim na ulicach rozegra się kolejna walka o władzę.",
+                        "Tin Street to tętniący życiem ośrodek handlu i terytorium braci Shattergang. Od tego czasu nabrali śmiałości {@creature Krenko|KKW} został odsunięty i przygotowują się do wojny, aby raz na zawsze pozbyć się jego gangu.",
+                        "Ulica Foundry to miejsce, gdzie znajdują się zakłady produkcyjne Dziesiątej Dzielnicy i to wszystko {@creature Krenko|KKW}teren gangu. Jego egzekutorzy wciąż kłócą się o to, kto powinien przewodzić. Na razie wszyscy mają między sobą niełatwy rozejm.",
+                        "Bardzo wcześnie na zachód od placu kilka goblinów wyciągało kratkę kanalizacyjną. Nie wyglądali na pracowników obsługi technicznej i grozili każdemu, kto podszedł zbyt blisko. Ustalono przybliżoną lokalizację tego zdarzenia."
+                      ]
+                    },
+                    "W powyższych informacjach wymieniono trzy ważne dla przygody lokalizacje: kanały, Ulicę Odlewniczą i Ulicę Tin. Poniżej szczegółowo opisano każdą witrynę. Czas podróży (pieszo) pomiędzy dowolnymi dwoma tymi lokalizacjami wynosi od 30 minut do 1 godziny."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Kanały przy Plaza West",
+              "page": 164,
+              "id": "012",
+              "entries": [
+                "Postacie udające się na zachód od placu zgodnie z otrzymaną wcześniej wskazówką mogą szukać nieodpowiedniej kratki kanalizacyjnej. Trwa to 1 godzinę i kończy się sukcesem {@dc 10} Mądrość ({@skill Perception}) sprawdź, czy nie ma na nim kratki z zadrapaniami od łomu. Alternatywnie bohaterowie mogą przeprowadzić wywiad z mieszkańcami okolicy, co trwa pół godziny i kończy się sukcesem {@dc 10} Charyzma ({@skill Persuasion}) sprawdź, gdzie znajduje się ruszt.",
+                "Ruszt można z sukcesem podciągnąć {@dc 15} Kontrola siły. Po otwarciu kraty przeczytaj:",
+                {
+                  "type": "insetReadaloud",
+                  "id": "013",
+                  "entries": [
+                    "Okrągły szyb konserwacyjny zanurza się w ciemność. Do jednej strony szybu przykręcona jest żelazna drabina. Do nosa uderza ostry zapach ścieków. Na dnie widać słabe światło, oświetlające wodę wypełnioną śmieciami."
+                  ]
+                },
+                "W szybie, który ciągnie się 50 stóp w dół, aż kończy się składaną drabiną ze zwisającym sznurem, nie ma źródła światła. Po rozłożeniu drabina sięga kolejnych 20 stóp do podłogi tunelu kanalizacyjnego. Gdy postacie opadną na podłogę, przeczytaj:",
+                {
+                  "type": "insetReadaloud",
+                  "id": "014",
+                  "entries": [
+                    "Stoisz po łydki w wodzie kanalizacyjnej, w słabo oświetlonym tunelu. Po obu stronach znajduje się podniesiony chodnik, który wyprowadza cię ze śmierdzącej, pełnej błota wody. Małe lampki mieszczące magiczne płomienie {@quickref Vision and Light||2||dim light}. Ściany porastają mchy i porosty."
+                  ]
+                },
+                "Tunel jest słabo oświetlony przez małe {@spell continual flame} latarnie rozmieszczone co około 30 stóp po naprzemiennych stronach wysokiego na 20 stóp tunelu. Tunel kanalizacyjny ma 30 stóp szerokości i biegnie w obu kierunkach. Tunel ma podniesiony chodnik o szerokości 5 stóp i wysokości 5 stóp po obu stronach. W głównym przejściu płynie woda głęboka na 3 metry i śmierdzące odpady.",
+                "{@creature Krenko|KKW} i trzy inne gobliny przybyły tędy, kierując się do jego nowej kryjówki. Postacie mogą dostrzec ślady brudnych butów pozostawionych przez Małe stworzenia na jednym z chodników, udając im się {@dc 10} Mądrość ({@skill Perception}) sprawdzać. Po znalezieniu odcisków mogą kontynuować ich śledzenie w tunelach kanalizacyjnych, wykonując a {@dc 15} Mądrość ({@skill Survival}) sprawdzać. Za każdy dzień odkąd tu przybyły gobliny, dodaj 5 do ST czeku. Poruszanie się po krętych tunelach przy normalnej prędkości spaceru zajmuje 2 godziny. Tunele znajdują się w pobliżu terytorium Golgari, ale nad podziemnym miastem.",
+                "Za każdą godzinę, którą drużyna spędza w kanałach, rzuć a {@dice d20}. Jeśli wynik wynosi 15 lub więcej, drużyna ma spotkanie określone w wyniku rzutu na stole Spotkań w Kanałach.",
+                {
+                  "type": "table",
+                  "caption": "Spotkania z kanałami",
+                  "colLabels": [
+                    "d20",
+                    "Spotkanie"
+                  ],
+                  "colStyles": [
+                    "text-center col-2",
+                    "col-10"
+                  ],
+                  "rows": [
+                    [
+                      "1-4",
+                      "{@dice 1d4} {@creature cultist||kultyści} z Rakdos"
+                    ],
+                    [
+                      "5-9",
+                      "{@dice 2d4} {@creature Giant Rat||gigantyczne szczury}"
+                    ],
+                    [
+                      "10-11",
+                      "1 {@creature gray ooze}"
+                    ],
+                    [
+                      "12-14",
+                      "1 {@creature kraul warrior|GGR}"
+                    ],
+                    [
+                      "15-18",
+                      "1 {@creature swarm of centipedes||rój owadów (stonogi)}"
+                    ],
+                    [
+                      "19-20",
+                      "{@dice 1d4} {@creature zombie||zombie} pokryte grzybem"
+                    ]
+                  ]
+                },
+                "Tory kończą się przy kolejnym szybie konserwacyjnym w suficie tunelu. Z wału zwisa sznurek; pociągnięcie go powoduje odblokowanie składanej drabinki, po której można z łatwością się wspiąć. Wał zakończony jest rusztem, który z powodzeniem można odsunąć na bok {@dc 15} Kontrola siły.",
+                "Bohaterowie pojawiają się w alejce obok starego magazynu w doku nad kanałem w pobliżu Foundry Street, w komisariacie szóstym w dziesiątej dzielnicy. Tory prowadzą aż do magazynu."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Ulica Cynowa",
+              "page": 164,
+              "id": "015",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "016",
+                  "entries": [
+                    "Ten tętniący życiem obszar targowy jest pełen kupców, artystów, kupujących i biesiadników. W ciągu dnia Tin Street jest głównym miejscem zakupów i restauracji. Nocą teatry i tawerny ożywają."
+                  ]
+                },
+                "Ulica Tin to jedna z dwóch alei przecinających całą Dziesiątą Dzielnicę (patrz {@book chapter 3|GGR|3|Główne sposoby handlu}). Tam, gdzie przechodzi przez komisariat szósty, bracia Shattergang zajęli znaczną jego część jako swój teren. Uważnie wypatrują aresztantów Azoriusa, członków rywalizujących gangów i każdego, kto zadaje zbyt wiele pytań.",
+                "Tin Street to także dom Falisha, zbuntowanego handlarza bronią z Izzeta, który za odpowiednią cenę dostarcza przestępcom broń i materiały wybuchowe.",
+                {
+                  "type": "entries",
+                  "name": "Podsłuchiwanie Shattergangu",
+                  "page": 164,
+                  "id": "017",
+                  "entries": [
+                    "Jeśli czek na zebranie plotek zakończy się niepowodzeniem o 5 lub więcej lub bohaterowie z innych powodów zachowują się niedyskretnie podczas przeszukiwania Tin Street, do braci Shattergang dociera wiadomość, o którą ktoś pytał {@creature Krenko|KKW}. Wysyłają niepozornie ubranego, paciorkowego oka {@creature goblin} o imieniu Erko, aby śledzić postacie (około 20 metrów) i zakradać się, aby podsłuchiwać rozmowy. Jeśli pasywna Mądrość postaci ({@skill Perception}) wynik jest równy lub większy od Zręczności goblina ({@skill Stealth}) sprawdź, ta postać zauważy, że jest śledzona lub obserwowana.",
+                    "Jeśli Erko zauważy, że drużyna go widziała, spróbuje uciec z powrotem do jednej z kryjówek swojego gangu. Kiedy przemierza ruchliwy rynek Tin Street, możesz przeprowadzić tę scenę jako pościg, korzystając z zasad pościgu i tabeli Komplikacje pościgu miejskiego w {@book chapter 8|DMG|8|Pogoń za komplikacjami} z {@book Dungeon Master's Guide|DMG}.",
+                    "Oprócz swojej broni Erko nosi flaszkę ognia alchemicznego, którą ciska w pierwszą istotę, która mu zagraża. Zobacz {@book chapter 5|PHB|5|Sprzęt poszukiwawczy} z {@book Player's Handbook|PHB}, aby zapoznać się z zasadami używania ognia alchemika.",
+                    "Jeśli postać przesłuchuje Erko i zakończy się sukcesem: {@dc 10} Charyzma ({@skill Intimidation}) sprawdź, goblin wyjawia, że ​​pracuje dla Braci Shattergang, a oni są zainteresowani tym, co dzieje się na ich terenie. W żadnym wypadku nie zdradza ich kryjówki.",
+                    "Jeśli Erko będzie śledził poszukiwaczy przygód wystarczająco długo, aby odkryć {@creature Krenko|KKW}miejscu, do którego przybywają Bracia Shattergang {@creature Krenko|KKW}kryjówka obowiązuje 2 godziny później."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Znalezienie Falisha",
+                  "page": 165,
+                  "id": "018",
+                  "entries": [
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "adventure/KKW/112-432.webp"
+                      },
+                      "width": 1000,
+                      "height": 1024,
+                      "credit": "Noah Bradley"
+                    },
+                    "Zbuntowany handlarz bronią Izzet Falish mieszka i pracuje na Tin Street. Postacie mogą pytać po okolicy, aby odkryć lokalizację jej tajnego sklepu, ale uzyskanie informacji nie przychodzi łatwo.",
+                    {
+                      "type": "entries",
+                      "name": "Tawerny",
+                      "page": 165,
+                      "id": "019",
+                      "entries": [
+                        "Falish regularnie odwiedza Millstone, obskurną tawernę serwującą dania szorstkim i hałaśliwym. Właścicielem tawerny i barmanem jest Wyroon, samiec minotaura z pękniętym rogiem i gburowatym usposobieniem. Kilka lat temu wyrzucono go z Legionu Boros za niesubordynację. Jego początkowa postawa jest obojętna, ale jeśli postać odniesie sukces na {@dc 10} Charyzma ({@skill Persuasion}) sprawdź, powie bohaterom, że Falish przychodzi czasami na drinka lub dwa. Falish pojawia się wczesnym wieczorem drugiego dnia, bez miotacza ognia."
+                      ]
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Kupcy",
+                      "page": 165,
+                      "id": "01a",
+                      "entries": [
+                        "Bardzo niewielu kupców na Tin Street zna Falisha, z wyjątkiem goblińskiej alchemicy o imieniu Noggra, która prowadzi aptekę o nazwie Noggra's Remedies. Noggra często opatruje rannych członków gangu po ich bójkach i czasami ukrywa ich przed prawem. Czasami sprzedaje falish alchemiczne substancje, aby ulepszyć swoją broń. Jej początkowy stosunek do partii jest obojętny. Jeśli postać zapyta ją o Falish i powiedzie się: {@dc 20} Charyzma ({@skill Intimidation} Lub {@skill Persuasion}) sprawdź, podaje lokalizację Falish. Postać, która oferuje Noggra 10 lub więcej sz, wykonuje ten test z korzyścią."
+                      ]
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Rozmowy uliczne",
+                      "page": 165,
+                      "id": "01b",
+                      "entries": [
+                        "Postacie mogą po prostu rozpytać okolicę i spróbować odnaleźć Falisha. Jeśli tak, skorzystaj z zasad zbierania plotek z rozdziału „Wycieczka na ulice”."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Warsztat Falisha",
+                  "page": 165,
+                  "id": "01c",
+                  "entries": [
+                    "Gdy bohaterowie ustalą lokalizację Falisha i udają się tam, przeczytaj:",
+                    {
+                      "type": "insetReadaloud",
+                      "id": "01d",
+                      "entries": [
+                        "Kierując się wskazówkami do sklepu Falisha, znajdziesz się w alejce za restauracją. W pobliżu tylnych drzwi do lokalu znajdują się mniejsze, zamknięte na kłódkę żelazne drzwi, które wyglądają, jakby pochodziły ze skarbca."
+                      ]
+                    },
+                    "Drzwi posiadają kłódkę wymagającą udanego otwarcia {@dc 15} Test zręczności do wybierania narzędziami złodzieja lub udany {@dc 20} Kontrola siły, aby wymusić otwarcie. Po otwarciu przeczytaj:",
+                    {
+                      "type": "insetReadaloud",
+                      "id": "01e",
+                      "entries": [
+                        "Za drzwiami widać wąskie schody prowadzące dwadzieścia stóp w dół do miedzianych drzwi w kolorze zielonym, z zamkniętym przesuwanym wizjerem pośrodku."
+                      ]
+                    },
+                    "Te miedziane drzwi są zamknięte i wymagają powodzenia {@dc 15} Test zręczności za pomocą narzędzi złodziei do otwarcia. Można go również otworzyć siłą, jeśli zakończy się sukcesem {@dc 20} Kontrola siły. Drzwi są uwięzione przez {@spell glyph of warding} zaklęcie aktywujące się, gdy postać spróbuje wyłamać zamek lub wyważyć drzwi. Wyzwalane rzuty glifów {@spell sleep} na 3. poziomie, wpływając {@dice 9d8} punkty wytrzymałości stworzeń. Postać, która przeszukuje drzwi w poszukiwaniu pułapek, może wykryć glif z sukcesem {@dc 15} Inteligencja ({@skill Investigation}) sprawdzać.",
+                    "Kiedy bohaterowie wejdą do pokoju, przeczytaj:",
+                    {
+                      "type": "insetReadaloud",
+                      "id": "01f",
+                      "entries": [
+                        "Migotliwy blask latarni ukazuje chaotyczny pokój o długości trzydziestu stóp i szerokości dwudziestu stóp, wypełniony sprzętem, narzędziami i materiałami. Na ścianie wisi wszelkiego rodzaju broń. Pod stołami zapełnionymi butelkami upchane są pudła i małe skrzynki. Stół warsztatowy jest zawalony narzędziami. Z tyłu pokoju znajduje się mały salon z łóżkiem i dużym żelaznym piecem."
+                      ]
+                    },
+                    "Pokój ten służy jako laboratorium, salon wystawowy i mieszkanie dla Falisha, człowieka {@creature scorchbringer guard|GGR}. Zajmuje się bronią poddaną obróbce alchemicznej i materiałami wybuchowymi. Falish, renegatka wyrzucona z Ligi Izzet, utrzymuje kontakty w gildii, która zapewnia jej materiały, których używa do ulepszania broni. Sprzedaje swoje towary wielu gangom z Dziesiątej Dzielnicy.",
+                    "Jeśli postać uruchomi glifową pułapkę na drzwiach, Falish chwyta swój sprzęt i tak szybko, jak to możliwe, wychodzi przez sekretne drzwi na tyłach swojej kwatery mieszkalnej, zamykając je za sobą. Sekretne drzwi prowadzą do tunelu prowadzącego do kanałów. Po zamknięciu sekretne drzwi można znaleźć z sukcesem {@dc 15} Mądrość ({@skill Perception}) sprawdzać.",
+                    "Jeśli postacie zaskoczą Falish lub uda im się zakraść, zdaje sobie sprawę, że nie ma szybkiej ucieczki i jest gotowa do pewnego stopnia współpracować, aby wydostać bohaterów z jej domu. W zamian za wolność wyjawia następujące informacje:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "{@creature Krenko|KKW} skontaktował się z nią, aby dostarczyć trochę broni, materiałów wybuchowych i wszelkich magicznych przedmiotów, które posiadała, do punktu zrzutu na Foundry Street, przed Smokehouse Inn. Miała przybyć następnego dnia o zachodzie słońca {@creature Krenko|KKW}ucieczka.",
+                        "{@creature Krenko|KKW} planuje użyć tej broni do przeprowadzenia wyprzedzającego ataku na Braci Shattergang, aby potwierdzić, że odzyskał władzę.",
+                        "{@creature Krenko|KKW} prawdopodobnie ukrywa się gdzieś w pobliżu punktu zrzutu. Falish o tym wie {@creature Krenko|KKW} i jego ratownicy zostali zauważeni, jak wchodzili do kratki kanalizacyjnej na zachód od placu."
+                      ]
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Skarb",
+                      "page": 166,
+                      "id": "020",
+                      "entries": [
+                        "Falish ma po jednym egzemplarzu każdej broni w serii {@book Player's Handbook|PHB} z ceną nie wyższą niż 25 sz, wiszącą na ścianach jej kwatery. Na jej stołach roboczych znajdują się trzy butle z ogniem alchemicznym, jedna fiolka kwasu, zapasy alchemika, narzędzia majsterkowicza, zestaw narzędzi złodziei i większość elementów potrzebnych do złożenia dwóch bomb. Pod jednym ze stołów znajduje się mała, zamykana na klucz skrytka wymagająca narzędzi złodzieja i udana {@dc 15} Test zręczności, aby otworzyć. Wewnątrz sejfu znajduje się 200 zino (szp), 3 paski mizzium (trwałego magicznego metalu) i {@item eversmoking bottle}."
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Ulica Odlewnicza",
+              "page": 166,
+              "id": "021",
+              "entries": [
+                "Ulica Foundry to miejsce, gdzie w Dziesiątej Dzielnicy odbywa się duża część produkcji. Robotnicy trudzą się dzień i noc, aby wyprodukować towary kupowane przez Ravnicanów na rynku oraz zaopatrywać Legion Boros w zbroję i broń.",
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/KKW/113-433.webp"
+                  },
+                  "width": 1000,
+                  "height": 735,
+                  "credit": "Kirsten Zirngibl"
+                },
+                "Gobliny są powszechne w tej części miasta i rzeczywiście tak jest {@creature Krenko|KKW}teren gangu. Większość członków gangu już to wie {@creature Krenko|KKW} uciekł, a kłótnie między jego egzekutorami ucichły {@creature Krenko|KKW} z powrotem na ulice.",
+                "Większość mieszkańców okolic Foundry Street wie, że należy zgłaszać obecność Azoriusa lub wścibskich obcych członkom gangu goblinów, który pełni funkcję kapitana bloku. Jeśli bohaterowie będą prowadzić tu śledztwo, {@creature Krenko|KKW}Gang dowiaduje się o tym w ciągu pół godziny i wysyła ekipę, która ma zająć się sytuacją.",
+                {
+                  "type": "entries",
+                  "name": "Przyjęcie powitalne",
+                  "page": 166,
+                  "id": "022",
+                  "entries": [
+                    "{@creature Krenko|KKW}Gang goblinów zbliża się do bohaterów. Ich początkowe nastawienie jest wrogie, obrzucają obelgami i próbują zmusić bohaterów do opuszczenia ich terytorium. Jeśli poszukiwacze przygód nie zastosują się do tego, gobliny będą z nimi walczyć. Jeśli więcej niż połowa goblinów zostanie pokonana, pozostali członkowie gangu próbują uciec.",
+                    "Gang, który zbliża się do grup, składa się z sześciu osób {@creature Goblin gang member|kkw|członkowie gangu goblinów}. Postać, która przesłuchuje schwytanego goblina i udaje mu się... {@dc 20} Charyzma ({@skill Intimidation}) sprawdź, uczy się {@creature Krenko|KKW}lokalizacja. Alternatywnie, postać, która zaoferuje goblinom łapówkę w wysokości 10 sz lub więcej i odniesie sukces na: {@dc 20} Charyzma ({@skill Persuasion}) check może uzyskać te same informacje."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Odpowiedź Shatterganga",
+                  "page": 166,
+                  "id": "023",
+                  "entries": [
+                    "Późnym wieczorem drugiego dnia bracia Shattergang wysadzili trzy z nich {@creature Krenko|KKW}kryjówek przy ulicy Foundry. Eksplozje przyciągają Senat Azoriusa, który wysyła dwudziestu {@creature soldier|GGR|żołnierski} zabezpiecz teren i przesłuchaj osoby postronne.",
+                    "Postacie, które w tym czasie sprawiają kłopoty mieszkańcom Foundry Street, mogą zostać zatrzymane w komisariacie na Foundry Street w celu przesłuchania. Postacie są zatrzymywane za {@dice 1d4} godziny, chyba że któremuś z nich się powiedzie {@dc 20} Charyzma ({@skill Persuasion}) sprawdź, co skraca czas do 10 minut."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Kryjówka Krenko",
+          "page": 167,
+          "id": "024",
+          "entries": [
+            "Postacie mogą się zlokalizować {@creature Krenko|KKW}do kryjówki albo przesłuchując członków jego gangu, podążając śladami w kanałach, albo podążając za goblinem z miejsca zrzutu, gdzie opuszcza Falish {@creature Krenko|KKW}broń. Gdy już odnajdą magazyn, przeczytaj:",
+            {
+              "type": "insetReadaloud",
+              "id": "025",
+              "entries": [
+                "Na skraju kanału stoi duży, poplamiony sadzą drewniany budynek z wyblakłym symbolem Legionu Boros, a jego belki są popękane i nadpalone. Zamknięte drzwi wykuszowe skierowane są na północ, w stronę wody, a od budynku biegnie drewniany tor aż do krawędzi molo. Podobne drzwi wykuszowe skierowane są na południe, w stronę głównej ulicy. Po bokach alei budynku znajduje się dwoje drzwi - podwójne od strony zachodniej i pojedyncze od strony wschodniej."
+              ]
+            },
+            "W tym starym magazynie przechowywano sprzęt z pobliskich odlewni na użytek Legionu Boros. Kilka lat temu został poważnie spalony podczas wojny gangów i od tego czasu został opuszczony przez Boros. {@creature Krenko|KKW}gang używał go od czasu do czasu jako tajnego miejsca spotkań i teraz {@creature Krenko|KKW} używa go jako swojej kryjówki.",
+            "Magazyn ma 40 stóp wysokości, 60 stóp szerokości i 120 stóp długości. Nie ma okien, ale zewnętrzne ściany są kruche i zniszczone przez ogień; w różnych miejscach otworzyło się kilka małych otworów o średnicy 1 lub 2 stóp. Zadając 5 obrażeń fragmentowi ściany, tworzy się otwór, przez który może przejść średnie lub mniejsze stworzenie.",
+            {
+              "type": "entries",
+              "name": "Gang Krenko",
+              "page": 167,
+              "id": "026",
+              "entries": [
+                "Wszyscy członkowie gangu {@creature Krenko|KKW} to {@creature Goblin gang member|kkw|członkowie gangu goblinów}. Każdy goblin nosi gwizdek (noszony na linie na szyi), w który może zadąć, aby włączyć alarm. Goblin może nosić inny przedmiot, który zdobył gdzie indziej i wykorzystać go w walce, jeśli nadarzy się okazja. Możesz rzucić lub wybrać jeden z przedmiotów z tabeli Posiadłości Gangu Goblinów. Więcej informacji na temat tych pozycji można znaleźć w {@book chapter 5|PHB|5|Sprzęt poszukiwawczy} w {@book Player's Handbook|PHB}.",
+                {
+                  "type": "table",
+                  "caption": "Majątek gangu goblinów",
+                  "colLabels": [
+                    "d20",
+                    "Przedmiot"
+                  ],
+                  "colStyles": [
+                    "text-center col-2",
+                    "col-10"
+                  ],
+                  "rows": [
+                    [
+                      "1-10",
+                      "Brak dodatkowego elementu"
+                    ],
+                    [
+                      "11-12",
+                      "Fiolka z kwasem"
+                    ],
+                    [
+                      "13-14",
+                      "Flasza ognia alchemika"
+                    ],
+                    [
+                      "15-16",
+                      "Łożyska kulkowe"
+                    ],
+                    [
+                      "17-18",
+                      "Kotlety"
+                    ],
+                    [
+                      "19-20",
+                      "Fiolka z podstawową trucizną"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Punkty widokowe",
+              "page": 167,
+              "id": "027",
+              "entries": [
+                "A {@creature goblin gang member|kkw} jest wywieszony za każdymi drzwiami. Jeśli strażnik widzi jedną lub więcej postaci zbliżających się do magazynu, sygnalizuje to pozostałym strażnikom, dmuchając w gwizdek na szyi. Pozostaje czujny, ale nie sygnalizuje innym, jeśli postacie są widoczne na ulicy, ale nie docierają do magazynu. Gobliny nie korzystają ze źródeł światła w nocy, polegając na nich {@sense darkvision}.",
+                "Postacie mogą poświęcić trochę czasu na obserwację punktów widokowych z daleka. Dachy pobliskich budynków stanowią doskonałe punkty widokowe. Budynki po drugiej stronie głównej ulicy znajdują się w odległości 15 metrów; te w alejkach są 20 stóp dalej.",
+                {
+                  "type": "entries",
+                  "name": "Zmiana warty",
+                  "page": 167,
+                  "id": "028",
+                  "entries": [
+                    "Co 4 godziny nowe gobliny z {@creature Krenko|KKW}gang przybywa, aby odciążyć obserwatorów. W tym czasie są zwykle rozproszeni, gdy rozmawiają między sobą {@dice 1d10} protokół. Kiedy postacie są rozproszone, mają przewagę w zakresie dowolnej Zręczności ({@skill Stealth}) sprawdza, czy ukryć się lub cicho poruszać po okolicy."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Dzień 2 Przyloty",
+              "page": 167,
+              "id": "029",
+              "entries": [
+                "Drugiego dnia w południe przybywają cztery kolejne gobliny. Dwóch ustawia się na wybiegu, a dwóch spaceruje po magazynie."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Dzień 3 Chaos",
+              "page": 167,
+              "id": "02a",
+              "entries": [
+                "O świcie trzeciego dnia braciom Shattergang w końcu udaje się to odkryć {@creature Krenko|KKW}miejsce pobytu i wyślij dziesięcioosobowy zespół {@creature goblin||gobliny} rzucać bomby na magazyn i jego mieszkańców.",
+                "Oprócz normalnego wyposażenia, każdy z tych goblinów nosi po jednej bombie. W ramach akcji goblin może zapalić bombę i rzucić ją w odległość do 60 stóp. Każde stworzenie w promieniu 5 stóp od tego punktu musi odnieść sukces {@dc 12} Rzut obronny na Zręczność lub weź 10 ({@dice 3d6}) obrażenia od ognia.",
+                "Wszyscy, którzy przeżyli {@creature Krenko|KKW}Po tym ataku gang ucieka z magazynu i rozchodzi się po mieście."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Lokalizacje magazynów",
+          "page": 168,
+          "id": "02b",
+          "entries": [
+            "Poniższe lokalizacje są przypisane do mapy 4.11, która pokazuje wnętrze magazynu.",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/KKW/114-434.webp"
+              },
+              "width": 2513,
+              "height": 3338,
+              "credit": "Dyson Logos",
+              "imageType": "mapa",
+              "title": "Mapa 4.11: Kryjówka Krenko",
+              "grid": {
+                "type": "square",
+                "size": 239,
+                "offsetX": 54,
+                "offsetY": 98,
+                "scale": 3
+              },
+              "id": "039"
+            },
+            {
+              "type": "entries",
+              "name": "Biuro",
+              "page": 168,
+              "id": "02c",
+              "entries": [
+                "Ten pokój jest nieoświetlony. Jeśli postacie mają {@sense darkvision} lub źródło światła, opisz pomieszczenie w następujący sposób:",
+                {
+                  "type": "insetReadaloud",
+                  "id": "02d",
+                  "entries": [
+                    "Pokój ten ma powierzchnię dwudziestu stóp kwadratowych i sufit wysoki na trzy metry. Wygląda na biuro i prowizoryczne pomieszczenia mieszkalne. Na środku pokoju stoi ciężki drewniany stół, otoczony sześcioma krzesłami. Pod nim znajduje się żelazna skrzynia. Od południa znajduje się łóżko przykryte kocami. Obok znajduje się worek pełen ubrań i resztek kilku posiłków podawanych na eleganckiej zastawie stołowej. Drzwi znajdują się pośrodku ściany od wschodu, a obok nich znajduje się duże okno, z którego roztacza się widok na magazyn znajdujący się za nimi."
+                  ]
+                },
+                "{@b Krenko} (patrz poniżej) zaszył się tutaj - z dwoma {@creature Goblin Boss||goblińscy bossowie}, które służą mu jako jego egzekutorzy - planując wyprzedzający atak na Braci Shattergang. Oprócz swojej broni {@creature Krenko|KKW} nosi fiolkę z kwasem, flaszkę ognia alchemicznego, worek koteczków, fiolkę z podstawową trucizną i klucz do żelaznej skrzyni skarbowej (patrz „Skarb” poniżej).",
+                {
+                  "type": "entries",
+                  "name": "Skarb",
+                  "page": 168,
+                  "id": "02e",
+                  "entries": [
+                    "W żelaznej kasie pod biurkiem znajdują się fundusze, które {@creature Krenko|KKW} zbierał, aby spłacić Falisha. Jest zamknięta i można ją otworzyć za pomocą klucza posiadanego przez {@creature Krenko|KKW} lub za pomocą narzędzi złodziei i pomyślnego testu Zręczności {@dc 15}. Wewnątrz pudełka znajduje się 350 zinów (sz), dwa złote pierścienie wysadzane małymi rubinami (o wartości 50 sz każdy) i {@i mikstura o gigantycznej sile} (wzgórze)."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Wybieg",
+              "page": 168,
+              "id": "02f",
+              "entries": [
+                "Do wewnętrznych ścian magazynu, 20 stóp nad podłogą, przymocowany jest drewniany pomost o szerokości 3 stóp. Prowadzą do niego skrzypiące, zwęglone, wąskie, owinięte drewniane schody w pobliżu środka wschodniej ściany.",
+                "Dwa {@creature Goblin gang member|kkw|członkowie gangu goblinów} patroluj cały czas wybieg, zmieniając się w podobny sposób jak obserwatorzy na zewnątrz.",
+                {
+                  "type": "entries",
+                  "name": "Osłabiona klatka schodowa",
+                  "page": 168,
+                  "id": "030",
+                  "entries": [
+                    "Jeden ze stopni schodów na wybiegu może się zawalić. Ta delikatna deska znajduje się 3 metry nad ziemią i może zostać dostrzeżona przez każdego na schodach, który posiada pasywną Mądrość ({@skill Perception}) wynik 13 lub wyższy. Stworzenie ważące ponad 100 funtów, które wejdzie na planszę, musi odnieść sukces na a {@dc 10} Rzut obronny na zręczność lub upadek z wysokości 3 metrów na ziemię. Szczelinę, którą tworzy zapadająca się deska, mogą z łatwością ominąć inne stworzenia wchodzące po schodach.",
+                    "Jeśli jedna strona pomostu otrzyma 10 lub więcej obrażeń, ta strona się zawali. Kiedy to nastąpi, stworzenia na chodniku spadają z wysokości 20 stóp na piętro magazynu poniżej."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Główne piętro",
+              "page": 168,
+              "id": "031",
+              "entries": [
+                "Wewnątrz magazyn oświetlają latarnie umieszczone na hakach umieszczonych 5 stóp nad ścianą, co mniej więcej 30 stóp, poniżej wybiegu. Gobliny utrzymują ten obszar jasno oświetlony, ponieważ ich {@sense darkvision} rozciąga się tylko na 60 stóp. Kiedy postacie wejdą, przeczytaj:",
+                {
+                  "type": "insetReadaloud",
+                  "id": "032",
+                  "entries": [
+                    "Świecące światło latarni ukazuje magazyn zwęglony przez pożar. Od północy i południa znajdują się duże, wzmocnione żelazem drzwi wykuszowe, obsługiwane z ziemi za pomocą łańcuchów i kół pasowych. Ściana zachodnia ma pośrodku kwadratowe pomieszczenie, które zajmuje część podłogi magazynu o wymiarach dwadzieścia na dwadzieścia stóp. Pomieszczenie posiada drzwi i okno od strony środka piętra magazynu.",
+                    "Wybieg otacza wnętrze dwadzieścia stóp nad podłogą. Prowadzą do niego schody w pobliżu środka wschodniej ściany. Po całym magazynie walają się dziesiątki dużych pudeł i skrzyń, których integralność jest zagrożona ze względu na zniszczenia spowodowane pożarem. Przez środek pomieszczenia biegnie para drewnianych poręczy. Na szynach stoi ogromny drewniany wózek na kołach. Nad wozem góruje wysoki na trzy metry, pokryty sadzą żelazny posąg. Wygląda nieco humanoidalnie, z wyrostkami przypominającymi pazury na końcach ramion. Zamiast głowy znajduje się wnęka zawierająca siedzisko otoczone szeregiem dźwigni."
+                  ]
+                },
+                "Zadanie 20 lub więcej obrażeń drzwiom wykuszowym tworzy dziurę, przez którą może przejść średnie lub mniejsze stworzenie. Postać może wykorzystać akcję, aby otworzyć drzwi do wykuszu za pomocą systemu kół pasowych.",
+                "Po całym pomieszczeniu walają się zwęglone i popękane drewniane pojemniki. W żadnym z nich nie pozostało nic wartościowego.",
+                "Na szynach biegnących przez środek pomieszczenia stoi duży wózek. Północną i południową ścianę wózka można obniżyć, tworząc rampy prowadzące do łoża wózka.",
+                "W pobliżu wózka znajduje się {@creature loading rig|kkw} pokryty sadzą i obecnie nieaktywny. Wnęka na siedzisko wbudowana w górną część zestawu zawiera szereg małych płytek i dźwigni. Stworzenie na siedzeniu może podjąć próbę a {@dc 10} Inteligencja ({@skill Arcana}) sprawdź, jak nacisnąć płytki we właściwej kolejności, aby włączyć lub wyłączyć zestaw. Naciśnięcie płytek wymaga wykonania określonej czynności. Gdy platforma zostanie aktywowana, istota na siedzeniu może nią sterować za pomocą dźwigni. Platforma porusza się zgodnie z poleceniami jej kontrolera, a kontroler może użyć akcji, aby skierować platformę do wykonania Doskoku, Odłączenia lub {@action Dodge} akcję lub akcje Multiataku lub Uderzenia, zgodnie z opisem w bloku statystyk.",
+                "Istota dysponująca narzędziami majsterkowicza może próbować naprawić uszkodzenia platformy. Po spędzeniu 1 godziny na naprawach, stworzenie wykonuje: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli sprawdzenie się powiedzie, platforma odzyska siły {@dice 1d6} punkty trafienia.",
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/KKW/115-435.webp"
+                  },
+                  "width": 1000,
+                  "height": 668,
+                  "credit": "Mathias Kollros"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Konfrontacja z Krenko",
+          "page": 171,
+          "id": "033",
+          "entries": [
+            "{@creature Krenko|KKW} próbuje uciec, jeśli jego punkty wytrzymałości zostaną zredukowane do połowy lub mniej, nakazując swoim goblińskim strażnikom osłaniać go podczas ucieczki. Biegnie do {@creature loading rig|KKW} na podłodze magazynu i aktywuje go, próbując wywalczyć sobie drogę na zewnątrz i uciec. Jeśli uda mu się wydostać na zewnątrz, udaje się do nabrzeża i wskakuje do kanału, aby odpłynąć.",
+            "Jeśli {@creature Krenko|KKW} zostaje schwytany, próbuje przekonać poszukiwaczy przygód, że postawienie go przed wymiarem sprawiedliwości nie leży w najlepszym interesie miasta. Na swoją obronę może przedstawić jeden lub wszystkie z następujących argumentów:",
+            {
+              "type": "list",
+              "items": [
+                "Bez jego przywództwa gangi goblinów pogrążyły się w chaosie, a jedyną rzeczą, która powstrzymuje Braci Shattergang przed wysadzeniem w powietrze, jest jego gang - pod przewodnictwem niego.",
+                "Podkreśla, że ​​zabicie Dargiga było aktem samoobrony i że został wrobiony przez Legion Boros, który, jak podejrzewa, jest w zmowie z braćmi Shattergang. Postacie, które odniosły sukces na {@dc 16} Mądrość ({@skill Insight}) sprawdź, czy kłamie, subtelnie spoglądając poza nie, wypowiadając swoją prośbę.",
+                "{@creature Krenko|KKW} jest skłonny zaproponować partii układ. Przekaże im wszystko, co znajduje się w jego sejfie biurowym, jeśli powiedzą Nassiusowi, że go nie znaleźli.",
+                "{@creature Krenko|KKW} ostrzega drużynę, że Nassius nie jest tym, czym się wydaje. {@creature Krenko|KKW} podejrzewa, że ​​Nassius siedzi w czyjejś kieszeni, ale nie wie, kim jest ten ktoś."
+              ]
+            },
+            "{@creature Krenko|KKW} nie podaje żadnych informacji na temat sojuszników, którzy pomogli mu w ucieczce, ale identyfikuje ich, jeśli zostanie naciśnięty. Pozostaje również powściągliwy w kwestii pana Taza, oferując tylko następujące rzeczy, jeśli postać odniesie sukces {@dc 20} Charyzma ({@skill Persuasion}) sprawdź: „Pan Taz dał mi kiedyś fajny nóż w prezencie do pracy i bardzo chciałbym kiedyś założyć kolejne rękawice."
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Przekazanie",
+          "page": 171,
+          "id": "034",
+          "entries": [
+            "Gdy postacie dotrą do miejsca spotkania wskazanego przez Nassiusa, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "id": "035",
+              "entries": [
+                "Gdy deszcz przechodzi w ulewę, udajesz się na obrzeża Dziesiątej Dzielnicy. Zostaniesz skierowany do starego spichlerza, który Nassius wybrał jako miejsce spotkania. Mokry, rozpadający się gliniany budynek stoi na nieuprawianym polu i jest porośnięty wszelkiego rodzaju roślinnością, prawie całkowicie odzyskaną przez dziką przyrodę. Nassius wychodzi z holu na pole, trzymając małą torebkę i otoczony przez dwóch ciężko uzbrojonych strażników."
+              ]
+            },
+            "Nassius poprosił Azoriusa o pomoc, ale przyprowadził także dwóch ludzi {@creature veteran||weterani} nie nosząc żadnych oczywistych identyfikatorów gildii, które mogłyby pomóc w zabraniu {@creature Krenko|KKW} do aresztu. Sześć Azoriuszów {@creature Soldier|GGR|żołnierski} są ukryte w różnych miejscach w odległości od 50 do 30 stóp od spichlerza, gotowe do ujarzmienia postaci, które wykonają niewłaściwy ruch, lub do pokonania {@creature Krenko|KKW} jeśli spróbuje uciec.",
+            "Nassius chce, aby bohaterowie zakończyli wymianę bez zamieszania i wrócili do domu. Pyta ich, czy kwestionowali {@creature Krenko|KKW}i opowiedzenie, co powiedział im goblin. {@creature Krenko|KKW} próbuje nazwać Nassiusa kłamcą i skorumpowanym urzędnikiem, ale weterani Nassiusa zaczynają się krztusić {@creature Krenko|KKW} żeby przestał mówić.",
+            "Nassius nie odpowiada na żadne pytania dotyczące tego, dokąd zabiera {@creature Krenko|KKW}ani nie odniósł się do prawdziwości jakichkolwiek twierdzeń o korupcji. Zaznacza, że ​​pełni funkcję Paktu Gildii i ją przyjmuje {@creature Krenko|KKW} w imię dobra miasta. Bracia Shattergang nadal mogą przejąć władzę {@creature Krenko|KKW}gangu, ale prawdopodobnie bez wyniszczającej wojny gangów.",
+            {
+              "type": "entries",
+              "name": "Patron Nassiusa",
+              "page": 171,
+              "id": "036",
+              "entries": [
+                "{@creature Krenko|KKW} w jednym miał rację: Nassius Ven wykorzystywał swoją pozycję, aby zapewnić sobie bogactwo i ochronę. Patron zwrócił się do Nassiusa i zawarł umowę {@creature Krenko|KKW} dostarczony im zamiast na należne mu miejsce w nowej celi na Udzcu. Nassius był tego pewien {@creature Krenko|KKW} w końcu uda mu się żywy wrócić do więzienia, ale patron chciał najpierw zamienić z nim kilka słów.",
+                "Aby określić, z kim Nassius Ven zawarł umowę, możesz rzucić okiem na patrona z poniższej tabeli lub możesz go wybrać. Jeśli patronem jest gildia, powinieneś wybrać gildię, która nie jest reprezentowana przez poszukiwacza przygód w drużynie. Patron może mieć wpływ na przyszłe relacje zarówno z Nassiusem Venem, jak i {@creature Krenko|KKW}.",
+                {
+                  "type": "table",
+                  "caption": "Patron Nassiusa",
+                  "colLabels": [
+                    "d6",
+                    "Patron"
+                  ],
+                  "colStyles": [
+                    "text-center col-2",
+                    "col-10"
+                  ],
+                  "rows": [
+                    [
+                      "1",
+                      "Senat Azoriusza"
+                    ],
+                    [
+                      "2",
+                      "Legion Boros"
+                    ],
+                    [
+                      "3",
+                      "Panie Tazie"
+                    ],
+                    [
+                      "4",
+                      "Syndykat Orżowa"
+                    ],
+                    [
+                      "5",
+                      "Bracia Shattergang"
+                    ],
+                    [
+                      "6",
+                      "Konklawe Selesnyi"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Koniec?",
+          "page": 171,
+          "id": "037",
+          "entries": [
+            "Postacie zdobywają 1 punkt sławy w swojej gildii, jeśli dostarczą {@creature Krenko|KKW} do Nassiusa.",
+            "Oprócz zalążków przygód opisanych w pierwszej części tego rozdziału, możesz wykorzystać wydarzenia z tej przygody, aby wytyczyć kurs na kolejne przygody drużyny. Rozważ następujące pytania:",
+            {
+              "type": "list",
+              "items": [
+                "Kim byli {@creature Krenko|KKW}sojusznicy 's i Nassiusa? Jak mogą zareagować na działania bohaterów?",
+                "Jaka jest równowaga sił pomiędzy {@creature Krenko|KKW}gang i bracia Shattergang? Czy któryś z gangów ma szansę zemścić się na bohaterach za to, co zrobili? A może bohaterowie zasłużyli na wdzięczność któregoś z gangów?",
+                "Jak Nassius mógłby {@creature Krenko|KKW}, Falish i inni NPC wchodzą w interakcję z poszukiwaczami przygód w przyszłości? Czy któryś z nich może poprosić bohaterów o pomoc w obliczu nowego kryzysu lub stać się niebezpiecznym antagonistą?",
+                "Czy bohaterowie korzystali ze swoich kontaktów w celu gromadzenia informacji? Czy zaangażowanie tych osób może spowodować problemy, które mogą wiązać się z poszukiwaczami przygód?"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:001": {
+      "type": "section",
+      "name": "Przegląd historii",
+      "page": 160,
+      "id": "001",
+      "entries": [
+        "{@creature Krenko|KKW} jest szefem osławionego tłumu goblinów, który dorobił się fortuny i zbudował swoją reputację głównie poprzez trzymanie się z daleka od gildii. Udało mu się sprawić nieskończone kłopoty mieszkańcom Dziesiątego Dystryktu, nie bez jednak zwrócenia na siebie uwagi gildii. Przebiegły oportunista, {@creature Krenko|KKW} spędził lata konsolidując uliczną motłoch goblinów w swoim zaciekle lojalnym gangu. Utrzymywał kontakty wśród bezwzględnych i potężnych, specjalizując się w kradzieżach i chaosie o dużej wartości. U szczytu swoich wpływów wdał się w paskudną wojnę o wpływy z Braćmi Shattergang, rywalizującym gangiem goblinów, który często handluje nielegalną bronią. Krążyły takie plotki {@creature Krenko|KKW} zabił Dargiga, najmłodszego z trzech braci, po tym, jak zrzut broni się nie udał.",
+        "Pozostali dwaj bracia, Rikkig i Gardagig, usiłowali zabić {@creature Krenko|KKW} w odwecie za śmierć swoich bliskich. Zanim zdążyli dokonać tego czynu, {@creature Krenko|KKW} został zatrzymany przez Legion Boros i wtrącony do Więzienia Sawtooth - niedaleko siedziby legionu w Sunhome - aby spędzić resztę życia za kratkami. Ale ktoś tak dobrze podłączony jak {@creature Krenko|KKW} ma sposoby na skrócenie własnego zdania.",
+        "Podżeganie do zamieszek w więzieniu zapewniło mu przeniesienie do Udzca, ośrodka o zaostrzonym rygorze w komisariacie drugim dziesiątej dzielnicy, administrowanym przez Senat Azoriusu. Podczas przeniesienia agenci byłego współpracownika {@creature Krenko|KKW}spowodowało odwrócenie uwagi i udało mu się wymknąć na spotkanie ze swoim gangiem. Teraz planuje swój następny ruch, odzyskując władzę nad swoim przestępczym przedsięwzięciem.",
+        "{@creature Krenko|KKW}ucieczka to niemała sprawa. Izba Paktu Gildii angażuje się w sprawę, zaniepokojona możliwością kolejnej wojny gangów goblinów, która może zagrozić wątłemu pokojowi między gildiami. Podczas przygody bracia Shattergang dowiadują się o czymś {@creature Krenko|KKW}wolności i desperacko chcą zmusić go do zapłaty.",
+        {
+          "type": "inset",
+          "name": "Bezgildiowi złoczyńcy",
+          "page": 160,
+          "id": "002",
+          "entries": [
+            "Nie każdy złoczyńca w kampanii Ravnica jest członkiem gildii i nie każdy plan ma swój początek w salach gildii. Tworząc własne przygody w Ravnicy, możesz skorzystać z sugestii zawartych w {@book Dungeon Master's Guide|DMG} za tworzenie złoczyńców w celu stworzenia złoczyńcy bez gildii, takiego, który woli niezależność działania poza strukturą gildii lub nawet stara się całkowicie podważyć tę strukturę. Najczęściej jednak gildie okazują się być uwikłane w intrygi nawet pomniejszych złoczyńców."
+          ]
+        }
+      ]
+    },
+    "0:003": {
+      "type": "section",
+      "name": "Prowadzenie przygody",
+      "page": 161,
+      "id": "003",
+      "entries": [
+        "Ta przygoda wymaga podręczników D&D piątej edycji ({@book Player's Handbook|PHB}, {@book Dungeon Master's Guide|DMG}, I {@book Monster Manual|MM}). Powinieneś przeczytać całą przygodę, zanim spróbujesz ją uruchomić. Jeśli wolisz zagrać, nie czytaj dalej.",
+        {
+          "type": "insetReadaloud",
+          "id": "004",
+          "entries": [
+            "Tekst pojawiający się w takim ramce należy przeczytać na głos lub sparafrazować dla graczy, gdy ich postacie po raz pierwszy dotrą do miejsca lub w określonych okolicznościach, zgodnie z opisem w tekście."
+          ]
+        },
+        "{@book Monster Manual|MM} zawiera statystyki dotyczące wielu stworzeń występujących w tej przygodzie. Kiedy imię stworzenia pojawia się w typie {@b pogrubiony}, jest to wizualna wskazówka wskazująca blok statystyk stworzenia w {@book Monster Manual|MM}. Jeśli blok statystyk pojawia się gdzie indziej, informuje Cię o tym tekst przygody.",
+        {
+          "type": "entries",
+          "name": "Podsumowanie przygody",
+          "page": 161,
+          "id": "005",
+          "entries": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/KKW/110-430.webp"
+              },
+              "width": 1989,
+              "height": 1455,
+              "credit": "Kev Walker"
+            },
+            "Przygoda rozpoczyna się w Więzieniu Sawtooth, gdy drużyna zostaje zwołana przez Nassiusa Vena, urzędnika Izby Paktu Gildii. Wyjaśnia to {@creature Krenko|KKW} uciekł podczas przeniesienia z więzienia i bohaterzy pilnie muszą go zlokalizować i jak najszybciej i dyskretnie postawić przed obliczem sprawiedliwości.",
+            "Bohaterowie mogą prześledzić trasę transferu, przeprowadzić wywiad ze strażnikami, aby uzyskać więcej informacji, a także skorzystać ze swoich kontaktów w mieście, aby dowiedzieć się więcej o {@creature Krenko|KKW}. Jeśli będą niedyskretni w dochodzeniu, mogą przyciągnąć uwagę Braci Shattergang, konkurencyjnego gangu chcącego zamordować {@creature Krenko|KKW}. Członkowie tego gangu będą podążać za drużyną po całym mieście, próbując znaleźć lokalizację bossa goblińskiej mafii.",
+            "W końcu poszukiwacze przygód znajdują {@creature Krenko|KKW}kryjówka: magazyn w pobliżu kanału. Następuje ostateczne starcie z bossem goblińskiej mafii, jego świtą i możliwymi intruzami Shattergang. Wtedy pozostaje już tylko kwestia dostarczenia {@creature Krenko|KKW} z powrotem do Nassiusa, zanim wybuchną kolejne kłopoty."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Patron Krenko",
+          "page": 161,
+          "id": "006",
+          "entries": [
+            "{@creature Krenko|KKW} podczas pobytu w więzieniu zawarł układ z frakcją. Podczas jego przeniesienia członkowie tej frakcji zabili jego eskortę i uwolnili go.",
+            "Na początku przygody możesz wylosować patrona z poniższej tabeli lub wybrać jednego z nich (najlepiej gildię, która nie jest reprezentowana przez poszukiwacza przygód w drużynie). Patron wpływa na historię {@creature Krenko|KKW}ucieczkę w określony sposób (jak wskazano w tabeli) i, jeśli tak zdecydujesz, może wpłynąć na przyszłe przygody.",
+            {
+              "type": "table",
+              "caption": "Patron Krenko",
+              "colLabels": [
+                "d6",
+                "Gildia"
+              ],
+              "colStyles": [
+                "text-center col-2",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@b Dimir}. Pojawiła się nieprzenikniona mgła, dezorientując eskortę i zasłaniając im widok. {@creature Krenko|KKW} wypuścił pasy i pobiegł we mgłę."
+                ],
+                [
+                  "2",
+                  "{@b Golgari}. Rój stonogów wyskoczył z pobliskiego kanału i przytłoczył strażników, powalając ich {@condition unconscious} jadowitymi ukąszeniami. Kiedy strażnicy ożyli, {@creature Krenko|KKW} już nie było."
+                ],
+                [
+                  "3",
+                  "{@b Gruul}. Banda Gruulów krzyczała po ulicach, niszcząc wszystko, co stanęło na jej drodze. Strażnicy starli się z Gruulem; podczas walki jeden z nich zerwał więzy {@creature Krenko|KKW}, a goblin uciekł z miejsca zdarzenia."
+                ],
+                [
+                  "4",
+                  "{@b Izzeta}. Para opancerzonych magów zstąpiła z nieba na unoszących się dyskach. Wycelowali w strażników urządzenia przyczepione do ich ramion i odrzucili ich falą wstrząsową. Podczas gdy strażnicy wracali do zdrowia, magowie magicznie rozwiązali więzy {@creature Krenko|KKW} i ten uciekł."
+                ],
+                [
+                  "5",
+                  "{@b Rakdos}. Grupa wykonawców skrzyżowała ścieżki ze strażnikami, których urzekł ognisty pokaz akrobatyczny na ulicy. Kiedy występ się skończył, {@creature Krenko|KKW} zniknął."
+                ],
+                [
+                  "6",
+                  "{@b Simic}. Pływak przechwycił i zaatakował eskortę {@creature Krenko|KKW}. Wyzwolił potężną błyskawicę, która powaliła wszystkich strażników. Kiedy się obudzili, {@creature Krenko|KKW} zniknął."
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Podsumowanie przygody",
+      "page": 161,
+      "id": "005",
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/KKW/110-430.webp"
+          },
+          "width": 1989,
+          "height": 1455,
+          "credit": "Kev Walker"
+        },
+        "Przygoda rozpoczyna się w Więzieniu Sawtooth, gdy drużyna zostaje zwołana przez Nassiusa Vena, urzędnika Izby Paktu Gildii. Wyjaśnia to {@creature Krenko|KKW} uciekł podczas przeniesienia z więzienia i bohaterzy pilnie muszą go zlokalizować i jak najszybciej i dyskretnie postawić przed obliczem sprawiedliwości.",
+        "Bohaterowie mogą prześledzić trasę transferu, przeprowadzić wywiad ze strażnikami, aby uzyskać więcej informacji, a także skorzystać ze swoich kontaktów w mieście, aby dowiedzieć się więcej o {@creature Krenko|KKW}. Jeśli będą niedyskretni w dochodzeniu, mogą przyciągnąć uwagę Braci Shattergang, konkurencyjnego gangu chcącego zamordować {@creature Krenko|KKW}. Członkowie tego gangu będą podążać za drużyną po całym mieście, próbując znaleźć lokalizację bossa goblińskiej mafii.",
+        "W końcu poszukiwacze przygód znajdują {@creature Krenko|KKW}kryjówka: magazyn w pobliżu kanału. Następuje ostateczne starcie z bossem goblińskiej mafii, jego świtą i możliwymi intruzami Shattergang. Wtedy pozostaje już tylko kwestia dostarczenia {@creature Krenko|KKW} z powrotem do Nassiusa, zanim wybuchną kolejne kłopoty."
+      ]
+    },
+    "0:006": {
+      "type": "entries",
+      "name": "Patron Krenko",
+      "page": 161,
+      "id": "006",
+      "entries": [
+        "{@creature Krenko|KKW} podczas pobytu w więzieniu zawarł układ z frakcją. Podczas jego przeniesienia członkowie tej frakcji zabili jego eskortę i uwolnili go.",
+        "Na początku przygody możesz wylosować patrona z poniższej tabeli lub wybrać jednego z nich (najlepiej gildię, która nie jest reprezentowana przez poszukiwacza przygód w drużynie). Patron wpływa na historię {@creature Krenko|KKW}ucieczkę w określony sposób (jak wskazano w tabeli) i, jeśli tak zdecydujesz, może wpłynąć na przyszłe przygody.",
+        {
+          "type": "table",
+          "caption": "Patron Krenko",
+          "colLabels": [
+            "d6",
+            "Gildia"
+          ],
+          "colStyles": [
+            "text-center col-2",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "{@b Dimir}. Pojawiła się nieprzenikniona mgła, dezorientując eskortę i zasłaniając im widok. {@creature Krenko|KKW} wypuścił pasy i pobiegł we mgłę."
+            ],
+            [
+              "2",
+              "{@b Golgari}. Rój stonogów wyskoczył z pobliskiego kanału i przytłoczył strażników, powalając ich {@condition unconscious} jadowitymi ukąszeniami. Kiedy strażnicy ożyli, {@creature Krenko|KKW} już nie było."
+            ],
+            [
+              "3",
+              "{@b Gruul}. Banda Gruulów krzyczała po ulicach, niszcząc wszystko, co stanęło na jej drodze. Strażnicy starli się z Gruulem; podczas walki jeden z nich zerwał więzy {@creature Krenko|KKW}, a goblin uciekł z miejsca zdarzenia."
+            ],
+            [
+              "4",
+              "{@b Izzeta}. Para opancerzonych magów zstąpiła z nieba na unoszących się dyskach. Wycelowali w strażników urządzenia przyczepione do ich ramion i odrzucili ich falą wstrząsową. Podczas gdy strażnicy wracali do zdrowia, magowie magicznie rozwiązali więzy {@creature Krenko|KKW} i ten uciekł."
+            ],
+            [
+              "5",
+              "{@b Rakdos}. Grupa wykonawców skrzyżowała ścieżki ze strażnikami, których urzekł ognisty pokaz akrobatyczny na ulicy. Kiedy występ się skończył, {@creature Krenko|KKW} zniknął."
+            ],
+            [
+              "6",
+              "{@b Simic}. Pływak przechwycił i zaatakował eskortę {@creature Krenko|KKW}. Wyzwolił potężną błyskawicę, która powaliła wszystkich strażników. Kiedy się obudzili, {@creature Krenko|KKW} zniknął."
+            ]
+          ]
+        }
+      ]
+    },
+    "0:007": {
+      "type": "section",
+      "name": "Rozpoczęcie przygody",
+      "page": 162,
+      "id": "007",
+      "entries": [
+        "Gdy gracze będą gotowi do rozpoczęcia, przeczytaj lub sparafrazuj następujący tekst wprowadzający:",
+        {
+          "type": "insetReadaloud",
+          "id": "008",
+          "entries": [
+            "Życie w Dziesiątej Dzielnicy nigdy nie jest nudne. Centrum ciągłej aktywności, zawsze oferuje nowe możliwości, nowe wyzwania, nowe intrygi. Jest to miejsce, w którym obiecujący poszukiwacz przygód, taki jak Ty, może znaleźć swoją drogę do chwały, bogactwa i władzy dzięki lojalności wobec swojej gildii. Ale najpierw będziesz potrzebować pracy, która pomoże ci udowodnić swoją wartość.",
+            "Dziś jest twój szczęśliwy dzień. Dziś po południu otrzymałeś krótką wiadomość od jednego ze swoich kontaktów: „Słyszałem dzisiaj od kogoś, kto szuka pomocy w znalezieniu czegoś. Wydaje się to poważne. Może to dla ciebie dobra okazja. Spotkaj się o zmierzchu pod więzieniem Sawtooth”.",
+            "O wyznaczonej godzinie spotykasz się z innymi podobnie myślącymi osobami przed frontowymi drzwiami funkcjonalnego i niczym nie wyróżniającego się więzienia Sawtooth."
+          ]
+        },
+        "Niech gracze przedstawią sobie nawzajem swoje postacie, jeśli jeszcze się nie znają. Może to być również czas, w którym bohaterowie identyfikują lub odkrywają osobiste powiązania, które mogą je łączyć, takie jak wspólni znajomi lub kontakty, wspólne pochodzenie lub mieszkanie w tej samej okolicy. Gdy bohaterowie będą mieli okazję bliżej się poznać, przeczytaj:",
+        {
+          "type": "insetReadaloud",
+          "id": "009",
+          "entries": [
+            "Lekki deszcz zaczyna bębnić po bruku, gdy słońce zachodzi za iglicami i wieżami miasta. Widzisz mężczyznę vedalkena w dobrze skrojonym ubraniu, który podchodzi do twojej grupy od strony więzienia. Jego ciemnoniebieska twarz ma łagodny, ale zaniepokojony wyraz. Podnosi rękę, żeby cię przywitać, i mówi cicho, gdy jego wzrok obejmuje twoją grupę i pobliskie otoczenie. - Czy jesteś tu, żeby pomóc nam coś znaleźć?"
+          ]
+        },
+        "To jest Nassius Ven, vedalken {@creature noble} i proktor z biura Paktu Gildii. Podczas gdy Azorius i Boros pomagają w utrzymaniu prawa i pokoju, biuro Paktu Gildii stara się pomóc w stłumieniu sporów między gildiami pod nieobecność Żywego Paktu Gildii. Nassius przybył, aby wynająć postacie do wyśledzenia {@creature Krenko|KKW} ponieważ podejrzewa udział jednej lub więcej gildii w ucieczce bossa goblinów, ale nie wie, kto jest w to zamieszany.",
+        {
+          "type": "entries",
+          "name": "Odgrywanie roli Nassiusa Ven",
+          "page": 162,
+          "id": "00a",
+          "entries": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/KKW/111-431.webp"
+              },
+              "width": 1000,
+              "height": 888,
+              "credit": "Richard Wright"
+            },
+            "Po otrzymaniu twierdzących odpowiedzi od drużyny, Nassius wręcza bohaterom akta z Więzienia Sawtooth z wizerunkiem zadowolonego z siebie, twardo wyglądającego goblina. Nassius podaje następujące informacje, które można przekazać w rozmowie z nim:",
+            {
+              "type": "list",
+              "items": [
+                "„Potrzebujemy twoich szczególnych umiejętności, aby pomóc w odzyskaniu skazańca, który uwolnił się dziś rano tuż przed wschodem słońca. Uciekł podczas transportu do Udzca, więzienia o zaostrzonym rygorze, w którym spędził resztę swoich dni”.",
+                "„Ma na imię {@creature Krenko|KKW}. Jest szefem dużego gangu goblinów, który działa wokół Foundry Street. Zatrzymano go, aby odpowiedzieć za długą listę przestępstw, w tym morderstwo. Rzekomo podżegał do zamieszek, które tydzień temu doprowadziły do ​​śmierci strażnika i dwóch więźniów tego więzienia. Naczelnik zdecydował, że wystarczy i zgodził się na przeniesienie”.",
+                "\"{@creature Krenko|KKW} narobił sobie wielu wrogów, ale największym zagrożeniem są dla niego Bracia Shattergang. To rywalizujący gang goblinów specjalizujący się w nielegalnej broni i chcą {@creature Krenko|KKW} zmarł w odwecie za morderstwo jednego ze swoich poruczników. Tak się składa, że ​​zmarły porucznik jest najmłodszym z trójki rodzeństwa kierującego gangiem. Rozerwą całą okolicę, żeby go znaleźć, kiedy już dowiedzą się, że uciekł.",
+                "„Normalnie pozwolilibyśmy Azoriusowi uporać się z tą sytuacją, ale mamy takie podejrzenia {@creature Krenko|KKW} mógł skorzystać z pomocy jednej z pozostałych gildii, kiedy uciekł. Wzywamy inne osoby do zbadania tego powiązania, ponieważ może to wskazywać na większy problem”.",
+                "„Musimy cię wyśledzić {@creature Krenko|KKW} i sprowadź go żywego. Wtedy będziemy mogli go przesłuchać i na dobre trzymać go z dala od ulic”.",
+                "„Jestem gotowy dać ci teraz dziesięć zinów na pokrycie wszelkich wydatków, jakie możesz ponieść w trakcie śledztwa. Po dostarczeniu przestępcy otrzymasz sto zinów i moją wdzięczność, którą przekażę przywódcom twojej gildii. Pod żadnym pozorem nie powinieneś próbować kwestionować {@creature Krenko|KKW} się.\""
+              ]
+            },
+            "Jeśli zostanie o to poproszony, Nassius przedstawia strażnikom relację dotyczącą okoliczności swojej ucieczki (patrz „{@creature Krenko|KKW}Patrona”). Strażnicy zostali już dokładnie przesłuchani i {@creature Krenko|KKW}ślad zamarł. Nassiusowi zależy na jak najszybszym rozpoczęciu pracy nad postaciami, aby bracia Shattergang się o tym nie dowiedzieli {@creature Krenko|KKW}ucieczka.",
+            "Nassius prosi grupę o przyprowadzenie {@creature Krenko|KKW} do starego spichlerza Selesnya, który został uszkodzony podczas najazdu Gruulów na skraju dzielnicy. Tam, weźmie {@creature Krenko|KKW} do aresztu.",
+            "Nassius unika wszelkich pytań dotyczących przyczyny {@creature Krenko|KKW} nie powinien być przesłuchiwany ani dlaczego bohaterowie powinni go zaprowadzić do spichlerza. Jego oczy biegają tam i z powrotem, gdy stawiane są tego rodzaju pytania. Postać, która odniesie sukces na {@dc 15} Mądrość ({@skill Insight}) check wie, że Nassius nie jest całkowicie szczery. Nawet po naciśnięciu Nassius nie podaje żadnych innych informacji poza celami misji."
+          ]
+        }
+      ]
+    },
+    "0:00a": {
+      "type": "entries",
+      "name": "Odgrywanie roli Nassiusa Ven",
+      "page": 162,
+      "id": "00a",
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/KKW/111-431.webp"
+          },
+          "width": 1000,
+          "height": 888,
+          "credit": "Richard Wright"
+        },
+        "Po otrzymaniu twierdzących odpowiedzi od drużyny, Nassius wręcza bohaterom akta z Więzienia Sawtooth z wizerunkiem zadowolonego z siebie, twardo wyglądającego goblina. Nassius podaje następujące informacje, które można przekazać w rozmowie z nim:",
+        {
+          "type": "list",
+          "items": [
+            "„Potrzebujemy twoich szczególnych umiejętności, aby pomóc w odzyskaniu skazańca, który uwolnił się dziś rano tuż przed wschodem słońca. Uciekł podczas transportu do Udzca, więzienia o zaostrzonym rygorze, w którym spędził resztę swoich dni”.",
+            "„Ma na imię {@creature Krenko|KKW}. Jest szefem dużego gangu goblinów, który działa wokół Foundry Street. Zatrzymano go, aby odpowiedzieć za długą listę przestępstw, w tym morderstwo. Rzekomo podżegał do zamieszek, które tydzień temu doprowadziły do ​​śmierci strażnika i dwóch więźniów tego więzienia. Naczelnik zdecydował, że wystarczy i zgodził się na przeniesienie”.",
+            "\"{@creature Krenko|KKW} narobił sobie wielu wrogów, ale największym zagrożeniem są dla niego Bracia Shattergang. To rywalizujący gang goblinów specjalizujący się w nielegalnej broni i chcą {@creature Krenko|KKW} zmarł w odwecie za morderstwo jednego ze swoich poruczników. Tak się składa, że ​​zmarły porucznik jest najmłodszym z trójki rodzeństwa kierującego gangiem. Rozerwą całą okolicę, żeby go znaleźć, kiedy już dowiedzą się, że uciekł.",
+            "„Normalnie pozwolilibyśmy Azoriusowi uporać się z tą sytuacją, ale mamy takie podejrzenia {@creature Krenko|KKW} mógł skorzystać z pomocy jednej z pozostałych gildii, kiedy uciekł. Wzywamy inne osoby do zbadania tego powiązania, ponieważ może to wskazywać na większy problem”.",
+            "„Musimy cię wyśledzić {@creature Krenko|KKW} i sprowadź go żywego. Wtedy będziemy mogli go przesłuchać i na dobre trzymać go z dala od ulic”.",
+            "„Jestem gotowy dać ci teraz dziesięć zinów na pokrycie wszelkich wydatków, jakie możesz ponieść w trakcie śledztwa. Po dostarczeniu przestępcy otrzymasz sto zinów i moją wdzięczność, którą przekażę przywódcom twojej gildii. Pod żadnym pozorem nie powinieneś próbować kwestionować {@creature Krenko|KKW} się.\""
+          ]
+        },
+        "Jeśli zostanie o to poproszony, Nassius przedstawia strażnikom relację dotyczącą okoliczności swojej ucieczki (patrz „{@creature Krenko|KKW}Patrona”). Strażnicy zostali już dokładnie przesłuchani i {@creature Krenko|KKW}ślad zamarł. Nassiusowi zależy na jak najszybszym rozpoczęciu pracy nad postaciami, aby bracia Shattergang się o tym nie dowiedzieli {@creature Krenko|KKW}ucieczka.",
+        "Nassius prosi grupę o przyprowadzenie {@creature Krenko|KKW} do starego spichlerza Selesnya, który został uszkodzony podczas najazdu Gruulów na skraju dzielnicy. Tam, weźmie {@creature Krenko|KKW} do aresztu.",
+        "Nassius unika wszelkich pytań dotyczących przyczyny {@creature Krenko|KKW} nie powinien być przesłuchiwany ani dlaczego bohaterowie powinni go zaprowadzić do spichlerza. Jego oczy biegają tam i z powrotem, gdy stawiane są tego rodzaju pytania. Postać, która odniesie sukces na {@dc 15} Mądrość ({@skill Insight}) check wie, że Nassius nie jest całkowicie szczery. Nawet po naciśnięciu Nassius nie podaje żadnych innych informacji poza celami misji."
+      ]
+    },
+    "0:00b": {
+      "type": "section",
+      "name": "Poszukiwanie Krenko",
+      "page": 163,
+      "id": "00b",
+      "entries": [
+        "Po wyjściu Nassiusa bohaterowie mogą zabrać się do pracy. Mogą prowadzić śledztwo w dowolny sposób, ale czas odgrywa kluczową rolę, ponieważ w końcu wieści z ulicy docierają do Braci Shattergang i rozpoczynają kolejną wojnę o wpływy, aby wyrównać straty {@creature Krenko|KKW} na zewnątrz.",
+        {
+          "type": "entries",
+          "name": "Kalendarium wydarzeń",
+          "page": 163,
+          "id": "00c",
+          "entries": [
+            "Oto harmonogram tego, co wydarzyło się od tego czasu {@creature Krenko|KKW} uciekł i co będzie w przyszłości, brak ingerencji. Gdy tylko poszukiwacze przygód zostaną zaangażowani, wydarzenia mogą się drastycznie zmienić, ale poniższa oś czasu nadal może pomóc ci określić, jak różni NPC zaangażowani w historię zareagują na działania postaci gracza.",
+            {
+              "type": "inset",
+              "id": "00d",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    "{@b Wczesny poranek, dzień 1}: {@creature Krenko|KKW} ucieka.",
+                    "{@b Późny poranek, dzień 1}: {@creature Krenko|KKW} spotyka się ze swoim gangiem i przygotowuje dla siebie przebranie.",
+                    "{@b Południe, dzień 1}: {@creature Krenko|KKW} i jego gang zabezpieczają opuszczony magazyn jako tymczasową kryjówkę dla szefa mafii.",
+                    "{@b Zachód słońca, dzień 1}: Poszukiwacze przygód otrzymują misję.",
+                    "{@b Późny wieczór, dzień 1}: {@creature Krenko|KKW} składa zamówienie na broń u Falisha, handlarza ludzką bronią.",
+                    "{@b Południe, dzień 2}: Dodatkowi funkcjonariusze z gangu {@creature Krenko|KKW} przybywają do kryjówki {@creature Krenko|KKW}.",
+                    "{@b Zachód słońca, dzień 2}: Bracia Shattergang dowiadują się o ucieczce {@creature Krenko|KKW} i mobilizują się, aby go odnaleźć. Falish zostawia skład broni w punkcie zrzutu na Foundry Street, a goblin przenosi broń z powrotem do kryjówki {@creature Krenko|KKW}.",
+                    "{@b Późny wieczór, dzień 2}: Eksplozje wstrząsają Foundry Street, gdy Bracia Shattergang zaczynają brutalnie wywierać nacisk na obywateli, o których wiadomo, że mają interesy z {@creature Krenko|KKW}. Kolumna Ljewa (organy ścigania Azorius) zostaje wysłana na Foundry Street w celu zbadania zamieszania.",
+                    "{@b Przedświt, dzień 3}: Bracia Shattergang odkrywają lokalizację {@creature Krenko|KKW} i następuje tam wielka eksplozja, niszcząc budynek i zabijając wiele goblinów ({@creature Krenko|KKW} przetrwało).",
+                    "{@b Południe, dzień 3}: Okolice Foundry Street są przedmiotem straszliwej przemocy gangów goblinów. Legion Boros zostaje wezwany do spacyfikowania okolicy."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Dokumentacja",
+          "page": 163,
+          "id": "00e",
+          "entries": [
+            "W aktach Więzienia Sawtooth poszukiwacze przygód mogą znaleźć następujące informacje:",
+            {
+              "type": "list",
+              "items": [
+                "{@creature Krenko|KKW} jest szefem mafii goblinów od kilku lat. Jego teren znajdował się wokół ulicy Foundry. Był osobą zamieszaną w liczne przestępstwa godne gangstera, ale do niedawna udało mu się uniknąć prawa.",
+                "{@creature Krenko|KKW} został aresztowany przez Gideona Jurę, wolnego strzelca współpracującego wówczas z Legionem Boros. {@creature Krenko|KKW} został uznany za winnego zamordowania Dargiga, jednego z braci Shattergang, oraz napaści z użyciem śmiercionośnego narzędzia na Gideona Jurę.",
+                "Bronią, którą miał przy sobie w chwili aresztowania, był magiczny nóż (nóż więzienny). Według doniesień może przebić się przez bariery siłowe. Nie wiadomo jak {@creature Krenko|KKW} zdobył broń.",
+                "{@creature Krenko|KKW}do godnych uwagi współpracowników zalicza się tajemniczy pan Taz (brak innych informacji) i zbuntowany wynalazca broni Izzet o imieniu Falish (kobieta, widziana w okolicach Tin Street). Obaj są także osobami zainteresowanymi Azoriusem."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Uderzanie w ulice",
+          "page": 163,
+          "id": "00f",
+          "entries": [
+            "Bohaterowie mogą podejść do śledztwa na kilka sposobów {@creature Krenko|KKW}miejsce pobytu: spotkania z kontaktami, rozsiewanie plotek lub odwiedzanie ważnych miejsc.",
+            {
+              "type": "entries",
+              "name": "Spotkaj się z Kontaktami",
+              "page": 163,
+              "id": "010",
+              "entries": [
+                "Jeśli postać ma odpowiedni kontakt, do którego może się zwrócić w celu uzyskania informacji, może zwrócić się do niego o pomoc. Umówienie się na spotkanie z osobą kontaktową zajmuje 1 godzinę {@dice 1d6} godziny, w których kontakt znajdzie jedną nieznaną wcześniej informację, chyba że będzie miał te informacje pod ręką."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Zbieraj plotki",
+              "page": 163,
+              "id": "011",
+              "entries": [
+                "Postacie mogą udawać się do miejsc publicznych w celu uzyskania informacji. Po {@dice 1d6} godzin, postać przeglądająca plotki tworzy {@dc 15} Charyzma ({@skill Persuasion}) sprawdzać. W przypadku powodzenia odkrywają jedną nieznaną wcześniej informację spośród podanych poniżej:",
+                {
+                  "type": "list",
+                  "items": [
+                    "{@creature Krenko|KKW}nieobecność zaszkodziła reputacji jego gangu. Inne gangi wkraczają na jego terytorium i to tylko kwestia czasu, zanim na ulicach rozegra się kolejna walka o władzę.",
+                    "Tin Street to tętniący życiem ośrodek handlu i terytorium braci Shattergang. Od tego czasu nabrali śmiałości {@creature Krenko|KKW} został odsunięty i przygotowują się do wojny, aby raz na zawsze pozbyć się jego gangu.",
+                    "Ulica Foundry to miejsce, gdzie znajdują się zakłady produkcyjne Dziesiątej Dzielnicy i to wszystko {@creature Krenko|KKW}teren gangu. Jego egzekutorzy wciąż kłócą się o to, kto powinien przewodzić. Na razie wszyscy mają między sobą niełatwy rozejm.",
+                    "Bardzo wcześnie na zachód od placu kilka goblinów wyciągało kratkę kanalizacyjną. Nie wyglądali na pracowników obsługi technicznej i grozili każdemu, kto podszedł zbyt blisko. Ustalono przybliżoną lokalizację tego zdarzenia."
+                  ]
+                },
+                "W powyższych informacjach wymieniono trzy ważne dla przygody lokalizacje: kanały, Ulicę Odlewniczą i Ulicę Tin. Poniżej szczegółowo opisano każdą witrynę. Czas podróży (pieszo) pomiędzy dowolnymi dwoma tymi lokalizacjami wynosi od 30 minut do 1 godziny."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Kanały przy Plaza West",
+          "page": 164,
+          "id": "012",
+          "entries": [
+            "Postacie udające się na zachód od placu zgodnie z otrzymaną wcześniej wskazówką mogą szukać nieodpowiedniej kratki kanalizacyjnej. Trwa to 1 godzinę i kończy się sukcesem {@dc 10} Mądrość ({@skill Perception}) sprawdź, czy nie ma na nim kratki z zadrapaniami od łomu. Alternatywnie bohaterowie mogą przeprowadzić wywiad z mieszkańcami okolicy, co trwa pół godziny i kończy się sukcesem {@dc 10} Charyzma ({@skill Persuasion}) sprawdź, gdzie znajduje się ruszt.",
+            "Ruszt można z sukcesem podciągnąć {@dc 15} Kontrola siły. Po otwarciu kraty przeczytaj:",
+            {
+              "type": "insetReadaloud",
+              "id": "013",
+              "entries": [
+                "Okrągły szyb konserwacyjny zanurza się w ciemność. Do jednej strony szybu przykręcona jest żelazna drabina. Do nosa uderza ostry zapach ścieków. Na dnie widać słabe światło, oświetlające wodę wypełnioną śmieciami."
+              ]
+            },
+            "W szybie, który ciągnie się 50 stóp w dół, aż kończy się składaną drabiną ze zwisającym sznurem, nie ma źródła światła. Po rozłożeniu drabina sięga kolejnych 20 stóp do podłogi tunelu kanalizacyjnego. Gdy postacie opadną na podłogę, przeczytaj:",
+            {
+              "type": "insetReadaloud",
+              "id": "014",
+              "entries": [
+                "Stoisz po łydki w wodzie kanalizacyjnej, w słabo oświetlonym tunelu. Po obu stronach znajduje się podniesiony chodnik, który wyprowadza cię ze śmierdzącej, pełnej błota wody. Małe lampki mieszczące magiczne płomienie {@quickref Vision and Light||2||dim light}. Ściany porastają mchy i porosty."
+              ]
+            },
+            "Tunel jest słabo oświetlony przez małe {@spell continual flame} latarnie rozmieszczone co około 30 stóp po naprzemiennych stronach wysokiego na 20 stóp tunelu. Tunel kanalizacyjny ma 30 stóp szerokości i biegnie w obu kierunkach. Tunel ma podniesiony chodnik o szerokości 5 stóp i wysokości 5 stóp po obu stronach. W głównym przejściu płynie woda głęboka na 3 metry i śmierdzące odpady.",
+            "{@creature Krenko|KKW} i trzy inne gobliny przybyły tędy, kierując się do jego nowej kryjówki. Postacie mogą dostrzec ślady brudnych butów pozostawionych przez Małe stworzenia na jednym z chodników, udając im się {@dc 10} Mądrość ({@skill Perception}) sprawdzać. Po znalezieniu odcisków mogą kontynuować ich śledzenie w tunelach kanalizacyjnych, wykonując a {@dc 15} Mądrość ({@skill Survival}) sprawdzać. Za każdy dzień odkąd tu przybyły gobliny, dodaj 5 do ST czeku. Poruszanie się po krętych tunelach przy normalnej prędkości spaceru zajmuje 2 godziny. Tunele znajdują się w pobliżu terytorium Golgari, ale nad podziemnym miastem.",
+            "Za każdą godzinę, którą drużyna spędza w kanałach, rzuć a {@dice d20}. Jeśli wynik wynosi 15 lub więcej, drużyna ma spotkanie określone w wyniku rzutu na stole Spotkań w Kanałach.",
+            {
+              "type": "table",
+              "caption": "Spotkania z kanałami",
+              "colLabels": [
+                "d20",
+                "Spotkanie"
+              ],
+              "colStyles": [
+                "text-center col-2",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1-4",
+                  "{@dice 1d4} {@creature cultist||kultyści} z Rakdos"
+                ],
+                [
+                  "5-9",
+                  "{@dice 2d4} {@creature Giant Rat||gigantyczne szczury}"
+                ],
+                [
+                  "10-11",
+                  "1 {@creature gray ooze}"
+                ],
+                [
+                  "12-14",
+                  "1 {@creature kraul warrior|GGR}"
+                ],
+                [
+                  "15-18",
+                  "1 {@creature swarm of centipedes||rój owadów (stonogi)}"
+                ],
+                [
+                  "19-20",
+                  "{@dice 1d4} {@creature zombie||zombie} pokryte grzybem"
+                ]
+              ]
+            },
+            "Tory kończą się przy kolejnym szybie konserwacyjnym w suficie tunelu. Z wału zwisa sznurek; pociągnięcie go powoduje odblokowanie składanej drabinki, po której można z łatwością się wspiąć. Wał zakończony jest rusztem, który z powodzeniem można odsunąć na bok {@dc 15} Kontrola siły.",
+            "Bohaterowie pojawiają się w alejce obok starego magazynu w doku nad kanałem w pobliżu Foundry Street, w komisariacie szóstym w dziesiątej dzielnicy. Tory prowadzą aż do magazynu."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ulica Cynowa",
+          "page": 164,
+          "id": "015",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "016",
+              "entries": [
+                "Ten tętniący życiem obszar targowy jest pełen kupców, artystów, kupujących i biesiadników. W ciągu dnia Tin Street jest głównym miejscem zakupów i restauracji. Nocą teatry i tawerny ożywają."
+              ]
+            },
+            "Ulica Tin to jedna z dwóch alei przecinających całą Dziesiątą Dzielnicę (patrz {@book chapter 3|GGR|3|Główne sposoby handlu}). Tam, gdzie przechodzi przez komisariat szósty, bracia Shattergang zajęli znaczną jego część jako swój teren. Uważnie wypatrują aresztantów Azoriusa, członków rywalizujących gangów i każdego, kto zadaje zbyt wiele pytań.",
+            "Tin Street to także dom Falisha, zbuntowanego handlarza bronią z Izzeta, który za odpowiednią cenę dostarcza przestępcom broń i materiały wybuchowe.",
+            {
+              "type": "entries",
+              "name": "Podsłuchiwanie Shattergangu",
+              "page": 164,
+              "id": "017",
+              "entries": [
+                "Jeśli czek na zebranie plotek zakończy się niepowodzeniem o 5 lub więcej lub bohaterowie z innych powodów zachowują się niedyskretnie podczas przeszukiwania Tin Street, do braci Shattergang dociera wiadomość, o którą ktoś pytał {@creature Krenko|KKW}. Wysyłają niepozornie ubranego, paciorkowego oka {@creature goblin} o imieniu Erko, aby śledzić postacie (około 20 metrów) i zakradać się, aby podsłuchiwać rozmowy. Jeśli pasywna Mądrość postaci ({@skill Perception}) wynik jest równy lub większy od Zręczności goblina ({@skill Stealth}) sprawdź, ta postać zauważy, że jest śledzona lub obserwowana.",
+                "Jeśli Erko zauważy, że drużyna go widziała, spróbuje uciec z powrotem do jednej z kryjówek swojego gangu. Kiedy przemierza ruchliwy rynek Tin Street, możesz przeprowadzić tę scenę jako pościg, korzystając z zasad pościgu i tabeli Komplikacje pościgu miejskiego w {@book chapter 8|DMG|8|Pogoń za komplikacjami} z {@book Dungeon Master's Guide|DMG}.",
+                "Oprócz swojej broni Erko nosi flaszkę ognia alchemicznego, którą ciska w pierwszą istotę, która mu zagraża. Zobacz {@book chapter 5|PHB|5|Sprzęt poszukiwawczy} z {@book Player's Handbook|PHB}, aby zapoznać się z zasadami używania ognia alchemika.",
+                "Jeśli postać przesłuchuje Erko i zakończy się sukcesem: {@dc 10} Charyzma ({@skill Intimidation}) sprawdź, goblin wyjawia, że ​​pracuje dla Braci Shattergang, a oni są zainteresowani tym, co dzieje się na ich terenie. W żadnym wypadku nie zdradza ich kryjówki.",
+                "Jeśli Erko będzie śledził poszukiwaczy przygód wystarczająco długo, aby odkryć {@creature Krenko|KKW}miejscu, do którego przybywają Bracia Shattergang {@creature Krenko|KKW}kryjówka obowiązuje 2 godziny później."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Znalezienie Falisha",
+              "page": 165,
+              "id": "018",
+              "entries": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/KKW/112-432.webp"
+                  },
+                  "width": 1000,
+                  "height": 1024,
+                  "credit": "Noah Bradley"
+                },
+                "Zbuntowany handlarz bronią Izzet Falish mieszka i pracuje na Tin Street. Postacie mogą pytać po okolicy, aby odkryć lokalizację jej tajnego sklepu, ale uzyskanie informacji nie przychodzi łatwo.",
+                {
+                  "type": "entries",
+                  "name": "Tawerny",
+                  "page": 165,
+                  "id": "019",
+                  "entries": [
+                    "Falish regularnie odwiedza Millstone, obskurną tawernę serwującą dania szorstkim i hałaśliwym. Właścicielem tawerny i barmanem jest Wyroon, samiec minotaura z pękniętym rogiem i gburowatym usposobieniem. Kilka lat temu wyrzucono go z Legionu Boros za niesubordynację. Jego początkowa postawa jest obojętna, ale jeśli postać odniesie sukces na {@dc 10} Charyzma ({@skill Persuasion}) sprawdź, powie bohaterom, że Falish przychodzi czasami na drinka lub dwa. Falish pojawia się wczesnym wieczorem drugiego dnia, bez miotacza ognia."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Kupcy",
+                  "page": 165,
+                  "id": "01a",
+                  "entries": [
+                    "Bardzo niewielu kupców na Tin Street zna Falisha, z wyjątkiem goblińskiej alchemicy o imieniu Noggra, która prowadzi aptekę o nazwie Noggra's Remedies. Noggra często opatruje rannych członków gangu po ich bójkach i czasami ukrywa ich przed prawem. Czasami sprzedaje falish alchemiczne substancje, aby ulepszyć swoją broń. Jej początkowy stosunek do partii jest obojętny. Jeśli postać zapyta ją o Falish i powiedzie się: {@dc 20} Charyzma ({@skill Intimidation} Lub {@skill Persuasion}) sprawdź, podaje lokalizację Falish. Postać, która oferuje Noggra 10 lub więcej sz, wykonuje ten test z korzyścią."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Rozmowy uliczne",
+                  "page": 165,
+                  "id": "01b",
+                  "entries": [
+                    "Postacie mogą po prostu rozpytać okolicę i spróbować odnaleźć Falisha. Jeśli tak, skorzystaj z zasad zbierania plotek z rozdziału „Wycieczka na ulice”."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Warsztat Falisha",
+              "page": 165,
+              "id": "01c",
+              "entries": [
+                "Gdy bohaterowie ustalą lokalizację Falisha i udają się tam, przeczytaj:",
+                {
+                  "type": "insetReadaloud",
+                  "id": "01d",
+                  "entries": [
+                    "Kierując się wskazówkami do sklepu Falisha, znajdziesz się w alejce za restauracją. W pobliżu tylnych drzwi do lokalu znajdują się mniejsze, zamknięte na kłódkę żelazne drzwi, które wyglądają, jakby pochodziły ze skarbca."
+                  ]
+                },
+                "Drzwi posiadają kłódkę wymagającą udanego otwarcia {@dc 15} Test zręczności do wybierania narzędziami złodzieja lub udany {@dc 20} Kontrola siły, aby wymusić otwarcie. Po otwarciu przeczytaj:",
+                {
+                  "type": "insetReadaloud",
+                  "id": "01e",
+                  "entries": [
+                    "Za drzwiami widać wąskie schody prowadzące dwadzieścia stóp w dół do miedzianych drzwi w kolorze zielonym, z zamkniętym przesuwanym wizjerem pośrodku."
+                  ]
+                },
+                "Te miedziane drzwi są zamknięte i wymagają powodzenia {@dc 15} Test zręczności za pomocą narzędzi złodziei do otwarcia. Można go również otworzyć siłą, jeśli zakończy się sukcesem {@dc 20} Kontrola siły. Drzwi są uwięzione przez {@spell glyph of warding} zaklęcie aktywujące się, gdy postać spróbuje wyłamać zamek lub wyważyć drzwi. Wyzwalane rzuty glifów {@spell sleep} na 3. poziomie, wpływając {@dice 9d8} punkty wytrzymałości stworzeń. Postać, która przeszukuje drzwi w poszukiwaniu pułapek, może wykryć glif z sukcesem {@dc 15} Inteligencja ({@skill Investigation}) sprawdzać.",
+                "Kiedy bohaterowie wejdą do pokoju, przeczytaj:",
+                {
+                  "type": "insetReadaloud",
+                  "id": "01f",
+                  "entries": [
+                    "Migotliwy blask latarni ukazuje chaotyczny pokój o długości trzydziestu stóp i szerokości dwudziestu stóp, wypełniony sprzętem, narzędziami i materiałami. Na ścianie wisi wszelkiego rodzaju broń. Pod stołami zapełnionymi butelkami upchane są pudła i małe skrzynki. Stół warsztatowy jest zawalony narzędziami. Z tyłu pokoju znajduje się mały salon z łóżkiem i dużym żelaznym piecem."
+                  ]
+                },
+                "Pokój ten służy jako laboratorium, salon wystawowy i mieszkanie dla Falisha, człowieka {@creature scorchbringer guard|GGR}. Zajmuje się bronią poddaną obróbce alchemicznej i materiałami wybuchowymi. Falish, renegatka wyrzucona z Ligi Izzet, utrzymuje kontakty w gildii, która zapewnia jej materiały, których używa do ulepszania broni. Sprzedaje swoje towary wielu gangom z Dziesiątej Dzielnicy.",
+                "Jeśli postać uruchomi glifową pułapkę na drzwiach, Falish chwyta swój sprzęt i tak szybko, jak to możliwe, wychodzi przez sekretne drzwi na tyłach swojej kwatery mieszkalnej, zamykając je za sobą. Sekretne drzwi prowadzą do tunelu prowadzącego do kanałów. Po zamknięciu sekretne drzwi można znaleźć z sukcesem {@dc 15} Mądrość ({@skill Perception}) sprawdzać.",
+                "Jeśli postacie zaskoczą Falish lub uda im się zakraść, zdaje sobie sprawę, że nie ma szybkiej ucieczki i jest gotowa do pewnego stopnia współpracować, aby wydostać bohaterów z jej domu. W zamian za wolność wyjawia następujące informacje:",
+                {
+                  "type": "list",
+                  "items": [
+                    "{@creature Krenko|KKW} skontaktował się z nią, aby dostarczyć trochę broni, materiałów wybuchowych i wszelkich magicznych przedmiotów, które posiadała, do punktu zrzutu na Foundry Street, przed Smokehouse Inn. Miała przybyć następnego dnia o zachodzie słońca {@creature Krenko|KKW}ucieczka.",
+                    "{@creature Krenko|KKW} planuje użyć tej broni do przeprowadzenia wyprzedzającego ataku na Braci Shattergang, aby potwierdzić, że odzyskał władzę.",
+                    "{@creature Krenko|KKW} prawdopodobnie ukrywa się gdzieś w pobliżu punktu zrzutu. Falish o tym wie {@creature Krenko|KKW} i jego ratownicy zostali zauważeni, jak wchodzili do kratki kanalizacyjnej na zachód od placu."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Skarb",
+                  "page": 166,
+                  "id": "020",
+                  "entries": [
+                    "Falish ma po jednym egzemplarzu każdej broni w serii {@book Player's Handbook|PHB} z ceną nie wyższą niż 25 sz, wiszącą na ścianach jej kwatery. Na jej stołach roboczych znajdują się trzy butle z ogniem alchemicznym, jedna fiolka kwasu, zapasy alchemika, narzędzia majsterkowicza, zestaw narzędzi złodziei i większość elementów potrzebnych do złożenia dwóch bomb. Pod jednym ze stołów znajduje się mała, zamykana na klucz skrytka wymagająca narzędzi złodzieja i udana {@dc 15} Test zręczności, aby otworzyć. Wewnątrz sejfu znajduje się 200 zino (szp), 3 paski mizzium (trwałego magicznego metalu) i {@item eversmoking bottle}."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ulica Odlewnicza",
+          "page": 166,
+          "id": "021",
+          "entries": [
+            "Ulica Foundry to miejsce, gdzie w Dziesiątej Dzielnicy odbywa się duża część produkcji. Robotnicy trudzą się dzień i noc, aby wyprodukować towary kupowane przez Ravnicanów na rynku oraz zaopatrywać Legion Boros w zbroję i broń.",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/KKW/113-433.webp"
+              },
+              "width": 1000,
+              "height": 735,
+              "credit": "Kirsten Zirngibl"
+            },
+            "Gobliny są powszechne w tej części miasta i rzeczywiście tak jest {@creature Krenko|KKW}teren gangu. Większość członków gangu już to wie {@creature Krenko|KKW} uciekł, a kłótnie między jego egzekutorami ucichły {@creature Krenko|KKW} z powrotem na ulice.",
+            "Większość mieszkańców okolic Foundry Street wie, że należy zgłaszać obecność Azoriusa lub wścibskich obcych członkom gangu goblinów, który pełni funkcję kapitana bloku. Jeśli bohaterowie będą prowadzić tu śledztwo, {@creature Krenko|KKW}Gang dowiaduje się o tym w ciągu pół godziny i wysyła ekipę, która ma zająć się sytuacją.",
+            {
+              "type": "entries",
+              "name": "Przyjęcie powitalne",
+              "page": 166,
+              "id": "022",
+              "entries": [
+                "{@creature Krenko|KKW}Gang goblinów zbliża się do bohaterów. Ich początkowe nastawienie jest wrogie, obrzucają obelgami i próbują zmusić bohaterów do opuszczenia ich terytorium. Jeśli poszukiwacze przygód nie zastosują się do tego, gobliny będą z nimi walczyć. Jeśli więcej niż połowa goblinów zostanie pokonana, pozostali członkowie gangu próbują uciec.",
+                "Gang, który zbliża się do grup, składa się z sześciu osób {@creature Goblin gang member|kkw|członkowie gangu goblinów}. Postać, która przesłuchuje schwytanego goblina i udaje mu się... {@dc 20} Charyzma ({@skill Intimidation}) sprawdź, uczy się {@creature Krenko|KKW}lokalizacja. Alternatywnie, postać, która zaoferuje goblinom łapówkę w wysokości 10 sz lub więcej i odniesie sukces na: {@dc 20} Charyzma ({@skill Persuasion}) check może uzyskać te same informacje."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Odpowiedź Shatterganga",
+              "page": 166,
+              "id": "023",
+              "entries": [
+                "Późnym wieczorem drugiego dnia bracia Shattergang wysadzili trzy z nich {@creature Krenko|KKW}kryjówek przy ulicy Foundry. Eksplozje przyciągają Senat Azoriusa, który wysyła dwudziestu {@creature soldier|GGR|żołnierski} zabezpiecz teren i przesłuchaj osoby postronne.",
+                "Postacie, które w tym czasie sprawiają kłopoty mieszkańcom Foundry Street, mogą zostać zatrzymane w komisariacie na Foundry Street w celu przesłuchania. Postacie są zatrzymywane za {@dice 1d4} godziny, chyba że któremuś z nich się powiedzie {@dc 20} Charyzma ({@skill Persuasion}) sprawdź, co skraca czas do 10 minut."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:00c": {
+      "type": "entries",
+      "name": "Kalendarium wydarzeń",
+      "page": 163,
+      "id": "00c",
+      "entries": [
+        "Oto harmonogram tego, co wydarzyło się od tego czasu {@creature Krenko|KKW} uciekł i co będzie w przyszłości, brak ingerencji. Gdy tylko poszukiwacze przygód zostaną zaangażowani, wydarzenia mogą się drastycznie zmienić, ale poniższa oś czasu nadal może pomóc ci określić, jak różni NPC zaangażowani w historię zareagują na działania postaci gracza.",
+        {
+          "type": "inset",
+          "id": "00d",
+          "entries": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                "{@b Wczesny poranek, dzień 1}: {@creature Krenko|KKW} ucieka.",
+                "{@b Późny poranek, dzień 1}: {@creature Krenko|KKW} spotyka się ze swoim gangiem i przygotowuje dla siebie przebranie.",
+                "{@b Południe, dzień 1}: {@creature Krenko|KKW} i jego gang zabezpieczają opuszczony magazyn jako tymczasową kryjówkę dla szefa mafii.",
+                "{@b Zachód słońca, dzień 1}: Poszukiwacze przygód otrzymują misję.",
+                "{@b Późny wieczór, dzień 1}: {@creature Krenko|KKW} składa zamówienie na broń u Falisha, handlarza ludzką bronią.",
+                "{@b Południe, dzień 2}: Dodatkowi funkcjonariusze z gangu {@creature Krenko|KKW} przybywają do kryjówki {@creature Krenko|KKW}.",
+                "{@b Zachód słońca, dzień 2}: Bracia Shattergang dowiadują się o ucieczce {@creature Krenko|KKW} i mobilizują się, aby go odnaleźć. Falish zostawia skład broni w punkcie zrzutu na Foundry Street, a goblin przenosi broń z powrotem do kryjówki {@creature Krenko|KKW}.",
+                "{@b Późny wieczór, dzień 2}: Eksplozje wstrząsają Foundry Street, gdy Bracia Shattergang zaczynają brutalnie wywierać nacisk na obywateli, o których wiadomo, że mają interesy z {@creature Krenko|KKW}. Kolumna Ljewa (organy ścigania Azorius) zostaje wysłana na Foundry Street w celu zbadania zamieszania.",
+                "{@b Przedświt, dzień 3}: Bracia Shattergang odkrywają lokalizację {@creature Krenko|KKW} i następuje tam wielka eksplozja, niszcząc budynek i zabijając wiele goblinów ({@creature Krenko|KKW} przetrwało).",
+                "{@b Południe, dzień 3}: Okolice Foundry Street są przedmiotem straszliwej przemocy gangów goblinów. Legion Boros zostaje wezwany do spacyfikowania okolicy."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:00e": {
+      "type": "entries",
+      "name": "Dokumentacja",
+      "page": 163,
+      "id": "00e",
+      "entries": [
+        "W aktach Więzienia Sawtooth poszukiwacze przygód mogą znaleźć następujące informacje:",
+        {
+          "type": "list",
+          "items": [
+            "{@creature Krenko|KKW} jest szefem mafii goblinów od kilku lat. Jego teren znajdował się wokół ulicy Foundry. Był osobą zamieszaną w liczne przestępstwa godne gangstera, ale do niedawna udało mu się uniknąć prawa.",
+            "{@creature Krenko|KKW} został aresztowany przez Gideona Jurę, wolnego strzelca współpracującego wówczas z Legionem Boros. {@creature Krenko|KKW} został uznany za winnego zamordowania Dargiga, jednego z braci Shattergang, oraz napaści z użyciem śmiercionośnego narzędzia na Gideona Jurę.",
+            "Bronią, którą miał przy sobie w chwili aresztowania, był magiczny nóż (nóż więzienny). Według doniesień może przebić się przez bariery siłowe. Nie wiadomo jak {@creature Krenko|KKW} zdobył broń.",
+            "{@creature Krenko|KKW}do godnych uwagi współpracowników zalicza się tajemniczy pan Taz (brak innych informacji) i zbuntowany wynalazca broni Izzet o imieniu Falish (kobieta, widziana w okolicach Tin Street). Obaj są także osobami zainteresowanymi Azoriusem."
+          ]
+        }
+      ]
+    },
+    "0:00f": {
+      "type": "entries",
+      "name": "Uderzanie w ulice",
+      "page": 163,
+      "id": "00f",
+      "entries": [
+        "Bohaterowie mogą podejść do śledztwa na kilka sposobów {@creature Krenko|KKW}miejsce pobytu: spotkania z kontaktami, rozsiewanie plotek lub odwiedzanie ważnych miejsc.",
+        {
+          "type": "entries",
+          "name": "Spotkaj się z Kontaktami",
+          "page": 163,
+          "id": "010",
+          "entries": [
+            "Jeśli postać ma odpowiedni kontakt, do którego może się zwrócić w celu uzyskania informacji, może zwrócić się do niego o pomoc. Umówienie się na spotkanie z osobą kontaktową zajmuje 1 godzinę {@dice 1d6} godziny, w których kontakt znajdzie jedną nieznaną wcześniej informację, chyba że będzie miał te informacje pod ręką."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Zbieraj plotki",
+          "page": 163,
+          "id": "011",
+          "entries": [
+            "Postacie mogą udawać się do miejsc publicznych w celu uzyskania informacji. Po {@dice 1d6} godzin, postać przeglądająca plotki tworzy {@dc 15} Charyzma ({@skill Persuasion}) sprawdzać. W przypadku powodzenia odkrywają jedną nieznaną wcześniej informację spośród podanych poniżej:",
+            {
+              "type": "list",
+              "items": [
+                "{@creature Krenko|KKW}nieobecność zaszkodziła reputacji jego gangu. Inne gangi wkraczają na jego terytorium i to tylko kwestia czasu, zanim na ulicach rozegra się kolejna walka o władzę.",
+                "Tin Street to tętniący życiem ośrodek handlu i terytorium braci Shattergang. Od tego czasu nabrali śmiałości {@creature Krenko|KKW} został odsunięty i przygotowują się do wojny, aby raz na zawsze pozbyć się jego gangu.",
+                "Ulica Foundry to miejsce, gdzie znajdują się zakłady produkcyjne Dziesiątej Dzielnicy i to wszystko {@creature Krenko|KKW}teren gangu. Jego egzekutorzy wciąż kłócą się o to, kto powinien przewodzić. Na razie wszyscy mają między sobą niełatwy rozejm.",
+                "Bardzo wcześnie na zachód od placu kilka goblinów wyciągało kratkę kanalizacyjną. Nie wyglądali na pracowników obsługi technicznej i grozili każdemu, kto podszedł zbyt blisko. Ustalono przybliżoną lokalizację tego zdarzenia."
+              ]
+            },
+            "W powyższych informacjach wymieniono trzy ważne dla przygody lokalizacje: kanały, Ulicę Odlewniczą i Ulicę Tin. Poniżej szczegółowo opisano każdą witrynę. Czas podróży (pieszo) pomiędzy dowolnymi dwoma tymi lokalizacjami wynosi od 30 minut do 1 godziny."
+          ]
+        }
+      ]
+    },
+    "0:010": {
+      "type": "entries",
+      "name": "Spotkaj się z Kontaktami",
+      "page": 163,
+      "id": "010",
+      "entries": [
+        "Jeśli postać ma odpowiedni kontakt, do którego może się zwrócić w celu uzyskania informacji, może zwrócić się do niego o pomoc. Umówienie się na spotkanie z osobą kontaktową zajmuje 1 godzinę {@dice 1d6} godziny, w których kontakt znajdzie jedną nieznaną wcześniej informację, chyba że będzie miał te informacje pod ręką."
+      ]
+    },
+    "0:011": {
+      "type": "entries",
+      "name": "Zbieraj plotki",
+      "page": 163,
+      "id": "011",
+      "entries": [
+        "Postacie mogą udawać się do miejsc publicznych w celu uzyskania informacji. Po {@dice 1d6} godzin, postać przeglądająca plotki tworzy {@dc 15} Charyzma ({@skill Persuasion}) sprawdzać. W przypadku powodzenia odkrywają jedną nieznaną wcześniej informację spośród podanych poniżej:",
+        {
+          "type": "list",
+          "items": [
+            "{@creature Krenko|KKW}nieobecność zaszkodziła reputacji jego gangu. Inne gangi wkraczają na jego terytorium i to tylko kwestia czasu, zanim na ulicach rozegra się kolejna walka o władzę.",
+            "Tin Street to tętniący życiem ośrodek handlu i terytorium braci Shattergang. Od tego czasu nabrali śmiałości {@creature Krenko|KKW} został odsunięty i przygotowują się do wojny, aby raz na zawsze pozbyć się jego gangu.",
+            "Ulica Foundry to miejsce, gdzie znajdują się zakłady produkcyjne Dziesiątej Dzielnicy i to wszystko {@creature Krenko|KKW}teren gangu. Jego egzekutorzy wciąż kłócą się o to, kto powinien przewodzić. Na razie wszyscy mają między sobą niełatwy rozejm.",
+            "Bardzo wcześnie na zachód od placu kilka goblinów wyciągało kratkę kanalizacyjną. Nie wyglądali na pracowników obsługi technicznej i grozili każdemu, kto podszedł zbyt blisko. Ustalono przybliżoną lokalizację tego zdarzenia."
+          ]
+        },
+        "W powyższych informacjach wymieniono trzy ważne dla przygody lokalizacje: kanały, Ulicę Odlewniczą i Ulicę Tin. Poniżej szczegółowo opisano każdą witrynę. Czas podróży (pieszo) pomiędzy dowolnymi dwoma tymi lokalizacjami wynosi od 30 minut do 1 godziny."
+      ]
+    },
+    "0:012": {
+      "type": "entries",
+      "name": "Kanały przy Plaza West",
+      "page": 164,
+      "id": "012",
+      "entries": [
+        "Postacie udające się na zachód od placu zgodnie z otrzymaną wcześniej wskazówką mogą szukać nieodpowiedniej kratki kanalizacyjnej. Trwa to 1 godzinę i kończy się sukcesem {@dc 10} Mądrość ({@skill Perception}) sprawdź, czy nie ma na nim kratki z zadrapaniami od łomu. Alternatywnie bohaterowie mogą przeprowadzić wywiad z mieszkańcami okolicy, co trwa pół godziny i kończy się sukcesem {@dc 10} Charyzma ({@skill Persuasion}) sprawdź, gdzie znajduje się ruszt.",
+        "Ruszt można z sukcesem podciągnąć {@dc 15} Kontrola siły. Po otwarciu kraty przeczytaj:",
+        {
+          "type": "insetReadaloud",
+          "id": "013",
+          "entries": [
+            "Okrągły szyb konserwacyjny zanurza się w ciemność. Do jednej strony szybu przykręcona jest żelazna drabina. Do nosa uderza ostry zapach ścieków. Na dnie widać słabe światło, oświetlające wodę wypełnioną śmieciami."
+          ]
+        },
+        "W szybie, który ciągnie się 50 stóp w dół, aż kończy się składaną drabiną ze zwisającym sznurem, nie ma źródła światła. Po rozłożeniu drabina sięga kolejnych 20 stóp do podłogi tunelu kanalizacyjnego. Gdy postacie opadną na podłogę, przeczytaj:",
+        {
+          "type": "insetReadaloud",
+          "id": "014",
+          "entries": [
+            "Stoisz po łydki w wodzie kanalizacyjnej, w słabo oświetlonym tunelu. Po obu stronach znajduje się podniesiony chodnik, który wyprowadza cię ze śmierdzącej, pełnej błota wody. Małe lampki mieszczące magiczne płomienie {@quickref Vision and Light||2||dim light}. Ściany porastają mchy i porosty."
+          ]
+        },
+        "Tunel jest słabo oświetlony przez małe {@spell continual flame} latarnie rozmieszczone co około 30 stóp po naprzemiennych stronach wysokiego na 20 stóp tunelu. Tunel kanalizacyjny ma 30 stóp szerokości i biegnie w obu kierunkach. Tunel ma podniesiony chodnik o szerokości 5 stóp i wysokości 5 stóp po obu stronach. W głównym przejściu płynie woda głęboka na 3 metry i śmierdzące odpady.",
+        "{@creature Krenko|KKW} i trzy inne gobliny przybyły tędy, kierując się do jego nowej kryjówki. Postacie mogą dostrzec ślady brudnych butów pozostawionych przez Małe stworzenia na jednym z chodników, udając im się {@dc 10} Mądrość ({@skill Perception}) sprawdzać. Po znalezieniu odcisków mogą kontynuować ich śledzenie w tunelach kanalizacyjnych, wykonując a {@dc 15} Mądrość ({@skill Survival}) sprawdzać. Za każdy dzień odkąd tu przybyły gobliny, dodaj 5 do ST czeku. Poruszanie się po krętych tunelach przy normalnej prędkości spaceru zajmuje 2 godziny. Tunele znajdują się w pobliżu terytorium Golgari, ale nad podziemnym miastem.",
+        "Za każdą godzinę, którą drużyna spędza w kanałach, rzuć a {@dice d20}. Jeśli wynik wynosi 15 lub więcej, drużyna ma spotkanie określone w wyniku rzutu na stole Spotkań w Kanałach.",
+        {
+          "type": "table",
+          "caption": "Spotkania z kanałami",
+          "colLabels": [
+            "d20",
+            "Spotkanie"
+          ],
+          "colStyles": [
+            "text-center col-2",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1-4",
+              "{@dice 1d4} {@creature cultist||kultyści} z Rakdos"
+            ],
+            [
+              "5-9",
+              "{@dice 2d4} {@creature Giant Rat||gigantyczne szczury}"
+            ],
+            [
+              "10-11",
+              "1 {@creature gray ooze}"
+            ],
+            [
+              "12-14",
+              "1 {@creature kraul warrior|GGR}"
+            ],
+            [
+              "15-18",
+              "1 {@creature swarm of centipedes||rój owadów (stonogi)}"
+            ],
+            [
+              "19-20",
+              "{@dice 1d4} {@creature zombie||zombie} pokryte grzybem"
+            ]
+          ]
+        },
+        "Tory kończą się przy kolejnym szybie konserwacyjnym w suficie tunelu. Z wału zwisa sznurek; pociągnięcie go powoduje odblokowanie składanej drabinki, po której można z łatwością się wspiąć. Wał zakończony jest rusztem, który z powodzeniem można odsunąć na bok {@dc 15} Kontrola siły.",
+        "Bohaterowie pojawiają się w alejce obok starego magazynu w doku nad kanałem w pobliżu Foundry Street, w komisariacie szóstym w dziesiątej dzielnicy. Tory prowadzą aż do magazynu."
+      ]
+    },
+    "0:015": {
+      "type": "entries",
+      "name": "Ulica Cynowa",
+      "page": 164,
+      "id": "015",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "016",
+          "entries": [
+            "Ten tętniący życiem obszar targowy jest pełen kupców, artystów, kupujących i biesiadników. W ciągu dnia Tin Street jest głównym miejscem zakupów i restauracji. Nocą teatry i tawerny ożywają."
+          ]
+        },
+        "Ulica Tin to jedna z dwóch alei przecinających całą Dziesiątą Dzielnicę (patrz {@book chapter 3|GGR|3|Główne sposoby handlu}). Tam, gdzie przechodzi przez komisariat szósty, bracia Shattergang zajęli znaczną jego część jako swój teren. Uważnie wypatrują aresztantów Azoriusa, członków rywalizujących gangów i każdego, kto zadaje zbyt wiele pytań.",
+        "Tin Street to także dom Falisha, zbuntowanego handlarza bronią z Izzeta, który za odpowiednią cenę dostarcza przestępcom broń i materiały wybuchowe.",
+        {
+          "type": "entries",
+          "name": "Podsłuchiwanie Shattergangu",
+          "page": 164,
+          "id": "017",
+          "entries": [
+            "Jeśli czek na zebranie plotek zakończy się niepowodzeniem o 5 lub więcej lub bohaterowie z innych powodów zachowują się niedyskretnie podczas przeszukiwania Tin Street, do braci Shattergang dociera wiadomość, o którą ktoś pytał {@creature Krenko|KKW}. Wysyłają niepozornie ubranego, paciorkowego oka {@creature goblin} o imieniu Erko, aby śledzić postacie (około 20 metrów) i zakradać się, aby podsłuchiwać rozmowy. Jeśli pasywna Mądrość postaci ({@skill Perception}) wynik jest równy lub większy od Zręczności goblina ({@skill Stealth}) sprawdź, ta postać zauważy, że jest śledzona lub obserwowana.",
+            "Jeśli Erko zauważy, że drużyna go widziała, spróbuje uciec z powrotem do jednej z kryjówek swojego gangu. Kiedy przemierza ruchliwy rynek Tin Street, możesz przeprowadzić tę scenę jako pościg, korzystając z zasad pościgu i tabeli Komplikacje pościgu miejskiego w {@book chapter 8|DMG|8|Pogoń za komplikacjami} z {@book Dungeon Master's Guide|DMG}.",
+            "Oprócz swojej broni Erko nosi flaszkę ognia alchemicznego, którą ciska w pierwszą istotę, która mu zagraża. Zobacz {@book chapter 5|PHB|5|Sprzęt poszukiwawczy} z {@book Player's Handbook|PHB}, aby zapoznać się z zasadami używania ognia alchemika.",
+            "Jeśli postać przesłuchuje Erko i zakończy się sukcesem: {@dc 10} Charyzma ({@skill Intimidation}) sprawdź, goblin wyjawia, że ​​pracuje dla Braci Shattergang, a oni są zainteresowani tym, co dzieje się na ich terenie. W żadnym wypadku nie zdradza ich kryjówki.",
+            "Jeśli Erko będzie śledził poszukiwaczy przygód wystarczająco długo, aby odkryć {@creature Krenko|KKW}miejscu, do którego przybywają Bracia Shattergang {@creature Krenko|KKW}kryjówka obowiązuje 2 godziny później."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Znalezienie Falisha",
+          "page": 165,
+          "id": "018",
+          "entries": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/KKW/112-432.webp"
+              },
+              "width": 1000,
+              "height": 1024,
+              "credit": "Noah Bradley"
+            },
+            "Zbuntowany handlarz bronią Izzet Falish mieszka i pracuje na Tin Street. Postacie mogą pytać po okolicy, aby odkryć lokalizację jej tajnego sklepu, ale uzyskanie informacji nie przychodzi łatwo.",
+            {
+              "type": "entries",
+              "name": "Tawerny",
+              "page": 165,
+              "id": "019",
+              "entries": [
+                "Falish regularnie odwiedza Millstone, obskurną tawernę serwującą dania szorstkim i hałaśliwym. Właścicielem tawerny i barmanem jest Wyroon, samiec minotaura z pękniętym rogiem i gburowatym usposobieniem. Kilka lat temu wyrzucono go z Legionu Boros za niesubordynację. Jego początkowa postawa jest obojętna, ale jeśli postać odniesie sukces na {@dc 10} Charyzma ({@skill Persuasion}) sprawdź, powie bohaterom, że Falish przychodzi czasami na drinka lub dwa. Falish pojawia się wczesnym wieczorem drugiego dnia, bez miotacza ognia."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Kupcy",
+              "page": 165,
+              "id": "01a",
+              "entries": [
+                "Bardzo niewielu kupców na Tin Street zna Falisha, z wyjątkiem goblińskiej alchemicy o imieniu Noggra, która prowadzi aptekę o nazwie Noggra's Remedies. Noggra często opatruje rannych członków gangu po ich bójkach i czasami ukrywa ich przed prawem. Czasami sprzedaje falish alchemiczne substancje, aby ulepszyć swoją broń. Jej początkowy stosunek do partii jest obojętny. Jeśli postać zapyta ją o Falish i powiedzie się: {@dc 20} Charyzma ({@skill Intimidation} Lub {@skill Persuasion}) sprawdź, podaje lokalizację Falish. Postać, która oferuje Noggra 10 lub więcej sz, wykonuje ten test z korzyścią."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Rozmowy uliczne",
+              "page": 165,
+              "id": "01b",
+              "entries": [
+                "Postacie mogą po prostu rozpytać okolicę i spróbować odnaleźć Falisha. Jeśli tak, skorzystaj z zasad zbierania plotek z rozdziału „Wycieczka na ulice”."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Warsztat Falisha",
+          "page": 165,
+          "id": "01c",
+          "entries": [
+            "Gdy bohaterowie ustalą lokalizację Falisha i udają się tam, przeczytaj:",
+            {
+              "type": "insetReadaloud",
+              "id": "01d",
+              "entries": [
+                "Kierując się wskazówkami do sklepu Falisha, znajdziesz się w alejce za restauracją. W pobliżu tylnych drzwi do lokalu znajdują się mniejsze, zamknięte na kłódkę żelazne drzwi, które wyglądają, jakby pochodziły ze skarbca."
+              ]
+            },
+            "Drzwi posiadają kłódkę wymagającą udanego otwarcia {@dc 15} Test zręczności do wybierania narzędziami złodzieja lub udany {@dc 20} Kontrola siły, aby wymusić otwarcie. Po otwarciu przeczytaj:",
+            {
+              "type": "insetReadaloud",
+              "id": "01e",
+              "entries": [
+                "Za drzwiami widać wąskie schody prowadzące dwadzieścia stóp w dół do miedzianych drzwi w kolorze zielonym, z zamkniętym przesuwanym wizjerem pośrodku."
+              ]
+            },
+            "Te miedziane drzwi są zamknięte i wymagają powodzenia {@dc 15} Test zręczności za pomocą narzędzi złodziei do otwarcia. Można go również otworzyć siłą, jeśli zakończy się sukcesem {@dc 20} Kontrola siły. Drzwi są uwięzione przez {@spell glyph of warding} zaklęcie aktywujące się, gdy postać spróbuje wyłamać zamek lub wyważyć drzwi. Wyzwalane rzuty glifów {@spell sleep} na 3. poziomie, wpływając {@dice 9d8} punkty wytrzymałości stworzeń. Postać, która przeszukuje drzwi w poszukiwaniu pułapek, może wykryć glif z sukcesem {@dc 15} Inteligencja ({@skill Investigation}) sprawdzać.",
+            "Kiedy bohaterowie wejdą do pokoju, przeczytaj:",
+            {
+              "type": "insetReadaloud",
+              "id": "01f",
+              "entries": [
+                "Migotliwy blask latarni ukazuje chaotyczny pokój o długości trzydziestu stóp i szerokości dwudziestu stóp, wypełniony sprzętem, narzędziami i materiałami. Na ścianie wisi wszelkiego rodzaju broń. Pod stołami zapełnionymi butelkami upchane są pudła i małe skrzynki. Stół warsztatowy jest zawalony narzędziami. Z tyłu pokoju znajduje się mały salon z łóżkiem i dużym żelaznym piecem."
+              ]
+            },
+            "Pokój ten służy jako laboratorium, salon wystawowy i mieszkanie dla Falisha, człowieka {@creature scorchbringer guard|GGR}. Zajmuje się bronią poddaną obróbce alchemicznej i materiałami wybuchowymi. Falish, renegatka wyrzucona z Ligi Izzet, utrzymuje kontakty w gildii, która zapewnia jej materiały, których używa do ulepszania broni. Sprzedaje swoje towary wielu gangom z Dziesiątej Dzielnicy.",
+            "Jeśli postać uruchomi glifową pułapkę na drzwiach, Falish chwyta swój sprzęt i tak szybko, jak to możliwe, wychodzi przez sekretne drzwi na tyłach swojej kwatery mieszkalnej, zamykając je za sobą. Sekretne drzwi prowadzą do tunelu prowadzącego do kanałów. Po zamknięciu sekretne drzwi można znaleźć z sukcesem {@dc 15} Mądrość ({@skill Perception}) sprawdzać.",
+            "Jeśli postacie zaskoczą Falish lub uda im się zakraść, zdaje sobie sprawę, że nie ma szybkiej ucieczki i jest gotowa do pewnego stopnia współpracować, aby wydostać bohaterów z jej domu. W zamian za wolność wyjawia następujące informacje:",
+            {
+              "type": "list",
+              "items": [
+                "{@creature Krenko|KKW} skontaktował się z nią, aby dostarczyć trochę broni, materiałów wybuchowych i wszelkich magicznych przedmiotów, które posiadała, do punktu zrzutu na Foundry Street, przed Smokehouse Inn. Miała przybyć następnego dnia o zachodzie słońca {@creature Krenko|KKW}ucieczka.",
+                "{@creature Krenko|KKW} planuje użyć tej broni do przeprowadzenia wyprzedzającego ataku na Braci Shattergang, aby potwierdzić, że odzyskał władzę.",
+                "{@creature Krenko|KKW} prawdopodobnie ukrywa się gdzieś w pobliżu punktu zrzutu. Falish o tym wie {@creature Krenko|KKW} i jego ratownicy zostali zauważeni, jak wchodzili do kratki kanalizacyjnej na zachód od placu."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Skarb",
+              "page": 166,
+              "id": "020",
+              "entries": [
+                "Falish ma po jednym egzemplarzu każdej broni w serii {@book Player's Handbook|PHB} z ceną nie wyższą niż 25 sz, wiszącą na ścianach jej kwatery. Na jej stołach roboczych znajdują się trzy butle z ogniem alchemicznym, jedna fiolka kwasu, zapasy alchemika, narzędzia majsterkowicza, zestaw narzędzi złodziei i większość elementów potrzebnych do złożenia dwóch bomb. Pod jednym ze stołów znajduje się mała, zamykana na klucz skrytka wymagająca narzędzi złodzieja i udana {@dc 15} Test zręczności, aby otworzyć. Wewnątrz sejfu znajduje się 200 zino (szp), 3 paski mizzium (trwałego magicznego metalu) i {@item eversmoking bottle}."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:017": {
+      "type": "entries",
+      "name": "Podsłuchiwanie Shattergangu",
+      "page": 164,
+      "id": "017",
+      "entries": [
+        "Jeśli czek na zebranie plotek zakończy się niepowodzeniem o 5 lub więcej lub bohaterowie z innych powodów zachowują się niedyskretnie podczas przeszukiwania Tin Street, do braci Shattergang dociera wiadomość, o którą ktoś pytał {@creature Krenko|KKW}. Wysyłają niepozornie ubranego, paciorkowego oka {@creature goblin} o imieniu Erko, aby śledzić postacie (około 20 metrów) i zakradać się, aby podsłuchiwać rozmowy. Jeśli pasywna Mądrość postaci ({@skill Perception}) wynik jest równy lub większy od Zręczności goblina ({@skill Stealth}) sprawdź, ta postać zauważy, że jest śledzona lub obserwowana.",
+        "Jeśli Erko zauważy, że drużyna go widziała, spróbuje uciec z powrotem do jednej z kryjówek swojego gangu. Kiedy przemierza ruchliwy rynek Tin Street, możesz przeprowadzić tę scenę jako pościg, korzystając z zasad pościgu i tabeli Komplikacje pościgu miejskiego w {@book chapter 8|DMG|8|Pogoń za komplikacjami} z {@book Dungeon Master's Guide|DMG}.",
+        "Oprócz swojej broni Erko nosi flaszkę ognia alchemicznego, którą ciska w pierwszą istotę, która mu zagraża. Zobacz {@book chapter 5|PHB|5|Sprzęt poszukiwawczy} z {@book Player's Handbook|PHB}, aby zapoznać się z zasadami używania ognia alchemika.",
+        "Jeśli postać przesłuchuje Erko i zakończy się sukcesem: {@dc 10} Charyzma ({@skill Intimidation}) sprawdź, goblin wyjawia, że ​​pracuje dla Braci Shattergang, a oni są zainteresowani tym, co dzieje się na ich terenie. W żadnym wypadku nie zdradza ich kryjówki.",
+        "Jeśli Erko będzie śledził poszukiwaczy przygód wystarczająco długo, aby odkryć {@creature Krenko|KKW}miejscu, do którego przybywają Bracia Shattergang {@creature Krenko|KKW}kryjówka obowiązuje 2 godziny później."
+      ]
+    },
+    "0:018": {
+      "type": "entries",
+      "name": "Znalezienie Falisha",
+      "page": 165,
+      "id": "018",
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/KKW/112-432.webp"
+          },
+          "width": 1000,
+          "height": 1024,
+          "credit": "Noah Bradley"
+        },
+        "Zbuntowany handlarz bronią Izzet Falish mieszka i pracuje na Tin Street. Postacie mogą pytać po okolicy, aby odkryć lokalizację jej tajnego sklepu, ale uzyskanie informacji nie przychodzi łatwo.",
+        {
+          "type": "entries",
+          "name": "Tawerny",
+          "page": 165,
+          "id": "019",
+          "entries": [
+            "Falish regularnie odwiedza Millstone, obskurną tawernę serwującą dania szorstkim i hałaśliwym. Właścicielem tawerny i barmanem jest Wyroon, samiec minotaura z pękniętym rogiem i gburowatym usposobieniem. Kilka lat temu wyrzucono go z Legionu Boros za niesubordynację. Jego początkowa postawa jest obojętna, ale jeśli postać odniesie sukces na {@dc 10} Charyzma ({@skill Persuasion}) sprawdź, powie bohaterom, że Falish przychodzi czasami na drinka lub dwa. Falish pojawia się wczesnym wieczorem drugiego dnia, bez miotacza ognia."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Kupcy",
+          "page": 165,
+          "id": "01a",
+          "entries": [
+            "Bardzo niewielu kupców na Tin Street zna Falisha, z wyjątkiem goblińskiej alchemicy o imieniu Noggra, która prowadzi aptekę o nazwie Noggra's Remedies. Noggra często opatruje rannych członków gangu po ich bójkach i czasami ukrywa ich przed prawem. Czasami sprzedaje falish alchemiczne substancje, aby ulepszyć swoją broń. Jej początkowy stosunek do partii jest obojętny. Jeśli postać zapyta ją o Falish i powiedzie się: {@dc 20} Charyzma ({@skill Intimidation} Lub {@skill Persuasion}) sprawdź, podaje lokalizację Falish. Postać, która oferuje Noggra 10 lub więcej sz, wykonuje ten test z korzyścią."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Rozmowy uliczne",
+          "page": 165,
+          "id": "01b",
+          "entries": [
+            "Postacie mogą po prostu rozpytać okolicę i spróbować odnaleźć Falisha. Jeśli tak, skorzystaj z zasad zbierania plotek z rozdziału „Wycieczka na ulice”."
+          ]
+        }
+      ]
+    },
+    "0:019": {
+      "type": "entries",
+      "name": "Tawerny",
+      "page": 165,
+      "id": "019",
+      "entries": [
+        "Falish regularnie odwiedza Millstone, obskurną tawernę serwującą dania szorstkim i hałaśliwym. Właścicielem tawerny i barmanem jest Wyroon, samiec minotaura z pękniętym rogiem i gburowatym usposobieniem. Kilka lat temu wyrzucono go z Legionu Boros za niesubordynację. Jego początkowa postawa jest obojętna, ale jeśli postać odniesie sukces na {@dc 10} Charyzma ({@skill Persuasion}) sprawdź, powie bohaterom, że Falish przychodzi czasami na drinka lub dwa. Falish pojawia się wczesnym wieczorem drugiego dnia, bez miotacza ognia."
+      ]
+    },
+    "0:01a": {
+      "type": "entries",
+      "name": "Kupcy",
+      "page": 165,
+      "id": "01a",
+      "entries": [
+        "Bardzo niewielu kupców na Tin Street zna Falisha, z wyjątkiem goblińskiej alchemicy o imieniu Noggra, która prowadzi aptekę o nazwie Noggra's Remedies. Noggra często opatruje rannych członków gangu po ich bójkach i czasami ukrywa ich przed prawem. Czasami sprzedaje falish alchemiczne substancje, aby ulepszyć swoją broń. Jej początkowy stosunek do partii jest obojętny. Jeśli postać zapyta ją o Falish i powiedzie się: {@dc 20} Charyzma ({@skill Intimidation} Lub {@skill Persuasion}) sprawdź, podaje lokalizację Falish. Postać, która oferuje Noggra 10 lub więcej sz, wykonuje ten test z korzyścią."
+      ]
+    },
+    "0:01b": {
+      "type": "entries",
+      "name": "Rozmowy uliczne",
+      "page": 165,
+      "id": "01b",
+      "entries": [
+        "Postacie mogą po prostu rozpytać okolicę i spróbować odnaleźć Falisha. Jeśli tak, skorzystaj z zasad zbierania plotek z rozdziału „Wycieczka na ulice”."
+      ]
+    },
+    "0:01c": {
+      "type": "entries",
+      "name": "Warsztat Falisha",
+      "page": 165,
+      "id": "01c",
+      "entries": [
+        "Gdy bohaterowie ustalą lokalizację Falisha i udają się tam, przeczytaj:",
+        {
+          "type": "insetReadaloud",
+          "id": "01d",
+          "entries": [
+            "Kierując się wskazówkami do sklepu Falisha, znajdziesz się w alejce za restauracją. W pobliżu tylnych drzwi do lokalu znajdują się mniejsze, zamknięte na kłódkę żelazne drzwi, które wyglądają, jakby pochodziły ze skarbca."
+          ]
+        },
+        "Drzwi posiadają kłódkę wymagającą udanego otwarcia {@dc 15} Test zręczności do wybierania narzędziami złodzieja lub udany {@dc 20} Kontrola siły, aby wymusić otwarcie. Po otwarciu przeczytaj:",
+        {
+          "type": "insetReadaloud",
+          "id": "01e",
+          "entries": [
+            "Za drzwiami widać wąskie schody prowadzące dwadzieścia stóp w dół do miedzianych drzwi w kolorze zielonym, z zamkniętym przesuwanym wizjerem pośrodku."
+          ]
+        },
+        "Te miedziane drzwi są zamknięte i wymagają powodzenia {@dc 15} Test zręczności za pomocą narzędzi złodziei do otwarcia. Można go również otworzyć siłą, jeśli zakończy się sukcesem {@dc 20} Kontrola siły. Drzwi są uwięzione przez {@spell glyph of warding} zaklęcie aktywujące się, gdy postać spróbuje wyłamać zamek lub wyważyć drzwi. Wyzwalane rzuty glifów {@spell sleep} na 3. poziomie, wpływając {@dice 9d8} punkty wytrzymałości stworzeń. Postać, która przeszukuje drzwi w poszukiwaniu pułapek, może wykryć glif z sukcesem {@dc 15} Inteligencja ({@skill Investigation}) sprawdzać.",
+        "Kiedy bohaterowie wejdą do pokoju, przeczytaj:",
+        {
+          "type": "insetReadaloud",
+          "id": "01f",
+          "entries": [
+            "Migotliwy blask latarni ukazuje chaotyczny pokój o długości trzydziestu stóp i szerokości dwudziestu stóp, wypełniony sprzętem, narzędziami i materiałami. Na ścianie wisi wszelkiego rodzaju broń. Pod stołami zapełnionymi butelkami upchane są pudła i małe skrzynki. Stół warsztatowy jest zawalony narzędziami. Z tyłu pokoju znajduje się mały salon z łóżkiem i dużym żelaznym piecem."
+          ]
+        },
+        "Pokój ten służy jako laboratorium, salon wystawowy i mieszkanie dla Falisha, człowieka {@creature scorchbringer guard|GGR}. Zajmuje się bronią poddaną obróbce alchemicznej i materiałami wybuchowymi. Falish, renegatka wyrzucona z Ligi Izzet, utrzymuje kontakty w gildii, która zapewnia jej materiały, których używa do ulepszania broni. Sprzedaje swoje towary wielu gangom z Dziesiątej Dzielnicy.",
+        "Jeśli postać uruchomi glifową pułapkę na drzwiach, Falish chwyta swój sprzęt i tak szybko, jak to możliwe, wychodzi przez sekretne drzwi na tyłach swojej kwatery mieszkalnej, zamykając je za sobą. Sekretne drzwi prowadzą do tunelu prowadzącego do kanałów. Po zamknięciu sekretne drzwi można znaleźć z sukcesem {@dc 15} Mądrość ({@skill Perception}) sprawdzać.",
+        "Jeśli postacie zaskoczą Falish lub uda im się zakraść, zdaje sobie sprawę, że nie ma szybkiej ucieczki i jest gotowa do pewnego stopnia współpracować, aby wydostać bohaterów z jej domu. W zamian za wolność wyjawia następujące informacje:",
+        {
+          "type": "list",
+          "items": [
+            "{@creature Krenko|KKW} skontaktował się z nią, aby dostarczyć trochę broni, materiałów wybuchowych i wszelkich magicznych przedmiotów, które posiadała, do punktu zrzutu na Foundry Street, przed Smokehouse Inn. Miała przybyć następnego dnia o zachodzie słońca {@creature Krenko|KKW}ucieczka.",
+            "{@creature Krenko|KKW} planuje użyć tej broni do przeprowadzenia wyprzedzającego ataku na Braci Shattergang, aby potwierdzić, że odzyskał władzę.",
+            "{@creature Krenko|KKW} prawdopodobnie ukrywa się gdzieś w pobliżu punktu zrzutu. Falish o tym wie {@creature Krenko|KKW} i jego ratownicy zostali zauważeni, jak wchodzili do kratki kanalizacyjnej na zachód od placu."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Skarb",
+          "page": 166,
+          "id": "020",
+          "entries": [
+            "Falish ma po jednym egzemplarzu każdej broni w serii {@book Player's Handbook|PHB} z ceną nie wyższą niż 25 sz, wiszącą na ścianach jej kwatery. Na jej stołach roboczych znajdują się trzy butle z ogniem alchemicznym, jedna fiolka kwasu, zapasy alchemika, narzędzia majsterkowicza, zestaw narzędzi złodziei i większość elementów potrzebnych do złożenia dwóch bomb. Pod jednym ze stołów znajduje się mała, zamykana na klucz skrytka wymagająca narzędzi złodzieja i udana {@dc 15} Test zręczności, aby otworzyć. Wewnątrz sejfu znajduje się 200 zino (szp), 3 paski mizzium (trwałego magicznego metalu) i {@item eversmoking bottle}."
+          ]
+        }
+      ]
+    },
+    "0:020": {
+      "type": "entries",
+      "name": "Skarb",
+      "page": 166,
+      "id": "020",
+      "entries": [
+        "Falish ma po jednym egzemplarzu każdej broni w serii {@book Player's Handbook|PHB} z ceną nie wyższą niż 25 sz, wiszącą na ścianach jej kwatery. Na jej stołach roboczych znajdują się trzy butle z ogniem alchemicznym, jedna fiolka kwasu, zapasy alchemika, narzędzia majsterkowicza, zestaw narzędzi złodziei i większość elementów potrzebnych do złożenia dwóch bomb. Pod jednym ze stołów znajduje się mała, zamykana na klucz skrytka wymagająca narzędzi złodzieja i udana {@dc 15} Test zręczności, aby otworzyć. Wewnątrz sejfu znajduje się 200 zino (szp), 3 paski mizzium (trwałego magicznego metalu) i {@item eversmoking bottle}."
+      ]
+    },
+    "0:021": {
+      "type": "entries",
+      "name": "Ulica Odlewnicza",
+      "page": 166,
+      "id": "021",
+      "entries": [
+        "Ulica Foundry to miejsce, gdzie w Dziesiątej Dzielnicy odbywa się duża część produkcji. Robotnicy trudzą się dzień i noc, aby wyprodukować towary kupowane przez Ravnicanów na rynku oraz zaopatrywać Legion Boros w zbroję i broń.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/KKW/113-433.webp"
+          },
+          "width": 1000,
+          "height": 735,
+          "credit": "Kirsten Zirngibl"
+        },
+        "Gobliny są powszechne w tej części miasta i rzeczywiście tak jest {@creature Krenko|KKW}teren gangu. Większość członków gangu już to wie {@creature Krenko|KKW} uciekł, a kłótnie między jego egzekutorami ucichły {@creature Krenko|KKW} z powrotem na ulice.",
+        "Większość mieszkańców okolic Foundry Street wie, że należy zgłaszać obecność Azoriusa lub wścibskich obcych członkom gangu goblinów, który pełni funkcję kapitana bloku. Jeśli bohaterowie będą prowadzić tu śledztwo, {@creature Krenko|KKW}Gang dowiaduje się o tym w ciągu pół godziny i wysyła ekipę, która ma zająć się sytuacją.",
+        {
+          "type": "entries",
+          "name": "Przyjęcie powitalne",
+          "page": 166,
+          "id": "022",
+          "entries": [
+            "{@creature Krenko|KKW}Gang goblinów zbliża się do bohaterów. Ich początkowe nastawienie jest wrogie, obrzucają obelgami i próbują zmusić bohaterów do opuszczenia ich terytorium. Jeśli poszukiwacze przygód nie zastosują się do tego, gobliny będą z nimi walczyć. Jeśli więcej niż połowa goblinów zostanie pokonana, pozostali członkowie gangu próbują uciec.",
+            "Gang, który zbliża się do grup, składa się z sześciu osób {@creature Goblin gang member|kkw|członkowie gangu goblinów}. Postać, która przesłuchuje schwytanego goblina i udaje mu się... {@dc 20} Charyzma ({@skill Intimidation}) sprawdź, uczy się {@creature Krenko|KKW}lokalizacja. Alternatywnie, postać, która zaoferuje goblinom łapówkę w wysokości 10 sz lub więcej i odniesie sukces na: {@dc 20} Charyzma ({@skill Persuasion}) check może uzyskać te same informacje."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Odpowiedź Shatterganga",
+          "page": 166,
+          "id": "023",
+          "entries": [
+            "Późnym wieczorem drugiego dnia bracia Shattergang wysadzili trzy z nich {@creature Krenko|KKW}kryjówek przy ulicy Foundry. Eksplozje przyciągają Senat Azoriusa, który wysyła dwudziestu {@creature soldier|GGR|żołnierski} zabezpiecz teren i przesłuchaj osoby postronne.",
+            "Postacie, które w tym czasie sprawiają kłopoty mieszkańcom Foundry Street, mogą zostać zatrzymane w komisariacie na Foundry Street w celu przesłuchania. Postacie są zatrzymywane za {@dice 1d4} godziny, chyba że któremuś z nich się powiedzie {@dc 20} Charyzma ({@skill Persuasion}) sprawdź, co skraca czas do 10 minut."
+          ]
+        }
+      ]
+    },
+    "0:022": {
+      "type": "entries",
+      "name": "Przyjęcie powitalne",
+      "page": 166,
+      "id": "022",
+      "entries": [
+        "{@creature Krenko|KKW}Gang goblinów zbliża się do bohaterów. Ich początkowe nastawienie jest wrogie, obrzucają obelgami i próbują zmusić bohaterów do opuszczenia ich terytorium. Jeśli poszukiwacze przygód nie zastosują się do tego, gobliny będą z nimi walczyć. Jeśli więcej niż połowa goblinów zostanie pokonana, pozostali członkowie gangu próbują uciec.",
+        "Gang, który zbliża się do grup, składa się z sześciu osób {@creature Goblin gang member|kkw|członkowie gangu goblinów}. Postać, która przesłuchuje schwytanego goblina i udaje mu się... {@dc 20} Charyzma ({@skill Intimidation}) sprawdź, uczy się {@creature Krenko|KKW}lokalizacja. Alternatywnie, postać, która zaoferuje goblinom łapówkę w wysokości 10 sz lub więcej i odniesie sukces na: {@dc 20} Charyzma ({@skill Persuasion}) check może uzyskać te same informacje."
+      ]
+    },
+    "0:023": {
+      "type": "entries",
+      "name": "Odpowiedź Shatterganga",
+      "page": 166,
+      "id": "023",
+      "entries": [
+        "Późnym wieczorem drugiego dnia bracia Shattergang wysadzili trzy z nich {@creature Krenko|KKW}kryjówek przy ulicy Foundry. Eksplozje przyciągają Senat Azoriusa, który wysyła dwudziestu {@creature soldier|GGR|żołnierski} zabezpiecz teren i przesłuchaj osoby postronne.",
+        "Postacie, które w tym czasie sprawiają kłopoty mieszkańcom Foundry Street, mogą zostać zatrzymane w komisariacie na Foundry Street w celu przesłuchania. Postacie są zatrzymywane za {@dice 1d4} godziny, chyba że któremuś z nich się powiedzie {@dc 20} Charyzma ({@skill Persuasion}) sprawdź, co skraca czas do 10 minut."
+      ]
+    },
+    "0:024": {
+      "type": "section",
+      "name": "Kryjówka Krenko",
+      "page": 167,
+      "id": "024",
+      "entries": [
+        "Postacie mogą się zlokalizować {@creature Krenko|KKW}do kryjówki albo przesłuchując członków jego gangu, podążając śladami w kanałach, albo podążając za goblinem z miejsca zrzutu, gdzie opuszcza Falish {@creature Krenko|KKW}broń. Gdy już odnajdą magazyn, przeczytaj:",
+        {
+          "type": "insetReadaloud",
+          "id": "025",
+          "entries": [
+            "Na skraju kanału stoi duży, poplamiony sadzą drewniany budynek z wyblakłym symbolem Legionu Boros, a jego belki są popękane i nadpalone. Zamknięte drzwi wykuszowe skierowane są na północ, w stronę wody, a od budynku biegnie drewniany tor aż do krawędzi molo. Podobne drzwi wykuszowe skierowane są na południe, w stronę głównej ulicy. Po bokach alei budynku znajduje się dwoje drzwi - podwójne od strony zachodniej i pojedyncze od strony wschodniej."
+          ]
+        },
+        "W tym starym magazynie przechowywano sprzęt z pobliskich odlewni na użytek Legionu Boros. Kilka lat temu został poważnie spalony podczas wojny gangów i od tego czasu został opuszczony przez Boros. {@creature Krenko|KKW}gang używał go od czasu do czasu jako tajnego miejsca spotkań i teraz {@creature Krenko|KKW} używa go jako swojej kryjówki.",
+        "Magazyn ma 40 stóp wysokości, 60 stóp szerokości i 120 stóp długości. Nie ma okien, ale zewnętrzne ściany są kruche i zniszczone przez ogień; w różnych miejscach otworzyło się kilka małych otworów o średnicy 1 lub 2 stóp. Zadając 5 obrażeń fragmentowi ściany, tworzy się otwór, przez który może przejść średnie lub mniejsze stworzenie.",
+        {
+          "type": "entries",
+          "name": "Gang Krenko",
+          "page": 167,
+          "id": "026",
+          "entries": [
+            "Wszyscy członkowie gangu {@creature Krenko|KKW} to {@creature Goblin gang member|kkw|członkowie gangu goblinów}. Każdy goblin nosi gwizdek (noszony na linie na szyi), w który może zadąć, aby włączyć alarm. Goblin może nosić inny przedmiot, który zdobył gdzie indziej i wykorzystać go w walce, jeśli nadarzy się okazja. Możesz rzucić lub wybrać jeden z przedmiotów z tabeli Posiadłości Gangu Goblinów. Więcej informacji na temat tych pozycji można znaleźć w {@book chapter 5|PHB|5|Sprzęt poszukiwawczy} w {@book Player's Handbook|PHB}.",
+            {
+              "type": "table",
+              "caption": "Majątek gangu goblinów",
+              "colLabels": [
+                "d20",
+                "Przedmiot"
+              ],
+              "colStyles": [
+                "text-center col-2",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1-10",
+                  "Brak dodatkowego elementu"
+                ],
+                [
+                  "11-12",
+                  "Fiolka z kwasem"
+                ],
+                [
+                  "13-14",
+                  "Flasza ognia alchemika"
+                ],
+                [
+                  "15-16",
+                  "Łożyska kulkowe"
+                ],
+                [
+                  "17-18",
+                  "Kotlety"
+                ],
+                [
+                  "19-20",
+                  "Fiolka z podstawową trucizną"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Punkty widokowe",
+          "page": 167,
+          "id": "027",
+          "entries": [
+            "A {@creature goblin gang member|kkw} jest wywieszony za każdymi drzwiami. Jeśli strażnik widzi jedną lub więcej postaci zbliżających się do magazynu, sygnalizuje to pozostałym strażnikom, dmuchając w gwizdek na szyi. Pozostaje czujny, ale nie sygnalizuje innym, jeśli postacie są widoczne na ulicy, ale nie docierają do magazynu. Gobliny nie korzystają ze źródeł światła w nocy, polegając na nich {@sense darkvision}.",
+            "Postacie mogą poświęcić trochę czasu na obserwację punktów widokowych z daleka. Dachy pobliskich budynków stanowią doskonałe punkty widokowe. Budynki po drugiej stronie głównej ulicy znajdują się w odległości 15 metrów; te w alejkach są 20 stóp dalej.",
+            {
+              "type": "entries",
+              "name": "Zmiana warty",
+              "page": 167,
+              "id": "028",
+              "entries": [
+                "Co 4 godziny nowe gobliny z {@creature Krenko|KKW}gang przybywa, aby odciążyć obserwatorów. W tym czasie są zwykle rozproszeni, gdy rozmawiają między sobą {@dice 1d10} protokół. Kiedy postacie są rozproszone, mają przewagę w zakresie dowolnej Zręczności ({@skill Stealth}) sprawdza, czy ukryć się lub cicho poruszać po okolicy."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Dzień 2 Przyloty",
+          "page": 167,
+          "id": "029",
+          "entries": [
+            "Drugiego dnia w południe przybywają cztery kolejne gobliny. Dwóch ustawia się na wybiegu, a dwóch spaceruje po magazynie."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Dzień 3 Chaos",
+          "page": 167,
+          "id": "02a",
+          "entries": [
+            "O świcie trzeciego dnia braciom Shattergang w końcu udaje się to odkryć {@creature Krenko|KKW}miejsce pobytu i wyślij dziesięcioosobowy zespół {@creature goblin||gobliny} rzucać bomby na magazyn i jego mieszkańców.",
+            "Oprócz normalnego wyposażenia, każdy z tych goblinów nosi po jednej bombie. W ramach akcji goblin może zapalić bombę i rzucić ją w odległość do 60 stóp. Każde stworzenie w promieniu 5 stóp od tego punktu musi odnieść sukces {@dc 12} Rzut obronny na Zręczność lub weź 10 ({@dice 3d6}) obrażenia od ognia.",
+            "Wszyscy, którzy przeżyli {@creature Krenko|KKW}Po tym ataku gang ucieka z magazynu i rozchodzi się po mieście."
+          ]
+        }
+      ]
+    },
+    "0:026": {
+      "type": "entries",
+      "name": "Gang Krenko",
+      "page": 167,
+      "id": "026",
+      "entries": [
+        "Wszyscy członkowie gangu {@creature Krenko|KKW} to {@creature Goblin gang member|kkw|członkowie gangu goblinów}. Każdy goblin nosi gwizdek (noszony na linie na szyi), w który może zadąć, aby włączyć alarm. Goblin może nosić inny przedmiot, który zdobył gdzie indziej i wykorzystać go w walce, jeśli nadarzy się okazja. Możesz rzucić lub wybrać jeden z przedmiotów z tabeli Posiadłości Gangu Goblinów. Więcej informacji na temat tych pozycji można znaleźć w {@book chapter 5|PHB|5|Sprzęt poszukiwawczy} w {@book Player's Handbook|PHB}.",
+        {
+          "type": "table",
+          "caption": "Majątek gangu goblinów",
+          "colLabels": [
+            "d20",
+            "Przedmiot"
+          ],
+          "colStyles": [
+            "text-center col-2",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1-10",
+              "Brak dodatkowego elementu"
+            ],
+            [
+              "11-12",
+              "Fiolka z kwasem"
+            ],
+            [
+              "13-14",
+              "Flasza ognia alchemika"
+            ],
+            [
+              "15-16",
+              "Łożyska kulkowe"
+            ],
+            [
+              "17-18",
+              "Kotlety"
+            ],
+            [
+              "19-20",
+              "Fiolka z podstawową trucizną"
+            ]
+          ]
+        }
+      ]
+    },
+    "0:027": {
+      "type": "entries",
+      "name": "Punkty widokowe",
+      "page": 167,
+      "id": "027",
+      "entries": [
+        "A {@creature goblin gang member|kkw} jest wywieszony za każdymi drzwiami. Jeśli strażnik widzi jedną lub więcej postaci zbliżających się do magazynu, sygnalizuje to pozostałym strażnikom, dmuchając w gwizdek na szyi. Pozostaje czujny, ale nie sygnalizuje innym, jeśli postacie są widoczne na ulicy, ale nie docierają do magazynu. Gobliny nie korzystają ze źródeł światła w nocy, polegając na nich {@sense darkvision}.",
+        "Postacie mogą poświęcić trochę czasu na obserwację punktów widokowych z daleka. Dachy pobliskich budynków stanowią doskonałe punkty widokowe. Budynki po drugiej stronie głównej ulicy znajdują się w odległości 15 metrów; te w alejkach są 20 stóp dalej.",
+        {
+          "type": "entries",
+          "name": "Zmiana warty",
+          "page": 167,
+          "id": "028",
+          "entries": [
+            "Co 4 godziny nowe gobliny z {@creature Krenko|KKW}gang przybywa, aby odciążyć obserwatorów. W tym czasie są zwykle rozproszeni, gdy rozmawiają między sobą {@dice 1d10} protokół. Kiedy postacie są rozproszone, mają przewagę w zakresie dowolnej Zręczności ({@skill Stealth}) sprawdza, czy ukryć się lub cicho poruszać po okolicy."
+          ]
+        }
+      ]
+    },
+    "0:028": {
+      "type": "entries",
+      "name": "Zmiana warty",
+      "page": 167,
+      "id": "028",
+      "entries": [
+        "Co 4 godziny nowe gobliny z {@creature Krenko|KKW}gang przybywa, aby odciążyć obserwatorów. W tym czasie są zwykle rozproszeni, gdy rozmawiają między sobą {@dice 1d10} protokół. Kiedy postacie są rozproszone, mają przewagę w zakresie dowolnej Zręczności ({@skill Stealth}) sprawdza, czy ukryć się lub cicho poruszać po okolicy."
+      ]
+    },
+    "0:029": {
+      "type": "entries",
+      "name": "Dzień 2 Przyloty",
+      "page": 167,
+      "id": "029",
+      "entries": [
+        "Drugiego dnia w południe przybywają cztery kolejne gobliny. Dwóch ustawia się na wybiegu, a dwóch spaceruje po magazynie."
+      ]
+    },
+    "0:02a": {
+      "type": "entries",
+      "name": "Dzień 3 Chaos",
+      "page": 167,
+      "id": "02a",
+      "entries": [
+        "O świcie trzeciego dnia braciom Shattergang w końcu udaje się to odkryć {@creature Krenko|KKW}miejsce pobytu i wyślij dziesięcioosobowy zespół {@creature goblin||gobliny} rzucać bomby na magazyn i jego mieszkańców.",
+        "Oprócz normalnego wyposażenia, każdy z tych goblinów nosi po jednej bombie. W ramach akcji goblin może zapalić bombę i rzucić ją w odległość do 60 stóp. Każde stworzenie w promieniu 5 stóp od tego punktu musi odnieść sukces {@dc 12} Rzut obronny na Zręczność lub weź 10 ({@dice 3d6}) obrażenia od ognia.",
+        "Wszyscy, którzy przeżyli {@creature Krenko|KKW}Po tym ataku gang ucieka z magazynu i rozchodzi się po mieście."
+      ]
+    },
+    "0:02b": {
+      "type": "section",
+      "name": "Lokalizacje magazynów",
+      "page": 168,
+      "id": "02b",
+      "entries": [
+        "Poniższe lokalizacje są przypisane do mapy 4.11, która pokazuje wnętrze magazynu.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/KKW/114-434.webp"
+          },
+          "width": 2513,
+          "height": 3338,
+          "credit": "Dyson Logos",
+          "imageType": "mapa",
+          "title": "Mapa 4.11: Kryjówka Krenko",
+          "grid": {
+            "type": "square",
+            "size": 239,
+            "offsetX": 54,
+            "offsetY": 98,
+            "scale": 3
+          },
+          "id": "039"
+        },
+        {
+          "type": "entries",
+          "name": "Biuro",
+          "page": 168,
+          "id": "02c",
+          "entries": [
+            "Ten pokój jest nieoświetlony. Jeśli postacie mają {@sense darkvision} lub źródło światła, opisz pomieszczenie w następujący sposób:",
+            {
+              "type": "insetReadaloud",
+              "id": "02d",
+              "entries": [
+                "Pokój ten ma powierzchnię dwudziestu stóp kwadratowych i sufit wysoki na trzy metry. Wygląda na biuro i prowizoryczne pomieszczenia mieszkalne. Na środku pokoju stoi ciężki drewniany stół, otoczony sześcioma krzesłami. Pod nim znajduje się żelazna skrzynia. Od południa znajduje się łóżko przykryte kocami. Obok znajduje się worek pełen ubrań i resztek kilku posiłków podawanych na eleganckiej zastawie stołowej. Drzwi znajdują się pośrodku ściany od wschodu, a obok nich znajduje się duże okno, z którego roztacza się widok na magazyn znajdujący się za nimi."
+              ]
+            },
+            "{@b Krenko} (patrz poniżej) zaszył się tutaj - z dwoma {@creature Goblin Boss||goblińscy bossowie}, które służą mu jako jego egzekutorzy - planując wyprzedzający atak na Braci Shattergang. Oprócz swojej broni {@creature Krenko|KKW} nosi fiolkę z kwasem, flaszkę ognia alchemicznego, worek koteczków, fiolkę z podstawową trucizną i klucz do żelaznej skrzyni skarbowej (patrz „Skarb” poniżej).",
+            {
+              "type": "entries",
+              "name": "Skarb",
+              "page": 168,
+              "id": "02e",
+              "entries": [
+                "W żelaznej kasie pod biurkiem znajdują się fundusze, które {@creature Krenko|KKW} zbierał, aby spłacić Falisha. Jest zamknięta i można ją otworzyć za pomocą klucza posiadanego przez {@creature Krenko|KKW} lub za pomocą narzędzi złodziei i pomyślnego testu Zręczności {@dc 15}. Wewnątrz pudełka znajduje się 350 zinów (sz), dwa złote pierścienie wysadzane małymi rubinami (o wartości 50 sz każdy) i {@i mikstura o gigantycznej sile} (wzgórze)."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Wybieg",
+          "page": 168,
+          "id": "02f",
+          "entries": [
+            "Do wewnętrznych ścian magazynu, 20 stóp nad podłogą, przymocowany jest drewniany pomost o szerokości 3 stóp. Prowadzą do niego skrzypiące, zwęglone, wąskie, owinięte drewniane schody w pobliżu środka wschodniej ściany.",
+            "Dwa {@creature Goblin gang member|kkw|członkowie gangu goblinów} patroluj cały czas wybieg, zmieniając się w podobny sposób jak obserwatorzy na zewnątrz.",
+            {
+              "type": "entries",
+              "name": "Osłabiona klatka schodowa",
+              "page": 168,
+              "id": "030",
+              "entries": [
+                "Jeden ze stopni schodów na wybiegu może się zawalić. Ta delikatna deska znajduje się 3 metry nad ziemią i może zostać dostrzeżona przez każdego na schodach, który posiada pasywną Mądrość ({@skill Perception}) wynik 13 lub wyższy. Stworzenie ważące ponad 100 funtów, które wejdzie na planszę, musi odnieść sukces na a {@dc 10} Rzut obronny na zręczność lub upadek z wysokości 3 metrów na ziemię. Szczelinę, którą tworzy zapadająca się deska, mogą z łatwością ominąć inne stworzenia wchodzące po schodach.",
+                "Jeśli jedna strona pomostu otrzyma 10 lub więcej obrażeń, ta strona się zawali. Kiedy to nastąpi, stworzenia na chodniku spadają z wysokości 20 stóp na piętro magazynu poniżej."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Główne piętro",
+          "page": 168,
+          "id": "031",
+          "entries": [
+            "Wewnątrz magazyn oświetlają latarnie umieszczone na hakach umieszczonych 5 stóp nad ścianą, co mniej więcej 30 stóp, poniżej wybiegu. Gobliny utrzymują ten obszar jasno oświetlony, ponieważ ich {@sense darkvision} rozciąga się tylko na 60 stóp. Kiedy postacie wejdą, przeczytaj:",
+            {
+              "type": "insetReadaloud",
+              "id": "032",
+              "entries": [
+                "Świecące światło latarni ukazuje magazyn zwęglony przez pożar. Od północy i południa znajdują się duże, wzmocnione żelazem drzwi wykuszowe, obsługiwane z ziemi za pomocą łańcuchów i kół pasowych. Ściana zachodnia ma pośrodku kwadratowe pomieszczenie, które zajmuje część podłogi magazynu o wymiarach dwadzieścia na dwadzieścia stóp. Pomieszczenie posiada drzwi i okno od strony środka piętra magazynu.",
+                "Wybieg otacza wnętrze dwadzieścia stóp nad podłogą. Prowadzą do niego schody w pobliżu środka wschodniej ściany. Po całym magazynie walają się dziesiątki dużych pudeł i skrzyń, których integralność jest zagrożona ze względu na zniszczenia spowodowane pożarem. Przez środek pomieszczenia biegnie para drewnianych poręczy. Na szynach stoi ogromny drewniany wózek na kołach. Nad wozem góruje wysoki na trzy metry, pokryty sadzą żelazny posąg. Wygląda nieco humanoidalnie, z wyrostkami przypominającymi pazury na końcach ramion. Zamiast głowy znajduje się wnęka zawierająca siedzisko otoczone szeregiem dźwigni."
+              ]
+            },
+            "Zadanie 20 lub więcej obrażeń drzwiom wykuszowym tworzy dziurę, przez którą może przejść średnie lub mniejsze stworzenie. Postać może wykorzystać akcję, aby otworzyć drzwi do wykuszu za pomocą systemu kół pasowych.",
+            "Po całym pomieszczeniu walają się zwęglone i popękane drewniane pojemniki. W żadnym z nich nie pozostało nic wartościowego.",
+            "Na szynach biegnących przez środek pomieszczenia stoi duży wózek. Północną i południową ścianę wózka można obniżyć, tworząc rampy prowadzące do łoża wózka.",
+            "W pobliżu wózka znajduje się {@creature loading rig|kkw} pokryty sadzą i obecnie nieaktywny. Wnęka na siedzisko wbudowana w górną część zestawu zawiera szereg małych płytek i dźwigni. Stworzenie na siedzeniu może podjąć próbę a {@dc 10} Inteligencja ({@skill Arcana}) sprawdź, jak nacisnąć płytki we właściwej kolejności, aby włączyć lub wyłączyć zestaw. Naciśnięcie płytek wymaga wykonania określonej czynności. Gdy platforma zostanie aktywowana, istota na siedzeniu może nią sterować za pomocą dźwigni. Platforma porusza się zgodnie z poleceniami jej kontrolera, a kontroler może użyć akcji, aby skierować platformę do wykonania Doskoku, Odłączenia lub {@action Dodge} akcję lub akcje Multiataku lub Uderzenia, zgodnie z opisem w bloku statystyk.",
+            "Istota dysponująca narzędziami majsterkowicza może próbować naprawić uszkodzenia platformy. Po spędzeniu 1 godziny na naprawach, stworzenie wykonuje: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli sprawdzenie się powiedzie, platforma odzyska siły {@dice 1d6} punkty trafienia.",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/KKW/115-435.webp"
+              },
+              "width": 1000,
+              "height": 668,
+              "credit": "Mathias Kollros"
+            }
+          ]
+        }
+      ]
+    },
+    "0:02c": {
+      "type": "entries",
+      "name": "Biuro",
+      "page": 168,
+      "id": "02c",
+      "entries": [
+        "Ten pokój jest nieoświetlony. Jeśli postacie mają {@sense darkvision} lub źródło światła, opisz pomieszczenie w następujący sposób:",
+        {
+          "type": "insetReadaloud",
+          "id": "02d",
+          "entries": [
+            "Pokój ten ma powierzchnię dwudziestu stóp kwadratowych i sufit wysoki na trzy metry. Wygląda na biuro i prowizoryczne pomieszczenia mieszkalne. Na środku pokoju stoi ciężki drewniany stół, otoczony sześcioma krzesłami. Pod nim znajduje się żelazna skrzynia. Od południa znajduje się łóżko przykryte kocami. Obok znajduje się worek pełen ubrań i resztek kilku posiłków podawanych na eleganckiej zastawie stołowej. Drzwi znajdują się pośrodku ściany od wschodu, a obok nich znajduje się duże okno, z którego roztacza się widok na magazyn znajdujący się za nimi."
+          ]
+        },
+        "{@b Krenko} (patrz poniżej) zaszył się tutaj - z dwoma {@creature Goblin Boss||goblińscy bossowie}, które służą mu jako jego egzekutorzy - planując wyprzedzający atak na Braci Shattergang. Oprócz swojej broni {@creature Krenko|KKW} nosi fiolkę z kwasem, flaszkę ognia alchemicznego, worek koteczków, fiolkę z podstawową trucizną i klucz do żelaznej skrzyni skarbowej (patrz „Skarb” poniżej).",
+        {
+          "type": "entries",
+          "name": "Skarb",
+          "page": 168,
+          "id": "02e",
+          "entries": [
+            "W żelaznej kasie pod biurkiem znajdują się fundusze, które {@creature Krenko|KKW} zbierał, aby spłacić Falisha. Jest zamknięta i można ją otworzyć za pomocą klucza posiadanego przez {@creature Krenko|KKW} lub za pomocą narzędzi złodziei i pomyślnego testu Zręczności {@dc 15}. Wewnątrz pudełka znajduje się 350 zinów (sz), dwa złote pierścienie wysadzane małymi rubinami (o wartości 50 sz każdy) i {@i mikstura o gigantycznej sile} (wzgórze)."
+          ]
+        }
+      ]
+    },
+    "0:02e": {
+      "type": "entries",
+      "name": "Skarb",
+      "page": 168,
+      "id": "02e",
+      "entries": [
+        "W żelaznej kasie pod biurkiem znajdują się fundusze, które {@creature Krenko|KKW} zbierał, aby spłacić Falisha. Jest zamknięta i można ją otworzyć za pomocą klucza posiadanego przez {@creature Krenko|KKW} lub za pomocą narzędzi złodziei i pomyślnego testu Zręczności {@dc 15}. Wewnątrz pudełka znajduje się 350 zinów (sz), dwa złote pierścienie wysadzane małymi rubinami (o wartości 50 sz każdy) i {@i mikstura o gigantycznej sile} (wzgórze)."
+      ]
+    },
+    "0:02f": {
+      "type": "entries",
+      "name": "Wybieg",
+      "page": 168,
+      "id": "02f",
+      "entries": [
+        "Do wewnętrznych ścian magazynu, 20 stóp nad podłogą, przymocowany jest drewniany pomost o szerokości 3 stóp. Prowadzą do niego skrzypiące, zwęglone, wąskie, owinięte drewniane schody w pobliżu środka wschodniej ściany.",
+        "Dwa {@creature Goblin gang member|kkw|członkowie gangu goblinów} patroluj cały czas wybieg, zmieniając się w podobny sposób jak obserwatorzy na zewnątrz.",
+        {
+          "type": "entries",
+          "name": "Osłabiona klatka schodowa",
+          "page": 168,
+          "id": "030",
+          "entries": [
+            "Jeden ze stopni schodów na wybiegu może się zawalić. Ta delikatna deska znajduje się 3 metry nad ziemią i może zostać dostrzeżona przez każdego na schodach, który posiada pasywną Mądrość ({@skill Perception}) wynik 13 lub wyższy. Stworzenie ważące ponad 100 funtów, które wejdzie na planszę, musi odnieść sukces na a {@dc 10} Rzut obronny na zręczność lub upadek z wysokości 3 metrów na ziemię. Szczelinę, którą tworzy zapadająca się deska, mogą z łatwością ominąć inne stworzenia wchodzące po schodach.",
+            "Jeśli jedna strona pomostu otrzyma 10 lub więcej obrażeń, ta strona się zawali. Kiedy to nastąpi, stworzenia na chodniku spadają z wysokości 20 stóp na piętro magazynu poniżej."
+          ]
+        }
+      ]
+    },
+    "0:030": {
+      "type": "entries",
+      "name": "Osłabiona klatka schodowa",
+      "page": 168,
+      "id": "030",
+      "entries": [
+        "Jeden ze stopni schodów na wybiegu może się zawalić. Ta delikatna deska znajduje się 3 metry nad ziemią i może zostać dostrzeżona przez każdego na schodach, który posiada pasywną Mądrość ({@skill Perception}) wynik 13 lub wyższy. Stworzenie ważące ponad 100 funtów, które wejdzie na planszę, musi odnieść sukces na a {@dc 10} Rzut obronny na zręczność lub upadek z wysokości 3 metrów na ziemię. Szczelinę, którą tworzy zapadająca się deska, mogą z łatwością ominąć inne stworzenia wchodzące po schodach.",
+        "Jeśli jedna strona pomostu otrzyma 10 lub więcej obrażeń, ta strona się zawali. Kiedy to nastąpi, stworzenia na chodniku spadają z wysokości 20 stóp na piętro magazynu poniżej."
+      ]
+    },
+    "0:031": {
+      "type": "entries",
+      "name": "Główne piętro",
+      "page": 168,
+      "id": "031",
+      "entries": [
+        "Wewnątrz magazyn oświetlają latarnie umieszczone na hakach umieszczonych 5 stóp nad ścianą, co mniej więcej 30 stóp, poniżej wybiegu. Gobliny utrzymują ten obszar jasno oświetlony, ponieważ ich {@sense darkvision} rozciąga się tylko na 60 stóp. Kiedy postacie wejdą, przeczytaj:",
+        {
+          "type": "insetReadaloud",
+          "id": "032",
+          "entries": [
+            "Świecące światło latarni ukazuje magazyn zwęglony przez pożar. Od północy i południa znajdują się duże, wzmocnione żelazem drzwi wykuszowe, obsługiwane z ziemi za pomocą łańcuchów i kół pasowych. Ściana zachodnia ma pośrodku kwadratowe pomieszczenie, które zajmuje część podłogi magazynu o wymiarach dwadzieścia na dwadzieścia stóp. Pomieszczenie posiada drzwi i okno od strony środka piętra magazynu.",
+            "Wybieg otacza wnętrze dwadzieścia stóp nad podłogą. Prowadzą do niego schody w pobliżu środka wschodniej ściany. Po całym magazynie walają się dziesiątki dużych pudeł i skrzyń, których integralność jest zagrożona ze względu na zniszczenia spowodowane pożarem. Przez środek pomieszczenia biegnie para drewnianych poręczy. Na szynach stoi ogromny drewniany wózek na kołach. Nad wozem góruje wysoki na trzy metry, pokryty sadzą żelazny posąg. Wygląda nieco humanoidalnie, z wyrostkami przypominającymi pazury na końcach ramion. Zamiast głowy znajduje się wnęka zawierająca siedzisko otoczone szeregiem dźwigni."
+          ]
+        },
+        "Zadanie 20 lub więcej obrażeń drzwiom wykuszowym tworzy dziurę, przez którą może przejść średnie lub mniejsze stworzenie. Postać może wykorzystać akcję, aby otworzyć drzwi do wykuszu za pomocą systemu kół pasowych.",
+        "Po całym pomieszczeniu walają się zwęglone i popękane drewniane pojemniki. W żadnym z nich nie pozostało nic wartościowego.",
+        "Na szynach biegnących przez środek pomieszczenia stoi duży wózek. Północną i południową ścianę wózka można obniżyć, tworząc rampy prowadzące do łoża wózka.",
+        "W pobliżu wózka znajduje się {@creature loading rig|kkw} pokryty sadzą i obecnie nieaktywny. Wnęka na siedzisko wbudowana w górną część zestawu zawiera szereg małych płytek i dźwigni. Stworzenie na siedzeniu może podjąć próbę a {@dc 10} Inteligencja ({@skill Arcana}) sprawdź, jak nacisnąć płytki we właściwej kolejności, aby włączyć lub wyłączyć zestaw. Naciśnięcie płytek wymaga wykonania określonej czynności. Gdy platforma zostanie aktywowana, istota na siedzeniu może nią sterować za pomocą dźwigni. Platforma porusza się zgodnie z poleceniami jej kontrolera, a kontroler może użyć akcji, aby skierować platformę do wykonania Doskoku, Odłączenia lub {@action Dodge} akcję lub akcje Multiataku lub Uderzenia, zgodnie z opisem w bloku statystyk.",
+        "Istota dysponująca narzędziami majsterkowicza może próbować naprawić uszkodzenia platformy. Po spędzeniu 1 godziny na naprawach, stworzenie wykonuje: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli sprawdzenie się powiedzie, platforma odzyska siły {@dice 1d6} punkty trafienia.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/KKW/115-435.webp"
+          },
+          "width": 1000,
+          "height": 668,
+          "credit": "Mathias Kollros"
+        }
+      ]
+    },
+    "0:033": {
+      "type": "section",
+      "name": "Konfrontacja z Krenko",
+      "page": 171,
+      "id": "033",
+      "entries": [
+        "{@creature Krenko|KKW} próbuje uciec, jeśli jego punkty wytrzymałości zostaną zredukowane do połowy lub mniej, nakazując swoim goblińskim strażnikom osłaniać go podczas ucieczki. Biegnie do {@creature loading rig|KKW} na podłodze magazynu i aktywuje go, próbując wywalczyć sobie drogę na zewnątrz i uciec. Jeśli uda mu się wydostać na zewnątrz, udaje się do nabrzeża i wskakuje do kanału, aby odpłynąć.",
+        "Jeśli {@creature Krenko|KKW} zostaje schwytany, próbuje przekonać poszukiwaczy przygód, że postawienie go przed wymiarem sprawiedliwości nie leży w najlepszym interesie miasta. Na swoją obronę może przedstawić jeden lub wszystkie z następujących argumentów:",
+        {
+          "type": "list",
+          "items": [
+            "Bez jego przywództwa gangi goblinów pogrążyły się w chaosie, a jedyną rzeczą, która powstrzymuje Braci Shattergang przed wysadzeniem w powietrze, jest jego gang - pod przewodnictwem niego.",
+            "Podkreśla, że ​​zabicie Dargiga było aktem samoobrony i że został wrobiony przez Legion Boros, który, jak podejrzewa, jest w zmowie z braćmi Shattergang. Postacie, które odniosły sukces na {@dc 16} Mądrość ({@skill Insight}) sprawdź, czy kłamie, subtelnie spoglądając poza nie, wypowiadając swoją prośbę.",
+            "{@creature Krenko|KKW} jest skłonny zaproponować partii układ. Przekaże im wszystko, co znajduje się w jego sejfie biurowym, jeśli powiedzą Nassiusowi, że go nie znaleźli.",
+            "{@creature Krenko|KKW} ostrzega drużynę, że Nassius nie jest tym, czym się wydaje. {@creature Krenko|KKW} podejrzewa, że ​​Nassius siedzi w czyjejś kieszeni, ale nie wie, kim jest ten ktoś."
+          ]
+        },
+        "{@creature Krenko|KKW} nie podaje żadnych informacji na temat sojuszników, którzy pomogli mu w ucieczce, ale identyfikuje ich, jeśli zostanie naciśnięty. Pozostaje również powściągliwy w kwestii pana Taza, oferując tylko następujące rzeczy, jeśli postać odniesie sukces {@dc 20} Charyzma ({@skill Persuasion}) sprawdź: „Pan Taz dał mi kiedyś fajny nóż w prezencie do pracy i bardzo chciałbym kiedyś założyć kolejne rękawice."
+      ]
+    },
+    "0:034": {
+      "type": "section",
+      "name": "Przekazanie",
+      "page": 171,
+      "id": "034",
+      "entries": [
+        "Gdy postacie dotrą do miejsca spotkania wskazanego przez Nassiusa, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "id": "035",
+          "entries": [
+            "Gdy deszcz przechodzi w ulewę, udajesz się na obrzeża Dziesiątej Dzielnicy. Zostaniesz skierowany do starego spichlerza, który Nassius wybrał jako miejsce spotkania. Mokry, rozpadający się gliniany budynek stoi na nieuprawianym polu i jest porośnięty wszelkiego rodzaju roślinnością, prawie całkowicie odzyskaną przez dziką przyrodę. Nassius wychodzi z holu na pole, trzymając małą torebkę i otoczony przez dwóch ciężko uzbrojonych strażników."
+          ]
+        },
+        "Nassius poprosił Azoriusa o pomoc, ale przyprowadził także dwóch ludzi {@creature veteran||weterani} nie nosząc żadnych oczywistych identyfikatorów gildii, które mogłyby pomóc w zabraniu {@creature Krenko|KKW} do aresztu. Sześć Azoriuszów {@creature Soldier|GGR|żołnierski} są ukryte w różnych miejscach w odległości od 50 do 30 stóp od spichlerza, gotowe do ujarzmienia postaci, które wykonają niewłaściwy ruch, lub do pokonania {@creature Krenko|KKW} jeśli spróbuje uciec.",
+        "Nassius chce, aby bohaterowie zakończyli wymianę bez zamieszania i wrócili do domu. Pyta ich, czy kwestionowali {@creature Krenko|KKW}i opowiedzenie, co powiedział im goblin. {@creature Krenko|KKW} próbuje nazwać Nassiusa kłamcą i skorumpowanym urzędnikiem, ale weterani Nassiusa zaczynają się krztusić {@creature Krenko|KKW} żeby przestał mówić.",
+        "Nassius nie odpowiada na żadne pytania dotyczące tego, dokąd zabiera {@creature Krenko|KKW}ani nie odniósł się do prawdziwości jakichkolwiek twierdzeń o korupcji. Zaznacza, że ​​pełni funkcję Paktu Gildii i ją przyjmuje {@creature Krenko|KKW} w imię dobra miasta. Bracia Shattergang nadal mogą przejąć władzę {@creature Krenko|KKW}gangu, ale prawdopodobnie bez wyniszczającej wojny gangów.",
+        {
+          "type": "entries",
+          "name": "Patron Nassiusa",
+          "page": 171,
+          "id": "036",
+          "entries": [
+            "{@creature Krenko|KKW} w jednym miał rację: Nassius Ven wykorzystywał swoją pozycję, aby zapewnić sobie bogactwo i ochronę. Patron zwrócił się do Nassiusa i zawarł umowę {@creature Krenko|KKW} dostarczony im zamiast na należne mu miejsce w nowej celi na Udzcu. Nassius był tego pewien {@creature Krenko|KKW} w końcu uda mu się żywy wrócić do więzienia, ale patron chciał najpierw zamienić z nim kilka słów.",
+            "Aby określić, z kim Nassius Ven zawarł umowę, możesz rzucić okiem na patrona z poniższej tabeli lub możesz go wybrać. Jeśli patronem jest gildia, powinieneś wybrać gildię, która nie jest reprezentowana przez poszukiwacza przygód w drużynie. Patron może mieć wpływ na przyszłe relacje zarówno z Nassiusem Venem, jak i {@creature Krenko|KKW}.",
+            {
+              "type": "table",
+              "caption": "Patron Nassiusa",
+              "colLabels": [
+                "d6",
+                "Patron"
+              ],
+              "colStyles": [
+                "text-center col-2",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Senat Azoriusza"
+                ],
+                [
+                  "2",
+                  "Legion Boros"
+                ],
+                [
+                  "3",
+                  "Panie Tazie"
+                ],
+                [
+                  "4",
+                  "Syndykat Orżowa"
+                ],
+                [
+                  "5",
+                  "Bracia Shattergang"
+                ],
+                [
+                  "6",
+                  "Konklawe Selesnyi"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:036": {
+      "type": "entries",
+      "name": "Patron Nassiusa",
+      "page": 171,
+      "id": "036",
+      "entries": [
+        "{@creature Krenko|KKW} w jednym miał rację: Nassius Ven wykorzystywał swoją pozycję, aby zapewnić sobie bogactwo i ochronę. Patron zwrócił się do Nassiusa i zawarł umowę {@creature Krenko|KKW} dostarczony im zamiast na należne mu miejsce w nowej celi na Udzcu. Nassius był tego pewien {@creature Krenko|KKW} w końcu uda mu się żywy wrócić do więzienia, ale patron chciał najpierw zamienić z nim kilka słów.",
+        "Aby określić, z kim Nassius Ven zawarł umowę, możesz rzucić okiem na patrona z poniższej tabeli lub możesz go wybrać. Jeśli patronem jest gildia, powinieneś wybrać gildię, która nie jest reprezentowana przez poszukiwacza przygód w drużynie. Patron może mieć wpływ na przyszłe relacje zarówno z Nassiusem Venem, jak i {@creature Krenko|KKW}.",
+        {
+          "type": "table",
+          "caption": "Patron Nassiusa",
+          "colLabels": [
+            "d6",
+            "Patron"
+          ],
+          "colStyles": [
+            "text-center col-2",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "Senat Azoriusza"
+            ],
+            [
+              "2",
+              "Legion Boros"
+            ],
+            [
+              "3",
+              "Panie Tazie"
+            ],
+            [
+              "4",
+              "Syndykat Orżowa"
+            ],
+            [
+              "5",
+              "Bracia Shattergang"
+            ],
+            [
+              "6",
+              "Konklawe Selesnyi"
+            ]
+          ]
+        }
+      ]
+    },
+    "0:037": {
+      "type": "section",
+      "name": "Koniec?",
+      "page": 171,
+      "id": "037",
+      "entries": [
+        "Postacie zdobywają 1 punkt sławy w swojej gildii, jeśli dostarczą {@creature Krenko|KKW} do Nassiusa.",
+        "Oprócz zalążków przygód opisanych w pierwszej części tego rozdziału, możesz wykorzystać wydarzenia z tej przygody, aby wytyczyć kurs na kolejne przygody drużyny. Rozważ następujące pytania:",
+        {
+          "type": "list",
+          "items": [
+            "Kim byli {@creature Krenko|KKW}sojusznicy 's i Nassiusa? Jak mogą zareagować na działania bohaterów?",
+            "Jaka jest równowaga sił pomiędzy {@creature Krenko|KKW}gang i bracia Shattergang? Czy któryś z gangów ma szansę zemścić się na bohaterach za to, co zrobili? A może bohaterowie zasłużyli na wdzięczność któregoś z gangów?",
+            "Jak Nassius mógłby {@creature Krenko|KKW}, Falish i inni NPC wchodzą w interakcję z poszukiwaczami przygód w przyszłości? Czy któryś z nich może poprosić bohaterów o pomoc w obliczu nowego kryzysu lub stać się niebezpiecznym antagonistą?",
+            "Czy bohaterowie korzystali ze swoich kontaktów w celu gromadzenia informacji? Czy zaangażowanie tych osób może spowodować problemy, które mogą wiązać się z poszukiwaczami przygód?"
+          ]
+        }
+      ]
+    },
+    "1:038": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "item",
+              "name": "Główni projektanci",
+              "entries": [
+                "Jamesa Wyatta i Jeremy’ego Crawforda"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Pisarz przygód",
+              "entries": [
+                "Krzysia Tulacha"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Projektanci",
+              "entries": [
+                "Ari Levitch, Ben Petrisor, Mike Mearls, Robert J. Schwalb"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Redaktor naczelny",
+              "entries": [
+                "Jeremy’ego Crawforda"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Redaktorzy",
+              "entries": [
+                "Christophera Perkinsa, Kim Mohana, Michele Cartera, Phila Athansa i Kate Welch"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Kierunek artystyczny",
+              "entries": [
+                "Shauna Narciso, Ari Levitch"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Projektant graficzny",
+              "entries": [
+                "Trish Yochum i Emi Tanji"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Dodatkowy kierunek artystyczny",
+              "entries": [
+                "Jeremy Jarvis, Jeremy Cranford, Pamela Ansman-Wolfe, Taylor Ingvarsson, Dawn Murin, Cynthia Sheppard, Andrew Vallas, Mark Winters"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Kartografia",
+              "entries": [
+                "Logo Dysona"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Ilustratorzy wnętrz",
+              "entries": [
+                "Noah Bradley, Mathias Kollros, Karl Kopinski, Svetlin Velinov, Kev Walker, Richard Wright, Kristen Zirngibl"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Projekt świata Ravnicy",
+              "entries": [
+                "Doug Beyer, Sam Burley, Jeremy Cranford, Kelly Digges, Brady Dommermuth, Jenna Helland, Cory H. Herndon, Jeremy Jarvis, Kimberly Kreines, Chris L'etoile, Adam Lee, Ari Levitch, Alison Lührs, Shawn Main, Dawn Murin, Richard Whitters, Mark Winters, James Wyatt"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Producent",
+              "entries": [
+                "Matta Warrena i Dana Tovara"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Technicy obrazowania",
+              "entries": [
+                "Kevina Yee"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Administracja Sztuki",
+              "entries": [
+                "Davida Gershmana"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Inni członkowie zespołu D&D",
+              "entries": [
+                "Bart Carroll, Kate Irwin, Christopher Lindsay, Shelly Mazzanoble, Hilary Ross, Liz Schuh, Nathan Stewart, Greg Tito"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "entries": [
+            "{@note Zastrzeżenie: Żywy Pakt Gildii nie jest odpowiedzialny za los tych, którzy zostali aresztowani przez Azoriusa, pobici przez Boros, uniknięci przez Dimira, obrzydzeni przez Golgari, zranieni przez Gruula, implodowani przez Izzeta, przechytrzeni przez Orzhova, rozbudzeni przez Rakdos, podbici przez Selesnyę lub chorzy przez Simic. Dołącz lub opuść gildię na własne ryzyko i daj się wciągnąć w politykę gildii na własne ryzyko.}"
+          ],
+          "id": "03a"
+        }
+      ],
+      "id": "038"
+    }
+  }
+}

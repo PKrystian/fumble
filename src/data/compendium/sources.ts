@@ -7,15 +7,13 @@ import type { BookIndexEntry } from './types';
 const names = data as Record<string, string>;
 const plBookNames = plBooks as Record<string, { name?: string }>;
 
-const TRANSLATED_SOURCES = new Set(['XPHB', 'XMM', 'XDMG', 'FRHoF']);
 const plSourceNames: Record<string, string> = {};
 
 const ranks = new Map<string, number>();
 for (const book of booksIndex as BookIndexEntry[]) {
   ranks.set(book.source, Date.parse(book.published!));
-  if (TRANSLATED_SOURCES.has(book.source)) {
-    plSourceNames[book.source] = plBookNames[book.id]!.name!;
-  }
+  const translatedName = plBookNames[book.id]?.name;
+  if (translatedName) plSourceNames[book.source] = translatedName;
 }
 
 export function sourceName(code: string, locale?: Locale): string {
