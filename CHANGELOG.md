@@ -4,6 +4,11 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.1 - 2026-08-02
+
+- Added a PNG favicon fallback for browsers and search results.
+- Removed the opaque background from the Fumble app icons.
+
 ## 1.2.0 - 2026-08-01
 
 - Fixed the Chromium smoke test so its footer version assertion follows `package.json`.

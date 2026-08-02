@@ -36,6 +36,14 @@ npx playwright test --project=chromium   # when UI behaviour changed
 `npm run format` fixes formatting. Lint must be 0 errors (4 react-refresh warnings in
 `src/i18n/path.tsx` are pre-existing and expected).
 
+## Release hygiene
+
+Every pull request or completed change intended to ship to GitHub must include a new
+Semantic Versioning release and a matching entry in `CHANGELOG.md`. Update the version in
+`package.json` and the root package entry in `package-lock.json` together. Use a patch
+version for bug fixes, asset changes, and other small changes; the legal footer reads the
+version from `package.json`, so never hardcode it in a component.
+
 ## Git
 
 Never run git. The user commits and publishes themselves. Leave work in the working tree.
