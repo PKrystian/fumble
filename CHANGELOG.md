@@ -4,6 +4,12 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.0 - 2026-08-01
+
+- Fixed the Chromium smoke test so its footer version assertion follows `package.json`.
+- Verified the release with the full unit test suite, build validation, security audit,
+  and Chromium smoke suite.
+
 ## 1.1.0 - 2026-08-01
 
 - Completed the 5etools data import update with weapon mastery, weapon property,
