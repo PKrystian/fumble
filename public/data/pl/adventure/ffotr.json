@@ -1,0 +1,2034 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Fatalny lot samotnika",
+      "id": "000",
+      "entries": [
+        "{@i Przygoda dla postaci poziomu 3}",
+        {
+          "type": "insetReadaloud",
+          "name": "Ciekawski Sharn - Klan Soldoraków poszukujący załogi",
+          "id": "001",
+          "entries": [
+            "Krążą słuchy, że krasnoludy z klanu Soldorak poszukują odważnych i dyskretnych osób, które przewożą ładunek do Korth, stolicy Karrnathi. Zainteresowane strony powinny odszukać Kreffika w Soldorakhold."
+          ]
+        },
+        "Postacie zostały wynajęte przez krasnoluda Artificera w służbie {@area Clan Soldorak|005|x} o imieniu Kreffik Soldorak, aby eskortował go i jego cenny ładunek do Korth, stolicy Karrnath. Korth leży około 1500 km na zachód, a podróż według Kreffików zajmie około 65 dni. Kreffik nieufnie podchodzi do swojego ładunku: siedmiu dużych skrzyń o boku około trzech stóp i każda ważąca 300 funtów.",
+        {
+          "type": "section",
+          "name": "Przygotowanie",
+          "id": "002",
+          "entries": [
+            "Przed rozpoczęciem przygody przygotuj się w następujący sposób:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Krok 1",
+                  "entry": "Przeczytaj przygodę raz."
+                },
+                {
+                  "type": "item",
+                  "name": "Krok 2",
+                  "entry": "W rozdziale 7, „Sterowce żywiołów” w Eberron: Forge of the Artificer znajdziesz informacje na temat obsługi sterowców, co jest kluczowe w tej przygodzie."
+                },
+                {
+                  "type": "item",
+                  "name": "Krok 3",
+                  "entry": "Odwołaj się do mapy Pustelnika i pokaż ją graczom. Będą go używać przez całą przygodę."
+                },
+                {
+                  "type": "item",
+                  "name": "Krok 4",
+                  "entries": [
+                    "Odwołaj się do potworów (otwórz wpisy o potworach w D&D Beyond lub dodaj do zakładek fizyczne książki). Wszystkie pojawiają się w Księdze Potworów lub w Eberron: Forge of the Artificer. Oto lista bloków statystyk potrzebnych do uruchomienia przygody:",
+                    {
+                      "type": "list",
+                      "columns": 3,
+                      "items": [
+                        "{@creature Bandit Captain|XMM}",
+                        "{@creature Young Blue Dragon|XMM|Niebieski Smok, Młody}",
+                        "{@creature Cannith Artificer|EFA}",
+                        "{@creature Guard Captain|XMM}",
+                        "{@creature Helmed Horror|XMM}",
+                        "{@creature Warrior Veteran|XMM}"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Prowadzenie tej przygody",
+          "id": "003",
+          "entries": [
+            "Aby przeprowadzić tę przygodę, potrzebujesz {@book Eberron: Forge of the Artificer|EFA}, a także {@book Player's Handbook|XPHB}, {@book Dungeon Master's Guide|XDMG}, I {@book Monster Manual|XMM}.",
+            {
+              "type": "insetReadaloud",
+              "id": "004",
+              "entries": [
+                "Tekst pojawiający się w takim ramce należy przeczytać na głos lub sparafrazować dla graczy, gdy ich postacie po raz pierwszy dotrą do miejsca lub w określonych okolicznościach, zgodnie z opisem w tekście."
+              ]
+            },
+            "O ile nie zaznaczono inaczej, nazwy potworów w {@b pogrubiony} kierują cię do odpowiedniego bloku statystyk w {@i Podręcznik potwora}, a opisy magicznych przedmiotów można znaleźć w {@i Przewodnik Mistrza Lochów}.",
+            {
+              "type": "inset",
+              "name": "Klan Soldorak",
+              "id": "005",
+              "entries": [
+                "Krasnoludy Soldoraki należą do najbogatszych z jedenastu krasnoludzkich klanów i nie posiadają władzy, jaką zapewnia smoczy rodowód - takiej jak Klan Kundarak.",
+                "Podczas gdy krasnoludom Kundarak udało się zdobyć władzę i dobrobyt przez przypadek, Soldoraki musieli na to zapracować (przynajmniej takie mają zdanie). Dzięki temu nie uchylają się od okazji, na które inni mogliby kręcić nosem. Jest prawdopodobne, że krasnoludy z klanu Soldorak chętnie zrobią to, co należy zrobić - niezależnie od tego, czego wymaga ta praca."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Niziołek za burtą",
+          "id": "006",
+          "entries": [
+            "Nie trwało długo, zanim sterowiec Striderów {@i Pustelnik}, który opuścił krasnoludzkie miasto Soldorakhold zaledwie dzień wcześniej, został zaatakowany przez grupę ludzkich piratów na pokładzie pary Lyrandar Skyskiffów, gdy przelatywali nad rozległymi Górami Żelaznego Korzenia. Zobacz {@book chapter 7|EFA|7} z {@book Eberron: Forge of the Artificer|EFA}, aby zapoznać się ze statystykami {@vehicle Strider Airship|EFA} i {@vehicle Lyrandar Skyskiff|EFA}.",
+            "Ośmiu piratów weszło na pokład {@i Pustelnik}, kiedy kapitan {@i Pustelnik}, niziołek imieniem Ryvan Rallanith, podjął zuchwałą decyzję; skierował statek w strome nurkowanie. Czterech piratów wypadło za burtę, jednak jeden z nich przeciął uprząż mocującą kapitana Rallanitha do steru. Na pokładzie sterowca pozostaje czterech piratów.",
+            {
+              "type": "insetReadaloud",
+              "id": "007",
+              "entries": [
+                "Deski statku z strzelistego drewna jęczą i skrzypią w proteście, gdy Pustelnik wisi bezradnie na niebie, a dziób przechyla się stromo. Tysiące galifarów z niezabezpieczonych zapasów i, co ważniejsze, kapitan halflinga Ryvan Rallanith, są teraz czarnymi plamkami znikającymi setki stóp pod ziemią.",
+                "Kreffik Soldorak, Twój pracodawca, leży w pobliżu sterty mebli i bagażu. „Dolurr!” - woła, zsuwając z siebie mały stolik nocny i próbując poprawić płaszcz. „Co robi ten po trzykroć przeklęty sternik?!”."
+              ]
+            },
+            "Bez pilota nie ma szans, aby statek się wyprostował, nie mówiąc już o kontynuowaniu podróży.",
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/FFotR/000-map-00.01-the-recluse.webp"
+                  },
+                  "imageType": "mapa",
+                  "title": "Pustelnik",
+                  "credit": "Sean Macdonald",
+                  "width": 4096,
+                  "height": 2650,
+                  "id": "02c",
+                  "grid": {
+                    "type": "square",
+                    "size": 98,
+                    "offsetX": 37,
+                    "offsetY": -9
+                  }
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/FFotR/001-map-00.01-the-recluse-player.webp"
+                  },
+                  "imageType": "mapPlayer",
+                  "title": "Wersja odtwarzacza",
+                  "credit": "Sean Macdonald",
+                  "width": 4096,
+                  "height": 2650,
+                  "mapParent": {
+                    "id": "02c"
+                  },
+                  "grid": {
+                    "type": "square",
+                    "size": 98,
+                    "offsetX": 37,
+                    "offsetY": -9
+                  }
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Odzyskanie kontroli nad sterem",
+              "id": "008",
+              "entries": [
+                "Istota zajmująca stanowisko załogi Helma na sterowcu zazwyczaj potrzebuje Znaku Burzy, aby uzyskać dostęp do działań stacji (zobacz {@book chapter 7|EFA|7|Sterowce żywiołów} w {@book Eberron: Forge of the Artificer|EFA}, aby uzyskać więcej informacji na temat stanowisk załogi). {@i Pustelnik} jest jednak wyjątkowy, ponieważ sterowiec jest zasilany nie tylko przez pojmanego {@creature air elemental|XMM}, ale także przez ducha dawno zmarłego poprzedniego kapitana, który po wpadnięciu do pierścienia żywiołów został wchłonięty przez rdzeń żywiołu sterowca. Zamieszkanie ducha pozwala istocie zajmującej Hełm ominąć wymagania tej stacji i niezależnie od tego korzystać z jej akcji.",
+                "Postać, która bierze {@action Study|XPHB} akcji i odnosi sukces na a {@dc 9} Inteligencja ({@skill Arcana|XPHB}) sprawdzenie przypomina nie tylko, że pilot musi nosić Znak Burzy, ale także, że Dom Lyrandarów ściśle kontroluje osoby noszące taki znak; biorąc pod uwagę, że poprzedni pilot nie był członkiem rodu Lyrandarów, jest bardziej prawdopodobne, że statkiem może sterować ktoś bez smoczego znaku, a kapitan Rallanith wymyślił inny sposób, aby to zrobić.",
+                "Statek jest obecnie przechylony na tyle stromo, że pionowe powierzchnie sterowca są poziome względem ziemi. Opcje postaci zależą teraz od tego, gdzie byli, gdy kapitan Rallanith wszedł do nurkowania. Daj graczom kilka minut na opisanie swoich postaci i tego, co robili, zanim zostali zaatakowani przez piratów.",
+                {
+                  "type": "entries",
+                  "id": "009",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Na pokładzie",
+                      "id": "00a",
+                      "entries": [
+                        "Podczas gdy Kapitan Rallanith nawoływał postacie, aby schroniły się we wnętrzu Pustelnika, tym, którzy mogli zignorować rozkaz, pospiesznie założono uprzęże i teraz zostali przywiązani do poręczy zabezpieczającej biegnącej wzdłuż burty sterowca."
+                      ]
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Wewnątrz sterowca",
+                      "id": "00b",
+                      "entries": [
+                        "Ci, którzy usłuchali rozkazów kapitana, znajdują się w wybranym przez siebie pomieszczeniu we wnętrzu sterowca."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Dotarcie do Hełmu",
+                  "id": "00c",
+                  "entries": [
+                    "Po śmierci kapitana Rallanitha ster statku pozostaje pusty. Postać chcąca naprawić sterowiec musi najpierw dotrzeć do Hełmu i nawiązać z nim kontakt.",
+                    {
+                      "type": "entries",
+                      "name": "Wewnątrz sterowca",
+                      "id": "00d",
+                      "entries": [
+                        "Ze względu na przechyloną orientację statku, istoty znajdujące się wewnątrz statku muszą się wspinać, aby uzyskać dostęp do innych obszarów statku. Stworzenie bez Prędkości Wspinania, które próbuje wspiąć się do wnętrza statku, musi odnieść sukces {@dc 11} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź lub upadnij."
+                      ]
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Na pokładzie",
+                      "id": "00e",
+                      "entries": [
+                        "Istoty noszące uprzęże na pokładzie statku mogą wspinać się po pionowej powierzchni pokładu bez upadku. Stworzenie ma {@variantrule Disadvantage|XPHB} w rzutach ataku, mając na sobie uprząż.",
+                        "jako {@action Utilize|XPHB} akcję, istota może wykonać a {@dc 11} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź, czy zdejmij uprząż, robiąc to bezpiecznie i nie upadając po pomyślnym sprawdzeniu. Kiedy istota bez uprzęży zostanie odepchnięta lub zdobędzie {@condition Prone|XPHB} warunek, stworzenie musi odnieść sukces na a {@dc 11} Rzut obronny na Zręczność lub upadek - potencjalnie poza statkiem i powodując jego śmierć."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Piraci",
+                  "id": "00f",
+                  "entries": [
+                    "Czterech piratów (średni {@creature Bandit Captain|XMM|Kapitanowie Bandytów}) na pokładzie {@i Pustelnik}, również ubranych w uprzęże, atakuje postacie. Piraci pozostający na pokładzie własnych skyskiffów kontynuują próby zdobycia {@i Pustelnik}. Każdy skyskiff znajduje się 9 stóp od {@i Pustelnik}, załadował sterowiec harpunem za pomocą stacji załogi {@vehicle Lyrandar Skyskiff|EFA|Kabel holowniczy} i powoli ciągnie go w stronę swojej bazy operacyjnej w Górach Żelaznego Korzenia. Na pokładzie każdego z dwóch skyskiffów pozostaje jeden pirat (średni {@b Bandyta Kapitan})."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Duch w maszynie",
+                  "id": "010",
+                  "entries": [
+                    "Postać próbująca obsługiwać Hełm (patrz {@book Eberron: Forge of the Artificer|EFA}, {@book chapter 7|EFA|7|Sterowanie statkiem powietrznym}) zauważa niezwykłą telepatyczną obecność, która dociera do niej, gdy jej dotyka. Obecność (opisana na pasku bocznym „{@area Captain Valthan d'Lyrandar|011|x}”) jest początkowo {@variantrule Indifferent [Attitude]|XPHB|Obojętny} dla znaku.",
+                    "Postać, która bierze {@action Influence|XPHB} akcji i odnosi sukces na a {@dc 17} Charyzma ({@skill Deception|XPHB}, {@skill Intimidation|XPHB}, Lub {@skill Persuasion|XPHB}) check zmienia nastawienie obecności do {@variantrule Friendly [Attitude]|XPHB|Przyjazny} i przekonuje go, aby pozwolił im uzyskać dostęp do działań Hełmu. Postacie posiadające biegłość w Narzędziach Nawigatora dokonują tego testu za pomocą {@variantrule Advantage|XPHB}, podczas gdy postacie posiadające Znak Burzy automatycznie pomyślnie przechodzą ten test. Nastawienie obecności zmienia się na {@variantrule Hostile [Attitude]|XPHB|Wrogi} jeśli kontrola nie powiedzie się o 5 lub więcej.",
+                    {
+                      "type": "inset",
+                      "name": "Kapitan Valthan D'lyrandar",
+                      "id": "011",
+                      "entries": [
+                        "{@i Pustelnik} to według większości standardów stary statek, który służył podczas Ostatniej Wojny. Stary kapitan sterowca, {@race shifter|EFA} imieniem Valthan d'Lyrandar, był utalentowanym pilotem sterowca, ale był aż do przesady ostrożny - cecha, która odegrała dużą rolę w jego śmierci. Zamiast szlachetnie zginąć w bitwie, podczas potyczki wypadł za burtę i wpadł do pierścienia żywiołów statku (patrz {@book Eberron: Forge of the Artificer|EFA}, {@book chapter 7|EFA|7|Silniki Żywiołów}). Statek wchłonął duszę Valthana do rdzenia żywiołów, gdzie pozostaje do dziś."
+                      ]
+                    },
+                    "Gdy postać przejmie kontrolę nad sterem, statek można ustawić prosto, a pozostałe postacie mogą obsługiwać jedno z pięciu innych stanowisk załogi {@i Pustelnik}: cztery {@vehicle Strider Airship|EFA|Tajemne Wyrzutnie} (dwa po obu stronach sterowca) i {@book Sky Veil|EFA|7|Niebiańska zasłona (15 000 GP)}.",
+                    "Piraci wypuszczają harpuny, gdy {@i Pustelnik} się wyprostuje. Skyskiff ucieka, jeśli jego Punkty Życia zostaną zredukowane do połowy.",
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "adventure/FFotR/002-00-001.shifter.webp"
+                      },
+                      "credit": "Antonio José Manzanedo",
+                      "width": 850,
+                      "height": 1303
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Oskarżenia o sztuczność",
+              "id": "012",
+              "entries": [
+                "Krasnolud Kreffik (Średni {@creature Cannith Artificer|EFA}) i dwaj pozostali członkowie załogi są wdzięczni, że postacie odstraszyły piratów, ale także dlatego, że odkryli, jak odzyskać kontrolę nad {@i Pustelnik}. Kreffik jest mądry i rozumie, że etyka i zasady służą jedynie jako przeszkoda w zajęciach akademickich. Nie ma żadnych zastrzeżeń do kłamstwa, jeśli chodzi o ochronę swoich badań, celów finansowych lub reputacji klanu. Przygodę rozpoczyna z nastawieniem {@variantrule Friendly [Attitude]|XPHB|Przyjazny} do bohaterów.",
+                "Kreffik twierdzi, że nie wie, jakie motywacje kierują się piraci, próbując przejąć kontrolę nad {@i Pustelnik}, ale postać, która podejmuje akcję {@action Search|XPHB} i wykonuje udany test {@dc 15} Mądrości ({@skill Insight|XPHB}), zauważa, że ​​coś ukrywa. Kreffik wyznaje prawdę i oferuje ujawnienie swojego ładunku postaciom, jeśli postać wykona akcję {@action Influence|XPHB} i pomyślnie przejdzie test {@dc 15} na Charyzmę ({@skill Intimidation|XPHB} lub {@skill Persuasion|XPHB}).",
+                "Prowadząc ich do ładowni {@i Pustelnik}, Kreffik otwiera jedną ze skrzyń, odsłaniając stojak z delikatnymi fiolkami rzadkiego, zielonego płynu, który według niego jest „esencją intuicji”. Jednak stojak to kolejny podstęp; jeśli zostanie usunięty, pod nim leżą szczątki martwego wojownika. Pośpiesznie przyznaje, że Karrnath dobrze płaci za takie „materiały” do wykorzystania w wzmacnianiu armii nieumarłych - stara praktyka, o której naród otwarcie twierdzi, że nie jest już stosowana.",
+                "Twierdzi, że {@area Clan Soldorak|005|x} nigdy wcześniej nie zajmował się tym handlem. Postać, która wykonuje akcję {@action Search|XPHB} i pomyślnie wykona test {@dc 20} Mądrości ({@skill Insight|XPHB}), stwierdza, że ​​jest to kłamstwo; Klan Soldorak zajmuje się śledzeniem takich rzeczy od wielu lat. Chociaż Kreffik opiera się próbom zakłócenia przesyłki przez bohaterów, zdaje sobie sprawę, że łatwiej powiedzieć, niż zrobić, aby powstrzymać bohaterów przed zakłóceniem jego misji. To powiedziawszy, nie jest z pustymi rękami; jedna z sześciu skrzyń zawiera {@creature Helmed Horror|XMM} (odporny na zaklęcia {@spell Fireball|XPHB}, {@spell Shocking Grasp|XPHB} i {@spell Spirit Guardians|XPHB}), który wybucha na jego rozkaz.",
+                {
+                  "type": "entries",
+                  "name": "Skarb",
+                  "id": "013",
+                  "entries": [
+                    "Gdy bohaterowie wznowią podróż, znajdują na pokładzie {@i Pustelnik} wysadzaną koralikami, olejowaną torbę, która najwyraźniej została upuszczona przez pirata, który wszedł na pokład sterowca. Torba zawiera 25 GP i {@item Potion of Greater Healing|XDMG|Mikstura Leczenia (większa)}.",
+                    "Jeśli Kreffik zostanie stoczony i pokonany, okazuje się, że nosi on garnitur {@item Scale Mail|XPHB|Poczta skalowana +1} i a {@item backpack|XPHB} zawierający 250 GP w barach handlowych Soldorak (do wykorzystania w przekupywaniu urzędników Karrnathi) oraz księgę zawierającą szczegóły jego potencjalnej sprzedaży."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Do Kortha",
+          "id": "014",
+          "entries": [
+            "Gdy postacie przejmą kontrolę nad {@i Pustelnik}, mogą kontynuować podróż w stronę Korth.",
+            {
+              "type": "entries",
+              "name": "Wyznaczanie kursu",
+              "id": "015",
+              "entries": [
+                "Korth znajduje się około 1500 km od miejsca, w którym zaatakowano {@i Pustelnik}. Postacie muszą skierować swój statek powietrzny do zamierzonego celu, jeśli mają jakąkolwiek nadzieję na przybycie przed wyczerpaniem się zapasów. Ta sekcja odnosi się do zasad i wskazówek zawartych w sekcji {@book \"Journeys in the Skies\"|EFA|7|Podniebne podróże} w {@book chapter 7|EFA|7|Sterowce żywiołów} w {@book Eberron: Forge of the Artificer|EFA}.",
+                {
+                  "type": "entries",
+                  "name": "Pogoda",
+                  "id": "016",
+                  "entries": [
+                    "Na początku każdego dnia podróży rzuć {@dice 1d6} i sprawdź tabelę pogody podróży sterowcem, aby określić pogodę, jaka czeka bohaterów tego dnia. Pogoda ta określa także odległość spotkania i ST Mądrości ({@skill Survival|XPHB}) kontrole mające na celu uniknięcie zgubienia się, jak pokazano w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem}.",
+                    {
+                      "type": "table",
+                      "caption": "Pogoda dla podróży sterowcem",
+                      "colLabels": [
+                        "1d6",
+                        "Pogoda"
+                      ],
+                      "colStyles": [
+                        "col-2 text-center",
+                        "col-10"
+                      ],
+                      "rows": [
+                        [
+                          "1-3",
+                          "Czyste niebo"
+                        ],
+                        [
+                          "4-5",
+                          "Lekkie opady"
+                        ],
+                        [
+                          "6",
+                          "Silne opady"
+                        ]
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Sterowanie",
+                  "id": "017",
+                  "entries": [
+                    "Pilot sterowca podlega zasadom podróży dłuższych (powyżej 8 godzin dziennie) zawartym w {@book Dungeon Master's Guide|XDMG|1|Tempo podróży}. Postacie potrafiące połączyć się z hełmem {@i Pustelnik} i znajdującym się w nim duchem mogą na zmianę pilotować statek, umożliwiając mu poruszanie się przez ponad 8 godzin dziennie.",
+                    "Postać posługująca się Hełmem tworzy Mądrość ({@skill Survival|XPHB}) na koniec swojej ośmiogodzinnej zmiany sprawdzają DC odpowiedni do warunków podróży, jak pokazano w kolumnie DC Nawigacja w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem}. Sterowiec zbacza z kursu po nieudanej kontroli, co wydłuża jego podróż {@dice 1d4} dni. Inny członek załogi może przejąć {@action Help|XPHB} działania wspomagające tę kontrolę, czy spędzają całą zmianę pomagając pilotowi."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Zaopatrzenie",
+                  "id": "018",
+                  "entries": [
+                    "{@i Pustelnik} stracił wszystko oprócz 100 funtów jedzenia i 100 galonów wody. W miarę postępu podróży zapoznaj się z zasadami {@hazard dehydration|XPHB} i {@hazard malnutrition|XPHB} w {@book Player's Handbook|XPHB}, jeśli załodze grozi wyczerpanie zapasów."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Spotkania podróżnicze",
+                  "id": "019",
+                  "entries": [
+                    "Podczas podróży do Korth możesz rzucić na spotkanie lub wybrać je z listy {@table Airborne Encounters|EFA|Tabela Spotkań Powietrznodesantowych}, odnosząc się do kolumny Odległość spotkania w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem} aby określić odległość, na jaką istoty uświadamiają sobie siebie nawzajem.",
+                    "Statek zawsze będzie spotykał smoka Brynshal'duuna."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Nad Popielnymi Wieżami",
+              "id": "01a",
+              "entries": [
+                "Zbliżając się coraz bardziej do końca podróży, {@i Pustelnik} w końcu mija Iglice Popielnych, grupę gór położoną 400 km na wschód od Korth. Od dawna podejrzewano, że jest to strefa manifestacji połączona z Fernią, Morzem Ognia, obszar ten jest {@variantrule Lightly Obscured|XPHB} przez chmury zdławione popiołem, a ogień zachowuje się dziwnie (patrz pasek boczny „Strefa Manifestu Fernii”).",
+                {
+                  "type": "inset",
+                  "name": "Strefa manifestacji Fernii",
+                  "id": "01b",
+                  "entries": [
+                    "Fernia to płaszczyzna niekończącego się ognia, zamieszkana przez Niebiańskie i Diabły, które ucieleśniają surową moc i wszechstronność płomienia. Granice pomiędzy Planem Materialnym a Fernią w strefie manifestacji są cienkie; moc czystego, żywiołowego ognia przenika do Khorvaire. Aby przedstawić pozaplanarny wpływ strefy manifestacji, możesz użyć następującej opcjonalnej reguły.",
+                    {
+                      "type": "entries",
+                      "name": "Płomień Ferni",
+                      "id": "01c",
+                      "entries": [
+                        "Kiedy istota na tym obszarze rzuca zaklęcie, używając miejsca na zaklęcie, które zadaje obrażenia od ognia, traktuj to zaklęcie tak, jakby zostało rzucone przy użyciu miejsca na zaklęcie o 1 poziom powyżej wykorzystanego miejsca."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "insetReadaloud",
+                  "id": "01d",
+                  "entries": [
+                    "Pokrywa chmur jest tu gęsta od popiołu, który wiruje w chmurach; gdyby nie osłony przeciwwiatrowe {@i Pustelnik}, można śmiało założyć, że powietrze byłoby prawie nie do oddychania.",
+                    "„Ruch na prawą burtę!” Jeden z pokładowych na dziobie statku wskazuje gorączkowo na północny zachód."
+                  ]
+                },
+                "Postać, która bierze {@action Search|XPHB} akcji i odnosi sukces na a {@dc 13} Mądrość ({@skill Perception|XPHB}) check słabo widzi ogromny ciemny kształt poruszający się przez chmury otaczające sterowiec.",
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/FFotR/003-00-002.dragons-battle-in-the-sky.webp"
+                  },
+                  "credit": "Antonio José Manzanedo",
+                  "width": 1700,
+                  "height": 997
+                },
+                {
+                  "type": "entries",
+                  "name": "Elektryczna śmierć",
+                  "id": "01e",
+                  "entries": [
+                    "Chociaż Kreffik o tym nie wie, na pokładzie {@i Pustelnik} jest szpieg. Jeden z dwóch pozostałych członków załogi jest wielbicielem Brynshal'duuna, młodego niebieskiego smoka, którego legowisko znajduje się w górnych partiach Pustyni Ostrzy. Smok, dowiedziawszy się, co Kreffik przemyca do Karnath, postanowił zaatakować statek powietrzny nad Iglicą Popielnej i położyć kres bluźnierczemu handlowi Kreffika.",
+                    "Przeczytaj lub sparafrazuj:",
+                    {
+                      "type": "insetReadaloud",
+                      "id": "01f",
+                      "entries": [
+                        "Bez ostrzeżenia chmury otaczające sterowiec wirują i gotują się. Z chmur wyskakuje straszny pazur ze szponami o połowę mniejszymi od dorosłego mężczyzny, chwytający członka załogi i ciągnący go z pokładu, pozostawiając ogromne rozdarcie w burcie sterowca.",
+                        "Powietrze rozdziera potężny ryk, gdy z chmur i brzegów wyłania się smok o niebieskich łuskach, by krążyć za {@i Pustelnik}, a za nim błyskają łuki elektryczne."
+                      ]
+                    },
+                    "Brynshal'duun (Neutralny {@creature Young Blue Dragon|XMM}) jest obecnie w służbie Cannith South i otrzymał zadanie wstrzymania dostaw ładunku Kreffika do Korth.",
+                    "Sam {@i Pustelnik} jest głównym przedmiotem zainteresowania smoka; ładunek statku ulega zniszczeniu, jeżeli statek tak jest. Jeśli postacie uznają smoka za zbyt groźnego wroga, mogą założyć się, że najlepszym rozwiązaniem będzie pertraktacja ze smokiem lub ucieczka na tyle daleko od obszaru, że smok porzuci pogoń za statkiem powietrznym."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Współpraca ze smokiem",
+                  "id": "020",
+                  "entries": [
+                    "Jeśli bohaterowie zdecydują się poddać lub pertraktować ze smokiem, smok wyląduje na dziobie statku. Choć Brynshal'duun ma {@variantrule Hostile [Attitude]|XPHB|Wrogi} i jest zdeterminowany, by zatopić sterowiec, można przekonać smoka; jej cele, choć obecnie zgodne z {@book Cannith South|EFA|5|Cannith South}, są powiązane ze Smoczą Przepowiednią - złożonym i enigmatycznym sposobem, dzięki któremu wyznawcy wierzą, że mogą kształtować bieg historii.",
+                    {
+                      "type": "entries",
+                      "name": "Smocza przepowiednia",
+                      "id": "021",
+                      "entries": [
+                        "{@book Introduction|EFA|0|Smocza przepowiednia} z {@book Eberron: Forge of the Artificer|EFA} zawiera werset tego proroctwa, jak również różne interpretacje jego wersetów. Postać, która podejmuje akcję {@action Study|XPHB} i pomyślnie przejdzie test {@dc 13} Inteligencji ({@skill History|XPHB}), przypomina sobie przepowiednię i przypuszcza, że ​​Brynshal'duun jest zaangażowany w jej wypełnienie."
+                      ]
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Rozumowanie z Brynshal'duunem",
+                      "id": "022",
+                      "entries": [
+                        "Postać, która bierze {@action Influence|XPHB} podjęcie działań zmierzających do pertraktacji z Brynshal'duunem może spowodować a {@dc 15} Charyzma ({@skill Deception|XPHB} Lub {@skill Persuasion|XPHB}) sprawdzać; postać, która zawiera wzmiankę o Smoczej Przepowiedni, sprawdza to za pomocą {@variantrule Advantage|XPHB}. Po udanym teście postawa Brynshal'duuna poprawia się o jeden stopień: z {@variantrule Hostile [Attitude]|XPHB|Wrogi} Do {@variantrule Indifferent [Attitude]|XPHB|Obojętny}lub od Obojętny do {@variantrule Friendly [Attitude]|XPHB|Przyjazny}.",
+                        "Brynshal'duun pozwala postaciom odejść bez dalszych incydentów, jeśli ich nastawienie zmieni się na Przyjazne."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Ucieczka przed Smokiem",
+                  "id": "023",
+                  "entries": [
+                    "Jeśli bohaterowie zdecydują się raczej uciec niż walczyć, Brynshal'duun rusza w pościg. Skorzystaj z zasad uruchamiania pościgów w {@book chapter 3|XDMG|2|Pościgi} z {@i Przewodnik Mistrza Lochów} oprócz poniższych sekcji. Pościg rozpoczyna się, gdy smok krąży 50 metrów za {@i Pustelnik}. Smok inicjuje walkę, jeśli złapie statek.",
+                    {
+                      "type": "entries",
+                      "name": "Ukrywanie sterowca",
+                      "id": "024",
+                      "entries": [
+                        "Przy Inicjatywie wynoszącej 0 w każdej rundzie, istota zajmująca Hełm może wykonać a {@dc 18} Zręczność ({@skill Stealth|XPHB}) zaznacz, aby spróbować ukryć statek. Po pomyślnym sprawdzeniu statek zostaje zasłonięty przez chmury, a smok rezygnuje z pościgu."
+                      ]
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Komplikacje w pogoni za smokiem",
+                      "id": "025",
+                      "entries": [
+                        "Podczas gdy pościg trwa, każdy uczestnik pościgu rzuca {@dice 1d12} na koniec swojej tury. Zapoznaj się z tabelą Komplikacje Dragon Chase, aby ustalić, czy wystąpią komplikacje. Jeśli tak się stanie, ma to wpływ na kolejnego uczestnika pościgu w kolejności Inicjatywy, a nie na uczestnika, który rzucił kostką. Brynshal'duun nie jest dotknięty komplikacjami."
+                      ]
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Zakończenie pościgu",
+                      "id": "026",
+                      "entries": [
+                        "Brynshal'duun rezygnuje z pościgu, jeśli jego Wytrzymałość spadnie do 50 lub mniej lub jeśli rozpocznie swoją turę w odległości większej niż 250 stóp od Pustelnika.",
+                        {
+                          "type": "table",
+                          "caption": "Komplikacje w pogoni za smokiem",
+                          "colLabels": [
+                            "1d12",
+                            "Komplikacje w pogoni za smokiem"
+                          ],
+                          "colStyles": [
+                            "col-2 text-center",
+                            "col-10"
+                          ],
+                          "rows": [
+                            [
+                              "1",
+                              "Jedna z przypadkowych stacji załogi wyłącza się, gdy można wyczuć fale strachu emanujące z rdzenia żywiołu zasilającego sterowiec. Stacja może zostać ponownie aktywowana, jeśli stworzenie wykona akcję i zakończy się sukcesem {@dc 9} Charyzma ({@skill Intimidation|XPHB} Lub {@skill Persuasion|XPHB}) sprawdź, jak udobruchać tchórzliwego ducha kapitana Valthana."
+                            ],
+                            [
+                              "2",
+                              "Ogromne skrzydła smoka otaczają cię wirującym wirem popiołu tak silnym, że nawet osłony przeciwwiatrowe sterowca nie blokują go całkowicie. Zrób {@dc 13} Rzut obronny na Kondycję, aby uniknąć wdychania popiołu. W przypadku nieudanego zapisu masz {@condition Poisoned|XPHB} stanie do końca twojej następnej tury."
+                            ],
+                            [
+                              "3",
+                              "Smok rzuca się na kadłub Pustelnika. Zrób {@dc 13} Rzut obronny na siłę. W przypadku nieudanego zapisu masz {@condition Prone|XPHB} stan : schorzenie."
+                            ],
+                            [
+                              "4",
+                              "Jedna z rąk pokładowych, trawiona przerażeniem, próbuje cię złapać. Zrób {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego zapisu masz {@condition Grappled|XPHB} stan (ucieczka {@dc 10}). Postać, która bierze {@action Influence|XPHB} akcja uspokajająca rękę pokładową może wykonać a {@dc 13} Charyzma ({@skill Intimidation|XPHB} Lub {@skill Persuasion|XPHB}) czeka, pomagając ręce pokładowej odzyskać panowanie nad sobą i kończąc chwyt po udanym teście."
+                            ],
+                            [
+                              "5",
+                              "Smok przelatuje obok statku powietrznego i odcina część olinowania, która mknie w twoją stronę. Zrób {@dc 13} Rzut obronny na zręczność w celu uniknięcia lin. W przypadku nieudanego rzutu bierzesz 6 ({@dice 1d10}) Tłuczące obrażenia i mają {@condition Grappled|XPHB} stan (ucieczka {@dc 13}). Podczas chwytania w ten sposób masz także {@condition Restrained|XPHB} stan : schorzenie."
+                            ],
+                            [
+                              "6",
+                              "Smok powala statek na brzeg gęstej chmury i popiołu. Do końca twojej następnej tury statek pozostaje {@variantrule Heavily Obscured|XPHB}."
+                            ],
+                            [
+                              "7-12",
+                              "Nie ma żadnych komplikacji."
+                            ]
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Dojazd do Korth",
+              "id": "027",
+              "entries": [
+                "Pozostawiając za sobą Wieże Popielnych, bohaterowie widzą rozciągający się w oddali Nocny Las, a za nim cel podróży, miasto Korth.",
+                {
+                  "type": "insetReadaloud",
+                  "id": "028",
+                  "entries": [
+                    "{@i Pustelnik} zwalnia, gdy zbliża się do wysokiej iglicy na obrzeżach miasta i zatrzymuje się przy jednym z trzech doków dla sterowców wystających z jego górnego biegu. Nie tracąc czasu, członkowie załogi zeskakują ze statku za pomocą lin cumowniczych i mocują go do doku.",
+                    "Gdy załoga kończy zabezpieczać statek, uruchamia się pobliska winda towarowa, która podnosi platformę na poziom doku statku. Na platformie znajduje się człowiek i czterech wojowników.",
+                    "Ślady Tworzenia wyłaniają się spod kołnierza pięknej, czarnej odzieży człowieka. Trzej z czterech wojowników są pokryci bliznami i poważnie uszkodzeni, podczas gdy czwarty z ciemnego drewna dzierży parę ogromnych tarcz i ma złoconą ramę ze srebra, złota i innych metali szlachetnych."
+                  ]
+                },
+                "Winda towarowa znajduje się około 50 stóp od krawędzi doku, gdzie zacumowany jest {@i Pustelnik}. Osoby w windzie to baron Zorlan d'Cannith (średni {@creature Cannith Artificer|EFA}, szczegółowo opisany w {@book Eberron: Forge of the Artificer|EFA}), jego orszak trzech wykutych w wojnie ochroniarzy (średni {@creature Warrior Veteran|XMM|Weterani Wojowników}) i Bastion, jego osobisty wykuty w wojnie ochroniarz (średni {@creature Guard Captain|XMM}). Czterech wojowników to Konstrukty, a nie Humanoidy.",
+                "Postać, która wykonuje akcję {@action Study|XPHB} i pomyślnie przejdzie test inteligencji {@dc 11} ({@skill History|XPHB}), stwierdza, że ​​smoczy znak i strój człowieka sugerują wysoką pozycję w {@book House Cannith|EFA|5|rodu Cannith}. Jeśli test zakończy się sukcesem na poziomie 5 lub więcej, postać rozpoznaje człowieka jako Zorlana d'Cannith, barona Cannith rządzącego Cannith East.",
+                {
+                  "type": "entries",
+                  "name": "Baron Zorlan d'Cannith",
+                  "id": "029",
+                  "entries": [
+                    "Baron Cannith East jest człowiekiem niewielu słów. Zawsze szukając sposobu na przejęcie kontroli nad całym Domem Cannith, Zorlan skierował swój wzrok na dziedzinę specjalizacji Merrix d'Cannith: wykuwani w wojnie, szczególnie nieumarli. Dzięki swoim rozległym kontaktom od lat organizuje dostawy martwych żołnierzy do wykorzystania w swoich eksperymentach.",
+                    "O ile bohaterowie nie sprawią problemu, spotkanie z baronem Zorlanem przebiega zwyczajnie: następuje wymiana pieniędzy (patrz \"{@area Treasure|02a|x}\"), nieumarli żołnierze ładują siedem skrzyń Kreffika na wózek znajdujący się na windzie, po czym strony się rozstają. Jeśli jednak bohaterowie odkryją, co zawierały skrzynie, mogą spróbować uniemożliwić wymianę.",
+                    "Jeśli bohaterowie potraktują ładunek moralnie znieważony, barona Zorlana nie można lekceważyć; jego świta blokuje postacie, gdyby groziły przemocą. Jeśli Kreffik przeżyje, on i jego Helmed Horror będą bronić barona Zorlana w przypadku wybuchu walki.",
+                    "Barona Zorlana nie obchodzi, kto otrzyma zapłatę; tak długo jak odbiera ładunek, jest zadowolony z pozostawienia swojej zapłaty na doku każdemu, kto chce o nią walczyć. W rzeczywistości interesują go postacie, które wykazują szczególne umiejętności w stosowaniu przemocy, gdyby w ich stosunkach doszło do bójki."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Skarb",
+                  "id": "02a",
+                  "entries": [
+                    "Niezależnie od tego, czy chodzi o Kreffika, czy o bohaterów, baron Zorlan płaci zapłatę w skrzyni zawierającej siedem mniejszych sakiewek. Każda sakiewka zawiera 100 GP w monetach różnych mennic (usuwając jedną saszetkę za każdą niedostarczoną skrzynkę). Ponadto skrzynia zawiera parę {@item Boots of the Winding Path|EFA} (Widzieć {@book Eberron: Forge of the Artificer|EFA}).",
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "adventure/FFotR/004-00-003.warforged.webp"
+                      },
+                      "credit": "Craig J. Spearing",
+                      "width": 850,
+                      "height": 1213
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Autorzy",
+          "id": "02b",
+          "entries": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "columns": 2,
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Główny projektant:",
+                  "entry": "Travisa Woodalla"
+                },
+                {
+                  "type": "item",
+                  "name": "Projektanci:",
+                  "entry": "Makenzie De Armas, Chris Tulach"
+                },
+                {
+                  "type": "item",
+                  "name": "Redaktor:",
+                  "entry": "Amanda Frechin"
+                },
+                {
+                  "type": "item",
+                  "name": "Projektant graficzny:",
+                  "entry": "Zsolt Tóth"
+                },
+                {
+                  "type": "item",
+                  "name": "Ilustrator okładki:",
+                  "entry": "Pogoń za Stonem"
+                },
+                {
+                  "type": "item",
+                  "name": "Kartograf:",
+                  "entry": "Seana Macdonalda"
+                },
+                {
+                  "type": "item",
+                  "name": "Ilustratorzy:",
+                  "entry": "Antonio José Manzanedo, John Thacker, Craig J. Spearing"
+                },
+                {
+                  "type": "item",
+                  "name": "Producent:",
+                  "entry": "Billa Benhama"
+                }
+              ]
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/FFotR/005-00-004.automaton.webp"
+              },
+              "credit": "Noor Rahman",
+              "width": 850,
+              "height": 834
+            }
+          ]
+        }
+      ]
+    },
+    "0:002": {
+      "type": "section",
+      "name": "Przygotowanie",
+      "id": "002",
+      "entries": [
+        "Przed rozpoczęciem przygody przygotuj się w następujący sposób:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Krok 1",
+              "entry": "Przeczytaj przygodę raz."
+            },
+            {
+              "type": "item",
+              "name": "Krok 2",
+              "entry": "W rozdziale 7, „Sterowce żywiołów” w Eberron: Forge of the Artificer znajdziesz informacje na temat obsługi sterowców, co jest kluczowe w tej przygodzie."
+            },
+            {
+              "type": "item",
+              "name": "Krok 3",
+              "entry": "Odwołaj się do mapy Pustelnika i pokaż ją graczom. Będą go używać przez całą przygodę."
+            },
+            {
+              "type": "item",
+              "name": "Krok 4",
+              "entries": [
+                "Odwołaj się do potworów (otwórz wpisy o potworach w D&D Beyond lub dodaj do zakładek fizyczne książki). Wszystkie pojawiają się w Księdze Potworów lub w Eberron: Forge of the Artificer. Oto lista bloków statystyk potrzebnych do uruchomienia przygody:",
+                {
+                  "type": "list",
+                  "columns": 3,
+                  "items": [
+                    "{@creature Bandit Captain|XMM}",
+                    "{@creature Young Blue Dragon|XMM|Niebieski Smok, Młody}",
+                    "{@creature Cannith Artificer|EFA}",
+                    "{@creature Guard Captain|XMM}",
+                    "{@creature Helmed Horror|XMM}",
+                    "{@creature Warrior Veteran|XMM}"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:003": {
+      "type": "section",
+      "name": "Prowadzenie tej przygody",
+      "id": "003",
+      "entries": [
+        "Aby przeprowadzić tę przygodę, potrzebujesz {@book Eberron: Forge of the Artificer|EFA}, a także {@book Player's Handbook|XPHB}, {@book Dungeon Master's Guide|XDMG}, I {@book Monster Manual|XMM}.",
+        {
+          "type": "insetReadaloud",
+          "id": "004",
+          "entries": [
+            "Tekst pojawiający się w takim ramce należy przeczytać na głos lub sparafrazować dla graczy, gdy ich postacie po raz pierwszy dotrą do miejsca lub w określonych okolicznościach, zgodnie z opisem w tekście."
+          ]
+        },
+        "O ile nie zaznaczono inaczej, nazwy potworów w {@b pogrubiony} kierują cię do odpowiedniego bloku statystyk w {@i Podręcznik potwora}, a opisy magicznych przedmiotów można znaleźć w {@i Przewodnik Mistrza Lochów}.",
+        {
+          "type": "inset",
+          "name": "Klan Soldorak",
+          "id": "005",
+          "entries": [
+            "Krasnoludy Soldoraki należą do najbogatszych z jedenastu krasnoludzkich klanów i nie posiadają władzy, jaką zapewnia smoczy rodowód - takiej jak Klan Kundarak.",
+            "Podczas gdy krasnoludom Kundarak udało się zdobyć władzę i dobrobyt przez przypadek, Soldoraki musieli na to zapracować (przynajmniej takie mają zdanie). Dzięki temu nie uchylają się od okazji, na które inni mogliby kręcić nosem. Jest prawdopodobne, że krasnoludy z klanu Soldorak chętnie zrobią to, co należy zrobić - niezależnie od tego, czego wymaga ta praca."
+          ]
+        }
+      ]
+    },
+    "0:006": {
+      "type": "section",
+      "name": "Niziołek za burtą",
+      "id": "006",
+      "entries": [
+        "Nie trwało długo, zanim sterowiec Striderów {@i Pustelnik}, który opuścił krasnoludzkie miasto Soldorakhold zaledwie dzień wcześniej, został zaatakowany przez grupę ludzkich piratów na pokładzie pary Lyrandar Skyskiffów, gdy przelatywali nad rozległymi Górami Żelaznego Korzenia. Zobacz {@book chapter 7|EFA|7} z {@book Eberron: Forge of the Artificer|EFA}, aby zapoznać się ze statystykami {@vehicle Strider Airship|EFA} i {@vehicle Lyrandar Skyskiff|EFA}.",
+        "Ośmiu piratów weszło na pokład {@i Pustelnik}, kiedy kapitan {@i Pustelnik}, niziołek imieniem Ryvan Rallanith, podjął zuchwałą decyzję; skierował statek w strome nurkowanie. Czterech piratów wypadło za burtę, jednak jeden z nich przeciął uprząż mocującą kapitana Rallanitha do steru. Na pokładzie sterowca pozostaje czterech piratów.",
+        {
+          "type": "insetReadaloud",
+          "id": "007",
+          "entries": [
+            "Deski statku z strzelistego drewna jęczą i skrzypią w proteście, gdy Pustelnik wisi bezradnie na niebie, a dziób przechyla się stromo. Tysiące galifarów z niezabezpieczonych zapasów i, co ważniejsze, kapitan halflinga Ryvan Rallanith, są teraz czarnymi plamkami znikającymi setki stóp pod ziemią.",
+            "Kreffik Soldorak, Twój pracodawca, leży w pobliżu sterty mebli i bagażu. „Dolurr!” - woła, zsuwając z siebie mały stolik nocny i próbując poprawić płaszcz. „Co robi ten po trzykroć przeklęty sternik?!”."
+          ]
+        },
+        "Bez pilota nie ma szans, aby statek się wyprostował, nie mówiąc już o kontynuowaniu podróży.",
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/FFotR/000-map-00.01-the-recluse.webp"
+              },
+              "imageType": "mapa",
+              "title": "Pustelnik",
+              "credit": "Sean Macdonald",
+              "width": 4096,
+              "height": 2650,
+              "id": "02c",
+              "grid": {
+                "type": "square",
+                "size": 98,
+                "offsetX": 37,
+                "offsetY": -9
+              }
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/FFotR/001-map-00.01-the-recluse-player.webp"
+              },
+              "imageType": "mapPlayer",
+              "title": "Wersja odtwarzacza",
+              "credit": "Sean Macdonald",
+              "width": 4096,
+              "height": 2650,
+              "mapParent": {
+                "id": "02c"
+              },
+              "grid": {
+                "type": "square",
+                "size": 98,
+                "offsetX": 37,
+                "offsetY": -9
+              }
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Odzyskanie kontroli nad sterem",
+          "id": "008",
+          "entries": [
+            "Istota zajmująca stanowisko załogi Helma na sterowcu zazwyczaj potrzebuje Znaku Burzy, aby uzyskać dostęp do działań stacji (zobacz {@book chapter 7|EFA|7|Sterowce żywiołów} w {@book Eberron: Forge of the Artificer|EFA}, aby uzyskać więcej informacji na temat stanowisk załogi). {@i Pustelnik} jest jednak wyjątkowy, ponieważ sterowiec jest zasilany nie tylko przez pojmanego {@creature air elemental|XMM}, ale także przez ducha dawno zmarłego poprzedniego kapitana, który po wpadnięciu do pierścienia żywiołów został wchłonięty przez rdzeń żywiołu sterowca. Zamieszkanie ducha pozwala istocie zajmującej Hełm ominąć wymagania tej stacji i niezależnie od tego korzystać z jej akcji.",
+            "Postać, która bierze {@action Study|XPHB} akcji i odnosi sukces na a {@dc 9} Inteligencja ({@skill Arcana|XPHB}) sprawdzenie przypomina nie tylko, że pilot musi nosić Znak Burzy, ale także, że Dom Lyrandarów ściśle kontroluje osoby noszące taki znak; biorąc pod uwagę, że poprzedni pilot nie był członkiem rodu Lyrandarów, jest bardziej prawdopodobne, że statkiem może sterować ktoś bez smoczego znaku, a kapitan Rallanith wymyślił inny sposób, aby to zrobić.",
+            "Statek jest obecnie przechylony na tyle stromo, że pionowe powierzchnie sterowca są poziome względem ziemi. Opcje postaci zależą teraz od tego, gdzie byli, gdy kapitan Rallanith wszedł do nurkowania. Daj graczom kilka minut na opisanie swoich postaci i tego, co robili, zanim zostali zaatakowani przez piratów.",
+            {
+              "type": "entries",
+              "id": "009",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Na pokładzie",
+                  "id": "00a",
+                  "entries": [
+                    "Podczas gdy Kapitan Rallanith nawoływał postacie, aby schroniły się we wnętrzu Pustelnika, tym, którzy mogli zignorować rozkaz, pospiesznie założono uprzęże i teraz zostali przywiązani do poręczy zabezpieczającej biegnącej wzdłuż burty sterowca."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Wewnątrz sterowca",
+                  "id": "00b",
+                  "entries": [
+                    "Ci, którzy usłuchali rozkazów kapitana, znajdują się w wybranym przez siebie pomieszczeniu we wnętrzu sterowca."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Dotarcie do Hełmu",
+              "id": "00c",
+              "entries": [
+                "Po śmierci kapitana Rallanitha ster statku pozostaje pusty. Postać chcąca naprawić sterowiec musi najpierw dotrzeć do Hełmu i nawiązać z nim kontakt.",
+                {
+                  "type": "entries",
+                  "name": "Wewnątrz sterowca",
+                  "id": "00d",
+                  "entries": [
+                    "Ze względu na przechyloną orientację statku, istoty znajdujące się wewnątrz statku muszą się wspinać, aby uzyskać dostęp do innych obszarów statku. Stworzenie bez Prędkości Wspinania, które próbuje wspiąć się do wnętrza statku, musi odnieść sukces {@dc 11} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź lub upadnij."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Na pokładzie",
+                  "id": "00e",
+                  "entries": [
+                    "Istoty noszące uprzęże na pokładzie statku mogą wspinać się po pionowej powierzchni pokładu bez upadku. Stworzenie ma {@variantrule Disadvantage|XPHB} w rzutach ataku, mając na sobie uprząż.",
+                    "jako {@action Utilize|XPHB} akcję, istota może wykonać a {@dc 11} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź, czy zdejmij uprząż, robiąc to bezpiecznie i nie upadając po pomyślnym sprawdzeniu. Kiedy istota bez uprzęży zostanie odepchnięta lub zdobędzie {@condition Prone|XPHB} warunek, stworzenie musi odnieść sukces na a {@dc 11} Rzut obronny na Zręczność lub upadek - potencjalnie poza statkiem i powodując jego śmierć."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Piraci",
+              "id": "00f",
+              "entries": [
+                "Czterech piratów (średni {@creature Bandit Captain|XMM|Kapitanowie Bandytów}) na pokładzie {@i Pustelnik}, również ubranych w uprzęże, atakuje postacie. Piraci pozostający na pokładzie własnych skyskiffów kontynuują próby zdobycia {@i Pustelnik}. Każdy skyskiff znajduje się 9 stóp od {@i Pustelnik}, załadował sterowiec harpunem za pomocą stacji załogi {@vehicle Lyrandar Skyskiff|EFA|Kabel holowniczy} i powoli ciągnie go w stronę swojej bazy operacyjnej w Górach Żelaznego Korzenia. Na pokładzie każdego z dwóch skyskiffów pozostaje jeden pirat (średni {@b Bandyta Kapitan})."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Duch w maszynie",
+              "id": "010",
+              "entries": [
+                "Postać próbująca obsługiwać Hełm (patrz {@book Eberron: Forge of the Artificer|EFA}, {@book chapter 7|EFA|7|Sterowanie statkiem powietrznym}) zauważa niezwykłą telepatyczną obecność, która dociera do niej, gdy jej dotyka. Obecność (opisana na pasku bocznym „{@area Captain Valthan d'Lyrandar|011|x}”) jest początkowo {@variantrule Indifferent [Attitude]|XPHB|Obojętny} dla znaku.",
+                "Postać, która bierze {@action Influence|XPHB} akcji i odnosi sukces na a {@dc 17} Charyzma ({@skill Deception|XPHB}, {@skill Intimidation|XPHB}, Lub {@skill Persuasion|XPHB}) check zmienia nastawienie obecności do {@variantrule Friendly [Attitude]|XPHB|Przyjazny} i przekonuje go, aby pozwolił im uzyskać dostęp do działań Hełmu. Postacie posiadające biegłość w Narzędziach Nawigatora dokonują tego testu za pomocą {@variantrule Advantage|XPHB}, podczas gdy postacie posiadające Znak Burzy automatycznie pomyślnie przechodzą ten test. Nastawienie obecności zmienia się na {@variantrule Hostile [Attitude]|XPHB|Wrogi} jeśli kontrola nie powiedzie się o 5 lub więcej.",
+                {
+                  "type": "inset",
+                  "name": "Kapitan Valthan D'lyrandar",
+                  "id": "011",
+                  "entries": [
+                    "{@i Pustelnik} to według większości standardów stary statek, który służył podczas Ostatniej Wojny. Stary kapitan sterowca, {@race shifter|EFA} imieniem Valthan d'Lyrandar, był utalentowanym pilotem sterowca, ale był aż do przesady ostrożny - cecha, która odegrała dużą rolę w jego śmierci. Zamiast szlachetnie zginąć w bitwie, podczas potyczki wypadł za burtę i wpadł do pierścienia żywiołów statku (patrz {@book Eberron: Forge of the Artificer|EFA}, {@book chapter 7|EFA|7|Silniki Żywiołów}). Statek wchłonął duszę Valthana do rdzenia żywiołów, gdzie pozostaje do dziś."
+                  ]
+                },
+                "Gdy postać przejmie kontrolę nad sterem, statek można ustawić prosto, a pozostałe postacie mogą obsługiwać jedno z pięciu innych stanowisk załogi {@i Pustelnik}: cztery {@vehicle Strider Airship|EFA|Tajemne Wyrzutnie} (dwa po obu stronach sterowca) i {@book Sky Veil|EFA|7|Niebiańska zasłona (15 000 GP)}.",
+                "Piraci wypuszczają harpuny, gdy {@i Pustelnik} się wyprostuje. Skyskiff ucieka, jeśli jego Punkty Życia zostaną zredukowane do połowy.",
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/FFotR/002-00-001.shifter.webp"
+                  },
+                  "credit": "Antonio José Manzanedo",
+                  "width": 850,
+                  "height": 1303
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Oskarżenia o sztuczność",
+          "id": "012",
+          "entries": [
+            "Krasnolud Kreffik (Średni {@creature Cannith Artificer|EFA}) i dwaj pozostali członkowie załogi są wdzięczni, że postacie odstraszyły piratów, ale także dlatego, że odkryli, jak odzyskać kontrolę nad {@i Pustelnik}. Kreffik jest mądry i rozumie, że etyka i zasady służą jedynie jako przeszkoda w zajęciach akademickich. Nie ma żadnych zastrzeżeń do kłamstwa, jeśli chodzi o ochronę swoich badań, celów finansowych lub reputacji klanu. Przygodę rozpoczyna z nastawieniem {@variantrule Friendly [Attitude]|XPHB|Przyjazny} do bohaterów.",
+            "Kreffik twierdzi, że nie wie, jakie motywacje kierują się piraci, próbując przejąć kontrolę nad {@i Pustelnik}, ale postać, która podejmuje akcję {@action Search|XPHB} i wykonuje udany test {@dc 15} Mądrości ({@skill Insight|XPHB}), zauważa, że ​​coś ukrywa. Kreffik wyznaje prawdę i oferuje ujawnienie swojego ładunku postaciom, jeśli postać wykona akcję {@action Influence|XPHB} i pomyślnie przejdzie test {@dc 15} na Charyzmę ({@skill Intimidation|XPHB} lub {@skill Persuasion|XPHB}).",
+            "Prowadząc ich do ładowni {@i Pustelnik}, Kreffik otwiera jedną ze skrzyń, odsłaniając stojak z delikatnymi fiolkami rzadkiego, zielonego płynu, który według niego jest „esencją intuicji”. Jednak stojak to kolejny podstęp; jeśli zostanie usunięty, pod nim leżą szczątki martwego wojownika. Pośpiesznie przyznaje, że Karrnath dobrze płaci za takie „materiały” do wykorzystania w wzmacnianiu armii nieumarłych - stara praktyka, o której naród otwarcie twierdzi, że nie jest już stosowana.",
+            "Twierdzi, że {@area Clan Soldorak|005|x} nigdy wcześniej nie zajmował się tym handlem. Postać, która wykonuje akcję {@action Search|XPHB} i pomyślnie wykona test {@dc 20} Mądrości ({@skill Insight|XPHB}), stwierdza, że ​​jest to kłamstwo; Klan Soldorak zajmuje się śledzeniem takich rzeczy od wielu lat. Chociaż Kreffik opiera się próbom zakłócenia przesyłki przez bohaterów, zdaje sobie sprawę, że łatwiej powiedzieć, niż zrobić, aby powstrzymać bohaterów przed zakłóceniem jego misji. To powiedziawszy, nie jest z pustymi rękami; jedna z sześciu skrzyń zawiera {@creature Helmed Horror|XMM} (odporny na zaklęcia {@spell Fireball|XPHB}, {@spell Shocking Grasp|XPHB} i {@spell Spirit Guardians|XPHB}), który wybucha na jego rozkaz.",
+            {
+              "type": "entries",
+              "name": "Skarb",
+              "id": "013",
+              "entries": [
+                "Gdy bohaterowie wznowią podróż, znajdują na pokładzie {@i Pustelnik} wysadzaną koralikami, olejowaną torbę, która najwyraźniej została upuszczona przez pirata, który wszedł na pokład sterowca. Torba zawiera 25 GP i {@item Potion of Greater Healing|XDMG|Mikstura Leczenia (większa)}.",
+                "Jeśli Kreffik zostanie stoczony i pokonany, okazuje się, że nosi on garnitur {@item Scale Mail|XPHB|Poczta skalowana +1} i a {@item backpack|XPHB} zawierający 250 GP w barach handlowych Soldorak (do wykorzystania w przekupywaniu urzędników Karrnathi) oraz księgę zawierającą szczegóły jego potencjalnej sprzedaży."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:008": {
+      "type": "entries",
+      "name": "Odzyskanie kontroli nad sterem",
+      "id": "008",
+      "entries": [
+        "Istota zajmująca stanowisko załogi Helma na sterowcu zazwyczaj potrzebuje Znaku Burzy, aby uzyskać dostęp do działań stacji (zobacz {@book chapter 7|EFA|7|Sterowce żywiołów} w {@book Eberron: Forge of the Artificer|EFA}, aby uzyskać więcej informacji na temat stanowisk załogi). {@i Pustelnik} jest jednak wyjątkowy, ponieważ sterowiec jest zasilany nie tylko przez pojmanego {@creature air elemental|XMM}, ale także przez ducha dawno zmarłego poprzedniego kapitana, który po wpadnięciu do pierścienia żywiołów został wchłonięty przez rdzeń żywiołu sterowca. Zamieszkanie ducha pozwala istocie zajmującej Hełm ominąć wymagania tej stacji i niezależnie od tego korzystać z jej akcji.",
+        "Postać, która bierze {@action Study|XPHB} akcji i odnosi sukces na a {@dc 9} Inteligencja ({@skill Arcana|XPHB}) sprawdzenie przypomina nie tylko, że pilot musi nosić Znak Burzy, ale także, że Dom Lyrandarów ściśle kontroluje osoby noszące taki znak; biorąc pod uwagę, że poprzedni pilot nie był członkiem rodu Lyrandarów, jest bardziej prawdopodobne, że statkiem może sterować ktoś bez smoczego znaku, a kapitan Rallanith wymyślił inny sposób, aby to zrobić.",
+        "Statek jest obecnie przechylony na tyle stromo, że pionowe powierzchnie sterowca są poziome względem ziemi. Opcje postaci zależą teraz od tego, gdzie byli, gdy kapitan Rallanith wszedł do nurkowania. Daj graczom kilka minut na opisanie swoich postaci i tego, co robili, zanim zostali zaatakowani przez piratów.",
+        {
+          "type": "entries",
+          "id": "009",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Na pokładzie",
+              "id": "00a",
+              "entries": [
+                "Podczas gdy Kapitan Rallanith nawoływał postacie, aby schroniły się we wnętrzu Pustelnika, tym, którzy mogli zignorować rozkaz, pospiesznie założono uprzęże i teraz zostali przywiązani do poręczy zabezpieczającej biegnącej wzdłuż burty sterowca."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Wewnątrz sterowca",
+              "id": "00b",
+              "entries": [
+                "Ci, którzy usłuchali rozkazów kapitana, znajdują się w wybranym przez siebie pomieszczeniu we wnętrzu sterowca."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Dotarcie do Hełmu",
+          "id": "00c",
+          "entries": [
+            "Po śmierci kapitana Rallanitha ster statku pozostaje pusty. Postać chcąca naprawić sterowiec musi najpierw dotrzeć do Hełmu i nawiązać z nim kontakt.",
+            {
+              "type": "entries",
+              "name": "Wewnątrz sterowca",
+              "id": "00d",
+              "entries": [
+                "Ze względu na przechyloną orientację statku, istoty znajdujące się wewnątrz statku muszą się wspinać, aby uzyskać dostęp do innych obszarów statku. Stworzenie bez Prędkości Wspinania, które próbuje wspiąć się do wnętrza statku, musi odnieść sukces {@dc 11} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź lub upadnij."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Na pokładzie",
+              "id": "00e",
+              "entries": [
+                "Istoty noszące uprzęże na pokładzie statku mogą wspinać się po pionowej powierzchni pokładu bez upadku. Stworzenie ma {@variantrule Disadvantage|XPHB} w rzutach ataku, mając na sobie uprząż.",
+                "jako {@action Utilize|XPHB} akcję, istota może wykonać a {@dc 11} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź, czy zdejmij uprząż, robiąc to bezpiecznie i nie upadając po pomyślnym sprawdzeniu. Kiedy istota bez uprzęży zostanie odepchnięta lub zdobędzie {@condition Prone|XPHB} warunek, stworzenie musi odnieść sukces na a {@dc 11} Rzut obronny na Zręczność lub upadek - potencjalnie poza statkiem i powodując jego śmierć."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Piraci",
+          "id": "00f",
+          "entries": [
+            "Czterech piratów (średni {@creature Bandit Captain|XMM|Kapitanowie Bandytów}) na pokładzie {@i Pustelnik}, również ubranych w uprzęże, atakuje postacie. Piraci pozostający na pokładzie własnych skyskiffów kontynuują próby zdobycia {@i Pustelnik}. Każdy skyskiff znajduje się 9 stóp od {@i Pustelnik}, załadował sterowiec harpunem za pomocą stacji załogi {@vehicle Lyrandar Skyskiff|EFA|Kabel holowniczy} i powoli ciągnie go w stronę swojej bazy operacyjnej w Górach Żelaznego Korzenia. Na pokładzie każdego z dwóch skyskiffów pozostaje jeden pirat (średni {@b Bandyta Kapitan})."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Duch w maszynie",
+          "id": "010",
+          "entries": [
+            "Postać próbująca obsługiwać Hełm (patrz {@book Eberron: Forge of the Artificer|EFA}, {@book chapter 7|EFA|7|Sterowanie statkiem powietrznym}) zauważa niezwykłą telepatyczną obecność, która dociera do niej, gdy jej dotyka. Obecność (opisana na pasku bocznym „{@area Captain Valthan d'Lyrandar|011|x}”) jest początkowo {@variantrule Indifferent [Attitude]|XPHB|Obojętny} dla znaku.",
+            "Postać, która bierze {@action Influence|XPHB} akcji i odnosi sukces na a {@dc 17} Charyzma ({@skill Deception|XPHB}, {@skill Intimidation|XPHB}, Lub {@skill Persuasion|XPHB}) check zmienia nastawienie obecności do {@variantrule Friendly [Attitude]|XPHB|Przyjazny} i przekonuje go, aby pozwolił im uzyskać dostęp do działań Hełmu. Postacie posiadające biegłość w Narzędziach Nawigatora dokonują tego testu za pomocą {@variantrule Advantage|XPHB}, podczas gdy postacie posiadające Znak Burzy automatycznie pomyślnie przechodzą ten test. Nastawienie obecności zmienia się na {@variantrule Hostile [Attitude]|XPHB|Wrogi} jeśli kontrola nie powiedzie się o 5 lub więcej.",
+            {
+              "type": "inset",
+              "name": "Kapitan Valthan D'lyrandar",
+              "id": "011",
+              "entries": [
+                "{@i Pustelnik} to według większości standardów stary statek, który służył podczas Ostatniej Wojny. Stary kapitan sterowca, {@race shifter|EFA} imieniem Valthan d'Lyrandar, był utalentowanym pilotem sterowca, ale był aż do przesady ostrożny - cecha, która odegrała dużą rolę w jego śmierci. Zamiast szlachetnie zginąć w bitwie, podczas potyczki wypadł za burtę i wpadł do pierścienia żywiołów statku (patrz {@book Eberron: Forge of the Artificer|EFA}, {@book chapter 7|EFA|7|Silniki Żywiołów}). Statek wchłonął duszę Valthana do rdzenia żywiołów, gdzie pozostaje do dziś."
+              ]
+            },
+            "Gdy postać przejmie kontrolę nad sterem, statek można ustawić prosto, a pozostałe postacie mogą obsługiwać jedno z pięciu innych stanowisk załogi {@i Pustelnik}: cztery {@vehicle Strider Airship|EFA|Tajemne Wyrzutnie} (dwa po obu stronach sterowca) i {@book Sky Veil|EFA|7|Niebiańska zasłona (15 000 GP)}.",
+            "Piraci wypuszczają harpuny, gdy {@i Pustelnik} się wyprostuje. Skyskiff ucieka, jeśli jego Punkty Życia zostaną zredukowane do połowy.",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/FFotR/002-00-001.shifter.webp"
+              },
+              "credit": "Antonio José Manzanedo",
+              "width": 850,
+              "height": 1303
+            }
+          ]
+        }
+      ]
+    },
+    "0:009": {
+      "type": "entries",
+      "id": "009",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Na pokładzie",
+          "id": "00a",
+          "entries": [
+            "Podczas gdy Kapitan Rallanith nawoływał postacie, aby schroniły się we wnętrzu Pustelnika, tym, którzy mogli zignorować rozkaz, pospiesznie założono uprzęże i teraz zostali przywiązani do poręczy zabezpieczającej biegnącej wzdłuż burty sterowca."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Wewnątrz sterowca",
+          "id": "00b",
+          "entries": [
+            "Ci, którzy usłuchali rozkazów kapitana, znajdują się w wybranym przez siebie pomieszczeniu we wnętrzu sterowca."
+          ]
+        }
+      ]
+    },
+    "0:00a": {
+      "type": "entries",
+      "name": "Na pokładzie",
+      "id": "00a",
+      "entries": [
+        "Podczas gdy Kapitan Rallanith nawoływał postacie, aby schroniły się we wnętrzu Pustelnika, tym, którzy mogli zignorować rozkaz, pospiesznie założono uprzęże i teraz zostali przywiązani do poręczy zabezpieczającej biegnącej wzdłuż burty sterowca."
+      ]
+    },
+    "0:00b": {
+      "type": "entries",
+      "name": "Wewnątrz sterowca",
+      "id": "00b",
+      "entries": [
+        "Ci, którzy usłuchali rozkazów kapitana, znajdują się w wybranym przez siebie pomieszczeniu we wnętrzu sterowca."
+      ]
+    },
+    "0:00c": {
+      "type": "entries",
+      "name": "Dotarcie do Hełmu",
+      "id": "00c",
+      "entries": [
+        "Po śmierci kapitana Rallanitha ster statku pozostaje pusty. Postać chcąca naprawić sterowiec musi najpierw dotrzeć do Hełmu i nawiązać z nim kontakt.",
+        {
+          "type": "entries",
+          "name": "Wewnątrz sterowca",
+          "id": "00d",
+          "entries": [
+            "Ze względu na przechyloną orientację statku, istoty znajdujące się wewnątrz statku muszą się wspinać, aby uzyskać dostęp do innych obszarów statku. Stworzenie bez Prędkości Wspinania, które próbuje wspiąć się do wnętrza statku, musi odnieść sukces {@dc 11} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź lub upadnij."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Na pokładzie",
+          "id": "00e",
+          "entries": [
+            "Istoty noszące uprzęże na pokładzie statku mogą wspinać się po pionowej powierzchni pokładu bez upadku. Stworzenie ma {@variantrule Disadvantage|XPHB} w rzutach ataku, mając na sobie uprząż.",
+            "jako {@action Utilize|XPHB} akcję, istota może wykonać a {@dc 11} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź, czy zdejmij uprząż, robiąc to bezpiecznie i nie upadając po pomyślnym sprawdzeniu. Kiedy istota bez uprzęży zostanie odepchnięta lub zdobędzie {@condition Prone|XPHB} warunek, stworzenie musi odnieść sukces na a {@dc 11} Rzut obronny na Zręczność lub upadek - potencjalnie poza statkiem i powodując jego śmierć."
+          ]
+        }
+      ]
+    },
+    "0:00d": {
+      "type": "entries",
+      "name": "Wewnątrz sterowca",
+      "id": "00d",
+      "entries": [
+        "Ze względu na przechyloną orientację statku, istoty znajdujące się wewnątrz statku muszą się wspinać, aby uzyskać dostęp do innych obszarów statku. Stworzenie bez Prędkości Wspinania, które próbuje wspiąć się do wnętrza statku, musi odnieść sukces {@dc 11} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź lub upadnij."
+      ]
+    },
+    "0:00e": {
+      "type": "entries",
+      "name": "Na pokładzie",
+      "id": "00e",
+      "entries": [
+        "Istoty noszące uprzęże na pokładzie statku mogą wspinać się po pionowej powierzchni pokładu bez upadku. Stworzenie ma {@variantrule Disadvantage|XPHB} w rzutach ataku, mając na sobie uprząż.",
+        "jako {@action Utilize|XPHB} akcję, istota może wykonać a {@dc 11} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź, czy zdejmij uprząż, robiąc to bezpiecznie i nie upadając po pomyślnym sprawdzeniu. Kiedy istota bez uprzęży zostanie odepchnięta lub zdobędzie {@condition Prone|XPHB} warunek, stworzenie musi odnieść sukces na a {@dc 11} Rzut obronny na Zręczność lub upadek - potencjalnie poza statkiem i powodując jego śmierć."
+      ]
+    },
+    "0:00f": {
+      "type": "entries",
+      "name": "Piraci",
+      "id": "00f",
+      "entries": [
+        "Czterech piratów (średni {@creature Bandit Captain|XMM|Kapitanowie Bandytów}) na pokładzie {@i Pustelnik}, również ubranych w uprzęże, atakuje postacie. Piraci pozostający na pokładzie własnych skyskiffów kontynuują próby zdobycia {@i Pustelnik}. Każdy skyskiff znajduje się 9 stóp od {@i Pustelnik}, załadował sterowiec harpunem za pomocą stacji załogi {@vehicle Lyrandar Skyskiff|EFA|Kabel holowniczy} i powoli ciągnie go w stronę swojej bazy operacyjnej w Górach Żelaznego Korzenia. Na pokładzie każdego z dwóch skyskiffów pozostaje jeden pirat (średni {@b Bandyta Kapitan})."
+      ]
+    },
+    "0:010": {
+      "type": "entries",
+      "name": "Duch w maszynie",
+      "id": "010",
+      "entries": [
+        "Postać próbująca obsługiwać Hełm (patrz {@book Eberron: Forge of the Artificer|EFA}, {@book chapter 7|EFA|7|Sterowanie statkiem powietrznym}) zauważa niezwykłą telepatyczną obecność, która dociera do niej, gdy jej dotyka. Obecność (opisana na pasku bocznym „{@area Captain Valthan d'Lyrandar|011|x}”) jest początkowo {@variantrule Indifferent [Attitude]|XPHB|Obojętny} dla znaku.",
+        "Postać, która bierze {@action Influence|XPHB} akcji i odnosi sukces na a {@dc 17} Charyzma ({@skill Deception|XPHB}, {@skill Intimidation|XPHB}, Lub {@skill Persuasion|XPHB}) check zmienia nastawienie obecności do {@variantrule Friendly [Attitude]|XPHB|Przyjazny} i przekonuje go, aby pozwolił im uzyskać dostęp do działań Hełmu. Postacie posiadające biegłość w Narzędziach Nawigatora dokonują tego testu za pomocą {@variantrule Advantage|XPHB}, podczas gdy postacie posiadające Znak Burzy automatycznie pomyślnie przechodzą ten test. Nastawienie obecności zmienia się na {@variantrule Hostile [Attitude]|XPHB|Wrogi} jeśli kontrola nie powiedzie się o 5 lub więcej.",
+        {
+          "type": "inset",
+          "name": "Kapitan Valthan D'lyrandar",
+          "id": "011",
+          "entries": [
+            "{@i Pustelnik} to według większości standardów stary statek, który służył podczas Ostatniej Wojny. Stary kapitan sterowca, {@race shifter|EFA} imieniem Valthan d'Lyrandar, był utalentowanym pilotem sterowca, ale był aż do przesady ostrożny - cecha, która odegrała dużą rolę w jego śmierci. Zamiast szlachetnie zginąć w bitwie, podczas potyczki wypadł za burtę i wpadł do pierścienia żywiołów statku (patrz {@book Eberron: Forge of the Artificer|EFA}, {@book chapter 7|EFA|7|Silniki Żywiołów}). Statek wchłonął duszę Valthana do rdzenia żywiołów, gdzie pozostaje do dziś."
+          ]
+        },
+        "Gdy postać przejmie kontrolę nad sterem, statek można ustawić prosto, a pozostałe postacie mogą obsługiwać jedno z pięciu innych stanowisk załogi {@i Pustelnik}: cztery {@vehicle Strider Airship|EFA|Tajemne Wyrzutnie} (dwa po obu stronach sterowca) i {@book Sky Veil|EFA|7|Niebiańska zasłona (15 000 GP)}.",
+        "Piraci wypuszczają harpuny, gdy {@i Pustelnik} się wyprostuje. Skyskiff ucieka, jeśli jego Punkty Życia zostaną zredukowane do połowy.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/FFotR/002-00-001.shifter.webp"
+          },
+          "credit": "Antonio José Manzanedo",
+          "width": 850,
+          "height": 1303
+        }
+      ]
+    },
+    "0:012": {
+      "type": "entries",
+      "name": "Oskarżenia o sztuczność",
+      "id": "012",
+      "entries": [
+        "Krasnolud Kreffik (Średni {@creature Cannith Artificer|EFA}) i dwaj pozostali członkowie załogi są wdzięczni, że postacie odstraszyły piratów, ale także dlatego, że odkryli, jak odzyskać kontrolę nad {@i Pustelnik}. Kreffik jest mądry i rozumie, że etyka i zasady służą jedynie jako przeszkoda w zajęciach akademickich. Nie ma żadnych zastrzeżeń do kłamstwa, jeśli chodzi o ochronę swoich badań, celów finansowych lub reputacji klanu. Przygodę rozpoczyna z nastawieniem {@variantrule Friendly [Attitude]|XPHB|Przyjazny} do bohaterów.",
+        "Kreffik twierdzi, że nie wie, jakie motywacje kierują się piraci, próbując przejąć kontrolę nad {@i Pustelnik}, ale postać, która podejmuje akcję {@action Search|XPHB} i wykonuje udany test {@dc 15} Mądrości ({@skill Insight|XPHB}), zauważa, że ​​coś ukrywa. Kreffik wyznaje prawdę i oferuje ujawnienie swojego ładunku postaciom, jeśli postać wykona akcję {@action Influence|XPHB} i pomyślnie przejdzie test {@dc 15} na Charyzmę ({@skill Intimidation|XPHB} lub {@skill Persuasion|XPHB}).",
+        "Prowadząc ich do ładowni {@i Pustelnik}, Kreffik otwiera jedną ze skrzyń, odsłaniając stojak z delikatnymi fiolkami rzadkiego, zielonego płynu, który według niego jest „esencją intuicji”. Jednak stojak to kolejny podstęp; jeśli zostanie usunięty, pod nim leżą szczątki martwego wojownika. Pośpiesznie przyznaje, że Karrnath dobrze płaci za takie „materiały” do wykorzystania w wzmacnianiu armii nieumarłych - stara praktyka, o której naród otwarcie twierdzi, że nie jest już stosowana.",
+        "Twierdzi, że {@area Clan Soldorak|005|x} nigdy wcześniej nie zajmował się tym handlem. Postać, która wykonuje akcję {@action Search|XPHB} i pomyślnie wykona test {@dc 20} Mądrości ({@skill Insight|XPHB}), stwierdza, że ​​jest to kłamstwo; Klan Soldorak zajmuje się śledzeniem takich rzeczy od wielu lat. Chociaż Kreffik opiera się próbom zakłócenia przesyłki przez bohaterów, zdaje sobie sprawę, że łatwiej powiedzieć, niż zrobić, aby powstrzymać bohaterów przed zakłóceniem jego misji. To powiedziawszy, nie jest z pustymi rękami; jedna z sześciu skrzyń zawiera {@creature Helmed Horror|XMM} (odporny na zaklęcia {@spell Fireball|XPHB}, {@spell Shocking Grasp|XPHB} i {@spell Spirit Guardians|XPHB}), który wybucha na jego rozkaz.",
+        {
+          "type": "entries",
+          "name": "Skarb",
+          "id": "013",
+          "entries": [
+            "Gdy bohaterowie wznowią podróż, znajdują na pokładzie {@i Pustelnik} wysadzaną koralikami, olejowaną torbę, która najwyraźniej została upuszczona przez pirata, który wszedł na pokład sterowca. Torba zawiera 25 GP i {@item Potion of Greater Healing|XDMG|Mikstura Leczenia (większa)}.",
+            "Jeśli Kreffik zostanie stoczony i pokonany, okazuje się, że nosi on garnitur {@item Scale Mail|XPHB|Poczta skalowana +1} i a {@item backpack|XPHB} zawierający 250 GP w barach handlowych Soldorak (do wykorzystania w przekupywaniu urzędników Karrnathi) oraz księgę zawierającą szczegóły jego potencjalnej sprzedaży."
+          ]
+        }
+      ]
+    },
+    "0:013": {
+      "type": "entries",
+      "name": "Skarb",
+      "id": "013",
+      "entries": [
+        "Gdy bohaterowie wznowią podróż, znajdują na pokładzie {@i Pustelnik} wysadzaną koralikami, olejowaną torbę, która najwyraźniej została upuszczona przez pirata, który wszedł na pokład sterowca. Torba zawiera 25 GP i {@item Potion of Greater Healing|XDMG|Mikstura Leczenia (większa)}.",
+        "Jeśli Kreffik zostanie stoczony i pokonany, okazuje się, że nosi on garnitur {@item Scale Mail|XPHB|Poczta skalowana +1} i a {@item backpack|XPHB} zawierający 250 GP w barach handlowych Soldorak (do wykorzystania w przekupywaniu urzędników Karrnathi) oraz księgę zawierającą szczegóły jego potencjalnej sprzedaży."
+      ]
+    },
+    "0:014": {
+      "type": "section",
+      "name": "Do Kortha",
+      "id": "014",
+      "entries": [
+        "Gdy postacie przejmą kontrolę nad {@i Pustelnik}, mogą kontynuować podróż w stronę Korth.",
+        {
+          "type": "entries",
+          "name": "Wyznaczanie kursu",
+          "id": "015",
+          "entries": [
+            "Korth znajduje się około 1500 km od miejsca, w którym zaatakowano {@i Pustelnik}. Postacie muszą skierować swój statek powietrzny do zamierzonego celu, jeśli mają jakąkolwiek nadzieję na przybycie przed wyczerpaniem się zapasów. Ta sekcja odnosi się do zasad i wskazówek zawartych w sekcji {@book \"Journeys in the Skies\"|EFA|7|Podniebne podróże} w {@book chapter 7|EFA|7|Sterowce żywiołów} w {@book Eberron: Forge of the Artificer|EFA}.",
+            {
+              "type": "entries",
+              "name": "Pogoda",
+              "id": "016",
+              "entries": [
+                "Na początku każdego dnia podróży rzuć {@dice 1d6} i sprawdź tabelę pogody podróży sterowcem, aby określić pogodę, jaka czeka bohaterów tego dnia. Pogoda ta określa także odległość spotkania i ST Mądrości ({@skill Survival|XPHB}) kontrole mające na celu uniknięcie zgubienia się, jak pokazano w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem}.",
+                {
+                  "type": "table",
+                  "caption": "Pogoda dla podróży sterowcem",
+                  "colLabels": [
+                    "1d6",
+                    "Pogoda"
+                  ],
+                  "colStyles": [
+                    "col-2 text-center",
+                    "col-10"
+                  ],
+                  "rows": [
+                    [
+                      "1-3",
+                      "Czyste niebo"
+                    ],
+                    [
+                      "4-5",
+                      "Lekkie opady"
+                    ],
+                    [
+                      "6",
+                      "Silne opady"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Sterowanie",
+              "id": "017",
+              "entries": [
+                "Pilot sterowca podlega zasadom podróży dłuższych (powyżej 8 godzin dziennie) zawartym w {@book Dungeon Master's Guide|XDMG|1|Tempo podróży}. Postacie potrafiące połączyć się z hełmem {@i Pustelnik} i znajdującym się w nim duchem mogą na zmianę pilotować statek, umożliwiając mu poruszanie się przez ponad 8 godzin dziennie.",
+                "Postać posługująca się Hełmem tworzy Mądrość ({@skill Survival|XPHB}) na koniec swojej ośmiogodzinnej zmiany sprawdzają DC odpowiedni do warunków podróży, jak pokazano w kolumnie DC Nawigacja w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem}. Sterowiec zbacza z kursu po nieudanej kontroli, co wydłuża jego podróż {@dice 1d4} dni. Inny członek załogi może przejąć {@action Help|XPHB} działania wspomagające tę kontrolę, czy spędzają całą zmianę pomagając pilotowi."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Zaopatrzenie",
+              "id": "018",
+              "entries": [
+                "{@i Pustelnik} stracił wszystko oprócz 100 funtów jedzenia i 100 galonów wody. W miarę postępu podróży zapoznaj się z zasadami {@hazard dehydration|XPHB} i {@hazard malnutrition|XPHB} w {@book Player's Handbook|XPHB}, jeśli załodze grozi wyczerpanie zapasów."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Spotkania podróżnicze",
+              "id": "019",
+              "entries": [
+                "Podczas podróży do Korth możesz rzucić na spotkanie lub wybrać je z listy {@table Airborne Encounters|EFA|Tabela Spotkań Powietrznodesantowych}, odnosząc się do kolumny Odległość spotkania w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem} aby określić odległość, na jaką istoty uświadamiają sobie siebie nawzajem.",
+                "Statek zawsze będzie spotykał smoka Brynshal'duuna."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Nad Popielnymi Wieżami",
+          "id": "01a",
+          "entries": [
+            "Zbliżając się coraz bardziej do końca podróży, {@i Pustelnik} w końcu mija Iglice Popielnych, grupę gór położoną 400 km na wschód od Korth. Od dawna podejrzewano, że jest to strefa manifestacji połączona z Fernią, Morzem Ognia, obszar ten jest {@variantrule Lightly Obscured|XPHB} przez chmury zdławione popiołem, a ogień zachowuje się dziwnie (patrz pasek boczny „Strefa Manifestu Fernii”).",
+            {
+              "type": "inset",
+              "name": "Strefa manifestacji Fernii",
+              "id": "01b",
+              "entries": [
+                "Fernia to płaszczyzna niekończącego się ognia, zamieszkana przez Niebiańskie i Diabły, które ucieleśniają surową moc i wszechstronność płomienia. Granice pomiędzy Planem Materialnym a Fernią w strefie manifestacji są cienkie; moc czystego, żywiołowego ognia przenika do Khorvaire. Aby przedstawić pozaplanarny wpływ strefy manifestacji, możesz użyć następującej opcjonalnej reguły.",
+                {
+                  "type": "entries",
+                  "name": "Płomień Ferni",
+                  "id": "01c",
+                  "entries": [
+                    "Kiedy istota na tym obszarze rzuca zaklęcie, używając miejsca na zaklęcie, które zadaje obrażenia od ognia, traktuj to zaklęcie tak, jakby zostało rzucone przy użyciu miejsca na zaklęcie o 1 poziom powyżej wykorzystanego miejsca."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "insetReadaloud",
+              "id": "01d",
+              "entries": [
+                "Pokrywa chmur jest tu gęsta od popiołu, który wiruje w chmurach; gdyby nie osłony przeciwwiatrowe {@i Pustelnik}, można śmiało założyć, że powietrze byłoby prawie nie do oddychania.",
+                "„Ruch na prawą burtę!” Jeden z pokładowych na dziobie statku wskazuje gorączkowo na północny zachód."
+              ]
+            },
+            "Postać, która bierze {@action Search|XPHB} akcji i odnosi sukces na a {@dc 13} Mądrość ({@skill Perception|XPHB}) check słabo widzi ogromny ciemny kształt poruszający się przez chmury otaczające sterowiec.",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/FFotR/003-00-002.dragons-battle-in-the-sky.webp"
+              },
+              "credit": "Antonio José Manzanedo",
+              "width": 1700,
+              "height": 997
+            },
+            {
+              "type": "entries",
+              "name": "Elektryczna śmierć",
+              "id": "01e",
+              "entries": [
+                "Chociaż Kreffik o tym nie wie, na pokładzie {@i Pustelnik} jest szpieg. Jeden z dwóch pozostałych członków załogi jest wielbicielem Brynshal'duuna, młodego niebieskiego smoka, którego legowisko znajduje się w górnych partiach Pustyni Ostrzy. Smok, dowiedziawszy się, co Kreffik przemyca do Karnath, postanowił zaatakować statek powietrzny nad Iglicą Popielnej i położyć kres bluźnierczemu handlowi Kreffika.",
+                "Przeczytaj lub sparafrazuj:",
+                {
+                  "type": "insetReadaloud",
+                  "id": "01f",
+                  "entries": [
+                    "Bez ostrzeżenia chmury otaczające sterowiec wirują i gotują się. Z chmur wyskakuje straszny pazur ze szponami o połowę mniejszymi od dorosłego mężczyzny, chwytający członka załogi i ciągnący go z pokładu, pozostawiając ogromne rozdarcie w burcie sterowca.",
+                    "Powietrze rozdziera potężny ryk, gdy z chmur i brzegów wyłania się smok o niebieskich łuskach, by krążyć za {@i Pustelnik}, a za nim błyskają łuki elektryczne."
+                  ]
+                },
+                "Brynshal'duun (Neutralny {@creature Young Blue Dragon|XMM}) jest obecnie w służbie Cannith South i otrzymał zadanie wstrzymania dostaw ładunku Kreffika do Korth.",
+                "Sam {@i Pustelnik} jest głównym przedmiotem zainteresowania smoka; ładunek statku ulega zniszczeniu, jeżeli statek tak jest. Jeśli postacie uznają smoka za zbyt groźnego wroga, mogą założyć się, że najlepszym rozwiązaniem będzie pertraktacja ze smokiem lub ucieczka na tyle daleko od obszaru, że smok porzuci pogoń za statkiem powietrznym."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Współpraca ze smokiem",
+              "id": "020",
+              "entries": [
+                "Jeśli bohaterowie zdecydują się poddać lub pertraktować ze smokiem, smok wyląduje na dziobie statku. Choć Brynshal'duun ma {@variantrule Hostile [Attitude]|XPHB|Wrogi} i jest zdeterminowany, by zatopić sterowiec, można przekonać smoka; jej cele, choć obecnie zgodne z {@book Cannith South|EFA|5|Cannith South}, są powiązane ze Smoczą Przepowiednią - złożonym i enigmatycznym sposobem, dzięki któremu wyznawcy wierzą, że mogą kształtować bieg historii.",
+                {
+                  "type": "entries",
+                  "name": "Smocza przepowiednia",
+                  "id": "021",
+                  "entries": [
+                    "{@book Introduction|EFA|0|Smocza przepowiednia} z {@book Eberron: Forge of the Artificer|EFA} zawiera werset tego proroctwa, jak również różne interpretacje jego wersetów. Postać, która podejmuje akcję {@action Study|XPHB} i pomyślnie przejdzie test {@dc 13} Inteligencji ({@skill History|XPHB}), przypomina sobie przepowiednię i przypuszcza, że ​​Brynshal'duun jest zaangażowany w jej wypełnienie."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Rozumowanie z Brynshal'duunem",
+                  "id": "022",
+                  "entries": [
+                    "Postać, która bierze {@action Influence|XPHB} podjęcie działań zmierzających do pertraktacji z Brynshal'duunem może spowodować a {@dc 15} Charyzma ({@skill Deception|XPHB} Lub {@skill Persuasion|XPHB}) sprawdzać; postać, która zawiera wzmiankę o Smoczej Przepowiedni, sprawdza to za pomocą {@variantrule Advantage|XPHB}. Po udanym teście postawa Brynshal'duuna poprawia się o jeden stopień: z {@variantrule Hostile [Attitude]|XPHB|Wrogi} Do {@variantrule Indifferent [Attitude]|XPHB|Obojętny}lub od Obojętny do {@variantrule Friendly [Attitude]|XPHB|Przyjazny}.",
+                    "Brynshal'duun pozwala postaciom odejść bez dalszych incydentów, jeśli ich nastawienie zmieni się na Przyjazne."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Ucieczka przed Smokiem",
+              "id": "023",
+              "entries": [
+                "Jeśli bohaterowie zdecydują się raczej uciec niż walczyć, Brynshal'duun rusza w pościg. Skorzystaj z zasad uruchamiania pościgów w {@book chapter 3|XDMG|2|Pościgi} z {@i Przewodnik Mistrza Lochów} oprócz poniższych sekcji. Pościg rozpoczyna się, gdy smok krąży 50 metrów za {@i Pustelnik}. Smok inicjuje walkę, jeśli złapie statek.",
+                {
+                  "type": "entries",
+                  "name": "Ukrywanie sterowca",
+                  "id": "024",
+                  "entries": [
+                    "Przy Inicjatywie wynoszącej 0 w każdej rundzie, istota zajmująca Hełm może wykonać a {@dc 18} Zręczność ({@skill Stealth|XPHB}) zaznacz, aby spróbować ukryć statek. Po pomyślnym sprawdzeniu statek zostaje zasłonięty przez chmury, a smok rezygnuje z pościgu."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Komplikacje w pogoni za smokiem",
+                  "id": "025",
+                  "entries": [
+                    "Podczas gdy pościg trwa, każdy uczestnik pościgu rzuca {@dice 1d12} na koniec swojej tury. Zapoznaj się z tabelą Komplikacje Dragon Chase, aby ustalić, czy wystąpią komplikacje. Jeśli tak się stanie, ma to wpływ na kolejnego uczestnika pościgu w kolejności Inicjatywy, a nie na uczestnika, który rzucił kostką. Brynshal'duun nie jest dotknięty komplikacjami."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Zakończenie pościgu",
+                  "id": "026",
+                  "entries": [
+                    "Brynshal'duun rezygnuje z pościgu, jeśli jego Wytrzymałość spadnie do 50 lub mniej lub jeśli rozpocznie swoją turę w odległości większej niż 250 stóp od Pustelnika.",
+                    {
+                      "type": "table",
+                      "caption": "Komplikacje w pogoni za smokiem",
+                      "colLabels": [
+                        "1d12",
+                        "Komplikacje w pogoni za smokiem"
+                      ],
+                      "colStyles": [
+                        "col-2 text-center",
+                        "col-10"
+                      ],
+                      "rows": [
+                        [
+                          "1",
+                          "Jedna z przypadkowych stacji załogi wyłącza się, gdy można wyczuć fale strachu emanujące z rdzenia żywiołu zasilającego sterowiec. Stacja może zostać ponownie aktywowana, jeśli stworzenie wykona akcję i zakończy się sukcesem {@dc 9} Charyzma ({@skill Intimidation|XPHB} Lub {@skill Persuasion|XPHB}) sprawdź, jak udobruchać tchórzliwego ducha kapitana Valthana."
+                        ],
+                        [
+                          "2",
+                          "Ogromne skrzydła smoka otaczają cię wirującym wirem popiołu tak silnym, że nawet osłony przeciwwiatrowe sterowca nie blokują go całkowicie. Zrób {@dc 13} Rzut obronny na Kondycję, aby uniknąć wdychania popiołu. W przypadku nieudanego zapisu masz {@condition Poisoned|XPHB} stanie do końca twojej następnej tury."
+                        ],
+                        [
+                          "3",
+                          "Smok rzuca się na kadłub Pustelnika. Zrób {@dc 13} Rzut obronny na siłę. W przypadku nieudanego zapisu masz {@condition Prone|XPHB} stan : schorzenie."
+                        ],
+                        [
+                          "4",
+                          "Jedna z rąk pokładowych, trawiona przerażeniem, próbuje cię złapać. Zrób {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego zapisu masz {@condition Grappled|XPHB} stan (ucieczka {@dc 10}). Postać, która bierze {@action Influence|XPHB} akcja uspokajająca rękę pokładową może wykonać a {@dc 13} Charyzma ({@skill Intimidation|XPHB} Lub {@skill Persuasion|XPHB}) czeka, pomagając ręce pokładowej odzyskać panowanie nad sobą i kończąc chwyt po udanym teście."
+                        ],
+                        [
+                          "5",
+                          "Smok przelatuje obok statku powietrznego i odcina część olinowania, która mknie w twoją stronę. Zrób {@dc 13} Rzut obronny na zręczność w celu uniknięcia lin. W przypadku nieudanego rzutu bierzesz 6 ({@dice 1d10}) Tłuczące obrażenia i mają {@condition Grappled|XPHB} stan (ucieczka {@dc 13}). Podczas chwytania w ten sposób masz także {@condition Restrained|XPHB} stan : schorzenie."
+                        ],
+                        [
+                          "6",
+                          "Smok powala statek na brzeg gęstej chmury i popiołu. Do końca twojej następnej tury statek pozostaje {@variantrule Heavily Obscured|XPHB}."
+                        ],
+                        [
+                          "7-12",
+                          "Nie ma żadnych komplikacji."
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Dojazd do Korth",
+          "id": "027",
+          "entries": [
+            "Pozostawiając za sobą Wieże Popielnych, bohaterowie widzą rozciągający się w oddali Nocny Las, a za nim cel podróży, miasto Korth.",
+            {
+              "type": "insetReadaloud",
+              "id": "028",
+              "entries": [
+                "{@i Pustelnik} zwalnia, gdy zbliża się do wysokiej iglicy na obrzeżach miasta i zatrzymuje się przy jednym z trzech doków dla sterowców wystających z jego górnego biegu. Nie tracąc czasu, członkowie załogi zeskakują ze statku za pomocą lin cumowniczych i mocują go do doku.",
+                "Gdy załoga kończy zabezpieczać statek, uruchamia się pobliska winda towarowa, która podnosi platformę na poziom doku statku. Na platformie znajduje się człowiek i czterech wojowników.",
+                "Ślady Tworzenia wyłaniają się spod kołnierza pięknej, czarnej odzieży człowieka. Trzej z czterech wojowników są pokryci bliznami i poważnie uszkodzeni, podczas gdy czwarty z ciemnego drewna dzierży parę ogromnych tarcz i ma złoconą ramę ze srebra, złota i innych metali szlachetnych."
+              ]
+            },
+            "Winda towarowa znajduje się około 50 stóp od krawędzi doku, gdzie zacumowany jest {@i Pustelnik}. Osoby w windzie to baron Zorlan d'Cannith (średni {@creature Cannith Artificer|EFA}, szczegółowo opisany w {@book Eberron: Forge of the Artificer|EFA}), jego orszak trzech wykutych w wojnie ochroniarzy (średni {@creature Warrior Veteran|XMM|Weterani Wojowników}) i Bastion, jego osobisty wykuty w wojnie ochroniarz (średni {@creature Guard Captain|XMM}). Czterech wojowników to Konstrukty, a nie Humanoidy.",
+            "Postać, która wykonuje akcję {@action Study|XPHB} i pomyślnie przejdzie test inteligencji {@dc 11} ({@skill History|XPHB}), stwierdza, że ​​smoczy znak i strój człowieka sugerują wysoką pozycję w {@book House Cannith|EFA|5|rodu Cannith}. Jeśli test zakończy się sukcesem na poziomie 5 lub więcej, postać rozpoznaje człowieka jako Zorlana d'Cannith, barona Cannith rządzącego Cannith East.",
+            {
+              "type": "entries",
+              "name": "Baron Zorlan d'Cannith",
+              "id": "029",
+              "entries": [
+                "Baron Cannith East jest człowiekiem niewielu słów. Zawsze szukając sposobu na przejęcie kontroli nad całym Domem Cannith, Zorlan skierował swój wzrok na dziedzinę specjalizacji Merrix d'Cannith: wykuwani w wojnie, szczególnie nieumarli. Dzięki swoim rozległym kontaktom od lat organizuje dostawy martwych żołnierzy do wykorzystania w swoich eksperymentach.",
+                "O ile bohaterowie nie sprawią problemu, spotkanie z baronem Zorlanem przebiega zwyczajnie: następuje wymiana pieniędzy (patrz \"{@area Treasure|02a|x}\"), nieumarli żołnierze ładują siedem skrzyń Kreffika na wózek znajdujący się na windzie, po czym strony się rozstają. Jeśli jednak bohaterowie odkryją, co zawierały skrzynie, mogą spróbować uniemożliwić wymianę.",
+                "Jeśli bohaterowie potraktują ładunek moralnie znieważony, barona Zorlana nie można lekceważyć; jego świta blokuje postacie, gdyby groziły przemocą. Jeśli Kreffik przeżyje, on i jego Helmed Horror będą bronić barona Zorlana w przypadku wybuchu walki.",
+                "Barona Zorlana nie obchodzi, kto otrzyma zapłatę; tak długo jak odbiera ładunek, jest zadowolony z pozostawienia swojej zapłaty na doku każdemu, kto chce o nią walczyć. W rzeczywistości interesują go postacie, które wykazują szczególne umiejętności w stosowaniu przemocy, gdyby w ich stosunkach doszło do bójki."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Skarb",
+              "id": "02a",
+              "entries": [
+                "Niezależnie od tego, czy chodzi o Kreffika, czy o bohaterów, baron Zorlan płaci zapłatę w skrzyni zawierającej siedem mniejszych sakiewek. Każda sakiewka zawiera 100 GP w monetach różnych mennic (usuwając jedną saszetkę za każdą niedostarczoną skrzynkę). Ponadto skrzynia zawiera parę {@item Boots of the Winding Path|EFA} (Widzieć {@book Eberron: Forge of the Artificer|EFA}).",
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/FFotR/004-00-003.warforged.webp"
+                  },
+                  "credit": "Craig J. Spearing",
+                  "width": 850,
+                  "height": 1213
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:015": {
+      "type": "entries",
+      "name": "Wyznaczanie kursu",
+      "id": "015",
+      "entries": [
+        "Korth znajduje się około 1500 km od miejsca, w którym zaatakowano {@i Pustelnik}. Postacie muszą skierować swój statek powietrzny do zamierzonego celu, jeśli mają jakąkolwiek nadzieję na przybycie przed wyczerpaniem się zapasów. Ta sekcja odnosi się do zasad i wskazówek zawartych w sekcji {@book \"Journeys in the Skies\"|EFA|7|Podniebne podróże} w {@book chapter 7|EFA|7|Sterowce żywiołów} w {@book Eberron: Forge of the Artificer|EFA}.",
+        {
+          "type": "entries",
+          "name": "Pogoda",
+          "id": "016",
+          "entries": [
+            "Na początku każdego dnia podróży rzuć {@dice 1d6} i sprawdź tabelę pogody podróży sterowcem, aby określić pogodę, jaka czeka bohaterów tego dnia. Pogoda ta określa także odległość spotkania i ST Mądrości ({@skill Survival|XPHB}) kontrole mające na celu uniknięcie zgubienia się, jak pokazano w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem}.",
+            {
+              "type": "table",
+              "caption": "Pogoda dla podróży sterowcem",
+              "colLabels": [
+                "1d6",
+                "Pogoda"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1-3",
+                  "Czyste niebo"
+                ],
+                [
+                  "4-5",
+                  "Lekkie opady"
+                ],
+                [
+                  "6",
+                  "Silne opady"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sterowanie",
+          "id": "017",
+          "entries": [
+            "Pilot sterowca podlega zasadom podróży dłuższych (powyżej 8 godzin dziennie) zawartym w {@book Dungeon Master's Guide|XDMG|1|Tempo podróży}. Postacie potrafiące połączyć się z hełmem {@i Pustelnik} i znajdującym się w nim duchem mogą na zmianę pilotować statek, umożliwiając mu poruszanie się przez ponad 8 godzin dziennie.",
+            "Postać posługująca się Hełmem tworzy Mądrość ({@skill Survival|XPHB}) na koniec swojej ośmiogodzinnej zmiany sprawdzają DC odpowiedni do warunków podróży, jak pokazano w kolumnie DC Nawigacja w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem}. Sterowiec zbacza z kursu po nieudanej kontroli, co wydłuża jego podróż {@dice 1d4} dni. Inny członek załogi może przejąć {@action Help|XPHB} działania wspomagające tę kontrolę, czy spędzają całą zmianę pomagając pilotowi."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Zaopatrzenie",
+          "id": "018",
+          "entries": [
+            "{@i Pustelnik} stracił wszystko oprócz 100 funtów jedzenia i 100 galonów wody. W miarę postępu podróży zapoznaj się z zasadami {@hazard dehydration|XPHB} i {@hazard malnutrition|XPHB} w {@book Player's Handbook|XPHB}, jeśli załodze grozi wyczerpanie zapasów."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Spotkania podróżnicze",
+          "id": "019",
+          "entries": [
+            "Podczas podróży do Korth możesz rzucić na spotkanie lub wybrać je z listy {@table Airborne Encounters|EFA|Tabela Spotkań Powietrznodesantowych}, odnosząc się do kolumny Odległość spotkania w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem} aby określić odległość, na jaką istoty uświadamiają sobie siebie nawzajem.",
+            "Statek zawsze będzie spotykał smoka Brynshal'duuna."
+          ]
+        }
+      ]
+    },
+    "0:016": {
+      "type": "entries",
+      "name": "Pogoda",
+      "id": "016",
+      "entries": [
+        "Na początku każdego dnia podróży rzuć {@dice 1d6} i sprawdź tabelę pogody podróży sterowcem, aby określić pogodę, jaka czeka bohaterów tego dnia. Pogoda ta określa także odległość spotkania i ST Mądrości ({@skill Survival|XPHB}) kontrole mające na celu uniknięcie zgubienia się, jak pokazano w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem}.",
+        {
+          "type": "table",
+          "caption": "Pogoda dla podróży sterowcem",
+          "colLabels": [
+            "1d6",
+            "Pogoda"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1-3",
+              "Czyste niebo"
+            ],
+            [
+              "4-5",
+              "Lekkie opady"
+            ],
+            [
+              "6",
+              "Silne opady"
+            ]
+          ]
+        }
+      ]
+    },
+    "0:017": {
+      "type": "entries",
+      "name": "Sterowanie",
+      "id": "017",
+      "entries": [
+        "Pilot sterowca podlega zasadom podróży dłuższych (powyżej 8 godzin dziennie) zawartym w {@book Dungeon Master's Guide|XDMG|1|Tempo podróży}. Postacie potrafiące połączyć się z hełmem {@i Pustelnik} i znajdującym się w nim duchem mogą na zmianę pilotować statek, umożliwiając mu poruszanie się przez ponad 8 godzin dziennie.",
+        "Postać posługująca się Hełmem tworzy Mądrość ({@skill Survival|XPHB}) na koniec swojej ośmiogodzinnej zmiany sprawdzają DC odpowiedni do warunków podróży, jak pokazano w kolumnie DC Nawigacja w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem}. Sterowiec zbacza z kursu po nieudanej kontroli, co wydłuża jego podróż {@dice 1d4} dni. Inny członek załogi może przejąć {@action Help|XPHB} działania wspomagające tę kontrolę, czy spędzają całą zmianę pomagając pilotowi."
+      ]
+    },
+    "0:018": {
+      "type": "entries",
+      "name": "Zaopatrzenie",
+      "id": "018",
+      "entries": [
+        "{@i Pustelnik} stracił wszystko oprócz 100 funtów jedzenia i 100 galonów wody. W miarę postępu podróży zapoznaj się z zasadami {@hazard dehydration|XPHB} i {@hazard malnutrition|XPHB} w {@book Player's Handbook|XPHB}, jeśli załodze grozi wyczerpanie zapasów."
+      ]
+    },
+    "0:019": {
+      "type": "entries",
+      "name": "Spotkania podróżnicze",
+      "id": "019",
+      "entries": [
+        "Podczas podróży do Korth możesz rzucić na spotkanie lub wybrać je z listy {@table Airborne Encounters|EFA|Tabela Spotkań Powietrznodesantowych}, odnosząc się do kolumny Odległość spotkania w {@table Encounter Distance; Airship Travel Conditions|EFA|Tabela warunków podróży sterowcem} aby określić odległość, na jaką istoty uświadamiają sobie siebie nawzajem.",
+        "Statek zawsze będzie spotykał smoka Brynshal'duuna."
+      ]
+    },
+    "0:01a": {
+      "type": "entries",
+      "name": "Nad Popielnymi Wieżami",
+      "id": "01a",
+      "entries": [
+        "Zbliżając się coraz bardziej do końca podróży, {@i Pustelnik} w końcu mija Iglice Popielnych, grupę gór położoną 400 km na wschód od Korth. Od dawna podejrzewano, że jest to strefa manifestacji połączona z Fernią, Morzem Ognia, obszar ten jest {@variantrule Lightly Obscured|XPHB} przez chmury zdławione popiołem, a ogień zachowuje się dziwnie (patrz pasek boczny „Strefa Manifestu Fernii”).",
+        {
+          "type": "inset",
+          "name": "Strefa manifestacji Fernii",
+          "id": "01b",
+          "entries": [
+            "Fernia to płaszczyzna niekończącego się ognia, zamieszkana przez Niebiańskie i Diabły, które ucieleśniają surową moc i wszechstronność płomienia. Granice pomiędzy Planem Materialnym a Fernią w strefie manifestacji są cienkie; moc czystego, żywiołowego ognia przenika do Khorvaire. Aby przedstawić pozaplanarny wpływ strefy manifestacji, możesz użyć następującej opcjonalnej reguły.",
+            {
+              "type": "entries",
+              "name": "Płomień Ferni",
+              "id": "01c",
+              "entries": [
+                "Kiedy istota na tym obszarze rzuca zaklęcie, używając miejsca na zaklęcie, które zadaje obrażenia od ognia, traktuj to zaklęcie tak, jakby zostało rzucone przy użyciu miejsca na zaklęcie o 1 poziom powyżej wykorzystanego miejsca."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "insetReadaloud",
+          "id": "01d",
+          "entries": [
+            "Pokrywa chmur jest tu gęsta od popiołu, który wiruje w chmurach; gdyby nie osłony przeciwwiatrowe {@i Pustelnik}, można śmiało założyć, że powietrze byłoby prawie nie do oddychania.",
+            "„Ruch na prawą burtę!” Jeden z pokładowych na dziobie statku wskazuje gorączkowo na północny zachód."
+          ]
+        },
+        "Postać, która bierze {@action Search|XPHB} akcji i odnosi sukces na a {@dc 13} Mądrość ({@skill Perception|XPHB}) check słabo widzi ogromny ciemny kształt poruszający się przez chmury otaczające sterowiec.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/FFotR/003-00-002.dragons-battle-in-the-sky.webp"
+          },
+          "credit": "Antonio José Manzanedo",
+          "width": 1700,
+          "height": 997
+        },
+        {
+          "type": "entries",
+          "name": "Elektryczna śmierć",
+          "id": "01e",
+          "entries": [
+            "Chociaż Kreffik o tym nie wie, na pokładzie {@i Pustelnik} jest szpieg. Jeden z dwóch pozostałych członków załogi jest wielbicielem Brynshal'duuna, młodego niebieskiego smoka, którego legowisko znajduje się w górnych partiach Pustyni Ostrzy. Smok, dowiedziawszy się, co Kreffik przemyca do Karnath, postanowił zaatakować statek powietrzny nad Iglicą Popielnej i położyć kres bluźnierczemu handlowi Kreffika.",
+            "Przeczytaj lub sparafrazuj:",
+            {
+              "type": "insetReadaloud",
+              "id": "01f",
+              "entries": [
+                "Bez ostrzeżenia chmury otaczające sterowiec wirują i gotują się. Z chmur wyskakuje straszny pazur ze szponami o połowę mniejszymi od dorosłego mężczyzny, chwytający członka załogi i ciągnący go z pokładu, pozostawiając ogromne rozdarcie w burcie sterowca.",
+                "Powietrze rozdziera potężny ryk, gdy z chmur i brzegów wyłania się smok o niebieskich łuskach, by krążyć za {@i Pustelnik}, a za nim błyskają łuki elektryczne."
+              ]
+            },
+            "Brynshal'duun (Neutralny {@creature Young Blue Dragon|XMM}) jest obecnie w służbie Cannith South i otrzymał zadanie wstrzymania dostaw ładunku Kreffika do Korth.",
+            "Sam {@i Pustelnik} jest głównym przedmiotem zainteresowania smoka; ładunek statku ulega zniszczeniu, jeżeli statek tak jest. Jeśli postacie uznają smoka za zbyt groźnego wroga, mogą założyć się, że najlepszym rozwiązaniem będzie pertraktacja ze smokiem lub ucieczka na tyle daleko od obszaru, że smok porzuci pogoń za statkiem powietrznym."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Współpraca ze smokiem",
+          "id": "020",
+          "entries": [
+            "Jeśli bohaterowie zdecydują się poddać lub pertraktować ze smokiem, smok wyląduje na dziobie statku. Choć Brynshal'duun ma {@variantrule Hostile [Attitude]|XPHB|Wrogi} i jest zdeterminowany, by zatopić sterowiec, można przekonać smoka; jej cele, choć obecnie zgodne z {@book Cannith South|EFA|5|Cannith South}, są powiązane ze Smoczą Przepowiednią - złożonym i enigmatycznym sposobem, dzięki któremu wyznawcy wierzą, że mogą kształtować bieg historii.",
+            {
+              "type": "entries",
+              "name": "Smocza przepowiednia",
+              "id": "021",
+              "entries": [
+                "{@book Introduction|EFA|0|Smocza przepowiednia} z {@book Eberron: Forge of the Artificer|EFA} zawiera werset tego proroctwa, jak również różne interpretacje jego wersetów. Postać, która podejmuje akcję {@action Study|XPHB} i pomyślnie przejdzie test {@dc 13} Inteligencji ({@skill History|XPHB}), przypomina sobie przepowiednię i przypuszcza, że ​​Brynshal'duun jest zaangażowany w jej wypełnienie."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Rozumowanie z Brynshal'duunem",
+              "id": "022",
+              "entries": [
+                "Postać, która bierze {@action Influence|XPHB} podjęcie działań zmierzających do pertraktacji z Brynshal'duunem może spowodować a {@dc 15} Charyzma ({@skill Deception|XPHB} Lub {@skill Persuasion|XPHB}) sprawdzać; postać, która zawiera wzmiankę o Smoczej Przepowiedni, sprawdza to za pomocą {@variantrule Advantage|XPHB}. Po udanym teście postawa Brynshal'duuna poprawia się o jeden stopień: z {@variantrule Hostile [Attitude]|XPHB|Wrogi} Do {@variantrule Indifferent [Attitude]|XPHB|Obojętny}lub od Obojętny do {@variantrule Friendly [Attitude]|XPHB|Przyjazny}.",
+                "Brynshal'duun pozwala postaciom odejść bez dalszych incydentów, jeśli ich nastawienie zmieni się na Przyjazne."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ucieczka przed Smokiem",
+          "id": "023",
+          "entries": [
+            "Jeśli bohaterowie zdecydują się raczej uciec niż walczyć, Brynshal'duun rusza w pościg. Skorzystaj z zasad uruchamiania pościgów w {@book chapter 3|XDMG|2|Pościgi} z {@i Przewodnik Mistrza Lochów} oprócz poniższych sekcji. Pościg rozpoczyna się, gdy smok krąży 50 metrów za {@i Pustelnik}. Smok inicjuje walkę, jeśli złapie statek.",
+            {
+              "type": "entries",
+              "name": "Ukrywanie sterowca",
+              "id": "024",
+              "entries": [
+                "Przy Inicjatywie wynoszącej 0 w każdej rundzie, istota zajmująca Hełm może wykonać a {@dc 18} Zręczność ({@skill Stealth|XPHB}) zaznacz, aby spróbować ukryć statek. Po pomyślnym sprawdzeniu statek zostaje zasłonięty przez chmury, a smok rezygnuje z pościgu."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Komplikacje w pogoni za smokiem",
+              "id": "025",
+              "entries": [
+                "Podczas gdy pościg trwa, każdy uczestnik pościgu rzuca {@dice 1d12} na koniec swojej tury. Zapoznaj się z tabelą Komplikacje Dragon Chase, aby ustalić, czy wystąpią komplikacje. Jeśli tak się stanie, ma to wpływ na kolejnego uczestnika pościgu w kolejności Inicjatywy, a nie na uczestnika, który rzucił kostką. Brynshal'duun nie jest dotknięty komplikacjami."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Zakończenie pościgu",
+              "id": "026",
+              "entries": [
+                "Brynshal'duun rezygnuje z pościgu, jeśli jego Wytrzymałość spadnie do 50 lub mniej lub jeśli rozpocznie swoją turę w odległości większej niż 250 stóp od Pustelnika.",
+                {
+                  "type": "table",
+                  "caption": "Komplikacje w pogoni za smokiem",
+                  "colLabels": [
+                    "1d12",
+                    "Komplikacje w pogoni za smokiem"
+                  ],
+                  "colStyles": [
+                    "col-2 text-center",
+                    "col-10"
+                  ],
+                  "rows": [
+                    [
+                      "1",
+                      "Jedna z przypadkowych stacji załogi wyłącza się, gdy można wyczuć fale strachu emanujące z rdzenia żywiołu zasilającego sterowiec. Stacja może zostać ponownie aktywowana, jeśli stworzenie wykona akcję i zakończy się sukcesem {@dc 9} Charyzma ({@skill Intimidation|XPHB} Lub {@skill Persuasion|XPHB}) sprawdź, jak udobruchać tchórzliwego ducha kapitana Valthana."
+                    ],
+                    [
+                      "2",
+                      "Ogromne skrzydła smoka otaczają cię wirującym wirem popiołu tak silnym, że nawet osłony przeciwwiatrowe sterowca nie blokują go całkowicie. Zrób {@dc 13} Rzut obronny na Kondycję, aby uniknąć wdychania popiołu. W przypadku nieudanego zapisu masz {@condition Poisoned|XPHB} stanie do końca twojej następnej tury."
+                    ],
+                    [
+                      "3",
+                      "Smok rzuca się na kadłub Pustelnika. Zrób {@dc 13} Rzut obronny na siłę. W przypadku nieudanego zapisu masz {@condition Prone|XPHB} stan : schorzenie."
+                    ],
+                    [
+                      "4",
+                      "Jedna z rąk pokładowych, trawiona przerażeniem, próbuje cię złapać. Zrób {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego zapisu masz {@condition Grappled|XPHB} stan (ucieczka {@dc 10}). Postać, która bierze {@action Influence|XPHB} akcja uspokajająca rękę pokładową może wykonać a {@dc 13} Charyzma ({@skill Intimidation|XPHB} Lub {@skill Persuasion|XPHB}) czeka, pomagając ręce pokładowej odzyskać panowanie nad sobą i kończąc chwyt po udanym teście."
+                    ],
+                    [
+                      "5",
+                      "Smok przelatuje obok statku powietrznego i odcina część olinowania, która mknie w twoją stronę. Zrób {@dc 13} Rzut obronny na zręczność w celu uniknięcia lin. W przypadku nieudanego rzutu bierzesz 6 ({@dice 1d10}) Tłuczące obrażenia i mają {@condition Grappled|XPHB} stan (ucieczka {@dc 13}). Podczas chwytania w ten sposób masz także {@condition Restrained|XPHB} stan : schorzenie."
+                    ],
+                    [
+                      "6",
+                      "Smok powala statek na brzeg gęstej chmury i popiołu. Do końca twojej następnej tury statek pozostaje {@variantrule Heavily Obscured|XPHB}."
+                    ],
+                    [
+                      "7-12",
+                      "Nie ma żadnych komplikacji."
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:01c": {
+      "type": "entries",
+      "name": "Płomień Ferni",
+      "id": "01c",
+      "entries": [
+        "Kiedy istota na tym obszarze rzuca zaklęcie, używając miejsca na zaklęcie, które zadaje obrażenia od ognia, traktuj to zaklęcie tak, jakby zostało rzucone przy użyciu miejsca na zaklęcie o 1 poziom powyżej wykorzystanego miejsca."
+      ]
+    },
+    "0:01e": {
+      "type": "entries",
+      "name": "Elektryczna śmierć",
+      "id": "01e",
+      "entries": [
+        "Chociaż Kreffik o tym nie wie, na pokładzie {@i Pustelnik} jest szpieg. Jeden z dwóch pozostałych członków załogi jest wielbicielem Brynshal'duuna, młodego niebieskiego smoka, którego legowisko znajduje się w górnych partiach Pustyni Ostrzy. Smok, dowiedziawszy się, co Kreffik przemyca do Karnath, postanowił zaatakować statek powietrzny nad Iglicą Popielnej i położyć kres bluźnierczemu handlowi Kreffika.",
+        "Przeczytaj lub sparafrazuj:",
+        {
+          "type": "insetReadaloud",
+          "id": "01f",
+          "entries": [
+            "Bez ostrzeżenia chmury otaczające sterowiec wirują i gotują się. Z chmur wyskakuje straszny pazur ze szponami o połowę mniejszymi od dorosłego mężczyzny, chwytający członka załogi i ciągnący go z pokładu, pozostawiając ogromne rozdarcie w burcie sterowca.",
+            "Powietrze rozdziera potężny ryk, gdy z chmur i brzegów wyłania się smok o niebieskich łuskach, by krążyć za {@i Pustelnik}, a za nim błyskają łuki elektryczne."
+          ]
+        },
+        "Brynshal'duun (Neutralny {@creature Young Blue Dragon|XMM}) jest obecnie w służbie Cannith South i otrzymał zadanie wstrzymania dostaw ładunku Kreffika do Korth.",
+        "Sam {@i Pustelnik} jest głównym przedmiotem zainteresowania smoka; ładunek statku ulega zniszczeniu, jeżeli statek tak jest. Jeśli postacie uznają smoka za zbyt groźnego wroga, mogą założyć się, że najlepszym rozwiązaniem będzie pertraktacja ze smokiem lub ucieczka na tyle daleko od obszaru, że smok porzuci pogoń za statkiem powietrznym."
+      ]
+    },
+    "0:020": {
+      "type": "entries",
+      "name": "Współpraca ze smokiem",
+      "id": "020",
+      "entries": [
+        "Jeśli bohaterowie zdecydują się poddać lub pertraktować ze smokiem, smok wyląduje na dziobie statku. Choć Brynshal'duun ma {@variantrule Hostile [Attitude]|XPHB|Wrogi} i jest zdeterminowany, by zatopić sterowiec, można przekonać smoka; jej cele, choć obecnie zgodne z {@book Cannith South|EFA|5|Cannith South}, są powiązane ze Smoczą Przepowiednią - złożonym i enigmatycznym sposobem, dzięki któremu wyznawcy wierzą, że mogą kształtować bieg historii.",
+        {
+          "type": "entries",
+          "name": "Smocza przepowiednia",
+          "id": "021",
+          "entries": [
+            "{@book Introduction|EFA|0|Smocza przepowiednia} z {@book Eberron: Forge of the Artificer|EFA} zawiera werset tego proroctwa, jak również różne interpretacje jego wersetów. Postać, która podejmuje akcję {@action Study|XPHB} i pomyślnie przejdzie test {@dc 13} Inteligencji ({@skill History|XPHB}), przypomina sobie przepowiednię i przypuszcza, że ​​Brynshal'duun jest zaangażowany w jej wypełnienie."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Rozumowanie z Brynshal'duunem",
+          "id": "022",
+          "entries": [
+            "Postać, która bierze {@action Influence|XPHB} podjęcie działań zmierzających do pertraktacji z Brynshal'duunem może spowodować a {@dc 15} Charyzma ({@skill Deception|XPHB} Lub {@skill Persuasion|XPHB}) sprawdzać; postać, która zawiera wzmiankę o Smoczej Przepowiedni, sprawdza to za pomocą {@variantrule Advantage|XPHB}. Po udanym teście postawa Brynshal'duuna poprawia się o jeden stopień: z {@variantrule Hostile [Attitude]|XPHB|Wrogi} Do {@variantrule Indifferent [Attitude]|XPHB|Obojętny}lub od Obojętny do {@variantrule Friendly [Attitude]|XPHB|Przyjazny}.",
+            "Brynshal'duun pozwala postaciom odejść bez dalszych incydentów, jeśli ich nastawienie zmieni się na Przyjazne."
+          ]
+        }
+      ]
+    },
+    "0:021": {
+      "type": "entries",
+      "name": "Smocza przepowiednia",
+      "id": "021",
+      "entries": [
+        "{@book Introduction|EFA|0|Smocza przepowiednia} z {@book Eberron: Forge of the Artificer|EFA} zawiera werset tego proroctwa, jak również różne interpretacje jego wersetów. Postać, która podejmuje akcję {@action Study|XPHB} i pomyślnie przejdzie test {@dc 13} Inteligencji ({@skill History|XPHB}), przypomina sobie przepowiednię i przypuszcza, że ​​Brynshal'duun jest zaangażowany w jej wypełnienie."
+      ]
+    },
+    "0:022": {
+      "type": "entries",
+      "name": "Rozumowanie z Brynshal'duunem",
+      "id": "022",
+      "entries": [
+        "Postać, która bierze {@action Influence|XPHB} podjęcie działań zmierzających do pertraktacji z Brynshal'duunem może spowodować a {@dc 15} Charyzma ({@skill Deception|XPHB} Lub {@skill Persuasion|XPHB}) sprawdzać; postać, która zawiera wzmiankę o Smoczej Przepowiedni, sprawdza to za pomocą {@variantrule Advantage|XPHB}. Po udanym teście postawa Brynshal'duuna poprawia się o jeden stopień: z {@variantrule Hostile [Attitude]|XPHB|Wrogi} Do {@variantrule Indifferent [Attitude]|XPHB|Obojętny}lub od Obojętny do {@variantrule Friendly [Attitude]|XPHB|Przyjazny}.",
+        "Brynshal'duun pozwala postaciom odejść bez dalszych incydentów, jeśli ich nastawienie zmieni się na Przyjazne."
+      ]
+    },
+    "0:023": {
+      "type": "entries",
+      "name": "Ucieczka przed Smokiem",
+      "id": "023",
+      "entries": [
+        "Jeśli bohaterowie zdecydują się raczej uciec niż walczyć, Brynshal'duun rusza w pościg. Skorzystaj z zasad uruchamiania pościgów w {@book chapter 3|XDMG|2|Pościgi} z {@i Przewodnik Mistrza Lochów} oprócz poniższych sekcji. Pościg rozpoczyna się, gdy smok krąży 50 metrów za {@i Pustelnik}. Smok inicjuje walkę, jeśli złapie statek.",
+        {
+          "type": "entries",
+          "name": "Ukrywanie sterowca",
+          "id": "024",
+          "entries": [
+            "Przy Inicjatywie wynoszącej 0 w każdej rundzie, istota zajmująca Hełm może wykonać a {@dc 18} Zręczność ({@skill Stealth|XPHB}) zaznacz, aby spróbować ukryć statek. Po pomyślnym sprawdzeniu statek zostaje zasłonięty przez chmury, a smok rezygnuje z pościgu."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Komplikacje w pogoni za smokiem",
+          "id": "025",
+          "entries": [
+            "Podczas gdy pościg trwa, każdy uczestnik pościgu rzuca {@dice 1d12} na koniec swojej tury. Zapoznaj się z tabelą Komplikacje Dragon Chase, aby ustalić, czy wystąpią komplikacje. Jeśli tak się stanie, ma to wpływ na kolejnego uczestnika pościgu w kolejności Inicjatywy, a nie na uczestnika, który rzucił kostką. Brynshal'duun nie jest dotknięty komplikacjami."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Zakończenie pościgu",
+          "id": "026",
+          "entries": [
+            "Brynshal'duun rezygnuje z pościgu, jeśli jego Wytrzymałość spadnie do 50 lub mniej lub jeśli rozpocznie swoją turę w odległości większej niż 250 stóp od Pustelnika.",
+            {
+              "type": "table",
+              "caption": "Komplikacje w pogoni za smokiem",
+              "colLabels": [
+                "1d12",
+                "Komplikacje w pogoni za smokiem"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Jedna z przypadkowych stacji załogi wyłącza się, gdy można wyczuć fale strachu emanujące z rdzenia żywiołu zasilającego sterowiec. Stacja może zostać ponownie aktywowana, jeśli stworzenie wykona akcję i zakończy się sukcesem {@dc 9} Charyzma ({@skill Intimidation|XPHB} Lub {@skill Persuasion|XPHB}) sprawdź, jak udobruchać tchórzliwego ducha kapitana Valthana."
+                ],
+                [
+                  "2",
+                  "Ogromne skrzydła smoka otaczają cię wirującym wirem popiołu tak silnym, że nawet osłony przeciwwiatrowe sterowca nie blokują go całkowicie. Zrób {@dc 13} Rzut obronny na Kondycję, aby uniknąć wdychania popiołu. W przypadku nieudanego zapisu masz {@condition Poisoned|XPHB} stanie do końca twojej następnej tury."
+                ],
+                [
+                  "3",
+                  "Smok rzuca się na kadłub Pustelnika. Zrób {@dc 13} Rzut obronny na siłę. W przypadku nieudanego zapisu masz {@condition Prone|XPHB} stan : schorzenie."
+                ],
+                [
+                  "4",
+                  "Jedna z rąk pokładowych, trawiona przerażeniem, próbuje cię złapać. Zrób {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego zapisu masz {@condition Grappled|XPHB} stan (ucieczka {@dc 10}). Postać, która bierze {@action Influence|XPHB} akcja uspokajająca rękę pokładową może wykonać a {@dc 13} Charyzma ({@skill Intimidation|XPHB} Lub {@skill Persuasion|XPHB}) czeka, pomagając ręce pokładowej odzyskać panowanie nad sobą i kończąc chwyt po udanym teście."
+                ],
+                [
+                  "5",
+                  "Smok przelatuje obok statku powietrznego i odcina część olinowania, która mknie w twoją stronę. Zrób {@dc 13} Rzut obronny na zręczność w celu uniknięcia lin. W przypadku nieudanego rzutu bierzesz 6 ({@dice 1d10}) Tłuczące obrażenia i mają {@condition Grappled|XPHB} stan (ucieczka {@dc 13}). Podczas chwytania w ten sposób masz także {@condition Restrained|XPHB} stan : schorzenie."
+                ],
+                [
+                  "6",
+                  "Smok powala statek na brzeg gęstej chmury i popiołu. Do końca twojej następnej tury statek pozostaje {@variantrule Heavily Obscured|XPHB}."
+                ],
+                [
+                  "7-12",
+                  "Nie ma żadnych komplikacji."
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:024": {
+      "type": "entries",
+      "name": "Ukrywanie sterowca",
+      "id": "024",
+      "entries": [
+        "Przy Inicjatywie wynoszącej 0 w każdej rundzie, istota zajmująca Hełm może wykonać a {@dc 18} Zręczność ({@skill Stealth|XPHB}) zaznacz, aby spróbować ukryć statek. Po pomyślnym sprawdzeniu statek zostaje zasłonięty przez chmury, a smok rezygnuje z pościgu."
+      ]
+    },
+    "0:025": {
+      "type": "entries",
+      "name": "Komplikacje w pogoni za smokiem",
+      "id": "025",
+      "entries": [
+        "Podczas gdy pościg trwa, każdy uczestnik pościgu rzuca {@dice 1d12} na koniec swojej tury. Zapoznaj się z tabelą Komplikacje Dragon Chase, aby ustalić, czy wystąpią komplikacje. Jeśli tak się stanie, ma to wpływ na kolejnego uczestnika pościgu w kolejności Inicjatywy, a nie na uczestnika, który rzucił kostką. Brynshal'duun nie jest dotknięty komplikacjami."
+      ]
+    },
+    "0:026": {
+      "type": "entries",
+      "name": "Zakończenie pościgu",
+      "id": "026",
+      "entries": [
+        "Brynshal'duun rezygnuje z pościgu, jeśli jego Wytrzymałość spadnie do 50 lub mniej lub jeśli rozpocznie swoją turę w odległości większej niż 250 stóp od Pustelnika.",
+        {
+          "type": "table",
+          "caption": "Komplikacje w pogoni za smokiem",
+          "colLabels": [
+            "1d12",
+            "Komplikacje w pogoni za smokiem"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "Jedna z przypadkowych stacji załogi wyłącza się, gdy można wyczuć fale strachu emanujące z rdzenia żywiołu zasilającego sterowiec. Stacja może zostać ponownie aktywowana, jeśli stworzenie wykona akcję i zakończy się sukcesem {@dc 9} Charyzma ({@skill Intimidation|XPHB} Lub {@skill Persuasion|XPHB}) sprawdź, jak udobruchać tchórzliwego ducha kapitana Valthana."
+            ],
+            [
+              "2",
+              "Ogromne skrzydła smoka otaczają cię wirującym wirem popiołu tak silnym, że nawet osłony przeciwwiatrowe sterowca nie blokują go całkowicie. Zrób {@dc 13} Rzut obronny na Kondycję, aby uniknąć wdychania popiołu. W przypadku nieudanego zapisu masz {@condition Poisoned|XPHB} stanie do końca twojej następnej tury."
+            ],
+            [
+              "3",
+              "Smok rzuca się na kadłub Pustelnika. Zrób {@dc 13} Rzut obronny na siłę. W przypadku nieudanego zapisu masz {@condition Prone|XPHB} stan : schorzenie."
+            ],
+            [
+              "4",
+              "Jedna z rąk pokładowych, trawiona przerażeniem, próbuje cię złapać. Zrób {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego zapisu masz {@condition Grappled|XPHB} stan (ucieczka {@dc 10}). Postać, która bierze {@action Influence|XPHB} akcja uspokajająca rękę pokładową może wykonać a {@dc 13} Charyzma ({@skill Intimidation|XPHB} Lub {@skill Persuasion|XPHB}) czeka, pomagając ręce pokładowej odzyskać panowanie nad sobą i kończąc chwyt po udanym teście."
+            ],
+            [
+              "5",
+              "Smok przelatuje obok statku powietrznego i odcina część olinowania, która mknie w twoją stronę. Zrób {@dc 13} Rzut obronny na zręczność w celu uniknięcia lin. W przypadku nieudanego rzutu bierzesz 6 ({@dice 1d10}) Tłuczące obrażenia i mają {@condition Grappled|XPHB} stan (ucieczka {@dc 13}). Podczas chwytania w ten sposób masz także {@condition Restrained|XPHB} stan : schorzenie."
+            ],
+            [
+              "6",
+              "Smok powala statek na brzeg gęstej chmury i popiołu. Do końca twojej następnej tury statek pozostaje {@variantrule Heavily Obscured|XPHB}."
+            ],
+            [
+              "7-12",
+              "Nie ma żadnych komplikacji."
+            ]
+          ]
+        }
+      ]
+    },
+    "0:027": {
+      "type": "entries",
+      "name": "Dojazd do Korth",
+      "id": "027",
+      "entries": [
+        "Pozostawiając za sobą Wieże Popielnych, bohaterowie widzą rozciągający się w oddali Nocny Las, a za nim cel podróży, miasto Korth.",
+        {
+          "type": "insetReadaloud",
+          "id": "028",
+          "entries": [
+            "{@i Pustelnik} zwalnia, gdy zbliża się do wysokiej iglicy na obrzeżach miasta i zatrzymuje się przy jednym z trzech doków dla sterowców wystających z jego górnego biegu. Nie tracąc czasu, członkowie załogi zeskakują ze statku za pomocą lin cumowniczych i mocują go do doku.",
+            "Gdy załoga kończy zabezpieczać statek, uruchamia się pobliska winda towarowa, która podnosi platformę na poziom doku statku. Na platformie znajduje się człowiek i czterech wojowników.",
+            "Ślady Tworzenia wyłaniają się spod kołnierza pięknej, czarnej odzieży człowieka. Trzej z czterech wojowników są pokryci bliznami i poważnie uszkodzeni, podczas gdy czwarty z ciemnego drewna dzierży parę ogromnych tarcz i ma złoconą ramę ze srebra, złota i innych metali szlachetnych."
+          ]
+        },
+        "Winda towarowa znajduje się około 50 stóp od krawędzi doku, gdzie zacumowany jest {@i Pustelnik}. Osoby w windzie to baron Zorlan d'Cannith (średni {@creature Cannith Artificer|EFA}, szczegółowo opisany w {@book Eberron: Forge of the Artificer|EFA}), jego orszak trzech wykutych w wojnie ochroniarzy (średni {@creature Warrior Veteran|XMM|Weterani Wojowników}) i Bastion, jego osobisty wykuty w wojnie ochroniarz (średni {@creature Guard Captain|XMM}). Czterech wojowników to Konstrukty, a nie Humanoidy.",
+        "Postać, która wykonuje akcję {@action Study|XPHB} i pomyślnie przejdzie test inteligencji {@dc 11} ({@skill History|XPHB}), stwierdza, że ​​smoczy znak i strój człowieka sugerują wysoką pozycję w {@book House Cannith|EFA|5|rodu Cannith}. Jeśli test zakończy się sukcesem na poziomie 5 lub więcej, postać rozpoznaje człowieka jako Zorlana d'Cannith, barona Cannith rządzącego Cannith East.",
+        {
+          "type": "entries",
+          "name": "Baron Zorlan d'Cannith",
+          "id": "029",
+          "entries": [
+            "Baron Cannith East jest człowiekiem niewielu słów. Zawsze szukając sposobu na przejęcie kontroli nad całym Domem Cannith, Zorlan skierował swój wzrok na dziedzinę specjalizacji Merrix d'Cannith: wykuwani w wojnie, szczególnie nieumarli. Dzięki swoim rozległym kontaktom od lat organizuje dostawy martwych żołnierzy do wykorzystania w swoich eksperymentach.",
+            "O ile bohaterowie nie sprawią problemu, spotkanie z baronem Zorlanem przebiega zwyczajnie: następuje wymiana pieniędzy (patrz \"{@area Treasure|02a|x}\"), nieumarli żołnierze ładują siedem skrzyń Kreffika na wózek znajdujący się na windzie, po czym strony się rozstają. Jeśli jednak bohaterowie odkryją, co zawierały skrzynie, mogą spróbować uniemożliwić wymianę.",
+            "Jeśli bohaterowie potraktują ładunek moralnie znieważony, barona Zorlana nie można lekceważyć; jego świta blokuje postacie, gdyby groziły przemocą. Jeśli Kreffik przeżyje, on i jego Helmed Horror będą bronić barona Zorlana w przypadku wybuchu walki.",
+            "Barona Zorlana nie obchodzi, kto otrzyma zapłatę; tak długo jak odbiera ładunek, jest zadowolony z pozostawienia swojej zapłaty na doku każdemu, kto chce o nią walczyć. W rzeczywistości interesują go postacie, które wykazują szczególne umiejętności w stosowaniu przemocy, gdyby w ich stosunkach doszło do bójki."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Skarb",
+          "id": "02a",
+          "entries": [
+            "Niezależnie od tego, czy chodzi o Kreffika, czy o bohaterów, baron Zorlan płaci zapłatę w skrzyni zawierającej siedem mniejszych sakiewek. Każda sakiewka zawiera 100 GP w monetach różnych mennic (usuwając jedną saszetkę za każdą niedostarczoną skrzynkę). Ponadto skrzynia zawiera parę {@item Boots of the Winding Path|EFA} (Widzieć {@book Eberron: Forge of the Artificer|EFA}).",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/FFotR/004-00-003.warforged.webp"
+              },
+              "credit": "Craig J. Spearing",
+              "width": 850,
+              "height": 1213
+            }
+          ]
+        }
+      ]
+    },
+    "0:029": {
+      "type": "entries",
+      "name": "Baron Zorlan d'Cannith",
+      "id": "029",
+      "entries": [
+        "Baron Cannith East jest człowiekiem niewielu słów. Zawsze szukając sposobu na przejęcie kontroli nad całym Domem Cannith, Zorlan skierował swój wzrok na dziedzinę specjalizacji Merrix d'Cannith: wykuwani w wojnie, szczególnie nieumarli. Dzięki swoim rozległym kontaktom od lat organizuje dostawy martwych żołnierzy do wykorzystania w swoich eksperymentach.",
+        "O ile bohaterowie nie sprawią problemu, spotkanie z baronem Zorlanem przebiega zwyczajnie: następuje wymiana pieniędzy (patrz \"{@area Treasure|02a|x}\"), nieumarli żołnierze ładują siedem skrzyń Kreffika na wózek znajdujący się na windzie, po czym strony się rozstają. Jeśli jednak bohaterowie odkryją, co zawierały skrzynie, mogą spróbować uniemożliwić wymianę.",
+        "Jeśli bohaterowie potraktują ładunek moralnie znieważony, barona Zorlana nie można lekceważyć; jego świta blokuje postacie, gdyby groziły przemocą. Jeśli Kreffik przeżyje, on i jego Helmed Horror będą bronić barona Zorlana w przypadku wybuchu walki.",
+        "Barona Zorlana nie obchodzi, kto otrzyma zapłatę; tak długo jak odbiera ładunek, jest zadowolony z pozostawienia swojej zapłaty na doku każdemu, kto chce o nią walczyć. W rzeczywistości interesują go postacie, które wykazują szczególne umiejętności w stosowaniu przemocy, gdyby w ich stosunkach doszło do bójki."
+      ]
+    },
+    "0:02a": {
+      "type": "entries",
+      "name": "Skarb",
+      "id": "02a",
+      "entries": [
+        "Niezależnie od tego, czy chodzi o Kreffika, czy o bohaterów, baron Zorlan płaci zapłatę w skrzyni zawierającej siedem mniejszych sakiewek. Każda sakiewka zawiera 100 GP w monetach różnych mennic (usuwając jedną saszetkę za każdą niedostarczoną skrzynkę). Ponadto skrzynia zawiera parę {@item Boots of the Winding Path|EFA} (Widzieć {@book Eberron: Forge of the Artificer|EFA}).",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/FFotR/004-00-003.warforged.webp"
+          },
+          "credit": "Craig J. Spearing",
+          "width": 850,
+          "height": 1213
+        }
+      ]
+    },
+    "0:02b": {
+      "type": "section",
+      "name": "Autorzy",
+      "id": "02b",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "item",
+              "name": "Główny projektant:",
+              "entry": "Travisa Woodalla"
+            },
+            {
+              "type": "item",
+              "name": "Projektanci:",
+              "entry": "Makenzie De Armas, Chris Tulach"
+            },
+            {
+              "type": "item",
+              "name": "Redaktor:",
+              "entry": "Amanda Frechin"
+            },
+            {
+              "type": "item",
+              "name": "Projektant graficzny:",
+              "entry": "Zsolt Tóth"
+            },
+            {
+              "type": "item",
+              "name": "Ilustrator okładki:",
+              "entry": "Pogoń za Stonem"
+            },
+            {
+              "type": "item",
+              "name": "Kartograf:",
+              "entry": "Seana Macdonalda"
+            },
+            {
+              "type": "item",
+              "name": "Ilustratorzy:",
+              "entry": "Antonio José Manzanedo, John Thacker, Craig J. Spearing"
+            },
+            {
+              "type": "item",
+              "name": "Producent:",
+              "entry": "Billa Benhama"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/FFotR/005-00-004.automaton.webp"
+          },
+          "credit": "Noor Rahman",
+          "width": 850,
+          "height": 834
+        }
+      ]
+    }
+  }
+}

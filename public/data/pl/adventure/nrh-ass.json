@@ -1,0 +1,2284 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Przywracanie harmonii: niepewna sytuacja",
+      "page": 2,
+      "entries": [
+        "Witamy w Restoring Harmony, serii przygodowej Dungeons & Dragons powstałej we współpracy ze smacznym i kolorowym światem NERDS.",
+        "Aby rozegrać tę przygodę, potrzebujesz piątej edycji Basic Rules for D&D, którą możesz pobrać bezpłatnie tutaj. Wszystkie potrzebne magiczne przedmioty i bloki statystyk potworów znajdują się na końcu tej przygody.",
+        "Restoring Harmony to kampania podzielona na sześć miniprzygód pierwszego poziomu dla pojedynczego gracza i jedną dłuższą przygodę dla wielu graczy. Każda mini przygoda trwa około 45 minut, a ostatnia przygoda zajmuje około 60-90 minut.",
+        "Miniprzygody można rozgrywać w dowolnej kolejności, ale ostateczną przygodę należy rozegrać jako ostatnią. Oto lista wszystkich przygód:",
+        {
+          "type": "list",
+          "items": [
+            "{@adventure Adventure 1 The Candy Mountain Caper|NRH-TCMC}",
+            "{@adventure Adventure 2 A Voice in the Wilderness|NRH-AVitW}",
+            "{@adventure Adventure 3 A Sticky Situation|NRH-ASS}",
+            "{@adventure Adventure 4 Circus of Illusions|NRH-CoI}",
+            "{@adventure Adventure 5 The Lost Tomb|NRH-TLT}",
+            "{@adventure Adventure 6 A Web of Lies|NRH-AWoL}",
+            "{@adventure Adventure 7 Adventure Together|NRH-AT}"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Podsumowanie historii",
+          "page": 2,
+          "entries": [
+            "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+            "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony.",
+            "Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+            "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+          ],
+          "id": "001"
+        },
+        {
+          "type": "entries",
+          "name": "Gra solo",
+          "page": 2,
+          "entries": [
+            "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+            "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+            {
+              "type": "entries",
+              "name": "TPK: Całkowite zniszczenie drużyny",
+              "page": 3,
+              "entries": [
+                "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+                "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+              ],
+              "id": "003"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "entries",
+          "name": "Zarys przygody",
+          "page": 3,
+          "entries": [
+            "Oto krótki opis przygody:",
+            {
+              "type": "list",
+              "items": [
+                "Wojownik Orange zostaje napadnięty w swojej szkole sztuk walki przez kilku zbirów wysłanych, by go dopaść.",
+                "Po walce Orange spotyka pana Honeycutta, Magistra Towarzystwa Wiedzy. Pan Honeycutt prosi Orange, aby znalazł Brzoskwiniowy Klejnot znajdujący się w zrujnowanym mauzoleum.",
+                "Orange udaje się do mauzoleum i musi pokonać galaretowatą kostkę, która pochłonęła klejnot w jego kwaśnym ciele.",
+                "Orange wraca do pana Honeycutta z klejnotem."
+              ]
+            }
+          ],
+          "id": "004"
+        },
+        {
+          "type": "entries",
+          "name": "Rozpoczęcie gry",
+          "page": 3,
+          "entries": [
+            "Wręcz kartę postaci (patrz „Orange the Fighter” poniżej) swojemu graczowi i pozwól mu zapoznać się z Orange.",
+            "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć.",
+            "Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+          ],
+          "id": "005"
+        },
+        {
+          "type": "section",
+          "name": "Lepka sytuacja",
+          "page": 3,
+          "entries": [
+            "Rozpocznij grę w sali sparingowej Szkoły Walki Krytycznej, gdzie Orange ćwiczy różne umiejętności posługiwania się mieczem. Na sali szkoleniowej Orange ma dostęp do jednego napoju energetycznego, który pełni funkcję: {@item potion of healing}.",
+            "Kiedy wszyscy będą gotowi, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                "Jesteś na siłowni wcześnie rano, zanim przybędą uczniowie, i rozpoczynasz godzinny trening, gdy do pokoju wkracza dwóch wyglądających na twardzieli zbirów. Jeden zamyka za sobą drzwi, drugi drwi z ciebie. Mają miecze i od razu widać, że nie są stępione podczas treningu.",
+                "„Czas na małą cukierkową drzemkę!” - mówi jeden z nich, szczerząc zęby w uśmiechu."
+              ],
+              "id": "007"
+            },
+            "Dwóch {@creature goon|NRH-ASS|zbiry} zacznij dumnie podchodzić do Orange, gotowy do walki. Zostały wysłane przez pana Graystone'a, aby schwytać lub zabić Orange. Emo Beholder widział, jak pan Honeycutt rekrutuje wszystkich bohaterów Harmonii do poszukiwania Klejnotów Mocy i chcą położyć kres szansom Honeycutta na pokrzyżowanie ich głównego planu.",
+            "Orange może spróbować zastraszyć tych dwóch twardzieli, ale będzie to trudne, ponieważ są dość zdeterminowani, aby wykonać swoje ponure zadanie. Aby ich zastraszyć, Orange musi odnieść sukces {@dc 15} Charyzma ({@skill Intimidation}) sprawdzenie zakończone sukcesem {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdź, aby pokazać, jak potężni są. Jeśli oba testy się powiodą, zbiry uciekną, zostawiając miecze.",
+            "Jeśli Orange weźmie zbirów żywcem, nie będą rozmawiać ani ujawniać, kto ich wysłał, chyba że Orange odniesie sukces {@dc 15} Charyzma ({@skill Intimidation}) sprawdzać. Jeśli Orange nakłoni ich do rozmowy, wyjaśniają, że zostali wynajęci do zabicia Orange przez wielkiego, cienistego mężczyznę, który miał na sobie szary płaszcz i mówił lodowatym szeptem.",
+            "Jeśli Orange wpadnie w kłopoty podczas walki ze zbirami, miej wojownika z Towarzystwa Strażników Wiedzy (a {@creature guard}), który jest byłym uczniem Orange, wyważa drzwi i przychodzi na ratunek.",
+            "Jeśli Orange zostanie znokautowany przez spadek do 0 punktów wytrzymałości, obudzą się i zastaną nad nimi pana Honeycutta.",
+            {
+              "type": "entries",
+              "name": "Spotkanie z panem Honeycuttem",
+              "page": 4,
+              "entries": [
+                "Jeśli Orange pokona zbirów, {@creature Mr. Honeycutt|NRH-TCMC} przybywa zaraz potem, mając nadzieję ostrzec Orange o zbliżającej się walce.",
+                "Jeśli zbiry pokonają Orange, pan Honeycutt przybywa w samą porę, aby ich wypędzić i wskrzesić Orange. Tak czy inaczej, pan Honeycutt przedstawia się jako przywódca tajnego Towarzystwa Strażników Wiedzy - przodków strażników Harmonii. Wierzy, że działają nikczemne siły, które próbują ukraść kolor Harmonii i wykorzystać go dla własnych korzyści, okradając przy tym kolor ze świata. Aby ocalić Harmonię, pan Honeycutt musi najpierw zebrać sześć Klejnotów Mocy i ma nadzieję, że Pomarańcza pomoże mu zdobyć Brzoskwiniowy Klejnot.",
+                {
+                  "type": "entries",
+                  "name": "Misja",
+                  "page": 4,
+                  "entries": [
+                    "Po wielu badaniach pan Honeycutt twierdzi, że w końcu ustalił, gdzie znajduje się Brzoskwiniowy Klejnot: jest ukryty w zrujnowanym mauzoleum słynącym z aktywności potworów. Potrzebuje wojownika takiego jak Orange, który wejdzie do mauzoleum, zwróci klejnot Towarzystwu Lorekeeperów i pomoże mu rozwiązać zagadkę przerw w dostawie kolorów.",
+                    "Jeśli Orange zgodzi się pomóc, pan Honeycutt oferuje nagrodę w wysokości 20 sz za zwrot klejnotu. Daje także Orange a {@item necklace of fireballs} z pozostawieniem jednego koralika. Oddając przedmiot firmie Orange, pan Honeycutt mówi: „Mam nadzieję, że nigdy nie będziesz musiał z tego korzystać”."
+                  ],
+                  "id": "009"
+                }
+              ],
+              "id": "008"
+            }
+          ],
+          "id": "006"
+        },
+        {
+          "type": "section",
+          "name": "Zniszczone mauzoleum",
+          "page": 4,
+          "entries": [
+            "Głęboko w lesie poza Harmonią znajdują się ruiny mauzoleum. Gdy przybędzie Orange, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 4,
+              "entries": [
+                "Widzisz rozpadający się budynek, który las odzyskuje. Kamienne ściany przebijają się przez roślinność, a płyty dziedzińca są pokryte liśćmi i połamane korzeniami drzew.",
+                "Co dziwne, ptaki tu nie śpiewają, co sprawia, że ​​okolica jest nienaturalnie cicha."
+              ],
+              "id": "00b"
+            },
+            "Wejście (obszar M1) odnajdziesz dzięki szybkiemu przeszukaniu wnętrza zawalonych ścian mauzoleum. Odgarniając gęste porośnięte winoroślą, Orange znajduje żelazną bramę ze starą, zardzewiałą kłódką. Złamanie kłódki wymaga powodzenia {@dc 12} Kontrola siły. Jeśli Orange ma narzędzie takie jak łom lub w kreatywny sposób otwiera kłódkę, ma przewagę na czeku.",
+            "Wszystkie drzwi w mauzoleum są wykonane z gnijącego drewna. Mają KP 10, 8 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
+            {
+              "type": "entries",
+              "name": "Eksploracja Mauzoleum",
+              "page": 4,
+              "entries": [
+                "Do mapy Zniszczone Mauzoleum przypisane są następujące lokalizacje:",
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-ASS/006.webp"
+                  },
+                  "width": 630,
+                  "height": 1042,
+                  "grid": {
+                    "type": "square",
+                    "size": 70,
+                    "offsetY": -50,
+                    "scale": 2
+                  },
+                  "mapRegions": [
+                    {
+                      "area": "017",
+                      "points": [
+                        [
+                          142,
+                          187
+                        ],
+                        [
+                          142,
+                          253
+                        ],
+                        [
+                          246,
+                          253
+                        ],
+                        [
+                          246,
+                          187
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "019",
+                      "points": [
+                        [
+                          490,
+                          187
+                        ],
+                        [
+                          490,
+                          256
+                        ],
+                        [
+                          386,
+                          256
+                        ],
+                        [
+                          386,
+                          187
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "015",
+                      "points": [
+                        [
+                          246,
+                          325
+                        ],
+                        [
+                          246,
+                          394
+                        ],
+                        [
+                          142,
+                          394
+                        ],
+                        [
+                          142,
+                          325
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01f",
+                      "points": [
+                        [
+                          488,
+                          328
+                        ],
+                        [
+                          488,
+                          396
+                        ],
+                        [
+                          385,
+                          396
+                        ],
+                        [
+                          385,
+                          328
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "011",
+                      "points": [
+                        [
+                          252,
+                          253
+                        ],
+                        [
+                          252,
+                          189
+                        ],
+                        [
+                          379,
+                          189
+                        ],
+                        [
+                          379,
+                          257
+                        ],
+                        [
+                          349,
+                          257
+                        ],
+                        [
+                          349,
+                          326
+                        ],
+                        [
+                          378,
+                          326
+                        ],
+                        [
+                          378,
+                          397
+                        ],
+                        [
+                          252,
+                          397
+                        ],
+                        [
+                          252,
+                          326
+                        ],
+                        [
+                          281,
+                          326
+                        ],
+                        [
+                          281,
+                          253
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "00d",
+                      "points": [
+                        [
+                          282,
+                          471
+                        ],
+                        [
+                          282,
+                          836
+                        ],
+                        [
+                          349,
+                          836
+                        ],
+                        [
+                          349,
+                          471
+                        ]
+                      ]
+                    }
+                  ],
+                  "imageType": "mapa",
+                  "hrefThumbnail": {
+                    "type": "internal",
+                    "path": "adventure/NRH-ASS/thumbnail/006.webp"
+                  },
+                  "id": "023",
+                  "credit": "Red Central"
+                }
+              ],
+              "id": "00c"
+            },
+            {
+              "type": "entries",
+              "name": "M1. Wejście",
+              "page": 4,
+              "entries": [
+                "Kiedy Orange otworzy bramę, przeczytaj poniższy tekst.",
+                {
+                  "type": "insetReadaloud",
+                  "page": 4,
+                  "entries": [
+                    "Widzisz kamienne schody schodzące w ciemność. Z sufitu zwisają cienkie pędy korzeni, a ściany pokryte mchem błyszczą i kapią."
+                  ],
+                  "id": "00e"
+                },
+                "Schody prowadzą w dół do korytarza zakończonego gnijącymi drewnianymi drzwiami, które można łatwo otworzyć lub wyważyć. Jednak na suficie tego korytarza czai się {@creature gray ooze}.",
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Taktyka potworów",
+                      "page": 4,
+                      "entries": [
+                        "Szary śluz wykorzystuje swoją cechę fałszywego wyglądu, aby wtopić się w mokre kamienne ściany tunelu. Kiedy stworzenie zbliży się na odległość 60 stóp od szarego śluzu, wyczuwa kolejną przekąskę i albo czeka, aż cel znajdzie się w zasięgu pseudonóg, albo rozpoczyna powolny pościg.",
+                        "Pokonanie szarego szlamu nie jest konieczne, aby przejść dalej, ale jego zdolność do korozji metalu daje przedsmak tego, co czeka głębiej w mauzoleum. To spotkanie jest dla Orange okazją do poznania szlamów z pierwszej ręki i opracowania taktyki przeciwko nim."
+                      ],
+                      "id": "010"
+                    }
+                  ],
+                  "id": "00f"
+                }
+              ],
+              "id": "00d"
+            },
+            {
+              "type": "entries",
+              "name": "M2. Mauzoleum",
+              "page": 4,
+              "entries": [
+                "Gdy Orange wkroczy w ten obszar, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 4,
+                  "entries": [
+                    "Ściany pokryte są smugami szlamu, którego część kapie na podłogę i tworzy śliskie kałuże. W korytarzu znajdują się cztery wnęki, każda z drzwiami z przegniłego drewna."
+                  ],
+                  "id": "012"
+                },
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Wymiary i teren",
+                      "page": 4,
+                      "entries": [
+                        "Każdy grobowiec (A - D) to pomieszczenie o szerokości 3 metrów i długości 5 metrów, z kamiennym sarkofagiem na drugim końcu. Ze względu na śliski charakter szlamu, podłogi są uważane za {@quickref difficult terrain||3}."
+                      ],
+                      "id": "014"
+                    }
+                  ],
+                  "id": "013"
+                },
+                {
+                  "type": "entries",
+                  "name": "Grób A",
+                  "page": 5,
+                  "entries": [
+                    "Jeśli Orange nasłuchuje drzwi tego grobowca przed ich otwarciem, usłyszy dźwięki pukania lub trzaskania. Otwarcie drzwi ukazuje dwa {@creature skeleton||szkielety} wielokrotnie wpadając na siebie. Kiedy drzwi się otwierają, atakują.",
+                    "Jeśli broń Pomarańczy zardzewieje w wyniku spotkania z szarym śluzem, wojownik może ukraść krótkie miecze szkieletów.",
+                    {
+                      "type": "entries",
+                      "name": "Inskrypcja z sarkofagu",
+                      "page": 5,
+                      "entries": [
+                        "Napis głosi: „Dwóch wojowników, tak wielka była ich miłość, że zostali pochowani razem”."
+                      ],
+                      "id": "016"
+                    }
+                  ],
+                  "id": "015"
+                },
+                {
+                  "type": "entries",
+                  "name": "Grób B",
+                  "page": 5,
+                  "entries": [
+                    "Jeśli Orange otworzy ten grobowiec, znajdzie szkielet otoczony twardymi cukierkami w opakowaniach z woskowanego papieru. Szkielet ma pergamin zamknięty, w którego dłoni ściska pieczęć woskową. Na pergaminie znajduje się dawno zaginiony przepis na słynne tarty i pikantne cukierki profesora Fizzwidgeta.",
+                    {
+                      "type": "entries",
+                      "name": "Inskrypcja z sarkofagu",
+                      "page": 5,
+                      "entries": [
+                        "Napis głosi: „Tu leży profesor Fizzwidget, wynalazca słodkich cukierków dla całej Harmonii”."
+                      ],
+                      "id": "018"
+                    }
+                  ],
+                  "id": "017"
+                },
+                {
+                  "type": "entries",
+                  "name": "Grób C",
+                  "page": 5,
+                  "entries": [
+                    "Kiedy Orange otwiera drzwi do tego grobowca, przeczytaj:",
+                    {
+                      "type": "insetReadaloud",
+                      "page": 5,
+                      "entries": [
+                        "Pośrodku tunelu unosi się asortyment bibelotów, sprzętu i kości. Dziwna, połyskująca powierzchnia odsłania galaretowatą formę wypełniającą korytarz od ściany do ściany."
+                      ],
+                      "id": "01a"
+                    },
+                    "Orange odkrył {@creature gelatinous cube} to się dziwnie zachowuje!",
+                    {
+                      "type": "entries",
+                      "name": "Dopasowania Spotkań",
+                      "page": 5,
+                      "entries": [
+                        "Galaretowata kostka zostaje osłabiona w wyniku prób strawienia Brzoskwiniowego Klejnotu i magicznego miecza, które pochłonęła. Kiedy Orange odkrywa {@creature gelatinous cube}, pozostało mu tylko 40 punktów wytrzymałości i nie ma cechy Przezroczystość."
+                      ],
+                      "id": "01b"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Pokonanie Kostki",
+                      "page": 5,
+                      "entries": [
+                        "Nawet przy osłabionych statystykach galaretowata kostka nie jest łatwym zadaniem. Miejmy nadzieję, że Orange wykorzysta ostatni koralik naszyjnika z kul ognistych, aby wykończyć kostkę. Jeśli to nie zadziała, zrób to {@creature Mr. Honeycutt|NRH-TCMC} przyjechać z czterema {@creature guard||gwardia} aby pomóc Orange pokonać kostkę. Niech kostka najpierw zaatakuje strażników, zanim zaatakuje pana Honeycutta lub Orange."
+                      ],
+                      "id": "01c"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Taktyka potworów",
+                      "page": 5,
+                      "entries": [
+                        "Galaretowata kostka to kropla sięgająca od podłogi do sufitu. Ze względu na problemy trawienne ten jest chorobliwie zielony. Niezależnie od tego, jego pseudopody wymiatają w poszukiwaniu większej ilości rzeczy do strawienia, poruszając się powoli jak zamiatarka ulic. Jeśli wyczuje żywą istotę, porusza się w jej stronę z pełną prędkością i wykorzystuje akcję Pochłonięcia tak szybko, jak to możliwe.",
+                        "Jeśli Pomarańcza zostanie pochłonięta, wojownik może spróbować złapać przedmioty z galaretowatej kostki. Rzuć a {@dice d6} (przerzucanie duplikatów), aby określić, co Orange pobiera z poniższej tabeli:",
+                        {
+                          "type": "table",
+                          "caption": "Skarby w galaretowatych kostkach",
+                          "colLabels": [
+                            "d6",
+                            "Skarb"
+                          ],
+                          "colStyles": [
+                            "col-1 text-center",
+                            "col-11"
+                          ],
+                          "rows": [
+                            [
+                              "1",
+                              "{@item +1 greatsword}"
+                            ],
+                            [
+                              "2",
+                              "{@item Potion of healing}"
+                            ],
+                            [
+                              "3",
+                              "{@item Ring of protection}"
+                            ],
+                            [
+                              "4",
+                              "Dwie metalowe kości do gry"
+                            ],
+                            [
+                              "5",
+                              "Brzoskwiniowy klejnot"
+                            ],
+                            [
+                              "6",
+                              "Mosiężny dzwonek"
+                            ]
+                          ]
+                        },
+                        "Kiedy galaretowata kostka spadnie do 24 lub mniej punktów wytrzymałości, wypluwa {@item +1 greatsword}, {@item potion of healing}i świecący pomarańczowy klejnot (Brzoskwiniowy Klejnot) i ucieka, doskakując."
+                      ],
+                      "id": "01d"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Inskrypcja z sarkofagu",
+                      "page": 5,
+                      "entries": [
+                        "Sarkofag i znajdujące się na nim inskrypcje zostały zdrapane."
+                      ],
+                      "id": "01e"
+                    }
+                  ],
+                  "id": "019"
+                },
+                {
+                  "type": "entries",
+                  "name": "Grób D",
+                  "page": 5,
+                  "entries": [
+                    "Wewnątrz sarkofagu szkielet bibliotekarza w szatach spoczywa w spoczynku, trzymając na piersi pergamin. Pergamin jest zwojem ochronnym (aberracji).",
+                    {
+                      "type": "entries",
+                      "name": "Inskrypcja z sarkofagu",
+                      "page": 5,
+                      "entries": [
+                        "„Tu leży Pierwszy Bibliotekarz Wielkiej Biblioteki Harmonii”."
+                      ],
+                      "id": "020"
+                    }
+                  ],
+                  "id": "01f"
+                }
+              ],
+              "id": "011"
+            },
+            {
+              "type": "entries",
+              "name": "Ukończenie Misji",
+              "page": 5,
+              "entries": [
+                "Po powrocie do Harmony Orange zostaje zaproszony na spotkanie z panem Honeycuttem w lokalnej tawernie. Po powrocie Peach Gem pan Honeycutt odczuwa wyraźną ulgę. Oferuje Orange członkostwo w Lorekeeper Society i pyta, czy Orange pomoże mu położyć kres tym, którzy ukradną kolor Harmony. Jest już blisko odkrycia, kto stoi za przerwami w dostawie kolorów i czuje, że będzie potrzebował pomocy bohaterów, aby je powstrzymać."
+              ],
+              "id": "021"
+            }
+          ],
+          "id": "00a"
+        },
+        {
+          "type": "section",
+          "name": "Magiczne przedmioty",
+          "page": 6,
+          "entries": [
+            "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+            {
+              "type": "list",
+              "columns": 4,
+              "items": [
+                "{@item Necklace of Fireballs}",
+                "{@item Ring of Protection}",
+                "{@item Scroll of Protection from Aberrations||Zwój Ochrony (Aberracje)}",
+                "{@item +1 weapon||Broń, +1}"
+              ]
+            }
+          ],
+          "id": "022"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-ASS/sheet005.webp"
+          },
+          "width": 1275,
+          "height": 825
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-ASS/sheet006.webp"
+          },
+          "width": 1275,
+          "height": 825
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Podsumowanie historii",
+      "page": 2,
+      "entries": [
+        "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+        "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony.",
+        "Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+        "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "entries",
+      "name": "Gra solo",
+      "page": 2,
+      "entries": [
+        "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+        "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+        {
+          "type": "entries",
+          "name": "TPK: Całkowite zniszczenie drużyny",
+          "page": 3,
+          "entries": [
+            "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+            "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+          ],
+          "id": "003"
+        }
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "name": "TPK: Całkowite zniszczenie drużyny",
+      "page": 3,
+      "entries": [
+        "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+        "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "entries",
+      "name": "Zarys przygody",
+      "page": 3,
+      "entries": [
+        "Oto krótki opis przygody:",
+        {
+          "type": "list",
+          "items": [
+            "Wojownik Orange zostaje napadnięty w swojej szkole sztuk walki przez kilku zbirów wysłanych, by go dopaść.",
+            "Po walce Orange spotyka pana Honeycutta, Magistra Towarzystwa Wiedzy. Pan Honeycutt prosi Orange, aby znalazł Brzoskwiniowy Klejnot znajdujący się w zrujnowanym mauzoleum.",
+            "Orange udaje się do mauzoleum i musi pokonać galaretowatą kostkę, która pochłonęła klejnot w jego kwaśnym ciele.",
+            "Orange wraca do pana Honeycutta z klejnotem."
+          ]
+        }
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Rozpoczęcie gry",
+      "page": 3,
+      "entries": [
+        "Wręcz kartę postaci (patrz „Orange the Fighter” poniżej) swojemu graczowi i pozwól mu zapoznać się z Orange.",
+        "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć.",
+        "Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+      ],
+      "id": "005"
+    },
+    "0:006": {
+      "type": "section",
+      "name": "Lepka sytuacja",
+      "page": 3,
+      "entries": [
+        "Rozpocznij grę w sali sparingowej Szkoły Walki Krytycznej, gdzie Orange ćwiczy różne umiejętności posługiwania się mieczem. Na sali szkoleniowej Orange ma dostęp do jednego napoju energetycznego, który pełni funkcję: {@item potion of healing}.",
+        "Kiedy wszyscy będą gotowi, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            "Jesteś na siłowni wcześnie rano, zanim przybędą uczniowie, i rozpoczynasz godzinny trening, gdy do pokoju wkracza dwóch wyglądających na twardzieli zbirów. Jeden zamyka za sobą drzwi, drugi drwi z ciebie. Mają miecze i od razu widać, że nie są stępione podczas treningu.",
+            "„Czas na małą cukierkową drzemkę!” - mówi jeden z nich, szczerząc zęby w uśmiechu."
+          ],
+          "id": "007"
+        },
+        "Dwóch {@creature goon|NRH-ASS|zbiry} zacznij dumnie podchodzić do Orange, gotowy do walki. Zostały wysłane przez pana Graystone'a, aby schwytać lub zabić Orange. Emo Beholder widział, jak pan Honeycutt rekrutuje wszystkich bohaterów Harmonii do poszukiwania Klejnotów Mocy i chcą położyć kres szansom Honeycutta na pokrzyżowanie ich głównego planu.",
+        "Orange może spróbować zastraszyć tych dwóch twardzieli, ale będzie to trudne, ponieważ są dość zdeterminowani, aby wykonać swoje ponure zadanie. Aby ich zastraszyć, Orange musi odnieść sukces {@dc 15} Charyzma ({@skill Intimidation}) sprawdzenie zakończone sukcesem {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdź, aby pokazać, jak potężni są. Jeśli oba testy się powiodą, zbiry uciekną, zostawiając miecze.",
+        "Jeśli Orange weźmie zbirów żywcem, nie będą rozmawiać ani ujawniać, kto ich wysłał, chyba że Orange odniesie sukces {@dc 15} Charyzma ({@skill Intimidation}) sprawdzać. Jeśli Orange nakłoni ich do rozmowy, wyjaśniają, że zostali wynajęci do zabicia Orange przez wielkiego, cienistego mężczyznę, który miał na sobie szary płaszcz i mówił lodowatym szeptem.",
+        "Jeśli Orange wpadnie w kłopoty podczas walki ze zbirami, miej wojownika z Towarzystwa Strażników Wiedzy (a {@creature guard}), który jest byłym uczniem Orange, wyważa drzwi i przychodzi na ratunek.",
+        "Jeśli Orange zostanie znokautowany przez spadek do 0 punktów wytrzymałości, obudzą się i zastaną nad nimi pana Honeycutta.",
+        {
+          "type": "entries",
+          "name": "Spotkanie z panem Honeycuttem",
+          "page": 4,
+          "entries": [
+            "Jeśli Orange pokona zbirów, {@creature Mr. Honeycutt|NRH-TCMC} przybywa zaraz potem, mając nadzieję ostrzec Orange o zbliżającej się walce.",
+            "Jeśli zbiry pokonają Orange, pan Honeycutt przybywa w samą porę, aby ich wypędzić i wskrzesić Orange. Tak czy inaczej, pan Honeycutt przedstawia się jako przywódca tajnego Towarzystwa Strażników Wiedzy - przodków strażników Harmonii. Wierzy, że działają nikczemne siły, które próbują ukraść kolor Harmonii i wykorzystać go dla własnych korzyści, okradając przy tym kolor ze świata. Aby ocalić Harmonię, pan Honeycutt musi najpierw zebrać sześć Klejnotów Mocy i ma nadzieję, że Pomarańcza pomoże mu zdobyć Brzoskwiniowy Klejnot.",
+            {
+              "type": "entries",
+              "name": "Misja",
+              "page": 4,
+              "entries": [
+                "Po wielu badaniach pan Honeycutt twierdzi, że w końcu ustalił, gdzie znajduje się Brzoskwiniowy Klejnot: jest ukryty w zrujnowanym mauzoleum słynącym z aktywności potworów. Potrzebuje wojownika takiego jak Orange, który wejdzie do mauzoleum, zwróci klejnot Towarzystwu Lorekeeperów i pomoże mu rozwiązać zagadkę przerw w dostawie kolorów.",
+                "Jeśli Orange zgodzi się pomóc, pan Honeycutt oferuje nagrodę w wysokości 20 sz za zwrot klejnotu. Daje także Orange a {@item necklace of fireballs} z pozostawieniem jednego koralika. Oddając przedmiot firmie Orange, pan Honeycutt mówi: „Mam nadzieję, że nigdy nie będziesz musiał z tego korzystać”."
+              ],
+              "id": "009"
+            }
+          ],
+          "id": "008"
+        }
+      ],
+      "id": "006"
+    },
+    "0:008": {
+      "type": "entries",
+      "name": "Spotkanie z panem Honeycuttem",
+      "page": 4,
+      "entries": [
+        "Jeśli Orange pokona zbirów, {@creature Mr. Honeycutt|NRH-TCMC} przybywa zaraz potem, mając nadzieję ostrzec Orange o zbliżającej się walce.",
+        "Jeśli zbiry pokonają Orange, pan Honeycutt przybywa w samą porę, aby ich wypędzić i wskrzesić Orange. Tak czy inaczej, pan Honeycutt przedstawia się jako przywódca tajnego Towarzystwa Strażników Wiedzy - przodków strażników Harmonii. Wierzy, że działają nikczemne siły, które próbują ukraść kolor Harmonii i wykorzystać go dla własnych korzyści, okradając przy tym kolor ze świata. Aby ocalić Harmonię, pan Honeycutt musi najpierw zebrać sześć Klejnotów Mocy i ma nadzieję, że Pomarańcza pomoże mu zdobyć Brzoskwiniowy Klejnot.",
+        {
+          "type": "entries",
+          "name": "Misja",
+          "page": 4,
+          "entries": [
+            "Po wielu badaniach pan Honeycutt twierdzi, że w końcu ustalił, gdzie znajduje się Brzoskwiniowy Klejnot: jest ukryty w zrujnowanym mauzoleum słynącym z aktywności potworów. Potrzebuje wojownika takiego jak Orange, który wejdzie do mauzoleum, zwróci klejnot Towarzystwu Lorekeeperów i pomoże mu rozwiązać zagadkę przerw w dostawie kolorów.",
+            "Jeśli Orange zgodzi się pomóc, pan Honeycutt oferuje nagrodę w wysokości 20 sz za zwrot klejnotu. Daje także Orange a {@item necklace of fireballs} z pozostawieniem jednego koralika. Oddając przedmiot firmie Orange, pan Honeycutt mówi: „Mam nadzieję, że nigdy nie będziesz musiał z tego korzystać”."
+          ],
+          "id": "009"
+        }
+      ],
+      "id": "008"
+    },
+    "0:009": {
+      "type": "entries",
+      "name": "Misja",
+      "page": 4,
+      "entries": [
+        "Po wielu badaniach pan Honeycutt twierdzi, że w końcu ustalił, gdzie znajduje się Brzoskwiniowy Klejnot: jest ukryty w zrujnowanym mauzoleum słynącym z aktywności potworów. Potrzebuje wojownika takiego jak Orange, który wejdzie do mauzoleum, zwróci klejnot Towarzystwu Lorekeeperów i pomoże mu rozwiązać zagadkę przerw w dostawie kolorów.",
+        "Jeśli Orange zgodzi się pomóc, pan Honeycutt oferuje nagrodę w wysokości 20 sz za zwrot klejnotu. Daje także Orange a {@item necklace of fireballs} z pozostawieniem jednego koralika. Oddając przedmiot firmie Orange, pan Honeycutt mówi: „Mam nadzieję, że nigdy nie będziesz musiał z tego korzystać”."
+      ],
+      "id": "009"
+    },
+    "0:00a": {
+      "type": "section",
+      "name": "Zniszczone mauzoleum",
+      "page": 4,
+      "entries": [
+        "Głęboko w lesie poza Harmonią znajdują się ruiny mauzoleum. Gdy przybędzie Orange, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 4,
+          "entries": [
+            "Widzisz rozpadający się budynek, który las odzyskuje. Kamienne ściany przebijają się przez roślinność, a płyty dziedzińca są pokryte liśćmi i połamane korzeniami drzew.",
+            "Co dziwne, ptaki tu nie śpiewają, co sprawia, że ​​okolica jest nienaturalnie cicha."
+          ],
+          "id": "00b"
+        },
+        "Wejście (obszar M1) odnajdziesz dzięki szybkiemu przeszukaniu wnętrza zawalonych ścian mauzoleum. Odgarniając gęste porośnięte winoroślą, Orange znajduje żelazną bramę ze starą, zardzewiałą kłódką. Złamanie kłódki wymaga powodzenia {@dc 12} Kontrola siły. Jeśli Orange ma narzędzie takie jak łom lub w kreatywny sposób otwiera kłódkę, ma przewagę na czeku.",
+        "Wszystkie drzwi w mauzoleum są wykonane z gnijącego drewna. Mają KP 10, 8 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
+        {
+          "type": "entries",
+          "name": "Eksploracja Mauzoleum",
+          "page": 4,
+          "entries": [
+            "Do mapy Zniszczone Mauzoleum przypisane są następujące lokalizacje:",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-ASS/006.webp"
+              },
+              "width": 630,
+              "height": 1042,
+              "grid": {
+                "type": "square",
+                "size": 70,
+                "offsetY": -50,
+                "scale": 2
+              },
+              "mapRegions": [
+                {
+                  "area": "017",
+                  "points": [
+                    [
+                      142,
+                      187
+                    ],
+                    [
+                      142,
+                      253
+                    ],
+                    [
+                      246,
+                      253
+                    ],
+                    [
+                      246,
+                      187
+                    ]
+                  ]
+                },
+                {
+                  "area": "019",
+                  "points": [
+                    [
+                      490,
+                      187
+                    ],
+                    [
+                      490,
+                      256
+                    ],
+                    [
+                      386,
+                      256
+                    ],
+                    [
+                      386,
+                      187
+                    ]
+                  ]
+                },
+                {
+                  "area": "015",
+                  "points": [
+                    [
+                      246,
+                      325
+                    ],
+                    [
+                      246,
+                      394
+                    ],
+                    [
+                      142,
+                      394
+                    ],
+                    [
+                      142,
+                      325
+                    ]
+                  ]
+                },
+                {
+                  "area": "01f",
+                  "points": [
+                    [
+                      488,
+                      328
+                    ],
+                    [
+                      488,
+                      396
+                    ],
+                    [
+                      385,
+                      396
+                    ],
+                    [
+                      385,
+                      328
+                    ]
+                  ]
+                },
+                {
+                  "area": "011",
+                  "points": [
+                    [
+                      252,
+                      253
+                    ],
+                    [
+                      252,
+                      189
+                    ],
+                    [
+                      379,
+                      189
+                    ],
+                    [
+                      379,
+                      257
+                    ],
+                    [
+                      349,
+                      257
+                    ],
+                    [
+                      349,
+                      326
+                    ],
+                    [
+                      378,
+                      326
+                    ],
+                    [
+                      378,
+                      397
+                    ],
+                    [
+                      252,
+                      397
+                    ],
+                    [
+                      252,
+                      326
+                    ],
+                    [
+                      281,
+                      326
+                    ],
+                    [
+                      281,
+                      253
+                    ]
+                  ]
+                },
+                {
+                  "area": "00d",
+                  "points": [
+                    [
+                      282,
+                      471
+                    ],
+                    [
+                      282,
+                      836
+                    ],
+                    [
+                      349,
+                      836
+                    ],
+                    [
+                      349,
+                      471
+                    ]
+                  ]
+                }
+              ],
+              "imageType": "mapa",
+              "hrefThumbnail": {
+                "type": "internal",
+                "path": "adventure/NRH-ASS/thumbnail/006.webp"
+              },
+              "id": "023",
+              "credit": "Red Central"
+            }
+          ],
+          "id": "00c"
+        },
+        {
+          "type": "entries",
+          "name": "M1. Wejście",
+          "page": 4,
+          "entries": [
+            "Kiedy Orange otworzy bramę, przeczytaj poniższy tekst.",
+            {
+              "type": "insetReadaloud",
+              "page": 4,
+              "entries": [
+                "Widzisz kamienne schody schodzące w ciemność. Z sufitu zwisają cienkie pędy korzeni, a ściany pokryte mchem błyszczą i kapią."
+              ],
+              "id": "00e"
+            },
+            "Schody prowadzą w dół do korytarza zakończonego gnijącymi drewnianymi drzwiami, które można łatwo otworzyć lub wyważyć. Jednak na suficie tego korytarza czai się {@creature gray ooze}.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Taktyka potworów",
+                  "page": 4,
+                  "entries": [
+                    "Szary śluz wykorzystuje swoją cechę fałszywego wyglądu, aby wtopić się w mokre kamienne ściany tunelu. Kiedy stworzenie zbliży się na odległość 60 stóp od szarego śluzu, wyczuwa kolejną przekąskę i albo czeka, aż cel znajdzie się w zasięgu pseudonóg, albo rozpoczyna powolny pościg.",
+                    "Pokonanie szarego szlamu nie jest konieczne, aby przejść dalej, ale jego zdolność do korozji metalu daje przedsmak tego, co czeka głębiej w mauzoleum. To spotkanie jest dla Orange okazją do poznania szlamów z pierwszej ręki i opracowania taktyki przeciwko nim."
+                  ],
+                  "id": "010"
+                }
+              ],
+              "id": "00f"
+            }
+          ],
+          "id": "00d"
+        },
+        {
+          "type": "entries",
+          "name": "M2. Mauzoleum",
+          "page": 4,
+          "entries": [
+            "Gdy Orange wkroczy w ten obszar, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 4,
+              "entries": [
+                "Ściany pokryte są smugami szlamu, którego część kapie na podłogę i tworzy śliskie kałuże. W korytarzu znajdują się cztery wnęki, każda z drzwiami z przegniłego drewna."
+              ],
+              "id": "012"
+            },
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Wymiary i teren",
+                  "page": 4,
+                  "entries": [
+                    "Każdy grobowiec (A - D) to pomieszczenie o szerokości 3 metrów i długości 5 metrów, z kamiennym sarkofagiem na drugim końcu. Ze względu na śliski charakter szlamu, podłogi są uważane za {@quickref difficult terrain||3}."
+                  ],
+                  "id": "014"
+                }
+              ],
+              "id": "013"
+            },
+            {
+              "type": "entries",
+              "name": "Grób A",
+              "page": 5,
+              "entries": [
+                "Jeśli Orange nasłuchuje drzwi tego grobowca przed ich otwarciem, usłyszy dźwięki pukania lub trzaskania. Otwarcie drzwi ukazuje dwa {@creature skeleton||szkielety} wielokrotnie wpadając na siebie. Kiedy drzwi się otwierają, atakują.",
+                "Jeśli broń Pomarańczy zardzewieje w wyniku spotkania z szarym śluzem, wojownik może ukraść krótkie miecze szkieletów.",
+                {
+                  "type": "entries",
+                  "name": "Inskrypcja z sarkofagu",
+                  "page": 5,
+                  "entries": [
+                    "Napis głosi: „Dwóch wojowników, tak wielka była ich miłość, że zostali pochowani razem”."
+                  ],
+                  "id": "016"
+                }
+              ],
+              "id": "015"
+            },
+            {
+              "type": "entries",
+              "name": "Grób B",
+              "page": 5,
+              "entries": [
+                "Jeśli Orange otworzy ten grobowiec, znajdzie szkielet otoczony twardymi cukierkami w opakowaniach z woskowanego papieru. Szkielet ma pergamin zamknięty, w którego dłoni ściska pieczęć woskową. Na pergaminie znajduje się dawno zaginiony przepis na słynne tarty i pikantne cukierki profesora Fizzwidgeta.",
+                {
+                  "type": "entries",
+                  "name": "Inskrypcja z sarkofagu",
+                  "page": 5,
+                  "entries": [
+                    "Napis głosi: „Tu leży profesor Fizzwidget, wynalazca słodkich cukierków dla całej Harmonii”."
+                  ],
+                  "id": "018"
+                }
+              ],
+              "id": "017"
+            },
+            {
+              "type": "entries",
+              "name": "Grób C",
+              "page": 5,
+              "entries": [
+                "Kiedy Orange otwiera drzwi do tego grobowca, przeczytaj:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 5,
+                  "entries": [
+                    "Pośrodku tunelu unosi się asortyment bibelotów, sprzętu i kości. Dziwna, połyskująca powierzchnia odsłania galaretowatą formę wypełniającą korytarz od ściany do ściany."
+                  ],
+                  "id": "01a"
+                },
+                "Orange odkrył {@creature gelatinous cube} to się dziwnie zachowuje!",
+                {
+                  "type": "entries",
+                  "name": "Dopasowania Spotkań",
+                  "page": 5,
+                  "entries": [
+                    "Galaretowata kostka zostaje osłabiona w wyniku prób strawienia Brzoskwiniowego Klejnotu i magicznego miecza, które pochłonęła. Kiedy Orange odkrywa {@creature gelatinous cube}, pozostało mu tylko 40 punktów wytrzymałości i nie ma cechy Przezroczystość."
+                  ],
+                  "id": "01b"
+                },
+                {
+                  "type": "entries",
+                  "name": "Pokonanie Kostki",
+                  "page": 5,
+                  "entries": [
+                    "Nawet przy osłabionych statystykach galaretowata kostka nie jest łatwym zadaniem. Miejmy nadzieję, że Orange wykorzysta ostatni koralik naszyjnika z kul ognistych, aby wykończyć kostkę. Jeśli to nie zadziała, zrób to {@creature Mr. Honeycutt|NRH-TCMC} przyjechać z czterema {@creature guard||gwardia} aby pomóc Orange pokonać kostkę. Niech kostka najpierw zaatakuje strażników, zanim zaatakuje pana Honeycutta lub Orange."
+                  ],
+                  "id": "01c"
+                },
+                {
+                  "type": "entries",
+                  "name": "Taktyka potworów",
+                  "page": 5,
+                  "entries": [
+                    "Galaretowata kostka to kropla sięgająca od podłogi do sufitu. Ze względu na problemy trawienne ten jest chorobliwie zielony. Niezależnie od tego, jego pseudopody wymiatają w poszukiwaniu większej ilości rzeczy do strawienia, poruszając się powoli jak zamiatarka ulic. Jeśli wyczuje żywą istotę, porusza się w jej stronę z pełną prędkością i wykorzystuje akcję Pochłonięcia tak szybko, jak to możliwe.",
+                    "Jeśli Pomarańcza zostanie pochłonięta, wojownik może spróbować złapać przedmioty z galaretowatej kostki. Rzuć a {@dice d6} (przerzucanie duplikatów), aby określić, co Orange pobiera z poniższej tabeli:",
+                    {
+                      "type": "table",
+                      "caption": "Skarby w galaretowatych kostkach",
+                      "colLabels": [
+                        "d6",
+                        "Skarb"
+                      ],
+                      "colStyles": [
+                        "col-1 text-center",
+                        "col-11"
+                      ],
+                      "rows": [
+                        [
+                          "1",
+                          "{@item +1 greatsword}"
+                        ],
+                        [
+                          "2",
+                          "{@item Potion of healing}"
+                        ],
+                        [
+                          "3",
+                          "{@item Ring of protection}"
+                        ],
+                        [
+                          "4",
+                          "Dwie metalowe kości do gry"
+                        ],
+                        [
+                          "5",
+                          "Brzoskwiniowy klejnot"
+                        ],
+                        [
+                          "6",
+                          "Mosiężny dzwonek"
+                        ]
+                      ]
+                    },
+                    "Kiedy galaretowata kostka spadnie do 24 lub mniej punktów wytrzymałości, wypluwa {@item +1 greatsword}, {@item potion of healing}i świecący pomarańczowy klejnot (Brzoskwiniowy Klejnot) i ucieka, doskakując."
+                  ],
+                  "id": "01d"
+                },
+                {
+                  "type": "entries",
+                  "name": "Inskrypcja z sarkofagu",
+                  "page": 5,
+                  "entries": [
+                    "Sarkofag i znajdujące się na nim inskrypcje zostały zdrapane."
+                  ],
+                  "id": "01e"
+                }
+              ],
+              "id": "019"
+            },
+            {
+              "type": "entries",
+              "name": "Grób D",
+              "page": 5,
+              "entries": [
+                "Wewnątrz sarkofagu szkielet bibliotekarza w szatach spoczywa w spoczynku, trzymając na piersi pergamin. Pergamin jest zwojem ochronnym (aberracji).",
+                {
+                  "type": "entries",
+                  "name": "Inskrypcja z sarkofagu",
+                  "page": 5,
+                  "entries": [
+                    "„Tu leży Pierwszy Bibliotekarz Wielkiej Biblioteki Harmonii”."
+                  ],
+                  "id": "020"
+                }
+              ],
+              "id": "01f"
+            }
+          ],
+          "id": "011"
+        },
+        {
+          "type": "entries",
+          "name": "Ukończenie Misji",
+          "page": 5,
+          "entries": [
+            "Po powrocie do Harmony Orange zostaje zaproszony na spotkanie z panem Honeycuttem w lokalnej tawernie. Po powrocie Peach Gem pan Honeycutt odczuwa wyraźną ulgę. Oferuje Orange członkostwo w Lorekeeper Society i pyta, czy Orange pomoże mu położyć kres tym, którzy ukradną kolor Harmony. Jest już blisko odkrycia, kto stoi za przerwami w dostawie kolorów i czuje, że będzie potrzebował pomocy bohaterów, aby je powstrzymać."
+          ],
+          "id": "021"
+        }
+      ],
+      "id": "00a"
+    },
+    "0:00c": {
+      "type": "entries",
+      "name": "Eksploracja Mauzoleum",
+      "page": 4,
+      "entries": [
+        "Do mapy Zniszczone Mauzoleum przypisane są następujące lokalizacje:",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-ASS/006.webp"
+          },
+          "width": 630,
+          "height": 1042,
+          "grid": {
+            "type": "square",
+            "size": 70,
+            "offsetY": -50,
+            "scale": 2
+          },
+          "mapRegions": [
+            {
+              "area": "017",
+              "points": [
+                [
+                  142,
+                  187
+                ],
+                [
+                  142,
+                  253
+                ],
+                [
+                  246,
+                  253
+                ],
+                [
+                  246,
+                  187
+                ]
+              ]
+            },
+            {
+              "area": "019",
+              "points": [
+                [
+                  490,
+                  187
+                ],
+                [
+                  490,
+                  256
+                ],
+                [
+                  386,
+                  256
+                ],
+                [
+                  386,
+                  187
+                ]
+              ]
+            },
+            {
+              "area": "015",
+              "points": [
+                [
+                  246,
+                  325
+                ],
+                [
+                  246,
+                  394
+                ],
+                [
+                  142,
+                  394
+                ],
+                [
+                  142,
+                  325
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  488,
+                  328
+                ],
+                [
+                  488,
+                  396
+                ],
+                [
+                  385,
+                  396
+                ],
+                [
+                  385,
+                  328
+                ]
+              ]
+            },
+            {
+              "area": "011",
+              "points": [
+                [
+                  252,
+                  253
+                ],
+                [
+                  252,
+                  189
+                ],
+                [
+                  379,
+                  189
+                ],
+                [
+                  379,
+                  257
+                ],
+                [
+                  349,
+                  257
+                ],
+                [
+                  349,
+                  326
+                ],
+                [
+                  378,
+                  326
+                ],
+                [
+                  378,
+                  397
+                ],
+                [
+                  252,
+                  397
+                ],
+                [
+                  252,
+                  326
+                ],
+                [
+                  281,
+                  326
+                ],
+                [
+                  281,
+                  253
+                ]
+              ]
+            },
+            {
+              "area": "00d",
+              "points": [
+                [
+                  282,
+                  471
+                ],
+                [
+                  282,
+                  836
+                ],
+                [
+                  349,
+                  836
+                ],
+                [
+                  349,
+                  471
+                ]
+              ]
+            }
+          ],
+          "imageType": "mapa",
+          "hrefThumbnail": {
+            "type": "internal",
+            "path": "adventure/NRH-ASS/thumbnail/006.webp"
+          },
+          "id": "023",
+          "credit": "Red Central"
+        }
+      ],
+      "id": "00c"
+    },
+    "0:00d": {
+      "type": "entries",
+      "name": "M1. Wejście",
+      "page": 4,
+      "entries": [
+        "Kiedy Orange otworzy bramę, przeczytaj poniższy tekst.",
+        {
+          "type": "insetReadaloud",
+          "page": 4,
+          "entries": [
+            "Widzisz kamienne schody schodzące w ciemność. Z sufitu zwisają cienkie pędy korzeni, a ściany pokryte mchem błyszczą i kapią."
+          ],
+          "id": "00e"
+        },
+        "Schody prowadzą w dół do korytarza zakończonego gnijącymi drewnianymi drzwiami, które można łatwo otworzyć lub wyważyć. Jednak na suficie tego korytarza czai się {@creature gray ooze}.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Taktyka potworów",
+              "page": 4,
+              "entries": [
+                "Szary śluz wykorzystuje swoją cechę fałszywego wyglądu, aby wtopić się w mokre kamienne ściany tunelu. Kiedy stworzenie zbliży się na odległość 60 stóp od szarego śluzu, wyczuwa kolejną przekąskę i albo czeka, aż cel znajdzie się w zasięgu pseudonóg, albo rozpoczyna powolny pościg.",
+                "Pokonanie szarego szlamu nie jest konieczne, aby przejść dalej, ale jego zdolność do korozji metalu daje przedsmak tego, co czeka głębiej w mauzoleum. To spotkanie jest dla Orange okazją do poznania szlamów z pierwszej ręki i opracowania taktyki przeciwko nim."
+              ],
+              "id": "010"
+            }
+          ],
+          "id": "00f"
+        }
+      ],
+      "id": "00d"
+    },
+    "0:00f": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Taktyka potworów",
+          "page": 4,
+          "entries": [
+            "Szary śluz wykorzystuje swoją cechę fałszywego wyglądu, aby wtopić się w mokre kamienne ściany tunelu. Kiedy stworzenie zbliży się na odległość 60 stóp od szarego śluzu, wyczuwa kolejną przekąskę i albo czeka, aż cel znajdzie się w zasięgu pseudonóg, albo rozpoczyna powolny pościg.",
+            "Pokonanie szarego szlamu nie jest konieczne, aby przejść dalej, ale jego zdolność do korozji metalu daje przedsmak tego, co czeka głębiej w mauzoleum. To spotkanie jest dla Orange okazją do poznania szlamów z pierwszej ręki i opracowania taktyki przeciwko nim."
+          ],
+          "id": "010"
+        }
+      ],
+      "id": "00f"
+    },
+    "0:010": {
+      "type": "entries",
+      "name": "Taktyka potworów",
+      "page": 4,
+      "entries": [
+        "Szary śluz wykorzystuje swoją cechę fałszywego wyglądu, aby wtopić się w mokre kamienne ściany tunelu. Kiedy stworzenie zbliży się na odległość 60 stóp od szarego śluzu, wyczuwa kolejną przekąskę i albo czeka, aż cel znajdzie się w zasięgu pseudonóg, albo rozpoczyna powolny pościg.",
+        "Pokonanie szarego szlamu nie jest konieczne, aby przejść dalej, ale jego zdolność do korozji metalu daje przedsmak tego, co czeka głębiej w mauzoleum. To spotkanie jest dla Orange okazją do poznania szlamów z pierwszej ręki i opracowania taktyki przeciwko nim."
+      ],
+      "id": "010"
+    },
+    "0:011": {
+      "type": "entries",
+      "name": "M2. Mauzoleum",
+      "page": 4,
+      "entries": [
+        "Gdy Orange wkroczy w ten obszar, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 4,
+          "entries": [
+            "Ściany pokryte są smugami szlamu, którego część kapie na podłogę i tworzy śliskie kałuże. W korytarzu znajdują się cztery wnęki, każda z drzwiami z przegniłego drewna."
+          ],
+          "id": "012"
+        },
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Wymiary i teren",
+              "page": 4,
+              "entries": [
+                "Każdy grobowiec (A - D) to pomieszczenie o szerokości 3 metrów i długości 5 metrów, z kamiennym sarkofagiem na drugim końcu. Ze względu na śliski charakter szlamu, podłogi są uważane za {@quickref difficult terrain||3}."
+              ],
+              "id": "014"
+            }
+          ],
+          "id": "013"
+        },
+        {
+          "type": "entries",
+          "name": "Grób A",
+          "page": 5,
+          "entries": [
+            "Jeśli Orange nasłuchuje drzwi tego grobowca przed ich otwarciem, usłyszy dźwięki pukania lub trzaskania. Otwarcie drzwi ukazuje dwa {@creature skeleton||szkielety} wielokrotnie wpadając na siebie. Kiedy drzwi się otwierają, atakują.",
+            "Jeśli broń Pomarańczy zardzewieje w wyniku spotkania z szarym śluzem, wojownik może ukraść krótkie miecze szkieletów.",
+            {
+              "type": "entries",
+              "name": "Inskrypcja z sarkofagu",
+              "page": 5,
+              "entries": [
+                "Napis głosi: „Dwóch wojowników, tak wielka była ich miłość, że zostali pochowani razem”."
+              ],
+              "id": "016"
+            }
+          ],
+          "id": "015"
+        },
+        {
+          "type": "entries",
+          "name": "Grób B",
+          "page": 5,
+          "entries": [
+            "Jeśli Orange otworzy ten grobowiec, znajdzie szkielet otoczony twardymi cukierkami w opakowaniach z woskowanego papieru. Szkielet ma pergamin zamknięty, w którego dłoni ściska pieczęć woskową. Na pergaminie znajduje się dawno zaginiony przepis na słynne tarty i pikantne cukierki profesora Fizzwidgeta.",
+            {
+              "type": "entries",
+              "name": "Inskrypcja z sarkofagu",
+              "page": 5,
+              "entries": [
+                "Napis głosi: „Tu leży profesor Fizzwidget, wynalazca słodkich cukierków dla całej Harmonii”."
+              ],
+              "id": "018"
+            }
+          ],
+          "id": "017"
+        },
+        {
+          "type": "entries",
+          "name": "Grób C",
+          "page": 5,
+          "entries": [
+            "Kiedy Orange otwiera drzwi do tego grobowca, przeczytaj:",
+            {
+              "type": "insetReadaloud",
+              "page": 5,
+              "entries": [
+                "Pośrodku tunelu unosi się asortyment bibelotów, sprzętu i kości. Dziwna, połyskująca powierzchnia odsłania galaretowatą formę wypełniającą korytarz od ściany do ściany."
+              ],
+              "id": "01a"
+            },
+            "Orange odkrył {@creature gelatinous cube} to się dziwnie zachowuje!",
+            {
+              "type": "entries",
+              "name": "Dopasowania Spotkań",
+              "page": 5,
+              "entries": [
+                "Galaretowata kostka zostaje osłabiona w wyniku prób strawienia Brzoskwiniowego Klejnotu i magicznego miecza, które pochłonęła. Kiedy Orange odkrywa {@creature gelatinous cube}, pozostało mu tylko 40 punktów wytrzymałości i nie ma cechy Przezroczystość."
+              ],
+              "id": "01b"
+            },
+            {
+              "type": "entries",
+              "name": "Pokonanie Kostki",
+              "page": 5,
+              "entries": [
+                "Nawet przy osłabionych statystykach galaretowata kostka nie jest łatwym zadaniem. Miejmy nadzieję, że Orange wykorzysta ostatni koralik naszyjnika z kul ognistych, aby wykończyć kostkę. Jeśli to nie zadziała, zrób to {@creature Mr. Honeycutt|NRH-TCMC} przyjechać z czterema {@creature guard||gwardia} aby pomóc Orange pokonać kostkę. Niech kostka najpierw zaatakuje strażników, zanim zaatakuje pana Honeycutta lub Orange."
+              ],
+              "id": "01c"
+            },
+            {
+              "type": "entries",
+              "name": "Taktyka potworów",
+              "page": 5,
+              "entries": [
+                "Galaretowata kostka to kropla sięgająca od podłogi do sufitu. Ze względu na problemy trawienne ten jest chorobliwie zielony. Niezależnie od tego, jego pseudopody wymiatają w poszukiwaniu większej ilości rzeczy do strawienia, poruszając się powoli jak zamiatarka ulic. Jeśli wyczuje żywą istotę, porusza się w jej stronę z pełną prędkością i wykorzystuje akcję Pochłonięcia tak szybko, jak to możliwe.",
+                "Jeśli Pomarańcza zostanie pochłonięta, wojownik może spróbować złapać przedmioty z galaretowatej kostki. Rzuć a {@dice d6} (przerzucanie duplikatów), aby określić, co Orange pobiera z poniższej tabeli:",
+                {
+                  "type": "table",
+                  "caption": "Skarby w galaretowatych kostkach",
+                  "colLabels": [
+                    "d6",
+                    "Skarb"
+                  ],
+                  "colStyles": [
+                    "col-1 text-center",
+                    "col-11"
+                  ],
+                  "rows": [
+                    [
+                      "1",
+                      "{@item +1 greatsword}"
+                    ],
+                    [
+                      "2",
+                      "{@item Potion of healing}"
+                    ],
+                    [
+                      "3",
+                      "{@item Ring of protection}"
+                    ],
+                    [
+                      "4",
+                      "Dwie metalowe kości do gry"
+                    ],
+                    [
+                      "5",
+                      "Brzoskwiniowy klejnot"
+                    ],
+                    [
+                      "6",
+                      "Mosiężny dzwonek"
+                    ]
+                  ]
+                },
+                "Kiedy galaretowata kostka spadnie do 24 lub mniej punktów wytrzymałości, wypluwa {@item +1 greatsword}, {@item potion of healing}i świecący pomarańczowy klejnot (Brzoskwiniowy Klejnot) i ucieka, doskakując."
+              ],
+              "id": "01d"
+            },
+            {
+              "type": "entries",
+              "name": "Inskrypcja z sarkofagu",
+              "page": 5,
+              "entries": [
+                "Sarkofag i znajdujące się na nim inskrypcje zostały zdrapane."
+              ],
+              "id": "01e"
+            }
+          ],
+          "id": "019"
+        },
+        {
+          "type": "entries",
+          "name": "Grób D",
+          "page": 5,
+          "entries": [
+            "Wewnątrz sarkofagu szkielet bibliotekarza w szatach spoczywa w spoczynku, trzymając na piersi pergamin. Pergamin jest zwojem ochronnym (aberracji).",
+            {
+              "type": "entries",
+              "name": "Inskrypcja z sarkofagu",
+              "page": 5,
+              "entries": [
+                "„Tu leży Pierwszy Bibliotekarz Wielkiej Biblioteki Harmonii”."
+              ],
+              "id": "020"
+            }
+          ],
+          "id": "01f"
+        }
+      ],
+      "id": "011"
+    },
+    "0:013": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Wymiary i teren",
+          "page": 4,
+          "entries": [
+            "Każdy grobowiec (A - D) to pomieszczenie o szerokości 3 metrów i długości 5 metrów, z kamiennym sarkofagiem na drugim końcu. Ze względu na śliski charakter szlamu, podłogi są uważane za {@quickref difficult terrain||3}."
+          ],
+          "id": "014"
+        }
+      ],
+      "id": "013"
+    },
+    "0:014": {
+      "type": "entries",
+      "name": "Wymiary i teren",
+      "page": 4,
+      "entries": [
+        "Każdy grobowiec (A - D) to pomieszczenie o szerokości 3 metrów i długości 5 metrów, z kamiennym sarkofagiem na drugim końcu. Ze względu na śliski charakter szlamu, podłogi są uważane za {@quickref difficult terrain||3}."
+      ],
+      "id": "014"
+    },
+    "0:015": {
+      "type": "entries",
+      "name": "Grób A",
+      "page": 5,
+      "entries": [
+        "Jeśli Orange nasłuchuje drzwi tego grobowca przed ich otwarciem, usłyszy dźwięki pukania lub trzaskania. Otwarcie drzwi ukazuje dwa {@creature skeleton||szkielety} wielokrotnie wpadając na siebie. Kiedy drzwi się otwierają, atakują.",
+        "Jeśli broń Pomarańczy zardzewieje w wyniku spotkania z szarym śluzem, wojownik może ukraść krótkie miecze szkieletów.",
+        {
+          "type": "entries",
+          "name": "Inskrypcja z sarkofagu",
+          "page": 5,
+          "entries": [
+            "Napis głosi: „Dwóch wojowników, tak wielka była ich miłość, że zostali pochowani razem”."
+          ],
+          "id": "016"
+        }
+      ],
+      "id": "015"
+    },
+    "0:016": {
+      "type": "entries",
+      "name": "Inskrypcja z sarkofagu",
+      "page": 5,
+      "entries": [
+        "Napis głosi: „Dwóch wojowników, tak wielka była ich miłość, że zostali pochowani razem”."
+      ],
+      "id": "016"
+    },
+    "0:017": {
+      "type": "entries",
+      "name": "Grób B",
+      "page": 5,
+      "entries": [
+        "Jeśli Orange otworzy ten grobowiec, znajdzie szkielet otoczony twardymi cukierkami w opakowaniach z woskowanego papieru. Szkielet ma pergamin zamknięty, w którego dłoni ściska pieczęć woskową. Na pergaminie znajduje się dawno zaginiony przepis na słynne tarty i pikantne cukierki profesora Fizzwidgeta.",
+        {
+          "type": "entries",
+          "name": "Inskrypcja z sarkofagu",
+          "page": 5,
+          "entries": [
+            "Napis głosi: „Tu leży profesor Fizzwidget, wynalazca słodkich cukierków dla całej Harmonii”."
+          ],
+          "id": "018"
+        }
+      ],
+      "id": "017"
+    },
+    "0:018": {
+      "type": "entries",
+      "name": "Inskrypcja z sarkofagu",
+      "page": 5,
+      "entries": [
+        "Napis głosi: „Tu leży profesor Fizzwidget, wynalazca słodkich cukierków dla całej Harmonii”."
+      ],
+      "id": "018"
+    },
+    "0:019": {
+      "type": "entries",
+      "name": "Grób C",
+      "page": 5,
+      "entries": [
+        "Kiedy Orange otwiera drzwi do tego grobowca, przeczytaj:",
+        {
+          "type": "insetReadaloud",
+          "page": 5,
+          "entries": [
+            "Pośrodku tunelu unosi się asortyment bibelotów, sprzętu i kości. Dziwna, połyskująca powierzchnia odsłania galaretowatą formę wypełniającą korytarz od ściany do ściany."
+          ],
+          "id": "01a"
+        },
+        "Orange odkrył {@creature gelatinous cube} to się dziwnie zachowuje!",
+        {
+          "type": "entries",
+          "name": "Dopasowania Spotkań",
+          "page": 5,
+          "entries": [
+            "Galaretowata kostka zostaje osłabiona w wyniku prób strawienia Brzoskwiniowego Klejnotu i magicznego miecza, które pochłonęła. Kiedy Orange odkrywa {@creature gelatinous cube}, pozostało mu tylko 40 punktów wytrzymałości i nie ma cechy Przezroczystość."
+          ],
+          "id": "01b"
+        },
+        {
+          "type": "entries",
+          "name": "Pokonanie Kostki",
+          "page": 5,
+          "entries": [
+            "Nawet przy osłabionych statystykach galaretowata kostka nie jest łatwym zadaniem. Miejmy nadzieję, że Orange wykorzysta ostatni koralik naszyjnika z kul ognistych, aby wykończyć kostkę. Jeśli to nie zadziała, zrób to {@creature Mr. Honeycutt|NRH-TCMC} przyjechać z czterema {@creature guard||gwardia} aby pomóc Orange pokonać kostkę. Niech kostka najpierw zaatakuje strażników, zanim zaatakuje pana Honeycutta lub Orange."
+          ],
+          "id": "01c"
+        },
+        {
+          "type": "entries",
+          "name": "Taktyka potworów",
+          "page": 5,
+          "entries": [
+            "Galaretowata kostka to kropla sięgająca od podłogi do sufitu. Ze względu na problemy trawienne ten jest chorobliwie zielony. Niezależnie od tego, jego pseudopody wymiatają w poszukiwaniu większej ilości rzeczy do strawienia, poruszając się powoli jak zamiatarka ulic. Jeśli wyczuje żywą istotę, porusza się w jej stronę z pełną prędkością i wykorzystuje akcję Pochłonięcia tak szybko, jak to możliwe.",
+            "Jeśli Pomarańcza zostanie pochłonięta, wojownik może spróbować złapać przedmioty z galaretowatej kostki. Rzuć a {@dice d6} (przerzucanie duplikatów), aby określić, co Orange pobiera z poniższej tabeli:",
+            {
+              "type": "table",
+              "caption": "Skarby w galaretowatych kostkach",
+              "colLabels": [
+                "d6",
+                "Skarb"
+              ],
+              "colStyles": [
+                "col-1 text-center",
+                "col-11"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@item +1 greatsword}"
+                ],
+                [
+                  "2",
+                  "{@item Potion of healing}"
+                ],
+                [
+                  "3",
+                  "{@item Ring of protection}"
+                ],
+                [
+                  "4",
+                  "Dwie metalowe kości do gry"
+                ],
+                [
+                  "5",
+                  "Brzoskwiniowy klejnot"
+                ],
+                [
+                  "6",
+                  "Mosiężny dzwonek"
+                ]
+              ]
+            },
+            "Kiedy galaretowata kostka spadnie do 24 lub mniej punktów wytrzymałości, wypluwa {@item +1 greatsword}, {@item potion of healing}i świecący pomarańczowy klejnot (Brzoskwiniowy Klejnot) i ucieka, doskakując."
+          ],
+          "id": "01d"
+        },
+        {
+          "type": "entries",
+          "name": "Inskrypcja z sarkofagu",
+          "page": 5,
+          "entries": [
+            "Sarkofag i znajdujące się na nim inskrypcje zostały zdrapane."
+          ],
+          "id": "01e"
+        }
+      ],
+      "id": "019"
+    },
+    "0:01b": {
+      "type": "entries",
+      "name": "Dopasowania Spotkań",
+      "page": 5,
+      "entries": [
+        "Galaretowata kostka zostaje osłabiona w wyniku prób strawienia Brzoskwiniowego Klejnotu i magicznego miecza, które pochłonęła. Kiedy Orange odkrywa {@creature gelatinous cube}, pozostało mu tylko 40 punktów wytrzymałości i nie ma cechy Przezroczystość."
+      ],
+      "id": "01b"
+    },
+    "0:01c": {
+      "type": "entries",
+      "name": "Pokonanie Kostki",
+      "page": 5,
+      "entries": [
+        "Nawet przy osłabionych statystykach galaretowata kostka nie jest łatwym zadaniem. Miejmy nadzieję, że Orange wykorzysta ostatni koralik naszyjnika z kul ognistych, aby wykończyć kostkę. Jeśli to nie zadziała, zrób to {@creature Mr. Honeycutt|NRH-TCMC} przyjechać z czterema {@creature guard||gwardia} aby pomóc Orange pokonać kostkę. Niech kostka najpierw zaatakuje strażników, zanim zaatakuje pana Honeycutta lub Orange."
+      ],
+      "id": "01c"
+    },
+    "0:01d": {
+      "type": "entries",
+      "name": "Taktyka potworów",
+      "page": 5,
+      "entries": [
+        "Galaretowata kostka to kropla sięgająca od podłogi do sufitu. Ze względu na problemy trawienne ten jest chorobliwie zielony. Niezależnie od tego, jego pseudopody wymiatają w poszukiwaniu większej ilości rzeczy do strawienia, poruszając się powoli jak zamiatarka ulic. Jeśli wyczuje żywą istotę, porusza się w jej stronę z pełną prędkością i wykorzystuje akcję Pochłonięcia tak szybko, jak to możliwe.",
+        "Jeśli Pomarańcza zostanie pochłonięta, wojownik może spróbować złapać przedmioty z galaretowatej kostki. Rzuć a {@dice d6} (przerzucanie duplikatów), aby określić, co Orange pobiera z poniższej tabeli:",
+        {
+          "type": "table",
+          "caption": "Skarby w galaretowatych kostkach",
+          "colLabels": [
+            "d6",
+            "Skarb"
+          ],
+          "colStyles": [
+            "col-1 text-center",
+            "col-11"
+          ],
+          "rows": [
+            [
+              "1",
+              "{@item +1 greatsword}"
+            ],
+            [
+              "2",
+              "{@item Potion of healing}"
+            ],
+            [
+              "3",
+              "{@item Ring of protection}"
+            ],
+            [
+              "4",
+              "Dwie metalowe kości do gry"
+            ],
+            [
+              "5",
+              "Brzoskwiniowy klejnot"
+            ],
+            [
+              "6",
+              "Mosiężny dzwonek"
+            ]
+          ]
+        },
+        "Kiedy galaretowata kostka spadnie do 24 lub mniej punktów wytrzymałości, wypluwa {@item +1 greatsword}, {@item potion of healing}i świecący pomarańczowy klejnot (Brzoskwiniowy Klejnot) i ucieka, doskakując."
+      ],
+      "id": "01d"
+    },
+    "0:01e": {
+      "type": "entries",
+      "name": "Inskrypcja z sarkofagu",
+      "page": 5,
+      "entries": [
+        "Sarkofag i znajdujące się na nim inskrypcje zostały zdrapane."
+      ],
+      "id": "01e"
+    },
+    "0:01f": {
+      "type": "entries",
+      "name": "Grób D",
+      "page": 5,
+      "entries": [
+        "Wewnątrz sarkofagu szkielet bibliotekarza w szatach spoczywa w spoczynku, trzymając na piersi pergamin. Pergamin jest zwojem ochronnym (aberracji).",
+        {
+          "type": "entries",
+          "name": "Inskrypcja z sarkofagu",
+          "page": 5,
+          "entries": [
+            "„Tu leży Pierwszy Bibliotekarz Wielkiej Biblioteki Harmonii”."
+          ],
+          "id": "020"
+        }
+      ],
+      "id": "01f"
+    },
+    "0:020": {
+      "type": "entries",
+      "name": "Inskrypcja z sarkofagu",
+      "page": 5,
+      "entries": [
+        "„Tu leży Pierwszy Bibliotekarz Wielkiej Biblioteki Harmonii”."
+      ],
+      "id": "020"
+    },
+    "0:021": {
+      "type": "entries",
+      "name": "Ukończenie Misji",
+      "page": 5,
+      "entries": [
+        "Po powrocie do Harmony Orange zostaje zaproszony na spotkanie z panem Honeycuttem w lokalnej tawernie. Po powrocie Peach Gem pan Honeycutt odczuwa wyraźną ulgę. Oferuje Orange członkostwo w Lorekeeper Society i pyta, czy Orange pomoże mu położyć kres tym, którzy ukradną kolor Harmony. Jest już blisko odkrycia, kto stoi za przerwami w dostawie kolorów i czuje, że będzie potrzebował pomocy bohaterów, aby je powstrzymać."
+      ],
+      "id": "021"
+    },
+    "0:022": {
+      "type": "section",
+      "name": "Magiczne przedmioty",
+      "page": 6,
+      "entries": [
+        "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+        {
+          "type": "list",
+          "columns": 4,
+          "items": [
+            "{@item Necklace of Fireballs}",
+            "{@item Ring of Protection}",
+            "{@item Scroll of Protection from Aberrations||Zwój Ochrony (Aberracje)}",
+            "{@item +1 weapon||Broń, +1}"
+          ]
+        }
+      ],
+      "id": "022"
+    },
+    "1:024": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "columns": 2,
+              "items": [
+                {
+                  "type": "entries",
+                  "name": "Zespół Dungeons & Dragons:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Projekt przygody",
+                          "entries": [
+                            "Kat Kruger i Adam Lee"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowy rozwój",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt postaci",
+                          "entries": [
+                            "Krzysia Tulacha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt graficzny",
+                          "entries": [
+                            "Emmę Ekblad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Redaktorzy",
+                          "entries": [
+                            "Ashley Michaela Lawson i Hannah Rose"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer twórców",
+                          "entries": [
+                            "Pelhama Greene’a"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Ilustracje",
+                          "entries": [
+                            "Czerwona Centrala"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Producent",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki",
+                          "entries": [
+                            "Shelly Mazzanoble"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencjonowania kategorii",
+                          "entries": [
+                            "Ann Earp"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "026"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Ferrary:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Starszy zastępca menedżera marki, NERDS:",
+                          "entries": [
+                            "Łukasz Krause"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer treści, NERDS:",
+                          "entries": [
+                            "Annie Belgrad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki, NERDS:",
+                          "entries": [
+                            "Joey'a Ratha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                          "entries": [
+                            "Amy Pagels"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "027"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Tripplexlix:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Partner Zarządzający",
+                          "entries": [
+                            "Jennifer Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Założyciel, Partner Zarządzający",
+                          "entries": [
+                            "Krzysztof Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Wiceprezes, szef marketingu partnerskiego",
+                          "entries": [
+                            "Kennetha Lindenbauma"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowe wsparcie",
+                          "entries": [
+                            "VMLY&R Commerce, Taxi, Pep i Golin"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "028"
+                }
+              ]
+            }
+          ],
+          "id": "025"
+        }
+      ],
+      "id": "024"
+    },
+    "1:025": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "entries",
+              "name": "Zespół Dungeons & Dragons:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Projekt przygody",
+                      "entries": [
+                        "Kat Kruger i Adam Lee"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowy rozwój",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt postaci",
+                      "entries": [
+                        "Krzysia Tulacha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt graficzny",
+                      "entries": [
+                        "Emmę Ekblad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Redaktorzy",
+                      "entries": [
+                        "Ashley Michaela Lawson i Hannah Rose"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer twórców",
+                      "entries": [
+                        "Pelhama Greene’a"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Ilustracje",
+                      "entries": [
+                        "Czerwona Centrala"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Producent",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki",
+                      "entries": [
+                        "Shelly Mazzanoble"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencjonowania kategorii",
+                      "entries": [
+                        "Ann Earp"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "026"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Ferrary:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Starszy zastępca menedżera marki, NERDS:",
+                      "entries": [
+                        "Łukasz Krause"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer treści, NERDS:",
+                      "entries": [
+                        "Annie Belgrad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki, NERDS:",
+                      "entries": [
+                        "Joey'a Ratha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                      "entries": [
+                        "Amy Pagels"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "027"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Tripplexlix:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Partner Zarządzający",
+                      "entries": [
+                        "Jennifer Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Założyciel, Partner Zarządzający",
+                      "entries": [
+                        "Krzysztof Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Wiceprezes, szef marketingu partnerskiego",
+                      "entries": [
+                        "Kennetha Lindenbauma"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowe wsparcie",
+                      "entries": [
+                        "VMLY&R Commerce, Taxi, Pep i Golin"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "028"
+            }
+          ]
+        }
+      ],
+      "id": "025"
+    }
+  }
+}

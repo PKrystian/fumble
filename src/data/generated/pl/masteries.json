@@ -1,1 +1,50 @@
-{"cleave":{"name":"Rozłupanie","entries":["Jeśli trafisz stwora atakiem wręcz przy użyciu tej broni, możesz wykonać rzut na atak wręcz tą samą bronią przeciwko drugiemu stworowi w promieniu 5 stóp od pierwszego, który również znajduje się w twoim zasięgu. W przypadku trafienia drugi stwór otrzymuje obrażenia od broni, lecz nie dodajesz do nich swojego modyfikatora cechy, chyba że modyfikator ten jest ujemny. Możesz wykonać ten dodatkowy atak tylko raz na turę."]},"graze":{"name":"Musnięcie","entries":["Jeśli twój rzut na atak tą bronią chybi stwora, możesz zadać temu stworowi obrażenia równe modyfikatorowi cechy użytemu do wykonania rzutu na atak. Obrażenia te są tego samego typu, co obrażenia zadawane przez broń, a ich wartość można zwiększyć wyłącznie poprzez zwiększenie modyfikatora cechy."]},"nick":{"name":"Zadraśnięcie","entries":["Kiedy wykonujesz dodatkowy atak wynikający z właściwości Lekka, możesz wykonać go jako część akcji {@action Attack|XPHB|Atak} zamiast jako {@variantrule Bonus Action|XPHB|Akcję Dodatkową}. Możesz wykonać ten dodatkowy atak tylko raz na turę."]},"push":{"name":"Odepchnięcie","entries":["Jeśli trafisz stwora tą bronią, możesz odepchnąć go o maksymalnie 10 stóp w linii prostej od siebie, jeśli jest rozmiaru Dużego lub mniejszego."]},"sap":{"name":"Osłabienie","entries":["Jeśli trafisz stwora tą bronią, ten stwór ma {@variantrule Disadvantage|XPHB|Utrudnienie} na swój następny rzut na atak przed początkiem twojej następnej tury."]},"slow":{"name":"Spowolnienie","entries":["Jeśli trafisz stwora tą bronią i zadasz mu obrażenia, możesz zmniejszyć jego {@variantrule Speed|XPHB|Prędkość} o 10 stóp do początku swojej następnej tury. Jeśli stwór zostanie trafiony więcej niż raz bronią posiadającą tę właściwość, zmniejszenie {@variantrule Speed|XPHB|Prędkości} nie przekracza 10 stóp."]},"topple":{"name":"Powalenie","entries":["Jeśli trafisz stwora tą bronią, możesz zmusić go do wykonania rzutu obronnego Kondycji ({@dc 8} plus modyfikator cechy użyty do wykonania rzutu na atak oraz twój {@variantrule Proficiency|XPHB|Bonus Biegłości}). W przypadku nieudanego rzutu obronnego stwór otrzymuje stan {@condition Prone|XPHB|Powalony}."]},"vex":{"name":"Zmylenie","entries":["Jeśli trafisz stwora tą bronią i zadasz mu obrażenia, masz {@variantrule Advantage|XPHB|Przewagę} na swój następny rzut na atak przeciwko temu stworowi przed końcem swojej następnej tury."]}}
+{
+  "cleave": {
+    "name": "Rozłupanie",
+    "entries": [
+      "Jeśli trafisz stwora atakiem wręcz przy użyciu tej broni, możesz wykonać rzut na atak wręcz tą samą bronią przeciwko drugiemu stworowi w promieniu 5 stóp od pierwszego, który również znajduje się w twoim zasięgu. W przypadku trafienia drugi stwór otrzymuje obrażenia od broni, lecz nie dodajesz do nich swojego modyfikatora cechy, chyba że modyfikator ten jest ujemny. Możesz wykonać ten dodatkowy atak tylko raz na turę."
+    ]
+  },
+  "graze": {
+    "name": "Musnięcie",
+    "entries": [
+      "Jeśli twój rzut na atak tą bronią chybi stwora, możesz zadać temu stworowi obrażenia równe modyfikatorowi cechy użytemu do wykonania rzutu na atak. Obrażenia te są tego samego typu, co obrażenia zadawane przez broń, a ich wartość można zwiększyć wyłącznie poprzez zwiększenie modyfikatora cechy."
+    ]
+  },
+  "nick": {
+    "name": "Zadraśnięcie",
+    "entries": [
+      "Kiedy wykonujesz dodatkowy atak wynikający z właściwości Lekka, możesz wykonać go jako część akcji {@action Attack|XPHB} zamiast jako {@variantrule Bonus Action|XPHB}. Możesz wykonać ten dodatkowy atak tylko raz na turę."
+    ]
+  },
+  "push": {
+    "name": "Odepchnięcie",
+    "entries": [
+      "Jeśli trafisz stwora tą bronią, możesz odepchnąć go o maksymalnie 10 stóp w linii prostej od siebie, jeśli jest rozmiaru Dużego lub mniejszego."
+    ]
+  },
+  "sap": {
+    "name": "Osłabienie",
+    "entries": [
+      "Jeśli trafisz stwora tą bronią, ten stwór ma {@variantrule Disadvantage|XPHB} na swój następny rzut na atak przed początkiem twojej następnej tury."
+    ]
+  },
+  "slow": {
+    "name": "Spowolnienie",
+    "entries": [
+      "Jeśli trafisz stwora tą bronią i zadasz mu obrażenia, możesz zmniejszyć jego {@variantrule Speed|XPHB} o 10 stóp do początku swojej następnej tury. Jeśli stwór zostanie trafiony więcej niż raz bronią posiadającą tę właściwość, zmniejszenie {@variantrule Speed|XPHB} nie przekracza 10 stóp."
+    ]
+  },
+  "topple": {
+    "name": "Powalenie",
+    "entries": [
+      "Jeśli trafisz stwora tą bronią, możesz zmusić go do wykonania rzutu obronnego Kondycji ({@dc 8} plus modyfikator cechy użyty do wykonania rzutu na atak oraz twój {@variantrule Proficiency|XPHB|Bonus Biegłości}). W przypadku nieudanego rzutu obronnego stwór otrzymuje stan {@condition Prone|XPHB}."
+    ]
+  },
+  "vex": {
+    "name": "Zmylenie",
+    "entries": [
+      "Jeśli trafisz stwora tą bronią i zadasz mu obrażenia, masz {@variantrule Advantage|XPHB} na swój następny rzut na atak przeciwko temu stworowi przed końcem swojej następnej tury."
+    ]
+  }
+}

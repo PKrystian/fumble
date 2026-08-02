@@ -1,0 +1,3507 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Ekran",
+      "entries": [
+        {
+          "type": "table",
+          "caption": "Ustawianie DC",
+          "colLabels": [
+            "Poziom trudności",
+            "DC"
+          ],
+          "colStyles": [
+            "col-6 text-center",
+            "col-6 text-center"
+          ],
+          "rows": [
+            [
+              "Bardzo łatwe",
+              "5"
+            ],
+            [
+              "Łatwy",
+              "10"
+            ],
+            [
+              "Umiarkowany",
+              "15"
+            ],
+            [
+              "Twardy",
+              "20"
+            ],
+            [
+              "Bardzo trudne",
+              "25"
+            ],
+            [
+              "Prawie niemożliwe",
+              "30"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Motywacja potwora",
+          "colLabels": [
+            "d20",
+            "Bramka"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1-2",
+              "Znajdź sanktuarium"
+            ],
+            [
+              "3-5",
+              "Podbij loch"
+            ],
+            [
+              "6-8",
+              "Szukaj przedmiotu"
+            ],
+            [
+              "9-11",
+              "Zabij rywala"
+            ],
+            [
+              "12-13",
+              "Ukryj się przed wrogami"
+            ],
+            [
+              "14-15",
+              "Odzyskaj siły po bitwie"
+            ],
+            [
+              "16-17",
+              "Unikaj niebezpieczeństwa"
+            ],
+            [
+              "18-20",
+              "Szukaj bogactwa"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Obrażenia według poziomu i ciężkości",
+          "colLabels": [
+            "Poziom postaci",
+            "Wpadka",
+            "Niebezpieczny",
+            "Śmiertelnie"
+          ],
+          "colStyles": [
+            "col-3 text-center",
+            "col-3 text-center",
+            "col-3 text-center",
+            "col-3 text-center"
+          ],
+          "rows": [
+            [
+              "1-4",
+              "{@dice 1d10}",
+              "{@dice 2d10}",
+              "{@dice 4d10}"
+            ],
+            [
+              "5-10",
+              "{@dice 2d10}",
+              "{@dice 4d10}",
+              "{@dice 10d10}"
+            ],
+            [
+              "11-16",
+              "{@dice 4d10}",
+              "{@dice 10d10}",
+              "{@dice 18d10}"
+            ],
+            [
+              "17-20",
+              "{@dice 10d10}",
+              "{@dice 18d10}",
+              "{@dice 24d10}"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Improwizowanie obrażeń",
+          "colLabels": [
+            "Kostka do gry",
+            "Przykłady"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "{@dice 1d10}",
+              "Spalony węglem, uderzony spadającym regałem, ukłuty zatrutą igłą"
+            ],
+            [
+              "{@dice 2d10}",
+              "Uderzenie pioruna, wpadnięcie do paleniska"
+            ],
+            [
+              "{@dice 4d10}",
+              "Uderzenie spadającym gruzem w zapadającym się tunelu, potknięcie się o kadź z kwasem"
+            ],
+            [
+              "{@dice 10d10}",
+              "Zmiażdżony przez ubijające się ściany, uderzony wirującymi stalowymi ostrzami, brodząc w strumieniu lawy"
+            ],
+            [
+              "{@dice 18d10}",
+              "Zanurzony w lawie, uderzony przez rozbijającą się latającą fortecę"
+            ],
+            [
+              "{@dice 24d10}",
+              "Upadek w wir ognia na Planie Żywiołów Ognia, zmiażdżenie w szczękach boskiego stworzenia lub potwora wielkości księżyca"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Klasa pancerza obiektu",
+          "colLabels": [
+            "Substancja",
+            "AC"
+          ],
+          "colStyles": [
+            "col-6 text-center",
+            "col-6 text-center"
+          ],
+          "rows": [
+            [
+              "Tkanina, papier, lina",
+              "11"
+            ],
+            [
+              "Kryształ, szkło, lód",
+              "13"
+            ],
+            [
+              "Drewno, kość",
+              "15"
+            ],
+            [
+              "Kamień",
+              "17"
+            ],
+            [
+              "Żelazo, stal",
+              "19"
+            ],
+            [
+              "Mithral",
+              "21"
+            ],
+            [
+              "Adamantyn",
+              "23"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Punkty życia obiektu",
+          "colLabels": [
+            "Rozmiar",
+            "Kruchy",
+            "Odporny"
+          ],
+          "colStyles": [
+            "col-6",
+            "col-3 text-center",
+            "col-3 text-center"
+          ],
+          "rows": [
+            [
+              "Malutki ({@item glass bottle|phb|butelka}, {@item lock|phb})",
+              "2 ({@dice 1d4})",
+              "5 ({@dice 2d4})"
+            ],
+            [
+              "Mały ({@item chest|phb}, {@item lute|phb})",
+              "3 ({@dice 1d6})",
+              "10 ({@dice 3d6})"
+            ],
+            [
+              "Średni ({@item barrel|phb}, żyrandol)",
+              "4 ({@dice 1d8})",
+              "18 ({@dice 4d8})"
+            ],
+            [
+              "Duży ({@item cart|phb}, 10 stóp na 10 stóp. okno)",
+              "5 ({@dice 1d10})",
+              "27 ({@dice 5d10})"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Umiejętności i powiązane zdolności",
+          "colLabels": [
+            "Umiejętność",
+            "Umiejętność"
+          ],
+          "colStyles": [
+            "col-6",
+            "col-6"
+          ],
+          "rows": [
+            [
+              "{@skill Acrobatics}",
+              "Zręczność"
+            ],
+            [
+              "{@skill Animal Handling}",
+              "Mądrość"
+            ],
+            [
+              "{@skill Arcana}",
+              "Inteligencja"
+            ],
+            [
+              "{@skill Athletics}",
+              "Wytrzymałość"
+            ],
+            [
+              "{@skill Deception}",
+              "Charyzma"
+            ],
+            [
+              "{@skill History}",
+              "Inteligencja"
+            ],
+            [
+              "{@skill Insight}",
+              "Mądrość"
+            ],
+            [
+              "{@skill Intimidation}",
+              "Charyzma"
+            ],
+            [
+              "{@skill Investigation}",
+              "Inteligencja"
+            ],
+            [
+              "{@skill Medicine}",
+              "Mądrość"
+            ],
+            [
+              "{@skill Nature}",
+              "Inteligencja"
+            ],
+            [
+              "{@skill Perception}",
+              "Mądrość"
+            ],
+            [
+              "{@skill Performance}",
+              "Charyzma"
+            ],
+            [
+              "{@skill Persuasion}",
+              "Charyzma"
+            ],
+            [
+              "{@skill Religion}",
+              "Inteligencja"
+            ],
+            [
+              "{@skill Sleight of Hand}",
+              "Zręczność"
+            ],
+            [
+              "{@skill Stealth}",
+              "Zręczność"
+            ],
+            [
+              "{@skill Survival}",
+              "Mądrość"
+            ]
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Skok w dal",
+          "entries": [
+            "Przesuń się o ponad 10 stóp i podskocz o kilka stóp aż do osiągnięcia swojego wyniku Siły. Kiedy wykonujesz skok w dal z miejsca, możesz przeskoczyć tylko połowę tej odległości."
+          ],
+          "id": "001"
+        },
+        {
+          "type": "entries",
+          "name": "Skok wzwyż",
+          "entries": [
+            "Przesuń się o ponad 10 stóp i podskocz o liczbę stóp równą 3 + twój modyfikator Siły. Kiedy wykonujesz skok wzwyż z miejsca, możesz skoczyć tylko połowę tej odległości."
+          ],
+          "id": "002"
+        },
+        {
+          "type": "entries",
+          "name": "Duszące",
+          "entries": [
+            "Możesz wstrzymać oddech na liczbę minut równą 1 + twój modyfikator Kondycji (minimum 30 sekund).",
+            "Jeśli zabraknie ci tchu lub się zadławisz, możesz przetrwać liczbę rund równą twojemu modyfikatorowi Kondycji (minimum 1 runda). Na początku następnej tury spadasz do O i umierasz. Nie możesz odzyskać punktów wytrzymałości ani ustabilizować się, dopóki nie odzyskasz oddechu."
+          ],
+          "id": "003"
+        },
+        {
+          "type": "entries",
+          "name": "Stężenie",
+          "entries": [
+            "Jeśli zaklęcie musi zostać utrzymane {@status concentration|PHB}, jego opis określa, jak długo możesz się na nim skoncentrować. Koncentrację możesz zakończyć w dowolnym momencie (nie jest wymagane żadne działanie). Następujące czynniki mogą zakłócić koncentrację:",
+            {
+              "type": "list",
+              "items": [
+                "Rzucasz kolejne zaklęcie wymagające koncentracji.",
+                "Otrzymujesz obrażenia. Wykonaj udany rzut obronny na Kondycję, aby utrzymać koncentrację, ze ST równym 10 lub połowie otrzymanych obrażeń (zaokrąglając w dół), w zależności od tego, która liczba jest wyższa.",
+                "jesteś {@condition incapacitated} lub zabity.",
+                "Jesteś przytłoczony ogromnym rozproszeniem, takim jak uderzająca w ciebie fala. Odnieś sukces na {@dc 10} Rzut obronny na Kondycję, aby utrzymać koncentrację."
+              ]
+            }
+          ],
+          "id": "004"
+        },
+        {
+          "type": "entries",
+          "name": "Wyczerpanie",
+          "entries": [
+            {
+              "type": "table",
+              "colLabels": [
+                "Poziom",
+                "Efekt"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-2"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Wada w testach umiejętności"
+                ],
+                [
+                  "2",
+                  "Prędkość zmniejszona o połowę"
+                ],
+                [
+                  "3",
+                  "Wada przy rzutach ataku i rzutach obronnych"
+                ],
+                [
+                  "4",
+                  "Maksymalna liczba punktów życia zmniejszona o połowę"
+                ],
+                [
+                  "5",
+                  "Prędkość zredukowana do 0"
+                ],
+                [
+                  "6",
+                  "Śmierć"
+                ]
+              ]
+            }
+          ],
+          "id": "005"
+        },
+        {
+          "type": "entries",
+          "name": "Warunki",
+          "entries": [
+            {
+              "type": "inlineBlock",
+              "entries": [
+                "Pełną listę warunków można znaleźć na stronie {@5etools warunki|conditionsdiseases.html}. Warunki są następujące:",
+                {
+                  "type": "list",
+                  "items": [
+                    "{@condition blinded}",
+                    "{@condition charmed}",
+                    "{@condition deafened}",
+                    "{@condition exhaustion}",
+                    "{@condition frightened}",
+                    "{@condition grappled}",
+                    "{@condition incapacitated}",
+                    "{@condition invisible}",
+                    "{@condition paralyzed}",
+                    "{@condition petrified}",
+                    "{@condition poisoned}",
+                    "{@condition prone}",
+                    "{@condition restrained}",
+                    "{@condition stunned}",
+                    "{@condition unconscious}"
+                  ],
+                  "columns": 3
+                }
+              ]
+            }
+          ],
+          "id": "006"
+        },
+        {
+          "type": "entries",
+          "name": "Stan ruiny",
+          "entries": [
+            "Rzuć na ten stół, aby losowo określić ogólne warunki obszaru lochu.",
+            {
+              "type": "table",
+              "colLabels": [
+                "d6",
+                "Jakość",
+                "Efekt"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-2",
+                "col-8"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Niebezpieczny",
+                  "Obszar ten jest niebezpiecznie zniszczony i podatny na zawalenie. Wszelkie uderzenia lub uszkodzenia konstrukcji, w tym spowodowane zaklęciami i innymi obszarami działania, mają 50% szans na spowodowanie zawalenia się (patrz {@table Improvising Damage|DMG} tabela)."
+                ],
+                [
+                  "2",
+                  "Kruszący się",
+                  "Obszary w sekcji lochów są zasypane gruzem i mają {@chance 50} szansę na {@quickref difficult terrain||3}. {@quickref Cover||3||Half cover} i kryjówek jest mnóstwo."
+                ],
+                [
+                  "3",
+                  "Zaniedbany",
+                  "Jeden loch {@5etools zaryzykować|trapshazards.html}, taki jak {@hazard brown mold}, {@hazard yellow mold} lub {@hazard green slime}, jest obfity."
+                ],
+                [
+                  "4",
+                  "Opuszczony",
+                  "Większość lochów jest pusta i cicha jak grobowiec. Zręczność ({@skill Stealth}) kontrole mają tę wadę, że wszelkie dźwięki wyróżniają się jako niezwykłe."
+                ],
+                [
+                  "5",
+                  "Bezpieczny",
+                  "Kontrole umiejętności przeprowadzane w celu wyważenia drzwi, otwarcia zamków lub podobnych czynności włamań i włamań mają wadę."
+                ],
+                [
+                  "6",
+                  "Kwitnie",
+                  "Lochy są bardzo zaludnione. Wszelkie głośne dźwięki lub inne zjawiska przyciągające uwagę wymagają sprawdzenia Spotkań w Lochach (patrz poniżej)."
+                ]
+              ]
+            }
+          ],
+          "id": "007"
+        },
+        {
+          "type": "entries",
+          "name": "Spotkania w lochach",
+          "entries": [
+            "Raz dziennie i każdej nocy, którą poszukiwacze przygód spędzają na eksploracji lochu, możesz rzucić d20, aby sprawdzić, czy dojdzie do spotkania. Na 1 rzuć w tabeli poniżej. Możesz użyć tabeli motywacji potworów, aby losowo określić cele stworzenia.",
+            {
+              "type": "table",
+              "colLabels": [
+                "d6",
+                "Spotkanie"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Pojawia się samotna, potężna istota! Wybierasz stworzenie, wybierając takiego, którego poziom wyzwania jest o 1-3 wyższy niż poziom postaci gracza. Stworzenie żyje w lochach lub przez nie przechodzi i jest wrogie wobec grupy tylko wtedy, gdy je sprowokuje."
+                ],
+                [
+                  "2-4",
+                  "Wrogie stworzenia grasują w pobliżu! Wybierasz stworzenia, wybierając pięć z poziomem wyzwania równym poziomowi postaci gracza. Te stworzenia to albo potwory zamieszkujące lochy, albo wrodzy odkrywcy."
+                ],
+                [
+                  "5",
+                  "Łatka {@hazard brown mold}, {@hazard green slime}, Lub {@hazard yellow mold} leży w pobliżu. "
+                ],
+                [
+                  "6",
+                  "Na drodze postaci gracza staje grupa zaprzyjaźnionych odkrywców. Odkrywcy tak mają {@dice 2d4} towary na sprzedaż, które kosztują 1 sz lub mniej, które możesz wybrać z {@table Adventuring Gear|PHB} tabeli w Podręczniku Gracza."
+                ]
+              ]
+            }
+          ],
+          "id": "008"
+        },
+        {
+          "type": "entries",
+          "name": "Komnaty Lochów",
+          "entries": [
+            "Aby losowo określić przeznaczenie komnaty w lochach, rzuć w tabeli poniżej.",
+            {
+              "type": "table",
+              "colLabels": [
+                "d100",
+                "Zamiar"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-8"
+              ],
+              "rows": [
+                [
+                  "01",
+                  "Przedpokój"
+                ],
+                [
+                  "02-03",
+                  "Zbrojownia"
+                ],
+                [
+                  "04",
+                  "Sala audiencyjna"
+                ],
+                [
+                  "05",
+                  "Woliera"
+                ],
+                [
+                  "06-07",
+                  "Sala bankietowa"
+                ],
+                [
+                  "08-10",
+                  "Koszary"
+                ],
+                [
+                  "11",
+                  "Kąpiel lub latryna"
+                ],
+                [
+                  "12",
+                  "Sypialnia"
+                ],
+                [
+                  "13",
+                  "Bestiariusz"
+                ],
+                [
+                  "14-16",
+                  "Komórka"
+                ],
+                [
+                  "17",
+                  "Fundacja"
+                ],
+                [
+                  "18",
+                  "Kaplica"
+                ],
+                [
+                  "19-20",
+                  "Cysterna"
+                ],
+                [
+                  "21",
+                  "Klasa"
+                ],
+                [
+                  "22",
+                  "Gabinet"
+                ],
+                [
+                  "23-24",
+                  "Wyczarowujący pokój"
+                ],
+                [
+                  "25-26",
+                  "Sąd"
+                ],
+                [
+                  "27-29",
+                  "Krypta"
+                ],
+                [
+                  "30-31",
+                  "Jadalnia"
+                ],
+                [
+                  "32-33",
+                  "Pokój wróżb"
+                ],
+                [
+                  "34",
+                  "Akademik"
+                ],
+                [
+                  "35",
+                  "Przebieralnia"
+                ],
+                [
+                  "36-37",
+                  "Galeria"
+                ],
+                [
+                  "38-39",
+                  "Pokój gier"
+                ],
+                [
+                  "40-42",
+                  "Wartownia"
+                ],
+                [
+                  "43-44",
+                  "Hala"
+                ],
+                [
+                  "45-46",
+                  "Hala, świetnie"
+                ],
+                [
+                  "47-48",
+                  "Korytarz"
+                ],
+                [
+                  "49",
+                  "Psiarnia"
+                ],
+                [
+                  "50-51",
+                  "Kuchnia"
+                ],
+                [
+                  "52-53",
+                  "Laboratorium"
+                ],
+                [
+                  "54-56",
+                  "Biblioteka"
+                ],
+                [
+                  "57-58",
+                  "Salonik"
+                ],
+                [
+                  "59",
+                  "Komnata medytacyjna"
+                ],
+                [
+                  "60",
+                  "Przedszkole"
+                ],
+                [
+                  "61",
+                  "Obserwatorium"
+                ],
+                [
+                  "62",
+                  "Biuro"
+                ],
+                [
+                  "63-64",
+                  "Spiżarnia"
+                ],
+                [
+                  "65-66",
+                  "Pióro lub więzienie"
+                ],
+                [
+                  "67-68",
+                  "Pokój przyjęć"
+                ],
+                [
+                  "69-70",
+                  "Refektarz"
+                ],
+                [
+                  "71",
+                  "Pokój przebierańców"
+                ],
+                [
+                  "72",
+                  "Salon"
+                ],
+                [
+                  "73-74",
+                  "Świątynia"
+                ],
+                [
+                  "75-76",
+                  "Pokój dzienny"
+                ],
+                [
+                  "77-78",
+                  "Kuźnia"
+                ],
+                [
+                  "79",
+                  "Stabilny"
+                ],
+                [
+                  "80-81",
+                  "Magazyn"
+                ],
+                [
+                  "82-83",
+                  "Mocny pokój"
+                ],
+                [
+                  "84-85",
+                  "Studium"
+                ],
+                [
+                  "86-88",
+                  "Świątynia"
+                ],
+                [
+                  "89-90",
+                  "Sala tronowa"
+                ],
+                [
+                  "91",
+                  "Sala tortur"
+                ],
+                [
+                  "92-93",
+                  "Sala szkoleniowa"
+                ],
+                [
+                  "94-95",
+                  "Pokój trofeów"
+                ],
+                [
+                  "96",
+                  "Przedsionek"
+                ],
+                [
+                  "97",
+                  "Poczekalnia"
+                ],
+                [
+                  "98",
+                  "Dobrze"
+                ],
+                [
+                  "99-00",
+                  "Warsztat"
+                ]
+              ]
+            }
+          ],
+          "id": "009"
+        },
+        {
+          "type": "table",
+          "caption": "Tempo podróży",
+          "colLabels": [
+            "Tempo",
+            "Dystans przebyty na minutę",
+            "Dystans przebyty na godzinę",
+            "Dystans przebyty dziennie",
+            "Efekt"
+          ],
+          "colStyles": [
+            "col-2",
+            "col-2",
+            "col-2",
+            "col-2",
+            "col-4"
+          ],
+          "rows": [
+            [
+              "Szybko",
+              "400 stóp",
+              "4 mile",
+              "30 mil",
+              "-5 punktów do biernej mądrości ({@skill Perception}) punkty"
+            ],
+            [
+              "Normalna",
+              "300 stóp",
+              "3 mile",
+              "24 mile",
+              "-"
+            ],
+            [
+              "Powolne",
+              "200 stóp",
+              "2 mile",
+              "18 mil",
+              "Możliwość korzystania z ukrycia"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Okładka",
+          "colLabels": [
+            "Okładka",
+            "Efekt"
+          ],
+          "colStyles": [
+            "col-3",
+            "col-9"
+          ],
+          "rows": [
+            [
+              "{@quickref Cover||3||Half cover}",
+              "Premia +2 do rzutów obronnych na KP i Zręczność przeciwko atakom i efektom mającym swój początek po przeciwnej stronie osłony"
+            ],
+            [
+              "{@quickref Cover||3||Three-quarters cover}",
+              "Premia +5 do rzutów obronnych na KP i Zręczność przeciwko atakom i efektom mającym swój początek po przeciwnej stronie osłony"
+            ],
+            [
+              "{@quickref Cover||3||Total cover}",
+              "Nie może być celem bezpośredniego ataku ani zaklęcia"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Światło",
+          "colLabels": [
+            "Źródło",
+            "Jasne Światło",
+            "Przyćmione światło",
+            "Czas trwania"
+          ],
+          "colStyles": [
+            "col-3",
+            "col-3",
+            "col-3",
+            "col-3"
+          ],
+          "rows": [
+            [
+              "{@item Candle|phb}",
+              "5 stóp",
+              "+ 5 stóp",
+              "1 godzina"
+            ],
+            [
+              "{@item Lamp|phb}",
+              "15 stóp",
+              "+ 30 stóp",
+              "6 godzin"
+            ],
+            [
+              "{@item Bullseye Lantern|phb|Latarnia, strzał w dziesiątkę}",
+              "Stożek 60 stóp",
+              "+ 60 stóp",
+              "6 godzin"
+            ],
+            [
+              "{@item Hooded Lantern|phb|Latarnia, z kapturem}",
+              "30 stóp",
+              "+ 30 stóp",
+              "6 godzin"
+            ],
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Obniżony kaptur",
+                "-",
+                "+ 5 stóp",
+                "-"
+              ]
+            },
+            [
+              "{@item Torch|phb}",
+              "20 stóp",
+              "+ 20 stóp",
+              "1 godzina"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Zasłonięte obszary",
+          "colLabels": [
+            "Niejasność",
+            "Efekt",
+            "Przykłady"
+          ],
+          "colStyles": [
+            "col-3",
+            "col-5",
+            "col-4"
+          ],
+          "rows": [
+            [
+              "{@quickref Vision and Light||2||Lightly obscured}",
+              "Stworzenia mają wadę Mądrości ({@skill Perception}) testy polegające na wzroku.",
+              "{@quickref Vision and Light||2||Dim light}, niejednolita mgła, umiarkowane liście"
+            ],
+            [
+              "{@quickref Vision and Light||2||Heavily obscured}",
+              "Wizja jest zablokowana; stworzenia są skuteczne {@condition blinded}.",
+              "Ciemność, nieprzejrzysta mgła, gęste liście"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Śledzenie kontrolerów domeny",
+          "colLabels": [
+            "Powierzchnia gruntu",
+            "DC"
+          ],
+          "colStyles": [
+            "col-6 text-center",
+            "col-6 text-center"
+          ],
+          "rows": [
+            [
+              "Miękka powierzchnia, taka jak śnieg",
+              "10"
+            ],
+            [
+              "Brud lub trawa",
+              "15"
+            ],
+            [
+              "Nagi kamień",
+              "20"
+            ],
+            [
+              "Każdego dnia, odkąd stworzenie minęło",
+              "+5"
+            ],
+            [
+              "Stworzenie pozostawiło ślad, taki jak krew",
+              "-5"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Widoczność na zewnątrz",
+          "colLabels": [
+            "Środowisko",
+            "Dystans"
+          ],
+          "colStyles": [
+            "col-6",
+            "col-6"
+          ],
+          "rows": [
+            [
+              "Pogodny dzień, żadnych przeszkód",
+              "2 mile"
+            ],
+            [
+              "Deszcz",
+              "1 mila"
+            ],
+            [
+              "Mgła",
+              "100 do 300 stóp"
+            ],
+            [
+              "Z wysokości",
+              "× 20"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Słyszalna odległość",
+          "colLabels": [
+            "Hałas",
+            "Dystans"
+          ],
+          "colStyles": [
+            "col-6 text-center",
+            "col-6 text-center"
+          ],
+          "rows": [
+            [
+              "Próbuję być cicho",
+              "{@dice 2d6 × 5} stopy"
+            ],
+            [
+              "Normalny poziom hałasu",
+              "{@dice 2d6 × 10} stopy"
+            ],
+            [
+              "Bardzo głośno",
+              "{@dice 2d6 × 50} stopy"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Jedzenie, napoje i zakwaterowanie",
+          "colLabels": [
+            "Przedmiot",
+            "Koszt"
+          ],
+          "colStyles": [
+            "col-6",
+            "col-6 text-right"
+          ],
+          "rows": [
+            [
+              "{@i Ale}",
+              ""
+            ],
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "{@item Ale (Gallon)|PHB|Galon}",
+                "2 sp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "{@item Ale (mug)|phb|Kubek}",
+                "4 kp"
+              ]
+            },
+            [
+              "Bankiet (za osobę)",
+              "10 gp"
+            ],
+            [
+              "{@item loaf of bread|phb|Chleb, bochenek}",
+              "2 kp"
+            ],
+            [
+              "{@item hunk of cheese|phb|Ser, przystojniaku}",
+              "1 sp"
+            ],
+            [
+              "{@i Pobyt w karczmie (za dzień)}",
+              ""
+            ],
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Plugawy",
+                "7 kp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Słaby",
+                "1 sp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Skromny",
+                "5 sp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Wygodny",
+                "8 sp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Bogaty",
+                "2 gp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Arystokratyczny",
+                "4 gp"
+              ]
+            },
+            [
+              "{@i Posiłki (dziennie)}",
+              ""
+            ],
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Plugawy",
+                "3 kp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Słaby",
+                "6 kp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Skromny",
+                "3 sp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Wygodny",
+                "5 sp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Bogaty",
+                "8 sp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "Arystokratyczny",
+                "2 gp"
+              ]
+            },
+            [
+              "{@item chunk of meat|phb|Mięso, kawałek}",
+              "3 sp"
+            ],
+            [
+              "{@i Wino}",
+              ""
+            ],
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "{@item common wine (pitcher)|phb|Wspólne (dzban)}",
+                "2 sp"
+              ]
+            },
+            {
+              "type": "row",
+              "style": "row-indent-first",
+              "row": [
+                "{@item fine wine (bottle)|phb|Dobra (butelka)}",
+                "10 gp"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "caption": "Żerowanie DC",
+          "colLabels": [
+            "Dostępność żywności i wody",
+            "DC"
+          ],
+          "colStyles": [
+            "col-6",
+            "col-6 text-center"
+          ],
+          "rows": [
+            [
+              "Bogate źródła pożywienia i wody",
+              "10"
+            ],
+            [
+              "Ograniczone źródła pożywienia i wody",
+              "15"
+            ],
+            [
+              "Bardzo niewiele, jeśli w ogóle, źródeł pożywienia i wody",
+              "20"
+            ]
+          ]
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Skok w dal",
+      "entries": [
+        "Przesuń się o ponad 10 stóp i podskocz o kilka stóp aż do osiągnięcia swojego wyniku Siły. Kiedy wykonujesz skok w dal z miejsca, możesz przeskoczyć tylko połowę tej odległości."
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "entries",
+      "name": "Skok wzwyż",
+      "entries": [
+        "Przesuń się o ponad 10 stóp i podskocz o liczbę stóp równą 3 + twój modyfikator Siły. Kiedy wykonujesz skok wzwyż z miejsca, możesz skoczyć tylko połowę tej odległości."
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "name": "Duszące",
+      "entries": [
+        "Możesz wstrzymać oddech na liczbę minut równą 1 + twój modyfikator Kondycji (minimum 30 sekund).",
+        "Jeśli zabraknie ci tchu lub się zadławisz, możesz przetrwać liczbę rund równą twojemu modyfikatorowi Kondycji (minimum 1 runda). Na początku następnej tury spadasz do O i umierasz. Nie możesz odzyskać punktów wytrzymałości ani ustabilizować się, dopóki nie odzyskasz oddechu."
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "entries",
+      "name": "Stężenie",
+      "entries": [
+        "Jeśli zaklęcie musi zostać utrzymane {@status concentration|PHB}, jego opis określa, jak długo możesz się na nim skoncentrować. Koncentrację możesz zakończyć w dowolnym momencie (nie jest wymagane żadne działanie). Następujące czynniki mogą zakłócić koncentrację:",
+        {
+          "type": "list",
+          "items": [
+            "Rzucasz kolejne zaklęcie wymagające koncentracji.",
+            "Otrzymujesz obrażenia. Wykonaj udany rzut obronny na Kondycję, aby utrzymać koncentrację, ze ST równym 10 lub połowie otrzymanych obrażeń (zaokrąglając w dół), w zależności od tego, która liczba jest wyższa.",
+            "jesteś {@condition incapacitated} lub zabity.",
+            "Jesteś przytłoczony ogromnym rozproszeniem, takim jak uderzająca w ciebie fala. Odnieś sukces na {@dc 10} Rzut obronny na Kondycję, aby utrzymać koncentrację."
+          ]
+        }
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Wyczerpanie",
+      "entries": [
+        {
+          "type": "table",
+          "colLabels": [
+            "Poziom",
+            "Efekt"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-2"
+          ],
+          "rows": [
+            [
+              "1",
+              "Wada w testach umiejętności"
+            ],
+            [
+              "2",
+              "Prędkość zmniejszona o połowę"
+            ],
+            [
+              "3",
+              "Wada przy rzutach ataku i rzutach obronnych"
+            ],
+            [
+              "4",
+              "Maksymalna liczba punktów życia zmniejszona o połowę"
+            ],
+            [
+              "5",
+              "Prędkość zredukowana do 0"
+            ],
+            [
+              "6",
+              "Śmierć"
+            ]
+          ]
+        }
+      ],
+      "id": "005"
+    },
+    "0:006": {
+      "type": "entries",
+      "name": "Warunki",
+      "entries": [
+        {
+          "type": "inlineBlock",
+          "entries": [
+            "Pełną listę warunków można znaleźć na stronie {@5etools warunki|conditionsdiseases.html}. Warunki są następujące:",
+            {
+              "type": "list",
+              "items": [
+                "{@condition blinded}",
+                "{@condition charmed}",
+                "{@condition deafened}",
+                "{@condition exhaustion}",
+                "{@condition frightened}",
+                "{@condition grappled}",
+                "{@condition incapacitated}",
+                "{@condition invisible}",
+                "{@condition paralyzed}",
+                "{@condition petrified}",
+                "{@condition poisoned}",
+                "{@condition prone}",
+                "{@condition restrained}",
+                "{@condition stunned}",
+                "{@condition unconscious}"
+              ],
+              "columns": 3
+            }
+          ]
+        }
+      ],
+      "id": "006"
+    },
+    "0:007": {
+      "type": "entries",
+      "name": "Stan ruiny",
+      "entries": [
+        "Rzuć na ten stół, aby losowo określić ogólne warunki obszaru lochu.",
+        {
+          "type": "table",
+          "colLabels": [
+            "d6",
+            "Jakość",
+            "Efekt"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-2",
+            "col-8"
+          ],
+          "rows": [
+            [
+              "1",
+              "Niebezpieczny",
+              "Obszar ten jest niebezpiecznie zniszczony i podatny na zawalenie. Wszelkie uderzenia lub uszkodzenia konstrukcji, w tym spowodowane zaklęciami i innymi obszarami działania, mają 50% szans na spowodowanie zawalenia się (patrz {@table Improvising Damage|DMG} tabela)."
+            ],
+            [
+              "2",
+              "Kruszący się",
+              "Obszary w sekcji lochów są zasypane gruzem i mają {@chance 50} szansę na {@quickref difficult terrain||3}. {@quickref Cover||3||Half cover} i kryjówek jest mnóstwo."
+            ],
+            [
+              "3",
+              "Zaniedbany",
+              "Jeden loch {@5etools zaryzykować|trapshazards.html}, taki jak {@hazard brown mold}, {@hazard yellow mold} lub {@hazard green slime}, jest obfity."
+            ],
+            [
+              "4",
+              "Opuszczony",
+              "Większość lochów jest pusta i cicha jak grobowiec. Zręczność ({@skill Stealth}) kontrole mają tę wadę, że wszelkie dźwięki wyróżniają się jako niezwykłe."
+            ],
+            [
+              "5",
+              "Bezpieczny",
+              "Kontrole umiejętności przeprowadzane w celu wyważenia drzwi, otwarcia zamków lub podobnych czynności włamań i włamań mają wadę."
+            ],
+            [
+              "6",
+              "Kwitnie",
+              "Lochy są bardzo zaludnione. Wszelkie głośne dźwięki lub inne zjawiska przyciągające uwagę wymagają sprawdzenia Spotkań w Lochach (patrz poniżej)."
+            ]
+          ]
+        }
+      ],
+      "id": "007"
+    },
+    "0:008": {
+      "type": "entries",
+      "name": "Spotkania w lochach",
+      "entries": [
+        "Raz dziennie i każdej nocy, którą poszukiwacze przygód spędzają na eksploracji lochu, możesz rzucić d20, aby sprawdzić, czy dojdzie do spotkania. Na 1 rzuć w tabeli poniżej. Możesz użyć tabeli motywacji potworów, aby losowo określić cele stworzenia.",
+        {
+          "type": "table",
+          "colLabels": [
+            "d6",
+            "Spotkanie"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "Pojawia się samotna, potężna istota! Wybierasz stworzenie, wybierając takiego, którego poziom wyzwania jest o 1-3 wyższy niż poziom postaci gracza. Stworzenie żyje w lochach lub przez nie przechodzi i jest wrogie wobec grupy tylko wtedy, gdy je sprowokuje."
+            ],
+            [
+              "2-4",
+              "Wrogie stworzenia grasują w pobliżu! Wybierasz stworzenia, wybierając pięć z poziomem wyzwania równym poziomowi postaci gracza. Te stworzenia to albo potwory zamieszkujące lochy, albo wrodzy odkrywcy."
+            ],
+            [
+              "5",
+              "Łatka {@hazard brown mold}, {@hazard green slime}, Lub {@hazard yellow mold} leży w pobliżu. "
+            ],
+            [
+              "6",
+              "Na drodze postaci gracza staje grupa zaprzyjaźnionych odkrywców. Odkrywcy tak mają {@dice 2d4} towary na sprzedaż, które kosztują 1 sz lub mniej, które możesz wybrać z {@table Adventuring Gear|PHB} tabeli w Podręczniku Gracza."
+            ]
+          ]
+        }
+      ],
+      "id": "008"
+    },
+    "0:009": {
+      "type": "entries",
+      "name": "Komnaty Lochów",
+      "entries": [
+        "Aby losowo określić przeznaczenie komnaty w lochach, rzuć w tabeli poniżej.",
+        {
+          "type": "table",
+          "colLabels": [
+            "d100",
+            "Zamiar"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-8"
+          ],
+          "rows": [
+            [
+              "01",
+              "Przedpokój"
+            ],
+            [
+              "02-03",
+              "Zbrojownia"
+            ],
+            [
+              "04",
+              "Sala audiencyjna"
+            ],
+            [
+              "05",
+              "Woliera"
+            ],
+            [
+              "06-07",
+              "Sala bankietowa"
+            ],
+            [
+              "08-10",
+              "Koszary"
+            ],
+            [
+              "11",
+              "Kąpiel lub latryna"
+            ],
+            [
+              "12",
+              "Sypialnia"
+            ],
+            [
+              "13",
+              "Bestiariusz"
+            ],
+            [
+              "14-16",
+              "Komórka"
+            ],
+            [
+              "17",
+              "Fundacja"
+            ],
+            [
+              "18",
+              "Kaplica"
+            ],
+            [
+              "19-20",
+              "Cysterna"
+            ],
+            [
+              "21",
+              "Klasa"
+            ],
+            [
+              "22",
+              "Gabinet"
+            ],
+            [
+              "23-24",
+              "Wyczarowujący pokój"
+            ],
+            [
+              "25-26",
+              "Sąd"
+            ],
+            [
+              "27-29",
+              "Krypta"
+            ],
+            [
+              "30-31",
+              "Jadalnia"
+            ],
+            [
+              "32-33",
+              "Pokój wróżb"
+            ],
+            [
+              "34",
+              "Akademik"
+            ],
+            [
+              "35",
+              "Przebieralnia"
+            ],
+            [
+              "36-37",
+              "Galeria"
+            ],
+            [
+              "38-39",
+              "Pokój gier"
+            ],
+            [
+              "40-42",
+              "Wartownia"
+            ],
+            [
+              "43-44",
+              "Hala"
+            ],
+            [
+              "45-46",
+              "Hala, świetnie"
+            ],
+            [
+              "47-48",
+              "Korytarz"
+            ],
+            [
+              "49",
+              "Psiarnia"
+            ],
+            [
+              "50-51",
+              "Kuchnia"
+            ],
+            [
+              "52-53",
+              "Laboratorium"
+            ],
+            [
+              "54-56",
+              "Biblioteka"
+            ],
+            [
+              "57-58",
+              "Salonik"
+            ],
+            [
+              "59",
+              "Komnata medytacyjna"
+            ],
+            [
+              "60",
+              "Przedszkole"
+            ],
+            [
+              "61",
+              "Obserwatorium"
+            ],
+            [
+              "62",
+              "Biuro"
+            ],
+            [
+              "63-64",
+              "Spiżarnia"
+            ],
+            [
+              "65-66",
+              "Pióro lub więzienie"
+            ],
+            [
+              "67-68",
+              "Pokój przyjęć"
+            ],
+            [
+              "69-70",
+              "Refektarz"
+            ],
+            [
+              "71",
+              "Pokój przebierańców"
+            ],
+            [
+              "72",
+              "Salon"
+            ],
+            [
+              "73-74",
+              "Świątynia"
+            ],
+            [
+              "75-76",
+              "Pokój dzienny"
+            ],
+            [
+              "77-78",
+              "Kuźnia"
+            ],
+            [
+              "79",
+              "Stabilny"
+            ],
+            [
+              "80-81",
+              "Magazyn"
+            ],
+            [
+              "82-83",
+              "Mocny pokój"
+            ],
+            [
+              "84-85",
+              "Studium"
+            ],
+            [
+              "86-88",
+              "Świątynia"
+            ],
+            [
+              "89-90",
+              "Sala tronowa"
+            ],
+            [
+              "91",
+              "Sala tortur"
+            ],
+            [
+              "92-93",
+              "Sala szkoleniowa"
+            ],
+            [
+              "94-95",
+              "Pokój trofeów"
+            ],
+            [
+              "96",
+              "Przedsionek"
+            ],
+            [
+              "97",
+              "Poczekalnia"
+            ],
+            [
+              "98",
+              "Dobrze"
+            ],
+            [
+              "99-00",
+              "Warsztat"
+            ]
+          ]
+        }
+      ],
+      "id": "009"
+    },
+    "1:00a": {
+      "type": "section",
+      "name": "Dołączone akcesoria",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Karty stanu i zagrożenia",
+          "entries": [
+            {
+              "type": "list",
+              "columns": 3,
+              "items": [
+                "{@deck Condition Cards|ScreenDungeonKit}",
+                "{@deck Hazard Cards|ScreenDungeonKit}"
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Conditions/Print1.webp"
+                  },
+                  "title": "Strona 1",
+                  "width": 1691,
+                  "height": 2129
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Conditions/Print2.webp"
+                  },
+                  "title": "Strona 2",
+                  "width": 1689,
+                  "height": 2131
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Conditions/Print3.webp"
+                  },
+                  "title": "Strona 3",
+                  "width": 1688,
+                  "height": 2128
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Conditions/Print4.webp"
+                  },
+                  "title": "Strona 4",
+                  "width": 1687,
+                  "height": 2127
+                }
+              ]
+            }
+          ],
+          "id": "00b"
+        },
+        {
+          "type": "entries",
+          "name": "Karty Inicjatywy",
+          "entries": [
+            {
+              "type": "list",
+              "columns": 3,
+              "items": [
+                "{@deck Initiative Cards|ScreenDungeonKit}"
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Initiative/PrintInitiative.webp"
+                  },
+                  "width": 1692,
+                  "height": 2128
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Initiative/PrintBack.webp"
+                  },
+                  "width": 1688,
+                  "height": 2128
+                }
+              ]
+            }
+          ],
+          "id": "00c"
+        },
+        {
+          "type": "entries",
+          "name": "Karty Geomorfii",
+          "entries": [
+            "36 {@deck Geomorph Cards|ScreenDungeonKit}, idealny do losowego układu lochów z zazębiającymi się sekcjami mapy:",
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/001.webp"
+                  },
+                  "width": 564,
+                  "height": 709,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -9,
+                    "offsetY": 24,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 1",
+                  "id": "00e"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/002.webp"
+                  },
+                  "width": 564,
+                  "height": 709,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -9,
+                    "offsetY": 24,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 2",
+                  "id": "00f"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/003.webp"
+                  },
+                  "width": 564,
+                  "height": 709,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -11,
+                    "offsetY": 17,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 3",
+                  "id": "010"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/004.webp"
+                  },
+                  "width": 564,
+                  "height": 709,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -8,
+                    "offsetY": -23,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 4",
+                  "id": "011"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/005.webp"
+                  },
+                  "width": 564,
+                  "height": 709,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -7,
+                    "offsetY": -28,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 5",
+                  "id": "012"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/006.webp"
+                  },
+                  "width": 564,
+                  "height": 709,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -11,
+                    "offsetY": 25,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 6",
+                  "id": "013"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/007.webp"
+                  },
+                  "width": 564,
+                  "height": 708,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -5,
+                    "offsetY": -15,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 7",
+                  "id": "014"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/008.webp"
+                  },
+                  "width": 564,
+                  "height": 708,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -8,
+                    "offsetY": -17,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 8",
+                  "id": "015"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/009.webp"
+                  },
+                  "width": 564,
+                  "height": 708,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -9,
+                    "offsetY": -16,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 9",
+                  "id": "016"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/010.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -5,
+                    "offsetY": -23,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 10",
+                  "id": "017"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/011.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -5,
+                    "offsetY": -24,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 11",
+                  "id": "018"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/012.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -10,
+                    "offsetY": -31,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 12",
+                  "id": "019"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/013.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -1,
+                    "offsetY": -18,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 13",
+                  "id": "01a"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/014.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -5,
+                    "offsetY": -24,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 14",
+                  "id": "01b"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/015.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -7,
+                    "offsetY": -30,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 15",
+                  "id": "01c"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/016.webp"
+                  },
+                  "width": 564,
+                  "height": 709,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": 1,
+                    "offsetY": -16,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 16",
+                  "id": "01d"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/017.webp"
+                  },
+                  "width": 564,
+                  "height": 709,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetY": -15,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 17",
+                  "id": "01e"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/018.webp"
+                  },
+                  "width": 564,
+                  "height": 709,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -3,
+                    "offsetY": -18,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 18",
+                  "id": "01f"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/019.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -11,
+                    "offsetY": -31,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 19",
+                  "id": "020"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/020.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -10,
+                    "offsetY": 18,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 20",
+                  "id": "021"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/021.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -16,
+                    "offsetY": 11,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 21",
+                  "id": "022"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/022.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -6,
+                    "offsetY": -25,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 22",
+                  "id": "023"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/023.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -6,
+                    "offsetY": 20,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 23",
+                  "id": "024"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/024.webp"
+                  },
+                  "width": 564,
+                  "height": 711,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -10,
+                    "offsetY": 18,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 24",
+                  "id": "025"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/025.webp"
+                  },
+                  "width": 564,
+                  "height": 710,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -5,
+                    "offsetY": -22,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 25",
+                  "id": "026"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/026.webp"
+                  },
+                  "width": 564,
+                  "height": 710,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -5,
+                    "offsetY": -22,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 26",
+                  "id": "027"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/027.webp"
+                  },
+                  "width": 564,
+                  "height": 710,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -6,
+                    "offsetY": -27,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 27",
+                  "id": "028"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/028.webp"
+                  },
+                  "width": 566,
+                  "height": 712,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -10,
+                    "offsetY": 19,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 28",
+                  "id": "029"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/029.webp"
+                  },
+                  "width": 566,
+                  "height": 712,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -13,
+                    "offsetY": 14,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 29",
+                  "id": "02a"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/030.webp"
+                  },
+                  "width": 566,
+                  "height": 712,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -20,
+                    "offsetY": 10,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 30",
+                  "id": "02b"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/031.webp"
+                  },
+                  "width": 566,
+                  "height": 712,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -9,
+                    "offsetY": 22,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 31",
+                  "id": "02c"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/032.webp"
+                  },
+                  "width": 566,
+                  "height": 712,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -12,
+                    "offsetY": 21,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 32",
+                  "id": "02d"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/033.webp"
+                  },
+                  "width": 566,
+                  "height": 712,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -20,
+                    "offsetY": 17,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 33",
+                  "id": "02e"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/034.webp"
+                  },
+                  "width": 566,
+                  "height": 712,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -7,
+                    "offsetY": 27,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 34",
+                  "id": "02f"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/035.webp"
+                  },
+                  "width": 566,
+                  "height": 712,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -11,
+                    "offsetY": -28,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 35",
+                  "id": "030"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/036.webp"
+                  },
+                  "width": 566,
+                  "height": 712,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -18,
+                    "offsetY": -30,
+                    "scale": 2
+                  },
+                  "title": "Karta Geomorfii 36",
+                  "id": "031"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/Back.webp"
+                  },
+                  "width": 563,
+                  "height": 710
+                }
+              ]
+            },
+            "Pełne strony do druku można znaleźć poniżej:",
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/Print1.webp"
+                  },
+                  "width": 1692,
+                  "height": 2126,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -17,
+                    "offsetY": -38,
+                    "scale": 2
+                  },
+                  "title": "Geomorf Strona 1",
+                  "id": "032"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/Print2.webp"
+                  },
+                  "width": 1692,
+                  "height": 2131,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -9,
+                    "offsetY": -30,
+                    "scale": 2
+                  },
+                  "title": "Geomorf Strona 2",
+                  "id": "033"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/Print3.webp"
+                  },
+                  "width": 1692,
+                  "height": 2132,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -13,
+                    "offsetY": -41,
+                    "scale": 2
+                  },
+                  "title": "Geomorf Strona 3",
+                  "id": "034"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/Print4.webp"
+                  },
+                  "width": 1698,
+                  "height": 2136,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 54,
+                    "offsetX": -13,
+                    "offsetY": 15,
+                    "scale": 2
+                  },
+                  "title": "Geomorf Strona 4",
+                  "id": "035"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/ScreenDungeonKit/Cards-Geomorph/PrintBack.webp"
+                  },
+                  "width": 1687,
+                  "height": 2128
+                }
+              ]
+            }
+          ],
+          "id": "00d"
+        }
+      ],
+      "id": "00a"
+    },
+    "1:00b": {
+      "type": "entries",
+      "name": "Karty stanu i zagrożenia",
+      "entries": [
+        {
+          "type": "list",
+          "columns": 3,
+          "items": [
+            "{@deck Condition Cards|ScreenDungeonKit}",
+            "{@deck Hazard Cards|ScreenDungeonKit}"
+          ]
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Conditions/Print1.webp"
+              },
+              "title": "Strona 1",
+              "width": 1691,
+              "height": 2129
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Conditions/Print2.webp"
+              },
+              "title": "Strona 2",
+              "width": 1689,
+              "height": 2131
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Conditions/Print3.webp"
+              },
+              "title": "Strona 3",
+              "width": 1688,
+              "height": 2128
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Conditions/Print4.webp"
+              },
+              "title": "Strona 4",
+              "width": 1687,
+              "height": 2127
+            }
+          ]
+        }
+      ],
+      "id": "00b"
+    },
+    "1:00c": {
+      "type": "entries",
+      "name": "Karty Inicjatywy",
+      "entries": [
+        {
+          "type": "list",
+          "columns": 3,
+          "items": [
+            "{@deck Initiative Cards|ScreenDungeonKit}"
+          ]
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Initiative/PrintInitiative.webp"
+              },
+              "width": 1692,
+              "height": 2128
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Initiative/PrintBack.webp"
+              },
+              "width": 1688,
+              "height": 2128
+            }
+          ]
+        }
+      ],
+      "id": "00c"
+    },
+    "1:00d": {
+      "type": "entries",
+      "name": "Karty Geomorfii",
+      "entries": [
+        "36 {@deck Geomorph Cards|ScreenDungeonKit}, idealny do losowego układu lochów z zazębiającymi się sekcjami mapy:",
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/001.webp"
+              },
+              "width": 564,
+              "height": 709,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -9,
+                "offsetY": 24,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 1",
+              "id": "00e"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/002.webp"
+              },
+              "width": 564,
+              "height": 709,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -9,
+                "offsetY": 24,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 2",
+              "id": "00f"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/003.webp"
+              },
+              "width": 564,
+              "height": 709,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -11,
+                "offsetY": 17,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 3",
+              "id": "010"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/004.webp"
+              },
+              "width": 564,
+              "height": 709,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -8,
+                "offsetY": -23,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 4",
+              "id": "011"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/005.webp"
+              },
+              "width": 564,
+              "height": 709,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -7,
+                "offsetY": -28,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 5",
+              "id": "012"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/006.webp"
+              },
+              "width": 564,
+              "height": 709,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -11,
+                "offsetY": 25,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 6",
+              "id": "013"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/007.webp"
+              },
+              "width": 564,
+              "height": 708,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -5,
+                "offsetY": -15,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 7",
+              "id": "014"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/008.webp"
+              },
+              "width": 564,
+              "height": 708,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -8,
+                "offsetY": -17,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 8",
+              "id": "015"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/009.webp"
+              },
+              "width": 564,
+              "height": 708,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -9,
+                "offsetY": -16,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 9",
+              "id": "016"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/010.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -5,
+                "offsetY": -23,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 10",
+              "id": "017"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/011.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -5,
+                "offsetY": -24,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 11",
+              "id": "018"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/012.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -10,
+                "offsetY": -31,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 12",
+              "id": "019"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/013.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -1,
+                "offsetY": -18,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 13",
+              "id": "01a"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/014.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -5,
+                "offsetY": -24,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 14",
+              "id": "01b"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/015.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -7,
+                "offsetY": -30,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 15",
+              "id": "01c"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/016.webp"
+              },
+              "width": 564,
+              "height": 709,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": 1,
+                "offsetY": -16,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 16",
+              "id": "01d"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/017.webp"
+              },
+              "width": 564,
+              "height": 709,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetY": -15,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 17",
+              "id": "01e"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/018.webp"
+              },
+              "width": 564,
+              "height": 709,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -3,
+                "offsetY": -18,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 18",
+              "id": "01f"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/019.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -11,
+                "offsetY": -31,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 19",
+              "id": "020"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/020.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -10,
+                "offsetY": 18,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 20",
+              "id": "021"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/021.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -16,
+                "offsetY": 11,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 21",
+              "id": "022"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/022.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -6,
+                "offsetY": -25,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 22",
+              "id": "023"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/023.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -6,
+                "offsetY": 20,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 23",
+              "id": "024"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/024.webp"
+              },
+              "width": 564,
+              "height": 711,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -10,
+                "offsetY": 18,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 24",
+              "id": "025"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/025.webp"
+              },
+              "width": 564,
+              "height": 710,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -5,
+                "offsetY": -22,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 25",
+              "id": "026"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/026.webp"
+              },
+              "width": 564,
+              "height": 710,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -5,
+                "offsetY": -22,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 26",
+              "id": "027"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/027.webp"
+              },
+              "width": 564,
+              "height": 710,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -6,
+                "offsetY": -27,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 27",
+              "id": "028"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/028.webp"
+              },
+              "width": 566,
+              "height": 712,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -10,
+                "offsetY": 19,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 28",
+              "id": "029"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/029.webp"
+              },
+              "width": 566,
+              "height": 712,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -13,
+                "offsetY": 14,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 29",
+              "id": "02a"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/030.webp"
+              },
+              "width": 566,
+              "height": 712,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -20,
+                "offsetY": 10,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 30",
+              "id": "02b"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/031.webp"
+              },
+              "width": 566,
+              "height": 712,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -9,
+                "offsetY": 22,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 31",
+              "id": "02c"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/032.webp"
+              },
+              "width": 566,
+              "height": 712,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -12,
+                "offsetY": 21,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 32",
+              "id": "02d"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/033.webp"
+              },
+              "width": 566,
+              "height": 712,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -20,
+                "offsetY": 17,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 33",
+              "id": "02e"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/034.webp"
+              },
+              "width": 566,
+              "height": 712,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -7,
+                "offsetY": 27,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 34",
+              "id": "02f"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/035.webp"
+              },
+              "width": 566,
+              "height": 712,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -11,
+                "offsetY": -28,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 35",
+              "id": "030"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/036.webp"
+              },
+              "width": 566,
+              "height": 712,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -18,
+                "offsetY": -30,
+                "scale": 2
+              },
+              "title": "Karta Geomorfii 36",
+              "id": "031"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/Back.webp"
+              },
+              "width": 563,
+              "height": 710
+            }
+          ]
+        },
+        "Pełne strony do druku można znaleźć poniżej:",
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/Print1.webp"
+              },
+              "width": 1692,
+              "height": 2126,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -17,
+                "offsetY": -38,
+                "scale": 2
+              },
+              "title": "Geomorf Strona 1",
+              "id": "032"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/Print2.webp"
+              },
+              "width": 1692,
+              "height": 2131,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -9,
+                "offsetY": -30,
+                "scale": 2
+              },
+              "title": "Geomorf Strona 2",
+              "id": "033"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/Print3.webp"
+              },
+              "width": 1692,
+              "height": 2132,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -13,
+                "offsetY": -41,
+                "scale": 2
+              },
+              "title": "Geomorf Strona 3",
+              "id": "034"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/Print4.webp"
+              },
+              "width": 1698,
+              "height": 2136,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 54,
+                "offsetX": -13,
+                "offsetY": 15,
+                "scale": 2
+              },
+              "title": "Geomorf Strona 4",
+              "id": "035"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/ScreenDungeonKit/Cards-Geomorph/PrintBack.webp"
+              },
+              "width": 1687,
+              "height": 2128
+            }
+          ]
+        }
+      ],
+      "id": "00d"
+    }
+  }
+}

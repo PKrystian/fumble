@@ -1,0 +1,1083 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Wprowadzenie",
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSA/001.webp"
+          },
+          "width": 1278,
+          "height": 1655,
+          "title": "Amonchet",
+          "credit": "Aleksi Briclot"
+        },
+        {
+          "type": "quote",
+          "skipItalics": true,
+          "skipMarks": true,
+          "entries": [
+            "Cała ta sprawa z Planem Shift zaczęła się z powodu Zendikara. Trudno wyobrazić sobie samolot Magic lepiej nadający się do przygód w D&D niż ten, który od początku do końca został pomyślany jako „świat przygód”. Przejście z {@i Sztuka magii: zgromadzenie - Zendikar} na {@i Zmiana samolotu: Zendikar} było zatem całkowicie naturalne.",
+            "Następny był Innistrad, wzmocniony szczęśliwym zbiegiem okoliczności {@adventure Curse of Strahd|CoS} przygoda rozpoczynająca się mniej więcej w tym samym czasie. Potem z {@i Zmiana samolotu: Kaladesh}, muszę odejść nieco dalej od podstawowego doświadczenia D&D, prezentując dość szybkie i luźne podejście do przekształcenia magicznych przedmiotów D&D w napędzane eterem wynalazki Kaladesha. A teraz dochodzimy do Amonkhet - pustynnego samolotu inspirowanego starożytnym Egiptem, rządzonego przez złego smoka Planeswalkera i który posiada jedną małą bezpieczną przystań przed inwazją nieumarłych. Nie jest to tradycyjna sceneria D&D.",
+            "Próby pięciu bogów stanowią najbardziej oczywistą strukturę kampanii rozgrywającej się na Amonkhet. Grupa wtajemniczonych z tej samej uprawy może razem przejść próby i same te próby mogą stanowić całość krótkiej kampanii. Aby urozmaicić to doświadczenie, postacie mogą także podejmować misje w imieniu bogów lub wezyrów: obrona Hekmy, dołączenie do bogów podczas wyprawy myśliwskiej na pustynię i tak dalej. Kampania może się skomplikować po dodaniu wezyrów, którzy zwykle nie przechodzą prób (chyba że tak zdecydują) lub jeśli którykolwiek lub wszyscy bohaterowie staną się dysydentami.",
+            "Być może najlepszym sposobem myślenia o kampanii Amonkheta jest to, że rozgrywa się ona w kontekście pięciu procesów, a nie skupia się wyłącznie na próbach. Próby zapewniają strukturę i poczucie dramatyzmu, ale w relacjach między postaciami - oraz między postaciami a resztą świata - rozgrywa się sedno historii. Możesz ustawić swoją kampanię w okresie poprzedzającym moment, w którym postacie rozpoczynających graczy przechodzą jedną z prób, przy czym próba będzie punktem kulminacyjnym całej historii. Możesz wykorzystać Próbę Solidarności i Próbę Ambicji jako ramy kampanii, aby zbadać kwestie jedności zbiorowej w porównaniu z osobistymi osiągnięciami. (Wtajemniczone postacie przejdą Próby Wiedzy i Siły na własnych warunkach.) Możesz też całkowicie zignorować próby i skupić się na postaciach odmiennych, próbujących zaburzyć porządek społeczny Naktamuna.",
+            "Jak zawsze, {@i Sztuka magii: zgromadzenie - Amonkhet} jest ostatecznym źródłem informacji o samolocie. Dzięki temu dokumentowi możesz wykorzystać te informacje do zbudowania kampanii z minimalnymi zmianami w zasadach D&D piątej edycji, które możesz {@link znaleźć tutaj|https://dnd.wizards.com/what-is-dnd/basic-rules}. Nawet bez książki informacje o Amonkhecie można znaleźć w {@link stronie internetowej Magii|https://magic.wizards.com/}.",
+            "Powodzenia na próbach!"
+          ],
+          "by": "James Wyatt"
+        },
+        "{@note Mechaniki gry zawarte w tym dodatku można wykorzystać w kampanii D&D, ale nie można ich w pełni dostosować do testów rozgrywki i iteracji projektu. Z tych powodów materiały zawarte w tym dodatku nie są legalne w wydarzeniach D&D Organised Play.}",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSA/002.webp"
+          },
+          "width": 635,
+          "height": 1653,
+          "title": "Iluminacja hieroglificzna",
+          "credit": "Raoul Vitale"
+        }
+      ],
+      "id": "000"
+    },
+    "1:001": {
+      "type": "section",
+      "name": "Świat Amoncheta",
+      "page": 5,
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSA/003.webp"
+          },
+          "width": 1276,
+          "height": 1651,
+          "title": "Wyspa",
+          "credit": "Christine Choi"
+        },
+        "Wysokie, inkrustowane złotem pomniki przełamują niekończącą się monotonię horyzontu utworzonego ze spalonego słońcem piasku. Budzący podziw bogowie o zwierzęcych głowach przechadzają się wśród ludzi, oferując im opiekę i ochronę przed okropnościami pustyni. Szeroka, życiodajna rzeka oferuje obfite bogactwa, zaspokajając każdą fizyczną potrzebę. Szczęśliwi i pełni nadziei ludzie składają ofiary w wielkich świątyniach poświęconych swoim życzliwym bogom, zaspokajając ich potrzeby duchowe. Wiedzą bowiem, że to życie, choć mogłoby być cudowne, to dopiero początek - preludium do doskonałości, która czeka ich w zaświatach, obiecanej im przez ich Boga-Faraona.",
+        "Amonkhet jest płaszczyzną dychotomii. Za bujną doliną rzeki rozciąga się nieskończona, paląca pustynia. Przeklęte, wysuszone mumie wędrują po pustyni, podczas gdy starannie zabalsamowane mumie zaspokajają potrzeby mieszkańców wspaniałego miasta-państwa. Ludzie mają wszystko, czego potrzebują. Chroni ich przed pustynnym upałem i wędrującymi mumiami magiczna bariera zwana Hekmą, a swoje życie spędzają na skupionych treningach, doskonaląc ciało i umysł do perfekcji. Jednak z niecierpliwością oczekują czasu, kiedy pozwolono im zginąć w walce i opuścić ten świat.",
+        "Na pozór Amonkhet wydaje się cudownym miejscem do życia. Jednak za wielką fasadą kryje się coś niepokojącego i nikczemnego. Mądry i życzliwy Bóg-Faraon, o którym mówi się, że jest zajęty przygotowywaniem cudownego życia pozagrobowego dla godnych siebie, to w rzeczywistości Nicol Bolas - złowrogi smok Planeswalker, którego plany sięgają daleko poza ten plan. A wszystkie przygotowania i treningi, wszystkie próby i konkursy, cały wysiłek, aby stać się godnym - wszystko to ma na celu przygotowanie ludu Amonkheta do przekształcenia się w armię nieumarłych pod dowództwem Bolasa.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSA/004.webp"
+          },
+          "width": 1280,
+          "height": 1010,
+          "title": "Palące słońca",
+          "credit": "Raymond Swanland"
+        },
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Za fasadą",
+              "page": 6,
+              "entries": [
+                "Nieznane żadnemu z mieszkańców samolotu, całe społeczeństwo Amonkhet zostało zmanipulowane przez Nicol Bolasa, który przejął kontrolę nad światem, bogami i magią samolotu. Bolas wybrał ten plan do swoich planów ze względu na obecność magicznej substancji zwanej lazotepem, która oddziałuje z magią nekromancji w dziwny i potężny sposób. Dogodnie znalazł tu także pobożną, zorganizowaną cywilizację, którą mógł łatwo obalić dla własnych celów. Stając się Bogiem-Faraonem, podporządkował sobie samych bogów i wyeliminował każdego, kto próbował mu się przeciwstawić. Następnie przekształcił świat w fabrykę zaprojektowaną do produkcji ogromnej armii doskonałych nieumarłych żołnierzy - mumii zabalsamowanych lazotepem.",
+                "Dostosowując szczególną magię samolotu, Bolas znalazł sposób na zachowanie umiejętności bojowych żywych po śmierci. Wybrał pięć aspektów charakteru, których najbardziej pragnie u swoich nieumarłych żołnierzy i zbudował społeczeństwo Amonkhet w oparciu o serię prób mających na celu doskonalenie i doskonalenie tych aspektów ciała i umysłu. Przez całe życie mieszkańcy samolotu wierzą, że zbliżają się do obiecanego życia pozagrobowego - i w końcu giną w ostatecznej próbie, masowej bitwie, w której nikt nie przeżył. Zamiast jednak zyskać miejsce w zaświatach, zamiast tego balsamuje się je w lazotepie i przechowuje w wielkiej nekropolii Bolasa, powiększając szeregi jego armii nieumarłych."
+              ],
+              "id": "003"
+            },
+            {
+              "type": "entries",
+              "name": "Klątwa wędrówki",
+              "page": 6,
+              "entries": [
+                "Częścią magii Amonkheta, którą Bolas był w stanie wykorzystać, jest nekromantyczne zjawisko zwane Klątwą Wędrówki. Ta naturalnie występująca magia powoduje, że każda istota, która umiera w samolocie, po krótkim czasie zmartwychwstaje, przeklęta nienasyconym głodem i nieodpartą chęcią ataku na żywych. Wyschnięte mumie stworzone przez Klątwę Wędrówki wypełniają pustynne pustkowia dominujące w płaszczyźnie, nieustannie zagrażając resztkom życia. Ale mieszkańcy Amonkheta nie boją się groźby ataku tak bardzo, jak świadomości, że wszyscy, którzy przeżyją, pewnego dnia umrą i spadną pod tą samą klątwą. Śmierć pod wpływem Klątwy Wędrówki to przerażające życie pozagrobowe wypełnione niekończącym się cierpieniem.",
+                "To, co Bóg-faraon Nicol Bolas oferuje mieszkańcom Amonkhet, jest alternatywą dla wiecznej wędrówki: życiem pozagrobowym pełnym wspaniałych rozkoszy. Aby osiągnąć tę wieczną błogość, muszą jedynie udowodnić, że są tego godni. W związku z tym groźba Klątwy Wędrówki stanowi dla ludzi silną motywację do poddania się próbom oddania, jakich wymaga Bóg-Faraon."
+              ],
+              "id": "004"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSA/005.webp"
+              },
+              "width": 1275,
+              "height": 793,
+              "title": "Chwytając wydmy",
+              "credit": "Daarken"
+            },
+            {
+              "type": "entries",
+              "name": "Wystawienie oddania na próbę",
+              "page": 7,
+              "entries": [
+                "Mieszkańcy Amonkhet, zarówno śmiertelnicy, jak i bogowie, wierzą, że Bóg-Faraon pozostawił pięciu bogów jako zarządców ludności, kiedy wyruszał, aby przygotować życie pozagrobowe. Podczas jego nieobecności Bóg-Faraon oczekuje, że ludzie poświęcą swoje życie, aby udowodnić, że są godni tej wielkiej nagrody. Ponieważ życie pozagrobowe będzie doskonałe, ludzie, którzy do niego wejdą, również muszą być doskonali.",
+                "Bogowie są stróżami ścieżki prowadzącej do zaświatów, ustanowionej przez Boga-Faraona, aby oczyścić i udoskonalić ludzi, którzy podążają tą ścieżką i przechodzą jej próby. Każdy bóg nadzoruje jedną z pięciu prób, instruując wtajemniczonych, którzy przygotowują się do stawienia czoła tej próbie, pomagając im kultywować jeden z pięciu aspektów śmiertelnej doskonałości.",
+                {
+                  "type": "entries",
+                  "name": "Solidarność",
+                  "page": 7,
+                  "entries": [
+                    "Oketra Prawdziwy, koci bóg solidarności, uczy, że godni powinni znać i szanować wszystkich innych, których Bóg-Faraon uzna za godnych. Bo w życiu pozagrobowym wszyscy będą razem w celu i działaniu."
+                  ],
+                  "id": "006"
+                },
+                {
+                  "type": "entries",
+                  "name": "Wiedza",
+                  "page": 7,
+                  "entries": [
+                    "Kefnet Świadomy, bóg wiedzy z głową ibisa, naucza, że ​​godni powinni rozwijać zwinny umysł - taki, który jest w stanie dostrzec niewyobrażalne cuda, które czekają w zaświatach",
+                    "Wytrzymałość. Rhonas Niezłomny, bóg siły z głową kobry, naucza, że ​​godni powinni doskonalić silne ciało, które wytrzyma przez całe życie."
+                  ],
+                  "id": "007"
+                },
+                {
+                  "type": "entries",
+                  "name": "Ambicja",
+                  "page": 7,
+                  "entries": [
+                    "Bontu Uwielbiony, bóg ambicji z głową krokodyla, uczy, że godni powinni dążyć do wielkości, ponieważ supremacja zostanie nagrodzona w zaświatach."
+                  ],
+                  "id": "008"
+                },
+                {
+                  "type": "entries",
+                  "name": "Gorliwość",
+                  "page": 7,
+                  "entries": [
+                    "Hazoret Żarliwy, bóg gorliwości z głową szakala, naucza, że ​​godni będą pędzić w stronę zaświatów z bez wahania zapałem. Bezlitośnie powstaną, aby pokonać każdą przeszkodę na drodze do zdobycia miejsca u boku Boga-Faraona."
+                  ],
+                  "id": "009"
+                },
+                "Wtajemniczeni, którzy przejdą jedną z prób, otrzymują kartusz - magiczny emblemat, który zabiorą ze sobą w zaświaty. Próby kończą się Próbą Zapału, która jest walką na śmierć i życie. Śmierć w tej ostatecznej bitwie jest dowodem na to, że jest godny, a chwalebna śmierć zapewnia wtajemniczonemu miejsce w zaświatach. Ciała poległych ładuje się na barki pogrzebowe i wysyła przez Bramę do Zaświatów. Ale to nie koniec. Oznacza raczej początek najcudowniejszej części życia wtajemniczonego. Każdy z niecierpliwością czeka na śmierć w ostatecznej próbie, mając nadzieję na chwalebny koniec z ręki bliskiego przyjaciela, aby razem mogli żyć jako Wieczni w zaświatach z Bogiem-Faraonem. Na zawsze.",
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSA/006.webp"
+                  },
+                  "width": 630,
+                  "height": 1651,
+                  "title": "Zasłużony Kapitan Crop",
+                  "credit": "Sara Winters"
+                }
+              ],
+              "id": "005"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "section",
+          "name": "Mieszkańcy Naktamuna",
+          "page": 8,
+          "entries": [
+            "Mieszkańcy Amonkhet już w bardzo młodym wieku rozpoczynają szkolenie do prób pięciu bogów. Już pięcioletnie dzieci zapraszane są do zostania akolitami - co stanowi pierwszy etap ich duchowego rozwoju. Coroczna ceremonia stanowi dla tych młodych ludzi rytuał przejścia, wyznaczający początek ich podróży w zaświaty.",
+            "Po ukończeniu szkolenia i zbudowaniu obelisku, który będzie broniony podczas Próby Solidarności, grupa akolitów jest w końcu przygotowana, aby stanąć przed pięcioma bogami podczas Ceremonii Pomiaru. Ci, którzy zostaną uznani za godnych, proszeni są o kontynuowanie podróży w zaświaty jako wtajemniczeni Boga-Faraona. Inni są wybierani przez poszczególnych bogów, aby obrali alternatywną drogę do zaświatów, stając się wezyrami w służbie bogów. Niektórzy jednak stoją w świetle dwóch słońc i są uważani za niegodnych żadnego z tych kierunków, gdyż brakuje im cnót niezbędnych do zapewnienia sobie wejścia do zaświatów. W szczególności akolici wątpiący w nauki Boga-Faraona lub sposób życia w Naktamun są wycinani z plonów i wypędzani z miasta-państwa.",
+            "Pochodzenie Twojej postaci może odzwierciedlać wyniki Ceremonii Pomiaru.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "list",
+                  "columns": 2,
+                  "items": [
+                    "{@background Initiate|PSA}",
+                    "{@background Initiate (Dissenter)|PSA}",
+                    "{@background Vizier|PSA}",
+                    "{@background Vizier (Dissenter)|PSA}"
+                  ]
+                }
+              ],
+              "id": "00b"
+            }
+          ],
+          "id": "00a"
+        }
+      ],
+      "id": "001"
+    },
+    "1:002": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Za fasadą",
+          "page": 6,
+          "entries": [
+            "Nieznane żadnemu z mieszkańców samolotu, całe społeczeństwo Amonkhet zostało zmanipulowane przez Nicol Bolasa, który przejął kontrolę nad światem, bogami i magią samolotu. Bolas wybrał ten plan do swoich planów ze względu na obecność magicznej substancji zwanej lazotepem, która oddziałuje z magią nekromancji w dziwny i potężny sposób. Dogodnie znalazł tu także pobożną, zorganizowaną cywilizację, którą mógł łatwo obalić dla własnych celów. Stając się Bogiem-Faraonem, podporządkował sobie samych bogów i wyeliminował każdego, kto próbował mu się przeciwstawić. Następnie przekształcił świat w fabrykę zaprojektowaną do produkcji ogromnej armii doskonałych nieumarłych żołnierzy - mumii zabalsamowanych lazotepem.",
+            "Dostosowując szczególną magię samolotu, Bolas znalazł sposób na zachowanie umiejętności bojowych żywych po śmierci. Wybrał pięć aspektów charakteru, których najbardziej pragnie u swoich nieumarłych żołnierzy i zbudował społeczeństwo Amonkhet w oparciu o serię prób mających na celu doskonalenie i doskonalenie tych aspektów ciała i umysłu. Przez całe życie mieszkańcy samolotu wierzą, że zbliżają się do obiecanego życia pozagrobowego - i w końcu giną w ostatecznej próbie, masowej bitwie, w której nikt nie przeżył. Zamiast jednak zyskać miejsce w zaświatach, zamiast tego balsamuje się je w lazotepie i przechowuje w wielkiej nekropolii Bolasa, powiększając szeregi jego armii nieumarłych."
+          ],
+          "id": "003"
+        },
+        {
+          "type": "entries",
+          "name": "Klątwa wędrówki",
+          "page": 6,
+          "entries": [
+            "Częścią magii Amonkheta, którą Bolas był w stanie wykorzystać, jest nekromantyczne zjawisko zwane Klątwą Wędrówki. Ta naturalnie występująca magia powoduje, że każda istota, która umiera w samolocie, po krótkim czasie zmartwychwstaje, przeklęta nienasyconym głodem i nieodpartą chęcią ataku na żywych. Wyschnięte mumie stworzone przez Klątwę Wędrówki wypełniają pustynne pustkowia dominujące w płaszczyźnie, nieustannie zagrażając resztkom życia. Ale mieszkańcy Amonkheta nie boją się groźby ataku tak bardzo, jak świadomości, że wszyscy, którzy przeżyją, pewnego dnia umrą i spadną pod tą samą klątwą. Śmierć pod wpływem Klątwy Wędrówki to przerażające życie pozagrobowe wypełnione niekończącym się cierpieniem.",
+            "To, co Bóg-faraon Nicol Bolas oferuje mieszkańcom Amonkhet, jest alternatywą dla wiecznej wędrówki: życiem pozagrobowym pełnym wspaniałych rozkoszy. Aby osiągnąć tę wieczną błogość, muszą jedynie udowodnić, że są tego godni. W związku z tym groźba Klątwy Wędrówki stanowi dla ludzi silną motywację do poddania się próbom oddania, jakich wymaga Bóg-Faraon."
+          ],
+          "id": "004"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSA/005.webp"
+          },
+          "width": 1275,
+          "height": 793,
+          "title": "Chwytając wydmy",
+          "credit": "Daarken"
+        },
+        {
+          "type": "entries",
+          "name": "Wystawienie oddania na próbę",
+          "page": 7,
+          "entries": [
+            "Mieszkańcy Amonkhet, zarówno śmiertelnicy, jak i bogowie, wierzą, że Bóg-Faraon pozostawił pięciu bogów jako zarządców ludności, kiedy wyruszał, aby przygotować życie pozagrobowe. Podczas jego nieobecności Bóg-Faraon oczekuje, że ludzie poświęcą swoje życie, aby udowodnić, że są godni tej wielkiej nagrody. Ponieważ życie pozagrobowe będzie doskonałe, ludzie, którzy do niego wejdą, również muszą być doskonali.",
+            "Bogowie są stróżami ścieżki prowadzącej do zaświatów, ustanowionej przez Boga-Faraona, aby oczyścić i udoskonalić ludzi, którzy podążają tą ścieżką i przechodzą jej próby. Każdy bóg nadzoruje jedną z pięciu prób, instruując wtajemniczonych, którzy przygotowują się do stawienia czoła tej próbie, pomagając im kultywować jeden z pięciu aspektów śmiertelnej doskonałości.",
+            {
+              "type": "entries",
+              "name": "Solidarność",
+              "page": 7,
+              "entries": [
+                "Oketra Prawdziwy, koci bóg solidarności, uczy, że godni powinni znać i szanować wszystkich innych, których Bóg-Faraon uzna za godnych. Bo w życiu pozagrobowym wszyscy będą razem w celu i działaniu."
+              ],
+              "id": "006"
+            },
+            {
+              "type": "entries",
+              "name": "Wiedza",
+              "page": 7,
+              "entries": [
+                "Kefnet Świadomy, bóg wiedzy z głową ibisa, naucza, że ​​godni powinni rozwijać zwinny umysł - taki, który jest w stanie dostrzec niewyobrażalne cuda, które czekają w zaświatach",
+                "Wytrzymałość. Rhonas Niezłomny, bóg siły z głową kobry, naucza, że ​​godni powinni doskonalić silne ciało, które wytrzyma przez całe życie."
+              ],
+              "id": "007"
+            },
+            {
+              "type": "entries",
+              "name": "Ambicja",
+              "page": 7,
+              "entries": [
+                "Bontu Uwielbiony, bóg ambicji z głową krokodyla, uczy, że godni powinni dążyć do wielkości, ponieważ supremacja zostanie nagrodzona w zaświatach."
+              ],
+              "id": "008"
+            },
+            {
+              "type": "entries",
+              "name": "Gorliwość",
+              "page": 7,
+              "entries": [
+                "Hazoret Żarliwy, bóg gorliwości z głową szakala, naucza, że ​​godni będą pędzić w stronę zaświatów z bez wahania zapałem. Bezlitośnie powstaną, aby pokonać każdą przeszkodę na drodze do zdobycia miejsca u boku Boga-Faraona."
+              ],
+              "id": "009"
+            },
+            "Wtajemniczeni, którzy przejdą jedną z prób, otrzymują kartusz - magiczny emblemat, który zabiorą ze sobą w zaświaty. Próby kończą się Próbą Zapału, która jest walką na śmierć i życie. Śmierć w tej ostatecznej bitwie jest dowodem na to, że jest godny, a chwalebna śmierć zapewnia wtajemniczonemu miejsce w zaświatach. Ciała poległych ładuje się na barki pogrzebowe i wysyła przez Bramę do Zaświatów. Ale to nie koniec. Oznacza raczej początek najcudowniejszej części życia wtajemniczonego. Każdy z niecierpliwością czeka na śmierć w ostatecznej próbie, mając nadzieję na chwalebny koniec z ręki bliskiego przyjaciela, aby razem mogli żyć jako Wieczni w zaświatach z Bogiem-Faraonem. Na zawsze.",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSA/006.webp"
+              },
+              "width": 630,
+              "height": 1651,
+              "title": "Zasłużony Kapitan Crop",
+              "credit": "Sara Winters"
+            }
+          ],
+          "id": "005"
+        }
+      ],
+      "id": "002"
+    },
+    "1:003": {
+      "type": "entries",
+      "name": "Za fasadą",
+      "page": 6,
+      "entries": [
+        "Nieznane żadnemu z mieszkańców samolotu, całe społeczeństwo Amonkhet zostało zmanipulowane przez Nicol Bolasa, który przejął kontrolę nad światem, bogami i magią samolotu. Bolas wybrał ten plan do swoich planów ze względu na obecność magicznej substancji zwanej lazotepem, która oddziałuje z magią nekromancji w dziwny i potężny sposób. Dogodnie znalazł tu także pobożną, zorganizowaną cywilizację, którą mógł łatwo obalić dla własnych celów. Stając się Bogiem-Faraonem, podporządkował sobie samych bogów i wyeliminował każdego, kto próbował mu się przeciwstawić. Następnie przekształcił świat w fabrykę zaprojektowaną do produkcji ogromnej armii doskonałych nieumarłych żołnierzy - mumii zabalsamowanych lazotepem.",
+        "Dostosowując szczególną magię samolotu, Bolas znalazł sposób na zachowanie umiejętności bojowych żywych po śmierci. Wybrał pięć aspektów charakteru, których najbardziej pragnie u swoich nieumarłych żołnierzy i zbudował społeczeństwo Amonkhet w oparciu o serię prób mających na celu doskonalenie i doskonalenie tych aspektów ciała i umysłu. Przez całe życie mieszkańcy samolotu wierzą, że zbliżają się do obiecanego życia pozagrobowego - i w końcu giną w ostatecznej próbie, masowej bitwie, w której nikt nie przeżył. Zamiast jednak zyskać miejsce w zaświatach, zamiast tego balsamuje się je w lazotepie i przechowuje w wielkiej nekropolii Bolasa, powiększając szeregi jego armii nieumarłych."
+      ],
+      "id": "003"
+    },
+    "1:004": {
+      "type": "entries",
+      "name": "Klątwa wędrówki",
+      "page": 6,
+      "entries": [
+        "Częścią magii Amonkheta, którą Bolas był w stanie wykorzystać, jest nekromantyczne zjawisko zwane Klątwą Wędrówki. Ta naturalnie występująca magia powoduje, że każda istota, która umiera w samolocie, po krótkim czasie zmartwychwstaje, przeklęta nienasyconym głodem i nieodpartą chęcią ataku na żywych. Wyschnięte mumie stworzone przez Klątwę Wędrówki wypełniają pustynne pustkowia dominujące w płaszczyźnie, nieustannie zagrażając resztkom życia. Ale mieszkańcy Amonkheta nie boją się groźby ataku tak bardzo, jak świadomości, że wszyscy, którzy przeżyją, pewnego dnia umrą i spadną pod tą samą klątwą. Śmierć pod wpływem Klątwy Wędrówki to przerażające życie pozagrobowe wypełnione niekończącym się cierpieniem.",
+        "To, co Bóg-faraon Nicol Bolas oferuje mieszkańcom Amonkhet, jest alternatywą dla wiecznej wędrówki: życiem pozagrobowym pełnym wspaniałych rozkoszy. Aby osiągnąć tę wieczną błogość, muszą jedynie udowodnić, że są tego godni. W związku z tym groźba Klątwy Wędrówki stanowi dla ludzi silną motywację do poddania się próbom oddania, jakich wymaga Bóg-Faraon."
+      ],
+      "id": "004"
+    },
+    "1:005": {
+      "type": "entries",
+      "name": "Wystawienie oddania na próbę",
+      "page": 7,
+      "entries": [
+        "Mieszkańcy Amonkhet, zarówno śmiertelnicy, jak i bogowie, wierzą, że Bóg-Faraon pozostawił pięciu bogów jako zarządców ludności, kiedy wyruszał, aby przygotować życie pozagrobowe. Podczas jego nieobecności Bóg-Faraon oczekuje, że ludzie poświęcą swoje życie, aby udowodnić, że są godni tej wielkiej nagrody. Ponieważ życie pozagrobowe będzie doskonałe, ludzie, którzy do niego wejdą, również muszą być doskonali.",
+        "Bogowie są stróżami ścieżki prowadzącej do zaświatów, ustanowionej przez Boga-Faraona, aby oczyścić i udoskonalić ludzi, którzy podążają tą ścieżką i przechodzą jej próby. Każdy bóg nadzoruje jedną z pięciu prób, instruując wtajemniczonych, którzy przygotowują się do stawienia czoła tej próbie, pomagając im kultywować jeden z pięciu aspektów śmiertelnej doskonałości.",
+        {
+          "type": "entries",
+          "name": "Solidarność",
+          "page": 7,
+          "entries": [
+            "Oketra Prawdziwy, koci bóg solidarności, uczy, że godni powinni znać i szanować wszystkich innych, których Bóg-Faraon uzna za godnych. Bo w życiu pozagrobowym wszyscy będą razem w celu i działaniu."
+          ],
+          "id": "006"
+        },
+        {
+          "type": "entries",
+          "name": "Wiedza",
+          "page": 7,
+          "entries": [
+            "Kefnet Świadomy, bóg wiedzy z głową ibisa, naucza, że ​​godni powinni rozwijać zwinny umysł - taki, który jest w stanie dostrzec niewyobrażalne cuda, które czekają w zaświatach",
+            "Wytrzymałość. Rhonas Niezłomny, bóg siły z głową kobry, naucza, że ​​godni powinni doskonalić silne ciało, które wytrzyma przez całe życie."
+          ],
+          "id": "007"
+        },
+        {
+          "type": "entries",
+          "name": "Ambicja",
+          "page": 7,
+          "entries": [
+            "Bontu Uwielbiony, bóg ambicji z głową krokodyla, uczy, że godni powinni dążyć do wielkości, ponieważ supremacja zostanie nagrodzona w zaświatach."
+          ],
+          "id": "008"
+        },
+        {
+          "type": "entries",
+          "name": "Gorliwość",
+          "page": 7,
+          "entries": [
+            "Hazoret Żarliwy, bóg gorliwości z głową szakala, naucza, że ​​godni będą pędzić w stronę zaświatów z bez wahania zapałem. Bezlitośnie powstaną, aby pokonać każdą przeszkodę na drodze do zdobycia miejsca u boku Boga-Faraona."
+          ],
+          "id": "009"
+        },
+        "Wtajemniczeni, którzy przejdą jedną z prób, otrzymują kartusz - magiczny emblemat, który zabiorą ze sobą w zaświaty. Próby kończą się Próbą Zapału, która jest walką na śmierć i życie. Śmierć w tej ostatecznej bitwie jest dowodem na to, że jest godny, a chwalebna śmierć zapewnia wtajemniczonemu miejsce w zaświatach. Ciała poległych ładuje się na barki pogrzebowe i wysyła przez Bramę do Zaświatów. Ale to nie koniec. Oznacza raczej początek najcudowniejszej części życia wtajemniczonego. Każdy z niecierpliwością czeka na śmierć w ostatecznej próbie, mając nadzieję na chwalebny koniec z ręki bliskiego przyjaciela, aby razem mogli żyć jako Wieczni w zaświatach z Bogiem-Faraonem. Na zawsze.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSA/006.webp"
+          },
+          "width": 630,
+          "height": 1651,
+          "title": "Zasłużony Kapitan Crop",
+          "credit": "Sara Winters"
+        }
+      ],
+      "id": "005"
+    },
+    "1:006": {
+      "type": "entries",
+      "name": "Solidarność",
+      "page": 7,
+      "entries": [
+        "Oketra Prawdziwy, koci bóg solidarności, uczy, że godni powinni znać i szanować wszystkich innych, których Bóg-Faraon uzna za godnych. Bo w życiu pozagrobowym wszyscy będą razem w celu i działaniu."
+      ],
+      "id": "006"
+    },
+    "1:007": {
+      "type": "entries",
+      "name": "Wiedza",
+      "page": 7,
+      "entries": [
+        "Kefnet Świadomy, bóg wiedzy z głową ibisa, naucza, że ​​godni powinni rozwijać zwinny umysł - taki, który jest w stanie dostrzec niewyobrażalne cuda, które czekają w zaświatach",
+        "Wytrzymałość. Rhonas Niezłomny, bóg siły z głową kobry, naucza, że ​​godni powinni doskonalić silne ciało, które wytrzyma przez całe życie."
+      ],
+      "id": "007"
+    },
+    "1:008": {
+      "type": "entries",
+      "name": "Ambicja",
+      "page": 7,
+      "entries": [
+        "Bontu Uwielbiony, bóg ambicji z głową krokodyla, uczy, że godni powinni dążyć do wielkości, ponieważ supremacja zostanie nagrodzona w zaświatach."
+      ],
+      "id": "008"
+    },
+    "1:009": {
+      "type": "entries",
+      "name": "Gorliwość",
+      "page": 7,
+      "entries": [
+        "Hazoret Żarliwy, bóg gorliwości z głową szakala, naucza, że ​​godni będą pędzić w stronę zaświatów z bez wahania zapałem. Bezlitośnie powstaną, aby pokonać każdą przeszkodę na drodze do zdobycia miejsca u boku Boga-Faraona."
+      ],
+      "id": "009"
+    },
+    "1:00a": {
+      "type": "section",
+      "name": "Mieszkańcy Naktamuna",
+      "page": 8,
+      "entries": [
+        "Mieszkańcy Amonkhet już w bardzo młodym wieku rozpoczynają szkolenie do prób pięciu bogów. Już pięcioletnie dzieci zapraszane są do zostania akolitami - co stanowi pierwszy etap ich duchowego rozwoju. Coroczna ceremonia stanowi dla tych młodych ludzi rytuał przejścia, wyznaczający początek ich podróży w zaświaty.",
+        "Po ukończeniu szkolenia i zbudowaniu obelisku, który będzie broniony podczas Próby Solidarności, grupa akolitów jest w końcu przygotowana, aby stanąć przed pięcioma bogami podczas Ceremonii Pomiaru. Ci, którzy zostaną uznani za godnych, proszeni są o kontynuowanie podróży w zaświaty jako wtajemniczeni Boga-Faraona. Inni są wybierani przez poszczególnych bogów, aby obrali alternatywną drogę do zaświatów, stając się wezyrami w służbie bogów. Niektórzy jednak stoją w świetle dwóch słońc i są uważani za niegodnych żadnego z tych kierunków, gdyż brakuje im cnót niezbędnych do zapewnienia sobie wejścia do zaświatów. W szczególności akolici wątpiący w nauki Boga-Faraona lub sposób życia w Naktamun są wycinani z plonów i wypędzani z miasta-państwa.",
+        "Pochodzenie Twojej postaci może odzwierciedlać wyniki Ceremonii Pomiaru.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "list",
+              "columns": 2,
+              "items": [
+                "{@background Initiate|PSA}",
+                "{@background Initiate (Dissenter)|PSA}",
+                "{@background Vizier|PSA}",
+                "{@background Vizier (Dissenter)|PSA}"
+              ]
+            }
+          ],
+          "id": "00b"
+        }
+      ],
+      "id": "00a"
+    },
+    "2:00c": {
+      "type": "section",
+      "name": "Rasy Amonkheta",
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSA/007.webp"
+          },
+          "title": "Aven Mindcenzor",
+          "credit": "Jose Cabrera",
+          "width": 1277,
+          "height": 1652
+        },
+        {
+          "type": "list",
+          "columns": 3,
+          "items": [
+            "{@race Human (Amonkhet)|PSA}",
+            "{@race Aven|PSA}",
+            "{@race Aven (Hawk-Headed)|PSA}",
+            "{@race Aven (Ibis-Headed)|PSA}",
+            "{@race Khenra|PSA}",
+            "{@race Minotaur (Amonkhet)|PSA}",
+            "{@race Naga|PSA}"
+          ]
+        }
+      ],
+      "id": "00c"
+    },
+    "3:00d": {
+      "type": "section",
+      "name": "Próby Pięciu Bogów",
+      "page": 24,
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSA/008.webp"
+          },
+          "title": "Naktamun",
+          "credit": "Titus Lunter",
+          "width": 1278,
+          "height": 1655
+        },
+        "Pięciu bogów jest skutecznymi władcami Amoncheta. Nie są twórcami samolotu, ale jego zarządcami, podczas gdy lud Naktamun oczekuje powrotu Boga-Faraona. Pięciu bogów wierzy, że zostali stworzeni przez Boga-Faraona, który zlecił im nauczanie ludzi dróg Boga-Faraona i ochronę ich aż do jego przyjścia.",
+        "Pięciu bogów ucieleśnia pięć cnót, które Bóg-Faraon pragnie kultywować w tych, którzy staną się jego Wiecznymi w zaświatach. Każdy bóg jest odpowiedzialny za modelowanie i nauczanie jednej z tych cnót akolitów i wtajemniczonych Naktamuna, a następnie testowanie tych wtajemniczonych, aby upewnić się, że opanowali swoje nauki. Są zatem obecni podczas pierwszych lekcji akolitów, podczas Ceremonii Pomiaru, podczas intensywnego treningu wtajemniczonych i podczas każdej próby będącej częścią podróży wtajemniczonego.",
+        "Pod nieobecność Boga-Faraona tylko bogowie mogą określić, czy wtajemniczeni okazali się godni chwały zaświatów. Bogowie z kolei udowadniają swoją godność, nieomylnie wykonując swoje obowiązki. Sprawiają, że próby są tak trudne, jak to możliwe, aby mieć pewność, że wybiorą tylko najbardziej wartościowi.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Domeny duchowne",
+                  "page": 24,
+                  "entries": [
+                    "Kapłani pięciu bogów, którzy zazwyczaj są wezyrami bogów, mogą wybrać domeny powiązane z ich bogami: Solidarność, Wiedza, Siła, Ambicja lub Zapał."
+                  ],
+                  "id": "010"
+                },
+                {
+                  "type": "list",
+                  "columns": 3,
+                  "items": [
+                    "{@class cleric||Oketra: Domena Solidarności|solidarity (PSA)|PSA}",
+                    "{@class cleric||Kefnet: domena wiedzy|knowledge (PSA)|PSA}",
+                    "{@class cleric||Rhonas: domena siły|strength (PSA)|PSA}",
+                    "{@class cleric||Bontu: domena ambicji|ambition (PSA)|PSA}",
+                    "{@class cleric||Hazoret: domena gorliwości|zeal (PSA)|PSA}"
+                  ]
+                },
+                {
+                  "type": "gallery",
+                  "images": [
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "book/PSA/009.webp"
+                      },
+                      "title": "Oketra Prawda",
+                      "credit": "Chase Stone",
+                      "width": 630,
+                      "height": 863
+                    },
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "book/PSA/010.webp"
+                      },
+                      "title": "Kefnet Uważny",
+                      "credit": "Chase Stone",
+                      "width": 1276,
+                      "height": 845
+                    },
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "book/PSA/011.webp"
+                      },
+                      "title": "Rhonas Niezłomny",
+                      "credit": "Chase Stone",
+                      "width": 1276,
+                      "height": 903
+                    },
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "book/PSA/012.webp"
+                      },
+                      "title": "Bontu Uwielbiony",
+                      "credit": "Chase Stone",
+                      "width": 741,
+                      "height": 904
+                    },
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "book/PSA/013.webp"
+                      },
+                      "title": "Hazoret Żarliwy",
+                      "credit": "Chase Stone",
+                      "width": 947,
+                      "height": 818
+                    }
+                  ]
+                }
+              ],
+              "id": "00f"
+            }
+          ],
+          "id": "00e"
+        }
+      ],
+      "id": "00d"
+    },
+    "3:00e": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Domeny duchowne",
+              "page": 24,
+              "entries": [
+                "Kapłani pięciu bogów, którzy zazwyczaj są wezyrami bogów, mogą wybrać domeny powiązane z ich bogami: Solidarność, Wiedza, Siła, Ambicja lub Zapał."
+              ],
+              "id": "010"
+            },
+            {
+              "type": "list",
+              "columns": 3,
+              "items": [
+                "{@class cleric||Oketra: Domena Solidarności|solidarity (PSA)|PSA}",
+                "{@class cleric||Kefnet: domena wiedzy|knowledge (PSA)|PSA}",
+                "{@class cleric||Rhonas: domena siły|strength (PSA)|PSA}",
+                "{@class cleric||Bontu: domena ambicji|ambition (PSA)|PSA}",
+                "{@class cleric||Hazoret: domena gorliwości|zeal (PSA)|PSA}"
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSA/009.webp"
+                  },
+                  "title": "Oketra Prawda",
+                  "credit": "Chase Stone",
+                  "width": 630,
+                  "height": 863
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSA/010.webp"
+                  },
+                  "title": "Kefnet Uważny",
+                  "credit": "Chase Stone",
+                  "width": 1276,
+                  "height": 845
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSA/011.webp"
+                  },
+                  "title": "Rhonas Niezłomny",
+                  "credit": "Chase Stone",
+                  "width": 1276,
+                  "height": 903
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSA/012.webp"
+                  },
+                  "title": "Bontu Uwielbiony",
+                  "credit": "Chase Stone",
+                  "width": 741,
+                  "height": 904
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSA/013.webp"
+                  },
+                  "title": "Hazoret Żarliwy",
+                  "credit": "Chase Stone",
+                  "width": 947,
+                  "height": 818
+                }
+              ]
+            }
+          ],
+          "id": "00f"
+        }
+      ],
+      "id": "00e"
+    },
+    "3:00f": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Domeny duchowne",
+          "page": 24,
+          "entries": [
+            "Kapłani pięciu bogów, którzy zazwyczaj są wezyrami bogów, mogą wybrać domeny powiązane z ich bogami: Solidarność, Wiedza, Siła, Ambicja lub Zapał."
+          ],
+          "id": "010"
+        },
+        {
+          "type": "list",
+          "columns": 3,
+          "items": [
+            "{@class cleric||Oketra: Domena Solidarności|solidarity (PSA)|PSA}",
+            "{@class cleric||Kefnet: domena wiedzy|knowledge (PSA)|PSA}",
+            "{@class cleric||Rhonas: domena siły|strength (PSA)|PSA}",
+            "{@class cleric||Bontu: domena ambicji|ambition (PSA)|PSA}",
+            "{@class cleric||Hazoret: domena gorliwości|zeal (PSA)|PSA}"
+          ]
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSA/009.webp"
+              },
+              "title": "Oketra Prawda",
+              "credit": "Chase Stone",
+              "width": 630,
+              "height": 863
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSA/010.webp"
+              },
+              "title": "Kefnet Uważny",
+              "credit": "Chase Stone",
+              "width": 1276,
+              "height": 845
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSA/011.webp"
+              },
+              "title": "Rhonas Niezłomny",
+              "credit": "Chase Stone",
+              "width": 1276,
+              "height": 903
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSA/012.webp"
+              },
+              "title": "Bontu Uwielbiony",
+              "credit": "Chase Stone",
+              "width": 741,
+              "height": 904
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSA/013.webp"
+              },
+              "title": "Hazoret Żarliwy",
+              "credit": "Chase Stone",
+              "width": 947,
+              "height": 818
+            }
+          ]
+        }
+      ],
+      "id": "00f"
+    },
+    "3:010": {
+      "type": "entries",
+      "name": "Domeny duchowne",
+      "page": 24,
+      "entries": [
+        "Kapłani pięciu bogów, którzy zazwyczaj są wezyrami bogów, mogą wybrać domeny powiązane z ich bogami: Solidarność, Wiedza, Siła, Ambicja lub Zapał."
+      ],
+      "id": "010"
+    },
+    "4:011": {
+      "type": "section",
+      "name": "Bestiariusz Amonkheta",
+      "page": 35,
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSA/014.webp"
+          },
+          "title": "Anioł Potępienia",
+          "credit": "Slawomir Maniak",
+          "width": 1275,
+          "height": 1651
+        },
+        {
+          "type": "list",
+          "columns": 3,
+          "items": [
+            "{@creature Adult Amonkhet Dragon|PSA}",
+            "{@creature Ammit|PSA}",
+            "{@creature Amonkhet Dragon Wyrmling|PSA}",
+            "{@creature Amonkhet Hydra|PSA}",
+            "{@creature Amonkhet Mummy|PSA}",
+            "{@creature Amonkhet Mummy Lord|PSA}",
+            "{@creature Amonkhet Sphinx|PSA}",
+            "{@creature Ancient Amonkhet Dragon|PSA}",
+            "{@creature Angel of Amonkhet|PSA}",
+            "{@creature Anointed|PSA}",
+            "{@creature Archfiend of Ifnir|PSA}",
+            "{@creature Cerodon|PSA}",
+            "{@creature Criosphinx|PSA}",
+            "{@creature Eternal|PSA}",
+            "{@creature Giant River Serpent|PSA}",
+            "{@creature Hippopotamus|PSA}",
+            "{@creature Large Drake|PSA}",
+            "{@creature Manticore, Heart-Piercer|PSA}",
+            "{@creature River Serpent|PSA}",
+            "{@creature Sandwurm|PSA}",
+            "{@creature Serpopard|PSA}",
+            "{@creature Small Drake|PSA}",
+            "{@creature Soulstinger Demon|PSA}",
+            "{@creature Young Amonkhet Dragon|PSA}"
+          ]
+        },
+        "Nawet stosunkowo zwyczajne zwierzęta mogą stanowić zagrożenie na pustyni. {@creature Giant scorpion|MM|Gigantyczne skorpiony}, {@creature giant centipede|MM|gigantyczne stonogi}, {@creature giant lizard|MM|gigantyczne jaszczurki}, {@creature giant wasp|MM|gigantyczne osy}, I {@creature swarm of insects|MM|roje owadów} może stanowić poważne zagrożenie zarówno dla żywych stworzeń, jak i zombie.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSA/015.webp"
+          },
+          "title": "Skorpion Pustkowi",
+          "credit": "Yeong-Hao Han",
+          "width": 625,
+          "height": 440
+        }
+      ],
+      "id": "011"
+    },
+    "5:012": {
+      "type": "section",
+      "name": "Dodatek: Planeswalkerzy i Multiwersum",
+      "page": 39,
+      "entries": [
+        "Multiwersum to nieograniczona przestrzeń światów. Światy te, zwane płaszczyznami, różnią się od siebie tak, jak jedna żywa istota różni się od drugiej, różniąc się rozmiarem i kształtem, mieszkańcami i środowiskiem, a nawet prawami fizyki i magii. Jednakże istnienie magii jest wspólnym czynnikiem jednoczącym wszystkie znane płaszczyzny.",
+        "Dla większości mieszkańców danej płaszczyzny jest ona pełnym zakresem istnienia. Ezoteryczne spekulacje mogą zakładać istnienie innych światów, ale takie koncepcje są jedynie teoretyczne. Tylko garstka ludzi na danym świecie zna rzeczywistość: wszystkie plany są zawieszone razem w pustce zwanej Eterem - lub, bardziej poetycko, Ślepą Wiecznością. Tylko jedna osoba na milion rodzi się z potencjałem do podróżowania z jednego planu do drugiego i tylko ułamkowi osób z takim potencjałem udaje się rozpalić iskry i zostać Planeswalkerami.",
+        "Często dzieje się tak w wyniku wielkiego kryzysu lub traumy. Doświadczenie bliskie śmierci może rozpalić iskrę, podobnie jak objawienie zmieniające życie, a nawet objawiający trans. Ale kiedy ich iskry zapłoną, wszyscy Planeswalkerzy zyskują rzadką zdolność otwierania ścieżki przez Ślepe Wieczności i przechodzenia z jednego planu do drugiego.",
+        "Życie Planeswalkera jest życiem opartym na wyborze i samostanowieniu, nieograniczonym granicami świata i przeznaczenia. Większość Planeswalkerów poświęca się jakiejś osobistej misji, odkrywając sekrety Multiwersum. Często odkrywają przy tym głębię własnej duszy.",
+        {
+          "type": "hr"
+        },
+        {
+          "type": "inset",
+          "entries": [
+            {
+              "type": "table",
+              "page": 39,
+              "isStriped": false,
+              "colStyles": [
+                "col-4 text-enter",
+                "col-8"
+              ],
+              "rows": [
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "book/PSA/017.webp"
+                    },
+                    "credit": "Jonas De Ro",
+                    "width": 155,
+                    "height": 153
+                  },
+                  {
+                    "type": "entries",
+                    "name": "Amonchet",
+                    "entries": [
+                      "Pięć śmiertelnych prób czeka mieszkańców tego planu, którzy mają nadzieję na chwalebną śmierć i wieczną chwałę w zaświatach. Ale ich prawdziwy los leży w rękach złowrogiego Nicola Bolasa."
+                    ],
+                    "id": "014"
+                  }
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "book/PSA/018.webp"
+                    },
+                    "credit": "James Paick",
+                    "width": 137,
+                    "height": 137
+                  },
+                  {
+                    "type": "entries",
+                    "name": "Dominaria",
+                    "entries": [
+                      "Dominaria, będąca domem dla wulkanicznego kontynentu Shiv, zniszczonej w czasie wyspy Tolaria i zimnych gór Keld, jest miejscem brutalnych konfliktów i domem potężnych magów."
+                    ],
+                    "id": "015"
+                  }
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "book/PSA/019.webp"
+                    },
+                    "credit": "Jung Park",
+                    "width": 151,
+                    "height": 151
+                  },
+                  {
+                    "type": "entries",
+                    "name": "Innistrad",
+                    "entries": [
+                      "Przez wieki archanioł Avacyn i jej zastępy chronili ludzi w Innistradzie przed koszmarami nocy. Ale potem zwróciła się przeciwko ludziom, których miała chronić, gdy obce szaleństwo opanowało samolot."
+                    ],
+                    "id": "016"
+                  }
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "book/PSA/020.webp"
+                    },
+                    "credit": "Daniel Ljunggren",
+                    "width": 150,
+                    "height": 150
+                  },
+                  {
+                    "type": "entries",
+                    "name": "Kaladesz",
+                    "entries": [
+                      "Kaladesh to tętniąca życiem, piękna kraina przeżywająca renesans wynalazców, pełna kreatywności i optymizmu."
+                    ],
+                    "id": "017"
+                  }
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "book/PSA/021.webp"
+                    },
+                    "credit": "Tomasz Jedruszek",
+                    "width": 151,
+                    "height": 151
+                  },
+                  {
+                    "type": "entries",
+                    "name": "Nowa gorączka",
+                    "entries": [
+                      "Ta metaliczna płaszczyzna, niegdyś znana jako Mirrodin, została przekształcona przez nikczemne zepsucie Phyrexian. Jego tubylcy walczyli i przegrali wojnę o swój świat, a teraz każdego dnia walczą o przetrwanie."
+                    ],
+                    "id": "018"
+                  }
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "book/PSA/022.webp"
+                    },
+                    "credit": "Richard Wright",
+                    "width": 152,
+                    "height": 150
+                  },
+                  {
+                    "type": "entries",
+                    "name": "Ravnica",
+                    "entries": [
+                      "W tym ogólnoświatowym pejzażu miejskim znajdują się niezliczone wielkie sale, zniszczone slumsy i starożytne ruiny. Dziesięć gildii utrzymuje niepewny spokój w zarządzaniu różnymi aspektami życia w majestatycznym mieście."
+                    ],
+                    "id": "019"
+                  }
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "book/PSA/023.webp"
+                    },
+                    "credit": "John Severin Brassell",
+                    "width": 150,
+                    "height": 151
+                  },
+                  {
+                    "type": "entries",
+                    "name": "Shandalar",
+                    "entries": [
+                      "Bogate w manę Shandalar to miejsce, w którym magia przepływa swobodnie. Planeswalkerzy poszukują tego planu ze względu na jego obfitą, potężną magię."
+                    ],
+                    "id": "01a"
+                  }
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "book/PSA/024.webp"
+                    },
+                    "credit": "Jung Park",
+                    "width": 151,
+                    "height": 150
+                  },
+                  {
+                    "type": "entries",
+                    "name": "Theros",
+                    "entries": [
+                      "Theros jest rządzony przez budzący podziw panteon bogów. Śmiertelnicy drżą przed nimi, odczuwają ukłucie swoich drobnych kaprysów i żyją w strachu przed ich gniewem."
+                    ],
+                    "id": "01b"
+                  }
+                ],
+                [
+                  {
+                    "type": "image",
+                    "href": {
+                      "type": "internal",
+                      "path": "book/PSA/025.webp"
+                    },
+                    "credit": "Sam Burley",
+                    "width": 151,
+                    "height": 151
+                  },
+                  {
+                    "type": "entries",
+                    "name": "Zendikar",
+                    "entries": [
+                      "Ta kraina pierwotnej many powoli odzyskuje siły po nienaturalnej katastrofie kolosalnych drapieżników z Eteru szalejących po całym planie."
+                    ],
+                    "id": "01c"
+                  }
+                ]
+              ]
+            }
+          ],
+          "id": "013"
+        },
+        "To jest czwarty {@i Przesunięcie samolotu} artykuł (odpowiadający wydaniu czwartego tomu {@i Sztuka magii: zgromadzenie}), co oznacza, że ​​w tym momencie możesz stworzyć czteroosobową grupę Planeswalkerów i każdy z nich będzie pochodził z innego planu.",
+        "Zasadniczo z byciem Planeswalkerem nie wiążą się żadne zasady gry. Podróżowanie z samolotu na samolot w tego rodzaju kampanii przypomina podróż lądową w zwykłej kampanii: chodzi o dotarcie tam, gdzie czeka Cię przygoda. To funkcja związana z historią, a nie z zasadami. Jeśli podróż samolotem jest częścią kampanii, wszyscy w drużynie muszą to umieć, aby mogli podróżować razem. (We współczesnej magii nie ma możliwości zabrania ze sobą innej żywej osoby podczas spaceru po planecie.) Oznacza to, że tak naprawdę nie ma mowy o równowadze gry, jeśli chodzi o podróż po planecie - nie czyni to jednej postaci potężniejszą od drugiej ani nie czyni postaci silniejszymi w walce z wrogami, z którymi walczą. Jest to więc coś, co można dodać do dowolnej innej postaci, bez zmiany jej klasy, rasy czy pochodzenia.",
+        "Jak działa planeswalking? Cóż, pomimo nazwy tej serii artykułów, w rzeczywistości nie jest ona zbytnio podobna do {@spell plane shift}zaklęcie. Kiedy postać porusza się po planecie, zwykle jest to konieczne, aby połączyć dwa światy i zapewnić ich przejście. Proces ten dziesięć odległości około minut i jest przestrzegany do rzucania rytuału, więc na ogół Planeswalkerzy nie są w stanie ucieczki przed walką. Nie pozwala też na dużą precyzję. Zlokalizowane miejsce w samolocie, do którego przybywa Planeswalker, zależne od DM i zwykle jest to samo miejsce podczas każdej osoby przebywającej w samolocie.",
+        "Czasami w powieściach magicznych postacie przechadzają się samolotami w środku walki, zwykle wtedy, gdy ma się wydarzyć coś strasznego. (Dotyczy to również sytuacji, gdy iskra Planeswalkera zapala się po raz pierwszy.) Aby to modelować, według uznania DM, Planeswalker, który ma wkrótce spaść do 0 punktów wytrzymałości, może wykonać rzut obronny na Charyzmę ze ST równym otrzymanym obrażeniom. Po udanym rzucie obronnym postać nie otrzymuje żadnych obrażeń i odlatuje. To od DM zależy, na jakim poziomie postać trafi, ponieważ zwykle nie jest to proces zamierzony.",
+        "Można było przeżyć mnóstwo przygód na czterech płaszczyznach opisanych dotychczas w książkach o grafikach i artykułach {@i Przesunięcie samolotu}. Ale jeśli chcesz zabrać swoje postacie Planeswalkerów do Therosa, Tarkira, Ravnicy, Dominarii, Mirrodina, Alary, Fiory, Lorwyna, Kamigawy lub dowolnego innego samolotu w Magic Multiverse, możesz pójść za przykładem tego, co robiłem w tych artykułach. Zmień skórkę i ulepsz istniejące potwory, a także wstrzyknij zdrową dawkę kreatywności i improwizacji w miarę upływu czasu. Niektóre z tych światów są pełne stworzeń, które mogłyby wyjść prosto z {@book Monster Manual|MM}, podczas gdy inne będą stanowić większe wyzwanie.",
+        "Najważniejsze jest to, że kampania z udziałem Planeswalkerów wymaga porozumienia pomiędzy graczami a DM. Jeszcze bardziej niż zwykle, jeśli gracze zdecydują się zignorować ustawione przed nimi wątki fabularne i wyruszyć w dowolne miejsce w Multiwersum tylko dlatego, że mogą, mogą sprawić, że praca DM będzie bardziej męcząca niż przyjemna. Co innego, gdy Planeswalker wyskoczy na godzinę do Ravnicy, żeby kupić filiżankę kawy, ale zupełnie inną rzeczą jest podjęcie przez graczy decyzji, że chcą dzisiaj zmierzyć się ze zepsuciem Nowej Phyrexii, zamiast podążać za wskazówkami, które wyraźnie prowadzą do kampanii w Innistradzie.",
+        "A skoro mowa o Nowej Phyrexii, kampania z Planeswalkerami jest generalnie przyjemniejsza z postaciami na wyższym poziomie. Planeswalkerzy występujący w opowieściach Magic to potężni magowie różnego rodzaju, a ich działania mogą czasami zadecydować o losie całych planów. Oczywiście nie zawsze musi tak być, ale motywowanie postaci, które potrafią podróżować dosłownie wszędzie, aby pozostać w pobliżu i wykorzenić gniazdo {@creature giant rat|MM|gigantyczne szczury}, może być trudne.",
+        "Czy zatem postacie Planeswalkerów mogą podróżować z Amonkhet do dowolnej płaszczyzny, na której leżą Zapomniane Krainy? To zależy od ciebie. Seria {@i Przesunięcie samolotu} zakłada mniej więcej pewną ciągłość z jednego Multiwersu do drugiego, nawet jeśli (na przykład) nie próbuje modelować pięciu kolorów many Magic w systemie magii D&D. Nie ma więc prawdziwego powodu, dla którego elf z Evereski nie miałby „wyskoczyć” i znaleźć się na Kaladesh, o ile działa to na korzyść twoich graczy i twojej kampanii.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSA/016.webp"
+          },
+          "title": "Ostatnia godzina",
+          "credit": "Raymond Swanland",
+          "width": 1275,
+          "height": 543
+        }
+      ],
+      "id": "012"
+    },
+    "6:01d": {
+      "type": "entries",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            "Napisane przez Jamesa Wyatta i Ashlie Hope",
+            "Okładkę wykonał Titus Lunter",
+            "Montaż: Scott Fitzgerald Gray"
+          ]
+        }
+      ],
+      "id": "01d"
+    }
+  }
+}

@@ -1,0 +1,2078 @@
+{
+  "data": {
+    "0:000": {
+      "type": "entries",
+      "name": "Wprowadzenie",
+      "page": 2,
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/001.webp"
+          },
+          "width": 1280,
+          "height": 1654,
+          "title": "Kaladesz",
+          "credit": "Chase Stone"
+        },
+        {
+          "type": "quote",
+          "skipItalics": true,
+          "skipMarks": true,
+          "entries": [
+            "Od początku do wszystkich projektów Plane Shift podchodziłem tak, jakbym majsterkował w warsztacie niczym wynalazcy Kaladesha. Wierzę, że część wspaniałego piękna Dungeons & Dragons wynika z jej ogromnej elastyczności, która obejmuje nie tylko możliwość tworzenia rzeczy z całego materiału, ale także łatwość, z jaką można rozebrać istniejące elementy gry na części i złożyć je w coś nowego.",
+            "To podejście polegające na łączeniu fragmentów różnych zasad w celu utworzenia nowych zasad jest kontynuowane w Kaladesh. Jako jeden z projektantów klasy artificer dla Eberrona w 2003 roku, przez długi czas majstrowałem nad możliwymi projektami takiej klasy w Kaladesh, ale ostatecznie doszedłem do kilku ważnych wniosków. Po pierwsze, inwencja na Kaladesh jest zasadniczo demokratyczna - jest to umiejętność, której każdy może się nauczyć i nie powinna ograniczać się do jednej klasy postaci. A co ważniejsze, zaprojektowanie zupełnie nowej klasy znacznie wykracza poza zakres tego, co postanowiłem zrobić w tych artykułach.",
+            "Zespół D&D działa jak Konsulat: poważnie podchodzi do pracy polegającej na tworzeniu klasy, testowaniu jej pod kątem równowagi, udostępnianiu jej do publicznych testów i dopracowywaniu jej przed ostateczną publikacją. Jestem raczej wynalazcą-renegatem (kilka lat temu opuściłem zespół D&D i przeszedłem do zespołu Magic), majstrującym w moim warsztacie i udostępniającym moje wynalazki opinii publicznej bez takiego samego poziomu testów bezpieczeństwa. Powiedziawszy to, zespół D&D właśnie wypuścił klasę rzemieślnika do testów w grze i powinieneś swobodnie majstrować przy tej klasie, aby dostosować ją do swojej kampanii Kaladesh. {@note Zobacz ostateczną wersję {@class Artificer|TCE|klasa rzemieślników}.}",
+            "Oczywiście w tym dokumencie znajdziesz wiele informacji na temat urządzeń i wynalazków zasilanych eterem, zgodnie z duchem Kaladesha. Ale chodzi raczej o przestawianie elementów składowych i zmianę wyglądu istniejących magicznych przedmiotów, niż o tworzenie wielu nowych rzeczy. Jeśli chcesz, żeby Twoja postać wyglądała jak gość z karty Technika Rozproszenia, po prostu daj mu a {@item ring of the ram}.",
+            "Jak zawsze punktem wyjścia dla tego dokumentu był {@i Sztuka magii: zgromadzenie - Kaladesz}. Ten dokument ma na celu pomóc Ci zamienić haczyki przygodowe i zalążki fabuły tej książki w źródło Twojej kampanii przy minimalnych zmianach w piątej edycji zasad D&D, które możesz {@link znaleźć tutaj|https://dnd.wizards.com/what-is-dnd/basic-rules}. Nawet bez książki informacje o Kaladesh znajdziesz w {@link stronie internetowej Magii|https://magic.wizards.com/}.",
+            "Miłego wymyślania!"
+          ],
+          "by": "James Wyatt"
+        },
+        "{@note Mechaniki gry zawarte w tym dodatku można wykorzystać w kampanii D&D, ale nie można ich w pełni dostosować do testów rozgrywki i iteracji projektu. Z tych powodów materiały zawarte w tym dodatku nie są legalne w wydarzeniach D&D Organised Play.}",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/002.webp"
+          },
+          "title": "Era Innowacji",
+          "credit": "Jason Rainville",
+          "width": 634,
+          "height": 1652
+        }
+      ],
+      "id": "000"
+    },
+    "1:001": {
+      "type": "section",
+      "name": "Świat Kaladesza",
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/003.webp"
+          },
+          "title": "Przydatny pomocnik",
+          "credit": "Victor Adame Minguez",
+          "width": 1276,
+          "height": 1651
+        },
+        "Kaladesh to żywe dzieło sztuki - tętniąca życiem, piękna płaszczyzna, w której wszystko jest możliwe. Optymizm, innowacja i duch kreatywności napędzają odurzający renesans wynalazków i sztuczności w całym Kaladesh. Jego mieszkańcy często twierdzą, że „wszystko można zbudować”, a znakomici wynalazcy zdają się potwierdzać to na co dzień.",
+        "Mechaniczne automaty chodzą po ulicach, pełniąc rolę sług i ochroniarzy, żołnierzy i wartowników, wierzchowców, a nawet zwierząt domowych. Szybujące statki powietrzne zapewniają transport zarówno w obrębie miast i wiosek samolotu, jak i pomiędzy nimi, a także przenoszą poszukiwaczy wysoko w niebo, aby czerpać z nieograniczonych rezerw magicznego eteru. Skomplikowane i ozdobne wirujące tooptery przelatują nad targowiskami, niosąc wiadomości, zbierając informacje i odpędzając plagę gremlinów. Eleganckie, zazębiające się mechanizmy przekładni podnoszą i opuszczają mosty nad kanałami. Wykwintne narzędzia błyszczą jak biżuteria, wkomponowane w jasną i kolorową modę rzemieślników, poszukiwaczy i wynalazców. We wszystkich tych bajecznych konstrukcjach misterny design i pełne wdzięku piękno są cenione niemal tak samo, jak wydajna funkcjonalność. Sztuczność, która tworzy te dzieła, jest postrzegana jako ostateczna forma twórczej i intelektualnej ekspresji - zarówno wywodząca się z wynalazczego ducha samolotu, jak i dalej ją zasilająca.",
+        "Kaladesz jest pogodny i pełen nadziei, a jego mieszkańcy są zainspirowani. Każdy wynalazek jest zdumiewającym dziełem sztuki, posiadającym potencjał radykalnej poprawy jakości życia. Świat przyrody odzwierciedla piękno i harmonię miast samolotu, z wdzięcznie zakrzywionymi drzewami, wirującymi strumieniami, rzeźbionymi górami i szafirowym niebem przerywanym jaskrawoniebieskimi strumieniami eteru.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Eter",
+              "page": 5,
+              "entries": [
+                "Kaladesh zawdzięcza swoje jasne istnienie namacalnej obecności eteru - surowej formy magicznej energii, która wypełnia przestrzeń pomiędzy planami. Eter przenika do Kaladesh i stał się kluczową częścią środowiska, a także podstawą współczesnej cywilizacji. Niebo jest jego pełne, rośliny i drzewa wyginają się i skręcają, aby być bliżej niego, a płynące szlaki wodne wyznaczają pod nim wzory. Genialny wynalazca Avaati Vya opracował sposób rafinacji lotnego eteru w silne i bezpieczne paliwo, co umożliwiło powstanie wszystkich wynalazków i urządzeń dostępnych w społeczeństwie. Przez sześć dekad największe umysły Kaladesha obmyślały coraz dziwniejsze sposoby wykorzystania eteru. Od sterowców po konstrukcje zwierzęce, od pociągów zębatych po artefakty muzyczne, od urządzeń medycznych po zmechanizowane kombinezony zakrywające całe ciało - możliwości twórcze są nieograniczone."
+              ],
+              "id": "003"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSK/004.webp"
+              },
+              "width": 1280,
+              "height": 758,
+              "title": "Bagno",
+              "credit": "Adam Paquette"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "section",
+          "name": "Konsulat i Renegaci",
+          "page": 6,
+          "entries": [
+            "Miasto Ghirapur oraz miasta i wsie w otaczającym regionie przypominają ogromną, precyzyjną maszynę zębatą, zarządzaną i wspieraną przez Konsulat. Jedenastu konsulów i niezliczona liczba biurokratów tworzących Konsulat utrzymuje porządek społeczny i dba o to, aby wszystkie powiązane ze sobą tryby obracały się w harmonii. Ważną częścią tej pracy jest oczywiście ułatwianie usankcjonowanej dystrybucji eteru i utrzymywanie infrastruktury zasilanej eterem, która stanowi podstawę cywilizowanego życia na Kaladesh. Konsulat wierzy, że cuda i udogodnienia społeczeństwa opartego na eterze powinny być dostępne dla wszystkich. Dlatego konsulowie uważają, że proces pozyskiwania i dystrybucji eteru, a także budowa i sprzedaż wynalazków na bazie eteru muszą zostać ujednolicone i uregulowane.",
+            "Konsulat zatrudnia setki teoretyków i inżynierów przy projektowaniu maszyn, urządzeń i infrastruktury. Prawdziwe innowacje są cenione i nagradzane. Jednak wartość każdego wynalazku jest ograniczana przez potrzebę udostępnienia wszystkim obywatelom udogodnień społeczeństwa napędzanego eterem. Dlatego wydajna konstrukcja jest ważniejsza niż jakikolwiek artystyczny wyraz indywidualności, aby wynalazki mogły być produkowane masowo w odlewniach Konsulatu i szeroko udostępniane.",
+            "W różnym stopniu w opozycji do Konsulatu stoi odmienna grupa wynalazców, majsterkowiczów, złodziei i artystów wspólnie określanych mianem „renegatów”. Ukazując renegatów jako monolityczną całość przypominającą gang przestępczy, Konsulat stara się wpłynąć na opinię publiczną przeciwko nim. Jednak w rzeczywistości tak zwani renegaci mają szeroki wachlarz celów i motywacji, różne metody oraz różny stopień pogardy lub wstrętu do Konsulatu. Jedyne, co łączy wszystkich renegatów, to zapis jakiejś przeszłej działalności wywrotowej, postrzeganej jako działanie przestępcze w świetle prawa konsulatu. Jednak ta „wywrotowość” jest często tak nieszkodliwa, jak ominięcie surowych przepisów regulujących wynalazczość i dystrybucję eteru.",
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSK/005.webp"
+                  },
+                  "width": 631,
+                  "height": 913,
+                  "title": "Urzędnicy konsulatu czasami uzupełniają swoje uprawnienia o {@item rod of rulership}.",
+                  "credit": "Ninth Bridge Patrol by Ryan Alexander Lee"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSK/006.webp"
+                  },
+                  "width": 630,
+                  "height": 913,
+                  "title": "Przekształcenie eteru w energię elektryczną pozwala temu renegatowi naśladować działanie: {@item staff of thunder and lightning}.",
+                  "credit": "Harnessed Lightning by Chris Rallis"
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Pochodzenie i przynależność",
+                  "page": 7,
+                  "entries": [
+                    "W zależności od tematu i charakteru kampanii postacie graczy mogą być powiązane z Konsulatem lub renegatami, albo mogą być od nich niezależne. Pochodzenie postaci może być dobrym wskaźnikiem tego, gdzie może być lojalna.",
+                    {
+                      "type": "entries",
+                      "name": "Akolita",
+                      "entries": [
+                        "Ponieważ religia nie jest częścią codziennego życia na Kaladesh, to {@background acolyte||tło} nie pasuje do kampanii Kaladesh."
+                      ],
+                      "id": "007"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Charlatan",
+                      "entries": [
+                        "Niemal z definicji, a {@background charlatan||charakter} który żyje oszustwem, jest traktowany przez Konsulat jako renegat, niezależnie od tego, czy postać współpracuje z innymi renegatami, czy nie."
+                      ],
+                      "id": "008"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Przestępca",
+                      "entries": [
+                        "Zgodnie z prawem konsulatu przestępcy jakiejkolwiek kategorii są uważani za renegatów. Niektóre postacie z tym {@background criminal||tło} będą uznawani za przestępców na skutek bycia renegatem (powiązanym z agitatorami antykonsulatowymi). Inni będą domyślnie uważani za renegatów, mimo że ich przestępcze interesy nie mają nic wspólnego z działalnością renegatów. Postać o takim pochodzeniu może być także szpiegiem Konsulatu, być może pracującym nad infiltracją grupy renegatów."
+                      ],
+                      "id": "009"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Komik",
+                      "entries": [
+                        "{@background entertainer||Animatorzy} nie mają żadnych niezbędnych skłonności w jedną czy drugą stronę. Do popularnych artystów na Kaladesh zaliczają się szybcy kowale - biorący udział w konkursach mających na celu wynalezienie i zbudowanie urządzeń w zawrotnym tempie - oraz zawodnicy pojazdów kołowych lub latających."
+                      ],
+                      "id": "00a"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Bohater ludowy",
+                      "entries": [
+                        "A {@background folk hero} na Kaladeszu jest prawdopodobnie renegatem, uważanym za bohaterskiego z powodu sprzeciwu wobec jakiejś szczególnie opresyjnej polityki lub dekretu konsulatu."
+                      ],
+                      "id": "00b"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Rzemieślnik Gildii",
+                      "entries": [
+                        "Postać z tym {@background guild artisan||tło} jest prawdopodobnie zawodowym wynalazcą. Rzemieślnik z gildii może zostać zatrudniony w inkwirium konsulatu lub być członkiem stowarzyszenia wynalazców - z których wiele jest lojalnych wobec konsulatu lub ma skłonności renegata."
+                      ],
+                      "id": "00c"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Pustelnik",
+                      "entries": [
+                        "Najlepszym powodem, aby zostać pustelnikiem, jest ucieczka od ograniczeń Konsulatu, szczególnie tych dotyczących zbierania i uszlachetniania eteru. Zatem postać z tym {@background hermit||tło} prawdopodobnie jest renegatem."
+                      ],
+                      "id": "00d"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Szlachetne",
+                      "entries": [
+                        "Ten {@background noble||tło} najlepiej reprezentuje biurokratę związaną z Konsulatem. Jednakże taka postać może z łatwością wykorzystać swoją pozycję, aby potajemnie wesprzeć sprawę renegatów."
+                      ],
+                      "id": "00e"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Outlander",
+                      "entries": [
+                        "W głębi lądu za Ghirapur żyją zarówno sympatie pro-, jak i antykonsulatowe. Ale {@background outlander||charakter} z wystarczającej odległości mogliby nie mieć opinii o Konsulacie po prostu z powodu braku prawdziwej wiedzy."
+                      ],
+                      "id": "00f"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Szałwia",
+                      "entries": [
+                        "A {@background sage} charakter częściej jest kojarzony z konsulatem niż z osobą samozatrudnioną. Niektórzy mędrcy są związani z Towarzystwem Eterologicznym, które jest zaciekle niezależne od kontroli Konsulatu, ale nie sprzeciwia się jego rządom."
+                      ],
+                      "id": "010"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Marynarz",
+                      "entries": [
+                        "Dzielnica portowa Ghirapur, zwana Bomat, jest domem dla wielu tradycyjnych żeglarzy. Ten {@background sailor||tło} może również odzwierciedlać życie pilota statku powietrznego lub pirata powietrznego. Wielu pilotów jest lojalnych wobec Konsulatu, a niektórzy służą nawet jako oficerowie na statkach Konsulatu. Do piratów zaliczają się zarówno nielicencjonowani zbieracze eteru, jak i prawdziwi piraci, którzy okradają inne statki powietrzne."
+                      ],
+                      "id": "011"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Żołnierz",
+                      "entries": [
+                        "Większość postaci z tym {@background soldier||tło} są powiązani z Szanownym - wojskową strażą Ghirapur - i dlatego są blisko związani z Konsulatem."
+                      ],
+                      "id": "012"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Urwis",
+                      "entries": [
+                        "Bardzo {@background urchin||jeżowce} nie mają bliskich powiązań z Konsulatem, a życie na ulicach łatwo prowadzi do działalności renegatów, takiej jak przemyt eteru czy drobne kradzieże."
+                      ],
+                      "id": "013"
+                    }
+                  ],
+                  "id": "006"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSK/007.webp"
+                  },
+                  "width": 928,
+                  "height": 728,
+                  "title": "Spontaniczny artysta",
+                  "credit": "Viktor Titov"
+                }
+              ],
+              "id": "005"
+            }
+          ],
+          "id": "004"
+        },
+        {
+          "type": "section",
+          "name": "Wynalazek i magia",
+          "page": 8,
+          "entries": [
+            "Wynalazek i sztuczność to kamienie węgielne życia i kultury na Kaladesh. Wynalazcy to znaczące postacie kulturalne, od niewidzialnych funkcjonariuszy tworzących udogodnienia cywilizowanego życia w odlewniach Konsulatu po znanych wolnych rzemieślników, którzy przyciągają grupy wielbicieli spacerujących ulicami Ghirapur. Stowarzyszenia wynalazców i rzemieślników są kluczową jednostką społeczną, zrzeszającą ludzi o podobnych zainteresowaniach i stanowiącą podstawę interakcji społecznych i wymiany pomysłów.",
+            "Magowie potrafiący rzucać prawdziwe zaklęcia - bez pomocy urządzeń zasilanych eterem - są rzadkością na Kaladesh. Pod rządami Konsulatu magów zawsze uważano za niebezpiecznych i niestabilnych, do tego stopnia, że ​​specjalne siły Konsulatu mają za zadanie chronić przed nimi świat. Siła ta, dowodzona przez generalnego inspektora Barala, wyszukuje magów, poznaje ich tajemnice, zakłóca ich plany i stawia przed sądem za ich zbrodnie - rzeczywiste lub potencjalne.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSK/008.webp"
+                  },
+                  "width": 1275,
+                  "height": 885,
+                  "title": "Sługa Kanału",
+                  "credit": "Magali Villeneuve"
+                },
+                {
+                  "type": "entries",
+                  "name": "Klasy postaci graczy",
+                  "page": 8,
+                  "entries": [
+                    "Ponieważ faktyczna zdolność rzucania zaklęć jest rzadkością na Kaladesh, możesz chcieć ograniczyć klasy dostępne dla postaci w twojej kampanii. Jednocześnie jednak możesz swobodnie zmieniać lub ignorować te ograniczenia, aby dopasować je do swoich graczy i swojej szczególnej wizji Kaladesha.",
+                    "{@class barbarian||Barbaria} można je znaleźć w odległych regionach, nawet poza Peemą i Lathnu. Takie postacie prawdopodobnie wydawałyby się nie na miejscu w Ghirapur, ale może to być doskonała okazja do rozwoju charakteru. Elfi barbarzyńca (prawdopodobnie członek Tiraharu, który porzucił technologię opartą na eterze, stosowaną przez mieszkańców miasta) może być szczególnie odpowiednim wyborem. Ścieżka Berserkera jest łatwiejsza w Kaladesh niż Ścieżka Wojownika Totemu.",
+                    "{@class bard||Bardowie} na Kaladesh byłby prawdopodobnie postrzegany jako szczególna forma maga, podobna do piromanty. Jako tacy byliby przedmiotem prześladowań ze strony Konsulatu.",
+                    "{@class cleric||Duchowni} nie istnieją na Kaladesh. {@skill Religion} nie jest znaczącą siłą w życiu mieszkańców planu, a magia wywodząca się z mocy bogów jest nieznana.",
+                    "{@class druid||Druidzi} to elfy, które wykorzystują moc Wielkiego Kanału do tworzenia magicznych efektów. Nie-elfy nie mogą być druidami, a Krąg Księżyca jest niedostępny.",
+                    "{@class fighter||Wojownicy} są powszechne na Kaladesh, choć dziwaczni rycerze są nieznani. Wojownikami mogą być funkcjonariusze Konsulatu, harcownicy renegaci lub zwykli (jeśli są odporni) obywatele.",
+                    "{@class monk||Mnisi} są nieznane na Kaladesh, chyba że chcesz stworzyć zakon monastyczny znaleziony w jednym z odległych rejonów płaszczyzny.",
+                    "{@class paladin||Paladyni} są nieznani z tych samych powodów, co duchowni. Wojownik mógłby czerpać magiczną moc z siły oddania przysiędze, ale taka postać prawdopodobnie byłaby postrzegana jako mag.",
+                    "{@class ranger||Strażnicy}, podobnie jak druidzi, musi być {@race elf||elfy} na Kaladesz.",
+                    "{@class rogue||Łotrzykowie} są powszechne, ale magiczni oszuści będą postrzegani i prześladowani jak magowie. Większość łotrzyków to renegaci w tym sensie, że z wielu różnych powodów żyją po złej stronie prawa.",
+                    "{@class sorcerer||Czarownicy} są najpowszechniejszą formą maga na Kaladesh i często są ścigani przez siły Konsulatu. Są one na tyle znane, że wiele osób będzie miało przeczucie, czym jest „{@class sorcerer||piromanta|pyromancer (PSK)|PSK}\" ma miejsce wtedy, gdy takiego spotykają - ale wciąż są one na tyle rzadkie, że większość ludzi wita czarownika ze strachem. Czarownicy nie rości sobie smoczych rodów, ale istnieją dzicy magowie i czarodzieje burzy. Piromanci tacy jak Chandra Nalaar mogą mieć wyraźnie czarodziejskie pochodzenie.",
+                    "{@class warlock||Czarnoksiężnicy}, jeśli istnieją, nie są powszechnie znane ani rozumiane. Czarnoksiężnik może zacząć jako wynalazca zafascynowany Mrocznym Schematem - wzorem używanym do tworzenia demonów - co ostatecznie doprowadzi do paktu z Diabłem. Jeszcze bardziej niezwykłe byłyby pakty z innymi podmiotami. Jednakże bliskość Kaladesha do wypełnionych eterem Ślepych Wieczności może pozwolić jakiejś obcej świadomości, podobnej do Eldrazi, na projekcję na świat i tworzenie paktów czarnoksiężników. Co więcej, Wielki Kanał sam w sobie mógł być uosobiony jako istota posiadająca cechy arcywróżka.",
+                    "{@class wizard||Czarodzieje} są niezwykle rzadkie na Kaladesh. Jednakże naukowiec zajmujący się eterem vedalken może zdobyć wystarczającą władzę nad przepływem eteru, aby skierować go na efekty zaklęć."
+                  ],
+                  "id": "016"
+                },
+                {
+                  "type": "statblock",
+                  "prop": "podklasa",
+                  "source": "PSK",
+                  "name": "Piromanta (PSK)",
+                  "shortName": "Piromanta (PSK)",
+                  "displayName": "Czarodziejskie pochodzenie: Piromanta",
+                  "className": "Sorcerer",
+                  "classSource": "PHB",
+                  "page": 9,
+                  "style": "inset"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSK/009.webp"
+                  },
+                  "width": 1276,
+                  "height": 659,
+                  "title": "{@item Gauntlets of ogre power} (lub A {@item belt of giant strength}) mogą wyglądać zupełnie inaczej na Kaladesh, ale mają ten sam efekt.",
+                  "credit": "Engineered Might by Lake Hurwitz"
+                },
+                {
+                  "type": "entries",
+                  "name": "Urządzenia zasilane eterem",
+                  "page": 10,
+                  "entries": [
+                    "Obywatele Konsulatu przeżywają prawdopodobnie najbardziej ekscytujący i inspirujący okres w historii Kaladesh. W ciągu sześćdziesięciu lat, odkąd Avaati Vya odkrył proces udoskonalania eteru, eter przekształcił praktycznie wszystkie codzienne czynności i zmienił sposób, w jaki ludzie myślą o swoim życiu. W ciągu ostatniego półwiecza w umysłach utalentowanych wynalazców powstały setki tysięcy nowych urządzeń, maszyn, pojazdów, konstrukcji, a nawet broni - a wszystkie napędzane cudami eteru.",
+                    "Ogromną różnorodność urządzeń zasilanych eterem na Kaladesh można przedstawić za pomocą wielu magicznych przedmiotów w {@book Dungeon Master's Guide|DMG}. Przedmioty te są znacznie bardziej powszechne na Kaladesh niż w większości światów D&D i są łatwo dostępne do zakupu (patrz „{@book Buying and Selling Devices|PS-K|1|Kupno i sprzedaż urządzeń}”). DM powinien swobodnie okazywać hojność, umożliwiając postaciom dostęp do magicznych przedmiotów, w duchu Kaladesha.",
+                    "Poniższe wskazówki - plus spora dawka pomysłowości wynalazcy - mogą zostać wykorzystane do dostosowania magicznych przedmiotów D&D do świata Kaladesh. Dodatkowo podpisy pojawiające się obok niektórych grafik w tym dokumencie oferują przykłady tego, jak można przełożyć zasilane eterem cuda Kaladesha na magiczne przedmioty D&D.",
+                    {
+                      "type": "entries",
+                      "name": "Opłaty",
+                      "page": 10,
+                      "entries": [
+                        "Ładunki magicznych przedmiotów reprezentują paliwo eterowe w Kaladesh, ale ładunki nie odnawiają się automatycznie. Zamiast tego właściciel przedmiotu musi zabezpieczyć eter i uzupełnić przedmiot, aby uzupełnić jego ładunki. Tak długo, jak dostępne są normalne zapasy eteru, uzupełnienie przedmiotu nie stanowi problemu, a główną zasadą Konsulatu jest zapewnienie sprawiedliwej dystrybucji eteru wśród obywateli. W przypadku przedmiotu, który normalnie automatycznie odzyskuje losową liczbę ładunków, ten losowy rzut może odzwierciedlać ilość eteru dostępną dla postaci w danym dniu. Postać może kupić dodatkowy eter (np. na nocnym targu) za 50 sz za każde ładowanie. Jeśli ładunki przedmiotu nie uzupełnią się automatycznie, nie będzie można zatankować przedmiotu."
+                      ],
+                      "id": "018"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Przedmioty eksploatacyjne",
+                      "page": 10,
+                      "entries": [
+                        "Niektóre urządzenia zasilane eterem służą do tworzenia jednorazowych, krótkotrwałych efektów, które powielają działanie mikstur, zwojów i podobnych magicznych przedmiotów. Nie mają one formy rzeczywistych eliksirów ani zaklęć na papierze, ale mają ten sam efekt."
+                      ],
+                      "id": "019"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Dostrojenie",
+                      "page": 10,
+                      "entries": [
+                        "Proces dostrajania się do urządzenia zasilanego eterem reprezentuje kilka różnych aspektów pracy z wynalazkiem. Wiele urządzeń musi zostać starannie zmodyfikowanych, aby pasowały i działały dla konkretnego użytkownika, co można wykonać w ramach procesu dostrajania. Ograniczenie liczby przedmiotów, które postać może dostroić, aby odzwierciedlały podstawowe zapasy eteru, które są dostępne i mogą być transportowane przez pojedynczą postać. Przedmioty wymagające dostrojenia przez kleryka, paladyna lub inną klasę, która nie istnieje w twojej kampanii, nie mają odpowiednika zasilanego eterem."
+                      ],
+                      "id": "01a"
+                    },
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "book/PSK/010.webp"
+                      },
+                      "title": "A {@item spell scroll} z {@spell sleep} może przybrać formę urządzenia do fumigacji przymocowanego do toptera.",
+                      "credit": "Fumigate by Svetlin Velinov",
+                      "width": 1125,
+                      "height": 755
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Podróż Planarna",
+                      "page": 10,
+                      "entries": [
+                        "Przedmioty umożliwiające podróż do różnych płaszczyzn istnienia nie mają odpowiedników zasilanych eterem. W Magic Multiverse podróżowanie ze świata do świata jest wyłączną domeną Planeswalkerów."
+                      ],
+                      "id": "01b"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Wywoływanie stworzeń",
+                      "page": 10,
+                      "entries": [
+                        "Przedmioty przywołujące stworzenia (takie jak {@item bag of tricks}) może produkować stworzenia ratunkowe."
+                      ],
+                      "id": "01c"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Przeklęte przedmioty",
+                      "page": 10,
+                      "entries": [
+                        "Przeklęte przedmioty pojawiające się w Twojej kampanii mogą być wadliwymi wynalazkami. Możliwe jest również, że postać, która zamierza stworzyć konkretny przedmiot, zamiast tego stworzy przeklętą wersję tego przedmiotu, ale coś takiego powinno być niezwykle rzadkie."
+                      ],
+                      "id": "01d"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Czujące przedmioty",
+                      "page": 10,
+                      "entries": [
+                        "Za pomocą eteru nie można stworzyć świadomych magicznych przedmiotów."
+                      ],
+                      "id": "01e"
+                    }
+                  ],
+                  "id": "017"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSK/011.webp"
+                  },
+                  "title": "{@item Wings of flying} w różnych formach są popularne wynalazki.",
+                  "credit": "Aspiring Aeronaut by Willian Murai",
+                  "width": 1280,
+                  "height": 761
+                },
+                {
+                  "type": "entries",
+                  "name": "Wynalazek i urządzenia produkcyjne",
+                  "page": 11,
+                  "entries": [
+                    "Urządzenia zasilane eterem są tworzone przez wynalazców. Niektóre są produkowane masowo w odlewniach Konsulatu, ale wszystkie powstają w umysłach twórczych, pomysłowych myślicieli. Postacie graczy mogą wymyślać i produkować własne urządzenia za pomocą {@variantrule Downtime Activity: Crafting a Magic Item|DMG|zasady tworzenia magicznych przedmiotów w rozdziale 6 Przewodnika Mistrza Lochów}, z kilkoma modyfikacjami wymagań.",
+                    "Wytworzenie znanego rodzaju urządzenia wymaga schematycznego planu (odpowiednik przepisu na wytworzenie magicznego przedmiotu). Twórca nie musi być czarodziejem, ale musi posiadać wystarczający zapas oczyszczonego eteru, który jest wliczony w koszt wytworzenia przedmiotu. Jeśli wytworzenie równoważnego magicznego przedmiotu wymagałoby drogiego komponentu materialnego, koszt ten stanowi dodatkowy eter, który należy zakupić, aby wyprodukować urządzenie.",
+                    "Jeśli postać nie posiada schematycznego planu, istnieje możliwość jego wymyślenia. Postać, która wymyśla urządzenie, zamiast kierować się schematem, musi uzyskać udaną Inteligencję ({@skill Arcana}) sprawdzaj każdy dzień tworzenia. Trudność sprawdzenia zależy od rzadkości przedmiotu: {@dc 10} dla przedmiotu powszechnego lub rzadkiego, {@dc 15} dla rzadkiego lub bardzo rzadkiego przedmiotu, lub {@dc 20} za legendarny przedmiot. W przypadku nieudanego testu postać nadal wydaje 25 sz za pracę tego dnia, ale ten dzień nie liczy się do ukończenia przedmiotu.",
+                    "Jeśli grupa postaci współpracuje nad wynalezieniem przedmiotu, każda postać, która wnosi swój wkład, może spróbować zdobyć Inteligencję ({@skill Arcana}) sprawdzać. Jeśli którejkolwiek postaci się to uda, grupa robi postępy w kierunku wynalezienia i ukończenia przedmiotu."
+                  ],
+                  "id": "01f"
+                },
+                {
+                  "type": "entries",
+                  "name": "Kupno i sprzedaż urządzeń",
+                  "page": 12,
+                  "entries": [
+                    "Na Kaladesh urządzenia zasilane eterem są dostępne w sprzedaży na otwartym rynku. Niektóre urządzenia są produkowane masowo w odlewniach Konsulatu, dokładnie testowane pod kątem bezpieczeństwa i funkcjonalności oraz sprzedawane po cenach, na jakie mogą sobie pozwolić zwykli obywatele. Inne są tworzone przez zbuntowanych wynalazców, którzy omijają przepisy konsulatu i sprzedają swoje urządzenia na nocnych targach lub zaułkach.",
+                    "DM decyduje, czy dany przedmiot jest produkowany masowo i czy jest legalnie dostępny w sprzedaży. Z reguły broń i inne niszczycielskie przedmioty nie spełniają przepisów bezpieczeństwa Konsulatu. Urządzenie zakupione na legalnym rynku kosztuje od 70 do 120 procent ({@dice (1d6 + 6) × 10|1d6 + 6 × 10 percent}) kosztu wytworzenia urządzenia. (Produkcja masowa pozwala na wyprodukowanie wielu urządzeń przy znacznych oszczędnościach.) Nielegalne urządzenie kosztuje od 150 do 200 procent ({@dice (1d6 + 14) × 10|1d6 + 14 × 10 percent}) tego kosztu.",
+                    "Postać, która wynalazła i wyprodukowała urządzenie, może sprzedać przedmiot za 150-200 procent kosztu jego wytworzenia. Możliwe byłoby również sprzedanie wynalazku do konsulatu w celu dalszego rozwoju, tak aby w przyszłości mógł być produkowany masowo, jeśli przejdzie wszystkie wymagane testy."
+                  ],
+                  "id": "020"
+                },
+                {
+                  "type": "entries",
+                  "name": "Automaty i pojazdy",
+                  "page": 12,
+                  "entries": [
+                    "Niektórych kategorii wynalazków zasilanych eterem nie można łatwo opisać jako przedmiotów magicznych, ale nadal można je stworzyć w ten sam sposób. Stworzenie będące artefaktem, takie jak automat bojowy lub zwierzę ratunkowe, można uznać za magiczny przedmiot, którego rzadkość zależy od jego współczynnika wyzwania:",
+                    {
+                      "type": "table",
+                      "colLabels": [
+                        "Ocena wyzwania",
+                        "Rzadkość przedmiotu"
+                      ],
+                      "colStyles": [
+                        "col-6 text-center",
+                        "col-6 text-center"
+                      ],
+                      "rows": [
+                        [
+                          "0-2",
+                          "Wspólny"
+                        ],
+                        [
+                          "3-5",
+                          "Niezwykły"
+                        ],
+                        [
+                          "6-10",
+                          "Rzadki"
+                        ],
+                        [
+                          "11-16",
+                          "Bardzo rzadkie"
+                        ],
+                        [
+                          "17+",
+                          "Legendarny"
+                        ]
+                      ]
+                    },
+                    "Pojazdy napędzane eterem mogą być wyceniane tak, jakby były magicznymi przedmiotami. Proste powozy samobieżne mogą kosztować nie więcej niż {@item carriage|PHB|karetka w Podręczniku Gracza} (100 sz, równowartość zwykłego magicznego przedmiotu), podczas gdy dragstery używane w wyścigach w Ovalchase mogą kosztować pięciokrotnie więcej (tyle, co niezwykły magiczny przedmiot). Pojazdy latające są znacznie droższe. Mały podniebny skif lub helikopter może być rzadkim przedmiotem, a większy statek powietrzny należy uznać za bardzo rzadki lub nawet legendarny."
+                  ],
+                  "id": "021"
+                }
+              ],
+              "id": "015"
+            }
+          ],
+          "id": "014"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/012.webp"
+          },
+          "width": 1275,
+          "height": 853,
+          "title": "Skysovereign, okręt flagowy Konsula",
+          "credit": "Jung Park"
+        },
+        {
+          "type": "section",
+          "name": "Wymyślanie opcji",
+          "entries": [
+            "W kampaniach wykorzystujących atuty postacie graczy mogą zyskać dodatkowe zdolności związane z eterem i inwencją.",
+            {
+              "type": "list",
+              "columns": 2,
+              "items": [
+                "{@feat Quicksmithing|PSK}",
+                "{@feat Servo Crafting|PSK}"
+              ]
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSK/013.webp"
+              },
+              "width": 739,
+              "height": 985,
+              "title": "Serwo",
+              "credit": "Igor Kieryluk"
+            }
+          ],
+          "id": "022"
+        },
+        {
+          "type": "section",
+          "name": "Kampania Kaladesh",
+          "page": 14,
+          "entries": [
+            "Kaladesh nie jest typowym światem D&D, jeśli chodzi o przygody i poszukiwaczy przygód. Nie nadaje się do eksploracji lochów i nie roi się od złych humanoidalnych potworów, z którymi postacie mogą walczyć. To powiedziawszy, samolot oferuje mnóstwo możliwości prowadzenia kampanii skupionych na miastach i napędzanych intrygami. Rozważ następujące elementy do wykorzystania w kampanii Kaladesh.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Eterowy bunt",
+                  "page": 14,
+                  "entries": [
+                    "Głównym wątkiem bloku Kaladesh jest jawny bunt renegatów, gdy rząd Konsulatu przyjmuje represyjny obrót. Kampania skupiająca się na tej rewolcie może postawić bohaterów gracza w sytuacji renegatów próbujących przejąć zbiornik eteru lub zaplanować sabotaż statku powietrznego Konsulatu. Alternatywnie mogą to być agenci Konsulatu próbujący stłumić rebelię lub być może ją zinfiltrować. Bunt może być także tłem dla kampanii skupionej bardziej na intrygach miejskich lub może przerwać regularne działania takiej kampanii. W takiej kampanii dostawy eteru mogą zostać znacznie ograniczone, co zwiększy koszty tworzenia i używania urządzeń zasilanych eterem. Zdobycie eteru mogłoby wówczas z łatwością stać się celem wielu przygód."
+                  ],
+                  "id": "025"
+                },
+                {
+                  "type": "entries",
+                  "name": "Intryga miejska",
+                  "page": 14,
+                  "entries": [
+                    "Miasto Ghirapur jest pełne możliwości przeżywania przygód skupiających się na intrygach i tajemnicach. Postaciami graczy mogą być przestępcy - być może agenci mafii pragnącej osłabić pozycję rywali. Mogą to być funkcjonariusze wymiaru sprawiedliwości lub szpiedzy Dhunda pracujący nad rozprawieniem się z działalnością przestępczą. Mogą to być wynalazcy lub śledczy badający zarzuty korupcji lub sabotażu podczas Targów Wynalazców. Mogą zostać wciągnięci w walkę o władzę pomiędzy Oświeconymi Strażnikami, władcami Konsulatu. Mogą też być wynalazcami konkurującymi w zbudowaniu najlepszych automatów bojowych i zarabianiu pieniędzy na arenie Remiego w Dziewiątym Moście."
+                  ],
+                  "id": "026"
+                },
+                {
+                  "type": "entries",
+                  "name": "Eksploracja i kolonizacja dziczy",
+                  "page": 14,
+                  "entries": [
+                    "Jest to nieco powiązane z podstawowym smakiem i tonem Kaladesh, ale twoja kampania może toczyć się z dala od miasta Ghirapur i wszystkich jego cudów. Poszukiwaczami przygód mogą być odkrywcy chcący sporządzić mapę najdalszych zakątków świata lub koloniści mający nadzieję założyć Nowe Ghirapur w odległej krainie. Poza zasięgiem rurociągów eterowych Ghirapur takie postacie mogą potrzebować kopać w poszukiwaniu geod eterowych, aby zasilić swoje wynalazki - lub mogą podróżować statkiem powietrznym, który może zbierać i oczyszczać eter z eteru. To, czego bohaterowie mogą dowiedzieć się w dziczy, zależy od Ciebie. Taka kampania może nawet obejmować zagrożenia w bardziej tradycyjnym stylu D&D, a wszystkie nasycone magią eteru."
+                  ],
+                  "id": "027"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSK/014.webp"
+                  },
+                  "width": 1125,
+                  "height": 713,
+                  "title": "Rękawica Dhunda działa podobnie jak rękawica Dhund {@item dagger of venom}.",
+                  "credit": "Dhund Operative by Magali Villeneuve"
+                }
+              ],
+              "id": "024"
+            }
+          ],
+          "id": "023"
+        }
+      ],
+      "id": "001"
+    },
+    "1:002": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Eter",
+          "page": 5,
+          "entries": [
+            "Kaladesh zawdzięcza swoje jasne istnienie namacalnej obecności eteru - surowej formy magicznej energii, która wypełnia przestrzeń pomiędzy planami. Eter przenika do Kaladesh i stał się kluczową częścią środowiska, a także podstawą współczesnej cywilizacji. Niebo jest jego pełne, rośliny i drzewa wyginają się i skręcają, aby być bliżej niego, a płynące szlaki wodne wyznaczają pod nim wzory. Genialny wynalazca Avaati Vya opracował sposób rafinacji lotnego eteru w silne i bezpieczne paliwo, co umożliwiło powstanie wszystkich wynalazków i urządzeń dostępnych w społeczeństwie. Przez sześć dekad największe umysły Kaladesha obmyślały coraz dziwniejsze sposoby wykorzystania eteru. Od sterowców po konstrukcje zwierzęce, od pociągów zębatych po artefakty muzyczne, od urządzeń medycznych po zmechanizowane kombinezony zakrywające całe ciało - możliwości twórcze są nieograniczone."
+          ],
+          "id": "003"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/004.webp"
+          },
+          "width": 1280,
+          "height": 758,
+          "title": "Bagno",
+          "credit": "Adam Paquette"
+        }
+      ],
+      "id": "002"
+    },
+    "1:003": {
+      "type": "entries",
+      "name": "Eter",
+      "page": 5,
+      "entries": [
+        "Kaladesh zawdzięcza swoje jasne istnienie namacalnej obecności eteru - surowej formy magicznej energii, która wypełnia przestrzeń pomiędzy planami. Eter przenika do Kaladesh i stał się kluczową częścią środowiska, a także podstawą współczesnej cywilizacji. Niebo jest jego pełne, rośliny i drzewa wyginają się i skręcają, aby być bliżej niego, a płynące szlaki wodne wyznaczają pod nim wzory. Genialny wynalazca Avaati Vya opracował sposób rafinacji lotnego eteru w silne i bezpieczne paliwo, co umożliwiło powstanie wszystkich wynalazków i urządzeń dostępnych w społeczeństwie. Przez sześć dekad największe umysły Kaladesha obmyślały coraz dziwniejsze sposoby wykorzystania eteru. Od sterowców po konstrukcje zwierzęce, od pociągów zębatych po artefakty muzyczne, od urządzeń medycznych po zmechanizowane kombinezony zakrywające całe ciało - możliwości twórcze są nieograniczone."
+      ],
+      "id": "003"
+    },
+    "1:004": {
+      "type": "section",
+      "name": "Konsulat i Renegaci",
+      "page": 6,
+      "entries": [
+        "Miasto Ghirapur oraz miasta i wsie w otaczającym regionie przypominają ogromną, precyzyjną maszynę zębatą, zarządzaną i wspieraną przez Konsulat. Jedenastu konsulów i niezliczona liczba biurokratów tworzących Konsulat utrzymuje porządek społeczny i dba o to, aby wszystkie powiązane ze sobą tryby obracały się w harmonii. Ważną częścią tej pracy jest oczywiście ułatwianie usankcjonowanej dystrybucji eteru i utrzymywanie infrastruktury zasilanej eterem, która stanowi podstawę cywilizowanego życia na Kaladesh. Konsulat wierzy, że cuda i udogodnienia społeczeństwa opartego na eterze powinny być dostępne dla wszystkich. Dlatego konsulowie uważają, że proces pozyskiwania i dystrybucji eteru, a także budowa i sprzedaż wynalazków na bazie eteru muszą zostać ujednolicone i uregulowane.",
+        "Konsulat zatrudnia setki teoretyków i inżynierów przy projektowaniu maszyn, urządzeń i infrastruktury. Prawdziwe innowacje są cenione i nagradzane. Jednak wartość każdego wynalazku jest ograniczana przez potrzebę udostępnienia wszystkim obywatelom udogodnień społeczeństwa napędzanego eterem. Dlatego wydajna konstrukcja jest ważniejsza niż jakikolwiek artystyczny wyraz indywidualności, aby wynalazki mogły być produkowane masowo w odlewniach Konsulatu i szeroko udostępniane.",
+        "W różnym stopniu w opozycji do Konsulatu stoi odmienna grupa wynalazców, majsterkowiczów, złodziei i artystów wspólnie określanych mianem „renegatów”. Ukazując renegatów jako monolityczną całość przypominającą gang przestępczy, Konsulat stara się wpłynąć na opinię publiczną przeciwko nim. Jednak w rzeczywistości tak zwani renegaci mają szeroki wachlarz celów i motywacji, różne metody oraz różny stopień pogardy lub wstrętu do Konsulatu. Jedyne, co łączy wszystkich renegatów, to zapis jakiejś przeszłej działalności wywrotowej, postrzeganej jako działanie przestępcze w świetle prawa konsulatu. Jednak ta „wywrotowość” jest często tak nieszkodliwa, jak ominięcie surowych przepisów regulujących wynalazczość i dystrybucję eteru.",
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSK/005.webp"
+              },
+              "width": 631,
+              "height": 913,
+              "title": "Urzędnicy konsulatu czasami uzupełniają swoje uprawnienia o {@item rod of rulership}.",
+              "credit": "Ninth Bridge Patrol by Ryan Alexander Lee"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSK/006.webp"
+              },
+              "width": 630,
+              "height": 913,
+              "title": "Przekształcenie eteru w energię elektryczną pozwala temu renegatowi naśladować działanie: {@item staff of thunder and lightning}.",
+              "credit": "Harnessed Lightning by Chris Rallis"
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Pochodzenie i przynależność",
+              "page": 7,
+              "entries": [
+                "W zależności od tematu i charakteru kampanii postacie graczy mogą być powiązane z Konsulatem lub renegatami, albo mogą być od nich niezależne. Pochodzenie postaci może być dobrym wskaźnikiem tego, gdzie może być lojalna.",
+                {
+                  "type": "entries",
+                  "name": "Akolita",
+                  "entries": [
+                    "Ponieważ religia nie jest częścią codziennego życia na Kaladesh, to {@background acolyte||tło} nie pasuje do kampanii Kaladesh."
+                  ],
+                  "id": "007"
+                },
+                {
+                  "type": "entries",
+                  "name": "Charlatan",
+                  "entries": [
+                    "Niemal z definicji, a {@background charlatan||charakter} który żyje oszustwem, jest traktowany przez Konsulat jako renegat, niezależnie od tego, czy postać współpracuje z innymi renegatami, czy nie."
+                  ],
+                  "id": "008"
+                },
+                {
+                  "type": "entries",
+                  "name": "Przestępca",
+                  "entries": [
+                    "Zgodnie z prawem konsulatu przestępcy jakiejkolwiek kategorii są uważani za renegatów. Niektóre postacie z tym {@background criminal||tło} będą uznawani za przestępców na skutek bycia renegatem (powiązanym z agitatorami antykonsulatowymi). Inni będą domyślnie uważani za renegatów, mimo że ich przestępcze interesy nie mają nic wspólnego z działalnością renegatów. Postać o takim pochodzeniu może być także szpiegiem Konsulatu, być może pracującym nad infiltracją grupy renegatów."
+                  ],
+                  "id": "009"
+                },
+                {
+                  "type": "entries",
+                  "name": "Komik",
+                  "entries": [
+                    "{@background entertainer||Animatorzy} nie mają żadnych niezbędnych skłonności w jedną czy drugą stronę. Do popularnych artystów na Kaladesh zaliczają się szybcy kowale - biorący udział w konkursach mających na celu wynalezienie i zbudowanie urządzeń w zawrotnym tempie - oraz zawodnicy pojazdów kołowych lub latających."
+                  ],
+                  "id": "00a"
+                },
+                {
+                  "type": "entries",
+                  "name": "Bohater ludowy",
+                  "entries": [
+                    "A {@background folk hero} na Kaladeszu jest prawdopodobnie renegatem, uważanym za bohaterskiego z powodu sprzeciwu wobec jakiejś szczególnie opresyjnej polityki lub dekretu konsulatu."
+                  ],
+                  "id": "00b"
+                },
+                {
+                  "type": "entries",
+                  "name": "Rzemieślnik Gildii",
+                  "entries": [
+                    "Postać z tym {@background guild artisan||tło} jest prawdopodobnie zawodowym wynalazcą. Rzemieślnik z gildii może zostać zatrudniony w inkwirium konsulatu lub być członkiem stowarzyszenia wynalazców - z których wiele jest lojalnych wobec konsulatu lub ma skłonności renegata."
+                  ],
+                  "id": "00c"
+                },
+                {
+                  "type": "entries",
+                  "name": "Pustelnik",
+                  "entries": [
+                    "Najlepszym powodem, aby zostać pustelnikiem, jest ucieczka od ograniczeń Konsulatu, szczególnie tych dotyczących zbierania i uszlachetniania eteru. Zatem postać z tym {@background hermit||tło} prawdopodobnie jest renegatem."
+                  ],
+                  "id": "00d"
+                },
+                {
+                  "type": "entries",
+                  "name": "Szlachetne",
+                  "entries": [
+                    "Ten {@background noble||tło} najlepiej reprezentuje biurokratę związaną z Konsulatem. Jednakże taka postać może z łatwością wykorzystać swoją pozycję, aby potajemnie wesprzeć sprawę renegatów."
+                  ],
+                  "id": "00e"
+                },
+                {
+                  "type": "entries",
+                  "name": "Outlander",
+                  "entries": [
+                    "W głębi lądu za Ghirapur żyją zarówno sympatie pro-, jak i antykonsulatowe. Ale {@background outlander||charakter} z wystarczającej odległości mogliby nie mieć opinii o Konsulacie po prostu z powodu braku prawdziwej wiedzy."
+                  ],
+                  "id": "00f"
+                },
+                {
+                  "type": "entries",
+                  "name": "Szałwia",
+                  "entries": [
+                    "A {@background sage} charakter częściej jest kojarzony z konsulatem niż z osobą samozatrudnioną. Niektórzy mędrcy są związani z Towarzystwem Eterologicznym, które jest zaciekle niezależne od kontroli Konsulatu, ale nie sprzeciwia się jego rządom."
+                  ],
+                  "id": "010"
+                },
+                {
+                  "type": "entries",
+                  "name": "Marynarz",
+                  "entries": [
+                    "Dzielnica portowa Ghirapur, zwana Bomat, jest domem dla wielu tradycyjnych żeglarzy. Ten {@background sailor||tło} może również odzwierciedlać życie pilota statku powietrznego lub pirata powietrznego. Wielu pilotów jest lojalnych wobec Konsulatu, a niektórzy służą nawet jako oficerowie na statkach Konsulatu. Do piratów zaliczają się zarówno nielicencjonowani zbieracze eteru, jak i prawdziwi piraci, którzy okradają inne statki powietrzne."
+                  ],
+                  "id": "011"
+                },
+                {
+                  "type": "entries",
+                  "name": "Żołnierz",
+                  "entries": [
+                    "Większość postaci z tym {@background soldier||tło} są powiązani z Szanownym - wojskową strażą Ghirapur - i dlatego są blisko związani z Konsulatem."
+                  ],
+                  "id": "012"
+                },
+                {
+                  "type": "entries",
+                  "name": "Urwis",
+                  "entries": [
+                    "Bardzo {@background urchin||jeżowce} nie mają bliskich powiązań z Konsulatem, a życie na ulicach łatwo prowadzi do działalności renegatów, takiej jak przemyt eteru czy drobne kradzieże."
+                  ],
+                  "id": "013"
+                }
+              ],
+              "id": "006"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSK/007.webp"
+              },
+              "width": 928,
+              "height": 728,
+              "title": "Spontaniczny artysta",
+              "credit": "Viktor Titov"
+            }
+          ],
+          "id": "005"
+        }
+      ],
+      "id": "004"
+    },
+    "1:005": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Pochodzenie i przynależność",
+          "page": 7,
+          "entries": [
+            "W zależności od tematu i charakteru kampanii postacie graczy mogą być powiązane z Konsulatem lub renegatami, albo mogą być od nich niezależne. Pochodzenie postaci może być dobrym wskaźnikiem tego, gdzie może być lojalna.",
+            {
+              "type": "entries",
+              "name": "Akolita",
+              "entries": [
+                "Ponieważ religia nie jest częścią codziennego życia na Kaladesh, to {@background acolyte||tło} nie pasuje do kampanii Kaladesh."
+              ],
+              "id": "007"
+            },
+            {
+              "type": "entries",
+              "name": "Charlatan",
+              "entries": [
+                "Niemal z definicji, a {@background charlatan||charakter} który żyje oszustwem, jest traktowany przez Konsulat jako renegat, niezależnie od tego, czy postać współpracuje z innymi renegatami, czy nie."
+              ],
+              "id": "008"
+            },
+            {
+              "type": "entries",
+              "name": "Przestępca",
+              "entries": [
+                "Zgodnie z prawem konsulatu przestępcy jakiejkolwiek kategorii są uważani za renegatów. Niektóre postacie z tym {@background criminal||tło} będą uznawani za przestępców na skutek bycia renegatem (powiązanym z agitatorami antykonsulatowymi). Inni będą domyślnie uważani za renegatów, mimo że ich przestępcze interesy nie mają nic wspólnego z działalnością renegatów. Postać o takim pochodzeniu może być także szpiegiem Konsulatu, być może pracującym nad infiltracją grupy renegatów."
+              ],
+              "id": "009"
+            },
+            {
+              "type": "entries",
+              "name": "Komik",
+              "entries": [
+                "{@background entertainer||Animatorzy} nie mają żadnych niezbędnych skłonności w jedną czy drugą stronę. Do popularnych artystów na Kaladesh zaliczają się szybcy kowale - biorący udział w konkursach mających na celu wynalezienie i zbudowanie urządzeń w zawrotnym tempie - oraz zawodnicy pojazdów kołowych lub latających."
+              ],
+              "id": "00a"
+            },
+            {
+              "type": "entries",
+              "name": "Bohater ludowy",
+              "entries": [
+                "A {@background folk hero} na Kaladeszu jest prawdopodobnie renegatem, uważanym za bohaterskiego z powodu sprzeciwu wobec jakiejś szczególnie opresyjnej polityki lub dekretu konsulatu."
+              ],
+              "id": "00b"
+            },
+            {
+              "type": "entries",
+              "name": "Rzemieślnik Gildii",
+              "entries": [
+                "Postać z tym {@background guild artisan||tło} jest prawdopodobnie zawodowym wynalazcą. Rzemieślnik z gildii może zostać zatrudniony w inkwirium konsulatu lub być członkiem stowarzyszenia wynalazców - z których wiele jest lojalnych wobec konsulatu lub ma skłonności renegata."
+              ],
+              "id": "00c"
+            },
+            {
+              "type": "entries",
+              "name": "Pustelnik",
+              "entries": [
+                "Najlepszym powodem, aby zostać pustelnikiem, jest ucieczka od ograniczeń Konsulatu, szczególnie tych dotyczących zbierania i uszlachetniania eteru. Zatem postać z tym {@background hermit||tło} prawdopodobnie jest renegatem."
+              ],
+              "id": "00d"
+            },
+            {
+              "type": "entries",
+              "name": "Szlachetne",
+              "entries": [
+                "Ten {@background noble||tło} najlepiej reprezentuje biurokratę związaną z Konsulatem. Jednakże taka postać może z łatwością wykorzystać swoją pozycję, aby potajemnie wesprzeć sprawę renegatów."
+              ],
+              "id": "00e"
+            },
+            {
+              "type": "entries",
+              "name": "Outlander",
+              "entries": [
+                "W głębi lądu za Ghirapur żyją zarówno sympatie pro-, jak i antykonsulatowe. Ale {@background outlander||charakter} z wystarczającej odległości mogliby nie mieć opinii o Konsulacie po prostu z powodu braku prawdziwej wiedzy."
+              ],
+              "id": "00f"
+            },
+            {
+              "type": "entries",
+              "name": "Szałwia",
+              "entries": [
+                "A {@background sage} charakter częściej jest kojarzony z konsulatem niż z osobą samozatrudnioną. Niektórzy mędrcy są związani z Towarzystwem Eterologicznym, które jest zaciekle niezależne od kontroli Konsulatu, ale nie sprzeciwia się jego rządom."
+              ],
+              "id": "010"
+            },
+            {
+              "type": "entries",
+              "name": "Marynarz",
+              "entries": [
+                "Dzielnica portowa Ghirapur, zwana Bomat, jest domem dla wielu tradycyjnych żeglarzy. Ten {@background sailor||tło} może również odzwierciedlać życie pilota statku powietrznego lub pirata powietrznego. Wielu pilotów jest lojalnych wobec Konsulatu, a niektórzy służą nawet jako oficerowie na statkach Konsulatu. Do piratów zaliczają się zarówno nielicencjonowani zbieracze eteru, jak i prawdziwi piraci, którzy okradają inne statki powietrzne."
+              ],
+              "id": "011"
+            },
+            {
+              "type": "entries",
+              "name": "Żołnierz",
+              "entries": [
+                "Większość postaci z tym {@background soldier||tło} są powiązani z Szanownym - wojskową strażą Ghirapur - i dlatego są blisko związani z Konsulatem."
+              ],
+              "id": "012"
+            },
+            {
+              "type": "entries",
+              "name": "Urwis",
+              "entries": [
+                "Bardzo {@background urchin||jeżowce} nie mają bliskich powiązań z Konsulatem, a życie na ulicach łatwo prowadzi do działalności renegatów, takiej jak przemyt eteru czy drobne kradzieże."
+              ],
+              "id": "013"
+            }
+          ],
+          "id": "006"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/007.webp"
+          },
+          "width": 928,
+          "height": 728,
+          "title": "Spontaniczny artysta",
+          "credit": "Viktor Titov"
+        }
+      ],
+      "id": "005"
+    },
+    "1:006": {
+      "type": "entries",
+      "name": "Pochodzenie i przynależność",
+      "page": 7,
+      "entries": [
+        "W zależności od tematu i charakteru kampanii postacie graczy mogą być powiązane z Konsulatem lub renegatami, albo mogą być od nich niezależne. Pochodzenie postaci może być dobrym wskaźnikiem tego, gdzie może być lojalna.",
+        {
+          "type": "entries",
+          "name": "Akolita",
+          "entries": [
+            "Ponieważ religia nie jest częścią codziennego życia na Kaladesh, to {@background acolyte||tło} nie pasuje do kampanii Kaladesh."
+          ],
+          "id": "007"
+        },
+        {
+          "type": "entries",
+          "name": "Charlatan",
+          "entries": [
+            "Niemal z definicji, a {@background charlatan||charakter} który żyje oszustwem, jest traktowany przez Konsulat jako renegat, niezależnie od tego, czy postać współpracuje z innymi renegatami, czy nie."
+          ],
+          "id": "008"
+        },
+        {
+          "type": "entries",
+          "name": "Przestępca",
+          "entries": [
+            "Zgodnie z prawem konsulatu przestępcy jakiejkolwiek kategorii są uważani za renegatów. Niektóre postacie z tym {@background criminal||tło} będą uznawani za przestępców na skutek bycia renegatem (powiązanym z agitatorami antykonsulatowymi). Inni będą domyślnie uważani za renegatów, mimo że ich przestępcze interesy nie mają nic wspólnego z działalnością renegatów. Postać o takim pochodzeniu może być także szpiegiem Konsulatu, być może pracującym nad infiltracją grupy renegatów."
+          ],
+          "id": "009"
+        },
+        {
+          "type": "entries",
+          "name": "Komik",
+          "entries": [
+            "{@background entertainer||Animatorzy} nie mają żadnych niezbędnych skłonności w jedną czy drugą stronę. Do popularnych artystów na Kaladesh zaliczają się szybcy kowale - biorący udział w konkursach mających na celu wynalezienie i zbudowanie urządzeń w zawrotnym tempie - oraz zawodnicy pojazdów kołowych lub latających."
+          ],
+          "id": "00a"
+        },
+        {
+          "type": "entries",
+          "name": "Bohater ludowy",
+          "entries": [
+            "A {@background folk hero} na Kaladeszu jest prawdopodobnie renegatem, uważanym za bohaterskiego z powodu sprzeciwu wobec jakiejś szczególnie opresyjnej polityki lub dekretu konsulatu."
+          ],
+          "id": "00b"
+        },
+        {
+          "type": "entries",
+          "name": "Rzemieślnik Gildii",
+          "entries": [
+            "Postać z tym {@background guild artisan||tło} jest prawdopodobnie zawodowym wynalazcą. Rzemieślnik z gildii może zostać zatrudniony w inkwirium konsulatu lub być członkiem stowarzyszenia wynalazców - z których wiele jest lojalnych wobec konsulatu lub ma skłonności renegata."
+          ],
+          "id": "00c"
+        },
+        {
+          "type": "entries",
+          "name": "Pustelnik",
+          "entries": [
+            "Najlepszym powodem, aby zostać pustelnikiem, jest ucieczka od ograniczeń Konsulatu, szczególnie tych dotyczących zbierania i uszlachetniania eteru. Zatem postać z tym {@background hermit||tło} prawdopodobnie jest renegatem."
+          ],
+          "id": "00d"
+        },
+        {
+          "type": "entries",
+          "name": "Szlachetne",
+          "entries": [
+            "Ten {@background noble||tło} najlepiej reprezentuje biurokratę związaną z Konsulatem. Jednakże taka postać może z łatwością wykorzystać swoją pozycję, aby potajemnie wesprzeć sprawę renegatów."
+          ],
+          "id": "00e"
+        },
+        {
+          "type": "entries",
+          "name": "Outlander",
+          "entries": [
+            "W głębi lądu za Ghirapur żyją zarówno sympatie pro-, jak i antykonsulatowe. Ale {@background outlander||charakter} z wystarczającej odległości mogliby nie mieć opinii o Konsulacie po prostu z powodu braku prawdziwej wiedzy."
+          ],
+          "id": "00f"
+        },
+        {
+          "type": "entries",
+          "name": "Szałwia",
+          "entries": [
+            "A {@background sage} charakter częściej jest kojarzony z konsulatem niż z osobą samozatrudnioną. Niektórzy mędrcy są związani z Towarzystwem Eterologicznym, które jest zaciekle niezależne od kontroli Konsulatu, ale nie sprzeciwia się jego rządom."
+          ],
+          "id": "010"
+        },
+        {
+          "type": "entries",
+          "name": "Marynarz",
+          "entries": [
+            "Dzielnica portowa Ghirapur, zwana Bomat, jest domem dla wielu tradycyjnych żeglarzy. Ten {@background sailor||tło} może również odzwierciedlać życie pilota statku powietrznego lub pirata powietrznego. Wielu pilotów jest lojalnych wobec Konsulatu, a niektórzy służą nawet jako oficerowie na statkach Konsulatu. Do piratów zaliczają się zarówno nielicencjonowani zbieracze eteru, jak i prawdziwi piraci, którzy okradają inne statki powietrzne."
+          ],
+          "id": "011"
+        },
+        {
+          "type": "entries",
+          "name": "Żołnierz",
+          "entries": [
+            "Większość postaci z tym {@background soldier||tło} są powiązani z Szanownym - wojskową strażą Ghirapur - i dlatego są blisko związani z Konsulatem."
+          ],
+          "id": "012"
+        },
+        {
+          "type": "entries",
+          "name": "Urwis",
+          "entries": [
+            "Bardzo {@background urchin||jeżowce} nie mają bliskich powiązań z Konsulatem, a życie na ulicach łatwo prowadzi do działalności renegatów, takiej jak przemyt eteru czy drobne kradzieże."
+          ],
+          "id": "013"
+        }
+      ],
+      "id": "006"
+    },
+    "1:007": {
+      "type": "entries",
+      "name": "Akolita",
+      "entries": [
+        "Ponieważ religia nie jest częścią codziennego życia na Kaladesh, to {@background acolyte||tło} nie pasuje do kampanii Kaladesh."
+      ],
+      "id": "007"
+    },
+    "1:008": {
+      "type": "entries",
+      "name": "Charlatan",
+      "entries": [
+        "Niemal z definicji, a {@background charlatan||charakter} który żyje oszustwem, jest traktowany przez Konsulat jako renegat, niezależnie od tego, czy postać współpracuje z innymi renegatami, czy nie."
+      ],
+      "id": "008"
+    },
+    "1:009": {
+      "type": "entries",
+      "name": "Przestępca",
+      "entries": [
+        "Zgodnie z prawem konsulatu przestępcy jakiejkolwiek kategorii są uważani za renegatów. Niektóre postacie z tym {@background criminal||tło} będą uznawani za przestępców na skutek bycia renegatem (powiązanym z agitatorami antykonsulatowymi). Inni będą domyślnie uważani za renegatów, mimo że ich przestępcze interesy nie mają nic wspólnego z działalnością renegatów. Postać o takim pochodzeniu może być także szpiegiem Konsulatu, być może pracującym nad infiltracją grupy renegatów."
+      ],
+      "id": "009"
+    },
+    "1:00a": {
+      "type": "entries",
+      "name": "Komik",
+      "entries": [
+        "{@background entertainer||Animatorzy} nie mają żadnych niezbędnych skłonności w jedną czy drugą stronę. Do popularnych artystów na Kaladesh zaliczają się szybcy kowale - biorący udział w konkursach mających na celu wynalezienie i zbudowanie urządzeń w zawrotnym tempie - oraz zawodnicy pojazdów kołowych lub latających."
+      ],
+      "id": "00a"
+    },
+    "1:00b": {
+      "type": "entries",
+      "name": "Bohater ludowy",
+      "entries": [
+        "A {@background folk hero} na Kaladeszu jest prawdopodobnie renegatem, uważanym za bohaterskiego z powodu sprzeciwu wobec jakiejś szczególnie opresyjnej polityki lub dekretu konsulatu."
+      ],
+      "id": "00b"
+    },
+    "1:00c": {
+      "type": "entries",
+      "name": "Rzemieślnik Gildii",
+      "entries": [
+        "Postać z tym {@background guild artisan||tło} jest prawdopodobnie zawodowym wynalazcą. Rzemieślnik z gildii może zostać zatrudniony w inkwirium konsulatu lub być członkiem stowarzyszenia wynalazców - z których wiele jest lojalnych wobec konsulatu lub ma skłonności renegata."
+      ],
+      "id": "00c"
+    },
+    "1:00d": {
+      "type": "entries",
+      "name": "Pustelnik",
+      "entries": [
+        "Najlepszym powodem, aby zostać pustelnikiem, jest ucieczka od ograniczeń Konsulatu, szczególnie tych dotyczących zbierania i uszlachetniania eteru. Zatem postać z tym {@background hermit||tło} prawdopodobnie jest renegatem."
+      ],
+      "id": "00d"
+    },
+    "1:00e": {
+      "type": "entries",
+      "name": "Szlachetne",
+      "entries": [
+        "Ten {@background noble||tło} najlepiej reprezentuje biurokratę związaną z Konsulatem. Jednakże taka postać może z łatwością wykorzystać swoją pozycję, aby potajemnie wesprzeć sprawę renegatów."
+      ],
+      "id": "00e"
+    },
+    "1:00f": {
+      "type": "entries",
+      "name": "Outlander",
+      "entries": [
+        "W głębi lądu za Ghirapur żyją zarówno sympatie pro-, jak i antykonsulatowe. Ale {@background outlander||charakter} z wystarczającej odległości mogliby nie mieć opinii o Konsulacie po prostu z powodu braku prawdziwej wiedzy."
+      ],
+      "id": "00f"
+    },
+    "1:010": {
+      "type": "entries",
+      "name": "Szałwia",
+      "entries": [
+        "A {@background sage} charakter częściej jest kojarzony z konsulatem niż z osobą samozatrudnioną. Niektórzy mędrcy są związani z Towarzystwem Eterologicznym, które jest zaciekle niezależne od kontroli Konsulatu, ale nie sprzeciwia się jego rządom."
+      ],
+      "id": "010"
+    },
+    "1:011": {
+      "type": "entries",
+      "name": "Marynarz",
+      "entries": [
+        "Dzielnica portowa Ghirapur, zwana Bomat, jest domem dla wielu tradycyjnych żeglarzy. Ten {@background sailor||tło} może również odzwierciedlać życie pilota statku powietrznego lub pirata powietrznego. Wielu pilotów jest lojalnych wobec Konsulatu, a niektórzy służą nawet jako oficerowie na statkach Konsulatu. Do piratów zaliczają się zarówno nielicencjonowani zbieracze eteru, jak i prawdziwi piraci, którzy okradają inne statki powietrzne."
+      ],
+      "id": "011"
+    },
+    "1:012": {
+      "type": "entries",
+      "name": "Żołnierz",
+      "entries": [
+        "Większość postaci z tym {@background soldier||tło} są powiązani z Szanownym - wojskową strażą Ghirapur - i dlatego są blisko związani z Konsulatem."
+      ],
+      "id": "012"
+    },
+    "1:013": {
+      "type": "entries",
+      "name": "Urwis",
+      "entries": [
+        "Bardzo {@background urchin||jeżowce} nie mają bliskich powiązań z Konsulatem, a życie na ulicach łatwo prowadzi do działalności renegatów, takiej jak przemyt eteru czy drobne kradzieże."
+      ],
+      "id": "013"
+    },
+    "1:014": {
+      "type": "section",
+      "name": "Wynalazek i magia",
+      "page": 8,
+      "entries": [
+        "Wynalazek i sztuczność to kamienie węgielne życia i kultury na Kaladesh. Wynalazcy to znaczące postacie kulturalne, od niewidzialnych funkcjonariuszy tworzących udogodnienia cywilizowanego życia w odlewniach Konsulatu po znanych wolnych rzemieślników, którzy przyciągają grupy wielbicieli spacerujących ulicami Ghirapur. Stowarzyszenia wynalazców i rzemieślników są kluczową jednostką społeczną, zrzeszającą ludzi o podobnych zainteresowaniach i stanowiącą podstawę interakcji społecznych i wymiany pomysłów.",
+        "Magowie potrafiący rzucać prawdziwe zaklęcia - bez pomocy urządzeń zasilanych eterem - są rzadkością na Kaladesh. Pod rządami Konsulatu magów zawsze uważano za niebezpiecznych i niestabilnych, do tego stopnia, że ​​specjalne siły Konsulatu mają za zadanie chronić przed nimi świat. Siła ta, dowodzona przez generalnego inspektora Barala, wyszukuje magów, poznaje ich tajemnice, zakłóca ich plany i stawia przed sądem za ich zbrodnie - rzeczywiste lub potencjalne.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSK/008.webp"
+              },
+              "width": 1275,
+              "height": 885,
+              "title": "Sługa Kanału",
+              "credit": "Magali Villeneuve"
+            },
+            {
+              "type": "entries",
+              "name": "Klasy postaci graczy",
+              "page": 8,
+              "entries": [
+                "Ponieważ faktyczna zdolność rzucania zaklęć jest rzadkością na Kaladesh, możesz chcieć ograniczyć klasy dostępne dla postaci w twojej kampanii. Jednocześnie jednak możesz swobodnie zmieniać lub ignorować te ograniczenia, aby dopasować je do swoich graczy i swojej szczególnej wizji Kaladesha.",
+                "{@class barbarian||Barbaria} można je znaleźć w odległych regionach, nawet poza Peemą i Lathnu. Takie postacie prawdopodobnie wydawałyby się nie na miejscu w Ghirapur, ale może to być doskonała okazja do rozwoju charakteru. Elfi barbarzyńca (prawdopodobnie członek Tiraharu, który porzucił technologię opartą na eterze, stosowaną przez mieszkańców miasta) może być szczególnie odpowiednim wyborem. Ścieżka Berserkera jest łatwiejsza w Kaladesh niż Ścieżka Wojownika Totemu.",
+                "{@class bard||Bardowie} na Kaladesh byłby prawdopodobnie postrzegany jako szczególna forma maga, podobna do piromanty. Jako tacy byliby przedmiotem prześladowań ze strony Konsulatu.",
+                "{@class cleric||Duchowni} nie istnieją na Kaladesh. {@skill Religion} nie jest znaczącą siłą w życiu mieszkańców planu, a magia wywodząca się z mocy bogów jest nieznana.",
+                "{@class druid||Druidzi} to elfy, które wykorzystują moc Wielkiego Kanału do tworzenia magicznych efektów. Nie-elfy nie mogą być druidami, a Krąg Księżyca jest niedostępny.",
+                "{@class fighter||Wojownicy} są powszechne na Kaladesh, choć dziwaczni rycerze są nieznani. Wojownikami mogą być funkcjonariusze Konsulatu, harcownicy renegaci lub zwykli (jeśli są odporni) obywatele.",
+                "{@class monk||Mnisi} są nieznane na Kaladesh, chyba że chcesz stworzyć zakon monastyczny znaleziony w jednym z odległych rejonów płaszczyzny.",
+                "{@class paladin||Paladyni} są nieznani z tych samych powodów, co duchowni. Wojownik mógłby czerpać magiczną moc z siły oddania przysiędze, ale taka postać prawdopodobnie byłaby postrzegana jako mag.",
+                "{@class ranger||Strażnicy}, podobnie jak druidzi, musi być {@race elf||elfy} na Kaladesz.",
+                "{@class rogue||Łotrzykowie} są powszechne, ale magiczni oszuści będą postrzegani i prześladowani jak magowie. Większość łotrzyków to renegaci w tym sensie, że z wielu różnych powodów żyją po złej stronie prawa.",
+                "{@class sorcerer||Czarownicy} są najpowszechniejszą formą maga na Kaladesh i często są ścigani przez siły Konsulatu. Są one na tyle znane, że wiele osób będzie miało przeczucie, czym jest „{@class sorcerer||piromanta|pyromancer (PSK)|PSK}\" ma miejsce wtedy, gdy takiego spotykają - ale wciąż są one na tyle rzadkie, że większość ludzi wita czarownika ze strachem. Czarownicy nie rości sobie smoczych rodów, ale istnieją dzicy magowie i czarodzieje burzy. Piromanci tacy jak Chandra Nalaar mogą mieć wyraźnie czarodziejskie pochodzenie.",
+                "{@class warlock||Czarnoksiężnicy}, jeśli istnieją, nie są powszechnie znane ani rozumiane. Czarnoksiężnik może zacząć jako wynalazca zafascynowany Mrocznym Schematem - wzorem używanym do tworzenia demonów - co ostatecznie doprowadzi do paktu z Diabłem. Jeszcze bardziej niezwykłe byłyby pakty z innymi podmiotami. Jednakże bliskość Kaladesha do wypełnionych eterem Ślepych Wieczności może pozwolić jakiejś obcej świadomości, podobnej do Eldrazi, na projekcję na świat i tworzenie paktów czarnoksiężników. Co więcej, Wielki Kanał sam w sobie mógł być uosobiony jako istota posiadająca cechy arcywróżka.",
+                "{@class wizard||Czarodzieje} są niezwykle rzadkie na Kaladesh. Jednakże naukowiec zajmujący się eterem vedalken może zdobyć wystarczającą władzę nad przepływem eteru, aby skierować go na efekty zaklęć."
+              ],
+              "id": "016"
+            },
+            {
+              "type": "statblock",
+              "prop": "podklasa",
+              "source": "PSK",
+              "name": "Piromanta (PSK)",
+              "shortName": "Piromanta (PSK)",
+              "displayName": "Czarodziejskie pochodzenie: Piromanta",
+              "className": "Sorcerer",
+              "classSource": "PHB",
+              "page": 9,
+              "style": "inset"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSK/009.webp"
+              },
+              "width": 1276,
+              "height": 659,
+              "title": "{@item Gauntlets of ogre power} (lub A {@item belt of giant strength}) mogą wyglądać zupełnie inaczej na Kaladesh, ale mają ten sam efekt.",
+              "credit": "Engineered Might by Lake Hurwitz"
+            },
+            {
+              "type": "entries",
+              "name": "Urządzenia zasilane eterem",
+              "page": 10,
+              "entries": [
+                "Obywatele Konsulatu przeżywają prawdopodobnie najbardziej ekscytujący i inspirujący okres w historii Kaladesh. W ciągu sześćdziesięciu lat, odkąd Avaati Vya odkrył proces udoskonalania eteru, eter przekształcił praktycznie wszystkie codzienne czynności i zmienił sposób, w jaki ludzie myślą o swoim życiu. W ciągu ostatniego półwiecza w umysłach utalentowanych wynalazców powstały setki tysięcy nowych urządzeń, maszyn, pojazdów, konstrukcji, a nawet broni - a wszystkie napędzane cudami eteru.",
+                "Ogromną różnorodność urządzeń zasilanych eterem na Kaladesh można przedstawić za pomocą wielu magicznych przedmiotów w {@book Dungeon Master's Guide|DMG}. Przedmioty te są znacznie bardziej powszechne na Kaladesh niż w większości światów D&D i są łatwo dostępne do zakupu (patrz „{@book Buying and Selling Devices|PS-K|1|Kupno i sprzedaż urządzeń}”). DM powinien swobodnie okazywać hojność, umożliwiając postaciom dostęp do magicznych przedmiotów, w duchu Kaladesha.",
+                "Poniższe wskazówki - plus spora dawka pomysłowości wynalazcy - mogą zostać wykorzystane do dostosowania magicznych przedmiotów D&D do świata Kaladesh. Dodatkowo podpisy pojawiające się obok niektórych grafik w tym dokumencie oferują przykłady tego, jak można przełożyć zasilane eterem cuda Kaladesha na magiczne przedmioty D&D.",
+                {
+                  "type": "entries",
+                  "name": "Opłaty",
+                  "page": 10,
+                  "entries": [
+                    "Ładunki magicznych przedmiotów reprezentują paliwo eterowe w Kaladesh, ale ładunki nie odnawiają się automatycznie. Zamiast tego właściciel przedmiotu musi zabezpieczyć eter i uzupełnić przedmiot, aby uzupełnić jego ładunki. Tak długo, jak dostępne są normalne zapasy eteru, uzupełnienie przedmiotu nie stanowi problemu, a główną zasadą Konsulatu jest zapewnienie sprawiedliwej dystrybucji eteru wśród obywateli. W przypadku przedmiotu, który normalnie automatycznie odzyskuje losową liczbę ładunków, ten losowy rzut może odzwierciedlać ilość eteru dostępną dla postaci w danym dniu. Postać może kupić dodatkowy eter (np. na nocnym targu) za 50 sz za każde ładowanie. Jeśli ładunki przedmiotu nie uzupełnią się automatycznie, nie będzie można zatankować przedmiotu."
+                  ],
+                  "id": "018"
+                },
+                {
+                  "type": "entries",
+                  "name": "Przedmioty eksploatacyjne",
+                  "page": 10,
+                  "entries": [
+                    "Niektóre urządzenia zasilane eterem służą do tworzenia jednorazowych, krótkotrwałych efektów, które powielają działanie mikstur, zwojów i podobnych magicznych przedmiotów. Nie mają one formy rzeczywistych eliksirów ani zaklęć na papierze, ale mają ten sam efekt."
+                  ],
+                  "id": "019"
+                },
+                {
+                  "type": "entries",
+                  "name": "Dostrojenie",
+                  "page": 10,
+                  "entries": [
+                    "Proces dostrajania się do urządzenia zasilanego eterem reprezentuje kilka różnych aspektów pracy z wynalazkiem. Wiele urządzeń musi zostać starannie zmodyfikowanych, aby pasowały i działały dla konkretnego użytkownika, co można wykonać w ramach procesu dostrajania. Ograniczenie liczby przedmiotów, które postać może dostroić, aby odzwierciedlały podstawowe zapasy eteru, które są dostępne i mogą być transportowane przez pojedynczą postać. Przedmioty wymagające dostrojenia przez kleryka, paladyna lub inną klasę, która nie istnieje w twojej kampanii, nie mają odpowiednika zasilanego eterem."
+                  ],
+                  "id": "01a"
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSK/010.webp"
+                  },
+                  "title": "A {@item spell scroll} z {@spell sleep} może przybrać formę urządzenia do fumigacji przymocowanego do toptera.",
+                  "credit": "Fumigate by Svetlin Velinov",
+                  "width": 1125,
+                  "height": 755
+                },
+                {
+                  "type": "entries",
+                  "name": "Podróż Planarna",
+                  "page": 10,
+                  "entries": [
+                    "Przedmioty umożliwiające podróż do różnych płaszczyzn istnienia nie mają odpowiedników zasilanych eterem. W Magic Multiverse podróżowanie ze świata do świata jest wyłączną domeną Planeswalkerów."
+                  ],
+                  "id": "01b"
+                },
+                {
+                  "type": "entries",
+                  "name": "Wywoływanie stworzeń",
+                  "page": 10,
+                  "entries": [
+                    "Przedmioty przywołujące stworzenia (takie jak {@item bag of tricks}) może produkować stworzenia ratunkowe."
+                  ],
+                  "id": "01c"
+                },
+                {
+                  "type": "entries",
+                  "name": "Przeklęte przedmioty",
+                  "page": 10,
+                  "entries": [
+                    "Przeklęte przedmioty pojawiające się w Twojej kampanii mogą być wadliwymi wynalazkami. Możliwe jest również, że postać, która zamierza stworzyć konkretny przedmiot, zamiast tego stworzy przeklętą wersję tego przedmiotu, ale coś takiego powinno być niezwykle rzadkie."
+                  ],
+                  "id": "01d"
+                },
+                {
+                  "type": "entries",
+                  "name": "Czujące przedmioty",
+                  "page": 10,
+                  "entries": [
+                    "Za pomocą eteru nie można stworzyć świadomych magicznych przedmiotów."
+                  ],
+                  "id": "01e"
+                }
+              ],
+              "id": "017"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSK/011.webp"
+              },
+              "title": "{@item Wings of flying} w różnych formach są popularne wynalazki.",
+              "credit": "Aspiring Aeronaut by Willian Murai",
+              "width": 1280,
+              "height": 761
+            },
+            {
+              "type": "entries",
+              "name": "Wynalazek i urządzenia produkcyjne",
+              "page": 11,
+              "entries": [
+                "Urządzenia zasilane eterem są tworzone przez wynalazców. Niektóre są produkowane masowo w odlewniach Konsulatu, ale wszystkie powstają w umysłach twórczych, pomysłowych myślicieli. Postacie graczy mogą wymyślać i produkować własne urządzenia za pomocą {@variantrule Downtime Activity: Crafting a Magic Item|DMG|zasady tworzenia magicznych przedmiotów w rozdziale 6 Przewodnika Mistrza Lochów}, z kilkoma modyfikacjami wymagań.",
+                "Wytworzenie znanego rodzaju urządzenia wymaga schematycznego planu (odpowiednik przepisu na wytworzenie magicznego przedmiotu). Twórca nie musi być czarodziejem, ale musi posiadać wystarczający zapas oczyszczonego eteru, który jest wliczony w koszt wytworzenia przedmiotu. Jeśli wytworzenie równoważnego magicznego przedmiotu wymagałoby drogiego komponentu materialnego, koszt ten stanowi dodatkowy eter, który należy zakupić, aby wyprodukować urządzenie.",
+                "Jeśli postać nie posiada schematycznego planu, istnieje możliwość jego wymyślenia. Postać, która wymyśla urządzenie, zamiast kierować się schematem, musi uzyskać udaną Inteligencję ({@skill Arcana}) sprawdzaj każdy dzień tworzenia. Trudność sprawdzenia zależy od rzadkości przedmiotu: {@dc 10} dla przedmiotu powszechnego lub rzadkiego, {@dc 15} dla rzadkiego lub bardzo rzadkiego przedmiotu, lub {@dc 20} za legendarny przedmiot. W przypadku nieudanego testu postać nadal wydaje 25 sz za pracę tego dnia, ale ten dzień nie liczy się do ukończenia przedmiotu.",
+                "Jeśli grupa postaci współpracuje nad wynalezieniem przedmiotu, każda postać, która wnosi swój wkład, może spróbować zdobyć Inteligencję ({@skill Arcana}) sprawdzać. Jeśli którejkolwiek postaci się to uda, grupa robi postępy w kierunku wynalezienia i ukończenia przedmiotu."
+              ],
+              "id": "01f"
+            },
+            {
+              "type": "entries",
+              "name": "Kupno i sprzedaż urządzeń",
+              "page": 12,
+              "entries": [
+                "Na Kaladesh urządzenia zasilane eterem są dostępne w sprzedaży na otwartym rynku. Niektóre urządzenia są produkowane masowo w odlewniach Konsulatu, dokładnie testowane pod kątem bezpieczeństwa i funkcjonalności oraz sprzedawane po cenach, na jakie mogą sobie pozwolić zwykli obywatele. Inne są tworzone przez zbuntowanych wynalazców, którzy omijają przepisy konsulatu i sprzedają swoje urządzenia na nocnych targach lub zaułkach.",
+                "DM decyduje, czy dany przedmiot jest produkowany masowo i czy jest legalnie dostępny w sprzedaży. Z reguły broń i inne niszczycielskie przedmioty nie spełniają przepisów bezpieczeństwa Konsulatu. Urządzenie zakupione na legalnym rynku kosztuje od 70 do 120 procent ({@dice (1d6 + 6) × 10|1d6 + 6 × 10 percent}) kosztu wytworzenia urządzenia. (Produkcja masowa pozwala na wyprodukowanie wielu urządzeń przy znacznych oszczędnościach.) Nielegalne urządzenie kosztuje od 150 do 200 procent ({@dice (1d6 + 14) × 10|1d6 + 14 × 10 percent}) tego kosztu.",
+                "Postać, która wynalazła i wyprodukowała urządzenie, może sprzedać przedmiot za 150-200 procent kosztu jego wytworzenia. Możliwe byłoby również sprzedanie wynalazku do konsulatu w celu dalszego rozwoju, tak aby w przyszłości mógł być produkowany masowo, jeśli przejdzie wszystkie wymagane testy."
+              ],
+              "id": "020"
+            },
+            {
+              "type": "entries",
+              "name": "Automaty i pojazdy",
+              "page": 12,
+              "entries": [
+                "Niektórych kategorii wynalazków zasilanych eterem nie można łatwo opisać jako przedmiotów magicznych, ale nadal można je stworzyć w ten sam sposób. Stworzenie będące artefaktem, takie jak automat bojowy lub zwierzę ratunkowe, można uznać za magiczny przedmiot, którego rzadkość zależy od jego współczynnika wyzwania:",
+                {
+                  "type": "table",
+                  "colLabels": [
+                    "Ocena wyzwania",
+                    "Rzadkość przedmiotu"
+                  ],
+                  "colStyles": [
+                    "col-6 text-center",
+                    "col-6 text-center"
+                  ],
+                  "rows": [
+                    [
+                      "0-2",
+                      "Wspólny"
+                    ],
+                    [
+                      "3-5",
+                      "Niezwykły"
+                    ],
+                    [
+                      "6-10",
+                      "Rzadki"
+                    ],
+                    [
+                      "11-16",
+                      "Bardzo rzadkie"
+                    ],
+                    [
+                      "17+",
+                      "Legendarny"
+                    ]
+                  ]
+                },
+                "Pojazdy napędzane eterem mogą być wyceniane tak, jakby były magicznymi przedmiotami. Proste powozy samobieżne mogą kosztować nie więcej niż {@item carriage|PHB|karetka w Podręczniku Gracza} (100 sz, równowartość zwykłego magicznego przedmiotu), podczas gdy dragstery używane w wyścigach w Ovalchase mogą kosztować pięciokrotnie więcej (tyle, co niezwykły magiczny przedmiot). Pojazdy latające są znacznie droższe. Mały podniebny skif lub helikopter może być rzadkim przedmiotem, a większy statek powietrzny należy uznać za bardzo rzadki lub nawet legendarny."
+              ],
+              "id": "021"
+            }
+          ],
+          "id": "015"
+        }
+      ],
+      "id": "014"
+    },
+    "1:015": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/008.webp"
+          },
+          "width": 1275,
+          "height": 885,
+          "title": "Sługa Kanału",
+          "credit": "Magali Villeneuve"
+        },
+        {
+          "type": "entries",
+          "name": "Klasy postaci graczy",
+          "page": 8,
+          "entries": [
+            "Ponieważ faktyczna zdolność rzucania zaklęć jest rzadkością na Kaladesh, możesz chcieć ograniczyć klasy dostępne dla postaci w twojej kampanii. Jednocześnie jednak możesz swobodnie zmieniać lub ignorować te ograniczenia, aby dopasować je do swoich graczy i swojej szczególnej wizji Kaladesha.",
+            "{@class barbarian||Barbaria} można je znaleźć w odległych regionach, nawet poza Peemą i Lathnu. Takie postacie prawdopodobnie wydawałyby się nie na miejscu w Ghirapur, ale może to być doskonała okazja do rozwoju charakteru. Elfi barbarzyńca (prawdopodobnie członek Tiraharu, który porzucił technologię opartą na eterze, stosowaną przez mieszkańców miasta) może być szczególnie odpowiednim wyborem. Ścieżka Berserkera jest łatwiejsza w Kaladesh niż Ścieżka Wojownika Totemu.",
+            "{@class bard||Bardowie} na Kaladesh byłby prawdopodobnie postrzegany jako szczególna forma maga, podobna do piromanty. Jako tacy byliby przedmiotem prześladowań ze strony Konsulatu.",
+            "{@class cleric||Duchowni} nie istnieją na Kaladesh. {@skill Religion} nie jest znaczącą siłą w życiu mieszkańców planu, a magia wywodząca się z mocy bogów jest nieznana.",
+            "{@class druid||Druidzi} to elfy, które wykorzystują moc Wielkiego Kanału do tworzenia magicznych efektów. Nie-elfy nie mogą być druidami, a Krąg Księżyca jest niedostępny.",
+            "{@class fighter||Wojownicy} są powszechne na Kaladesh, choć dziwaczni rycerze są nieznani. Wojownikami mogą być funkcjonariusze Konsulatu, harcownicy renegaci lub zwykli (jeśli są odporni) obywatele.",
+            "{@class monk||Mnisi} są nieznane na Kaladesh, chyba że chcesz stworzyć zakon monastyczny znaleziony w jednym z odległych rejonów płaszczyzny.",
+            "{@class paladin||Paladyni} są nieznani z tych samych powodów, co duchowni. Wojownik mógłby czerpać magiczną moc z siły oddania przysiędze, ale taka postać prawdopodobnie byłaby postrzegana jako mag.",
+            "{@class ranger||Strażnicy}, podobnie jak druidzi, musi być {@race elf||elfy} na Kaladesz.",
+            "{@class rogue||Łotrzykowie} są powszechne, ale magiczni oszuści będą postrzegani i prześladowani jak magowie. Większość łotrzyków to renegaci w tym sensie, że z wielu różnych powodów żyją po złej stronie prawa.",
+            "{@class sorcerer||Czarownicy} są najpowszechniejszą formą maga na Kaladesh i często są ścigani przez siły Konsulatu. Są one na tyle znane, że wiele osób będzie miało przeczucie, czym jest „{@class sorcerer||piromanta|pyromancer (PSK)|PSK}\" ma miejsce wtedy, gdy takiego spotykają - ale wciąż są one na tyle rzadkie, że większość ludzi wita czarownika ze strachem. Czarownicy nie rości sobie smoczych rodów, ale istnieją dzicy magowie i czarodzieje burzy. Piromanci tacy jak Chandra Nalaar mogą mieć wyraźnie czarodziejskie pochodzenie.",
+            "{@class warlock||Czarnoksiężnicy}, jeśli istnieją, nie są powszechnie znane ani rozumiane. Czarnoksiężnik może zacząć jako wynalazca zafascynowany Mrocznym Schematem - wzorem używanym do tworzenia demonów - co ostatecznie doprowadzi do paktu z Diabłem. Jeszcze bardziej niezwykłe byłyby pakty z innymi podmiotami. Jednakże bliskość Kaladesha do wypełnionych eterem Ślepych Wieczności może pozwolić jakiejś obcej świadomości, podobnej do Eldrazi, na projekcję na świat i tworzenie paktów czarnoksiężników. Co więcej, Wielki Kanał sam w sobie mógł być uosobiony jako istota posiadająca cechy arcywróżka.",
+            "{@class wizard||Czarodzieje} są niezwykle rzadkie na Kaladesh. Jednakże naukowiec zajmujący się eterem vedalken może zdobyć wystarczającą władzę nad przepływem eteru, aby skierować go na efekty zaklęć."
+          ],
+          "id": "016"
+        },
+        {
+          "type": "statblock",
+          "prop": "podklasa",
+          "source": "PSK",
+          "name": "Piromanta (PSK)",
+          "shortName": "Piromanta (PSK)",
+          "displayName": "Czarodziejskie pochodzenie: Piromanta",
+          "className": "Sorcerer",
+          "classSource": "PHB",
+          "page": 9,
+          "style": "inset"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/009.webp"
+          },
+          "width": 1276,
+          "height": 659,
+          "title": "{@item Gauntlets of ogre power} (lub A {@item belt of giant strength}) mogą wyglądać zupełnie inaczej na Kaladesh, ale mają ten sam efekt.",
+          "credit": "Engineered Might by Lake Hurwitz"
+        },
+        {
+          "type": "entries",
+          "name": "Urządzenia zasilane eterem",
+          "page": 10,
+          "entries": [
+            "Obywatele Konsulatu przeżywają prawdopodobnie najbardziej ekscytujący i inspirujący okres w historii Kaladesh. W ciągu sześćdziesięciu lat, odkąd Avaati Vya odkrył proces udoskonalania eteru, eter przekształcił praktycznie wszystkie codzienne czynności i zmienił sposób, w jaki ludzie myślą o swoim życiu. W ciągu ostatniego półwiecza w umysłach utalentowanych wynalazców powstały setki tysięcy nowych urządzeń, maszyn, pojazdów, konstrukcji, a nawet broni - a wszystkie napędzane cudami eteru.",
+            "Ogromną różnorodność urządzeń zasilanych eterem na Kaladesh można przedstawić za pomocą wielu magicznych przedmiotów w {@book Dungeon Master's Guide|DMG}. Przedmioty te są znacznie bardziej powszechne na Kaladesh niż w większości światów D&D i są łatwo dostępne do zakupu (patrz „{@book Buying and Selling Devices|PS-K|1|Kupno i sprzedaż urządzeń}”). DM powinien swobodnie okazywać hojność, umożliwiając postaciom dostęp do magicznych przedmiotów, w duchu Kaladesha.",
+            "Poniższe wskazówki - plus spora dawka pomysłowości wynalazcy - mogą zostać wykorzystane do dostosowania magicznych przedmiotów D&D do świata Kaladesh. Dodatkowo podpisy pojawiające się obok niektórych grafik w tym dokumencie oferują przykłady tego, jak można przełożyć zasilane eterem cuda Kaladesha na magiczne przedmioty D&D.",
+            {
+              "type": "entries",
+              "name": "Opłaty",
+              "page": 10,
+              "entries": [
+                "Ładunki magicznych przedmiotów reprezentują paliwo eterowe w Kaladesh, ale ładunki nie odnawiają się automatycznie. Zamiast tego właściciel przedmiotu musi zabezpieczyć eter i uzupełnić przedmiot, aby uzupełnić jego ładunki. Tak długo, jak dostępne są normalne zapasy eteru, uzupełnienie przedmiotu nie stanowi problemu, a główną zasadą Konsulatu jest zapewnienie sprawiedliwej dystrybucji eteru wśród obywateli. W przypadku przedmiotu, który normalnie automatycznie odzyskuje losową liczbę ładunków, ten losowy rzut może odzwierciedlać ilość eteru dostępną dla postaci w danym dniu. Postać może kupić dodatkowy eter (np. na nocnym targu) za 50 sz za każde ładowanie. Jeśli ładunki przedmiotu nie uzupełnią się automatycznie, nie będzie można zatankować przedmiotu."
+              ],
+              "id": "018"
+            },
+            {
+              "type": "entries",
+              "name": "Przedmioty eksploatacyjne",
+              "page": 10,
+              "entries": [
+                "Niektóre urządzenia zasilane eterem służą do tworzenia jednorazowych, krótkotrwałych efektów, które powielają działanie mikstur, zwojów i podobnych magicznych przedmiotów. Nie mają one formy rzeczywistych eliksirów ani zaklęć na papierze, ale mają ten sam efekt."
+              ],
+              "id": "019"
+            },
+            {
+              "type": "entries",
+              "name": "Dostrojenie",
+              "page": 10,
+              "entries": [
+                "Proces dostrajania się do urządzenia zasilanego eterem reprezentuje kilka różnych aspektów pracy z wynalazkiem. Wiele urządzeń musi zostać starannie zmodyfikowanych, aby pasowały i działały dla konkretnego użytkownika, co można wykonać w ramach procesu dostrajania. Ograniczenie liczby przedmiotów, które postać może dostroić, aby odzwierciedlały podstawowe zapasy eteru, które są dostępne i mogą być transportowane przez pojedynczą postać. Przedmioty wymagające dostrojenia przez kleryka, paladyna lub inną klasę, która nie istnieje w twojej kampanii, nie mają odpowiednika zasilanego eterem."
+              ],
+              "id": "01a"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSK/010.webp"
+              },
+              "title": "A {@item spell scroll} z {@spell sleep} może przybrać formę urządzenia do fumigacji przymocowanego do toptera.",
+              "credit": "Fumigate by Svetlin Velinov",
+              "width": 1125,
+              "height": 755
+            },
+            {
+              "type": "entries",
+              "name": "Podróż Planarna",
+              "page": 10,
+              "entries": [
+                "Przedmioty umożliwiające podróż do różnych płaszczyzn istnienia nie mają odpowiedników zasilanych eterem. W Magic Multiverse podróżowanie ze świata do świata jest wyłączną domeną Planeswalkerów."
+              ],
+              "id": "01b"
+            },
+            {
+              "type": "entries",
+              "name": "Wywoływanie stworzeń",
+              "page": 10,
+              "entries": [
+                "Przedmioty przywołujące stworzenia (takie jak {@item bag of tricks}) może produkować stworzenia ratunkowe."
+              ],
+              "id": "01c"
+            },
+            {
+              "type": "entries",
+              "name": "Przeklęte przedmioty",
+              "page": 10,
+              "entries": [
+                "Przeklęte przedmioty pojawiające się w Twojej kampanii mogą być wadliwymi wynalazkami. Możliwe jest również, że postać, która zamierza stworzyć konkretny przedmiot, zamiast tego stworzy przeklętą wersję tego przedmiotu, ale coś takiego powinno być niezwykle rzadkie."
+              ],
+              "id": "01d"
+            },
+            {
+              "type": "entries",
+              "name": "Czujące przedmioty",
+              "page": 10,
+              "entries": [
+                "Za pomocą eteru nie można stworzyć świadomych magicznych przedmiotów."
+              ],
+              "id": "01e"
+            }
+          ],
+          "id": "017"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/011.webp"
+          },
+          "title": "{@item Wings of flying} w różnych formach są popularne wynalazki.",
+          "credit": "Aspiring Aeronaut by Willian Murai",
+          "width": 1280,
+          "height": 761
+        },
+        {
+          "type": "entries",
+          "name": "Wynalazek i urządzenia produkcyjne",
+          "page": 11,
+          "entries": [
+            "Urządzenia zasilane eterem są tworzone przez wynalazców. Niektóre są produkowane masowo w odlewniach Konsulatu, ale wszystkie powstają w umysłach twórczych, pomysłowych myślicieli. Postacie graczy mogą wymyślać i produkować własne urządzenia za pomocą {@variantrule Downtime Activity: Crafting a Magic Item|DMG|zasady tworzenia magicznych przedmiotów w rozdziale 6 Przewodnika Mistrza Lochów}, z kilkoma modyfikacjami wymagań.",
+            "Wytworzenie znanego rodzaju urządzenia wymaga schematycznego planu (odpowiednik przepisu na wytworzenie magicznego przedmiotu). Twórca nie musi być czarodziejem, ale musi posiadać wystarczający zapas oczyszczonego eteru, który jest wliczony w koszt wytworzenia przedmiotu. Jeśli wytworzenie równoważnego magicznego przedmiotu wymagałoby drogiego komponentu materialnego, koszt ten stanowi dodatkowy eter, który należy zakupić, aby wyprodukować urządzenie.",
+            "Jeśli postać nie posiada schematycznego planu, istnieje możliwość jego wymyślenia. Postać, która wymyśla urządzenie, zamiast kierować się schematem, musi uzyskać udaną Inteligencję ({@skill Arcana}) sprawdzaj każdy dzień tworzenia. Trudność sprawdzenia zależy od rzadkości przedmiotu: {@dc 10} dla przedmiotu powszechnego lub rzadkiego, {@dc 15} dla rzadkiego lub bardzo rzadkiego przedmiotu, lub {@dc 20} za legendarny przedmiot. W przypadku nieudanego testu postać nadal wydaje 25 sz za pracę tego dnia, ale ten dzień nie liczy się do ukończenia przedmiotu.",
+            "Jeśli grupa postaci współpracuje nad wynalezieniem przedmiotu, każda postać, która wnosi swój wkład, może spróbować zdobyć Inteligencję ({@skill Arcana}) sprawdzać. Jeśli którejkolwiek postaci się to uda, grupa robi postępy w kierunku wynalezienia i ukończenia przedmiotu."
+          ],
+          "id": "01f"
+        },
+        {
+          "type": "entries",
+          "name": "Kupno i sprzedaż urządzeń",
+          "page": 12,
+          "entries": [
+            "Na Kaladesh urządzenia zasilane eterem są dostępne w sprzedaży na otwartym rynku. Niektóre urządzenia są produkowane masowo w odlewniach Konsulatu, dokładnie testowane pod kątem bezpieczeństwa i funkcjonalności oraz sprzedawane po cenach, na jakie mogą sobie pozwolić zwykli obywatele. Inne są tworzone przez zbuntowanych wynalazców, którzy omijają przepisy konsulatu i sprzedają swoje urządzenia na nocnych targach lub zaułkach.",
+            "DM decyduje, czy dany przedmiot jest produkowany masowo i czy jest legalnie dostępny w sprzedaży. Z reguły broń i inne niszczycielskie przedmioty nie spełniają przepisów bezpieczeństwa Konsulatu. Urządzenie zakupione na legalnym rynku kosztuje od 70 do 120 procent ({@dice (1d6 + 6) × 10|1d6 + 6 × 10 percent}) kosztu wytworzenia urządzenia. (Produkcja masowa pozwala na wyprodukowanie wielu urządzeń przy znacznych oszczędnościach.) Nielegalne urządzenie kosztuje od 150 do 200 procent ({@dice (1d6 + 14) × 10|1d6 + 14 × 10 percent}) tego kosztu.",
+            "Postać, która wynalazła i wyprodukowała urządzenie, może sprzedać przedmiot za 150-200 procent kosztu jego wytworzenia. Możliwe byłoby również sprzedanie wynalazku do konsulatu w celu dalszego rozwoju, tak aby w przyszłości mógł być produkowany masowo, jeśli przejdzie wszystkie wymagane testy."
+          ],
+          "id": "020"
+        },
+        {
+          "type": "entries",
+          "name": "Automaty i pojazdy",
+          "page": 12,
+          "entries": [
+            "Niektórych kategorii wynalazków zasilanych eterem nie można łatwo opisać jako przedmiotów magicznych, ale nadal można je stworzyć w ten sam sposób. Stworzenie będące artefaktem, takie jak automat bojowy lub zwierzę ratunkowe, można uznać za magiczny przedmiot, którego rzadkość zależy od jego współczynnika wyzwania:",
+            {
+              "type": "table",
+              "colLabels": [
+                "Ocena wyzwania",
+                "Rzadkość przedmiotu"
+              ],
+              "colStyles": [
+                "col-6 text-center",
+                "col-6 text-center"
+              ],
+              "rows": [
+                [
+                  "0-2",
+                  "Wspólny"
+                ],
+                [
+                  "3-5",
+                  "Niezwykły"
+                ],
+                [
+                  "6-10",
+                  "Rzadki"
+                ],
+                [
+                  "11-16",
+                  "Bardzo rzadkie"
+                ],
+                [
+                  "17+",
+                  "Legendarny"
+                ]
+              ]
+            },
+            "Pojazdy napędzane eterem mogą być wyceniane tak, jakby były magicznymi przedmiotami. Proste powozy samobieżne mogą kosztować nie więcej niż {@item carriage|PHB|karetka w Podręczniku Gracza} (100 sz, równowartość zwykłego magicznego przedmiotu), podczas gdy dragstery używane w wyścigach w Ovalchase mogą kosztować pięciokrotnie więcej (tyle, co niezwykły magiczny przedmiot). Pojazdy latające są znacznie droższe. Mały podniebny skif lub helikopter może być rzadkim przedmiotem, a większy statek powietrzny należy uznać za bardzo rzadki lub nawet legendarny."
+          ],
+          "id": "021"
+        }
+      ],
+      "id": "015"
+    },
+    "1:016": {
+      "type": "entries",
+      "name": "Klasy postaci graczy",
+      "page": 8,
+      "entries": [
+        "Ponieważ faktyczna zdolność rzucania zaklęć jest rzadkością na Kaladesh, możesz chcieć ograniczyć klasy dostępne dla postaci w twojej kampanii. Jednocześnie jednak możesz swobodnie zmieniać lub ignorować te ograniczenia, aby dopasować je do swoich graczy i swojej szczególnej wizji Kaladesha.",
+        "{@class barbarian||Barbaria} można je znaleźć w odległych regionach, nawet poza Peemą i Lathnu. Takie postacie prawdopodobnie wydawałyby się nie na miejscu w Ghirapur, ale może to być doskonała okazja do rozwoju charakteru. Elfi barbarzyńca (prawdopodobnie członek Tiraharu, który porzucił technologię opartą na eterze, stosowaną przez mieszkańców miasta) może być szczególnie odpowiednim wyborem. Ścieżka Berserkera jest łatwiejsza w Kaladesh niż Ścieżka Wojownika Totemu.",
+        "{@class bard||Bardowie} na Kaladesh byłby prawdopodobnie postrzegany jako szczególna forma maga, podobna do piromanty. Jako tacy byliby przedmiotem prześladowań ze strony Konsulatu.",
+        "{@class cleric||Duchowni} nie istnieją na Kaladesh. {@skill Religion} nie jest znaczącą siłą w życiu mieszkańców planu, a magia wywodząca się z mocy bogów jest nieznana.",
+        "{@class druid||Druidzi} to elfy, które wykorzystują moc Wielkiego Kanału do tworzenia magicznych efektów. Nie-elfy nie mogą być druidami, a Krąg Księżyca jest niedostępny.",
+        "{@class fighter||Wojownicy} są powszechne na Kaladesh, choć dziwaczni rycerze są nieznani. Wojownikami mogą być funkcjonariusze Konsulatu, harcownicy renegaci lub zwykli (jeśli są odporni) obywatele.",
+        "{@class monk||Mnisi} są nieznane na Kaladesh, chyba że chcesz stworzyć zakon monastyczny znaleziony w jednym z odległych rejonów płaszczyzny.",
+        "{@class paladin||Paladyni} są nieznani z tych samych powodów, co duchowni. Wojownik mógłby czerpać magiczną moc z siły oddania przysiędze, ale taka postać prawdopodobnie byłaby postrzegana jako mag.",
+        "{@class ranger||Strażnicy}, podobnie jak druidzi, musi być {@race elf||elfy} na Kaladesz.",
+        "{@class rogue||Łotrzykowie} są powszechne, ale magiczni oszuści będą postrzegani i prześladowani jak magowie. Większość łotrzyków to renegaci w tym sensie, że z wielu różnych powodów żyją po złej stronie prawa.",
+        "{@class sorcerer||Czarownicy} są najpowszechniejszą formą maga na Kaladesh i często są ścigani przez siły Konsulatu. Są one na tyle znane, że wiele osób będzie miało przeczucie, czym jest „{@class sorcerer||piromanta|pyromancer (PSK)|PSK}\" ma miejsce wtedy, gdy takiego spotykają - ale wciąż są one na tyle rzadkie, że większość ludzi wita czarownika ze strachem. Czarownicy nie rości sobie smoczych rodów, ale istnieją dzicy magowie i czarodzieje burzy. Piromanci tacy jak Chandra Nalaar mogą mieć wyraźnie czarodziejskie pochodzenie.",
+        "{@class warlock||Czarnoksiężnicy}, jeśli istnieją, nie są powszechnie znane ani rozumiane. Czarnoksiężnik może zacząć jako wynalazca zafascynowany Mrocznym Schematem - wzorem używanym do tworzenia demonów - co ostatecznie doprowadzi do paktu z Diabłem. Jeszcze bardziej niezwykłe byłyby pakty z innymi podmiotami. Jednakże bliskość Kaladesha do wypełnionych eterem Ślepych Wieczności może pozwolić jakiejś obcej świadomości, podobnej do Eldrazi, na projekcję na świat i tworzenie paktów czarnoksiężników. Co więcej, Wielki Kanał sam w sobie mógł być uosobiony jako istota posiadająca cechy arcywróżka.",
+        "{@class wizard||Czarodzieje} są niezwykle rzadkie na Kaladesh. Jednakże naukowiec zajmujący się eterem vedalken może zdobyć wystarczającą władzę nad przepływem eteru, aby skierować go na efekty zaklęć."
+      ],
+      "id": "016"
+    },
+    "1:017": {
+      "type": "entries",
+      "name": "Urządzenia zasilane eterem",
+      "page": 10,
+      "entries": [
+        "Obywatele Konsulatu przeżywają prawdopodobnie najbardziej ekscytujący i inspirujący okres w historii Kaladesh. W ciągu sześćdziesięciu lat, odkąd Avaati Vya odkrył proces udoskonalania eteru, eter przekształcił praktycznie wszystkie codzienne czynności i zmienił sposób, w jaki ludzie myślą o swoim życiu. W ciągu ostatniego półwiecza w umysłach utalentowanych wynalazców powstały setki tysięcy nowych urządzeń, maszyn, pojazdów, konstrukcji, a nawet broni - a wszystkie napędzane cudami eteru.",
+        "Ogromną różnorodność urządzeń zasilanych eterem na Kaladesh można przedstawić za pomocą wielu magicznych przedmiotów w {@book Dungeon Master's Guide|DMG}. Przedmioty te są znacznie bardziej powszechne na Kaladesh niż w większości światów D&D i są łatwo dostępne do zakupu (patrz „{@book Buying and Selling Devices|PS-K|1|Kupno i sprzedaż urządzeń}”). DM powinien swobodnie okazywać hojność, umożliwiając postaciom dostęp do magicznych przedmiotów, w duchu Kaladesha.",
+        "Poniższe wskazówki - plus spora dawka pomysłowości wynalazcy - mogą zostać wykorzystane do dostosowania magicznych przedmiotów D&D do świata Kaladesh. Dodatkowo podpisy pojawiające się obok niektórych grafik w tym dokumencie oferują przykłady tego, jak można przełożyć zasilane eterem cuda Kaladesha na magiczne przedmioty D&D.",
+        {
+          "type": "entries",
+          "name": "Opłaty",
+          "page": 10,
+          "entries": [
+            "Ładunki magicznych przedmiotów reprezentują paliwo eterowe w Kaladesh, ale ładunki nie odnawiają się automatycznie. Zamiast tego właściciel przedmiotu musi zabezpieczyć eter i uzupełnić przedmiot, aby uzupełnić jego ładunki. Tak długo, jak dostępne są normalne zapasy eteru, uzupełnienie przedmiotu nie stanowi problemu, a główną zasadą Konsulatu jest zapewnienie sprawiedliwej dystrybucji eteru wśród obywateli. W przypadku przedmiotu, który normalnie automatycznie odzyskuje losową liczbę ładunków, ten losowy rzut może odzwierciedlać ilość eteru dostępną dla postaci w danym dniu. Postać może kupić dodatkowy eter (np. na nocnym targu) za 50 sz za każde ładowanie. Jeśli ładunki przedmiotu nie uzupełnią się automatycznie, nie będzie można zatankować przedmiotu."
+          ],
+          "id": "018"
+        },
+        {
+          "type": "entries",
+          "name": "Przedmioty eksploatacyjne",
+          "page": 10,
+          "entries": [
+            "Niektóre urządzenia zasilane eterem służą do tworzenia jednorazowych, krótkotrwałych efektów, które powielają działanie mikstur, zwojów i podobnych magicznych przedmiotów. Nie mają one formy rzeczywistych eliksirów ani zaklęć na papierze, ale mają ten sam efekt."
+          ],
+          "id": "019"
+        },
+        {
+          "type": "entries",
+          "name": "Dostrojenie",
+          "page": 10,
+          "entries": [
+            "Proces dostrajania się do urządzenia zasilanego eterem reprezentuje kilka różnych aspektów pracy z wynalazkiem. Wiele urządzeń musi zostać starannie zmodyfikowanych, aby pasowały i działały dla konkretnego użytkownika, co można wykonać w ramach procesu dostrajania. Ograniczenie liczby przedmiotów, które postać może dostroić, aby odzwierciedlały podstawowe zapasy eteru, które są dostępne i mogą być transportowane przez pojedynczą postać. Przedmioty wymagające dostrojenia przez kleryka, paladyna lub inną klasę, która nie istnieje w twojej kampanii, nie mają odpowiednika zasilanego eterem."
+          ],
+          "id": "01a"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/010.webp"
+          },
+          "title": "A {@item spell scroll} z {@spell sleep} może przybrać formę urządzenia do fumigacji przymocowanego do toptera.",
+          "credit": "Fumigate by Svetlin Velinov",
+          "width": 1125,
+          "height": 755
+        },
+        {
+          "type": "entries",
+          "name": "Podróż Planarna",
+          "page": 10,
+          "entries": [
+            "Przedmioty umożliwiające podróż do różnych płaszczyzn istnienia nie mają odpowiedników zasilanych eterem. W Magic Multiverse podróżowanie ze świata do świata jest wyłączną domeną Planeswalkerów."
+          ],
+          "id": "01b"
+        },
+        {
+          "type": "entries",
+          "name": "Wywoływanie stworzeń",
+          "page": 10,
+          "entries": [
+            "Przedmioty przywołujące stworzenia (takie jak {@item bag of tricks}) może produkować stworzenia ratunkowe."
+          ],
+          "id": "01c"
+        },
+        {
+          "type": "entries",
+          "name": "Przeklęte przedmioty",
+          "page": 10,
+          "entries": [
+            "Przeklęte przedmioty pojawiające się w Twojej kampanii mogą być wadliwymi wynalazkami. Możliwe jest również, że postać, która zamierza stworzyć konkretny przedmiot, zamiast tego stworzy przeklętą wersję tego przedmiotu, ale coś takiego powinno być niezwykle rzadkie."
+          ],
+          "id": "01d"
+        },
+        {
+          "type": "entries",
+          "name": "Czujące przedmioty",
+          "page": 10,
+          "entries": [
+            "Za pomocą eteru nie można stworzyć świadomych magicznych przedmiotów."
+          ],
+          "id": "01e"
+        }
+      ],
+      "id": "017"
+    },
+    "1:018": {
+      "type": "entries",
+      "name": "Opłaty",
+      "page": 10,
+      "entries": [
+        "Ładunki magicznych przedmiotów reprezentują paliwo eterowe w Kaladesh, ale ładunki nie odnawiają się automatycznie. Zamiast tego właściciel przedmiotu musi zabezpieczyć eter i uzupełnić przedmiot, aby uzupełnić jego ładunki. Tak długo, jak dostępne są normalne zapasy eteru, uzupełnienie przedmiotu nie stanowi problemu, a główną zasadą Konsulatu jest zapewnienie sprawiedliwej dystrybucji eteru wśród obywateli. W przypadku przedmiotu, który normalnie automatycznie odzyskuje losową liczbę ładunków, ten losowy rzut może odzwierciedlać ilość eteru dostępną dla postaci w danym dniu. Postać może kupić dodatkowy eter (np. na nocnym targu) za 50 sz za każde ładowanie. Jeśli ładunki przedmiotu nie uzupełnią się automatycznie, nie będzie można zatankować przedmiotu."
+      ],
+      "id": "018"
+    },
+    "1:019": {
+      "type": "entries",
+      "name": "Przedmioty eksploatacyjne",
+      "page": 10,
+      "entries": [
+        "Niektóre urządzenia zasilane eterem służą do tworzenia jednorazowych, krótkotrwałych efektów, które powielają działanie mikstur, zwojów i podobnych magicznych przedmiotów. Nie mają one formy rzeczywistych eliksirów ani zaklęć na papierze, ale mają ten sam efekt."
+      ],
+      "id": "019"
+    },
+    "1:01a": {
+      "type": "entries",
+      "name": "Dostrojenie",
+      "page": 10,
+      "entries": [
+        "Proces dostrajania się do urządzenia zasilanego eterem reprezentuje kilka różnych aspektów pracy z wynalazkiem. Wiele urządzeń musi zostać starannie zmodyfikowanych, aby pasowały i działały dla konkretnego użytkownika, co można wykonać w ramach procesu dostrajania. Ograniczenie liczby przedmiotów, które postać może dostroić, aby odzwierciedlały podstawowe zapasy eteru, które są dostępne i mogą być transportowane przez pojedynczą postać. Przedmioty wymagające dostrojenia przez kleryka, paladyna lub inną klasę, która nie istnieje w twojej kampanii, nie mają odpowiednika zasilanego eterem."
+      ],
+      "id": "01a"
+    },
+    "1:01b": {
+      "type": "entries",
+      "name": "Podróż Planarna",
+      "page": 10,
+      "entries": [
+        "Przedmioty umożliwiające podróż do różnych płaszczyzn istnienia nie mają odpowiedników zasilanych eterem. W Magic Multiverse podróżowanie ze świata do świata jest wyłączną domeną Planeswalkerów."
+      ],
+      "id": "01b"
+    },
+    "1:01c": {
+      "type": "entries",
+      "name": "Wywoływanie stworzeń",
+      "page": 10,
+      "entries": [
+        "Przedmioty przywołujące stworzenia (takie jak {@item bag of tricks}) może produkować stworzenia ratunkowe."
+      ],
+      "id": "01c"
+    },
+    "1:01d": {
+      "type": "entries",
+      "name": "Przeklęte przedmioty",
+      "page": 10,
+      "entries": [
+        "Przeklęte przedmioty pojawiające się w Twojej kampanii mogą być wadliwymi wynalazkami. Możliwe jest również, że postać, która zamierza stworzyć konkretny przedmiot, zamiast tego stworzy przeklętą wersję tego przedmiotu, ale coś takiego powinno być niezwykle rzadkie."
+      ],
+      "id": "01d"
+    },
+    "1:01e": {
+      "type": "entries",
+      "name": "Czujące przedmioty",
+      "page": 10,
+      "entries": [
+        "Za pomocą eteru nie można stworzyć świadomych magicznych przedmiotów."
+      ],
+      "id": "01e"
+    },
+    "1:01f": {
+      "type": "entries",
+      "name": "Wynalazek i urządzenia produkcyjne",
+      "page": 11,
+      "entries": [
+        "Urządzenia zasilane eterem są tworzone przez wynalazców. Niektóre są produkowane masowo w odlewniach Konsulatu, ale wszystkie powstają w umysłach twórczych, pomysłowych myślicieli. Postacie graczy mogą wymyślać i produkować własne urządzenia za pomocą {@variantrule Downtime Activity: Crafting a Magic Item|DMG|zasady tworzenia magicznych przedmiotów w rozdziale 6 Przewodnika Mistrza Lochów}, z kilkoma modyfikacjami wymagań.",
+        "Wytworzenie znanego rodzaju urządzenia wymaga schematycznego planu (odpowiednik przepisu na wytworzenie magicznego przedmiotu). Twórca nie musi być czarodziejem, ale musi posiadać wystarczający zapas oczyszczonego eteru, który jest wliczony w koszt wytworzenia przedmiotu. Jeśli wytworzenie równoważnego magicznego przedmiotu wymagałoby drogiego komponentu materialnego, koszt ten stanowi dodatkowy eter, który należy zakupić, aby wyprodukować urządzenie.",
+        "Jeśli postać nie posiada schematycznego planu, istnieje możliwość jego wymyślenia. Postać, która wymyśla urządzenie, zamiast kierować się schematem, musi uzyskać udaną Inteligencję ({@skill Arcana}) sprawdzaj każdy dzień tworzenia. Trudność sprawdzenia zależy od rzadkości przedmiotu: {@dc 10} dla przedmiotu powszechnego lub rzadkiego, {@dc 15} dla rzadkiego lub bardzo rzadkiego przedmiotu, lub {@dc 20} za legendarny przedmiot. W przypadku nieudanego testu postać nadal wydaje 25 sz za pracę tego dnia, ale ten dzień nie liczy się do ukończenia przedmiotu.",
+        "Jeśli grupa postaci współpracuje nad wynalezieniem przedmiotu, każda postać, która wnosi swój wkład, może spróbować zdobyć Inteligencję ({@skill Arcana}) sprawdzać. Jeśli którejkolwiek postaci się to uda, grupa robi postępy w kierunku wynalezienia i ukończenia przedmiotu."
+      ],
+      "id": "01f"
+    },
+    "1:020": {
+      "type": "entries",
+      "name": "Kupno i sprzedaż urządzeń",
+      "page": 12,
+      "entries": [
+        "Na Kaladesh urządzenia zasilane eterem są dostępne w sprzedaży na otwartym rynku. Niektóre urządzenia są produkowane masowo w odlewniach Konsulatu, dokładnie testowane pod kątem bezpieczeństwa i funkcjonalności oraz sprzedawane po cenach, na jakie mogą sobie pozwolić zwykli obywatele. Inne są tworzone przez zbuntowanych wynalazców, którzy omijają przepisy konsulatu i sprzedają swoje urządzenia na nocnych targach lub zaułkach.",
+        "DM decyduje, czy dany przedmiot jest produkowany masowo i czy jest legalnie dostępny w sprzedaży. Z reguły broń i inne niszczycielskie przedmioty nie spełniają przepisów bezpieczeństwa Konsulatu. Urządzenie zakupione na legalnym rynku kosztuje od 70 do 120 procent ({@dice (1d6 + 6) × 10|1d6 + 6 × 10 percent}) kosztu wytworzenia urządzenia. (Produkcja masowa pozwala na wyprodukowanie wielu urządzeń przy znacznych oszczędnościach.) Nielegalne urządzenie kosztuje od 150 do 200 procent ({@dice (1d6 + 14) × 10|1d6 + 14 × 10 percent}) tego kosztu.",
+        "Postać, która wynalazła i wyprodukowała urządzenie, może sprzedać przedmiot za 150-200 procent kosztu jego wytworzenia. Możliwe byłoby również sprzedanie wynalazku do konsulatu w celu dalszego rozwoju, tak aby w przyszłości mógł być produkowany masowo, jeśli przejdzie wszystkie wymagane testy."
+      ],
+      "id": "020"
+    },
+    "1:021": {
+      "type": "entries",
+      "name": "Automaty i pojazdy",
+      "page": 12,
+      "entries": [
+        "Niektórych kategorii wynalazków zasilanych eterem nie można łatwo opisać jako przedmiotów magicznych, ale nadal można je stworzyć w ten sam sposób. Stworzenie będące artefaktem, takie jak automat bojowy lub zwierzę ratunkowe, można uznać za magiczny przedmiot, którego rzadkość zależy od jego współczynnika wyzwania:",
+        {
+          "type": "table",
+          "colLabels": [
+            "Ocena wyzwania",
+            "Rzadkość przedmiotu"
+          ],
+          "colStyles": [
+            "col-6 text-center",
+            "col-6 text-center"
+          ],
+          "rows": [
+            [
+              "0-2",
+              "Wspólny"
+            ],
+            [
+              "3-5",
+              "Niezwykły"
+            ],
+            [
+              "6-10",
+              "Rzadki"
+            ],
+            [
+              "11-16",
+              "Bardzo rzadkie"
+            ],
+            [
+              "17+",
+              "Legendarny"
+            ]
+          ]
+        },
+        "Pojazdy napędzane eterem mogą być wyceniane tak, jakby były magicznymi przedmiotami. Proste powozy samobieżne mogą kosztować nie więcej niż {@item carriage|PHB|karetka w Podręczniku Gracza} (100 sz, równowartość zwykłego magicznego przedmiotu), podczas gdy dragstery używane w wyścigach w Ovalchase mogą kosztować pięciokrotnie więcej (tyle, co niezwykły magiczny przedmiot). Pojazdy latające są znacznie droższe. Mały podniebny skif lub helikopter może być rzadkim przedmiotem, a większy statek powietrzny należy uznać za bardzo rzadki lub nawet legendarny."
+      ],
+      "id": "021"
+    },
+    "1:022": {
+      "type": "section",
+      "name": "Wymyślanie opcji",
+      "entries": [
+        "W kampaniach wykorzystujących atuty postacie graczy mogą zyskać dodatkowe zdolności związane z eterem i inwencją.",
+        {
+          "type": "list",
+          "columns": 2,
+          "items": [
+            "{@feat Quicksmithing|PSK}",
+            "{@feat Servo Crafting|PSK}"
+          ]
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/013.webp"
+          },
+          "width": 739,
+          "height": 985,
+          "title": "Serwo",
+          "credit": "Igor Kieryluk"
+        }
+      ],
+      "id": "022"
+    },
+    "1:023": {
+      "type": "section",
+      "name": "Kampania Kaladesh",
+      "page": 14,
+      "entries": [
+        "Kaladesh nie jest typowym światem D&D, jeśli chodzi o przygody i poszukiwaczy przygód. Nie nadaje się do eksploracji lochów i nie roi się od złych humanoidalnych potworów, z którymi postacie mogą walczyć. To powiedziawszy, samolot oferuje mnóstwo możliwości prowadzenia kampanii skupionych na miastach i napędzanych intrygami. Rozważ następujące elementy do wykorzystania w kampanii Kaladesh.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Eterowy bunt",
+              "page": 14,
+              "entries": [
+                "Głównym wątkiem bloku Kaladesh jest jawny bunt renegatów, gdy rząd Konsulatu przyjmuje represyjny obrót. Kampania skupiająca się na tej rewolcie może postawić bohaterów gracza w sytuacji renegatów próbujących przejąć zbiornik eteru lub zaplanować sabotaż statku powietrznego Konsulatu. Alternatywnie mogą to być agenci Konsulatu próbujący stłumić rebelię lub być może ją zinfiltrować. Bunt może być także tłem dla kampanii skupionej bardziej na intrygach miejskich lub może przerwać regularne działania takiej kampanii. W takiej kampanii dostawy eteru mogą zostać znacznie ograniczone, co zwiększy koszty tworzenia i używania urządzeń zasilanych eterem. Zdobycie eteru mogłoby wówczas z łatwością stać się celem wielu przygód."
+              ],
+              "id": "025"
+            },
+            {
+              "type": "entries",
+              "name": "Intryga miejska",
+              "page": 14,
+              "entries": [
+                "Miasto Ghirapur jest pełne możliwości przeżywania przygód skupiających się na intrygach i tajemnicach. Postaciami graczy mogą być przestępcy - być może agenci mafii pragnącej osłabić pozycję rywali. Mogą to być funkcjonariusze wymiaru sprawiedliwości lub szpiedzy Dhunda pracujący nad rozprawieniem się z działalnością przestępczą. Mogą to być wynalazcy lub śledczy badający zarzuty korupcji lub sabotażu podczas Targów Wynalazców. Mogą zostać wciągnięci w walkę o władzę pomiędzy Oświeconymi Strażnikami, władcami Konsulatu. Mogą też być wynalazcami konkurującymi w zbudowaniu najlepszych automatów bojowych i zarabianiu pieniędzy na arenie Remiego w Dziewiątym Moście."
+              ],
+              "id": "026"
+            },
+            {
+              "type": "entries",
+              "name": "Eksploracja i kolonizacja dziczy",
+              "page": 14,
+              "entries": [
+                "Jest to nieco powiązane z podstawowym smakiem i tonem Kaladesh, ale twoja kampania może toczyć się z dala od miasta Ghirapur i wszystkich jego cudów. Poszukiwaczami przygód mogą być odkrywcy chcący sporządzić mapę najdalszych zakątków świata lub koloniści mający nadzieję założyć Nowe Ghirapur w odległej krainie. Poza zasięgiem rurociągów eterowych Ghirapur takie postacie mogą potrzebować kopać w poszukiwaniu geod eterowych, aby zasilić swoje wynalazki - lub mogą podróżować statkiem powietrznym, który może zbierać i oczyszczać eter z eteru. To, czego bohaterowie mogą dowiedzieć się w dziczy, zależy od Ciebie. Taka kampania może nawet obejmować zagrożenia w bardziej tradycyjnym stylu D&D, a wszystkie nasycone magią eteru."
+              ],
+              "id": "027"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSK/014.webp"
+              },
+              "width": 1125,
+              "height": 713,
+              "title": "Rękawica Dhunda działa podobnie jak rękawica Dhund {@item dagger of venom}.",
+              "credit": "Dhund Operative by Magali Villeneuve"
+            }
+          ],
+          "id": "024"
+        }
+      ],
+      "id": "023"
+    },
+    "1:024": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Eterowy bunt",
+          "page": 14,
+          "entries": [
+            "Głównym wątkiem bloku Kaladesh jest jawny bunt renegatów, gdy rząd Konsulatu przyjmuje represyjny obrót. Kampania skupiająca się na tej rewolcie może postawić bohaterów gracza w sytuacji renegatów próbujących przejąć zbiornik eteru lub zaplanować sabotaż statku powietrznego Konsulatu. Alternatywnie mogą to być agenci Konsulatu próbujący stłumić rebelię lub być może ją zinfiltrować. Bunt może być także tłem dla kampanii skupionej bardziej na intrygach miejskich lub może przerwać regularne działania takiej kampanii. W takiej kampanii dostawy eteru mogą zostać znacznie ograniczone, co zwiększy koszty tworzenia i używania urządzeń zasilanych eterem. Zdobycie eteru mogłoby wówczas z łatwością stać się celem wielu przygód."
+          ],
+          "id": "025"
+        },
+        {
+          "type": "entries",
+          "name": "Intryga miejska",
+          "page": 14,
+          "entries": [
+            "Miasto Ghirapur jest pełne możliwości przeżywania przygód skupiających się na intrygach i tajemnicach. Postaciami graczy mogą być przestępcy - być może agenci mafii pragnącej osłabić pozycję rywali. Mogą to być funkcjonariusze wymiaru sprawiedliwości lub szpiedzy Dhunda pracujący nad rozprawieniem się z działalnością przestępczą. Mogą to być wynalazcy lub śledczy badający zarzuty korupcji lub sabotażu podczas Targów Wynalazców. Mogą zostać wciągnięci w walkę o władzę pomiędzy Oświeconymi Strażnikami, władcami Konsulatu. Mogą też być wynalazcami konkurującymi w zbudowaniu najlepszych automatów bojowych i zarabianiu pieniędzy na arenie Remiego w Dziewiątym Moście."
+          ],
+          "id": "026"
+        },
+        {
+          "type": "entries",
+          "name": "Eksploracja i kolonizacja dziczy",
+          "page": 14,
+          "entries": [
+            "Jest to nieco powiązane z podstawowym smakiem i tonem Kaladesh, ale twoja kampania może toczyć się z dala od miasta Ghirapur i wszystkich jego cudów. Poszukiwaczami przygód mogą być odkrywcy chcący sporządzić mapę najdalszych zakątków świata lub koloniści mający nadzieję założyć Nowe Ghirapur w odległej krainie. Poza zasięgiem rurociągów eterowych Ghirapur takie postacie mogą potrzebować kopać w poszukiwaniu geod eterowych, aby zasilić swoje wynalazki - lub mogą podróżować statkiem powietrznym, który może zbierać i oczyszczać eter z eteru. To, czego bohaterowie mogą dowiedzieć się w dziczy, zależy od Ciebie. Taka kampania może nawet obejmować zagrożenia w bardziej tradycyjnym stylu D&D, a wszystkie nasycone magią eteru."
+          ],
+          "id": "027"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/014.webp"
+          },
+          "width": 1125,
+          "height": 713,
+          "title": "Rękawica Dhunda działa podobnie jak rękawica Dhund {@item dagger of venom}.",
+          "credit": "Dhund Operative by Magali Villeneuve"
+        }
+      ],
+      "id": "024"
+    },
+    "1:025": {
+      "type": "entries",
+      "name": "Eterowy bunt",
+      "page": 14,
+      "entries": [
+        "Głównym wątkiem bloku Kaladesh jest jawny bunt renegatów, gdy rząd Konsulatu przyjmuje represyjny obrót. Kampania skupiająca się na tej rewolcie może postawić bohaterów gracza w sytuacji renegatów próbujących przejąć zbiornik eteru lub zaplanować sabotaż statku powietrznego Konsulatu. Alternatywnie mogą to być agenci Konsulatu próbujący stłumić rebelię lub być może ją zinfiltrować. Bunt może być także tłem dla kampanii skupionej bardziej na intrygach miejskich lub może przerwać regularne działania takiej kampanii. W takiej kampanii dostawy eteru mogą zostać znacznie ograniczone, co zwiększy koszty tworzenia i używania urządzeń zasilanych eterem. Zdobycie eteru mogłoby wówczas z łatwością stać się celem wielu przygód."
+      ],
+      "id": "025"
+    },
+    "1:026": {
+      "type": "entries",
+      "name": "Intryga miejska",
+      "page": 14,
+      "entries": [
+        "Miasto Ghirapur jest pełne możliwości przeżywania przygód skupiających się na intrygach i tajemnicach. Postaciami graczy mogą być przestępcy - być może agenci mafii pragnącej osłabić pozycję rywali. Mogą to być funkcjonariusze wymiaru sprawiedliwości lub szpiedzy Dhunda pracujący nad rozprawieniem się z działalnością przestępczą. Mogą to być wynalazcy lub śledczy badający zarzuty korupcji lub sabotażu podczas Targów Wynalazców. Mogą zostać wciągnięci w walkę o władzę pomiędzy Oświeconymi Strażnikami, władcami Konsulatu. Mogą też być wynalazcami konkurującymi w zbudowaniu najlepszych automatów bojowych i zarabianiu pieniędzy na arenie Remiego w Dziewiątym Moście."
+      ],
+      "id": "026"
+    },
+    "1:027": {
+      "type": "entries",
+      "name": "Eksploracja i kolonizacja dziczy",
+      "page": 14,
+      "entries": [
+        "Jest to nieco powiązane z podstawowym smakiem i tonem Kaladesh, ale twoja kampania może toczyć się z dala od miasta Ghirapur i wszystkich jego cudów. Poszukiwaczami przygód mogą być odkrywcy chcący sporządzić mapę najdalszych zakątków świata lub koloniści mający nadzieję założyć Nowe Ghirapur w odległej krainie. Poza zasięgiem rurociągów eterowych Ghirapur takie postacie mogą potrzebować kopać w poszukiwaniu geod eterowych, aby zasilić swoje wynalazki - lub mogą podróżować statkiem powietrznym, który może zbierać i oczyszczać eter z eteru. To, czego bohaterowie mogą dowiedzieć się w dziczy, zależy od Ciebie. Taka kampania może nawet obejmować zagrożenia w bardziej tradycyjnym stylu D&D, a wszystkie nasycone magią eteru."
+      ],
+      "id": "027"
+    },
+    "2:028": {
+      "type": "section",
+      "name": "Rasy Kaladesha",
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/015.webp"
+          },
+          "width": 1277,
+          "height": 1652,
+          "title": "Większy niż życie",
+          "credit": "Jaime Jones"
+        },
+        {
+          "type": "list",
+          "columns": 3,
+          "items": [
+            "{@race Aetherborn|PSK}",
+            "{@race Dwarf (Kaladesh)|PSK}",
+            "{@race Elf (Kaladesh)|PSK}",
+            "{@race Elf (Kaladesh; Bishatar and Tirahar)|PSK}",
+            "{@race Elf (Kaladesh; Vahadar)|PSK}",
+            "{@race Human (Kaladesh)|PSK}",
+            "{@race Vedalken|PSK}"
+          ]
+        }
+      ],
+      "id": "028"
+    },
+    "3:029": {
+      "type": "section",
+      "name": "Bestiariusz Kaladesha",
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSK/016.webp"
+          },
+          "width": 1275,
+          "height": 1650,
+          "title": "Prześladowca statku powietrznego",
+          "credit": "Chris Rahn"
+        },
+        {
+          "type": "list",
+          "columns": 3,
+          "items": [
+            "{@creature Angel|PSK}",
+            "{@creature Construct (Animated Armor)|PSK}",
+            "{@creature Construct (Helmed Horror)|PSK}",
+            "{@creature Construct (Modron)|PSK}",
+            "{@creature Construct (Shield Guardian)|PSK}",
+            "{@creature Demon|PSK}",
+            "{@creature Dragon|PSK}",
+            "{@creature Drake (Large)|PSK}",
+            "{@creature Drake (Small)|PSK}",
+            "{@creature Giant|PSK}",
+            "{@creature Gremlin|PSK}",
+            "{@creature Hellion (Huge)|PSK}",
+            "{@creature Hellion (Large)|PSK}",
+            "{@creature Hydra|PSK}",
+            "{@creature Lifecraft Elephant|PSK}",
+            "{@creature Servo|PSK}",
+            "{@creature Sky Leviathan|PSK}",
+            "{@creature Sky Whale|PSK}",
+            "{@creature Thopter (Bat)|PSK}",
+            "{@creature Thopter (Blood Hawk)|PSK}",
+            "{@creature Thopter (Eagle)|PSK}",
+            "{@creature Thopter (Hawk)|PSK}",
+            "{@creature Thopter (Owl)|PSK}",
+            "{@creature Thopter (Pseudodragon)|PSK}",
+            "{@creature Thopter (Raven)|PSK}",
+            "{@creature Thopter (Vulture)|PSK}",
+            "{@creature Wurm|PSK}"
+          ]
+        }
+      ],
+      "id": "029"
+    },
+    "4:02a": {
+      "type": "entries",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            "Napisane przez Jamesa Wyatta",
+            "Okładkę wykonał Adam Paquette",
+            "Montaż: Scott Fitzgerald Gray"
+          ]
+        }
+      ],
+      "id": "02a"
+    }
+  }
+}

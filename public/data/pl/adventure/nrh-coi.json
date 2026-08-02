@@ -1,0 +1,2971 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Przywracanie harmonii: cyrk iluzji",
+      "page": 2,
+      "entries": [
+        "Witamy w Restoring Harmony, serii przygodowej Dungeons & Dragons powstałej we współpracy ze smacznym i kolorowym światem NERDS.",
+        "Aby rozegrać tę przygodę, potrzebujesz piątej edycji Basic Rules for D&D, którą możesz pobrać bezpłatnie tutaj. Wszystkie potrzebne magiczne przedmioty i bloki statystyk potworów znajdują się na końcu tej przygody.",
+        "Restoring Harmony to kampania podzielona na sześć miniprzygód pierwszego poziomu dla pojedynczego gracza i jedną dłuższą przygodę dla wielu graczy. Każda mini przygoda trwa około 45 minut, a ostatnia przygoda zajmuje około 60-90 minut.",
+        "Miniprzygody można rozgrywać w dowolnej kolejności, ale ostateczną przygodę należy rozegrać jako ostatnią. Oto lista wszystkich przygód:",
+        {
+          "type": "list",
+          "items": [
+            "{@adventure Adventure 1 The Candy Mountain Caper|NRH-TCMC}",
+            "{@adventure Adventure 2 A Voice in the Wilderness|NRH-AVitW}",
+            "{@adventure Adventure 3 A Sticky Situation|NRH-ASS}",
+            "{@adventure Adventure 4 Circus of Illusions|NRH-CoI}",
+            "{@adventure Adventure 5 The Lost Tomb|NRH-TLT}",
+            "{@adventure Adventure 6 A Web of Lies|NRH-AWoL}",
+            "{@adventure Adventure 7 Adventure Together|NRH-AT}"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Podsumowanie historii",
+          "page": 2,
+          "entries": [
+            "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+            "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony.",
+            "Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+            "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+          ],
+          "id": "001"
+        },
+        {
+          "type": "entries",
+          "name": "Gra solo",
+          "page": 2,
+          "entries": [
+            "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+            "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+            {
+              "type": "entries",
+              "name": "TPK: Całkowite zniszczenie drużyny",
+              "page": 3,
+              "entries": [
+                "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+                "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+              ],
+              "id": "003"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "entries",
+          "name": "Zarys przygody",
+          "page": 3,
+          "entries": [
+            "Oto krótki opis przygody:",
+            {
+              "type": "list",
+              "items": [
+                "Do Barda Greena podchodzi pan Honeycutt, który pyta, czy pomoże mu znaleźć Szmaragdowy Klejnot. Pan Honeycutt wyśledził klejnot do lokalnego cyrku. Prosi Greena o infiltrację cyrku i odzyskanie klejnotu.",
+                "Po rozejrzeniu się i zbadaniu wszystkich postaci w cyrku Green odkrywa to {@creature Magnifico|NRH-CoI} Mag ma Szmaragdowy Klejnot, który ukrył w magicznym lustrze.",
+                "Green musi w jakiś sposób zdobyć klejnot od maga i uciec."
+              ]
+            }
+          ],
+          "id": "004"
+        },
+        {
+          "type": "entries",
+          "name": "Rozpoczęcie gry",
+          "page": 3,
+          "entries": [
+            "Wręcz kartę postaci (patrz „Green the Bard” poniżej) swojemu graczowi i pozwól mu zapoznać się z Greenem.",
+            "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć.",
+            "Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+          ],
+          "id": "005"
+        },
+        {
+          "type": "section",
+          "name": "Harmonia",
+          "page": 3,
+          "entries": [
+            "Przygoda rozpoczyna się w tętniącym życiem i kolorowym mieście Harmony, gdzie tajemnicze „awarie kolorów” zaczynają budzić niepokój. Jako NERDS mieszkańcy Harmonii mają optymistyczne nastawienie i starają się żyć najlepiej, jak potrafią, bez zbytniego zmartwienia, ale brak koloru niepokoi nawet najbardziej energicznych NERDSów.",
+            "Gdy odtwarzacz będzie gotowy, przeczytaj poniższe informacje:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                "Miasto Harmonii ma wiele wspaniałych cech, ale jest szczególnie znane z jednej rzeczy: żywych kolorów.",
+                "Ostatnio jednak mieszkańcami Harmonii wstrząsnęło dziwne zjawisko. W ciągu ostatnich kilku tygodni w całym mieście zgłoszono „przerwy w dostawie prądu”, przez co tętniące życiem ulice stały się nudne i szare, a nie ma zbyt wielu wskazówek, co może być ich przyczyną. Te awarie powodują niepokój mieszkańców Harmony i nikt nie jest pewien, co robić.",
+                "Dziś wieczorem odpoczywasz w swoim ulubionym miejscu w tawernie, kiedy wybredny facet w garniturze i okularach w rogowych oprawkach podchodzi do ciebie na krześle i nerwowo się rozgląda, zanim zacznie mówić."
+              ],
+              "id": "007"
+            },
+            "Nerwowy mężczyzna przedstawia się jako {@creature Mr. Honeycutt|NRH-TCMC} i mówi Greenowi, że potrzebuje ich pomocy w niezwykle ważnej sprawie. Jeśli Green chce wysłuchać pana Honeycutta, mówi Greenowi, że jest obecnym Magisterem Towarzystwa Lorekeeperów - starożytnej i tajnej grupy zajmującej się obroną Harmonii. Wierzy, że wie, jak rozwiązać zagadkę awarii kolorów i aby tego dokonać, musi odzyskać Szmaragdowy Klejnot. Wierzy, że ten klejnot jest w posiadaniu złodzieja przebywającego gdzieś w Cyrku Iluzji, ostoi rozrywki Harmonii. Pan Honeycutt twierdzi, że bard o talencie i uroku Greena z łatwością mógłby przedostać się do cyrku jako artysta. Jeśli Green jest ugodowy, pan Honeycutt daje Greenowi a {@item potion of healing} i szepcze: „Uważaj na klaunów”. Czeka na powrót Greena w tawernie."
+          ],
+          "id": "006"
+        },
+        {
+          "type": "section",
+          "name": "Cyrk Iluzji",
+          "page": 3,
+          "entries": [
+            "Cyrk Iluzji ma ogromny, duży namiot w sercu Harmonii. Cyrk służy jako miejsce rozrywki w każdy weekend i weekend, w którym odbywają się występy magiczne, występy bardów, iluzoryczne zwierzęta, artyści na trapezie i nie tylko.",
+            "W ostatnich tygodniach magiczny blask cyrku przygasł. Nawet czerwone paski dużego topu wydają się wyblakłe.",
+            {
+              "type": "entries",
+              "name": "Wejście",
+              "page": 4,
+              "entries": [
+                "Zielony może zapłacić 1 sp i wejść główną bramą lub się przekraść. Cyrk patrolują twardo wyglądający klauni w kolorowych kostiumach, dużych butach i czerwonych nosach. Chociaż klauni trąbią i zachowują się wesoło, jasne jest, że poradziliby sobie w walce.",
+                "Jeśli ktoś spróbuje włamać się do cyrku lub sprawić kłopoty, wpadnie w konflikt z kilkoma tymi klaunami. Unikanie klaunów wymaga sukcesu {@dc 12} Zręczność ({@skill Stealth}) sprawdzać. W przypadku niepowodzenia, {@dice 1d4} {@creature clown|NRH-CoI|klauni} zbadaj sprawę, gotowy uderzyć i wyrzucić wszelkich intruzów lub nieudaczników. Jeśli Green odwróci się i zacznie uciekać, klauni nie ruszają w pościg, lecz wykrzykują drwiny i trąbią na nich.",
+                "Urzekanie klaunów wymaga prawdziwych umiejętności i można je wykonać tylko w przypadku powodzenia {@dc 15} Charyzma ({@skill Persuasion}) sprawdzać."
+              ],
+              "id": "009"
+            },
+            {
+              "type": "entries",
+              "name": "Spotkania w cyrku",
+              "page": 4,
+              "entries": [
+                "Zieleń może spotkać w cyrku wiele barwnych postaci. Oto kilka z nich:",
+                {
+                  "type": "entries",
+                  "name": "Finstera",
+                  "page": 4,
+                  "entries": [
+                    "Finster jest {@creature imp} {@creature Magnifico|NRH-CoI} zawarł umowę z: dwuletnią piekielną służbą za lokalizację Szmaragdowego Klejnotu. Teraz, gdy transakcja została sfinalizowana, Finster cieszy się zmianami {@creature Magnifico|NRH-CoI}aby było ich więcej, aby mogli spełnić swoje marzenie o byciu gwiazdą.",
+                    "Finster spędza większość czasu w {@creature Magnifico|NRH-CoI}namiotu w postaci szczurów, pielęgnujących wąsy i czekających na wieczorny występ tuż przed północą. Rzadko kiedy pokazują swoją prawdziwą formę. Finster jest totalnym narcyzem i marzy o tym, żeby kiedyś to mieć {@creature Magnifico|NRH-CoI} jako ich asystent w ich własnym magicznym przedstawieniu.",
+                    "Jeśli Finster czuje, że może wykorzystać Szmaragdowy Klejnot, aby rozwinąć swoją karierę lub zawrzeć inny kontrakt, tak właśnie się dzieje. Finster nie jest lojalny {@creature Magnifico|NRH-CoI}innego niż wykorzystanie go dla własnych korzyści. Jeśli zostanie zaatakowany, Finster wrzeszczy, aby zaalarmować pobliskich klaunów i odwraca się {@condition invisible}.",
+                    {
+                      "type": "entries",
+                      "name": "Psotne oferty",
+                      "page": 4,
+                      "entries": [
+                        "Finster zawsze myśli o interesach i jest otwarty na zawarcie umowy z Greenem. Jakakolwiek umowa zawarta przez Greena z Finsterem jest wiążąca do czasu spełnienia warunków umowy. Jeśli Green złamie warunki, ich dusza przepadnie.",
+                        "Finster może zaoferować Greenowi następujące rzeczy, ale ostro się targuje i wymaga czegoś, co uważa za o równej (lub większej) wartości:",
+                        {
+                          "type": "list",
+                          "items": [
+                            "Lokalizacja Szmaragdowego Klejnotu.",
+                            "Przedmioty sztuki, monety lub klejnoty o wartości do 500 sztuk.",
+                            "Niezwykły magiczny przedmiot.",
+                            "Lojalna służba Finstera przez okres nieprzekraczający dziewięciu lat."
+                          ]
+                        }
+                      ],
+                      "id": "00c"
+                    }
+                  ],
+                  "id": "00b"
+                },
+                {
+                  "type": "entries",
+                  "name": "Wspaniałe",
+                  "page": 4,
+                  "entries": [
+                    "{@creature Magnifico|NRH-CoI} jest magiem o pewnych umiejętnościach, ale zamiast dalej doskonalić swoje rzemiosło, pragnął ucieczki od łatwych pieniędzy i wpadł w diaboliczne szpony Finstera, oportunistycznego chochlika. Finster odpowiedział {@creature Magnifico|NRH-CoI}błagania o złoto i sławę i zaoferował mu umowę: dwuletnią służbę w poszukiwaniu Szmaragdowego Klejnotu.",
+                    "{@creature Magnifico|NRH-CoI} słyszał o Szmaragdowym Klejnocie od podejrzanych postaci, które zna. Powiedzieli mu, że pan Greystone jest skłonny sowicie za to zapłacić i {@creature Magnifico|NRH-CoI} uznał to za swoją przepustkę do wyjścia z cyrkowego życia za drobne. Z pomocą Finstera, {@creature Magnifico|NRH-CoI} Znalazłem klejnot i teraz targuje się z panem Greystonem o cenę, która ma wynagrodzić jego dwuletnią piekielną służbę.",
+                    "{@creature Magnifico|NRH-CoI} nie jest czarodziejem, jego magiczne sztuczki to iluzje ręczne. W przypadku ataku kuli się i błaga o życie."
+                  ],
+                  "id": "00d"
+                },
+                {
+                  "type": "entries",
+                  "name": "Mimy",
+                  "page": 4,
+                  "entries": [
+                    "Po terenach cyrkowych błąkają się mimowie ({@creature commoner||zwykli ludzie}), którzy wykonują wszelkiego rodzaju ciche występy, takie jak schodzenie po schodach, otwieranie drzwi, ciągnięcie lin i poruszanie się {@condition invisible} obiekty.",
+                    "W dowolnym momencie możesz poprosić Greena o podejście mima i zapanowanie nad jedną z następujących wskazówek:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "Szczur maga zmienia się w chochlika.",
+                        "Mag ma kłopoty.",
+                        "Mim widział {@creature Magnifico|NRH-CoI} trzymający w swoim namiocie magiczny zielony klejnot.",
+                        "{@creature Magnifico|NRH-CoI} ukrył klejnot w magicznym lustrze."
+                      ]
+                    },
+                    "Możesz odegrać cichą wiadomość mima i poprosić gracza o odgadnięcie, co mówi mim. Mim przez cały czas pozostaje kamienny, chyba że musi okazywać przesadny wyraz smutku lub innej emocji. Jeśli twój gracz będzie sfrustrowany próbą odgadnięcia, poproś mima o wzruszenie ramionami, po twarzy mima spłyną smutne łzy i odejdź przygnębiony.",
+                    "Mimowie nigdy nie mówią, nawet jeśli zmusza ich magia. Tylko zaklęcie życzeń może przerwać ich milczenie.",
+                    "Jeśli Green zaatakuje mima, ten natychmiast ucieka lub kuli się i mim woła o pomoc."
+                  ],
+                  "id": "00e"
+                },
+                {
+                  "type": "entries",
+                  "name": "Rubina, mistrzyni cyrku",
+                  "page": 5,
+                  "entries": [
+                    "Rubina ({@creature noble}) jest ekscentrycznym i charyzmatycznym konferansjerem Circus of Illusions. Jest dobroduszną wiązką nerwowej energii, która pilnuje, aby cyrk działał bez zarzutów, organizując wszelkie rozrywki na każdy dzień.",
+                    {
+                      "type": "entries",
+                      "name": "Co Rubina wie",
+                      "page": 5,
+                      "entries": [
+                        "Ostatnio Rubina zaczęła się niepokoić o swojego najlepszego maga, {@creature Magnifico|NRH-CoI}. Rubina uważa, że ​​to prawdopodobnie tylko awarie kolorów, które niepokoją wszystkich, ale słyszała, jak w nocy kłócił się z kimś w swoim namiocie.",
+                        "Rubina nie lubi {@creature Magnifico|NRH-CoI}szczur, Finster, który {@creature Magnifico|NRH-CoI} występuje teraz w swoim magicznym akcie. Uważa, że ​​to okropna bestia i nie podoba jej się jej mały uśmieszek i paciorkowate oczy.",
+                        "Ona nie ma pojęcia o szmaragdach, ale {@creature Magnifico|NRH-CoI} powiedział, że będzie bogaty i że za rok opuści cyrk."
+                      ],
+                      "id": "010"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Dołącz do cyrku",
+                      "page": 5,
+                      "entries": [
+                        "W dowolnym momencie poproś Rubinę o podejście do Greena i powiedzenie następujących słów:",
+                        {
+                          "type": "insetReadaloud",
+                          "page": 5,
+                          "entries": [
+                            "Ty! Bard! Jesteś odpowiedzią na moje desperackie modlitwy do bogów rozrywki! Proszę ze mną!"
+                          ],
+                          "id": "012"
+                        },
+                        "Jeśli Green zgodzi się z podekscytowanym konferansjerem, Rubina zabiera Greena za kulisy w głównym namiocie (patrz obszar C2 poniżej).",
+                        "Rubina mówi Greenowi, że Filippo Fleetfinger, jej najlepszy występ muzyczny, został nagle odwołany z powodu melancholii spowodowanej przerwami w kolorystyce i teraz Green musi zająć jego miejsce i zabawiać tłum zgromadzony w dużym namiocie. Oferuje Greenowi aż 10 sz za występ.",
+                        "Jeśli Green odmówi, Rubina jest nieprzytomna ze strachu i nie wie, jak uspokoić rosnący gniew tłumu.",
+                        "Jeśli Green się zgodzi, Rubina klaszcze z radości. Pyta Greena, jaki jest ich pseudonim sceniczny. Jeśli Twój zawodnik ma pseudonim sceniczny dla Greena, poproś Rubinę, aby przedstawiła publiczność za pomocą tego pseudonimu. Jeśli twój gracz nie może nic wymyślić, Rubina mówi, żeby się nie martwić i wybiega na scenę, aby ogłosić, co następuje:",
+                        {
+                          "type": "insetReadaloud",
+                          "page": 5,
+                          "entries": [
+                            "A teraz dobrzy ludzie Harmonii! Mamy dla Was dziś wieczorem specjalną niespodziankę. Szukaliśmy blisko i daleko tego kolejnego aktu, największego artysty w całej Harmonii, Wirtuoza Zieleni, ZIELONEGO!"
+                          ],
+                          "id": "013"
+                        },
+                        "Następnie Rubina wprowadza Greena na scenę.",
+                        "Gracz może odegrać przedstawienie lub poprosić go o rzucenie okiem, aby zobaczyć, jak radzi sobie Green. Niech gracz wybierze jedną z następujących opcji:",
+                        {
+                          "type": "list",
+                          "style": "list-hang-notitle",
+                          "items": [
+                            {
+                              "type": "item",
+                              "name": "Graj bezpiecznie",
+                              "entries": [
+                                "Green gra bezpiecznie i zapewnia solidną, ale pozbawioną inspiracji wydajność. Jeśli twój gracz odegra inspirującą rolę w odgrywaniu ról, daj mu przewagę w teście. Zielony musi zrobić {@dc 12} Charyzma ({@skill Performance}) sprawdzać. W przypadku niepowodzenia pojawia się kilka zmarszczonych brwi i może kilka ziewnięć. Najwyraźniej nie spodziewali się wiele. W przypadku sukcesu publiczność grzecznie klaszcze, a potem szybko zapomina o występie, czekając na następny występ."
+                              ]
+                            },
+                            {
+                              "type": "item",
+                              "name": "Idź po to!",
+                              "entries": [
+                                "Green próbuje dokonać występu swojego życia z {@dc 15} Charyzma ({@skill Performance}) sprawdzać. Jeśli Twój gracz odegra inspirującą rolę w odgrywaniu ról, będzie miał przewagę w szachach, a nawet możesz pozwolić mu na odniesienie sukcesu. W przypadku niepowodzenia słychać jęki publiczności, a Rubinie udaje się wywołać wspierający uśmiech, ale wygląda na przygnębioną. Kiedy udaje się osiągnąć sukces, umysły są oszołomione, tłum szaleje i słychać wołanie o bisy. Po przedstawieniu wymagane są podpisy. Od teraz Green jest gwiazdą miasta Harmony. Pod koniec całego zamieszania Rubina podchodzi do Greena ze łzami w oczach i daje Greenowi doss lutnię. W tłumie słychać westchnienie. „To było wzniosłe. Prezent, który na zawsze podniósł mnie na duchu” - mówi Rubina."
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "id": "011"
+                    }
+                  ],
+                  "id": "00f"
+                }
+              ],
+              "id": "00a"
+            },
+            {
+              "type": "entries",
+              "name": "Odkrywanie cyrku",
+              "page": 5,
+              "entries": [
+                "Do mapy Circus of Illusions przypisane są następujące lokalizacje:",
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-CoI/008.webp"
+                  },
+                  "width": 1960,
+                  "height": 1470,
+                  "mapRegions": [
+                    {
+                      "area": "01c",
+                      "points": [
+                        [
+                          359,
+                          727
+                        ],
+                        [
+                          387,
+                          630
+                        ],
+                        [
+                          480,
+                          606
+                        ],
+                        [
+                          547,
+                          677
+                        ],
+                        [
+                          521,
+                          769
+                        ],
+                        [
+                          429,
+                          796
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "016",
+                      "points": [
+                        [
+                          726,
+                          737
+                        ],
+                        [
+                          734,
+                          686
+                        ],
+                        [
+                          756,
+                          623
+                        ],
+                        [
+                          781,
+                          579
+                        ],
+                        [
+                          820,
+                          540
+                        ],
+                        [
+                          860,
+                          517
+                        ],
+                        [
+                          913,
+                          496
+                        ],
+                        [
+                          967,
+                          484
+                        ],
+                        [
+                          1019,
+                          489
+                        ],
+                        [
+                          1066,
+                          500
+                        ],
+                        [
+                          1107,
+                          521
+                        ],
+                        [
+                          1151,
+                          554
+                        ],
+                        [
+                          1183,
+                          594
+                        ],
+                        [
+                          1203,
+                          633
+                        ],
+                        [
+                          1221,
+                          683
+                        ],
+                        [
+                          1233,
+                          746
+                        ],
+                        [
+                          1217,
+                          811
+                        ],
+                        [
+                          1193,
+                          864
+                        ],
+                        [
+                          1156,
+                          911
+                        ],
+                        [
+                          1117,
+                          947
+                        ],
+                        [
+                          1050,
+                          977
+                        ],
+                        [
+                          987,
+                          984
+                        ],
+                        [
+                          910,
+                          973
+                        ],
+                        [
+                          850,
+                          947
+                        ],
+                        [
+                          806,
+                          916
+                        ],
+                        [
+                          763,
+                          867
+                        ],
+                        [
+                          741,
+                          809
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01e",
+                      "points": [
+                        [
+                          481,
+                          401
+                        ],
+                        [
+                          523,
+                          314
+                        ],
+                        [
+                          611,
+                          331
+                        ],
+                        [
+                          626,
+                          419
+                        ],
+                        [
+                          546,
+                          463
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01f",
+                      "points": [
+                        [
+                          864,
+                          259
+                        ],
+                        [
+                          879,
+                          210
+                        ],
+                        [
+                          921,
+                          200
+                        ],
+                        [
+                          956,
+                          231
+                        ],
+                        [
+                          940,
+                          279
+                        ],
+                        [
+                          896,
+                          289
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "017",
+                      "points": [
+                        [
+                          1333,
+                          316
+                        ],
+                        [
+                          1333,
+                          450
+                        ],
+                        [
+                          1471,
+                          450
+                        ],
+                        [
+                          1471,
+                          316
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01f",
+                      "points": [
+                        [
+                          1491,
+                          799
+                        ],
+                        [
+                          1530,
+                          760
+                        ],
+                        [
+                          1581,
+                          784
+                        ],
+                        [
+                          1573,
+                          840
+                        ],
+                        [
+                          1521,
+                          847
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "015",
+                      "points": [
+                        [
+                          1819,
+                          880
+                        ],
+                        [
+                          1920,
+                          911
+                        ],
+                        [
+                          1887,
+                          1011
+                        ],
+                        [
+                          1790,
+                          979
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01e",
+                      "points": [
+                        [
+                          664,
+                          1190
+                        ],
+                        [
+                          700,
+                          1090
+                        ],
+                        [
+                          797,
+                          1121
+                        ],
+                        [
+                          767,
+                          1220
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01f",
+                      "points": [
+                        [
+                          1144,
+                          1146
+                        ],
+                        [
+                          1183,
+                          1114
+                        ],
+                        [
+                          1230,
+                          1131
+                        ],
+                        [
+                          1224,
+                          1186
+                        ],
+                        [
+                          1170,
+                          1196
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01f",
+                      "points": [
+                        [
+                          1386,
+                          1200
+                        ],
+                        [
+                          1354,
+                          1166
+                        ],
+                        [
+                          1364,
+                          1124
+                        ],
+                        [
+                          1411,
+                          1110
+                        ],
+                        [
+                          1446,
+                          1140
+                        ],
+                        [
+                          1436,
+                          1190
+                        ]
+                      ]
+                    }
+                  ],
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 70,
+                    "scale": 2
+                  },
+                  "hrefThumbnail": {
+                    "type": "internal",
+                    "path": "adventure/NRH-CoI/thumbnail/008.webp"
+                  },
+                  "id": "023",
+                  "credit": "Red Central"
+                },
+                {
+                  "type": "entries",
+                  "name": "C1. Kasa biletowa",
+                  "page": 5,
+                  "entries": [
+                    "Obok głównej bramy znajduje się kiosk, w którym Woody, magicznie ożywiona drewniana kukiełka, pobiera opłatę za wstęp za 1 sp, stempluje dłonie bywalców cyrku stemplem szczęśliwej buźki i życzy wszystkim dobrej zabawy.",
+                    "Okrągła twarz Woody'ego jest pomalowana na szeroki uśmiech, ale jeśli ktoś spróbuje ominąć, nie płacąc lub powodując kłopoty, twarz odwraca się do góry nogami, zamieniając się w wielki grymas, a Woody zaczyna nawoływać klaunów, aby wykończyli przestępcę. Chudy nie potrafi walczyć, a jeśli zostanie zaatakowany, łatwo zostaje zamieniony w stertę patyków."
+                  ],
+                  "id": "015"
+                },
+                {
+                  "type": "entries",
+                  "name": "C2. Główny namiot",
+                  "page": 6,
+                  "entries": [
+                    "Wewnątrz tego dużego czerwonego namiotu znajduje się podwyższona drewniana scena z zasłonami i zapleczem, gdzie aktorzy i inni wykonawcy mogą się przebrać i przygotować do swoich występów. Ławki otaczają przód sceny, a za nimi znajdują się bele siana, na których widzowie mogą usiąść i cieszyć się występami.",
+                    "O każdej porze na scenie występują połykacze mieczy, połykacze ognia, żonglerzy, akrobaci, muzycy, gawędziarze i oczywiście: {@creature Magnifico|NRH-CoI}magiczny akt."
+                  ],
+                  "id": "016"
+                },
+                {
+                  "type": "entries",
+                  "name": "C3. Namiot Magnifico",
+                  "page": 6,
+                  "entries": [
+                    "Na zewnątrz tego namiotu drewniana tablica głosi: „{@creature Magnifico|NRH-CoI} Wielki” kwiecistymi, malowanymi literami. Dwaj nieogoleni {@creature clown|NRH-CoI|klauni} stoją po obu stronach wejścia, jeden dłubi w zębach złamaną kością kurczaka. Klauni powstrzymują każdego, kto próbuje wejść do namiotu i nie wahają się przed eskalacją do ciosów.",
+                    {
+                      "type": "entries",
+                      "name": "Wkradanie się",
+                      "page": 6,
+                      "entries": [
+                        "Jeśli Zielony chce wejść ukradkiem, musi mu się to udać {@dc 12} Zręczność ({@skill Stealth}) sprawdź lub zaalarmuj klaunów lub Finstera (an {@creature imp}), który jest w namiocie w postaci szczura."
+                      ],
+                      "id": "018"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Wewnątrz namiotu",
+                      "page": 6,
+                      "entries": [
+                        "Wewnątrz namiotu znajduje się mały stolik z dwoma krzesłami, otoczony narzędziami {@creature Magnifico|NRH-CoI}zawód: cylinder, jedwabne chusteczki do nosa, szafka z fałszywym tyłem, talia kart do gry, kryształowa kula, duże lustro w ozdobnej ramie i biały gołąb w klatce. Jeśli Finster żyje, oni także są w namiocie w postaci szczurów. Jeśli Greenowi udało się wkraść do środka, zaskakują Finstera, który udaje zwykłego szczura-maga, ale uważnie obserwuje, co robi Green. Możesz także pokrzyżować plany Finstera, pozwalając Greenowi zaskoczyć go, gdy jest w formie chochlika.",
+                        "Jeśli Finster usłyszał nadchodzącego Greena, ukrywają się i obserwują Greena z cienia. Wykrycie Finstera, gdy jest ukryty, wymaga powodzenia {@dc 15} Mądrość ({@skill Perception}) sprawdzać.",
+                        "Jeśli wydaje się, że Green szuka Szmaragdowego Klejnotu, Finster daje się poznać i oferuje ujawnienie jego lokalizacji - za odpowiednią opłatą (patrz „Oszustwa” powyżej)."
+                      ],
+                      "id": "019"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Szmaragdowy klejnot",
+                      "page": 6,
+                      "entries": [
+                        "{@creature Magnifico|NRH-CoI} ukrył Szmaragdowy Klejnot w magicznym lustrze w ozdobnej ramie. Lustro jest w rzeczywistości portalem do małego półplanu o powierzchni 5 stóp kwadratowych, w którym Szmaragdowy Klejnot jest przechowywany w zamkniętym pudełku. Jeśli dotkniemy lustra, jego powierzchnia faluje jak woda. Green może przejść przez powierzchnię lustra do półplanu, w którym znajduje się zamknięta skrzynka. Wewnątrz półplanu jest całkowicie ciemno."
+                      ],
+                      "id": "01a"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Zamknięte pudełko",
+                      "page": 6,
+                      "entries": [
+                        "To proste hebanowe pudełko z magicznym zamkiem zawiera Szmaragdowy Klejnot. Skrzynia ma KP 12, 10 punktów wytrzymałości, próg obrażeń 5 oraz odporność na trucizny i obrażenia psychiczne. (Próg obrażeń pudełka oznacza, że ​​jest odporny na wszystkie obrażenia, chyba że otrzyma 5 lub więcej obrażeń, w którym to przypadku otrzymuje normalne obrażenia. Zadanie 4 lub mniej obrażeń pudełku jest uważane za obrażenia powierzchowne i nie zmniejsza punktów wytrzymałości pudełka.)",
+                        "Zamek skrzynki można z powodzeniem otworzyć {@dc 14} Zręczność ({@skill Sleight of Hand}) sprawdzać."
+                      ],
+                      "id": "01b"
+                    }
+                  ],
+                  "id": "017"
+                },
+                {
+                  "type": "entries",
+                  "name": "C4. Namiot Rubiny",
+                  "page": 6,
+                  "entries": [
+                    "Jeśli Rubina (a {@creature noble}) jest tutaj, przegląda nadchodzący harmonogram wydarzeń na dzisiejszy wieczór i kilka następnych dni. Jest tam biurko, dwa drewniane krzesła, mały stolik i sofa. Dopóki są dla niej mili, Rubina traktuje każdego, kto wejdzie do jej namiotu, tak jak zrobiłby to życzliwy uczeń."
+                  ],
+                  "id": "01c"
+                },
+                {
+                  "type": "entries",
+                  "name": "C5. Namiot Filippo Fleetfingera",
+                  "page": 6,
+                  "entries": [
+                    "Wewnątrz tego namiotu przebywa ponury bard Filippo (ur {@creature noble}). Filippo nic nie wie o Szmaragdowym Klejnocie, ale jest mu smutno z powodu utraty kolorów i pisze o nich głęboko emocjonalne wiersze.",
+                    "Zauważył, że ostatnio {@creature Magnifico|NRH-CoI} wydaje się dziwny i jest trochę zbulwersowany faktem, że niegdyś gustowny program {@creature Magnifico|NRH-CoI} wydaje się teraz poświęcony jego okropnemu szczurowi.",
+                    "Namiot Filippo jest wypełniony instrumentami i zaśmiecony stronami jego serdecznej poezji."
+                  ],
+                  "id": "01d"
+                },
+                {
+                  "type": "entries",
+                  "name": "C6. Namiot Siłaczki Imeldy",
+                  "page": 6,
+                  "entries": [
+                    "Jeśli {@creature Imelda|NRH-CoI} jest tutaj, popija herbatę i przeżuwa ciasta pomiędzy występami. Uwielbia rozmawiać i zawsze jest gotowa zapewnić dobry program ćwiczeń każdemu zainteresowanemu. {@creature Imelda|NRH-CoI} nic nie wie o Szmaragdowym Klejnocie, ale jest zaciekle lojalna wobec cyrku i Rubiny i zrobi wszystko, aby ich chronić. Jej namiot jest wypełniony sztangami, żelaznymi drążkami i trofeami za wszystkie jej przeszłe wyczyny siłowe."
+                  ],
+                  "id": "01e"
+                },
+                {
+                  "type": "entries",
+                  "name": "C7. Sprzedawcy",
+                  "page": 7,
+                  "entries": [
+                    "Te namioty są przeznaczone dla sprzedawców smacznych przysmaków, takich jak kukurydza, karmelowe jabłka i toad-in-the-holes. Możesz także rozegrać test wytrzymałościowy, w którym uderzasz młotkiem w dźwignię, aby zadzwonić. Zielony musi wykonać udany test Siły {@dc 14} ({@skill Athletics}), aby zadzwonić i wygrać nagrodę (wypchanego potwora wybranego przez gracza)."
+                  ],
+                  "id": "01f"
+                }
+              ],
+              "id": "014"
+            },
+            {
+              "type": "entries",
+              "name": "Zdobycie klejnotu",
+              "page": 7,
+              "entries": [
+                "Kiedy mimowie i Rubina wskażą Greenowi kierunek {@creature Magnifico|NRH-CoI}, Zielony może zdobyć klejnot na wiele sposobów. Oto kilka pomysłów:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Niech Green odkryje dokładne miejsce pobytu klejnotu, szpiegując go {@creature Magnifico|NRH-CoI}, który obsesyjnie sprawdza klejnot, aby upewnić się, że jego jajo gniazdowe jest bezpieczne.",
+                    "Niech Finster odda lokalizację klejnotu za określoną cenę.",
+                    "Zorganizuj atak kilku {@creature clown|NRH-CoI|klauni} którzy zostali wynajęci przez pana Greystone'a do kradzieży klejnotu {@creature Magnifico|NRH-CoI}namiot. Jeśli {@creature Magnifico|NRH-CoI} usłyszy o tym, może w desperacji przyjechać do Green. Zielony może skorzystać z pomocy {@creature Imelda|NRH-CoI} aby przechylić szalę zwycięstwa na swoją korzyść, jeśli dojdzie do walki.",
+                    "Niech Zielony spróbuje zdobyć klejnot podczas jednego z nich {@creature Magnifico|NRH-CoI}Magia działa, gdy ma na scenie magiczne lustro, co skutkuje wspaniałym spektaklem dla publiczności."
+                  ]
+                },
+                "Na koniec Green powinien zdobyć Szmaragdowy Klejnot i {@item Instrument of the Bards, Doss Lute||dos lutnia} (jeśli Rubina już im tego nie dała) jako podziękowanie za bohaterstwo Greena w tak nudnych i ponurych czasach."
+              ],
+              "id": "020"
+            },
+            {
+              "type": "entries",
+              "name": "Ukończenie Misji",
+              "page": 7,
+              "entries": [
+                "Jeśli wszystko pójdzie dobrze, Green spotyka się z panem Honeycuttem i zwraca mu Szmaragdowy Klejnot. Możesz spotkać pana Honeycutta z Greenem w tej samej tawernie, co na początku przygody, lub w bibliotece w Harmony.",
+                "Pan Honeycutt jest uszczęśliwiony powrotem Szmaragdowego Klejnotu i chce wiedzieć wszystko o tej przygodzie, słuchając i robiąc obszerne notatki w swoim czarnym notatniku.",
+                "Za ich odwagę i poświęcenie dla dobra Harmonii daje Greenowi sakiewkę zawierającą 20 sztuk i zaprasza ich do przyłączenia się do Towarzystwa Lorekeeper."
+              ],
+              "id": "021"
+            }
+          ],
+          "id": "008"
+        },
+        {
+          "type": "section",
+          "name": "Magiczne przedmioty",
+          "page": 7,
+          "entries": [
+            "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+            {
+              "type": "list",
+              "items": [
+                "{@item Instrument of the Bards, Doss Lute}"
+              ]
+            }
+          ],
+          "id": "022"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-CoI/sheet007.webp"
+          },
+          "width": 1275,
+          "height": 825
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-CoI/sheet008.webp"
+          },
+          "width": 1275,
+          "height": 825
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Podsumowanie historii",
+      "page": 2,
+      "entries": [
+        "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+        "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony.",
+        "Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+        "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "entries",
+      "name": "Gra solo",
+      "page": 2,
+      "entries": [
+        "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+        "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+        {
+          "type": "entries",
+          "name": "TPK: Całkowite zniszczenie drużyny",
+          "page": 3,
+          "entries": [
+            "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+            "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+          ],
+          "id": "003"
+        }
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "name": "TPK: Całkowite zniszczenie drużyny",
+      "page": 3,
+      "entries": [
+        "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+        "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "entries",
+      "name": "Zarys przygody",
+      "page": 3,
+      "entries": [
+        "Oto krótki opis przygody:",
+        {
+          "type": "list",
+          "items": [
+            "Do Barda Greena podchodzi pan Honeycutt, który pyta, czy pomoże mu znaleźć Szmaragdowy Klejnot. Pan Honeycutt wyśledził klejnot do lokalnego cyrku. Prosi Greena o infiltrację cyrku i odzyskanie klejnotu.",
+            "Po rozejrzeniu się i zbadaniu wszystkich postaci w cyrku Green odkrywa to {@creature Magnifico|NRH-CoI} Mag ma Szmaragdowy Klejnot, który ukrył w magicznym lustrze.",
+            "Green musi w jakiś sposób zdobyć klejnot od maga i uciec."
+          ]
+        }
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Rozpoczęcie gry",
+      "page": 3,
+      "entries": [
+        "Wręcz kartę postaci (patrz „Green the Bard” poniżej) swojemu graczowi i pozwól mu zapoznać się z Greenem.",
+        "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć.",
+        "Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+      ],
+      "id": "005"
+    },
+    "0:006": {
+      "type": "section",
+      "name": "Harmonia",
+      "page": 3,
+      "entries": [
+        "Przygoda rozpoczyna się w tętniącym życiem i kolorowym mieście Harmony, gdzie tajemnicze „awarie kolorów” zaczynają budzić niepokój. Jako NERDS mieszkańcy Harmonii mają optymistyczne nastawienie i starają się żyć najlepiej, jak potrafią, bez zbytniego zmartwienia, ale brak koloru niepokoi nawet najbardziej energicznych NERDSów.",
+        "Gdy odtwarzacz będzie gotowy, przeczytaj poniższe informacje:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            "Miasto Harmonii ma wiele wspaniałych cech, ale jest szczególnie znane z jednej rzeczy: żywych kolorów.",
+            "Ostatnio jednak mieszkańcami Harmonii wstrząsnęło dziwne zjawisko. W ciągu ostatnich kilku tygodni w całym mieście zgłoszono „przerwy w dostawie prądu”, przez co tętniące życiem ulice stały się nudne i szare, a nie ma zbyt wielu wskazówek, co może być ich przyczyną. Te awarie powodują niepokój mieszkańców Harmony i nikt nie jest pewien, co robić.",
+            "Dziś wieczorem odpoczywasz w swoim ulubionym miejscu w tawernie, kiedy wybredny facet w garniturze i okularach w rogowych oprawkach podchodzi do ciebie na krześle i nerwowo się rozgląda, zanim zacznie mówić."
+          ],
+          "id": "007"
+        },
+        "Nerwowy mężczyzna przedstawia się jako {@creature Mr. Honeycutt|NRH-TCMC} i mówi Greenowi, że potrzebuje ich pomocy w niezwykle ważnej sprawie. Jeśli Green chce wysłuchać pana Honeycutta, mówi Greenowi, że jest obecnym Magisterem Towarzystwa Lorekeeperów - starożytnej i tajnej grupy zajmującej się obroną Harmonii. Wierzy, że wie, jak rozwiązać zagadkę awarii kolorów i aby tego dokonać, musi odzyskać Szmaragdowy Klejnot. Wierzy, że ten klejnot jest w posiadaniu złodzieja przebywającego gdzieś w Cyrku Iluzji, ostoi rozrywki Harmonii. Pan Honeycutt twierdzi, że bard o talencie i uroku Greena z łatwością mógłby przedostać się do cyrku jako artysta. Jeśli Green jest ugodowy, pan Honeycutt daje Greenowi a {@item potion of healing} i szepcze: „Uważaj na klaunów”. Czeka na powrót Greena w tawernie."
+      ],
+      "id": "006"
+    },
+    "0:008": {
+      "type": "section",
+      "name": "Cyrk Iluzji",
+      "page": 3,
+      "entries": [
+        "Cyrk Iluzji ma ogromny, duży namiot w sercu Harmonii. Cyrk służy jako miejsce rozrywki w każdy weekend i weekend, w którym odbywają się występy magiczne, występy bardów, iluzoryczne zwierzęta, artyści na trapezie i nie tylko.",
+        "W ostatnich tygodniach magiczny blask cyrku przygasł. Nawet czerwone paski dużego topu wydają się wyblakłe.",
+        {
+          "type": "entries",
+          "name": "Wejście",
+          "page": 4,
+          "entries": [
+            "Zielony może zapłacić 1 sp i wejść główną bramą lub się przekraść. Cyrk patrolują twardo wyglądający klauni w kolorowych kostiumach, dużych butach i czerwonych nosach. Chociaż klauni trąbią i zachowują się wesoło, jasne jest, że poradziliby sobie w walce.",
+            "Jeśli ktoś spróbuje włamać się do cyrku lub sprawić kłopoty, wpadnie w konflikt z kilkoma tymi klaunami. Unikanie klaunów wymaga sukcesu {@dc 12} Zręczność ({@skill Stealth}) sprawdzać. W przypadku niepowodzenia, {@dice 1d4} {@creature clown|NRH-CoI|klauni} zbadaj sprawę, gotowy uderzyć i wyrzucić wszelkich intruzów lub nieudaczników. Jeśli Green odwróci się i zacznie uciekać, klauni nie ruszają w pościg, lecz wykrzykują drwiny i trąbią na nich.",
+            "Urzekanie klaunów wymaga prawdziwych umiejętności i można je wykonać tylko w przypadku powodzenia {@dc 15} Charyzma ({@skill Persuasion}) sprawdzać."
+          ],
+          "id": "009"
+        },
+        {
+          "type": "entries",
+          "name": "Spotkania w cyrku",
+          "page": 4,
+          "entries": [
+            "Zieleń może spotkać w cyrku wiele barwnych postaci. Oto kilka z nich:",
+            {
+              "type": "entries",
+              "name": "Finstera",
+              "page": 4,
+              "entries": [
+                "Finster jest {@creature imp} {@creature Magnifico|NRH-CoI} zawarł umowę z: dwuletnią piekielną służbą za lokalizację Szmaragdowego Klejnotu. Teraz, gdy transakcja została sfinalizowana, Finster cieszy się zmianami {@creature Magnifico|NRH-CoI}aby było ich więcej, aby mogli spełnić swoje marzenie o byciu gwiazdą.",
+                "Finster spędza większość czasu w {@creature Magnifico|NRH-CoI}namiotu w postaci szczurów, pielęgnujących wąsy i czekających na wieczorny występ tuż przed północą. Rzadko kiedy pokazują swoją prawdziwą formę. Finster jest totalnym narcyzem i marzy o tym, żeby kiedyś to mieć {@creature Magnifico|NRH-CoI} jako ich asystent w ich własnym magicznym przedstawieniu.",
+                "Jeśli Finster czuje, że może wykorzystać Szmaragdowy Klejnot, aby rozwinąć swoją karierę lub zawrzeć inny kontrakt, tak właśnie się dzieje. Finster nie jest lojalny {@creature Magnifico|NRH-CoI}innego niż wykorzystanie go dla własnych korzyści. Jeśli zostanie zaatakowany, Finster wrzeszczy, aby zaalarmować pobliskich klaunów i odwraca się {@condition invisible}.",
+                {
+                  "type": "entries",
+                  "name": "Psotne oferty",
+                  "page": 4,
+                  "entries": [
+                    "Finster zawsze myśli o interesach i jest otwarty na zawarcie umowy z Greenem. Jakakolwiek umowa zawarta przez Greena z Finsterem jest wiążąca do czasu spełnienia warunków umowy. Jeśli Green złamie warunki, ich dusza przepadnie.",
+                    "Finster może zaoferować Greenowi następujące rzeczy, ale ostro się targuje i wymaga czegoś, co uważa za o równej (lub większej) wartości:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "Lokalizacja Szmaragdowego Klejnotu.",
+                        "Przedmioty sztuki, monety lub klejnoty o wartości do 500 sztuk.",
+                        "Niezwykły magiczny przedmiot.",
+                        "Lojalna służba Finstera przez okres nieprzekraczający dziewięciu lat."
+                      ]
+                    }
+                  ],
+                  "id": "00c"
+                }
+              ],
+              "id": "00b"
+            },
+            {
+              "type": "entries",
+              "name": "Wspaniałe",
+              "page": 4,
+              "entries": [
+                "{@creature Magnifico|NRH-CoI} jest magiem o pewnych umiejętnościach, ale zamiast dalej doskonalić swoje rzemiosło, pragnął ucieczki od łatwych pieniędzy i wpadł w diaboliczne szpony Finstera, oportunistycznego chochlika. Finster odpowiedział {@creature Magnifico|NRH-CoI}błagania o złoto i sławę i zaoferował mu umowę: dwuletnią służbę w poszukiwaniu Szmaragdowego Klejnotu.",
+                "{@creature Magnifico|NRH-CoI} słyszał o Szmaragdowym Klejnocie od podejrzanych postaci, które zna. Powiedzieli mu, że pan Greystone jest skłonny sowicie za to zapłacić i {@creature Magnifico|NRH-CoI} uznał to za swoją przepustkę do wyjścia z cyrkowego życia za drobne. Z pomocą Finstera, {@creature Magnifico|NRH-CoI} Znalazłem klejnot i teraz targuje się z panem Greystonem o cenę, która ma wynagrodzić jego dwuletnią piekielną służbę.",
+                "{@creature Magnifico|NRH-CoI} nie jest czarodziejem, jego magiczne sztuczki to iluzje ręczne. W przypadku ataku kuli się i błaga o życie."
+              ],
+              "id": "00d"
+            },
+            {
+              "type": "entries",
+              "name": "Mimy",
+              "page": 4,
+              "entries": [
+                "Po terenach cyrkowych błąkają się mimowie ({@creature commoner||zwykli ludzie}), którzy wykonują wszelkiego rodzaju ciche występy, takie jak schodzenie po schodach, otwieranie drzwi, ciągnięcie lin i poruszanie się {@condition invisible} obiekty.",
+                "W dowolnym momencie możesz poprosić Greena o podejście mima i zapanowanie nad jedną z następujących wskazówek:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Szczur maga zmienia się w chochlika.",
+                    "Mag ma kłopoty.",
+                    "Mim widział {@creature Magnifico|NRH-CoI} trzymający w swoim namiocie magiczny zielony klejnot.",
+                    "{@creature Magnifico|NRH-CoI} ukrył klejnot w magicznym lustrze."
+                  ]
+                },
+                "Możesz odegrać cichą wiadomość mima i poprosić gracza o odgadnięcie, co mówi mim. Mim przez cały czas pozostaje kamienny, chyba że musi okazywać przesadny wyraz smutku lub innej emocji. Jeśli twój gracz będzie sfrustrowany próbą odgadnięcia, poproś mima o wzruszenie ramionami, po twarzy mima spłyną smutne łzy i odejdź przygnębiony.",
+                "Mimowie nigdy nie mówią, nawet jeśli zmusza ich magia. Tylko zaklęcie życzeń może przerwać ich milczenie.",
+                "Jeśli Green zaatakuje mima, ten natychmiast ucieka lub kuli się i mim woła o pomoc."
+              ],
+              "id": "00e"
+            },
+            {
+              "type": "entries",
+              "name": "Rubina, mistrzyni cyrku",
+              "page": 5,
+              "entries": [
+                "Rubina ({@creature noble}) jest ekscentrycznym i charyzmatycznym konferansjerem Circus of Illusions. Jest dobroduszną wiązką nerwowej energii, która pilnuje, aby cyrk działał bez zarzutów, organizując wszelkie rozrywki na każdy dzień.",
+                {
+                  "type": "entries",
+                  "name": "Co Rubina wie",
+                  "page": 5,
+                  "entries": [
+                    "Ostatnio Rubina zaczęła się niepokoić o swojego najlepszego maga, {@creature Magnifico|NRH-CoI}. Rubina uważa, że ​​to prawdopodobnie tylko awarie kolorów, które niepokoją wszystkich, ale słyszała, jak w nocy kłócił się z kimś w swoim namiocie.",
+                    "Rubina nie lubi {@creature Magnifico|NRH-CoI}szczur, Finster, który {@creature Magnifico|NRH-CoI} występuje teraz w swoim magicznym akcie. Uważa, że ​​to okropna bestia i nie podoba jej się jej mały uśmieszek i paciorkowate oczy.",
+                    "Ona nie ma pojęcia o szmaragdach, ale {@creature Magnifico|NRH-CoI} powiedział, że będzie bogaty i że za rok opuści cyrk."
+                  ],
+                  "id": "010"
+                },
+                {
+                  "type": "entries",
+                  "name": "Dołącz do cyrku",
+                  "page": 5,
+                  "entries": [
+                    "W dowolnym momencie poproś Rubinę o podejście do Greena i powiedzenie następujących słów:",
+                    {
+                      "type": "insetReadaloud",
+                      "page": 5,
+                      "entries": [
+                        "Ty! Bard! Jesteś odpowiedzią na moje desperackie modlitwy do bogów rozrywki! Proszę ze mną!"
+                      ],
+                      "id": "012"
+                    },
+                    "Jeśli Green zgodzi się z podekscytowanym konferansjerem, Rubina zabiera Greena za kulisy w głównym namiocie (patrz obszar C2 poniżej).",
+                    "Rubina mówi Greenowi, że Filippo Fleetfinger, jej najlepszy występ muzyczny, został nagle odwołany z powodu melancholii spowodowanej przerwami w kolorystyce i teraz Green musi zająć jego miejsce i zabawiać tłum zgromadzony w dużym namiocie. Oferuje Greenowi aż 10 sz za występ.",
+                    "Jeśli Green odmówi, Rubina jest nieprzytomna ze strachu i nie wie, jak uspokoić rosnący gniew tłumu.",
+                    "Jeśli Green się zgodzi, Rubina klaszcze z radości. Pyta Greena, jaki jest ich pseudonim sceniczny. Jeśli Twój zawodnik ma pseudonim sceniczny dla Greena, poproś Rubinę, aby przedstawiła publiczność za pomocą tego pseudonimu. Jeśli twój gracz nie może nic wymyślić, Rubina mówi, żeby się nie martwić i wybiega na scenę, aby ogłosić, co następuje:",
+                    {
+                      "type": "insetReadaloud",
+                      "page": 5,
+                      "entries": [
+                        "A teraz dobrzy ludzie Harmonii! Mamy dla Was dziś wieczorem specjalną niespodziankę. Szukaliśmy blisko i daleko tego kolejnego aktu, największego artysty w całej Harmonii, Wirtuoza Zieleni, ZIELONEGO!"
+                      ],
+                      "id": "013"
+                    },
+                    "Następnie Rubina wprowadza Greena na scenę.",
+                    "Gracz może odegrać przedstawienie lub poprosić go o rzucenie okiem, aby zobaczyć, jak radzi sobie Green. Niech gracz wybierze jedną z następujących opcji:",
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Graj bezpiecznie",
+                          "entries": [
+                            "Green gra bezpiecznie i zapewnia solidną, ale pozbawioną inspiracji wydajność. Jeśli twój gracz odegra inspirującą rolę w odgrywaniu ról, daj mu przewagę w teście. Zielony musi zrobić {@dc 12} Charyzma ({@skill Performance}) sprawdzać. W przypadku niepowodzenia pojawia się kilka zmarszczonych brwi i może kilka ziewnięć. Najwyraźniej nie spodziewali się wiele. W przypadku sukcesu publiczność grzecznie klaszcze, a potem szybko zapomina o występie, czekając na następny występ."
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Idź po to!",
+                          "entries": [
+                            "Green próbuje dokonać występu swojego życia z {@dc 15} Charyzma ({@skill Performance}) sprawdzać. Jeśli Twój gracz odegra inspirującą rolę w odgrywaniu ról, będzie miał przewagę w szachach, a nawet możesz pozwolić mu na odniesienie sukcesu. W przypadku niepowodzenia słychać jęki publiczności, a Rubinie udaje się wywołać wspierający uśmiech, ale wygląda na przygnębioną. Kiedy udaje się osiągnąć sukces, umysły są oszołomione, tłum szaleje i słychać wołanie o bisy. Po przedstawieniu wymagane są podpisy. Od teraz Green jest gwiazdą miasta Harmony. Pod koniec całego zamieszania Rubina podchodzi do Greena ze łzami w oczach i daje Greenowi doss lutnię. W tłumie słychać westchnienie. „To było wzniosłe. Prezent, który na zawsze podniósł mnie na duchu” - mówi Rubina."
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "011"
+                }
+              ],
+              "id": "00f"
+            }
+          ],
+          "id": "00a"
+        },
+        {
+          "type": "entries",
+          "name": "Odkrywanie cyrku",
+          "page": 5,
+          "entries": [
+            "Do mapy Circus of Illusions przypisane są następujące lokalizacje:",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-CoI/008.webp"
+              },
+              "width": 1960,
+              "height": 1470,
+              "mapRegions": [
+                {
+                  "area": "01c",
+                  "points": [
+                    [
+                      359,
+                      727
+                    ],
+                    [
+                      387,
+                      630
+                    ],
+                    [
+                      480,
+                      606
+                    ],
+                    [
+                      547,
+                      677
+                    ],
+                    [
+                      521,
+                      769
+                    ],
+                    [
+                      429,
+                      796
+                    ]
+                  ]
+                },
+                {
+                  "area": "016",
+                  "points": [
+                    [
+                      726,
+                      737
+                    ],
+                    [
+                      734,
+                      686
+                    ],
+                    [
+                      756,
+                      623
+                    ],
+                    [
+                      781,
+                      579
+                    ],
+                    [
+                      820,
+                      540
+                    ],
+                    [
+                      860,
+                      517
+                    ],
+                    [
+                      913,
+                      496
+                    ],
+                    [
+                      967,
+                      484
+                    ],
+                    [
+                      1019,
+                      489
+                    ],
+                    [
+                      1066,
+                      500
+                    ],
+                    [
+                      1107,
+                      521
+                    ],
+                    [
+                      1151,
+                      554
+                    ],
+                    [
+                      1183,
+                      594
+                    ],
+                    [
+                      1203,
+                      633
+                    ],
+                    [
+                      1221,
+                      683
+                    ],
+                    [
+                      1233,
+                      746
+                    ],
+                    [
+                      1217,
+                      811
+                    ],
+                    [
+                      1193,
+                      864
+                    ],
+                    [
+                      1156,
+                      911
+                    ],
+                    [
+                      1117,
+                      947
+                    ],
+                    [
+                      1050,
+                      977
+                    ],
+                    [
+                      987,
+                      984
+                    ],
+                    [
+                      910,
+                      973
+                    ],
+                    [
+                      850,
+                      947
+                    ],
+                    [
+                      806,
+                      916
+                    ],
+                    [
+                      763,
+                      867
+                    ],
+                    [
+                      741,
+                      809
+                    ]
+                  ]
+                },
+                {
+                  "area": "01e",
+                  "points": [
+                    [
+                      481,
+                      401
+                    ],
+                    [
+                      523,
+                      314
+                    ],
+                    [
+                      611,
+                      331
+                    ],
+                    [
+                      626,
+                      419
+                    ],
+                    [
+                      546,
+                      463
+                    ]
+                  ]
+                },
+                {
+                  "area": "01f",
+                  "points": [
+                    [
+                      864,
+                      259
+                    ],
+                    [
+                      879,
+                      210
+                    ],
+                    [
+                      921,
+                      200
+                    ],
+                    [
+                      956,
+                      231
+                    ],
+                    [
+                      940,
+                      279
+                    ],
+                    [
+                      896,
+                      289
+                    ]
+                  ]
+                },
+                {
+                  "area": "017",
+                  "points": [
+                    [
+                      1333,
+                      316
+                    ],
+                    [
+                      1333,
+                      450
+                    ],
+                    [
+                      1471,
+                      450
+                    ],
+                    [
+                      1471,
+                      316
+                    ]
+                  ]
+                },
+                {
+                  "area": "01f",
+                  "points": [
+                    [
+                      1491,
+                      799
+                    ],
+                    [
+                      1530,
+                      760
+                    ],
+                    [
+                      1581,
+                      784
+                    ],
+                    [
+                      1573,
+                      840
+                    ],
+                    [
+                      1521,
+                      847
+                    ]
+                  ]
+                },
+                {
+                  "area": "015",
+                  "points": [
+                    [
+                      1819,
+                      880
+                    ],
+                    [
+                      1920,
+                      911
+                    ],
+                    [
+                      1887,
+                      1011
+                    ],
+                    [
+                      1790,
+                      979
+                    ]
+                  ]
+                },
+                {
+                  "area": "01e",
+                  "points": [
+                    [
+                      664,
+                      1190
+                    ],
+                    [
+                      700,
+                      1090
+                    ],
+                    [
+                      797,
+                      1121
+                    ],
+                    [
+                      767,
+                      1220
+                    ]
+                  ]
+                },
+                {
+                  "area": "01f",
+                  "points": [
+                    [
+                      1144,
+                      1146
+                    ],
+                    [
+                      1183,
+                      1114
+                    ],
+                    [
+                      1230,
+                      1131
+                    ],
+                    [
+                      1224,
+                      1186
+                    ],
+                    [
+                      1170,
+                      1196
+                    ]
+                  ]
+                },
+                {
+                  "area": "01f",
+                  "points": [
+                    [
+                      1386,
+                      1200
+                    ],
+                    [
+                      1354,
+                      1166
+                    ],
+                    [
+                      1364,
+                      1124
+                    ],
+                    [
+                      1411,
+                      1110
+                    ],
+                    [
+                      1446,
+                      1140
+                    ],
+                    [
+                      1436,
+                      1190
+                    ]
+                  ]
+                }
+              ],
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 70,
+                "scale": 2
+              },
+              "hrefThumbnail": {
+                "type": "internal",
+                "path": "adventure/NRH-CoI/thumbnail/008.webp"
+              },
+              "id": "023",
+              "credit": "Red Central"
+            },
+            {
+              "type": "entries",
+              "name": "C1. Kasa biletowa",
+              "page": 5,
+              "entries": [
+                "Obok głównej bramy znajduje się kiosk, w którym Woody, magicznie ożywiona drewniana kukiełka, pobiera opłatę za wstęp za 1 sp, stempluje dłonie bywalców cyrku stemplem szczęśliwej buźki i życzy wszystkim dobrej zabawy.",
+                "Okrągła twarz Woody'ego jest pomalowana na szeroki uśmiech, ale jeśli ktoś spróbuje ominąć, nie płacąc lub powodując kłopoty, twarz odwraca się do góry nogami, zamieniając się w wielki grymas, a Woody zaczyna nawoływać klaunów, aby wykończyli przestępcę. Chudy nie potrafi walczyć, a jeśli zostanie zaatakowany, łatwo zostaje zamieniony w stertę patyków."
+              ],
+              "id": "015"
+            },
+            {
+              "type": "entries",
+              "name": "C2. Główny namiot",
+              "page": 6,
+              "entries": [
+                "Wewnątrz tego dużego czerwonego namiotu znajduje się podwyższona drewniana scena z zasłonami i zapleczem, gdzie aktorzy i inni wykonawcy mogą się przebrać i przygotować do swoich występów. Ławki otaczają przód sceny, a za nimi znajdują się bele siana, na których widzowie mogą usiąść i cieszyć się występami.",
+                "O każdej porze na scenie występują połykacze mieczy, połykacze ognia, żonglerzy, akrobaci, muzycy, gawędziarze i oczywiście: {@creature Magnifico|NRH-CoI}magiczny akt."
+              ],
+              "id": "016"
+            },
+            {
+              "type": "entries",
+              "name": "C3. Namiot Magnifico",
+              "page": 6,
+              "entries": [
+                "Na zewnątrz tego namiotu drewniana tablica głosi: „{@creature Magnifico|NRH-CoI} Wielki” kwiecistymi, malowanymi literami. Dwaj nieogoleni {@creature clown|NRH-CoI|klauni} stoją po obu stronach wejścia, jeden dłubi w zębach złamaną kością kurczaka. Klauni powstrzymują każdego, kto próbuje wejść do namiotu i nie wahają się przed eskalacją do ciosów.",
+                {
+                  "type": "entries",
+                  "name": "Wkradanie się",
+                  "page": 6,
+                  "entries": [
+                    "Jeśli Zielony chce wejść ukradkiem, musi mu się to udać {@dc 12} Zręczność ({@skill Stealth}) sprawdź lub zaalarmuj klaunów lub Finstera (an {@creature imp}), który jest w namiocie w postaci szczura."
+                  ],
+                  "id": "018"
+                },
+                {
+                  "type": "entries",
+                  "name": "Wewnątrz namiotu",
+                  "page": 6,
+                  "entries": [
+                    "Wewnątrz namiotu znajduje się mały stolik z dwoma krzesłami, otoczony narzędziami {@creature Magnifico|NRH-CoI}zawód: cylinder, jedwabne chusteczki do nosa, szafka z fałszywym tyłem, talia kart do gry, kryształowa kula, duże lustro w ozdobnej ramie i biały gołąb w klatce. Jeśli Finster żyje, oni także są w namiocie w postaci szczurów. Jeśli Greenowi udało się wkraść do środka, zaskakują Finstera, który udaje zwykłego szczura-maga, ale uważnie obserwuje, co robi Green. Możesz także pokrzyżować plany Finstera, pozwalając Greenowi zaskoczyć go, gdy jest w formie chochlika.",
+                    "Jeśli Finster usłyszał nadchodzącego Greena, ukrywają się i obserwują Greena z cienia. Wykrycie Finstera, gdy jest ukryty, wymaga powodzenia {@dc 15} Mądrość ({@skill Perception}) sprawdzać.",
+                    "Jeśli wydaje się, że Green szuka Szmaragdowego Klejnotu, Finster daje się poznać i oferuje ujawnienie jego lokalizacji - za odpowiednią opłatą (patrz „Oszustwa” powyżej)."
+                  ],
+                  "id": "019"
+                },
+                {
+                  "type": "entries",
+                  "name": "Szmaragdowy klejnot",
+                  "page": 6,
+                  "entries": [
+                    "{@creature Magnifico|NRH-CoI} ukrył Szmaragdowy Klejnot w magicznym lustrze w ozdobnej ramie. Lustro jest w rzeczywistości portalem do małego półplanu o powierzchni 5 stóp kwadratowych, w którym Szmaragdowy Klejnot jest przechowywany w zamkniętym pudełku. Jeśli dotkniemy lustra, jego powierzchnia faluje jak woda. Green może przejść przez powierzchnię lustra do półplanu, w którym znajduje się zamknięta skrzynka. Wewnątrz półplanu jest całkowicie ciemno."
+                  ],
+                  "id": "01a"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zamknięte pudełko",
+                  "page": 6,
+                  "entries": [
+                    "To proste hebanowe pudełko z magicznym zamkiem zawiera Szmaragdowy Klejnot. Skrzynia ma KP 12, 10 punktów wytrzymałości, próg obrażeń 5 oraz odporność na trucizny i obrażenia psychiczne. (Próg obrażeń pudełka oznacza, że ​​jest odporny na wszystkie obrażenia, chyba że otrzyma 5 lub więcej obrażeń, w którym to przypadku otrzymuje normalne obrażenia. Zadanie 4 lub mniej obrażeń pudełku jest uważane za obrażenia powierzchowne i nie zmniejsza punktów wytrzymałości pudełka.)",
+                    "Zamek skrzynki można z powodzeniem otworzyć {@dc 14} Zręczność ({@skill Sleight of Hand}) sprawdzać."
+                  ],
+                  "id": "01b"
+                }
+              ],
+              "id": "017"
+            },
+            {
+              "type": "entries",
+              "name": "C4. Namiot Rubiny",
+              "page": 6,
+              "entries": [
+                "Jeśli Rubina (a {@creature noble}) jest tutaj, przegląda nadchodzący harmonogram wydarzeń na dzisiejszy wieczór i kilka następnych dni. Jest tam biurko, dwa drewniane krzesła, mały stolik i sofa. Dopóki są dla niej mili, Rubina traktuje każdego, kto wejdzie do jej namiotu, tak jak zrobiłby to życzliwy uczeń."
+              ],
+              "id": "01c"
+            },
+            {
+              "type": "entries",
+              "name": "C5. Namiot Filippo Fleetfingera",
+              "page": 6,
+              "entries": [
+                "Wewnątrz tego namiotu przebywa ponury bard Filippo (ur {@creature noble}). Filippo nic nie wie o Szmaragdowym Klejnocie, ale jest mu smutno z powodu utraty kolorów i pisze o nich głęboko emocjonalne wiersze.",
+                "Zauważył, że ostatnio {@creature Magnifico|NRH-CoI} wydaje się dziwny i jest trochę zbulwersowany faktem, że niegdyś gustowny program {@creature Magnifico|NRH-CoI} wydaje się teraz poświęcony jego okropnemu szczurowi.",
+                "Namiot Filippo jest wypełniony instrumentami i zaśmiecony stronami jego serdecznej poezji."
+              ],
+              "id": "01d"
+            },
+            {
+              "type": "entries",
+              "name": "C6. Namiot Siłaczki Imeldy",
+              "page": 6,
+              "entries": [
+                "Jeśli {@creature Imelda|NRH-CoI} jest tutaj, popija herbatę i przeżuwa ciasta pomiędzy występami. Uwielbia rozmawiać i zawsze jest gotowa zapewnić dobry program ćwiczeń każdemu zainteresowanemu. {@creature Imelda|NRH-CoI} nic nie wie o Szmaragdowym Klejnocie, ale jest zaciekle lojalna wobec cyrku i Rubiny i zrobi wszystko, aby ich chronić. Jej namiot jest wypełniony sztangami, żelaznymi drążkami i trofeami za wszystkie jej przeszłe wyczyny siłowe."
+              ],
+              "id": "01e"
+            },
+            {
+              "type": "entries",
+              "name": "C7. Sprzedawcy",
+              "page": 7,
+              "entries": [
+                "Te namioty są przeznaczone dla sprzedawców smacznych przysmaków, takich jak kukurydza, karmelowe jabłka i toad-in-the-holes. Możesz także rozegrać test wytrzymałościowy, w którym uderzasz młotkiem w dźwignię, aby zadzwonić. Zielony musi wykonać udany test Siły {@dc 14} ({@skill Athletics}), aby zadzwonić i wygrać nagrodę (wypchanego potwora wybranego przez gracza)."
+              ],
+              "id": "01f"
+            }
+          ],
+          "id": "014"
+        },
+        {
+          "type": "entries",
+          "name": "Zdobycie klejnotu",
+          "page": 7,
+          "entries": [
+            "Kiedy mimowie i Rubina wskażą Greenowi kierunek {@creature Magnifico|NRH-CoI}, Zielony może zdobyć klejnot na wiele sposobów. Oto kilka pomysłów:",
+            {
+              "type": "list",
+              "items": [
+                "Niech Green odkryje dokładne miejsce pobytu klejnotu, szpiegując go {@creature Magnifico|NRH-CoI}, który obsesyjnie sprawdza klejnot, aby upewnić się, że jego jajo gniazdowe jest bezpieczne.",
+                "Niech Finster odda lokalizację klejnotu za określoną cenę.",
+                "Zorganizuj atak kilku {@creature clown|NRH-CoI|klauni} którzy zostali wynajęci przez pana Greystone'a do kradzieży klejnotu {@creature Magnifico|NRH-CoI}namiot. Jeśli {@creature Magnifico|NRH-CoI} usłyszy o tym, może w desperacji przyjechać do Green. Zielony może skorzystać z pomocy {@creature Imelda|NRH-CoI} aby przechylić szalę zwycięstwa na swoją korzyść, jeśli dojdzie do walki.",
+                "Niech Zielony spróbuje zdobyć klejnot podczas jednego z nich {@creature Magnifico|NRH-CoI}Magia działa, gdy ma na scenie magiczne lustro, co skutkuje wspaniałym spektaklem dla publiczności."
+              ]
+            },
+            "Na koniec Green powinien zdobyć Szmaragdowy Klejnot i {@item Instrument of the Bards, Doss Lute||dos lutnia} (jeśli Rubina już im tego nie dała) jako podziękowanie za bohaterstwo Greena w tak nudnych i ponurych czasach."
+          ],
+          "id": "020"
+        },
+        {
+          "type": "entries",
+          "name": "Ukończenie Misji",
+          "page": 7,
+          "entries": [
+            "Jeśli wszystko pójdzie dobrze, Green spotyka się z panem Honeycuttem i zwraca mu Szmaragdowy Klejnot. Możesz spotkać pana Honeycutta z Greenem w tej samej tawernie, co na początku przygody, lub w bibliotece w Harmony.",
+            "Pan Honeycutt jest uszczęśliwiony powrotem Szmaragdowego Klejnotu i chce wiedzieć wszystko o tej przygodzie, słuchając i robiąc obszerne notatki w swoim czarnym notatniku.",
+            "Za ich odwagę i poświęcenie dla dobra Harmonii daje Greenowi sakiewkę zawierającą 20 sztuk i zaprasza ich do przyłączenia się do Towarzystwa Lorekeeper."
+          ],
+          "id": "021"
+        }
+      ],
+      "id": "008"
+    },
+    "0:009": {
+      "type": "entries",
+      "name": "Wejście",
+      "page": 4,
+      "entries": [
+        "Zielony może zapłacić 1 sp i wejść główną bramą lub się przekraść. Cyrk patrolują twardo wyglądający klauni w kolorowych kostiumach, dużych butach i czerwonych nosach. Chociaż klauni trąbią i zachowują się wesoło, jasne jest, że poradziliby sobie w walce.",
+        "Jeśli ktoś spróbuje włamać się do cyrku lub sprawić kłopoty, wpadnie w konflikt z kilkoma tymi klaunami. Unikanie klaunów wymaga sukcesu {@dc 12} Zręczność ({@skill Stealth}) sprawdzać. W przypadku niepowodzenia, {@dice 1d4} {@creature clown|NRH-CoI|klauni} zbadaj sprawę, gotowy uderzyć i wyrzucić wszelkich intruzów lub nieudaczników. Jeśli Green odwróci się i zacznie uciekać, klauni nie ruszają w pościg, lecz wykrzykują drwiny i trąbią na nich.",
+        "Urzekanie klaunów wymaga prawdziwych umiejętności i można je wykonać tylko w przypadku powodzenia {@dc 15} Charyzma ({@skill Persuasion}) sprawdzać."
+      ],
+      "id": "009"
+    },
+    "0:00a": {
+      "type": "entries",
+      "name": "Spotkania w cyrku",
+      "page": 4,
+      "entries": [
+        "Zieleń może spotkać w cyrku wiele barwnych postaci. Oto kilka z nich:",
+        {
+          "type": "entries",
+          "name": "Finstera",
+          "page": 4,
+          "entries": [
+            "Finster jest {@creature imp} {@creature Magnifico|NRH-CoI} zawarł umowę z: dwuletnią piekielną służbą za lokalizację Szmaragdowego Klejnotu. Teraz, gdy transakcja została sfinalizowana, Finster cieszy się zmianami {@creature Magnifico|NRH-CoI}aby było ich więcej, aby mogli spełnić swoje marzenie o byciu gwiazdą.",
+            "Finster spędza większość czasu w {@creature Magnifico|NRH-CoI}namiotu w postaci szczurów, pielęgnujących wąsy i czekających na wieczorny występ tuż przed północą. Rzadko kiedy pokazują swoją prawdziwą formę. Finster jest totalnym narcyzem i marzy o tym, żeby kiedyś to mieć {@creature Magnifico|NRH-CoI} jako ich asystent w ich własnym magicznym przedstawieniu.",
+            "Jeśli Finster czuje, że może wykorzystać Szmaragdowy Klejnot, aby rozwinąć swoją karierę lub zawrzeć inny kontrakt, tak właśnie się dzieje. Finster nie jest lojalny {@creature Magnifico|NRH-CoI}innego niż wykorzystanie go dla własnych korzyści. Jeśli zostanie zaatakowany, Finster wrzeszczy, aby zaalarmować pobliskich klaunów i odwraca się {@condition invisible}.",
+            {
+              "type": "entries",
+              "name": "Psotne oferty",
+              "page": 4,
+              "entries": [
+                "Finster zawsze myśli o interesach i jest otwarty na zawarcie umowy z Greenem. Jakakolwiek umowa zawarta przez Greena z Finsterem jest wiążąca do czasu spełnienia warunków umowy. Jeśli Green złamie warunki, ich dusza przepadnie.",
+                "Finster może zaoferować Greenowi następujące rzeczy, ale ostro się targuje i wymaga czegoś, co uważa za o równej (lub większej) wartości:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Lokalizacja Szmaragdowego Klejnotu.",
+                    "Przedmioty sztuki, monety lub klejnoty o wartości do 500 sztuk.",
+                    "Niezwykły magiczny przedmiot.",
+                    "Lojalna służba Finstera przez okres nieprzekraczający dziewięciu lat."
+                  ]
+                }
+              ],
+              "id": "00c"
+            }
+          ],
+          "id": "00b"
+        },
+        {
+          "type": "entries",
+          "name": "Wspaniałe",
+          "page": 4,
+          "entries": [
+            "{@creature Magnifico|NRH-CoI} jest magiem o pewnych umiejętnościach, ale zamiast dalej doskonalić swoje rzemiosło, pragnął ucieczki od łatwych pieniędzy i wpadł w diaboliczne szpony Finstera, oportunistycznego chochlika. Finster odpowiedział {@creature Magnifico|NRH-CoI}błagania o złoto i sławę i zaoferował mu umowę: dwuletnią służbę w poszukiwaniu Szmaragdowego Klejnotu.",
+            "{@creature Magnifico|NRH-CoI} słyszał o Szmaragdowym Klejnocie od podejrzanych postaci, które zna. Powiedzieli mu, że pan Greystone jest skłonny sowicie za to zapłacić i {@creature Magnifico|NRH-CoI} uznał to za swoją przepustkę do wyjścia z cyrkowego życia za drobne. Z pomocą Finstera, {@creature Magnifico|NRH-CoI} Znalazłem klejnot i teraz targuje się z panem Greystonem o cenę, która ma wynagrodzić jego dwuletnią piekielną służbę.",
+            "{@creature Magnifico|NRH-CoI} nie jest czarodziejem, jego magiczne sztuczki to iluzje ręczne. W przypadku ataku kuli się i błaga o życie."
+          ],
+          "id": "00d"
+        },
+        {
+          "type": "entries",
+          "name": "Mimy",
+          "page": 4,
+          "entries": [
+            "Po terenach cyrkowych błąkają się mimowie ({@creature commoner||zwykli ludzie}), którzy wykonują wszelkiego rodzaju ciche występy, takie jak schodzenie po schodach, otwieranie drzwi, ciągnięcie lin i poruszanie się {@condition invisible} obiekty.",
+            "W dowolnym momencie możesz poprosić Greena o podejście mima i zapanowanie nad jedną z następujących wskazówek:",
+            {
+              "type": "list",
+              "items": [
+                "Szczur maga zmienia się w chochlika.",
+                "Mag ma kłopoty.",
+                "Mim widział {@creature Magnifico|NRH-CoI} trzymający w swoim namiocie magiczny zielony klejnot.",
+                "{@creature Magnifico|NRH-CoI} ukrył klejnot w magicznym lustrze."
+              ]
+            },
+            "Możesz odegrać cichą wiadomość mima i poprosić gracza o odgadnięcie, co mówi mim. Mim przez cały czas pozostaje kamienny, chyba że musi okazywać przesadny wyraz smutku lub innej emocji. Jeśli twój gracz będzie sfrustrowany próbą odgadnięcia, poproś mima o wzruszenie ramionami, po twarzy mima spłyną smutne łzy i odejdź przygnębiony.",
+            "Mimowie nigdy nie mówią, nawet jeśli zmusza ich magia. Tylko zaklęcie życzeń może przerwać ich milczenie.",
+            "Jeśli Green zaatakuje mima, ten natychmiast ucieka lub kuli się i mim woła o pomoc."
+          ],
+          "id": "00e"
+        },
+        {
+          "type": "entries",
+          "name": "Rubina, mistrzyni cyrku",
+          "page": 5,
+          "entries": [
+            "Rubina ({@creature noble}) jest ekscentrycznym i charyzmatycznym konferansjerem Circus of Illusions. Jest dobroduszną wiązką nerwowej energii, która pilnuje, aby cyrk działał bez zarzutów, organizując wszelkie rozrywki na każdy dzień.",
+            {
+              "type": "entries",
+              "name": "Co Rubina wie",
+              "page": 5,
+              "entries": [
+                "Ostatnio Rubina zaczęła się niepokoić o swojego najlepszego maga, {@creature Magnifico|NRH-CoI}. Rubina uważa, że ​​to prawdopodobnie tylko awarie kolorów, które niepokoją wszystkich, ale słyszała, jak w nocy kłócił się z kimś w swoim namiocie.",
+                "Rubina nie lubi {@creature Magnifico|NRH-CoI}szczur, Finster, który {@creature Magnifico|NRH-CoI} występuje teraz w swoim magicznym akcie. Uważa, że ​​to okropna bestia i nie podoba jej się jej mały uśmieszek i paciorkowate oczy.",
+                "Ona nie ma pojęcia o szmaragdach, ale {@creature Magnifico|NRH-CoI} powiedział, że będzie bogaty i że za rok opuści cyrk."
+              ],
+              "id": "010"
+            },
+            {
+              "type": "entries",
+              "name": "Dołącz do cyrku",
+              "page": 5,
+              "entries": [
+                "W dowolnym momencie poproś Rubinę o podejście do Greena i powiedzenie następujących słów:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 5,
+                  "entries": [
+                    "Ty! Bard! Jesteś odpowiedzią na moje desperackie modlitwy do bogów rozrywki! Proszę ze mną!"
+                  ],
+                  "id": "012"
+                },
+                "Jeśli Green zgodzi się z podekscytowanym konferansjerem, Rubina zabiera Greena za kulisy w głównym namiocie (patrz obszar C2 poniżej).",
+                "Rubina mówi Greenowi, że Filippo Fleetfinger, jej najlepszy występ muzyczny, został nagle odwołany z powodu melancholii spowodowanej przerwami w kolorystyce i teraz Green musi zająć jego miejsce i zabawiać tłum zgromadzony w dużym namiocie. Oferuje Greenowi aż 10 sz za występ.",
+                "Jeśli Green odmówi, Rubina jest nieprzytomna ze strachu i nie wie, jak uspokoić rosnący gniew tłumu.",
+                "Jeśli Green się zgodzi, Rubina klaszcze z radości. Pyta Greena, jaki jest ich pseudonim sceniczny. Jeśli Twój zawodnik ma pseudonim sceniczny dla Greena, poproś Rubinę, aby przedstawiła publiczność za pomocą tego pseudonimu. Jeśli twój gracz nie może nic wymyślić, Rubina mówi, żeby się nie martwić i wybiega na scenę, aby ogłosić, co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 5,
+                  "entries": [
+                    "A teraz dobrzy ludzie Harmonii! Mamy dla Was dziś wieczorem specjalną niespodziankę. Szukaliśmy blisko i daleko tego kolejnego aktu, największego artysty w całej Harmonii, Wirtuoza Zieleni, ZIELONEGO!"
+                  ],
+                  "id": "013"
+                },
+                "Następnie Rubina wprowadza Greena na scenę.",
+                "Gracz może odegrać przedstawienie lub poprosić go o rzucenie okiem, aby zobaczyć, jak radzi sobie Green. Niech gracz wybierze jedną z następujących opcji:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Graj bezpiecznie",
+                      "entries": [
+                        "Green gra bezpiecznie i zapewnia solidną, ale pozbawioną inspiracji wydajność. Jeśli twój gracz odegra inspirującą rolę w odgrywaniu ról, daj mu przewagę w teście. Zielony musi zrobić {@dc 12} Charyzma ({@skill Performance}) sprawdzać. W przypadku niepowodzenia pojawia się kilka zmarszczonych brwi i może kilka ziewnięć. Najwyraźniej nie spodziewali się wiele. W przypadku sukcesu publiczność grzecznie klaszcze, a potem szybko zapomina o występie, czekając na następny występ."
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Idź po to!",
+                      "entries": [
+                        "Green próbuje dokonać występu swojego życia z {@dc 15} Charyzma ({@skill Performance}) sprawdzać. Jeśli Twój gracz odegra inspirującą rolę w odgrywaniu ról, będzie miał przewagę w szachach, a nawet możesz pozwolić mu na odniesienie sukcesu. W przypadku niepowodzenia słychać jęki publiczności, a Rubinie udaje się wywołać wspierający uśmiech, ale wygląda na przygnębioną. Kiedy udaje się osiągnąć sukces, umysły są oszołomione, tłum szaleje i słychać wołanie o bisy. Po przedstawieniu wymagane są podpisy. Od teraz Green jest gwiazdą miasta Harmony. Pod koniec całego zamieszania Rubina podchodzi do Greena ze łzami w oczach i daje Greenowi doss lutnię. W tłumie słychać westchnienie. „To było wzniosłe. Prezent, który na zawsze podniósł mnie na duchu” - mówi Rubina."
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "011"
+            }
+          ],
+          "id": "00f"
+        }
+      ],
+      "id": "00a"
+    },
+    "0:00b": {
+      "type": "entries",
+      "name": "Finstera",
+      "page": 4,
+      "entries": [
+        "Finster jest {@creature imp} {@creature Magnifico|NRH-CoI} zawarł umowę z: dwuletnią piekielną służbą za lokalizację Szmaragdowego Klejnotu. Teraz, gdy transakcja została sfinalizowana, Finster cieszy się zmianami {@creature Magnifico|NRH-CoI}aby było ich więcej, aby mogli spełnić swoje marzenie o byciu gwiazdą.",
+        "Finster spędza większość czasu w {@creature Magnifico|NRH-CoI}namiotu w postaci szczurów, pielęgnujących wąsy i czekających na wieczorny występ tuż przed północą. Rzadko kiedy pokazują swoją prawdziwą formę. Finster jest totalnym narcyzem i marzy o tym, żeby kiedyś to mieć {@creature Magnifico|NRH-CoI} jako ich asystent w ich własnym magicznym przedstawieniu.",
+        "Jeśli Finster czuje, że może wykorzystać Szmaragdowy Klejnot, aby rozwinąć swoją karierę lub zawrzeć inny kontrakt, tak właśnie się dzieje. Finster nie jest lojalny {@creature Magnifico|NRH-CoI}innego niż wykorzystanie go dla własnych korzyści. Jeśli zostanie zaatakowany, Finster wrzeszczy, aby zaalarmować pobliskich klaunów i odwraca się {@condition invisible}.",
+        {
+          "type": "entries",
+          "name": "Psotne oferty",
+          "page": 4,
+          "entries": [
+            "Finster zawsze myśli o interesach i jest otwarty na zawarcie umowy z Greenem. Jakakolwiek umowa zawarta przez Greena z Finsterem jest wiążąca do czasu spełnienia warunków umowy. Jeśli Green złamie warunki, ich dusza przepadnie.",
+            "Finster może zaoferować Greenowi następujące rzeczy, ale ostro się targuje i wymaga czegoś, co uważa za o równej (lub większej) wartości:",
+            {
+              "type": "list",
+              "items": [
+                "Lokalizacja Szmaragdowego Klejnotu.",
+                "Przedmioty sztuki, monety lub klejnoty o wartości do 500 sztuk.",
+                "Niezwykły magiczny przedmiot.",
+                "Lojalna służba Finstera przez okres nieprzekraczający dziewięciu lat."
+              ]
+            }
+          ],
+          "id": "00c"
+        }
+      ],
+      "id": "00b"
+    },
+    "0:00c": {
+      "type": "entries",
+      "name": "Psotne oferty",
+      "page": 4,
+      "entries": [
+        "Finster zawsze myśli o interesach i jest otwarty na zawarcie umowy z Greenem. Jakakolwiek umowa zawarta przez Greena z Finsterem jest wiążąca do czasu spełnienia warunków umowy. Jeśli Green złamie warunki, ich dusza przepadnie.",
+        "Finster może zaoferować Greenowi następujące rzeczy, ale ostro się targuje i wymaga czegoś, co uważa za o równej (lub większej) wartości:",
+        {
+          "type": "list",
+          "items": [
+            "Lokalizacja Szmaragdowego Klejnotu.",
+            "Przedmioty sztuki, monety lub klejnoty o wartości do 500 sztuk.",
+            "Niezwykły magiczny przedmiot.",
+            "Lojalna służba Finstera przez okres nieprzekraczający dziewięciu lat."
+          ]
+        }
+      ],
+      "id": "00c"
+    },
+    "0:00d": {
+      "type": "entries",
+      "name": "Wspaniałe",
+      "page": 4,
+      "entries": [
+        "{@creature Magnifico|NRH-CoI} jest magiem o pewnych umiejętnościach, ale zamiast dalej doskonalić swoje rzemiosło, pragnął ucieczki od łatwych pieniędzy i wpadł w diaboliczne szpony Finstera, oportunistycznego chochlika. Finster odpowiedział {@creature Magnifico|NRH-CoI}błagania o złoto i sławę i zaoferował mu umowę: dwuletnią służbę w poszukiwaniu Szmaragdowego Klejnotu.",
+        "{@creature Magnifico|NRH-CoI} słyszał o Szmaragdowym Klejnocie od podejrzanych postaci, które zna. Powiedzieli mu, że pan Greystone jest skłonny sowicie za to zapłacić i {@creature Magnifico|NRH-CoI} uznał to za swoją przepustkę do wyjścia z cyrkowego życia za drobne. Z pomocą Finstera, {@creature Magnifico|NRH-CoI} Znalazłem klejnot i teraz targuje się z panem Greystonem o cenę, która ma wynagrodzić jego dwuletnią piekielną służbę.",
+        "{@creature Magnifico|NRH-CoI} nie jest czarodziejem, jego magiczne sztuczki to iluzje ręczne. W przypadku ataku kuli się i błaga o życie."
+      ],
+      "id": "00d"
+    },
+    "0:00e": {
+      "type": "entries",
+      "name": "Mimy",
+      "page": 4,
+      "entries": [
+        "Po terenach cyrkowych błąkają się mimowie ({@creature commoner||zwykli ludzie}), którzy wykonują wszelkiego rodzaju ciche występy, takie jak schodzenie po schodach, otwieranie drzwi, ciągnięcie lin i poruszanie się {@condition invisible} obiekty.",
+        "W dowolnym momencie możesz poprosić Greena o podejście mima i zapanowanie nad jedną z następujących wskazówek:",
+        {
+          "type": "list",
+          "items": [
+            "Szczur maga zmienia się w chochlika.",
+            "Mag ma kłopoty.",
+            "Mim widział {@creature Magnifico|NRH-CoI} trzymający w swoim namiocie magiczny zielony klejnot.",
+            "{@creature Magnifico|NRH-CoI} ukrył klejnot w magicznym lustrze."
+          ]
+        },
+        "Możesz odegrać cichą wiadomość mima i poprosić gracza o odgadnięcie, co mówi mim. Mim przez cały czas pozostaje kamienny, chyba że musi okazywać przesadny wyraz smutku lub innej emocji. Jeśli twój gracz będzie sfrustrowany próbą odgadnięcia, poproś mima o wzruszenie ramionami, po twarzy mima spłyną smutne łzy i odejdź przygnębiony.",
+        "Mimowie nigdy nie mówią, nawet jeśli zmusza ich magia. Tylko zaklęcie życzeń może przerwać ich milczenie.",
+        "Jeśli Green zaatakuje mima, ten natychmiast ucieka lub kuli się i mim woła o pomoc."
+      ],
+      "id": "00e"
+    },
+    "0:00f": {
+      "type": "entries",
+      "name": "Rubina, mistrzyni cyrku",
+      "page": 5,
+      "entries": [
+        "Rubina ({@creature noble}) jest ekscentrycznym i charyzmatycznym konferansjerem Circus of Illusions. Jest dobroduszną wiązką nerwowej energii, która pilnuje, aby cyrk działał bez zarzutów, organizując wszelkie rozrywki na każdy dzień.",
+        {
+          "type": "entries",
+          "name": "Co Rubina wie",
+          "page": 5,
+          "entries": [
+            "Ostatnio Rubina zaczęła się niepokoić o swojego najlepszego maga, {@creature Magnifico|NRH-CoI}. Rubina uważa, że ​​to prawdopodobnie tylko awarie kolorów, które niepokoją wszystkich, ale słyszała, jak w nocy kłócił się z kimś w swoim namiocie.",
+            "Rubina nie lubi {@creature Magnifico|NRH-CoI}szczur, Finster, który {@creature Magnifico|NRH-CoI} występuje teraz w swoim magicznym akcie. Uważa, że ​​to okropna bestia i nie podoba jej się jej mały uśmieszek i paciorkowate oczy.",
+            "Ona nie ma pojęcia o szmaragdach, ale {@creature Magnifico|NRH-CoI} powiedział, że będzie bogaty i że za rok opuści cyrk."
+          ],
+          "id": "010"
+        },
+        {
+          "type": "entries",
+          "name": "Dołącz do cyrku",
+          "page": 5,
+          "entries": [
+            "W dowolnym momencie poproś Rubinę o podejście do Greena i powiedzenie następujących słów:",
+            {
+              "type": "insetReadaloud",
+              "page": 5,
+              "entries": [
+                "Ty! Bard! Jesteś odpowiedzią na moje desperackie modlitwy do bogów rozrywki! Proszę ze mną!"
+              ],
+              "id": "012"
+            },
+            "Jeśli Green zgodzi się z podekscytowanym konferansjerem, Rubina zabiera Greena za kulisy w głównym namiocie (patrz obszar C2 poniżej).",
+            "Rubina mówi Greenowi, że Filippo Fleetfinger, jej najlepszy występ muzyczny, został nagle odwołany z powodu melancholii spowodowanej przerwami w kolorystyce i teraz Green musi zająć jego miejsce i zabawiać tłum zgromadzony w dużym namiocie. Oferuje Greenowi aż 10 sz za występ.",
+            "Jeśli Green odmówi, Rubina jest nieprzytomna ze strachu i nie wie, jak uspokoić rosnący gniew tłumu.",
+            "Jeśli Green się zgodzi, Rubina klaszcze z radości. Pyta Greena, jaki jest ich pseudonim sceniczny. Jeśli Twój zawodnik ma pseudonim sceniczny dla Greena, poproś Rubinę, aby przedstawiła publiczność za pomocą tego pseudonimu. Jeśli twój gracz nie może nic wymyślić, Rubina mówi, żeby się nie martwić i wybiega na scenę, aby ogłosić, co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 5,
+              "entries": [
+                "A teraz dobrzy ludzie Harmonii! Mamy dla Was dziś wieczorem specjalną niespodziankę. Szukaliśmy blisko i daleko tego kolejnego aktu, największego artysty w całej Harmonii, Wirtuoza Zieleni, ZIELONEGO!"
+              ],
+              "id": "013"
+            },
+            "Następnie Rubina wprowadza Greena na scenę.",
+            "Gracz może odegrać przedstawienie lub poprosić go o rzucenie okiem, aby zobaczyć, jak radzi sobie Green. Niech gracz wybierze jedną z następujących opcji:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Graj bezpiecznie",
+                  "entries": [
+                    "Green gra bezpiecznie i zapewnia solidną, ale pozbawioną inspiracji wydajność. Jeśli twój gracz odegra inspirującą rolę w odgrywaniu ról, daj mu przewagę w teście. Zielony musi zrobić {@dc 12} Charyzma ({@skill Performance}) sprawdzać. W przypadku niepowodzenia pojawia się kilka zmarszczonych brwi i może kilka ziewnięć. Najwyraźniej nie spodziewali się wiele. W przypadku sukcesu publiczność grzecznie klaszcze, a potem szybko zapomina o występie, czekając na następny występ."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Idź po to!",
+                  "entries": [
+                    "Green próbuje dokonać występu swojego życia z {@dc 15} Charyzma ({@skill Performance}) sprawdzać. Jeśli Twój gracz odegra inspirującą rolę w odgrywaniu ról, będzie miał przewagę w szachach, a nawet możesz pozwolić mu na odniesienie sukcesu. W przypadku niepowodzenia słychać jęki publiczności, a Rubinie udaje się wywołać wspierający uśmiech, ale wygląda na przygnębioną. Kiedy udaje się osiągnąć sukces, umysły są oszołomione, tłum szaleje i słychać wołanie o bisy. Po przedstawieniu wymagane są podpisy. Od teraz Green jest gwiazdą miasta Harmony. Pod koniec całego zamieszania Rubina podchodzi do Greena ze łzami w oczach i daje Greenowi doss lutnię. W tłumie słychać westchnienie. „To było wzniosłe. Prezent, który na zawsze podniósł mnie na duchu” - mówi Rubina."
+                  ]
+                }
+              ]
+            }
+          ],
+          "id": "011"
+        }
+      ],
+      "id": "00f"
+    },
+    "0:010": {
+      "type": "entries",
+      "name": "Co Rubina wie",
+      "page": 5,
+      "entries": [
+        "Ostatnio Rubina zaczęła się niepokoić o swojego najlepszego maga, {@creature Magnifico|NRH-CoI}. Rubina uważa, że ​​to prawdopodobnie tylko awarie kolorów, które niepokoją wszystkich, ale słyszała, jak w nocy kłócił się z kimś w swoim namiocie.",
+        "Rubina nie lubi {@creature Magnifico|NRH-CoI}szczur, Finster, który {@creature Magnifico|NRH-CoI} występuje teraz w swoim magicznym akcie. Uważa, że ​​to okropna bestia i nie podoba jej się jej mały uśmieszek i paciorkowate oczy.",
+        "Ona nie ma pojęcia o szmaragdach, ale {@creature Magnifico|NRH-CoI} powiedział, że będzie bogaty i że za rok opuści cyrk."
+      ],
+      "id": "010"
+    },
+    "0:011": {
+      "type": "entries",
+      "name": "Dołącz do cyrku",
+      "page": 5,
+      "entries": [
+        "W dowolnym momencie poproś Rubinę o podejście do Greena i powiedzenie następujących słów:",
+        {
+          "type": "insetReadaloud",
+          "page": 5,
+          "entries": [
+            "Ty! Bard! Jesteś odpowiedzią na moje desperackie modlitwy do bogów rozrywki! Proszę ze mną!"
+          ],
+          "id": "012"
+        },
+        "Jeśli Green zgodzi się z podekscytowanym konferansjerem, Rubina zabiera Greena za kulisy w głównym namiocie (patrz obszar C2 poniżej).",
+        "Rubina mówi Greenowi, że Filippo Fleetfinger, jej najlepszy występ muzyczny, został nagle odwołany z powodu melancholii spowodowanej przerwami w kolorystyce i teraz Green musi zająć jego miejsce i zabawiać tłum zgromadzony w dużym namiocie. Oferuje Greenowi aż 10 sz za występ.",
+        "Jeśli Green odmówi, Rubina jest nieprzytomna ze strachu i nie wie, jak uspokoić rosnący gniew tłumu.",
+        "Jeśli Green się zgodzi, Rubina klaszcze z radości. Pyta Greena, jaki jest ich pseudonim sceniczny. Jeśli Twój zawodnik ma pseudonim sceniczny dla Greena, poproś Rubinę, aby przedstawiła publiczność za pomocą tego pseudonimu. Jeśli twój gracz nie może nic wymyślić, Rubina mówi, żeby się nie martwić i wybiega na scenę, aby ogłosić, co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 5,
+          "entries": [
+            "A teraz dobrzy ludzie Harmonii! Mamy dla Was dziś wieczorem specjalną niespodziankę. Szukaliśmy blisko i daleko tego kolejnego aktu, największego artysty w całej Harmonii, Wirtuoza Zieleni, ZIELONEGO!"
+          ],
+          "id": "013"
+        },
+        "Następnie Rubina wprowadza Greena na scenę.",
+        "Gracz może odegrać przedstawienie lub poprosić go o rzucenie okiem, aby zobaczyć, jak radzi sobie Green. Niech gracz wybierze jedną z następujących opcji:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Graj bezpiecznie",
+              "entries": [
+                "Green gra bezpiecznie i zapewnia solidną, ale pozbawioną inspiracji wydajność. Jeśli twój gracz odegra inspirującą rolę w odgrywaniu ról, daj mu przewagę w teście. Zielony musi zrobić {@dc 12} Charyzma ({@skill Performance}) sprawdzać. W przypadku niepowodzenia pojawia się kilka zmarszczonych brwi i może kilka ziewnięć. Najwyraźniej nie spodziewali się wiele. W przypadku sukcesu publiczność grzecznie klaszcze, a potem szybko zapomina o występie, czekając na następny występ."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Idź po to!",
+              "entries": [
+                "Green próbuje dokonać występu swojego życia z {@dc 15} Charyzma ({@skill Performance}) sprawdzać. Jeśli Twój gracz odegra inspirującą rolę w odgrywaniu ról, będzie miał przewagę w szachach, a nawet możesz pozwolić mu na odniesienie sukcesu. W przypadku niepowodzenia słychać jęki publiczności, a Rubinie udaje się wywołać wspierający uśmiech, ale wygląda na przygnębioną. Kiedy udaje się osiągnąć sukces, umysły są oszołomione, tłum szaleje i słychać wołanie o bisy. Po przedstawieniu wymagane są podpisy. Od teraz Green jest gwiazdą miasta Harmony. Pod koniec całego zamieszania Rubina podchodzi do Greena ze łzami w oczach i daje Greenowi doss lutnię. W tłumie słychać westchnienie. „To było wzniosłe. Prezent, który na zawsze podniósł mnie na duchu” - mówi Rubina."
+              ]
+            }
+          ]
+        }
+      ],
+      "id": "011"
+    },
+    "0:014": {
+      "type": "entries",
+      "name": "Odkrywanie cyrku",
+      "page": 5,
+      "entries": [
+        "Do mapy Circus of Illusions przypisane są następujące lokalizacje:",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-CoI/008.webp"
+          },
+          "width": 1960,
+          "height": 1470,
+          "mapRegions": [
+            {
+              "area": "01c",
+              "points": [
+                [
+                  359,
+                  727
+                ],
+                [
+                  387,
+                  630
+                ],
+                [
+                  480,
+                  606
+                ],
+                [
+                  547,
+                  677
+                ],
+                [
+                  521,
+                  769
+                ],
+                [
+                  429,
+                  796
+                ]
+              ]
+            },
+            {
+              "area": "016",
+              "points": [
+                [
+                  726,
+                  737
+                ],
+                [
+                  734,
+                  686
+                ],
+                [
+                  756,
+                  623
+                ],
+                [
+                  781,
+                  579
+                ],
+                [
+                  820,
+                  540
+                ],
+                [
+                  860,
+                  517
+                ],
+                [
+                  913,
+                  496
+                ],
+                [
+                  967,
+                  484
+                ],
+                [
+                  1019,
+                  489
+                ],
+                [
+                  1066,
+                  500
+                ],
+                [
+                  1107,
+                  521
+                ],
+                [
+                  1151,
+                  554
+                ],
+                [
+                  1183,
+                  594
+                ],
+                [
+                  1203,
+                  633
+                ],
+                [
+                  1221,
+                  683
+                ],
+                [
+                  1233,
+                  746
+                ],
+                [
+                  1217,
+                  811
+                ],
+                [
+                  1193,
+                  864
+                ],
+                [
+                  1156,
+                  911
+                ],
+                [
+                  1117,
+                  947
+                ],
+                [
+                  1050,
+                  977
+                ],
+                [
+                  987,
+                  984
+                ],
+                [
+                  910,
+                  973
+                ],
+                [
+                  850,
+                  947
+                ],
+                [
+                  806,
+                  916
+                ],
+                [
+                  763,
+                  867
+                ],
+                [
+                  741,
+                  809
+                ]
+              ]
+            },
+            {
+              "area": "01e",
+              "points": [
+                [
+                  481,
+                  401
+                ],
+                [
+                  523,
+                  314
+                ],
+                [
+                  611,
+                  331
+                ],
+                [
+                  626,
+                  419
+                ],
+                [
+                  546,
+                  463
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  864,
+                  259
+                ],
+                [
+                  879,
+                  210
+                ],
+                [
+                  921,
+                  200
+                ],
+                [
+                  956,
+                  231
+                ],
+                [
+                  940,
+                  279
+                ],
+                [
+                  896,
+                  289
+                ]
+              ]
+            },
+            {
+              "area": "017",
+              "points": [
+                [
+                  1333,
+                  316
+                ],
+                [
+                  1333,
+                  450
+                ],
+                [
+                  1471,
+                  450
+                ],
+                [
+                  1471,
+                  316
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  1491,
+                  799
+                ],
+                [
+                  1530,
+                  760
+                ],
+                [
+                  1581,
+                  784
+                ],
+                [
+                  1573,
+                  840
+                ],
+                [
+                  1521,
+                  847
+                ]
+              ]
+            },
+            {
+              "area": "015",
+              "points": [
+                [
+                  1819,
+                  880
+                ],
+                [
+                  1920,
+                  911
+                ],
+                [
+                  1887,
+                  1011
+                ],
+                [
+                  1790,
+                  979
+                ]
+              ]
+            },
+            {
+              "area": "01e",
+              "points": [
+                [
+                  664,
+                  1190
+                ],
+                [
+                  700,
+                  1090
+                ],
+                [
+                  797,
+                  1121
+                ],
+                [
+                  767,
+                  1220
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  1144,
+                  1146
+                ],
+                [
+                  1183,
+                  1114
+                ],
+                [
+                  1230,
+                  1131
+                ],
+                [
+                  1224,
+                  1186
+                ],
+                [
+                  1170,
+                  1196
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  1386,
+                  1200
+                ],
+                [
+                  1354,
+                  1166
+                ],
+                [
+                  1364,
+                  1124
+                ],
+                [
+                  1411,
+                  1110
+                ],
+                [
+                  1446,
+                  1140
+                ],
+                [
+                  1436,
+                  1190
+                ]
+              ]
+            }
+          ],
+          "imageType": "mapa",
+          "grid": {
+            "type": "square",
+            "size": 70,
+            "scale": 2
+          },
+          "hrefThumbnail": {
+            "type": "internal",
+            "path": "adventure/NRH-CoI/thumbnail/008.webp"
+          },
+          "id": "023",
+          "credit": "Red Central"
+        },
+        {
+          "type": "entries",
+          "name": "C1. Kasa biletowa",
+          "page": 5,
+          "entries": [
+            "Obok głównej bramy znajduje się kiosk, w którym Woody, magicznie ożywiona drewniana kukiełka, pobiera opłatę za wstęp za 1 sp, stempluje dłonie bywalców cyrku stemplem szczęśliwej buźki i życzy wszystkim dobrej zabawy.",
+            "Okrągła twarz Woody'ego jest pomalowana na szeroki uśmiech, ale jeśli ktoś spróbuje ominąć, nie płacąc lub powodując kłopoty, twarz odwraca się do góry nogami, zamieniając się w wielki grymas, a Woody zaczyna nawoływać klaunów, aby wykończyli przestępcę. Chudy nie potrafi walczyć, a jeśli zostanie zaatakowany, łatwo zostaje zamieniony w stertę patyków."
+          ],
+          "id": "015"
+        },
+        {
+          "type": "entries",
+          "name": "C2. Główny namiot",
+          "page": 6,
+          "entries": [
+            "Wewnątrz tego dużego czerwonego namiotu znajduje się podwyższona drewniana scena z zasłonami i zapleczem, gdzie aktorzy i inni wykonawcy mogą się przebrać i przygotować do swoich występów. Ławki otaczają przód sceny, a za nimi znajdują się bele siana, na których widzowie mogą usiąść i cieszyć się występami.",
+            "O każdej porze na scenie występują połykacze mieczy, połykacze ognia, żonglerzy, akrobaci, muzycy, gawędziarze i oczywiście: {@creature Magnifico|NRH-CoI}magiczny akt."
+          ],
+          "id": "016"
+        },
+        {
+          "type": "entries",
+          "name": "C3. Namiot Magnifico",
+          "page": 6,
+          "entries": [
+            "Na zewnątrz tego namiotu drewniana tablica głosi: „{@creature Magnifico|NRH-CoI} Wielki” kwiecistymi, malowanymi literami. Dwaj nieogoleni {@creature clown|NRH-CoI|klauni} stoją po obu stronach wejścia, jeden dłubi w zębach złamaną kością kurczaka. Klauni powstrzymują każdego, kto próbuje wejść do namiotu i nie wahają się przed eskalacją do ciosów.",
+            {
+              "type": "entries",
+              "name": "Wkradanie się",
+              "page": 6,
+              "entries": [
+                "Jeśli Zielony chce wejść ukradkiem, musi mu się to udać {@dc 12} Zręczność ({@skill Stealth}) sprawdź lub zaalarmuj klaunów lub Finstera (an {@creature imp}), który jest w namiocie w postaci szczura."
+              ],
+              "id": "018"
+            },
+            {
+              "type": "entries",
+              "name": "Wewnątrz namiotu",
+              "page": 6,
+              "entries": [
+                "Wewnątrz namiotu znajduje się mały stolik z dwoma krzesłami, otoczony narzędziami {@creature Magnifico|NRH-CoI}zawód: cylinder, jedwabne chusteczki do nosa, szafka z fałszywym tyłem, talia kart do gry, kryształowa kula, duże lustro w ozdobnej ramie i biały gołąb w klatce. Jeśli Finster żyje, oni także są w namiocie w postaci szczurów. Jeśli Greenowi udało się wkraść do środka, zaskakują Finstera, który udaje zwykłego szczura-maga, ale uważnie obserwuje, co robi Green. Możesz także pokrzyżować plany Finstera, pozwalając Greenowi zaskoczyć go, gdy jest w formie chochlika.",
+                "Jeśli Finster usłyszał nadchodzącego Greena, ukrywają się i obserwują Greena z cienia. Wykrycie Finstera, gdy jest ukryty, wymaga powodzenia {@dc 15} Mądrość ({@skill Perception}) sprawdzać.",
+                "Jeśli wydaje się, że Green szuka Szmaragdowego Klejnotu, Finster daje się poznać i oferuje ujawnienie jego lokalizacji - za odpowiednią opłatą (patrz „Oszustwa” powyżej)."
+              ],
+              "id": "019"
+            },
+            {
+              "type": "entries",
+              "name": "Szmaragdowy klejnot",
+              "page": 6,
+              "entries": [
+                "{@creature Magnifico|NRH-CoI} ukrył Szmaragdowy Klejnot w magicznym lustrze w ozdobnej ramie. Lustro jest w rzeczywistości portalem do małego półplanu o powierzchni 5 stóp kwadratowych, w którym Szmaragdowy Klejnot jest przechowywany w zamkniętym pudełku. Jeśli dotkniemy lustra, jego powierzchnia faluje jak woda. Green może przejść przez powierzchnię lustra do półplanu, w którym znajduje się zamknięta skrzynka. Wewnątrz półplanu jest całkowicie ciemno."
+              ],
+              "id": "01a"
+            },
+            {
+              "type": "entries",
+              "name": "Zamknięte pudełko",
+              "page": 6,
+              "entries": [
+                "To proste hebanowe pudełko z magicznym zamkiem zawiera Szmaragdowy Klejnot. Skrzynia ma KP 12, 10 punktów wytrzymałości, próg obrażeń 5 oraz odporność na trucizny i obrażenia psychiczne. (Próg obrażeń pudełka oznacza, że ​​jest odporny na wszystkie obrażenia, chyba że otrzyma 5 lub więcej obrażeń, w którym to przypadku otrzymuje normalne obrażenia. Zadanie 4 lub mniej obrażeń pudełku jest uważane za obrażenia powierzchowne i nie zmniejsza punktów wytrzymałości pudełka.)",
+                "Zamek skrzynki można z powodzeniem otworzyć {@dc 14} Zręczność ({@skill Sleight of Hand}) sprawdzać."
+              ],
+              "id": "01b"
+            }
+          ],
+          "id": "017"
+        },
+        {
+          "type": "entries",
+          "name": "C4. Namiot Rubiny",
+          "page": 6,
+          "entries": [
+            "Jeśli Rubina (a {@creature noble}) jest tutaj, przegląda nadchodzący harmonogram wydarzeń na dzisiejszy wieczór i kilka następnych dni. Jest tam biurko, dwa drewniane krzesła, mały stolik i sofa. Dopóki są dla niej mili, Rubina traktuje każdego, kto wejdzie do jej namiotu, tak jak zrobiłby to życzliwy uczeń."
+          ],
+          "id": "01c"
+        },
+        {
+          "type": "entries",
+          "name": "C5. Namiot Filippo Fleetfingera",
+          "page": 6,
+          "entries": [
+            "Wewnątrz tego namiotu przebywa ponury bard Filippo (ur {@creature noble}). Filippo nic nie wie o Szmaragdowym Klejnocie, ale jest mu smutno z powodu utraty kolorów i pisze o nich głęboko emocjonalne wiersze.",
+            "Zauważył, że ostatnio {@creature Magnifico|NRH-CoI} wydaje się dziwny i jest trochę zbulwersowany faktem, że niegdyś gustowny program {@creature Magnifico|NRH-CoI} wydaje się teraz poświęcony jego okropnemu szczurowi.",
+            "Namiot Filippo jest wypełniony instrumentami i zaśmiecony stronami jego serdecznej poezji."
+          ],
+          "id": "01d"
+        },
+        {
+          "type": "entries",
+          "name": "C6. Namiot Siłaczki Imeldy",
+          "page": 6,
+          "entries": [
+            "Jeśli {@creature Imelda|NRH-CoI} jest tutaj, popija herbatę i przeżuwa ciasta pomiędzy występami. Uwielbia rozmawiać i zawsze jest gotowa zapewnić dobry program ćwiczeń każdemu zainteresowanemu. {@creature Imelda|NRH-CoI} nic nie wie o Szmaragdowym Klejnocie, ale jest zaciekle lojalna wobec cyrku i Rubiny i zrobi wszystko, aby ich chronić. Jej namiot jest wypełniony sztangami, żelaznymi drążkami i trofeami za wszystkie jej przeszłe wyczyny siłowe."
+          ],
+          "id": "01e"
+        },
+        {
+          "type": "entries",
+          "name": "C7. Sprzedawcy",
+          "page": 7,
+          "entries": [
+            "Te namioty są przeznaczone dla sprzedawców smacznych przysmaków, takich jak kukurydza, karmelowe jabłka i toad-in-the-holes. Możesz także rozegrać test wytrzymałościowy, w którym uderzasz młotkiem w dźwignię, aby zadzwonić. Zielony musi wykonać udany test Siły {@dc 14} ({@skill Athletics}), aby zadzwonić i wygrać nagrodę (wypchanego potwora wybranego przez gracza)."
+          ],
+          "id": "01f"
+        }
+      ],
+      "id": "014"
+    },
+    "0:015": {
+      "type": "entries",
+      "name": "C1. Kasa biletowa",
+      "page": 5,
+      "entries": [
+        "Obok głównej bramy znajduje się kiosk, w którym Woody, magicznie ożywiona drewniana kukiełka, pobiera opłatę za wstęp za 1 sp, stempluje dłonie bywalców cyrku stemplem szczęśliwej buźki i życzy wszystkim dobrej zabawy.",
+        "Okrągła twarz Woody'ego jest pomalowana na szeroki uśmiech, ale jeśli ktoś spróbuje ominąć, nie płacąc lub powodując kłopoty, twarz odwraca się do góry nogami, zamieniając się w wielki grymas, a Woody zaczyna nawoływać klaunów, aby wykończyli przestępcę. Chudy nie potrafi walczyć, a jeśli zostanie zaatakowany, łatwo zostaje zamieniony w stertę patyków."
+      ],
+      "id": "015"
+    },
+    "0:016": {
+      "type": "entries",
+      "name": "C2. Główny namiot",
+      "page": 6,
+      "entries": [
+        "Wewnątrz tego dużego czerwonego namiotu znajduje się podwyższona drewniana scena z zasłonami i zapleczem, gdzie aktorzy i inni wykonawcy mogą się przebrać i przygotować do swoich występów. Ławki otaczają przód sceny, a za nimi znajdują się bele siana, na których widzowie mogą usiąść i cieszyć się występami.",
+        "O każdej porze na scenie występują połykacze mieczy, połykacze ognia, żonglerzy, akrobaci, muzycy, gawędziarze i oczywiście: {@creature Magnifico|NRH-CoI}magiczny akt."
+      ],
+      "id": "016"
+    },
+    "0:017": {
+      "type": "entries",
+      "name": "C3. Namiot Magnifico",
+      "page": 6,
+      "entries": [
+        "Na zewnątrz tego namiotu drewniana tablica głosi: „{@creature Magnifico|NRH-CoI} Wielki” kwiecistymi, malowanymi literami. Dwaj nieogoleni {@creature clown|NRH-CoI|klauni} stoją po obu stronach wejścia, jeden dłubi w zębach złamaną kością kurczaka. Klauni powstrzymują każdego, kto próbuje wejść do namiotu i nie wahają się przed eskalacją do ciosów.",
+        {
+          "type": "entries",
+          "name": "Wkradanie się",
+          "page": 6,
+          "entries": [
+            "Jeśli Zielony chce wejść ukradkiem, musi mu się to udać {@dc 12} Zręczność ({@skill Stealth}) sprawdź lub zaalarmuj klaunów lub Finstera (an {@creature imp}), który jest w namiocie w postaci szczura."
+          ],
+          "id": "018"
+        },
+        {
+          "type": "entries",
+          "name": "Wewnątrz namiotu",
+          "page": 6,
+          "entries": [
+            "Wewnątrz namiotu znajduje się mały stolik z dwoma krzesłami, otoczony narzędziami {@creature Magnifico|NRH-CoI}zawód: cylinder, jedwabne chusteczki do nosa, szafka z fałszywym tyłem, talia kart do gry, kryształowa kula, duże lustro w ozdobnej ramie i biały gołąb w klatce. Jeśli Finster żyje, oni także są w namiocie w postaci szczurów. Jeśli Greenowi udało się wkraść do środka, zaskakują Finstera, który udaje zwykłego szczura-maga, ale uważnie obserwuje, co robi Green. Możesz także pokrzyżować plany Finstera, pozwalając Greenowi zaskoczyć go, gdy jest w formie chochlika.",
+            "Jeśli Finster usłyszał nadchodzącego Greena, ukrywają się i obserwują Greena z cienia. Wykrycie Finstera, gdy jest ukryty, wymaga powodzenia {@dc 15} Mądrość ({@skill Perception}) sprawdzać.",
+            "Jeśli wydaje się, że Green szuka Szmaragdowego Klejnotu, Finster daje się poznać i oferuje ujawnienie jego lokalizacji - za odpowiednią opłatą (patrz „Oszustwa” powyżej)."
+          ],
+          "id": "019"
+        },
+        {
+          "type": "entries",
+          "name": "Szmaragdowy klejnot",
+          "page": 6,
+          "entries": [
+            "{@creature Magnifico|NRH-CoI} ukrył Szmaragdowy Klejnot w magicznym lustrze w ozdobnej ramie. Lustro jest w rzeczywistości portalem do małego półplanu o powierzchni 5 stóp kwadratowych, w którym Szmaragdowy Klejnot jest przechowywany w zamkniętym pudełku. Jeśli dotkniemy lustra, jego powierzchnia faluje jak woda. Green może przejść przez powierzchnię lustra do półplanu, w którym znajduje się zamknięta skrzynka. Wewnątrz półplanu jest całkowicie ciemno."
+          ],
+          "id": "01a"
+        },
+        {
+          "type": "entries",
+          "name": "Zamknięte pudełko",
+          "page": 6,
+          "entries": [
+            "To proste hebanowe pudełko z magicznym zamkiem zawiera Szmaragdowy Klejnot. Skrzynia ma KP 12, 10 punktów wytrzymałości, próg obrażeń 5 oraz odporność na trucizny i obrażenia psychiczne. (Próg obrażeń pudełka oznacza, że ​​jest odporny na wszystkie obrażenia, chyba że otrzyma 5 lub więcej obrażeń, w którym to przypadku otrzymuje normalne obrażenia. Zadanie 4 lub mniej obrażeń pudełku jest uważane za obrażenia powierzchowne i nie zmniejsza punktów wytrzymałości pudełka.)",
+            "Zamek skrzynki można z powodzeniem otworzyć {@dc 14} Zręczność ({@skill Sleight of Hand}) sprawdzać."
+          ],
+          "id": "01b"
+        }
+      ],
+      "id": "017"
+    },
+    "0:018": {
+      "type": "entries",
+      "name": "Wkradanie się",
+      "page": 6,
+      "entries": [
+        "Jeśli Zielony chce wejść ukradkiem, musi mu się to udać {@dc 12} Zręczność ({@skill Stealth}) sprawdź lub zaalarmuj klaunów lub Finstera (an {@creature imp}), który jest w namiocie w postaci szczura."
+      ],
+      "id": "018"
+    },
+    "0:019": {
+      "type": "entries",
+      "name": "Wewnątrz namiotu",
+      "page": 6,
+      "entries": [
+        "Wewnątrz namiotu znajduje się mały stolik z dwoma krzesłami, otoczony narzędziami {@creature Magnifico|NRH-CoI}zawód: cylinder, jedwabne chusteczki do nosa, szafka z fałszywym tyłem, talia kart do gry, kryształowa kula, duże lustro w ozdobnej ramie i biały gołąb w klatce. Jeśli Finster żyje, oni także są w namiocie w postaci szczurów. Jeśli Greenowi udało się wkraść do środka, zaskakują Finstera, który udaje zwykłego szczura-maga, ale uważnie obserwuje, co robi Green. Możesz także pokrzyżować plany Finstera, pozwalając Greenowi zaskoczyć go, gdy jest w formie chochlika.",
+        "Jeśli Finster usłyszał nadchodzącego Greena, ukrywają się i obserwują Greena z cienia. Wykrycie Finstera, gdy jest ukryty, wymaga powodzenia {@dc 15} Mądrość ({@skill Perception}) sprawdzać.",
+        "Jeśli wydaje się, że Green szuka Szmaragdowego Klejnotu, Finster daje się poznać i oferuje ujawnienie jego lokalizacji - za odpowiednią opłatą (patrz „Oszustwa” powyżej)."
+      ],
+      "id": "019"
+    },
+    "0:01a": {
+      "type": "entries",
+      "name": "Szmaragdowy klejnot",
+      "page": 6,
+      "entries": [
+        "{@creature Magnifico|NRH-CoI} ukrył Szmaragdowy Klejnot w magicznym lustrze w ozdobnej ramie. Lustro jest w rzeczywistości portalem do małego półplanu o powierzchni 5 stóp kwadratowych, w którym Szmaragdowy Klejnot jest przechowywany w zamkniętym pudełku. Jeśli dotkniemy lustra, jego powierzchnia faluje jak woda. Green może przejść przez powierzchnię lustra do półplanu, w którym znajduje się zamknięta skrzynka. Wewnątrz półplanu jest całkowicie ciemno."
+      ],
+      "id": "01a"
+    },
+    "0:01b": {
+      "type": "entries",
+      "name": "Zamknięte pudełko",
+      "page": 6,
+      "entries": [
+        "To proste hebanowe pudełko z magicznym zamkiem zawiera Szmaragdowy Klejnot. Skrzynia ma KP 12, 10 punktów wytrzymałości, próg obrażeń 5 oraz odporność na trucizny i obrażenia psychiczne. (Próg obrażeń pudełka oznacza, że ​​jest odporny na wszystkie obrażenia, chyba że otrzyma 5 lub więcej obrażeń, w którym to przypadku otrzymuje normalne obrażenia. Zadanie 4 lub mniej obrażeń pudełku jest uważane za obrażenia powierzchowne i nie zmniejsza punktów wytrzymałości pudełka.)",
+        "Zamek skrzynki można z powodzeniem otworzyć {@dc 14} Zręczność ({@skill Sleight of Hand}) sprawdzać."
+      ],
+      "id": "01b"
+    },
+    "0:01c": {
+      "type": "entries",
+      "name": "C4. Namiot Rubiny",
+      "page": 6,
+      "entries": [
+        "Jeśli Rubina (a {@creature noble}) jest tutaj, przegląda nadchodzący harmonogram wydarzeń na dzisiejszy wieczór i kilka następnych dni. Jest tam biurko, dwa drewniane krzesła, mały stolik i sofa. Dopóki są dla niej mili, Rubina traktuje każdego, kto wejdzie do jej namiotu, tak jak zrobiłby to życzliwy uczeń."
+      ],
+      "id": "01c"
+    },
+    "0:01d": {
+      "type": "entries",
+      "name": "C5. Namiot Filippo Fleetfingera",
+      "page": 6,
+      "entries": [
+        "Wewnątrz tego namiotu przebywa ponury bard Filippo (ur {@creature noble}). Filippo nic nie wie o Szmaragdowym Klejnocie, ale jest mu smutno z powodu utraty kolorów i pisze o nich głęboko emocjonalne wiersze.",
+        "Zauważył, że ostatnio {@creature Magnifico|NRH-CoI} wydaje się dziwny i jest trochę zbulwersowany faktem, że niegdyś gustowny program {@creature Magnifico|NRH-CoI} wydaje się teraz poświęcony jego okropnemu szczurowi.",
+        "Namiot Filippo jest wypełniony instrumentami i zaśmiecony stronami jego serdecznej poezji."
+      ],
+      "id": "01d"
+    },
+    "0:01e": {
+      "type": "entries",
+      "name": "C6. Namiot Siłaczki Imeldy",
+      "page": 6,
+      "entries": [
+        "Jeśli {@creature Imelda|NRH-CoI} jest tutaj, popija herbatę i przeżuwa ciasta pomiędzy występami. Uwielbia rozmawiać i zawsze jest gotowa zapewnić dobry program ćwiczeń każdemu zainteresowanemu. {@creature Imelda|NRH-CoI} nic nie wie o Szmaragdowym Klejnocie, ale jest zaciekle lojalna wobec cyrku i Rubiny i zrobi wszystko, aby ich chronić. Jej namiot jest wypełniony sztangami, żelaznymi drążkami i trofeami za wszystkie jej przeszłe wyczyny siłowe."
+      ],
+      "id": "01e"
+    },
+    "0:01f": {
+      "type": "entries",
+      "name": "C7. Sprzedawcy",
+      "page": 7,
+      "entries": [
+        "Te namioty są przeznaczone dla sprzedawców smacznych przysmaków, takich jak kukurydza, karmelowe jabłka i toad-in-the-holes. Możesz także rozegrać test wytrzymałościowy, w którym uderzasz młotkiem w dźwignię, aby zadzwonić. Zielony musi wykonać udany test Siły {@dc 14} ({@skill Athletics}), aby zadzwonić i wygrać nagrodę (wypchanego potwora wybranego przez gracza)."
+      ],
+      "id": "01f"
+    },
+    "0:020": {
+      "type": "entries",
+      "name": "Zdobycie klejnotu",
+      "page": 7,
+      "entries": [
+        "Kiedy mimowie i Rubina wskażą Greenowi kierunek {@creature Magnifico|NRH-CoI}, Zielony może zdobyć klejnot na wiele sposobów. Oto kilka pomysłów:",
+        {
+          "type": "list",
+          "items": [
+            "Niech Green odkryje dokładne miejsce pobytu klejnotu, szpiegując go {@creature Magnifico|NRH-CoI}, który obsesyjnie sprawdza klejnot, aby upewnić się, że jego jajo gniazdowe jest bezpieczne.",
+            "Niech Finster odda lokalizację klejnotu za określoną cenę.",
+            "Zorganizuj atak kilku {@creature clown|NRH-CoI|klauni} którzy zostali wynajęci przez pana Greystone'a do kradzieży klejnotu {@creature Magnifico|NRH-CoI}namiot. Jeśli {@creature Magnifico|NRH-CoI} usłyszy o tym, może w desperacji przyjechać do Green. Zielony może skorzystać z pomocy {@creature Imelda|NRH-CoI} aby przechylić szalę zwycięstwa na swoją korzyść, jeśli dojdzie do walki.",
+            "Niech Zielony spróbuje zdobyć klejnot podczas jednego z nich {@creature Magnifico|NRH-CoI}Magia działa, gdy ma na scenie magiczne lustro, co skutkuje wspaniałym spektaklem dla publiczności."
+          ]
+        },
+        "Na koniec Green powinien zdobyć Szmaragdowy Klejnot i {@item Instrument of the Bards, Doss Lute||dos lutnia} (jeśli Rubina już im tego nie dała) jako podziękowanie za bohaterstwo Greena w tak nudnych i ponurych czasach."
+      ],
+      "id": "020"
+    },
+    "0:021": {
+      "type": "entries",
+      "name": "Ukończenie Misji",
+      "page": 7,
+      "entries": [
+        "Jeśli wszystko pójdzie dobrze, Green spotyka się z panem Honeycuttem i zwraca mu Szmaragdowy Klejnot. Możesz spotkać pana Honeycutta z Greenem w tej samej tawernie, co na początku przygody, lub w bibliotece w Harmony.",
+        "Pan Honeycutt jest uszczęśliwiony powrotem Szmaragdowego Klejnotu i chce wiedzieć wszystko o tej przygodzie, słuchając i robiąc obszerne notatki w swoim czarnym notatniku.",
+        "Za ich odwagę i poświęcenie dla dobra Harmonii daje Greenowi sakiewkę zawierającą 20 sztuk i zaprasza ich do przyłączenia się do Towarzystwa Lorekeeper."
+      ],
+      "id": "021"
+    },
+    "0:022": {
+      "type": "section",
+      "name": "Magiczne przedmioty",
+      "page": 7,
+      "entries": [
+        "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+        {
+          "type": "list",
+          "items": [
+            "{@item Instrument of the Bards, Doss Lute}"
+          ]
+        }
+      ],
+      "id": "022"
+    },
+    "1:024": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "columns": 2,
+              "items": [
+                {
+                  "type": "entries",
+                  "name": "Zespół Dungeons & Dragons:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Projekt przygody",
+                          "entries": [
+                            "Kat Kruger i Adam Lee"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowy rozwój",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt postaci",
+                          "entries": [
+                            "Krzysia Tulacha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt graficzny",
+                          "entries": [
+                            "Emmę Ekblad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Redaktorzy",
+                          "entries": [
+                            "Ashley Michaela Lawson i Hannah Rose"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer twórców",
+                          "entries": [
+                            "Pelhama Greene’a"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Ilustracje",
+                          "entries": [
+                            "Czerwona Centrala"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Producent",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki",
+                          "entries": [
+                            "Shelly Mazzanoble"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencjonowania kategorii",
+                          "entries": [
+                            "Ann Earp"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "026"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Ferrary:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Starszy zastępca menedżera marki, NERDS:",
+                          "entries": [
+                            "Łukasz Krause"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer treści, NERDS:",
+                          "entries": [
+                            "Annie Belgrad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki, NERDS:",
+                          "entries": [
+                            "Joey'a Ratha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                          "entries": [
+                            "Amy Pagels"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "027"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Tripplexlix:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Partner Zarządzający",
+                          "entries": [
+                            "Jennifer Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Założyciel, Partner Zarządzający",
+                          "entries": [
+                            "Krzysztof Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Wiceprezes, szef marketingu partnerskiego",
+                          "entries": [
+                            "Kennetha Lindenbauma"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowe wsparcie",
+                          "entries": [
+                            "VMLY&R Commerce, Taxi, Pep i Golin"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "028"
+                }
+              ]
+            }
+          ],
+          "id": "025"
+        }
+      ],
+      "id": "024"
+    },
+    "1:025": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "entries",
+              "name": "Zespół Dungeons & Dragons:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Projekt przygody",
+                      "entries": [
+                        "Kat Kruger i Adam Lee"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowy rozwój",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt postaci",
+                      "entries": [
+                        "Krzysia Tulacha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt graficzny",
+                      "entries": [
+                        "Emmę Ekblad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Redaktorzy",
+                      "entries": [
+                        "Ashley Michaela Lawson i Hannah Rose"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer twórców",
+                      "entries": [
+                        "Pelhama Greene’a"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Ilustracje",
+                      "entries": [
+                        "Czerwona Centrala"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Producent",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki",
+                      "entries": [
+                        "Shelly Mazzanoble"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencjonowania kategorii",
+                      "entries": [
+                        "Ann Earp"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "026"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Ferrary:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Starszy zastępca menedżera marki, NERDS:",
+                      "entries": [
+                        "Łukasz Krause"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer treści, NERDS:",
+                      "entries": [
+                        "Annie Belgrad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki, NERDS:",
+                      "entries": [
+                        "Joey'a Ratha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                      "entries": [
+                        "Amy Pagels"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "027"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Tripplexlix:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Partner Zarządzający",
+                      "entries": [
+                        "Jennifer Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Założyciel, Partner Zarządzający",
+                      "entries": [
+                        "Krzysztof Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Wiceprezes, szef marketingu partnerskiego",
+                      "entries": [
+                        "Kennetha Lindenbauma"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowe wsparcie",
+                      "entries": [
+                        "VMLY&R Commerce, Taxi, Pep i Golin"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "028"
+            }
+          ]
+        }
+      ],
+      "id": "025"
+    }
+  }
+}

@@ -1,0 +1,2322 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Zib dla Twoich myśli",
+      "page": 2,
+      "entries": [
+        "Ta przygoda debiutuje w ramach drugiego Weekendu w Ravnicy, święta wszystkiego, co Ravnica. Akcja tej przygody rozgrywa się kilka tygodni po wydarzeniach przedstawionych w {@adventure Krenko's Way|kkw}, przygodzie opisanej podczas pierwszego Weekendu w Ravnicy i dostępnej jako przygoda wprowadzająca w {@book Guildmaster's Guide to Ravnica|ggr}. Aby cieszyć się {@i Zib dla Twoich myśli}, nie jest wymagana wcześniejsza znajomość tej przygody.",
+        {
+          "type": "section",
+          "name": "Przegląd historii",
+          "page": 2,
+          "entries": [
+            "Vezska, członkini Roju Golgari, podczas swoich podróży po Undercity w Dziesiątej Dzielnicy natrafiła na porzucony magiczny przedmiot. W tajemnicy zidentyfikowała przedmiot jako: {@item vial of thought capture|AZfyT}, przedmiot pozwala użytkownikowi kodować i przechowywać pasma myślowe. Jako pośrednik w poszukiwaniach Vezska zbiera wyrzucone przedmioty i odsprzedaje je mieszkańcom powierzchni. Kiedy ustaliła, co ma, Vezska poinformowała swoją sieć, że jest w posiadaniu przedmiotu i w ciągu kilku godzin pozyskała potencjalnego klienta.",
+            "Klient obiecał Vezskiej pokaźną sumę zino (sztuczek złota), ale miał pewien haczyk - fiolka musiała zostać im dostarczona z trzema konkretnymi myślami, które już przechwycono. Vezska zgodziła się na transakcję, uzyskała od klienta informacje na temat osób i myśli, które należało schwytać, po czym skontaktowała się z poszukiwaczami przygód w celu uzyskania pomocy.",
+            "Fiolka należy do potężnego agenta Domu Dimir, gildii tajemnic i szpiegów. Jego brak w posiadaniu właściciela nie pozostanie niezauważony zbyt długo..."
+          ],
+          "id": "001"
+        },
+        {
+          "type": "section",
+          "name": "Prowadzenie przygody",
+          "page": 2,
+          "entries": [
+            "{@i Zib dla Twoich myśli} to krótka przygodowa gra fabularna Dungeons & Dragons dla grupy od czterech do sześciu poszukiwaczy przygód drugiego poziomu, na którą można ukończyć około dwóch godzin. Akcja rozgrywa się w Dziesiątej Dzielnicy Ravnicy i może służyć jako przygoda wprowadzająca w tę scenerię. Równowaga klas postaci jest pomocna, ponieważ poszukiwacze przygód staną przed różnymi wyzwaniami. Poszukiwacze przygód mogą należeć do dowolnej gildii.",
+            "{@area Pregenerated characters|030|x} są dostępne w tej przygodzie, jeśli gracze nie mają czasu lub chęci na tworzenie własnych poszukiwaczy przygód. Jeśli gracze mają poszukiwaczy przygód, których używali w {@adventure Krenko's Way|kkw}, mogą podnieść ich poziom do 2. poziomu i zagrać nimi w tej przygodzie.",
+            "Jeśli chcesz rozpocząć tę przygodę jako Mistrz Podziemi, zalecamy przeczytanie całej przygody przed próbą jej uruchomienia. Jeśli wolisz zagrać, nie czytaj dalej. Przygoda zakłada, że ​​masz piątą edycję {@book Player's Handbook|phb}, {@book Dungeon Master's Guide|dmg}, I {@book Monster Manual|mm}. Jeśli masz {@book Guildmaster's Guide to Ravnica|ggr}, jest to pomocne, ale nie wymagane.",
+            "Bloki statystyk dla wszystkich potworów i NPC z {@book Guildmaster's Guide to Ravnica|ggr} są dostępne dla Twojej wygody.",
+            "Kiedy imię stworzenia pojawia się w typie {@b pogrubiony}, jest to wizualna wskazówka wskazująca blok statystyk stworzenia w {@book Monster Manual|mm} lub blok statystyk znajduje się w dodatku. Zaklęcia i niemagiczny sprzęt wspomniane w przygodzie opisano w {@book Player's Handbook|phb}. Magiczne przedmioty są opisane w {@book Dungeon Master's Guide|dmg}, chyba że tekst przygody kieruje cię do opisu przedmiotu w {@book Guildmaster's Guide to Ravnica|ggr}.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Tekst pojawiający się w takim ramce należy przeczytać na głos lub sparafrazować dla graczy, gdy ich postacie po raz pierwszy dotrą do miejsca lub w określonych okolicznościach, zgodnie z opisem w tekście."
+              ],
+              "id": "003"
+            },
+            {
+              "type": "entries",
+              "name": "Podsumowanie przygody",
+              "page": 2,
+              "entries": [
+                "Przygoda zaczyna się od bohaterów znajdujących się w tunelu kanalizacyjnym pod ulicami, gdzie umówili się na spotkanie z Vezską, pośrednikiem w poszukiwaniach Golgari. Weszła w posiadanie A {@item vial of thought capture|AZfyT}, magiczny przedmiot, który pozwala użytkownikowi uchwycić kilka myśli i zapisać je do późniejszego dostępu. Podeszła do niej klientka i chciała kupić nie tylko fiolkę, ale konkretne myśli, które miałaby w niej umieścić. Vezska zdecydowała, że ​​najlepiej będzie zlecić tego rodzaju prace podmiotom zewnętrznym i skontaktowała się z poszukiwaczami przygód.",
+                "Vezska przedstawia poszukiwaczom przygód listę zadań, która zawiera imiona trzech osób i konkretne myśli, które muszą przechowywać w fiolce. Gdy wszystkie trzy myśli zostaną schwytane w fiolce, poszukiwacze przygód będą mogli wrócić do Vezski, aby odebrać nagrodę. Dostarczy „napełnioną” fiolkę swojemu klientowi.",
+                "Poszukiwacze przygód muszą odwiedzić trzy osoby i znaleźć sposób, aby wydobyć myśli od każdej z nich. Każda osoba ma powody, aby ukrywać swoje informacje, więc strona musi znaleźć sposób na uzyskanie konkretnych myśli - poprzez oszustwo, negocjacje lub przymus. Kiedy już pomyślą o wszystkich trzech myślach, będą mogli wrócić do Vezskiej i odebrać nagrodę.",
+                "Jednak nie jest to takie proste. {@item vial of thought capture|AZfyT} jest cenionym przedmiotem w Domu Dimir, gildii handlującej wiedzą i tajemnicami. Magiczny przedmiot ma wbudowany cichy system alarmowy, który powiadamia właściciela, jeśli ktoś go użyje. Po pierwszej aktywacji, będąc w posiadaniu postaci, agent Dimira będący właścicielem przedmiotu zostaje powiadomiony o konieczności odzyskania fiolki przez specjalistów, aby ponownie odzyskali fiolkę od drużyny wszelkimi niezbędnymi środkami."
+              ],
+              "id": "004"
+            },
+            {
+              "type": "entries",
+              "name": "Klient Veszki",
+              "page": 3,
+              "entries": [
+                "Do wykonania tego zadania Veszka została zatrudniona przez klienta z gildii. Każda gildia ma swój własny powód, dla którego chce prezentować konkretne informacje.",
+                "Na początku przygody wylosuj klienta z poniższej tabeli lub wybierz jednego. Jeśli tak zdecydujesz, przynależność klienta do gildii może mieć wpływ na przyszłe przygody. Vezska nie rezygnuje z opisu klienta, chyba że jest do tego zmuszona.",
+                {
+                  "type": "table",
+                  "caption": "Klient Vezskiej",
+                  "colLabels": [
+                    "d6",
+                    "Odłam"
+                  ],
+                  "colStyles": [
+                    "col-2 text-center",
+                    "col-10"
+                  ],
+                  "rows": [
+                    [
+                      "1",
+                      "Azoriusz"
+                    ],
+                    [
+                      "2",
+                      "Dimir"
+                    ],
+                    [
+                      "3",
+                      "Izzeta"
+                    ],
+                    [
+                      "4",
+                      "Orżow"
+                    ],
+                    [
+                      "5",
+                      "Rakdos"
+                    ],
+                    [
+                      "6",
+                      "Simic"
+                    ]
+                  ]
+                },
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Azoriusz",
+                      "entry": "Nienagannie ubrany męski mag prawa."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dimir",
+                      "entry": "Humanoid mniej więcej wielkości człowieka, elfa lub vedalkena."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Izzeta",
+                      "entry": "Chętna i podekscytowana samica goblina."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Orżow",
+                      "entry": "Skrzydlaty Thrull dostarczył płatność i wiadomość od klienta."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Rakdos",
+                      "entry": "Ekstrawagancko ubrana wiedźma ludzkiej krwi."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Simic",
+                      "entry": "Hybryda Simic - elf z zielonkawo-niebieskimi łuskami i mrugającymi błonami na oczach."
+                    }
+                  ]
+                }
+              ],
+              "id": "005"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AZfyT/findbroker.webp"
+          },
+          "width": 1366,
+          "height": 828,
+          "credit": "Bram Sels"
+        },
+        {
+          "type": "section",
+          "name": "Rozpoczęcie przygody",
+          "page": 3,
+          "entries": [
+            "Gdy gracze będą gotowi do rozpoczęcia, przeczytaj lub sparafrazuj następujący tekst wprowadzający i poproś graczy, aby się przedstawili:",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Czekasz w przyćmionym blasku cuchnącej komory kanalizacyjnej pod ulicami Dziesiątej Dzielnicy. Rytmiczne kapanie jest czasami przerywane przez chlupotanie lub chrobotanie dochodzące skądś w pobliżu, gdy czekasz, aż pojawi się Twój pracodawca, specjalista od odnajdywania zapomnianych i wyrzuconych przedmiotów.",
+                "Po kilku minutach oczekiwania z jednego z przejść tunelu pojawia się wytatuowany elf ubrany w miękką skórzaną zbroję i grzybiczy szal. Podchodzi do twojej grupy.",
+                "„Przepraszam, że jestem trochę z tyłu. Przejdźmy do rzeczy”."
+              ],
+              "id": "007"
+            },
+            "Vezska, elf Devkarin {@creature scout} i pośrednik wyszukiwania Roju Golgari przybył, aby złożyć drużynie ofertę zatrudnienia.",
+            "Jeśli jeszcze tego nie zrobili, gracze mogą chcieć nawiązać powiązania między niektórymi postaciami przed ich przedstawieniem. Osobiste powiązania między postaciami mogą obejmować:",
+            {
+              "type": "list",
+              "items": [
+                "Wspólna gildia",
+                "Udostępniony kontakt",
+                "Wspólny znajomy",
+                "Poprzedni wspólny pracodawca",
+                "Chodziłem do tej samej szkoły/akademii",
+                "Często odwiedzaj te same przestrzenie społeczne (tawerny, areny itp.)",
+                "Mieszkasz lub mieszkałeś w tej samej okolicy"
+              ]
+            },
+            "Ponadto jedna lub więcej postaci może chcieć mieć Vezską jako kontakt w Golgari, jeśli nie nawiązały jeszcze kontaktu ze swoją postacią. Jeśli tak jest, to spotkanie odbyło się za pośrednictwem tego poszukiwacza przygód. Jeśli nie, Vezska mogła po prostu rozesłać wiadomość, że szuka poszukiwaczy przygód, grupa dostała wiadomość i zebrała się.",
+            {
+              "type": "entries",
+              "name": "Praca Vezskiej",
+              "page": 4,
+              "entries": [
+                "Vezska wykazuje pewność siebie, ale swobodną postawę podczas interakcji z drużyną. Po wstępnych powitaniach Vezska przystępuje do pracy i przedstawia swoje zadanie.",
+                {
+                  "type": "list",
+                  "items": [
+                    "„Podczas moich ostatnich podróży natknąłem się na bardzo intrygujący przedmiot. Mała ciemnoniebieska fiolka, która, jak wyczułem, musi być czymś w rodzaju magicznego przedmiotu. Po przeprowadzeniu kilku informacji okazało się, że moje podejrzenia były słuszne. Nazywa się to {@item vial of thought capture|AZfyT}.\"",
+                    "„Oczywiście musiałem znaleźć sposób, aby zamienić to w monetę, więc rozesłałem wiadomość do wybranej grupy potencjalnych nabywców, którzy interesują się tego typu rzeczami. Zainteresowaną ofertę otrzymałem już po kilku godzinach, ale były pewne zastrzeżenia. Mimo to przyjąłem ofertę, ale potrzebuję Twojej pomocy w jej realizacji.",
+                    "„Mój klient chce, aby znalazła się w niej nie tylko fiolka, ale także trzy konkretne myśli. Mam imiona i nazwiska osób oraz myśli, które mają zostać zapisane w fiolce. Nic więcej nie wiem o szczegółach prośby, wiem tylko, że musi ona zostać spełniona, aby umowa została spełniona”."
+                  ]
+                },
+                "Vezska oferuje drużynie 500 zino (szp) po pomyślnym wykonaniu zadania i zwróceniu jej „napełnionej” fiolki najpóźniej jutro do południa. Mogą ponownie spotkać się w tym miejscu. Jeśli postać próbuje wynegocjować wyższą ofertę, kończy się to sukcesem {@dc 15} Charyzma ({@skill Persuasion}) czek powoduje, że Vezska zwiększa swoją ofertę do 750 zinów. Ten test może być wykonany z korzyścią dla postaci, która ma Vezską jako kontakt.",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Skarb",
+                      "entry": "Jeśli postać ma Vezską jako kontakt lub jeśli w grupie jest członek Golgari, Vezska daje tej postaci pokryty rdzą wisiorek z symbolem Golgari, {@reward Golgari charm|GGR}. Po aktywacji urok może rzucić jednokrotnie {@spell dispel magic}, {@spell false life} (wersja 3. poziomu) lub {@spell stinking cloud}, zanim zniknie. Więcej informacji na temat uroków gildii znajdziesz w {@book Guildmaster's Guide to Ravnica|ggr|5|uroki gildii}. Ma tylko jeden urok do zaoferowania i faworyzuje członka Golgari ponad wszystkimi innymi."
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/AZfyT/golgari locket.webp"
+                  },
+                  "width": 1200,
+                  "height": 734,
+                  "credit": "Milivoj Ćeran"
+                },
+                {
+                  "type": "entries",
+                  "name": "Fiolka przechwytywania myśli",
+                  "page": 4,
+                  "entries": [
+                    "Ta ciemnoniebieska fiolka pozwala odczytać powierzchowne myśli innej osoby i uchwycić je jako pasma myślowe, przechowując je w fiolce. W ramach akcji możesz aktywować fiolkę, aby obrać za cel istotę, którą widzisz w promieniu 3 metrów od ciebie, aby poznać jej powierzchniowe myśli i wyciągnąć wyuczone myśli z głowy istoty w postaci namacalnego świecącego sznura energii znanego jako nić myśli. Nici można przechowywać w fiolce do 24 godzin lub do momentu, gdy fiolka osiągnie pojemność, w którym to przypadku najstarsze pasma ulegną rozproszeniu. Istota dotknięta fiolką wie, że jej myśli są badane.",
+                    "Fiolka może również przechowywać nici myślowe utworzone przez {@spell encode thoughts|GGR} sztuczka. Nie przedłuża trwałości pasm powyżej 8 godzin, ale zmagazynowane pasma nie znikają po zapuszczeniu {@spell encode thoughts|GGR} ponownie podczas trwania śpiewu.",
+                    "Fiolka ma 3 ładunki i może przechowywać do 3 nici myślowych. Odzyskuje wszystkie swoje ładunki codziennie o zmierzchu."
+                  ],
+                  "id": "009"
+                }
+              ],
+              "id": "008"
+            },
+            {
+              "type": "entries",
+              "name": "Tematy i przemyślenia",
+              "page": 5,
+              "entries": [
+                "Vezska przekazuje fiolkę i przekazuje stronie informacje, które otrzymała na ten temat oraz jakie przemyślenia należy uzyskać. Wiadomo, że wszystkie te osoby mieszkają w Dziesiątym Dystrykcie. Vezska nie zna żadnego z nich osobiście ani z reputacji.",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Argona",
+                      "entry": "Rudowłosa, dereszowata centaur i rogacz (rodzaj władcy bestii) w Konklawe Selesnya. Bohaterowie muszą poznać tytuł książki o ogrodnictwie, którą niedawno zwróciła do Biblioteki Ismerów."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Delrima Munna",
+                      "entry": "Student vedalken na Uniwersytecie Prism. Bohaterowie muszą poznać lokalizację tajnego przejścia w Bibliotece Ismeri, które przypadkowo odkrył Delrim."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Jodełkowy",
+                      "entry": "Samiec Silhany (leśnego elfa) płotka z tendencją do ubierania się w dobrze skrojone ubrania. Postacie muszą poznać lokalizację wzmocnionego Mizzium niosącego opary (urządzenia przypominającego miotacz ognia), które widział, ale którego nie był w stanie zdobyć."
+                    }
+                  ]
+                }
+              ],
+              "id": "00a"
+            }
+          ],
+          "id": "006"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/GGR/026-213.webp"
+          },
+          "width": 1000,
+          "height": 611,
+          "credit": "Grzegorz Rutkowski"
+        },
+        {
+          "type": "section",
+          "name": "Dojazd do pracy",
+          "page": 5,
+          "entries": [
+            "Gdy bohaterowie zostaną odpowiednio przeszkoleni i będą gotowi do działania, Vezska przypomina im, że mają 24 godziny na powrót z fiolką i wymaganymi pasmami myślowymi. Jeśli im się nie uda, nie dostaną wynagrodzenia. Jeśli zapytają o zatrzymanie fiolki, Vezska odpowiada, że ​​należy do niej, a zabranie jej od pośrednika to dobry sposób, by skończyć jako nawóz.",
+            {
+              "type": "entries",
+              "name": "Uderzanie w ulice",
+              "page": 5,
+              "entries": [
+                "Strona może zastosować różne podejścia w celu znalezienia osób na liście. Gdy postacie dowiedzą się, gdzie znajdują się poszczególne osoby, zapoznaj się z odpowiednią sekcją poniżej.",
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Użyj Kontaktów",
+                      "page": 5,
+                      "entries": [
+                        "Jeśli postać ma odpowiedni kontakt, do którego może się zwrócić w celu uzyskania informacji, może zwrócić się do niego o pomoc. Umówienie się na spotkanie z osobą kontaktową zajmuje godzinę {@dice 1d6} godziny, w których można kontaktować się w celu ustalenia miejsca pracy i zamieszkania danej osoby. Jeżeli kontakt nie jest szczególnie odpowiedni do odnalezienia żądanej osoby, czas potrzebny na znalezienie jej lokalizacji ulega podwojeniu."
+                      ],
+                      "id": "00e"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Zbierz informacje",
+                      "page": 5,
+                      "entries": [
+                        "Postacie mogą udać się do miejsc publicznych, aby spróbować dowiedzieć się, gdzie znajdują się poszczególne osoby. Po {@dice 1d4} godzin, postać przeglądająca wiele jałowych rozmów sprawia, że: {@dc 10} Kontrola charyzmy. Jeśli się powiedzie, ustalają miejsce pracy lub miejsce zamieszkania danej osoby, według własnego uznania. Postacie zyskują przewagę w tym teście, jeśli znajdują się w dzielnicy, w której mieszka ofiara.",
+                        {
+                          "type": "list",
+                          "items": [
+                            "{@b Argona} mieszka w dzielnicy trzeciej i obecnie pracuje w ogrodach na Platformie Milenijnej.",
+                            "{@b Delrima Munna} mieszka i pracuje w komisariacie piątym, prowadząc działalność w małym laboratorium w pobliżu cewki pęcherzowej.",
+                            "{@b Jodełkowy} przebywa obecnie u kilku przyjaciół Gruula na skraju komisariatu czwartego w obozowisku w pasie gruzów."
+                          ]
+                        },
+                        "Podróż do miejsca, w którym znajdują się Argona lub Delrim, zajmuje około pół godziny, niezależnie od tego, gdzie bohaterowie znajdują się w mieście, dzięki transportowi publicznemu. Podróż przez pas gruzów do Jodełki zajmuje około dwóch godzin."
+                      ],
+                      "id": "00f"
+                    }
+                  ],
+                  "id": "00d"
+                }
+              ],
+              "id": "00c"
+            }
+          ],
+          "id": "00b"
+        },
+        {
+          "type": "section",
+          "name": "Dom Dimir interweniuje",
+          "page": 5,
+          "entries": [
+            "Gdy postacie użyją fiolki do przechwycenia przynajmniej jednej nici myślowej, do byłego właściciela fiolki wysyłany jest cichy magiczny alarm, informujący ich, że została ona użyta przez kogoś innego. Były właściciel, potężny agent Dimira nieobecny w tej przygodzie, wysyła odpowiedź, prosząc o próbę odzyskania fiolki. Były właściciel jest świadomy lokalizacji fiolki dzięki magii umieszczonej na fiolce, ale magia wróżenia zanika w ciągu 24 godzin.",
+            {
+              "type": "entries",
+              "name": "Oszustwo i kłamstwa",
+              "page": 6,
+              "entries": [
+                "Do spotkania z Domem Dimir powinno dojść po drugim użyciu fiolki. Idealnie byłoby, gdyby to spotkanie miało miejsce na ruchliwej ulicy, stacji tranzytowej lub w innym miejscu z dobrymi kryjówkami i drogami ucieczki.",
+                "Zespół odzyskujący otrzymuje rozkaz podjęcia próby kradzieży bez otwartego konfliktu, jeśli to możliwe. Zespół dwuosobowy {@creature spy||szpiegowie} i jeden {@creature thought spy|ggr} ubrani w ubrania przyziemnych podróżników, z ukrytą bronią, tropią drużynę. Spędzają trochę czasu obserwując swoje ruchy z cienia. Postacie z pasywem {@skill Perception} wyniki wynoszące 14 lub więcej mogą mieć poczucie, że są obserwowani lub śledzeni.",
+                "Szpiedzy wiedzą, która postać aktualnie posiada fiolkę. Obserwując imprezę, mogą zastosować jeden z poniższych sposobów, aby ją zdobyć lub skorzystać z własnego.",
+                {
+                  "type": "list",
+                  "items": [
+                    "Dwóch szpiegów odwraca uwagę w pobliżu (np. przewracając wózek, rozpoczynając kłótnię itp.), podczas gdy szpieg myślący porusza się za pomocą {@skill Stealth} I {@skill Sleight of Hand} ukraść to. Jeśli drużyna jest odpowiednio rozproszona, przeciwstawne rzuty postaci w celu wykrycia kradzieży są niekorzystne.",
+                    "Szpieg myśli rzuca {@spell disguise self} przybiera postać niewinnej osoby (sklepikarz, bibliotekarz itp.) i podchodzi do postaci z fiolką i prosi o towarzyszenie przebranemu szpiegowi w powrocie do jego miejsca zamieszkania po pomoc. Szpieg myślowy zabiera ich do pobliskiej kryjówki Domu Dimir (gdzie czekają inni szpiedzy) i próbuje zdobyć przedmiot za pomocą Zręczności ({@skill Sleight of Hand}) sprawdzać, {@spell charm person} zaklęciem lub siłą. Jeśli zespół aportujący ucieknie się do użycia siły, a {@creature flying horror|ggr} przybywa jako wsparcie po jednej rundzie walki.",
+                    "Jeśli liczba szpiegów przewyższa grupę posiadającą fiolkę (np. jeśli partia zdecyduje się rozdzielić), mogą spróbować zaatakować ich w alejce ukrytej przed widokiem publicznym. Szpiedzy nie atakują, aby zabić, mają rozkazy jedynie zdobycia przedmiotu. Każda postać, której punkty życia zostaną zredukowane do 0 w wyniku swoich ataków, zostaje powalona {@condition unconscious} zamiast umierać.",
+                    "Schwytani szpiedzy wiedzą tylko, że zostali sprowadzeni, aby odzyskać fiolkę i podrzucić ją w bezpiecznym miejscu w podziemnym mieście. Tajne komórki Dimira dbają o to, aby żadne niepotrzebne informacje nie zostały przekazane agentom w terenie."
+                  ]
+                },
+                {
+                  "type": "inset",
+                  "name": "Postacie Domu Dimir",
+                  "page": 6,
+                  "entries": [
+                    "Jeśli postać w drużynie jest członkiem Domu Dimir, jest świadoma tego, czym są nici myślowe i jak cenny towar reprezentują dla gildii tajemnic. Postać może współczuć agentowi, który zgubił fiolkę i spróbować stanąć po jego stronie, aby zyskać przychylność swojej gildii.",
+                    "Nie ma nic złego w tym, że ta postać ma tego rodzaju konflikty i być może własne plany, o ile nie powoduje to zbyt dużego napięcia wśród reszty drużyny. Przypomnij graczowi, że w Dimirze jest wiele komórek, które działają w stosunkowo niezależny sposób. Niektóre komórki mogą być w konflikcie z innymi, więc nie jest nierozsądnym powstrzymywanie pracownika przed odzyskaniem utraconej fiolki.",
+                    "Ostatecznie pozbycie się fiolki po tym, jak Vezska przekaże ją swojemu klientowi, może posłużyć jako płodne ziarno dla kolejnej przygody dla tej postaci, wśród wielu innych sekretów, które skrywa ta przygoda"
+                  ],
+                  "id": "012"
+                },
+                "Jeśli szpiegom uda się ukraść przedmiot, ale drużynie zostanie zauważona kradzież, rozpoczyna się pościg ulicami Dziesiątej Dzielnicy. Możesz użyć tabeli {@table Urban Chase Complications|dmg} w {@book Dungeon Master's Guide|dmg|8|goni}, aby rozstrzygnąć pościg.",
+                "Jeśli szpiegom uda się ukraść fiolkę i uciec z drużyny, ich misja zakończy się niepowodzeniem. Nadal mogą próbować znaleźć każdą osobę i odpowiedzi na pytania, ale to tylko na ich użytek."
+              ],
+              "id": "011"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/AZfyT/flying horror.webp"
+              },
+              "width": 1200,
+              "height": 876,
+              "credit": "Adam Paquette"
+            }
+          ],
+          "id": "010"
+        },
+        {
+          "type": "section",
+          "name": "Argona",
+          "page": 6,
+          "entries": [
+            "Centaur Selesnyański {@creature horncaller|GGR} Argona miała ostatnio pewne problemy z nastawieniem, co pozwoliło jej przełożonym zyskać czas na pracę naprawczą. Niedawno nawróciła się na Konklawe i wychowała się w klanie Gruul. Jako Horncaller jest odpowiedzialna za opiekę i szkolenie bestii w gildii. Ale jej temperament pozwolił jej trochę czasu zająć się kształtowaniem krajobrazu topiary na terenie Platformy Milenijnej, pływającej konstrukcji zacumowanej do ogromnych łańcuchów, z której roztacza się najlepszy widok na Dziesiątą Dzielnicę i dalej. Można ją znaleźć na tej platformie w ciągu dnia.",
+            "Wieczorem Argona udaje się do swojej jurty w Beast Haven, dzielnicy znanej z hodowli najlepszych zwierząt w Dziesiątej Dzielnicy. Jeśli postacie ją tu spotkają, jest wobec nich bardziej ostrożna, a wszystkie testy interakcji społecznych wychodzą na niekorzyść, chyba że zostaną zainicjowane przez członka gildii Selesnya lub Gruul.",
+            {
+              "type": "entries",
+              "name": "Platforma milenijna",
+              "page": 7,
+              "entries": [
+                "Każdy obywatel ma roczny token, który może wymienić na jeden przejazd zeppelidem na platformę, łącznie z postaciami. Publiczne transporty zeppelidami kursują tylko od świtu do zmierzchu. Jeśli zamiast tego chcą zapłacić za podróż, przejazd zeppelidem z głównego węzła przesiadkowego na stację Augustin na Platformę Millennial kosztuje 1 zino (gp).",
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Zeppelidy",
+                      "page": 7,
+                      "entries": [
+                        "Są to ogromne, pływające stworzenia, które utrzymują się na powierzchni przez wiele worków powietrznych na swoich przypominających balony ciałach. W wyniku biomancji Kombinatu Simic można je łatwo oswoić i często są wykorzystywane przez Ravnicanów do transportu powietrznego. Zamknięty przedział jest często zaprzężony do ram, aby przewozić podróżnych.",
+                        "Gdy postacie dotrą na platformę, przeczytaj co następuje:",
+                        {
+                          "type": "insetReadaloud",
+                          "entries": [
+                            "Podróż zeppelidem na Platformę Milenijną oferuje zapierający dech w piersiach widok na niekończące się miasto, w tym dziewięć sal gildii i kopułową Komnatę Paktu Gildii.",
+                            "Ogród, na którym pracuje Argona, znajduje się w odległości krótkiego spaceru od elegancko rzeźbionego marmurowego budynku otoczonego z trzech stron wypielęgnowanymi topiariami przedstawiającymi wszelkiego rodzaju zwierzęta."
+                          ],
+                          "id": "017"
+                        },
+                        "Sfrustrowana dereszowata centaur z ognistoczerwonymi włosami i plemiennymi tatuażami przedziera się przez topiary, trzymając w rękach nożyce.",
+                        "Argona próbuje przyciąć topiary, ale ma problemy. Topiary są animowane i niezbyt dobrze znoszą ozdoby. Zwykle Konklawe przydzielałoby do tego zadania druida, ale Argona została o to poproszona, aby pomóc jej „nawiązać kontakt ze swoim spokojnym ja”. Na razie nie idzie dobrze."
+                      ],
+                      "id": "016"
+                    }
+                  ],
+                  "id": "015"
+                },
+                {
+                  "type": "entries",
+                  "name": "Trochę poza szczytem",
+                  "page": 7,
+                  "entries": [
+                    "Jeśli bohaterowie zbliżają się do Argony, wita ich i próbuje bagatelizować swoją frustrację teraz, gdy inni ją zauważyli. Wyjaśnia, co robi i mówi bohaterom, że topiary oddalają się, gdy się zbliża. Musi dzisiaj przyciąć cztery z nich - dwa wyglądające jak gąsienice (stworzenie podobne do łosia) i dwa wyglądające jak ceratoki (stworzenie podobne do nosorożca). Przycięcie każdego z nich powinno zająć tylko kilka minut, ale przyznaje, że chociaż uczy się ogrodnictwa, nie przepada za roślinami i są płochliwe.",
+                    "Jeśli bohaterowie wyjaśnią, dlaczego tu są i czego od niej chcą, Argona poprosi ich o przysługę w zamian za informacje, których szukają - pomoc w przycięciu topiary. Postacie mogą zaakceptować jej umowę lub zamiast tego mogą zawrzeć {@dc 15} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli im się to uda, przekazują jej informacje i zostawiają ją samą. Jeśli bohaterowie wspomnią, że zamierzają uchwycić jej myśl w fiolce i zrezygnują z pomocy, rachunek zostaje wystawiony na niekorzyść.",
+                    "Istnieją cztery topiary - dwa to łyżwiarze ({@creature awakened shrub||animowane krzewy}) i dwa to ceratoki ({@creature awakened tree||animowane drzewa}). Aby skutecznie zbliżyć się do ich przycięcia, postać może zastosować jedną z następujących metod:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "Sukces {@dc 15} Inteligencja ({@skill Nature}) pozwala postaci podejść do rośliny ostrożnie, wystarczająco blisko, aby wykonać niezbędną pracę.",
+                        "Sukces {@dc 15} Zręczność ({@skill Sleight of Hand}) pozwala postaci ukryć nożyce i potajemnie przyciąć topiary.",
+                        "Stosowanie zabezpieczeń, takich jak mocne liny lub {@spell entangle} zaklęcie. Rzuć na inicjatywę i przeprowadź ją jak walkę, przy czym topiary będzie próbowało uciec i zaatakować, jeśli postać znajdzie się w zasięgu, jeśli nie zostanie to odpowiednio wykonane. {@condition restrained}.",
+                        "Wszystko inne, kreatywne, czego postać spróbuje, może być skuteczne. Ogólnie rzecz biorąc, trudność każdego sprawdzenia, aby odnieść sukces, wynosi {@dc 15}, ale możesz dać przewagę, jeśli inni pomagają."
+                      ]
+                    }
+                  ],
+                  "id": "018"
+                },
+                {
+                  "type": "entries",
+                  "name": "Informacje o Argonie",
+                  "page": 7,
+                  "entries": [
+                    "Kiedy bohaterowie pomogli Argonie lub przekonali ją, aby zapewniła to, czego szukają, mówi im, co następuje:",
+                    {
+                      "type": "insetReadaloud",
+                      "entries": [
+                        "„Tytuł książki wymagał sporo pracy. No cóż, nosi ona tytuł Uzdrawianie ogrodnictwa i zwróciłem ją do Biblioteki Ismerskiej zaledwie kilka dni po terminie”."
+                      ],
+                      "id": "01a"
+                    },
+                    "Jeśli postacie pomogły jej przy topiarach lub udało im się przekonać ją o 5 lub więcej, oferuje dodatkową informację.",
+                    {
+                      "type": "insetReadaloud",
+                      "entries": [
+                        "„Jeszcze jedno na temat tej książki… Czytałam ją pewnego wieczoru przy świecach i przysięgam, że widziałam na stronach jakieś wyblakłe napisy. Nie wyglądało to na nic, co mogłabym przeczytać, i nigdy więcej tego nie widziałam”."
+                      ],
+                      "id": "01b"
+                    },
+                    "Strona może zdecydować się na uchwycenie tego dodatkowego wglądu w wątku myślowym lub może go pominąć."
+                  ],
+                  "id": "019"
+                }
+              ],
+              "id": "014"
+            }
+          ],
+          "id": "013"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AZfyT/sage row savant.webp"
+          },
+          "width": 1145,
+          "height": 750,
+          "credit": "Bastien Lecouffe-Deharme"
+        },
+        {
+          "type": "section",
+          "name": "Delrima Munna",
+          "page": 8,
+          "entries": [
+            "Wedalken {@creature apprentice wizard|VGM} Delrim zawsze miał wobec siebie wielkie marzenia i dlatego chciał studiować na Uniwersytecie Prism, prestiżowej szkole magii w komisariacie piątym. Jego chęć udowodnienia swojej wartości jako prawowitego maga podczas studiów nie raz niemal stała się jego zgubą, ponieważ podejmował ryzyko, stosując swoją wyuczoną wiedzę, z katastrofalnymi skutkami. Teraz potrzebuje, aby jego najnowszy projekt się opłacił, w przeciwnym razie nie ukończy szkoły. Pracował niemal całą dobę w laboratorium poza kampusem w Blistercoils, dzielnicy w komisariacie piątym. W dzień i w nocy drużyna znajduje tutaj Delrima, który przygotowuje swój eksperyment do przeglądu.",
+            {
+              "type": "entries",
+              "name": "Laboratorium Delrima",
+              "page": 8,
+              "entries": [
+                "Delrim przez ostatnie kilka dni pracował w małym pomieszczeniu w piwnicy, w pobliżu potężnych generatorów z kołem wodnym, zwanych cewkami pęcherzowymi. Szalejący dźwięk pobliskiej wody i ciągłe buczenie generatorów utrudniają słyszenie w tej przestrzeni, ale Delrim ma na sobie ochronniki słuchu.",
+                "Gdy postacie dotrą do laboratorium, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "Adres podany dla Delrim to Blistercoils, dzielnica przemysłowa usiana warsztatami i laboratoriami. Dokładny adres znajduje się na głębokich schodach w dół, a powietrze wibruje od szumu płynącej wody. Koła wodne zasilające większą część miasta muszą być blisko."
+                  ],
+                  "id": "01e"
+                },
+                "Schody kończą się stalowymi drzwiami z brązowawą metalową skrzynką przykręconą do lewej ściany. W pudełku znajduje się dziewięć zestawów zatyczek do uszu oraz duży zielony przycisk. Naciśnięcie przycisku ostrzega mieszkańców pomieszczenia, że ​​ktoś dzwoni na zewnątrz.",
+                "Drzwi mają od wewnątrz przesuwaną szczelinę, przez którą ktoś może zajrzeć na zewnątrz. Jest zablokowany i wymaga pomyślnego zakończenia {@dc 16} Test zręczności z {@item thieves' tools|PHB} wybrać zamek lub odnieść sukces {@dc 20} Wytrzymałość ({@skill Athletics}) sprawdź, czy wyważysz drzwi.",
+                "Jeśli bohaterowie nacisną przycisk, drzwi otworzy Delrim, wykrzykując pozdrowienia ponad hałasem kół wodnych. Po otwarciu drzwi przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "Drzwi otwierają się i ukazują bałagan w laboratorium o powierzchni 30 stóp kwadratowych, które wygląda na bardzo używane i zamieszkane. Do jednej ze ścian przymocowany jest gigantyczny aparat składający się z kilkudziesięciu cewek przewodzących. Za pomocą wielu kabli do tego urządzenia przymocowany jest bulwiasty cylinder z wystającym przedłużeniem, skierowany bezpośrednio na książkę inżynieryjną leżącą na stole. Na boku cylindra widnieją słowa „Emiter przeniesienia fazowego”."
+                  ],
+                  "id": "01f"
+                },
+                "Aby ktokolwiek mógł cokolwiek usłyszeć w laboratorium, postacie muszą krzyczeć lub znaleźć inny sposób komunikacji (np {@spell message} kantrip). Delrim nie czeka długo, aż bohaterowie zainicjują rozmowę, po czym krzyknie „CZY JESTEŚ GOTOWY? ZACZYNAMY!” Następnie rzuca przełącznik w pobliżu aparatu, a cewki przewodzące trzaskają od prądu.",
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/AZfyT/electrostatic field.webp"
+                  },
+                  "width": 1242,
+                  "height": 708,
+                  "credit": "Dan Scott"
+                },
+                {
+                  "type": "entries",
+                  "name": "Nie fascynuj mnie",
+                  "page": 9,
+                  "entries": [
+                    "Urządzenie Delrima wystrzeliwuje wiązkę, która na krótki czas wycofuje obiekty z rzeczywistości, ale nie udało mu się sprawić, by działała ona spójnie. W swojej niecierpliwości podłączył urządzenie do masywnej, magicznie wzmocnionej matrycy przewodnictwa, aby zwiększyć jego moc. To był ogromny błąd.",
+                    {
+                      "type": "insetReadaloud",
+                      "entries": [
+                        "Zapach ozonu wypełnia pomieszczenie, gdy urządzenie budzi się do życia. Niemal natychmiast do cewek zostaje podłączony prąd tak intensywny, że zalewa pomieszczenie niebiesko-białym światłem. Emiter przeniesienia fazowego wysyła niebieską wiązkę w stronę książki na stole, która znika."
+                      ],
+                      "id": "021"
+                    },
+                    "Energia elektryczna tryska z cewek zasilających emiter, podczas gdy strumienie dymu i iskry wylatują z obudowy cylindra, a emiter kołysze się szaleńczo. Triumfalny wyraz twarzy Delrima zmienia się w panikę, gdy zdaje sobie sprawę, że jego eksperyment się nie powiódł i może mieć katastrofalne skutki. {@trap malfunctioning Phase Transference Emitter|AZFYT} należy wyłączyć lub zniszczyć, zanim spowoduje zbyt duże spustoszenie. To stało się pułapką!"
+                  ],
+                  "id": "020"
+                },
+                {
+                  "type": "entries",
+                  "name": "Informacje Delrima",
+                  "page": 10,
+                  "entries": [
+                    "Gdy postacie pomogły Delrimowi w uniemożliwieniu jego eksperymentu lub ucieczce z budynku, na żądanie jest on w stanie podać następujące informacje:",
+                    {
+                      "type": "insetReadaloud",
+                      "entries": [
+                        "„Byłem w Bibliotece Ismeri, na dziale filozofii, szukając książek z mojej listy lektur na zajęcia z etyki w badaniach naukowych, kiedy odkryłem tajne przejście na górnej półce drugiego regału w tym dziale. Była to przestrzeń pełzająca, do której dostęp wymagał drabiny albo umiejętności latania, wspinania się lub czegoś w tym rodzaju. Z pewnością nie było to w ogóle oczywiste dla nikogo. Kończyło się zamkniętymi metalowymi drzwiami z kilkoma dziwnymi symbolami."
+                      ],
+                      "id": "023"
+                    },
+                    "Jeśli bohaterom udało się zakończyć eksperyment bez eksplozji, Delrim może zapisać wyniki swojej pracy i poprosić stronę o weryfikację ustaleń swoimi podpisami. Jeśli się zgodzą, podaje im dodatkowe szczegóły:",
+                    {
+                      "type": "insetReadaloud",
+                      "entries": [
+                        "Delrim szuka w torebce kartki papieru i podaje ją tobie. „Zanim odleciałem, udało mi się potrzeć niektóre symbole na tych drzwiach. Nie wiem, co one oznaczają, bo nie miałem czasu ich zbadać, ale możesz je zabrać ze sobą”."
+                      ],
+                      "id": "024"
+                    },
+                    "Informacja ta nie musi być uchwycona w wątku myślowym, jeśli strona chce ją ukryć. Dowolna postać, która brała udział w {@adventure Krenko's Way|kkw} zauważa, że ​​te oznaczenia są podobne do tych znalezionych na drzwiach domu Falisha. W przeciwnym razie oznaczenia są jedynie ciekawostką, która nie ma dalszego wpływu na tę przygodę."
+                  ],
+                  "id": "022"
+                }
+              ],
+              "id": "01d"
+            }
+          ],
+          "id": "01c"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AZfyT/rubblebelt raiders.webp"
+          },
+          "width": 1271,
+          "height": 820,
+          "credit": "Chippy"
+        },
+        {
+          "type": "section",
+          "name": "Jodełkowy",
+          "page": 12,
+          "entries": [
+            "Herringbone, elf krążący po mieście, płot i człowiek o niezwykłym stylu, pracuje w całej Dziesiątej Dzielnicy, sprzedając nielegalne towary zdobyte od swojej siatki ulicznych złodziei. Nie jest na tyle dojrzały, aby założyć gang, ale poznał wielu znajomych, którzy są dobrzy w stosowaniu przemocy wobec każdego, kto próbuje go oszukać lub oszukać w transakcji. Jedną z jego ulubionych grup zbirów do wynajęcia jest banda Gruulów zlokalizowana w pasie gruzów.",
+            {
+              "type": "entries",
+              "name": "Obozowisko w Pasie Gruzów",
+              "page": 12,
+              "entries": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/GGR/095-415.webp"
+                  },
+                  "width": 2513,
+                  "height": 3338,
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 146,
+                    "offsetX": -43,
+                    "offsetY": -25,
+                    "scale": 3
+                  },
+                  "title": "Obozowisko w Pasie Gruzów",
+                  "credit": "Dyson Logos",
+                  "id": "032"
+                },
+                "Herringbone spędził tu ostatnie kilka dni po sfinalizowaniu transakcji z przywódcą bandy. Większość reszty bandy wybrała się na najazd, ale Herringbone został w pobliżu, aby dotrzymać towarzystwa nielicznym lokatorom.",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "Pas gruzów to wyniszczona strefa rozpadających się budynków i zarośli. Informacje, które zdobyłeś, prowadzą cię do obozowiska na starym placu, odzyskanego przez dziką przyrodę. Stara wieża nadal stoi około 80 nad ziemią. Tu i ówdzie do ruin przylegają cienkie drzewa, a na samym placu można ukryć namioty. W centrum obszaru trzaska ognisko."
+                  ],
+                  "id": "027"
+                },
+                "A {@creature rubblebelt stalker|GGR} pełni wartę w wieży i gwiżdże do reszty swojej drużyny, gdy zauważa zbliżającą się grupę. Dwa {@creature anarch|GGR|anarchiści} są w pobliżu ogniska i udają się do zagród dla zwierząt, aby zabrać swoje dwa {@creature boar|mm|knury} przed wyruszeniem na spotkanie z imprezą. Zarówno prześladowcę z pasa gruzów, jak i anarchistów znajdziesz w dodatku.",
+                "Jodełka ({@creature noble} z AC 12) schodzi ze swojego pokoju w wieży, aby dołączyć do dwóch anarchistów witających imprezę. Zebrana grupa spotyka się na północ od ogniska.",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "Herringbone to nienagannie ubrany elf w eleganckim garniturze, złoconym rapierze i pierzastej czapce uśmiecha się do ciebie szeroko, gdy podchodzisz. Zauważasz błysk kilku złotych zębów w jego ustach."
+                  ],
+                  "id": "028"
+                },
+                "Jeśli bohaterowie wyjaśnią, po co tu przybyli, Herringbone uważnie wysłuchuje ich próśb, a następnie kategorycznie odmawia udzielenia im informacji, których szukają. Jeśli wspomnią o przechwyceniu informacji w wątku myślowym, Herringbone stanowczo udziela reprymendy i prosi drużynę o opuszczenie drużyny, zanim Gruul sprawi im zły dzień.",
+                "Gruulowie gotują się do walki i są gotowi do ataku, gdy Herringbone powie, że skończył rozmawiać z drużyną. Prześladowca z pasa gruzów podczas rozmowy zaczyna schodzić ze swojego stanowiska w wieży i próbuje ukryć się wśród drzew na północ od miejsca spotkania.",
+                {
+                  "type": "entries",
+                  "name": "Czas na herbatę dobiegł końca",
+                  "page": 13,
+                  "entries": [
+                    "Partia ma niewiele czasu, aby uporać się z Herringbone. Jeśli spędzają zbyt dużo czasu na rozmowie, Herringbone natychmiast je odrzuca. Jeśli odmówią opuszczenia lub spróbują opóźnić, on i Gruul zaatakują. Oto kilka podejść, jakie może przyjąć partia:",
+                    {
+                      "type": "list",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Handel wymienny",
+                          "entry": "Grupa mogłaby spróbować wymienić się informacjami. Musieliby zaoferować coś o znacznej wartości. Amulet Golgari byłby uważany za dobry handel w naturze. Inne wartościowe przedmioty mogą być akceptowalne. Wymieniające się postacie muszą odnieść sukces na a {@dc 15} Charyzma ({@skill Persuasion}) zaznacz, aby Herringbone przyjęła ofertę, o ile przedmiot, o którym mowa, jest wart 100 zino (sz) lub więcej."
+                        },
+                        {
+                          "type": "item",
+                          "name": "Zastraszyć",
+                          "entry": "Mogliby spróbować zastraszyć Jodełkę, ale jeśli najpierw nie pokonają wszystkich Gruulów, to trudne zadanie. Jeśli grupa spróbuje tej taktyki, wymaga to bardzo przekonującej groźby wraz z {@dc 20} Charyzma ({@skill Intimidation}) sprawdź, aby nakłonić go do ustąpienia i przekazania stronie informacji. Członek Gruul z klanu Płonącego Drzewa ma przewagę w tym teście, ponieważ ma najbardziej przerażającą reputację wśród Gruulów, zastraszając współpracowników Jodełki."
+                        },
+                        {
+                          "type": "item",
+                          "name": "Zwodzić",
+                          "entry": "Można oszukać Jodełkę, myśląc o odpowiedzi, a następnie subtelnie używając fiolki przechwytywania myśli, aby zebrać nić myślową. Wymaga to specjalisty od oszustwa, który poprowadzi rozmowę i niewidzialnej ręki do manipulowania fiolką. A {@dc 20} Charyzma ({@skill Deception}) sprawdź i a {@dc 15} Zręczność ({@skill Sleight of Hand}) sprawdzenie może uzyskać nić myślową."
+                        },
+                        {
+                          "type": "item",
+                          "name": "Czar",
+                          "entry": "Postać może używać magii, takiej jak {@spell charm person} uzyskać odpowiedź od Herringbone, chociaż Gruul może zaatakować drużynę, jeśli jeden z anarchistów będzie w stanie stwierdzić, czy Herringbone został {@condition charmed}, wymagając od anarchy odniesienia sukcesu na {@dc 10} Mądrość ({@skill Insight}) sprawdzać."
+                        },
+                        {
+                          "type": "item",
+                          "name": "Walka",
+                          "entry": "Partia mogła zdecydować się po prostu ujarzmić ich w walce. Kiedy wszyscy Gruulowie zostaną pokonani, Herringbone można łatwo zmusić do podania odpowiednich informacji."
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "029"
+                },
+                {
+                  "type": "entries",
+                  "name": "Informacje o jodełce",
+                  "page": 13,
+                  "entries": [
+                    "Kiedy partii udało się nakłonić Herringbone do przekazania informacji, mówi krótko.",
+                    {
+                      "type": "insetReadaloud",
+                      "entries": [
+                        "„Nosiciel płomieni znajduje się w osobistym skarbcu Velrena, papieża Syndykatu Orżowskiego. Powodzenia”."
+                      ],
+                      "id": "02b"
+                    },
+                    "Jeśli drużyna oczarowała Jodełkę, zaoferowała amulet Golgari w ramach wymiany lub uzyskała 5 lub więcej punktów w teście Charyzmy pozwalającym uzyskać informacje, Jodełka oferuje nieco więcej.",
+                    {
+                      "type": "insetReadaloud",
+                      "entries": [
+                        "Aha, jeszcze jedna rzecz, na którą warto zwrócić uwagę. Ten niosący opary jest wyjątkowy. Jest nasycony mizzem i może przebić się przez prawie wszystko. To właśnie mnie zainteresowało."
+                      ],
+                      "id": "02c"
+                    },
+                    "Ta dodatkowa informacja nie musi być ujęta w wątku myślowym, według uznania strony."
+                  ],
+                  "id": "02a"
+                }
+              ],
+              "id": "026"
+            }
+          ],
+          "id": "025"
+        },
+        {
+          "type": "section",
+          "name": "Powrót do Vezskiej",
+          "page": 13,
+          "entries": [
+            "Gdy drużyna zdobędzie nici myślowe, może wrócić do pierwotnego miejsca spotkania w kanałach. Następnego dnia około południa Vzeska pojawia się, aby odebrać fiolkę.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "O wyznaczonej godzinie Vezska pojawia się z tego samego przejścia co poprzednio, lecz zabrała ze sobą cztery kraule najeżone bronią. Vezska uśmiecha się, zbliżając się ze swoją eskortą.",
+                "„Nie przejmuj się nimi. To tylko ubezpieczenie. Nie są konieczne, prawda?”"
+              ],
+              "id": "02e"
+            },
+            "Vezska przyniosła cztery {@creature kraul warrior|GGR|kraulowi wojownicy} tutaj na wypadek, gdyby impreza myślała o ucieczce z fiolką. Jeśli przekażą fiolkę (ze wszystkimi pasmami myślowymi lub bez), ona nie inicjuje walki.",
+            "Jeśli grupie uda się zdobyć wszystkie wątki myślowe i przekaże fiolkę Vezskiej, otrzyma obiecaną zapłatę. Ponadto wszyscy członkowie drużyny zyskują jedną reputację w swoich gildiach, ponieważ Vezska rozpowszechnia informacje o ich niezawodności.",
+            "Jeśli grupie nie uda się zdobyć wszystkich wątków, ale przekaże fiolkę, Vezska jest zawiedziona, ale oferuje drużynie 100 zino za ich wysiłki. Nie otrzymują nagrody za sławę.",
+            "Oczywiście, jeśli grupa zatrzyma fiolkę i pokona Vezską, narobi sobie potencjalnych wrogów z niektórymi Golgari. Jeśli fiolka zostanie zwrócona do Domu Dimir, wszystkie postacie inne niż Golgari zyskają jedną sławę, a postacie Dimira zyskają dwie sławy."
+          ],
+          "id": "02d"
+        },
+        {
+          "type": "section",
+          "name": "Dalsze przygody",
+          "page": 13,
+          "entries": [
+            "Jeśli kontynuujesz kampanię rozgrywającą się na Ravnicy, ta przygoda zasiewa wiele nasion, które możesz wykorzystać w ramach swojej kampanii. Jeśli chcesz, możesz przejrzeć poniższą listę pytań, które pomogą zainspirować Cię do przyszłych przygód:",
+            {
+              "type": "list",
+              "items": [
+                "Kto był klientem Vezskiej? Co zamierzają zrobić z informacjami, których szukali?",
+                "Kto jest w posiadaniu fiolki na koniec przygody?",
+                "Jaka jest tożsamość agenta Dimira, który wysłał ekipy poszukiwawcze po fiolkę?",
+                "Czy strona zataiła jakiekolwiek dodatkowe informacje, o których się dowiedziała?",
+                "Co oznaczają ryciny na drzwiach, które odkrył Delrim?",
+                "Czy są jacyś NPC, którzy mogliby stać się przyszłymi kontaktami dla jednej lub większej liczby postaci?"
+              ]
+            }
+          ],
+          "id": "02f"
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "section",
+      "name": "Przegląd historii",
+      "page": 2,
+      "entries": [
+        "Vezska, członkini Roju Golgari, podczas swoich podróży po Undercity w Dziesiątej Dzielnicy natrafiła na porzucony magiczny przedmiot. W tajemnicy zidentyfikowała przedmiot jako: {@item vial of thought capture|AZfyT}, przedmiot pozwala użytkownikowi kodować i przechowywać pasma myślowe. Jako pośrednik w poszukiwaniach Vezska zbiera wyrzucone przedmioty i odsprzedaje je mieszkańcom powierzchni. Kiedy ustaliła, co ma, Vezska poinformowała swoją sieć, że jest w posiadaniu przedmiotu i w ciągu kilku godzin pozyskała potencjalnego klienta.",
+        "Klient obiecał Vezskiej pokaźną sumę zino (sztuczek złota), ale miał pewien haczyk - fiolka musiała zostać im dostarczona z trzema konkretnymi myślami, które już przechwycono. Vezska zgodziła się na transakcję, uzyskała od klienta informacje na temat osób i myśli, które należało schwytać, po czym skontaktowała się z poszukiwaczami przygód w celu uzyskania pomocy.",
+        "Fiolka należy do potężnego agenta Domu Dimir, gildii tajemnic i szpiegów. Jego brak w posiadaniu właściciela nie pozostanie niezauważony zbyt długo..."
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "section",
+      "name": "Prowadzenie przygody",
+      "page": 2,
+      "entries": [
+        "{@i Zib dla Twoich myśli} to krótka przygodowa gra fabularna Dungeons & Dragons dla grupy od czterech do sześciu poszukiwaczy przygód drugiego poziomu, na którą można ukończyć około dwóch godzin. Akcja rozgrywa się w Dziesiątej Dzielnicy Ravnicy i może służyć jako przygoda wprowadzająca w tę scenerię. Równowaga klas postaci jest pomocna, ponieważ poszukiwacze przygód staną przed różnymi wyzwaniami. Poszukiwacze przygód mogą należeć do dowolnej gildii.",
+        "{@area Pregenerated characters|030|x} są dostępne w tej przygodzie, jeśli gracze nie mają czasu lub chęci na tworzenie własnych poszukiwaczy przygód. Jeśli gracze mają poszukiwaczy przygód, których używali w {@adventure Krenko's Way|kkw}, mogą podnieść ich poziom do 2. poziomu i zagrać nimi w tej przygodzie.",
+        "Jeśli chcesz rozpocząć tę przygodę jako Mistrz Podziemi, zalecamy przeczytanie całej przygody przed próbą jej uruchomienia. Jeśli wolisz zagrać, nie czytaj dalej. Przygoda zakłada, że ​​masz piątą edycję {@book Player's Handbook|phb}, {@book Dungeon Master's Guide|dmg}, I {@book Monster Manual|mm}. Jeśli masz {@book Guildmaster's Guide to Ravnica|ggr}, jest to pomocne, ale nie wymagane.",
+        "Bloki statystyk dla wszystkich potworów i NPC z {@book Guildmaster's Guide to Ravnica|ggr} są dostępne dla Twojej wygody.",
+        "Kiedy imię stworzenia pojawia się w typie {@b pogrubiony}, jest to wizualna wskazówka wskazująca blok statystyk stworzenia w {@book Monster Manual|mm} lub blok statystyk znajduje się w dodatku. Zaklęcia i niemagiczny sprzęt wspomniane w przygodzie opisano w {@book Player's Handbook|phb}. Magiczne przedmioty są opisane w {@book Dungeon Master's Guide|dmg}, chyba że tekst przygody kieruje cię do opisu przedmiotu w {@book Guildmaster's Guide to Ravnica|ggr}.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Tekst pojawiający się w takim ramce należy przeczytać na głos lub sparafrazować dla graczy, gdy ich postacie po raz pierwszy dotrą do miejsca lub w określonych okolicznościach, zgodnie z opisem w tekście."
+          ],
+          "id": "003"
+        },
+        {
+          "type": "entries",
+          "name": "Podsumowanie przygody",
+          "page": 2,
+          "entries": [
+            "Przygoda zaczyna się od bohaterów znajdujących się w tunelu kanalizacyjnym pod ulicami, gdzie umówili się na spotkanie z Vezską, pośrednikiem w poszukiwaniach Golgari. Weszła w posiadanie A {@item vial of thought capture|AZfyT}, magiczny przedmiot, który pozwala użytkownikowi uchwycić kilka myśli i zapisać je do późniejszego dostępu. Podeszła do niej klientka i chciała kupić nie tylko fiolkę, ale konkretne myśli, które miałaby w niej umieścić. Vezska zdecydowała, że ​​najlepiej będzie zlecić tego rodzaju prace podmiotom zewnętrznym i skontaktowała się z poszukiwaczami przygód.",
+            "Vezska przedstawia poszukiwaczom przygód listę zadań, która zawiera imiona trzech osób i konkretne myśli, które muszą przechowywać w fiolce. Gdy wszystkie trzy myśli zostaną schwytane w fiolce, poszukiwacze przygód będą mogli wrócić do Vezski, aby odebrać nagrodę. Dostarczy „napełnioną” fiolkę swojemu klientowi.",
+            "Poszukiwacze przygód muszą odwiedzić trzy osoby i znaleźć sposób, aby wydobyć myśli od każdej z nich. Każda osoba ma powody, aby ukrywać swoje informacje, więc strona musi znaleźć sposób na uzyskanie konkretnych myśli - poprzez oszustwo, negocjacje lub przymus. Kiedy już pomyślą o wszystkich trzech myślach, będą mogli wrócić do Vezskiej i odebrać nagrodę.",
+            "Jednak nie jest to takie proste. {@item vial of thought capture|AZfyT} jest cenionym przedmiotem w Domu Dimir, gildii handlującej wiedzą i tajemnicami. Magiczny przedmiot ma wbudowany cichy system alarmowy, który powiadamia właściciela, jeśli ktoś go użyje. Po pierwszej aktywacji, będąc w posiadaniu postaci, agent Dimira będący właścicielem przedmiotu zostaje powiadomiony o konieczności odzyskania fiolki przez specjalistów, aby ponownie odzyskali fiolkę od drużyny wszelkimi niezbędnymi środkami."
+          ],
+          "id": "004"
+        },
+        {
+          "type": "entries",
+          "name": "Klient Veszki",
+          "page": 3,
+          "entries": [
+            "Do wykonania tego zadania Veszka została zatrudniona przez klienta z gildii. Każda gildia ma swój własny powód, dla którego chce prezentować konkretne informacje.",
+            "Na początku przygody wylosuj klienta z poniższej tabeli lub wybierz jednego. Jeśli tak zdecydujesz, przynależność klienta do gildii może mieć wpływ na przyszłe przygody. Vezska nie rezygnuje z opisu klienta, chyba że jest do tego zmuszona.",
+            {
+              "type": "table",
+              "caption": "Klient Vezskiej",
+              "colLabels": [
+                "d6",
+                "Odłam"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Azoriusz"
+                ],
+                [
+                  "2",
+                  "Dimir"
+                ],
+                [
+                  "3",
+                  "Izzeta"
+                ],
+                [
+                  "4",
+                  "Orżow"
+                ],
+                [
+                  "5",
+                  "Rakdos"
+                ],
+                [
+                  "6",
+                  "Simic"
+                ]
+              ]
+            },
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Azoriusz",
+                  "entry": "Nienagannie ubrany męski mag prawa."
+                },
+                {
+                  "type": "item",
+                  "name": "Dimir",
+                  "entry": "Humanoid mniej więcej wielkości człowieka, elfa lub vedalkena."
+                },
+                {
+                  "type": "item",
+                  "name": "Izzeta",
+                  "entry": "Chętna i podekscytowana samica goblina."
+                },
+                {
+                  "type": "item",
+                  "name": "Orżow",
+                  "entry": "Skrzydlaty Thrull dostarczył płatność i wiadomość od klienta."
+                },
+                {
+                  "type": "item",
+                  "name": "Rakdos",
+                  "entry": "Ekstrawagancko ubrana wiedźma ludzkiej krwi."
+                },
+                {
+                  "type": "item",
+                  "name": "Simic",
+                  "entry": "Hybryda Simic - elf z zielonkawo-niebieskimi łuskami i mrugającymi błonami na oczach."
+                }
+              ]
+            }
+          ],
+          "id": "005"
+        }
+      ],
+      "id": "002"
+    },
+    "0:004": {
+      "type": "entries",
+      "name": "Podsumowanie przygody",
+      "page": 2,
+      "entries": [
+        "Przygoda zaczyna się od bohaterów znajdujących się w tunelu kanalizacyjnym pod ulicami, gdzie umówili się na spotkanie z Vezską, pośrednikiem w poszukiwaniach Golgari. Weszła w posiadanie A {@item vial of thought capture|AZfyT}, magiczny przedmiot, który pozwala użytkownikowi uchwycić kilka myśli i zapisać je do późniejszego dostępu. Podeszła do niej klientka i chciała kupić nie tylko fiolkę, ale konkretne myśli, które miałaby w niej umieścić. Vezska zdecydowała, że ​​najlepiej będzie zlecić tego rodzaju prace podmiotom zewnętrznym i skontaktowała się z poszukiwaczami przygód.",
+        "Vezska przedstawia poszukiwaczom przygód listę zadań, która zawiera imiona trzech osób i konkretne myśli, które muszą przechowywać w fiolce. Gdy wszystkie trzy myśli zostaną schwytane w fiolce, poszukiwacze przygód będą mogli wrócić do Vezski, aby odebrać nagrodę. Dostarczy „napełnioną” fiolkę swojemu klientowi.",
+        "Poszukiwacze przygód muszą odwiedzić trzy osoby i znaleźć sposób, aby wydobyć myśli od każdej z nich. Każda osoba ma powody, aby ukrywać swoje informacje, więc strona musi znaleźć sposób na uzyskanie konkretnych myśli - poprzez oszustwo, negocjacje lub przymus. Kiedy już pomyślą o wszystkich trzech myślach, będą mogli wrócić do Vezskiej i odebrać nagrodę.",
+        "Jednak nie jest to takie proste. {@item vial of thought capture|AZfyT} jest cenionym przedmiotem w Domu Dimir, gildii handlującej wiedzą i tajemnicami. Magiczny przedmiot ma wbudowany cichy system alarmowy, który powiadamia właściciela, jeśli ktoś go użyje. Po pierwszej aktywacji, będąc w posiadaniu postaci, agent Dimira będący właścicielem przedmiotu zostaje powiadomiony o konieczności odzyskania fiolki przez specjalistów, aby ponownie odzyskali fiolkę od drużyny wszelkimi niezbędnymi środkami."
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Klient Veszki",
+      "page": 3,
+      "entries": [
+        "Do wykonania tego zadania Veszka została zatrudniona przez klienta z gildii. Każda gildia ma swój własny powód, dla którego chce prezentować konkretne informacje.",
+        "Na początku przygody wylosuj klienta z poniższej tabeli lub wybierz jednego. Jeśli tak zdecydujesz, przynależność klienta do gildii może mieć wpływ na przyszłe przygody. Vezska nie rezygnuje z opisu klienta, chyba że jest do tego zmuszona.",
+        {
+          "type": "table",
+          "caption": "Klient Vezskiej",
+          "colLabels": [
+            "d6",
+            "Odłam"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "1",
+              "Azoriusz"
+            ],
+            [
+              "2",
+              "Dimir"
+            ],
+            [
+              "3",
+              "Izzeta"
+            ],
+            [
+              "4",
+              "Orżow"
+            ],
+            [
+              "5",
+              "Rakdos"
+            ],
+            [
+              "6",
+              "Simic"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Azoriusz",
+              "entry": "Nienagannie ubrany męski mag prawa."
+            },
+            {
+              "type": "item",
+              "name": "Dimir",
+              "entry": "Humanoid mniej więcej wielkości człowieka, elfa lub vedalkena."
+            },
+            {
+              "type": "item",
+              "name": "Izzeta",
+              "entry": "Chętna i podekscytowana samica goblina."
+            },
+            {
+              "type": "item",
+              "name": "Orżow",
+              "entry": "Skrzydlaty Thrull dostarczył płatność i wiadomość od klienta."
+            },
+            {
+              "type": "item",
+              "name": "Rakdos",
+              "entry": "Ekstrawagancko ubrana wiedźma ludzkiej krwi."
+            },
+            {
+              "type": "item",
+              "name": "Simic",
+              "entry": "Hybryda Simic - elf z zielonkawo-niebieskimi łuskami i mrugającymi błonami na oczach."
+            }
+          ]
+        }
+      ],
+      "id": "005"
+    },
+    "0:006": {
+      "type": "section",
+      "name": "Rozpoczęcie przygody",
+      "page": 3,
+      "entries": [
+        "Gdy gracze będą gotowi do rozpoczęcia, przeczytaj lub sparafrazuj następujący tekst wprowadzający i poproś graczy, aby się przedstawili:",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Czekasz w przyćmionym blasku cuchnącej komory kanalizacyjnej pod ulicami Dziesiątej Dzielnicy. Rytmiczne kapanie jest czasami przerywane przez chlupotanie lub chrobotanie dochodzące skądś w pobliżu, gdy czekasz, aż pojawi się Twój pracodawca, specjalista od odnajdywania zapomnianych i wyrzuconych przedmiotów.",
+            "Po kilku minutach oczekiwania z jednego z przejść tunelu pojawia się wytatuowany elf ubrany w miękką skórzaną zbroję i grzybiczy szal. Podchodzi do twojej grupy.",
+            "„Przepraszam, że jestem trochę z tyłu. Przejdźmy do rzeczy”."
+          ],
+          "id": "007"
+        },
+        "Vezska, elf Devkarin {@creature scout} i pośrednik wyszukiwania Roju Golgari przybył, aby złożyć drużynie ofertę zatrudnienia.",
+        "Jeśli jeszcze tego nie zrobili, gracze mogą chcieć nawiązać powiązania między niektórymi postaciami przed ich przedstawieniem. Osobiste powiązania między postaciami mogą obejmować:",
+        {
+          "type": "list",
+          "items": [
+            "Wspólna gildia",
+            "Udostępniony kontakt",
+            "Wspólny znajomy",
+            "Poprzedni wspólny pracodawca",
+            "Chodziłem do tej samej szkoły/akademii",
+            "Często odwiedzaj te same przestrzenie społeczne (tawerny, areny itp.)",
+            "Mieszkasz lub mieszkałeś w tej samej okolicy"
+          ]
+        },
+        "Ponadto jedna lub więcej postaci może chcieć mieć Vezską jako kontakt w Golgari, jeśli nie nawiązały jeszcze kontaktu ze swoją postacią. Jeśli tak jest, to spotkanie odbyło się za pośrednictwem tego poszukiwacza przygód. Jeśli nie, Vezska mogła po prostu rozesłać wiadomość, że szuka poszukiwaczy przygód, grupa dostała wiadomość i zebrała się.",
+        {
+          "type": "entries",
+          "name": "Praca Vezskiej",
+          "page": 4,
+          "entries": [
+            "Vezska wykazuje pewność siebie, ale swobodną postawę podczas interakcji z drużyną. Po wstępnych powitaniach Vezska przystępuje do pracy i przedstawia swoje zadanie.",
+            {
+              "type": "list",
+              "items": [
+                "„Podczas moich ostatnich podróży natknąłem się na bardzo intrygujący przedmiot. Mała ciemnoniebieska fiolka, która, jak wyczułem, musi być czymś w rodzaju magicznego przedmiotu. Po przeprowadzeniu kilku informacji okazało się, że moje podejrzenia były słuszne. Nazywa się to {@item vial of thought capture|AZfyT}.\"",
+                "„Oczywiście musiałem znaleźć sposób, aby zamienić to w monetę, więc rozesłałem wiadomość do wybranej grupy potencjalnych nabywców, którzy interesują się tego typu rzeczami. Zainteresowaną ofertę otrzymałem już po kilku godzinach, ale były pewne zastrzeżenia. Mimo to przyjąłem ofertę, ale potrzebuję Twojej pomocy w jej realizacji.",
+                "„Mój klient chce, aby znalazła się w niej nie tylko fiolka, ale także trzy konkretne myśli. Mam imiona i nazwiska osób oraz myśli, które mają zostać zapisane w fiolce. Nic więcej nie wiem o szczegółach prośby, wiem tylko, że musi ona zostać spełniona, aby umowa została spełniona”."
+              ]
+            },
+            "Vezska oferuje drużynie 500 zino (szp) po pomyślnym wykonaniu zadania i zwróceniu jej „napełnionej” fiolki najpóźniej jutro do południa. Mogą ponownie spotkać się w tym miejscu. Jeśli postać próbuje wynegocjować wyższą ofertę, kończy się to sukcesem {@dc 15} Charyzma ({@skill Persuasion}) czek powoduje, że Vezska zwiększa swoją ofertę do 750 zinów. Ten test może być wykonany z korzyścią dla postaci, która ma Vezską jako kontakt.",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Skarb",
+                  "entry": "Jeśli postać ma Vezską jako kontakt lub jeśli w grupie jest członek Golgari, Vezska daje tej postaci pokryty rdzą wisiorek z symbolem Golgari, {@reward Golgari charm|GGR}. Po aktywacji urok może rzucić jednokrotnie {@spell dispel magic}, {@spell false life} (wersja 3. poziomu) lub {@spell stinking cloud}, zanim zniknie. Więcej informacji na temat uroków gildii znajdziesz w {@book Guildmaster's Guide to Ravnica|ggr|5|uroki gildii}. Ma tylko jeden urok do zaoferowania i faworyzuje członka Golgari ponad wszystkimi innymi."
+                }
+              ]
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/AZfyT/golgari locket.webp"
+              },
+              "width": 1200,
+              "height": 734,
+              "credit": "Milivoj Ćeran"
+            },
+            {
+              "type": "entries",
+              "name": "Fiolka przechwytywania myśli",
+              "page": 4,
+              "entries": [
+                "Ta ciemnoniebieska fiolka pozwala odczytać powierzchowne myśli innej osoby i uchwycić je jako pasma myślowe, przechowując je w fiolce. W ramach akcji możesz aktywować fiolkę, aby obrać za cel istotę, którą widzisz w promieniu 3 metrów od ciebie, aby poznać jej powierzchniowe myśli i wyciągnąć wyuczone myśli z głowy istoty w postaci namacalnego świecącego sznura energii znanego jako nić myśli. Nici można przechowywać w fiolce do 24 godzin lub do momentu, gdy fiolka osiągnie pojemność, w którym to przypadku najstarsze pasma ulegną rozproszeniu. Istota dotknięta fiolką wie, że jej myśli są badane.",
+                "Fiolka może również przechowywać nici myślowe utworzone przez {@spell encode thoughts|GGR} sztuczka. Nie przedłuża trwałości pasm powyżej 8 godzin, ale zmagazynowane pasma nie znikają po zapuszczeniu {@spell encode thoughts|GGR} ponownie podczas trwania śpiewu.",
+                "Fiolka ma 3 ładunki i może przechowywać do 3 nici myślowych. Odzyskuje wszystkie swoje ładunki codziennie o zmierzchu."
+              ],
+              "id": "009"
+            }
+          ],
+          "id": "008"
+        },
+        {
+          "type": "entries",
+          "name": "Tematy i przemyślenia",
+          "page": 5,
+          "entries": [
+            "Vezska przekazuje fiolkę i przekazuje stronie informacje, które otrzymała na ten temat oraz jakie przemyślenia należy uzyskać. Wiadomo, że wszystkie te osoby mieszkają w Dziesiątym Dystrykcie. Vezska nie zna żadnego z nich osobiście ani z reputacji.",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Argona",
+                  "entry": "Rudowłosa, dereszowata centaur i rogacz (rodzaj władcy bestii) w Konklawe Selesnya. Bohaterowie muszą poznać tytuł książki o ogrodnictwie, którą niedawno zwróciła do Biblioteki Ismerów."
+                },
+                {
+                  "type": "item",
+                  "name": "Delrima Munna",
+                  "entry": "Student vedalken na Uniwersytecie Prism. Bohaterowie muszą poznać lokalizację tajnego przejścia w Bibliotece Ismeri, które przypadkowo odkrył Delrim."
+                },
+                {
+                  "type": "item",
+                  "name": "Jodełkowy",
+                  "entry": "Samiec Silhany (leśnego elfa) płotka z tendencją do ubierania się w dobrze skrojone ubrania. Postacie muszą poznać lokalizację wzmocnionego Mizzium niosącego opary (urządzenia przypominającego miotacz ognia), które widział, ale którego nie był w stanie zdobyć."
+                }
+              ]
+            }
+          ],
+          "id": "00a"
+        }
+      ],
+      "id": "006"
+    },
+    "0:008": {
+      "type": "entries",
+      "name": "Praca Vezskiej",
+      "page": 4,
+      "entries": [
+        "Vezska wykazuje pewność siebie, ale swobodną postawę podczas interakcji z drużyną. Po wstępnych powitaniach Vezska przystępuje do pracy i przedstawia swoje zadanie.",
+        {
+          "type": "list",
+          "items": [
+            "„Podczas moich ostatnich podróży natknąłem się na bardzo intrygujący przedmiot. Mała ciemnoniebieska fiolka, która, jak wyczułem, musi być czymś w rodzaju magicznego przedmiotu. Po przeprowadzeniu kilku informacji okazało się, że moje podejrzenia były słuszne. Nazywa się to {@item vial of thought capture|AZfyT}.\"",
+            "„Oczywiście musiałem znaleźć sposób, aby zamienić to w monetę, więc rozesłałem wiadomość do wybranej grupy potencjalnych nabywców, którzy interesują się tego typu rzeczami. Zainteresowaną ofertę otrzymałem już po kilku godzinach, ale były pewne zastrzeżenia. Mimo to przyjąłem ofertę, ale potrzebuję Twojej pomocy w jej realizacji.",
+            "„Mój klient chce, aby znalazła się w niej nie tylko fiolka, ale także trzy konkretne myśli. Mam imiona i nazwiska osób oraz myśli, które mają zostać zapisane w fiolce. Nic więcej nie wiem o szczegółach prośby, wiem tylko, że musi ona zostać spełniona, aby umowa została spełniona”."
+          ]
+        },
+        "Vezska oferuje drużynie 500 zino (szp) po pomyślnym wykonaniu zadania i zwróceniu jej „napełnionej” fiolki najpóźniej jutro do południa. Mogą ponownie spotkać się w tym miejscu. Jeśli postać próbuje wynegocjować wyższą ofertę, kończy się to sukcesem {@dc 15} Charyzma ({@skill Persuasion}) czek powoduje, że Vezska zwiększa swoją ofertę do 750 zinów. Ten test może być wykonany z korzyścią dla postaci, która ma Vezską jako kontakt.",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Skarb",
+              "entry": "Jeśli postać ma Vezską jako kontakt lub jeśli w grupie jest członek Golgari, Vezska daje tej postaci pokryty rdzą wisiorek z symbolem Golgari, {@reward Golgari charm|GGR}. Po aktywacji urok może rzucić jednokrotnie {@spell dispel magic}, {@spell false life} (wersja 3. poziomu) lub {@spell stinking cloud}, zanim zniknie. Więcej informacji na temat uroków gildii znajdziesz w {@book Guildmaster's Guide to Ravnica|ggr|5|uroki gildii}. Ma tylko jeden urok do zaoferowania i faworyzuje członka Golgari ponad wszystkimi innymi."
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AZfyT/golgari locket.webp"
+          },
+          "width": 1200,
+          "height": 734,
+          "credit": "Milivoj Ćeran"
+        },
+        {
+          "type": "entries",
+          "name": "Fiolka przechwytywania myśli",
+          "page": 4,
+          "entries": [
+            "Ta ciemnoniebieska fiolka pozwala odczytać powierzchowne myśli innej osoby i uchwycić je jako pasma myślowe, przechowując je w fiolce. W ramach akcji możesz aktywować fiolkę, aby obrać za cel istotę, którą widzisz w promieniu 3 metrów od ciebie, aby poznać jej powierzchniowe myśli i wyciągnąć wyuczone myśli z głowy istoty w postaci namacalnego świecącego sznura energii znanego jako nić myśli. Nici można przechowywać w fiolce do 24 godzin lub do momentu, gdy fiolka osiągnie pojemność, w którym to przypadku najstarsze pasma ulegną rozproszeniu. Istota dotknięta fiolką wie, że jej myśli są badane.",
+            "Fiolka może również przechowywać nici myślowe utworzone przez {@spell encode thoughts|GGR} sztuczka. Nie przedłuża trwałości pasm powyżej 8 godzin, ale zmagazynowane pasma nie znikają po zapuszczeniu {@spell encode thoughts|GGR} ponownie podczas trwania śpiewu.",
+            "Fiolka ma 3 ładunki i może przechowywać do 3 nici myślowych. Odzyskuje wszystkie swoje ładunki codziennie o zmierzchu."
+          ],
+          "id": "009"
+        }
+      ],
+      "id": "008"
+    },
+    "0:009": {
+      "type": "entries",
+      "name": "Fiolka przechwytywania myśli",
+      "page": 4,
+      "entries": [
+        "Ta ciemnoniebieska fiolka pozwala odczytać powierzchowne myśli innej osoby i uchwycić je jako pasma myślowe, przechowując je w fiolce. W ramach akcji możesz aktywować fiolkę, aby obrać za cel istotę, którą widzisz w promieniu 3 metrów od ciebie, aby poznać jej powierzchniowe myśli i wyciągnąć wyuczone myśli z głowy istoty w postaci namacalnego świecącego sznura energii znanego jako nić myśli. Nici można przechowywać w fiolce do 24 godzin lub do momentu, gdy fiolka osiągnie pojemność, w którym to przypadku najstarsze pasma ulegną rozproszeniu. Istota dotknięta fiolką wie, że jej myśli są badane.",
+        "Fiolka może również przechowywać nici myślowe utworzone przez {@spell encode thoughts|GGR} sztuczka. Nie przedłuża trwałości pasm powyżej 8 godzin, ale zmagazynowane pasma nie znikają po zapuszczeniu {@spell encode thoughts|GGR} ponownie podczas trwania śpiewu.",
+        "Fiolka ma 3 ładunki i może przechowywać do 3 nici myślowych. Odzyskuje wszystkie swoje ładunki codziennie o zmierzchu."
+      ],
+      "id": "009"
+    },
+    "0:00a": {
+      "type": "entries",
+      "name": "Tematy i przemyślenia",
+      "page": 5,
+      "entries": [
+        "Vezska przekazuje fiolkę i przekazuje stronie informacje, które otrzymała na ten temat oraz jakie przemyślenia należy uzyskać. Wiadomo, że wszystkie te osoby mieszkają w Dziesiątym Dystrykcie. Vezska nie zna żadnego z nich osobiście ani z reputacji.",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Argona",
+              "entry": "Rudowłosa, dereszowata centaur i rogacz (rodzaj władcy bestii) w Konklawe Selesnya. Bohaterowie muszą poznać tytuł książki o ogrodnictwie, którą niedawno zwróciła do Biblioteki Ismerów."
+            },
+            {
+              "type": "item",
+              "name": "Delrima Munna",
+              "entry": "Student vedalken na Uniwersytecie Prism. Bohaterowie muszą poznać lokalizację tajnego przejścia w Bibliotece Ismeri, które przypadkowo odkrył Delrim."
+            },
+            {
+              "type": "item",
+              "name": "Jodełkowy",
+              "entry": "Samiec Silhany (leśnego elfa) płotka z tendencją do ubierania się w dobrze skrojone ubrania. Postacie muszą poznać lokalizację wzmocnionego Mizzium niosącego opary (urządzenia przypominającego miotacz ognia), które widział, ale którego nie był w stanie zdobyć."
+            }
+          ]
+        }
+      ],
+      "id": "00a"
+    },
+    "0:00b": {
+      "type": "section",
+      "name": "Dojazd do pracy",
+      "page": 5,
+      "entries": [
+        "Gdy bohaterowie zostaną odpowiednio przeszkoleni i będą gotowi do działania, Vezska przypomina im, że mają 24 godziny na powrót z fiolką i wymaganymi pasmami myślowymi. Jeśli im się nie uda, nie dostaną wynagrodzenia. Jeśli zapytają o zatrzymanie fiolki, Vezska odpowiada, że ​​należy do niej, a zabranie jej od pośrednika to dobry sposób, by skończyć jako nawóz.",
+        {
+          "type": "entries",
+          "name": "Uderzanie w ulice",
+          "page": 5,
+          "entries": [
+            "Strona może zastosować różne podejścia w celu znalezienia osób na liście. Gdy postacie dowiedzą się, gdzie znajdują się poszczególne osoby, zapoznaj się z odpowiednią sekcją poniżej.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Użyj Kontaktów",
+                  "page": 5,
+                  "entries": [
+                    "Jeśli postać ma odpowiedni kontakt, do którego może się zwrócić w celu uzyskania informacji, może zwrócić się do niego o pomoc. Umówienie się na spotkanie z osobą kontaktową zajmuje godzinę {@dice 1d6} godziny, w których można kontaktować się w celu ustalenia miejsca pracy i zamieszkania danej osoby. Jeżeli kontakt nie jest szczególnie odpowiedni do odnalezienia żądanej osoby, czas potrzebny na znalezienie jej lokalizacji ulega podwojeniu."
+                  ],
+                  "id": "00e"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zbierz informacje",
+                  "page": 5,
+                  "entries": [
+                    "Postacie mogą udać się do miejsc publicznych, aby spróbować dowiedzieć się, gdzie znajdują się poszczególne osoby. Po {@dice 1d4} godzin, postać przeglądająca wiele jałowych rozmów sprawia, że: {@dc 10} Kontrola charyzmy. Jeśli się powiedzie, ustalają miejsce pracy lub miejsce zamieszkania danej osoby, według własnego uznania. Postacie zyskują przewagę w tym teście, jeśli znajdują się w dzielnicy, w której mieszka ofiara.",
+                    {
+                      "type": "list",
+                      "items": [
+                        "{@b Argona} mieszka w dzielnicy trzeciej i obecnie pracuje w ogrodach na Platformie Milenijnej.",
+                        "{@b Delrima Munna} mieszka i pracuje w komisariacie piątym, prowadząc działalność w małym laboratorium w pobliżu cewki pęcherzowej.",
+                        "{@b Jodełkowy} przebywa obecnie u kilku przyjaciół Gruula na skraju komisariatu czwartego w obozowisku w pasie gruzów."
+                      ]
+                    },
+                    "Podróż do miejsca, w którym znajdują się Argona lub Delrim, zajmuje około pół godziny, niezależnie od tego, gdzie bohaterowie znajdują się w mieście, dzięki transportowi publicznemu. Podróż przez pas gruzów do Jodełki zajmuje około dwóch godzin."
+                  ],
+                  "id": "00f"
+                }
+              ],
+              "id": "00d"
+            }
+          ],
+          "id": "00c"
+        }
+      ],
+      "id": "00b"
+    },
+    "0:00c": {
+      "type": "entries",
+      "name": "Uderzanie w ulice",
+      "page": 5,
+      "entries": [
+        "Strona może zastosować różne podejścia w celu znalezienia osób na liście. Gdy postacie dowiedzą się, gdzie znajdują się poszczególne osoby, zapoznaj się z odpowiednią sekcją poniżej.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Użyj Kontaktów",
+              "page": 5,
+              "entries": [
+                "Jeśli postać ma odpowiedni kontakt, do którego może się zwrócić w celu uzyskania informacji, może zwrócić się do niego o pomoc. Umówienie się na spotkanie z osobą kontaktową zajmuje godzinę {@dice 1d6} godziny, w których można kontaktować się w celu ustalenia miejsca pracy i zamieszkania danej osoby. Jeżeli kontakt nie jest szczególnie odpowiedni do odnalezienia żądanej osoby, czas potrzebny na znalezienie jej lokalizacji ulega podwojeniu."
+              ],
+              "id": "00e"
+            },
+            {
+              "type": "entries",
+              "name": "Zbierz informacje",
+              "page": 5,
+              "entries": [
+                "Postacie mogą udać się do miejsc publicznych, aby spróbować dowiedzieć się, gdzie znajdują się poszczególne osoby. Po {@dice 1d4} godzin, postać przeglądająca wiele jałowych rozmów sprawia, że: {@dc 10} Kontrola charyzmy. Jeśli się powiedzie, ustalają miejsce pracy lub miejsce zamieszkania danej osoby, według własnego uznania. Postacie zyskują przewagę w tym teście, jeśli znajdują się w dzielnicy, w której mieszka ofiara.",
+                {
+                  "type": "list",
+                  "items": [
+                    "{@b Argona} mieszka w dzielnicy trzeciej i obecnie pracuje w ogrodach na Platformie Milenijnej.",
+                    "{@b Delrima Munna} mieszka i pracuje w komisariacie piątym, prowadząc działalność w małym laboratorium w pobliżu cewki pęcherzowej.",
+                    "{@b Jodełkowy} przebywa obecnie u kilku przyjaciół Gruula na skraju komisariatu czwartego w obozowisku w pasie gruzów."
+                  ]
+                },
+                "Podróż do miejsca, w którym znajdują się Argona lub Delrim, zajmuje około pół godziny, niezależnie od tego, gdzie bohaterowie znajdują się w mieście, dzięki transportowi publicznemu. Podróż przez pas gruzów do Jodełki zajmuje około dwóch godzin."
+              ],
+              "id": "00f"
+            }
+          ],
+          "id": "00d"
+        }
+      ],
+      "id": "00c"
+    },
+    "0:00d": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Użyj Kontaktów",
+          "page": 5,
+          "entries": [
+            "Jeśli postać ma odpowiedni kontakt, do którego może się zwrócić w celu uzyskania informacji, może zwrócić się do niego o pomoc. Umówienie się na spotkanie z osobą kontaktową zajmuje godzinę {@dice 1d6} godziny, w których można kontaktować się w celu ustalenia miejsca pracy i zamieszkania danej osoby. Jeżeli kontakt nie jest szczególnie odpowiedni do odnalezienia żądanej osoby, czas potrzebny na znalezienie jej lokalizacji ulega podwojeniu."
+          ],
+          "id": "00e"
+        },
+        {
+          "type": "entries",
+          "name": "Zbierz informacje",
+          "page": 5,
+          "entries": [
+            "Postacie mogą udać się do miejsc publicznych, aby spróbować dowiedzieć się, gdzie znajdują się poszczególne osoby. Po {@dice 1d4} godzin, postać przeglądająca wiele jałowych rozmów sprawia, że: {@dc 10} Kontrola charyzmy. Jeśli się powiedzie, ustalają miejsce pracy lub miejsce zamieszkania danej osoby, według własnego uznania. Postacie zyskują przewagę w tym teście, jeśli znajdują się w dzielnicy, w której mieszka ofiara.",
+            {
+              "type": "list",
+              "items": [
+                "{@b Argona} mieszka w dzielnicy trzeciej i obecnie pracuje w ogrodach na Platformie Milenijnej.",
+                "{@b Delrima Munna} mieszka i pracuje w komisariacie piątym, prowadząc działalność w małym laboratorium w pobliżu cewki pęcherzowej.",
+                "{@b Jodełkowy} przebywa obecnie u kilku przyjaciół Gruula na skraju komisariatu czwartego w obozowisku w pasie gruzów."
+              ]
+            },
+            "Podróż do miejsca, w którym znajdują się Argona lub Delrim, zajmuje około pół godziny, niezależnie od tego, gdzie bohaterowie znajdują się w mieście, dzięki transportowi publicznemu. Podróż przez pas gruzów do Jodełki zajmuje około dwóch godzin."
+          ],
+          "id": "00f"
+        }
+      ],
+      "id": "00d"
+    },
+    "0:00e": {
+      "type": "entries",
+      "name": "Użyj Kontaktów",
+      "page": 5,
+      "entries": [
+        "Jeśli postać ma odpowiedni kontakt, do którego może się zwrócić w celu uzyskania informacji, może zwrócić się do niego o pomoc. Umówienie się na spotkanie z osobą kontaktową zajmuje godzinę {@dice 1d6} godziny, w których można kontaktować się w celu ustalenia miejsca pracy i zamieszkania danej osoby. Jeżeli kontakt nie jest szczególnie odpowiedni do odnalezienia żądanej osoby, czas potrzebny na znalezienie jej lokalizacji ulega podwojeniu."
+      ],
+      "id": "00e"
+    },
+    "0:00f": {
+      "type": "entries",
+      "name": "Zbierz informacje",
+      "page": 5,
+      "entries": [
+        "Postacie mogą udać się do miejsc publicznych, aby spróbować dowiedzieć się, gdzie znajdują się poszczególne osoby. Po {@dice 1d4} godzin, postać przeglądająca wiele jałowych rozmów sprawia, że: {@dc 10} Kontrola charyzmy. Jeśli się powiedzie, ustalają miejsce pracy lub miejsce zamieszkania danej osoby, według własnego uznania. Postacie zyskują przewagę w tym teście, jeśli znajdują się w dzielnicy, w której mieszka ofiara.",
+        {
+          "type": "list",
+          "items": [
+            "{@b Argona} mieszka w dzielnicy trzeciej i obecnie pracuje w ogrodach na Platformie Milenijnej.",
+            "{@b Delrima Munna} mieszka i pracuje w komisariacie piątym, prowadząc działalność w małym laboratorium w pobliżu cewki pęcherzowej.",
+            "{@b Jodełkowy} przebywa obecnie u kilku przyjaciół Gruula na skraju komisariatu czwartego w obozowisku w pasie gruzów."
+          ]
+        },
+        "Podróż do miejsca, w którym znajdują się Argona lub Delrim, zajmuje około pół godziny, niezależnie od tego, gdzie bohaterowie znajdują się w mieście, dzięki transportowi publicznemu. Podróż przez pas gruzów do Jodełki zajmuje około dwóch godzin."
+      ],
+      "id": "00f"
+    },
+    "0:010": {
+      "type": "section",
+      "name": "Dom Dimir interweniuje",
+      "page": 5,
+      "entries": [
+        "Gdy postacie użyją fiolki do przechwycenia przynajmniej jednej nici myślowej, do byłego właściciela fiolki wysyłany jest cichy magiczny alarm, informujący ich, że została ona użyta przez kogoś innego. Były właściciel, potężny agent Dimira nieobecny w tej przygodzie, wysyła odpowiedź, prosząc o próbę odzyskania fiolki. Były właściciel jest świadomy lokalizacji fiolki dzięki magii umieszczonej na fiolce, ale magia wróżenia zanika w ciągu 24 godzin.",
+        {
+          "type": "entries",
+          "name": "Oszustwo i kłamstwa",
+          "page": 6,
+          "entries": [
+            "Do spotkania z Domem Dimir powinno dojść po drugim użyciu fiolki. Idealnie byłoby, gdyby to spotkanie miało miejsce na ruchliwej ulicy, stacji tranzytowej lub w innym miejscu z dobrymi kryjówkami i drogami ucieczki.",
+            "Zespół odzyskujący otrzymuje rozkaz podjęcia próby kradzieży bez otwartego konfliktu, jeśli to możliwe. Zespół dwuosobowy {@creature spy||szpiegowie} i jeden {@creature thought spy|ggr} ubrani w ubrania przyziemnych podróżników, z ukrytą bronią, tropią drużynę. Spędzają trochę czasu obserwując swoje ruchy z cienia. Postacie z pasywem {@skill Perception} wyniki wynoszące 14 lub więcej mogą mieć poczucie, że są obserwowani lub śledzeni.",
+            "Szpiedzy wiedzą, która postać aktualnie posiada fiolkę. Obserwując imprezę, mogą zastosować jeden z poniższych sposobów, aby ją zdobyć lub skorzystać z własnego.",
+            {
+              "type": "list",
+              "items": [
+                "Dwóch szpiegów odwraca uwagę w pobliżu (np. przewracając wózek, rozpoczynając kłótnię itp.), podczas gdy szpieg myślący porusza się za pomocą {@skill Stealth} I {@skill Sleight of Hand} ukraść to. Jeśli drużyna jest odpowiednio rozproszona, przeciwstawne rzuty postaci w celu wykrycia kradzieży są niekorzystne.",
+                "Szpieg myśli rzuca {@spell disguise self} przybiera postać niewinnej osoby (sklepikarz, bibliotekarz itp.) i podchodzi do postaci z fiolką i prosi o towarzyszenie przebranemu szpiegowi w powrocie do jego miejsca zamieszkania po pomoc. Szpieg myślowy zabiera ich do pobliskiej kryjówki Domu Dimir (gdzie czekają inni szpiedzy) i próbuje zdobyć przedmiot za pomocą Zręczności ({@skill Sleight of Hand}) sprawdzać, {@spell charm person} zaklęciem lub siłą. Jeśli zespół aportujący ucieknie się do użycia siły, a {@creature flying horror|ggr} przybywa jako wsparcie po jednej rundzie walki.",
+                "Jeśli liczba szpiegów przewyższa grupę posiadającą fiolkę (np. jeśli partia zdecyduje się rozdzielić), mogą spróbować zaatakować ich w alejce ukrytej przed widokiem publicznym. Szpiedzy nie atakują, aby zabić, mają rozkazy jedynie zdobycia przedmiotu. Każda postać, której punkty życia zostaną zredukowane do 0 w wyniku swoich ataków, zostaje powalona {@condition unconscious} zamiast umierać.",
+                "Schwytani szpiedzy wiedzą tylko, że zostali sprowadzeni, aby odzyskać fiolkę i podrzucić ją w bezpiecznym miejscu w podziemnym mieście. Tajne komórki Dimira dbają o to, aby żadne niepotrzebne informacje nie zostały przekazane agentom w terenie."
+              ]
+            },
+            {
+              "type": "inset",
+              "name": "Postacie Domu Dimir",
+              "page": 6,
+              "entries": [
+                "Jeśli postać w drużynie jest członkiem Domu Dimir, jest świadoma tego, czym są nici myślowe i jak cenny towar reprezentują dla gildii tajemnic. Postać może współczuć agentowi, który zgubił fiolkę i spróbować stanąć po jego stronie, aby zyskać przychylność swojej gildii.",
+                "Nie ma nic złego w tym, że ta postać ma tego rodzaju konflikty i być może własne plany, o ile nie powoduje to zbyt dużego napięcia wśród reszty drużyny. Przypomnij graczowi, że w Dimirze jest wiele komórek, które działają w stosunkowo niezależny sposób. Niektóre komórki mogą być w konflikcie z innymi, więc nie jest nierozsądnym powstrzymywanie pracownika przed odzyskaniem utraconej fiolki.",
+                "Ostatecznie pozbycie się fiolki po tym, jak Vezska przekaże ją swojemu klientowi, może posłużyć jako płodne ziarno dla kolejnej przygody dla tej postaci, wśród wielu innych sekretów, które skrywa ta przygoda"
+              ],
+              "id": "012"
+            },
+            "Jeśli szpiegom uda się ukraść przedmiot, ale drużynie zostanie zauważona kradzież, rozpoczyna się pościg ulicami Dziesiątej Dzielnicy. Możesz użyć tabeli {@table Urban Chase Complications|dmg} w {@book Dungeon Master's Guide|dmg|8|goni}, aby rozstrzygnąć pościg.",
+            "Jeśli szpiegom uda się ukraść fiolkę i uciec z drużyny, ich misja zakończy się niepowodzeniem. Nadal mogą próbować znaleźć każdą osobę i odpowiedzi na pytania, ale to tylko na ich użytek."
+          ],
+          "id": "011"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AZfyT/flying horror.webp"
+          },
+          "width": 1200,
+          "height": 876,
+          "credit": "Adam Paquette"
+        }
+      ],
+      "id": "010"
+    },
+    "0:011": {
+      "type": "entries",
+      "name": "Oszustwo i kłamstwa",
+      "page": 6,
+      "entries": [
+        "Do spotkania z Domem Dimir powinno dojść po drugim użyciu fiolki. Idealnie byłoby, gdyby to spotkanie miało miejsce na ruchliwej ulicy, stacji tranzytowej lub w innym miejscu z dobrymi kryjówkami i drogami ucieczki.",
+        "Zespół odzyskujący otrzymuje rozkaz podjęcia próby kradzieży bez otwartego konfliktu, jeśli to możliwe. Zespół dwuosobowy {@creature spy||szpiegowie} i jeden {@creature thought spy|ggr} ubrani w ubrania przyziemnych podróżników, z ukrytą bronią, tropią drużynę. Spędzają trochę czasu obserwując swoje ruchy z cienia. Postacie z pasywem {@skill Perception} wyniki wynoszące 14 lub więcej mogą mieć poczucie, że są obserwowani lub śledzeni.",
+        "Szpiedzy wiedzą, która postać aktualnie posiada fiolkę. Obserwując imprezę, mogą zastosować jeden z poniższych sposobów, aby ją zdobyć lub skorzystać z własnego.",
+        {
+          "type": "list",
+          "items": [
+            "Dwóch szpiegów odwraca uwagę w pobliżu (np. przewracając wózek, rozpoczynając kłótnię itp.), podczas gdy szpieg myślący porusza się za pomocą {@skill Stealth} I {@skill Sleight of Hand} ukraść to. Jeśli drużyna jest odpowiednio rozproszona, przeciwstawne rzuty postaci w celu wykrycia kradzieży są niekorzystne.",
+            "Szpieg myśli rzuca {@spell disguise self} przybiera postać niewinnej osoby (sklepikarz, bibliotekarz itp.) i podchodzi do postaci z fiolką i prosi o towarzyszenie przebranemu szpiegowi w powrocie do jego miejsca zamieszkania po pomoc. Szpieg myślowy zabiera ich do pobliskiej kryjówki Domu Dimir (gdzie czekają inni szpiedzy) i próbuje zdobyć przedmiot za pomocą Zręczności ({@skill Sleight of Hand}) sprawdzać, {@spell charm person} zaklęciem lub siłą. Jeśli zespół aportujący ucieknie się do użycia siły, a {@creature flying horror|ggr} przybywa jako wsparcie po jednej rundzie walki.",
+            "Jeśli liczba szpiegów przewyższa grupę posiadającą fiolkę (np. jeśli partia zdecyduje się rozdzielić), mogą spróbować zaatakować ich w alejce ukrytej przed widokiem publicznym. Szpiedzy nie atakują, aby zabić, mają rozkazy jedynie zdobycia przedmiotu. Każda postać, której punkty życia zostaną zredukowane do 0 w wyniku swoich ataków, zostaje powalona {@condition unconscious} zamiast umierać.",
+            "Schwytani szpiedzy wiedzą tylko, że zostali sprowadzeni, aby odzyskać fiolkę i podrzucić ją w bezpiecznym miejscu w podziemnym mieście. Tajne komórki Dimira dbają o to, aby żadne niepotrzebne informacje nie zostały przekazane agentom w terenie."
+          ]
+        },
+        {
+          "type": "inset",
+          "name": "Postacie Domu Dimir",
+          "page": 6,
+          "entries": [
+            "Jeśli postać w drużynie jest członkiem Domu Dimir, jest świadoma tego, czym są nici myślowe i jak cenny towar reprezentują dla gildii tajemnic. Postać może współczuć agentowi, który zgubił fiolkę i spróbować stanąć po jego stronie, aby zyskać przychylność swojej gildii.",
+            "Nie ma nic złego w tym, że ta postać ma tego rodzaju konflikty i być może własne plany, o ile nie powoduje to zbyt dużego napięcia wśród reszty drużyny. Przypomnij graczowi, że w Dimirze jest wiele komórek, które działają w stosunkowo niezależny sposób. Niektóre komórki mogą być w konflikcie z innymi, więc nie jest nierozsądnym powstrzymywanie pracownika przed odzyskaniem utraconej fiolki.",
+            "Ostatecznie pozbycie się fiolki po tym, jak Vezska przekaże ją swojemu klientowi, może posłużyć jako płodne ziarno dla kolejnej przygody dla tej postaci, wśród wielu innych sekretów, które skrywa ta przygoda"
+          ],
+          "id": "012"
+        },
+        "Jeśli szpiegom uda się ukraść przedmiot, ale drużynie zostanie zauważona kradzież, rozpoczyna się pościg ulicami Dziesiątej Dzielnicy. Możesz użyć tabeli {@table Urban Chase Complications|dmg} w {@book Dungeon Master's Guide|dmg|8|goni}, aby rozstrzygnąć pościg.",
+        "Jeśli szpiegom uda się ukraść fiolkę i uciec z drużyny, ich misja zakończy się niepowodzeniem. Nadal mogą próbować znaleźć każdą osobę i odpowiedzi na pytania, ale to tylko na ich użytek."
+      ],
+      "id": "011"
+    },
+    "0:013": {
+      "type": "section",
+      "name": "Argona",
+      "page": 6,
+      "entries": [
+        "Centaur Selesnyański {@creature horncaller|GGR} Argona miała ostatnio pewne problemy z nastawieniem, co pozwoliło jej przełożonym zyskać czas na pracę naprawczą. Niedawno nawróciła się na Konklawe i wychowała się w klanie Gruul. Jako Horncaller jest odpowiedzialna za opiekę i szkolenie bestii w gildii. Ale jej temperament pozwolił jej trochę czasu zająć się kształtowaniem krajobrazu topiary na terenie Platformy Milenijnej, pływającej konstrukcji zacumowanej do ogromnych łańcuchów, z której roztacza się najlepszy widok na Dziesiątą Dzielnicę i dalej. Można ją znaleźć na tej platformie w ciągu dnia.",
+        "Wieczorem Argona udaje się do swojej jurty w Beast Haven, dzielnicy znanej z hodowli najlepszych zwierząt w Dziesiątej Dzielnicy. Jeśli postacie ją tu spotkają, jest wobec nich bardziej ostrożna, a wszystkie testy interakcji społecznych wychodzą na niekorzyść, chyba że zostaną zainicjowane przez członka gildii Selesnya lub Gruul.",
+        {
+          "type": "entries",
+          "name": "Platforma milenijna",
+          "page": 7,
+          "entries": [
+            "Każdy obywatel ma roczny token, który może wymienić na jeden przejazd zeppelidem na platformę, łącznie z postaciami. Publiczne transporty zeppelidami kursują tylko od świtu do zmierzchu. Jeśli zamiast tego chcą zapłacić za podróż, przejazd zeppelidem z głównego węzła przesiadkowego na stację Augustin na Platformę Millennial kosztuje 1 zino (gp).",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Zeppelidy",
+                  "page": 7,
+                  "entries": [
+                    "Są to ogromne, pływające stworzenia, które utrzymują się na powierzchni przez wiele worków powietrznych na swoich przypominających balony ciałach. W wyniku biomancji Kombinatu Simic można je łatwo oswoić i często są wykorzystywane przez Ravnicanów do transportu powietrznego. Zamknięty przedział jest często zaprzężony do ram, aby przewozić podróżnych.",
+                    "Gdy postacie dotrą na platformę, przeczytaj co następuje:",
+                    {
+                      "type": "insetReadaloud",
+                      "entries": [
+                        "Podróż zeppelidem na Platformę Milenijną oferuje zapierający dech w piersiach widok na niekończące się miasto, w tym dziewięć sal gildii i kopułową Komnatę Paktu Gildii.",
+                        "Ogród, na którym pracuje Argona, znajduje się w odległości krótkiego spaceru od elegancko rzeźbionego marmurowego budynku otoczonego z trzech stron wypielęgnowanymi topiariami przedstawiającymi wszelkiego rodzaju zwierzęta."
+                      ],
+                      "id": "017"
+                    },
+                    "Sfrustrowana dereszowata centaur z ognistoczerwonymi włosami i plemiennymi tatuażami przedziera się przez topiary, trzymając w rękach nożyce.",
+                    "Argona próbuje przyciąć topiary, ale ma problemy. Topiary są animowane i niezbyt dobrze znoszą ozdoby. Zwykle Konklawe przydzielałoby do tego zadania druida, ale Argona została o to poproszona, aby pomóc jej „nawiązać kontakt ze swoim spokojnym ja”. Na razie nie idzie dobrze."
+                  ],
+                  "id": "016"
+                }
+              ],
+              "id": "015"
+            },
+            {
+              "type": "entries",
+              "name": "Trochę poza szczytem",
+              "page": 7,
+              "entries": [
+                "Jeśli bohaterowie zbliżają się do Argony, wita ich i próbuje bagatelizować swoją frustrację teraz, gdy inni ją zauważyli. Wyjaśnia, co robi i mówi bohaterom, że topiary oddalają się, gdy się zbliża. Musi dzisiaj przyciąć cztery z nich - dwa wyglądające jak gąsienice (stworzenie podobne do łosia) i dwa wyglądające jak ceratoki (stworzenie podobne do nosorożca). Przycięcie każdego z nich powinno zająć tylko kilka minut, ale przyznaje, że chociaż uczy się ogrodnictwa, nie przepada za roślinami i są płochliwe.",
+                "Jeśli bohaterowie wyjaśnią, dlaczego tu są i czego od niej chcą, Argona poprosi ich o przysługę w zamian za informacje, których szukają - pomoc w przycięciu topiary. Postacie mogą zaakceptować jej umowę lub zamiast tego mogą zawrzeć {@dc 15} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli im się to uda, przekazują jej informacje i zostawiają ją samą. Jeśli bohaterowie wspomnią, że zamierzają uchwycić jej myśl w fiolce i zrezygnują z pomocy, rachunek zostaje wystawiony na niekorzyść.",
+                "Istnieją cztery topiary - dwa to łyżwiarze ({@creature awakened shrub||animowane krzewy}) i dwa to ceratoki ({@creature awakened tree||animowane drzewa}). Aby skutecznie zbliżyć się do ich przycięcia, postać może zastosować jedną z następujących metod:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Sukces {@dc 15} Inteligencja ({@skill Nature}) pozwala postaci podejść do rośliny ostrożnie, wystarczająco blisko, aby wykonać niezbędną pracę.",
+                    "Sukces {@dc 15} Zręczność ({@skill Sleight of Hand}) pozwala postaci ukryć nożyce i potajemnie przyciąć topiary.",
+                    "Stosowanie zabezpieczeń, takich jak mocne liny lub {@spell entangle} zaklęcie. Rzuć na inicjatywę i przeprowadź ją jak walkę, przy czym topiary będzie próbowało uciec i zaatakować, jeśli postać znajdzie się w zasięgu, jeśli nie zostanie to odpowiednio wykonane. {@condition restrained}.",
+                    "Wszystko inne, kreatywne, czego postać spróbuje, może być skuteczne. Ogólnie rzecz biorąc, trudność każdego sprawdzenia, aby odnieść sukces, wynosi {@dc 15}, ale możesz dać przewagę, jeśli inni pomagają."
+                  ]
+                }
+              ],
+              "id": "018"
+            },
+            {
+              "type": "entries",
+              "name": "Informacje o Argonie",
+              "page": 7,
+              "entries": [
+                "Kiedy bohaterowie pomogli Argonie lub przekonali ją, aby zapewniła to, czego szukają, mówi im, co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "„Tytuł książki wymagał sporo pracy. No cóż, nosi ona tytuł Uzdrawianie ogrodnictwa i zwróciłem ją do Biblioteki Ismerskiej zaledwie kilka dni po terminie”."
+                  ],
+                  "id": "01a"
+                },
+                "Jeśli postacie pomogły jej przy topiarach lub udało im się przekonać ją o 5 lub więcej, oferuje dodatkową informację.",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "„Jeszcze jedno na temat tej książki… Czytałam ją pewnego wieczoru przy świecach i przysięgam, że widziałam na stronach jakieś wyblakłe napisy. Nie wyglądało to na nic, co mogłabym przeczytać, i nigdy więcej tego nie widziałam”."
+                  ],
+                  "id": "01b"
+                },
+                "Strona może zdecydować się na uchwycenie tego dodatkowego wglądu w wątku myślowym lub może go pominąć."
+              ],
+              "id": "019"
+            }
+          ],
+          "id": "014"
+        }
+      ],
+      "id": "013"
+    },
+    "0:014": {
+      "type": "entries",
+      "name": "Platforma milenijna",
+      "page": 7,
+      "entries": [
+        "Każdy obywatel ma roczny token, który może wymienić na jeden przejazd zeppelidem na platformę, łącznie z postaciami. Publiczne transporty zeppelidami kursują tylko od świtu do zmierzchu. Jeśli zamiast tego chcą zapłacić za podróż, przejazd zeppelidem z głównego węzła przesiadkowego na stację Augustin na Platformę Millennial kosztuje 1 zino (gp).",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Zeppelidy",
+              "page": 7,
+              "entries": [
+                "Są to ogromne, pływające stworzenia, które utrzymują się na powierzchni przez wiele worków powietrznych na swoich przypominających balony ciałach. W wyniku biomancji Kombinatu Simic można je łatwo oswoić i często są wykorzystywane przez Ravnicanów do transportu powietrznego. Zamknięty przedział jest często zaprzężony do ram, aby przewozić podróżnych.",
+                "Gdy postacie dotrą na platformę, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "Podróż zeppelidem na Platformę Milenijną oferuje zapierający dech w piersiach widok na niekończące się miasto, w tym dziewięć sal gildii i kopułową Komnatę Paktu Gildii.",
+                    "Ogród, na którym pracuje Argona, znajduje się w odległości krótkiego spaceru od elegancko rzeźbionego marmurowego budynku otoczonego z trzech stron wypielęgnowanymi topiariami przedstawiającymi wszelkiego rodzaju zwierzęta."
+                  ],
+                  "id": "017"
+                },
+                "Sfrustrowana dereszowata centaur z ognistoczerwonymi włosami i plemiennymi tatuażami przedziera się przez topiary, trzymając w rękach nożyce.",
+                "Argona próbuje przyciąć topiary, ale ma problemy. Topiary są animowane i niezbyt dobrze znoszą ozdoby. Zwykle Konklawe przydzielałoby do tego zadania druida, ale Argona została o to poproszona, aby pomóc jej „nawiązać kontakt ze swoim spokojnym ja”. Na razie nie idzie dobrze."
+              ],
+              "id": "016"
+            }
+          ],
+          "id": "015"
+        },
+        {
+          "type": "entries",
+          "name": "Trochę poza szczytem",
+          "page": 7,
+          "entries": [
+            "Jeśli bohaterowie zbliżają się do Argony, wita ich i próbuje bagatelizować swoją frustrację teraz, gdy inni ją zauważyli. Wyjaśnia, co robi i mówi bohaterom, że topiary oddalają się, gdy się zbliża. Musi dzisiaj przyciąć cztery z nich - dwa wyglądające jak gąsienice (stworzenie podobne do łosia) i dwa wyglądające jak ceratoki (stworzenie podobne do nosorożca). Przycięcie każdego z nich powinno zająć tylko kilka minut, ale przyznaje, że chociaż uczy się ogrodnictwa, nie przepada za roślinami i są płochliwe.",
+            "Jeśli bohaterowie wyjaśnią, dlaczego tu są i czego od niej chcą, Argona poprosi ich o przysługę w zamian za informacje, których szukają - pomoc w przycięciu topiary. Postacie mogą zaakceptować jej umowę lub zamiast tego mogą zawrzeć {@dc 15} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli im się to uda, przekazują jej informacje i zostawiają ją samą. Jeśli bohaterowie wspomnią, że zamierzają uchwycić jej myśl w fiolce i zrezygnują z pomocy, rachunek zostaje wystawiony na niekorzyść.",
+            "Istnieją cztery topiary - dwa to łyżwiarze ({@creature awakened shrub||animowane krzewy}) i dwa to ceratoki ({@creature awakened tree||animowane drzewa}). Aby skutecznie zbliżyć się do ich przycięcia, postać może zastosować jedną z następujących metod:",
+            {
+              "type": "list",
+              "items": [
+                "Sukces {@dc 15} Inteligencja ({@skill Nature}) pozwala postaci podejść do rośliny ostrożnie, wystarczająco blisko, aby wykonać niezbędną pracę.",
+                "Sukces {@dc 15} Zręczność ({@skill Sleight of Hand}) pozwala postaci ukryć nożyce i potajemnie przyciąć topiary.",
+                "Stosowanie zabezpieczeń, takich jak mocne liny lub {@spell entangle} zaklęcie. Rzuć na inicjatywę i przeprowadź ją jak walkę, przy czym topiary będzie próbowało uciec i zaatakować, jeśli postać znajdzie się w zasięgu, jeśli nie zostanie to odpowiednio wykonane. {@condition restrained}.",
+                "Wszystko inne, kreatywne, czego postać spróbuje, może być skuteczne. Ogólnie rzecz biorąc, trudność każdego sprawdzenia, aby odnieść sukces, wynosi {@dc 15}, ale możesz dać przewagę, jeśli inni pomagają."
+              ]
+            }
+          ],
+          "id": "018"
+        },
+        {
+          "type": "entries",
+          "name": "Informacje o Argonie",
+          "page": 7,
+          "entries": [
+            "Kiedy bohaterowie pomogli Argonie lub przekonali ją, aby zapewniła to, czego szukają, mówi im, co następuje:",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "„Tytuł książki wymagał sporo pracy. No cóż, nosi ona tytuł Uzdrawianie ogrodnictwa i zwróciłem ją do Biblioteki Ismerskiej zaledwie kilka dni po terminie”."
+              ],
+              "id": "01a"
+            },
+            "Jeśli postacie pomogły jej przy topiarach lub udało im się przekonać ją o 5 lub więcej, oferuje dodatkową informację.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "„Jeszcze jedno na temat tej książki… Czytałam ją pewnego wieczoru przy świecach i przysięgam, że widziałam na stronach jakieś wyblakłe napisy. Nie wyglądało to na nic, co mogłabym przeczytać, i nigdy więcej tego nie widziałam”."
+              ],
+              "id": "01b"
+            },
+            "Strona może zdecydować się na uchwycenie tego dodatkowego wglądu w wątku myślowym lub może go pominąć."
+          ],
+          "id": "019"
+        }
+      ],
+      "id": "014"
+    },
+    "0:015": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Zeppelidy",
+          "page": 7,
+          "entries": [
+            "Są to ogromne, pływające stworzenia, które utrzymują się na powierzchni przez wiele worków powietrznych na swoich przypominających balony ciałach. W wyniku biomancji Kombinatu Simic można je łatwo oswoić i często są wykorzystywane przez Ravnicanów do transportu powietrznego. Zamknięty przedział jest często zaprzężony do ram, aby przewozić podróżnych.",
+            "Gdy postacie dotrą na platformę, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Podróż zeppelidem na Platformę Milenijną oferuje zapierający dech w piersiach widok na niekończące się miasto, w tym dziewięć sal gildii i kopułową Komnatę Paktu Gildii.",
+                "Ogród, na którym pracuje Argona, znajduje się w odległości krótkiego spaceru od elegancko rzeźbionego marmurowego budynku otoczonego z trzech stron wypielęgnowanymi topiariami przedstawiającymi wszelkiego rodzaju zwierzęta."
+              ],
+              "id": "017"
+            },
+            "Sfrustrowana dereszowata centaur z ognistoczerwonymi włosami i plemiennymi tatuażami przedziera się przez topiary, trzymając w rękach nożyce.",
+            "Argona próbuje przyciąć topiary, ale ma problemy. Topiary są animowane i niezbyt dobrze znoszą ozdoby. Zwykle Konklawe przydzielałoby do tego zadania druida, ale Argona została o to poproszona, aby pomóc jej „nawiązać kontakt ze swoim spokojnym ja”. Na razie nie idzie dobrze."
+          ],
+          "id": "016"
+        }
+      ],
+      "id": "015"
+    },
+    "0:016": {
+      "type": "entries",
+      "name": "Zeppelidy",
+      "page": 7,
+      "entries": [
+        "Są to ogromne, pływające stworzenia, które utrzymują się na powierzchni przez wiele worków powietrznych na swoich przypominających balony ciałach. W wyniku biomancji Kombinatu Simic można je łatwo oswoić i często są wykorzystywane przez Ravnicanów do transportu powietrznego. Zamknięty przedział jest często zaprzężony do ram, aby przewozić podróżnych.",
+        "Gdy postacie dotrą na platformę, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Podróż zeppelidem na Platformę Milenijną oferuje zapierający dech w piersiach widok na niekończące się miasto, w tym dziewięć sal gildii i kopułową Komnatę Paktu Gildii.",
+            "Ogród, na którym pracuje Argona, znajduje się w odległości krótkiego spaceru od elegancko rzeźbionego marmurowego budynku otoczonego z trzech stron wypielęgnowanymi topiariami przedstawiającymi wszelkiego rodzaju zwierzęta."
+          ],
+          "id": "017"
+        },
+        "Sfrustrowana dereszowata centaur z ognistoczerwonymi włosami i plemiennymi tatuażami przedziera się przez topiary, trzymając w rękach nożyce.",
+        "Argona próbuje przyciąć topiary, ale ma problemy. Topiary są animowane i niezbyt dobrze znoszą ozdoby. Zwykle Konklawe przydzielałoby do tego zadania druida, ale Argona została o to poproszona, aby pomóc jej „nawiązać kontakt ze swoim spokojnym ja”. Na razie nie idzie dobrze."
+      ],
+      "id": "016"
+    },
+    "0:018": {
+      "type": "entries",
+      "name": "Trochę poza szczytem",
+      "page": 7,
+      "entries": [
+        "Jeśli bohaterowie zbliżają się do Argony, wita ich i próbuje bagatelizować swoją frustrację teraz, gdy inni ją zauważyli. Wyjaśnia, co robi i mówi bohaterom, że topiary oddalają się, gdy się zbliża. Musi dzisiaj przyciąć cztery z nich - dwa wyglądające jak gąsienice (stworzenie podobne do łosia) i dwa wyglądające jak ceratoki (stworzenie podobne do nosorożca). Przycięcie każdego z nich powinno zająć tylko kilka minut, ale przyznaje, że chociaż uczy się ogrodnictwa, nie przepada za roślinami i są płochliwe.",
+        "Jeśli bohaterowie wyjaśnią, dlaczego tu są i czego od niej chcą, Argona poprosi ich o przysługę w zamian za informacje, których szukają - pomoc w przycięciu topiary. Postacie mogą zaakceptować jej umowę lub zamiast tego mogą zawrzeć {@dc 15} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli im się to uda, przekazują jej informacje i zostawiają ją samą. Jeśli bohaterowie wspomnią, że zamierzają uchwycić jej myśl w fiolce i zrezygnują z pomocy, rachunek zostaje wystawiony na niekorzyść.",
+        "Istnieją cztery topiary - dwa to łyżwiarze ({@creature awakened shrub||animowane krzewy}) i dwa to ceratoki ({@creature awakened tree||animowane drzewa}). Aby skutecznie zbliżyć się do ich przycięcia, postać może zastosować jedną z następujących metod:",
+        {
+          "type": "list",
+          "items": [
+            "Sukces {@dc 15} Inteligencja ({@skill Nature}) pozwala postaci podejść do rośliny ostrożnie, wystarczająco blisko, aby wykonać niezbędną pracę.",
+            "Sukces {@dc 15} Zręczność ({@skill Sleight of Hand}) pozwala postaci ukryć nożyce i potajemnie przyciąć topiary.",
+            "Stosowanie zabezpieczeń, takich jak mocne liny lub {@spell entangle} zaklęcie. Rzuć na inicjatywę i przeprowadź ją jak walkę, przy czym topiary będzie próbowało uciec i zaatakować, jeśli postać znajdzie się w zasięgu, jeśli nie zostanie to odpowiednio wykonane. {@condition restrained}.",
+            "Wszystko inne, kreatywne, czego postać spróbuje, może być skuteczne. Ogólnie rzecz biorąc, trudność każdego sprawdzenia, aby odnieść sukces, wynosi {@dc 15}, ale możesz dać przewagę, jeśli inni pomagają."
+          ]
+        }
+      ],
+      "id": "018"
+    },
+    "0:019": {
+      "type": "entries",
+      "name": "Informacje o Argonie",
+      "page": 7,
+      "entries": [
+        "Kiedy bohaterowie pomogli Argonie lub przekonali ją, aby zapewniła to, czego szukają, mówi im, co następuje:",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "„Tytuł książki wymagał sporo pracy. No cóż, nosi ona tytuł Uzdrawianie ogrodnictwa i zwróciłem ją do Biblioteki Ismerskiej zaledwie kilka dni po terminie”."
+          ],
+          "id": "01a"
+        },
+        "Jeśli postacie pomogły jej przy topiarach lub udało im się przekonać ją o 5 lub więcej, oferuje dodatkową informację.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "„Jeszcze jedno na temat tej książki… Czytałam ją pewnego wieczoru przy świecach i przysięgam, że widziałam na stronach jakieś wyblakłe napisy. Nie wyglądało to na nic, co mogłabym przeczytać, i nigdy więcej tego nie widziałam”."
+          ],
+          "id": "01b"
+        },
+        "Strona może zdecydować się na uchwycenie tego dodatkowego wglądu w wątku myślowym lub może go pominąć."
+      ],
+      "id": "019"
+    },
+    "0:01c": {
+      "type": "section",
+      "name": "Delrima Munna",
+      "page": 8,
+      "entries": [
+        "Wedalken {@creature apprentice wizard|VGM} Delrim zawsze miał wobec siebie wielkie marzenia i dlatego chciał studiować na Uniwersytecie Prism, prestiżowej szkole magii w komisariacie piątym. Jego chęć udowodnienia swojej wartości jako prawowitego maga podczas studiów nie raz niemal stała się jego zgubą, ponieważ podejmował ryzyko, stosując swoją wyuczoną wiedzę, z katastrofalnymi skutkami. Teraz potrzebuje, aby jego najnowszy projekt się opłacił, w przeciwnym razie nie ukończy szkoły. Pracował niemal całą dobę w laboratorium poza kampusem w Blistercoils, dzielnicy w komisariacie piątym. W dzień i w nocy drużyna znajduje tutaj Delrima, który przygotowuje swój eksperyment do przeglądu.",
+        {
+          "type": "entries",
+          "name": "Laboratorium Delrima",
+          "page": 8,
+          "entries": [
+            "Delrim przez ostatnie kilka dni pracował w małym pomieszczeniu w piwnicy, w pobliżu potężnych generatorów z kołem wodnym, zwanych cewkami pęcherzowymi. Szalejący dźwięk pobliskiej wody i ciągłe buczenie generatorów utrudniają słyszenie w tej przestrzeni, ale Delrim ma na sobie ochronniki słuchu.",
+            "Gdy postacie dotrą do laboratorium, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Adres podany dla Delrim to Blistercoils, dzielnica przemysłowa usiana warsztatami i laboratoriami. Dokładny adres znajduje się na głębokich schodach w dół, a powietrze wibruje od szumu płynącej wody. Koła wodne zasilające większą część miasta muszą być blisko."
+              ],
+              "id": "01e"
+            },
+            "Schody kończą się stalowymi drzwiami z brązowawą metalową skrzynką przykręconą do lewej ściany. W pudełku znajduje się dziewięć zestawów zatyczek do uszu oraz duży zielony przycisk. Naciśnięcie przycisku ostrzega mieszkańców pomieszczenia, że ​​ktoś dzwoni na zewnątrz.",
+            "Drzwi mają od wewnątrz przesuwaną szczelinę, przez którą ktoś może zajrzeć na zewnątrz. Jest zablokowany i wymaga pomyślnego zakończenia {@dc 16} Test zręczności z {@item thieves' tools|PHB} wybrać zamek lub odnieść sukces {@dc 20} Wytrzymałość ({@skill Athletics}) sprawdź, czy wyważysz drzwi.",
+            "Jeśli bohaterowie nacisną przycisk, drzwi otworzy Delrim, wykrzykując pozdrowienia ponad hałasem kół wodnych. Po otwarciu drzwi przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Drzwi otwierają się i ukazują bałagan w laboratorium o powierzchni 30 stóp kwadratowych, które wygląda na bardzo używane i zamieszkane. Do jednej ze ścian przymocowany jest gigantyczny aparat składający się z kilkudziesięciu cewek przewodzących. Za pomocą wielu kabli do tego urządzenia przymocowany jest bulwiasty cylinder z wystającym przedłużeniem, skierowany bezpośrednio na książkę inżynieryjną leżącą na stole. Na boku cylindra widnieją słowa „Emiter przeniesienia fazowego”."
+              ],
+              "id": "01f"
+            },
+            "Aby ktokolwiek mógł cokolwiek usłyszeć w laboratorium, postacie muszą krzyczeć lub znaleźć inny sposób komunikacji (np {@spell message} kantrip). Delrim nie czeka długo, aż bohaterowie zainicjują rozmowę, po czym krzyknie „CZY JESTEŚ GOTOWY? ZACZYNAMY!” Następnie rzuca przełącznik w pobliżu aparatu, a cewki przewodzące trzaskają od prądu.",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/AZfyT/electrostatic field.webp"
+              },
+              "width": 1242,
+              "height": 708,
+              "credit": "Dan Scott"
+            },
+            {
+              "type": "entries",
+              "name": "Nie fascynuj mnie",
+              "page": 9,
+              "entries": [
+                "Urządzenie Delrima wystrzeliwuje wiązkę, która na krótki czas wycofuje obiekty z rzeczywistości, ale nie udało mu się sprawić, by działała ona spójnie. W swojej niecierpliwości podłączył urządzenie do masywnej, magicznie wzmocnionej matrycy przewodnictwa, aby zwiększyć jego moc. To był ogromny błąd.",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "Zapach ozonu wypełnia pomieszczenie, gdy urządzenie budzi się do życia. Niemal natychmiast do cewek zostaje podłączony prąd tak intensywny, że zalewa pomieszczenie niebiesko-białym światłem. Emiter przeniesienia fazowego wysyła niebieską wiązkę w stronę książki na stole, która znika."
+                  ],
+                  "id": "021"
+                },
+                "Energia elektryczna tryska z cewek zasilających emiter, podczas gdy strumienie dymu i iskry wylatują z obudowy cylindra, a emiter kołysze się szaleńczo. Triumfalny wyraz twarzy Delrima zmienia się w panikę, gdy zdaje sobie sprawę, że jego eksperyment się nie powiódł i może mieć katastrofalne skutki. {@trap malfunctioning Phase Transference Emitter|AZFYT} należy wyłączyć lub zniszczyć, zanim spowoduje zbyt duże spustoszenie. To stało się pułapką!"
+              ],
+              "id": "020"
+            },
+            {
+              "type": "entries",
+              "name": "Informacje Delrima",
+              "page": 10,
+              "entries": [
+                "Gdy postacie pomogły Delrimowi w uniemożliwieniu jego eksperymentu lub ucieczce z budynku, na żądanie jest on w stanie podać następujące informacje:",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "„Byłem w Bibliotece Ismeri, na dziale filozofii, szukając książek z mojej listy lektur na zajęcia z etyki w badaniach naukowych, kiedy odkryłem tajne przejście na górnej półce drugiego regału w tym dziale. Była to przestrzeń pełzająca, do której dostęp wymagał drabiny albo umiejętności latania, wspinania się lub czegoś w tym rodzaju. Z pewnością nie było to w ogóle oczywiste dla nikogo. Kończyło się zamkniętymi metalowymi drzwiami z kilkoma dziwnymi symbolami."
+                  ],
+                  "id": "023"
+                },
+                "Jeśli bohaterom udało się zakończyć eksperyment bez eksplozji, Delrim może zapisać wyniki swojej pracy i poprosić stronę o weryfikację ustaleń swoimi podpisami. Jeśli się zgodzą, podaje im dodatkowe szczegóły:",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "Delrim szuka w torebce kartki papieru i podaje ją tobie. „Zanim odleciałem, udało mi się potrzeć niektóre symbole na tych drzwiach. Nie wiem, co one oznaczają, bo nie miałem czasu ich zbadać, ale możesz je zabrać ze sobą”."
+                  ],
+                  "id": "024"
+                },
+                "Informacja ta nie musi być uchwycona w wątku myślowym, jeśli strona chce ją ukryć. Dowolna postać, która brała udział w {@adventure Krenko's Way|kkw} zauważa, że ​​te oznaczenia są podobne do tych znalezionych na drzwiach domu Falisha. W przeciwnym razie oznaczenia są jedynie ciekawostką, która nie ma dalszego wpływu na tę przygodę."
+              ],
+              "id": "022"
+            }
+          ],
+          "id": "01d"
+        }
+      ],
+      "id": "01c"
+    },
+    "0:01d": {
+      "type": "entries",
+      "name": "Laboratorium Delrima",
+      "page": 8,
+      "entries": [
+        "Delrim przez ostatnie kilka dni pracował w małym pomieszczeniu w piwnicy, w pobliżu potężnych generatorów z kołem wodnym, zwanych cewkami pęcherzowymi. Szalejący dźwięk pobliskiej wody i ciągłe buczenie generatorów utrudniają słyszenie w tej przestrzeni, ale Delrim ma na sobie ochronniki słuchu.",
+        "Gdy postacie dotrą do laboratorium, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Adres podany dla Delrim to Blistercoils, dzielnica przemysłowa usiana warsztatami i laboratoriami. Dokładny adres znajduje się na głębokich schodach w dół, a powietrze wibruje od szumu płynącej wody. Koła wodne zasilające większą część miasta muszą być blisko."
+          ],
+          "id": "01e"
+        },
+        "Schody kończą się stalowymi drzwiami z brązowawą metalową skrzynką przykręconą do lewej ściany. W pudełku znajduje się dziewięć zestawów zatyczek do uszu oraz duży zielony przycisk. Naciśnięcie przycisku ostrzega mieszkańców pomieszczenia, że ​​ktoś dzwoni na zewnątrz.",
+        "Drzwi mają od wewnątrz przesuwaną szczelinę, przez którą ktoś może zajrzeć na zewnątrz. Jest zablokowany i wymaga pomyślnego zakończenia {@dc 16} Test zręczności z {@item thieves' tools|PHB} wybrać zamek lub odnieść sukces {@dc 20} Wytrzymałość ({@skill Athletics}) sprawdź, czy wyważysz drzwi.",
+        "Jeśli bohaterowie nacisną przycisk, drzwi otworzy Delrim, wykrzykując pozdrowienia ponad hałasem kół wodnych. Po otwarciu drzwi przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Drzwi otwierają się i ukazują bałagan w laboratorium o powierzchni 30 stóp kwadratowych, które wygląda na bardzo używane i zamieszkane. Do jednej ze ścian przymocowany jest gigantyczny aparat składający się z kilkudziesięciu cewek przewodzących. Za pomocą wielu kabli do tego urządzenia przymocowany jest bulwiasty cylinder z wystającym przedłużeniem, skierowany bezpośrednio na książkę inżynieryjną leżącą na stole. Na boku cylindra widnieją słowa „Emiter przeniesienia fazowego”."
+          ],
+          "id": "01f"
+        },
+        "Aby ktokolwiek mógł cokolwiek usłyszeć w laboratorium, postacie muszą krzyczeć lub znaleźć inny sposób komunikacji (np {@spell message} kantrip). Delrim nie czeka długo, aż bohaterowie zainicjują rozmowę, po czym krzyknie „CZY JESTEŚ GOTOWY? ZACZYNAMY!” Następnie rzuca przełącznik w pobliżu aparatu, a cewki przewodzące trzaskają od prądu.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AZfyT/electrostatic field.webp"
+          },
+          "width": 1242,
+          "height": 708,
+          "credit": "Dan Scott"
+        },
+        {
+          "type": "entries",
+          "name": "Nie fascynuj mnie",
+          "page": 9,
+          "entries": [
+            "Urządzenie Delrima wystrzeliwuje wiązkę, która na krótki czas wycofuje obiekty z rzeczywistości, ale nie udało mu się sprawić, by działała ona spójnie. W swojej niecierpliwości podłączył urządzenie do masywnej, magicznie wzmocnionej matrycy przewodnictwa, aby zwiększyć jego moc. To był ogromny błąd.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Zapach ozonu wypełnia pomieszczenie, gdy urządzenie budzi się do życia. Niemal natychmiast do cewek zostaje podłączony prąd tak intensywny, że zalewa pomieszczenie niebiesko-białym światłem. Emiter przeniesienia fazowego wysyła niebieską wiązkę w stronę książki na stole, która znika."
+              ],
+              "id": "021"
+            },
+            "Energia elektryczna tryska z cewek zasilających emiter, podczas gdy strumienie dymu i iskry wylatują z obudowy cylindra, a emiter kołysze się szaleńczo. Triumfalny wyraz twarzy Delrima zmienia się w panikę, gdy zdaje sobie sprawę, że jego eksperyment się nie powiódł i może mieć katastrofalne skutki. {@trap malfunctioning Phase Transference Emitter|AZFYT} należy wyłączyć lub zniszczyć, zanim spowoduje zbyt duże spustoszenie. To stało się pułapką!"
+          ],
+          "id": "020"
+        },
+        {
+          "type": "entries",
+          "name": "Informacje Delrima",
+          "page": 10,
+          "entries": [
+            "Gdy postacie pomogły Delrimowi w uniemożliwieniu jego eksperymentu lub ucieczce z budynku, na żądanie jest on w stanie podać następujące informacje:",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "„Byłem w Bibliotece Ismeri, na dziale filozofii, szukając książek z mojej listy lektur na zajęcia z etyki w badaniach naukowych, kiedy odkryłem tajne przejście na górnej półce drugiego regału w tym dziale. Była to przestrzeń pełzająca, do której dostęp wymagał drabiny albo umiejętności latania, wspinania się lub czegoś w tym rodzaju. Z pewnością nie było to w ogóle oczywiste dla nikogo. Kończyło się zamkniętymi metalowymi drzwiami z kilkoma dziwnymi symbolami."
+              ],
+              "id": "023"
+            },
+            "Jeśli bohaterom udało się zakończyć eksperyment bez eksplozji, Delrim może zapisać wyniki swojej pracy i poprosić stronę o weryfikację ustaleń swoimi podpisami. Jeśli się zgodzą, podaje im dodatkowe szczegóły:",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Delrim szuka w torebce kartki papieru i podaje ją tobie. „Zanim odleciałem, udało mi się potrzeć niektóre symbole na tych drzwiach. Nie wiem, co one oznaczają, bo nie miałem czasu ich zbadać, ale możesz je zabrać ze sobą”."
+              ],
+              "id": "024"
+            },
+            "Informacja ta nie musi być uchwycona w wątku myślowym, jeśli strona chce ją ukryć. Dowolna postać, która brała udział w {@adventure Krenko's Way|kkw} zauważa, że ​​te oznaczenia są podobne do tych znalezionych na drzwiach domu Falisha. W przeciwnym razie oznaczenia są jedynie ciekawostką, która nie ma dalszego wpływu na tę przygodę."
+          ],
+          "id": "022"
+        }
+      ],
+      "id": "01d"
+    },
+    "0:020": {
+      "type": "entries",
+      "name": "Nie fascynuj mnie",
+      "page": 9,
+      "entries": [
+        "Urządzenie Delrima wystrzeliwuje wiązkę, która na krótki czas wycofuje obiekty z rzeczywistości, ale nie udało mu się sprawić, by działała ona spójnie. W swojej niecierpliwości podłączył urządzenie do masywnej, magicznie wzmocnionej matrycy przewodnictwa, aby zwiększyć jego moc. To był ogromny błąd.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Zapach ozonu wypełnia pomieszczenie, gdy urządzenie budzi się do życia. Niemal natychmiast do cewek zostaje podłączony prąd tak intensywny, że zalewa pomieszczenie niebiesko-białym światłem. Emiter przeniesienia fazowego wysyła niebieską wiązkę w stronę książki na stole, która znika."
+          ],
+          "id": "021"
+        },
+        "Energia elektryczna tryska z cewek zasilających emiter, podczas gdy strumienie dymu i iskry wylatują z obudowy cylindra, a emiter kołysze się szaleńczo. Triumfalny wyraz twarzy Delrima zmienia się w panikę, gdy zdaje sobie sprawę, że jego eksperyment się nie powiódł i może mieć katastrofalne skutki. {@trap malfunctioning Phase Transference Emitter|AZFYT} należy wyłączyć lub zniszczyć, zanim spowoduje zbyt duże spustoszenie. To stało się pułapką!"
+      ],
+      "id": "020"
+    },
+    "0:022": {
+      "type": "entries",
+      "name": "Informacje Delrima",
+      "page": 10,
+      "entries": [
+        "Gdy postacie pomogły Delrimowi w uniemożliwieniu jego eksperymentu lub ucieczce z budynku, na żądanie jest on w stanie podać następujące informacje:",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "„Byłem w Bibliotece Ismeri, na dziale filozofii, szukając książek z mojej listy lektur na zajęcia z etyki w badaniach naukowych, kiedy odkryłem tajne przejście na górnej półce drugiego regału w tym dziale. Była to przestrzeń pełzająca, do której dostęp wymagał drabiny albo umiejętności latania, wspinania się lub czegoś w tym rodzaju. Z pewnością nie było to w ogóle oczywiste dla nikogo. Kończyło się zamkniętymi metalowymi drzwiami z kilkoma dziwnymi symbolami."
+          ],
+          "id": "023"
+        },
+        "Jeśli bohaterom udało się zakończyć eksperyment bez eksplozji, Delrim może zapisać wyniki swojej pracy i poprosić stronę o weryfikację ustaleń swoimi podpisami. Jeśli się zgodzą, podaje im dodatkowe szczegóły:",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Delrim szuka w torebce kartki papieru i podaje ją tobie. „Zanim odleciałem, udało mi się potrzeć niektóre symbole na tych drzwiach. Nie wiem, co one oznaczają, bo nie miałem czasu ich zbadać, ale możesz je zabrać ze sobą”."
+          ],
+          "id": "024"
+        },
+        "Informacja ta nie musi być uchwycona w wątku myślowym, jeśli strona chce ją ukryć. Dowolna postać, która brała udział w {@adventure Krenko's Way|kkw} zauważa, że ​​te oznaczenia są podobne do tych znalezionych na drzwiach domu Falisha. W przeciwnym razie oznaczenia są jedynie ciekawostką, która nie ma dalszego wpływu na tę przygodę."
+      ],
+      "id": "022"
+    },
+    "0:025": {
+      "type": "section",
+      "name": "Jodełkowy",
+      "page": 12,
+      "entries": [
+        "Herringbone, elf krążący po mieście, płot i człowiek o niezwykłym stylu, pracuje w całej Dziesiątej Dzielnicy, sprzedając nielegalne towary zdobyte od swojej siatki ulicznych złodziei. Nie jest na tyle dojrzały, aby założyć gang, ale poznał wielu znajomych, którzy są dobrzy w stosowaniu przemocy wobec każdego, kto próbuje go oszukać lub oszukać w transakcji. Jedną z jego ulubionych grup zbirów do wynajęcia jest banda Gruulów zlokalizowana w pasie gruzów.",
+        {
+          "type": "entries",
+          "name": "Obozowisko w Pasie Gruzów",
+          "page": 12,
+          "entries": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/GGR/095-415.webp"
+              },
+              "width": 2513,
+              "height": 3338,
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 146,
+                "offsetX": -43,
+                "offsetY": -25,
+                "scale": 3
+              },
+              "title": "Obozowisko w Pasie Gruzów",
+              "credit": "Dyson Logos",
+              "id": "032"
+            },
+            "Herringbone spędził tu ostatnie kilka dni po sfinalizowaniu transakcji z przywódcą bandy. Większość reszty bandy wybrała się na najazd, ale Herringbone został w pobliżu, aby dotrzymać towarzystwa nielicznym lokatorom.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Pas gruzów to wyniszczona strefa rozpadających się budynków i zarośli. Informacje, które zdobyłeś, prowadzą cię do obozowiska na starym placu, odzyskanego przez dziką przyrodę. Stara wieża nadal stoi około 80 nad ziemią. Tu i ówdzie do ruin przylegają cienkie drzewa, a na samym placu można ukryć namioty. W centrum obszaru trzaska ognisko."
+              ],
+              "id": "027"
+            },
+            "A {@creature rubblebelt stalker|GGR} pełni wartę w wieży i gwiżdże do reszty swojej drużyny, gdy zauważa zbliżającą się grupę. Dwa {@creature anarch|GGR|anarchiści} są w pobliżu ogniska i udają się do zagród dla zwierząt, aby zabrać swoje dwa {@creature boar|mm|knury} przed wyruszeniem na spotkanie z imprezą. Zarówno prześladowcę z pasa gruzów, jak i anarchistów znajdziesz w dodatku.",
+            "Jodełka ({@creature noble} z AC 12) schodzi ze swojego pokoju w wieży, aby dołączyć do dwóch anarchistów witających imprezę. Zebrana grupa spotyka się na północ od ogniska.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Herringbone to nienagannie ubrany elf w eleganckim garniturze, złoconym rapierze i pierzastej czapce uśmiecha się do ciebie szeroko, gdy podchodzisz. Zauważasz błysk kilku złotych zębów w jego ustach."
+              ],
+              "id": "028"
+            },
+            "Jeśli bohaterowie wyjaśnią, po co tu przybyli, Herringbone uważnie wysłuchuje ich próśb, a następnie kategorycznie odmawia udzielenia im informacji, których szukają. Jeśli wspomnią o przechwyceniu informacji w wątku myślowym, Herringbone stanowczo udziela reprymendy i prosi drużynę o opuszczenie drużyny, zanim Gruul sprawi im zły dzień.",
+            "Gruulowie gotują się do walki i są gotowi do ataku, gdy Herringbone powie, że skończył rozmawiać z drużyną. Prześladowca z pasa gruzów podczas rozmowy zaczyna schodzić ze swojego stanowiska w wieży i próbuje ukryć się wśród drzew na północ od miejsca spotkania.",
+            {
+              "type": "entries",
+              "name": "Czas na herbatę dobiegł końca",
+              "page": 13,
+              "entries": [
+                "Partia ma niewiele czasu, aby uporać się z Herringbone. Jeśli spędzają zbyt dużo czasu na rozmowie, Herringbone natychmiast je odrzuca. Jeśli odmówią opuszczenia lub spróbują opóźnić, on i Gruul zaatakują. Oto kilka podejść, jakie może przyjąć partia:",
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Handel wymienny",
+                      "entry": "Grupa mogłaby spróbować wymienić się informacjami. Musieliby zaoferować coś o znacznej wartości. Amulet Golgari byłby uważany za dobry handel w naturze. Inne wartościowe przedmioty mogą być akceptowalne. Wymieniające się postacie muszą odnieść sukces na a {@dc 15} Charyzma ({@skill Persuasion}) zaznacz, aby Herringbone przyjęła ofertę, o ile przedmiot, o którym mowa, jest wart 100 zino (sz) lub więcej."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Zastraszyć",
+                      "entry": "Mogliby spróbować zastraszyć Jodełkę, ale jeśli najpierw nie pokonają wszystkich Gruulów, to trudne zadanie. Jeśli grupa spróbuje tej taktyki, wymaga to bardzo przekonującej groźby wraz z {@dc 20} Charyzma ({@skill Intimidation}) sprawdź, aby nakłonić go do ustąpienia i przekazania stronie informacji. Członek Gruul z klanu Płonącego Drzewa ma przewagę w tym teście, ponieważ ma najbardziej przerażającą reputację wśród Gruulów, zastraszając współpracowników Jodełki."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Zwodzić",
+                      "entry": "Można oszukać Jodełkę, myśląc o odpowiedzi, a następnie subtelnie używając fiolki przechwytywania myśli, aby zebrać nić myślową. Wymaga to specjalisty od oszustwa, który poprowadzi rozmowę i niewidzialnej ręki do manipulowania fiolką. A {@dc 20} Charyzma ({@skill Deception}) sprawdź i a {@dc 15} Zręczność ({@skill Sleight of Hand}) sprawdzenie może uzyskać nić myślową."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Czar",
+                      "entry": "Postać może używać magii, takiej jak {@spell charm person} uzyskać odpowiedź od Herringbone, chociaż Gruul może zaatakować drużynę, jeśli jeden z anarchistów będzie w stanie stwierdzić, czy Herringbone został {@condition charmed}, wymagając od anarchy odniesienia sukcesu na {@dc 10} Mądrość ({@skill Insight}) sprawdzać."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Walka",
+                      "entry": "Partia mogła zdecydować się po prostu ujarzmić ich w walce. Kiedy wszyscy Gruulowie zostaną pokonani, Herringbone można łatwo zmusić do podania odpowiednich informacji."
+                    }
+                  ]
+                }
+              ],
+              "id": "029"
+            },
+            {
+              "type": "entries",
+              "name": "Informacje o jodełce",
+              "page": 13,
+              "entries": [
+                "Kiedy partii udało się nakłonić Herringbone do przekazania informacji, mówi krótko.",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "„Nosiciel płomieni znajduje się w osobistym skarbcu Velrena, papieża Syndykatu Orżowskiego. Powodzenia”."
+                  ],
+                  "id": "02b"
+                },
+                "Jeśli drużyna oczarowała Jodełkę, zaoferowała amulet Golgari w ramach wymiany lub uzyskała 5 lub więcej punktów w teście Charyzmy pozwalającym uzyskać informacje, Jodełka oferuje nieco więcej.",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "Aha, jeszcze jedna rzecz, na którą warto zwrócić uwagę. Ten niosący opary jest wyjątkowy. Jest nasycony mizzem i może przebić się przez prawie wszystko. To właśnie mnie zainteresowało."
+                  ],
+                  "id": "02c"
+                },
+                "Ta dodatkowa informacja nie musi być ujęta w wątku myślowym, według uznania strony."
+              ],
+              "id": "02a"
+            }
+          ],
+          "id": "026"
+        }
+      ],
+      "id": "025"
+    },
+    "0:026": {
+      "type": "entries",
+      "name": "Obozowisko w Pasie Gruzów",
+      "page": 12,
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/GGR/095-415.webp"
+          },
+          "width": 2513,
+          "height": 3338,
+          "imageType": "mapa",
+          "grid": {
+            "type": "square",
+            "size": 146,
+            "offsetX": -43,
+            "offsetY": -25,
+            "scale": 3
+          },
+          "title": "Obozowisko w Pasie Gruzów",
+          "credit": "Dyson Logos",
+          "id": "032"
+        },
+        "Herringbone spędził tu ostatnie kilka dni po sfinalizowaniu transakcji z przywódcą bandy. Większość reszty bandy wybrała się na najazd, ale Herringbone został w pobliżu, aby dotrzymać towarzystwa nielicznym lokatorom.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Pas gruzów to wyniszczona strefa rozpadających się budynków i zarośli. Informacje, które zdobyłeś, prowadzą cię do obozowiska na starym placu, odzyskanego przez dziką przyrodę. Stara wieża nadal stoi około 80 nad ziemią. Tu i ówdzie do ruin przylegają cienkie drzewa, a na samym placu można ukryć namioty. W centrum obszaru trzaska ognisko."
+          ],
+          "id": "027"
+        },
+        "A {@creature rubblebelt stalker|GGR} pełni wartę w wieży i gwiżdże do reszty swojej drużyny, gdy zauważa zbliżającą się grupę. Dwa {@creature anarch|GGR|anarchiści} są w pobliżu ogniska i udają się do zagród dla zwierząt, aby zabrać swoje dwa {@creature boar|mm|knury} przed wyruszeniem na spotkanie z imprezą. Zarówno prześladowcę z pasa gruzów, jak i anarchistów znajdziesz w dodatku.",
+        "Jodełka ({@creature noble} z AC 12) schodzi ze swojego pokoju w wieży, aby dołączyć do dwóch anarchistów witających imprezę. Zebrana grupa spotyka się na północ od ogniska.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Herringbone to nienagannie ubrany elf w eleganckim garniturze, złoconym rapierze i pierzastej czapce uśmiecha się do ciebie szeroko, gdy podchodzisz. Zauważasz błysk kilku złotych zębów w jego ustach."
+          ],
+          "id": "028"
+        },
+        "Jeśli bohaterowie wyjaśnią, po co tu przybyli, Herringbone uważnie wysłuchuje ich próśb, a następnie kategorycznie odmawia udzielenia im informacji, których szukają. Jeśli wspomnią o przechwyceniu informacji w wątku myślowym, Herringbone stanowczo udziela reprymendy i prosi drużynę o opuszczenie drużyny, zanim Gruul sprawi im zły dzień.",
+        "Gruulowie gotują się do walki i są gotowi do ataku, gdy Herringbone powie, że skończył rozmawiać z drużyną. Prześladowca z pasa gruzów podczas rozmowy zaczyna schodzić ze swojego stanowiska w wieży i próbuje ukryć się wśród drzew na północ od miejsca spotkania.",
+        {
+          "type": "entries",
+          "name": "Czas na herbatę dobiegł końca",
+          "page": 13,
+          "entries": [
+            "Partia ma niewiele czasu, aby uporać się z Herringbone. Jeśli spędzają zbyt dużo czasu na rozmowie, Herringbone natychmiast je odrzuca. Jeśli odmówią opuszczenia lub spróbują opóźnić, on i Gruul zaatakują. Oto kilka podejść, jakie może przyjąć partia:",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Handel wymienny",
+                  "entry": "Grupa mogłaby spróbować wymienić się informacjami. Musieliby zaoferować coś o znacznej wartości. Amulet Golgari byłby uważany za dobry handel w naturze. Inne wartościowe przedmioty mogą być akceptowalne. Wymieniające się postacie muszą odnieść sukces na a {@dc 15} Charyzma ({@skill Persuasion}) zaznacz, aby Herringbone przyjęła ofertę, o ile przedmiot, o którym mowa, jest wart 100 zino (sz) lub więcej."
+                },
+                {
+                  "type": "item",
+                  "name": "Zastraszyć",
+                  "entry": "Mogliby spróbować zastraszyć Jodełkę, ale jeśli najpierw nie pokonają wszystkich Gruulów, to trudne zadanie. Jeśli grupa spróbuje tej taktyki, wymaga to bardzo przekonującej groźby wraz z {@dc 20} Charyzma ({@skill Intimidation}) sprawdź, aby nakłonić go do ustąpienia i przekazania stronie informacji. Członek Gruul z klanu Płonącego Drzewa ma przewagę w tym teście, ponieważ ma najbardziej przerażającą reputację wśród Gruulów, zastraszając współpracowników Jodełki."
+                },
+                {
+                  "type": "item",
+                  "name": "Zwodzić",
+                  "entry": "Można oszukać Jodełkę, myśląc o odpowiedzi, a następnie subtelnie używając fiolki przechwytywania myśli, aby zebrać nić myślową. Wymaga to specjalisty od oszustwa, który poprowadzi rozmowę i niewidzialnej ręki do manipulowania fiolką. A {@dc 20} Charyzma ({@skill Deception}) sprawdź i a {@dc 15} Zręczność ({@skill Sleight of Hand}) sprawdzenie może uzyskać nić myślową."
+                },
+                {
+                  "type": "item",
+                  "name": "Czar",
+                  "entry": "Postać może używać magii, takiej jak {@spell charm person} uzyskać odpowiedź od Herringbone, chociaż Gruul może zaatakować drużynę, jeśli jeden z anarchistów będzie w stanie stwierdzić, czy Herringbone został {@condition charmed}, wymagając od anarchy odniesienia sukcesu na {@dc 10} Mądrość ({@skill Insight}) sprawdzać."
+                },
+                {
+                  "type": "item",
+                  "name": "Walka",
+                  "entry": "Partia mogła zdecydować się po prostu ujarzmić ich w walce. Kiedy wszyscy Gruulowie zostaną pokonani, Herringbone można łatwo zmusić do podania odpowiednich informacji."
+                }
+              ]
+            }
+          ],
+          "id": "029"
+        },
+        {
+          "type": "entries",
+          "name": "Informacje o jodełce",
+          "page": 13,
+          "entries": [
+            "Kiedy partii udało się nakłonić Herringbone do przekazania informacji, mówi krótko.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "„Nosiciel płomieni znajduje się w osobistym skarbcu Velrena, papieża Syndykatu Orżowskiego. Powodzenia”."
+              ],
+              "id": "02b"
+            },
+            "Jeśli drużyna oczarowała Jodełkę, zaoferowała amulet Golgari w ramach wymiany lub uzyskała 5 lub więcej punktów w teście Charyzmy pozwalającym uzyskać informacje, Jodełka oferuje nieco więcej.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Aha, jeszcze jedna rzecz, na którą warto zwrócić uwagę. Ten niosący opary jest wyjątkowy. Jest nasycony mizzem i może przebić się przez prawie wszystko. To właśnie mnie zainteresowało."
+              ],
+              "id": "02c"
+            },
+            "Ta dodatkowa informacja nie musi być ujęta w wątku myślowym, według uznania strony."
+          ],
+          "id": "02a"
+        }
+      ],
+      "id": "026"
+    },
+    "0:029": {
+      "type": "entries",
+      "name": "Czas na herbatę dobiegł końca",
+      "page": 13,
+      "entries": [
+        "Partia ma niewiele czasu, aby uporać się z Herringbone. Jeśli spędzają zbyt dużo czasu na rozmowie, Herringbone natychmiast je odrzuca. Jeśli odmówią opuszczenia lub spróbują opóźnić, on i Gruul zaatakują. Oto kilka podejść, jakie może przyjąć partia:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Handel wymienny",
+              "entry": "Grupa mogłaby spróbować wymienić się informacjami. Musieliby zaoferować coś o znacznej wartości. Amulet Golgari byłby uważany za dobry handel w naturze. Inne wartościowe przedmioty mogą być akceptowalne. Wymieniające się postacie muszą odnieść sukces na a {@dc 15} Charyzma ({@skill Persuasion}) zaznacz, aby Herringbone przyjęła ofertę, o ile przedmiot, o którym mowa, jest wart 100 zino (sz) lub więcej."
+            },
+            {
+              "type": "item",
+              "name": "Zastraszyć",
+              "entry": "Mogliby spróbować zastraszyć Jodełkę, ale jeśli najpierw nie pokonają wszystkich Gruulów, to trudne zadanie. Jeśli grupa spróbuje tej taktyki, wymaga to bardzo przekonującej groźby wraz z {@dc 20} Charyzma ({@skill Intimidation}) sprawdź, aby nakłonić go do ustąpienia i przekazania stronie informacji. Członek Gruul z klanu Płonącego Drzewa ma przewagę w tym teście, ponieważ ma najbardziej przerażającą reputację wśród Gruulów, zastraszając współpracowników Jodełki."
+            },
+            {
+              "type": "item",
+              "name": "Zwodzić",
+              "entry": "Można oszukać Jodełkę, myśląc o odpowiedzi, a następnie subtelnie używając fiolki przechwytywania myśli, aby zebrać nić myślową. Wymaga to specjalisty od oszustwa, który poprowadzi rozmowę i niewidzialnej ręki do manipulowania fiolką. A {@dc 20} Charyzma ({@skill Deception}) sprawdź i a {@dc 15} Zręczność ({@skill Sleight of Hand}) sprawdzenie może uzyskać nić myślową."
+            },
+            {
+              "type": "item",
+              "name": "Czar",
+              "entry": "Postać może używać magii, takiej jak {@spell charm person} uzyskać odpowiedź od Herringbone, chociaż Gruul może zaatakować drużynę, jeśli jeden z anarchistów będzie w stanie stwierdzić, czy Herringbone został {@condition charmed}, wymagając od anarchy odniesienia sukcesu na {@dc 10} Mądrość ({@skill Insight}) sprawdzać."
+            },
+            {
+              "type": "item",
+              "name": "Walka",
+              "entry": "Partia mogła zdecydować się po prostu ujarzmić ich w walce. Kiedy wszyscy Gruulowie zostaną pokonani, Herringbone można łatwo zmusić do podania odpowiednich informacji."
+            }
+          ]
+        }
+      ],
+      "id": "029"
+    },
+    "0:02a": {
+      "type": "entries",
+      "name": "Informacje o jodełce",
+      "page": 13,
+      "entries": [
+        "Kiedy partii udało się nakłonić Herringbone do przekazania informacji, mówi krótko.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "„Nosiciel płomieni znajduje się w osobistym skarbcu Velrena, papieża Syndykatu Orżowskiego. Powodzenia”."
+          ],
+          "id": "02b"
+        },
+        "Jeśli drużyna oczarowała Jodełkę, zaoferowała amulet Golgari w ramach wymiany lub uzyskała 5 lub więcej punktów w teście Charyzmy pozwalającym uzyskać informacje, Jodełka oferuje nieco więcej.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Aha, jeszcze jedna rzecz, na którą warto zwrócić uwagę. Ten niosący opary jest wyjątkowy. Jest nasycony mizzem i może przebić się przez prawie wszystko. To właśnie mnie zainteresowało."
+          ],
+          "id": "02c"
+        },
+        "Ta dodatkowa informacja nie musi być ujęta w wątku myślowym, według uznania strony."
+      ],
+      "id": "02a"
+    },
+    "0:02d": {
+      "type": "section",
+      "name": "Powrót do Vezskiej",
+      "page": 13,
+      "entries": [
+        "Gdy drużyna zdobędzie nici myślowe, może wrócić do pierwotnego miejsca spotkania w kanałach. Następnego dnia około południa Vzeska pojawia się, aby odebrać fiolkę.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "O wyznaczonej godzinie Vezska pojawia się z tego samego przejścia co poprzednio, lecz zabrała ze sobą cztery kraule najeżone bronią. Vezska uśmiecha się, zbliżając się ze swoją eskortą.",
+            "„Nie przejmuj się nimi. To tylko ubezpieczenie. Nie są konieczne, prawda?”"
+          ],
+          "id": "02e"
+        },
+        "Vezska przyniosła cztery {@creature kraul warrior|GGR|kraulowi wojownicy} tutaj na wypadek, gdyby impreza myślała o ucieczce z fiolką. Jeśli przekażą fiolkę (ze wszystkimi pasmami myślowymi lub bez), ona nie inicjuje walki.",
+        "Jeśli grupie uda się zdobyć wszystkie wątki myślowe i przekaże fiolkę Vezskiej, otrzyma obiecaną zapłatę. Ponadto wszyscy członkowie drużyny zyskują jedną reputację w swoich gildiach, ponieważ Vezska rozpowszechnia informacje o ich niezawodności.",
+        "Jeśli grupie nie uda się zdobyć wszystkich wątków, ale przekaże fiolkę, Vezska jest zawiedziona, ale oferuje drużynie 100 zino za ich wysiłki. Nie otrzymują nagrody za sławę.",
+        "Oczywiście, jeśli grupa zatrzyma fiolkę i pokona Vezską, narobi sobie potencjalnych wrogów z niektórymi Golgari. Jeśli fiolka zostanie zwrócona do Domu Dimir, wszystkie postacie inne niż Golgari zyskają jedną sławę, a postacie Dimira zyskają dwie sławy."
+      ],
+      "id": "02d"
+    },
+    "0:02f": {
+      "type": "section",
+      "name": "Dalsze przygody",
+      "page": 13,
+      "entries": [
+        "Jeśli kontynuujesz kampanię rozgrywającą się na Ravnicy, ta przygoda zasiewa wiele nasion, które możesz wykorzystać w ramach swojej kampanii. Jeśli chcesz, możesz przejrzeć poniższą listę pytań, które pomogą zainspirować Cię do przyszłych przygód:",
+        {
+          "type": "list",
+          "items": [
+            "Kto był klientem Vezskiej? Co zamierzają zrobić z informacjami, których szukali?",
+            "Kto jest w posiadaniu fiolki na koniec przygody?",
+            "Jaka jest tożsamość agenta Dimira, który wysłał ekipy poszukiwawcze po fiolkę?",
+            "Czy strona zataiła jakiekolwiek dodatkowe informacje, o których się dowiedziała?",
+            "Co oznaczają ryciny na drzwiach, które odkrył Delrim?",
+            "Czy są jacyś NPC, którzy mogliby stać się przyszłymi kontaktami dla jednej lub większej liczby postaci?"
+          ]
+        }
+      ],
+      "id": "02f"
+    },
+    "1:030": {
+      "type": "section",
+      "name": "Wstępnie wygenerowane postacie",
+      "id": "030",
+      "entries": [
+        {
+          "type": "list",
+          "columns": 2,
+          "items": [
+            "{@5etoolsImg Kreator Azorius Vedalken|pdf/AZfyT/Azorius Vedlaken Wizard 2.pdf}",
+            "{@5etoolsImg Myśliwiec Boros Minotaur|pdf/AZfyT/Boros Minotaur Fighter 2.pdf}",
+            "{@5etoolsImg Dimir Ludzki Łotr|pdf/AZfyT/Dimir Human Rogue 2.pdf}",
+            "{@5etoolsImg Golgari Elfi Druid|pdf/AZfyT/Golgari Elf Druid 2.pdf}",
+            "{@5etoolsImg Gruul Ludzki barbarzyńca|pdf/AZfyT/Gruul Human Barbarian 2.pdf}",
+            "{@5etoolsImg Izzet Goblin Czarnoksiężnik|pdf/AZfyT/Izzet Goblin Sorcerer 2.pdf}",
+            "{@5etoolsImg Orzhov Ludzki duchowny|pdf/AZfyT/Orzhov Human Cleric 2.pdf}",
+            "{@5etoolsImg Rakdos Goblin Bard|pdf/AZfyT/Rakdos Goblin Bard 2.pdf}",
+            "{@5etoolsImg Selesnya Loxodon Paladyn|pdf/AZfyT/Selesnya Loxodon Paladin 2.pdf}",
+            "{@5etoolsImg Simic Hybrydowy Mnich|pdf/AZfyT/Simic Hybrid Monk 2.pdf}"
+          ]
+        }
+      ]
+    },
+    "2:031": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Pisarz przygód",
+              "entries": [
+                "Krzysia Tulacha"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Redaktor",
+              "entries": [
+                "Billa Benhama"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Kierunek artystyczny",
+              "entries": [
+                "Emi Tanji"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Projektant graficzny",
+              "entries": [
+                "Trish Yochum"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Dodatkowy kierunek artystyczny",
+              "entries": [
+                "Jeremy Jarvis, Dawn Murin, Shauna Narciso i Cynthia Sheppard"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Kartografia",
+              "entries": [
+                "Logo Dysona"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Ilustratorzy wnętrz",
+              "entries": [
+                "Clint Cearley, Milivoj Ćeran, Jedd Chevrier, Chippy, Bastien L. Deharme, Mathias Kollros, Adam Paquette, Grzegorz Rutkowski, Bram Sels, Dan Scott, Magali Villeneuve"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Projekt świata Ravnicy",
+              "entries": [
+                "Doug Beyer, Sam Burley, Jeremy Cranford, Kelly Digges, Brady Dommermuth, Jenna Helland, Cory H. Herndon, Jeremy Jarvis, Kimberly Kreines, Chris L'etoile, Adam Lee, Ari Levitch, Alison Lührs, Shawn Main, Dawn Murin, Richard Whitters, Mark Winters, James Wyatt"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Producent",
+              "entries": [
+                "Billa Benhama i Dana Tovara"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Technik obrazowania",
+              "entries": [
+                "Kevina Yee"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Inni członkowie zespołu D&D",
+              "entries": [
+                "Bart Carroll, Jeremy Crawford, David Gershman, Pelham Greene, Kate Irwin, Adam Lee, Ari Levitch, Christopher Lindsay, Mike Mearls, Shelly Mazzanoble, Shauna Narciso, Christopher Perkins, Ben Petrisor, Hilary Ross, Liz Schuh, Nathan Stewart, Greg Tito, Anna Vo, Kate Welch, Richard Whitters, Shawn Wood"
+              ]
+            }
+          ]
+        }
+      ],
+      "id": "031"
+    }
+  }
+}

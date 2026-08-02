@@ -1,0 +1,787 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Wprowadzenie",
+      "page": 3,
+      "entries": [
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSZ/001.webp"
+              },
+              "width": 1229,
+              "height": 1586
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSZ/002.webp"
+              },
+              "title": "Tazeem",
+              "credit": "Aleksi Briclot",
+              "width": 480,
+              "height": 621
+            }
+          ]
+        },
+        {
+          "type": "quote",
+          "entries": [
+            "{@i Dungeons & Dragons i Magic: The Gathering} to dwie różne gry, ale to nie znaczy, że ich multiwersy nie mogą się spotkać.",
+            "Od samego początku plan Zendikar firmy Magic był pomyślany jako „świat przygód”, w którym grupy odkrywców zagłębiają się w starożytne ruiny w poszukiwaniu cudów i skarbów, walcząc z napotkanymi po drodze potworami. Wiele kreatywnych korzeni samolotu ma swoje korzenie w D&D, więc nie powinno być zaskoczeniem, że {@i Sztuka magii: zgromadzenie - Zendikar} przypomina książkę z planami kampanii D&D. Jest zaśmiecona hakami przygodowymi i zalążkami historii, brakuje jedynie konkretnych odniesień do zasad, których potrzebujesz, aby dostosować rasy, potwory i przygody Zendikara do stołowej kampanii D&D. A wszystko to otoczone niesamowitą sztuką fantasy, która sama w sobie kryje nieograniczoną inspirację.",
+            "Możesz myśleć o {@i Zmiana samolotu: Zendikar} jako o rodzaju dodatku do {@i Sztuka magii: zgromadzenie - Zendikar}, zaprojektowanego, aby pomóc ci wykorzystać szczegóły świata i zalążki historii zawarte w tej książce i przekształcić je w ekscytującą kampanię D&D. Najprostszym sposobem podejścia do kampanii D&D na Zendikar jest użycie zasad, które zapewnia D&D, głównie w formie napisanej: Druid na Zendikar może przyzywać zieloną manę i rzucać zaklęcia takie jak gigantyczny wzrost, ale nadal jest tylko druidem w zasadach D&D (być może rzucając {@spell giant insect}).",
+            "{@i Zmiana samolotu: Zendikar} powstał w oparciu o piątą edycję zasad D&D, które znajdziesz tutaj. D&D to elastyczny system zasad zaprojektowany z myślą o modelowaniu dowolnego rodzaju świata fantasy. System magii D&D nie obejmuje pięciu kolorów many ani rozwijania najpotężniejszych zaklęć, ale celem nie jest odzwierciedlenie wrażeń z magii {@i gra} w grze RPG. Chodzi o to, aby doświadczyć {@i światy} of Magic w nowy sposób, przez pryzmat zasad D&D. Wszystko, czego tak naprawdę potrzebujesz, to wyścigi dla postaci, potwory, z którymi mogą się zmierzyć, i kilka pomysłów na zbudowanie kampanii.",
+            "Wreszcie, {@i Sztuka magii: zgromadzenie - Zendikar} pomoże ci stworzyć kampanię D&D w Zendikar, ale tak naprawdę nie potrzebujesz książki, aby skorzystać z tych materiałów - możesz także zapoznać się z bogactwem wiedzy o Zendikarze, którą znajdziesz na {@link magicthegathering.com}."
+          ],
+          "skipItalics": true,
+          "skipMarks": true,
+          "by": "James Wyatt"
+        },
+        "Mechaniki gry zawarte w tym dodatku można wykorzystać w kampanii D&D, ale nie można ich w pełni dostosować do testów rozgrywki i iteracji projektu. Z tych powodów materiały zawarte w tym dodatku nie są legalne w wydarzeniach D&D Organised Play.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSZ/003.webp"
+          },
+          "title": "Szukaj dziczy",
+          "credit": "Anna Steinbauer",
+          "width": 254,
+          "height": 620
+        },
+        {
+          "type": "section",
+          "name": "Świat",
+          "page": 4,
+          "entries": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSZ/004.webp"
+              },
+              "width": 314,
+              "height": 828,
+              "title": "Bitwa o Zendikar",
+              "credit": "Greg Semkow"
+            },
+            "Zendikar to niebezpieczny świat pełen śmiertelnego ryzyka i bezcennych nagród. Z perspektywy mieszkańców jest to wrogie miejsce, które zdaje się aktywnie próbować zabić każde stworzenie, które odważy się tam zamieszkać. Niebezpieczeństwo jest nieubłagane. Niepewny teren, przebiegłe drapieżniki i klęski żywiołowe na masową skalę stanowią ciągłe wyzwanie dla przetrwania - podobnie jak nieprzewidywalne fale zmian przepływające przez samolot, znany jego mieszkańcom jako Roil. Nawet mana, która zalewa tę krainę, jest dzika i trudna do okiełznania. Dla tych, którzy go dzierżą, wydaje się niemal żywy i czasami powoduje, że w krainie manifestują się magiczne efekty, podobne do zaklęć. Zendikar to płaszczyzna śmiertelnie niebezpieczna, ale mieszkańcy tej płaszczyzny dorastają silni i odporni, przygotowani na niebezpieczeństwa jedynego świata, jaki znają.",
+            "Planeswalkerzy - potężni magowie potrafiący podróżować ze świata do świata w rozległym wieloświecie - mają szerszą perspektywę. Dla nich niebezpieczeństwa Zendikara nabierają innego znaczenia. Wieki temu trzy obce istoty o ogromnej mocy zostały uwięzione na Zendikarze, próbując uniemożliwić im pochłonięcie całego wieloświata, płaszczyzna po płaszczyźnie. Ale obecność tych Eldrazi na płaszczyźnie jest jak ropiejąca infekcja w żywym ciele. Zendikar nie próbuje eksterminować wszystkich stworzeń zamieszkujących płaszczyznę - na próżno próbuje zniszczyć Eldrazi. Jej mieszkańcy po prostu przeszkadzają.",
+            "Po stuleciach uwięzienia w magicznym więzieniu Eldrazi znów są wolni. Inne niebezpieczeństwa Zendikara bledną w porównaniu z szaleństwem trzech tytanów i niezliczonymi potomkami, które rodzą. Cywilizacja na Zendikarze, zawsze krucha i niepewna, teraz balansuje na krawędzi zagłady, a sam samolot wydaje się zagrożony wyginięciem.",
+            {
+              "type": "entries",
+              "name": "Przygody na Zendikarze",
+              "page": 4,
+              "entries": [
+                "Zendikar to świat pełen możliwości przygód. Odważni bohaterowie, chciwi poszukiwacze skarbów i mędrcy poszukujący dawno zapomnianej wiedzy - wszyscy znajdą tu liczne ruiny do odkrycia, tajemnice do odkrycia oraz złoczyńców i potwory do zabicia. Domy ekspedycyjne, instytucje akademickie, bogaci kupcy i emerytowani poszukiwacze przygód sponsorują misje eksploracyjne i odkrywcze. Karawany potrzebują strażników, którzy będą chronić je przed bandytami, drapieżnikami i Roilami. Jednocześnie intrygi złoczyńców - od podstępnego wampirzego mędrca Anowona po potwornego demona Planeswalkera Ob Nixilisa - przyciągają potencjalnych bohaterów jak ćmy do płomienia."
+              ],
+              "id": "002"
+            },
+            {
+              "type": "entries",
+              "name": "Ruiny Zendikara",
+              "page": 5,
+              "entries": [
+                "Zendikar jest pełen starożytnych miejsc gotowych do eksploracji. Przed powstaniem Eldrazi wyprawy do takich miejsc były w dużej mierze motywowane ciekawością, polowaniem na bogactwo i sławę lub poszukiwaniem magicznych mocy. Jednak odkąd Eldrazi uwolnili się z więzienia, odważni odkrywcy zagłębili się w te ruiny w nadziei, że dowiedzą się więcej o zagrożeniu, przed którym stoją - i o tym, jak je powstrzymać.",
+                "Postacie graczy biorące udział w kampanii Zendikar mogą znaleźć ruiny pochodzące z dowolnej epoki w historii tego samolotu: przed przybyciem Eldrazi, z okresu, kiedy Eldrazi przybyli po raz pierwszy (kiedy Planeswalkerzy pracowali nad ich uwięzieniem) lub ze stosunkowo spokojnego okresu po nim.",
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Ruiny sprzed Eldrazi",
+                      "page": 5,
+                      "entries": [
+                        "Zanim Eldrazi przybyli do Zendikaru, nie był to szczególnie niezwykły świat. Miał potężną manę i szczycił się potężnymi cywilizacjami ludzi (na wszystkich siedmiu kontynentach), kor (głównie w Ondu i Akoum), elfów (głównie w Murasa i Bala Ged) i merfolk (głównie w Tazeem, Guul Draz i Sejiri). Ruiny z tej epoki w naturalny sposób nie sugerują żadnej wiedzy o Eldrazi ani o trzech bogach inspirowanych przez tytanów Eldrazi. Cywilizacje te miały swoich własnych bogów, nie do poznania dla współczesnych oczu. W czasach współczesnych, przed powstaniem Eldrazi, cywilizacje te były często błędnie identyfikowane jako „Eldrazi”, co dało początek wielu błędnym wyobrażeniom na temat natury tych obcych stworzeń.",
+                        "Czasy przed Eldrazi były wiekiem potężnej magii. Ruiny z tej epoki często są chronione magicznymi pułapkami, ale oferują proporcjonalne nagrody w postaci magicznych przedmiotów i innych magicznych efektów (takich jak lecznicze fontanny). Często są nawiedzane przez duchy, cienie i upiory, a utrzymujące się efekty magiczne czynią je atrakcyjnymi domami dla demonów. W takich ruinach można również znaleźć magiczne konstrukty i golemy (choć nie konstrukcje z hedronów), często stojące na straży skarbców. Oczywiście niektóre ruiny zostały wystawione na działanie żywiołów i uznane za legowiska przez naturalne zwierzęta lub gobliny. Skarby pieniężne w ruinach Zendikar często mają postać klejnotów lub cennych dzieł sztuki, ale kryją się w nich także starożytne monety dziwnego pochodzenia, w tym elektrum i platyna.",
+                        "Możliwe, że żywi potomkowie tych starożytnych cywilizacji nadal zamieszkują szczególnie odległe ruiny. Tacy mieszkańcy mogą zostać potwornie zdegenerowani ze swoich pierwotnych form - kuo-toa z jedynie minimalnym podobieństwem do swoich merfolkowych przodków lub diabelstwa lub yuan-ti wywodzące się z ludzkich kultur, które skaziły ich rody mroczną magią.",
+                        "Witryny z tej epoki obejmują:",
+                        {
+                          "type": "list",
+                          "items": [
+                            "Ruina Ioru (Akoum)",
+                            "Śpiewające Miasto (Murasa)",
+                            "Szyfr w płomieniach (Murasa)",
+                            "Faduun (wyspa Jwar w Ondu)",
+                            "Słoneczne Źródło (Tazeem)",
+                            "Benthidrix (Sejiri)"
+                          ]
+                        },
+                        {
+                          "type": "image",
+                          "href": {
+                            "type": "internal",
+                            "path": "book/PSZ/005.webp"
+                          },
+                          "title": "Wyprawa na ruiny Iora",
+                          "credit": "Chris Rahn",
+                          "width": 597,
+                          "height": 372
+                        }
+                      ],
+                      "id": "005"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Ruiny ery Eldrazi",
+                      "page": 6,
+                      "entries": [
+                        "Kiedy Ugin, Sorin i Nahiri uwięzili Eldrazi na Zendikarze, powstały chaos i zniszczenia ostatecznie doprowadziły do ​​upadku starożytnych cywilizacji samolotu. Jednak przed tym upadkiem potężne narody zgromadziły potężne armie i wielką magię, aby walczyć z potomstwem Eldrazi, które roiło się od świata. Wykorzystali istniejącą magię, a także moc hedronów Nahiri, aby wspomóc swoje wysiłki, a magiczna technologia z tej epoki jest obecnie bardzo poszukiwana wraz z ponownym zagrożeniem ze strony Eldrazi. W ruinach z tej epoki często można znaleźć magiczną broń, często zawierającą wzory przypominające ryciny na hedronach. Podobnie zwoje i tomy zawierające wiedzę o Eldrazi oraz zaklęcia przydatne do ich związania lub zniszczenia wciąż można znaleźć w starożytnych bibliotekach ery Eldrazi.",
+                        "Świątynie z tej epoki przedstawiają niektórych dawnych bogów, ale w tym okresie rozpoczął się także kult aniołów. Niektóre kościoły powstały wokół boskich wizerunków Ugina (oraz, w mniejszym stopniu, Sorina i Nahiri).",
+                        "Ta era szczyciła się powstaniem takich witryn jak te:",
+                        {
+                          "type": "list",
+                          "items": [
+                            "Oko Ugina (Akoum)",
+                            "Tal Terig (Akoum)",
+                            "Krypta Agadeem (Ondu)",
+                            "Emeria, Niebiańskie Ruiny (Tazeem)"
+                          ]
+                        },
+                        {
+                          "type": "image",
+                          "href": {
+                            "type": "internal",
+                            "path": "book/PSZ/006.webp"
+                          },
+                          "title": "Emeria, Niebiańskie Ruiny",
+                          "credit": "Jamie Jones",
+                          "width": 485,
+                          "height": 503
+                        }
+                      ],
+                      "id": "006"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Ruiny po Eldrazi",
+                      "page": 6,
+                      "entries": [
+                        "Kiedy Eldrazi zniknęli z Zendikaru, a Nahiri weszła w swój staz w Oku Ugina, oblicze samolotu zmieniło się na zawsze. Roilowie zniszczyli wiele osad, a kor rozpoczęli koczowniczy tryb życia. Z biegiem czasu prawdziwa natura horroru Eldrazi została zapomniana, a w świątyniach pojawiły się artystyczne przedstawienia tytanów jako bogów merfolk i kor. Wśród kor tym wizerunkom czasami towarzyszyły posągi Nahiri, „proroka Taliba”, która uczyła swój lud sztuk kamiennych.",
+                        "Miejsca post-Eldrazi obejmują:",
+                        {
+                          "type": "list",
+                          "items": [
+                            "Żywa Iglica (Murasa)",
+                            "Świątynia Uli (Tazeem)",
+                            "Cysterna Hagra (Guul Draz)",
+                            "Helix Zofa (Guul Draz)"
+                          ]
+                        },
+                        {
+                          "type": "image",
+                          "href": {
+                            "type": "internal",
+                            "path": "book/PSZ/007.webp"
+                          },
+                          "title": "Wodny grób",
+                          "credit": "Min Yum",
+                          "width": 354,
+                          "height": 818
+                        }
+                      ],
+                      "id": "007"
+                    }
+                  ],
+                  "id": "004"
+                }
+              ],
+              "id": "003"
+            }
+          ],
+          "id": "001"
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "section",
+      "name": "Świat",
+      "page": 4,
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSZ/004.webp"
+          },
+          "width": 314,
+          "height": 828,
+          "title": "Bitwa o Zendikar",
+          "credit": "Greg Semkow"
+        },
+        "Zendikar to niebezpieczny świat pełen śmiertelnego ryzyka i bezcennych nagród. Z perspektywy mieszkańców jest to wrogie miejsce, które zdaje się aktywnie próbować zabić każde stworzenie, które odważy się tam zamieszkać. Niebezpieczeństwo jest nieubłagane. Niepewny teren, przebiegłe drapieżniki i klęski żywiołowe na masową skalę stanowią ciągłe wyzwanie dla przetrwania - podobnie jak nieprzewidywalne fale zmian przepływające przez samolot, znany jego mieszkańcom jako Roil. Nawet mana, która zalewa tę krainę, jest dzika i trudna do okiełznania. Dla tych, którzy go dzierżą, wydaje się niemal żywy i czasami powoduje, że w krainie manifestują się magiczne efekty, podobne do zaklęć. Zendikar to płaszczyzna śmiertelnie niebezpieczna, ale mieszkańcy tej płaszczyzny dorastają silni i odporni, przygotowani na niebezpieczeństwa jedynego świata, jaki znają.",
+        "Planeswalkerzy - potężni magowie potrafiący podróżować ze świata do świata w rozległym wieloświecie - mają szerszą perspektywę. Dla nich niebezpieczeństwa Zendikara nabierają innego znaczenia. Wieki temu trzy obce istoty o ogromnej mocy zostały uwięzione na Zendikarze, próbując uniemożliwić im pochłonięcie całego wieloświata, płaszczyzna po płaszczyźnie. Ale obecność tych Eldrazi na płaszczyźnie jest jak ropiejąca infekcja w żywym ciele. Zendikar nie próbuje eksterminować wszystkich stworzeń zamieszkujących płaszczyznę - na próżno próbuje zniszczyć Eldrazi. Jej mieszkańcy po prostu przeszkadzają.",
+        "Po stuleciach uwięzienia w magicznym więzieniu Eldrazi znów są wolni. Inne niebezpieczeństwa Zendikara bledną w porównaniu z szaleństwem trzech tytanów i niezliczonymi potomkami, które rodzą. Cywilizacja na Zendikarze, zawsze krucha i niepewna, teraz balansuje na krawędzi zagłady, a sam samolot wydaje się zagrożony wyginięciem.",
+        {
+          "type": "entries",
+          "name": "Przygody na Zendikarze",
+          "page": 4,
+          "entries": [
+            "Zendikar to świat pełen możliwości przygód. Odważni bohaterowie, chciwi poszukiwacze skarbów i mędrcy poszukujący dawno zapomnianej wiedzy - wszyscy znajdą tu liczne ruiny do odkrycia, tajemnice do odkrycia oraz złoczyńców i potwory do zabicia. Domy ekspedycyjne, instytucje akademickie, bogaci kupcy i emerytowani poszukiwacze przygód sponsorują misje eksploracyjne i odkrywcze. Karawany potrzebują strażników, którzy będą chronić je przed bandytami, drapieżnikami i Roilami. Jednocześnie intrygi złoczyńców - od podstępnego wampirzego mędrca Anowona po potwornego demona Planeswalkera Ob Nixilisa - przyciągają potencjalnych bohaterów jak ćmy do płomienia."
+          ],
+          "id": "002"
+        },
+        {
+          "type": "entries",
+          "name": "Ruiny Zendikara",
+          "page": 5,
+          "entries": [
+            "Zendikar jest pełen starożytnych miejsc gotowych do eksploracji. Przed powstaniem Eldrazi wyprawy do takich miejsc były w dużej mierze motywowane ciekawością, polowaniem na bogactwo i sławę lub poszukiwaniem magicznych mocy. Jednak odkąd Eldrazi uwolnili się z więzienia, odważni odkrywcy zagłębili się w te ruiny w nadziei, że dowiedzą się więcej o zagrożeniu, przed którym stoją - i o tym, jak je powstrzymać.",
+            "Postacie graczy biorące udział w kampanii Zendikar mogą znaleźć ruiny pochodzące z dowolnej epoki w historii tego samolotu: przed przybyciem Eldrazi, z okresu, kiedy Eldrazi przybyli po raz pierwszy (kiedy Planeswalkerzy pracowali nad ich uwięzieniem) lub ze stosunkowo spokojnego okresu po nim.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Ruiny sprzed Eldrazi",
+                  "page": 5,
+                  "entries": [
+                    "Zanim Eldrazi przybyli do Zendikaru, nie był to szczególnie niezwykły świat. Miał potężną manę i szczycił się potężnymi cywilizacjami ludzi (na wszystkich siedmiu kontynentach), kor (głównie w Ondu i Akoum), elfów (głównie w Murasa i Bala Ged) i merfolk (głównie w Tazeem, Guul Draz i Sejiri). Ruiny z tej epoki w naturalny sposób nie sugerują żadnej wiedzy o Eldrazi ani o trzech bogach inspirowanych przez tytanów Eldrazi. Cywilizacje te miały swoich własnych bogów, nie do poznania dla współczesnych oczu. W czasach współczesnych, przed powstaniem Eldrazi, cywilizacje te były często błędnie identyfikowane jako „Eldrazi”, co dało początek wielu błędnym wyobrażeniom na temat natury tych obcych stworzeń.",
+                    "Czasy przed Eldrazi były wiekiem potężnej magii. Ruiny z tej epoki często są chronione magicznymi pułapkami, ale oferują proporcjonalne nagrody w postaci magicznych przedmiotów i innych magicznych efektów (takich jak lecznicze fontanny). Często są nawiedzane przez duchy, cienie i upiory, a utrzymujące się efekty magiczne czynią je atrakcyjnymi domami dla demonów. W takich ruinach można również znaleźć magiczne konstrukty i golemy (choć nie konstrukcje z hedronów), często stojące na straży skarbców. Oczywiście niektóre ruiny zostały wystawione na działanie żywiołów i uznane za legowiska przez naturalne zwierzęta lub gobliny. Skarby pieniężne w ruinach Zendikar często mają postać klejnotów lub cennych dzieł sztuki, ale kryją się w nich także starożytne monety dziwnego pochodzenia, w tym elektrum i platyna.",
+                    "Możliwe, że żywi potomkowie tych starożytnych cywilizacji nadal zamieszkują szczególnie odległe ruiny. Tacy mieszkańcy mogą zostać potwornie zdegenerowani ze swoich pierwotnych form - kuo-toa z jedynie minimalnym podobieństwem do swoich merfolkowych przodków lub diabelstwa lub yuan-ti wywodzące się z ludzkich kultur, które skaziły ich rody mroczną magią.",
+                    "Witryny z tej epoki obejmują:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "Ruina Ioru (Akoum)",
+                        "Śpiewające Miasto (Murasa)",
+                        "Szyfr w płomieniach (Murasa)",
+                        "Faduun (wyspa Jwar w Ondu)",
+                        "Słoneczne Źródło (Tazeem)",
+                        "Benthidrix (Sejiri)"
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "book/PSZ/005.webp"
+                      },
+                      "title": "Wyprawa na ruiny Iora",
+                      "credit": "Chris Rahn",
+                      "width": 597,
+                      "height": 372
+                    }
+                  ],
+                  "id": "005"
+                },
+                {
+                  "type": "entries",
+                  "name": "Ruiny ery Eldrazi",
+                  "page": 6,
+                  "entries": [
+                    "Kiedy Ugin, Sorin i Nahiri uwięzili Eldrazi na Zendikarze, powstały chaos i zniszczenia ostatecznie doprowadziły do ​​upadku starożytnych cywilizacji samolotu. Jednak przed tym upadkiem potężne narody zgromadziły potężne armie i wielką magię, aby walczyć z potomstwem Eldrazi, które roiło się od świata. Wykorzystali istniejącą magię, a także moc hedronów Nahiri, aby wspomóc swoje wysiłki, a magiczna technologia z tej epoki jest obecnie bardzo poszukiwana wraz z ponownym zagrożeniem ze strony Eldrazi. W ruinach z tej epoki często można znaleźć magiczną broń, często zawierającą wzory przypominające ryciny na hedronach. Podobnie zwoje i tomy zawierające wiedzę o Eldrazi oraz zaklęcia przydatne do ich związania lub zniszczenia wciąż można znaleźć w starożytnych bibliotekach ery Eldrazi.",
+                    "Świątynie z tej epoki przedstawiają niektórych dawnych bogów, ale w tym okresie rozpoczął się także kult aniołów. Niektóre kościoły powstały wokół boskich wizerunków Ugina (oraz, w mniejszym stopniu, Sorina i Nahiri).",
+                    "Ta era szczyciła się powstaniem takich witryn jak te:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "Oko Ugina (Akoum)",
+                        "Tal Terig (Akoum)",
+                        "Krypta Agadeem (Ondu)",
+                        "Emeria, Niebiańskie Ruiny (Tazeem)"
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "book/PSZ/006.webp"
+                      },
+                      "title": "Emeria, Niebiańskie Ruiny",
+                      "credit": "Jamie Jones",
+                      "width": 485,
+                      "height": 503
+                    }
+                  ],
+                  "id": "006"
+                },
+                {
+                  "type": "entries",
+                  "name": "Ruiny po Eldrazi",
+                  "page": 6,
+                  "entries": [
+                    "Kiedy Eldrazi zniknęli z Zendikaru, a Nahiri weszła w swój staz w Oku Ugina, oblicze samolotu zmieniło się na zawsze. Roilowie zniszczyli wiele osad, a kor rozpoczęli koczowniczy tryb życia. Z biegiem czasu prawdziwa natura horroru Eldrazi została zapomniana, a w świątyniach pojawiły się artystyczne przedstawienia tytanów jako bogów merfolk i kor. Wśród kor tym wizerunkom czasami towarzyszyły posągi Nahiri, „proroka Taliba”, która uczyła swój lud sztuk kamiennych.",
+                    "Miejsca post-Eldrazi obejmują:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "Żywa Iglica (Murasa)",
+                        "Świątynia Uli (Tazeem)",
+                        "Cysterna Hagra (Guul Draz)",
+                        "Helix Zofa (Guul Draz)"
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "href": {
+                        "type": "internal",
+                        "path": "book/PSZ/007.webp"
+                      },
+                      "title": "Wodny grób",
+                      "credit": "Min Yum",
+                      "width": 354,
+                      "height": 818
+                    }
+                  ],
+                  "id": "007"
+                }
+              ],
+              "id": "004"
+            }
+          ],
+          "id": "003"
+        }
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "entries",
+      "name": "Przygody na Zendikarze",
+      "page": 4,
+      "entries": [
+        "Zendikar to świat pełen możliwości przygód. Odważni bohaterowie, chciwi poszukiwacze skarbów i mędrcy poszukujący dawno zapomnianej wiedzy - wszyscy znajdą tu liczne ruiny do odkrycia, tajemnice do odkrycia oraz złoczyńców i potwory do zabicia. Domy ekspedycyjne, instytucje akademickie, bogaci kupcy i emerytowani poszukiwacze przygód sponsorują misje eksploracyjne i odkrywcze. Karawany potrzebują strażników, którzy będą chronić je przed bandytami, drapieżnikami i Roilami. Jednocześnie intrygi złoczyńców - od podstępnego wampirzego mędrca Anowona po potwornego demona Planeswalkera Ob Nixilisa - przyciągają potencjalnych bohaterów jak ćmy do płomienia."
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "name": "Ruiny Zendikara",
+      "page": 5,
+      "entries": [
+        "Zendikar jest pełen starożytnych miejsc gotowych do eksploracji. Przed powstaniem Eldrazi wyprawy do takich miejsc były w dużej mierze motywowane ciekawością, polowaniem na bogactwo i sławę lub poszukiwaniem magicznych mocy. Jednak odkąd Eldrazi uwolnili się z więzienia, odważni odkrywcy zagłębili się w te ruiny w nadziei, że dowiedzą się więcej o zagrożeniu, przed którym stoją - i o tym, jak je powstrzymać.",
+        "Postacie graczy biorące udział w kampanii Zendikar mogą znaleźć ruiny pochodzące z dowolnej epoki w historii tego samolotu: przed przybyciem Eldrazi, z okresu, kiedy Eldrazi przybyli po raz pierwszy (kiedy Planeswalkerzy pracowali nad ich uwięzieniem) lub ze stosunkowo spokojnego okresu po nim.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Ruiny sprzed Eldrazi",
+              "page": 5,
+              "entries": [
+                "Zanim Eldrazi przybyli do Zendikaru, nie był to szczególnie niezwykły świat. Miał potężną manę i szczycił się potężnymi cywilizacjami ludzi (na wszystkich siedmiu kontynentach), kor (głównie w Ondu i Akoum), elfów (głównie w Murasa i Bala Ged) i merfolk (głównie w Tazeem, Guul Draz i Sejiri). Ruiny z tej epoki w naturalny sposób nie sugerują żadnej wiedzy o Eldrazi ani o trzech bogach inspirowanych przez tytanów Eldrazi. Cywilizacje te miały swoich własnych bogów, nie do poznania dla współczesnych oczu. W czasach współczesnych, przed powstaniem Eldrazi, cywilizacje te były często błędnie identyfikowane jako „Eldrazi”, co dało początek wielu błędnym wyobrażeniom na temat natury tych obcych stworzeń.",
+                "Czasy przed Eldrazi były wiekiem potężnej magii. Ruiny z tej epoki często są chronione magicznymi pułapkami, ale oferują proporcjonalne nagrody w postaci magicznych przedmiotów i innych magicznych efektów (takich jak lecznicze fontanny). Często są nawiedzane przez duchy, cienie i upiory, a utrzymujące się efekty magiczne czynią je atrakcyjnymi domami dla demonów. W takich ruinach można również znaleźć magiczne konstrukty i golemy (choć nie konstrukcje z hedronów), często stojące na straży skarbców. Oczywiście niektóre ruiny zostały wystawione na działanie żywiołów i uznane za legowiska przez naturalne zwierzęta lub gobliny. Skarby pieniężne w ruinach Zendikar często mają postać klejnotów lub cennych dzieł sztuki, ale kryją się w nich także starożytne monety dziwnego pochodzenia, w tym elektrum i platyna.",
+                "Możliwe, że żywi potomkowie tych starożytnych cywilizacji nadal zamieszkują szczególnie odległe ruiny. Tacy mieszkańcy mogą zostać potwornie zdegenerowani ze swoich pierwotnych form - kuo-toa z jedynie minimalnym podobieństwem do swoich merfolkowych przodków lub diabelstwa lub yuan-ti wywodzące się z ludzkich kultur, które skaziły ich rody mroczną magią.",
+                "Witryny z tej epoki obejmują:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Ruina Ioru (Akoum)",
+                    "Śpiewające Miasto (Murasa)",
+                    "Szyfr w płomieniach (Murasa)",
+                    "Faduun (wyspa Jwar w Ondu)",
+                    "Słoneczne Źródło (Tazeem)",
+                    "Benthidrix (Sejiri)"
+                  ]
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSZ/005.webp"
+                  },
+                  "title": "Wyprawa na ruiny Iora",
+                  "credit": "Chris Rahn",
+                  "width": 597,
+                  "height": 372
+                }
+              ],
+              "id": "005"
+            },
+            {
+              "type": "entries",
+              "name": "Ruiny ery Eldrazi",
+              "page": 6,
+              "entries": [
+                "Kiedy Ugin, Sorin i Nahiri uwięzili Eldrazi na Zendikarze, powstały chaos i zniszczenia ostatecznie doprowadziły do ​​upadku starożytnych cywilizacji samolotu. Jednak przed tym upadkiem potężne narody zgromadziły potężne armie i wielką magię, aby walczyć z potomstwem Eldrazi, które roiło się od świata. Wykorzystali istniejącą magię, a także moc hedronów Nahiri, aby wspomóc swoje wysiłki, a magiczna technologia z tej epoki jest obecnie bardzo poszukiwana wraz z ponownym zagrożeniem ze strony Eldrazi. W ruinach z tej epoki często można znaleźć magiczną broń, często zawierającą wzory przypominające ryciny na hedronach. Podobnie zwoje i tomy zawierające wiedzę o Eldrazi oraz zaklęcia przydatne do ich związania lub zniszczenia wciąż można znaleźć w starożytnych bibliotekach ery Eldrazi.",
+                "Świątynie z tej epoki przedstawiają niektórych dawnych bogów, ale w tym okresie rozpoczął się także kult aniołów. Niektóre kościoły powstały wokół boskich wizerunków Ugina (oraz, w mniejszym stopniu, Sorina i Nahiri).",
+                "Ta era szczyciła się powstaniem takich witryn jak te:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Oko Ugina (Akoum)",
+                    "Tal Terig (Akoum)",
+                    "Krypta Agadeem (Ondu)",
+                    "Emeria, Niebiańskie Ruiny (Tazeem)"
+                  ]
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSZ/006.webp"
+                  },
+                  "title": "Emeria, Niebiańskie Ruiny",
+                  "credit": "Jamie Jones",
+                  "width": 485,
+                  "height": 503
+                }
+              ],
+              "id": "006"
+            },
+            {
+              "type": "entries",
+              "name": "Ruiny po Eldrazi",
+              "page": 6,
+              "entries": [
+                "Kiedy Eldrazi zniknęli z Zendikaru, a Nahiri weszła w swój staz w Oku Ugina, oblicze samolotu zmieniło się na zawsze. Roilowie zniszczyli wiele osad, a kor rozpoczęli koczowniczy tryb życia. Z biegiem czasu prawdziwa natura horroru Eldrazi została zapomniana, a w świątyniach pojawiły się artystyczne przedstawienia tytanów jako bogów merfolk i kor. Wśród kor tym wizerunkom czasami towarzyszyły posągi Nahiri, „proroka Taliba”, która uczyła swój lud sztuk kamiennych.",
+                "Miejsca post-Eldrazi obejmują:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Żywa Iglica (Murasa)",
+                    "Świątynia Uli (Tazeem)",
+                    "Cysterna Hagra (Guul Draz)",
+                    "Helix Zofa (Guul Draz)"
+                  ]
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "book/PSZ/007.webp"
+                  },
+                  "title": "Wodny grób",
+                  "credit": "Min Yum",
+                  "width": 354,
+                  "height": 818
+                }
+              ],
+              "id": "007"
+            }
+          ],
+          "id": "004"
+        }
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Ruiny sprzed Eldrazi",
+          "page": 5,
+          "entries": [
+            "Zanim Eldrazi przybyli do Zendikaru, nie był to szczególnie niezwykły świat. Miał potężną manę i szczycił się potężnymi cywilizacjami ludzi (na wszystkich siedmiu kontynentach), kor (głównie w Ondu i Akoum), elfów (głównie w Murasa i Bala Ged) i merfolk (głównie w Tazeem, Guul Draz i Sejiri). Ruiny z tej epoki w naturalny sposób nie sugerują żadnej wiedzy o Eldrazi ani o trzech bogach inspirowanych przez tytanów Eldrazi. Cywilizacje te miały swoich własnych bogów, nie do poznania dla współczesnych oczu. W czasach współczesnych, przed powstaniem Eldrazi, cywilizacje te były często błędnie identyfikowane jako „Eldrazi”, co dało początek wielu błędnym wyobrażeniom na temat natury tych obcych stworzeń.",
+            "Czasy przed Eldrazi były wiekiem potężnej magii. Ruiny z tej epoki często są chronione magicznymi pułapkami, ale oferują proporcjonalne nagrody w postaci magicznych przedmiotów i innych magicznych efektów (takich jak lecznicze fontanny). Często są nawiedzane przez duchy, cienie i upiory, a utrzymujące się efekty magiczne czynią je atrakcyjnymi domami dla demonów. W takich ruinach można również znaleźć magiczne konstrukty i golemy (choć nie konstrukcje z hedronów), często stojące na straży skarbców. Oczywiście niektóre ruiny zostały wystawione na działanie żywiołów i uznane za legowiska przez naturalne zwierzęta lub gobliny. Skarby pieniężne w ruinach Zendikar często mają postać klejnotów lub cennych dzieł sztuki, ale kryją się w nich także starożytne monety dziwnego pochodzenia, w tym elektrum i platyna.",
+            "Możliwe, że żywi potomkowie tych starożytnych cywilizacji nadal zamieszkują szczególnie odległe ruiny. Tacy mieszkańcy mogą zostać potwornie zdegenerowani ze swoich pierwotnych form - kuo-toa z jedynie minimalnym podobieństwem do swoich merfolkowych przodków lub diabelstwa lub yuan-ti wywodzące się z ludzkich kultur, które skaziły ich rody mroczną magią.",
+            "Witryny z tej epoki obejmują:",
+            {
+              "type": "list",
+              "items": [
+                "Ruina Ioru (Akoum)",
+                "Śpiewające Miasto (Murasa)",
+                "Szyfr w płomieniach (Murasa)",
+                "Faduun (wyspa Jwar w Ondu)",
+                "Słoneczne Źródło (Tazeem)",
+                "Benthidrix (Sejiri)"
+              ]
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSZ/005.webp"
+              },
+              "title": "Wyprawa na ruiny Iora",
+              "credit": "Chris Rahn",
+              "width": 597,
+              "height": 372
+            }
+          ],
+          "id": "005"
+        },
+        {
+          "type": "entries",
+          "name": "Ruiny ery Eldrazi",
+          "page": 6,
+          "entries": [
+            "Kiedy Ugin, Sorin i Nahiri uwięzili Eldrazi na Zendikarze, powstały chaos i zniszczenia ostatecznie doprowadziły do ​​upadku starożytnych cywilizacji samolotu. Jednak przed tym upadkiem potężne narody zgromadziły potężne armie i wielką magię, aby walczyć z potomstwem Eldrazi, które roiło się od świata. Wykorzystali istniejącą magię, a także moc hedronów Nahiri, aby wspomóc swoje wysiłki, a magiczna technologia z tej epoki jest obecnie bardzo poszukiwana wraz z ponownym zagrożeniem ze strony Eldrazi. W ruinach z tej epoki często można znaleźć magiczną broń, często zawierającą wzory przypominające ryciny na hedronach. Podobnie zwoje i tomy zawierające wiedzę o Eldrazi oraz zaklęcia przydatne do ich związania lub zniszczenia wciąż można znaleźć w starożytnych bibliotekach ery Eldrazi.",
+            "Świątynie z tej epoki przedstawiają niektórych dawnych bogów, ale w tym okresie rozpoczął się także kult aniołów. Niektóre kościoły powstały wokół boskich wizerunków Ugina (oraz, w mniejszym stopniu, Sorina i Nahiri).",
+            "Ta era szczyciła się powstaniem takich witryn jak te:",
+            {
+              "type": "list",
+              "items": [
+                "Oko Ugina (Akoum)",
+                "Tal Terig (Akoum)",
+                "Krypta Agadeem (Ondu)",
+                "Emeria, Niebiańskie Ruiny (Tazeem)"
+              ]
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSZ/006.webp"
+              },
+              "title": "Emeria, Niebiańskie Ruiny",
+              "credit": "Jamie Jones",
+              "width": 485,
+              "height": 503
+            }
+          ],
+          "id": "006"
+        },
+        {
+          "type": "entries",
+          "name": "Ruiny po Eldrazi",
+          "page": 6,
+          "entries": [
+            "Kiedy Eldrazi zniknęli z Zendikaru, a Nahiri weszła w swój staz w Oku Ugina, oblicze samolotu zmieniło się na zawsze. Roilowie zniszczyli wiele osad, a kor rozpoczęli koczowniczy tryb życia. Z biegiem czasu prawdziwa natura horroru Eldrazi została zapomniana, a w świątyniach pojawiły się artystyczne przedstawienia tytanów jako bogów merfolk i kor. Wśród kor tym wizerunkom czasami towarzyszyły posągi Nahiri, „proroka Taliba”, która uczyła swój lud sztuk kamiennych.",
+            "Miejsca post-Eldrazi obejmują:",
+            {
+              "type": "list",
+              "items": [
+                "Żywa Iglica (Murasa)",
+                "Świątynia Uli (Tazeem)",
+                "Cysterna Hagra (Guul Draz)",
+                "Helix Zofa (Guul Draz)"
+              ]
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/PSZ/007.webp"
+              },
+              "title": "Wodny grób",
+              "credit": "Min Yum",
+              "width": 354,
+              "height": 818
+            }
+          ],
+          "id": "007"
+        }
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Ruiny sprzed Eldrazi",
+      "page": 5,
+      "entries": [
+        "Zanim Eldrazi przybyli do Zendikaru, nie był to szczególnie niezwykły świat. Miał potężną manę i szczycił się potężnymi cywilizacjami ludzi (na wszystkich siedmiu kontynentach), kor (głównie w Ondu i Akoum), elfów (głównie w Murasa i Bala Ged) i merfolk (głównie w Tazeem, Guul Draz i Sejiri). Ruiny z tej epoki w naturalny sposób nie sugerują żadnej wiedzy o Eldrazi ani o trzech bogach inspirowanych przez tytanów Eldrazi. Cywilizacje te miały swoich własnych bogów, nie do poznania dla współczesnych oczu. W czasach współczesnych, przed powstaniem Eldrazi, cywilizacje te były często błędnie identyfikowane jako „Eldrazi”, co dało początek wielu błędnym wyobrażeniom na temat natury tych obcych stworzeń.",
+        "Czasy przed Eldrazi były wiekiem potężnej magii. Ruiny z tej epoki często są chronione magicznymi pułapkami, ale oferują proporcjonalne nagrody w postaci magicznych przedmiotów i innych magicznych efektów (takich jak lecznicze fontanny). Często są nawiedzane przez duchy, cienie i upiory, a utrzymujące się efekty magiczne czynią je atrakcyjnymi domami dla demonów. W takich ruinach można również znaleźć magiczne konstrukty i golemy (choć nie konstrukcje z hedronów), często stojące na straży skarbców. Oczywiście niektóre ruiny zostały wystawione na działanie żywiołów i uznane za legowiska przez naturalne zwierzęta lub gobliny. Skarby pieniężne w ruinach Zendikar często mają postać klejnotów lub cennych dzieł sztuki, ale kryją się w nich także starożytne monety dziwnego pochodzenia, w tym elektrum i platyna.",
+        "Możliwe, że żywi potomkowie tych starożytnych cywilizacji nadal zamieszkują szczególnie odległe ruiny. Tacy mieszkańcy mogą zostać potwornie zdegenerowani ze swoich pierwotnych form - kuo-toa z jedynie minimalnym podobieństwem do swoich merfolkowych przodków lub diabelstwa lub yuan-ti wywodzące się z ludzkich kultur, które skaziły ich rody mroczną magią.",
+        "Witryny z tej epoki obejmują:",
+        {
+          "type": "list",
+          "items": [
+            "Ruina Ioru (Akoum)",
+            "Śpiewające Miasto (Murasa)",
+            "Szyfr w płomieniach (Murasa)",
+            "Faduun (wyspa Jwar w Ondu)",
+            "Słoneczne Źródło (Tazeem)",
+            "Benthidrix (Sejiri)"
+          ]
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSZ/005.webp"
+          },
+          "title": "Wyprawa na ruiny Iora",
+          "credit": "Chris Rahn",
+          "width": 597,
+          "height": 372
+        }
+      ],
+      "id": "005"
+    },
+    "0:006": {
+      "type": "entries",
+      "name": "Ruiny ery Eldrazi",
+      "page": 6,
+      "entries": [
+        "Kiedy Ugin, Sorin i Nahiri uwięzili Eldrazi na Zendikarze, powstały chaos i zniszczenia ostatecznie doprowadziły do ​​upadku starożytnych cywilizacji samolotu. Jednak przed tym upadkiem potężne narody zgromadziły potężne armie i wielką magię, aby walczyć z potomstwem Eldrazi, które roiło się od świata. Wykorzystali istniejącą magię, a także moc hedronów Nahiri, aby wspomóc swoje wysiłki, a magiczna technologia z tej epoki jest obecnie bardzo poszukiwana wraz z ponownym zagrożeniem ze strony Eldrazi. W ruinach z tej epoki często można znaleźć magiczną broń, często zawierającą wzory przypominające ryciny na hedronach. Podobnie zwoje i tomy zawierające wiedzę o Eldrazi oraz zaklęcia przydatne do ich związania lub zniszczenia wciąż można znaleźć w starożytnych bibliotekach ery Eldrazi.",
+        "Świątynie z tej epoki przedstawiają niektórych dawnych bogów, ale w tym okresie rozpoczął się także kult aniołów. Niektóre kościoły powstały wokół boskich wizerunków Ugina (oraz, w mniejszym stopniu, Sorina i Nahiri).",
+        "Ta era szczyciła się powstaniem takich witryn jak te:",
+        {
+          "type": "list",
+          "items": [
+            "Oko Ugina (Akoum)",
+            "Tal Terig (Akoum)",
+            "Krypta Agadeem (Ondu)",
+            "Emeria, Niebiańskie Ruiny (Tazeem)"
+          ]
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSZ/006.webp"
+          },
+          "title": "Emeria, Niebiańskie Ruiny",
+          "credit": "Jamie Jones",
+          "width": 485,
+          "height": 503
+        }
+      ],
+      "id": "006"
+    },
+    "0:007": {
+      "type": "entries",
+      "name": "Ruiny po Eldrazi",
+      "page": 6,
+      "entries": [
+        "Kiedy Eldrazi zniknęli z Zendikaru, a Nahiri weszła w swój staz w Oku Ugina, oblicze samolotu zmieniło się na zawsze. Roilowie zniszczyli wiele osad, a kor rozpoczęli koczowniczy tryb życia. Z biegiem czasu prawdziwa natura horroru Eldrazi została zapomniana, a w świątyniach pojawiły się artystyczne przedstawienia tytanów jako bogów merfolk i kor. Wśród kor tym wizerunkom czasami towarzyszyły posągi Nahiri, „proroka Taliba”, która uczyła swój lud sztuk kamiennych.",
+        "Miejsca post-Eldrazi obejmują:",
+        {
+          "type": "list",
+          "items": [
+            "Żywa Iglica (Murasa)",
+            "Świątynia Uli (Tazeem)",
+            "Cysterna Hagra (Guul Draz)",
+            "Helix Zofa (Guul Draz)"
+          ]
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSZ/007.webp"
+          },
+          "title": "Wodny grób",
+          "credit": "Min Yum",
+          "width": 354,
+          "height": 818
+        }
+      ],
+      "id": "007"
+    },
+    "1:008": {
+      "type": "section",
+      "name": "Wyścigi Zendikara",
+      "page": 7,
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSZ/008.webp"
+          },
+          "title": "Inspirowana opłata",
+          "credit": "Willian Murai",
+          "width": 477,
+          "height": 617
+        },
+        {
+          "type": "list",
+          "columns": 3,
+          "items": [
+            "{@race Elf (Zendikar)|PSZ}",
+            "{@race Elf (Zendikar; Joraga Nation)|PSZ}",
+            "{@race Elf (Zendikar; Mul Daya Nation)|PSZ}",
+            "{@race Elf (Zendikar; Tajuru Nation)|PSZ}",
+            "{@race Goblin|PSZ}",
+            "{@race Goblin (Zendikar; Grotag Tribe)|PSZ}",
+            "{@race Goblin (Zendikar; Lavastep Tribe)|PSZ}",
+            "{@race Goblin (Zendikar; Tuktuk Tribe)|PSZ}",
+            "{@race Human (Zendikar)|PSZ}",
+            "{@race Kor|PSZ}",
+            "{@race Merfolk|PSZ}",
+            "{@race Merfolk (Zendikar; Cosi Creed)|PSZ}",
+            "{@race Merfolk (Zendikar; Emeria Creed)|PSZ}",
+            "{@race Merfolk (Zendikar; Ula Creed)|PSZ}",
+            "{@race Vampire|PSZ}",
+            "{@race Vampire (Zendikar)|PSZ}"
+          ]
+        }
+      ],
+      "id": "008"
+    },
+    "2:009": {
+      "type": "section",
+      "name": "Bestiariusz Zendikara",
+      "page": 20,
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/PSZ/009.webp"
+          },
+          "title": "Iona, Tarcza Emerii",
+          "credit": "Jason Chan",
+          "width": 480,
+          "height": 620
+        },
+        "W większości nie ma potrzeby tworzenia nowych potworów z całego materiału, aby odzwierciedlały stworzenia Zendikara. Księga Potworów D&D jest pełna stworzeń, które mają oczywiste odpowiedniki na Zendikarze. Na przykład lew gliniasty tego samolotu jest po prostu rodzajem lwa. Istnieje również wiele bliskich odpowiedników. Ankheg z Księgi Potworów to świetny sposób na przedstawienie żrącego pełzacza, a podobnych przykładów jest mnóstwo. Celem tej sekcji jest pomoc w wyborze takich odpowiedników. Eldrazi stanowią wyjątek - stanowią tak ważną część historii Zendikara, że ​​zasługują na nieco więcej uwagi.",
+        {
+          "type": "list",
+          "columns": 3,
+          "items": [
+            "{@creature Angel|PSZ}",
+            "{@creature Archon of Redemption|PSZ}",
+            "{@creature Baloth|PSZ}",
+            "{@creature Boulderfoot Giant|PSZ}",
+            "{@creature Caustic Crawler|PSZ}",
+            "{@creature Drake (Large)|PSZ}",
+            "{@creature Drake (Small)|PSZ}",
+            "{@creature Emrakul|PSZ}",
+            "{@creature Felidar|PSZ}",
+            "{@creature Gnarlid|PSZ}",
+            "{@creature Gomazoa|PSZ}",
+            "{@creature Great Cat|PSZ}",
+            "{@creature Griffin (Type 1)|PSZ}",
+            "{@creature Griffin (Type 2)|PSZ}",
+            "{@creature Heartstabber Mosquito|PSZ}",
+            "{@creature Hellion|PSZ}",
+            "{@creature Hurda|PSZ}",
+            "{@creature Iona|PSZ}",
+            "{@creature Kozilek|PSZ}",
+            "{@creature Kraken|PSZ}",
+            "{@creature Linvala|PSZ}",
+            "{@creature Ogre Channeler|PSZ}",
+            "{@creature Oxen|PSZ}",
+            "{@creature Pestilence Demon|PSZ}",
+            "{@creature Shade|PSZ}",
+            "{@creature Shatterskull Giant|PSZ}",
+            "{@creature Shoal Serpent|PSZ}",
+            "{@creature Sphinx (Type 1)|PSZ}",
+            "{@creature Sphinx (Type 2)|PSZ}",
+            "{@creature Spirit|PSZ}",
+            "{@creature Surrakar|PSZ}",
+            "{@creature Terastodon|PSZ}",
+            "{@creature Terra Stomper|PSZ}",
+            "{@creature Timbermaw|PSZ}",
+            "{@creature Trench Giant|PSZ}",
+            "{@creature Turntimber Giant|PSZ}",
+            "{@creature Ulamog|PSZ}",
+            "{@creature Vampire Null|PSZ}",
+            "{@creature Woodcrasher Baloth|PSZ}",
+            "{@creature Wraith|PSZ}",
+            "{@creature Wurm|PSZ}",
+            "{@creature Zendikar Dragon|PSZ}",
+            "{@creature Zendikar Golem|PSZ}"
+          ]
+        }
+      ],
+      "id": "009"
+    },
+    "3:00a": {
+      "type": "entries",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            "Napisane przez Jamesa Wyatta",
+            "Okładkę wykonał Adam Paquette"
+          ]
+        }
+      ],
+      "id": "00a"
+    }
+  }
+}

@@ -1,0 +1,3534 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Przywracanie harmonii",
+      "page": 2,
+      "entries": [
+        "Witamy w Restoring Harmony, ostatnim rozdziale serii przygodowej Dungeons & Dragons powstałej we współpracy ze smakowitym i kolorowym światem NERDS.",
+        "Aby rozpocząć tę przygodę, potrzebujesz piątej edycji Basic Rules for D&D, którą możesz pobrać bezpłatnie tutaj.",
+        "Gra w Adventure Together zajmuje około 60-90 minut. Zanim rozpoczniesz tę przygodę, poproś graczy, aby podnieśli poziom swoich poszukiwaczy przygód NERDS do poziomu 3.",
+        "Poprzednie mini-przygody to:",
+        {
+          "type": "list",
+          "items": [
+            "{@adventure Adventure 1 The Candy Mountain Caper|NRH-TCMC}",
+            "{@adventure Adventure 2 A Voice in the Wilderness|NRH-AVitW}",
+            "{@adventure Adventure 3 A Sticky Situation|NRH-ASS}",
+            "{@adventure Adventure 4 Circus of Illusions|NRH-CoI}",
+            "{@adventure Adventure 5 The Lost Tomb|NRH-TLT}",
+            "{@adventure Adventure 6 A Web of Lies|NRH-AWoL}"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Podsumowanie historii",
+          "page": 2,
+          "entries": [
+            "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDÓW, {@creature Emo|NRH-AT} patrzący i jego wynajęty mięsień, {@creature Mr. Greystone|NRH-AT}, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Studni Pryzmatycznej, {@creature Emo|NRH-AT} I {@creature Mr. Greystone|NRH-AT} zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+            "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony.",
+            "Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+            "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+          ],
+          "id": "001"
+        },
+        {
+          "type": "entries",
+          "name": "Podtrzymywanie dobrej zabawy",
+          "page": 2,
+          "entries": [
+            "Teraz, gdy w tej przygodzie bierze udział wiele postaci, ryzyko TPK (całkowitego zabicia drużyny) jest mniejsze, a gra może być kontynuowana, nawet jeśli jedna postać zginie. Jednakże w D&D możliwość zabicia postaci gracza jest kwestią, którą najlepiej rozwiązać z góry, rozmawiając z graczami. Niektórzy gracze uwielbiają napięcie wynikające ze świadomości, że ich postacie mogą umrzeć, i podejmują strategiczne wyzwanie. Inni gracze nienawidzą myśli, że ich postać może umrzeć. Wiedza o tym, co sprawia przyjemność Twoim graczom, jest kluczem do dobrej zabawy w D&D.",
+            {
+              "type": "entries",
+              "name": "Rozwiązania polegające na odgrywaniu ról",
+              "page": 2,
+              "entries": [
+                "Graczom, którym nie podoba się myśl o śmierci swojej postaci - lub którzy po prostu lubią odgrywać role - dobrze jest zawsze przedstawić opcje inne niż walka, takie jak zaprzyjaźnienie się z potworem lub oszukanie potwora. Podczas każdego spotkania w tej przygodzie możesz zaprezentować możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+                "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy sprytnych pomysłów, pozwalając potworom na natychmiastowe zaprzyjaźnienie się lub dając graczowi przewagę we wszystkich jego rzutach."
+              ],
+              "id": "003"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "entries",
+          "name": "Zarys przygody",
+          "page": 3,
+          "entries": [
+            "Po spotkaniu z panem Honeycuttem wszyscy poszukiwacze przygód zdają sobie sprawę, jaka jest stawka - Harmonia i wszystkie jej kolory są w ich rękach! Pan Honeycutt daje im Amulet Harmonii, aby pomóc im znaleźć lokalizację {@item Prismatic Well|NRH-AT}. Amulet prowadzi ich do krętych korytarzy w Tajemniczej Górze. W końcu mają do czynienia z brutalem {@creature Mr. Greystone|NRH-AT} i jego melancholijny partner, {@creature Emo|NRH-AT}.",
+            "Partia musi zwyciężyć {@creature Mr. Greystone|NRH-AT} i pomóc {@creature Emo|NRH-AT} znaleźć dom i przyjaciół. Następnie mogą użyć amuletu, aby przywrócić {@item Prismatic Well|NRH-AT} do pełni mocy i wróć do Harmonii jako bohaterowie tej krainy!",
+            {
+              "type": "inset",
+              "name": "Uwaga dla Mistrza Lochów",
+              "page": 3,
+              "entries": [
+                "Celem ostatniej przygody jest przedstawienie wszystkich sześciu NERDÓW i umożliwienie im doświadczenia mocy współpracy. Jeśli przy stole jest mniej graczy niż postaci NERDS, brakującymi postaciami mogą być NPC prowadzone przez Ciebie lub niektórych graczy."
+              ],
+              "id": "005"
+            }
+          ],
+          "id": "004"
+        },
+        {
+          "type": "entries",
+          "name": "Rozpoczęcie gry",
+          "page": 3,
+          "entries": [
+            "Rozdaj karty postaci wszystkich sześciu NERDS swoim graczom i pozwól im zapoznać się ze swoimi postaciami.",
+            "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć.",
+            "Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+          ],
+          "id": "006"
+        },
+        {
+          "type": "section",
+          "name": "Przygoda 7: Wspólna przygoda",
+          "page": 3,
+          "entries": [
+            "Miasto Harmonii to tętniąca życiem metropolia, która od tygodni doświadcza dziwnego przypadku „przerw w dostawie kolorów”. Krążą plotki na temat tego, co może być przyczyną problemu, a mieszkańcy Harmony są coraz bardziej zaniepokojeni, gdy kolor znika z otoczenia.",
+            "Pan Honeycutt zatrudnił sześciu odważnych NERDÓW, aby pomóc tajnemu zakonowi znanemu jako Towarzystwo Strażników Wiedzy w odzyskaniu sześciu magicznych kamieni szlachetnych znanych jako Klejnoty Mocy. NERDS zebrali się teraz w tajnej kryjówce pana Honeycutta, ukrytej pod sklepem ze słodyczami Sweet Spot, aby aktywować {@item Amulet of Harmony|NRH-AT}.",
+            {
+              "type": "entries",
+              "name": "Siedziba Lorekeepera",
+              "page": 3,
+              "entries": [
+                "Bohaterowie i pan Honeycutt gromadzą się pod sklepem ze słodyczami pana Honeycutta, Sweet Spot. Po zakończeniu pracy w Bibliotece pan Honeycutt otwiera drzwi swojej cukierni, aby zachwycić ludność swoimi smacznymi słodyczami - ale teraz jego kolorowe słodycze wydają się nudne w witrynie sklepowej, gdy świat Harmonii blaknie w ponurą szarość.",
+                "Przeczytaj lub sparafrazuj następujący tekst:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 3,
+                  "entries": [
+                    "Wszyscy odpowiedzieliście na wezwanie Towarzystwa Lorekeeperów i jesteście teraz pod sklepem ze słodyczami Sweet Spot, w małym pomieszczeniu, w którym pan Honeycutt ma swoją tajną kryjówkę. Pyszne zapachy owoców, wanilii i czekolady mieszają się z oprawionymi w skórę książkami i drewnem cedrowym. Wszyscy stoicie wokół wysokiego stołu, oświetlonego lampą oliwną. Sześć Klejnotów Mocy ułożonych jest na aksamitnym obrusie, mieniącym się w świetle lampy. Pan Honeycutt z poważnym wyrazem twarzy wyciąga bogato rzeźbione drewniane pudełko, kładzie je na stole i mówi: „W tym pudełku znajduje się {@item Amulet of Harmony|NRH-AT}.\""
+                  ],
+                  "id": "009"
+                },
+                "Pan Honeycutt wyjaśnia, że ​​nie wie, co się stanie, gdy otworzy pudełko i włoży klejnoty do amuletu - wszystkie stare zapisy zaginęły lub zostały zniszczone. Pyta Żółtego Kleryka i Fioletowego Czarodzieja, czy mają jakieś pomysły, jak najlepiej przywrócić ten magiczny przedmiot. Prosi także grupę o przedyskutowanie, który z nich dostroi się do amuletu i wykorzysta jego moc.",
+                {
+                  "type": "entries",
+                  "name": "Otwieranie pudełka",
+                  "page": 3,
+                  "entries": [
+                    "Kiedy wszyscy są już gotowi, pan Honeycutt (lub inny ochotnik) otwiera pudełko. Wszystkie Klejnoty Mocy natychmiastowo przechodzą do ustawień amuletu, zmieniając swój rozmiar, aż osiągną rozmiar mniej więcej miniatury. Amulet delikatnie świeci.",
+                    "Następnie pan Honeycutt wyjaśnia, że ​​ktokolwiek dostroi amulet, musi być tym, który przywoła moc {@item Prismatic Well|NRH-AT}. Aby przywołać moc studni, postać dostrojona do amuletu musi znaleźć się w odległości nie większej niż 3 metry od studni i powiedzieć: „Przywołuję moc studni. {@item Prismatic Well|NRH-AT} i przywróć wszystkim kolory Harmonii.”"
+                  ],
+                  "id": "00a"
+                },
+                {
+                  "type": "entries",
+                  "name": "Dostrojenie amuletu",
+                  "page": 4,
+                  "entries": [
+                    "Gdy jedna z postaci dostroi się do amuletu, zaczyna odczuwać przyciąganie, potrzebę poruszania się w określonym kierunku. Honeycutt wyjaśnia, że ​​ten amulet zna lokalizację {@item Prismatic Well|NRH-AT} i poprowadzi postać prosto do jej lokalizacji. Kiedy drużyna wychodzi na zewnątrz, widzi w oddali Tajemniczą Górę, a postać dostrojona do amuletu może wyczuć, że {@item Prismatic Well|NRH-AT} jest w górach. Jeśli postać powie to panu Honeycuttowi, zdejmie okulary i powie: „A więc Tajemnicza Góra! Wiedziałem o tym!”",
+                    "Pan Honeycutt nadaje każdej postaci a {@item potion of healing} i życzy im wszystkiego najlepszego w ich poszukiwaniach. Poszedłby z nimi, ale współpracuje z Towarzystwem Strażników Wiedzy nad zaklęciem mającym pomóc obywatelom zmagającym się z rosnącym brakiem koloru w mieście."
+                  ],
+                  "id": "00b"
+                }
+              ],
+              "id": "008"
+            },
+            {
+              "type": "entries",
+              "name": "Wyprawa na Tajemniczą Górę",
+              "page": 4,
+              "entries": [
+                "Szlak do Mystery Mountain to długa wędrówka przez mgliste, porośnięte drzewami wzgórza niedaleko Harmony. {@item Amulet of Harmony|NRH-AT} coraz bardziej przyciąga swojego posiadacza do stromych, granitowych zboczy góry, która unosi się nad nimi.",
+                "Podróż może przebiegać spokojnie lub możesz wprowadzić jedno lub oba z poniższych spotkań.",
+                {
+                  "type": "entries",
+                  "name": "Ratowanie Cublets",
+                  "page": 4,
+                  "entries": [
+                    "Drużyna słyszy dziwny dźwięk, który Czerwony Strażnik identyfikuje jako pohukiwanie sowiodźwiedzia. Jeśli zbadają sprawę, partia uzna, że ​​to matka {@creature owlbear} woła swoje dwie córeczki, które wpadły do ​​szczeliny. Sowomiś nie jest zainteresowany atakowaniem drużyny, a jedynie ratowaniem swoich młodych.",
+                    "Jeśli jednak postacie spróbują pomóc, opiekuńcza-sowa-niedźwiedzica zaatakuje drużynę, chyba że którejś z postaci się to uda. {@dc 15} Mądrość ({@skill Animal Handling}) sprawdzać. W przypadku niepowodzenia nikt nie może zbliżyć się do kociaków sowiodźwiedzi bez ataku ze strony matki. Każda postać może podjąć próbę tylko raz.",
+                    {
+                      "type": "entries",
+                      "name": "Ratowanie Cublets",
+                      "page": 4,
+                      "entries": [
+                        "Szczelina jest mała, co utrudnia wspinaczkę, ale postać, której się to uda {@dc 14} Wytrzymałość ({@skill Athletics}) check może zejść na dół i zabrać kociaki z powrotem w bezpieczne miejsce z wdzięczną mamą."
+                      ],
+                      "id": "00e"
+                    }
+                  ],
+                  "id": "00d"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zasadzka!",
+                  "page": 4,
+                  "entries": [
+                    "Jeśli twoi gracze lubią walkę, możesz wpaść w zasadzkę o ósmej {@creature skeleton||szkielety} które wyłaniają się z ziemi, gdy bohaterowie wędrują po zboczu góry."
+                  ],
+                  "id": "00f"
+                }
+              ],
+              "id": "00c"
+            }
+          ],
+          "id": "007"
+        },
+        {
+          "type": "section",
+          "name": "Tajemnicza Góra",
+          "page": 4,
+          "entries": [
+            "Wnętrze Mystery Mountain to seria z grubsza wyrzeźbionych tuneli. Mają następujące właściwości, jeśli nie zaznaczono inaczej:",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Ciemność",
+                      "page": 4,
+                      "entries": [
+                        "Tunele i jaskinie nie zawierają źródeł światła."
+                      ],
+                      "id": "013"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Sufity i ściany",
+                      "page": 4,
+                      "entries": [
+                        "Korytarze mają 10 stóp szerokości i wysokości, a sufity mają około 20 stóp wysokości."
+                      ],
+                      "id": "014"
+                    }
+                  ],
+                  "id": "012"
+                }
+              ],
+              "id": "011"
+            },
+            "Następujące lokalizacje są powiązane z mapą Mystery Mountain:",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/014.webp"
+              },
+              "width": 1931,
+              "height": 2156,
+              "mapRegions": [
+                {
+                  "area": "015",
+                  "points": [
+                    [
+                      793,
+                      1880
+                    ],
+                    [
+                      793,
+                      1984
+                    ],
+                    [
+                      883,
+                      1984
+                    ],
+                    [
+                      883,
+                      1880
+                    ]
+                  ]
+                },
+                {
+                  "area": "018",
+                  "points": [
+                    [
+                      426,
+                      1537
+                    ],
+                    [
+                      480,
+                      1491
+                    ],
+                    [
+                      460,
+                      1479
+                    ],
+                    [
+                      457,
+                      1411
+                    ],
+                    [
+                      496,
+                      1396
+                    ],
+                    [
+                      526,
+                      1371
+                    ],
+                    [
+                      537,
+                      1350
+                    ],
+                    [
+                      583,
+                      1343
+                    ],
+                    [
+                      623,
+                      1334
+                    ],
+                    [
+                      660,
+                      1313
+                    ],
+                    [
+                      671,
+                      1301
+                    ],
+                    [
+                      637,
+                      1239
+                    ],
+                    [
+                      617,
+                      1261
+                    ],
+                    [
+                      569,
+                      1279
+                    ],
+                    [
+                      547,
+                      1270
+                    ],
+                    [
+                      521,
+                      1244
+                    ],
+                    [
+                      496,
+                      1237
+                    ],
+                    [
+                      371,
+                      1236
+                    ],
+                    [
+                      350,
+                      1249
+                    ],
+                    [
+                      340,
+                      1261
+                    ],
+                    [
+                      327,
+                      1283
+                    ],
+                    [
+                      307,
+                      1303
+                    ],
+                    [
+                      311,
+                      1331
+                    ],
+                    [
+                      319,
+                      1371
+                    ],
+                    [
+                      336,
+                      1390
+                    ],
+                    [
+                      380,
+                      1410
+                    ],
+                    [
+                      383,
+                      1450
+                    ],
+                    [
+                      380,
+                      1480
+                    ],
+                    [
+                      383,
+                      1501
+                    ],
+                    [
+                      397,
+                      1529
+                    ]
+                  ]
+                },
+                {
+                  "area": "01b",
+                  "points": [
+                    [
+                      940,
+                      1387
+                    ],
+                    [
+                      963,
+                      1327
+                    ],
+                    [
+                      993,
+                      1304
+                    ],
+                    [
+                      1031,
+                      1296
+                    ],
+                    [
+                      1066,
+                      1287
+                    ],
+                    [
+                      1106,
+                      1287
+                    ],
+                    [
+                      1137,
+                      1293
+                    ],
+                    [
+                      1161,
+                      1303
+                    ],
+                    [
+                      1184,
+                      1316
+                    ],
+                    [
+                      1191,
+                      1350
+                    ],
+                    [
+                      1217,
+                      1373
+                    ],
+                    [
+                      1234,
+                      1409
+                    ],
+                    [
+                      1234,
+                      1471
+                    ],
+                    [
+                      1227,
+                      1506
+                    ],
+                    [
+                      1186,
+                      1540
+                    ],
+                    [
+                      1139,
+                      1549
+                    ],
+                    [
+                      1051,
+                      1544
+                    ],
+                    [
+                      1003,
+                      1530
+                    ],
+                    [
+                      964,
+                      1490
+                    ],
+                    [
+                      940,
+                      1431
+                    ]
+                  ]
+                },
+                {
+                  "area": "01c",
+                  "points": [
+                    [
+                      1463,
+                      1043
+                    ],
+                    [
+                      1441,
+                      991
+                    ],
+                    [
+                      1393,
+                      951
+                    ],
+                    [
+                      1361,
+                      923
+                    ],
+                    [
+                      1363,
+                      900
+                    ],
+                    [
+                      1369,
+                      876
+                    ],
+                    [
+                      1369,
+                      853
+                    ],
+                    [
+                      1403,
+                      840
+                    ],
+                    [
+                      1436,
+                      826
+                    ],
+                    [
+                      1489,
+                      833
+                    ],
+                    [
+                      1524,
+                      863
+                    ],
+                    [
+                      1549,
+                      893
+                    ],
+                    [
+                      1576,
+                      934
+                    ],
+                    [
+                      1607,
+                      963
+                    ],
+                    [
+                      1680,
+                      1047
+                    ],
+                    [
+                      1709,
+                      1081
+                    ],
+                    [
+                      1730,
+                      1107
+                    ],
+                    [
+                      1751,
+                      1143
+                    ],
+                    [
+                      1770,
+                      1176
+                    ],
+                    [
+                      1761,
+                      1213
+                    ],
+                    [
+                      1753,
+                      1237
+                    ],
+                    [
+                      1727,
+                      1251
+                    ],
+                    [
+                      1681,
+                      1253
+                    ],
+                    [
+                      1649,
+                      1236
+                    ],
+                    [
+                      1614,
+                      1187
+                    ],
+                    [
+                      1583,
+                      1160
+                    ],
+                    [
+                      1526,
+                      1144
+                    ],
+                    [
+                      1491,
+                      1124
+                    ],
+                    [
+                      1516,
+                      1099
+                    ],
+                    [
+                      1500,
+                      1069
+                    ]
+                  ]
+                },
+                {
+                  "area": "026",
+                  "points": [
+                    [
+                      251,
+                      624
+                    ],
+                    [
+                      253,
+                      480
+                    ],
+                    [
+                      274,
+                      407
+                    ],
+                    [
+                      294,
+                      360
+                    ],
+                    [
+                      341,
+                      323
+                    ],
+                    [
+                      381,
+                      317
+                    ],
+                    [
+                      417,
+                      307
+                    ],
+                    [
+                      459,
+                      313
+                    ],
+                    [
+                      517,
+                      323
+                    ],
+                    [
+                      556,
+                      364
+                    ],
+                    [
+                      591,
+                      411
+                    ],
+                    [
+                      633,
+                      469
+                    ],
+                    [
+                      654,
+                      504
+                    ],
+                    [
+                      671,
+                      539
+                    ],
+                    [
+                      694,
+                      580
+                    ],
+                    [
+                      696,
+                      629
+                    ],
+                    [
+                      696,
+                      703
+                    ],
+                    [
+                      670,
+                      739
+                    ],
+                    [
+                      626,
+                      751
+                    ],
+                    [
+                      594,
+                      771
+                    ],
+                    [
+                      536,
+                      776
+                    ],
+                    [
+                      491,
+                      767
+                    ],
+                    [
+                      434,
+                      764
+                    ],
+                    [
+                      357,
+                      736
+                    ],
+                    [
+                      290,
+                      699
+                    ],
+                    [
+                      257,
+                      659
+                    ]
+                  ]
+                },
+                {
+                  "area": "021",
+                  "points": [
+                    [
+                      1131,
+                      451
+                    ],
+                    [
+                      1160,
+                      393
+                    ],
+                    [
+                      1191,
+                      361
+                    ],
+                    [
+                      1239,
+                      343
+                    ],
+                    [
+                      1294,
+                      297
+                    ],
+                    [
+                      1339,
+                      250
+                    ],
+                    [
+                      1397,
+                      236
+                    ],
+                    [
+                      1437,
+                      241
+                    ],
+                    [
+                      1470,
+                      286
+                    ],
+                    [
+                      1484,
+                      331
+                    ],
+                    [
+                      1483,
+                      393
+                    ],
+                    [
+                      1481,
+                      456
+                    ],
+                    [
+                      1471,
+                      501
+                    ],
+                    [
+                      1430,
+                      556
+                    ],
+                    [
+                      1390,
+                      577
+                    ],
+                    [
+                      1344,
+                      580
+                    ],
+                    [
+                      1296,
+                      573
+                    ],
+                    [
+                      1259,
+                      591
+                    ],
+                    [
+                      1194,
+                      587
+                    ],
+                    [
+                      1149,
+                      557
+                    ],
+                    [
+                      1133,
+                      497
+                    ]
+                  ]
+                }
+              ],
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 70,
+                "offsetX": -70,
+                "scale": 2
+              },
+              "hrefThumbnail": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/thumbnail/014.webp"
+              },
+              "id": "032",
+              "credit": "Red Central"
+            },
+            {
+              "type": "entries",
+              "name": "M1. Wejście do jaskini",
+              "page": 4,
+              "entries": [
+                "Wejście do Mystery Mountain jest ukryte za odsłoniętymi korzeniami drzewa rosnącego nad drzwiami. Postać, która pomyślnie wykona rzut na Mądrość {@dc 12} ({@skill Perception}), znajdzie drzwi w czasie krótszym niż pięć minut. W przypadku niepowodzenia drużyna musi szukać przez pół godziny, zanim odkryje drzwi i ma 50% szans na spotkanie sześciu {@creature skeleton||szkielety} podczas patrolu w poszukiwaniu {@creature Mr. Greystone|NRH-AT}. Ktokolwiek jest dostrojony do {@item Amulet of Harmony|NRH-AT}, ma przewagę w sprawdzaniu, czy zauważa drzwi.",
+                "Za korzeniami wejście jest wykute w granitowym klifie. W granitowych drzwiach wyryte są błyskawice. Mają dziurkę od klucza, ale nie mają klamki.",
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Odblokowanie drzwi",
+                      "page": 5,
+                      "entries": [
+                        "Klucz do drzwi jest w środku {@creature Mr. Greystone|NRH-AT}kieszeni, więc zamek musi zostać złamany pomyślnie {@dc 15} Zręczność ({@skill Sleight of Hand}) sprawdzać. W przypadku niepowodzenia postać, która próbowała otworzyć zamek, otrzymuje 6 ({@damage 1d12}) obrażenia od błyskawic i zostaje odepchnięty o 5 stóp.",
+                        "Po otwarciu drzwi drużyna może zobaczyć wypełniony pajęczyną tunel wiodący w ciemność Tajemniczej Góry."
+                      ],
+                      "id": "017"
+                    }
+                  ],
+                  "id": "016"
+                }
+              ],
+              "id": "015"
+            },
+            {
+              "type": "entries",
+              "name": "M2. Gazowa Jaskinia",
+              "page": 5,
+              "entries": [
+                "Szkodliwie pachnący gaz wypełnia tunel przed jaskinią mglistym, zielonkawym dymem. Gaz gasi wszelkie niemagiczne światło. Stworzenie, które wejdzie w gaz, musi wykonać a {@dc 13} Rzut obronny na Kondycję lub rzut 7 ({@damage 2d6}) obrażenia od trucizny i stać się {@condition blinded} przez 1 minutę. Po udanym rzucie obronnym istota otrzymuje o połowę mniejsze obrażenia, a tak nie jest {@condition blinded}. A {@condition blinded} stworzenie może zrobić {@dc 15} Rzut obronny na Kondycję na koniec każdej swojej tury, kończący oślepienie w przypadku sukcesu. Jeśli inne stworzenie odniesie sukces {@dc 12} Inteligencja ({@skill Medicine}) sprawdź, {@condition blinded} stworzenie wykonuje kolejny rzut obronny na Kondycję z przewagą.",
+                "Gaz wydobywa się z drewnianej skrzynki o powierzchni 4 stóp kwadratowych, ustawionej na stole pośrodku pokoju. Pudełko ma z boku pięć drewnianych dźwigni. Na pudełku znajduje się mosiężna tabliczka z napisem: „{@creature Mr. Greystone|NRH-AT}Pudełko Gazowe.”",
+                "Jeśli pociągnie się właściwą dźwignię, gaz przestanie wydobywać się ze skrzynki, a rozproszenie się z obszaru zajmuje około 5 minut.",
+                "Jeśli zostanie pociągnięta niewłaściwa dźwignia lub pudełko otrzyma więcej niż 5 punktów obrażeń, eksploduje. Każde stworzenie w promieniu 15 stóp od niego musi wykonać {@dc 12} Rzut obronny na zręczność, biorąc 7 ({@damage 2d6}) obrażenia przebijające przy nieudanym rzucie obronnym lub o połowę mniejsze przy udanym.",
+                {
+                  "type": "entries",
+                  "name": "Zgadywanie dźwigni",
+                  "page": 5,
+                  "entries": [
+                    "Jeśli postać spróbuje odgadnąć właściwą dźwignię, rzuć a {@dice d10}. Na 1 lub 2 zgadują poprawnie i gaz przestaje płynąć."
+                  ],
+                  "id": "019"
+                },
+                {
+                  "type": "entries",
+                  "name": "Wyprowadzenie dźwigni",
+                  "page": 5,
+                  "entries": [
+                    "Postać może także spróbować wydedukować, która dźwignia jest właściwa, sprawdzając zużycie uchwytów. Jeśli gracz powie, że tego właśnie szuka jego postać, niech wykona a {@dc 12} Mądrość ({@skill Perception}) sprawdź z korzyścią. W przypadku powodzenia zauważają zużycie właściwej dźwigni. W przypadku niepowodzenia nadal mogą zgadywać, ale szanse są na ich korzyść, więc wynik 1-5 daje im właściwy wybór."
+                  ],
+                  "id": "01a"
+                }
+              ],
+              "id": "018"
+            },
+            {
+              "type": "entries",
+              "name": "M3. Pokój Szkieletu",
+              "page": 5,
+              "entries": [
+                "W tym pokoju jest dziesięć {@creature skeleton||szkielety}wszyscy w pasujących kombinezonach z logo z tyłu: „{@creature Mr. Greystone|NRH-AT}Garden Care.” Szkielety stoją wokół sprzętu ogrodniczego - dwóch taczek, kosy, grabi, motyk, kilofa i kilku sekatorów.",
+                "Szkielety są uśpione, dopóki nie zostaną zaatakowane lub dopóki coś nie wyda dźwięku, który je zaalarmuje. Drużyna może przekraść się obok lub podkraść się do szkieletów, jeśli zakończy się sukcesem {@dc 13} grupa Zręczności ({@skill Stealth}) sprawdzać.",
+                "Jeśli drużyna zaatakuje uśpione szkielety, szkielety są {@status surprised} (patrz zasady Niespodzianki w Zasadach Podstawowych D&D), a drużyna ma przewagę w swoich atakach podczas pierwszej rundy walki.",
+                "Poza sprzętem ogrodniczym w pokoju nie ma nic wartościowego."
+              ],
+              "id": "01b"
+            },
+            {
+              "type": "entries",
+              "name": "M4. Otchłań Zagłady",
+              "page": 5,
+              "entries": [
+                "Ta długa jaskinia biegnie prostopadle do korytarza. Pomiędzy zachodnim i wschodnim przejściem znajduje się szeroka na 20 stóp przepaść, której dna nie widać. We wschodnim przejściu widać drzwi.",
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Przedostawanie się",
+                      "page": 5,
+                      "entries": [
+                        "Istnieje wiele sposobów na przekroczenie przepaści - na przykład za pomocą zaklęć lub haków - ale niezależnie od tego, jak się przedostaną, postacie muszą zachować szczególną ciszę. Postacie z pasywną Mądrością ({@skill Perception}) wynik 12 lub więcej zauważa ślady pazurów na bokach ścian przepaści.",
+                        "Jeśli postacie hałasują podczas przekraczania przepaści, muszą odnieść sukces na a {@dc 10} grupa Zręczności ({@skill Stealth}) sprawdź, albo zaalarmują pięć {@creature ghoul||ghule} którego pazury słychać drapiące ściany przepaści. Ghule przybywają w ciągu trzech tur.",
+                        "Jeśli ghule podążają za postaciami po przekroczeniu przepaści, mogą uciec przez drzwi i zaryglować je za sobą."
+                      ],
+                      "id": "01e"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Budowanie napięcia",
+                      "page": 6,
+                      "entries": [
+                        "Jako DM możesz także opisać całą hordę ghuli wdzierających się w górę przepaści - ale tylko po to, aby wywołać napięcie. Przypominaj swoim graczom o niebezpieczeństwie poprzez wydawane przez nich dźwięki - szczękanie i syczenie - gdy zbliżają się do przepaści. Możesz to zrobić tak, aby ghule przybyły w chwili, gdy drużyna ucieka przez drzwi, i aby słyszały drapanie i wrzaski, gdy opuszczają rygiel, aby zaryglować drzwi. Jeśli drużyna wróci później do drzwi, ghule zeszły w przepaść."
+                      ],
+                      "id": "01f"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Wpadnięcie w przepaść",
+                      "page": 6,
+                      "entries": [
+                        "Jeśli postać będzie miała takiego pecha i wpadnie w przepaść, możesz poprosić ją, aby chwyciła się losowego korzenia lub półki, aby uchronić się przed pewną zagładą i pozwoliła jej się wydostać przy pomocy liny. Jednakże wpadnięcie w przepaść ostrzega ghule (patrz „Budowanie napięcia” powyżej)."
+                      ],
+                      "id": "020"
+                    }
+                  ],
+                  "id": "01d"
+                }
+              ],
+              "id": "01c"
+            },
+            {
+              "type": "entries",
+              "name": "M5. Klasztor Flumph",
+              "page": 6,
+              "entries": [
+                "Pokój ten jest zajęty przez {@creature Maude|NRH-AT}, a {@creature bugbear chief}i jej czwórka {@creature goon|NRH-ASS|zbiry}, którzy szturchają i szturchają tuzin drżących {@creature flumph||fauluje}. Niedźwiedź robak i zbiry wszyscy mają na sobie „{@creature Mr. Greystone|NRH-AT}„Garden Care”. Porozrzucane są skrzynki z zapasami i czymś, co wygląda na tajemny sprzęt laboratoryjny. Postać, która odniesie sukces w {@dc 13} Inteligencja ({@skill Arcana}) może stwierdzić, że ten sprzęt jest najprawdopodobniej używany do wysysania magicznej energii - prawdopodobnie z {@item Prismatic Well|NRH-AT}.",
+                "Zbiry Maud śmieją się, wywracając je do góry nogami i próbując nadać im mocniejszy odcień fioletu - co jest szczególnie pokręconym zajęciem w czasach, gdy kolory już prawie zniknęły ze świata.",
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Radzenie sobie z problemami",
+                      "page": 6,
+                      "entries": [
+                        "{@creature Maude|NRH-AT}, szef niedźwiedzia robala, ma za zadanie chronić tajne drzwi do {@item Prismatic Well|NRH-AT} w obszarze M6. Jeśli postacie zbliżają się do drzwi, rozkazuje swoim zbirom zaatakować. {@creature Maude|NRH-AT} jest arogancka, ale nie jest manekinem i próbuje zepsuć imprezę, okłamując ich kłamstwami w stylu:",
+                        {
+                          "type": "list",
+                          "items": [
+                            "Już przeszli {@item Prismatic Well|NRH-AT}.",
+                            "Jest już za późno.",
+                            "Nie ma tu studni. Właściwie znajduje się pod Harmonią.",
+                            "Są w złym miejscu."
+                          ]
+                        },
+                        "Jeśli poszukiwacze przygód pokażą {@creature Maude|NRH-AT} {@item Amulet of Harmony|NRH-AT}, żąda, aby jej go dali, mówiąc, że jej szef sowicie za to zapłaci. Jeśli poszukiwacze przygód odmówią, {@creature Maude|NRH-AT} każe zbirom go zdobyć."
+                      ],
+                      "id": "023"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Wskazówki telepatyczne",
+                      "page": 6,
+                      "entries": [
+                        "Jeśli poszukiwacze przygód wydają się przyjaźnie nastawieni lub próbują chronić flumphów, wówczas przywódca flumphów, GuBu, kontaktuje się telepatycznie z jednym z członków drużyny, który ujawnia dwie rzeczy:",
+                        {
+                          "type": "list",
+                          "items": [
+                            "GuBu zna lokalizację sekretnych drzwi w tym pomieszczeniu i pomoże drużynie najlepiej jak potrafi. GuBu jest gotowy zrobić niemal wszystko (z wyjątkiem poświęcenia siebie lub jednego ze swoich kolegów z klasztoru), aby pozbyć się niedźwiedzi robali i umożliwić im powrót do idyllicznej podziemnej egzystencji.",
+                            "GuBu podsłuchał rozmowę z „Szarym Człowiekiem”. {@creature Maude|NRH-AT} o „zabijaniu”. {@creature Emo|NRH-AT}.” Jeśli zapytano o „{@creature Emo|NRH-AT}”, odpowiada na to GuBu {@creature Emo|NRH-AT} to „smutny bal” i że wszystkim skurwysynom jest z tego powodu smutek i liczą, że będzie lepiej. GuBu zastanawia się, czy smutny bal nie chciałby pewnego dnia wstąpić do ich klasztoru.",
+                            "Szary Człowiek jest straszny, niebezpieczny i chce „zniszczyć wszystkie kolory”. GuBu telepatycznie wzdryga się na tę myśl."
+                          ]
+                        }
+                      ],
+                      "id": "024"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Sekretne drzwi",
+                      "page": 6,
+                      "entries": [
+                        "Sekretne drzwi do obszaru M6 są dobrze ukryte za skrzynią. Jeśli postać podsłuchuje przy drzwiach i uda mu się {@dc 14} Mądrość ({@skill Perception}) sprawdź, słyszą płacz i kłótnię, a także słabe buczenie. Sekretne drzwi nie są zamknięte i otwierają się płynnie po naciśnięciu."
+                      ],
+                      "id": "025"
+                    }
+                  ],
+                  "id": "022"
+                }
+              ],
+              "id": "021"
+            },
+            {
+              "type": "entries",
+              "name": "M6. Studnia pryzmatyczna",
+              "page": 7,
+              "entries": [
+                "Kiedy poszukiwacze przygód wejdą do tej jaskini, przeczytaj lub sparafrazuj następujące słowa:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 7,
+                  "entries": [
+                    "Widzisz dużą jaskinię oświetloną olśniewającymi kolorami, jakich nigdy wcześniej nie widziałeś. Kolory wylewają się z kamiennego kręgu na podłodze, który musi być niczym innym jak legendarnym {@item Prismatic Well|NRH-AT}.",
+                    "Obok {@item Prismatic Well|NRH-AT} to wyglądające na przygnębione, kuliste stworzenie z elastycznymi rurkami podłączonymi do dziesięciu opadających gałek ocznych. Rury są połączone ze złożonym aparatem, który jest umieszczony nad otworem {@item Prismatic Well|NRH-AT}. Wygląda na to, że urządzenie wysysa kolory ze studni i wprowadza je do kulistego stworzenia poprzez rurki podłączone do jego gałek ocznych - chociaż wygląda na to, że urządzenie nie działa zbyt dobrze, ponieważ kolory rozpryskują się i sypią w pomieszczeniu. Stworzenie płacze z frustracji i desperacko próbuje wymyślić, jak naprawić swój aparat.",
+                    "Obok wielookiego stworzenia stoi wysoki brutal, mężczyzna w szarym płaszczu, który ryczy ze złością na stworzenie. Za płaszczem mężczyzny czai się potwór wielkości psa z jednym złowrogim okiem."
+                  ],
+                  "id": "027"
+                },
+                "Kulisty potwór jest {@creature Emo|NRH-AT}, a {@creature beholder}. Brutalny człowiek jest {@creature Mr. Greystone|NRH-AT} a mały potwór z jednym okiem to Furzle, {@creature Mr. Greystone|NRH-AT}'s {@creature nothic} asystent.",
+                {
+                  "type": "entries",
+                  "name": "Odgrywanie roli pana Greystone'a",
+                  "page": 7,
+                  "entries": [
+                    "{@creature Mr. Greystone|NRH-AT} wyjaśnia, że ​​chce rzeczy czarno-białych. Ma już dość „kolorów i różnorodności w Harmonii”. {@creature Mr. Greystone|NRH-AT} chce zniszczyć studnię i przywrócić „stare, dobre czasy, kiedy było mniej… kolorowo”. Jest już zmęczony {@creature Emo|NRH-AT}„brak kręgosłupa” i chętnie poświęciłby patrzącego, gdyby oznaczało to zniszczenie studni.",
+                    "Jeśli {@creature Mr. Greystone|NRH-AT} widzi {@item Amulet of Harmony|NRH-AT}, wie, że to jego bilet do bezbarwnego świata i robi wszystko, co w jego mocy, aby go zdobyć - niezależnie od tego, czy oferuje drużynie 2000 gp, czy grozi im wszystkim, że ich wszystkich bije, czego szybko nie zapomną. {@creature Mr. Greystone|NRH-AT} jest częściowy w stosunku do tego ostatniego."
+                  ],
+                  "id": "028"
+                },
+                {
+                  "type": "entries",
+                  "name": "Odgrywanie ról Emo",
+                  "page": 7,
+                  "entries": [
+                    "{@creature Emo|NRH-AT} jest obserwatorem, który badał wywołujące radość skutki {@item Prismatic Well|NRH-AT} i przybył na płaszczyznę Harmonii, aby wyleczyć jej melancholię. {@creature Emo|NRH-AT} wierzy, że jeśli uda im się wchłonąć wszystkie magiczne kolory, to w jakiś sposób ich smutek zostanie wyleczony i będą mogli żyć długo i szczęśliwie. Nie przejmują się Harmonią i jej obywatelami, ponieważ są bardzo zajęci sobą.",
+                    "Choć są niezwykle potężni, {@creature Emo|NRH-AT} nie jest wojownikiem i atakuje jedynie w samoobronie. Jeśli jednak impreza będzie miła {@creature Emo|NRH-AT} i ma problemy z walką {@creature Mr. Greystone|NRH-AT}, Następnie {@creature Emo|NRH-AT} prawdopodobnie pomoże drużynie, ponieważ Greystone chciał to zrobić {@creature Emo|NRH-AT}.",
+                    "Jeśli {@creature Emo|NRH-AT} zaoferowano im życzliwość i przyjaźń - na przykład dom w klasztorze Flumph - są gotowi zmienić swój plan. Przekonywający {@creature Emo|NRH-AT} porzucenie swojego aparatu i wypróbowanie innego sposobu na znalezienie szczęścia wymaga sukcesu {@dc 14} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli GuBu jest obecny lub oferują postacie {@creature Emo|NRH-AT} dom w klasztorze Flumph, czek jest korzystny."
+                  ],
+                  "id": "029"
+                },
+                {
+                  "type": "entries",
+                  "name": "Odgrywanie ról Furzle’a",
+                  "page": 7,
+                  "entries": [
+                    "Furzle jest bardzo lojalny {@creature Mr. Greystone|NRH-AT} (ze strachu) i uwielbia przekazywać tajne informacje swojemu panu. Ale jeśli Furzle zostanie {@condition frightened} lub zostaje zredukowany do połowy maksymalnego punktu wytrzymałości, ucieka z krzykiem, porzucając swojego pana. Furzle jest mądry i robi wszystko, co w jego mocy, aby przetrwać, nawet jeśli oznacza to nawiązanie przyjaźni."
+                  ],
+                  "id": "02a"
+                }
+              ],
+              "id": "026"
+            },
+            {
+              "type": "entries",
+              "name": "Przywrócona harmonia",
+              "page": 7,
+              "entries": [
+                "Jeśli poszukiwaczom przygód uda się pokonać {@creature Mr. Greystone|NRH-AT} i cofnięcie {@creature Emo|NRH-AT}plan wchłonięcia kolorów Harmonii, mogą wykorzystać {@item Amulet of Harmony|NRH-AT} aby przywrócić {@item Prismatic Well|NRH-AT} (patrz „Otwieranie pudełka” powyżej). Jeśli to zrobią, kolory studni będą olśniewające, gdy wystrzelą w górę przez sufit jaskini, która świeci i szumi mocą kolorów.",
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Emo i Flumphowie",
+                      "page": 8,
+                      "entries": [
+                        "Jeśli poszukiwacze przygód przekonają {@creature Emo|NRH-AT} aby wstąpić do klasztoru flumph, GuBu słucha {@creature Emo|NRH-AT}Historia o byciu dziwakiem i poczuciu się opuszczona, jest mile widziana {@creature Emo|NRH-AT} do ich klasztoru. Wszystkie flumphy zmieniają kolor na jasne odcienie żółtego i zielonego, a ich kolor zostaje przywrócony. Dziękują drużynie telepatycznie uroczym chórem wdzięczności."
+                      ],
+                      "id": "02d"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Walka z Furzlem",
+                      "page": 8,
+                      "entries": [
+                        "Jeśli Furzle ucieknie podczas spotkania przy studni, postacie mogą zdecydować się na wyśledzenie nothika, aby nie sprawiał większych kłopotów. Możesz sobie z tym poradzić w dowolny sposób. Jednym ze sposobów jest dogonienie drużyny przez Furzle'a próbującego przekroczyć przepaść w obszarze M4. Chociaż ma skłonność do zdrady, jeśli potraktuje się go z życzliwością, Furzle może zostać wspaniałym pomocnikiem czarodzieja. Być może, jeśli będzie prowadzony pod silną ręką dyrektora Gustavy, Furzle stanie się cennym nabytkiem."
+                      ],
+                      "id": "02e"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Przywracanie harmonii",
+                      "page": 8,
+                      "entries": [
+                        "Z {@item Prismatic Well|NRH-AT} przywrócona do pełnej mocy, magia Harmonii powraca, a miasto znów tętni kolorami. Kiedy bohaterowie wracają do miasta, zostają okrzyknięci bohaterami podczas ceremonii wręczenia nagród, podczas której Gustaw Wielki przypina im medale, przyznając im najwyższe odznaczenie Akademii Prism - Order Zimandiusa. Następnie burmistrz daje każdemu z nich klucz do miasta Harmonii, a pan Honeycutt ma go zwrócić {@item Amulet of Harmony|NRH-AT} do Towarzystwa Lorekeeperów. Pan Honeycutt oficjalnie wpisuje każdego z nich do ksiąg Towarzystwa Strażników Wiedzy jako honorowych członków sekty i zaprzysiężonych obrońców Harmonii."
+                      ],
+                      "id": "02f"
+                    }
+                  ],
+                  "id": "02c"
+                }
+              ],
+              "id": "02b"
+            },
+            {
+              "type": "entries",
+              "name": "Harmonia zniweczona",
+              "page": 8,
+              "entries": [
+                "Jeśli poszukiwacze przygód zawiodą, {@creature Mr. Greystone|NRH-AT} albo używa {@item Amulet of Harmony|NRH-AT} zniszczyć {@item Prismatic Well|NRH-AT} lub ma {@creature Emo|NRH-AT} znajdź sposób, aby wyssać cały kolor ze studni, tworząc czarno-biały świat pozbawiony radości i cudów.",
+                "Oczywiście, coś takiego nigdy nie może się zdarzyć! Jeśli wszystko pójdzie nie tak, pan Honeycutt i dyrektor Gustava przybywają w samą porę, aby upewnić się, że zło zostanie pokonane, przywrócona zostanie harmonia, a wszystkie kolory ponownie ożywią świat."
+              ],
+              "id": "030"
+            },
+            {
+              "type": "entries",
+              "name": "Magiczne przedmioty",
+              "page": 8,
+              "entries": [
+                "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+                {
+                  "type": "list",
+                  "columns": 2,
+                  "items": [
+                    "{@item Amulet of Harmony|NRH-AT}",
+                    "{@item Prismatic Well|NRH-AT}"
+                  ]
+                }
+              ],
+              "id": "031"
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet013.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet014.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet015.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet016.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet017.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet018.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet019.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet020.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet021.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet022.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet023.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-AT/sheet024.webp"
+                  },
+                  "width": 1275,
+                  "height": 825
+                }
+              ]
+            }
+          ],
+          "id": "010"
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Podsumowanie historii",
+      "page": 2,
+      "entries": [
+        "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDÓW, {@creature Emo|NRH-AT} patrzący i jego wynajęty mięsień, {@creature Mr. Greystone|NRH-AT}, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Studni Pryzmatycznej, {@creature Emo|NRH-AT} I {@creature Mr. Greystone|NRH-AT} zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+        "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony.",
+        "Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+        "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "entries",
+      "name": "Podtrzymywanie dobrej zabawy",
+      "page": 2,
+      "entries": [
+        "Teraz, gdy w tej przygodzie bierze udział wiele postaci, ryzyko TPK (całkowitego zabicia drużyny) jest mniejsze, a gra może być kontynuowana, nawet jeśli jedna postać zginie. Jednakże w D&D możliwość zabicia postaci gracza jest kwestią, którą najlepiej rozwiązać z góry, rozmawiając z graczami. Niektórzy gracze uwielbiają napięcie wynikające ze świadomości, że ich postacie mogą umrzeć, i podejmują strategiczne wyzwanie. Inni gracze nienawidzą myśli, że ich postać może umrzeć. Wiedza o tym, co sprawia przyjemność Twoim graczom, jest kluczem do dobrej zabawy w D&D.",
+        {
+          "type": "entries",
+          "name": "Rozwiązania polegające na odgrywaniu ról",
+          "page": 2,
+          "entries": [
+            "Graczom, którym nie podoba się myśl o śmierci swojej postaci - lub którzy po prostu lubią odgrywać role - dobrze jest zawsze przedstawić opcje inne niż walka, takie jak zaprzyjaźnienie się z potworem lub oszukanie potwora. Podczas każdego spotkania w tej przygodzie możesz zaprezentować możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+            "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy sprytnych pomysłów, pozwalając potworom na natychmiastowe zaprzyjaźnienie się lub dając graczowi przewagę we wszystkich jego rzutach."
+          ],
+          "id": "003"
+        }
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "name": "Rozwiązania polegające na odgrywaniu ról",
+      "page": 2,
+      "entries": [
+        "Graczom, którym nie podoba się myśl o śmierci swojej postaci - lub którzy po prostu lubią odgrywać role - dobrze jest zawsze przedstawić opcje inne niż walka, takie jak zaprzyjaźnienie się z potworem lub oszukanie potwora. Podczas każdego spotkania w tej przygodzie możesz zaprezentować możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+        "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy sprytnych pomysłów, pozwalając potworom na natychmiastowe zaprzyjaźnienie się lub dając graczowi przewagę we wszystkich jego rzutach."
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "entries",
+      "name": "Zarys przygody",
+      "page": 3,
+      "entries": [
+        "Po spotkaniu z panem Honeycuttem wszyscy poszukiwacze przygód zdają sobie sprawę, jaka jest stawka - Harmonia i wszystkie jej kolory są w ich rękach! Pan Honeycutt daje im Amulet Harmonii, aby pomóc im znaleźć lokalizację {@item Prismatic Well|NRH-AT}. Amulet prowadzi ich do krętych korytarzy w Tajemniczej Górze. W końcu mają do czynienia z brutalem {@creature Mr. Greystone|NRH-AT} i jego melancholijny partner, {@creature Emo|NRH-AT}.",
+        "Partia musi zwyciężyć {@creature Mr. Greystone|NRH-AT} i pomóc {@creature Emo|NRH-AT} znaleźć dom i przyjaciół. Następnie mogą użyć amuletu, aby przywrócić {@item Prismatic Well|NRH-AT} do pełni mocy i wróć do Harmonii jako bohaterowie tej krainy!",
+        {
+          "type": "inset",
+          "name": "Uwaga dla Mistrza Lochów",
+          "page": 3,
+          "entries": [
+            "Celem ostatniej przygody jest przedstawienie wszystkich sześciu NERDÓW i umożliwienie im doświadczenia mocy współpracy. Jeśli przy stole jest mniej graczy niż postaci NERDS, brakującymi postaciami mogą być NPC prowadzone przez Ciebie lub niektórych graczy."
+          ],
+          "id": "005"
+        }
+      ],
+      "id": "004"
+    },
+    "0:006": {
+      "type": "entries",
+      "name": "Rozpoczęcie gry",
+      "page": 3,
+      "entries": [
+        "Rozdaj karty postaci wszystkich sześciu NERDS swoim graczom i pozwól im zapoznać się ze swoimi postaciami.",
+        "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć.",
+        "Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+      ],
+      "id": "006"
+    },
+    "0:007": {
+      "type": "section",
+      "name": "Przygoda 7: Wspólna przygoda",
+      "page": 3,
+      "entries": [
+        "Miasto Harmonii to tętniąca życiem metropolia, która od tygodni doświadcza dziwnego przypadku „przerw w dostawie kolorów”. Krążą plotki na temat tego, co może być przyczyną problemu, a mieszkańcy Harmony są coraz bardziej zaniepokojeni, gdy kolor znika z otoczenia.",
+        "Pan Honeycutt zatrudnił sześciu odważnych NERDÓW, aby pomóc tajnemu zakonowi znanemu jako Towarzystwo Strażników Wiedzy w odzyskaniu sześciu magicznych kamieni szlachetnych znanych jako Klejnoty Mocy. NERDS zebrali się teraz w tajnej kryjówce pana Honeycutta, ukrytej pod sklepem ze słodyczami Sweet Spot, aby aktywować {@item Amulet of Harmony|NRH-AT}.",
+        {
+          "type": "entries",
+          "name": "Siedziba Lorekeepera",
+          "page": 3,
+          "entries": [
+            "Bohaterowie i pan Honeycutt gromadzą się pod sklepem ze słodyczami pana Honeycutta, Sweet Spot. Po zakończeniu pracy w Bibliotece pan Honeycutt otwiera drzwi swojej cukierni, aby zachwycić ludność swoimi smacznymi słodyczami - ale teraz jego kolorowe słodycze wydają się nudne w witrynie sklepowej, gdy świat Harmonii blaknie w ponurą szarość.",
+            "Przeczytaj lub sparafrazuj następujący tekst:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                "Wszyscy odpowiedzieliście na wezwanie Towarzystwa Lorekeeperów i jesteście teraz pod sklepem ze słodyczami Sweet Spot, w małym pomieszczeniu, w którym pan Honeycutt ma swoją tajną kryjówkę. Pyszne zapachy owoców, wanilii i czekolady mieszają się z oprawionymi w skórę książkami i drewnem cedrowym. Wszyscy stoicie wokół wysokiego stołu, oświetlonego lampą oliwną. Sześć Klejnotów Mocy ułożonych jest na aksamitnym obrusie, mieniącym się w świetle lampy. Pan Honeycutt z poważnym wyrazem twarzy wyciąga bogato rzeźbione drewniane pudełko, kładzie je na stole i mówi: „W tym pudełku znajduje się {@item Amulet of Harmony|NRH-AT}.\""
+              ],
+              "id": "009"
+            },
+            "Pan Honeycutt wyjaśnia, że ​​nie wie, co się stanie, gdy otworzy pudełko i włoży klejnoty do amuletu - wszystkie stare zapisy zaginęły lub zostały zniszczone. Pyta Żółtego Kleryka i Fioletowego Czarodzieja, czy mają jakieś pomysły, jak najlepiej przywrócić ten magiczny przedmiot. Prosi także grupę o przedyskutowanie, który z nich dostroi się do amuletu i wykorzysta jego moc.",
+            {
+              "type": "entries",
+              "name": "Otwieranie pudełka",
+              "page": 3,
+              "entries": [
+                "Kiedy wszyscy są już gotowi, pan Honeycutt (lub inny ochotnik) otwiera pudełko. Wszystkie Klejnoty Mocy natychmiastowo przechodzą do ustawień amuletu, zmieniając swój rozmiar, aż osiągną rozmiar mniej więcej miniatury. Amulet delikatnie świeci.",
+                "Następnie pan Honeycutt wyjaśnia, że ​​ktokolwiek dostroi amulet, musi być tym, który przywoła moc {@item Prismatic Well|NRH-AT}. Aby przywołać moc studni, postać dostrojona do amuletu musi znaleźć się w odległości nie większej niż 3 metry od studni i powiedzieć: „Przywołuję moc studni. {@item Prismatic Well|NRH-AT} i przywróć wszystkim kolory Harmonii.”"
+              ],
+              "id": "00a"
+            },
+            {
+              "type": "entries",
+              "name": "Dostrojenie amuletu",
+              "page": 4,
+              "entries": [
+                "Gdy jedna z postaci dostroi się do amuletu, zaczyna odczuwać przyciąganie, potrzebę poruszania się w określonym kierunku. Honeycutt wyjaśnia, że ​​ten amulet zna lokalizację {@item Prismatic Well|NRH-AT} i poprowadzi postać prosto do jej lokalizacji. Kiedy drużyna wychodzi na zewnątrz, widzi w oddali Tajemniczą Górę, a postać dostrojona do amuletu może wyczuć, że {@item Prismatic Well|NRH-AT} jest w górach. Jeśli postać powie to panu Honeycuttowi, zdejmie okulary i powie: „A więc Tajemnicza Góra! Wiedziałem o tym!”",
+                "Pan Honeycutt nadaje każdej postaci a {@item potion of healing} i życzy im wszystkiego najlepszego w ich poszukiwaniach. Poszedłby z nimi, ale współpracuje z Towarzystwem Strażników Wiedzy nad zaklęciem mającym pomóc obywatelom zmagającym się z rosnącym brakiem koloru w mieście."
+              ],
+              "id": "00b"
+            }
+          ],
+          "id": "008"
+        },
+        {
+          "type": "entries",
+          "name": "Wyprawa na Tajemniczą Górę",
+          "page": 4,
+          "entries": [
+            "Szlak do Mystery Mountain to długa wędrówka przez mgliste, porośnięte drzewami wzgórza niedaleko Harmony. {@item Amulet of Harmony|NRH-AT} coraz bardziej przyciąga swojego posiadacza do stromych, granitowych zboczy góry, która unosi się nad nimi.",
+            "Podróż może przebiegać spokojnie lub możesz wprowadzić jedno lub oba z poniższych spotkań.",
+            {
+              "type": "entries",
+              "name": "Ratowanie Cublets",
+              "page": 4,
+              "entries": [
+                "Drużyna słyszy dziwny dźwięk, który Czerwony Strażnik identyfikuje jako pohukiwanie sowiodźwiedzia. Jeśli zbadają sprawę, partia uzna, że ​​to matka {@creature owlbear} woła swoje dwie córeczki, które wpadły do ​​szczeliny. Sowomiś nie jest zainteresowany atakowaniem drużyny, a jedynie ratowaniem swoich młodych.",
+                "Jeśli jednak postacie spróbują pomóc, opiekuńcza-sowa-niedźwiedzica zaatakuje drużynę, chyba że którejś z postaci się to uda. {@dc 15} Mądrość ({@skill Animal Handling}) sprawdzać. W przypadku niepowodzenia nikt nie może zbliżyć się do kociaków sowiodźwiedzi bez ataku ze strony matki. Każda postać może podjąć próbę tylko raz.",
+                {
+                  "type": "entries",
+                  "name": "Ratowanie Cublets",
+                  "page": 4,
+                  "entries": [
+                    "Szczelina jest mała, co utrudnia wspinaczkę, ale postać, której się to uda {@dc 14} Wytrzymałość ({@skill Athletics}) check może zejść na dół i zabrać kociaki z powrotem w bezpieczne miejsce z wdzięczną mamą."
+                  ],
+                  "id": "00e"
+                }
+              ],
+              "id": "00d"
+            },
+            {
+              "type": "entries",
+              "name": "Zasadzka!",
+              "page": 4,
+              "entries": [
+                "Jeśli twoi gracze lubią walkę, możesz wpaść w zasadzkę o ósmej {@creature skeleton||szkielety} które wyłaniają się z ziemi, gdy bohaterowie wędrują po zboczu góry."
+              ],
+              "id": "00f"
+            }
+          ],
+          "id": "00c"
+        }
+      ],
+      "id": "007"
+    },
+    "0:008": {
+      "type": "entries",
+      "name": "Siedziba Lorekeepera",
+      "page": 3,
+      "entries": [
+        "Bohaterowie i pan Honeycutt gromadzą się pod sklepem ze słodyczami pana Honeycutta, Sweet Spot. Po zakończeniu pracy w Bibliotece pan Honeycutt otwiera drzwi swojej cukierni, aby zachwycić ludność swoimi smacznymi słodyczami - ale teraz jego kolorowe słodycze wydają się nudne w witrynie sklepowej, gdy świat Harmonii blaknie w ponurą szarość.",
+        "Przeczytaj lub sparafrazuj następujący tekst:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            "Wszyscy odpowiedzieliście na wezwanie Towarzystwa Lorekeeperów i jesteście teraz pod sklepem ze słodyczami Sweet Spot, w małym pomieszczeniu, w którym pan Honeycutt ma swoją tajną kryjówkę. Pyszne zapachy owoców, wanilii i czekolady mieszają się z oprawionymi w skórę książkami i drewnem cedrowym. Wszyscy stoicie wokół wysokiego stołu, oświetlonego lampą oliwną. Sześć Klejnotów Mocy ułożonych jest na aksamitnym obrusie, mieniącym się w świetle lampy. Pan Honeycutt z poważnym wyrazem twarzy wyciąga bogato rzeźbione drewniane pudełko, kładzie je na stole i mówi: „W tym pudełku znajduje się {@item Amulet of Harmony|NRH-AT}.\""
+          ],
+          "id": "009"
+        },
+        "Pan Honeycutt wyjaśnia, że ​​nie wie, co się stanie, gdy otworzy pudełko i włoży klejnoty do amuletu - wszystkie stare zapisy zaginęły lub zostały zniszczone. Pyta Żółtego Kleryka i Fioletowego Czarodzieja, czy mają jakieś pomysły, jak najlepiej przywrócić ten magiczny przedmiot. Prosi także grupę o przedyskutowanie, który z nich dostroi się do amuletu i wykorzysta jego moc.",
+        {
+          "type": "entries",
+          "name": "Otwieranie pudełka",
+          "page": 3,
+          "entries": [
+            "Kiedy wszyscy są już gotowi, pan Honeycutt (lub inny ochotnik) otwiera pudełko. Wszystkie Klejnoty Mocy natychmiastowo przechodzą do ustawień amuletu, zmieniając swój rozmiar, aż osiągną rozmiar mniej więcej miniatury. Amulet delikatnie świeci.",
+            "Następnie pan Honeycutt wyjaśnia, że ​​ktokolwiek dostroi amulet, musi być tym, który przywoła moc {@item Prismatic Well|NRH-AT}. Aby przywołać moc studni, postać dostrojona do amuletu musi znaleźć się w odległości nie większej niż 3 metry od studni i powiedzieć: „Przywołuję moc studni. {@item Prismatic Well|NRH-AT} i przywróć wszystkim kolory Harmonii.”"
+          ],
+          "id": "00a"
+        },
+        {
+          "type": "entries",
+          "name": "Dostrojenie amuletu",
+          "page": 4,
+          "entries": [
+            "Gdy jedna z postaci dostroi się do amuletu, zaczyna odczuwać przyciąganie, potrzebę poruszania się w określonym kierunku. Honeycutt wyjaśnia, że ​​ten amulet zna lokalizację {@item Prismatic Well|NRH-AT} i poprowadzi postać prosto do jej lokalizacji. Kiedy drużyna wychodzi na zewnątrz, widzi w oddali Tajemniczą Górę, a postać dostrojona do amuletu może wyczuć, że {@item Prismatic Well|NRH-AT} jest w górach. Jeśli postać powie to panu Honeycuttowi, zdejmie okulary i powie: „A więc Tajemnicza Góra! Wiedziałem o tym!”",
+            "Pan Honeycutt nadaje każdej postaci a {@item potion of healing} i życzy im wszystkiego najlepszego w ich poszukiwaniach. Poszedłby z nimi, ale współpracuje z Towarzystwem Strażników Wiedzy nad zaklęciem mającym pomóc obywatelom zmagającym się z rosnącym brakiem koloru w mieście."
+          ],
+          "id": "00b"
+        }
+      ],
+      "id": "008"
+    },
+    "0:00a": {
+      "type": "entries",
+      "name": "Otwieranie pudełka",
+      "page": 3,
+      "entries": [
+        "Kiedy wszyscy są już gotowi, pan Honeycutt (lub inny ochotnik) otwiera pudełko. Wszystkie Klejnoty Mocy natychmiastowo przechodzą do ustawień amuletu, zmieniając swój rozmiar, aż osiągną rozmiar mniej więcej miniatury. Amulet delikatnie świeci.",
+        "Następnie pan Honeycutt wyjaśnia, że ​​ktokolwiek dostroi amulet, musi być tym, który przywoła moc {@item Prismatic Well|NRH-AT}. Aby przywołać moc studni, postać dostrojona do amuletu musi znaleźć się w odległości nie większej niż 3 metry od studni i powiedzieć: „Przywołuję moc studni. {@item Prismatic Well|NRH-AT} i przywróć wszystkim kolory Harmonii.”"
+      ],
+      "id": "00a"
+    },
+    "0:00b": {
+      "type": "entries",
+      "name": "Dostrojenie amuletu",
+      "page": 4,
+      "entries": [
+        "Gdy jedna z postaci dostroi się do amuletu, zaczyna odczuwać przyciąganie, potrzebę poruszania się w określonym kierunku. Honeycutt wyjaśnia, że ​​ten amulet zna lokalizację {@item Prismatic Well|NRH-AT} i poprowadzi postać prosto do jej lokalizacji. Kiedy drużyna wychodzi na zewnątrz, widzi w oddali Tajemniczą Górę, a postać dostrojona do amuletu może wyczuć, że {@item Prismatic Well|NRH-AT} jest w górach. Jeśli postać powie to panu Honeycuttowi, zdejmie okulary i powie: „A więc Tajemnicza Góra! Wiedziałem o tym!”",
+        "Pan Honeycutt nadaje każdej postaci a {@item potion of healing} i życzy im wszystkiego najlepszego w ich poszukiwaniach. Poszedłby z nimi, ale współpracuje z Towarzystwem Strażników Wiedzy nad zaklęciem mającym pomóc obywatelom zmagającym się z rosnącym brakiem koloru w mieście."
+      ],
+      "id": "00b"
+    },
+    "0:00c": {
+      "type": "entries",
+      "name": "Wyprawa na Tajemniczą Górę",
+      "page": 4,
+      "entries": [
+        "Szlak do Mystery Mountain to długa wędrówka przez mgliste, porośnięte drzewami wzgórza niedaleko Harmony. {@item Amulet of Harmony|NRH-AT} coraz bardziej przyciąga swojego posiadacza do stromych, granitowych zboczy góry, która unosi się nad nimi.",
+        "Podróż może przebiegać spokojnie lub możesz wprowadzić jedno lub oba z poniższych spotkań.",
+        {
+          "type": "entries",
+          "name": "Ratowanie Cublets",
+          "page": 4,
+          "entries": [
+            "Drużyna słyszy dziwny dźwięk, który Czerwony Strażnik identyfikuje jako pohukiwanie sowiodźwiedzia. Jeśli zbadają sprawę, partia uzna, że ​​to matka {@creature owlbear} woła swoje dwie córeczki, które wpadły do ​​szczeliny. Sowomiś nie jest zainteresowany atakowaniem drużyny, a jedynie ratowaniem swoich młodych.",
+            "Jeśli jednak postacie spróbują pomóc, opiekuńcza-sowa-niedźwiedzica zaatakuje drużynę, chyba że którejś z postaci się to uda. {@dc 15} Mądrość ({@skill Animal Handling}) sprawdzać. W przypadku niepowodzenia nikt nie może zbliżyć się do kociaków sowiodźwiedzi bez ataku ze strony matki. Każda postać może podjąć próbę tylko raz.",
+            {
+              "type": "entries",
+              "name": "Ratowanie Cublets",
+              "page": 4,
+              "entries": [
+                "Szczelina jest mała, co utrudnia wspinaczkę, ale postać, której się to uda {@dc 14} Wytrzymałość ({@skill Athletics}) check może zejść na dół i zabrać kociaki z powrotem w bezpieczne miejsce z wdzięczną mamą."
+              ],
+              "id": "00e"
+            }
+          ],
+          "id": "00d"
+        },
+        {
+          "type": "entries",
+          "name": "Zasadzka!",
+          "page": 4,
+          "entries": [
+            "Jeśli twoi gracze lubią walkę, możesz wpaść w zasadzkę o ósmej {@creature skeleton||szkielety} które wyłaniają się z ziemi, gdy bohaterowie wędrują po zboczu góry."
+          ],
+          "id": "00f"
+        }
+      ],
+      "id": "00c"
+    },
+    "0:00d": {
+      "type": "entries",
+      "name": "Ratowanie Cublets",
+      "page": 4,
+      "entries": [
+        "Drużyna słyszy dziwny dźwięk, który Czerwony Strażnik identyfikuje jako pohukiwanie sowiodźwiedzia. Jeśli zbadają sprawę, partia uzna, że ​​to matka {@creature owlbear} woła swoje dwie córeczki, które wpadły do ​​szczeliny. Sowomiś nie jest zainteresowany atakowaniem drużyny, a jedynie ratowaniem swoich młodych.",
+        "Jeśli jednak postacie spróbują pomóc, opiekuńcza-sowa-niedźwiedzica zaatakuje drużynę, chyba że którejś z postaci się to uda. {@dc 15} Mądrość ({@skill Animal Handling}) sprawdzać. W przypadku niepowodzenia nikt nie może zbliżyć się do kociaków sowiodźwiedzi bez ataku ze strony matki. Każda postać może podjąć próbę tylko raz.",
+        {
+          "type": "entries",
+          "name": "Ratowanie Cublets",
+          "page": 4,
+          "entries": [
+            "Szczelina jest mała, co utrudnia wspinaczkę, ale postać, której się to uda {@dc 14} Wytrzymałość ({@skill Athletics}) check może zejść na dół i zabrać kociaki z powrotem w bezpieczne miejsce z wdzięczną mamą."
+          ],
+          "id": "00e"
+        }
+      ],
+      "id": "00d"
+    },
+    "0:00e": {
+      "type": "entries",
+      "name": "Ratowanie Cublets",
+      "page": 4,
+      "entries": [
+        "Szczelina jest mała, co utrudnia wspinaczkę, ale postać, której się to uda {@dc 14} Wytrzymałość ({@skill Athletics}) check może zejść na dół i zabrać kociaki z powrotem w bezpieczne miejsce z wdzięczną mamą."
+      ],
+      "id": "00e"
+    },
+    "0:00f": {
+      "type": "entries",
+      "name": "Zasadzka!",
+      "page": 4,
+      "entries": [
+        "Jeśli twoi gracze lubią walkę, możesz wpaść w zasadzkę o ósmej {@creature skeleton||szkielety} które wyłaniają się z ziemi, gdy bohaterowie wędrują po zboczu góry."
+      ],
+      "id": "00f"
+    },
+    "0:010": {
+      "type": "section",
+      "name": "Tajemnicza Góra",
+      "page": 4,
+      "entries": [
+        "Wnętrze Mystery Mountain to seria z grubsza wyrzeźbionych tuneli. Mają następujące właściwości, jeśli nie zaznaczono inaczej:",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Ciemność",
+                  "page": 4,
+                  "entries": [
+                    "Tunele i jaskinie nie zawierają źródeł światła."
+                  ],
+                  "id": "013"
+                },
+                {
+                  "type": "entries",
+                  "name": "Sufity i ściany",
+                  "page": 4,
+                  "entries": [
+                    "Korytarze mają 10 stóp szerokości i wysokości, a sufity mają około 20 stóp wysokości."
+                  ],
+                  "id": "014"
+                }
+              ],
+              "id": "012"
+            }
+          ],
+          "id": "011"
+        },
+        "Następujące lokalizacje są powiązane z mapą Mystery Mountain:",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-AT/014.webp"
+          },
+          "width": 1931,
+          "height": 2156,
+          "mapRegions": [
+            {
+              "area": "015",
+              "points": [
+                [
+                  793,
+                  1880
+                ],
+                [
+                  793,
+                  1984
+                ],
+                [
+                  883,
+                  1984
+                ],
+                [
+                  883,
+                  1880
+                ]
+              ]
+            },
+            {
+              "area": "018",
+              "points": [
+                [
+                  426,
+                  1537
+                ],
+                [
+                  480,
+                  1491
+                ],
+                [
+                  460,
+                  1479
+                ],
+                [
+                  457,
+                  1411
+                ],
+                [
+                  496,
+                  1396
+                ],
+                [
+                  526,
+                  1371
+                ],
+                [
+                  537,
+                  1350
+                ],
+                [
+                  583,
+                  1343
+                ],
+                [
+                  623,
+                  1334
+                ],
+                [
+                  660,
+                  1313
+                ],
+                [
+                  671,
+                  1301
+                ],
+                [
+                  637,
+                  1239
+                ],
+                [
+                  617,
+                  1261
+                ],
+                [
+                  569,
+                  1279
+                ],
+                [
+                  547,
+                  1270
+                ],
+                [
+                  521,
+                  1244
+                ],
+                [
+                  496,
+                  1237
+                ],
+                [
+                  371,
+                  1236
+                ],
+                [
+                  350,
+                  1249
+                ],
+                [
+                  340,
+                  1261
+                ],
+                [
+                  327,
+                  1283
+                ],
+                [
+                  307,
+                  1303
+                ],
+                [
+                  311,
+                  1331
+                ],
+                [
+                  319,
+                  1371
+                ],
+                [
+                  336,
+                  1390
+                ],
+                [
+                  380,
+                  1410
+                ],
+                [
+                  383,
+                  1450
+                ],
+                [
+                  380,
+                  1480
+                ],
+                [
+                  383,
+                  1501
+                ],
+                [
+                  397,
+                  1529
+                ]
+              ]
+            },
+            {
+              "area": "01b",
+              "points": [
+                [
+                  940,
+                  1387
+                ],
+                [
+                  963,
+                  1327
+                ],
+                [
+                  993,
+                  1304
+                ],
+                [
+                  1031,
+                  1296
+                ],
+                [
+                  1066,
+                  1287
+                ],
+                [
+                  1106,
+                  1287
+                ],
+                [
+                  1137,
+                  1293
+                ],
+                [
+                  1161,
+                  1303
+                ],
+                [
+                  1184,
+                  1316
+                ],
+                [
+                  1191,
+                  1350
+                ],
+                [
+                  1217,
+                  1373
+                ],
+                [
+                  1234,
+                  1409
+                ],
+                [
+                  1234,
+                  1471
+                ],
+                [
+                  1227,
+                  1506
+                ],
+                [
+                  1186,
+                  1540
+                ],
+                [
+                  1139,
+                  1549
+                ],
+                [
+                  1051,
+                  1544
+                ],
+                [
+                  1003,
+                  1530
+                ],
+                [
+                  964,
+                  1490
+                ],
+                [
+                  940,
+                  1431
+                ]
+              ]
+            },
+            {
+              "area": "01c",
+              "points": [
+                [
+                  1463,
+                  1043
+                ],
+                [
+                  1441,
+                  991
+                ],
+                [
+                  1393,
+                  951
+                ],
+                [
+                  1361,
+                  923
+                ],
+                [
+                  1363,
+                  900
+                ],
+                [
+                  1369,
+                  876
+                ],
+                [
+                  1369,
+                  853
+                ],
+                [
+                  1403,
+                  840
+                ],
+                [
+                  1436,
+                  826
+                ],
+                [
+                  1489,
+                  833
+                ],
+                [
+                  1524,
+                  863
+                ],
+                [
+                  1549,
+                  893
+                ],
+                [
+                  1576,
+                  934
+                ],
+                [
+                  1607,
+                  963
+                ],
+                [
+                  1680,
+                  1047
+                ],
+                [
+                  1709,
+                  1081
+                ],
+                [
+                  1730,
+                  1107
+                ],
+                [
+                  1751,
+                  1143
+                ],
+                [
+                  1770,
+                  1176
+                ],
+                [
+                  1761,
+                  1213
+                ],
+                [
+                  1753,
+                  1237
+                ],
+                [
+                  1727,
+                  1251
+                ],
+                [
+                  1681,
+                  1253
+                ],
+                [
+                  1649,
+                  1236
+                ],
+                [
+                  1614,
+                  1187
+                ],
+                [
+                  1583,
+                  1160
+                ],
+                [
+                  1526,
+                  1144
+                ],
+                [
+                  1491,
+                  1124
+                ],
+                [
+                  1516,
+                  1099
+                ],
+                [
+                  1500,
+                  1069
+                ]
+              ]
+            },
+            {
+              "area": "026",
+              "points": [
+                [
+                  251,
+                  624
+                ],
+                [
+                  253,
+                  480
+                ],
+                [
+                  274,
+                  407
+                ],
+                [
+                  294,
+                  360
+                ],
+                [
+                  341,
+                  323
+                ],
+                [
+                  381,
+                  317
+                ],
+                [
+                  417,
+                  307
+                ],
+                [
+                  459,
+                  313
+                ],
+                [
+                  517,
+                  323
+                ],
+                [
+                  556,
+                  364
+                ],
+                [
+                  591,
+                  411
+                ],
+                [
+                  633,
+                  469
+                ],
+                [
+                  654,
+                  504
+                ],
+                [
+                  671,
+                  539
+                ],
+                [
+                  694,
+                  580
+                ],
+                [
+                  696,
+                  629
+                ],
+                [
+                  696,
+                  703
+                ],
+                [
+                  670,
+                  739
+                ],
+                [
+                  626,
+                  751
+                ],
+                [
+                  594,
+                  771
+                ],
+                [
+                  536,
+                  776
+                ],
+                [
+                  491,
+                  767
+                ],
+                [
+                  434,
+                  764
+                ],
+                [
+                  357,
+                  736
+                ],
+                [
+                  290,
+                  699
+                ],
+                [
+                  257,
+                  659
+                ]
+              ]
+            },
+            {
+              "area": "021",
+              "points": [
+                [
+                  1131,
+                  451
+                ],
+                [
+                  1160,
+                  393
+                ],
+                [
+                  1191,
+                  361
+                ],
+                [
+                  1239,
+                  343
+                ],
+                [
+                  1294,
+                  297
+                ],
+                [
+                  1339,
+                  250
+                ],
+                [
+                  1397,
+                  236
+                ],
+                [
+                  1437,
+                  241
+                ],
+                [
+                  1470,
+                  286
+                ],
+                [
+                  1484,
+                  331
+                ],
+                [
+                  1483,
+                  393
+                ],
+                [
+                  1481,
+                  456
+                ],
+                [
+                  1471,
+                  501
+                ],
+                [
+                  1430,
+                  556
+                ],
+                [
+                  1390,
+                  577
+                ],
+                [
+                  1344,
+                  580
+                ],
+                [
+                  1296,
+                  573
+                ],
+                [
+                  1259,
+                  591
+                ],
+                [
+                  1194,
+                  587
+                ],
+                [
+                  1149,
+                  557
+                ],
+                [
+                  1133,
+                  497
+                ]
+              ]
+            }
+          ],
+          "imageType": "mapa",
+          "grid": {
+            "type": "square",
+            "size": 70,
+            "offsetX": -70,
+            "scale": 2
+          },
+          "hrefThumbnail": {
+            "type": "internal",
+            "path": "adventure/NRH-AT/thumbnail/014.webp"
+          },
+          "id": "032",
+          "credit": "Red Central"
+        },
+        {
+          "type": "entries",
+          "name": "M1. Wejście do jaskini",
+          "page": 4,
+          "entries": [
+            "Wejście do Mystery Mountain jest ukryte za odsłoniętymi korzeniami drzewa rosnącego nad drzwiami. Postać, która pomyślnie wykona rzut na Mądrość {@dc 12} ({@skill Perception}), znajdzie drzwi w czasie krótszym niż pięć minut. W przypadku niepowodzenia drużyna musi szukać przez pół godziny, zanim odkryje drzwi i ma 50% szans na spotkanie sześciu {@creature skeleton||szkielety} podczas patrolu w poszukiwaniu {@creature Mr. Greystone|NRH-AT}. Ktokolwiek jest dostrojony do {@item Amulet of Harmony|NRH-AT}, ma przewagę w sprawdzaniu, czy zauważa drzwi.",
+            "Za korzeniami wejście jest wykute w granitowym klifie. W granitowych drzwiach wyryte są błyskawice. Mają dziurkę od klucza, ale nie mają klamki.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Odblokowanie drzwi",
+                  "page": 5,
+                  "entries": [
+                    "Klucz do drzwi jest w środku {@creature Mr. Greystone|NRH-AT}kieszeni, więc zamek musi zostać złamany pomyślnie {@dc 15} Zręczność ({@skill Sleight of Hand}) sprawdzać. W przypadku niepowodzenia postać, która próbowała otworzyć zamek, otrzymuje 6 ({@damage 1d12}) obrażenia od błyskawic i zostaje odepchnięty o 5 stóp.",
+                    "Po otwarciu drzwi drużyna może zobaczyć wypełniony pajęczyną tunel wiodący w ciemność Tajemniczej Góry."
+                  ],
+                  "id": "017"
+                }
+              ],
+              "id": "016"
+            }
+          ],
+          "id": "015"
+        },
+        {
+          "type": "entries",
+          "name": "M2. Gazowa Jaskinia",
+          "page": 5,
+          "entries": [
+            "Szkodliwie pachnący gaz wypełnia tunel przed jaskinią mglistym, zielonkawym dymem. Gaz gasi wszelkie niemagiczne światło. Stworzenie, które wejdzie w gaz, musi wykonać a {@dc 13} Rzut obronny na Kondycję lub rzut 7 ({@damage 2d6}) obrażenia od trucizny i stać się {@condition blinded} przez 1 minutę. Po udanym rzucie obronnym istota otrzymuje o połowę mniejsze obrażenia, a tak nie jest {@condition blinded}. A {@condition blinded} stworzenie może zrobić {@dc 15} Rzut obronny na Kondycję na koniec każdej swojej tury, kończący oślepienie w przypadku sukcesu. Jeśli inne stworzenie odniesie sukces {@dc 12} Inteligencja ({@skill Medicine}) sprawdź, {@condition blinded} stworzenie wykonuje kolejny rzut obronny na Kondycję z przewagą.",
+            "Gaz wydobywa się z drewnianej skrzynki o powierzchni 4 stóp kwadratowych, ustawionej na stole pośrodku pokoju. Pudełko ma z boku pięć drewnianych dźwigni. Na pudełku znajduje się mosiężna tabliczka z napisem: „{@creature Mr. Greystone|NRH-AT}Pudełko Gazowe.”",
+            "Jeśli pociągnie się właściwą dźwignię, gaz przestanie wydobywać się ze skrzynki, a rozproszenie się z obszaru zajmuje około 5 minut.",
+            "Jeśli zostanie pociągnięta niewłaściwa dźwignia lub pudełko otrzyma więcej niż 5 punktów obrażeń, eksploduje. Każde stworzenie w promieniu 15 stóp od niego musi wykonać {@dc 12} Rzut obronny na zręczność, biorąc 7 ({@damage 2d6}) obrażenia przebijające przy nieudanym rzucie obronnym lub o połowę mniejsze przy udanym.",
+            {
+              "type": "entries",
+              "name": "Zgadywanie dźwigni",
+              "page": 5,
+              "entries": [
+                "Jeśli postać spróbuje odgadnąć właściwą dźwignię, rzuć a {@dice d10}. Na 1 lub 2 zgadują poprawnie i gaz przestaje płynąć."
+              ],
+              "id": "019"
+            },
+            {
+              "type": "entries",
+              "name": "Wyprowadzenie dźwigni",
+              "page": 5,
+              "entries": [
+                "Postać może także spróbować wydedukować, która dźwignia jest właściwa, sprawdzając zużycie uchwytów. Jeśli gracz powie, że tego właśnie szuka jego postać, niech wykona a {@dc 12} Mądrość ({@skill Perception}) sprawdź z korzyścią. W przypadku powodzenia zauważają zużycie właściwej dźwigni. W przypadku niepowodzenia nadal mogą zgadywać, ale szanse są na ich korzyść, więc wynik 1-5 daje im właściwy wybór."
+              ],
+              "id": "01a"
+            }
+          ],
+          "id": "018"
+        },
+        {
+          "type": "entries",
+          "name": "M3. Pokój Szkieletu",
+          "page": 5,
+          "entries": [
+            "W tym pokoju jest dziesięć {@creature skeleton||szkielety}wszyscy w pasujących kombinezonach z logo z tyłu: „{@creature Mr. Greystone|NRH-AT}Garden Care.” Szkielety stoją wokół sprzętu ogrodniczego - dwóch taczek, kosy, grabi, motyk, kilofa i kilku sekatorów.",
+            "Szkielety są uśpione, dopóki nie zostaną zaatakowane lub dopóki coś nie wyda dźwięku, który je zaalarmuje. Drużyna może przekraść się obok lub podkraść się do szkieletów, jeśli zakończy się sukcesem {@dc 13} grupa Zręczności ({@skill Stealth}) sprawdzać.",
+            "Jeśli drużyna zaatakuje uśpione szkielety, szkielety są {@status surprised} (patrz zasady Niespodzianki w Zasadach Podstawowych D&D), a drużyna ma przewagę w swoich atakach podczas pierwszej rundy walki.",
+            "Poza sprzętem ogrodniczym w pokoju nie ma nic wartościowego."
+          ],
+          "id": "01b"
+        },
+        {
+          "type": "entries",
+          "name": "M4. Otchłań Zagłady",
+          "page": 5,
+          "entries": [
+            "Ta długa jaskinia biegnie prostopadle do korytarza. Pomiędzy zachodnim i wschodnim przejściem znajduje się szeroka na 20 stóp przepaść, której dna nie widać. We wschodnim przejściu widać drzwi.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Przedostawanie się",
+                  "page": 5,
+                  "entries": [
+                    "Istnieje wiele sposobów na przekroczenie przepaści - na przykład za pomocą zaklęć lub haków - ale niezależnie od tego, jak się przedostaną, postacie muszą zachować szczególną ciszę. Postacie z pasywną Mądrością ({@skill Perception}) wynik 12 lub więcej zauważa ślady pazurów na bokach ścian przepaści.",
+                    "Jeśli postacie hałasują podczas przekraczania przepaści, muszą odnieść sukces na a {@dc 10} grupa Zręczności ({@skill Stealth}) sprawdź, albo zaalarmują pięć {@creature ghoul||ghule} którego pazury słychać drapiące ściany przepaści. Ghule przybywają w ciągu trzech tur.",
+                    "Jeśli ghule podążają za postaciami po przekroczeniu przepaści, mogą uciec przez drzwi i zaryglować je za sobą."
+                  ],
+                  "id": "01e"
+                },
+                {
+                  "type": "entries",
+                  "name": "Budowanie napięcia",
+                  "page": 6,
+                  "entries": [
+                    "Jako DM możesz także opisać całą hordę ghuli wdzierających się w górę przepaści - ale tylko po to, aby wywołać napięcie. Przypominaj swoim graczom o niebezpieczeństwie poprzez wydawane przez nich dźwięki - szczękanie i syczenie - gdy zbliżają się do przepaści. Możesz to zrobić tak, aby ghule przybyły w chwili, gdy drużyna ucieka przez drzwi, i aby słyszały drapanie i wrzaski, gdy opuszczają rygiel, aby zaryglować drzwi. Jeśli drużyna wróci później do drzwi, ghule zeszły w przepaść."
+                  ],
+                  "id": "01f"
+                },
+                {
+                  "type": "entries",
+                  "name": "Wpadnięcie w przepaść",
+                  "page": 6,
+                  "entries": [
+                    "Jeśli postać będzie miała takiego pecha i wpadnie w przepaść, możesz poprosić ją, aby chwyciła się losowego korzenia lub półki, aby uchronić się przed pewną zagładą i pozwoliła jej się wydostać przy pomocy liny. Jednakże wpadnięcie w przepaść ostrzega ghule (patrz „Budowanie napięcia” powyżej)."
+                  ],
+                  "id": "020"
+                }
+              ],
+              "id": "01d"
+            }
+          ],
+          "id": "01c"
+        },
+        {
+          "type": "entries",
+          "name": "M5. Klasztor Flumph",
+          "page": 6,
+          "entries": [
+            "Pokój ten jest zajęty przez {@creature Maude|NRH-AT}, a {@creature bugbear chief}i jej czwórka {@creature goon|NRH-ASS|zbiry}, którzy szturchają i szturchają tuzin drżących {@creature flumph||fauluje}. Niedźwiedź robak i zbiry wszyscy mają na sobie „{@creature Mr. Greystone|NRH-AT}„Garden Care”. Porozrzucane są skrzynki z zapasami i czymś, co wygląda na tajemny sprzęt laboratoryjny. Postać, która odniesie sukces w {@dc 13} Inteligencja ({@skill Arcana}) może stwierdzić, że ten sprzęt jest najprawdopodobniej używany do wysysania magicznej energii - prawdopodobnie z {@item Prismatic Well|NRH-AT}.",
+            "Zbiry Maud śmieją się, wywracając je do góry nogami i próbując nadać im mocniejszy odcień fioletu - co jest szczególnie pokręconym zajęciem w czasach, gdy kolory już prawie zniknęły ze świata.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Radzenie sobie z problemami",
+                  "page": 6,
+                  "entries": [
+                    "{@creature Maude|NRH-AT}, szef niedźwiedzia robala, ma za zadanie chronić tajne drzwi do {@item Prismatic Well|NRH-AT} w obszarze M6. Jeśli postacie zbliżają się do drzwi, rozkazuje swoim zbirom zaatakować. {@creature Maude|NRH-AT} jest arogancka, ale nie jest manekinem i próbuje zepsuć imprezę, okłamując ich kłamstwami w stylu:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "Już przeszli {@item Prismatic Well|NRH-AT}.",
+                        "Jest już za późno.",
+                        "Nie ma tu studni. Właściwie znajduje się pod Harmonią.",
+                        "Są w złym miejscu."
+                      ]
+                    },
+                    "Jeśli poszukiwacze przygód pokażą {@creature Maude|NRH-AT} {@item Amulet of Harmony|NRH-AT}, żąda, aby jej go dali, mówiąc, że jej szef sowicie za to zapłaci. Jeśli poszukiwacze przygód odmówią, {@creature Maude|NRH-AT} każe zbirom go zdobyć."
+                  ],
+                  "id": "023"
+                },
+                {
+                  "type": "entries",
+                  "name": "Wskazówki telepatyczne",
+                  "page": 6,
+                  "entries": [
+                    "Jeśli poszukiwacze przygód wydają się przyjaźnie nastawieni lub próbują chronić flumphów, wówczas przywódca flumphów, GuBu, kontaktuje się telepatycznie z jednym z członków drużyny, który ujawnia dwie rzeczy:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "GuBu zna lokalizację sekretnych drzwi w tym pomieszczeniu i pomoże drużynie najlepiej jak potrafi. GuBu jest gotowy zrobić niemal wszystko (z wyjątkiem poświęcenia siebie lub jednego ze swoich kolegów z klasztoru), aby pozbyć się niedźwiedzi robali i umożliwić im powrót do idyllicznej podziemnej egzystencji.",
+                        "GuBu podsłuchał rozmowę z „Szarym Człowiekiem”. {@creature Maude|NRH-AT} o „zabijaniu”. {@creature Emo|NRH-AT}.” Jeśli zapytano o „{@creature Emo|NRH-AT}”, odpowiada na to GuBu {@creature Emo|NRH-AT} to „smutny bal” i że wszystkim skurwysynom jest z tego powodu smutek i liczą, że będzie lepiej. GuBu zastanawia się, czy smutny bal nie chciałby pewnego dnia wstąpić do ich klasztoru.",
+                        "Szary Człowiek jest straszny, niebezpieczny i chce „zniszczyć wszystkie kolory”. GuBu telepatycznie wzdryga się na tę myśl."
+                      ]
+                    }
+                  ],
+                  "id": "024"
+                },
+                {
+                  "type": "entries",
+                  "name": "Sekretne drzwi",
+                  "page": 6,
+                  "entries": [
+                    "Sekretne drzwi do obszaru M6 są dobrze ukryte za skrzynią. Jeśli postać podsłuchuje przy drzwiach i uda mu się {@dc 14} Mądrość ({@skill Perception}) sprawdź, słyszą płacz i kłótnię, a także słabe buczenie. Sekretne drzwi nie są zamknięte i otwierają się płynnie po naciśnięciu."
+                  ],
+                  "id": "025"
+                }
+              ],
+              "id": "022"
+            }
+          ],
+          "id": "021"
+        },
+        {
+          "type": "entries",
+          "name": "M6. Studnia pryzmatyczna",
+          "page": 7,
+          "entries": [
+            "Kiedy poszukiwacze przygód wejdą do tej jaskini, przeczytaj lub sparafrazuj następujące słowa:",
+            {
+              "type": "insetReadaloud",
+              "page": 7,
+              "entries": [
+                "Widzisz dużą jaskinię oświetloną olśniewającymi kolorami, jakich nigdy wcześniej nie widziałeś. Kolory wylewają się z kamiennego kręgu na podłodze, który musi być niczym innym jak legendarnym {@item Prismatic Well|NRH-AT}.",
+                "Obok {@item Prismatic Well|NRH-AT} to wyglądające na przygnębione, kuliste stworzenie z elastycznymi rurkami podłączonymi do dziesięciu opadających gałek ocznych. Rury są połączone ze złożonym aparatem, który jest umieszczony nad otworem {@item Prismatic Well|NRH-AT}. Wygląda na to, że urządzenie wysysa kolory ze studni i wprowadza je do kulistego stworzenia poprzez rurki podłączone do jego gałek ocznych - chociaż wygląda na to, że urządzenie nie działa zbyt dobrze, ponieważ kolory rozpryskują się i sypią w pomieszczeniu. Stworzenie płacze z frustracji i desperacko próbuje wymyślić, jak naprawić swój aparat.",
+                "Obok wielookiego stworzenia stoi wysoki brutal, mężczyzna w szarym płaszczu, który ryczy ze złością na stworzenie. Za płaszczem mężczyzny czai się potwór wielkości psa z jednym złowrogim okiem."
+              ],
+              "id": "027"
+            },
+            "Kulisty potwór jest {@creature Emo|NRH-AT}, a {@creature beholder}. Brutalny człowiek jest {@creature Mr. Greystone|NRH-AT} a mały potwór z jednym okiem to Furzle, {@creature Mr. Greystone|NRH-AT}'s {@creature nothic} asystent.",
+            {
+              "type": "entries",
+              "name": "Odgrywanie roli pana Greystone'a",
+              "page": 7,
+              "entries": [
+                "{@creature Mr. Greystone|NRH-AT} wyjaśnia, że ​​chce rzeczy czarno-białych. Ma już dość „kolorów i różnorodności w Harmonii”. {@creature Mr. Greystone|NRH-AT} chce zniszczyć studnię i przywrócić „stare, dobre czasy, kiedy było mniej… kolorowo”. Jest już zmęczony {@creature Emo|NRH-AT}„brak kręgosłupa” i chętnie poświęciłby patrzącego, gdyby oznaczało to zniszczenie studni.",
+                "Jeśli {@creature Mr. Greystone|NRH-AT} widzi {@item Amulet of Harmony|NRH-AT}, wie, że to jego bilet do bezbarwnego świata i robi wszystko, co w jego mocy, aby go zdobyć - niezależnie od tego, czy oferuje drużynie 2000 gp, czy grozi im wszystkim, że ich wszystkich bije, czego szybko nie zapomną. {@creature Mr. Greystone|NRH-AT} jest częściowy w stosunku do tego ostatniego."
+              ],
+              "id": "028"
+            },
+            {
+              "type": "entries",
+              "name": "Odgrywanie ról Emo",
+              "page": 7,
+              "entries": [
+                "{@creature Emo|NRH-AT} jest obserwatorem, który badał wywołujące radość skutki {@item Prismatic Well|NRH-AT} i przybył na płaszczyznę Harmonii, aby wyleczyć jej melancholię. {@creature Emo|NRH-AT} wierzy, że jeśli uda im się wchłonąć wszystkie magiczne kolory, to w jakiś sposób ich smutek zostanie wyleczony i będą mogli żyć długo i szczęśliwie. Nie przejmują się Harmonią i jej obywatelami, ponieważ są bardzo zajęci sobą.",
+                "Choć są niezwykle potężni, {@creature Emo|NRH-AT} nie jest wojownikiem i atakuje jedynie w samoobronie. Jeśli jednak impreza będzie miła {@creature Emo|NRH-AT} i ma problemy z walką {@creature Mr. Greystone|NRH-AT}, Następnie {@creature Emo|NRH-AT} prawdopodobnie pomoże drużynie, ponieważ Greystone chciał to zrobić {@creature Emo|NRH-AT}.",
+                "Jeśli {@creature Emo|NRH-AT} zaoferowano im życzliwość i przyjaźń - na przykład dom w klasztorze Flumph - są gotowi zmienić swój plan. Przekonywający {@creature Emo|NRH-AT} porzucenie swojego aparatu i wypróbowanie innego sposobu na znalezienie szczęścia wymaga sukcesu {@dc 14} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli GuBu jest obecny lub oferują postacie {@creature Emo|NRH-AT} dom w klasztorze Flumph, czek jest korzystny."
+              ],
+              "id": "029"
+            },
+            {
+              "type": "entries",
+              "name": "Odgrywanie ról Furzle’a",
+              "page": 7,
+              "entries": [
+                "Furzle jest bardzo lojalny {@creature Mr. Greystone|NRH-AT} (ze strachu) i uwielbia przekazywać tajne informacje swojemu panu. Ale jeśli Furzle zostanie {@condition frightened} lub zostaje zredukowany do połowy maksymalnego punktu wytrzymałości, ucieka z krzykiem, porzucając swojego pana. Furzle jest mądry i robi wszystko, co w jego mocy, aby przetrwać, nawet jeśli oznacza to nawiązanie przyjaźni."
+              ],
+              "id": "02a"
+            }
+          ],
+          "id": "026"
+        },
+        {
+          "type": "entries",
+          "name": "Przywrócona harmonia",
+          "page": 7,
+          "entries": [
+            "Jeśli poszukiwaczom przygód uda się pokonać {@creature Mr. Greystone|NRH-AT} i cofnięcie {@creature Emo|NRH-AT}plan wchłonięcia kolorów Harmonii, mogą wykorzystać {@item Amulet of Harmony|NRH-AT} aby przywrócić {@item Prismatic Well|NRH-AT} (patrz „Otwieranie pudełka” powyżej). Jeśli to zrobią, kolory studni będą olśniewające, gdy wystrzelą w górę przez sufit jaskini, która świeci i szumi mocą kolorów.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Emo i Flumphowie",
+                  "page": 8,
+                  "entries": [
+                    "Jeśli poszukiwacze przygód przekonają {@creature Emo|NRH-AT} aby wstąpić do klasztoru flumph, GuBu słucha {@creature Emo|NRH-AT}Historia o byciu dziwakiem i poczuciu się opuszczona, jest mile widziana {@creature Emo|NRH-AT} do ich klasztoru. Wszystkie flumphy zmieniają kolor na jasne odcienie żółtego i zielonego, a ich kolor zostaje przywrócony. Dziękują drużynie telepatycznie uroczym chórem wdzięczności."
+                  ],
+                  "id": "02d"
+                },
+                {
+                  "type": "entries",
+                  "name": "Walka z Furzlem",
+                  "page": 8,
+                  "entries": [
+                    "Jeśli Furzle ucieknie podczas spotkania przy studni, postacie mogą zdecydować się na wyśledzenie nothika, aby nie sprawiał większych kłopotów. Możesz sobie z tym poradzić w dowolny sposób. Jednym ze sposobów jest dogonienie drużyny przez Furzle'a próbującego przekroczyć przepaść w obszarze M4. Chociaż ma skłonność do zdrady, jeśli potraktuje się go z życzliwością, Furzle może zostać wspaniałym pomocnikiem czarodzieja. Być może, jeśli będzie prowadzony pod silną ręką dyrektora Gustavy, Furzle stanie się cennym nabytkiem."
+                  ],
+                  "id": "02e"
+                },
+                {
+                  "type": "entries",
+                  "name": "Przywracanie harmonii",
+                  "page": 8,
+                  "entries": [
+                    "Z {@item Prismatic Well|NRH-AT} przywrócona do pełnej mocy, magia Harmonii powraca, a miasto znów tętni kolorami. Kiedy bohaterowie wracają do miasta, zostają okrzyknięci bohaterami podczas ceremonii wręczenia nagród, podczas której Gustaw Wielki przypina im medale, przyznając im najwyższe odznaczenie Akademii Prism - Order Zimandiusa. Następnie burmistrz daje każdemu z nich klucz do miasta Harmonii, a pan Honeycutt ma go zwrócić {@item Amulet of Harmony|NRH-AT} do Towarzystwa Lorekeeperów. Pan Honeycutt oficjalnie wpisuje każdego z nich do ksiąg Towarzystwa Strażników Wiedzy jako honorowych członków sekty i zaprzysiężonych obrońców Harmonii."
+                  ],
+                  "id": "02f"
+                }
+              ],
+              "id": "02c"
+            }
+          ],
+          "id": "02b"
+        },
+        {
+          "type": "entries",
+          "name": "Harmonia zniweczona",
+          "page": 8,
+          "entries": [
+            "Jeśli poszukiwacze przygód zawiodą, {@creature Mr. Greystone|NRH-AT} albo używa {@item Amulet of Harmony|NRH-AT} zniszczyć {@item Prismatic Well|NRH-AT} lub ma {@creature Emo|NRH-AT} znajdź sposób, aby wyssać cały kolor ze studni, tworząc czarno-biały świat pozbawiony radości i cudów.",
+            "Oczywiście, coś takiego nigdy nie może się zdarzyć! Jeśli wszystko pójdzie nie tak, pan Honeycutt i dyrektor Gustava przybywają w samą porę, aby upewnić się, że zło zostanie pokonane, przywrócona zostanie harmonia, a wszystkie kolory ponownie ożywią świat."
+          ],
+          "id": "030"
+        },
+        {
+          "type": "entries",
+          "name": "Magiczne przedmioty",
+          "page": 8,
+          "entries": [
+            "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+            {
+              "type": "list",
+              "columns": 2,
+              "items": [
+                "{@item Amulet of Harmony|NRH-AT}",
+                "{@item Prismatic Well|NRH-AT}"
+              ]
+            }
+          ],
+          "id": "031"
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet013.webp"
+              },
+              "width": 1275,
+              "height": 825
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet014.webp"
+              },
+              "width": 1275,
+              "height": 825
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet015.webp"
+              },
+              "width": 1275,
+              "height": 825
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet016.webp"
+              },
+              "width": 1275,
+              "height": 825
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet017.webp"
+              },
+              "width": 1275,
+              "height": 825
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet018.webp"
+              },
+              "width": 1275,
+              "height": 825
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet019.webp"
+              },
+              "width": 1275,
+              "height": 825
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet020.webp"
+              },
+              "width": 1275,
+              "height": 825
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet021.webp"
+              },
+              "width": 1275,
+              "height": 825
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet022.webp"
+              },
+              "width": 1275,
+              "height": 825
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet023.webp"
+              },
+              "width": 1275,
+              "height": 825
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AT/sheet024.webp"
+              },
+              "width": 1275,
+              "height": 825
+            }
+          ]
+        }
+      ],
+      "id": "010"
+    },
+    "0:011": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Ciemność",
+              "page": 4,
+              "entries": [
+                "Tunele i jaskinie nie zawierają źródeł światła."
+              ],
+              "id": "013"
+            },
+            {
+              "type": "entries",
+              "name": "Sufity i ściany",
+              "page": 4,
+              "entries": [
+                "Korytarze mają 10 stóp szerokości i wysokości, a sufity mają około 20 stóp wysokości."
+              ],
+              "id": "014"
+            }
+          ],
+          "id": "012"
+        }
+      ],
+      "id": "011"
+    },
+    "0:012": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Ciemność",
+          "page": 4,
+          "entries": [
+            "Tunele i jaskinie nie zawierają źródeł światła."
+          ],
+          "id": "013"
+        },
+        {
+          "type": "entries",
+          "name": "Sufity i ściany",
+          "page": 4,
+          "entries": [
+            "Korytarze mają 10 stóp szerokości i wysokości, a sufity mają około 20 stóp wysokości."
+          ],
+          "id": "014"
+        }
+      ],
+      "id": "012"
+    },
+    "0:013": {
+      "type": "entries",
+      "name": "Ciemność",
+      "page": 4,
+      "entries": [
+        "Tunele i jaskinie nie zawierają źródeł światła."
+      ],
+      "id": "013"
+    },
+    "0:014": {
+      "type": "entries",
+      "name": "Sufity i ściany",
+      "page": 4,
+      "entries": [
+        "Korytarze mają 10 stóp szerokości i wysokości, a sufity mają około 20 stóp wysokości."
+      ],
+      "id": "014"
+    },
+    "0:015": {
+      "type": "entries",
+      "name": "M1. Wejście do jaskini",
+      "page": 4,
+      "entries": [
+        "Wejście do Mystery Mountain jest ukryte za odsłoniętymi korzeniami drzewa rosnącego nad drzwiami. Postać, która pomyślnie wykona rzut na Mądrość {@dc 12} ({@skill Perception}), znajdzie drzwi w czasie krótszym niż pięć minut. W przypadku niepowodzenia drużyna musi szukać przez pół godziny, zanim odkryje drzwi i ma 50% szans na spotkanie sześciu {@creature skeleton||szkielety} podczas patrolu w poszukiwaniu {@creature Mr. Greystone|NRH-AT}. Ktokolwiek jest dostrojony do {@item Amulet of Harmony|NRH-AT}, ma przewagę w sprawdzaniu, czy zauważa drzwi.",
+        "Za korzeniami wejście jest wykute w granitowym klifie. W granitowych drzwiach wyryte są błyskawice. Mają dziurkę od klucza, ale nie mają klamki.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Odblokowanie drzwi",
+              "page": 5,
+              "entries": [
+                "Klucz do drzwi jest w środku {@creature Mr. Greystone|NRH-AT}kieszeni, więc zamek musi zostać złamany pomyślnie {@dc 15} Zręczność ({@skill Sleight of Hand}) sprawdzać. W przypadku niepowodzenia postać, która próbowała otworzyć zamek, otrzymuje 6 ({@damage 1d12}) obrażenia od błyskawic i zostaje odepchnięty o 5 stóp.",
+                "Po otwarciu drzwi drużyna może zobaczyć wypełniony pajęczyną tunel wiodący w ciemność Tajemniczej Góry."
+              ],
+              "id": "017"
+            }
+          ],
+          "id": "016"
+        }
+      ],
+      "id": "015"
+    },
+    "0:016": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Odblokowanie drzwi",
+          "page": 5,
+          "entries": [
+            "Klucz do drzwi jest w środku {@creature Mr. Greystone|NRH-AT}kieszeni, więc zamek musi zostać złamany pomyślnie {@dc 15} Zręczność ({@skill Sleight of Hand}) sprawdzać. W przypadku niepowodzenia postać, która próbowała otworzyć zamek, otrzymuje 6 ({@damage 1d12}) obrażenia od błyskawic i zostaje odepchnięty o 5 stóp.",
+            "Po otwarciu drzwi drużyna może zobaczyć wypełniony pajęczyną tunel wiodący w ciemność Tajemniczej Góry."
+          ],
+          "id": "017"
+        }
+      ],
+      "id": "016"
+    },
+    "0:017": {
+      "type": "entries",
+      "name": "Odblokowanie drzwi",
+      "page": 5,
+      "entries": [
+        "Klucz do drzwi jest w środku {@creature Mr. Greystone|NRH-AT}kieszeni, więc zamek musi zostać złamany pomyślnie {@dc 15} Zręczność ({@skill Sleight of Hand}) sprawdzać. W przypadku niepowodzenia postać, która próbowała otworzyć zamek, otrzymuje 6 ({@damage 1d12}) obrażenia od błyskawic i zostaje odepchnięty o 5 stóp.",
+        "Po otwarciu drzwi drużyna może zobaczyć wypełniony pajęczyną tunel wiodący w ciemność Tajemniczej Góry."
+      ],
+      "id": "017"
+    },
+    "0:018": {
+      "type": "entries",
+      "name": "M2. Gazowa Jaskinia",
+      "page": 5,
+      "entries": [
+        "Szkodliwie pachnący gaz wypełnia tunel przed jaskinią mglistym, zielonkawym dymem. Gaz gasi wszelkie niemagiczne światło. Stworzenie, które wejdzie w gaz, musi wykonać a {@dc 13} Rzut obronny na Kondycję lub rzut 7 ({@damage 2d6}) obrażenia od trucizny i stać się {@condition blinded} przez 1 minutę. Po udanym rzucie obronnym istota otrzymuje o połowę mniejsze obrażenia, a tak nie jest {@condition blinded}. A {@condition blinded} stworzenie może zrobić {@dc 15} Rzut obronny na Kondycję na koniec każdej swojej tury, kończący oślepienie w przypadku sukcesu. Jeśli inne stworzenie odniesie sukces {@dc 12} Inteligencja ({@skill Medicine}) sprawdź, {@condition blinded} stworzenie wykonuje kolejny rzut obronny na Kondycję z przewagą.",
+        "Gaz wydobywa się z drewnianej skrzynki o powierzchni 4 stóp kwadratowych, ustawionej na stole pośrodku pokoju. Pudełko ma z boku pięć drewnianych dźwigni. Na pudełku znajduje się mosiężna tabliczka z napisem: „{@creature Mr. Greystone|NRH-AT}Pudełko Gazowe.”",
+        "Jeśli pociągnie się właściwą dźwignię, gaz przestanie wydobywać się ze skrzynki, a rozproszenie się z obszaru zajmuje około 5 minut.",
+        "Jeśli zostanie pociągnięta niewłaściwa dźwignia lub pudełko otrzyma więcej niż 5 punktów obrażeń, eksploduje. Każde stworzenie w promieniu 15 stóp od niego musi wykonać {@dc 12} Rzut obronny na zręczność, biorąc 7 ({@damage 2d6}) obrażenia przebijające przy nieudanym rzucie obronnym lub o połowę mniejsze przy udanym.",
+        {
+          "type": "entries",
+          "name": "Zgadywanie dźwigni",
+          "page": 5,
+          "entries": [
+            "Jeśli postać spróbuje odgadnąć właściwą dźwignię, rzuć a {@dice d10}. Na 1 lub 2 zgadują poprawnie i gaz przestaje płynąć."
+          ],
+          "id": "019"
+        },
+        {
+          "type": "entries",
+          "name": "Wyprowadzenie dźwigni",
+          "page": 5,
+          "entries": [
+            "Postać może także spróbować wydedukować, która dźwignia jest właściwa, sprawdzając zużycie uchwytów. Jeśli gracz powie, że tego właśnie szuka jego postać, niech wykona a {@dc 12} Mądrość ({@skill Perception}) sprawdź z korzyścią. W przypadku powodzenia zauważają zużycie właściwej dźwigni. W przypadku niepowodzenia nadal mogą zgadywać, ale szanse są na ich korzyść, więc wynik 1-5 daje im właściwy wybór."
+          ],
+          "id": "01a"
+        }
+      ],
+      "id": "018"
+    },
+    "0:019": {
+      "type": "entries",
+      "name": "Zgadywanie dźwigni",
+      "page": 5,
+      "entries": [
+        "Jeśli postać spróbuje odgadnąć właściwą dźwignię, rzuć a {@dice d10}. Na 1 lub 2 zgadują poprawnie i gaz przestaje płynąć."
+      ],
+      "id": "019"
+    },
+    "0:01a": {
+      "type": "entries",
+      "name": "Wyprowadzenie dźwigni",
+      "page": 5,
+      "entries": [
+        "Postać może także spróbować wydedukować, która dźwignia jest właściwa, sprawdzając zużycie uchwytów. Jeśli gracz powie, że tego właśnie szuka jego postać, niech wykona a {@dc 12} Mądrość ({@skill Perception}) sprawdź z korzyścią. W przypadku powodzenia zauważają zużycie właściwej dźwigni. W przypadku niepowodzenia nadal mogą zgadywać, ale szanse są na ich korzyść, więc wynik 1-5 daje im właściwy wybór."
+      ],
+      "id": "01a"
+    },
+    "0:01b": {
+      "type": "entries",
+      "name": "M3. Pokój Szkieletu",
+      "page": 5,
+      "entries": [
+        "W tym pokoju jest dziesięć {@creature skeleton||szkielety}wszyscy w pasujących kombinezonach z logo z tyłu: „{@creature Mr. Greystone|NRH-AT}Garden Care.” Szkielety stoją wokół sprzętu ogrodniczego - dwóch taczek, kosy, grabi, motyk, kilofa i kilku sekatorów.",
+        "Szkielety są uśpione, dopóki nie zostaną zaatakowane lub dopóki coś nie wyda dźwięku, który je zaalarmuje. Drużyna może przekraść się obok lub podkraść się do szkieletów, jeśli zakończy się sukcesem {@dc 13} grupa Zręczności ({@skill Stealth}) sprawdzać.",
+        "Jeśli drużyna zaatakuje uśpione szkielety, szkielety są {@status surprised} (patrz zasady Niespodzianki w Zasadach Podstawowych D&D), a drużyna ma przewagę w swoich atakach podczas pierwszej rundy walki.",
+        "Poza sprzętem ogrodniczym w pokoju nie ma nic wartościowego."
+      ],
+      "id": "01b"
+    },
+    "0:01c": {
+      "type": "entries",
+      "name": "M4. Otchłań Zagłady",
+      "page": 5,
+      "entries": [
+        "Ta długa jaskinia biegnie prostopadle do korytarza. Pomiędzy zachodnim i wschodnim przejściem znajduje się szeroka na 20 stóp przepaść, której dna nie widać. We wschodnim przejściu widać drzwi.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Przedostawanie się",
+              "page": 5,
+              "entries": [
+                "Istnieje wiele sposobów na przekroczenie przepaści - na przykład za pomocą zaklęć lub haków - ale niezależnie od tego, jak się przedostaną, postacie muszą zachować szczególną ciszę. Postacie z pasywną Mądrością ({@skill Perception}) wynik 12 lub więcej zauważa ślady pazurów na bokach ścian przepaści.",
+                "Jeśli postacie hałasują podczas przekraczania przepaści, muszą odnieść sukces na a {@dc 10} grupa Zręczności ({@skill Stealth}) sprawdź, albo zaalarmują pięć {@creature ghoul||ghule} którego pazury słychać drapiące ściany przepaści. Ghule przybywają w ciągu trzech tur.",
+                "Jeśli ghule podążają za postaciami po przekroczeniu przepaści, mogą uciec przez drzwi i zaryglować je za sobą."
+              ],
+              "id": "01e"
+            },
+            {
+              "type": "entries",
+              "name": "Budowanie napięcia",
+              "page": 6,
+              "entries": [
+                "Jako DM możesz także opisać całą hordę ghuli wdzierających się w górę przepaści - ale tylko po to, aby wywołać napięcie. Przypominaj swoim graczom o niebezpieczeństwie poprzez wydawane przez nich dźwięki - szczękanie i syczenie - gdy zbliżają się do przepaści. Możesz to zrobić tak, aby ghule przybyły w chwili, gdy drużyna ucieka przez drzwi, i aby słyszały drapanie i wrzaski, gdy opuszczają rygiel, aby zaryglować drzwi. Jeśli drużyna wróci później do drzwi, ghule zeszły w przepaść."
+              ],
+              "id": "01f"
+            },
+            {
+              "type": "entries",
+              "name": "Wpadnięcie w przepaść",
+              "page": 6,
+              "entries": [
+                "Jeśli postać będzie miała takiego pecha i wpadnie w przepaść, możesz poprosić ją, aby chwyciła się losowego korzenia lub półki, aby uchronić się przed pewną zagładą i pozwoliła jej się wydostać przy pomocy liny. Jednakże wpadnięcie w przepaść ostrzega ghule (patrz „Budowanie napięcia” powyżej)."
+              ],
+              "id": "020"
+            }
+          ],
+          "id": "01d"
+        }
+      ],
+      "id": "01c"
+    },
+    "0:01d": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Przedostawanie się",
+          "page": 5,
+          "entries": [
+            "Istnieje wiele sposobów na przekroczenie przepaści - na przykład za pomocą zaklęć lub haków - ale niezależnie od tego, jak się przedostaną, postacie muszą zachować szczególną ciszę. Postacie z pasywną Mądrością ({@skill Perception}) wynik 12 lub więcej zauważa ślady pazurów na bokach ścian przepaści.",
+            "Jeśli postacie hałasują podczas przekraczania przepaści, muszą odnieść sukces na a {@dc 10} grupa Zręczności ({@skill Stealth}) sprawdź, albo zaalarmują pięć {@creature ghoul||ghule} którego pazury słychać drapiące ściany przepaści. Ghule przybywają w ciągu trzech tur.",
+            "Jeśli ghule podążają za postaciami po przekroczeniu przepaści, mogą uciec przez drzwi i zaryglować je za sobą."
+          ],
+          "id": "01e"
+        },
+        {
+          "type": "entries",
+          "name": "Budowanie napięcia",
+          "page": 6,
+          "entries": [
+            "Jako DM możesz także opisać całą hordę ghuli wdzierających się w górę przepaści - ale tylko po to, aby wywołać napięcie. Przypominaj swoim graczom o niebezpieczeństwie poprzez wydawane przez nich dźwięki - szczękanie i syczenie - gdy zbliżają się do przepaści. Możesz to zrobić tak, aby ghule przybyły w chwili, gdy drużyna ucieka przez drzwi, i aby słyszały drapanie i wrzaski, gdy opuszczają rygiel, aby zaryglować drzwi. Jeśli drużyna wróci później do drzwi, ghule zeszły w przepaść."
+          ],
+          "id": "01f"
+        },
+        {
+          "type": "entries",
+          "name": "Wpadnięcie w przepaść",
+          "page": 6,
+          "entries": [
+            "Jeśli postać będzie miała takiego pecha i wpadnie w przepaść, możesz poprosić ją, aby chwyciła się losowego korzenia lub półki, aby uchronić się przed pewną zagładą i pozwoliła jej się wydostać przy pomocy liny. Jednakże wpadnięcie w przepaść ostrzega ghule (patrz „Budowanie napięcia” powyżej)."
+          ],
+          "id": "020"
+        }
+      ],
+      "id": "01d"
+    },
+    "0:01e": {
+      "type": "entries",
+      "name": "Przedostawanie się",
+      "page": 5,
+      "entries": [
+        "Istnieje wiele sposobów na przekroczenie przepaści - na przykład za pomocą zaklęć lub haków - ale niezależnie od tego, jak się przedostaną, postacie muszą zachować szczególną ciszę. Postacie z pasywną Mądrością ({@skill Perception}) wynik 12 lub więcej zauważa ślady pazurów na bokach ścian przepaści.",
+        "Jeśli postacie hałasują podczas przekraczania przepaści, muszą odnieść sukces na a {@dc 10} grupa Zręczności ({@skill Stealth}) sprawdź, albo zaalarmują pięć {@creature ghoul||ghule} którego pazury słychać drapiące ściany przepaści. Ghule przybywają w ciągu trzech tur.",
+        "Jeśli ghule podążają za postaciami po przekroczeniu przepaści, mogą uciec przez drzwi i zaryglować je za sobą."
+      ],
+      "id": "01e"
+    },
+    "0:01f": {
+      "type": "entries",
+      "name": "Budowanie napięcia",
+      "page": 6,
+      "entries": [
+        "Jako DM możesz także opisać całą hordę ghuli wdzierających się w górę przepaści - ale tylko po to, aby wywołać napięcie. Przypominaj swoim graczom o niebezpieczeństwie poprzez wydawane przez nich dźwięki - szczękanie i syczenie - gdy zbliżają się do przepaści. Możesz to zrobić tak, aby ghule przybyły w chwili, gdy drużyna ucieka przez drzwi, i aby słyszały drapanie i wrzaski, gdy opuszczają rygiel, aby zaryglować drzwi. Jeśli drużyna wróci później do drzwi, ghule zeszły w przepaść."
+      ],
+      "id": "01f"
+    },
+    "0:020": {
+      "type": "entries",
+      "name": "Wpadnięcie w przepaść",
+      "page": 6,
+      "entries": [
+        "Jeśli postać będzie miała takiego pecha i wpadnie w przepaść, możesz poprosić ją, aby chwyciła się losowego korzenia lub półki, aby uchronić się przed pewną zagładą i pozwoliła jej się wydostać przy pomocy liny. Jednakże wpadnięcie w przepaść ostrzega ghule (patrz „Budowanie napięcia” powyżej)."
+      ],
+      "id": "020"
+    },
+    "0:021": {
+      "type": "entries",
+      "name": "M5. Klasztor Flumph",
+      "page": 6,
+      "entries": [
+        "Pokój ten jest zajęty przez {@creature Maude|NRH-AT}, a {@creature bugbear chief}i jej czwórka {@creature goon|NRH-ASS|zbiry}, którzy szturchają i szturchają tuzin drżących {@creature flumph||fauluje}. Niedźwiedź robak i zbiry wszyscy mają na sobie „{@creature Mr. Greystone|NRH-AT}„Garden Care”. Porozrzucane są skrzynki z zapasami i czymś, co wygląda na tajemny sprzęt laboratoryjny. Postać, która odniesie sukces w {@dc 13} Inteligencja ({@skill Arcana}) może stwierdzić, że ten sprzęt jest najprawdopodobniej używany do wysysania magicznej energii - prawdopodobnie z {@item Prismatic Well|NRH-AT}.",
+        "Zbiry Maud śmieją się, wywracając je do góry nogami i próbując nadać im mocniejszy odcień fioletu - co jest szczególnie pokręconym zajęciem w czasach, gdy kolory już prawie zniknęły ze świata.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Radzenie sobie z problemami",
+              "page": 6,
+              "entries": [
+                "{@creature Maude|NRH-AT}, szef niedźwiedzia robala, ma za zadanie chronić tajne drzwi do {@item Prismatic Well|NRH-AT} w obszarze M6. Jeśli postacie zbliżają się do drzwi, rozkazuje swoim zbirom zaatakować. {@creature Maude|NRH-AT} jest arogancka, ale nie jest manekinem i próbuje zepsuć imprezę, okłamując ich kłamstwami w stylu:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Już przeszli {@item Prismatic Well|NRH-AT}.",
+                    "Jest już za późno.",
+                    "Nie ma tu studni. Właściwie znajduje się pod Harmonią.",
+                    "Są w złym miejscu."
+                  ]
+                },
+                "Jeśli poszukiwacze przygód pokażą {@creature Maude|NRH-AT} {@item Amulet of Harmony|NRH-AT}, żąda, aby jej go dali, mówiąc, że jej szef sowicie za to zapłaci. Jeśli poszukiwacze przygód odmówią, {@creature Maude|NRH-AT} każe zbirom go zdobyć."
+              ],
+              "id": "023"
+            },
+            {
+              "type": "entries",
+              "name": "Wskazówki telepatyczne",
+              "page": 6,
+              "entries": [
+                "Jeśli poszukiwacze przygód wydają się przyjaźnie nastawieni lub próbują chronić flumphów, wówczas przywódca flumphów, GuBu, kontaktuje się telepatycznie z jednym z członków drużyny, który ujawnia dwie rzeczy:",
+                {
+                  "type": "list",
+                  "items": [
+                    "GuBu zna lokalizację sekretnych drzwi w tym pomieszczeniu i pomoże drużynie najlepiej jak potrafi. GuBu jest gotowy zrobić niemal wszystko (z wyjątkiem poświęcenia siebie lub jednego ze swoich kolegów z klasztoru), aby pozbyć się niedźwiedzi robali i umożliwić im powrót do idyllicznej podziemnej egzystencji.",
+                    "GuBu podsłuchał rozmowę z „Szarym Człowiekiem”. {@creature Maude|NRH-AT} o „zabijaniu”. {@creature Emo|NRH-AT}.” Jeśli zapytano o „{@creature Emo|NRH-AT}”, odpowiada na to GuBu {@creature Emo|NRH-AT} to „smutny bal” i że wszystkim skurwysynom jest z tego powodu smutek i liczą, że będzie lepiej. GuBu zastanawia się, czy smutny bal nie chciałby pewnego dnia wstąpić do ich klasztoru.",
+                    "Szary Człowiek jest straszny, niebezpieczny i chce „zniszczyć wszystkie kolory”. GuBu telepatycznie wzdryga się na tę myśl."
+                  ]
+                }
+              ],
+              "id": "024"
+            },
+            {
+              "type": "entries",
+              "name": "Sekretne drzwi",
+              "page": 6,
+              "entries": [
+                "Sekretne drzwi do obszaru M6 są dobrze ukryte za skrzynią. Jeśli postać podsłuchuje przy drzwiach i uda mu się {@dc 14} Mądrość ({@skill Perception}) sprawdź, słyszą płacz i kłótnię, a także słabe buczenie. Sekretne drzwi nie są zamknięte i otwierają się płynnie po naciśnięciu."
+              ],
+              "id": "025"
+            }
+          ],
+          "id": "022"
+        }
+      ],
+      "id": "021"
+    },
+    "0:022": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Radzenie sobie z problemami",
+          "page": 6,
+          "entries": [
+            "{@creature Maude|NRH-AT}, szef niedźwiedzia robala, ma za zadanie chronić tajne drzwi do {@item Prismatic Well|NRH-AT} w obszarze M6. Jeśli postacie zbliżają się do drzwi, rozkazuje swoim zbirom zaatakować. {@creature Maude|NRH-AT} jest arogancka, ale nie jest manekinem i próbuje zepsuć imprezę, okłamując ich kłamstwami w stylu:",
+            {
+              "type": "list",
+              "items": [
+                "Już przeszli {@item Prismatic Well|NRH-AT}.",
+                "Jest już za późno.",
+                "Nie ma tu studni. Właściwie znajduje się pod Harmonią.",
+                "Są w złym miejscu."
+              ]
+            },
+            "Jeśli poszukiwacze przygód pokażą {@creature Maude|NRH-AT} {@item Amulet of Harmony|NRH-AT}, żąda, aby jej go dali, mówiąc, że jej szef sowicie za to zapłaci. Jeśli poszukiwacze przygód odmówią, {@creature Maude|NRH-AT} każe zbirom go zdobyć."
+          ],
+          "id": "023"
+        },
+        {
+          "type": "entries",
+          "name": "Wskazówki telepatyczne",
+          "page": 6,
+          "entries": [
+            "Jeśli poszukiwacze przygód wydają się przyjaźnie nastawieni lub próbują chronić flumphów, wówczas przywódca flumphów, GuBu, kontaktuje się telepatycznie z jednym z członków drużyny, który ujawnia dwie rzeczy:",
+            {
+              "type": "list",
+              "items": [
+                "GuBu zna lokalizację sekretnych drzwi w tym pomieszczeniu i pomoże drużynie najlepiej jak potrafi. GuBu jest gotowy zrobić niemal wszystko (z wyjątkiem poświęcenia siebie lub jednego ze swoich kolegów z klasztoru), aby pozbyć się niedźwiedzi robali i umożliwić im powrót do idyllicznej podziemnej egzystencji.",
+                "GuBu podsłuchał rozmowę z „Szarym Człowiekiem”. {@creature Maude|NRH-AT} o „zabijaniu”. {@creature Emo|NRH-AT}.” Jeśli zapytano o „{@creature Emo|NRH-AT}”, odpowiada na to GuBu {@creature Emo|NRH-AT} to „smutny bal” i że wszystkim skurwysynom jest z tego powodu smutek i liczą, że będzie lepiej. GuBu zastanawia się, czy smutny bal nie chciałby pewnego dnia wstąpić do ich klasztoru.",
+                "Szary Człowiek jest straszny, niebezpieczny i chce „zniszczyć wszystkie kolory”. GuBu telepatycznie wzdryga się na tę myśl."
+              ]
+            }
+          ],
+          "id": "024"
+        },
+        {
+          "type": "entries",
+          "name": "Sekretne drzwi",
+          "page": 6,
+          "entries": [
+            "Sekretne drzwi do obszaru M6 są dobrze ukryte za skrzynią. Jeśli postać podsłuchuje przy drzwiach i uda mu się {@dc 14} Mądrość ({@skill Perception}) sprawdź, słyszą płacz i kłótnię, a także słabe buczenie. Sekretne drzwi nie są zamknięte i otwierają się płynnie po naciśnięciu."
+          ],
+          "id": "025"
+        }
+      ],
+      "id": "022"
+    },
+    "0:023": {
+      "type": "entries",
+      "name": "Radzenie sobie z problemami",
+      "page": 6,
+      "entries": [
+        "{@creature Maude|NRH-AT}, szef niedźwiedzia robala, ma za zadanie chronić tajne drzwi do {@item Prismatic Well|NRH-AT} w obszarze M6. Jeśli postacie zbliżają się do drzwi, rozkazuje swoim zbirom zaatakować. {@creature Maude|NRH-AT} jest arogancka, ale nie jest manekinem i próbuje zepsuć imprezę, okłamując ich kłamstwami w stylu:",
+        {
+          "type": "list",
+          "items": [
+            "Już przeszli {@item Prismatic Well|NRH-AT}.",
+            "Jest już za późno.",
+            "Nie ma tu studni. Właściwie znajduje się pod Harmonią.",
+            "Są w złym miejscu."
+          ]
+        },
+        "Jeśli poszukiwacze przygód pokażą {@creature Maude|NRH-AT} {@item Amulet of Harmony|NRH-AT}, żąda, aby jej go dali, mówiąc, że jej szef sowicie za to zapłaci. Jeśli poszukiwacze przygód odmówią, {@creature Maude|NRH-AT} każe zbirom go zdobyć."
+      ],
+      "id": "023"
+    },
+    "0:024": {
+      "type": "entries",
+      "name": "Wskazówki telepatyczne",
+      "page": 6,
+      "entries": [
+        "Jeśli poszukiwacze przygód wydają się przyjaźnie nastawieni lub próbują chronić flumphów, wówczas przywódca flumphów, GuBu, kontaktuje się telepatycznie z jednym z członków drużyny, który ujawnia dwie rzeczy:",
+        {
+          "type": "list",
+          "items": [
+            "GuBu zna lokalizację sekretnych drzwi w tym pomieszczeniu i pomoże drużynie najlepiej jak potrafi. GuBu jest gotowy zrobić niemal wszystko (z wyjątkiem poświęcenia siebie lub jednego ze swoich kolegów z klasztoru), aby pozbyć się niedźwiedzi robali i umożliwić im powrót do idyllicznej podziemnej egzystencji.",
+            "GuBu podsłuchał rozmowę z „Szarym Człowiekiem”. {@creature Maude|NRH-AT} o „zabijaniu”. {@creature Emo|NRH-AT}.” Jeśli zapytano o „{@creature Emo|NRH-AT}”, odpowiada na to GuBu {@creature Emo|NRH-AT} to „smutny bal” i że wszystkim skurwysynom jest z tego powodu smutek i liczą, że będzie lepiej. GuBu zastanawia się, czy smutny bal nie chciałby pewnego dnia wstąpić do ich klasztoru.",
+            "Szary Człowiek jest straszny, niebezpieczny i chce „zniszczyć wszystkie kolory”. GuBu telepatycznie wzdryga się na tę myśl."
+          ]
+        }
+      ],
+      "id": "024"
+    },
+    "0:025": {
+      "type": "entries",
+      "name": "Sekretne drzwi",
+      "page": 6,
+      "entries": [
+        "Sekretne drzwi do obszaru M6 są dobrze ukryte za skrzynią. Jeśli postać podsłuchuje przy drzwiach i uda mu się {@dc 14} Mądrość ({@skill Perception}) sprawdź, słyszą płacz i kłótnię, a także słabe buczenie. Sekretne drzwi nie są zamknięte i otwierają się płynnie po naciśnięciu."
+      ],
+      "id": "025"
+    },
+    "0:026": {
+      "type": "entries",
+      "name": "M6. Studnia pryzmatyczna",
+      "page": 7,
+      "entries": [
+        "Kiedy poszukiwacze przygód wejdą do tej jaskini, przeczytaj lub sparafrazuj następujące słowa:",
+        {
+          "type": "insetReadaloud",
+          "page": 7,
+          "entries": [
+            "Widzisz dużą jaskinię oświetloną olśniewającymi kolorami, jakich nigdy wcześniej nie widziałeś. Kolory wylewają się z kamiennego kręgu na podłodze, który musi być niczym innym jak legendarnym {@item Prismatic Well|NRH-AT}.",
+            "Obok {@item Prismatic Well|NRH-AT} to wyglądające na przygnębione, kuliste stworzenie z elastycznymi rurkami podłączonymi do dziesięciu opadających gałek ocznych. Rury są połączone ze złożonym aparatem, który jest umieszczony nad otworem {@item Prismatic Well|NRH-AT}. Wygląda na to, że urządzenie wysysa kolory ze studni i wprowadza je do kulistego stworzenia poprzez rurki podłączone do jego gałek ocznych - chociaż wygląda na to, że urządzenie nie działa zbyt dobrze, ponieważ kolory rozpryskują się i sypią w pomieszczeniu. Stworzenie płacze z frustracji i desperacko próbuje wymyślić, jak naprawić swój aparat.",
+            "Obok wielookiego stworzenia stoi wysoki brutal, mężczyzna w szarym płaszczu, który ryczy ze złością na stworzenie. Za płaszczem mężczyzny czai się potwór wielkości psa z jednym złowrogim okiem."
+          ],
+          "id": "027"
+        },
+        "Kulisty potwór jest {@creature Emo|NRH-AT}, a {@creature beholder}. Brutalny człowiek jest {@creature Mr. Greystone|NRH-AT} a mały potwór z jednym okiem to Furzle, {@creature Mr. Greystone|NRH-AT}'s {@creature nothic} asystent.",
+        {
+          "type": "entries",
+          "name": "Odgrywanie roli pana Greystone'a",
+          "page": 7,
+          "entries": [
+            "{@creature Mr. Greystone|NRH-AT} wyjaśnia, że ​​chce rzeczy czarno-białych. Ma już dość „kolorów i różnorodności w Harmonii”. {@creature Mr. Greystone|NRH-AT} chce zniszczyć studnię i przywrócić „stare, dobre czasy, kiedy było mniej… kolorowo”. Jest już zmęczony {@creature Emo|NRH-AT}„brak kręgosłupa” i chętnie poświęciłby patrzącego, gdyby oznaczało to zniszczenie studni.",
+            "Jeśli {@creature Mr. Greystone|NRH-AT} widzi {@item Amulet of Harmony|NRH-AT}, wie, że to jego bilet do bezbarwnego świata i robi wszystko, co w jego mocy, aby go zdobyć - niezależnie od tego, czy oferuje drużynie 2000 gp, czy grozi im wszystkim, że ich wszystkich bije, czego szybko nie zapomną. {@creature Mr. Greystone|NRH-AT} jest częściowy w stosunku do tego ostatniego."
+          ],
+          "id": "028"
+        },
+        {
+          "type": "entries",
+          "name": "Odgrywanie ról Emo",
+          "page": 7,
+          "entries": [
+            "{@creature Emo|NRH-AT} jest obserwatorem, który badał wywołujące radość skutki {@item Prismatic Well|NRH-AT} i przybył na płaszczyznę Harmonii, aby wyleczyć jej melancholię. {@creature Emo|NRH-AT} wierzy, że jeśli uda im się wchłonąć wszystkie magiczne kolory, to w jakiś sposób ich smutek zostanie wyleczony i będą mogli żyć długo i szczęśliwie. Nie przejmują się Harmonią i jej obywatelami, ponieważ są bardzo zajęci sobą.",
+            "Choć są niezwykle potężni, {@creature Emo|NRH-AT} nie jest wojownikiem i atakuje jedynie w samoobronie. Jeśli jednak impreza będzie miła {@creature Emo|NRH-AT} i ma problemy z walką {@creature Mr. Greystone|NRH-AT}, Następnie {@creature Emo|NRH-AT} prawdopodobnie pomoże drużynie, ponieważ Greystone chciał to zrobić {@creature Emo|NRH-AT}.",
+            "Jeśli {@creature Emo|NRH-AT} zaoferowano im życzliwość i przyjaźń - na przykład dom w klasztorze Flumph - są gotowi zmienić swój plan. Przekonywający {@creature Emo|NRH-AT} porzucenie swojego aparatu i wypróbowanie innego sposobu na znalezienie szczęścia wymaga sukcesu {@dc 14} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli GuBu jest obecny lub oferują postacie {@creature Emo|NRH-AT} dom w klasztorze Flumph, czek jest korzystny."
+          ],
+          "id": "029"
+        },
+        {
+          "type": "entries",
+          "name": "Odgrywanie ról Furzle’a",
+          "page": 7,
+          "entries": [
+            "Furzle jest bardzo lojalny {@creature Mr. Greystone|NRH-AT} (ze strachu) i uwielbia przekazywać tajne informacje swojemu panu. Ale jeśli Furzle zostanie {@condition frightened} lub zostaje zredukowany do połowy maksymalnego punktu wytrzymałości, ucieka z krzykiem, porzucając swojego pana. Furzle jest mądry i robi wszystko, co w jego mocy, aby przetrwać, nawet jeśli oznacza to nawiązanie przyjaźni."
+          ],
+          "id": "02a"
+        }
+      ],
+      "id": "026"
+    },
+    "0:028": {
+      "type": "entries",
+      "name": "Odgrywanie roli pana Greystone'a",
+      "page": 7,
+      "entries": [
+        "{@creature Mr. Greystone|NRH-AT} wyjaśnia, że ​​chce rzeczy czarno-białych. Ma już dość „kolorów i różnorodności w Harmonii”. {@creature Mr. Greystone|NRH-AT} chce zniszczyć studnię i przywrócić „stare, dobre czasy, kiedy było mniej… kolorowo”. Jest już zmęczony {@creature Emo|NRH-AT}„brak kręgosłupa” i chętnie poświęciłby patrzącego, gdyby oznaczało to zniszczenie studni.",
+        "Jeśli {@creature Mr. Greystone|NRH-AT} widzi {@item Amulet of Harmony|NRH-AT}, wie, że to jego bilet do bezbarwnego świata i robi wszystko, co w jego mocy, aby go zdobyć - niezależnie od tego, czy oferuje drużynie 2000 gp, czy grozi im wszystkim, że ich wszystkich bije, czego szybko nie zapomną. {@creature Mr. Greystone|NRH-AT} jest częściowy w stosunku do tego ostatniego."
+      ],
+      "id": "028"
+    },
+    "0:029": {
+      "type": "entries",
+      "name": "Odgrywanie ról Emo",
+      "page": 7,
+      "entries": [
+        "{@creature Emo|NRH-AT} jest obserwatorem, który badał wywołujące radość skutki {@item Prismatic Well|NRH-AT} i przybył na płaszczyznę Harmonii, aby wyleczyć jej melancholię. {@creature Emo|NRH-AT} wierzy, że jeśli uda im się wchłonąć wszystkie magiczne kolory, to w jakiś sposób ich smutek zostanie wyleczony i będą mogli żyć długo i szczęśliwie. Nie przejmują się Harmonią i jej obywatelami, ponieważ są bardzo zajęci sobą.",
+        "Choć są niezwykle potężni, {@creature Emo|NRH-AT} nie jest wojownikiem i atakuje jedynie w samoobronie. Jeśli jednak impreza będzie miła {@creature Emo|NRH-AT} i ma problemy z walką {@creature Mr. Greystone|NRH-AT}, Następnie {@creature Emo|NRH-AT} prawdopodobnie pomoże drużynie, ponieważ Greystone chciał to zrobić {@creature Emo|NRH-AT}.",
+        "Jeśli {@creature Emo|NRH-AT} zaoferowano im życzliwość i przyjaźń - na przykład dom w klasztorze Flumph - są gotowi zmienić swój plan. Przekonywający {@creature Emo|NRH-AT} porzucenie swojego aparatu i wypróbowanie innego sposobu na znalezienie szczęścia wymaga sukcesu {@dc 14} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli GuBu jest obecny lub oferują postacie {@creature Emo|NRH-AT} dom w klasztorze Flumph, czek jest korzystny."
+      ],
+      "id": "029"
+    },
+    "0:02a": {
+      "type": "entries",
+      "name": "Odgrywanie ról Furzle’a",
+      "page": 7,
+      "entries": [
+        "Furzle jest bardzo lojalny {@creature Mr. Greystone|NRH-AT} (ze strachu) i uwielbia przekazywać tajne informacje swojemu panu. Ale jeśli Furzle zostanie {@condition frightened} lub zostaje zredukowany do połowy maksymalnego punktu wytrzymałości, ucieka z krzykiem, porzucając swojego pana. Furzle jest mądry i robi wszystko, co w jego mocy, aby przetrwać, nawet jeśli oznacza to nawiązanie przyjaźni."
+      ],
+      "id": "02a"
+    },
+    "0:02b": {
+      "type": "entries",
+      "name": "Przywrócona harmonia",
+      "page": 7,
+      "entries": [
+        "Jeśli poszukiwaczom przygód uda się pokonać {@creature Mr. Greystone|NRH-AT} i cofnięcie {@creature Emo|NRH-AT}plan wchłonięcia kolorów Harmonii, mogą wykorzystać {@item Amulet of Harmony|NRH-AT} aby przywrócić {@item Prismatic Well|NRH-AT} (patrz „Otwieranie pudełka” powyżej). Jeśli to zrobią, kolory studni będą olśniewające, gdy wystrzelą w górę przez sufit jaskini, która świeci i szumi mocą kolorów.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Emo i Flumphowie",
+              "page": 8,
+              "entries": [
+                "Jeśli poszukiwacze przygód przekonają {@creature Emo|NRH-AT} aby wstąpić do klasztoru flumph, GuBu słucha {@creature Emo|NRH-AT}Historia o byciu dziwakiem i poczuciu się opuszczona, jest mile widziana {@creature Emo|NRH-AT} do ich klasztoru. Wszystkie flumphy zmieniają kolor na jasne odcienie żółtego i zielonego, a ich kolor zostaje przywrócony. Dziękują drużynie telepatycznie uroczym chórem wdzięczności."
+              ],
+              "id": "02d"
+            },
+            {
+              "type": "entries",
+              "name": "Walka z Furzlem",
+              "page": 8,
+              "entries": [
+                "Jeśli Furzle ucieknie podczas spotkania przy studni, postacie mogą zdecydować się na wyśledzenie nothika, aby nie sprawiał większych kłopotów. Możesz sobie z tym poradzić w dowolny sposób. Jednym ze sposobów jest dogonienie drużyny przez Furzle'a próbującego przekroczyć przepaść w obszarze M4. Chociaż ma skłonność do zdrady, jeśli potraktuje się go z życzliwością, Furzle może zostać wspaniałym pomocnikiem czarodzieja. Być może, jeśli będzie prowadzony pod silną ręką dyrektora Gustavy, Furzle stanie się cennym nabytkiem."
+              ],
+              "id": "02e"
+            },
+            {
+              "type": "entries",
+              "name": "Przywracanie harmonii",
+              "page": 8,
+              "entries": [
+                "Z {@item Prismatic Well|NRH-AT} przywrócona do pełnej mocy, magia Harmonii powraca, a miasto znów tętni kolorami. Kiedy bohaterowie wracają do miasta, zostają okrzyknięci bohaterami podczas ceremonii wręczenia nagród, podczas której Gustaw Wielki przypina im medale, przyznając im najwyższe odznaczenie Akademii Prism - Order Zimandiusa. Następnie burmistrz daje każdemu z nich klucz do miasta Harmonii, a pan Honeycutt ma go zwrócić {@item Amulet of Harmony|NRH-AT} do Towarzystwa Lorekeeperów. Pan Honeycutt oficjalnie wpisuje każdego z nich do ksiąg Towarzystwa Strażników Wiedzy jako honorowych członków sekty i zaprzysiężonych obrońców Harmonii."
+              ],
+              "id": "02f"
+            }
+          ],
+          "id": "02c"
+        }
+      ],
+      "id": "02b"
+    },
+    "0:02c": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Emo i Flumphowie",
+          "page": 8,
+          "entries": [
+            "Jeśli poszukiwacze przygód przekonają {@creature Emo|NRH-AT} aby wstąpić do klasztoru flumph, GuBu słucha {@creature Emo|NRH-AT}Historia o byciu dziwakiem i poczuciu się opuszczona, jest mile widziana {@creature Emo|NRH-AT} do ich klasztoru. Wszystkie flumphy zmieniają kolor na jasne odcienie żółtego i zielonego, a ich kolor zostaje przywrócony. Dziękują drużynie telepatycznie uroczym chórem wdzięczności."
+          ],
+          "id": "02d"
+        },
+        {
+          "type": "entries",
+          "name": "Walka z Furzlem",
+          "page": 8,
+          "entries": [
+            "Jeśli Furzle ucieknie podczas spotkania przy studni, postacie mogą zdecydować się na wyśledzenie nothika, aby nie sprawiał większych kłopotów. Możesz sobie z tym poradzić w dowolny sposób. Jednym ze sposobów jest dogonienie drużyny przez Furzle'a próbującego przekroczyć przepaść w obszarze M4. Chociaż ma skłonność do zdrady, jeśli potraktuje się go z życzliwością, Furzle może zostać wspaniałym pomocnikiem czarodzieja. Być może, jeśli będzie prowadzony pod silną ręką dyrektora Gustavy, Furzle stanie się cennym nabytkiem."
+          ],
+          "id": "02e"
+        },
+        {
+          "type": "entries",
+          "name": "Przywracanie harmonii",
+          "page": 8,
+          "entries": [
+            "Z {@item Prismatic Well|NRH-AT} przywrócona do pełnej mocy, magia Harmonii powraca, a miasto znów tętni kolorami. Kiedy bohaterowie wracają do miasta, zostają okrzyknięci bohaterami podczas ceremonii wręczenia nagród, podczas której Gustaw Wielki przypina im medale, przyznając im najwyższe odznaczenie Akademii Prism - Order Zimandiusa. Następnie burmistrz daje każdemu z nich klucz do miasta Harmonii, a pan Honeycutt ma go zwrócić {@item Amulet of Harmony|NRH-AT} do Towarzystwa Lorekeeperów. Pan Honeycutt oficjalnie wpisuje każdego z nich do ksiąg Towarzystwa Strażników Wiedzy jako honorowych członków sekty i zaprzysiężonych obrońców Harmonii."
+          ],
+          "id": "02f"
+        }
+      ],
+      "id": "02c"
+    },
+    "0:02d": {
+      "type": "entries",
+      "name": "Emo i Flumphowie",
+      "page": 8,
+      "entries": [
+        "Jeśli poszukiwacze przygód przekonają {@creature Emo|NRH-AT} aby wstąpić do klasztoru flumph, GuBu słucha {@creature Emo|NRH-AT}Historia o byciu dziwakiem i poczuciu się opuszczona, jest mile widziana {@creature Emo|NRH-AT} do ich klasztoru. Wszystkie flumphy zmieniają kolor na jasne odcienie żółtego i zielonego, a ich kolor zostaje przywrócony. Dziękują drużynie telepatycznie uroczym chórem wdzięczności."
+      ],
+      "id": "02d"
+    },
+    "0:02e": {
+      "type": "entries",
+      "name": "Walka z Furzlem",
+      "page": 8,
+      "entries": [
+        "Jeśli Furzle ucieknie podczas spotkania przy studni, postacie mogą zdecydować się na wyśledzenie nothika, aby nie sprawiał większych kłopotów. Możesz sobie z tym poradzić w dowolny sposób. Jednym ze sposobów jest dogonienie drużyny przez Furzle'a próbującego przekroczyć przepaść w obszarze M4. Chociaż ma skłonność do zdrady, jeśli potraktuje się go z życzliwością, Furzle może zostać wspaniałym pomocnikiem czarodzieja. Być może, jeśli będzie prowadzony pod silną ręką dyrektora Gustavy, Furzle stanie się cennym nabytkiem."
+      ],
+      "id": "02e"
+    },
+    "0:02f": {
+      "type": "entries",
+      "name": "Przywracanie harmonii",
+      "page": 8,
+      "entries": [
+        "Z {@item Prismatic Well|NRH-AT} przywrócona do pełnej mocy, magia Harmonii powraca, a miasto znów tętni kolorami. Kiedy bohaterowie wracają do miasta, zostają okrzyknięci bohaterami podczas ceremonii wręczenia nagród, podczas której Gustaw Wielki przypina im medale, przyznając im najwyższe odznaczenie Akademii Prism - Order Zimandiusa. Następnie burmistrz daje każdemu z nich klucz do miasta Harmonii, a pan Honeycutt ma go zwrócić {@item Amulet of Harmony|NRH-AT} do Towarzystwa Lorekeeperów. Pan Honeycutt oficjalnie wpisuje każdego z nich do ksiąg Towarzystwa Strażników Wiedzy jako honorowych członków sekty i zaprzysiężonych obrońców Harmonii."
+      ],
+      "id": "02f"
+    },
+    "0:030": {
+      "type": "entries",
+      "name": "Harmonia zniweczona",
+      "page": 8,
+      "entries": [
+        "Jeśli poszukiwacze przygód zawiodą, {@creature Mr. Greystone|NRH-AT} albo używa {@item Amulet of Harmony|NRH-AT} zniszczyć {@item Prismatic Well|NRH-AT} lub ma {@creature Emo|NRH-AT} znajdź sposób, aby wyssać cały kolor ze studni, tworząc czarno-biały świat pozbawiony radości i cudów.",
+        "Oczywiście, coś takiego nigdy nie może się zdarzyć! Jeśli wszystko pójdzie nie tak, pan Honeycutt i dyrektor Gustava przybywają w samą porę, aby upewnić się, że zło zostanie pokonane, przywrócona zostanie harmonia, a wszystkie kolory ponownie ożywią świat."
+      ],
+      "id": "030"
+    },
+    "0:031": {
+      "type": "entries",
+      "name": "Magiczne przedmioty",
+      "page": 8,
+      "entries": [
+        "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+        {
+          "type": "list",
+          "columns": 2,
+          "items": [
+            "{@item Amulet of Harmony|NRH-AT}",
+            "{@item Prismatic Well|NRH-AT}"
+          ]
+        }
+      ],
+      "id": "031"
+    },
+    "1:033": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "columns": 2,
+              "items": [
+                {
+                  "type": "entries",
+                  "name": "Zespół Dungeons & Dragons:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Projekt przygody",
+                          "entries": [
+                            "Kat Kruger i Adam Lee"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowy rozwój",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt postaci",
+                          "entries": [
+                            "Krzysia Tulacha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt graficzny",
+                          "entries": [
+                            "Emmę Ekblad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Redaktorzy",
+                          "entries": [
+                            "Ashley Michaela Lawson i Hannah Rose"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer twórców",
+                          "entries": [
+                            "Pelhama Greene’a"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Ilustracje",
+                          "entries": [
+                            "Czerwona Centrala"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Producent",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki",
+                          "entries": [
+                            "Shelly Mazzanoble"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencjonowania kategorii",
+                          "entries": [
+                            "Ann Earp"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "035"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Ferrary:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Starszy zastępca menedżera marki, NERDS:",
+                          "entries": [
+                            "Łukasz Krause"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer treści, NERDS:",
+                          "entries": [
+                            "Annie Belgrad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki, NERDS:",
+                          "entries": [
+                            "Joey'a Ratha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                          "entries": [
+                            "Amy Pagels"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "036"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Tripplexlix:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Partner Zarządzający",
+                          "entries": [
+                            "Jennifer Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Założyciel, Partner Zarządzający",
+                          "entries": [
+                            "Krzysztof Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Wiceprezes, szef marketingu partnerskiego",
+                          "entries": [
+                            "Kennetha Lindenbauma"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowe wsparcie",
+                          "entries": [
+                            "VMLY&R Commerce, Taxi, Pep i Golin"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "037"
+                }
+              ]
+            }
+          ],
+          "id": "034"
+        }
+      ],
+      "id": "033"
+    },
+    "1:034": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "entries",
+              "name": "Zespół Dungeons & Dragons:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Projekt przygody",
+                      "entries": [
+                        "Kat Kruger i Adam Lee"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowy rozwój",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt postaci",
+                      "entries": [
+                        "Krzysia Tulacha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt graficzny",
+                      "entries": [
+                        "Emmę Ekblad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Redaktorzy",
+                      "entries": [
+                        "Ashley Michaela Lawson i Hannah Rose"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer twórców",
+                      "entries": [
+                        "Pelhama Greene’a"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Ilustracje",
+                      "entries": [
+                        "Czerwona Centrala"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Producent",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki",
+                      "entries": [
+                        "Shelly Mazzanoble"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencjonowania kategorii",
+                      "entries": [
+                        "Ann Earp"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "035"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Ferrary:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Starszy zastępca menedżera marki, NERDS:",
+                      "entries": [
+                        "Łukasz Krause"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer treści, NERDS:",
+                      "entries": [
+                        "Annie Belgrad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki, NERDS:",
+                      "entries": [
+                        "Joey'a Ratha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                      "entries": [
+                        "Amy Pagels"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "036"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Tripplexlix:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Partner Zarządzający",
+                      "entries": [
+                        "Jennifer Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Założyciel, Partner Zarządzający",
+                      "entries": [
+                        "Krzysztof Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Wiceprezes, szef marketingu partnerskiego",
+                      "entries": [
+                        "Kennetha Lindenbauma"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowe wsparcie",
+                      "entries": [
+                        "VMLY&R Commerce, Taxi, Pep i Golin"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "037"
+            }
+          ]
+        }
+      ],
+      "id": "034"
+    }
+  }
+}

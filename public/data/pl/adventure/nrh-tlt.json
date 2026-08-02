@@ -1,0 +1,2155 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Przywracanie harmonii: zaginiony grobowiec",
+      "page": 2,
+      "entries": [
+        "Witamy w Restoring Harmony, serii przygodowej Dungeons & Dragons powstałej we współpracy ze smacznym i kolorowym światem NERDS.",
+        "Aby rozegrać tę przygodę, potrzebujesz piątej edycji Basic Rules for D&D, którą możesz pobrać bezpłatnie tutaj. Wszystkie potrzebne magiczne przedmioty i bloki statystyk potworów znajdują się na końcu tej przygody.",
+        "Adventure Together to kampania podzielona na sześć miniprzygód pierwszego poziomu dla pojedynczego gracza i jedną dłuższą przygodę dla wielu graczy. Każda mini przygoda trwa około 45 minut, a ostatnia przygoda zajmuje około 60-90 minut.",
+        "Miniprzygody można rozgrywać w dowolnej kolejności, ale ostateczną przygodę należy rozegrać jako ostatnią. Oto lista wszystkich przygód:",
+        {
+          "type": "list",
+          "items": [
+            "{@adventure Adventure 1 The Candy Mountain Caper|NRH-TCMC}",
+            "{@adventure Adventure 2 A Voice in the Wilderness|NRH-AVitW}",
+            "{@adventure Adventure 3 A Sticky Situation|NRH-ASS}",
+            "{@adventure Adventure 4 Circus of Illusions|NRH-CoI}",
+            "{@adventure Adventure 5 The Lost Tomb|NRH-TLT}",
+            "{@adventure Adventure 6 A Web of Lies|NRH-AWoL}",
+            "{@adventure Adventure 7 Adventure Together|NRH-AT}"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Podsumowanie historii",
+          "page": 2,
+          "entries": [
+            "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+            "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony. Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+            "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+          ],
+          "id": "001"
+        },
+        {
+          "type": "entries",
+          "name": "Gra solo",
+          "page": 2,
+          "entries": [
+            "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+            "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+            {
+              "type": "entries",
+              "name": "TPK: Całkowite zniszczenie drużyny",
+              "page": 2,
+              "entries": [
+                "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+                "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+              ],
+              "id": "003"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "entries",
+          "name": "Zarys przygody",
+          "page": 3,
+          "entries": [
+            "Oto krótki przegląd Przygody 5:",
+            {
+              "type": "list",
+              "items": [
+                "Fioletowy Czarodziej otrzymuje tajemniczą wiadomość o spotkaniu z „panem Honeycuttem” pod pomnikiem Filomeny na terenie kampusu Akademii Prism.",
+                "Pan Honeycutt informuje Purple, że szuka Fioletowego Klejnotu. Wierzy, że odpowiedź jest wyryta na bursztynowym kamieniu, który daje Purple do rozszyfrowania.",
+                "Fioletowy rozszyfrowuje runy. Wskazówki prowadzą do dobrze znanego, ale niedostępnego miejsca w Akademii Prism, zwanego Kryptą Herolda.",
+                "Fioletowy znajduje drogę do krypty i odkrywa sekretne drzwi prowadzące do sekretnego grobowca, w którym ukryty jest Fioletowy Klejnot."
+              ]
+            }
+          ],
+          "id": "004"
+        },
+        {
+          "type": "entries",
+          "name": "Rozpoczęcie gry",
+          "page": 3,
+          "entries": [
+            "Daj kartę postaci (patrz „Purple the Wizard” poniżej) swojemu graczowi i pozwól mu zapoznać się z Purple.",
+            "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć.",
+            "Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+          ],
+          "id": "005"
+        },
+        {
+          "type": "section",
+          "name": "Przygoda 5: Zaginiony grobowiec",
+          "page": 3,
+          "entries": [
+            "Przygoda zaczyna się od zamyślenia Purple w Szkole Ewokacji w Akademii Prism. Ostatnio badacze z akademii ciężko pracowali, próbując odkryć, co może stać za przerwami w wyświetlaniu kolorów nękającymi Harmony, a mentor Purple każe im pracować po godzinach, aby znaleźć jakąkolwiek wskazówkę dotyczącą przyczyny tajemniczego przyciemnienia Harmony. Istnieje wiele teorii, a każda szkoła magii twierdzi, że ma działające hipotezy, ale nikt nie ma nic konkretnego.",
+            "Kiedy będziesz gotowy do rozpoczęcia gry, przeczytaj lub sparafrazuj następujący fragment:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                "Siedzisz w swoim gabinecie i przeglądasz stare książki o magicznej historii żywych kolorów Harmony, próbując znaleźć wyjaśnienie jego zanikania, gdy na parapecie przysiada piękny motyl. Patrzy na ciebie błyszczącymi oczami i mówi: „Idź do posągu Filomeny Mądrej”. Potem znika w migoczących drobinach światła."
+              ],
+              "id": "007"
+            },
+            "Fioletowy zna ten posąg. Filomena Mądra była jednym z czarodziejów założycieli Akademii Pryzmatu. Wysoki na 2,5 metra posąg Filomeny znajduje się na cichej, zalesionej polanie na terenie kampusu, około pięciu minut spacerem od gabinetu Purple.",
+            {
+              "type": "entries",
+              "name": "Spotkanie z panem Honeycuttem",
+              "page": 3,
+              "entries": [
+                "Elegancki pan w garniturze i okularach w rogowych oprawkach czeka na Purple przy posągu. Mężczyzna gestem wskazuje Purple, aby podeszła i usiadła na ławce. Mężczyzna jest {@creature Mr. Honeycutt|NRH-TCMC}, Magister Towarzystwa Lorekeeperów. Błaga o zrozumienie Purple i zachowanie całkowitej tajemnicy, rozwijając a {@item spell scroll} z {@spell silence} i rzuca zaklęcie. Pan Honeycutt wypił wcześniej eliksir {@spell telepathy}, a następnie wypowiada w głowie Purple następujące słowa:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 3,
+                  "entries": [
+                    "Wybaczcie środki ostrożności, ale zawsze są słuchy. Nazywam się pan Honeycutt i należę do Towarzystwa Lorekeeperów. Być może o nas nie słyszeliście, ale obserwowaliśmy Was i teraz desperacko potrzebujemy Waszej pomocy."
+                  ],
+                  "id": "009"
+                },
+                "Z sukcesem {@dc 12} Inteligencja ({@skill Arcana}) sprawdź, Purple słyszała legendę o tajnym stowarzyszeniu czarodziejów i likantropów, którzy przysięgli bronić magii Harmonii przed wszelkiego rodzaju wrogami. Po nieudanym teście Purple wie tylko, że stowarzyszenie jest tajnym stowarzyszeniem, którego celem jest dobro Harmonii.",
+                "Pan Honeycutt wyjaśnia, że ​​musi znaleźć Fioletowy Klejnot, magiczny kamień, który jego zdaniem może pomóc Towarzystwu Strażników Wiedzy w znalezieniu przyczyny utraty kolorów. Przybył do Purple, aby poprosić ich o pomoc w rozwikłaniu zagadki. Honeycutt sięga do swojej skórzanej torby i wyciąga kawałek wypolerowanego bursztynu z wyrytymi runami. Pan Honeycutt mówi, że ten kawałek bursztynu jest kluczem do znalezienia Fioletowego Klejnotu, ale nikt w Towarzystwie Lorekeeperów nie wie, jak go rozszyfrować. Jeśli Fioletowy pomoże rozszyfrować bursztynowy kamień i odzyskać Fioletowy Klejnot, Strażnicy Wiedzy i cała Harmonia będą na zawsze jego dłużnikami. Pan Honeycutt jest również skłonny dorzucić za kłopot sakiewkę zawierającą 25 sztuk złota.",
+                "Pan Honeycutt prosi Fioletowego, aby zostawił dla niego notatkę w tawernie, gdy znajdą Klejnot, a on spotka się z nimi pod pomnikiem Filomeny Mądrej w ciągu godziny.",
+                {
+                  "type": "entries",
+                  "name": "Bursztynowy Kamień Runiczny",
+                  "page": 4,
+                  "entries": [
+                    "Kawałek bursztynu to starożytny klucz otwierający sekretne drzwi w Krypcie Herolda - słynnym grobowcu pod akademią. Ten {@item amber runestone|NRH-TLT} to także magiczny przedmiot, do którego Fioletowy może się dostroić, spędzając krótki odpoczynek, skupiając się tylko na przedmiocie, będąc z nim w fizycznym kontakcie. Zobacz koniec przygody, aby zobaczyć statystyki gry."
+                  ],
+                  "id": "00a"
+                }
+              ],
+              "id": "008"
+            },
+            {
+              "type": "entries",
+              "name": "Odszyfrowanie Run",
+              "page": 4,
+              "entries": [
+                "Podczas studiów Purple natknął się na kilka ksiąg zawierających takie runy. Z dwoma udanymi {@dc 14} Inteligencja ({@skill Arcana}) sprawdza, Purple może znaleźć książki w bibliotece Prism Academy. Jeśli Fioletowy poprosi o pomoc bibliotekarza, przeprowadza kontrolę z korzyścią. Po dwóch niepowodzeniach Fioletowy nadal znajduje książki, ale udaje mu się narobić hałasu lub w inny sposób wywołać dezaprobujący wzrok bibliotekarza.",
+                "Po przetłumaczeniu runy na bursztynie mówią dwie rzeczy. Jedna to ciąg liczb: 12, 2, 6, 9, 24 i 36. Pozostałe runy to wiersz:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 4,
+                  "entries": [
+                    "Dostrój kamień, aby oświetlał drogę. W Krypcie Herolda klęka się do modlitwy, Odwróć moją czaszkę, a potem pochyl głowę, Abyś ty, który teraz szukasz, nie dołączył do umarłych. Gdy już znajdę się w grobie, moje imię zostanie wypowiedziane trzykrotnie. Ceną jest dar światła słonecznego."
+                  ],
+                  "id": "00c"
+                },
+                "Purple słyszała o Krypcie Herolda - specjalnym miejscu, niedostępnym dla uczniów, gdzie pochowani są dyrektorzy Akademii Prism. Uczniowie widzieli żelazne drzwi (znane jako Kwiatowe Drzwi ze względu na wszystkie misternie rzeźbione kwiaty), które prowadzą do krypty podczas spotkań szkolnych w Wielkiej Sali."
+              ],
+              "id": "00b"
+            },
+            {
+              "type": "entries",
+              "name": "Dotarcie do krypty Herolda",
+              "page": 4,
+              "entries": [
+                "Wejście do Krypty Herolda to masywne Kwiatowe Drzwi, które znajdują się z boku Wielkiej Sali w Akademii Prism. Istnieją dwa główne sposoby otwierania drzwi:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Przekonaj dyrektora Gustavę (zgodne z prawem dobro, człowiek, {@creature archmage}), aby umożliwić Fioletowemu otwarcie Kwiatowych Drzwi i wejście do krypty. Fioletowy musi odnieść sukces {@dc 17} Charyzma ({@skill Persuasion}) lub - stosując bardziej czarodziejski argument - ​​sukces {@dc 17} Inteligencja ({@skill Arcana}) sprawdź, czy przekonałeś dyrektora.",
+                    "Wkradnij się za pomocą {@item amber runestone|NRH-TLT}. Jeśli Fioletowy dostroi się do kamienia, może świecić światłem słonecznym na Kwiatowe Drzwi. Spowoduje to odkrycie szeregu świecących cyfr od 1 do 50, które znajdują się pośrodku każdego kwiatka na drzwiach. Naciśnięcie cyfr w sekwencji zapisanej na kamieniu (12, 2, 6, 9, 24 i 36) otwiera magiczny zamek. Nieprawidłowa sekwencja uruchamia alarm, który przywołuje dyrektora Gustavę, który pojawia się natychmiast."
+                  ]
+                },
+                "Jeśli Twój gracz wymyśli inny sprytny sposób na dostanie się do krypty, skorzystaj z niego!",
+                "Po otwarciu drzwi Purple widzi kamienne schody prowadzące w ciemność na głębokość 30 stóp."
+              ],
+              "id": "00d"
+            }
+          ],
+          "id": "006"
+        },
+        {
+          "type": "section",
+          "name": "Lokalizacje krypt Herolda",
+          "page": 4,
+          "entries": [
+            "Poniższe lokalizacje są przypisane do mapy dołączonej do tej przygody.",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-TLT/010.webp"
+              },
+              "width": 701,
+              "height": 1185,
+              "mapRegions": [
+                {
+                  "area": "020",
+                  "points": [
+                    [
+                      487,
+                      141
+                    ],
+                    [
+                      487,
+                      316
+                    ],
+                    [
+                      627,
+                      316
+                    ],
+                    [
+                      627,
+                      141
+                    ]
+                  ]
+                },
+                {
+                  "area": "01f",
+                  "points": [
+                    [
+                      270,
+                      354
+                    ],
+                    [
+                      270,
+                      433
+                    ],
+                    [
+                      320,
+                      433
+                    ],
+                    [
+                      320,
+                      354
+                    ]
+                  ]
+                },
+                {
+                  "area": "013",
+                  "points": [
+                    [
+                      344,
+                      559
+                    ],
+                    [
+                      344,
+                      636
+                    ],
+                    [
+                      429,
+                      636
+                    ],
+                    [
+                      429,
+                      559
+                    ]
+                  ]
+                },
+                {
+                  "area": "00f",
+                  "points": [
+                    [
+                      339,
+                      760
+                    ],
+                    [
+                      339,
+                      1127
+                    ],
+                    [
+                      429,
+                      1127
+                    ],
+                    [
+                      429,
+                      760
+                    ]
+                  ]
+                },
+                {
+                  "area": "01b",
+                  "points": [
+                    [
+                      347,
+                      381
+                    ],
+                    [
+                      347,
+                      453
+                    ],
+                    [
+                      424,
+                      453
+                    ],
+                    [
+                      424,
+                      381
+                    ]
+                  ]
+                },
+                {
+                  "area": "01c",
+                  "points": [
+                    [
+                      473,
+                      419
+                    ],
+                    [
+                      473,
+                      496
+                    ],
+                    [
+                      524,
+                      496
+                    ],
+                    [
+                      524,
+                      419
+                    ]
+                  ]
+                },
+                {
+                  "area": "01d",
+                  "points": [
+                    [
+                      474,
+                      557
+                    ],
+                    [
+                      474,
+                      631
+                    ],
+                    [
+                      529,
+                      631
+                    ],
+                    [
+                      529,
+                      557
+                    ]
+                  ]
+                },
+                {
+                  "area": "01d",
+                  "points": [
+                    [
+                      479,
+                      697
+                    ],
+                    [
+                      479,
+                      774
+                    ],
+                    [
+                      530,
+                      774
+                    ],
+                    [
+                      530,
+                      697
+                    ]
+                  ]
+                },
+                {
+                  "area": "016",
+                  "points": [
+                    [
+                      241,
+                      699
+                    ],
+                    [
+                      241,
+                      770
+                    ],
+                    [
+                      294,
+                      770
+                    ],
+                    [
+                      294,
+                      699
+                    ]
+                  ]
+                },
+                {
+                  "area": "017",
+                  "points": [
+                    [
+                      244,
+                      564
+                    ],
+                    [
+                      244,
+                      633
+                    ],
+                    [
+                      300,
+                      633
+                    ],
+                    [
+                      300,
+                      564
+                    ]
+                  ]
+                },
+                {
+                  "area": "018",
+                  "points": [
+                    [
+                      243,
+                      437
+                    ],
+                    [
+                      243,
+                      494
+                    ],
+                    [
+                      314,
+                      494
+                    ],
+                    [
+                      314,
+                      437
+                    ]
+                  ]
+                }
+              ],
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 70,
+                "scale": 2
+              },
+              "hrefThumbnail": {
+                "type": "internal",
+                "path": "adventure/NRH-TLT/thumbnail/010.webp"
+              },
+              "id": "026",
+              "credit": "Red Central"
+            },
+            {
+              "type": "entries",
+              "name": "H1. Drzwi do krypty",
+              "page": 4,
+              "entries": [
+                "Kamienne schody prowadzą do korytarza zakończonego zamkniętymi żelaznymi drzwiami. Drzwi mają KP 15, 100 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
+                "Na drzwiach widnieje zagadka:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 4,
+                  "entries": [
+                    "Kurzu nie da się oczyścić ręką, przycisku, którego ręka nie wciśnie, trybika, którego ręka nie zamarznie."
+                  ],
+                  "id": "010"
+                },
+                "Fioletowy zauważa idealny kwadrat czegoś, co wygląda jak brud na drzwiach. Nie można go czyścić ręcznie, tylko za pomocą {@spell prestidigitation} zaklęcie.",
+                "Po oczyszczeniu brudu ukazuje się mały przycisk. Ponownie, przycisku nie można nacisnąć inaczej niż przez a {@spell mage hand} zaklęcie.",
+                "Po naciśnięciu przycisku zamienia się w trybik, który zaczyna się obracać. Można go zatrzymać jedynie poprzez namierzenie go za pomocą {@spell ray of frost} zaklęcie.",
+                "Gdy trybik zamarznie, drzwiczki odblokowują się ze słyszalnym kliknięciem. Na drzwiach pojawiają się wyrzeźbione usta, które mówią: „Wejdź”.",
+                "Jeśli twój gracz będzie zbyt sfrustrowany zagadką, usta mogą pojawić się wcześniej i dać Fioletowym kilka wskazówek."
+              ],
+              "id": "00f"
+            },
+            {
+              "type": "entries",
+              "name": "H2. Krypta Herolda",
+              "page": 5,
+              "entries": [
+                "To kamienne pomieszczenie jest świętym miejscem oddającym cześć dyrektorom Akademii Prism. Ściany tej 50-metrowej sali są wyłożone wnękami, z których każda mieści grób byłego dyrektora. Krypta jest dobrze utrzymana; mosiężne okucia są wypolerowane, a podłogi świeżo umyte.",
+                "Kiedy wejdzie Fioletowy, przeczytaj lub sparafrazuj następujące słowa:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 5,
+                  "entries": [
+                    "Wiele słyszałeś o tym miejscu podczas swojej nauki w Prism Academy. Krypta Herolda to święte miejsce czczone przez wszystkich wykładowców. We wnękach wzdłuż ścian widać grobowce byłych dyrektorów, a przed grobowcami w milczącej czci składane są kwiaty i notatki z podziękowaniami. Słyszeliście także, że grobowce są chronione potężną magią - każdemu, kto spróbuje je zbezcześcić, grozi pewna śmierć."
+                  ],
+                  "id": "012"
+                },
+                {
+                  "type": "inset",
+                  "name": "Splądrowanie krypty",
+                  "page": 5,
+                  "entries": [
+                    "Chociaż grobowce są kuszące, nie są przeznaczone dla Fioletowych do plądrowania. Purple słyszała historie opowiadane w Akademii Prism, że grobowce są chronione śmiercionośnymi zaklęciami rzucanymi przez arcymagów wysokiego szczebla. Niektórzy wykładowcy twierdzą, że cała krypta jest niebezpieczną miną-pułapką i dlatego jest surowo niedostępna.",
+                    "Pomimo tego ostrzeżenia, Twój gracz może chcieć porzucić przyzwoitość społeczną i spróbować splądrować grobowce. Jeśli tak się stanie, pozwól grobowcowi się bronić - co najprawdopodobniej zakończy się spektakularną śmiercią Purple (patrz „TPK: Total Party Kill” powyżej)."
+                  ],
+                  "id": "013"
+                },
+                "Każda krypta ma wygrawerowane imię zmarłego oraz bogato rzeźbione i ozdobione herbami i inną heraldyką istotną dla dyrektora.",
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Glify Strażnicze",
+                      "page": 5,
+                      "entries": [
+                        "Każda krypta jest zapieczętowana glifem ochronnym i tylko dyrektor Gustava zna hasła dezaktywujące glify. Aby wykryć totemy, Fioletowy musi pomyślnie przejść test {@dc 17} Inteligencji ({@skill Investigation}) lub rzucić magię wykrywania.",
+                        "Próba włamania się do grobowca aktywuje glif. Po uruchomieniu glif wybucha magiczną energią w sferze o promieniu 20 stóp, której środkiem jest glif. Kula rozprzestrzenia się po rogach. Każde stworzenie na danym obszarze musi wykonać {@dc 17} Rzut obronny na zręczność. Stworzenie otrzymuje 45 ({@damage 10d8}) obrażenia od piorunów przy nieudanym rzucie obronnym lub o połowę mniejsze przy udanym rzucie obronnym.",
+                        "Aktywacja glifu zaalarmuje także dyrektora Gustavę, który pojawia się rundę później poprzez zaklęcie teleportacji."
+                      ],
+                      "id": "015"
+                    }
+                  ],
+                  "id": "014"
+                },
+                {
+                  "type": "entries",
+                  "name": "A. Profesor Magillicus",
+                  "page": 5,
+                  "entries": [
+                    "W grobowcu tym znajduje się płaskorzeźba czarodzieja trzymającego w górze różdżkę. Na grobie widnieje napis „Członek-założyciel Akademii Prism”.",
+                    "Wewnątrz grobowca znajdują się zwłoki profesora Magillicusa w jego szatach Akademii Prism."
+                  ],
+                  "id": "016"
+                },
+                {
+                  "type": "entries",
+                  "name": "B. Profesor Filomena",
+                  "page": 5,
+                  "entries": [
+                    "W grobowcu tym znajduje się płaskorzeźba czarodzieja, który wygląda jak posąg Filomeny na zalesionej polanie (patrz „Spotkanie z panem Honeycuttem” powyżej), trzymającego otwartą księgę w jednej ręce i laskę czarodzieja w drugiej. Na grobie widnieje napis „Członek-założyciel Akademii Prism”.",
+                    "Wewnątrz grobowca znajdują się zwłoki profesor Filomeny w jej szatach Akademii Pryzmatu."
+                  ],
+                  "id": "017"
+                },
+                {
+                  "type": "entries",
+                  "name": "C. Profesor Orm",
+                  "page": 5,
+                  "entries": [
+                    "W grobowcu tym znajduje się płaskorzeźba czarodzieja trzymającego w dłoni ludzką czaszkę. Słowa: „Zbadał odległe krainy cieni”. są wypisane na grobie.",
+                    "Wewnątrz grobowca znajdują się szaty Akademii Pryzmatu profesora Orma. Jego zwłok nigdzie nie można znaleźć.",
+                    {
+                      "type": "entries",
+                      "name": "Otwieranie tajemniczych drzwi",
+                      "page": 5,
+                      "entries": [
+                        "Jeśli bursztynowy kamień runiczny zostanie użyty do oświetlenia światłem słonecznym czaszki wyrzeźbionej na grobowcu, czaszka zaświeci, stanie się trójwymiarowa i unosi się przed Fioletem.",
+                        "Runy wyryte na bursztynowym kamieniu (patrz „Rozszyfrowanie run” powyżej) nakazują Fioletowemu uklęknąć i pochylić głowę po obróceniu czaszki na bok. Spowoduje to wystrzelenie błyskawicy nad głową Fioletowego, otwierając sekretne drzwi do obszaru H3.",
+                        "Jeśli Fioletowy klęczy i odwraca czaszkę, ale nie pochyla głowy, błyskawica leci w stronę Fioletowego linią o długości 30 metrów i szerokości 5 stóp. Każde stworzenie w linii musi wykonać a {@dc 17} Rzut obronny na zręczność, biorąc 35 ({@damage 10d6}) obrażenia od błyskawicy przy nieudanym zapisie lub o połowę mniejsze przy udanym zapisie."
+                      ],
+                      "id": "019"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Rozwiązanie zagadki",
+                      "page": 5,
+                      "entries": [
+                        "Jeśli gracz ma trudności z zagadką, spraw, aby bursztynowy kamień runiczny zaświecił lub telepatycznie przypomniał mu o runach i zagadce. Może nawet pokazać im mentalny obraz tego, co zrobić z czaszką.",
+                        "Jeśli Purple zginie od pioruna, niech obudzi się w krypcie lub z powrotem za Kwiatowymi Drzwiami i zda sobie sprawę, że ostatnie kilka minut było wyraźną wizją tego, co miało nadejść."
+                      ],
+                      "id": "01a"
+                    }
+                  ],
+                  "id": "018"
+                },
+                {
+                  "type": "entries",
+                  "name": "D. Profesor Waziti",
+                  "page": 6,
+                  "entries": [
+                    "W grobowcu tym znajduje się płaskorzeźba czarnoksiężnika trzymającego rękę na kuli ziemskiej. Słowa: „Otworzył drzwi do kosmosu”. są wypisane na grobie.",
+                    "Wewnątrz grobowca znajdują się zwłoki profesora Waziti w jego szatach Akademii Prism."
+                  ],
+                  "id": "01b"
+                },
+                {
+                  "type": "entries",
+                  "name": "E. Profesor Aleksandra",
+                  "page": 6,
+                  "entries": [
+                    "W grobowcu tym znajduje się płaskorzeźba przedstawiająca pulchnego czarodzieja otoczonego zwierzętami hodowlanymi i magicznymi stworzeniami. Słowa „Była {@skill Nature}tajemnica i magia, która stała się ciałem” są wyryte na grobie.",
+                    "Wewnątrz grobowca znajdują się zwłoki profesor Alexandry w jej szatach Akademii Prism."
+                  ],
+                  "id": "01c"
+                },
+                {
+                  "type": "entries",
+                  "name": "F. Profesor Althea",
+                  "page": 6,
+                  "entries": [
+                    "W tym grobowcu znajduje się płaskorzeźba czarnoksiężnika o intensywnym wyrazie, otoczona wieńcem ognia. Na grobie wyryto słowa „Ta, która rzuciła ogień”.",
+                    "Wewnątrz grobowca znajdują się zwłoki profesor Althei w jej szatach Akademii Prism. Jej szkielet nosi {@item necklace of fireballs}."
+                  ],
+                  "id": "01d"
+                },
+                {
+                  "type": "entries",
+                  "name": "G. Profesor Wigglewumpus",
+                  "page": 6,
+                  "entries": [
+                    "W grobowcu tym znajduje się płaskorzeźba przedstawiająca gnoma czarodzieja otoczonego wszelkiego rodzaju mechanicznymi bibelotami i zabawkami. Na grobie widnieją słowa: „Wybrany przez studentów Prism Academy na„ Najzabawniejszego profesora wszechczasów ”200 lat z rzędu”.",
+                    "Wewnątrz grobowca znajdują się maleńkie zwłoki profesora Wigglewumpusa w jego szatach Akademii Pryzmatu, a także mała nakręcana kaczka, która kwacze i wskazuje godzinę po aktywacji."
+                  ],
+                  "id": "01e"
+                }
+              ],
+              "id": "011"
+            },
+            {
+              "type": "entries",
+              "name": "H3. Sekretne przejście",
+              "page": 6,
+              "entries": [
+                "Jeśli sekretne drzwi w grobowcu profesora Orma zostaną otwarte, kamienna płyta cofnie się, odsłaniając szerokie na 5 stóp przejście prowadzące do kolejnych kamiennych drzwi. Drzwi są odblokowane i otwierają się do obszaru H4."
+              ],
+              "id": "01f"
+            },
+            {
+              "type": "entries",
+              "name": "H4. Grób profesora Prisma",
+              "page": 6,
+              "entries": [
+                "Kiedy Fioletowy wejdzie do pokoju, przeczytaj lub sparafrazuj następujące słowa:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 6,
+                  "entries": [
+                    "Na środku pokoju stoi kamienny sarkofag na marach z czarnego marmuru. Na sarkofagu wyrzeźbiono tajemne symbole i napis: „Zimandius Prism, założyciel Akademii Prism”. Na wieczku znajduje się rzeźba śpiącego czarodzieja. W kamiennych dłoniach czarodzieja znajduje się lśniący fioletowy klejnot, tej samej wielkości co bursztynowy kamień, który trzymasz."
+                  ],
+                  "id": "021"
+                },
+                "Klejnot jest rzeczywiście Fioletowym Klejnotem, którego pragnie pan Honeycutt. Jeśli Fioletowy poprawnie rozwiąże zagadkę (patrz „Rozszyfrowanie Run” powyżej), musi trzykrotnie wypowiedzieć imię „Zimandius” lub „Pryzmat Zimandiusa”, a następnie zamienić Fioletowy Klejnot z {@item amber runestone|NRH-TLT}.",
+                "Fioletowy musi szybko dokonać zamiany; rundę po usunięciu Fioletowego Klejnotu drzwi do pokoju zostają zamknięte ciężkim blokiem kamienia, a kamienne dłonie na szczycie sarkofagu zaczynają na ślepo szukać bursztynowego kamienia runicznego. Gdy tylko Fioletowy Klejnot lub Bursztynowy Kamień trafi w ręce czarodzieja, blok kamienia znika, a pomieszczenie się otwiera.",
+                "Ponownie, jeśli gracz ma trudności z rozwiązaniem zagadki i zamianą Fioletowego Klejnotu na bursztynowy kamień, niech bursztynowy kamień runiczny poprowadzi go telepatycznie.",
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Wewnątrz trumny",
+                      "page": 6,
+                      "entries": [
+                        "Podobnie jak inne grobowce, grobowiec profesora Prisma jest chroniony glifem ochronnym, który aktywuje się po otwarciu grobowca (patrz „Glify ochronne” powyżej). Sarkofag zawiera ciało profesora Zimandiusa Prism."
+                      ],
+                      "id": "023"
+                    }
+                  ],
+                  "id": "022"
+                }
+              ],
+              "id": "020"
+            },
+            {
+              "type": "entries",
+              "name": "Ukończenie Misji",
+              "page": 6,
+              "entries": [
+                "Jeśli wszystko pójdzie dobrze, Fioletowy zostawia w tawernie notatkę dla pana Honeycutta, po czym wraca do posągu Filomeny Mądrej, aby spotkać się z panem Honeycuttem i dać mu Fioletowy Klejnot.",
+                "Pan Honeycutt jest wdzięczny za zwrot Fioletowego Klejnotu. Chce usłyszeć, jak Fioletowy odszyfrował runy i znalazł klejnot, cały czas robiąc notatki w swoim czarnym notatniku.",
+                "W nagrodę daje Purple a {@item bag of tricks, rust||rdzawy worek sztuczek} i pyta, czy Purple dołączy do Towarzystwa Lorekeeperów i pomoże dowiedzieć się, jak przywrócić kolor Harmonii."
+              ],
+              "id": "024"
+            }
+          ],
+          "id": "00e"
+        },
+        {
+          "type": "section",
+          "name": "Magiczne przedmioty",
+          "page": 7,
+          "entries": [
+            "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+            {
+              "type": "list",
+              "columns": 3,
+              "items": [
+                "{@item Amber Runestone|NRH-TLT}",
+                "{@item bag of tricks, rust||Rdzawy worek sztuczek}",
+                "{@item Necklace of Fireballs}"
+              ]
+            }
+          ],
+          "id": "025"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-TLT/sheet009.webp"
+          },
+          "width": 1275,
+          "height": 825
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-TLT/sheet010.webp"
+          },
+          "width": 1275,
+          "height": 825
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Podsumowanie historii",
+      "page": 2,
+      "entries": [
+        "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+        "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony. Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+        "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "entries",
+      "name": "Gra solo",
+      "page": 2,
+      "entries": [
+        "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+        "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+        {
+          "type": "entries",
+          "name": "TPK: Całkowite zniszczenie drużyny",
+          "page": 2,
+          "entries": [
+            "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+            "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+          ],
+          "id": "003"
+        }
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "name": "TPK: Całkowite zniszczenie drużyny",
+      "page": 2,
+      "entries": [
+        "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+        "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "entries",
+      "name": "Zarys przygody",
+      "page": 3,
+      "entries": [
+        "Oto krótki przegląd Przygody 5:",
+        {
+          "type": "list",
+          "items": [
+            "Fioletowy Czarodziej otrzymuje tajemniczą wiadomość o spotkaniu z „panem Honeycuttem” pod pomnikiem Filomeny na terenie kampusu Akademii Prism.",
+            "Pan Honeycutt informuje Purple, że szuka Fioletowego Klejnotu. Wierzy, że odpowiedź jest wyryta na bursztynowym kamieniu, który daje Purple do rozszyfrowania.",
+            "Fioletowy rozszyfrowuje runy. Wskazówki prowadzą do dobrze znanego, ale niedostępnego miejsca w Akademii Prism, zwanego Kryptą Herolda.",
+            "Fioletowy znajduje drogę do krypty i odkrywa sekretne drzwi prowadzące do sekretnego grobowca, w którym ukryty jest Fioletowy Klejnot."
+          ]
+        }
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Rozpoczęcie gry",
+      "page": 3,
+      "entries": [
+        "Daj kartę postaci (patrz „Purple the Wizard” poniżej) swojemu graczowi i pozwól mu zapoznać się z Purple.",
+        "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć.",
+        "Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+      ],
+      "id": "005"
+    },
+    "0:006": {
+      "type": "section",
+      "name": "Przygoda 5: Zaginiony grobowiec",
+      "page": 3,
+      "entries": [
+        "Przygoda zaczyna się od zamyślenia Purple w Szkole Ewokacji w Akademii Prism. Ostatnio badacze z akademii ciężko pracowali, próbując odkryć, co może stać za przerwami w wyświetlaniu kolorów nękającymi Harmony, a mentor Purple każe im pracować po godzinach, aby znaleźć jakąkolwiek wskazówkę dotyczącą przyczyny tajemniczego przyciemnienia Harmony. Istnieje wiele teorii, a każda szkoła magii twierdzi, że ma działające hipotezy, ale nikt nie ma nic konkretnego.",
+        "Kiedy będziesz gotowy do rozpoczęcia gry, przeczytaj lub sparafrazuj następujący fragment:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            "Siedzisz w swoim gabinecie i przeglądasz stare książki o magicznej historii żywych kolorów Harmony, próbując znaleźć wyjaśnienie jego zanikania, gdy na parapecie przysiada piękny motyl. Patrzy na ciebie błyszczącymi oczami i mówi: „Idź do posągu Filomeny Mądrej”. Potem znika w migoczących drobinach światła."
+          ],
+          "id": "007"
+        },
+        "Fioletowy zna ten posąg. Filomena Mądra była jednym z czarodziejów założycieli Akademii Pryzmatu. Wysoki na 2,5 metra posąg Filomeny znajduje się na cichej, zalesionej polanie na terenie kampusu, około pięciu minut spacerem od gabinetu Purple.",
+        {
+          "type": "entries",
+          "name": "Spotkanie z panem Honeycuttem",
+          "page": 3,
+          "entries": [
+            "Elegancki pan w garniturze i okularach w rogowych oprawkach czeka na Purple przy posągu. Mężczyzna gestem wskazuje Purple, aby podeszła i usiadła na ławce. Mężczyzna jest {@creature Mr. Honeycutt|NRH-TCMC}, Magister Towarzystwa Lorekeeperów. Błaga o zrozumienie Purple i zachowanie całkowitej tajemnicy, rozwijając a {@item spell scroll} z {@spell silence} i rzuca zaklęcie. Pan Honeycutt wypił wcześniej eliksir {@spell telepathy}, a następnie wypowiada w głowie Purple następujące słowa:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                "Wybaczcie środki ostrożności, ale zawsze są słuchy. Nazywam się pan Honeycutt i należę do Towarzystwa Lorekeeperów. Być może o nas nie słyszeliście, ale obserwowaliśmy Was i teraz desperacko potrzebujemy Waszej pomocy."
+              ],
+              "id": "009"
+            },
+            "Z sukcesem {@dc 12} Inteligencja ({@skill Arcana}) sprawdź, Purple słyszała legendę o tajnym stowarzyszeniu czarodziejów i likantropów, którzy przysięgli bronić magii Harmonii przed wszelkiego rodzaju wrogami. Po nieudanym teście Purple wie tylko, że stowarzyszenie jest tajnym stowarzyszeniem, którego celem jest dobro Harmonii.",
+            "Pan Honeycutt wyjaśnia, że ​​musi znaleźć Fioletowy Klejnot, magiczny kamień, który jego zdaniem może pomóc Towarzystwu Strażników Wiedzy w znalezieniu przyczyny utraty kolorów. Przybył do Purple, aby poprosić ich o pomoc w rozwikłaniu zagadki. Honeycutt sięga do swojej skórzanej torby i wyciąga kawałek wypolerowanego bursztynu z wyrytymi runami. Pan Honeycutt mówi, że ten kawałek bursztynu jest kluczem do znalezienia Fioletowego Klejnotu, ale nikt w Towarzystwie Lorekeeperów nie wie, jak go rozszyfrować. Jeśli Fioletowy pomoże rozszyfrować bursztynowy kamień i odzyskać Fioletowy Klejnot, Strażnicy Wiedzy i cała Harmonia będą na zawsze jego dłużnikami. Pan Honeycutt jest również skłonny dorzucić za kłopot sakiewkę zawierającą 25 sztuk złota.",
+            "Pan Honeycutt prosi Fioletowego, aby zostawił dla niego notatkę w tawernie, gdy znajdą Klejnot, a on spotka się z nimi pod pomnikiem Filomeny Mądrej w ciągu godziny.",
+            {
+              "type": "entries",
+              "name": "Bursztynowy Kamień Runiczny",
+              "page": 4,
+              "entries": [
+                "Kawałek bursztynu to starożytny klucz otwierający sekretne drzwi w Krypcie Herolda - słynnym grobowcu pod akademią. Ten {@item amber runestone|NRH-TLT} to także magiczny przedmiot, do którego Fioletowy może się dostroić, spędzając krótki odpoczynek, skupiając się tylko na przedmiocie, będąc z nim w fizycznym kontakcie. Zobacz koniec przygody, aby zobaczyć statystyki gry."
+              ],
+              "id": "00a"
+            }
+          ],
+          "id": "008"
+        },
+        {
+          "type": "entries",
+          "name": "Odszyfrowanie Run",
+          "page": 4,
+          "entries": [
+            "Podczas studiów Purple natknął się na kilka ksiąg zawierających takie runy. Z dwoma udanymi {@dc 14} Inteligencja ({@skill Arcana}) sprawdza, Purple może znaleźć książki w bibliotece Prism Academy. Jeśli Fioletowy poprosi o pomoc bibliotekarza, przeprowadza kontrolę z korzyścią. Po dwóch niepowodzeniach Fioletowy nadal znajduje książki, ale udaje mu się narobić hałasu lub w inny sposób wywołać dezaprobujący wzrok bibliotekarza.",
+            "Po przetłumaczeniu runy na bursztynie mówią dwie rzeczy. Jedna to ciąg liczb: 12, 2, 6, 9, 24 i 36. Pozostałe runy to wiersz:",
+            {
+              "type": "insetReadaloud",
+              "page": 4,
+              "entries": [
+                "Dostrój kamień, aby oświetlał drogę. W Krypcie Herolda klęka się do modlitwy, Odwróć moją czaszkę, a potem pochyl głowę, Abyś ty, który teraz szukasz, nie dołączył do umarłych. Gdy już znajdę się w grobie, moje imię zostanie wypowiedziane trzykrotnie. Ceną jest dar światła słonecznego."
+              ],
+              "id": "00c"
+            },
+            "Purple słyszała o Krypcie Herolda - specjalnym miejscu, niedostępnym dla uczniów, gdzie pochowani są dyrektorzy Akademii Prism. Uczniowie widzieli żelazne drzwi (znane jako Kwiatowe Drzwi ze względu na wszystkie misternie rzeźbione kwiaty), które prowadzą do krypty podczas spotkań szkolnych w Wielkiej Sali."
+          ],
+          "id": "00b"
+        },
+        {
+          "type": "entries",
+          "name": "Dotarcie do krypty Herolda",
+          "page": 4,
+          "entries": [
+            "Wejście do Krypty Herolda to masywne Kwiatowe Drzwi, które znajdują się z boku Wielkiej Sali w Akademii Prism. Istnieją dwa główne sposoby otwierania drzwi:",
+            {
+              "type": "list",
+              "items": [
+                "Przekonaj dyrektora Gustavę (zgodne z prawem dobro, człowiek, {@creature archmage}), aby umożliwić Fioletowemu otwarcie Kwiatowych Drzwi i wejście do krypty. Fioletowy musi odnieść sukces {@dc 17} Charyzma ({@skill Persuasion}) lub - stosując bardziej czarodziejski argument - ​​sukces {@dc 17} Inteligencja ({@skill Arcana}) sprawdź, czy przekonałeś dyrektora.",
+                "Wkradnij się za pomocą {@item amber runestone|NRH-TLT}. Jeśli Fioletowy dostroi się do kamienia, może świecić światłem słonecznym na Kwiatowe Drzwi. Spowoduje to odkrycie szeregu świecących cyfr od 1 do 50, które znajdują się pośrodku każdego kwiatka na drzwiach. Naciśnięcie cyfr w sekwencji zapisanej na kamieniu (12, 2, 6, 9, 24 i 36) otwiera magiczny zamek. Nieprawidłowa sekwencja uruchamia alarm, który przywołuje dyrektora Gustavę, który pojawia się natychmiast."
+              ]
+            },
+            "Jeśli Twój gracz wymyśli inny sprytny sposób na dostanie się do krypty, skorzystaj z niego!",
+            "Po otwarciu drzwi Purple widzi kamienne schody prowadzące w ciemność na głębokość 30 stóp."
+          ],
+          "id": "00d"
+        }
+      ],
+      "id": "006"
+    },
+    "0:008": {
+      "type": "entries",
+      "name": "Spotkanie z panem Honeycuttem",
+      "page": 3,
+      "entries": [
+        "Elegancki pan w garniturze i okularach w rogowych oprawkach czeka na Purple przy posągu. Mężczyzna gestem wskazuje Purple, aby podeszła i usiadła na ławce. Mężczyzna jest {@creature Mr. Honeycutt|NRH-TCMC}, Magister Towarzystwa Lorekeeperów. Błaga o zrozumienie Purple i zachowanie całkowitej tajemnicy, rozwijając a {@item spell scroll} z {@spell silence} i rzuca zaklęcie. Pan Honeycutt wypił wcześniej eliksir {@spell telepathy}, a następnie wypowiada w głowie Purple następujące słowa:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            "Wybaczcie środki ostrożności, ale zawsze są słuchy. Nazywam się pan Honeycutt i należę do Towarzystwa Lorekeeperów. Być może o nas nie słyszeliście, ale obserwowaliśmy Was i teraz desperacko potrzebujemy Waszej pomocy."
+          ],
+          "id": "009"
+        },
+        "Z sukcesem {@dc 12} Inteligencja ({@skill Arcana}) sprawdź, Purple słyszała legendę o tajnym stowarzyszeniu czarodziejów i likantropów, którzy przysięgli bronić magii Harmonii przed wszelkiego rodzaju wrogami. Po nieudanym teście Purple wie tylko, że stowarzyszenie jest tajnym stowarzyszeniem, którego celem jest dobro Harmonii.",
+        "Pan Honeycutt wyjaśnia, że ​​musi znaleźć Fioletowy Klejnot, magiczny kamień, który jego zdaniem może pomóc Towarzystwu Strażników Wiedzy w znalezieniu przyczyny utraty kolorów. Przybył do Purple, aby poprosić ich o pomoc w rozwikłaniu zagadki. Honeycutt sięga do swojej skórzanej torby i wyciąga kawałek wypolerowanego bursztynu z wyrytymi runami. Pan Honeycutt mówi, że ten kawałek bursztynu jest kluczem do znalezienia Fioletowego Klejnotu, ale nikt w Towarzystwie Lorekeeperów nie wie, jak go rozszyfrować. Jeśli Fioletowy pomoże rozszyfrować bursztynowy kamień i odzyskać Fioletowy Klejnot, Strażnicy Wiedzy i cała Harmonia będą na zawsze jego dłużnikami. Pan Honeycutt jest również skłonny dorzucić za kłopot sakiewkę zawierającą 25 sztuk złota.",
+        "Pan Honeycutt prosi Fioletowego, aby zostawił dla niego notatkę w tawernie, gdy znajdą Klejnot, a on spotka się z nimi pod pomnikiem Filomeny Mądrej w ciągu godziny.",
+        {
+          "type": "entries",
+          "name": "Bursztynowy Kamień Runiczny",
+          "page": 4,
+          "entries": [
+            "Kawałek bursztynu to starożytny klucz otwierający sekretne drzwi w Krypcie Herolda - słynnym grobowcu pod akademią. Ten {@item amber runestone|NRH-TLT} to także magiczny przedmiot, do którego Fioletowy może się dostroić, spędzając krótki odpoczynek, skupiając się tylko na przedmiocie, będąc z nim w fizycznym kontakcie. Zobacz koniec przygody, aby zobaczyć statystyki gry."
+          ],
+          "id": "00a"
+        }
+      ],
+      "id": "008"
+    },
+    "0:00a": {
+      "type": "entries",
+      "name": "Bursztynowy Kamień Runiczny",
+      "page": 4,
+      "entries": [
+        "Kawałek bursztynu to starożytny klucz otwierający sekretne drzwi w Krypcie Herolda - słynnym grobowcu pod akademią. Ten {@item amber runestone|NRH-TLT} to także magiczny przedmiot, do którego Fioletowy może się dostroić, spędzając krótki odpoczynek, skupiając się tylko na przedmiocie, będąc z nim w fizycznym kontakcie. Zobacz koniec przygody, aby zobaczyć statystyki gry."
+      ],
+      "id": "00a"
+    },
+    "0:00b": {
+      "type": "entries",
+      "name": "Odszyfrowanie Run",
+      "page": 4,
+      "entries": [
+        "Podczas studiów Purple natknął się na kilka ksiąg zawierających takie runy. Z dwoma udanymi {@dc 14} Inteligencja ({@skill Arcana}) sprawdza, Purple może znaleźć książki w bibliotece Prism Academy. Jeśli Fioletowy poprosi o pomoc bibliotekarza, przeprowadza kontrolę z korzyścią. Po dwóch niepowodzeniach Fioletowy nadal znajduje książki, ale udaje mu się narobić hałasu lub w inny sposób wywołać dezaprobujący wzrok bibliotekarza.",
+        "Po przetłumaczeniu runy na bursztynie mówią dwie rzeczy. Jedna to ciąg liczb: 12, 2, 6, 9, 24 i 36. Pozostałe runy to wiersz:",
+        {
+          "type": "insetReadaloud",
+          "page": 4,
+          "entries": [
+            "Dostrój kamień, aby oświetlał drogę. W Krypcie Herolda klęka się do modlitwy, Odwróć moją czaszkę, a potem pochyl głowę, Abyś ty, który teraz szukasz, nie dołączył do umarłych. Gdy już znajdę się w grobie, moje imię zostanie wypowiedziane trzykrotnie. Ceną jest dar światła słonecznego."
+          ],
+          "id": "00c"
+        },
+        "Purple słyszała o Krypcie Herolda - specjalnym miejscu, niedostępnym dla uczniów, gdzie pochowani są dyrektorzy Akademii Prism. Uczniowie widzieli żelazne drzwi (znane jako Kwiatowe Drzwi ze względu na wszystkie misternie rzeźbione kwiaty), które prowadzą do krypty podczas spotkań szkolnych w Wielkiej Sali."
+      ],
+      "id": "00b"
+    },
+    "0:00d": {
+      "type": "entries",
+      "name": "Dotarcie do krypty Herolda",
+      "page": 4,
+      "entries": [
+        "Wejście do Krypty Herolda to masywne Kwiatowe Drzwi, które znajdują się z boku Wielkiej Sali w Akademii Prism. Istnieją dwa główne sposoby otwierania drzwi:",
+        {
+          "type": "list",
+          "items": [
+            "Przekonaj dyrektora Gustavę (zgodne z prawem dobro, człowiek, {@creature archmage}), aby umożliwić Fioletowemu otwarcie Kwiatowych Drzwi i wejście do krypty. Fioletowy musi odnieść sukces {@dc 17} Charyzma ({@skill Persuasion}) lub - stosując bardziej czarodziejski argument - ​​sukces {@dc 17} Inteligencja ({@skill Arcana}) sprawdź, czy przekonałeś dyrektora.",
+            "Wkradnij się za pomocą {@item amber runestone|NRH-TLT}. Jeśli Fioletowy dostroi się do kamienia, może świecić światłem słonecznym na Kwiatowe Drzwi. Spowoduje to odkrycie szeregu świecących cyfr od 1 do 50, które znajdują się pośrodku każdego kwiatka na drzwiach. Naciśnięcie cyfr w sekwencji zapisanej na kamieniu (12, 2, 6, 9, 24 i 36) otwiera magiczny zamek. Nieprawidłowa sekwencja uruchamia alarm, który przywołuje dyrektora Gustavę, który pojawia się natychmiast."
+          ]
+        },
+        "Jeśli Twój gracz wymyśli inny sprytny sposób na dostanie się do krypty, skorzystaj z niego!",
+        "Po otwarciu drzwi Purple widzi kamienne schody prowadzące w ciemność na głębokość 30 stóp."
+      ],
+      "id": "00d"
+    },
+    "0:00e": {
+      "type": "section",
+      "name": "Lokalizacje krypt Herolda",
+      "page": 4,
+      "entries": [
+        "Poniższe lokalizacje są przypisane do mapy dołączonej do tej przygody.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-TLT/010.webp"
+          },
+          "width": 701,
+          "height": 1185,
+          "mapRegions": [
+            {
+              "area": "020",
+              "points": [
+                [
+                  487,
+                  141
+                ],
+                [
+                  487,
+                  316
+                ],
+                [
+                  627,
+                  316
+                ],
+                [
+                  627,
+                  141
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  270,
+                  354
+                ],
+                [
+                  270,
+                  433
+                ],
+                [
+                  320,
+                  433
+                ],
+                [
+                  320,
+                  354
+                ]
+              ]
+            },
+            {
+              "area": "013",
+              "points": [
+                [
+                  344,
+                  559
+                ],
+                [
+                  344,
+                  636
+                ],
+                [
+                  429,
+                  636
+                ],
+                [
+                  429,
+                  559
+                ]
+              ]
+            },
+            {
+              "area": "00f",
+              "points": [
+                [
+                  339,
+                  760
+                ],
+                [
+                  339,
+                  1127
+                ],
+                [
+                  429,
+                  1127
+                ],
+                [
+                  429,
+                  760
+                ]
+              ]
+            },
+            {
+              "area": "01b",
+              "points": [
+                [
+                  347,
+                  381
+                ],
+                [
+                  347,
+                  453
+                ],
+                [
+                  424,
+                  453
+                ],
+                [
+                  424,
+                  381
+                ]
+              ]
+            },
+            {
+              "area": "01c",
+              "points": [
+                [
+                  473,
+                  419
+                ],
+                [
+                  473,
+                  496
+                ],
+                [
+                  524,
+                  496
+                ],
+                [
+                  524,
+                  419
+                ]
+              ]
+            },
+            {
+              "area": "01d",
+              "points": [
+                [
+                  474,
+                  557
+                ],
+                [
+                  474,
+                  631
+                ],
+                [
+                  529,
+                  631
+                ],
+                [
+                  529,
+                  557
+                ]
+              ]
+            },
+            {
+              "area": "01d",
+              "points": [
+                [
+                  479,
+                  697
+                ],
+                [
+                  479,
+                  774
+                ],
+                [
+                  530,
+                  774
+                ],
+                [
+                  530,
+                  697
+                ]
+              ]
+            },
+            {
+              "area": "016",
+              "points": [
+                [
+                  241,
+                  699
+                ],
+                [
+                  241,
+                  770
+                ],
+                [
+                  294,
+                  770
+                ],
+                [
+                  294,
+                  699
+                ]
+              ]
+            },
+            {
+              "area": "017",
+              "points": [
+                [
+                  244,
+                  564
+                ],
+                [
+                  244,
+                  633
+                ],
+                [
+                  300,
+                  633
+                ],
+                [
+                  300,
+                  564
+                ]
+              ]
+            },
+            {
+              "area": "018",
+              "points": [
+                [
+                  243,
+                  437
+                ],
+                [
+                  243,
+                  494
+                ],
+                [
+                  314,
+                  494
+                ],
+                [
+                  314,
+                  437
+                ]
+              ]
+            }
+          ],
+          "imageType": "mapa",
+          "grid": {
+            "type": "square",
+            "size": 70,
+            "scale": 2
+          },
+          "hrefThumbnail": {
+            "type": "internal",
+            "path": "adventure/NRH-TLT/thumbnail/010.webp"
+          },
+          "id": "026",
+          "credit": "Red Central"
+        },
+        {
+          "type": "entries",
+          "name": "H1. Drzwi do krypty",
+          "page": 4,
+          "entries": [
+            "Kamienne schody prowadzą do korytarza zakończonego zamkniętymi żelaznymi drzwiami. Drzwi mają KP 15, 100 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
+            "Na drzwiach widnieje zagadka:",
+            {
+              "type": "insetReadaloud",
+              "page": 4,
+              "entries": [
+                "Kurzu nie da się oczyścić ręką, przycisku, którego ręka nie wciśnie, trybika, którego ręka nie zamarznie."
+              ],
+              "id": "010"
+            },
+            "Fioletowy zauważa idealny kwadrat czegoś, co wygląda jak brud na drzwiach. Nie można go czyścić ręcznie, tylko za pomocą {@spell prestidigitation} zaklęcie.",
+            "Po oczyszczeniu brudu ukazuje się mały przycisk. Ponownie, przycisku nie można nacisnąć inaczej niż przez a {@spell mage hand} zaklęcie.",
+            "Po naciśnięciu przycisku zamienia się w trybik, który zaczyna się obracać. Można go zatrzymać jedynie poprzez namierzenie go za pomocą {@spell ray of frost} zaklęcie.",
+            "Gdy trybik zamarznie, drzwiczki odblokowują się ze słyszalnym kliknięciem. Na drzwiach pojawiają się wyrzeźbione usta, które mówią: „Wejdź”.",
+            "Jeśli twój gracz będzie zbyt sfrustrowany zagadką, usta mogą pojawić się wcześniej i dać Fioletowym kilka wskazówek."
+          ],
+          "id": "00f"
+        },
+        {
+          "type": "entries",
+          "name": "H2. Krypta Herolda",
+          "page": 5,
+          "entries": [
+            "To kamienne pomieszczenie jest świętym miejscem oddającym cześć dyrektorom Akademii Prism. Ściany tej 50-metrowej sali są wyłożone wnękami, z których każda mieści grób byłego dyrektora. Krypta jest dobrze utrzymana; mosiężne okucia są wypolerowane, a podłogi świeżo umyte.",
+            "Kiedy wejdzie Fioletowy, przeczytaj lub sparafrazuj następujące słowa:",
+            {
+              "type": "insetReadaloud",
+              "page": 5,
+              "entries": [
+                "Wiele słyszałeś o tym miejscu podczas swojej nauki w Prism Academy. Krypta Herolda to święte miejsce czczone przez wszystkich wykładowców. We wnękach wzdłuż ścian widać grobowce byłych dyrektorów, a przed grobowcami w milczącej czci składane są kwiaty i notatki z podziękowaniami. Słyszeliście także, że grobowce są chronione potężną magią - każdemu, kto spróbuje je zbezcześcić, grozi pewna śmierć."
+              ],
+              "id": "012"
+            },
+            {
+              "type": "inset",
+              "name": "Splądrowanie krypty",
+              "page": 5,
+              "entries": [
+                "Chociaż grobowce są kuszące, nie są przeznaczone dla Fioletowych do plądrowania. Purple słyszała historie opowiadane w Akademii Prism, że grobowce są chronione śmiercionośnymi zaklęciami rzucanymi przez arcymagów wysokiego szczebla. Niektórzy wykładowcy twierdzą, że cała krypta jest niebezpieczną miną-pułapką i dlatego jest surowo niedostępna.",
+                "Pomimo tego ostrzeżenia, Twój gracz może chcieć porzucić przyzwoitość społeczną i spróbować splądrować grobowce. Jeśli tak się stanie, pozwól grobowcowi się bronić - co najprawdopodobniej zakończy się spektakularną śmiercią Purple (patrz „TPK: Total Party Kill” powyżej)."
+              ],
+              "id": "013"
+            },
+            "Każda krypta ma wygrawerowane imię zmarłego oraz bogato rzeźbione i ozdobione herbami i inną heraldyką istotną dla dyrektora.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Glify Strażnicze",
+                  "page": 5,
+                  "entries": [
+                    "Każda krypta jest zapieczętowana glifem ochronnym i tylko dyrektor Gustava zna hasła dezaktywujące glify. Aby wykryć totemy, Fioletowy musi pomyślnie przejść test {@dc 17} Inteligencji ({@skill Investigation}) lub rzucić magię wykrywania.",
+                    "Próba włamania się do grobowca aktywuje glif. Po uruchomieniu glif wybucha magiczną energią w sferze o promieniu 20 stóp, której środkiem jest glif. Kula rozprzestrzenia się po rogach. Każde stworzenie na danym obszarze musi wykonać {@dc 17} Rzut obronny na zręczność. Stworzenie otrzymuje 45 ({@damage 10d8}) obrażenia od piorunów przy nieudanym rzucie obronnym lub o połowę mniejsze przy udanym rzucie obronnym.",
+                    "Aktywacja glifu zaalarmuje także dyrektora Gustavę, który pojawia się rundę później poprzez zaklęcie teleportacji."
+                  ],
+                  "id": "015"
+                }
+              ],
+              "id": "014"
+            },
+            {
+              "type": "entries",
+              "name": "A. Profesor Magillicus",
+              "page": 5,
+              "entries": [
+                "W grobowcu tym znajduje się płaskorzeźba czarodzieja trzymającego w górze różdżkę. Na grobie widnieje napis „Członek-założyciel Akademii Prism”.",
+                "Wewnątrz grobowca znajdują się zwłoki profesora Magillicusa w jego szatach Akademii Prism."
+              ],
+              "id": "016"
+            },
+            {
+              "type": "entries",
+              "name": "B. Profesor Filomena",
+              "page": 5,
+              "entries": [
+                "W grobowcu tym znajduje się płaskorzeźba czarodzieja, który wygląda jak posąg Filomeny na zalesionej polanie (patrz „Spotkanie z panem Honeycuttem” powyżej), trzymającego otwartą księgę w jednej ręce i laskę czarodzieja w drugiej. Na grobie widnieje napis „Członek-założyciel Akademii Prism”.",
+                "Wewnątrz grobowca znajdują się zwłoki profesor Filomeny w jej szatach Akademii Pryzmatu."
+              ],
+              "id": "017"
+            },
+            {
+              "type": "entries",
+              "name": "C. Profesor Orm",
+              "page": 5,
+              "entries": [
+                "W grobowcu tym znajduje się płaskorzeźba czarodzieja trzymającego w dłoni ludzką czaszkę. Słowa: „Zbadał odległe krainy cieni”. są wypisane na grobie.",
+                "Wewnątrz grobowca znajdują się szaty Akademii Pryzmatu profesora Orma. Jego zwłok nigdzie nie można znaleźć.",
+                {
+                  "type": "entries",
+                  "name": "Otwieranie tajemniczych drzwi",
+                  "page": 5,
+                  "entries": [
+                    "Jeśli bursztynowy kamień runiczny zostanie użyty do oświetlenia światłem słonecznym czaszki wyrzeźbionej na grobowcu, czaszka zaświeci, stanie się trójwymiarowa i unosi się przed Fioletem.",
+                    "Runy wyryte na bursztynowym kamieniu (patrz „Rozszyfrowanie run” powyżej) nakazują Fioletowemu uklęknąć i pochylić głowę po obróceniu czaszki na bok. Spowoduje to wystrzelenie błyskawicy nad głową Fioletowego, otwierając sekretne drzwi do obszaru H3.",
+                    "Jeśli Fioletowy klęczy i odwraca czaszkę, ale nie pochyla głowy, błyskawica leci w stronę Fioletowego linią o długości 30 metrów i szerokości 5 stóp. Każde stworzenie w linii musi wykonać a {@dc 17} Rzut obronny na zręczność, biorąc 35 ({@damage 10d6}) obrażenia od błyskawicy przy nieudanym zapisie lub o połowę mniejsze przy udanym zapisie."
+                  ],
+                  "id": "019"
+                },
+                {
+                  "type": "entries",
+                  "name": "Rozwiązanie zagadki",
+                  "page": 5,
+                  "entries": [
+                    "Jeśli gracz ma trudności z zagadką, spraw, aby bursztynowy kamień runiczny zaświecił lub telepatycznie przypomniał mu o runach i zagadce. Może nawet pokazać im mentalny obraz tego, co zrobić z czaszką.",
+                    "Jeśli Purple zginie od pioruna, niech obudzi się w krypcie lub z powrotem za Kwiatowymi Drzwiami i zda sobie sprawę, że ostatnie kilka minut było wyraźną wizją tego, co miało nadejść."
+                  ],
+                  "id": "01a"
+                }
+              ],
+              "id": "018"
+            },
+            {
+              "type": "entries",
+              "name": "D. Profesor Waziti",
+              "page": 6,
+              "entries": [
+                "W grobowcu tym znajduje się płaskorzeźba czarnoksiężnika trzymającego rękę na kuli ziemskiej. Słowa: „Otworzył drzwi do kosmosu”. są wypisane na grobie.",
+                "Wewnątrz grobowca znajdują się zwłoki profesora Waziti w jego szatach Akademii Prism."
+              ],
+              "id": "01b"
+            },
+            {
+              "type": "entries",
+              "name": "E. Profesor Aleksandra",
+              "page": 6,
+              "entries": [
+                "W grobowcu tym znajduje się płaskorzeźba przedstawiająca pulchnego czarodzieja otoczonego zwierzętami hodowlanymi i magicznymi stworzeniami. Słowa „Była {@skill Nature}tajemnica i magia, która stała się ciałem” są wyryte na grobie.",
+                "Wewnątrz grobowca znajdują się zwłoki profesor Alexandry w jej szatach Akademii Prism."
+              ],
+              "id": "01c"
+            },
+            {
+              "type": "entries",
+              "name": "F. Profesor Althea",
+              "page": 6,
+              "entries": [
+                "W tym grobowcu znajduje się płaskorzeźba czarnoksiężnika o intensywnym wyrazie, otoczona wieńcem ognia. Na grobie wyryto słowa „Ta, która rzuciła ogień”.",
+                "Wewnątrz grobowca znajdują się zwłoki profesor Althei w jej szatach Akademii Prism. Jej szkielet nosi {@item necklace of fireballs}."
+              ],
+              "id": "01d"
+            },
+            {
+              "type": "entries",
+              "name": "G. Profesor Wigglewumpus",
+              "page": 6,
+              "entries": [
+                "W grobowcu tym znajduje się płaskorzeźba przedstawiająca gnoma czarodzieja otoczonego wszelkiego rodzaju mechanicznymi bibelotami i zabawkami. Na grobie widnieją słowa: „Wybrany przez studentów Prism Academy na„ Najzabawniejszego profesora wszechczasów ”200 lat z rzędu”.",
+                "Wewnątrz grobowca znajdują się maleńkie zwłoki profesora Wigglewumpusa w jego szatach Akademii Pryzmatu, a także mała nakręcana kaczka, która kwacze i wskazuje godzinę po aktywacji."
+              ],
+              "id": "01e"
+            }
+          ],
+          "id": "011"
+        },
+        {
+          "type": "entries",
+          "name": "H3. Sekretne przejście",
+          "page": 6,
+          "entries": [
+            "Jeśli sekretne drzwi w grobowcu profesora Orma zostaną otwarte, kamienna płyta cofnie się, odsłaniając szerokie na 5 stóp przejście prowadzące do kolejnych kamiennych drzwi. Drzwi są odblokowane i otwierają się do obszaru H4."
+          ],
+          "id": "01f"
+        },
+        {
+          "type": "entries",
+          "name": "H4. Grób profesora Prisma",
+          "page": 6,
+          "entries": [
+            "Kiedy Fioletowy wejdzie do pokoju, przeczytaj lub sparafrazuj następujące słowa:",
+            {
+              "type": "insetReadaloud",
+              "page": 6,
+              "entries": [
+                "Na środku pokoju stoi kamienny sarkofag na marach z czarnego marmuru. Na sarkofagu wyrzeźbiono tajemne symbole i napis: „Zimandius Prism, założyciel Akademii Prism”. Na wieczku znajduje się rzeźba śpiącego czarodzieja. W kamiennych dłoniach czarodzieja znajduje się lśniący fioletowy klejnot, tej samej wielkości co bursztynowy kamień, który trzymasz."
+              ],
+              "id": "021"
+            },
+            "Klejnot jest rzeczywiście Fioletowym Klejnotem, którego pragnie pan Honeycutt. Jeśli Fioletowy poprawnie rozwiąże zagadkę (patrz „Rozszyfrowanie Run” powyżej), musi trzykrotnie wypowiedzieć imię „Zimandius” lub „Pryzmat Zimandiusa”, a następnie zamienić Fioletowy Klejnot z {@item amber runestone|NRH-TLT}.",
+            "Fioletowy musi szybko dokonać zamiany; rundę po usunięciu Fioletowego Klejnotu drzwi do pokoju zostają zamknięte ciężkim blokiem kamienia, a kamienne dłonie na szczycie sarkofagu zaczynają na ślepo szukać bursztynowego kamienia runicznego. Gdy tylko Fioletowy Klejnot lub Bursztynowy Kamień trafi w ręce czarodzieja, blok kamienia znika, a pomieszczenie się otwiera.",
+            "Ponownie, jeśli gracz ma trudności z rozwiązaniem zagadki i zamianą Fioletowego Klejnotu na bursztynowy kamień, niech bursztynowy kamień runiczny poprowadzi go telepatycznie.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Wewnątrz trumny",
+                  "page": 6,
+                  "entries": [
+                    "Podobnie jak inne grobowce, grobowiec profesora Prisma jest chroniony glifem ochronnym, który aktywuje się po otwarciu grobowca (patrz „Glify ochronne” powyżej). Sarkofag zawiera ciało profesora Zimandiusa Prism."
+                  ],
+                  "id": "023"
+                }
+              ],
+              "id": "022"
+            }
+          ],
+          "id": "020"
+        },
+        {
+          "type": "entries",
+          "name": "Ukończenie Misji",
+          "page": 6,
+          "entries": [
+            "Jeśli wszystko pójdzie dobrze, Fioletowy zostawia w tawernie notatkę dla pana Honeycutta, po czym wraca do posągu Filomeny Mądrej, aby spotkać się z panem Honeycuttem i dać mu Fioletowy Klejnot.",
+            "Pan Honeycutt jest wdzięczny za zwrot Fioletowego Klejnotu. Chce usłyszeć, jak Fioletowy odszyfrował runy i znalazł klejnot, cały czas robiąc notatki w swoim czarnym notatniku.",
+            "W nagrodę daje Purple a {@item bag of tricks, rust||rdzawy worek sztuczek} i pyta, czy Purple dołączy do Towarzystwa Lorekeeperów i pomoże dowiedzieć się, jak przywrócić kolor Harmonii."
+          ],
+          "id": "024"
+        }
+      ],
+      "id": "00e"
+    },
+    "0:00f": {
+      "type": "entries",
+      "name": "H1. Drzwi do krypty",
+      "page": 4,
+      "entries": [
+        "Kamienne schody prowadzą do korytarza zakończonego zamkniętymi żelaznymi drzwiami. Drzwi mają KP 15, 100 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
+        "Na drzwiach widnieje zagadka:",
+        {
+          "type": "insetReadaloud",
+          "page": 4,
+          "entries": [
+            "Kurzu nie da się oczyścić ręką, przycisku, którego ręka nie wciśnie, trybika, którego ręka nie zamarznie."
+          ],
+          "id": "010"
+        },
+        "Fioletowy zauważa idealny kwadrat czegoś, co wygląda jak brud na drzwiach. Nie można go czyścić ręcznie, tylko za pomocą {@spell prestidigitation} zaklęcie.",
+        "Po oczyszczeniu brudu ukazuje się mały przycisk. Ponownie, przycisku nie można nacisnąć inaczej niż przez a {@spell mage hand} zaklęcie.",
+        "Po naciśnięciu przycisku zamienia się w trybik, który zaczyna się obracać. Można go zatrzymać jedynie poprzez namierzenie go za pomocą {@spell ray of frost} zaklęcie.",
+        "Gdy trybik zamarznie, drzwiczki odblokowują się ze słyszalnym kliknięciem. Na drzwiach pojawiają się wyrzeźbione usta, które mówią: „Wejdź”.",
+        "Jeśli twój gracz będzie zbyt sfrustrowany zagadką, usta mogą pojawić się wcześniej i dać Fioletowym kilka wskazówek."
+      ],
+      "id": "00f"
+    },
+    "0:011": {
+      "type": "entries",
+      "name": "H2. Krypta Herolda",
+      "page": 5,
+      "entries": [
+        "To kamienne pomieszczenie jest świętym miejscem oddającym cześć dyrektorom Akademii Prism. Ściany tej 50-metrowej sali są wyłożone wnękami, z których każda mieści grób byłego dyrektora. Krypta jest dobrze utrzymana; mosiężne okucia są wypolerowane, a podłogi świeżo umyte.",
+        "Kiedy wejdzie Fioletowy, przeczytaj lub sparafrazuj następujące słowa:",
+        {
+          "type": "insetReadaloud",
+          "page": 5,
+          "entries": [
+            "Wiele słyszałeś o tym miejscu podczas swojej nauki w Prism Academy. Krypta Herolda to święte miejsce czczone przez wszystkich wykładowców. We wnękach wzdłuż ścian widać grobowce byłych dyrektorów, a przed grobowcami w milczącej czci składane są kwiaty i notatki z podziękowaniami. Słyszeliście także, że grobowce są chronione potężną magią - każdemu, kto spróbuje je zbezcześcić, grozi pewna śmierć."
+          ],
+          "id": "012"
+        },
+        {
+          "type": "inset",
+          "name": "Splądrowanie krypty",
+          "page": 5,
+          "entries": [
+            "Chociaż grobowce są kuszące, nie są przeznaczone dla Fioletowych do plądrowania. Purple słyszała historie opowiadane w Akademii Prism, że grobowce są chronione śmiercionośnymi zaklęciami rzucanymi przez arcymagów wysokiego szczebla. Niektórzy wykładowcy twierdzą, że cała krypta jest niebezpieczną miną-pułapką i dlatego jest surowo niedostępna.",
+            "Pomimo tego ostrzeżenia, Twój gracz może chcieć porzucić przyzwoitość społeczną i spróbować splądrować grobowce. Jeśli tak się stanie, pozwól grobowcowi się bronić - co najprawdopodobniej zakończy się spektakularną śmiercią Purple (patrz „TPK: Total Party Kill” powyżej)."
+          ],
+          "id": "013"
+        },
+        "Każda krypta ma wygrawerowane imię zmarłego oraz bogato rzeźbione i ozdobione herbami i inną heraldyką istotną dla dyrektora.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Glify Strażnicze",
+              "page": 5,
+              "entries": [
+                "Każda krypta jest zapieczętowana glifem ochronnym i tylko dyrektor Gustava zna hasła dezaktywujące glify. Aby wykryć totemy, Fioletowy musi pomyślnie przejść test {@dc 17} Inteligencji ({@skill Investigation}) lub rzucić magię wykrywania.",
+                "Próba włamania się do grobowca aktywuje glif. Po uruchomieniu glif wybucha magiczną energią w sferze o promieniu 20 stóp, której środkiem jest glif. Kula rozprzestrzenia się po rogach. Każde stworzenie na danym obszarze musi wykonać {@dc 17} Rzut obronny na zręczność. Stworzenie otrzymuje 45 ({@damage 10d8}) obrażenia od piorunów przy nieudanym rzucie obronnym lub o połowę mniejsze przy udanym rzucie obronnym.",
+                "Aktywacja glifu zaalarmuje także dyrektora Gustavę, który pojawia się rundę później poprzez zaklęcie teleportacji."
+              ],
+              "id": "015"
+            }
+          ],
+          "id": "014"
+        },
+        {
+          "type": "entries",
+          "name": "A. Profesor Magillicus",
+          "page": 5,
+          "entries": [
+            "W grobowcu tym znajduje się płaskorzeźba czarodzieja trzymającego w górze różdżkę. Na grobie widnieje napis „Członek-założyciel Akademii Prism”.",
+            "Wewnątrz grobowca znajdują się zwłoki profesora Magillicusa w jego szatach Akademii Prism."
+          ],
+          "id": "016"
+        },
+        {
+          "type": "entries",
+          "name": "B. Profesor Filomena",
+          "page": 5,
+          "entries": [
+            "W grobowcu tym znajduje się płaskorzeźba czarodzieja, który wygląda jak posąg Filomeny na zalesionej polanie (patrz „Spotkanie z panem Honeycuttem” powyżej), trzymającego otwartą księgę w jednej ręce i laskę czarodzieja w drugiej. Na grobie widnieje napis „Członek-założyciel Akademii Prism”.",
+            "Wewnątrz grobowca znajdują się zwłoki profesor Filomeny w jej szatach Akademii Pryzmatu."
+          ],
+          "id": "017"
+        },
+        {
+          "type": "entries",
+          "name": "C. Profesor Orm",
+          "page": 5,
+          "entries": [
+            "W grobowcu tym znajduje się płaskorzeźba czarodzieja trzymającego w dłoni ludzką czaszkę. Słowa: „Zbadał odległe krainy cieni”. są wypisane na grobie.",
+            "Wewnątrz grobowca znajdują się szaty Akademii Pryzmatu profesora Orma. Jego zwłok nigdzie nie można znaleźć.",
+            {
+              "type": "entries",
+              "name": "Otwieranie tajemniczych drzwi",
+              "page": 5,
+              "entries": [
+                "Jeśli bursztynowy kamień runiczny zostanie użyty do oświetlenia światłem słonecznym czaszki wyrzeźbionej na grobowcu, czaszka zaświeci, stanie się trójwymiarowa i unosi się przed Fioletem.",
+                "Runy wyryte na bursztynowym kamieniu (patrz „Rozszyfrowanie run” powyżej) nakazują Fioletowemu uklęknąć i pochylić głowę po obróceniu czaszki na bok. Spowoduje to wystrzelenie błyskawicy nad głową Fioletowego, otwierając sekretne drzwi do obszaru H3.",
+                "Jeśli Fioletowy klęczy i odwraca czaszkę, ale nie pochyla głowy, błyskawica leci w stronę Fioletowego linią o długości 30 metrów i szerokości 5 stóp. Każde stworzenie w linii musi wykonać a {@dc 17} Rzut obronny na zręczność, biorąc 35 ({@damage 10d6}) obrażenia od błyskawicy przy nieudanym zapisie lub o połowę mniejsze przy udanym zapisie."
+              ],
+              "id": "019"
+            },
+            {
+              "type": "entries",
+              "name": "Rozwiązanie zagadki",
+              "page": 5,
+              "entries": [
+                "Jeśli gracz ma trudności z zagadką, spraw, aby bursztynowy kamień runiczny zaświecił lub telepatycznie przypomniał mu o runach i zagadce. Może nawet pokazać im mentalny obraz tego, co zrobić z czaszką.",
+                "Jeśli Purple zginie od pioruna, niech obudzi się w krypcie lub z powrotem za Kwiatowymi Drzwiami i zda sobie sprawę, że ostatnie kilka minut było wyraźną wizją tego, co miało nadejść."
+              ],
+              "id": "01a"
+            }
+          ],
+          "id": "018"
+        },
+        {
+          "type": "entries",
+          "name": "D. Profesor Waziti",
+          "page": 6,
+          "entries": [
+            "W grobowcu tym znajduje się płaskorzeźba czarnoksiężnika trzymającego rękę na kuli ziemskiej. Słowa: „Otworzył drzwi do kosmosu”. są wypisane na grobie.",
+            "Wewnątrz grobowca znajdują się zwłoki profesora Waziti w jego szatach Akademii Prism."
+          ],
+          "id": "01b"
+        },
+        {
+          "type": "entries",
+          "name": "E. Profesor Aleksandra",
+          "page": 6,
+          "entries": [
+            "W grobowcu tym znajduje się płaskorzeźba przedstawiająca pulchnego czarodzieja otoczonego zwierzętami hodowlanymi i magicznymi stworzeniami. Słowa „Była {@skill Nature}tajemnica i magia, która stała się ciałem” są wyryte na grobie.",
+            "Wewnątrz grobowca znajdują się zwłoki profesor Alexandry w jej szatach Akademii Prism."
+          ],
+          "id": "01c"
+        },
+        {
+          "type": "entries",
+          "name": "F. Profesor Althea",
+          "page": 6,
+          "entries": [
+            "W tym grobowcu znajduje się płaskorzeźba czarnoksiężnika o intensywnym wyrazie, otoczona wieńcem ognia. Na grobie wyryto słowa „Ta, która rzuciła ogień”.",
+            "Wewnątrz grobowca znajdują się zwłoki profesor Althei w jej szatach Akademii Prism. Jej szkielet nosi {@item necklace of fireballs}."
+          ],
+          "id": "01d"
+        },
+        {
+          "type": "entries",
+          "name": "G. Profesor Wigglewumpus",
+          "page": 6,
+          "entries": [
+            "W grobowcu tym znajduje się płaskorzeźba przedstawiająca gnoma czarodzieja otoczonego wszelkiego rodzaju mechanicznymi bibelotami i zabawkami. Na grobie widnieją słowa: „Wybrany przez studentów Prism Academy na„ Najzabawniejszego profesora wszechczasów ”200 lat z rzędu”.",
+            "Wewnątrz grobowca znajdują się maleńkie zwłoki profesora Wigglewumpusa w jego szatach Akademii Pryzmatu, a także mała nakręcana kaczka, która kwacze i wskazuje godzinę po aktywacji."
+          ],
+          "id": "01e"
+        }
+      ],
+      "id": "011"
+    },
+    "0:014": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Glify Strażnicze",
+          "page": 5,
+          "entries": [
+            "Każda krypta jest zapieczętowana glifem ochronnym i tylko dyrektor Gustava zna hasła dezaktywujące glify. Aby wykryć totemy, Fioletowy musi pomyślnie przejść test {@dc 17} Inteligencji ({@skill Investigation}) lub rzucić magię wykrywania.",
+            "Próba włamania się do grobowca aktywuje glif. Po uruchomieniu glif wybucha magiczną energią w sferze o promieniu 20 stóp, której środkiem jest glif. Kula rozprzestrzenia się po rogach. Każde stworzenie na danym obszarze musi wykonać {@dc 17} Rzut obronny na zręczność. Stworzenie otrzymuje 45 ({@damage 10d8}) obrażenia od piorunów przy nieudanym rzucie obronnym lub o połowę mniejsze przy udanym rzucie obronnym.",
+            "Aktywacja glifu zaalarmuje także dyrektora Gustavę, który pojawia się rundę później poprzez zaklęcie teleportacji."
+          ],
+          "id": "015"
+        }
+      ],
+      "id": "014"
+    },
+    "0:015": {
+      "type": "entries",
+      "name": "Glify Strażnicze",
+      "page": 5,
+      "entries": [
+        "Każda krypta jest zapieczętowana glifem ochronnym i tylko dyrektor Gustava zna hasła dezaktywujące glify. Aby wykryć totemy, Fioletowy musi pomyślnie przejść test {@dc 17} Inteligencji ({@skill Investigation}) lub rzucić magię wykrywania.",
+        "Próba włamania się do grobowca aktywuje glif. Po uruchomieniu glif wybucha magiczną energią w sferze o promieniu 20 stóp, której środkiem jest glif. Kula rozprzestrzenia się po rogach. Każde stworzenie na danym obszarze musi wykonać {@dc 17} Rzut obronny na zręczność. Stworzenie otrzymuje 45 ({@damage 10d8}) obrażenia od piorunów przy nieudanym rzucie obronnym lub o połowę mniejsze przy udanym rzucie obronnym.",
+        "Aktywacja glifu zaalarmuje także dyrektora Gustavę, który pojawia się rundę później poprzez zaklęcie teleportacji."
+      ],
+      "id": "015"
+    },
+    "0:016": {
+      "type": "entries",
+      "name": "A. Profesor Magillicus",
+      "page": 5,
+      "entries": [
+        "W grobowcu tym znajduje się płaskorzeźba czarodzieja trzymającego w górze różdżkę. Na grobie widnieje napis „Członek-założyciel Akademii Prism”.",
+        "Wewnątrz grobowca znajdują się zwłoki profesora Magillicusa w jego szatach Akademii Prism."
+      ],
+      "id": "016"
+    },
+    "0:017": {
+      "type": "entries",
+      "name": "B. Profesor Filomena",
+      "page": 5,
+      "entries": [
+        "W grobowcu tym znajduje się płaskorzeźba czarodzieja, który wygląda jak posąg Filomeny na zalesionej polanie (patrz „Spotkanie z panem Honeycuttem” powyżej), trzymającego otwartą księgę w jednej ręce i laskę czarodzieja w drugiej. Na grobie widnieje napis „Członek-założyciel Akademii Prism”.",
+        "Wewnątrz grobowca znajdują się zwłoki profesor Filomeny w jej szatach Akademii Pryzmatu."
+      ],
+      "id": "017"
+    },
+    "0:018": {
+      "type": "entries",
+      "name": "C. Profesor Orm",
+      "page": 5,
+      "entries": [
+        "W grobowcu tym znajduje się płaskorzeźba czarodzieja trzymającego w dłoni ludzką czaszkę. Słowa: „Zbadał odległe krainy cieni”. są wypisane na grobie.",
+        "Wewnątrz grobowca znajdują się szaty Akademii Pryzmatu profesora Orma. Jego zwłok nigdzie nie można znaleźć.",
+        {
+          "type": "entries",
+          "name": "Otwieranie tajemniczych drzwi",
+          "page": 5,
+          "entries": [
+            "Jeśli bursztynowy kamień runiczny zostanie użyty do oświetlenia światłem słonecznym czaszki wyrzeźbionej na grobowcu, czaszka zaświeci, stanie się trójwymiarowa i unosi się przed Fioletem.",
+            "Runy wyryte na bursztynowym kamieniu (patrz „Rozszyfrowanie run” powyżej) nakazują Fioletowemu uklęknąć i pochylić głowę po obróceniu czaszki na bok. Spowoduje to wystrzelenie błyskawicy nad głową Fioletowego, otwierając sekretne drzwi do obszaru H3.",
+            "Jeśli Fioletowy klęczy i odwraca czaszkę, ale nie pochyla głowy, błyskawica leci w stronę Fioletowego linią o długości 30 metrów i szerokości 5 stóp. Każde stworzenie w linii musi wykonać a {@dc 17} Rzut obronny na zręczność, biorąc 35 ({@damage 10d6}) obrażenia od błyskawicy przy nieudanym zapisie lub o połowę mniejsze przy udanym zapisie."
+          ],
+          "id": "019"
+        },
+        {
+          "type": "entries",
+          "name": "Rozwiązanie zagadki",
+          "page": 5,
+          "entries": [
+            "Jeśli gracz ma trudności z zagadką, spraw, aby bursztynowy kamień runiczny zaświecił lub telepatycznie przypomniał mu o runach i zagadce. Może nawet pokazać im mentalny obraz tego, co zrobić z czaszką.",
+            "Jeśli Purple zginie od pioruna, niech obudzi się w krypcie lub z powrotem za Kwiatowymi Drzwiami i zda sobie sprawę, że ostatnie kilka minut było wyraźną wizją tego, co miało nadejść."
+          ],
+          "id": "01a"
+        }
+      ],
+      "id": "018"
+    },
+    "0:019": {
+      "type": "entries",
+      "name": "Otwieranie tajemniczych drzwi",
+      "page": 5,
+      "entries": [
+        "Jeśli bursztynowy kamień runiczny zostanie użyty do oświetlenia światłem słonecznym czaszki wyrzeźbionej na grobowcu, czaszka zaświeci, stanie się trójwymiarowa i unosi się przed Fioletem.",
+        "Runy wyryte na bursztynowym kamieniu (patrz „Rozszyfrowanie run” powyżej) nakazują Fioletowemu uklęknąć i pochylić głowę po obróceniu czaszki na bok. Spowoduje to wystrzelenie błyskawicy nad głową Fioletowego, otwierając sekretne drzwi do obszaru H3.",
+        "Jeśli Fioletowy klęczy i odwraca czaszkę, ale nie pochyla głowy, błyskawica leci w stronę Fioletowego linią o długości 30 metrów i szerokości 5 stóp. Każde stworzenie w linii musi wykonać a {@dc 17} Rzut obronny na zręczność, biorąc 35 ({@damage 10d6}) obrażenia od błyskawicy przy nieudanym zapisie lub o połowę mniejsze przy udanym zapisie."
+      ],
+      "id": "019"
+    },
+    "0:01a": {
+      "type": "entries",
+      "name": "Rozwiązanie zagadki",
+      "page": 5,
+      "entries": [
+        "Jeśli gracz ma trudności z zagadką, spraw, aby bursztynowy kamień runiczny zaświecił lub telepatycznie przypomniał mu o runach i zagadce. Może nawet pokazać im mentalny obraz tego, co zrobić z czaszką.",
+        "Jeśli Purple zginie od pioruna, niech obudzi się w krypcie lub z powrotem za Kwiatowymi Drzwiami i zda sobie sprawę, że ostatnie kilka minut było wyraźną wizją tego, co miało nadejść."
+      ],
+      "id": "01a"
+    },
+    "0:01b": {
+      "type": "entries",
+      "name": "D. Profesor Waziti",
+      "page": 6,
+      "entries": [
+        "W grobowcu tym znajduje się płaskorzeźba czarnoksiężnika trzymającego rękę na kuli ziemskiej. Słowa: „Otworzył drzwi do kosmosu”. są wypisane na grobie.",
+        "Wewnątrz grobowca znajdują się zwłoki profesora Waziti w jego szatach Akademii Prism."
+      ],
+      "id": "01b"
+    },
+    "0:01c": {
+      "type": "entries",
+      "name": "E. Profesor Aleksandra",
+      "page": 6,
+      "entries": [
+        "W grobowcu tym znajduje się płaskorzeźba przedstawiająca pulchnego czarodzieja otoczonego zwierzętami hodowlanymi i magicznymi stworzeniami. Słowa „Była {@skill Nature}tajemnica i magia, która stała się ciałem” są wyryte na grobie.",
+        "Wewnątrz grobowca znajdują się zwłoki profesor Alexandry w jej szatach Akademii Prism."
+      ],
+      "id": "01c"
+    },
+    "0:01d": {
+      "type": "entries",
+      "name": "F. Profesor Althea",
+      "page": 6,
+      "entries": [
+        "W tym grobowcu znajduje się płaskorzeźba czarnoksiężnika o intensywnym wyrazie, otoczona wieńcem ognia. Na grobie wyryto słowa „Ta, która rzuciła ogień”.",
+        "Wewnątrz grobowca znajdują się zwłoki profesor Althei w jej szatach Akademii Prism. Jej szkielet nosi {@item necklace of fireballs}."
+      ],
+      "id": "01d"
+    },
+    "0:01e": {
+      "type": "entries",
+      "name": "G. Profesor Wigglewumpus",
+      "page": 6,
+      "entries": [
+        "W grobowcu tym znajduje się płaskorzeźba przedstawiająca gnoma czarodzieja otoczonego wszelkiego rodzaju mechanicznymi bibelotami i zabawkami. Na grobie widnieją słowa: „Wybrany przez studentów Prism Academy na„ Najzabawniejszego profesora wszechczasów ”200 lat z rzędu”.",
+        "Wewnątrz grobowca znajdują się maleńkie zwłoki profesora Wigglewumpusa w jego szatach Akademii Pryzmatu, a także mała nakręcana kaczka, która kwacze i wskazuje godzinę po aktywacji."
+      ],
+      "id": "01e"
+    },
+    "0:01f": {
+      "type": "entries",
+      "name": "H3. Sekretne przejście",
+      "page": 6,
+      "entries": [
+        "Jeśli sekretne drzwi w grobowcu profesora Orma zostaną otwarte, kamienna płyta cofnie się, odsłaniając szerokie na 5 stóp przejście prowadzące do kolejnych kamiennych drzwi. Drzwi są odblokowane i otwierają się do obszaru H4."
+      ],
+      "id": "01f"
+    },
+    "0:020": {
+      "type": "entries",
+      "name": "H4. Grób profesora Prisma",
+      "page": 6,
+      "entries": [
+        "Kiedy Fioletowy wejdzie do pokoju, przeczytaj lub sparafrazuj następujące słowa:",
+        {
+          "type": "insetReadaloud",
+          "page": 6,
+          "entries": [
+            "Na środku pokoju stoi kamienny sarkofag na marach z czarnego marmuru. Na sarkofagu wyrzeźbiono tajemne symbole i napis: „Zimandius Prism, założyciel Akademii Prism”. Na wieczku znajduje się rzeźba śpiącego czarodzieja. W kamiennych dłoniach czarodzieja znajduje się lśniący fioletowy klejnot, tej samej wielkości co bursztynowy kamień, który trzymasz."
+          ],
+          "id": "021"
+        },
+        "Klejnot jest rzeczywiście Fioletowym Klejnotem, którego pragnie pan Honeycutt. Jeśli Fioletowy poprawnie rozwiąże zagadkę (patrz „Rozszyfrowanie Run” powyżej), musi trzykrotnie wypowiedzieć imię „Zimandius” lub „Pryzmat Zimandiusa”, a następnie zamienić Fioletowy Klejnot z {@item amber runestone|NRH-TLT}.",
+        "Fioletowy musi szybko dokonać zamiany; rundę po usunięciu Fioletowego Klejnotu drzwi do pokoju zostają zamknięte ciężkim blokiem kamienia, a kamienne dłonie na szczycie sarkofagu zaczynają na ślepo szukać bursztynowego kamienia runicznego. Gdy tylko Fioletowy Klejnot lub Bursztynowy Kamień trafi w ręce czarodzieja, blok kamienia znika, a pomieszczenie się otwiera.",
+        "Ponownie, jeśli gracz ma trudności z rozwiązaniem zagadki i zamianą Fioletowego Klejnotu na bursztynowy kamień, niech bursztynowy kamień runiczny poprowadzi go telepatycznie.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Wewnątrz trumny",
+              "page": 6,
+              "entries": [
+                "Podobnie jak inne grobowce, grobowiec profesora Prisma jest chroniony glifem ochronnym, który aktywuje się po otwarciu grobowca (patrz „Glify ochronne” powyżej). Sarkofag zawiera ciało profesora Zimandiusa Prism."
+              ],
+              "id": "023"
+            }
+          ],
+          "id": "022"
+        }
+      ],
+      "id": "020"
+    },
+    "0:022": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Wewnątrz trumny",
+          "page": 6,
+          "entries": [
+            "Podobnie jak inne grobowce, grobowiec profesora Prisma jest chroniony glifem ochronnym, który aktywuje się po otwarciu grobowca (patrz „Glify ochronne” powyżej). Sarkofag zawiera ciało profesora Zimandiusa Prism."
+          ],
+          "id": "023"
+        }
+      ],
+      "id": "022"
+    },
+    "0:023": {
+      "type": "entries",
+      "name": "Wewnątrz trumny",
+      "page": 6,
+      "entries": [
+        "Podobnie jak inne grobowce, grobowiec profesora Prisma jest chroniony glifem ochronnym, który aktywuje się po otwarciu grobowca (patrz „Glify ochronne” powyżej). Sarkofag zawiera ciało profesora Zimandiusa Prism."
+      ],
+      "id": "023"
+    },
+    "0:024": {
+      "type": "entries",
+      "name": "Ukończenie Misji",
+      "page": 6,
+      "entries": [
+        "Jeśli wszystko pójdzie dobrze, Fioletowy zostawia w tawernie notatkę dla pana Honeycutta, po czym wraca do posągu Filomeny Mądrej, aby spotkać się z panem Honeycuttem i dać mu Fioletowy Klejnot.",
+        "Pan Honeycutt jest wdzięczny za zwrot Fioletowego Klejnotu. Chce usłyszeć, jak Fioletowy odszyfrował runy i znalazł klejnot, cały czas robiąc notatki w swoim czarnym notatniku.",
+        "W nagrodę daje Purple a {@item bag of tricks, rust||rdzawy worek sztuczek} i pyta, czy Purple dołączy do Towarzystwa Lorekeeperów i pomoże dowiedzieć się, jak przywrócić kolor Harmonii."
+      ],
+      "id": "024"
+    },
+    "0:025": {
+      "type": "section",
+      "name": "Magiczne przedmioty",
+      "page": 7,
+      "entries": [
+        "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+        {
+          "type": "list",
+          "columns": 3,
+          "items": [
+            "{@item Amber Runestone|NRH-TLT}",
+            "{@item bag of tricks, rust||Rdzawy worek sztuczek}",
+            "{@item Necklace of Fireballs}"
+          ]
+        }
+      ],
+      "id": "025"
+    },
+    "1:027": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "columns": 2,
+              "items": [
+                {
+                  "type": "entries",
+                  "name": "Zespół Dungeons & Dragons:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Projekt przygody",
+                          "entries": [
+                            "Kat Kruger i Adam Lee"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowy rozwój",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt postaci",
+                          "entries": [
+                            "Krzysia Tulacha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt graficzny",
+                          "entries": [
+                            "Emmę Ekblad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Redaktorzy",
+                          "entries": [
+                            "Ashley Michaela Lawson i Hannah Rose"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer twórców",
+                          "entries": [
+                            "Pelhama Greene’a"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Ilustracje",
+                          "entries": [
+                            "Czerwona Centrala"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Producent",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki",
+                          "entries": [
+                            "Shelly Mazzanoble"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencjonowania kategorii",
+                          "entries": [
+                            "Ann Earp"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "029"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Ferrary:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Starszy zastępca menedżera marki, NERDS:",
+                          "entries": [
+                            "Łukasz Krause"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer treści, NERDS:",
+                          "entries": [
+                            "Annie Belgrad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki, NERDS:",
+                          "entries": [
+                            "Joey'a Ratha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                          "entries": [
+                            "Amy Pagels"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "02a"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Tripplexlix:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Partner Zarządzający",
+                          "entries": [
+                            "Jennifer Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Założyciel, Partner Zarządzający",
+                          "entries": [
+                            "Krzysztof Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Wiceprezes, szef marketingu partnerskiego",
+                          "entries": [
+                            "Kennetha Lindenbauma"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowe wsparcie",
+                          "entries": [
+                            "VMLY&R Commerce, Taxi, Pep i Golin"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "02b"
+                }
+              ]
+            }
+          ],
+          "id": "028"
+        }
+      ],
+      "id": "027"
+    },
+    "1:028": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "entries",
+              "name": "Zespół Dungeons & Dragons:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Projekt przygody",
+                      "entries": [
+                        "Kat Kruger i Adam Lee"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowy rozwój",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt postaci",
+                      "entries": [
+                        "Krzysia Tulacha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt graficzny",
+                      "entries": [
+                        "Emmę Ekblad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Redaktorzy",
+                      "entries": [
+                        "Ashley Michaela Lawson i Hannah Rose"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer twórców",
+                      "entries": [
+                        "Pelhama Greene’a"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Ilustracje",
+                      "entries": [
+                        "Czerwona Centrala"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Producent",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki",
+                      "entries": [
+                        "Shelly Mazzanoble"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencjonowania kategorii",
+                      "entries": [
+                        "Ann Earp"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "029"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Ferrary:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Starszy zastępca menedżera marki, NERDS:",
+                      "entries": [
+                        "Łukasz Krause"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer treści, NERDS:",
+                      "entries": [
+                        "Annie Belgrad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki, NERDS:",
+                      "entries": [
+                        "Joey'a Ratha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                      "entries": [
+                        "Amy Pagels"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "02a"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Tripplexlix:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Partner Zarządzający",
+                      "entries": [
+                        "Jennifer Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Założyciel, Partner Zarządzający",
+                      "entries": [
+                        "Krzysztof Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Wiceprezes, szef marketingu partnerskiego",
+                      "entries": [
+                        "Kennetha Lindenbauma"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowe wsparcie",
+                      "entries": [
+                        "VMLY&R Commerce, Taxi, Pep i Golin"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "02b"
+            }
+          ]
+        }
+      ],
+      "id": "028"
+    }
+  }
+}
