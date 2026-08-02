@@ -1,1 +1,655 @@
-{"damage-types":{"name":"Rodzaje Obrażeń","caption":"Rodzaje Obrażeń","colLabels":[],"rows":[["Kwas","Żrący rozprysk oddechu czarnego smoka oraz rozpuszczające enzymy wydzielane przez czarną maź zadają obrażenia Kwasem."],["Obuchowe","Ataki tępą siłą — młoty, upadki, zaciskanie i tym podobne — zadają obrażenia Obuchowe."],["Zimno","Piekielny chłód promieniujący z włóczni diabła lodu oraz mroźny podmuch oddechu białego smoka zadają obrażenia Zimnem."],["Ogień","Czerwone smoki oddychają ogniem, a wiele zaklęć przywołuje płomienie, by zadawać obrażenia Ogniem."],["Siła","Siła to czysta magiczna energia skupiona w niszczycielskiej formie. Większość efektów zadających obrażenia Siłą to zaklęcia, w tym pocisk czarodziejski i duchowa broń."],["Piorun","Zaklęcie błyskawica oraz oddech niebieskiego smoka zadają obrażenia Piorunem."],["Nekrotyczne","Obrażenia Nekrotyczne, zadawane przez pewne nieumarłe i niektóre zaklęcia, wysuszają materię, a nawet duszę."],["Kłute","Ataki przebijające i przeszywające, w tym włócznie oraz ugryzienia potworów, zadają obrażenia Kłute."],["Trucizna","Jadowite żądła oraz toksyczny gaz z oddechu zielonego smoka zadają obrażenia Trucizną."],["Psychiczne","Zdolności umysłowe, takie jak psioniczny wybuch pożeracza umysłów, zadają obrażenia Psychiczne."],["Blask","Obrażenia Blaskiem, zadawane przez zaklęcie płomień ognia rzucane przez kleryka lub broń niszczącego zło anioła, palą ciało niczym ogień i przeciążają ducha mocą."],["Sieczne","Miecze, topory oraz szpony potworów zadają obrażenia Sieczne."],["Grzmot","Uderzeniowa fala dźwięku, taka jak efekt zaklęcia fala grzmotu, zadaje obrażenia Grzmotem."]]},"derro-madness":{"name":"Szaleństwo Derro","caption":"Szaleństwo Derro","colLabels":["k20","Dziwactwo"],"rows":[["1","Nigdy się nie kąpie ani nie zmienia ubrania"],["2","Nerwowo bawi się włosami lub wąsami"],["3","Rozmawia z kimś, kogo tam nie ma"],["4","Chodzi tyłem, kiedy tylko może"],["5","Nigdy nie patrzy innym w oczy"],["6","Zgrzyta zębami po każdym zdaniu"],["7","Wypluwa połowę każdego kęsa jedzenia i łyku napoju"],["8","Obraża każdego, kogo poznaje po raz pierwszy"],["9","Dotyka każdego, do kogo mówi"],["10","Widzi duchy zmarłych opuszczające ich ciała"],["11","Mdleje, gdy po raz pierwszy wystawiony jest na jasne światło"],["12","Często liże swoje dłonie"],["13","Słyszy głosy"],["14","Przerażony pismem"],["15","Smakuje przedmioty"],["16","Staje zbyt blisko innych"],["17","Oddycha głośno"],["18","Nieustannie się ślini"],["19","Mamrocze, gdy mówi"],["20","Skacze z miejsca na miejsce"]]},"major-adaptations":{"name":"Główne Adaptacje","caption":"Główne Adaptacje","colLabels":["k8","Główna Adaptacja"],"rows":[["1","Kwaśna Skóra. Każdy stwór, który dotknie krasis lub trafi go atakiem wręcz, znajdując się w promieniu 5 stóp od niego, otrzymuje 2 (1d4) obrażeń kwasem (kategoria 1), 4 (1d8) obrażeń kwasem (kategoria 2) lub 6 (1d12) obrażeń kwasem (kategoria 3)."],["2","Opancerzona Skóra. Krasis posiada lepszy naturalny pancerz dzięki skorupie lub grubym łuskom, co zwiększa jego Klasę Pancerza o 4."],["3","Bioluminescencyjne Znaki. Krasis ma świecące na skórze wzory przypominające runy obronne, dające mu przewagę na rzutach obronnych przeciwko zaklęciom i innym magicznym efektom."],["4","Lot. Krasis ma skrzydła i zyskuje prędkość lotu równą jego prędkości marszu."],["5","Chwytak. Kiedy krasis uderza istotę swoimi pazurami, celem jest {@condition grappled} (ucieczka {@dc 13} dla kategorii 1, {@dc 15} dla kategorii 2 i {@dc 19} dla kategorii 3) przez wyspecjalizowany wyrostek chwytający krasisa. Może mieć w ten sposób tylko jedno stworzenie {@condition grappled} na raz."],["6","Hipnotyczny Pokaz {@recharge 5}. Jako akcję, krasis tworzy wokół siebie hipnotyzujące kolory i kształty. Każdy stwór w promieniu 15 stóp od niego, który go widzi, musi zdać rzut obronny Mądrości ({@dc 12} dla kategorii 1, {@dc 14} dla kategorii 2 i {@dc 18} dla kategorii 3) albo zostaje {@condition stunned|XPHB|Oszołomiony} na 1 minutę. Stwór {@condition stunned|XPHB|Oszołomiony} może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt w przypadku sukcesu. Stwór, który zda rzut obronny przeciwko temu efektowi, staje się odporny na Hipnotyczny Pokaz wszystkich krasis na 24 godziny."],["7","Jadowite Żądło. Gdy krasis trafi stwora swoimi szponami, stwór musi zdać rzut obronny Kondycji ({@dc 12} dla kategorii 1, {@dc 14} dla kategorii 2 i {@dc 18} dla kategorii 3) albo zostaje {@condition poisoned|XPHB|zatruty} na 1 minutę. Jeśli krasis jest kategorii 2 lub 3, stwór jest {@condition paralyzed|XPHB|sparaliżowany}, podczas gdy jest w ten sposób {@condition poisoned|XPHB|zatruty}. Stwór {@condition poisoned|XPHB|zatruty} może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt w przypadku sukcesu."],["8","Regeneracja. Krasis odzyskuje punkty wytrzymałości (2 dla kategorii 1, 5 dla kategorii 2 i 10 dla kategorii 3) na początku każdej swojej tury, jeśli ma co najmniej 1 punkt wytrzymałości."]]},"minor-adaptations":{"name":"Drobne Adaptacje","caption":"Drobne Adaptacje","colLabels":["k8","Drobne Adaptacje"],"rows":[["1","Bezkształtna Struktura. Krasis może przemieszczać się przez przestrzeń tak wąską jak 1 cal, bez konieczności przeciskania się."],["2","Wodny. Krasis zyskuje prędkość pływania równą jego prędkości marszu."],["3","Prędkość Wspinaczki. Krasis zyskuje prędkość wspinaczki równą jego prędkości marszu."],["4","Kameleonowa Skóra. Krasis może zmieniać kolor, dopasowując się do otoczenia. Ma przewagę na testach Zręczności ({@skill Stealth|XPHB|Skradania się}) wykonywanych, by się ukryć."],["5","Wyostrzona Czujność. Krasis nie może zostać {@status surprised|XPHB|Zaskoczony}, ponieważ posiada wrażliwe wąsiki jak sum, wzrok stereoskopowy jak kameleon, język jak wąż, oczy na wysięgnikach jak homar lub szereg licznych oczu."],["6","Chmura Atramentu (Odnawia się po Krótkim lub Długim Odpoczynku). Pod wodą krasis może użyć akcji dodatkowej, by wystrzelić chmurę atramentu, a następnie przemieścić się o maksymalnie swoją prędkość. Chmura atramentu jest nieruchoma i wypełnia kulistą przestrzeń o promieniu 20 stóp, wyśrodkowaną w punkcie w przestrzeni krasis sprzed ruchu. Przestrzeń ta jest mocno zasłonięta, dopóki atrament nie rozproszy się po 1 minucie. Silny prąd również rozprasza chmurę atramentu."],["7","Skoczne Nogi. Z rozbiegu lub bez, skok w dal krasis wynosi 20 stóp (kategoria 1), 30 stóp (kategoria 2) lub 40 stóp (kategoria 3). Jego skok wzwyż wynosi 10 stóp (kategoria 1), 20 stóp (kategoria 2) lub 30 stóp (kategoria 3)."],["8","Stabilizujące Nogi. Krasis ma kilka krabopodobnych nóg. Dzięki temu ma przewagę na rzutach obronnych Siły i Zręczności wykonywanych przeciwko efektom, które nadałyby mu stan {@condition prone|XPHB|Powalony}."]]},"25-gp-art-objects":{"name":"Przedmioty Artystyczne za 25 mz","caption":"Przedmioty Artystyczne za 25 mz","colLabels":["k10","Przedmiot"],"rows":[["1","{@item Silver medallion (Sun Empire)|psx}"],["2","{@item Amulet of dinosaur feathers (Sun Empire)|psx}"],["3","{@item Sun amulet on a beaded chain (Sun Empire)|psx}"],["4","{@item Tiny jade figurine (River Heralds)|psx}"],["5","{@item Pair of engraved bone dice (Brazen Coalition)|psx}"],["6","{@item Copper stein with silver filigree (Brazen Coalition)|psx}"],["7","{@item Velvet doublet with gold buttons (Legion of Dusk)|psx}"],["8","{@item Gold ring with turquoise (Legion of Dusk)|psx}"],["9","{@item Cloth-of-gold vestments (Legion of Dusk)|psx}"],["10","{@item Gold locket with a painted portrait inside (Legion of Dusk)|psx}"]]},"250-gp-art-objects":{"name":"Przedmioty Artystyczne za 250 mz","caption":"Przedmioty Artystyczne za 250 mz","colLabels":["k10","Przedmiot"],"rows":[["1","{@item Silver necklace with an amber pendant (Sun Empire)|psx}"],["2","{@item Fine robe with dinosaur feathers and silver embroidery (Sun Empire)|psx}"],["3","{@item Jade headpiece (River Heralds)|psx}"],["4","{@item Carved jade statuette (River Heralds)|psx}"],["5","{@item Jade bowl (River Heralds)|psx}"],["6","{@item Bronze spyglass (Brazen Coalition)|psx}"],["7","{@item Pewter mug with green spinels (Brazen Coalition)|psx}"],["8","{@item Gold pendant with black onyx (Legion of Dusk)|psx}"],["9","{@item Large well-made tapestry (Legion of Dusk)|psx}"],["10","{@item Large gold bracelet (Legion of Dusk)|psx}"]]},"750-gp-art-objects":{"name":"Przedmioty Artystyczne za 750 mz","caption":"Przedmioty Artystyczne za 750 mz","colLabels":["k10","Przedmiot"],"rows":[["1","{@item Silver headdress with amber and red-coral feathers (Sun Empire)|psx}"],["2","{@item Silver shoulder piece with amber and garnet (Sun Empire)|psx}"],["3","{@item Jade sword with amber (River Heralds)|psx}"],["4","{@item Large jade totem (River Heralds)|psx}"],["5","{@item Gold-plated sextant with topaz (Brazen Coalition)|psx}"],["6","{@item Necklace of electrum medallions with red and blue tourmalines (Brazen Coalition)|psx}"],["7","{@item Lute crafted of exotic wood with mother-of-pearl inlay and zircon gems (Brazen Coalition)|psx}"],["8","{@item Ceremonial silver dagger with gold pommel and black pearl (Legion of Dusk)|psx}"],["9","{@item Fine steel rapier with gold filigree hilt (Legion of Dusk)|psx}"],["10","{@item Gold chalice (Legion of Dusk)|psx}"]]},"2-500-gp-art-objects":{"name":"Przedmioty Artystyczne za 2500 mz","caption":"Przedmioty Artystyczne za 2500 mz","colLabels":["k10","Przedmiot"],"rows":[["1","{@item Platinum headdress with topaz sun symbol (Sun Empire)|psx}"],["2","{@item Feathered mantle with emerald clasp (Sun Empire)|psx}"],["3","{@item Necklace of jade and pink pearls (River Heralds)|psx}"],["4","{@item Finely articulated jade glove (River Heralds)|psx}"],["5","{@item Eye patch with a mock eye set in blue sapphire and moonstone (Brazen Coalition)|psx}"],["6","{@item Jeweled anklet (Brazen Coalition)|psx}"],["7","{@item Gold music box (Brazen Coalition)|psx}"],["8","{@item Gold-plated ceremonial helmet and pauldrons (Legion of Dusk)|psx}"],["9","{@item Fine gold chain with fire opals (Legion of Dusk)|psx}"],["10","{@item Masterpiece painting in mahogany frame with gold inlay (Legion of Dusk)|psx}"]]},"7-500-gp-art-objects":{"name":"Przedmioty Artystyczne za 7500 mz","caption":"Przedmioty Artystyczne za 7500 mz","colLabels":["k10","Przedmiot"],"rows":[["1","{@item Platinum ring with yellow sapphire (Sun Empire)|psx}"],["2","{@item Platinum staff topped with amber (Sun Empire)|psx}"],["3","{@item Jade breastplate (River Heralds)|psx}"],["4","{@item Jade totem with diamond eyes (River Heralds)|psx}"],["5","{@item Treasure chest crafted of exotic wood with gold fittings and opals (Brazen Coalition)|psx}"],["6","{@item Bejeweled ivory drinking horn with gold inlay (Brazen Coalition)|psx}"],["7","{@item Gold jewelry box with platinum filigree (Brazen Coalition)|psx}"],["8","{@item Gold basin with rubies (Legion of Dusk)|psx}"],["9","{@item Gold chalice set with emeralds (Legion of Dusk)|psx}"],["10","{@item Marble font with gold inlay (Legion of Dusk)|psx}"]]},"who-created-it-or-was-intended-to-use-it":{"name":"Kto To Stworzył lub Miał Tego Używać?","caption":"Kto To Stworzył lub Miał Tego Używać?","colLabels":["k12","Pochodzenie lub Przeznaczenie"],"rows":[["1–2","{@bold Imperium Słońca}. Przedmiot został stworzony w okresie świetności Imperium Słońca, najprawdopodobniej wtedy, gdy Nieśmiertelne Słońce przechowywano w cesarskiej stolicy Orazca. Może być powiązany z dawnym cesarzem lub cesarskim czempionem. Może być zdobiony wizerunkami Nieśmiertelnego Słońca, a także geometrycznymi wzorami, motywami z piór lub kształtami dinozaurów. Może być wykonany ze srebra lub zawierać bursztyn."],["3","{@bold Dinozaur}. Ten przedmiot jest wykonany z łusek, zębów, pazurów lub piór zrzuconych przez dinozaura."],["4–5","{@bold Heroldowie Rzeki}. Przedmiot jest prawdopodobnie wykonany z jadeitu lub polerowanego drewna. Może zawierać wzory przypominające węzły lub warkocze. Jeśli to tkanina, wygląda na zawiązaną w węzły lub zaplecioną z długich pasków. Broń często ma falisty kształt w swojej konstrukcji. Przedmiot może mieć związanego w sobie ducha żywiołu."],["6–7","{@bold Bezczelna Koalicja}. Przedmiot został wymyślony przez sprytnych wynalazców Bezczelnej Koalicji. Może zawierać w swojej konstrukcji elementy takie jak okucia okrętowe czy zawiązaną linę, albo może mieć polerowane drewno, starannie wyszlifowane soczewki lub tkaninę powiewającą jak żagle."],["8–9","{@bold Legion Zmierzchu}. Przedmiot może być wykonany z kości, złota lub starożytnie wyglądającego czarnego drewna. Może mieć motyw dwuzębny lub zawierać symbol Legionu przypominający różę."],["10","{@bold Coatl}. Przedmiot waży o połowę mniej niż inne przedmioty tego rodzaju i jest ozdobiony pierzastymi skrzydłami, wężami, słońcami i innymi symbolami dobra. Demony uznają obecność tego przedmiotu za odpychającą."],["11","{@bold Demoniczny}. Przedmiot jest wykonany z czarnego żelaza lub rogu, pokryty runami, a wszelkie elementy z tkaniny lub skóry są wykonane ze skóry demonów. Może zawierać pióra, szpony lub dzioby harpii. Jest ciepły w dotyku i ma na powierzchni złowrogie twarze lub obrzydliwe runy. Coatle uznają obecność tego przedmiotu za odpychającą."],["12","{@bold Driada}. Przedmiot jest wykwintnie wykonany z drewna, liści lub pnączy. Jest ozdobiony symbolami natury: liśćmi, pnączami, gwiazdami i tym podobnymi. W świetle księżyca jarzy się bladym blaskiem, emitując słabe światło w promieniu 5 stóp."]]},"beneficial-manifestations":{"name":"Korzystne Przejawy","caption":"Korzystne Przejawy","colLabels":["k100","Przejaw"],"rows":[["01-20","Twoje dzieło ma zapach, który jest ci miły, nawet jeśli nie ma jego źródła."],["21-30","Możesz poświęcić 1 minutę, by rozwiać wszelkie warunki lekkiego przesłonięcia w promieniu 120 stóp w twoim dziele."],["31-40","W obrębie swojego dzieła możesz raz dziennie rzucić stworzenie pożywienia i wody bez użycia komórki zaklęcia."],["41-50","Możesz zrozumieć każdy język wypowiadany w promieniu 30 stóp od ciebie, gdy jesteś w swoim dziele."],["51-60","Bestie uważają twoje dzieło za pociągające lub odpychające (ty decydujesz)."],["61-70","Gdy twoje dzieło powstaje, ty decydujesz, jaka pogoda jest w nim możliwa."],["71-80","Nie możesz zostać oczarowany ani przestraszony, gdy jesteś w swoim dziele."],["81-90","Wszystkie budowle w twoim dziele mają +2 KP."],["91-00","Masz korzyść do swojej biernej Spostrzegawczości w obrębie swojego dzieła."]]},"detrimental-manifestations":{"name":"Szkodliwe Przejawy","caption":"Szkodliwe Przejawy","colLabels":["k100","Przejaw"],"rows":[["01-20","Twoje dzieło ma nieprzyjemny zapach, nawet jeśli nie ma jego źródła."],["21-30","Twoje dzieło jest podatne na mgiełkę, mgłę i inne warunki lekkiego przesłonięcia."],["31-40","Twoje dzieło ma niezwykle długie dni lub noce (MP decyduje)."],["41-50","Budowle w twoim dziele mają jedynie otwory strzelnicze zamiast okien."],["51-60","Bestie albo zasiedlają, albo unikają twojego dzieła (MP decyduje)."],["61-70","W twoim dziele występują dziwne wzorce pogodowe (MP decyduje, jakie i kiedy)."],["71-80","Wszystkie ST wykrywania lub tropienia stworzeń w twoim dziele wzrastają o 2."],["81-90","Wszystkie budowle w twoim dziele mają -2 KP."],["91-00","Masz utrudnienie do swojej biernej Spostrzegawczości w obrębie swojego dzieła."]]},"whirlpools-whirlpool-rank":{"name":"Wiry; Ranga Wiru","caption":"Ranga Wiru","colLabels":["Ranga","Średnica","Prędkość","ST"],"rows":[["1","22 ({@dice 4d10}) stóp","5 stóp","5"],["2","55 ({@dice 10d10}) stóp","15 stóp","10"],["3","110 ({@dice 20d10}) stóp","25 stóp","15"],["4","165 ({@dice 30d10}) stóp","35 stóp","20"]]}}
+{
+  "damage-types": {
+    "name": "Rodzaje Obrażeń",
+    "caption": "Rodzaje Obrażeń",
+    "colLabels": [],
+    "rows": [
+      [
+        "Kwas",
+        "Żrący rozprysk oddechu czarnego smoka oraz rozpuszczające enzymy wydzielane przez czarną maź zadają obrażenia Kwasem."
+      ],
+      [
+        "Obuchowe",
+        "Ataki tępą siłą - młoty, upadki, zaciskanie i tym podobne - zadają obrażenia Obuchowe."
+      ],
+      [
+        "Zimno",
+        "Piekielny chłód promieniujący z włóczni diabła lodu oraz mroźny podmuch oddechu białego smoka zadają obrażenia Zimnem."
+      ],
+      [
+        "Ogień",
+        "Czerwone smoki oddychają ogniem, a wiele zaklęć przywołuje płomienie, by zadawać obrażenia Ogniem."
+      ],
+      [
+        "Siła",
+        "Siła to czysta magiczna energia skupiona w niszczycielskiej formie. Większość efektów zadających obrażenia Siłą to zaklęcia, w tym pocisk czarodziejski i duchowa broń."
+      ],
+      [
+        "Piorun",
+        "Zaklęcie błyskawica oraz oddech niebieskiego smoka zadają obrażenia Piorunem."
+      ],
+      [
+        "Nekrotyczne",
+        "Obrażenia Nekrotyczne, zadawane przez pewne nieumarłe i niektóre zaklęcia, wysuszają materię, a nawet duszę."
+      ],
+      [
+        "Kłute",
+        "Ataki przebijające i przeszywające, w tym włócznie oraz ugryzienia potworów, zadają obrażenia Kłute."
+      ],
+      [
+        "Trucizna",
+        "Jadowite żądła oraz toksyczny gaz z oddechu zielonego smoka zadają obrażenia Trucizną."
+      ],
+      [
+        "Psychiczne",
+        "Zdolności umysłowe, takie jak psioniczny wybuch pożeracza umysłów, zadają obrażenia Psychiczne."
+      ],
+      [
+        "Blask",
+        "Obrażenia Blaskiem, zadawane przez zaklęcie płomień ognia rzucane przez kleryka lub broń niszczącego zło anioła, palą ciało niczym ogień i przeciążają ducha mocą."
+      ],
+      [
+        "Sieczne",
+        "Miecze, topory oraz szpony potworów zadają obrażenia Sieczne."
+      ],
+      [
+        "Grzmot",
+        "Uderzeniowa fala dźwięku, taka jak efekt zaklęcia fala grzmotu, zadaje obrażenia Grzmotem."
+      ]
+    ]
+  },
+  "derro-madness": {
+    "name": "Szaleństwo Derro",
+    "caption": "Szaleństwo Derro",
+    "colLabels": [
+      "d20",
+      "Dziwactwo"
+    ],
+    "rows": [
+      [
+        "1",
+        "Nigdy się nie kąpie ani nie zmienia ubrania"
+      ],
+      [
+        "2",
+        "Nerwowo bawi się włosami lub wąsami"
+      ],
+      [
+        "3",
+        "Rozmawia z kimś, kogo tam nie ma"
+      ],
+      [
+        "4",
+        "Chodzi tyłem, kiedy tylko może"
+      ],
+      [
+        "5",
+        "Nigdy nie patrzy innym w oczy"
+      ],
+      [
+        "6",
+        "Zgrzyta zębami po każdym zdaniu"
+      ],
+      [
+        "7",
+        "Wypluwa połowę każdego kęsa jedzenia i łyku napoju"
+      ],
+      [
+        "8",
+        "Obraża każdego, kogo poznaje po raz pierwszy"
+      ],
+      [
+        "9",
+        "Dotyka każdego, do kogo mówi"
+      ],
+      [
+        "10",
+        "Widzi duchy zmarłych opuszczające ich ciała"
+      ],
+      [
+        "11",
+        "Mdleje, gdy po raz pierwszy wystawiony jest na jasne światło"
+      ],
+      [
+        "12",
+        "Często liże swoje dłonie"
+      ],
+      [
+        "13",
+        "Słyszy głosy"
+      ],
+      [
+        "14",
+        "Przerażony pismem"
+      ],
+      [
+        "15",
+        "Smakuje przedmioty"
+      ],
+      [
+        "16",
+        "Staje zbyt blisko innych"
+      ],
+      [
+        "17",
+        "Oddycha głośno"
+      ],
+      [
+        "18",
+        "Nieustannie się ślini"
+      ],
+      [
+        "19",
+        "Mamrocze, gdy mówi"
+      ],
+      [
+        "20",
+        "Skacze z miejsca na miejsce"
+      ]
+    ]
+  },
+  "major-adaptations": {
+    "name": "Główne Adaptacje",
+    "caption": "Główne Adaptacje",
+    "colLabels": [
+      "d8",
+      "Główna Adaptacja"
+    ],
+    "rows": [
+      [
+        "1",
+        "Kwaśna Skóra. Każdy stwór, który dotknie krasis lub trafi go atakiem wręcz, znajdując się w promieniu 5 stóp od niego, otrzymuje 2 (1d4) obrażeń kwasem (kategoria 1), 4 (1d8) obrażeń kwasem (kategoria 2) lub 6 (1d12) obrażeń kwasem (kategoria 3)."
+      ],
+      [
+        "2",
+        "Opancerzona Skóra. Krasis posiada lepszy naturalny pancerz dzięki skorupie lub grubym łuskom, co zwiększa jego Klasę Pancerza o 4."
+      ],
+      [
+        "3",
+        "Bioluminescencyjne Znaki. Krasis ma świecące na skórze wzory przypominające runy obronne, dające mu przewagę na rzutach obronnych przeciwko zaklęciom i innym magicznym efektom."
+      ],
+      [
+        "4",
+        "Lot. Krasis ma skrzydła i zyskuje prędkość lotu równą jego prędkości marszu."
+      ],
+      [
+        "5",
+        "Chwytak. Kiedy krasis uderza istotę swoimi pazurami, celem jest {@condition grappled} (ucieczka {@dc 13} dla kategorii 1, {@dc 15} dla kategorii 2 i {@dc 19} dla kategorii 3) przez wyspecjalizowany wyrostek chwytający krasisa. Może mieć w ten sposób tylko jedno stworzenie {@condition grappled} na raz."
+      ],
+      [
+        "6",
+        "Hipnotyczny Pokaz {@recharge 5}. Jako akcję, krasis tworzy wokół siebie hipnotyzujące kolory i kształty. Każdy stwór w promieniu 15 stóp od niego, który go widzi, musi zdać rzut obronny Mądrości ({@dc 12} dla kategorii 1, {@dc 14} dla kategorii 2 i {@dc 18} dla kategorii 3) albo zostaje {@condition stunned} na 1 minutę. Stwór {@condition stunned} może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt w przypadku sukcesu. Stwór, który zda rzut obronny przeciwko temu efektowi, staje się odporny na Hipnotyczny Pokaz wszystkich krasis na 24 godziny."
+      ],
+      [
+        "7",
+        "Jadowite Żądło. Gdy krasis trafi stwora swoimi szponami, stwór musi zdać rzut obronny Kondycji ({@dc 12} dla kategorii 1, {@dc 14} dla kategorii 2 i {@dc 18} dla kategorii 3) albo zostaje {@condition poisoned} na 1 minutę. Jeśli krasis jest kategorii 2 lub 3, stwór jest {@condition paralyzed}, podczas gdy jest w ten sposób {@condition poisoned}. Stwór {@condition poisoned} może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt w przypadku sukcesu."
+      ],
+      [
+        "8",
+        "Regeneracja. Krasis odzyskuje punkty wytrzymałości (2 dla kategorii 1, 5 dla kategorii 2 i 10 dla kategorii 3) na początku każdej swojej tury, jeśli ma co najmniej 1 punkt wytrzymałości."
+      ]
+    ]
+  },
+  "minor-adaptations": {
+    "name": "Drobne Adaptacje",
+    "caption": "Drobne Adaptacje",
+    "colLabels": [
+      "d8",
+      "Drobne Adaptacje"
+    ],
+    "rows": [
+      [
+        "1",
+        "Bezkształtna Struktura. Krasis może przemieszczać się przez przestrzeń tak wąską jak 1 cal, bez konieczności przeciskania się."
+      ],
+      [
+        "2",
+        "Wodny. Krasis zyskuje prędkość pływania równą jego prędkości marszu."
+      ],
+      [
+        "3",
+        "Prędkość Wspinaczki. Krasis zyskuje prędkość wspinaczki równą jego prędkości marszu."
+      ],
+      [
+        "4",
+        "Kameleonowa Skóra. Krasis może zmieniać kolor, dopasowując się do otoczenia. Ma przewagę na testach Zręczności ({@skill Stealth}) wykonywanych, by się ukryć."
+      ],
+      [
+        "5",
+        "Wyostrzona Czujność. Krasis nie może zostać {@status surprised}, ponieważ posiada wrażliwe wąsiki jak sum, wzrok stereoskopowy jak kameleon, język jak wąż, oczy na wysięgnikach jak homar lub szereg licznych oczu."
+      ],
+      [
+        "6",
+        "Chmura Atramentu (Odnawia się po Krótkim lub Długim Odpoczynku). Pod wodą krasis może użyć akcji dodatkowej, by wystrzelić chmurę atramentu, a następnie przemieścić się o maksymalnie swoją prędkość. Chmura atramentu jest nieruchoma i wypełnia kulistą przestrzeń o promieniu 20 stóp, wyśrodkowaną w punkcie w przestrzeni krasis sprzed ruchu. Przestrzeń ta jest mocno zasłonięta, dopóki atrament nie rozproszy się po 1 minucie. Silny prąd również rozprasza chmurę atramentu."
+      ],
+      [
+        "7",
+        "Skoczne Nogi. Z rozbiegu lub bez, skok w dal krasis wynosi 20 stóp (kategoria 1), 30 stóp (kategoria 2) lub 40 stóp (kategoria 3). Jego skok wzwyż wynosi 10 stóp (kategoria 1), 20 stóp (kategoria 2) lub 30 stóp (kategoria 3)."
+      ],
+      [
+        "8",
+        "Stabilizujące Nogi. Krasis ma kilka krabopodobnych nóg. Dzięki temu ma przewagę na rzutach obronnych Siły i Zręczności wykonywanych przeciwko efektom, które nadałyby mu stan {@condition prone}."
+      ]
+    ]
+  },
+  "25-gp-art-objects": {
+    "name": "Przedmioty Artystyczne za 25 mz",
+    "caption": "Przedmioty Artystyczne za 25 mz",
+    "colLabels": [
+      "d10",
+      "Przedmiot"
+    ],
+    "rows": [
+      [
+        "1",
+        "{@item Silver medallion (Sun Empire)|psx}"
+      ],
+      [
+        "2",
+        "{@item Amulet of dinosaur feathers (Sun Empire)|psx}"
+      ],
+      [
+        "3",
+        "{@item Sun amulet on a beaded chain (Sun Empire)|psx}"
+      ],
+      [
+        "4",
+        "{@item Tiny jade figurine (River Heralds)|psx}"
+      ],
+      [
+        "5",
+        "{@item Pair of engraved bone dice (Brazen Coalition)|psx}"
+      ],
+      [
+        "6",
+        "{@item Copper stein with silver filigree (Brazen Coalition)|psx}"
+      ],
+      [
+        "7",
+        "{@item Velvet doublet with gold buttons (Legion of Dusk)|psx}"
+      ],
+      [
+        "8",
+        "{@item Gold ring with turquoise (Legion of Dusk)|psx}"
+      ],
+      [
+        "9",
+        "{@item Cloth-of-gold vestments (Legion of Dusk)|psx}"
+      ],
+      [
+        "10",
+        "{@item Gold locket with a painted portrait inside (Legion of Dusk)|psx}"
+      ]
+    ]
+  },
+  "250-gp-art-objects": {
+    "name": "Przedmioty Artystyczne za 250 mz",
+    "caption": "Przedmioty Artystyczne za 250 mz",
+    "colLabels": [
+      "d10",
+      "Przedmiot"
+    ],
+    "rows": [
+      [
+        "1",
+        "{@item Silver necklace with an amber pendant (Sun Empire)|psx}"
+      ],
+      [
+        "2",
+        "{@item Fine robe with dinosaur feathers and silver embroidery (Sun Empire)|psx}"
+      ],
+      [
+        "3",
+        "{@item Jade headpiece (River Heralds)|psx}"
+      ],
+      [
+        "4",
+        "{@item Carved jade statuette (River Heralds)|psx}"
+      ],
+      [
+        "5",
+        "{@item Jade bowl (River Heralds)|psx}"
+      ],
+      [
+        "6",
+        "{@item Bronze spyglass (Brazen Coalition)|psx}"
+      ],
+      [
+        "7",
+        "{@item Pewter mug with green spinels (Brazen Coalition)|psx}"
+      ],
+      [
+        "8",
+        "{@item Gold pendant with black onyx (Legion of Dusk)|psx}"
+      ],
+      [
+        "9",
+        "{@item Large well-made tapestry (Legion of Dusk)|psx}"
+      ],
+      [
+        "10",
+        "{@item Large gold bracelet (Legion of Dusk)|psx}"
+      ]
+    ]
+  },
+  "750-gp-art-objects": {
+    "name": "Przedmioty Artystyczne za 750 mz",
+    "caption": "Przedmioty Artystyczne za 750 mz",
+    "colLabels": [
+      "d10",
+      "Przedmiot"
+    ],
+    "rows": [
+      [
+        "1",
+        "{@item Silver headdress with amber and red-coral feathers (Sun Empire)|psx}"
+      ],
+      [
+        "2",
+        "{@item Silver shoulder piece with amber and garnet (Sun Empire)|psx}"
+      ],
+      [
+        "3",
+        "{@item Jade sword with amber (River Heralds)|psx}"
+      ],
+      [
+        "4",
+        "{@item Large jade totem (River Heralds)|psx}"
+      ],
+      [
+        "5",
+        "{@item Gold-plated sextant with topaz (Brazen Coalition)|psx}"
+      ],
+      [
+        "6",
+        "{@item Necklace of electrum medallions with red and blue tourmalines (Brazen Coalition)|psx}"
+      ],
+      [
+        "7",
+        "{@item Lute crafted of exotic wood with mother-of-pearl inlay and zircon gems (Brazen Coalition)|psx}"
+      ],
+      [
+        "8",
+        "{@item Ceremonial silver dagger with gold pommel and black pearl (Legion of Dusk)|psx}"
+      ],
+      [
+        "9",
+        "{@item Fine steel rapier with gold filigree hilt (Legion of Dusk)|psx}"
+      ],
+      [
+        "10",
+        "{@item Gold chalice (Legion of Dusk)|psx}"
+      ]
+    ]
+  },
+  "2-500-gp-art-objects": {
+    "name": "Przedmioty Artystyczne za 2500 mz",
+    "caption": "Przedmioty Artystyczne za 2500 mz",
+    "colLabels": [
+      "d10",
+      "Przedmiot"
+    ],
+    "rows": [
+      [
+        "1",
+        "{@item Platinum headdress with topaz sun symbol (Sun Empire)|psx}"
+      ],
+      [
+        "2",
+        "{@item Feathered mantle with emerald clasp (Sun Empire)|psx}"
+      ],
+      [
+        "3",
+        "{@item Necklace of jade and pink pearls (River Heralds)|psx}"
+      ],
+      [
+        "4",
+        "{@item Finely articulated jade glove (River Heralds)|psx}"
+      ],
+      [
+        "5",
+        "{@item Eye patch with a mock eye set in blue sapphire and moonstone (Brazen Coalition)|psx}"
+      ],
+      [
+        "6",
+        "{@item Jeweled anklet (Brazen Coalition)|psx}"
+      ],
+      [
+        "7",
+        "{@item Gold music box (Brazen Coalition)|psx}"
+      ],
+      [
+        "8",
+        "{@item Gold-plated ceremonial helmet and pauldrons (Legion of Dusk)|psx}"
+      ],
+      [
+        "9",
+        "{@item Fine gold chain with fire opals (Legion of Dusk)|psx}"
+      ],
+      [
+        "10",
+        "{@item Masterpiece painting in mahogany frame with gold inlay (Legion of Dusk)|psx}"
+      ]
+    ]
+  },
+  "7-500-gp-art-objects": {
+    "name": "Przedmioty Artystyczne za 7500 mz",
+    "caption": "Przedmioty Artystyczne za 7500 mz",
+    "colLabels": [
+      "d10",
+      "Przedmiot"
+    ],
+    "rows": [
+      [
+        "1",
+        "{@item Platinum ring with yellow sapphire (Sun Empire)|psx}"
+      ],
+      [
+        "2",
+        "{@item Platinum staff topped with amber (Sun Empire)|psx}"
+      ],
+      [
+        "3",
+        "{@item Jade breastplate (River Heralds)|psx}"
+      ],
+      [
+        "4",
+        "{@item Jade totem with diamond eyes (River Heralds)|psx}"
+      ],
+      [
+        "5",
+        "{@item Treasure chest crafted of exotic wood with gold fittings and opals (Brazen Coalition)|psx}"
+      ],
+      [
+        "6",
+        "{@item Bejeweled ivory drinking horn with gold inlay (Brazen Coalition)|psx}"
+      ],
+      [
+        "7",
+        "{@item Gold jewelry box with platinum filigree (Brazen Coalition)|psx}"
+      ],
+      [
+        "8",
+        "{@item Gold basin with rubies (Legion of Dusk)|psx}"
+      ],
+      [
+        "9",
+        "{@item Gold chalice set with emeralds (Legion of Dusk)|psx}"
+      ],
+      [
+        "10",
+        "{@item Marble font with gold inlay (Legion of Dusk)|psx}"
+      ]
+    ]
+  },
+  "who-created-it-or-was-intended-to-use-it": {
+    "name": "Kto To Stworzył lub Miał Tego Używać?",
+    "caption": "Kto To Stworzył lub Miał Tego Używać?",
+    "colLabels": [
+      "d12",
+      "Pochodzenie lub Przeznaczenie"
+    ],
+    "rows": [
+      [
+        "1-2",
+        "{@bold Imperium Słońca}. Przedmiot został stworzony w okresie świetności Imperium Słońca, najprawdopodobniej wtedy, gdy Nieśmiertelne Słońce przechowywano w cesarskiej stolicy Orazca. Może być powiązany z dawnym cesarzem lub cesarskim czempionem. Może być zdobiony wizerunkami Nieśmiertelnego Słońca, a także geometrycznymi wzorami, motywami z piór lub kształtami dinozaurów. Może być wykonany ze srebra lub zawierać bursztyn."
+      ],
+      [
+        "3",
+        "{@bold Dinozaur}. Ten przedmiot jest wykonany z łusek, zębów, pazurów lub piór zrzuconych przez dinozaura."
+      ],
+      [
+        "4-5",
+        "{@bold Heroldowie Rzeki}. Przedmiot jest prawdopodobnie wykonany z jadeitu lub polerowanego drewna. Może zawierać wzory przypominające węzły lub warkocze. Jeśli to tkanina, wygląda na zawiązaną w węzły lub zaplecioną z długich pasków. Broń często ma falisty kształt w swojej konstrukcji. Przedmiot może mieć związanego w sobie ducha żywiołu."
+      ],
+      [
+        "6-7",
+        "{@bold Bezczelna Koalicja}. Przedmiot został wymyślony przez sprytnych wynalazców Bezczelnej Koalicji. Może zawierać w swojej konstrukcji elementy takie jak okucia okrętowe czy zawiązaną linę, albo może mieć polerowane drewno, starannie wyszlifowane soczewki lub tkaninę powiewającą jak żagle."
+      ],
+      [
+        "8-9",
+        "{@bold Legion Zmierzchu}. Przedmiot może być wykonany z kości, złota lub starożytnie wyglądającego czarnego drewna. Może mieć motyw dwuzębny lub zawierać symbol Legionu przypominający różę."
+      ],
+      [
+        "10",
+        "{@bold Coatl}. Przedmiot waży o połowę mniej niż inne przedmioty tego rodzaju i jest ozdobiony pierzastymi skrzydłami, wężami, słońcami i innymi symbolami dobra. Demony uznają obecność tego przedmiotu za odpychającą."
+      ],
+      [
+        "11",
+        "{@bold Demoniczny}. Przedmiot jest wykonany z czarnego żelaza lub rogu, pokryty runami, a wszelkie elementy z tkaniny lub skóry są wykonane ze skóry demonów. Może zawierać pióra, szpony lub dzioby harpii. Jest ciepły w dotyku i ma na powierzchni złowrogie twarze lub obrzydliwe runy. Coatle uznają obecność tego przedmiotu za odpychającą."
+      ],
+      [
+        "12",
+        "{@bold Driada}. Przedmiot jest wykwintnie wykonany z drewna, liści lub pnączy. Jest ozdobiony symbolami natury: liśćmi, pnączami, gwiazdami i tym podobnymi. W świetle księżyca jarzy się bladym blaskiem, emitując słabe światło w promieniu 5 stóp."
+      ]
+    ]
+  },
+  "beneficial-manifestations": {
+    "name": "Korzystne Przejawy",
+    "caption": "Korzystne Przejawy",
+    "colLabels": [
+      "d100",
+      "Przejaw"
+    ],
+    "rows": [
+      [
+        "01-20",
+        "Twoje dzieło ma zapach, który jest ci miły, nawet jeśli nie ma jego źródła."
+      ],
+      [
+        "21-30",
+        "Możesz poświęcić 1 minutę, by rozwiać wszelkie warunki lekkiego przesłonięcia w promieniu 120 stóp w twoim dziele."
+      ],
+      [
+        "31-40",
+        "W obrębie swojego dzieła możesz raz dziennie rzucić stworzenie pożywienia i wody bez użycia komórki zaklęcia."
+      ],
+      [
+        "41-50",
+        "Możesz zrozumieć każdy język wypowiadany w promieniu 30 stóp od ciebie, gdy jesteś w swoim dziele."
+      ],
+      [
+        "51-60",
+        "Bestie uważają twoje dzieło za pociągające lub odpychające (ty decydujesz)."
+      ],
+      [
+        "61-70",
+        "Gdy twoje dzieło powstaje, ty decydujesz, jaka pogoda jest w nim możliwa."
+      ],
+      [
+        "71-80",
+        "Nie możesz zostać oczarowany ani przestraszony, gdy jesteś w swoim dziele."
+      ],
+      [
+        "81-90",
+        "Wszystkie budowle w twoim dziele mają +2 KP."
+      ],
+      [
+        "91-00",
+        "Masz korzyść do swojej biernej Spostrzegawczości w obrębie swojego dzieła."
+      ]
+    ]
+  },
+  "detrimental-manifestations": {
+    "name": "Szkodliwe Przejawy",
+    "caption": "Szkodliwe Przejawy",
+    "colLabels": [
+      "d100",
+      "Przejaw"
+    ],
+    "rows": [
+      [
+        "01-20",
+        "Twoje dzieło ma nieprzyjemny zapach, nawet jeśli nie ma jego źródła."
+      ],
+      [
+        "21-30",
+        "Twoje dzieło jest podatne na mgiełkę, mgłę i inne warunki lekkiego przesłonięcia."
+      ],
+      [
+        "31-40",
+        "Twoje dzieło ma niezwykle długie dni lub noce (MP decyduje)."
+      ],
+      [
+        "41-50",
+        "Budowle w twoim dziele mają jedynie otwory strzelnicze zamiast okien."
+      ],
+      [
+        "51-60",
+        "Bestie albo zasiedlają, albo unikają twojego dzieła (MP decyduje)."
+      ],
+      [
+        "61-70",
+        "W twoim dziele występują dziwne wzorce pogodowe (MP decyduje, jakie i kiedy)."
+      ],
+      [
+        "71-80",
+        "Wszystkie ST wykrywania lub tropienia stworzeń w twoim dziele wzrastają o 2."
+      ],
+      [
+        "81-90",
+        "Wszystkie budowle w twoim dziele mają -2 KP."
+      ],
+      [
+        "91-00",
+        "Masz utrudnienie do swojej biernej Spostrzegawczości w obrębie swojego dzieła."
+      ]
+    ]
+  },
+  "whirlpools-whirlpool-rank": {
+    "name": "Wiry; Ranga Wiru",
+    "caption": "Ranga Wiru",
+    "colLabels": [
+      "Ranga",
+      "Średnica",
+      "Prędkość",
+      "ST"
+    ],
+    "rows": [
+      [
+        "1",
+        "22 ({@dice 4d10}) stóp",
+        "5 stóp",
+        "5"
+      ],
+      [
+        "2",
+        "55 ({@dice 10d10}) stóp",
+        "15 stóp",
+        "10"
+      ],
+      [
+        "3",
+        "110 ({@dice 20d10}) stóp",
+        "25 stóp",
+        "15"
+      ],
+      [
+        "4",
+        "165 ({@dice 30d10}) stóp",
+        "35 stóp",
+        "20"
+      ]
+    ]
+  }
+}

@@ -4,6 +4,12 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.2 - 2026-08-02
+
+- Added a complete Polish translation overlay for Tomb of Annihilation.
+- Added Polish translation overlays for all remaining books and adventures, ordered from newest to oldest.
+- Completed Polish coverage for static compendium data, including classes, species, spells, items, creatures, sources, and equipment.
+
 ## 1.2.1 - 2026-08-02
 
 - Added a PNG favicon fallback for browsers and search results.

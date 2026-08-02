@@ -1,0 +1,1211 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Korzystanie z tej książki",
+      "page": 4,
+      "entries": [
+        "Multiwersum Dungeons and Dragons jest pełne niebezpieczeństw, a wiele z największych niebezpieczeństw to potwory. Ta książka, towarzysząca {@book Monster Manual|MM}, gromadzi potwory z wielu różnych płaszczyzn istnienia, a każde stworzenie jest gotowe narazić na niebezpieczeństwo bohaterów D&D na różnych poziomach. Książka zawiera także statystyki gier dla postaci niezależnych, które mogą pomagać bohaterom lub przeciwstawiać się im, a także szereg fantastycznych ras, które gracze mogą wziąć pod uwagę dla swoich postaci. Potworom i fantastycznym rasom w kolejnych rozdziałach towarzyszą okazjonalne komentarze potężnego czarodzieja Mordenkainena, jednego z najbardziej uczonych magów świata Greyhawk w D&D. Arcymag Tasha, przyjazna rywalka Mordenkainena, również wtrąca się. Wszystkie potwory, postacie niezależne i fantastyczne rasy zawarte w tej grze zapewniają mnóstwo nowych przyjaciół i wrogów, którzy zaludnią Twoje światy D&D.",
+        {
+          "type": "entries",
+          "name": "Co znajdziesz w środku",
+          "page": 4,
+          "entries": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Rozdział 1, „Fantastyczne wyścigi”",
+                  "entry": "stwarza ponad 30 alternatywnych wyścigów dla postaci graczy, dodatkową opcję w{@book Player's Handbook|PHB}i inne książki D&D. Rasy te, gdzie indziej, a tutaj po raz pierwszy pojawia się razem, a każde z nich zostało poprawione, aby powiadomić o aktualnym stanie gry."
+                },
+                {
+                  "type": "item",
+                  "name": "Rozdział 2, „Bestiariusz”,",
+                  "entry": "zawiera ponad 250 potworów i NPC, każdy reprezentowany przez blok statystykę i tekst historii. Kiedy główni bohaterowie są charakterystyczni dla gier jako DM, są to punkty odniesienia do swoich gier, zmieszanie ich z potworami i NPC-ami z gry{@book Monster Manual|MM}. Stworzenia z tego rozdziału szczegółowe do tych, których dotyczą inne książki D&D."
+                },
+                {
+                  "type": "item",
+                  "name": "Dodatek „Listy potworów”",
+                  "entry": "narzędzie dostępne w postaci bloków statystycznych dla Ciebie. W tym dodatku wymieniono potwory i NPC z książki według typu tworzenia, uwagi i środowiska."
+                }
+              ]
+            }
+          ],
+          "id": "001"
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Co znajdziesz w środku",
+      "page": 4,
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Rozdział 1, „Fantastyczne wyścigi”",
+              "entry": "stwarza ponad 30 alternatywnych wyścigów dla postaci graczy, dodatkową opcję w{@book Player's Handbook|PHB}i inne książki D&D. Rasy te, gdzie indziej, a tutaj po raz pierwszy pojawia się razem, a każde z nich zostało poprawione, aby powiadomić o aktualnym stanie gry."
+            },
+            {
+              "type": "item",
+              "name": "Rozdział 2, „Bestiariusz”,",
+              "entry": "zawiera ponad 250 potworów i NPC, każdy reprezentowany przez blok statystykę i tekst historii. Kiedy główni bohaterowie są charakterystyczni dla gier jako DM, są to punkty odniesienia do swoich gier, zmieszanie ich z potworami i NPC-ami z gry{@book Monster Manual|MM}. Stworzenia z tego rozdziału szczegółowe do tych, których dotyczą inne książki D&D."
+            },
+            {
+              "type": "item",
+              "name": "Dodatek „Listy potworów”",
+              "entry": "narzędzie dostępne w postaci bloków statystycznych dla Ciebie. W tym dodatku wymieniono potwory i NPC z książki według typu tworzenia, uwagi i środowiska."
+            }
+          ]
+        }
+      ],
+      "id": "001"
+    },
+    "1:002": {
+      "type": "section",
+      "name": "Fantastyczne wyścigi",
+      "page": 5,
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/MPMM/01-001.ch1-splash.webp"
+          },
+          "width": 1700,
+          "height": 1467,
+          "credit": "Zuzanna Wužyk"
+        },
+        "Zbiera rasy z całego multiwersum D&D, dziesięć rozdziałów zawiera rasy dla postaci graczy, dodatkowe cechy ras w{@book Player's Handbook|PHB}:",
+        {
+          "type": "list",
+          "columns": 4,
+          "items": [
+            "{@race Aarakocra|MPMM}",
+            "{@race Aasimar|MPMM}",
+            "{@race Bugbear|MPMM}",
+            "{@race Centaur|MPMM}",
+            "{@race Changeling|MPMM}",
+            "{@race Deep Gnome|MPMM}",
+            "{@race Duergar|MPMM}",
+            "{@race Eladrin|MPMM}",
+            "{@race Fairy|MPMM}",
+            "{@race Firbolg|MPMM}",
+            "{@race Genasi (Air)|MPMM|Genasi, Powietrze}",
+            "{@race Genasi (Earth)|MPMM|Genasi, Ziemia}",
+            "{@race Genasi (Fire)|MPMM|Genasi, ogień}",
+            "{@race Genasi (Water)|MPMM|Genasi, woda}",
+            "{@race Githyanki|MPMM}",
+            "{@race Githzerai|MPMM}",
+            "{@race Goblin|MPMM}",
+            "{@race Goliath|MPMM}",
+            "{@race Harengon|MPMM}",
+            "{@race Hobgoblin|MPMM}",
+            "{@race Kenku|MPMM}",
+            "{@race Kobold|MPMM}",
+            "{@race Lizardfolk|MPMM}",
+            "{@race Minotaur|MPMM}",
+            "{@race Orc|MPMM}",
+            "{@race Satyr|MPMM}",
+            "{@race Sea Elf|MPMM}",
+            "{@race Shadar-kai|MPMM}",
+            "{@race Shifter|MPMM}",
+            "{@race Tabaxi|MPMM}",
+            "{@race Tortle|MPMM}",
+            "{@race Triton|MPMM}",
+            "{@race Yuan-ti|MPMM}"
+          ]
+        },
+        "Wiele z tych ras następuje, gdy powstają, pojawiające się w{@book Monster Manual|MM}lub bestiariusz tej książki. Skosultuj się ze swoim DM, aby sprawdzić, czy dana opcja jest dostępna dla Twojej aplikacji. Jeśli w tym systemie dystrybucji ras, najpierw przeczytaj sekcję „Tworzenie swojej postaci” poniżej.",
+        {
+          "type": "section",
+          "name": "Tworzenie swojej postaci",
+          "page": 5,
+          "entries": [
+            "Na pierwszym poziomie wybierasz, czy Twoja postać należy do ras ludzkich, czy do klas wyróżniaj. Jeśli w tym rozdziale wybierzesz fantastyczną rasę, podział zostanie wyodrębniony podczas tworzenia postaci.",
+            {
+              "type": "entries",
+              "name": "Zwiększa się wynik umiejętności",
+              "page": 5,
+              "entries": [
+                "osiągając wyniki swojej postaci, zwiększ jeden wynik o 2 i zwiększ inny wynik o 1 lub zwiększ trzy różne wyniki o 1. Postępuj zgodnie z tą zasadą metody od metod, których przeznaczeniem jest określenie wyników, np. rzucania lub kupowania punktów. Sekcja „Szybki rozwój” dla klasy głównej postaci zawiera uwagi dotyczące punktów, które są odpowiedzialne. Możesz sprawdzić te sugestii lub je usunąć, ale nie możesz pominąć żadnego ze swoich wyników powyżej 20."
+              ],
+              "id": "003"
+            },
+            {
+              "type": "entries",
+              "name": "Języki",
+              "page": 5,
+              "entries": [
+                "Twoja postać potrafi mówić, czytać i pisać w języku wspólnym i innym języku, który Ty i Twój DM uznają za właściwe dla tej postaci. Podręcznik gracza zawiera listę elementów do wyboru. DM może uniemożliwić wprowadzenie listy dla programu."
+              ],
+              "id": "004"
+            },
+            {
+              "type": "entries",
+              "name": "Typ stworzenia",
+              "page": 6,
+              "entries": [
+                "Każde rozwiązanie w D&D, włączając każdą postać, ma w zasadach specjalnego znacznika, który identyfikuje typ tworzenia. Dostępna postać graczy jest typu humanoidalnego. Rasa opisana w tym języku, rodzaj typu jest twoją postacią. Oto lista elementów występujących w kolejności alfabetycznej: Aberracja, Bestia, Celestial, Konstrukt, Smok, Żywiołak, Fey, Fiend, Giant, Humanoid, Monstersity, Ooze, Plant, Undead. Te typy same w sobie nie mają żadnych zasad, ale niektóre zasady są wprowadzane do stosowania na różnych systemach. Na przykład{@spell cure wounds}zaklęcie nie działa na konstrukt ani na nieumarłego."
+              ],
+              "id": "005"
+            },
+            {
+              "type": "entries",
+              "name": "Długość życia",
+              "page": 6,
+              "entries": [
+                "Typowa długość życia postaci stosowanej w multiwersum D&D wynosi około stu lat, zakładając, że postać ta nie jest wykorzystywana podczas brutalnych przygód. Członkowie niektórych ras, takich jak krasnoludy i elfy, mogą żyć przez stulecia. Jeśli typ pochodzenia ras w tej książce może przetrwać niż sto lat, fakt ten jest możliwy w opisie ras."
+              ],
+              "id": "006"
+            },
+            {
+              "type": "entries",
+              "name": "Wzrost i waga",
+              "page": 6,
+              "entries": [
+                "Postacie graczy, które są dostępne dla ras, zazwyczaj mieszczą się w tym samym dodatku, co ludzie w naszym świecie. Jeśli chcesz określić wzrost lub wagę swojej postaci, zapoznaj się z tabelą Losowy wzrost i wagę w podręczniku, wybierz wiersz w tabeli, który jest najlepszym źródłem, wymyślonym przez siebie dla swojej postaci."
+              ],
+              "id": "007"
+            }
+          ],
+          "id": "00a"
+        }
+      ],
+      "id": "002"
+    },
+    "1:00a": {
+      "type": "section",
+      "name": "Tworzenie swojej postaci",
+      "page": 5,
+      "entries": [
+        "Na pierwszym poziomie wybierasz, czy Twoja postać należy do ras ludzkich, czy do klas wyróżniaj. Jeśli w tym rozdziale wybierzesz fantastyczną rasę, podział zostanie wyodrębniony podczas tworzenia postaci.",
+        {
+          "type": "entries",
+          "name": "Zwiększa się wynik umiejętności",
+          "page": 5,
+          "entries": [
+            "osiągając wyniki swojej postaci, zwiększ jeden wynik o 2 i zwiększ inny wynik o 1 lub zwiększ trzy różne wyniki o 1. Postępuj zgodnie z tą zasadą metody od metod, których przeznaczeniem jest określenie wyników, np. rzucania lub kupowania punktów. Sekcja „Szybki rozwój” dla klasy głównej postaci zawiera uwagi dotyczące punktów, które są odpowiedzialne. Możesz sprawdzić te sugestii lub je usunąć, ale nie możesz pominąć żadnego ze swoich wyników powyżej 20."
+          ],
+          "id": "003"
+        },
+        {
+          "type": "entries",
+          "name": "Języki",
+          "page": 5,
+          "entries": [
+            "Twoja postać potrafi mówić, czytać i pisać w języku wspólnym i innym języku, który Ty i Twój DM uznają za właściwe dla tej postaci. Podręcznik gracza zawiera listę elementów do wyboru. DM może uniemożliwić wprowadzenie listy dla programu."
+          ],
+          "id": "004"
+        },
+        {
+          "type": "entries",
+          "name": "Typ stworzenia",
+          "page": 6,
+          "entries": [
+            "Każde rozwiązanie w D&D, włączając każdą postać, ma w zasadach specjalnego znacznika, który identyfikuje typ tworzenia. Dostępna postać graczy jest typu humanoidalnego. Rasa opisana w tym języku, rodzaj typu jest twoją postacią. Oto lista elementów występujących w kolejności alfabetycznej: Aberracja, Bestia, Celestial, Konstrukt, Smok, Żywiołak, Fey, Fiend, Giant, Humanoid, Monstersity, Ooze, Plant, Undead. Te typy same w sobie nie mają żadnych zasad, ale niektóre zasady są wprowadzane do stosowania na różnych systemach. Na przykład{@spell cure wounds}zaklęcie nie działa na konstrukt ani na nieumarłego."
+          ],
+          "id": "005"
+        },
+        {
+          "type": "entries",
+          "name": "Długość życia",
+          "page": 6,
+          "entries": [
+            "Typowa długość życia postaci stosowanej w multiwersum D&D wynosi około stu lat, zakładając, że postać ta nie jest wykorzystywana podczas brutalnych przygód. Członkowie niektórych ras, takich jak krasnoludy i elfy, mogą żyć przez stulecia. Jeśli typ pochodzenia ras w tej książce może przetrwać niż sto lat, fakt ten jest możliwy w opisie ras."
+          ],
+          "id": "006"
+        },
+        {
+          "type": "entries",
+          "name": "Wzrost i waga",
+          "page": 6,
+          "entries": [
+            "Postacie graczy, które są dostępne dla ras, zazwyczaj mieszczą się w tym samym dodatku, co ludzie w naszym świecie. Jeśli chcesz określić wzrost lub wagę swojej postaci, zapoznaj się z tabelą Losowy wzrost i wagę w podręczniku, wybierz wiersz w tabeli, który jest najlepszym źródłem, wymyślonym przez siebie dla swojej postaci."
+          ],
+          "id": "007"
+        }
+      ],
+      "id": "00a"
+    },
+    "1:003": {
+      "type": "entries",
+      "name": "Zwiększa się wynik umiejętności",
+      "page": 5,
+      "entries": [
+        "osiągając wyniki swojej postaci, zwiększ jeden wynik o 2 i zwiększ inny wynik o 1 lub zwiększ trzy różne wyniki o 1. Postępuj zgodnie z tą zasadą metody od metod, których przeznaczeniem jest określenie wyników, np. rzucania lub kupowania punktów. Sekcja „Szybki rozwój” dla klasy głównej postaci zawiera uwagi dotyczące punktów, które są odpowiedzialne. Możesz sprawdzić te sugestii lub je usunąć, ale nie możesz pominąć żadnego ze swoich wyników powyżej 20."
+      ],
+      "id": "003"
+    },
+    "1:004": {
+      "type": "entries",
+      "name": "Języki",
+      "page": 5,
+      "entries": [
+        "Twoja postać potrafi mówić, czytać i pisać w języku wspólnym i innym języku, który Ty i Twój DM uznają za właściwe dla tej postaci. Podręcznik gracza zawiera listę elementów do wyboru. DM może uniemożliwić wprowadzenie listy dla programu."
+      ],
+      "id": "004"
+    },
+    "1:005": {
+      "type": "entries",
+      "name": "Typ stworzenia",
+      "page": 6,
+      "entries": [
+        "Każde rozwiązanie w D&D, włączając każdą postać, ma w zasadach specjalnego znacznika, który identyfikuje typ tworzenia. Dostępna postać graczy jest typu humanoidalnego. Rasa opisana w tym języku, rodzaj typu jest twoją postacią. Oto lista elementów występujących w kolejności alfabetycznej: Aberracja, Bestia, Celestial, Konstrukt, Smok, Żywiołak, Fey, Fiend, Giant, Humanoid, Monstersity, Ooze, Plant, Undead. Te typy same w sobie nie mają żadnych zasad, ale niektóre zasady są wprowadzane do stosowania na różnych systemach. Na przykład{@spell cure wounds}zaklęcie nie działa na konstrukt ani na nieumarłego."
+      ],
+      "id": "005"
+    },
+    "1:006": {
+      "type": "entries",
+      "name": "Długość życia",
+      "page": 6,
+      "entries": [
+        "Typowa długość życia postaci stosowanej w multiwersum D&D wynosi około stu lat, zakładając, że postać ta nie jest wykorzystywana podczas brutalnych przygód. Członkowie niektórych ras, takich jak krasnoludy i elfy, mogą żyć przez stulecia. Jeśli typ pochodzenia ras w tej książce może przetrwać niż sto lat, fakt ten jest możliwy w opisie ras."
+      ],
+      "id": "006"
+    },
+    "1:007": {
+      "type": "entries",
+      "name": "Wzrost i waga",
+      "page": 6,
+      "entries": [
+        "Postacie graczy, które są dostępne dla ras, zazwyczaj mieszczą się w tym samym dodatku, co ludzie w naszym świecie. Jeśli chcesz określić wzrost lub wagę swojej postaci, zapoznaj się z tabelą Losowy wzrost i wagę w podręczniku, wybierz wiersz w tabeli, który jest najlepszym źródłem, wymyślonym przez siebie dla swojej postaci."
+      ],
+      "id": "007"
+    },
+    "2:008": {
+      "type": "section",
+      "name": "Bestiariusz",
+      "page": 37,
+      "entries": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/MPMM/02-001.ch2-splash.webp"
+          },
+          "width": 1700,
+          "height": 1467,
+          "credit": "Tom Babbey"
+        },
+        "Dziesięć bestiariuszy zawiera statystyki gry i historii ponad 250 potworów, które pojawiają się w każdej grze D&D. W tym wydaniu znajdują się ustalenia dotyczące daty wydania gry, a także ustalenia ostateczne na podstawie bieżącej edycji.",
+        "Ten rozdział jest uzupełnieniem {@book Monster Manual|MM}i przyjął prezentację. Jeśli nie jesteś zaznajomiony z formatem bloku statystyki potworów, przeczytaj wprowadzenie do{@book Monster Manual|MM}zanim przejdziesz dalej. Wyjaśnienie terminologii opis bloków statystyka i podaje zasady dotyczące różnych cech potworów - informacje, które nie są tutaj powtarzane.",
+        "Stworzenia w tym bestiariuszu ułożone są alfabetycznie. Kilka z nich zebrano pod nagłówkiem grupy; na przykładzie sekcji „Dinozaury” zawiera bloki statystyki dla różnych dinozaurów.",
+        "Znajdziesz tu broń zadającą nietypowe typy, które rzucają zaklęcia, która działa w inny sposób. Taki wyjątek jest alternatywnym potworem i sposobem, w jaki używa broni lub rzuca zaklęcia; wyjątek nie ma wpływu na działanie broni lub zaklęcia dla kogoś innego.",
+        ", jeśli blok statystyka zawiera nazwę klasy w nazwie potwora lub w nawiasie pod nazwą, potwór jest dostępny za tę klasę w celu uzasadnienia wprowadzenia dla magicznych.",
+        {
+          "type": "quote",
+          "entries": [
+            "Mój przyjaciel Mordenkainen walczy z potworami i robi o nich notatki. Kocham notatki tak samo jak każdy inny czarodziej, ale walk się starzeje. Dlaczego nie można i nie napić się drinka z potworem? Najsmaczniejsze tajemnice, które prowadzą do moich potwornych towarzyszy naukowych. Inne potwory? Zdezintegrowałem je."
+          ],
+          "by": "Tasza"
+        },
+        {
+          "type": "list",
+          "style": "list-no-bullets",
+          "columns": 4,
+          "items": [
+            "{@creature Black Abishai|MPMM}",
+            "{@creature Blue Abishai|MPMM}",
+            "{@creature Green Abishai|MPMM}",
+            "{@creature Red Abishai|MPMM}",
+            "{@creature White Abishai|MPMM}",
+            "{@creature Alhoon|MPMM}",
+            "{@creature Alkilith|MPMM}",
+            "{@creature Allip|MPMM}",
+            "{@creature Amnizu|MPMM}",
+            "{@creature Annis Hag|MPMM}",
+            "{@creature Archdruid|MPMM}",
+            "{@creature Archer|MPMM}",
+            "{@creature Armanite|MPMM}",
+            "{@creature Astral Dreadnought|MPMM}",
+            "{@creature Babau|MPMM}",
+            "{@creature Bael|MPMM}",
+            "{@creature Balhannoth|MPMM}",
+            "{@creature Banderhobb|MPMM}",
+            "{@creature Baphomet|MPMM}",
+            "{@creature Bard|MPMM}",
+            "{@creature Barghest|MPMM}",
+            "{@creature Berbalang|MPMM}",
+            "{@creature Bheur Hag|MPMM}",
+            "{@creature Blackguard|MPMM}",
+            "{@creature Bodak|MPMM}",
+            "{@creature Boggle|MPMM}",
+            "{@creature Boneclaw|MPMM}",
+            "{@creature Bulezau|MPMM}",
+            "{@creature Cadaver Collector|MPMM}",
+            "{@creature Canoloth|MPMM}",
+            "{@creature Catoblepas|MPMM}",
+            "{@creature Aurochs|MPMM}",
+            "{@creature Deep Rothé|MPMM}",
+            "{@creature Ox|MPMM}",
+            "{@creature Stench Kow|MPMM}",
+            "{@creature Cave Fisher|MPMM}",
+            "{@creature Champion|MPMM}",
+            "{@creature Chitine|MPMM}",
+            "{@creature Choker|MPMM}",
+            "{@creature Choldrith|MPMM}",
+            "{@creature Clockwork Bronze Scout|MPMM}",
+            "{@creature Clockwork Iron Cobra|MPMM}",
+            "{@creature Clockwork Oaken Bolter|MPMM}",
+            "{@creature Clockwork Stone Defender|MPMM}",
+            "{@creature Cloud Giant Smiling One|MPMM}",
+            "{@creature Corpse Flower|MPMM}",
+            "{@creature Cranium Rat|MPMM}",
+            "{@creature Swarm of Cranium Rats|MPMM}",
+            "{@creature Darkling|MPMM}",
+            "{@creature Darkling Elder|MPMM}",
+            "{@creature Death Kiss|MPMM}",
+            "{@creature Deathlock|MPMM}",
+            "{@creature Deathlock Mastermind|MPMM}",
+            "{@creature Deathlock Wight|MPMM}",
+            "{@creature Deep Scion|MPMM}",
+            "{@creature Demogorgon|MPMM}",
+            "{@creature Derro|MPMM}",
+            "{@creature Derro Savant|MPMM}",
+            "{@creature Devourer|MPMM}",
+            "{@creature Dhergoloth|MPMM}",
+            "{@creature Brontosaurus|MPMM}",
+            "{@creature Deinonychus|MPMM}",
+            "{@creature Dimetrodon|MPMM}",
+            "{@creature Hadrosaurus|MPMM}",
+            "{@creature Quetzalcoatlus|MPMM}",
+            "{@creature Stegosaurus|MPMM}",
+            "{@creature Velociraptor|MPMM}",
+            "{@creature Dolphin|MPMM}",
+            "{@creature Dolphin Delighter|MPMM}",
+            "{@creature Draegloth|MPMM}",
+            "{@creature Drow Arachnomancer|MPMM}",
+            "{@creature Drow Favored Consort|MPMM}",
+            "{@creature Drow House Captain|MPMM}",
+            "{@creature Drow Inquisitor|MPMM}",
+            "{@creature Drow Matron Mother|MPMM}",
+            "{@creature Drow Shadowblade|MPMM}",
+            "{@creature Duergar Despot|MPMM}",
+            "{@creature Duergar Kavalrachni|MPMM}",
+            "{@creature Duergar Mind Master|MPMM}",
+            "{@creature Duergar Soulblade|MPMM}",
+            "{@creature Duergar Stone Guard|MPMM}",
+            "{@creature Duergar Screamer|MPMM}",
+            "{@creature Duergar Warlord|MPMM}",
+            "{@creature Duergar Xarrorn|MPMM}",
+            "{@creature Duergar Hammerer|MPMM}",
+            "{@creature Dybbuk|MPMM}",
+            "{@creature Eidolon|MPMM}",
+            "{@creature Sacred Statue|MPMM}",
+            "{@creature Autumn Eladrin|MPMM}",
+            "{@creature Spring Eladrin|MPMM}",
+            "{@creature Summer Eladrin|MPMM}",
+            "{@creature Winter Eladrin|MPMM}",
+            "{@creature Elder Brain|MPMM}",
+            "{@creature Elder Tempest|MPMM}",
+            "{@creature Air Elemental Myrmidon|MPMM}",
+            "{@creature Earth Elemental Myrmidon|MPMM}",
+            "{@creature Fire Elemental Myrmidon|MPMM}",
+            "{@creature Water Elemental Myrmidon|MPMM}",
+            "{@creature Fire Giant Dreadnought|MPMM}",
+            "{@creature Firenewt Warlock of Imix|MPMM}",
+            "{@creature Firenewt Warrior|MPMM}",
+            "{@creature Flail Snail|MPMM}",
+            "{@creature Flind|MPMM}",
+            "{@creature Fraz-Urb'luu|MPMM}",
+            "{@creature Froghemoth|MPMM}",
+            "{@creature Frost Giant Everlasting One|MPMM}",
+            "{@creature Frost Salamander|MPMM}",
+            "{@creature Gauth|MPMM}",
+            "{@creature Gazer|MPMM}",
+            "{@creature Geryon|MPMM}",
+            "{@creature Giant Strider|MPMM}",
+            "{@creature Giff|MPMM}",
+            "{@creature Girallon|MPMM}",
+            "{@creature Githyanki Gish|MPMM}",
+            "{@creature Githyanki Kith'rak|MPMM}",
+            "{@creature Githyanki Supreme Commander|MPMM}",
+            "{@creature Githzerai Anarch|MPMM}",
+            "{@creature Githzerai Enlightened|MPMM}",
+            "{@creature Gnoll Flesh Gnawer|MPMM}",
+            "{@creature Gnoll Hunter|MPMM}",
+            "{@creature Gnoll Witherling|MPMM}",
+            "{@creature Gray Render|MPMM}",
+            "{@creature Graz'zt|MPMM}",
+            "{@creature Grung|MPMM}",
+            "{@creature Grung Elite Warrior|MPMM}",
+            "{@creature Grung Wildling|MPMM}",
+            "{@creature Guard Drake|MPMM}",
+            "{@creature Hellfire Engine|MPMM}",
+            "{@creature Hobgoblin Devastator|MPMM}",
+            "{@creature Hobgoblin Iron Shadow|MPMM}",
+            "{@creature Howler|MPMM}",
+            "{@creature Hutijin|MPMM}",
+            "{@creature Hydroloth|MPMM}",
+            "{@creature Juiblex|MPMM}",
+            "{@creature Ki-rin|MPMM}",
+            "{@creature Kobold Dragonshield|MPMM}",
+            "{@creature Kobold Inventor|MPMM}",
+            "{@creature Kobold Scale Sorcerer|MPMM}",
+            "{@creature Korred|MPMM}",
+            "{@creature Kraken Priest|MPMM}",
+            "{@creature Young Kruthik|MPMM}",
+            "{@creature Adult Kruthik|MPMM}",
+            "{@creature Kruthik Hive Lord|MPMM}",
+            "{@creature Leucrotta|MPMM}",
+            "{@creature Leviathan|MPMM}",
+            "{@creature Martial Arts Adept|MPMM}",
+            "{@creature Marut|MPMM}",
+            "{@creature Master Thief|MPMM}",
+            "{@creature Maurezhi|MPMM}",
+            "{@creature Maw Demon|MPMM}",
+            "{@creature Meazel|MPMM}",
+            "{@creature Meenlock|MPMM}",
+            "{@creature Merregon|MPMM}",
+            "{@creature Merrenoloth|MPMM}",
+            "{@creature Mindwitness|MPMM}",
+            "{@creature Moloch|MPMM}",
+            "{@creature Molydeus|MPMM}",
+            "{@creature Morkoth|MPMM}",
+            "{@creature Mouth of Grolantor|MPMM}",
+            "{@creature Nabassu|MPMM}",
+            "{@creature Nagpa|MPMM}",
+            "{@creature Narzugon|MPMM}",
+            "{@creature Neogi Hatchling|MPMM}",
+            "{@creature Neogi|MPMM}",
+            "{@creature Neogi Master|MPMM}",
+            "{@creature Neothelid|MPMM}",
+            "{@creature Nightwalker|MPMM}",
+            "{@creature Nilbog|MPMM}",
+            "{@creature Nupperibo|MPMM}",
+            "{@creature Oblex Spawn|MPMM}",
+            "{@creature Adult Oblex|MPMM}",
+            "{@creature Elder Oblex|MPMM}",
+            "{@creature Ogre Battering Ram|MPMM}",
+            "{@creature Ogre Bolt Launcher|MPMM}",
+            "{@creature Ogre Chain Brute|MPMM}",
+            "{@creature Ogre Howdah|MPMM}",
+            "{@creature Oinoloth|MPMM}",
+            "{@creature Orcus|MPMM}",
+            "{@creature Orthon|MPMM}",
+            "{@creature Phoenix|MPMM}",
+            "{@creature Quickling|MPMM}",
+            "{@creature Redcap|MPMM}",
+            "{@creature Retriever|MPMM}",
+            "{@creature Rutterkin|MPMM}",
+            "{@creature Sea Spawn|MPMM}",
+            "{@creature Shadar-kai Gloom Weaver|MPMM}",
+            "{@creature Shadar-kai Shadow Dancer|MPMM}",
+            "{@creature Shadar-kai Soul Monger|MPMM}",
+            "{@creature Shadow Mastiff|MPMM}",
+            "{@creature Shadow Mastiff Alpha|MPMM}",
+            "{@creature Shoosuva|MPMM}",
+            "{@creature Sibriex|MPMM}",
+            "{@creature Skulk|MPMM}",
+            "{@creature Skull Lord|MPMM}",
+            "{@creature Slithering Tracker|MPMM}",
+            "{@creature Angry Sorrowsworn|MPMM}",
+            "{@creature Hungry Sorrowsworn|MPMM}",
+            "{@creature Lonely Sorrowsworn|MPMM}",
+            "{@creature Lost Sorrowsworn|MPMM}",
+            "{@creature Wretched Sorrowsworn|MPMM}",
+            "{@creature Spawn of Kyuss|MPMM}",
+            "{@creature Star Spawn Grue|MPMM}",
+            "{@creature Star Spawn Hulk|MPMM}",
+            "{@creature Star Spawn Larva Mage|MPMM}",
+            "{@creature Star Spawn Mangler|MPMM}",
+            "{@creature Star Spawn Seer|MPMM}",
+            "{@creature Female Steeder|MPMM}",
+            "{@creature Male Steeder|MPMM}",
+            "{@creature Steel Predator|MPMM}",
+            "{@creature Stone Cursed|MPMM}",
+            "{@creature Stone Giant Dreamwalker|MPMM}",
+            "{@creature Storm Giant Quintessent|MPMM}",
+            "{@creature Swarm of Rot Grubs|MPMM}",
+            "{@creature Swashbuckler|MPMM}",
+            "{@creature Sword Wraith Commander|MPMM}",
+            "{@creature Sword Wraith Warrior|MPMM}",
+            "{@creature Tanarukk|MPMM}",
+            "{@creature Titivilus|MPMM}",
+            "{@creature Tlincalli|MPMM}",
+            "{@creature Tortle|MPMM}",
+            "{@creature Tortle Druid|MPMM}",
+            "{@creature Trapper|MPMM}",
+            "{@creature Dire Troll|MPMM}",
+            "{@creature Rot Troll|MPMM}",
+            "{@creature Spirit Troll|MPMM}",
+            "{@creature Venom Troll|MPMM}",
+            "{@creature Ulitharid|MPMM}",
+            "{@creature Vampiric Mist|MPMM}",
+            "{@creature Vargouille|MPMM}",
+            "{@creature Vegepygmy|MPMM}",
+            "{@creature Thorny Vegepygmy|MPMM}",
+            "{@creature Vegepygmy Chief|MPMM}",
+            "{@creature War Priest|MPMM}",
+            "{@creature Warlock of the Archfey|MPMM}",
+            "{@creature Warlock of the Fiend|MPMM}",
+            "{@creature Warlock of the Great Old One|MPMM}",
+            "{@creature Warlord|MPMM}",
+            "{@creature Wastrilith|MPMM}",
+            "{@creature Apprentice Wizard|MPMM}",
+            "{@creature Abjurer Wizard|MPMM}",
+            "{@creature Conjurer Wizard|MPMM}",
+            "{@creature Diviner Wizard|MPMM}",
+            "{@creature Enchanter Wizard|MPMM}",
+            "{@creature Evoker Wizard|MPMM}",
+            "{@creature Illusionist Wizard|MPMM}",
+            "{@creature Necromancer Wizard|MPMM}",
+            "{@creature Transmuter Wizard|MPMM}",
+            "{@creature Wood Woad|MPMM}",
+            "{@creature Xvart|MPMM}",
+            "{@creature Xvart Warlock of Raxivort|MPMM}",
+            "{@creature Yagnoloth|MPMM}",
+            "{@creature Yeenoghu|MPMM}",
+            "{@creature Yeth Hound|MPMM}",
+            "{@creature Yuan-ti Anathema|MPMM}",
+            "{@creature Yuan-ti Broodguard|MPMM}",
+            "{@creature Yuan-ti Mind Whisperer|MPMM}",
+            "{@creature Yuan-ti Nightmare Speaker|MPMM}",
+            "{@creature Yuan-ti Pit Master|MPMM}",
+            "{@creature Zaratan|MPMM}",
+            "{@creature Zariel|MPMM}",
+            "{@creature Zuggtmoy|MPMM}"
+          ]
+        }
+      ],
+      "id": "008"
+    },
+    "3:009": {
+      "type": "section",
+      "name": "Mapy",
+      "entries": [
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/MPMM/Mind Flayer Colony.webp"
+              },
+              "title": "Kolonia Łupieżców Umysłów",
+              "imageType": "mapa",
+              "credit": "{@link Jared Blando|https://jaredblando.com/}",
+              "width": 3200,
+              "height": 4400,
+              "grid": {
+                "type": "none",
+                "size": 810,
+                "distance": 50
+              },
+              "id": "00B"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/MPMM/Mind Flayer Colony.webp"
+              },
+              "title": "Wersja odtwarzacza",
+              "imageType": "mapPlayer",
+              "credit": "{@link Jared Blando|https://jaredblando.com/}",
+              "width": 3200,
+              "height": 4400,
+              "grid": {
+                "type": "none",
+                "size": 810,
+                "distance": 50
+              },
+              "mapParent": {
+                "id": "00B"
+              }
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/MPMM/Yuan-ti Temple.webp"
+              },
+              "title": "Świątynia Yuan-ti",
+              "imageType": "mapa",
+              "credit": "{@link Jared Blando|https://jaredblando.com/}",
+              "width": 3200,
+              "height": 4400,
+              "id": "00C",
+              "grid": {
+                "type": "square",
+                "size": 190,
+                "offsetX": -158,
+                "offsetY": -116,
+                "scale": 6
+              }
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/MPMM/Yuan-ti Temple (Player Version).webp"
+              },
+              "title": "Wersja odtwarzacza",
+              "imageType": "mapPlayer",
+              "credit": "{@link Jared Blando|https://jaredblando.com/}",
+              "width": 3200,
+              "height": 4400,
+              "mapParent": {
+                "id": "00C"
+              },
+              "grid": {
+                "type": "square",
+                "size": 190,
+                "offsetX": -158,
+                "offsetY": -116,
+                "scale": 6
+              }
+            }
+          ]
+        }
+      ],
+      "id": "009"
+    },
+    "4:00b": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "columns": 2,
+              "items": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Główny projektant",
+                      "entries": [
+                        "Jeremy’ego Crawforda"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektorzy artystyczni",
+                      "entries": [
+                        "Emi Tanji i Kate Irwin"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Oryginalny projekt",
+                      "entries": [
+                        "Jeremy Crawford, Adam Lee, Mike Mearls, Christopher Perkins, Ben Petrisor, Sean K. Reynolds, Robert J. Schwalb, Matt Sernett, Chris Sims, Nolan Whale, Steve Winter"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt wersji",
+                      "entries": [
+                        "Sydney Adams, Judy Bauer, Jeremy Crawford, Makenzie De Armas, Dan Dillon, Ari Levitch, Ben Petrisor, Taymoor Rehman"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Redagowanie",
+                      "entries": [
+                        "Judy Bauer, Michele Carter, Kim Mohan i Christopher Perkins"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projektanci graficy",
+                      "entries": [
+                        "Trystana Falcone i Emi Tanji"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Ilustrator okładek",
+                      "entries": [
+                        "Grzegorza Rutkowskiego"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Ilustratorzy wnętrz",
+                      "entries": [
+                        "Dave Allsop, Tom Babbey, John-Paul Balmet, Thomas M. Baxa, Mark Behm, Eric Belisle, Michael Berube, Mike Bierek, Jared Blando, Zoltan Boros, Christopher Bradley, Alix Branwyn, Aleksi Briclot, IP Dmitry Burmak, Filip Burburan, Christopher Burdett, Sidharth Chaturvedi, Jedd Chevrier, Conceptopolis, Daarken, Nikki Dawes, Eric Deschamps, Simon Dominic, Dave Dorman, Nicholas Elias, Wayne England, Jason Felix, Justin Gerard, Justyna Gil, Lars Grant-West, Jon Hodgson, Ralph Horsley, Tyler Jacobson, Mike Jordana, Vance Kelly, Julian Kok, Michael Komarck, Daniel Landerman, Olly Lawson, Daniel Ljunggren, Valera Lutfullina, Warren Mahy, Lorenzo Mastroianni, Brynn Metheney, Aaron Miller, Francisco Miyara, Caio Monteiro, Scott Murphy, Marta Nael, Marco Nelor, Jim Nelson, Adam Paquette, PINDURSKI, Claudio Pozas, April Prime, Grzegorz Rutkowski, Marc Sasso, Chris Seaman, Ilya Shkipin, Rudy Siswanto, David Sladek, Craig J Spearing, Bryan Sola, Zack Stella, Sarah Stone, Philip Straub, Arnie Swekel, Thom Tenery, David A. Trampier, Cory Trego-Erdner, Beth Trott, Brian Valeza, Randy Vargas, Franz Vohwinkel, Anthony S. Waters, Campbell White, Richard Whitters, Eva Widermann, Sam Wood, Shawn Wood, Ben Wootten, Zuzanna Wužyk, Min Yum"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Inżynier Projektu",
+                      "entries": [
+                        "Cyndę Callaway"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Technik obrazowania",
+                      "entries": [
+                        "Kevina Yee"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Specjalista ds. przygotowanie do druku",
+                      "entries": [
+                        "Jefferson Dunlap"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "D&D Studio",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Producent wykonawczy",
+                          "entries": [
+                            "Ray Zwycięzca"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Główni projektanci",
+                          "entries": [
+                            "Jeremy’ego Crawforda i Christophera Perkinsa"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Kierownik Projektu",
+                          "entries": [
+                            "Steve'a Scotta"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dział projektowy",
+                          "entries": [
+                            "Sydney Adams, Judy Bauer, Makenzie De Armas, Dan Dillon, Amanda Hamon, Ari Levitch, Ben Petrisor, Taymoor Rehman, F. Wesley Schneider, James Wyatt"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Starszy dyrektor artystyczny",
+                          "entries": [
+                            "Richarda Whitetersa"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dział Sztuki",
+                          "entries": [
+                            "Trystan Falcone, Kate Irwin, Emi Tanji, Shawn Wood, Trish Yochum"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Starszy producent",
+                          "entries": [
+                            "Dan Tovar"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Producenci",
+                          "entries": [
+                            "Billa Benhama, Roberta Hawkeya i Leę Heleotis"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. Zarządzania Produktem",
+                          "entries": [
+                            "Liz Schuh"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżerowie Produktu",
+                          "entries": [
+                            "Natalie Egan, Chris Lindsay i Hilary Ross"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "00d"
+                },
+                {
+                  "type": "entries",
+                  "name": "Marketing D&D",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Dyrektor Globalnego Marketingu Marki",
+                          "entries": [
+                            "Brian Perry"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Globalny Menedżer Marki",
+                          "entries": [
+                            "Shelly Mazzanoble"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Starszy Menedżer ds. Komunikacji Marketingowej",
+                          "entries": [
+                            "Grega Tito"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer społeczności",
+                          "entries": [
+                            "Brandy Camel"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "00e"
+                },
+                {
+                  "type": "entries",
+                  "name": "D&D Beyond",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Menedżer ds. projektowanie cyfrowe",
+                          "entries": [
+                            "Wiara Elisabeth Lilley"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Zespół projektantów cyfrowych",
+                          "entries": [
+                            "Jay’a Janiego i Adama Waltona"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "00f"
+                }
+              ]
+            }
+          ],
+          "id": "00c"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "book/MPMM/credits.webp"
+          },
+          "width": 738,
+          "height": 850
+        },
+        "Książka zawiera przeglądem treści, które pierwotnie były w książkach{@book Volo's Guide to Monsters|VGM} (2016) i {@book Mordenkainen's Tome of Foes|MTF}(2018). Zawiera także opcję z{@adventure Princes of the Apocalypse|PotA} (2015), {@book Eberron: Rising from the Last War|ERLW} (2019) i {@book Mythic Odysseys of Theros|MOT} (2020).",
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/MPMM/credits1.webp"
+              },
+              "title": "Na okładce: Czarodziej Mordenkainen szybuje przez Plan Astralny, dosiadając ki-rina - nieświadomy, że się do nich astralnego pancernika - na obrazie Grzegorza Rutkowskiego.",
+              "width": 1042,
+              "height": 795
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "entries": [
+            "{@note Zastrzeżenie: Poprosiliśmy czarodzieja Mordenkainena o napisanie humorystycznego zastrzeżenia do tej książki. Przedstawiliśmy następującą informację: „Dzień, w którym występuje zapis niepoważny do stosowania w grach, który będzie, w którym wystąpią wycofanie się z magii i porzucę dodatkowe znaczenie do samego siebie”. Rywalizująca z Mordenkainenem czarodziejka, Tasha, wywołująca przechwyta nasze użycie i przesłała nam następującą notatkę: „Mordenkainen utracone wrażenie gdzieś pomiędzy Miastem Greyhawk a Planem Astralnym. Głowy do góry, najdrożsi. Wieloświat jest okropności, z których jest odbierane w tej książce. Powstrzymaj swój wzrok i dobry zaklęć. ciemność z uśmiechem”.}"
+          ],
+          "id": "010"
+        }
+      ],
+      "id": "00b"
+    },
+    "4:00c": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Główny projektant",
+                  "entries": [
+                    "Jeremy’ego Crawforda"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Dyrektorzy artystyczni",
+                  "entries": [
+                    "Emi Tanji i Kate Irwin"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Oryginalny projekt",
+                  "entries": [
+                    "Jeremy Crawford, Adam Lee, Mike Mearls, Christopher Perkins, Ben Petrisor, Sean K. Reynolds, Robert J. Schwalb, Matt Sernett, Chris Sims, Nolan Whale, Steve Winter"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Projekt wersji",
+                  "entries": [
+                    "Sydney Adams, Judy Bauer, Jeremy Crawford, Makenzie De Armas, Dan Dillon, Ari Levitch, Ben Petrisor, Taymoor Rehman"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Redagowanie",
+                  "entries": [
+                    "Judy Bauer, Michele Carter, Kim Mohan i Christopher Perkins"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Projektanci graficy",
+                  "entries": [
+                    "Trystana Falcone i Emi Tanji"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Ilustrator okładek",
+                  "entries": [
+                    "Grzegorza Rutkowskiego"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Ilustratorzy wnętrz",
+                  "entries": [
+                    "Dave Allsop, Tom Babbey, John-Paul Balmet, Thomas M. Baxa, Mark Behm, Eric Belisle, Michael Berube, Mike Bierek, Jared Blando, Zoltan Boros, Christopher Bradley, Alix Branwyn, Aleksi Briclot, IP Dmitry Burmak, Filip Burburan, Christopher Burdett, Sidharth Chaturvedi, Jedd Chevrier, Conceptopolis, Daarken, Nikki Dawes, Eric Deschamps, Simon Dominic, Dave Dorman, Nicholas Elias, Wayne England, Jason Felix, Justin Gerard, Justyna Gil, Lars Grant-West, Jon Hodgson, Ralph Horsley, Tyler Jacobson, Mike Jordana, Vance Kelly, Julian Kok, Michael Komarck, Daniel Landerman, Olly Lawson, Daniel Ljunggren, Valera Lutfullina, Warren Mahy, Lorenzo Mastroianni, Brynn Metheney, Aaron Miller, Francisco Miyara, Caio Monteiro, Scott Murphy, Marta Nael, Marco Nelor, Jim Nelson, Adam Paquette, PINDURSKI, Claudio Pozas, April Prime, Grzegorz Rutkowski, Marc Sasso, Chris Seaman, Ilya Shkipin, Rudy Siswanto, David Sladek, Craig J Spearing, Bryan Sola, Zack Stella, Sarah Stone, Philip Straub, Arnie Swekel, Thom Tenery, David A. Trampier, Cory Trego-Erdner, Beth Trott, Brian Valeza, Randy Vargas, Franz Vohwinkel, Anthony S. Waters, Campbell White, Richard Whitters, Eva Widermann, Sam Wood, Shawn Wood, Ben Wootten, Zuzanna Wužyk, Min Yum"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Inżynier Projektu",
+                  "entries": [
+                    "Cyndę Callaway"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Technik obrazowania",
+                  "entries": [
+                    "Kevina Yee"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Specjalista ds. przygotowanie do druku",
+                  "entries": [
+                    "Jefferson Dunlap"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "D&D Studio",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Producent wykonawczy",
+                      "entries": [
+                        "Ray Zwycięzca"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Główni projektanci",
+                      "entries": [
+                        "Jeremy’ego Crawforda i Christophera Perkinsa"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Kierownik Projektu",
+                      "entries": [
+                        "Steve'a Scotta"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dział projektowy",
+                      "entries": [
+                        "Sydney Adams, Judy Bauer, Makenzie De Armas, Dan Dillon, Amanda Hamon, Ari Levitch, Ben Petrisor, Taymoor Rehman, F. Wesley Schneider, James Wyatt"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Starszy dyrektor artystyczny",
+                      "entries": [
+                        "Richarda Whitetersa"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dział Sztuki",
+                      "entries": [
+                        "Trystan Falcone, Kate Irwin, Emi Tanji, Shawn Wood, Trish Yochum"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Starszy producent",
+                      "entries": [
+                        "Dan Tovar"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Producenci",
+                      "entries": [
+                        "Billa Benhama, Roberta Hawkeya i Leę Heleotis"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. Zarządzania Produktem",
+                      "entries": [
+                        "Liz Schuh"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżerowie Produktu",
+                      "entries": [
+                        "Natalie Egan, Chris Lindsay i Hilary Ross"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "00d"
+            },
+            {
+              "type": "entries",
+              "name": "Marketing D&D",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Dyrektor Globalnego Marketingu Marki",
+                      "entries": [
+                        "Brian Perry"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Globalny Menedżer Marki",
+                      "entries": [
+                        "Shelly Mazzanoble"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Starszy Menedżer ds. Komunikacji Marketingowej",
+                      "entries": [
+                        "Grega Tito"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer społeczności",
+                      "entries": [
+                        "Brandy Camel"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "00e"
+            },
+            {
+              "type": "entries",
+              "name": "D&D Beyond",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Menedżer ds. projektowanie cyfrowe",
+                      "entries": [
+                        "Wiara Elisabeth Lilley"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Zespół projektantów cyfrowych",
+                      "entries": [
+                        "Jay’a Janiego i Adama Waltona"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "00f"
+            }
+          ]
+        }
+      ],
+      "id": "00c"
+    }
+  }
+}

@@ -1,0 +1,2806 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "W Szkarłatnych Płomieniach",
+      "page": 2,
+      "entries": [
+        "Dwóch Czerwonych Czarodziejów z Thay podjęło tajną misję na Wysokie Wrzosowiska na wschód od Wybrzeża Mieczy. Szukają czegoś lub kogoś. Jakikolwiek jest ich cel tam, na zimnych i smaganych wiatrem wzgórzach, jeśli Czerwoni Czarodzieje chcą zachować to w tajemnicy, prawdopodobnie najlepiej będzie, aby zostało to szybko odkryte dla dobra wszystkich innych. Nawet najemnicy, którzy wcześniej eskortowali ich na pustynię, są zgodni co do tego, że ktoś powinien ich powstrzymać.",
+        "Ściganie Czerwonych Czarodziejów prowadzi poszukiwaczy przygód do kopca kurhanów pośród dzikich traw Wysokich Wrzosowisk. W kurhanie odkrywają pozostałości sanktuarium czarodziejów, które wciąż są plądrowane. Los wiedzy i skarbów zależy od bohaterów. Bez ostrożności sytuacja może wymknąć się spod kontroli.",
+        "Ta przygoda Dungeons & Dragons® została napisana tak, aby odpowiadała od czterech do sześciu postaci na 8. poziomie. Dzięki temu tekstowi i podstawowym podręcznikom D&D masz wszystko, czego potrzebujesz, aby grać. Możesz także skorzystać z Przewodnika poszukiwacza przygód z Wybrzeża Mieczy, aby dowiedzieć się więcej o Wysokich Wrzosowiskach Faerûnu.",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AitFR-ISF/image-007.webp"
+          },
+          "width": 1242,
+          "height": 1296,
+          "credit": "Kasia 'Kafis' Zielińska"
+        },
+        {
+          "type": "entries",
+          "name": "Początek serii",
+          "page": 3,
+          "entries": [
+            "Ta przygoda została napisana jako pierwsza z wieloczęściowej serii. Niezależnie od tego, czy grasz w tę przygodę w ramach naszej serii przygodowej, czy też wplatasz ją w inną kampanię, przeczytaj „Część 3: Co dalej?” aby zorientować się, dokąd prowadzą niektóre z tych wątków i jak można je zmienić, aby dostosować je do innej kampanii.",
+            "Ta przygoda zapowiada rolę powracającego złoczyńcy, ale nie wyjaśnia w pełni jego motywów, historii ani planów. To są sprawy na następne przygody. Jeśli wolisz nie czekać lub chcesz zastąpić naszego innego złoczyńcę, ta przygoda może z łatwością zapowiedzieć twojego własnego nikczemnego NPC.",
+            "Łącząc bezpośredniość wyborów graczy z tajemniczymi historiami i ambicjami kluczowych postaci niezależnych, możesz w dramatyczny sposób zgłębiać kwestie lojalności, ambicji i wiedzy. Przyszłe przygody z tej serii rozszerzają ten temat, aby poznać przeszłość Wybrzeża Mieczy i konsekwencje wyborów graczy w każdej przygodzie po drodze."
+          ],
+          "id": "001"
+        },
+        {
+          "type": "section",
+          "name": "Tło",
+          "page": 3,
+          "entries": [
+            "Samotny mag wędruje po krainie. Jest gościem z innego świata. Przybył na Wybrzeże Mieczy w poszukiwaniu legend i tradycji, podążając śladami innych, którzy przybyli tu dawno temu. Nazywa się Tyreus, choć niewielu tutaj zna go z imienia.",
+            "Jego poszukiwania przykuły uwagę Czerwonych Czarodziejów z Thay, którzy wysłali dwóch własnych czarodziejów, aby odnaleźli wędrownego maga. Ci poszukiwacze - Morwena i jej uczennica, {@creature Malivar|AitFR-ISF}- wyśledził czarodzieja aż do Wysokich Wrzosowisk na wschód od Wybrzeża Mieczy. Przypuszczali (słusznie), że ich ofiara szukała miejsca skrywającego tajemną moc.",
+            "Aby przedostać się przez Wysokie Wrzosowiska i pozostać na tropie Tyreusa, Czerwoni Czarodzieje wynajęli lokalnych najemników, aby ich poprowadzili, pod wodzą byłego bandyty imieniem Lothar.",
+            "Kiedy Czerwoni Czarodzieje zbliżyli się do celu w miejscu potocznie zwanym Kurhanem Czarodziejów, Lothar i jego najemnicy porzucili całe przedsięwzięcie ze strachu. Uciekli z powrotem do wioski Secomber na skraju Wysokich Wrzosowisk, gdzie opowiadają każdemu, kto chce słuchać, że w Czarodziejskiej Kurzeczce dzieją się teraz złe rzeczy. „Czarodzieje polujący na czarodziejów nie mogą prowadzić do niczego dobrego” - mówi Lothar.",
+            {
+              "type": "entries",
+              "name": "Opowieść w kurniku",
+              "page": 3,
+              "entries": [
+                "Kurhan Czarodzieja zaczynał jako prawdziwy kurhan i stał cicho na Wysokich Maurach przez stulecia, zanim wprowadziła się do niego sekta czarodziejów, splądrowała go w poszukiwaniu skarbów, wrzuciła zmarłych do kurhanu i użyła swojej magii, aby przekształcić to miejsce w odległą kryjówkę. Przez lata czarodzieje wykorzystywali to miejsce jako sanktuarium, laboratorium, bibliotekę, a ostatecznie jako grobowiec członków ich małego zakonu. Cokolwiek stało się z ostatnimi członkami zakonu, nigdy nie wrócili do tego miejsca.",
+                "Przez dziesięciolecia stał spokojnie.",
+                "Następnie, kilka dni temu, przybył Tyreus z żywiołakami na służbie. Żywiołaki wkopały się w ziemię w pobliżu kurhanu, aby uzyskać dostęp do jego najniższych części. Spowodowało to utworzenie zapadliska na wschód od kurhanu, do obszaru 15. Stamtąd Tyreus i jego słudzy zaatakowali bibliotekę w obszarze 14.",
+                "Przez dwa dni Tyreus przeszukiwał bibliotekę w poszukiwaniu wartościowych przedmiotów. Kiedy Morwena i {@creature Malivar|AitFR-ISF} przybył, stanęli przed nim w krótkiej potyczce zaklęć, zanim zdecydowali się na negocjacje.",
+                "Morwena, zaintrygowana wędrownym czarodziejem i głodna oferowanej przez niego mocy, zdecydowała się porzucić swoją misję i dołączyć do Tyreusa. {@creature Malivar|AitFR-ISF} myślałem, że to podstęp. To nie było.",
+                "{@creature Malivar|AitFR-ISF}przestraszony i załamany, groził im obojgu, ale nie mógł się równać z żadnym z nich. Uderzony zaklęciami Tyreusa, uciekł z biblioteki, w głąb kurhanu i upadł na skraj śmierci. (Prawdopodobnie będzie nadal w obszarze 13, kiedy przybędą poszukiwacze przygód.)",
+                "Morwena zasugerowała, żeby pozwolili {@creature Malivar|AitFR-ISF} idź, bo nie martwiła się już odwetem ze strony Czerwonych Czarodziejów. Ona i jej nowy sojusznik teleportowali się ze swoimi skarbami, pozostawiając sługi żywiołaków, aby ponownie zamknęły kurhan i spaliły bibliotekę, aby zatrzeć ślady swojego pana.",
+                "Główny sługa, zwany duchem ognia {@creature Exul|AitFR-ISF}, trudzi się pod ciężarem wędrownego czarodzieja. Zebrał i ułożył w stos zwoje i księgi z biblioteki, aby je spalić, ale zatrzymał się, aby przeczytać wszystko, co mógł, zanim je zniszczy."
+              ],
+              "id": "003"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "section",
+          "name": "Hak przygodowy",
+          "page": 3,
+          "entries": [
+            "Poszukiwacze przygód przemierzający wioskę Secomber mogą przez przypadek usłyszeć o Czerwonych Czarodziejach i ich misji. Dla niektórych poszukiwaczy przygód ingerencja w Czerwonych Czarodziejów lub odkrywanie zaginionego skarbu może być wystarczającą motywacją do kontynuowania przygody.",
+            "Jeśli zbieg okoliczności nie wystarczy, rozważ następujące haczyki przygodowe i dowiedz się, jak mogą one sprowadzić poszukiwaczy przygód do Secomber.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Pogoń za Czerwonymi Czarodziejami",
+                  "page": 3,
+                  "entries": [
+                    "Sojusznik lub patron poszukiwaczy przygód słyszy wiadomość, że dwóch Czerwonych Czarodziejów wyruszyło w stronę Wysokich Maurów w poszukiwaniu czegoś. Być może ten sojusznik ma trudną historię związaną z Czerwonymi Czarodziejami; być może poszukiwacze przygód też już to robią."
+                  ],
+                  "id": "006"
+                },
+                {
+                  "type": "entries",
+                  "name": "Utracona wiedza",
+                  "page": 4,
+                  "entries": [
+                    "Historyk, mędrzec lub inna uczona postać prosi poszukiwaczy przygód o zbadanie legend o Kurhanie Czarodzieja na Wysokich Wrzosowiskach. „Zacznij od wioski Secomber” - mówią. - Ktoś tam może pamiętać pogłoski o czarodziejach przemierzających wrzosowiska."
+                  ],
+                  "id": "007"
+                }
+              ],
+              "id": "005"
+            }
+          ],
+          "id": "004"
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Początek serii",
+      "page": 3,
+      "entries": [
+        "Ta przygoda została napisana jako pierwsza z wieloczęściowej serii. Niezależnie od tego, czy grasz w tę przygodę w ramach naszej serii przygodowej, czy też wplatasz ją w inną kampanię, przeczytaj „Część 3: Co dalej?” aby zorientować się, dokąd prowadzą niektóre z tych wątków i jak można je zmienić, aby dostosować je do innej kampanii.",
+        "Ta przygoda zapowiada rolę powracającego złoczyńcy, ale nie wyjaśnia w pełni jego motywów, historii ani planów. To są sprawy na następne przygody. Jeśli wolisz nie czekać lub chcesz zastąpić naszego innego złoczyńcę, ta przygoda może z łatwością zapowiedzieć twojego własnego nikczemnego NPC.",
+        "Łącząc bezpośredniość wyborów graczy z tajemniczymi historiami i ambicjami kluczowych postaci niezależnych, możesz w dramatyczny sposób zgłębiać kwestie lojalności, ambicji i wiedzy. Przyszłe przygody z tej serii rozszerzają ten temat, aby poznać przeszłość Wybrzeża Mieczy i konsekwencje wyborów graczy w każdej przygodzie po drodze."
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "section",
+      "name": "Tło",
+      "page": 3,
+      "entries": [
+        "Samotny mag wędruje po krainie. Jest gościem z innego świata. Przybył na Wybrzeże Mieczy w poszukiwaniu legend i tradycji, podążając śladami innych, którzy przybyli tu dawno temu. Nazywa się Tyreus, choć niewielu tutaj zna go z imienia.",
+        "Jego poszukiwania przykuły uwagę Czerwonych Czarodziejów z Thay, którzy wysłali dwóch własnych czarodziejów, aby odnaleźli wędrownego maga. Ci poszukiwacze - Morwena i jej uczennica, {@creature Malivar|AitFR-ISF}- wyśledził czarodzieja aż do Wysokich Wrzosowisk na wschód od Wybrzeża Mieczy. Przypuszczali (słusznie), że ich ofiara szukała miejsca skrywającego tajemną moc.",
+        "Aby przedostać się przez Wysokie Wrzosowiska i pozostać na tropie Tyreusa, Czerwoni Czarodzieje wynajęli lokalnych najemników, aby ich poprowadzili, pod wodzą byłego bandyty imieniem Lothar.",
+        "Kiedy Czerwoni Czarodzieje zbliżyli się do celu w miejscu potocznie zwanym Kurhanem Czarodziejów, Lothar i jego najemnicy porzucili całe przedsięwzięcie ze strachu. Uciekli z powrotem do wioski Secomber na skraju Wysokich Wrzosowisk, gdzie opowiadają każdemu, kto chce słuchać, że w Czarodziejskiej Kurzeczce dzieją się teraz złe rzeczy. „Czarodzieje polujący na czarodziejów nie mogą prowadzić do niczego dobrego” - mówi Lothar.",
+        {
+          "type": "entries",
+          "name": "Opowieść w kurniku",
+          "page": 3,
+          "entries": [
+            "Kurhan Czarodzieja zaczynał jako prawdziwy kurhan i stał cicho na Wysokich Maurach przez stulecia, zanim wprowadziła się do niego sekta czarodziejów, splądrowała go w poszukiwaniu skarbów, wrzuciła zmarłych do kurhanu i użyła swojej magii, aby przekształcić to miejsce w odległą kryjówkę. Przez lata czarodzieje wykorzystywali to miejsce jako sanktuarium, laboratorium, bibliotekę, a ostatecznie jako grobowiec członków ich małego zakonu. Cokolwiek stało się z ostatnimi członkami zakonu, nigdy nie wrócili do tego miejsca.",
+            "Przez dziesięciolecia stał spokojnie.",
+            "Następnie, kilka dni temu, przybył Tyreus z żywiołakami na służbie. Żywiołaki wkopały się w ziemię w pobliżu kurhanu, aby uzyskać dostęp do jego najniższych części. Spowodowało to utworzenie zapadliska na wschód od kurhanu, do obszaru 15. Stamtąd Tyreus i jego słudzy zaatakowali bibliotekę w obszarze 14.",
+            "Przez dwa dni Tyreus przeszukiwał bibliotekę w poszukiwaniu wartościowych przedmiotów. Kiedy Morwena i {@creature Malivar|AitFR-ISF} przybył, stanęli przed nim w krótkiej potyczce zaklęć, zanim zdecydowali się na negocjacje.",
+            "Morwena, zaintrygowana wędrownym czarodziejem i głodna oferowanej przez niego mocy, zdecydowała się porzucić swoją misję i dołączyć do Tyreusa. {@creature Malivar|AitFR-ISF} myślałem, że to podstęp. To nie było.",
+            "{@creature Malivar|AitFR-ISF}przestraszony i załamany, groził im obojgu, ale nie mógł się równać z żadnym z nich. Uderzony zaklęciami Tyreusa, uciekł z biblioteki, w głąb kurhanu i upadł na skraj śmierci. (Prawdopodobnie będzie nadal w obszarze 13, kiedy przybędą poszukiwacze przygód.)",
+            "Morwena zasugerowała, żeby pozwolili {@creature Malivar|AitFR-ISF} idź, bo nie martwiła się już odwetem ze strony Czerwonych Czarodziejów. Ona i jej nowy sojusznik teleportowali się ze swoimi skarbami, pozostawiając sługi żywiołaków, aby ponownie zamknęły kurhan i spaliły bibliotekę, aby zatrzeć ślady swojego pana.",
+            "Główny sługa, zwany duchem ognia {@creature Exul|AitFR-ISF}, trudzi się pod ciężarem wędrownego czarodzieja. Zebrał i ułożył w stos zwoje i księgi z biblioteki, aby je spalić, ale zatrzymał się, aby przeczytać wszystko, co mógł, zanim je zniszczy."
+          ],
+          "id": "003"
+        }
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "name": "Opowieść w kurniku",
+      "page": 3,
+      "entries": [
+        "Kurhan Czarodzieja zaczynał jako prawdziwy kurhan i stał cicho na Wysokich Maurach przez stulecia, zanim wprowadziła się do niego sekta czarodziejów, splądrowała go w poszukiwaniu skarbów, wrzuciła zmarłych do kurhanu i użyła swojej magii, aby przekształcić to miejsce w odległą kryjówkę. Przez lata czarodzieje wykorzystywali to miejsce jako sanktuarium, laboratorium, bibliotekę, a ostatecznie jako grobowiec członków ich małego zakonu. Cokolwiek stało się z ostatnimi członkami zakonu, nigdy nie wrócili do tego miejsca.",
+        "Przez dziesięciolecia stał spokojnie.",
+        "Następnie, kilka dni temu, przybył Tyreus z żywiołakami na służbie. Żywiołaki wkopały się w ziemię w pobliżu kurhanu, aby uzyskać dostęp do jego najniższych części. Spowodowało to utworzenie zapadliska na wschód od kurhanu, do obszaru 15. Stamtąd Tyreus i jego słudzy zaatakowali bibliotekę w obszarze 14.",
+        "Przez dwa dni Tyreus przeszukiwał bibliotekę w poszukiwaniu wartościowych przedmiotów. Kiedy Morwena i {@creature Malivar|AitFR-ISF} przybył, stanęli przed nim w krótkiej potyczce zaklęć, zanim zdecydowali się na negocjacje.",
+        "Morwena, zaintrygowana wędrownym czarodziejem i głodna oferowanej przez niego mocy, zdecydowała się porzucić swoją misję i dołączyć do Tyreusa. {@creature Malivar|AitFR-ISF} myślałem, że to podstęp. To nie było.",
+        "{@creature Malivar|AitFR-ISF}przestraszony i załamany, groził im obojgu, ale nie mógł się równać z żadnym z nich. Uderzony zaklęciami Tyreusa, uciekł z biblioteki, w głąb kurhanu i upadł na skraj śmierci. (Prawdopodobnie będzie nadal w obszarze 13, kiedy przybędą poszukiwacze przygód.)",
+        "Morwena zasugerowała, żeby pozwolili {@creature Malivar|AitFR-ISF} idź, bo nie martwiła się już odwetem ze strony Czerwonych Czarodziejów. Ona i jej nowy sojusznik teleportowali się ze swoimi skarbami, pozostawiając sługi żywiołaków, aby ponownie zamknęły kurhan i spaliły bibliotekę, aby zatrzeć ślady swojego pana.",
+        "Główny sługa, zwany duchem ognia {@creature Exul|AitFR-ISF}, trudzi się pod ciężarem wędrownego czarodzieja. Zebrał i ułożył w stos zwoje i księgi z biblioteki, aby je spalić, ale zatrzymał się, aby przeczytać wszystko, co mógł, zanim je zniszczy."
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "section",
+      "name": "Hak przygodowy",
+      "page": 3,
+      "entries": [
+        "Poszukiwacze przygód przemierzający wioskę Secomber mogą przez przypadek usłyszeć o Czerwonych Czarodziejach i ich misji. Dla niektórych poszukiwaczy przygód ingerencja w Czerwonych Czarodziejów lub odkrywanie zaginionego skarbu może być wystarczającą motywacją do kontynuowania przygody.",
+        "Jeśli zbieg okoliczności nie wystarczy, rozważ następujące haczyki przygodowe i dowiedz się, jak mogą one sprowadzić poszukiwaczy przygód do Secomber.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Pogoń za Czerwonymi Czarodziejami",
+              "page": 3,
+              "entries": [
+                "Sojusznik lub patron poszukiwaczy przygód słyszy wiadomość, że dwóch Czerwonych Czarodziejów wyruszyło w stronę Wysokich Maurów w poszukiwaniu czegoś. Być może ten sojusznik ma trudną historię związaną z Czerwonymi Czarodziejami; być może poszukiwacze przygód też już to robią."
+              ],
+              "id": "006"
+            },
+            {
+              "type": "entries",
+              "name": "Utracona wiedza",
+              "page": 4,
+              "entries": [
+                "Historyk, mędrzec lub inna uczona postać prosi poszukiwaczy przygód o zbadanie legend o Kurhanie Czarodzieja na Wysokich Wrzosowiskach. „Zacznij od wioski Secomber” - mówią. - Ktoś tam może pamiętać pogłoski o czarodziejach przemierzających wrzosowiska."
+              ],
+              "id": "007"
+            }
+          ],
+          "id": "005"
+        }
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Pogoń za Czerwonymi Czarodziejami",
+          "page": 3,
+          "entries": [
+            "Sojusznik lub patron poszukiwaczy przygód słyszy wiadomość, że dwóch Czerwonych Czarodziejów wyruszyło w stronę Wysokich Maurów w poszukiwaniu czegoś. Być może ten sojusznik ma trudną historię związaną z Czerwonymi Czarodziejami; być może poszukiwacze przygód też już to robią."
+          ],
+          "id": "006"
+        },
+        {
+          "type": "entries",
+          "name": "Utracona wiedza",
+          "page": 4,
+          "entries": [
+            "Historyk, mędrzec lub inna uczona postać prosi poszukiwaczy przygód o zbadanie legend o Kurhanie Czarodzieja na Wysokich Wrzosowiskach. „Zacznij od wioski Secomber” - mówią. - Ktoś tam może pamiętać pogłoski o czarodziejach przemierzających wrzosowiska."
+          ],
+          "id": "007"
+        }
+      ],
+      "id": "005"
+    },
+    "0:006": {
+      "type": "entries",
+      "name": "Pogoń za Czerwonymi Czarodziejami",
+      "page": 3,
+      "entries": [
+        "Sojusznik lub patron poszukiwaczy przygód słyszy wiadomość, że dwóch Czerwonych Czarodziejów wyruszyło w stronę Wysokich Maurów w poszukiwaniu czegoś. Być może ten sojusznik ma trudną historię związaną z Czerwonymi Czarodziejami; być może poszukiwacze przygód też już to robią."
+      ],
+      "id": "006"
+    },
+    "0:007": {
+      "type": "entries",
+      "name": "Utracona wiedza",
+      "page": 4,
+      "entries": [
+        "Historyk, mędrzec lub inna uczona postać prosi poszukiwaczy przygód o zbadanie legend o Kurhanie Czarodzieja na Wysokich Wrzosowiskach. „Zacznij od wioski Secomber” - mówią. - Ktoś tam może pamiętać pogłoski o czarodziejach przemierzających wrzosowiska."
+      ],
+      "id": "007"
+    },
+    "1:008": {
+      "type": "section",
+      "name": "Część 1: Wioska Secomber",
+      "page": 4,
+      "entries": [
+        "Wioska Secomber leży tyłem do nadrzecznego klifu wykonanego z różowego granitu. Centrum wioski to głównie skromne domki i sklepy, a domy i gospodarstwa rolne znajdują się wzdłuż dróg wyjazdowych z miasta i na szczytach klifów z widokiem na rzekę Hark. Po drugiej stronie wody zielone wzgórza wznoszą się, by stać się Wysokimi Wrzosowiskami.",
+        "Cokolwiek sprowadza bohaterów do Secombera, słyszą wieści o niedawnym powrocie Lothara i jego drużyny z Wysokich Maurów. Niezależnie od tego, czy pije w pobliżu, czy opowiada swoją historię na ulicy, Lothar przechwala się, jakie ma szczęście, że on i jego załoga żyją „po tym, jak prawie zostali zamordowani przez Czerwonych Czarodziejów”.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Konta najemników",
+              "page": 4,
+              "entries": [
+                "Lothar Stoutsmark (mężczyzna, chaotycznie neutralny, {@creature bandit captain}) to czterdziestoletni samochwał, który ponad wszystko ceni przetrwanie. Jego „złote” zęby są sztuczne. On i jego załoga (Gordo, Vic i Rora) uważają się za poszukiwaczy przygód, ale mają tendencję do brudnej pracy i obijania się. Lotharowi pozostaje zaledwie miesiąc od powrotu do napadów na autostrady, a jego sojusznicy (wszyscy {@creature spy||szpiegowie}) to jeden zły dzień od porzucenia go bez wiedzy Lothara. Lothar zna następujące informacje o Czerwonych Czarodziejach i ich misji:",
+                {
+                  "type": "list",
+                  "items": [
+                    "„Ci Czerwoni Czarodzieje nazywają się Morwena i {@creature Malivar|AitFR-ISF}. Był jej uczniem, a ona nadal stawia go na swoim miejscu, wiesz? Nie podoba mu się to.”",
+                    "„Morweno, powiedziała, że ​​kurhan, którego szukają, może zawierać wielki skarb. Jednak zdawała się wątpić, czy to w ogóle kurhan. Nazywała go „sanktuarium”.",
+                    "- Być może miała na myśli Kurhan Czarodzieja, który przez dziesięciolecia był używany do dziwnych rytuałów - grzmotów, błyskawic - ale najwyraźniej nigdy nie był otwierany.",
+                    "- W każdym razie ci Czerwoni Czarodzieje kogoś gonią. Może innego czarodzieja z konkurencyjnej grupy? Brzmiało, jakby chcieli go żywego.",
+                    "„Dobrze spędziliśmy czas, przemierzając wzgórza. Znam dobre szlaki. Ale pewnej nocy, powiedziała Morwena {@creature Malivar|AitFR-ISF} nie sądziła, że ​​potrzebowali już przewodników. Więc wyszliśmy, zanim mogli nas zabić.”"
+                  ]
+                },
+                "Lothar może wskazać drogę do Kurhanu Czarodziejów: jest to zaledwie 6-godzinna wędrówka do Wysokich Wrzosowisk, około 30 km na południowy wschód od Secomber."
+              ],
+              "id": "00a"
+            }
+          ],
+          "id": "009"
+        }
+      ],
+      "id": "008"
+    },
+    "1:009": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Konta najemników",
+          "page": 4,
+          "entries": [
+            "Lothar Stoutsmark (mężczyzna, chaotycznie neutralny, {@creature bandit captain}) to czterdziestoletni samochwał, który ponad wszystko ceni przetrwanie. Jego „złote” zęby są sztuczne. On i jego załoga (Gordo, Vic i Rora) uważają się za poszukiwaczy przygód, ale mają tendencję do brudnej pracy i obijania się. Lotharowi pozostaje zaledwie miesiąc od powrotu do napadów na autostrady, a jego sojusznicy (wszyscy {@creature spy||szpiegowie}) to jeden zły dzień od porzucenia go bez wiedzy Lothara. Lothar zna następujące informacje o Czerwonych Czarodziejach i ich misji:",
+            {
+              "type": "list",
+              "items": [
+                "„Ci Czerwoni Czarodzieje nazywają się Morwena i {@creature Malivar|AitFR-ISF}. Był jej uczniem, a ona nadal stawia go na swoim miejscu, wiesz? Nie podoba mu się to.”",
+                "„Morweno, powiedziała, że ​​kurhan, którego szukają, może zawierać wielki skarb. Jednak zdawała się wątpić, czy to w ogóle kurhan. Nazywała go „sanktuarium”.",
+                "- Być może miała na myśli Kurhan Czarodzieja, który przez dziesięciolecia był używany do dziwnych rytuałów - grzmotów, błyskawic - ale najwyraźniej nigdy nie był otwierany.",
+                "- W każdym razie ci Czerwoni Czarodzieje kogoś gonią. Może innego czarodzieja z konkurencyjnej grupy? Brzmiało, jakby chcieli go żywego.",
+                "„Dobrze spędziliśmy czas, przemierzając wzgórza. Znam dobre szlaki. Ale pewnej nocy, powiedziała Morwena {@creature Malivar|AitFR-ISF} nie sądziła, że ​​potrzebowali już przewodników. Więc wyszliśmy, zanim mogli nas zabić.”"
+              ]
+            },
+            "Lothar może wskazać drogę do Kurhanu Czarodziejów: jest to zaledwie 6-godzinna wędrówka do Wysokich Wrzosowisk, około 30 km na południowy wschód od Secomber."
+          ],
+          "id": "00a"
+        }
+      ],
+      "id": "009"
+    },
+    "1:00a": {
+      "type": "entries",
+      "name": "Konta najemników",
+      "page": 4,
+      "entries": [
+        "Lothar Stoutsmark (mężczyzna, chaotycznie neutralny, {@creature bandit captain}) to czterdziestoletni samochwał, który ponad wszystko ceni przetrwanie. Jego „złote” zęby są sztuczne. On i jego załoga (Gordo, Vic i Rora) uważają się za poszukiwaczy przygód, ale mają tendencję do brudnej pracy i obijania się. Lotharowi pozostaje zaledwie miesiąc od powrotu do napadów na autostrady, a jego sojusznicy (wszyscy {@creature spy||szpiegowie}) to jeden zły dzień od porzucenia go bez wiedzy Lothara. Lothar zna następujące informacje o Czerwonych Czarodziejach i ich misji:",
+        {
+          "type": "list",
+          "items": [
+            "„Ci Czerwoni Czarodzieje nazywają się Morwena i {@creature Malivar|AitFR-ISF}. Był jej uczniem, a ona nadal stawia go na swoim miejscu, wiesz? Nie podoba mu się to.”",
+            "„Morweno, powiedziała, że ​​kurhan, którego szukają, może zawierać wielki skarb. Jednak zdawała się wątpić, czy to w ogóle kurhan. Nazywała go „sanktuarium”.",
+            "- Być może miała na myśli Kurhan Czarodzieja, który przez dziesięciolecia był używany do dziwnych rytuałów - grzmotów, błyskawic - ale najwyraźniej nigdy nie był otwierany.",
+            "- W każdym razie ci Czerwoni Czarodzieje kogoś gonią. Może innego czarodzieja z konkurencyjnej grupy? Brzmiało, jakby chcieli go żywego.",
+            "„Dobrze spędziliśmy czas, przemierzając wzgórza. Znam dobre szlaki. Ale pewnej nocy, powiedziała Morwena {@creature Malivar|AitFR-ISF} nie sądziła, że ​​potrzebowali już przewodników. Więc wyszliśmy, zanim mogli nas zabić.”"
+          ]
+        },
+        "Lothar może wskazać drogę do Kurhanu Czarodziejów: jest to zaledwie 6-godzinna wędrówka do Wysokich Wrzosowisk, około 30 km na południowy wschód od Secomber."
+      ],
+      "id": "00a"
+    },
+    "2:00b": {
+      "type": "section",
+      "name": "Część 2: Kurhan Czarodzieja",
+      "page": 4,
+      "entries": [
+        "Kiedy poszukiwacze przygód przybywają, do kurhanu już weszli (dwa razy) i częściowo splądrowali. Trzy poziomy kurhanu oraz widok z boku przedstawiono na załączonych mapach (patrz załącznik).",
+        {
+          "type": "entries",
+          "name": "Wejście",
+          "page": 4,
+          "entries": [
+            "Główne wejście do kurhanu było jedynym wejściem do tego miejsca, aż do przybycia Tyreusa. Znajduje się na zachodnim krańcu budowli i jest oznaczony dwoma dużymi stojącymi kamieniami z wytrawionymi wyblakłymi spiralnymi pieczęciami. Wejście to zniszczone przez pogodę schody przerwane pionową kamienną płytą. To nigdy nie były drzwi, ale uszczelka.",
+            "Morwena i {@creature Malivar|AitFR-ISF} zmusił do otwarcia pieczęci, kiedy przybyli. Teraz kurhan stoi otwarty na wiatry i zbierające się deszcze Wysokich Maurów. Każdy może zejść po stromych, zniszczonych schodach i wejść."
+          ],
+          "id": "00c"
+        },
+        {
+          "type": "entries",
+          "name": "Funkcje ogólne",
+          "page": 4,
+          "entries": [
+            "Począwszy od czasów starożytnych jako grób kurhanowy, wnętrze Kurhanu Czarodzieja zostało przebudowane przy użyciu magii i bardziej nowoczesnych technik rzemieślniczych. Najstarszym w modzie pozostaje najwyższy poziom, łączący oryginalne płyty kamienne z zaprawą i kamieniami sprzed około stu lat.",
+            "Drugi i trzeci poziom tego miejsca składają się z szarych, ciętych kamieni, które po dziesięcioleciach bez konserwacji powoli ustępują, co jest jeszcze gorsze ze względu na skutki uboczne otwierającego się na zewnątrz zapadliska. Pęknięcia i luki sięgają obecnie drugiego poziomu terenu. Niektórym obszarom grozi zapadnięcie się w poniższą bibliotekę. Sprytni poszukiwacze przygód mogą znaleźć sposób na wykorzystanie tych niebezpieczeństw; inni mogą im ulec.",
+            {
+              "type": "entries",
+              "name": "Sufity",
+              "page": 4,
+              "entries": [
+                "Na każdym poziomie znajdują się szorstkie, nierówne sufity o wysokości około 8 stóp, niedokończone dla efektu kosmetycznego przez dawnych czarodziejów."
+              ],
+              "id": "00e"
+            },
+            {
+              "type": "entries",
+              "name": "Drzwi",
+              "page": 4,
+              "entries": [
+                "Na pierwszym poziomie drzwi są zrujnowane, zgniłe, lekkie i łatwo je otworzyć lub złamać. O ile nie zaznaczono inaczej, drzwi na dwóch dolnych poziomach są solidne, ale małe w stosunku do ram i prawdopodobnie nie utrzymają się na swoim miejscu nawet po tylu latach."
+              ],
+              "id": "00f"
+            },
+            {
+              "type": "entries",
+              "name": "Światło",
+              "page": 4,
+              "entries": [
+                "Na pierwszym poziomie nie ma żadnych użytecznych, zachowanych źródeł światła. Na drugim i trzecim poziomie znajdują się okresowe kinkiety ścienne zawierające szklane kamienie magicznie zaczarowane, aby wydzielać {@quickref Vision and Light||2||dim light}. Większość z nich nadal pracuje."
+              ],
+              "id": "010"
+            },
+            {
+              "type": "entries",
+              "name": "Dźwięk",
+              "page": 4,
+              "entries": [
+                "Kurhan byłby cichy, gdyby nie intruzi. Ponieważ zapadlisko uszkodziło teren, dźwięk przenosi się teraz z drugiego poziomu na trzeci, gdzie podłogi są popękane i upadają."
+              ],
+              "id": "011"
+            }
+          ],
+          "id": "00d"
+        },
+        {
+          "type": "entries",
+          "name": "1. Izba Straży",
+          "page": 5,
+          "entries": [
+            "Czarodzieje chcieli, aby ta komnata była posterunkiem wartowniczym, ale zamiast sprowadzać tu ludzi, którzy nie byli czarodziejami w ich małej sekcie, później zdecydowali się uwięzić komnatę eksperymentalnym magicznym glifem. (Czarodzieje i tak przeważnie przychodzili i odchodzili w kręgach teleportacyjnych w bibliotece.)",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Wiatry i chłód z zewnątrz przedostają się do tej komnaty. Pozostałości drewnianych stołków i stojak ze zgniłymi włóczniami sugerują, że kiedyś była tu strażnica. Pośrodku komnaty stoi teraz przysadzista stela, wysoka na około trzy stopy, oznaczona pojedynczym, głęboko wyrytym glifem w kolorze jasnoniebieskim. Srebrny medalion zwisa ze szczytu steli, częściowo zasłaniając glif."
+              ],
+              "id": "013"
+            },
+            "Stela jest oznaczona glifem podobnym do glifu ochronnego, ale różni się ona pod istotnymi względami. Kilka takich uwięzionych stel można znaleźć w całym kurhanie.",
+            "Drewniane skrawki lub szczątki znajdujące się w tej komorze zapalają się, jeśli pułapka zostanie uruchomiona, ale ogień nie ma gdzie się rozprzestrzenić.",
+            "Medalion został dawno temu umieszczony na steli, aby zapobiec wystrzeleniu pułapki. Pułapka nie widzi wokół medalionu. Usunięcie medalionu ponownie aktywuje pułapkę steli, chociaż ktokolwiek nosi lub nosi medalion, nie uruchamia pułapki.",
+            "Morwena i {@creature Malivar|AitFR-ISF} w pośpiechu, by dotrzeć do biblioteki, zignorowali stelę i medalion.",
+            {
+              "type": "entries",
+              "name": "Uwięzione Stele",
+              "page": 5,
+              "entries": [
+                "Stele uwięzione w kurhanie zostały wykonane z efektami podobnymi do glifów ochronnych. Jednakże glify stel są wyraźnie widoczne nawet w {@quickref Vision and Light||2||dim light}. Każdą uwięzioną stelę można aktywować wielokrotnie; dokładnie, ile zależy od indywidualnej steli. Kiedy stela wykryje intruza przed swoim glifem, natychmiast wysyła w niego piorun. Jeśli wybrany intruz nie opuści obszaru, stela ponownie wyemituje błyskawicę przy wskaźniku inicjatywy 20 (przegrywając remisy inicjatywy).",
+                "Każdy, kto nie jest wymieniony w czasie wykonywania steli, jest uważany za intruza, chyba że nosi lub nosi medalion umożliwiający bezpieczne przejście.",
+                {
+                  "type": "entries",
+                  "name": "Stela z uwięzioną komorą strażniczą",
+                  "page": 5,
+                  "entries": [
+                    "Ta uwięziona stela wykrywa intruzów w stożku o długości 30 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 18. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 18} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+                    "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie pięć razy, zanim stanie się niczym więcej niż nieruchomym kamieniem."
+                  ],
+                  "id": "015"
+                }
+              ],
+              "id": "014"
+            },
+            {
+              "type": "entries",
+              "name": "Medalion Bezpiecznego Przejścia",
+              "page": 5,
+              "entries": [
+                "Medalion jest posrebrzany, z wygrawerowanym tym samym glifem co stela, dzięki czemu medalion sprawia wrażenie miedzianego. Żadna istota nosząca lub w widoczny sposób nosząca jeden z tych medalionów nie powoduje aktywacji uwięzionej steli. Medalion nie jest magiczny. Można go po prostu rozpoznać po stelach rozmieszczonych w całym kurhanie, umożliwiając bezpieczne przejście obok ich pułapek."
+              ],
+              "id": "016"
+            }
+          ],
+          "id": "012"
+        },
+        {
+          "type": "entries",
+          "name": "2. Materiały do ​​formowania",
+          "page": 5,
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Pod ścianą stoi kilka otwartych skrzyń, zgniłych worków ze zbożem i porozrzucanych stert słomy. Kiedyś te zapasy wystarczyły na tygodnie. Na jedynej zamkniętej skrzyni leży zardzewiały żelazny łom."
+              ],
+              "id": "018"
+            },
+            "Podłoga pochyla się tutaj, a następnie wyrównuje w korytarzu i komorach. Pomieszczenie to było niegdyś magazynem zaopatrzenia i spiżarnią. Większość tego, co tu zostało, rozłożyła się na kawałki.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Skarb",
+                  "page": 5,
+                  "entries": [
+                    "Zamknięta skrzynia zawiera pięć złotych lamp oliwnych, wyroby porcelanowe i trzy sztabki miedzi o łącznej wartości 140 sz."
+                  ],
+                  "id": "01a"
+                }
+              ],
+              "id": "019"
+            }
+          ],
+          "id": "017"
+        },
+        {
+          "type": "entries",
+          "name": "3. Zgniły pokój wspólny",
+          "page": 5,
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Ozdobnie tkane czerwone dywany pokrywają większą część nierównej podłogi tej komnaty, podtrzymywanej przez głębokie, skórzane krzesła i pęknięty, zawalony stół. Na jednej ze ścian widnieje pomalowana na złoto rama i zaciemniony od dymu obraz przedstawiający klify Wybrzeża Mieczy. Kredens praktycznie ugina się pod ciężarem srebrnych kielichów, czajniczków i nie tylko."
+              ],
+              "id": "01c"
+            },
+            "Komnata ta była niegdyś pomieszczeniem wspólnym i jadalnią. Meble, które kiedyś zapewniały wygodę, nadal tu są, pokryte kurzem, wilgocią i gruzem.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Skarb",
+                  "page": 5,
+                  "entries": [
+                    "Znajdujące się tutaj srebrne wyroby, dzbanki do herbaty i tace są łącznie warte 310 sz. Pejzaż jest zaginionym dziełem ukochanego artysty z Waterdhavii, Saraque Skyhill, wartym 1200 sz, jeśli jest odpowiednio konserwowany."
+                  ],
+                  "id": "01e"
+                }
+              ],
+              "id": "01d"
+            }
+          ],
+          "id": "01b"
+        },
+        {
+          "type": "entries",
+          "name": "4. Opuszczone dzielnice",
+          "page": 6,
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Powietrze tutaj jest wilgotne i chłodne. Cuchnie jak siano pozostawione do zgnilizny."
+              ],
+              "id": "020"
+            },
+            "Każda z tych komnat była prywatnym pokojem członka sekty, który regularnie odwiedzał to miejsce lub pracował na miejscu. W większości usunięto rzeczy osobiste, przez co bardziej przypominają cele niż sypialnie. W większości pokoi pozostały zapomniane pościele i puste, odblokowane skrzynie.",
+            {
+              "type": "entries",
+              "name": "4A: Ukryta Świątynia",
+              "page": 6,
+              "entries": [
+                "Komnata ta kryje w sobie sekretne drzwi prowadzące do ukrytej świątyni.",
+                "Sekretne drzwi to niewiele więcej niż właz za pustą skrzynią tego pokoju, ukryty za zaschniętym błotem i płytą, która ma wyglądać jak część ściany. Drzwi można rozpoznać po {@dc 13} Inteligencja ({@skill Investigation}) lub Mądrość ({@skill Perception}) wynik kontrolny lub pasywny.",
+                {
+                  "type": "insetReadaloud",
+                  "entries": [
+                    "Mały kamienny ołtarz, szeroki na dwie stopy, stoi tutaj, zakopany w czarnej ziemi u stóp wąskiego komina, który wydaje się, że się zawalił. Coś połyskuje wśród ziemi."
+                  ],
+                  "id": "022"
+                },
+                "Sama ukryta świątynia jest do połowy zakopana w ziemi i glinie na dnie niegdyś pustego komina, co miało umożliwić świątyni oglądanie gwiazd. Jakiekolwiek bóstwo było tu kiedyś czczone, wszystko, co pozostało, to stopione świece, 1 sp i medalion bezpiecznego przejścia."
+              ],
+              "id": "021"
+            }
+          ],
+          "id": "01f"
+        },
+        {
+          "type": "entries",
+          "name": "5. Uroczyste wejście",
+          "page": 6,
+          "entries": [
+            "Ściany północne, wschodnie i zachodnie wykonane są z tynku ozdobionego kolorowymi, ale wyblakłymi od dymu freskami. Każdy mural przedstawia postacie w surowych szatach - niektóre czerwone, inne zielone, niektóre niebieskie - pomalowane tak, jakby były częścią procesji niosącej tace z ogniem, zapalonymi kadzidłami i srebrem w stronę drzwi do obszaru 6.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Murale wzdłuż trzech ścian przedstawiają postacie w jasnych, zielonych, czerwonych lub niebieskich szatach maszerujące gęsiego przez abstrakcyjne otoczenie, sugerujące być może jasny ogród i witraże. Wszystkie te postacie są ludzkich rozmiarów, ale są przedstawione w różnych fasonach i stylach pod szatami. Ściana południowa to nagie, niedokończone płyty kamienne, wyznaczające pierwotną zewnętrzną krawędź kurhanu."
+              ],
+              "id": "024"
+            },
+            "Sekretne drzwi do obszaru 7 to wąska drewniana sekcja ukryta pod tynkiem, ozdobiona postacią w zielonych szatach z jedną ręką na oczach. Drzwi można znaleźć z sukcesem {@dc 15} Inteligencja ({@skill Investigation}) lub Mądrość ({@skill Perception}) sprawdzać."
+          ],
+          "id": "023"
+        },
+        {
+          "type": "entries",
+          "name": "6. Przejście zjazdowe",
+          "page": 6,
+          "entries": [
+            "Malowane ściany gipsowe ciągną się dalej do tego obszaru, przedstawiając czarodziejów w szatach zmierzających w stronę schodów prowadzących do obszaru 8. Jednak tutaj szaty czarodziejów są wielokolorowe.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Odziane w szaty postacie na tych ścianach noszą szczegółowe, wielokolorowe szaty z mankietami i obszyciami ozdobionymi magicznymi słowami i pieczęciami. Niektóre z tych postaci noszą długie brody lub długie warkocze; inne mają na sobie skórzane paski z klamrami i eleganckie legginsy. Każdy z nich jest przedstawiony, niosąc skarby lub ofiary w stronę schodów prowadzących głębiej w przód."
+              ],
+              "id": "026"
+            },
+            "Schody prowadzące na drugi poziom wyznaczają początek delikatniejszej, nowocześniejszej kamieniarki na dwóch niższych poziomach obiektu."
+          ],
+          "id": "025"
+        },
+        {
+          "type": "entries",
+          "name": "7. Komnata Obserwatora",
+          "page": 6,
+          "entries": [
+            "Czarodzieje używali tej komnaty do obserwacji nowoprzybyłych do sekty, gdy odprawiali rytuały i recytowali pieśni w ceremonialnym wejściu (obszar 5) i schodzili po schodach (obszar 6).",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Od wewnątrz północne i wschodnie ściany tego pokoju wydają się przezroczyste, choć zamglone i zamazane, jak spojrzenie przez deszczowe szkło."
+              ],
+              "id": "028"
+            },
+            "Ściany są dość solidne w dotyku. Każdy w tym pomieszczeniu może skupić swoją uwagę, aby widzieć i słyszeć, na obszarach 5 i 6. Strona bierna {@skill Perception} dziesiątki stworzeń w tej komnacie otrzymują karę -5 podczas obserwacji sąsiednich komnat."
+          ],
+          "id": "027"
+        },
+        {
+          "type": "entries",
+          "name": "8. Przejścia drugiego poziomu",
+          "page": 6,
+          "entries": [
+            "Te przejścia z dopasowanych bloków kamiennych są solidne i nienaruszone przez większą część drugiego poziomu - ale nie na całym. Pomiędzy komnatami rytualnymi (obszary 10, 11 i 12) podłoga została wstrząśnięta i popękana w wyniku skutków ubocznych zawalenia się pobliskiego dołu. Wszystko w obszarze 8 jest w stanie utrzymać ciężar poszukiwaczy przygód, ale może także ukazywać światło i przenosić dźwięk {@creature Exul|AitFR-ISF} w wielkiej bibliotece poniżej (obszar 14).",
+            "Istoty na obszarze 14 mają wadę Mądrości ({@skill Perception}) sprawdza, czy zagląda w ten obszar i kara -5 do umiejętności biernej {@skill Perception} bezczynnie zauważać rzeczy w tym obszarze.",
+            "Poszukiwacze przygód próbujący obserwować wielką bibliotekę przez podłogę w tym miejscu również mają gorsze wyniki, chyba że zejdą na podłogę i zajrzą przez szczeliny."
+          ],
+          "id": "029"
+        },
+        {
+          "type": "entries",
+          "name": "9. Magazyn komponentów",
+          "page": 7,
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Te solidne drewniane drzwi, oprawione w żelazne pasy i zawiasy, wytrzymały upływ czasu."
+              ],
+              "id": "02b"
+            },
+            "Te drzwi są zamknięte ({@dc 16} otwierać zamek) i dobrze zbudowane (Siła {@dc 20} aby go rozbić), ale główną obroną komnaty jest uwięziona w niej stela.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Stela Krypty",
+                  "page": 7,
+                  "entries": [
+                    "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+                    "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone.",
+                    "Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się niczym więcej niż nieruchomym kamieniem. Poza stelą to miejsce jest rodzajem tajemniczej spiżarni."
+                  ],
+                  "id": "02d"
+                }
+              ],
+              "id": "02c"
+            },
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "W tej komnacie znajdują się gliniane urny, szklane słoje i drewniane skrzynie ułożone chaotycznie na półkach ściennych i pokryte wieloletnim kurzem."
+              ],
+              "id": "02e"
+            },
+            {
+              "type": "entries",
+              "name": "Skarb",
+              "page": 7,
+              "entries": [
+                "W tych pojemnikach znajdowały się kiedyś komponenty zaklęć. Większość została zabrana lub zgniła, ale w jednej urnie nadal znajduje się diamentowy pył o wartości 440 sz, a drewniane pudełko zawiera zwój złotego sznurka o długości prawie 3 stóp i wart 290 sz. Na haku na południowej ścianie wisi medalion bezpiecznego przejścia."
+              ],
+              "id": "02f"
+            }
+          ],
+          "id": "02a"
+        },
+        {
+          "type": "inset",
+          "name": "Zapadające się podłogi",
+          "page": 7,
+          "entries": [
+            "Podłogi w obszarach 10, 11 i 12 są niepewne. Na każde 20 stóp ruchu istoty o masie większej niż 50 funtów (łącznie z nią samą) po tych podłogach przypada {@chance 25} ryzyko, że podłoga jęczy i rozpada się w obszarze 14. Jeśli w tych obszarach aktywuje się uwięziona stela, nastąpi {@chance 50} ryzyko, że podłoga natychmiast się zawali.",
+            "Sukces {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdzenie pozwala komuś celowo zawalić podłogę. Łom lub inna dźwignia zapewnia przewagę na czeku.",
+            "Stworzenia znajdujące się w obszarze lub pod obszarem, w którym podłoga się zapada, muszą podjąć próbę a {@dc 15} Rzut obronny na zręczność, biorąc 22 ({@damage 4d10}) miażdżące obrażenia w przypadku niepowodzenia lub o połowę mniejsze w przypadku sukcesu. Istota, której uda się wykonać rzut obronny w promieniu 1,5 metra od ściany, może przylgnąć do najbliższej ściany, aby uniknąć obrażeń i upadku. W przeciwnym razie każde stworzenie w tym obszarze, gdy podłoga się zapadnie, spadnie do obszaru 14.",
+            {
+              "type": "entries",
+              "name": "Spadające stele",
+              "page": 7,
+              "entries": [
+                "Każda uwięziona stela, która wpadnie do obszaru 14, przetrwa upadek i nadal działa normalnie. DM decyduje o okładzinie takich stel; mogą strzelać do obszaru 14 lub w górę do innych obszarów, w zależności od tego, jak wylądują."
+              ],
+              "id": "031"
+            }
+          ],
+          "id": "030"
+        },
+        {
+          "type": "entries",
+          "name": "10. Komnata Rytualnego Castingu (Północ)",
+          "page": 7,
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Podłoga jest głęboko wytrawiona z nakładającymi się geometriami, ale większość kamienia w podłodze wygląda na szorstką, postrzępioną i zdenerwowaną. Pęknięcia w ścianach północnej i wschodniej sugerują, że uszkodzenia strukturalne sięgają głęboko w ziemię."
+              ],
+              "id": "033"
+            },
+            "Czarodzieje używali tej komnaty do rzucania zaklęć rytualnych bez rozpraszania uwagi, do wykonywania rytuałów świętych dla starej sekty i do obserwowania uczniów podczas ćwiczeń.",
+            "Wszelkie próby przekradnięcia się przez tę komnatę bez przyciągania uwagi stworzeń w obszarze 14 są wykonywane na niekorzyść.",
+            "Ryciny na ścianie to instrukcje dotyczące rzucania magii wykrywającej i identyfikującej się jako rytuał, ale w słowach nie jest zawarta żadna moc, więc są one niczym więcej niż mnemonikami dla uczniów-czarodziejów.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Rytualne odlewanie steli",
+                  "page": 7,
+                  "entries": [
+                    "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+                    "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się obojętnym kamieniem."
+                  ],
+                  "id": "035"
+                }
+              ],
+              "id": "034"
+            }
+          ],
+          "id": "032"
+        },
+        {
+          "type": "entries",
+          "name": "11. Komnata Rytualnego Castingu (południe)",
+          "page": 7,
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Różne haczyki i kołki sugerują, że było to duże pomieszczenie, w którym niegdyś mieściły się gobeliny i inne ozdoby. Podłoga jest wyryta w geometryczne kształty, ale kamienie podłogi wyglądają na zapadnięte i luźne. Głębokie pęknięcia w posadzce rozbijały całe kamienie.",
+                "Na południowej ścianie wiszą trzy równomiernie rozmieszczone złote krążki w kształcie talerzy do serwowania i wysadzane czerwonymi klejnotami. Pod nimi stoi potężna stela oznaczona jasnoniebieskim glifem."
+              ],
+              "id": "037"
+            },
+            "Podobnie jak obszar 10, ta komnata była używana do rytuałów, rytuałów i praktyk. W przeciwieństwie do tej komnaty, to pomieszczenie wciąż jest ozdobione cennymi bibelotami pozostałymi po jakimś przeszłym obrzędzie.",
+            "Wszelkie próby przekradnięcia się przez tę komnatę bez przyciągania uwagi stworzeń w obszarze 14 są wykonywane na niekorzyść.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Rytualne odlewanie steli",
+                  "page": 8,
+                  "entries": [
+                    "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+                    "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się obojętnym kamieniem."
+                  ],
+                  "id": "039"
+                },
+                {
+                  "type": "entries",
+                  "name": "Skarb",
+                  "page": 8,
+                  "entries": [
+                    "Trzy złote płyty na południowej ścianie były częścią jakiegoś rytuału lub rytuału, teraz zapomnianego. Każdy talerz, warty 300 sz, to cienki krążek ze złotymi wstawkami i pięcioma czerwonymi granatami."
+                  ],
+                  "id": "03a"
+                }
+              ],
+              "id": "038"
+            }
+          ],
+          "id": "036"
+        },
+        {
+          "type": "entries",
+          "name": "12. Komora laboratoryjna",
+          "page": 8,
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Bezpańskie kamienie i brud zostały rozrzucone po podłodze w wyniku aktywności sejsmicznej lub innych poważnych uszkodzeń. Nadal stoją tu wytrzymałe drewniane stoły i puste drewniane regały, ale kamienie pod nimi wyglądają na wstrząśnięte, popękane i nierówne. Powietrze pachnie surową gliną."
+              ],
+              "id": "03c"
+            },
+            "Kiedyś było to laboratorium, ale poza ciężkimi stołami, półkami i uwięzionymi stelami, to miejsce zostało starannie wysprzątane. Tutaj wykonano stele; dwa, które pozostały, działają, ale wyglądają na niedokończone.",
+            "Wszelkie próby przekradnięcia się przez tę komnatę bez przyciągania uwagi stworzeń w obszarze 14 są wykonywane na niekorzyść.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Stele laboratoryjne",
+                  "page": 8,
+                  "entries": [
+                    "Te dwie uwięzione stele wykrywają intruzów, których widzą w stożkach o średnicy 60 stóp przed swoimi glifami. Każdy ma pasywność {@skill Perception} wynik 15. Aby rozbroić lub rozwiać którąkolwiek z pułapek, wymagane jest pomyślne zakończenie {@dc 15} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym. Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone.",
+                    "Każda z tych steli może dwukrotnie wyemitować błyskawicę, zanim stanie się obojętnym kamieniem."
+                  ],
+                  "id": "03e"
+                }
+              ],
+              "id": "03d"
+            }
+          ],
+          "id": "03b"
+        },
+        {
+          "type": "entries",
+          "name": "13. Wspólna Katakumba",
+          "page": 8,
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Korytarz to szorstki kamień, żwirowa podłoga i przebłyski białego materiału i pożółkłych kości. To katakumba, bez większych fanfar i ozdób. Z pobliskiej półki spogląda na ciebie ludzka czaszka."
+              ],
+              "id": "040"
+            },
+            "Ta grubo ciosana katakumba jest wyłożona trzema wbudowanymi półkami na zmarłych. Tutaj czarodzieje pochowali pierwotnych mieszkańców kurhanu powyżej, a także służbę oraz kilku innych przyjaciół i sojuszników tego miejsca, którzy zmarli podczas lat jego funkcjonowania. Każdy był owinięty w szary lub biały materiał i umieszczony na miejscu bez przedmiotów nagrobnych i skarbów. (Czarodzieje sekty znajdują się w obszarze 16.)",
+            "{@creature Malivar|AitFR-ISF} jest tutaj, prawdopodobnie {@condition unconscious}, po tym jak prawie został zabity przez zaklęcia Tyreusa. Ma 1 punkt wytrzymałości. Jeśli się przebudzi, stara się ocenić swoją sytuację, zamiast natychmiast walczyć lub uciekać.",
+            "{@creature Malivar|AitFR-ISF} ujawnia następujące fragmenty informacji, jeśli poszukiwacze przygód z nim porozmawiają. W przypadku zagrożenia stara się zachować ciszę.",
+            {
+              "type": "list",
+              "items": [
+                "Czarodziej, którego tu ścigali, nazywa się Tyreus.",
+                "Tyreus to potężny arcymag z innego świata. Szuka tu starożytnego miejsca o mistycznej mocy. „Próbowaliśmy go zwerbować”.",
+                "Trzymał blisko siebie potężną księgę oprawioną w białą skórę z pięcioma pieczęciami na przodzie. - Po to przyszedł, cokolwiek to jest.",
+                "Lojalność Morweny wobec Czerwonych Czarodziejów słabnie. Miała wrażenie, że powstrzymują ją przed tajemną mocą, której naprawdę pragnęła. - Szkoda, że ​​nie byłem zaskoczony, że się ode mnie odwróciła. To znaczy od nas."
+              ]
+            }
+          ],
+          "id": "03f"
+        },
+        {
+          "type": "entries",
+          "name": "14. Wielka Biblioteka",
+          "page": 8,
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Rozpościera się tu wielka komnata, kontrastująca z ograniczeniami każdego zwykłego kurhanu. Pomiędzy opadającym kamiennym sufitem a wypolerowaną kamienną podłogą stoi co najmniej tuzin drewnianych półek, na których znajdują się ułożone w stosy zwoje i oprawione tomy. Drewno tutaj jest wypolerowane niemal na czerwono, począwszy od półek po szerokie stoły i krzesła rozsiane po całym pomieszczeniu.",
+                "Ale miejsce zostało splądrowane. Meble leżą na boku, wszędzie walają się papiery, a tu i ówdzie walają się kawałki muru. Na środku pokoju znajduje się ogromny stos otwartych, zniszczonych ksiąg i rozwiniętych zwojów. To miejsce śmierdzi dymem."
+              ],
+              "id": "042"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/AitFR-ISF/image-064.webp"
+              },
+              "width": 1243,
+              "height": 1636,
+              "credit": "Bram Sels"
+            },
+            "To było serce tego miejsca, kiedy wiele lat temu korzystali z niego czarodzieje. Wiele tekstów zostało stopniowo usuniętych w miarę zmniejszania się potęgi sekty, ale większość z nich pozostała tutaj. Ostatni z czarodziejów nie wiedział, że nigdy nie wrócą, kiedy odchodzili po raz ostatni.",
+            "Tyreus i Morwena wyszli kilka godzin temu po zamówieniu ognistego humanoidalnego żywiołaka o imieniu {@creature Exul|AitFR-ISF}, zniszczyć zbiory biblioteki. (Tyreus po prostu zaciera ślady.) Rozkaz ten jest częścią geasu, na który rzucił Tyreus {@creature Exul|AitFR-ISF}.",
+            "Tyreus wyszedł z tajemną księgą w ręku i Morweną u boku, ale nie powiedział {@creature Exul|AitFR-ISF} dokąd szli. {@creature Exul|AitFR-ISF}służba kończy się wraz ze zniszczeniem biblioteki.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Duch Ognia",
+                  "page": 10,
+                  "entries": [
+                    "{@creature Exul|AitFR-ISF} zabija tutaj czas, póki może, czytając, co zaraz spali. Siedzi na stosie zwojów i książek na środku pokoju i pozwala sobie na oderwanie się od czytania, chyba że intruzi przykują jego uwagę. Myśli {@creature Malivar|AitFR-ISF} umarł lub uciekł i zachowuje się tak, jakby miał kurhan dla siebie i swoich żywiołaków. Kiedy jest rozproszony czytaniem, otrzymuje karę -5 do swojej umiejętności biernej {@skill Perception} wynik.",
+                    "Jeśli podejrzewa, że ​​nie jest już sam, dalej bezczynnie czyta i pali teksty, ale nie pozwala już się rozpraszać.",
+                    "Jeśli wie, że obecni są intruzi, przywołuje żywiołaka, aby go bronił - prawdopodobnie żywiołaka ognia, ponieważ może mu pomóc spalić bibliotekę lub wślizgnąć się do obszaru 15, aby wspomóc tamtejsze żywiołaki, jeśli zajdzie taka potrzeba. Jak tylko może, {@creature Exul|AitFR-ISF} wznawia swoje zadanie spalenia biblioteki, aby móc wyjść bez odniesienia obrażeń od geasów.",
+                    "{@creature Exul|AitFR-ISF} jest przebiegłym i nieuczciwym wojownikiem. Używa niewidzialności, aby się chronić. Rzuca ogniem i rzuca {@spell wall of fire} przyspieszyć jego pracę. Jeśli on lub biblioteka mają mniej niż 25 procent maksymalnej liczby punktów wytrzymałości, {@creature Exul|AitFR-ISF} może próbować uciec, rzucając czar zmiany planu i podróżując samotnie do Planu Żywiołu Ognia. Mógłby to zrobić, nawet jeśli jego zadanie nie zostało ukończone, ryzykując obrażenia od geasów Tyreusa. {@creature Exul|AitFR-ISF} jest mądry, ale lekkomyślny. Pozostawia wszelkie żywiołaki, aby walczyć z poszukiwaczami przygód."
+                  ],
+                  "id": "044"
+                },
+                {
+                  "type": "entries",
+                  "name": "Kręgi teleportacyjne",
+                  "page": 10,
+                  "entries": [
+                    "Dwa kręgi teleportacyjne służyły tej komnacie i czarodziejom, którzy przechowywali tę kolekcję. Północny krąg został uszkodzony w wyniku zapadnięcia się zapadliska. (Kiedyś prowadziła do obecnie zrujnowanej wieży czarodzieja z widokiem na Wybrzeże Mieczy.) Południowy krąg prowadzi do opuszczonej kamienicy w Waterdeep; okrąg znajduje się pod deskami podłogowymi na strychu. (Patrz „Część 3: Co dalej?”, aby zapoznać się z dodatkowymi opcjami.)"
+                  ],
+                  "id": "045"
+                },
+                {
+                  "type": "entries",
+                  "name": "Skarb",
+                  "page": 10,
+                  "entries": [
+                    "Dla historyków, mędrców i kolekcjonerów z college'u lub uniwersytetu wartość niemagicznych zbiorów biblioteki sięga 5500 sz. Trzy {@item spell scroll||zwoje zaklęć} w zbiorze pozostają także: jeden zwój {@spell chain lightning}, jeden zwój {@spell Otiluke's freezing sphere}i jeden zwój {@spell wall of stone}."
+                  ],
+                  "id": "046"
+                }
+              ],
+              "id": "043"
+            },
+            {
+              "type": "entries",
+              "name": "Płonąca biblioteka",
+              "page": 10,
+              "entries": [
+                "W tej bibliotece - zaśmieconej bezpańskimi stronami, stołami, krzesłami i dywanikami - ogień rozprzestrzenia się na odległość 5 stóp w dowolnym kierunku przy wskaźniku inicjatywy 20 (przegrana remisów inicjatywy), gdy kartki ognistego papieru fruwają na gorącym wietrze. Każdy płonący kwadrat o powierzchni 5 stóp zadaje 3 ({@damage 1d6}) obrażenia biblioteki od ognia, maksymalnie do 42 ({@damage 12d6}) obrażenia od ognia w każdej turze.",
+                "Stworzenie, które rozpoczyna swoją turę na płonącym obszarze, otrzymuje 3 ({@damage 1d6}) obrażenia od ognia. Istota pozbawiona odporności na obrażenia od ognia ma wadę Mądrości ({@skill Perception}) sprawdza, czy widać tutaj dym i ogień.",
+                "Komora przetrwała pożar, nawet jeśli jest to zwęglona skorupa kłębiąca się dymem na górne poziomy, do obszaru 15 i na otwarte powietrze.",
+                "To kolekcja jest zagrożona. Kolekcja biblioteki ma 300 punktów wytrzymałości i nie ma progu obrażeń. Zapoznaj się z tabelą wyników uszkodzeń kolekcji, aby określić, co przetrwa w oparciu o szkody poniesione przez kolekcję."
+              ],
+              "id": "047"
+            },
+            {
+              "type": "entries",
+              "name": "Walka z ogniem",
+              "page": 10,
+              "entries": [
+                "To, czego poszukiwacze przygód użyją do walki z płomieniami, zależy od nich. Wody nie ma tu pod dostatkiem, ale ziemi i ziemi jest pod dostatkiem.",
+                "Załóżmy, że jakikolwiek test zdolności do ugaszenia ognia za pomocą środków niemagicznych wymaga powodzenia {@dc 15} test, którego zdolność zależy od tego, co postacie próbują zrobić. Sukces takiej kontroli oznacza ugaszenie pożaru na obszarze kwadratowym o powierzchni 3 metrów lub równoważnym.",
+                "Jeśli obrażenia od zimna zadane na dowolnym obszarze o powierzchni 5 stóp kwadratowych przekraczają obrażenia zadane w tym obszarze przez ogień, ogień na tym obszarze gaśnie. Utrzymujący się lód lub inne utrzymujące się efekty zapobiegają rozprzestrzenianiu się ognia.",
+                {
+                  "type": "table",
+                  "caption": "Wyniki uszkodzeń kolekcji",
+                  "colLabels": [
+                    "Poniesione szkody",
+                    "Wynik"
+                  ],
+                  "colStyles": [
+                    "col-4",
+                    "col-8"
+                  ],
+                  "rows": [
+                    [
+                      "0-50 KM",
+                      "Drobne straty: Palą się tylko wiedza i legendy, a wartość kolekcji zmniejsza się o 500 sz."
+                    ],
+                    [
+                      "51-100 KM",
+                      "Umiarkowane straty: Jeden {@item spell scroll} zostaje zniszczona, a wartość kolekcji zostaje zmniejszona o 1500 sz."
+                    ],
+                    [
+                      "101-200 KM",
+                      "Poważne straty: Dwa zwoje zaklęć zostają zniszczone, a wartość kolekcji zostaje zmniejszona o 3000 sz."
+                    ]
+                  ]
+                },
+                "W przeciwnym razie obszar może ponownie spłonąć, jeśli ogień się rozprzestrzeni, a w kolekcji nadal pozostaną punkty wytrzymałości."
+              ],
+              "id": "048"
+            },
+            {
+              "type": "inset",
+              "name": "Chaos w kolekcji",
+              "page": 11,
+              "entries": [
+                "Pomiędzy zawalającymi się kamieniami, błąkającymi się błyskawicami i rozprzestrzeniającymi się płomieniami, wszystko może się tu szybko zrobić nieprzyjemnie. Dodaj {@creature Malivar|AitFR-ISF}, {@creature Exul|AitFR-ISF}, i inne żywiołaki i rzeczy wykraczają poza gorączkę. Wybory graczy mogą ułatwić lub utrudnić im życie - to sprawiedliwe. Wszystkie te ruchome części służą do tworzenia opcji i nieoczekiwanych interakcji.",
+                "Jeśli okoliczności zwrócą się przeciwko poszukiwaczom przygód, może być tragicznie. W zależności od potworów, które biorą w nim udział, bitwa w bibliotece może stać się spotkaniem o zabójczej skali.",
+                "Pamiętaj, że pokonanie poszukiwaczy przygód nie jest tutaj celem NPC-ów ani potworów. Walka nie jest istotnym wynikiem. Każdy może zostać zmuszony do ucieczki, jeśli sprawy przybiorą niekorzystny obrót - nawet żywiołaki. Jeśli biblioteka spłonie na popiół, to tak."
+              ],
+              "id": "049"
+            }
+          ],
+          "id": "041"
+        },
+        {
+          "type": "entries",
+          "name": "15. Sala Procesyjna",
+          "page": 11,
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Kawałki zakrzywionych marmurowych i kamiennych dysków, które tworzyły kolumny, sugerują miejsce, które kiedyś było ważne. Teraz jest zniszczony do ruiny.",
+                "Niektóre kamienie poruszają się same, przebijając się przez gruz."
+              ],
+              "id": "04b"
+            },
+            "Ten szeroki korytarz był niegdyś miejscem pamięci wykonanym z szarego kamienia i białych marmurowych detali. Przybycie Tyreusa i jego żywiołaków rozbiło kolumny, łuki i mozaiki. Wszystko, co pozostało, to ponure stosy kamieni usiane kawałkami płytek i marmuru. Podłoga jest teraz w zasadzie zagłębieniem gruzu, w którym zbiera się ziemia, skały i trawa z zapadniętego zapadliska.",
+            "Cały ten obszar to {@quickref difficult terrain||3}. Drzwi do obszaru 14 są poluzowane w zawiasach i zablokowane przez kamienną płytę, która uniemożliwia ich otwarcie. Tyreus nie chciał, żeby go śledzono. Kamień wymaga udanego testu {@dc 20} Siły ({@skill Athletics}), aby się przesunąć, lub udanego testu {@dc 14} Zręczności ({@skill Acrobatics}), aby minąć.",
+            "Obszar ten jest na razie zamieszkany przez dwa żywiołaki ziemi, które pozostały tu po tym, jak pomogły Tyreusowi dotrzeć w to miejsce. Nie boją się angażować w walkę, ale żadne z nich nie chce tu umierać. Uciekają w głąb ziemi, jeśli ich wytrzymałość spadnie do 25 procent, być może powrócą kilka dni później w celu dalszych eksploracji."
+          ],
+          "id": "04a"
+        },
+        {
+          "type": "entries",
+          "name": "16. Zaszczycone Krypty",
+          "page": 11,
+          "entries": [
+            "Sala ceremonialna miała zakończyć się freskiem przedstawiającym gwiaździste niebo, księżyc i jego ogon. Duża część fresku znikła wraz z przybyciem Tyreusa, odsłaniając nagi, szary kamień pod spodem - ścianę, za którą kryją się drzwi, które nigdy nie miały być otwarte. Sukces {@dc 15} Inteligencja ({@skill Investigation}) lub Mądrość ({@skill Perception}) kontrola odkrywa drzwi pośród gruzów.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Szare, pozbawione ozdób przejście za freskiem wisi w niesamowitej, zakurzonej mgle."
+              ],
+              "id": "04d"
+            },
+            "Przejście i krypty za drzwiami są proste i oszczędne. Sarkofagi w obszarach od 16A do 16D są po prostu wyrzeźbione tak, aby przedstawiały różnych, zapomnianych czarodziejów znajdujących się w środku. Żadnej wspaniałości. Każdy jest przedstawiony w prostej szacie.",
+            "Niestety, niektórzy z martwych czarodziejów pochowanych w tych kryptach, poruszeni gniewem i niepokojem, powstają, by ich bronić. Te {@dice 1d4 + 2} {@creature mummy||mumie} nie są piaszczystymi, jałowymi stworzeniami, ale wychudzonymi, szarymi potworami odzianymi w szare szaty, ale ich gnijące pięści pozostają zabójcze.",
+            "Każda mumia rusza, by uciec ze swojej krypty i zaatakować intruzów, niezależnie od tego, czy chodzi o poszukiwaczy przygód, żywiołaki, {@creature Malivar|AitFR-ISF}lub kogokolwiek innego. Wracają do swoich krypt, jeśli nie mogą znaleźć celów w promieniu 30 metrów od sekretnych drzwi krypt, powracając w razie potrzeby, aby odeprzeć intruzów. Nie zamykają się i nie otwierają drzwi z własnej woli.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Skarb",
+                  "page": 11,
+                  "entries": [
+                    "Krypty są dość oszczędnie wyposażone, ponieważ pochowani tu czarodzieje zostawili swoje rzeczy bibliotece i swoim uczniom. Mimo to można tu znaleźć kilka srebrnych wazonów, złotych urn i pucharów o łącznej wartości 300 sz. W obszarze 16C znajduje się mały obsydianowy posąg meduzy o szmaragdowych oczach o wartości 425 sz."
+                  ],
+                  "id": "04f"
+                }
+              ],
+              "id": "04e"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/AitFR-ISF/image-075.webp"
+              },
+              "width": 656,
+              "height": 699,
+              "credit": "Alayna Danner"
+            }
+          ],
+          "id": "04c"
+        }
+      ],
+      "id": "00b"
+    },
+    "2:00c": {
+      "type": "entries",
+      "name": "Wejście",
+      "page": 4,
+      "entries": [
+        "Główne wejście do kurhanu było jedynym wejściem do tego miejsca, aż do przybycia Tyreusa. Znajduje się na zachodnim krańcu budowli i jest oznaczony dwoma dużymi stojącymi kamieniami z wytrawionymi wyblakłymi spiralnymi pieczęciami. Wejście to zniszczone przez pogodę schody przerwane pionową kamienną płytą. To nigdy nie były drzwi, ale uszczelka.",
+        "Morwena i {@creature Malivar|AitFR-ISF} zmusił do otwarcia pieczęci, kiedy przybyli. Teraz kurhan stoi otwarty na wiatry i zbierające się deszcze Wysokich Maurów. Każdy może zejść po stromych, zniszczonych schodach i wejść."
+      ],
+      "id": "00c"
+    },
+    "2:00d": {
+      "type": "entries",
+      "name": "Funkcje ogólne",
+      "page": 4,
+      "entries": [
+        "Począwszy od czasów starożytnych jako grób kurhanowy, wnętrze Kurhanu Czarodzieja zostało przebudowane przy użyciu magii i bardziej nowoczesnych technik rzemieślniczych. Najstarszym w modzie pozostaje najwyższy poziom, łączący oryginalne płyty kamienne z zaprawą i kamieniami sprzed około stu lat.",
+        "Drugi i trzeci poziom tego miejsca składają się z szarych, ciętych kamieni, które po dziesięcioleciach bez konserwacji powoli ustępują, co jest jeszcze gorsze ze względu na skutki uboczne otwierającego się na zewnątrz zapadliska. Pęknięcia i luki sięgają obecnie drugiego poziomu terenu. Niektórym obszarom grozi zapadnięcie się w poniższą bibliotekę. Sprytni poszukiwacze przygód mogą znaleźć sposób na wykorzystanie tych niebezpieczeństw; inni mogą im ulec.",
+        {
+          "type": "entries",
+          "name": "Sufity",
+          "page": 4,
+          "entries": [
+            "Na każdym poziomie znajdują się szorstkie, nierówne sufity o wysokości około 8 stóp, niedokończone dla efektu kosmetycznego przez dawnych czarodziejów."
+          ],
+          "id": "00e"
+        },
+        {
+          "type": "entries",
+          "name": "Drzwi",
+          "page": 4,
+          "entries": [
+            "Na pierwszym poziomie drzwi są zrujnowane, zgniłe, lekkie i łatwo je otworzyć lub złamać. O ile nie zaznaczono inaczej, drzwi na dwóch dolnych poziomach są solidne, ale małe w stosunku do ram i prawdopodobnie nie utrzymają się na swoim miejscu nawet po tylu latach."
+          ],
+          "id": "00f"
+        },
+        {
+          "type": "entries",
+          "name": "Światło",
+          "page": 4,
+          "entries": [
+            "Na pierwszym poziomie nie ma żadnych użytecznych, zachowanych źródeł światła. Na drugim i trzecim poziomie znajdują się okresowe kinkiety ścienne zawierające szklane kamienie magicznie zaczarowane, aby wydzielać {@quickref Vision and Light||2||dim light}. Większość z nich nadal pracuje."
+          ],
+          "id": "010"
+        },
+        {
+          "type": "entries",
+          "name": "Dźwięk",
+          "page": 4,
+          "entries": [
+            "Kurhan byłby cichy, gdyby nie intruzi. Ponieważ zapadlisko uszkodziło teren, dźwięk przenosi się teraz z drugiego poziomu na trzeci, gdzie podłogi są popękane i upadają."
+          ],
+          "id": "011"
+        }
+      ],
+      "id": "00d"
+    },
+    "2:00e": {
+      "type": "entries",
+      "name": "Sufity",
+      "page": 4,
+      "entries": [
+        "Na każdym poziomie znajdują się szorstkie, nierówne sufity o wysokości około 8 stóp, niedokończone dla efektu kosmetycznego przez dawnych czarodziejów."
+      ],
+      "id": "00e"
+    },
+    "2:00f": {
+      "type": "entries",
+      "name": "Drzwi",
+      "page": 4,
+      "entries": [
+        "Na pierwszym poziomie drzwi są zrujnowane, zgniłe, lekkie i łatwo je otworzyć lub złamać. O ile nie zaznaczono inaczej, drzwi na dwóch dolnych poziomach są solidne, ale małe w stosunku do ram i prawdopodobnie nie utrzymają się na swoim miejscu nawet po tylu latach."
+      ],
+      "id": "00f"
+    },
+    "2:010": {
+      "type": "entries",
+      "name": "Światło",
+      "page": 4,
+      "entries": [
+        "Na pierwszym poziomie nie ma żadnych użytecznych, zachowanych źródeł światła. Na drugim i trzecim poziomie znajdują się okresowe kinkiety ścienne zawierające szklane kamienie magicznie zaczarowane, aby wydzielać {@quickref Vision and Light||2||dim light}. Większość z nich nadal pracuje."
+      ],
+      "id": "010"
+    },
+    "2:011": {
+      "type": "entries",
+      "name": "Dźwięk",
+      "page": 4,
+      "entries": [
+        "Kurhan byłby cichy, gdyby nie intruzi. Ponieważ zapadlisko uszkodziło teren, dźwięk przenosi się teraz z drugiego poziomu na trzeci, gdzie podłogi są popękane i upadają."
+      ],
+      "id": "011"
+    },
+    "2:012": {
+      "type": "entries",
+      "name": "1. Izba Straży",
+      "page": 5,
+      "entries": [
+        "Czarodzieje chcieli, aby ta komnata była posterunkiem wartowniczym, ale zamiast sprowadzać tu ludzi, którzy nie byli czarodziejami w ich małej sekcie, później zdecydowali się uwięzić komnatę eksperymentalnym magicznym glifem. (Czarodzieje i tak przeważnie przychodzili i odchodzili w kręgach teleportacyjnych w bibliotece.)",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Wiatry i chłód z zewnątrz przedostają się do tej komnaty. Pozostałości drewnianych stołków i stojak ze zgniłymi włóczniami sugerują, że kiedyś była tu strażnica. Pośrodku komnaty stoi teraz przysadzista stela, wysoka na około trzy stopy, oznaczona pojedynczym, głęboko wyrytym glifem w kolorze jasnoniebieskim. Srebrny medalion zwisa ze szczytu steli, częściowo zasłaniając glif."
+          ],
+          "id": "013"
+        },
+        "Stela jest oznaczona glifem podobnym do glifu ochronnego, ale różni się ona pod istotnymi względami. Kilka takich uwięzionych stel można znaleźć w całym kurhanie.",
+        "Drewniane skrawki lub szczątki znajdujące się w tej komorze zapalają się, jeśli pułapka zostanie uruchomiona, ale ogień nie ma gdzie się rozprzestrzenić.",
+        "Medalion został dawno temu umieszczony na steli, aby zapobiec wystrzeleniu pułapki. Pułapka nie widzi wokół medalionu. Usunięcie medalionu ponownie aktywuje pułapkę steli, chociaż ktokolwiek nosi lub nosi medalion, nie uruchamia pułapki.",
+        "Morwena i {@creature Malivar|AitFR-ISF} w pośpiechu, by dotrzeć do biblioteki, zignorowali stelę i medalion.",
+        {
+          "type": "entries",
+          "name": "Uwięzione Stele",
+          "page": 5,
+          "entries": [
+            "Stele uwięzione w kurhanie zostały wykonane z efektami podobnymi do glifów ochronnych. Jednakże glify stel są wyraźnie widoczne nawet w {@quickref Vision and Light||2||dim light}. Każdą uwięzioną stelę można aktywować wielokrotnie; dokładnie, ile zależy od indywidualnej steli. Kiedy stela wykryje intruza przed swoim glifem, natychmiast wysyła w niego piorun. Jeśli wybrany intruz nie opuści obszaru, stela ponownie wyemituje błyskawicę przy wskaźniku inicjatywy 20 (przegrywając remisy inicjatywy).",
+            "Każdy, kto nie jest wymieniony w czasie wykonywania steli, jest uważany za intruza, chyba że nosi lub nosi medalion umożliwiający bezpieczne przejście.",
+            {
+              "type": "entries",
+              "name": "Stela z uwięzioną komorą strażniczą",
+              "page": 5,
+              "entries": [
+                "Ta uwięziona stela wykrywa intruzów w stożku o długości 30 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 18. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 18} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+                "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie pięć razy, zanim stanie się niczym więcej niż nieruchomym kamieniem."
+              ],
+              "id": "015"
+            }
+          ],
+          "id": "014"
+        },
+        {
+          "type": "entries",
+          "name": "Medalion Bezpiecznego Przejścia",
+          "page": 5,
+          "entries": [
+            "Medalion jest posrebrzany, z wygrawerowanym tym samym glifem co stela, dzięki czemu medalion sprawia wrażenie miedzianego. Żadna istota nosząca lub w widoczny sposób nosząca jeden z tych medalionów nie powoduje aktywacji uwięzionej steli. Medalion nie jest magiczny. Można go po prostu rozpoznać po stelach rozmieszczonych w całym kurhanie, umożliwiając bezpieczne przejście obok ich pułapek."
+          ],
+          "id": "016"
+        }
+      ],
+      "id": "012"
+    },
+    "2:014": {
+      "type": "entries",
+      "name": "Uwięzione Stele",
+      "page": 5,
+      "entries": [
+        "Stele uwięzione w kurhanie zostały wykonane z efektami podobnymi do glifów ochronnych. Jednakże glify stel są wyraźnie widoczne nawet w {@quickref Vision and Light||2||dim light}. Każdą uwięzioną stelę można aktywować wielokrotnie; dokładnie, ile zależy od indywidualnej steli. Kiedy stela wykryje intruza przed swoim glifem, natychmiast wysyła w niego piorun. Jeśli wybrany intruz nie opuści obszaru, stela ponownie wyemituje błyskawicę przy wskaźniku inicjatywy 20 (przegrywając remisy inicjatywy).",
+        "Każdy, kto nie jest wymieniony w czasie wykonywania steli, jest uważany za intruza, chyba że nosi lub nosi medalion umożliwiający bezpieczne przejście.",
+        {
+          "type": "entries",
+          "name": "Stela z uwięzioną komorą strażniczą",
+          "page": 5,
+          "entries": [
+            "Ta uwięziona stela wykrywa intruzów w stożku o długości 30 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 18. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 18} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+            "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie pięć razy, zanim stanie się niczym więcej niż nieruchomym kamieniem."
+          ],
+          "id": "015"
+        }
+      ],
+      "id": "014"
+    },
+    "2:015": {
+      "type": "entries",
+      "name": "Stela z uwięzioną komorą strażniczą",
+      "page": 5,
+      "entries": [
+        "Ta uwięziona stela wykrywa intruzów w stożku o długości 30 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 18. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 18} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+        "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie pięć razy, zanim stanie się niczym więcej niż nieruchomym kamieniem."
+      ],
+      "id": "015"
+    },
+    "2:016": {
+      "type": "entries",
+      "name": "Medalion Bezpiecznego Przejścia",
+      "page": 5,
+      "entries": [
+        "Medalion jest posrebrzany, z wygrawerowanym tym samym glifem co stela, dzięki czemu medalion sprawia wrażenie miedzianego. Żadna istota nosząca lub w widoczny sposób nosząca jeden z tych medalionów nie powoduje aktywacji uwięzionej steli. Medalion nie jest magiczny. Można go po prostu rozpoznać po stelach rozmieszczonych w całym kurhanie, umożliwiając bezpieczne przejście obok ich pułapek."
+      ],
+      "id": "016"
+    },
+    "2:017": {
+      "type": "entries",
+      "name": "2. Materiały do ​​formowania",
+      "page": 5,
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Pod ścianą stoi kilka otwartych skrzyń, zgniłych worków ze zbożem i porozrzucanych stert słomy. Kiedyś te zapasy wystarczyły na tygodnie. Na jedynej zamkniętej skrzyni leży zardzewiały żelazny łom."
+          ],
+          "id": "018"
+        },
+        "Podłoga pochyla się tutaj, a następnie wyrównuje w korytarzu i komorach. Pomieszczenie to było niegdyś magazynem zaopatrzenia i spiżarnią. Większość tego, co tu zostało, rozłożyła się na kawałki.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Skarb",
+              "page": 5,
+              "entries": [
+                "Zamknięta skrzynia zawiera pięć złotych lamp oliwnych, wyroby porcelanowe i trzy sztabki miedzi o łącznej wartości 140 sz."
+              ],
+              "id": "01a"
+            }
+          ],
+          "id": "019"
+        }
+      ],
+      "id": "017"
+    },
+    "2:019": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Skarb",
+          "page": 5,
+          "entries": [
+            "Zamknięta skrzynia zawiera pięć złotych lamp oliwnych, wyroby porcelanowe i trzy sztabki miedzi o łącznej wartości 140 sz."
+          ],
+          "id": "01a"
+        }
+      ],
+      "id": "019"
+    },
+    "2:01a": {
+      "type": "entries",
+      "name": "Skarb",
+      "page": 5,
+      "entries": [
+        "Zamknięta skrzynia zawiera pięć złotych lamp oliwnych, wyroby porcelanowe i trzy sztabki miedzi o łącznej wartości 140 sz."
+      ],
+      "id": "01a"
+    },
+    "2:01b": {
+      "type": "entries",
+      "name": "3. Zgniły pokój wspólny",
+      "page": 5,
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Ozdobnie tkane czerwone dywany pokrywają większą część nierównej podłogi tej komnaty, podtrzymywanej przez głębokie, skórzane krzesła i pęknięty, zawalony stół. Na jednej ze ścian widnieje pomalowana na złoto rama i zaciemniony od dymu obraz przedstawiający klify Wybrzeża Mieczy. Kredens praktycznie ugina się pod ciężarem srebrnych kielichów, czajniczków i nie tylko."
+          ],
+          "id": "01c"
+        },
+        "Komnata ta była niegdyś pomieszczeniem wspólnym i jadalnią. Meble, które kiedyś zapewniały wygodę, nadal tu są, pokryte kurzem, wilgocią i gruzem.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Skarb",
+              "page": 5,
+              "entries": [
+                "Znajdujące się tutaj srebrne wyroby, dzbanki do herbaty i tace są łącznie warte 310 sz. Pejzaż jest zaginionym dziełem ukochanego artysty z Waterdhavii, Saraque Skyhill, wartym 1200 sz, jeśli jest odpowiednio konserwowany."
+              ],
+              "id": "01e"
+            }
+          ],
+          "id": "01d"
+        }
+      ],
+      "id": "01b"
+    },
+    "2:01d": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Skarb",
+          "page": 5,
+          "entries": [
+            "Znajdujące się tutaj srebrne wyroby, dzbanki do herbaty i tace są łącznie warte 310 sz. Pejzaż jest zaginionym dziełem ukochanego artysty z Waterdhavii, Saraque Skyhill, wartym 1200 sz, jeśli jest odpowiednio konserwowany."
+          ],
+          "id": "01e"
+        }
+      ],
+      "id": "01d"
+    },
+    "2:01e": {
+      "type": "entries",
+      "name": "Skarb",
+      "page": 5,
+      "entries": [
+        "Znajdujące się tutaj srebrne wyroby, dzbanki do herbaty i tace są łącznie warte 310 sz. Pejzaż jest zaginionym dziełem ukochanego artysty z Waterdhavii, Saraque Skyhill, wartym 1200 sz, jeśli jest odpowiednio konserwowany."
+      ],
+      "id": "01e"
+    },
+    "2:01f": {
+      "type": "entries",
+      "name": "4. Opuszczone dzielnice",
+      "page": 6,
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Powietrze tutaj jest wilgotne i chłodne. Cuchnie jak siano pozostawione do zgnilizny."
+          ],
+          "id": "020"
+        },
+        "Każda z tych komnat była prywatnym pokojem członka sekty, który regularnie odwiedzał to miejsce lub pracował na miejscu. W większości usunięto rzeczy osobiste, przez co bardziej przypominają cele niż sypialnie. W większości pokoi pozostały zapomniane pościele i puste, odblokowane skrzynie.",
+        {
+          "type": "entries",
+          "name": "4A: Ukryta Świątynia",
+          "page": 6,
+          "entries": [
+            "Komnata ta kryje w sobie sekretne drzwi prowadzące do ukrytej świątyni.",
+            "Sekretne drzwi to niewiele więcej niż właz za pustą skrzynią tego pokoju, ukryty za zaschniętym błotem i płytą, która ma wyglądać jak część ściany. Drzwi można rozpoznać po {@dc 13} Inteligencja ({@skill Investigation}) lub Mądrość ({@skill Perception}) wynik kontrolny lub pasywny.",
+            {
+              "type": "insetReadaloud",
+              "entries": [
+                "Mały kamienny ołtarz, szeroki na dwie stopy, stoi tutaj, zakopany w czarnej ziemi u stóp wąskiego komina, który wydaje się, że się zawalił. Coś połyskuje wśród ziemi."
+              ],
+              "id": "022"
+            },
+            "Sama ukryta świątynia jest do połowy zakopana w ziemi i glinie na dnie niegdyś pustego komina, co miało umożliwić świątyni oglądanie gwiazd. Jakiekolwiek bóstwo było tu kiedyś czczone, wszystko, co pozostało, to stopione świece, 1 sp i medalion bezpiecznego przejścia."
+          ],
+          "id": "021"
+        }
+      ],
+      "id": "01f"
+    },
+    "2:021": {
+      "type": "entries",
+      "name": "4A: Ukryta Świątynia",
+      "page": 6,
+      "entries": [
+        "Komnata ta kryje w sobie sekretne drzwi prowadzące do ukrytej świątyni.",
+        "Sekretne drzwi to niewiele więcej niż właz za pustą skrzynią tego pokoju, ukryty za zaschniętym błotem i płytą, która ma wyglądać jak część ściany. Drzwi można rozpoznać po {@dc 13} Inteligencja ({@skill Investigation}) lub Mądrość ({@skill Perception}) wynik kontrolny lub pasywny.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Mały kamienny ołtarz, szeroki na dwie stopy, stoi tutaj, zakopany w czarnej ziemi u stóp wąskiego komina, który wydaje się, że się zawalił. Coś połyskuje wśród ziemi."
+          ],
+          "id": "022"
+        },
+        "Sama ukryta świątynia jest do połowy zakopana w ziemi i glinie na dnie niegdyś pustego komina, co miało umożliwić świątyni oglądanie gwiazd. Jakiekolwiek bóstwo było tu kiedyś czczone, wszystko, co pozostało, to stopione świece, 1 sp i medalion bezpiecznego przejścia."
+      ],
+      "id": "021"
+    },
+    "2:023": {
+      "type": "entries",
+      "name": "5. Uroczyste wejście",
+      "page": 6,
+      "entries": [
+        "Ściany północne, wschodnie i zachodnie wykonane są z tynku ozdobionego kolorowymi, ale wyblakłymi od dymu freskami. Każdy mural przedstawia postacie w surowych szatach - niektóre czerwone, inne zielone, niektóre niebieskie - pomalowane tak, jakby były częścią procesji niosącej tace z ogniem, zapalonymi kadzidłami i srebrem w stronę drzwi do obszaru 6.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Murale wzdłuż trzech ścian przedstawiają postacie w jasnych, zielonych, czerwonych lub niebieskich szatach maszerujące gęsiego przez abstrakcyjne otoczenie, sugerujące być może jasny ogród i witraże. Wszystkie te postacie są ludzkich rozmiarów, ale są przedstawione w różnych fasonach i stylach pod szatami. Ściana południowa to nagie, niedokończone płyty kamienne, wyznaczające pierwotną zewnętrzną krawędź kurhanu."
+          ],
+          "id": "024"
+        },
+        "Sekretne drzwi do obszaru 7 to wąska drewniana sekcja ukryta pod tynkiem, ozdobiona postacią w zielonych szatach z jedną ręką na oczach. Drzwi można znaleźć z sukcesem {@dc 15} Inteligencja ({@skill Investigation}) lub Mądrość ({@skill Perception}) sprawdzać."
+      ],
+      "id": "023"
+    },
+    "2:025": {
+      "type": "entries",
+      "name": "6. Przejście zjazdowe",
+      "page": 6,
+      "entries": [
+        "Malowane ściany gipsowe ciągną się dalej do tego obszaru, przedstawiając czarodziejów w szatach zmierzających w stronę schodów prowadzących do obszaru 8. Jednak tutaj szaty czarodziejów są wielokolorowe.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Odziane w szaty postacie na tych ścianach noszą szczegółowe, wielokolorowe szaty z mankietami i obszyciami ozdobionymi magicznymi słowami i pieczęciami. Niektóre z tych postaci noszą długie brody lub długie warkocze; inne mają na sobie skórzane paski z klamrami i eleganckie legginsy. Każdy z nich jest przedstawiony, niosąc skarby lub ofiary w stronę schodów prowadzących głębiej w przód."
+          ],
+          "id": "026"
+        },
+        "Schody prowadzące na drugi poziom wyznaczają początek delikatniejszej, nowocześniejszej kamieniarki na dwóch niższych poziomach obiektu."
+      ],
+      "id": "025"
+    },
+    "2:027": {
+      "type": "entries",
+      "name": "7. Komnata Obserwatora",
+      "page": 6,
+      "entries": [
+        "Czarodzieje używali tej komnaty do obserwacji nowoprzybyłych do sekty, gdy odprawiali rytuały i recytowali pieśni w ceremonialnym wejściu (obszar 5) i schodzili po schodach (obszar 6).",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Od wewnątrz północne i wschodnie ściany tego pokoju wydają się przezroczyste, choć zamglone i zamazane, jak spojrzenie przez deszczowe szkło."
+          ],
+          "id": "028"
+        },
+        "Ściany są dość solidne w dotyku. Każdy w tym pomieszczeniu może skupić swoją uwagę, aby widzieć i słyszeć, na obszarach 5 i 6. Strona bierna {@skill Perception} dziesiątki stworzeń w tej komnacie otrzymują karę -5 podczas obserwacji sąsiednich komnat."
+      ],
+      "id": "027"
+    },
+    "2:029": {
+      "type": "entries",
+      "name": "8. Przejścia drugiego poziomu",
+      "page": 6,
+      "entries": [
+        "Te przejścia z dopasowanych bloków kamiennych są solidne i nienaruszone przez większą część drugiego poziomu - ale nie na całym. Pomiędzy komnatami rytualnymi (obszary 10, 11 i 12) podłoga została wstrząśnięta i popękana w wyniku skutków ubocznych zawalenia się pobliskiego dołu. Wszystko w obszarze 8 jest w stanie utrzymać ciężar poszukiwaczy przygód, ale może także ukazywać światło i przenosić dźwięk {@creature Exul|AitFR-ISF} w wielkiej bibliotece poniżej (obszar 14).",
+        "Istoty na obszarze 14 mają wadę Mądrości ({@skill Perception}) sprawdza, czy zagląda w ten obszar i kara -5 do umiejętności biernej {@skill Perception} bezczynnie zauważać rzeczy w tym obszarze.",
+        "Poszukiwacze przygód próbujący obserwować wielką bibliotekę przez podłogę w tym miejscu również mają gorsze wyniki, chyba że zejdą na podłogę i zajrzą przez szczeliny."
+      ],
+      "id": "029"
+    },
+    "2:02a": {
+      "type": "entries",
+      "name": "9. Magazyn komponentów",
+      "page": 7,
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Te solidne drewniane drzwi, oprawione w żelazne pasy i zawiasy, wytrzymały upływ czasu."
+          ],
+          "id": "02b"
+        },
+        "Te drzwi są zamknięte ({@dc 16} otwierać zamek) i dobrze zbudowane (Siła {@dc 20} aby go rozbić), ale główną obroną komnaty jest uwięziona w niej stela.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Stela Krypty",
+              "page": 7,
+              "entries": [
+                "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+                "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone.",
+                "Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się niczym więcej niż nieruchomym kamieniem. Poza stelą to miejsce jest rodzajem tajemniczej spiżarni."
+              ],
+              "id": "02d"
+            }
+          ],
+          "id": "02c"
+        },
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "W tej komnacie znajdują się gliniane urny, szklane słoje i drewniane skrzynie ułożone chaotycznie na półkach ściennych i pokryte wieloletnim kurzem."
+          ],
+          "id": "02e"
+        },
+        {
+          "type": "entries",
+          "name": "Skarb",
+          "page": 7,
+          "entries": [
+            "W tych pojemnikach znajdowały się kiedyś komponenty zaklęć. Większość została zabrana lub zgniła, ale w jednej urnie nadal znajduje się diamentowy pył o wartości 440 sz, a drewniane pudełko zawiera zwój złotego sznurka o długości prawie 3 stóp i wart 290 sz. Na haku na południowej ścianie wisi medalion bezpiecznego przejścia."
+          ],
+          "id": "02f"
+        }
+      ],
+      "id": "02a"
+    },
+    "2:02c": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Stela Krypty",
+          "page": 7,
+          "entries": [
+            "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+            "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone.",
+            "Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się niczym więcej niż nieruchomym kamieniem. Poza stelą to miejsce jest rodzajem tajemniczej spiżarni."
+          ],
+          "id": "02d"
+        }
+      ],
+      "id": "02c"
+    },
+    "2:02d": {
+      "type": "entries",
+      "name": "Stela Krypty",
+      "page": 7,
+      "entries": [
+        "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+        "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone.",
+        "Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się niczym więcej niż nieruchomym kamieniem. Poza stelą to miejsce jest rodzajem tajemniczej spiżarni."
+      ],
+      "id": "02d"
+    },
+    "2:02f": {
+      "type": "entries",
+      "name": "Skarb",
+      "page": 7,
+      "entries": [
+        "W tych pojemnikach znajdowały się kiedyś komponenty zaklęć. Większość została zabrana lub zgniła, ale w jednej urnie nadal znajduje się diamentowy pył o wartości 440 sz, a drewniane pudełko zawiera zwój złotego sznurka o długości prawie 3 stóp i wart 290 sz. Na haku na południowej ścianie wisi medalion bezpiecznego przejścia."
+      ],
+      "id": "02f"
+    },
+    "2:031": {
+      "type": "entries",
+      "name": "Spadające stele",
+      "page": 7,
+      "entries": [
+        "Każda uwięziona stela, która wpadnie do obszaru 14, przetrwa upadek i nadal działa normalnie. DM decyduje o okładzinie takich stel; mogą strzelać do obszaru 14 lub w górę do innych obszarów, w zależności od tego, jak wylądują."
+      ],
+      "id": "031"
+    },
+    "2:032": {
+      "type": "entries",
+      "name": "10. Komnata Rytualnego Castingu (Północ)",
+      "page": 7,
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Podłoga jest głęboko wytrawiona z nakładającymi się geometriami, ale większość kamienia w podłodze wygląda na szorstką, postrzępioną i zdenerwowaną. Pęknięcia w ścianach północnej i wschodniej sugerują, że uszkodzenia strukturalne sięgają głęboko w ziemię."
+          ],
+          "id": "033"
+        },
+        "Czarodzieje używali tej komnaty do rzucania zaklęć rytualnych bez rozpraszania uwagi, do wykonywania rytuałów świętych dla starej sekty i do obserwowania uczniów podczas ćwiczeń.",
+        "Wszelkie próby przekradnięcia się przez tę komnatę bez przyciągania uwagi stworzeń w obszarze 14 są wykonywane na niekorzyść.",
+        "Ryciny na ścianie to instrukcje dotyczące rzucania magii wykrywającej i identyfikującej się jako rytuał, ale w słowach nie jest zawarta żadna moc, więc są one niczym więcej niż mnemonikami dla uczniów-czarodziejów.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Rytualne odlewanie steli",
+              "page": 7,
+              "entries": [
+                "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+                "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się obojętnym kamieniem."
+              ],
+              "id": "035"
+            }
+          ],
+          "id": "034"
+        }
+      ],
+      "id": "032"
+    },
+    "2:034": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Rytualne odlewanie steli",
+          "page": 7,
+          "entries": [
+            "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+            "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się obojętnym kamieniem."
+          ],
+          "id": "035"
+        }
+      ],
+      "id": "034"
+    },
+    "2:035": {
+      "type": "entries",
+      "name": "Rytualne odlewanie steli",
+      "page": 7,
+      "entries": [
+        "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+        "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się obojętnym kamieniem."
+      ],
+      "id": "035"
+    },
+    "2:036": {
+      "type": "entries",
+      "name": "11. Komnata Rytualnego Castingu (południe)",
+      "page": 7,
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Różne haczyki i kołki sugerują, że było to duże pomieszczenie, w którym niegdyś mieściły się gobeliny i inne ozdoby. Podłoga jest wyryta w geometryczne kształty, ale kamienie podłogi wyglądają na zapadnięte i luźne. Głębokie pęknięcia w posadzce rozbijały całe kamienie.",
+            "Na południowej ścianie wiszą trzy równomiernie rozmieszczone złote krążki w kształcie talerzy do serwowania i wysadzane czerwonymi klejnotami. Pod nimi stoi potężna stela oznaczona jasnoniebieskim glifem."
+          ],
+          "id": "037"
+        },
+        "Podobnie jak obszar 10, ta komnata była używana do rytuałów, rytuałów i praktyk. W przeciwieństwie do tej komnaty, to pomieszczenie wciąż jest ozdobione cennymi bibelotami pozostałymi po jakimś przeszłym obrzędzie.",
+        "Wszelkie próby przekradnięcia się przez tę komnatę bez przyciągania uwagi stworzeń w obszarze 14 są wykonywane na niekorzyść.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Rytualne odlewanie steli",
+              "page": 8,
+              "entries": [
+                "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+                "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się obojętnym kamieniem."
+              ],
+              "id": "039"
+            },
+            {
+              "type": "entries",
+              "name": "Skarb",
+              "page": 8,
+              "entries": [
+                "Trzy złote płyty na południowej ścianie były częścią jakiegoś rytuału lub rytuału, teraz zapomnianego. Każdy talerz, warty 300 sz, to cienki krążek ze złotymi wstawkami i pięcioma czerwonymi granatami."
+              ],
+              "id": "03a"
+            }
+          ],
+          "id": "038"
+        }
+      ],
+      "id": "036"
+    },
+    "2:038": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Rytualne odlewanie steli",
+          "page": 8,
+          "entries": [
+            "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+            "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się obojętnym kamieniem."
+          ],
+          "id": "039"
+        },
+        {
+          "type": "entries",
+          "name": "Skarb",
+          "page": 8,
+          "entries": [
+            "Trzy złote płyty na południowej ścianie były częścią jakiegoś rytuału lub rytuału, teraz zapomnianego. Każdy talerz, warty 300 sz, to cienki krążek ze złotymi wstawkami i pięcioma czerwonymi granatami."
+          ],
+          "id": "03a"
+        }
+      ],
+      "id": "038"
+    },
+    "2:039": {
+      "type": "entries",
+      "name": "Rytualne odlewanie steli",
+      "page": 8,
+      "entries": [
+        "Ta uwięziona stela wykrywa intruzów, których widzi w stożku o długości 60 stóp przed glifem. Posiada stronę pasywną {@skill Perception} wynik 16. Aby rozbroić lub rozproszyć pułapkę, należy odnieść sukces {@dc 16} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym.",
+        "Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone. Ta stela może wyemitować błyskawicę w sumie trzy razy, zanim stanie się obojętnym kamieniem."
+      ],
+      "id": "039"
+    },
+    "2:03a": {
+      "type": "entries",
+      "name": "Skarb",
+      "page": 8,
+      "entries": [
+        "Trzy złote płyty na południowej ścianie były częścią jakiegoś rytuału lub rytuału, teraz zapomnianego. Każdy talerz, warty 300 sz, to cienki krążek ze złotymi wstawkami i pięcioma czerwonymi granatami."
+      ],
+      "id": "03a"
+    },
+    "2:03b": {
+      "type": "entries",
+      "name": "12. Komora laboratoryjna",
+      "page": 8,
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Bezpańskie kamienie i brud zostały rozrzucone po podłodze w wyniku aktywności sejsmicznej lub innych poważnych uszkodzeń. Nadal stoją tu wytrzymałe drewniane stoły i puste drewniane regały, ale kamienie pod nimi wyglądają na wstrząśnięte, popękane i nierówne. Powietrze pachnie surową gliną."
+          ],
+          "id": "03c"
+        },
+        "Kiedyś było to laboratorium, ale poza ciężkimi stołami, półkami i uwięzionymi stelami, to miejsce zostało starannie wysprzątane. Tutaj wykonano stele; dwa, które pozostały, działają, ale wyglądają na niedokończone.",
+        "Wszelkie próby przekradnięcia się przez tę komnatę bez przyciągania uwagi stworzeń w obszarze 14 są wykonywane na niekorzyść.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Stele laboratoryjne",
+              "page": 8,
+              "entries": [
+                "Te dwie uwięzione stele wykrywają intruzów, których widzą w stożkach o średnicy 60 stóp przed swoimi glifami. Każdy ma pasywność {@skill Perception} wynik 15. Aby rozbroić lub rozwiać którąkolwiek z pułapek, wymagane jest pomyślne zakończenie {@dc 15} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym. Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone.",
+                "Każda z tych steli może dwukrotnie wyemitować błyskawicę, zanim stanie się obojętnym kamieniem."
+              ],
+              "id": "03e"
+            }
+          ],
+          "id": "03d"
+        }
+      ],
+      "id": "03b"
+    },
+    "2:03d": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Stele laboratoryjne",
+          "page": 8,
+          "entries": [
+            "Te dwie uwięzione stele wykrywają intruzów, których widzą w stożkach o średnicy 60 stóp przed swoimi glifami. Każdy ma pasywność {@skill Perception} wynik 15. Aby rozbroić lub rozwiać którąkolwiek z pułapek, wymagane jest pomyślne zakończenie {@dc 15} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym. Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone.",
+            "Każda z tych steli może dwukrotnie wyemitować błyskawicę, zanim stanie się obojętnym kamieniem."
+          ],
+          "id": "03e"
+        }
+      ],
+      "id": "03d"
+    },
+    "2:03e": {
+      "type": "entries",
+      "name": "Stele laboratoryjne",
+      "page": 8,
+      "entries": [
+        "Te dwie uwięzione stele wykrywają intruzów, których widzą w stożkach o średnicy 60 stóp przed swoimi glifami. Każdy ma pasywność {@skill Perception} wynik 15. Aby rozbroić lub rozwiać którąkolwiek z pułapek, wymagane jest pomyślne zakończenie {@dc 15} sprawdzać. Każde stworzenie, które uruchomi pułapkę i zakończy się niepowodzeniem a {@dc 15} Rzut obronny na Zręczność wymaga 22 ({@damage 4d10}) obrażenia od błyskawic lub o połowę mniejsze obrażenia przy udanym rzucie obronnym. Piorun zapala łatwopalne przedmioty w okolicy, które nie są noszone ani noszone.",
+        "Każda z tych steli może dwukrotnie wyemitować błyskawicę, zanim stanie się obojętnym kamieniem."
+      ],
+      "id": "03e"
+    },
+    "2:03f": {
+      "type": "entries",
+      "name": "13. Wspólna Katakumba",
+      "page": 8,
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Korytarz to szorstki kamień, żwirowa podłoga i przebłyski białego materiału i pożółkłych kości. To katakumba, bez większych fanfar i ozdób. Z pobliskiej półki spogląda na ciebie ludzka czaszka."
+          ],
+          "id": "040"
+        },
+        "Ta grubo ciosana katakumba jest wyłożona trzema wbudowanymi półkami na zmarłych. Tutaj czarodzieje pochowali pierwotnych mieszkańców kurhanu powyżej, a także służbę oraz kilku innych przyjaciół i sojuszników tego miejsca, którzy zmarli podczas lat jego funkcjonowania. Każdy był owinięty w szary lub biały materiał i umieszczony na miejscu bez przedmiotów nagrobnych i skarbów. (Czarodzieje sekty znajdują się w obszarze 16.)",
+        "{@creature Malivar|AitFR-ISF} jest tutaj, prawdopodobnie {@condition unconscious}, po tym jak prawie został zabity przez zaklęcia Tyreusa. Ma 1 punkt wytrzymałości. Jeśli się przebudzi, stara się ocenić swoją sytuację, zamiast natychmiast walczyć lub uciekać.",
+        "{@creature Malivar|AitFR-ISF} ujawnia następujące fragmenty informacji, jeśli poszukiwacze przygód z nim porozmawiają. W przypadku zagrożenia stara się zachować ciszę.",
+        {
+          "type": "list",
+          "items": [
+            "Czarodziej, którego tu ścigali, nazywa się Tyreus.",
+            "Tyreus to potężny arcymag z innego świata. Szuka tu starożytnego miejsca o mistycznej mocy. „Próbowaliśmy go zwerbować”.",
+            "Trzymał blisko siebie potężną księgę oprawioną w białą skórę z pięcioma pieczęciami na przodzie. - Po to przyszedł, cokolwiek to jest.",
+            "Lojalność Morweny wobec Czerwonych Czarodziejów słabnie. Miała wrażenie, że powstrzymują ją przed tajemną mocą, której naprawdę pragnęła. - Szkoda, że ​​nie byłem zaskoczony, że się ode mnie odwróciła. To znaczy od nas."
+          ]
+        }
+      ],
+      "id": "03f"
+    },
+    "2:041": {
+      "type": "entries",
+      "name": "14. Wielka Biblioteka",
+      "page": 8,
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Rozpościera się tu wielka komnata, kontrastująca z ograniczeniami każdego zwykłego kurhanu. Pomiędzy opadającym kamiennym sufitem a wypolerowaną kamienną podłogą stoi co najmniej tuzin drewnianych półek, na których znajdują się ułożone w stosy zwoje i oprawione tomy. Drewno tutaj jest wypolerowane niemal na czerwono, począwszy od półek po szerokie stoły i krzesła rozsiane po całym pomieszczeniu.",
+            "Ale miejsce zostało splądrowane. Meble leżą na boku, wszędzie walają się papiery, a tu i ówdzie walają się kawałki muru. Na środku pokoju znajduje się ogromny stos otwartych, zniszczonych ksiąg i rozwiniętych zwojów. To miejsce śmierdzi dymem."
+          ],
+          "id": "042"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AitFR-ISF/image-064.webp"
+          },
+          "width": 1243,
+          "height": 1636,
+          "credit": "Bram Sels"
+        },
+        "To było serce tego miejsca, kiedy wiele lat temu korzystali z niego czarodzieje. Wiele tekstów zostało stopniowo usuniętych w miarę zmniejszania się potęgi sekty, ale większość z nich pozostała tutaj. Ostatni z czarodziejów nie wiedział, że nigdy nie wrócą, kiedy odchodzili po raz ostatni.",
+        "Tyreus i Morwena wyszli kilka godzin temu po zamówieniu ognistego humanoidalnego żywiołaka o imieniu {@creature Exul|AitFR-ISF}, zniszczyć zbiory biblioteki. (Tyreus po prostu zaciera ślady.) Rozkaz ten jest częścią geasu, na który rzucił Tyreus {@creature Exul|AitFR-ISF}.",
+        "Tyreus wyszedł z tajemną księgą w ręku i Morweną u boku, ale nie powiedział {@creature Exul|AitFR-ISF} dokąd szli. {@creature Exul|AitFR-ISF}służba kończy się wraz ze zniszczeniem biblioteki.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Duch Ognia",
+              "page": 10,
+              "entries": [
+                "{@creature Exul|AitFR-ISF} zabija tutaj czas, póki może, czytając, co zaraz spali. Siedzi na stosie zwojów i książek na środku pokoju i pozwala sobie na oderwanie się od czytania, chyba że intruzi przykują jego uwagę. Myśli {@creature Malivar|AitFR-ISF} umarł lub uciekł i zachowuje się tak, jakby miał kurhan dla siebie i swoich żywiołaków. Kiedy jest rozproszony czytaniem, otrzymuje karę -5 do swojej umiejętności biernej {@skill Perception} wynik.",
+                "Jeśli podejrzewa, że ​​nie jest już sam, dalej bezczynnie czyta i pali teksty, ale nie pozwala już się rozpraszać.",
+                "Jeśli wie, że obecni są intruzi, przywołuje żywiołaka, aby go bronił - prawdopodobnie żywiołaka ognia, ponieważ może mu pomóc spalić bibliotekę lub wślizgnąć się do obszaru 15, aby wspomóc tamtejsze żywiołaki, jeśli zajdzie taka potrzeba. Jak tylko może, {@creature Exul|AitFR-ISF} wznawia swoje zadanie spalenia biblioteki, aby móc wyjść bez odniesienia obrażeń od geasów.",
+                "{@creature Exul|AitFR-ISF} jest przebiegłym i nieuczciwym wojownikiem. Używa niewidzialności, aby się chronić. Rzuca ogniem i rzuca {@spell wall of fire} przyspieszyć jego pracę. Jeśli on lub biblioteka mają mniej niż 25 procent maksymalnej liczby punktów wytrzymałości, {@creature Exul|AitFR-ISF} może próbować uciec, rzucając czar zmiany planu i podróżując samotnie do Planu Żywiołu Ognia. Mógłby to zrobić, nawet jeśli jego zadanie nie zostało ukończone, ryzykując obrażenia od geasów Tyreusa. {@creature Exul|AitFR-ISF} jest mądry, ale lekkomyślny. Pozostawia wszelkie żywiołaki, aby walczyć z poszukiwaczami przygód."
+              ],
+              "id": "044"
+            },
+            {
+              "type": "entries",
+              "name": "Kręgi teleportacyjne",
+              "page": 10,
+              "entries": [
+                "Dwa kręgi teleportacyjne służyły tej komnacie i czarodziejom, którzy przechowywali tę kolekcję. Północny krąg został uszkodzony w wyniku zapadnięcia się zapadliska. (Kiedyś prowadziła do obecnie zrujnowanej wieży czarodzieja z widokiem na Wybrzeże Mieczy.) Południowy krąg prowadzi do opuszczonej kamienicy w Waterdeep; okrąg znajduje się pod deskami podłogowymi na strychu. (Patrz „Część 3: Co dalej?”, aby zapoznać się z dodatkowymi opcjami.)"
+              ],
+              "id": "045"
+            },
+            {
+              "type": "entries",
+              "name": "Skarb",
+              "page": 10,
+              "entries": [
+                "Dla historyków, mędrców i kolekcjonerów z college'u lub uniwersytetu wartość niemagicznych zbiorów biblioteki sięga 5500 sz. Trzy {@item spell scroll||zwoje zaklęć} w zbiorze pozostają także: jeden zwój {@spell chain lightning}, jeden zwój {@spell Otiluke's freezing sphere}i jeden zwój {@spell wall of stone}."
+              ],
+              "id": "046"
+            }
+          ],
+          "id": "043"
+        },
+        {
+          "type": "entries",
+          "name": "Płonąca biblioteka",
+          "page": 10,
+          "entries": [
+            "W tej bibliotece - zaśmieconej bezpańskimi stronami, stołami, krzesłami i dywanikami - ogień rozprzestrzenia się na odległość 5 stóp w dowolnym kierunku przy wskaźniku inicjatywy 20 (przegrana remisów inicjatywy), gdy kartki ognistego papieru fruwają na gorącym wietrze. Każdy płonący kwadrat o powierzchni 5 stóp zadaje 3 ({@damage 1d6}) obrażenia biblioteki od ognia, maksymalnie do 42 ({@damage 12d6}) obrażenia od ognia w każdej turze.",
+            "Stworzenie, które rozpoczyna swoją turę na płonącym obszarze, otrzymuje 3 ({@damage 1d6}) obrażenia od ognia. Istota pozbawiona odporności na obrażenia od ognia ma wadę Mądrości ({@skill Perception}) sprawdza, czy widać tutaj dym i ogień.",
+            "Komora przetrwała pożar, nawet jeśli jest to zwęglona skorupa kłębiąca się dymem na górne poziomy, do obszaru 15 i na otwarte powietrze.",
+            "To kolekcja jest zagrożona. Kolekcja biblioteki ma 300 punktów wytrzymałości i nie ma progu obrażeń. Zapoznaj się z tabelą wyników uszkodzeń kolekcji, aby określić, co przetrwa w oparciu o szkody poniesione przez kolekcję."
+          ],
+          "id": "047"
+        },
+        {
+          "type": "entries",
+          "name": "Walka z ogniem",
+          "page": 10,
+          "entries": [
+            "To, czego poszukiwacze przygód użyją do walki z płomieniami, zależy od nich. Wody nie ma tu pod dostatkiem, ale ziemi i ziemi jest pod dostatkiem.",
+            "Załóżmy, że jakikolwiek test zdolności do ugaszenia ognia za pomocą środków niemagicznych wymaga powodzenia {@dc 15} test, którego zdolność zależy od tego, co postacie próbują zrobić. Sukces takiej kontroli oznacza ugaszenie pożaru na obszarze kwadratowym o powierzchni 3 metrów lub równoważnym.",
+            "Jeśli obrażenia od zimna zadane na dowolnym obszarze o powierzchni 5 stóp kwadratowych przekraczają obrażenia zadane w tym obszarze przez ogień, ogień na tym obszarze gaśnie. Utrzymujący się lód lub inne utrzymujące się efekty zapobiegają rozprzestrzenianiu się ognia.",
+            {
+              "type": "table",
+              "caption": "Wyniki uszkodzeń kolekcji",
+              "colLabels": [
+                "Poniesione szkody",
+                "Wynik"
+              ],
+              "colStyles": [
+                "col-4",
+                "col-8"
+              ],
+              "rows": [
+                [
+                  "0-50 KM",
+                  "Drobne straty: Palą się tylko wiedza i legendy, a wartość kolekcji zmniejsza się o 500 sz."
+                ],
+                [
+                  "51-100 KM",
+                  "Umiarkowane straty: Jeden {@item spell scroll} zostaje zniszczona, a wartość kolekcji zostaje zmniejszona o 1500 sz."
+                ],
+                [
+                  "101-200 KM",
+                  "Poważne straty: Dwa zwoje zaklęć zostają zniszczone, a wartość kolekcji zostaje zmniejszona o 3000 sz."
+                ]
+              ]
+            },
+            "W przeciwnym razie obszar może ponownie spłonąć, jeśli ogień się rozprzestrzeni, a w kolekcji nadal pozostaną punkty wytrzymałości."
+          ],
+          "id": "048"
+        },
+        {
+          "type": "inset",
+          "name": "Chaos w kolekcji",
+          "page": 11,
+          "entries": [
+            "Pomiędzy zawalającymi się kamieniami, błąkającymi się błyskawicami i rozprzestrzeniającymi się płomieniami, wszystko może się tu szybko zrobić nieprzyjemnie. Dodaj {@creature Malivar|AitFR-ISF}, {@creature Exul|AitFR-ISF}, i inne żywiołaki i rzeczy wykraczają poza gorączkę. Wybory graczy mogą ułatwić lub utrudnić im życie - to sprawiedliwe. Wszystkie te ruchome części służą do tworzenia opcji i nieoczekiwanych interakcji.",
+            "Jeśli okoliczności zwrócą się przeciwko poszukiwaczom przygód, może być tragicznie. W zależności od potworów, które biorą w nim udział, bitwa w bibliotece może stać się spotkaniem o zabójczej skali.",
+            "Pamiętaj, że pokonanie poszukiwaczy przygód nie jest tutaj celem NPC-ów ani potworów. Walka nie jest istotnym wynikiem. Każdy może zostać zmuszony do ucieczki, jeśli sprawy przybiorą niekorzystny obrót - nawet żywiołaki. Jeśli biblioteka spłonie na popiół, to tak."
+          ],
+          "id": "049"
+        }
+      ],
+      "id": "041"
+    },
+    "2:043": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Duch Ognia",
+          "page": 10,
+          "entries": [
+            "{@creature Exul|AitFR-ISF} zabija tutaj czas, póki może, czytając, co zaraz spali. Siedzi na stosie zwojów i książek na środku pokoju i pozwala sobie na oderwanie się od czytania, chyba że intruzi przykują jego uwagę. Myśli {@creature Malivar|AitFR-ISF} umarł lub uciekł i zachowuje się tak, jakby miał kurhan dla siebie i swoich żywiołaków. Kiedy jest rozproszony czytaniem, otrzymuje karę -5 do swojej umiejętności biernej {@skill Perception} wynik.",
+            "Jeśli podejrzewa, że ​​nie jest już sam, dalej bezczynnie czyta i pali teksty, ale nie pozwala już się rozpraszać.",
+            "Jeśli wie, że obecni są intruzi, przywołuje żywiołaka, aby go bronił - prawdopodobnie żywiołaka ognia, ponieważ może mu pomóc spalić bibliotekę lub wślizgnąć się do obszaru 15, aby wspomóc tamtejsze żywiołaki, jeśli zajdzie taka potrzeba. Jak tylko może, {@creature Exul|AitFR-ISF} wznawia swoje zadanie spalenia biblioteki, aby móc wyjść bez odniesienia obrażeń od geasów.",
+            "{@creature Exul|AitFR-ISF} jest przebiegłym i nieuczciwym wojownikiem. Używa niewidzialności, aby się chronić. Rzuca ogniem i rzuca {@spell wall of fire} przyspieszyć jego pracę. Jeśli on lub biblioteka mają mniej niż 25 procent maksymalnej liczby punktów wytrzymałości, {@creature Exul|AitFR-ISF} może próbować uciec, rzucając czar zmiany planu i podróżując samotnie do Planu Żywiołu Ognia. Mógłby to zrobić, nawet jeśli jego zadanie nie zostało ukończone, ryzykując obrażenia od geasów Tyreusa. {@creature Exul|AitFR-ISF} jest mądry, ale lekkomyślny. Pozostawia wszelkie żywiołaki, aby walczyć z poszukiwaczami przygód."
+          ],
+          "id": "044"
+        },
+        {
+          "type": "entries",
+          "name": "Kręgi teleportacyjne",
+          "page": 10,
+          "entries": [
+            "Dwa kręgi teleportacyjne służyły tej komnacie i czarodziejom, którzy przechowywali tę kolekcję. Północny krąg został uszkodzony w wyniku zapadnięcia się zapadliska. (Kiedyś prowadziła do obecnie zrujnowanej wieży czarodzieja z widokiem na Wybrzeże Mieczy.) Południowy krąg prowadzi do opuszczonej kamienicy w Waterdeep; okrąg znajduje się pod deskami podłogowymi na strychu. (Patrz „Część 3: Co dalej?”, aby zapoznać się z dodatkowymi opcjami.)"
+          ],
+          "id": "045"
+        },
+        {
+          "type": "entries",
+          "name": "Skarb",
+          "page": 10,
+          "entries": [
+            "Dla historyków, mędrców i kolekcjonerów z college'u lub uniwersytetu wartość niemagicznych zbiorów biblioteki sięga 5500 sz. Trzy {@item spell scroll||zwoje zaklęć} w zbiorze pozostają także: jeden zwój {@spell chain lightning}, jeden zwój {@spell Otiluke's freezing sphere}i jeden zwój {@spell wall of stone}."
+          ],
+          "id": "046"
+        }
+      ],
+      "id": "043"
+    },
+    "2:044": {
+      "type": "entries",
+      "name": "Duch Ognia",
+      "page": 10,
+      "entries": [
+        "{@creature Exul|AitFR-ISF} zabija tutaj czas, póki może, czytając, co zaraz spali. Siedzi na stosie zwojów i książek na środku pokoju i pozwala sobie na oderwanie się od czytania, chyba że intruzi przykują jego uwagę. Myśli {@creature Malivar|AitFR-ISF} umarł lub uciekł i zachowuje się tak, jakby miał kurhan dla siebie i swoich żywiołaków. Kiedy jest rozproszony czytaniem, otrzymuje karę -5 do swojej umiejętności biernej {@skill Perception} wynik.",
+        "Jeśli podejrzewa, że ​​nie jest już sam, dalej bezczynnie czyta i pali teksty, ale nie pozwala już się rozpraszać.",
+        "Jeśli wie, że obecni są intruzi, przywołuje żywiołaka, aby go bronił - prawdopodobnie żywiołaka ognia, ponieważ może mu pomóc spalić bibliotekę lub wślizgnąć się do obszaru 15, aby wspomóc tamtejsze żywiołaki, jeśli zajdzie taka potrzeba. Jak tylko może, {@creature Exul|AitFR-ISF} wznawia swoje zadanie spalenia biblioteki, aby móc wyjść bez odniesienia obrażeń od geasów.",
+        "{@creature Exul|AitFR-ISF} jest przebiegłym i nieuczciwym wojownikiem. Używa niewidzialności, aby się chronić. Rzuca ogniem i rzuca {@spell wall of fire} przyspieszyć jego pracę. Jeśli on lub biblioteka mają mniej niż 25 procent maksymalnej liczby punktów wytrzymałości, {@creature Exul|AitFR-ISF} może próbować uciec, rzucając czar zmiany planu i podróżując samotnie do Planu Żywiołu Ognia. Mógłby to zrobić, nawet jeśli jego zadanie nie zostało ukończone, ryzykując obrażenia od geasów Tyreusa. {@creature Exul|AitFR-ISF} jest mądry, ale lekkomyślny. Pozostawia wszelkie żywiołaki, aby walczyć z poszukiwaczami przygód."
+      ],
+      "id": "044"
+    },
+    "2:045": {
+      "type": "entries",
+      "name": "Kręgi teleportacyjne",
+      "page": 10,
+      "entries": [
+        "Dwa kręgi teleportacyjne służyły tej komnacie i czarodziejom, którzy przechowywali tę kolekcję. Północny krąg został uszkodzony w wyniku zapadnięcia się zapadliska. (Kiedyś prowadziła do obecnie zrujnowanej wieży czarodzieja z widokiem na Wybrzeże Mieczy.) Południowy krąg prowadzi do opuszczonej kamienicy w Waterdeep; okrąg znajduje się pod deskami podłogowymi na strychu. (Patrz „Część 3: Co dalej?”, aby zapoznać się z dodatkowymi opcjami.)"
+      ],
+      "id": "045"
+    },
+    "2:046": {
+      "type": "entries",
+      "name": "Skarb",
+      "page": 10,
+      "entries": [
+        "Dla historyków, mędrców i kolekcjonerów z college'u lub uniwersytetu wartość niemagicznych zbiorów biblioteki sięga 5500 sz. Trzy {@item spell scroll||zwoje zaklęć} w zbiorze pozostają także: jeden zwój {@spell chain lightning}, jeden zwój {@spell Otiluke's freezing sphere}i jeden zwój {@spell wall of stone}."
+      ],
+      "id": "046"
+    },
+    "2:047": {
+      "type": "entries",
+      "name": "Płonąca biblioteka",
+      "page": 10,
+      "entries": [
+        "W tej bibliotece - zaśmieconej bezpańskimi stronami, stołami, krzesłami i dywanikami - ogień rozprzestrzenia się na odległość 5 stóp w dowolnym kierunku przy wskaźniku inicjatywy 20 (przegrana remisów inicjatywy), gdy kartki ognistego papieru fruwają na gorącym wietrze. Każdy płonący kwadrat o powierzchni 5 stóp zadaje 3 ({@damage 1d6}) obrażenia biblioteki od ognia, maksymalnie do 42 ({@damage 12d6}) obrażenia od ognia w każdej turze.",
+        "Stworzenie, które rozpoczyna swoją turę na płonącym obszarze, otrzymuje 3 ({@damage 1d6}) obrażenia od ognia. Istota pozbawiona odporności na obrażenia od ognia ma wadę Mądrości ({@skill Perception}) sprawdza, czy widać tutaj dym i ogień.",
+        "Komora przetrwała pożar, nawet jeśli jest to zwęglona skorupa kłębiąca się dymem na górne poziomy, do obszaru 15 i na otwarte powietrze.",
+        "To kolekcja jest zagrożona. Kolekcja biblioteki ma 300 punktów wytrzymałości i nie ma progu obrażeń. Zapoznaj się z tabelą wyników uszkodzeń kolekcji, aby określić, co przetrwa w oparciu o szkody poniesione przez kolekcję."
+      ],
+      "id": "047"
+    },
+    "2:048": {
+      "type": "entries",
+      "name": "Walka z ogniem",
+      "page": 10,
+      "entries": [
+        "To, czego poszukiwacze przygód użyją do walki z płomieniami, zależy od nich. Wody nie ma tu pod dostatkiem, ale ziemi i ziemi jest pod dostatkiem.",
+        "Załóżmy, że jakikolwiek test zdolności do ugaszenia ognia za pomocą środków niemagicznych wymaga powodzenia {@dc 15} test, którego zdolność zależy od tego, co postacie próbują zrobić. Sukces takiej kontroli oznacza ugaszenie pożaru na obszarze kwadratowym o powierzchni 3 metrów lub równoważnym.",
+        "Jeśli obrażenia od zimna zadane na dowolnym obszarze o powierzchni 5 stóp kwadratowych przekraczają obrażenia zadane w tym obszarze przez ogień, ogień na tym obszarze gaśnie. Utrzymujący się lód lub inne utrzymujące się efekty zapobiegają rozprzestrzenianiu się ognia.",
+        {
+          "type": "table",
+          "caption": "Wyniki uszkodzeń kolekcji",
+          "colLabels": [
+            "Poniesione szkody",
+            "Wynik"
+          ],
+          "colStyles": [
+            "col-4",
+            "col-8"
+          ],
+          "rows": [
+            [
+              "0-50 KM",
+              "Drobne straty: Palą się tylko wiedza i legendy, a wartość kolekcji zmniejsza się o 500 sz."
+            ],
+            [
+              "51-100 KM",
+              "Umiarkowane straty: Jeden {@item spell scroll} zostaje zniszczona, a wartość kolekcji zostaje zmniejszona o 1500 sz."
+            ],
+            [
+              "101-200 KM",
+              "Poważne straty: Dwa zwoje zaklęć zostają zniszczone, a wartość kolekcji zostaje zmniejszona o 3000 sz."
+            ]
+          ]
+        },
+        "W przeciwnym razie obszar może ponownie spłonąć, jeśli ogień się rozprzestrzeni, a w kolekcji nadal pozostaną punkty wytrzymałości."
+      ],
+      "id": "048"
+    },
+    "2:04a": {
+      "type": "entries",
+      "name": "15. Sala Procesyjna",
+      "page": 11,
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Kawałki zakrzywionych marmurowych i kamiennych dysków, które tworzyły kolumny, sugerują miejsce, które kiedyś było ważne. Teraz jest zniszczony do ruiny.",
+            "Niektóre kamienie poruszają się same, przebijając się przez gruz."
+          ],
+          "id": "04b"
+        },
+        "Ten szeroki korytarz był niegdyś miejscem pamięci wykonanym z szarego kamienia i białych marmurowych detali. Przybycie Tyreusa i jego żywiołaków rozbiło kolumny, łuki i mozaiki. Wszystko, co pozostało, to ponure stosy kamieni usiane kawałkami płytek i marmuru. Podłoga jest teraz w zasadzie zagłębieniem gruzu, w którym zbiera się ziemia, skały i trawa z zapadniętego zapadliska.",
+        "Cały ten obszar to {@quickref difficult terrain||3}. Drzwi do obszaru 14 są poluzowane w zawiasach i zablokowane przez kamienną płytę, która uniemożliwia ich otwarcie. Tyreus nie chciał, żeby go śledzono. Kamień wymaga udanego testu {@dc 20} Siły ({@skill Athletics}), aby się przesunąć, lub udanego testu {@dc 14} Zręczności ({@skill Acrobatics}), aby minąć.",
+        "Obszar ten jest na razie zamieszkany przez dwa żywiołaki ziemi, które pozostały tu po tym, jak pomogły Tyreusowi dotrzeć w to miejsce. Nie boją się angażować w walkę, ale żadne z nich nie chce tu umierać. Uciekają w głąb ziemi, jeśli ich wytrzymałość spadnie do 25 procent, być może powrócą kilka dni później w celu dalszych eksploracji."
+      ],
+      "id": "04a"
+    },
+    "2:04c": {
+      "type": "entries",
+      "name": "16. Zaszczycone Krypty",
+      "page": 11,
+      "entries": [
+        "Sala ceremonialna miała zakończyć się freskiem przedstawiającym gwiaździste niebo, księżyc i jego ogon. Duża część fresku znikła wraz z przybyciem Tyreusa, odsłaniając nagi, szary kamień pod spodem - ścianę, za którą kryją się drzwi, które nigdy nie miały być otwarte. Sukces {@dc 15} Inteligencja ({@skill Investigation}) lub Mądrość ({@skill Perception}) kontrola odkrywa drzwi pośród gruzów.",
+        {
+          "type": "insetReadaloud",
+          "entries": [
+            "Szare, pozbawione ozdób przejście za freskiem wisi w niesamowitej, zakurzonej mgle."
+          ],
+          "id": "04d"
+        },
+        "Przejście i krypty za drzwiami są proste i oszczędne. Sarkofagi w obszarach od 16A do 16D są po prostu wyrzeźbione tak, aby przedstawiały różnych, zapomnianych czarodziejów znajdujących się w środku. Żadnej wspaniałości. Każdy jest przedstawiony w prostej szacie.",
+        "Niestety, niektórzy z martwych czarodziejów pochowanych w tych kryptach, poruszeni gniewem i niepokojem, powstają, by ich bronić. Te {@dice 1d4 + 2} {@creature mummy||mumie} nie są piaszczystymi, jałowymi stworzeniami, ale wychudzonymi, szarymi potworami odzianymi w szare szaty, ale ich gnijące pięści pozostają zabójcze.",
+        "Każda mumia rusza, by uciec ze swojej krypty i zaatakować intruzów, niezależnie od tego, czy chodzi o poszukiwaczy przygód, żywiołaki, {@creature Malivar|AitFR-ISF}lub kogokolwiek innego. Wracają do swoich krypt, jeśli nie mogą znaleźć celów w promieniu 30 metrów od sekretnych drzwi krypt, powracając w razie potrzeby, aby odeprzeć intruzów. Nie zamykają się i nie otwierają drzwi z własnej woli.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Skarb",
+              "page": 11,
+              "entries": [
+                "Krypty są dość oszczędnie wyposażone, ponieważ pochowani tu czarodzieje zostawili swoje rzeczy bibliotece i swoim uczniom. Mimo to można tu znaleźć kilka srebrnych wazonów, złotych urn i pucharów o łącznej wartości 300 sz. W obszarze 16C znajduje się mały obsydianowy posąg meduzy o szmaragdowych oczach o wartości 425 sz."
+              ],
+              "id": "04f"
+            }
+          ],
+          "id": "04e"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AitFR-ISF/image-075.webp"
+          },
+          "width": 656,
+          "height": 699,
+          "credit": "Alayna Danner"
+        }
+      ],
+      "id": "04c"
+    },
+    "2:04e": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Skarb",
+          "page": 11,
+          "entries": [
+            "Krypty są dość oszczędnie wyposażone, ponieważ pochowani tu czarodzieje zostawili swoje rzeczy bibliotece i swoim uczniom. Mimo to można tu znaleźć kilka srebrnych wazonów, złotych urn i pucharów o łącznej wartości 300 sz. W obszarze 16C znajduje się mały obsydianowy posąg meduzy o szmaragdowych oczach o wartości 425 sz."
+          ],
+          "id": "04f"
+        }
+      ],
+      "id": "04e"
+    },
+    "2:04f": {
+      "type": "entries",
+      "name": "Skarb",
+      "page": 11,
+      "entries": [
+        "Krypty są dość oszczędnie wyposażone, ponieważ pochowani tu czarodzieje zostawili swoje rzeczy bibliotece i swoim uczniom. Mimo to można tu znaleźć kilka srebrnych wazonów, złotych urn i pucharów o łącznej wartości 300 sz. W obszarze 16C znajduje się mały obsydianowy posąg meduzy o szmaragdowych oczach o wartości 425 sz."
+      ],
+      "id": "04f"
+    },
+    "3:050": {
+      "type": "section",
+      "name": "Część 3: Co dalej?",
+      "page": 12,
+      "entries": [
+        "Poszukiwacze przygód mogą mieć skarby do sprzedania i wiedzę do pożyczenia, albo mieć pytania i rany do opatrzenia. Konsekwencje tej przygody to zbiór pytań, więc skup się na postaciach i tym, co chcą dalej robić, być może z przerwami. Jeśli będą chcieli dogonić Tyreusa i Morwenę, ten trop może po prostu zniknąć - na razie. Ich wątki pojawiają się ponownie w kolejnej przygodzie: {@adventure The Hidden Page|AitFR-THP}.",
+        {
+          "type": "entries",
+          "name": "Czarodzieje z Barrow",
+          "page": 12,
+          "entries": [
+            "Podarowanie lub sprzedaż pozostałości biblioteki i wszelkich innych skarbów może zająć poszukiwaczy przygód aż do następnej przygody. Kurhan lub to, co z niego zostało, może zainteresować mędrców - albo poszukiwacze przygód mogą zatrzymać go dla siebie.",
+            "Dochodzenie w sprawie tożsamości i losów czarodziejów z kurhanów nie ujawnia wielkich tajemnic, ale też nie daje wielu odpowiedzi. Poniższe elementy historii są ważne dla następnej przygody, ale wiele na temat tych starych czarodziejów pozostaje do decyzji, dostosowania lub pozostawienia w tajemnicy.",
+            {
+              "type": "list",
+              "items": [
+                "Przywódca sekty czarodziejów kurhanów był podróżnikiem z „odległego miejsca” lub „odległego świata”.",
+                "Przybyła na Wybrzeże Mieczy „w poszukiwaniu odpowiedzi” i „studiowania magii Krain”. Jej wyznawcy byli uczonymi czarodziejami.",
+                "Czasami mieszkała w kamienicy w Waterdeep, ale kiedy wracała do ojczyzny, zostawiała ją zamurowaną. Bez niej sekta się rozpadła."
+              ]
+            },
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Kręgi teleportacyjne",
+                  "page": 12,
+                  "entries": [
+                    "Kręgi teleportacyjne w bibliotece prowadziły do ​​miejsc przydatnych dla sekty czarodziejów. Jedna prowadziła na strych zabitej deskami, opuszczonej kamienicy mistrza. Drugi jest uszkodzony i prawdopodobnie nie działa - możesz go jednak użyć do podłączenia do kampanii w innym miejscu."
+                  ],
+                  "id": "053"
+                }
+              ],
+              "id": "052"
+            }
+          ],
+          "id": "051"
+        },
+        {
+          "type": "entries",
+          "name": "Zaginieni złoczyńcy",
+          "page": 12,
+          "entries": [
+            "Tyreus i Morwena w magiczny sposób przenieśli się do jednego z ukrytych sanktuariów Tyreusa. Tyreus dostał z kurhanu to, czego chciał: księgę magii z ukrytym w środku kluczem. Na razie on i Morwena pracują nad swoją magią, poznają się nawzajem i planują kolejne ruchy. Poszukiwacze przygód nie widzieli jeszcze ostatniego z nich."
+          ],
+          "id": "054"
+        }
+      ],
+      "id": "050"
+    },
+    "3:051": {
+      "type": "entries",
+      "name": "Czarodzieje z Barrow",
+      "page": 12,
+      "entries": [
+        "Podarowanie lub sprzedaż pozostałości biblioteki i wszelkich innych skarbów może zająć poszukiwaczy przygód aż do następnej przygody. Kurhan lub to, co z niego zostało, może zainteresować mędrców - albo poszukiwacze przygód mogą zatrzymać go dla siebie.",
+        "Dochodzenie w sprawie tożsamości i losów czarodziejów z kurhanów nie ujawnia wielkich tajemnic, ale też nie daje wielu odpowiedzi. Poniższe elementy historii są ważne dla następnej przygody, ale wiele na temat tych starych czarodziejów pozostaje do decyzji, dostosowania lub pozostawienia w tajemnicy.",
+        {
+          "type": "list",
+          "items": [
+            "Przywódca sekty czarodziejów kurhanów był podróżnikiem z „odległego miejsca” lub „odległego świata”.",
+            "Przybyła na Wybrzeże Mieczy „w poszukiwaniu odpowiedzi” i „studiowania magii Krain”. Jej wyznawcy byli uczonymi czarodziejami.",
+            "Czasami mieszkała w kamienicy w Waterdeep, ale kiedy wracała do ojczyzny, zostawiała ją zamurowaną. Bez niej sekta się rozpadła."
+          ]
+        },
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Kręgi teleportacyjne",
+              "page": 12,
+              "entries": [
+                "Kręgi teleportacyjne w bibliotece prowadziły do ​​miejsc przydatnych dla sekty czarodziejów. Jedna prowadziła na strych zabitej deskami, opuszczonej kamienicy mistrza. Drugi jest uszkodzony i prawdopodobnie nie działa - możesz go jednak użyć do podłączenia do kampanii w innym miejscu."
+              ],
+              "id": "053"
+            }
+          ],
+          "id": "052"
+        }
+      ],
+      "id": "051"
+    },
+    "3:052": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Kręgi teleportacyjne",
+          "page": 12,
+          "entries": [
+            "Kręgi teleportacyjne w bibliotece prowadziły do ​​miejsc przydatnych dla sekty czarodziejów. Jedna prowadziła na strych zabitej deskami, opuszczonej kamienicy mistrza. Drugi jest uszkodzony i prawdopodobnie nie działa - możesz go jednak użyć do podłączenia do kampanii w innym miejscu."
+          ],
+          "id": "053"
+        }
+      ],
+      "id": "052"
+    },
+    "3:053": {
+      "type": "entries",
+      "name": "Kręgi teleportacyjne",
+      "page": 12,
+      "entries": [
+        "Kręgi teleportacyjne w bibliotece prowadziły do ​​miejsc przydatnych dla sekty czarodziejów. Jedna prowadziła na strych zabitej deskami, opuszczonej kamienicy mistrza. Drugi jest uszkodzony i prawdopodobnie nie działa - możesz go jednak użyć do podłączenia do kampanii w innym miejscu."
+      ],
+      "id": "053"
+    },
+    "3:054": {
+      "type": "entries",
+      "name": "Zaginieni złoczyńcy",
+      "page": 12,
+      "entries": [
+        "Tyreus i Morwena w magiczny sposób przenieśli się do jednego z ukrytych sanktuariów Tyreusa. Tyreus dostał z kurhanu to, czego chciał: księgę magii z ukrytym w środku kluczem. Na razie on i Morwena pracują nad swoją magią, poznają się nawzajem i planują kolejne ruchy. Poszukiwacze przygód nie widzieli jeszcze ostatniego z nich."
+      ],
+      "id": "054"
+    },
+    "4:055": {
+      "type": "section",
+      "name": "Dodatek: Mapy, potwory i NPC",
+      "page": 12,
+      "entries": [
+        "W tej sekcji szczegółowo opisano statystyki gry dotyczące kluczowych NPC-ów, którzy wchodzą w interakcję z poszukiwaczami przygód w tym scenariuszu.",
+        {
+          "type": "list",
+          "columns": 2,
+          "items": [
+            "{@creature Malivar|AitFR-ISF}",
+            "{@creature Exul|AitFR-ISF}"
+          ]
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AitFR-ISF/image-090.webp"
+          },
+          "width": 1129,
+          "height": 458,
+          "credit": "Will Hindmarch"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AitFR-ISF/image-093.webp"
+          },
+          "width": 1082,
+          "height": 575,
+          "mapRegions": [
+            {
+              "area": "012",
+              "points": [
+                [
+                  128,
+                  67
+                ],
+                [
+                  128,
+                  165
+                ],
+                [
+                  205,
+                  165
+                ],
+                [
+                  205,
+                  67
+                ]
+              ]
+            },
+            {
+              "area": "017",
+              "points": [
+                [
+                  212,
+                  67
+                ],
+                [
+                  212,
+                  127
+                ],
+                [
+                  365,
+                  127
+                ],
+                [
+                  365,
+                  67
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  369,
+                  67
+                ],
+                [
+                  369,
+                  125
+                ],
+                [
+                  464,
+                  125
+                ],
+                [
+                  464,
+                  67
+                ]
+              ]
+            },
+            {
+              "area": "021",
+              "points": [
+                [
+                  468,
+                  127
+                ],
+                [
+                  468,
+                  192
+                ],
+                [
+                  521,
+                  192
+                ],
+                [
+                  521,
+                  127
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  467,
+                  195
+                ],
+                [
+                  467,
+                  255
+                ],
+                [
+                  524,
+                  255
+                ],
+                [
+                  524,
+                  195
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  469,
+                  259
+                ],
+                [
+                  469,
+                  319
+                ],
+                [
+                  525,
+                  319
+                ],
+                [
+                  525,
+                  259
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  341,
+                  327
+                ],
+                [
+                  341,
+                  381
+                ],
+                [
+                  401,
+                  381
+                ],
+                [
+                  401,
+                  327
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  404,
+                  328
+                ],
+                [
+                  404,
+                  381
+                ],
+                [
+                  465,
+                  381
+                ],
+                [
+                  465,
+                  328
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  337,
+                  169
+                ],
+                [
+                  337,
+                  223
+                ],
+                [
+                  433,
+                  223
+                ],
+                [
+                  433,
+                  169
+                ]
+              ]
+            },
+            {
+              "area": "01f",
+              "points": [
+                [
+                  339,
+                  225
+                ],
+                [
+                  339,
+                  283
+                ],
+                [
+                  435,
+                  283
+                ],
+                [
+                  435,
+                  225
+                ]
+              ]
+            },
+            {
+              "area": "01b",
+              "points": [
+                [
+                  208,
+                  167
+                ],
+                [
+                  208,
+                  260
+                ],
+                [
+                  334,
+                  260
+                ],
+                [
+                  334,
+                  167
+                ]
+              ]
+            },
+            {
+              "area": "023",
+              "points": [
+                [
+                  216,
+                  294
+                ],
+                [
+                  216,
+                  379
+                ],
+                [
+                  334,
+                  379
+                ],
+                [
+                  334,
+                  294
+                ]
+              ]
+            },
+            {
+              "area": "025",
+              "points": [
+                [
+                  132,
+                  290
+                ],
+                [
+                  132,
+                  324
+                ],
+                [
+                  210,
+                  324
+                ],
+                [
+                  210,
+                  290
+                ]
+              ]
+            },
+            {
+              "area": "027",
+              "points": [
+                [
+                  133,
+                  327
+                ],
+                [
+                  133,
+                  386
+                ],
+                [
+                  208,
+                  386
+                ],
+                [
+                  208,
+                  327
+                ]
+              ]
+            }
+          ],
+          "imageType": "mapa",
+          "grid": {
+            "type": "square",
+            "size": 64,
+            "offsetX": 9,
+            "offsetY": 8,
+            "scale": 4
+          },
+          "hrefThumbnail": {
+            "type": "internal",
+            "path": "adventure/AitFR-ISF/thumbnail/image-093.webp"
+          },
+          "id": "056",
+          "credit": "Will Hindmarch"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AitFR-ISF/image-095.webp"
+          },
+          "width": 1082,
+          "height": 575,
+          "mapRegions": [
+            {
+              "area": "029",
+              "points": [
+                [
+                  162,
+                  133
+                ],
+                [
+                  162,
+                  290
+                ],
+                [
+                  214,
+                  290
+                ],
+                [
+                  214,
+                  133
+                ]
+              ]
+            },
+            {
+              "area": "02a",
+              "points": [
+                [
+                  115,
+                  195
+                ],
+                [
+                  115,
+                  260
+                ],
+                [
+                  160,
+                  260
+                ],
+                [
+                  160,
+                  195
+                ]
+              ]
+            },
+            {
+              "area": "032",
+              "points": [
+                [
+                  225,
+                  66
+                ],
+                [
+                  225,
+                  195
+                ],
+                [
+                  352,
+                  195
+                ],
+                [
+                  352,
+                  66
+                ]
+              ]
+            },
+            {
+              "area": "03b",
+              "points": [
+                [
+                  370,
+                  162
+                ],
+                [
+                  370,
+                  290
+                ],
+                [
+                  498,
+                  290
+                ],
+                [
+                  498,
+                  162
+                ]
+              ]
+            },
+            {
+              "area": "03b",
+              "points": [
+                [
+                  227,
+                  258
+                ],
+                [
+                  227,
+                  384
+                ],
+                [
+                  355,
+                  384
+                ],
+                [
+                  355,
+                  258
+                ]
+              ]
+            }
+          ],
+          "imageType": "mapa",
+          "grid": {
+            "type": "square",
+            "size": 64,
+            "offsetX": 6,
+            "offsetY": 6,
+            "scale": 4
+          },
+          "hrefThumbnail": {
+            "type": "internal",
+            "path": "adventure/AitFR-ISF/thumbnail/image-095.webp"
+          },
+          "id": "057",
+          "credit": "Will Hindmarch"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/AitFR-ISF/image-097.webp"
+          },
+          "width": 1082,
+          "height": 527,
+          "mapRegions": [
+            {
+              "area": "03f",
+              "points": [
+                [
+                  82,
+                  84
+                ],
+                [
+                  207,
+                  84
+                ],
+                [
+                  207,
+                  112
+                ],
+                [
+                  170,
+                  112
+                ],
+                [
+                  170,
+                  336
+                ],
+                [
+                  208,
+                  336
+                ],
+                [
+                  208,
+                  370
+                ],
+                [
+                  122,
+                  370
+                ],
+                [
+                  122,
+                  115
+                ],
+                [
+                  82,
+                  115
+                ]
+              ]
+            },
+            {
+              "area": "041",
+              "points": [
+                [
+                  211,
+                  84
+                ],
+                [
+                  211,
+                  368
+                ],
+                [
+                  519,
+                  368
+                ],
+                [
+                  519,
+                  84
+                ]
+              ]
+            },
+            {
+              "area": "04a",
+              "points": [
+                [
+                  530,
+                  179
+                ],
+                [
+                  530,
+                  268
+                ],
+                [
+                  850,
+                  268
+                ],
+                [
+                  850,
+                  179
+                ]
+              ]
+            },
+            {
+              "area": "04c",
+              "points": [
+                [
+                  867,
+                  115
+                ],
+                [
+                  867,
+                  340
+                ],
+                [
+                  992,
+                  340
+                ],
+                [
+                  992,
+                  115
+                ]
+              ]
+            }
+          ],
+          "imageType": "mapa",
+          "grid": {
+            "type": "square",
+            "size": 64,
+            "offsetX": 7,
+            "offsetY": 6,
+            "scale": 4
+          },
+          "hrefThumbnail": {
+            "type": "internal",
+            "path": "adventure/AitFR-ISF/thumbnail/image-097.webp"
+          },
+          "id": "058",
+          "credit": "Will Hindmarch"
+        }
+      ],
+      "id": "055"
+    },
+    "5:059": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Pisanie przygodowe i mapy",
+              "entries": [
+                "Willa Hindmarcha"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Projektant graficzny przygodowy",
+              "entries": [
+                "Bree Heiss"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Ilustratorzy",
+              "entries": [
+                "Alayna Danner, Bram Sels, Kasia „Kafis” Zielińska"
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Przygody w zapomnianych krainach prowadzą",
+              "entries": [
+                "James Wyatt (narracja), Zach Stella (grafika), przy udziale Tylera Jacobsona"
+              ]
+            }
+          ]
+        }
+      ],
+      "id": "059"
+    }
+  }
+}

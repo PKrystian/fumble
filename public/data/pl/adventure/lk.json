@@ -1,0 +1,3806 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Twierdza Piorunów",
+      "id": "000",
+      "entries": [
+        "{@i Twierdza Piorunów} to piąta edycja przygody Dungeons & Dragons dla czterech do sześciu postaci na poziomie 3. Akcja rozgrywa się w wybranym przez Ciebie świecie - być może w świecie, który sam stworzyłeś. Zawiera potwory z {@filter Kompendium potworów, tom 3: Stworzenia z Minecrafta|bestiary|source=MCV3MC} i dlatego dobrze pasuje do ustawień inspirowanych {@i Minecrafta}.",
+        "Informacje przedstawione tutaj są przeznaczone wyłącznie dla oczu DM. Jeśli planujesz rozegrać tę przygodę z kimś innym jako DM, przestań czytać teraz!",
+        {
+          "type": "section",
+          "name": "Prowadzenie przygody",
+          "id": "001",
+          "entries": [
+            "Tę przygodę zaprojektowano tak, aby można ją było rozegrać w ciągu trzech lub czterech godzin. Cel bohaterów jest prosty: muszą przeszukać opuszczony zamek w poszukiwaniu sześciu magicznych piorunochronów. Po zainstalowaniu na blankach pręty te tworzą ochronne pole piorunowe wokół zamku. Broniąc w ten sposób zamku, bohaterowie mogą zapewnić schronienie uchodźcom wysiedlonym przez grasującego smoka. Więcej informacji na temat zamku i smoka znajdziesz w dalszych rozdziałach.",
+            {
+              "type": "insetReadaloud",
+              "id": "002",
+              "entries": [
+                "Tekst pojawiający się w takim ramce należy przeczytać na głos lub sparafrazować dla graczy, gdy ich postacie po raz pierwszy dotrą do miejsca lub w określonych okolicznościach, zgodnie z opisem w tekście."
+              ]
+            },
+            "Kiedy nazwa stworzenia pojawia się w typie {@b pogrubiony}, jest to wizualna wskazówka wskazująca ci blok statystyk, w ten sposób mówiąc: „Hej, DM, lepiej przygotuj blok statystyk tego stworzenia. Będziesz go potrzebować”. Zwykle blok statystyk można znaleźć w {@filter Kompendium potworów, tom 3: Stworzenia z Minecrafta|bestiary|source=MCV3MC}; jeśli blok statystyk znajduje się w {@book Monster Manual|MM}, tekst przygody o tym informuje.",
+            "Możesz ułatwić lub utrudnić przygodę, dostosować ją do mniejszych lub większych grup postaci gracza, dostosowując liczbę potworów lub dodając lub usuwając spotkania.",
+            "Przygoda z łatwością wpasowuje się w każdą kampanię. Wszystko czego potrzebujesz to grasujący smok i odległa lokalizacja dla Twierdzy Błyskawic. Jeśli potrzebujesz pomocy w wyborze smoka, rzuć a {@dice d6} i zapoznaj się z tabelą Sugestii Smoka. W tej przygodzie bohaterowie nie spotykają smoka; ma to być nadchodzące zagrożenie, które może ujawnić się w dalszej części kampanii.",
+            {
+              "type": "table",
+              "caption": "Sugestie smoka",
+              "colLabels": [
+                "d6",
+                "Blok statystyk smoka",
+                "CR"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-8",
+                "col-2 text-center"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "{@creature Young black dragon}",
+                  "7"
+                ],
+                [
+                  "2",
+                  "{@creature Young blue dragon}",
+                  "9"
+                ],
+                [
+                  "3",
+                  "{@creature Young green dragon}",
+                  "8"
+                ],
+                [
+                  "4",
+                  "{@creature Young red dragon}",
+                  "10"
+                ],
+                [
+                  "5",
+                  "{@creature Young white dragon}",
+                  "6"
+                ],
+                [
+                  "6",
+                  "{@creature Ender Dragon|MCV3MC}",
+                  "19"
+                ]
+              ]
+            },
+            "Jeśli podoba Ci się mapa Twierdzy Błyskawic, ale nie chcesz brać udziału w tej przygodzie, możesz użyć tej mapy do przedstawienia innej twierdzy w swojej kampanii."
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Rozpoczęcie przygody",
+          "id": "003",
+          "entries": [
+            "Rozpocznij przygodę, czytając na głos następujące informacje:",
+            {
+              "type": "insetReadaloud",
+              "id": "004",
+              "entries": [
+                "Grasujący smok spustoszył wiele wiosek, pożerając niektórych mieszkańców, wypierając innych. Uderza bez litości. Nikt nie wie, skąd pochodzi, gdzie ukrywa się ani jak długo zamierza terroryzować królestwo.",
+                "Ale jest nadzieja. Dawno temu rycerz-wilkołak o wielkim odwadze wykorzystał swoje bogactwo do wzniesienia bastionu na skraju dziczy. Zamek ten miał moc tworzenia wokół siebie tarczy od piorunów - tarczy wystarczająco potężnej, aby przerywać oblężenia i trzymać potwory na dystans. Zamek został opuszczony wkrótce po śmierci rycerza. Do tego czasu w całym kraju zapanował pokój, przez co twierdza stała się niepotrzebna.",
+                "Wieśniacy wysiedleni przez smoka proszą cię o udanie się do Twierdzy Błyskawic i pozbycie się z niej wszelkich zagrożeń. Plotka głosi, że tarcza odgromowa jest zasilana sześcioma magicznymi piorunochronami. Jeśli uda ci się znaleźć te pręty, być może uda się ponownie aktywować tarczę odgromową, dzięki czemu uciekinierzy uciekający przed smokiem będą mogli wykorzystać twierdzę jako sanktuarium."
+              ]
+            },
+            "Odległość, jaką bohaterowie muszą pokonać, aby dotrzeć do Twierdzy Błyskawic, zależy od Ciebie. Bohaterowie muszą się spieszyć, jeśli chcą uratować uchodźców.",
+            "Jeśli nie zdecydujesz inaczej, podróż do twierdzy przebiegnie spokojnie."
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Dojazd do Twierdzy",
+          "id": "005",
+          "entries": [
+            "Kiedy postacie dotrą do twierdzy, opisz ją swoim graczom w następujący sposób:",
+            {
+              "type": "insetReadaloud",
+              "id": "006",
+              "entries": [
+                "Twierdza Piorunów to dobrze zachowana budowla z blankami otaczającymi granitowe ściany. Prosta ścieżka prowadzi do kamiennej bramy, w której znajdują się zamknięte ciężkie drewniane drzwi za żelazną broną. Nie widać żadnych śladów zamieszkania ani innych wejść."
+              ]
+            },
+            "Postacie pojawiają się rano, po południu, wieczorem lub w środku nocy, zgodnie z twoją decyzją.",
+            "Postacie okrążające twierdzę mogą potwierdzić, że brama jest jedynym wejściem. Zanim postacie dojdą dalej, rozpocznij spotkanie „Głodne wilki”.",
+            {
+              "type": "entries",
+              "name": "Głodne Wilki",
+              "id": "007",
+              "entries": [
+                "Na zewnątrz twierdzy, osiem {@creature Wolf of the Overworld|MCV3MC|wilki z Nadświata} podejść do bohaterów. (Alternatywnie możesz użyć {@creature wolf} blok statystyk z {@book Monster Manual|MM} aby reprezentować te stworzenia.)",
+                "Wilki wyglądają na głodne. Jeśli postać oferuje wilkowi surowe lub ugotowane mięso, przyjmuje tę ofiarę i w swojej następnej turze ucieka, zabierając ze sobą innego wilka. Jeśli zamiast tego postać zaoferuje wilkowi kość, wilk przyjmie kość i zaprzyjaźni się z tą postacią, wykonując jej polecenia przez następne 24 godziny, a potem odchodząc. Wilki, którym nie podano pożywienia ani kości, atakują, mając nadzieję na posiłek dla drużyny.",
+                "W ramach akcji postać może spróbować przekonać wilka, aby w swojej następnej turze odszedł spokojnie, bez składania ofiary w postaci jedzenia lub kości, kończąc pomyślnie {@dc 11} Mądrość ({@skill Animal Handling}) sprawdzić lub przestraszyć wilka, aby w swojej następnej turze odszedł, co wymaga powodzenia {@dc 11} Charyzma ({@skill Intimidation}) sprawdzać.",
+                "Ranny wilk ucieka w swojej następnej turze. Jeśli cztery wilki zostaną zabite, wszystkie pozostałe wilki wycofują się w swojej następnej turze, korzystając z {@action dash||Kreska} działania mające na celu zachowanie jak największej odległości między nimi a postaciami."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Wejście do Twierdzy",
+              "id": "008",
+              "entries": [
+                "Po rozprawieniu się z wilkami bohaterowie mogą spróbować przedostać się do twierdzy, podnosząc kratę lub sprytnie używając magii. Alternatywnie mogą użyć haków i lin (lub zestawów wspinaczkowych), aby wspiąć się na wysoką na 20 stóp ścianę zewnętrzną. Wszystkie te opcje wyjaśniono poniżej:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Mądre użycie magii",
+                      "entry": "Mała postać zmniejszona do rozmiaru Tiny przez {@spell enlarge/reduce} zaklęcie może prześliznąć się pomiędzy kratami brony, podczas gdy a {@spell misty step} zaklęcie lub podobna magia umożliwia bezpieczny transport z jednej strony brony na drugą."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Wspinaczka po ścianach",
+                      "entry": "Szczyt zewnętrznego muru jest 20 stóp wyższy od gruntu na zewnątrz twierdzy, a ściana jest zbyt gładka, aby się wspiąć bez odpowiedniego sprzętu lub magii (takiej jak {@spell spider climb} zaklęcie). Postać wyposażona w sprzęt wspinaczkowy może za jego pomocą spróbować wspiąć się na ścianę, co zakończy się sukcesem {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdzać."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Podnoszenie Portcullis",
+                      "entry": "W ramach akcji postać może spróbować podnieść kratę, wykonując udany test Siły {@dc 20} ({@skill Athletics}). Postać może spowodować opadnięcie kraty poprzez jej puszczenie. Utrzymanie go wymaga ciągłego wysiłku; robiąca to postać musi wykonać rzut obronny na Siłę {@dc 15} na początku każdej swojej tury. W przypadku nieudanego rzutu obronnego siła postaci spada, a krata opada. (Bratę można również podnosić i opuszczać za pomocą wciągarki w {@area area K13|025|x}.)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Eksploracja Twierdzy",
+          "id": "009",
+          "entries": [
+            "Po wejściu do twierdzy bohaterowie muszą odnaleźć sześć magicznych piorunochronów. Po znalezieniu prętów postacie mogą przetestować tarczę oświetleniową, wkładając pręty w sześć kamieni węgielnych blanków (patrz {@area area K21|03b|x}).",
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/LK/000-map-0.01-lightning-keep.webp"
+                  },
+                  "imageType": "mapa",
+                  "title": "Mapa: Twierdza Błyskawic",
+                  "credit": "Sean Macdonald",
+                  "width": 3840,
+                  "height": 5280,
+                  "id": "040",
+                  "mapRegions": [
+                    {
+                      "area": "03b",
+                      "points": [
+                        [
+                          1941,
+                          524
+                        ],
+                        [
+                          1941,
+                          240
+                        ],
+                        [
+                          3291,
+                          240
+                        ],
+                        [
+                          3291,
+                          2455
+                        ],
+                        [
+                          2505,
+                          2455
+                        ],
+                        [
+                          2505,
+                          2156
+                        ],
+                        [
+                          2443,
+                          2156
+                        ],
+                        [
+                          2443,
+                          2055
+                        ],
+                        [
+                          2611,
+                          2055
+                        ],
+                        [
+                          2611,
+                          2366
+                        ],
+                        [
+                          3192,
+                          2366
+                        ],
+                        [
+                          3192,
+                          333
+                        ],
+                        [
+                          2036,
+                          333
+                        ],
+                        [
+                          2036,
+                          524
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "03b",
+                      "points": [
+                        [
+                          1556,
+                          1103
+                        ],
+                        [
+                          1171,
+                          1103
+                        ],
+                        [
+                          1171,
+                          2162
+                        ],
+                        [
+                          1640,
+                          2162
+                        ],
+                        [
+                          1640,
+                          2072
+                        ],
+                        [
+                          1259,
+                          2072
+                        ],
+                        [
+                          1259,
+                          1194
+                        ],
+                        [
+                          1556,
+                          1194
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "037",
+                      "points": [
+                        [
+                          2137,
+                          537
+                        ],
+                        [
+                          2421,
+                          537
+                        ],
+                        [
+                          2421,
+                          808
+                        ],
+                        [
+                          2238,
+                          808
+                        ],
+                        [
+                          2238,
+                          625
+                        ],
+                        [
+                          2137,
+                          625
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "035",
+                      "points": [
+                        [
+                          1558,
+                          535
+                        ],
+                        [
+                          1933,
+                          535
+                        ],
+                        [
+                          1933,
+                          621
+                        ],
+                        [
+                          1832,
+                          621
+                        ],
+                        [
+                          1832,
+                          811
+                        ],
+                        [
+                          1558,
+                          811
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "02d",
+                      "points": [
+                        [
+                          1836,
+                          1187
+                        ],
+                        [
+                          1836,
+                          1019
+                        ],
+                        [
+                          1663,
+                          1019
+                        ],
+                        [
+                          1663,
+                          1187
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "02a",
+                      "points": [
+                        [
+                          1556,
+                          1208
+                        ],
+                        [
+                          1556,
+                          1394
+                        ],
+                        [
+                          1832,
+                          1394
+                        ],
+                        [
+                          1832,
+                          1208
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "02f",
+                      "points": [
+                        [
+                          1851,
+                          1017
+                        ],
+                        [
+                          1851,
+                          1400
+                        ],
+                        [
+                          2124,
+                          1400
+                        ],
+                        [
+                          2124,
+                          1017
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "032",
+                      "points": [
+                        [
+                          2139,
+                          1021
+                        ],
+                        [
+                          2139,
+                          1392
+                        ],
+                        [
+                          2423,
+                          1392
+                        ],
+                        [
+                          2423,
+                          1021
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "025",
+                      "points": [
+                        [
+                          1661,
+                          1985
+                        ],
+                        [
+                          1928,
+                          1985
+                        ],
+                        [
+                          1928,
+                          2069
+                        ],
+                        [
+                          2158,
+                          2069
+                        ],
+                        [
+                          2158,
+                          1985
+                        ],
+                        [
+                          2411,
+                          1985
+                        ],
+                        [
+                          2411,
+                          2244
+                        ],
+                        [
+                          2149,
+                          2244
+                        ],
+                        [
+                          2149,
+                          2145
+                        ],
+                        [
+                          1924,
+                          2145
+                        ],
+                        [
+                          1924,
+                          2244
+                        ],
+                        [
+                          1661,
+                          2244
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "027",
+                      "points": [
+                        [
+                          1556,
+                          825
+                        ],
+                        [
+                          1556,
+                          996
+                        ],
+                        [
+                          2425,
+                          996
+                        ],
+                        [
+                          2425,
+                          825
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "022",
+                      "points": [
+                        [
+                          1547,
+                          3299
+                        ],
+                        [
+                          1547,
+                          3019
+                        ],
+                        [
+                          1825,
+                          3019
+                        ],
+                        [
+                          1825,
+                          3299
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "020",
+                      "points": [
+                        [
+                          2423,
+                          3021
+                        ],
+                        [
+                          2423,
+                          3301
+                        ],
+                        [
+                          2236,
+                          3301
+                        ],
+                        [
+                          2236,
+                          3021
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "014",
+                      "points": [
+                        [
+                          1943,
+                          3023
+                        ],
+                        [
+                          1943,
+                          3876
+                        ],
+                        [
+                          2112,
+                          3876
+                        ],
+                        [
+                          2112,
+                          3023
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01d",
+                      "points": [
+                        [
+                          2137,
+                          3318
+                        ],
+                        [
+                          2137,
+                          3893
+                        ],
+                        [
+                          2421,
+                          3893
+                        ],
+                        [
+                          2421,
+                          3318
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "018",
+                      "points": [
+                        [
+                          1554,
+                          3318
+                        ],
+                        [
+                          1554,
+                          3684
+                        ],
+                        [
+                          1920,
+                          3684
+                        ],
+                        [
+                          1920,
+                          3318
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01b",
+                      "points": [
+                        [
+                          1549,
+                          3705
+                        ],
+                        [
+                          1549,
+                          3888
+                        ],
+                        [
+                          1733,
+                          3888
+                        ],
+                        [
+                          1733,
+                          3705
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "016",
+                      "points": [
+                        [
+                          1752,
+                          3703
+                        ],
+                        [
+                          1752,
+                          3880
+                        ],
+                        [
+                          1920,
+                          3880
+                        ],
+                        [
+                          1920,
+                          3703
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "011",
+                      "points": [
+                        [
+                          2712,
+                          4084
+                        ],
+                        [
+                          2712,
+                          4356
+                        ],
+                        [
+                          3078,
+                          4356
+                        ],
+                        [
+                          3078,
+                          4084
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "00f",
+                      "points": [
+                        [
+                          2977,
+                          4571
+                        ],
+                        [
+                          2977,
+                          4758
+                        ],
+                        [
+                          3099,
+                          4758
+                        ],
+                        [
+                          3099,
+                          4571
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "00d",
+                      "points": [
+                        [
+                          1259,
+                          3691
+                        ],
+                        [
+                          1343,
+                          3691
+                        ],
+                        [
+                          1343,
+                          3888
+                        ],
+                        [
+                          1455,
+                          3888
+                        ],
+                        [
+                          1455,
+                          3981
+                        ],
+                        [
+                          1939,
+                          3981
+                        ],
+                        [
+                          1939,
+                          3899
+                        ],
+                        [
+                          2126,
+                          3899
+                        ],
+                        [
+                          2126,
+                          3983
+                        ],
+                        [
+                          2514,
+                          3983
+                        ],
+                        [
+                          2514,
+                          2922
+                        ],
+                        [
+                          2232,
+                          2922
+                        ],
+                        [
+                          2232,
+                          2823
+                        ],
+                        [
+                          3187,
+                          2823
+                        ],
+                        [
+                          3187,
+                          4855
+                        ],
+                        [
+                          2606,
+                          4855
+                        ],
+                        [
+                          2606,
+                          4669
+                        ],
+                        [
+                          2802,
+                          4669
+                        ],
+                        [
+                          2802,
+                          4552
+                        ],
+                        [
+                          2419,
+                          4552
+                        ],
+                        [
+                          2419,
+                          4461
+                        ],
+                        [
+                          2133,
+                          4461
+                        ],
+                        [
+                          2133,
+                          4547
+                        ],
+                        [
+                          1939,
+                          4547
+                        ],
+                        [
+                          1939,
+                          4457
+                        ],
+                        [
+                          1642,
+                          4457
+                        ],
+                        [
+                          1642,
+                          4556
+                        ],
+                        [
+                          1259,
+                          4556
+                        ]
+                      ]
+                    }
+                  ],
+                  "hrefThumbnail": {
+                    "type": "internal",
+                    "path": "adventure/LK/thumbnail/000-map-0.01-lightning-keep.webp"
+                  },
+                  "grid": {
+                    "type": "square",
+                    "size": 289,
+                    "offsetX": 29,
+                    "offsetY": 124,
+                    "scale": 3
+                  }
+                },
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/LK/001-map-0.01-lightning-keep-player.webp"
+                  },
+                  "imageType": "mapPlayer",
+                  "title": "Wersja odtwarzacza",
+                  "width": 3840,
+                  "height": 5280,
+                  "mapParent": {
+                    "id": "040"
+                  },
+                  "credit": "Sean Macdonald",
+                  "grid": {
+                    "type": "square",
+                    "size": 289,
+                    "offsetX": 29,
+                    "offsetY": 124,
+                    "scale": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Zachowaj funkcje",
+              "id": "00a",
+              "entries": [
+                "Poniżej podsumowano dominujące cechy twierdzy:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Materiały budowlane",
+                      "entry": "Wszystkie trzy budynki gospodarcze - oficyna ({@area area K3|00f|x}), barak zewnętrzny ({@area area K4|011|x}) i stajnia ({@area area K5|013|x}) - są wykonane z drewna i zbudowane na kamiennych fundamentach. Wszystko inne jest z kamienia."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Sufity",
+                      "entry": "Sufity na parterze mają wysokość 10 metrów. Sufity na piętrze mają wysokość 15 metrów."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Drzwi",
+                      "entry": "Drzwi wykonane są z solidnego drewna dębowego z żelaznymi zawiasami, uchwytami i okuciami. Niektóre drzwi są zamknięte. (Na mapie zamknięte drzwi są oznaczone małą kropką na drzwiach.) W ramach akcji postać może wyważyć otwarte drzwi, wykonując udane {@dc 20} Wytrzymałość ({@skill Athletics}) sprawdź lub użyj narzędzi złodziei, aby spróbować wyłamać zamek, czyniąc to z sukcesem {@dc 15} Kontrola zręczności."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Oświetlenie wewnętrzne",
+                      "entry": "Lokalizacje wewnętrzne są ciemne, chyba że mają okna wpuszczające naturalne światło. Opisy obszarów zakładają, że postacie mają źródło światła lub inny sposób widzenia w ciemności."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Okna",
+                      "entry": "Na piętrze głównej wieży znajdują się oszronione okna otwierane na żelaznych zawiasach. Każde okno zamykane jest na zatrzask od wewnątrz. W ramach akcji postać dysponująca narzędziami złodzieja może spróbować otworzyć okno od zewnątrz, czyniąc to skutecznie {@dc 15} Kontrola zręczności. Okno można również rozbić w ramach akcji."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Zachowaj lokalizacje",
+              "id": "00b",
+              "entries": [
+                "Następujące lokalizacje są powiązane z mapą Twierdzy Błyskawic.",
+                {
+                  "type": "entries",
+                  "name": "K1: Dolna Brama",
+                  "id": "00c",
+                  "entries": [
+                    "Brama bramna jest niestrzeżona. Przejście pomiędzy wieżami bramnymi wznosi się w kierunku północnym, gdyż teren wewnątrz dziedzińca jest wyższy niż teren na zewnątrz donżonu.",
+                    "Główną obroną wieży bramnej są solidne podwójne drzwi i żelazna brona:",
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Podwójne drzwi",
+                          "entry": "Te drzwi otwierają się do środka, skrzypiąc na zardzewiałych zawiasach. Chociaż nie są one zamknięte, drewniany drążek znajdujący się wewnątrz można opuścić do wsporników, aby utrzymać drzwi zamknięte. Wyważenie zakratowanych drzwi wymaga powodzenia {@dc 25} Wytrzymałość ({@skill Athletics}) sprawdzać."
+                        },
+                        {
+                          "type": "item",
+                          "name": "Brona",
+                          "entry": "Pomiędzy prętami żelaznej brony znajdują się wąskie szczeliny - zbyt wąskie, aby mała lub średnia postać mogła się przez nie przecisnąć. Do podnoszenia lub opuszczania brony można wykorzystać wyciągarkę znajdującą się na górnym poziomie wieży bramnej ({@area area K13|025|x})."
+                        }
+                      ]
+                    },
+                    "Obydwa drzwi do wież bramnych są zamknięte. Szczeliny strzałkowe w ścianach wieży bramnej pomiędzy broną a drzwiami zapewniają {@quickref cover||3||three-quarters cover} każdemu, kto za nimi stoi. Wewnątrz każdej wieży znajduje się drabina prowadząca do drewnianej klapy w suficie, nad którą znajduje się obszar K13."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K2: Dziedziniec",
+                  "id": "00d",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "00e",
+                      "entries": [
+                        "Ten żwirowy dziedziniec jest dziesięć stóp wyższy od gruntu na zewnątrz twierdzy, więc jest tylko dziesięć stóp niższy od parapetów zewnętrznego muru. Kamienne schody łączą dziedziniec ze szczytem muru."
+                      ]
+                    },
+                    "Podwórko jest puste."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K3: Wychodek",
+                  "id": "00f",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "010",
+                      "entries": [
+                        "Nieszkodliwe szczury atakują ten drewniany budynek, który śmierdzi szczurzymi odchodami."
+                      ]
+                    },
+                    "Postać może używać a {@spell speak with animals} zaklęcie przesłuchujące szczury, a karmienie szczurów zwiększa ich skłonność do pomocy. Zapytane szczury przekazują następujące informacje:",
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Główna Twierdza",
+                          "entry": "Szczury nie znalazły sposobu na wejście do głównej twierdzy, więc jej zawartość nie jest im znana."
+                        },
+                        {
+                          "type": "item",
+                          "name": "Inni goście",
+                          "entry": "Szczury są czasami nękane w nocy przez sowy, ale nie spotkały żadnych innych gości. W zewnętrznym baraku (obszar K4) przebywa kilka stworzeń, które szczury uważają za „nienaturalne”. Szczury ich unikają."
+                        },
+                        {
+                          "type": "item",
+                          "name": "Srebrny klucz",
+                          "entry": "Jeden ze szczurów znalazł zmatowiały srebrny klucz i zakopał go w południowo-wschodnim narożniku dziedzińca, za wychodkiem. Postać może przekonać szczura do przyniesienia klucza, co zakończy się sukcesem {@dc 10} Charyzma ({@skill Persuasion}) sprawdzać. Głowa klucza ma kształt głowy wilka. Kluczem można otworzyć lub zamknąć dowolne drzwi w zamku."
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K4: Barak Zewnętrzny",
+                  "id": "011",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "012",
+                      "entries": [
+                        "Wnętrze tego budynku cuchnie pleśnią i wszystko jest tu spowijane kurzem. Widzisz kamienny kominek i sześć zestawów drewnianych łóżek piętrowych, na których znajdują się gnijące materace wypełnione słomą. Na czterech z nich leżą ciemnozielone stworzenia o masywnych ciałach i głowach, ale bez rąk."
+                      ]
+                    },
+                    "Bezrękich postaci leżących na łóżkach jest cztery {@creature Creeper|MCV3MC|foki}. Jeśli postacie natychmiast wycofają się z baraku, pnącza nie robią nic. Jeśli postacie pozostają, pnącza to zauważają, siadają na łóżkach i ruszają w stronę intruzów. Pnącza są wrogie i walczą, dopóki nie zostaną zniszczone."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K5: Stabilny",
+                  "id": "013",
+                  "entries": [
+                    "Zawiasy w zewnętrznych drzwiach stajni są mocno zardzewiałe. Każda próba otwarcia podwójnych drzwi powoduje pęknięcie zawiasów.",
+                    "W budynku znajduje się sześć pustych boksów dla koni oraz stary sprzęt jeździecki pokryty kurzem."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K6: Hol Główny",
+                  "id": "014",
+                  "entries": [
+                    "Podwójne drzwi prowadzące z dziedzińca do holu głównego są zamknięte.",
+                    {
+                      "type": "insetReadaloud",
+                      "id": "015",
+                      "entries": [
+                        "Ta zakurzona sala jest pusta, jeśli nie liczyć pajęczyn."
+                      ]
+                    },
+                    "Na północnym krańcu korytarza do galerii prowadzą dwie kryte klatkami schodowymi ({@area area K14|027|x})."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K7: Przedsionek",
+                  "id": "016",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "017",
+                      "entries": [
+                        "W tym pokoju znajdują się rzędy gołych haczyków na ścianach."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K8: Kuchnia i studnia",
+                  "id": "018",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "019",
+                      "entries": [
+                        "Kamienna studnia zajmuje południowo-zachodni narożnik tej kuchni. Obok studni znajduje się drewniane wiadro przymocowane do liny o długości pięćdziesięciu stóp. Stół i szafki w kuchni są puste, a na żelaznym haku w zabrudzonym sadzą kominku wisi mały żelazny kociołek."
+                      ]
+                    },
+                    "Szyb studni ma 5 stóp szerokości i 30 stóp głębokości i jest wykonany z cegieł, z których niektóre wystają lekko, tworząc uchwyty i oparcia dla stóp. Postać, która oświetla studnię, widzi srebrzysty blask w wodzie. Postać może wspiąć się lub zejść szybem bez konieczności wykonywania testu zdolności.",
+                    {
+                      "type": "entries",
+                      "name": "Cysterna",
+                      "id": "01a",
+                      "entries": [
+                        "Poniżej szybu studni znajduje się głęboka na 3 metry i szeroka na 3 metry cysterna wypełniona świeżą wodą. Cysterna jest strzeżona przez {@creature water weird} (patrz {@book Monster Manual|MM}), który atakuje każdą postać, która wejdzie do wody. Na dnie cysterny leży stalowy piorunochron o długości 3 metrów, zakończony kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K9: Spiżarnia",
+                  "id": "01b",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "01c",
+                      "entries": [
+                        "Gołe półki zdobią tylną ścianę tej pustej spiżarni."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K10: Jadalnia",
+                  "id": "01d",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "01e",
+                      "entries": [
+                        "Czternaście drewnianych krzeseł otacza drewniany stół jadalny. Nad stołem zawieszony jest żelazny żyrandol, w którym brakuje świec. Pod północną ścianą stoją dwa puste kredensy.",
+                        "We wschodniej ścianie osadzony jest poczerniały kominek. Nad kominkiem z niebieskiego marmuru wisi metalowa tarcza z insygniami: głową wilka, a nad nią trzy błyskawice."
+                      ]
+                    },
+                    "Postać, która sprawdza tarczę i odnosi sukces {@dc 10} Inteligencja ({@skill History}) check wie, że jego insygnia należą do rycerza-wilkołaka, który zbudował twierdzę. A {@spell detect magic} zaklęcie ujawnia aurę magii wyrzeczenia się wokół tarczy. Pierwsza istota, która dotknie metalowej tarczy, otrzymuje 13 ({@dice 3d8}) obrażenia od błyskawic, po których tarcza staje się niemagiczna i można nią manipulować bez obrażeń.",
+                    {
+                      "type": "entries",
+                      "name": "Kominek z niebieskiego marmuru",
+                      "id": "01f",
+                      "entries": [
+                        "Postać badająca gzyms kominka zdaje sobie sprawę, że jest to sprytnie zamaskowana pokrywa skrywająca długą, płytką komorę. W tym przedziale znajdują się dwie połówki piorunochronu o długości 3 metrów. Po ułożeniu obie połówki magicznie łączą się w jeden piorunochron o długości 3 metrów z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K11: Kwatery służby",
+                  "id": "020",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "021",
+                      "entries": [
+                        "Ten pokój jest pełen kurzu i pajęczyn. Pod wschodnią ścianą stoją trzy pary łóżek piętrowych, a ich słomiane materace są mocno przegniłe."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K12: Zbrojownia",
+                  "id": "022",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "023",
+                      "entries": [
+                        "Do ścian tego kwadratowego pomieszczenia przymocowane są drewniane stojaki przeznaczone do przechowywania broni. Większość broni usunięto dawno temu, ale kilka pozostało: sześć włóczni, cztery długie miecze, dwa długie łuki bez naciągu i wysoka drewniana lanca."
+                      ]
+                    },
+                    "{@item Spear|PHB|włócznie}, {@item Longsword|PHB|miecze} i {@item Longbow|PHB|łuki} nie są magiczne.",
+                    {
+                      "type": "entries",
+                      "name": "Drewniana lanca",
+                      "id": "024",
+                      "entries": [
+                        "Dokładne badanie drewnianej lancy ujawnia, że ​​nie jest to broń, ale raczej futerał. Wewnątrz tej skrzynki znajduje się wysoki na 3 metry stalowy piorunochron z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K13: Górna Brama",
+                  "id": "025",
+                  "entries": [
+                    "Górna brama jest niestrzeżona. Drzwi prowadzące na blanki zewnętrznego muru są zamknięte. Drewniane klapy w podłodze otwierają się, ukazując drabiny prowadzące do dolnej wieży bramnej ({@area area K1|00c|x}). Ściany są wyłożone szczelinami w kształcie strzałek, które zapewniają {@quickref cover||3||three-quarters cover} osobom za nimi.",
+                    {
+                      "type": "entries",
+                      "name": "Wciągarka Portcullis",
+                      "id": "026",
+                      "entries": [
+                        "W jedną ze ścian wbudowano żelazną wciągarkę. W ramach akcji postać może użyć wyciągarki, aby podnieść kratę i zablokować ją tak, aby nie spadła, lub zwolnić zaczep, który powoduje opuszczenie brony."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K14: Galeria",
+                  "id": "027",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "028",
+                      "entries": [
+                        "Cztery puste zbroje strzegą tego wyłożonego wykładziną korytarza, którego ściany ozdobione są oprawionymi w ramki zdjęciami rycerzy, smoków, krajobrazów i wielkich bitew. Na wschodnim krańcu sali znajduje się duży obraz przedstawiający rycerza-wilkołaka wymachującego stalową lancą."
+                      ]
+                    },
+                    "Obrazy nie są magiczne ani szczególnie cenne. Duży obraz na wschodniej ścianie przedstawia rycerza-wilkołaka, który zbudował Twierdzę Błyskawic. Drzwi prowadzące na blanki są zamknięte tylko od zewnątrz. Do głównego holu prowadzą bliźniacze schody ({@area area K6|014|x}).",
+                    {
+                      "type": "entries",
+                      "name": "Skarb",
+                      "id": "029",
+                      "entries": [
+                        "Zbroje są spawane, więc nie przewracają się ani nie zapadają. Trzy z nich są niemagiczne {@item Spear|PHB|włócznie}. Czwarte sprzęgła a {@item +1 spear} które można skutecznie wyrwać z uścisku zbroi {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdzać."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K15: Sypialnia",
+                  "id": "02a",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "02b",
+                      "entries": [
+                        "W odległym kącie tego skromnie umeblowanego pokoju stoi wąskie łóżko. Na podłodze w nogach łóżka stoi pusta, przewrócona skrzynia i drewniany wieszak na ubrania."
+                      ]
+                    },
+                    "Z sypialni tej korzystał kapitan dowodzący strażą zamkową. Skrzynia została w większości opróżniona przed opuszczeniem twierdzy. Każda postać, która zbada skrzynię, znajdzie w jej pokrywie tajny schowek. W tej komorze znajduje się drewniana rurka do przewijania, wewnątrz której znajduje się skrawek papieru z następującymi słowami zapisanymi w Common:",
+                    {
+                      "type": "insetReadaloud",
+                      "id": "02c",
+                      "entries": [
+                        "Drewniana lanca Model tańca w świetle księżyca utrzymuje Cysternę głęboko Pod tarczą Za pomocą ukrytych łańcuchów"
+                      ]
+                    },
+                    "Zwroty te dostarczają wskazówek co do lokalizacji sześciu piorunochronów (więcej szczegółów można znaleźć w {@area areas K8|018|x}, {@area K10|01d|x}, {@area K12|022|x}, {@area K17|02f|x}, {@area K18|032|x} i {@area K20|037|x})."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K16: Wtajemniczony",
+                  "id": "02d",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "02e",
+                      "entries": [
+                        "W tym wychodku znajduje się umywalka, wanna na nóżkach, wieszak na ręczniki i nocnik - wszystko puste."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K17: Sypialnia",
+                  "id": "02f",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "030",
+                      "entries": [
+                        "Łóżko z baldachimem, pokryte pajęczynami, stoi pod zachodnią ścianą, pomiędzy dwiema szafkami nocnymi, z których na jednej z nich znajduje się malowany drewniany model Twierdzy Błyskawic. Na przeciwległej ścianie zamontowane jest wysokie lustro w złoconej ramie, obok którego stoi zakurzona szafa.",
+                        "Na południowym krańcu pokoju, przed zamarzniętym oknem, kołysze się wysoka, ciemna postać z długimi pazurami."
+                      ]
+                    },
+                    "Wysoka, ciemna postać to {@creature Enderman|MCV3MC} która została przyciągnięta do tego świata przez zacieniony kąt pokoju. Nie mogąc wrócić do swojego świata, atakuje, jeśli się do niego zbliży lub ktoś do niego zadzwoni.",
+                    "Szafa jest pusta, podobnie jak szuflady w szafkach nocnych.",
+                    {
+                      "type": "entries",
+                      "name": "Model",
+                      "id": "031",
+                      "entries": [
+                        "Każda postać, która przyjrzy się modelowi na stoliku nocnym, zobaczy piorunochron wielkości wykałaczki zamontowany na dachu głównej wieży. Zaklęcie {@spell detect magic} ujawnia aurę magii transmutacyjnej wokół małego piorunochronu. Po oddzieleniu od modelu maleńki pręt w magiczny sposób wyrasta na stalowy piorunochron o długości 3 metrów, zakończony kulką na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K18: Sypialnia",
+                  "id": "032",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "033",
+                      "entries": [
+                        "Gęsty kurz i pajęczyny spowijają łóżko z baldachimem, parę szafek nocnych, biurko, krzesło i owiniętą łańcuchami szafę. Na podłodze walają się fragmenty rozbitego lustra. Zasłony okienne są zaciągnięte."
+                      ]
+                    },
+                    "Szuflady w biurku i szafkach nocnych są puste, a dokładne zbadanie fragmentów luster pozwala przypuszczać, że lustro wisiało kiedyś na wschodniej ścianie obok szafy. (Haczyk, na którym kiedyś wisiało lustro, pękł, w wyniku czego lustro spadło ze ściany i pękło.)",
+                    {
+                      "type": "entries",
+                      "name": "Szafa",
+                      "id": "034",
+                      "entries": [
+                        "Kiedy bohaterowie eksplorują ten pokój, szafa drży i przepycha się, jakby uwięziono w niej jedno lub więcej stworzeń. Łańcuchy wokół szafy są utrzymywane na miejscu za pomocą solidnej kłódki. Srebrny klucz znaleziony w {@area area K3|00f|x} otwiera ten zamek. W ramach akcji postać może również użyć narzędzi złodzieja, aby spróbować otworzyć zamek, wykonując udany test Zręczności {@dc 10}. Zamek można również złamać; ma KP 17, 7 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
+                        "Zaklęcie {@spell detect magic} ujawnia aurę magii iluzji wokół szafy. Drżenie i popychanie szafy jest efektem iluzorycznym, a szafa nie zawiera niczego niebezpiecznego. Po otwarciu ukazuje się stojąca na końcu drewniana skrzynia wysoka na 6 stóp, szeroka na 1 stopę i głęboka na 1 stopę. W tym pudełku znajdują się dwie połówki piorunochronu o długości 3 metrów. Po ułożeniu obie połówki magicznie łączą się w jeden piorunochron o długości 3 metrów z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K19: Barak wewnętrzny",
+                  "id": "035",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "036",
+                      "entries": [
+                        "W tym zakurzonym, pokrytym pajęczyną pokoju znajduje się pięć łóżek piętrowych. Wszystkie materace wypełnione słomą są zbutwiałe. Nikt tu nie spał od dłuższego czasu."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K20: Studium prywatne",
+                  "id": "037",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "038",
+                      "entries": [
+                        "W pokoju tym znajduje się biurko i krzesło ustawione przed oszronionym oknem. Biurko posiada dwie szuflady zamykane na zamek, jedną otwartą i drugą zamkniętą. Z otwartej szuflady wydobywa się migoczące czerwone światło.",
+                        "Zakurzone półki na książki rozciągają się na przeciwległej ścianie; pojedyncza oprawiona w skórę księga opiera się na jednym końcu najwyższej półki. Pokryta pajęczynami drabinka na kółkach sprawia, że ​​książka jest pod ręką."
+                      ]
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Książka",
+                      "id": "039",
+                      "entries": [
+                        "Książkę znajdującą się na wysokiej półce możesz zdobyć wspinając się po drabinie lub korzystając z {@spell mage hand} zaklęcie lub podobną magię. Na grzbiecie książki srebrnym atramentem widnieje tytuł „Taniec w świetle księżyca”. Książka, napisana przez nieznanego autora kryminałów, jest powieścią kryminalną opartą na prawdziwej historii. W tej historii diabelski badacz imieniem Dagger Sharp próbuje rozwiązać sprawę morderstw kilku mieszkańców wioski Briar's End. Podejrzewa się, że istnieje wilkołak, ale prawdziwym winowajcą jest strach na wróble opętany przez złego ducha zabójcy, którego mieszkańcy wioski pochowali żywcem kilka miesięcy wcześniej. Sztylet pomaga mieszkańcom schwytać i rozczłonkować stracha na wróble, a następnie przekonuje wiejskiego księdza, aby poświęcił grób zabójcy, co pochowa złego ducha.",
+                        "Każda postać, która przegląda książkę, znajduje podartą materiałową zakładkę z wbitą stalową igłą. Zaklęcie {@spell detect magic} ujawnia aurę magii transmutacyjnej wokół igły. Jeśli igła zostanie użyta do pociągnięcia kropli krwi, w magiczny sposób powiększy się i stanie się stalowym piorunochronem o długości 3 metrów, zakończonym kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                      ]
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Szuflady biurka",
+                      "id": "03a",
+                      "entries": [
+                        "Otwarta szuflada biurka zawiera {@item Elemental Gem, Red Corundum||klejnot żywiołu (czerwony korund)} jest ciepły w dotyku i jest źródłem migoczącego czerwonego światła. Zamiast przywoływać żywiołaka ognia, przywołuje: {@creature blaze|MCV3MC}.",
+                        "Zamkniętą szufladę można otworzyć srebrnym kluczem znajdującym się w {@area area K3|00f|x}. W ramach akcji postać może zamiast tego użyć narzędzi złodziei, aby spróbować otworzyć zamek, wykonując udany test Zręczności {@dc 10}, lub może wymusić jego otwarcie, wykonując udany test Siły {@dc 13} ({@skill Athletics}). W tej szufladzie znajduje się otwarta drewniana skrzynia, której wieko nosi stalowe insygnia przedstawiające głowę wilka z trzema błyskawicami nad nią. Wewnątrz skrzyni znajduje się trzydzieści pierścieni wykonanych z niebieskiego jadeitu. Każdy niebieski pierścień z jadeitu jest wart 10 sz. Zaklęcie {@spell detect magic} ujawnia aurę magii wyrzeczenia się wokół każdego pierścienia. Pierścienie te chronią swoich użytkowników przed tarczą piorunową twierdzy (szczegóły w obszarze K21)."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "K21: Kamienie węgielne",
+                  "id": "03b",
+                  "entries": [
+                    {
+                      "type": "insetReadaloud",
+                      "id": "03c",
+                      "entries": [
+                        "W miejscu zbiegu blanków dwóch zbiegających się murów wmurowano kamień węgielny. W górnej części kamienia węgielnego wywiercony jest cylindryczny otwór o szerokości około pięciu cali i głębokości jednej stopy. Wnętrze otworu wyłożone jest ołowiem."
+                      ]
+                    },
+                    "Ściana zewnętrzna ma sześć kamieni węgielnych. Kiedy sześć magicznych piorunochronów zostanie włożonych w kamienie węgielne, aktywuje się tarcza odgromowa twierdzy. Kula na szczycie każdego piorunochronu brzęczy cicho, gdy zostaje naelektryzowana.",
+                    {
+                      "type": "entries",
+                      "name": "Tarcza Błyskawicy",
+                      "id": "03d",
+                      "entries": [
+                        "W ramach akcji istota może włożyć piorunochron w kamień węgielny lub usunąć piorunochron z kamienia węgielnego; tylko istota nosząca niebieski jadeitowy pierścień (patrz obszar K20) może wyjąć pręt. Podczas gdy wszystkie sześć prętów jest pod napięciem, każde stworzenie nie noszące niebieskiego jadeitowego pierścienia, które znajduje się na zewnątrz - w tym na dziedzińcu, na dachach lub na szczycie zewnętrznej ściany - i rozpoczyna swoją turę w promieniu 60 stóp od twierdzy, musi wykonać {@dc 15} Rzut obronny na Kondycję, wykonanie 14 ({@dice 4d6}) obrażenia od błyskawicy przy nieudanym zapisie lub o połowę mniejsze przy udanym zapisie. Efekt ten ignoruje odporność i odporność na obrażenia od piorunów, ze względu na dziwaczną naturę elektryczności generowanej przez pręty.",
+                        "Gdy tarcza odgromowa jest aktywowana, Bestie potrafią wyczuć dziwną energię elektryczną i zachować dystans, aby uniknąć porażenia przez nią."
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "name": "Zakończenie przygody",
+          "id": "03e",
+          "entries": [
+            "Gdy bohaterowie odnajdą sześć piorunochronów i uwolnią twierdzę od niebezpiecznych potworów, będą mogli schować pręty w bezpiecznym miejscu i powiadomić uchodźców, że można bezpiecznie zająć twierdzę, przekazując instrukcje, jak używać tarczy odgromowej. Niebieskie jadeitowe pierścienie znalezione w obszarze K20 pozwalają nowym obrońcom twierdzy patrolować zewnętrzny mur i dziedziniec bez ryzyka trafienia przez tarczę piorunów.",
+            {
+              "type": "entries",
+              "name": "Kontynuacja kampanii",
+              "id": "03f",
+              "entries": [
+                "Kiedy uchodźcy gromadzą się w twierdzy, grasujący smok może to zauważyć i dokładniej zbadać twierdzę. Tarcza błyskawic trzyma smoka na dystans - przynajmniej na jakiś czas. Bohaterowie mogą zostać poproszeni o konfrontację ze smokiem w późniejszym terminie, a może nawet wyśledzenie go do jego legowiska. Ostateczne starcie ze smokiem może być sednem późniejszej przygody w Twojej kampanii. Jeśli potrzebujesz pomocy w opracowaniu {@book dragon's lair|FTD|4}, pomysły znajdziesz w {@book Fizban's Treasury of Dragons|FTD}."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:001": {
+      "type": "section",
+      "name": "Prowadzenie przygody",
+      "id": "001",
+      "entries": [
+        "Tę przygodę zaprojektowano tak, aby można ją było rozegrać w ciągu trzech lub czterech godzin. Cel bohaterów jest prosty: muszą przeszukać opuszczony zamek w poszukiwaniu sześciu magicznych piorunochronów. Po zainstalowaniu na blankach pręty te tworzą ochronne pole piorunowe wokół zamku. Broniąc w ten sposób zamku, bohaterowie mogą zapewnić schronienie uchodźcom wysiedlonym przez grasującego smoka. Więcej informacji na temat zamku i smoka znajdziesz w dalszych rozdziałach.",
+        {
+          "type": "insetReadaloud",
+          "id": "002",
+          "entries": [
+            "Tekst pojawiający się w takim ramce należy przeczytać na głos lub sparafrazować dla graczy, gdy ich postacie po raz pierwszy dotrą do miejsca lub w określonych okolicznościach, zgodnie z opisem w tekście."
+          ]
+        },
+        "Kiedy nazwa stworzenia pojawia się w typie {@b pogrubiony}, jest to wizualna wskazówka wskazująca ci blok statystyk, w ten sposób mówiąc: „Hej, DM, lepiej przygotuj blok statystyk tego stworzenia. Będziesz go potrzebować”. Zwykle blok statystyk można znaleźć w {@filter Kompendium potworów, tom 3: Stworzenia z Minecrafta|bestiary|source=MCV3MC}; jeśli blok statystyk znajduje się w {@book Monster Manual|MM}, tekst przygody o tym informuje.",
+        "Możesz ułatwić lub utrudnić przygodę, dostosować ją do mniejszych lub większych grup postaci gracza, dostosowując liczbę potworów lub dodając lub usuwając spotkania.",
+        "Przygoda z łatwością wpasowuje się w każdą kampanię. Wszystko czego potrzebujesz to grasujący smok i odległa lokalizacja dla Twierdzy Błyskawic. Jeśli potrzebujesz pomocy w wyborze smoka, rzuć a {@dice d6} i zapoznaj się z tabelą Sugestii Smoka. W tej przygodzie bohaterowie nie spotykają smoka; ma to być nadchodzące zagrożenie, które może ujawnić się w dalszej części kampanii.",
+        {
+          "type": "table",
+          "caption": "Sugestie smoka",
+          "colLabels": [
+            "d6",
+            "Blok statystyk smoka",
+            "CR"
+          ],
+          "colStyles": [
+            "col-2 text-center",
+            "col-8",
+            "col-2 text-center"
+          ],
+          "rows": [
+            [
+              "1",
+              "{@creature Young black dragon}",
+              "7"
+            ],
+            [
+              "2",
+              "{@creature Young blue dragon}",
+              "9"
+            ],
+            [
+              "3",
+              "{@creature Young green dragon}",
+              "8"
+            ],
+            [
+              "4",
+              "{@creature Young red dragon}",
+              "10"
+            ],
+            [
+              "5",
+              "{@creature Young white dragon}",
+              "6"
+            ],
+            [
+              "6",
+              "{@creature Ender Dragon|MCV3MC}",
+              "19"
+            ]
+          ]
+        },
+        "Jeśli podoba Ci się mapa Twierdzy Błyskawic, ale nie chcesz brać udziału w tej przygodzie, możesz użyć tej mapy do przedstawienia innej twierdzy w swojej kampanii."
+      ]
+    },
+    "0:003": {
+      "type": "section",
+      "name": "Rozpoczęcie przygody",
+      "id": "003",
+      "entries": [
+        "Rozpocznij przygodę, czytając na głos następujące informacje:",
+        {
+          "type": "insetReadaloud",
+          "id": "004",
+          "entries": [
+            "Grasujący smok spustoszył wiele wiosek, pożerając niektórych mieszkańców, wypierając innych. Uderza bez litości. Nikt nie wie, skąd pochodzi, gdzie ukrywa się ani jak długo zamierza terroryzować królestwo.",
+            "Ale jest nadzieja. Dawno temu rycerz-wilkołak o wielkim odwadze wykorzystał swoje bogactwo do wzniesienia bastionu na skraju dziczy. Zamek ten miał moc tworzenia wokół siebie tarczy od piorunów - tarczy wystarczająco potężnej, aby przerywać oblężenia i trzymać potwory na dystans. Zamek został opuszczony wkrótce po śmierci rycerza. Do tego czasu w całym kraju zapanował pokój, przez co twierdza stała się niepotrzebna.",
+            "Wieśniacy wysiedleni przez smoka proszą cię o udanie się do Twierdzy Błyskawic i pozbycie się z niej wszelkich zagrożeń. Plotka głosi, że tarcza odgromowa jest zasilana sześcioma magicznymi piorunochronami. Jeśli uda ci się znaleźć te pręty, być może uda się ponownie aktywować tarczę odgromową, dzięki czemu uciekinierzy uciekający przed smokiem będą mogli wykorzystać twierdzę jako sanktuarium."
+          ]
+        },
+        "Odległość, jaką bohaterowie muszą pokonać, aby dotrzeć do Twierdzy Błyskawic, zależy od Ciebie. Bohaterowie muszą się spieszyć, jeśli chcą uratować uchodźców.",
+        "Jeśli nie zdecydujesz inaczej, podróż do twierdzy przebiegnie spokojnie."
+      ]
+    },
+    "0:005": {
+      "type": "section",
+      "name": "Dojazd do Twierdzy",
+      "id": "005",
+      "entries": [
+        "Kiedy postacie dotrą do twierdzy, opisz ją swoim graczom w następujący sposób:",
+        {
+          "type": "insetReadaloud",
+          "id": "006",
+          "entries": [
+            "Twierdza Piorunów to dobrze zachowana budowla z blankami otaczającymi granitowe ściany. Prosta ścieżka prowadzi do kamiennej bramy, w której znajdują się zamknięte ciężkie drewniane drzwi za żelazną broną. Nie widać żadnych śladów zamieszkania ani innych wejść."
+          ]
+        },
+        "Postacie pojawiają się rano, po południu, wieczorem lub w środku nocy, zgodnie z twoją decyzją.",
+        "Postacie okrążające twierdzę mogą potwierdzić, że brama jest jedynym wejściem. Zanim postacie dojdą dalej, rozpocznij spotkanie „Głodne wilki”.",
+        {
+          "type": "entries",
+          "name": "Głodne Wilki",
+          "id": "007",
+          "entries": [
+            "Na zewnątrz twierdzy, osiem {@creature Wolf of the Overworld|MCV3MC|wilki z Nadświata} podejść do bohaterów. (Alternatywnie możesz użyć {@creature wolf} blok statystyk z {@book Monster Manual|MM} aby reprezentować te stworzenia.)",
+            "Wilki wyglądają na głodne. Jeśli postać oferuje wilkowi surowe lub ugotowane mięso, przyjmuje tę ofiarę i w swojej następnej turze ucieka, zabierając ze sobą innego wilka. Jeśli zamiast tego postać zaoferuje wilkowi kość, wilk przyjmie kość i zaprzyjaźni się z tą postacią, wykonując jej polecenia przez następne 24 godziny, a potem odchodząc. Wilki, którym nie podano pożywienia ani kości, atakują, mając nadzieję na posiłek dla drużyny.",
+            "W ramach akcji postać może spróbować przekonać wilka, aby w swojej następnej turze odszedł spokojnie, bez składania ofiary w postaci jedzenia lub kości, kończąc pomyślnie {@dc 11} Mądrość ({@skill Animal Handling}) sprawdzić lub przestraszyć wilka, aby w swojej następnej turze odszedł, co wymaga powodzenia {@dc 11} Charyzma ({@skill Intimidation}) sprawdzać.",
+            "Ranny wilk ucieka w swojej następnej turze. Jeśli cztery wilki zostaną zabite, wszystkie pozostałe wilki wycofują się w swojej następnej turze, korzystając z {@action dash||Kreska} działania mające na celu zachowanie jak największej odległości między nimi a postaciami."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Wejście do Twierdzy",
+          "id": "008",
+          "entries": [
+            "Po rozprawieniu się z wilkami bohaterowie mogą spróbować przedostać się do twierdzy, podnosząc kratę lub sprytnie używając magii. Alternatywnie mogą użyć haków i lin (lub zestawów wspinaczkowych), aby wspiąć się na wysoką na 20 stóp ścianę zewnętrzną. Wszystkie te opcje wyjaśniono poniżej:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Mądre użycie magii",
+                  "entry": "Mała postać zmniejszona do rozmiaru Tiny przez {@spell enlarge/reduce} zaklęcie może prześliznąć się pomiędzy kratami brony, podczas gdy a {@spell misty step} zaklęcie lub podobna magia umożliwia bezpieczny transport z jednej strony brony na drugą."
+                },
+                {
+                  "type": "item",
+                  "name": "Wspinaczka po ścianach",
+                  "entry": "Szczyt zewnętrznego muru jest 20 stóp wyższy od gruntu na zewnątrz twierdzy, a ściana jest zbyt gładka, aby się wspiąć bez odpowiedniego sprzętu lub magii (takiej jak {@spell spider climb} zaklęcie). Postać wyposażona w sprzęt wspinaczkowy może za jego pomocą spróbować wspiąć się na ścianę, co zakończy się sukcesem {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdzać."
+                },
+                {
+                  "type": "item",
+                  "name": "Podnoszenie Portcullis",
+                  "entry": "W ramach akcji postać może spróbować podnieść kratę, wykonując udany test Siły {@dc 20} ({@skill Athletics}). Postać może spowodować opadnięcie kraty poprzez jej puszczenie. Utrzymanie go wymaga ciągłego wysiłku; robiąca to postać musi wykonać rzut obronny na Siłę {@dc 15} na początku każdej swojej tury. W przypadku nieudanego rzutu obronnego siła postaci spada, a krata opada. (Bratę można również podnosić i opuszczać za pomocą wciągarki w {@area area K13|025|x}.)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:007": {
+      "type": "entries",
+      "name": "Głodne Wilki",
+      "id": "007",
+      "entries": [
+        "Na zewnątrz twierdzy, osiem {@creature Wolf of the Overworld|MCV3MC|wilki z Nadświata} podejść do bohaterów. (Alternatywnie możesz użyć {@creature wolf} blok statystyk z {@book Monster Manual|MM} aby reprezentować te stworzenia.)",
+        "Wilki wyglądają na głodne. Jeśli postać oferuje wilkowi surowe lub ugotowane mięso, przyjmuje tę ofiarę i w swojej następnej turze ucieka, zabierając ze sobą innego wilka. Jeśli zamiast tego postać zaoferuje wilkowi kość, wilk przyjmie kość i zaprzyjaźni się z tą postacią, wykonując jej polecenia przez następne 24 godziny, a potem odchodząc. Wilki, którym nie podano pożywienia ani kości, atakują, mając nadzieję na posiłek dla drużyny.",
+        "W ramach akcji postać może spróbować przekonać wilka, aby w swojej następnej turze odszedł spokojnie, bez składania ofiary w postaci jedzenia lub kości, kończąc pomyślnie {@dc 11} Mądrość ({@skill Animal Handling}) sprawdzić lub przestraszyć wilka, aby w swojej następnej turze odszedł, co wymaga powodzenia {@dc 11} Charyzma ({@skill Intimidation}) sprawdzać.",
+        "Ranny wilk ucieka w swojej następnej turze. Jeśli cztery wilki zostaną zabite, wszystkie pozostałe wilki wycofują się w swojej następnej turze, korzystając z {@action dash||Kreska} działania mające na celu zachowanie jak największej odległości między nimi a postaciami."
+      ]
+    },
+    "0:008": {
+      "type": "entries",
+      "name": "Wejście do Twierdzy",
+      "id": "008",
+      "entries": [
+        "Po rozprawieniu się z wilkami bohaterowie mogą spróbować przedostać się do twierdzy, podnosząc kratę lub sprytnie używając magii. Alternatywnie mogą użyć haków i lin (lub zestawów wspinaczkowych), aby wspiąć się na wysoką na 20 stóp ścianę zewnętrzną. Wszystkie te opcje wyjaśniono poniżej:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Mądre użycie magii",
+              "entry": "Mała postać zmniejszona do rozmiaru Tiny przez {@spell enlarge/reduce} zaklęcie może prześliznąć się pomiędzy kratami brony, podczas gdy a {@spell misty step} zaklęcie lub podobna magia umożliwia bezpieczny transport z jednej strony brony na drugą."
+            },
+            {
+              "type": "item",
+              "name": "Wspinaczka po ścianach",
+              "entry": "Szczyt zewnętrznego muru jest 20 stóp wyższy od gruntu na zewnątrz twierdzy, a ściana jest zbyt gładka, aby się wspiąć bez odpowiedniego sprzętu lub magii (takiej jak {@spell spider climb} zaklęcie). Postać wyposażona w sprzęt wspinaczkowy może za jego pomocą spróbować wspiąć się na ścianę, co zakończy się sukcesem {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdzać."
+            },
+            {
+              "type": "item",
+              "name": "Podnoszenie Portcullis",
+              "entry": "W ramach akcji postać może spróbować podnieść kratę, wykonując udany test Siły {@dc 20} ({@skill Athletics}). Postać może spowodować opadnięcie kraty poprzez jej puszczenie. Utrzymanie go wymaga ciągłego wysiłku; robiąca to postać musi wykonać rzut obronny na Siłę {@dc 15} na początku każdej swojej tury. W przypadku nieudanego rzutu obronnego siła postaci spada, a krata opada. (Bratę można również podnosić i opuszczać za pomocą wciągarki w {@area area K13|025|x}.)"
+            }
+          ]
+        }
+      ]
+    },
+    "0:009": {
+      "type": "section",
+      "name": "Eksploracja Twierdzy",
+      "id": "009",
+      "entries": [
+        "Po wejściu do twierdzy bohaterowie muszą odnaleźć sześć magicznych piorunochronów. Po znalezieniu prętów postacie mogą przetestować tarczę oświetleniową, wkładając pręty w sześć kamieni węgielnych blanków (patrz {@area area K21|03b|x}).",
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/LK/000-map-0.01-lightning-keep.webp"
+              },
+              "imageType": "mapa",
+              "title": "Mapa: Twierdza Błyskawic",
+              "credit": "Sean Macdonald",
+              "width": 3840,
+              "height": 5280,
+              "id": "040",
+              "mapRegions": [
+                {
+                  "area": "03b",
+                  "points": [
+                    [
+                      1941,
+                      524
+                    ],
+                    [
+                      1941,
+                      240
+                    ],
+                    [
+                      3291,
+                      240
+                    ],
+                    [
+                      3291,
+                      2455
+                    ],
+                    [
+                      2505,
+                      2455
+                    ],
+                    [
+                      2505,
+                      2156
+                    ],
+                    [
+                      2443,
+                      2156
+                    ],
+                    [
+                      2443,
+                      2055
+                    ],
+                    [
+                      2611,
+                      2055
+                    ],
+                    [
+                      2611,
+                      2366
+                    ],
+                    [
+                      3192,
+                      2366
+                    ],
+                    [
+                      3192,
+                      333
+                    ],
+                    [
+                      2036,
+                      333
+                    ],
+                    [
+                      2036,
+                      524
+                    ]
+                  ]
+                },
+                {
+                  "area": "03b",
+                  "points": [
+                    [
+                      1556,
+                      1103
+                    ],
+                    [
+                      1171,
+                      1103
+                    ],
+                    [
+                      1171,
+                      2162
+                    ],
+                    [
+                      1640,
+                      2162
+                    ],
+                    [
+                      1640,
+                      2072
+                    ],
+                    [
+                      1259,
+                      2072
+                    ],
+                    [
+                      1259,
+                      1194
+                    ],
+                    [
+                      1556,
+                      1194
+                    ]
+                  ]
+                },
+                {
+                  "area": "037",
+                  "points": [
+                    [
+                      2137,
+                      537
+                    ],
+                    [
+                      2421,
+                      537
+                    ],
+                    [
+                      2421,
+                      808
+                    ],
+                    [
+                      2238,
+                      808
+                    ],
+                    [
+                      2238,
+                      625
+                    ],
+                    [
+                      2137,
+                      625
+                    ]
+                  ]
+                },
+                {
+                  "area": "035",
+                  "points": [
+                    [
+                      1558,
+                      535
+                    ],
+                    [
+                      1933,
+                      535
+                    ],
+                    [
+                      1933,
+                      621
+                    ],
+                    [
+                      1832,
+                      621
+                    ],
+                    [
+                      1832,
+                      811
+                    ],
+                    [
+                      1558,
+                      811
+                    ]
+                  ]
+                },
+                {
+                  "area": "02d",
+                  "points": [
+                    [
+                      1836,
+                      1187
+                    ],
+                    [
+                      1836,
+                      1019
+                    ],
+                    [
+                      1663,
+                      1019
+                    ],
+                    [
+                      1663,
+                      1187
+                    ]
+                  ]
+                },
+                {
+                  "area": "02a",
+                  "points": [
+                    [
+                      1556,
+                      1208
+                    ],
+                    [
+                      1556,
+                      1394
+                    ],
+                    [
+                      1832,
+                      1394
+                    ],
+                    [
+                      1832,
+                      1208
+                    ]
+                  ]
+                },
+                {
+                  "area": "02f",
+                  "points": [
+                    [
+                      1851,
+                      1017
+                    ],
+                    [
+                      1851,
+                      1400
+                    ],
+                    [
+                      2124,
+                      1400
+                    ],
+                    [
+                      2124,
+                      1017
+                    ]
+                  ]
+                },
+                {
+                  "area": "032",
+                  "points": [
+                    [
+                      2139,
+                      1021
+                    ],
+                    [
+                      2139,
+                      1392
+                    ],
+                    [
+                      2423,
+                      1392
+                    ],
+                    [
+                      2423,
+                      1021
+                    ]
+                  ]
+                },
+                {
+                  "area": "025",
+                  "points": [
+                    [
+                      1661,
+                      1985
+                    ],
+                    [
+                      1928,
+                      1985
+                    ],
+                    [
+                      1928,
+                      2069
+                    ],
+                    [
+                      2158,
+                      2069
+                    ],
+                    [
+                      2158,
+                      1985
+                    ],
+                    [
+                      2411,
+                      1985
+                    ],
+                    [
+                      2411,
+                      2244
+                    ],
+                    [
+                      2149,
+                      2244
+                    ],
+                    [
+                      2149,
+                      2145
+                    ],
+                    [
+                      1924,
+                      2145
+                    ],
+                    [
+                      1924,
+                      2244
+                    ],
+                    [
+                      1661,
+                      2244
+                    ]
+                  ]
+                },
+                {
+                  "area": "027",
+                  "points": [
+                    [
+                      1556,
+                      825
+                    ],
+                    [
+                      1556,
+                      996
+                    ],
+                    [
+                      2425,
+                      996
+                    ],
+                    [
+                      2425,
+                      825
+                    ]
+                  ]
+                },
+                {
+                  "area": "022",
+                  "points": [
+                    [
+                      1547,
+                      3299
+                    ],
+                    [
+                      1547,
+                      3019
+                    ],
+                    [
+                      1825,
+                      3019
+                    ],
+                    [
+                      1825,
+                      3299
+                    ]
+                  ]
+                },
+                {
+                  "area": "020",
+                  "points": [
+                    [
+                      2423,
+                      3021
+                    ],
+                    [
+                      2423,
+                      3301
+                    ],
+                    [
+                      2236,
+                      3301
+                    ],
+                    [
+                      2236,
+                      3021
+                    ]
+                  ]
+                },
+                {
+                  "area": "014",
+                  "points": [
+                    [
+                      1943,
+                      3023
+                    ],
+                    [
+                      1943,
+                      3876
+                    ],
+                    [
+                      2112,
+                      3876
+                    ],
+                    [
+                      2112,
+                      3023
+                    ]
+                  ]
+                },
+                {
+                  "area": "01d",
+                  "points": [
+                    [
+                      2137,
+                      3318
+                    ],
+                    [
+                      2137,
+                      3893
+                    ],
+                    [
+                      2421,
+                      3893
+                    ],
+                    [
+                      2421,
+                      3318
+                    ]
+                  ]
+                },
+                {
+                  "area": "018",
+                  "points": [
+                    [
+                      1554,
+                      3318
+                    ],
+                    [
+                      1554,
+                      3684
+                    ],
+                    [
+                      1920,
+                      3684
+                    ],
+                    [
+                      1920,
+                      3318
+                    ]
+                  ]
+                },
+                {
+                  "area": "01b",
+                  "points": [
+                    [
+                      1549,
+                      3705
+                    ],
+                    [
+                      1549,
+                      3888
+                    ],
+                    [
+                      1733,
+                      3888
+                    ],
+                    [
+                      1733,
+                      3705
+                    ]
+                  ]
+                },
+                {
+                  "area": "016",
+                  "points": [
+                    [
+                      1752,
+                      3703
+                    ],
+                    [
+                      1752,
+                      3880
+                    ],
+                    [
+                      1920,
+                      3880
+                    ],
+                    [
+                      1920,
+                      3703
+                    ]
+                  ]
+                },
+                {
+                  "area": "011",
+                  "points": [
+                    [
+                      2712,
+                      4084
+                    ],
+                    [
+                      2712,
+                      4356
+                    ],
+                    [
+                      3078,
+                      4356
+                    ],
+                    [
+                      3078,
+                      4084
+                    ]
+                  ]
+                },
+                {
+                  "area": "00f",
+                  "points": [
+                    [
+                      2977,
+                      4571
+                    ],
+                    [
+                      2977,
+                      4758
+                    ],
+                    [
+                      3099,
+                      4758
+                    ],
+                    [
+                      3099,
+                      4571
+                    ]
+                  ]
+                },
+                {
+                  "area": "00d",
+                  "points": [
+                    [
+                      1259,
+                      3691
+                    ],
+                    [
+                      1343,
+                      3691
+                    ],
+                    [
+                      1343,
+                      3888
+                    ],
+                    [
+                      1455,
+                      3888
+                    ],
+                    [
+                      1455,
+                      3981
+                    ],
+                    [
+                      1939,
+                      3981
+                    ],
+                    [
+                      1939,
+                      3899
+                    ],
+                    [
+                      2126,
+                      3899
+                    ],
+                    [
+                      2126,
+                      3983
+                    ],
+                    [
+                      2514,
+                      3983
+                    ],
+                    [
+                      2514,
+                      2922
+                    ],
+                    [
+                      2232,
+                      2922
+                    ],
+                    [
+                      2232,
+                      2823
+                    ],
+                    [
+                      3187,
+                      2823
+                    ],
+                    [
+                      3187,
+                      4855
+                    ],
+                    [
+                      2606,
+                      4855
+                    ],
+                    [
+                      2606,
+                      4669
+                    ],
+                    [
+                      2802,
+                      4669
+                    ],
+                    [
+                      2802,
+                      4552
+                    ],
+                    [
+                      2419,
+                      4552
+                    ],
+                    [
+                      2419,
+                      4461
+                    ],
+                    [
+                      2133,
+                      4461
+                    ],
+                    [
+                      2133,
+                      4547
+                    ],
+                    [
+                      1939,
+                      4547
+                    ],
+                    [
+                      1939,
+                      4457
+                    ],
+                    [
+                      1642,
+                      4457
+                    ],
+                    [
+                      1642,
+                      4556
+                    ],
+                    [
+                      1259,
+                      4556
+                    ]
+                  ]
+                }
+              ],
+              "hrefThumbnail": {
+                "type": "internal",
+                "path": "adventure/LK/thumbnail/000-map-0.01-lightning-keep.webp"
+              },
+              "grid": {
+                "type": "square",
+                "size": 289,
+                "offsetX": 29,
+                "offsetY": 124,
+                "scale": 3
+              }
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/LK/001-map-0.01-lightning-keep-player.webp"
+              },
+              "imageType": "mapPlayer",
+              "title": "Wersja odtwarzacza",
+              "width": 3840,
+              "height": 5280,
+              "mapParent": {
+                "id": "040"
+              },
+              "credit": "Sean Macdonald",
+              "grid": {
+                "type": "square",
+                "size": 289,
+                "offsetX": 29,
+                "offsetY": 124,
+                "scale": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Zachowaj funkcje",
+          "id": "00a",
+          "entries": [
+            "Poniżej podsumowano dominujące cechy twierdzy:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Materiały budowlane",
+                  "entry": "Wszystkie trzy budynki gospodarcze - oficyna ({@area area K3|00f|x}), barak zewnętrzny ({@area area K4|011|x}) i stajnia ({@area area K5|013|x}) - są wykonane z drewna i zbudowane na kamiennych fundamentach. Wszystko inne jest z kamienia."
+                },
+                {
+                  "type": "item",
+                  "name": "Sufity",
+                  "entry": "Sufity na parterze mają wysokość 10 metrów. Sufity na piętrze mają wysokość 15 metrów."
+                },
+                {
+                  "type": "item",
+                  "name": "Drzwi",
+                  "entry": "Drzwi wykonane są z solidnego drewna dębowego z żelaznymi zawiasami, uchwytami i okuciami. Niektóre drzwi są zamknięte. (Na mapie zamknięte drzwi są oznaczone małą kropką na drzwiach.) W ramach akcji postać może wyważyć otwarte drzwi, wykonując udane {@dc 20} Wytrzymałość ({@skill Athletics}) sprawdź lub użyj narzędzi złodziei, aby spróbować wyłamać zamek, czyniąc to z sukcesem {@dc 15} Kontrola zręczności."
+                },
+                {
+                  "type": "item",
+                  "name": "Oświetlenie wewnętrzne",
+                  "entry": "Lokalizacje wewnętrzne są ciemne, chyba że mają okna wpuszczające naturalne światło. Opisy obszarów zakładają, że postacie mają źródło światła lub inny sposób widzenia w ciemności."
+                },
+                {
+                  "type": "item",
+                  "name": "Okna",
+                  "entry": "Na piętrze głównej wieży znajdują się oszronione okna otwierane na żelaznych zawiasach. Każde okno zamykane jest na zatrzask od wewnątrz. W ramach akcji postać dysponująca narzędziami złodzieja może spróbować otworzyć okno od zewnątrz, czyniąc to skutecznie {@dc 15} Kontrola zręczności. Okno można również rozbić w ramach akcji."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Zachowaj lokalizacje",
+          "id": "00b",
+          "entries": [
+            "Następujące lokalizacje są powiązane z mapą Twierdzy Błyskawic.",
+            {
+              "type": "entries",
+              "name": "K1: Dolna Brama",
+              "id": "00c",
+              "entries": [
+                "Brama bramna jest niestrzeżona. Przejście pomiędzy wieżami bramnymi wznosi się w kierunku północnym, gdyż teren wewnątrz dziedzińca jest wyższy niż teren na zewnątrz donżonu.",
+                "Główną obroną wieży bramnej są solidne podwójne drzwi i żelazna brona:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Podwójne drzwi",
+                      "entry": "Te drzwi otwierają się do środka, skrzypiąc na zardzewiałych zawiasach. Chociaż nie są one zamknięte, drewniany drążek znajdujący się wewnątrz można opuścić do wsporników, aby utrzymać drzwi zamknięte. Wyważenie zakratowanych drzwi wymaga powodzenia {@dc 25} Wytrzymałość ({@skill Athletics}) sprawdzać."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Brona",
+                      "entry": "Pomiędzy prętami żelaznej brony znajdują się wąskie szczeliny - zbyt wąskie, aby mała lub średnia postać mogła się przez nie przecisnąć. Do podnoszenia lub opuszczania brony można wykorzystać wyciągarkę znajdującą się na górnym poziomie wieży bramnej ({@area area K13|025|x})."
+                    }
+                  ]
+                },
+                "Obydwa drzwi do wież bramnych są zamknięte. Szczeliny strzałkowe w ścianach wieży bramnej pomiędzy broną a drzwiami zapewniają {@quickref cover||3||three-quarters cover} każdemu, kto za nimi stoi. Wewnątrz każdej wieży znajduje się drabina prowadząca do drewnianej klapy w suficie, nad którą znajduje się obszar K13."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K2: Dziedziniec",
+              "id": "00d",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "00e",
+                  "entries": [
+                    "Ten żwirowy dziedziniec jest dziesięć stóp wyższy od gruntu na zewnątrz twierdzy, więc jest tylko dziesięć stóp niższy od parapetów zewnętrznego muru. Kamienne schody łączą dziedziniec ze szczytem muru."
+                  ]
+                },
+                "Podwórko jest puste."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K3: Wychodek",
+              "id": "00f",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "010",
+                  "entries": [
+                    "Nieszkodliwe szczury atakują ten drewniany budynek, który śmierdzi szczurzymi odchodami."
+                  ]
+                },
+                "Postać może używać a {@spell speak with animals} zaklęcie przesłuchujące szczury, a karmienie szczurów zwiększa ich skłonność do pomocy. Zapytane szczury przekazują następujące informacje:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Główna Twierdza",
+                      "entry": "Szczury nie znalazły sposobu na wejście do głównej twierdzy, więc jej zawartość nie jest im znana."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Inni goście",
+                      "entry": "Szczury są czasami nękane w nocy przez sowy, ale nie spotkały żadnych innych gości. W zewnętrznym baraku (obszar K4) przebywa kilka stworzeń, które szczury uważają za „nienaturalne”. Szczury ich unikają."
+                    },
+                    {
+                      "type": "item",
+                      "name": "Srebrny klucz",
+                      "entry": "Jeden ze szczurów znalazł zmatowiały srebrny klucz i zakopał go w południowo-wschodnim narożniku dziedzińca, za wychodkiem. Postać może przekonać szczura do przyniesienia klucza, co zakończy się sukcesem {@dc 10} Charyzma ({@skill Persuasion}) sprawdzać. Głowa klucza ma kształt głowy wilka. Kluczem można otworzyć lub zamknąć dowolne drzwi w zamku."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K4: Barak Zewnętrzny",
+              "id": "011",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "012",
+                  "entries": [
+                    "Wnętrze tego budynku cuchnie pleśnią i wszystko jest tu spowijane kurzem. Widzisz kamienny kominek i sześć zestawów drewnianych łóżek piętrowych, na których znajdują się gnijące materace wypełnione słomą. Na czterech z nich leżą ciemnozielone stworzenia o masywnych ciałach i głowach, ale bez rąk."
+                  ]
+                },
+                "Bezrękich postaci leżących na łóżkach jest cztery {@creature Creeper|MCV3MC|foki}. Jeśli postacie natychmiast wycofają się z baraku, pnącza nie robią nic. Jeśli postacie pozostają, pnącza to zauważają, siadają na łóżkach i ruszają w stronę intruzów. Pnącza są wrogie i walczą, dopóki nie zostaną zniszczone."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K5: Stabilny",
+              "id": "013",
+              "entries": [
+                "Zawiasy w zewnętrznych drzwiach stajni są mocno zardzewiałe. Każda próba otwarcia podwójnych drzwi powoduje pęknięcie zawiasów.",
+                "W budynku znajduje się sześć pustych boksów dla koni oraz stary sprzęt jeździecki pokryty kurzem."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K6: Hol Główny",
+              "id": "014",
+              "entries": [
+                "Podwójne drzwi prowadzące z dziedzińca do holu głównego są zamknięte.",
+                {
+                  "type": "insetReadaloud",
+                  "id": "015",
+                  "entries": [
+                    "Ta zakurzona sala jest pusta, jeśli nie liczyć pajęczyn."
+                  ]
+                },
+                "Na północnym krańcu korytarza do galerii prowadzą dwie kryte klatkami schodowymi ({@area area K14|027|x})."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K7: Przedsionek",
+              "id": "016",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "017",
+                  "entries": [
+                    "W tym pokoju znajdują się rzędy gołych haczyków na ścianach."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K8: Kuchnia i studnia",
+              "id": "018",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "019",
+                  "entries": [
+                    "Kamienna studnia zajmuje południowo-zachodni narożnik tej kuchni. Obok studni znajduje się drewniane wiadro przymocowane do liny o długości pięćdziesięciu stóp. Stół i szafki w kuchni są puste, a na żelaznym haku w zabrudzonym sadzą kominku wisi mały żelazny kociołek."
+                  ]
+                },
+                "Szyb studni ma 5 stóp szerokości i 30 stóp głębokości i jest wykonany z cegieł, z których niektóre wystają lekko, tworząc uchwyty i oparcia dla stóp. Postać, która oświetla studnię, widzi srebrzysty blask w wodzie. Postać może wspiąć się lub zejść szybem bez konieczności wykonywania testu zdolności.",
+                {
+                  "type": "entries",
+                  "name": "Cysterna",
+                  "id": "01a",
+                  "entries": [
+                    "Poniżej szybu studni znajduje się głęboka na 3 metry i szeroka na 3 metry cysterna wypełniona świeżą wodą. Cysterna jest strzeżona przez {@creature water weird} (patrz {@book Monster Manual|MM}), który atakuje każdą postać, która wejdzie do wody. Na dnie cysterny leży stalowy piorunochron o długości 3 metrów, zakończony kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K9: Spiżarnia",
+              "id": "01b",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "01c",
+                  "entries": [
+                    "Gołe półki zdobią tylną ścianę tej pustej spiżarni."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K10: Jadalnia",
+              "id": "01d",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "01e",
+                  "entries": [
+                    "Czternaście drewnianych krzeseł otacza drewniany stół jadalny. Nad stołem zawieszony jest żelazny żyrandol, w którym brakuje świec. Pod północną ścianą stoją dwa puste kredensy.",
+                    "We wschodniej ścianie osadzony jest poczerniały kominek. Nad kominkiem z niebieskiego marmuru wisi metalowa tarcza z insygniami: głową wilka, a nad nią trzy błyskawice."
+                  ]
+                },
+                "Postać, która sprawdza tarczę i odnosi sukces {@dc 10} Inteligencja ({@skill History}) check wie, że jego insygnia należą do rycerza-wilkołaka, który zbudował twierdzę. A {@spell detect magic} zaklęcie ujawnia aurę magii wyrzeczenia się wokół tarczy. Pierwsza istota, która dotknie metalowej tarczy, otrzymuje 13 ({@dice 3d8}) obrażenia od błyskawic, po których tarcza staje się niemagiczna i można nią manipulować bez obrażeń.",
+                {
+                  "type": "entries",
+                  "name": "Kominek z niebieskiego marmuru",
+                  "id": "01f",
+                  "entries": [
+                    "Postać badająca gzyms kominka zdaje sobie sprawę, że jest to sprytnie zamaskowana pokrywa skrywająca długą, płytką komorę. W tym przedziale znajdują się dwie połówki piorunochronu o długości 3 metrów. Po ułożeniu obie połówki magicznie łączą się w jeden piorunochron o długości 3 metrów z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K11: Kwatery służby",
+              "id": "020",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "021",
+                  "entries": [
+                    "Ten pokój jest pełen kurzu i pajęczyn. Pod wschodnią ścianą stoją trzy pary łóżek piętrowych, a ich słomiane materace są mocno przegniłe."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K12: Zbrojownia",
+              "id": "022",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "023",
+                  "entries": [
+                    "Do ścian tego kwadratowego pomieszczenia przymocowane są drewniane stojaki przeznaczone do przechowywania broni. Większość broni usunięto dawno temu, ale kilka pozostało: sześć włóczni, cztery długie miecze, dwa długie łuki bez naciągu i wysoka drewniana lanca."
+                  ]
+                },
+                "{@item Spear|PHB|włócznie}, {@item Longsword|PHB|miecze} i {@item Longbow|PHB|łuki} nie są magiczne.",
+                {
+                  "type": "entries",
+                  "name": "Drewniana lanca",
+                  "id": "024",
+                  "entries": [
+                    "Dokładne badanie drewnianej lancy ujawnia, że ​​nie jest to broń, ale raczej futerał. Wewnątrz tej skrzynki znajduje się wysoki na 3 metry stalowy piorunochron z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K13: Górna Brama",
+              "id": "025",
+              "entries": [
+                "Górna brama jest niestrzeżona. Drzwi prowadzące na blanki zewnętrznego muru są zamknięte. Drewniane klapy w podłodze otwierają się, ukazując drabiny prowadzące do dolnej wieży bramnej ({@area area K1|00c|x}). Ściany są wyłożone szczelinami w kształcie strzałek, które zapewniają {@quickref cover||3||three-quarters cover} osobom za nimi.",
+                {
+                  "type": "entries",
+                  "name": "Wciągarka Portcullis",
+                  "id": "026",
+                  "entries": [
+                    "W jedną ze ścian wbudowano żelazną wciągarkę. W ramach akcji postać może użyć wyciągarki, aby podnieść kratę i zablokować ją tak, aby nie spadła, lub zwolnić zaczep, który powoduje opuszczenie brony."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K14: Galeria",
+              "id": "027",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "028",
+                  "entries": [
+                    "Cztery puste zbroje strzegą tego wyłożonego wykładziną korytarza, którego ściany ozdobione są oprawionymi w ramki zdjęciami rycerzy, smoków, krajobrazów i wielkich bitew. Na wschodnim krańcu sali znajduje się duży obraz przedstawiający rycerza-wilkołaka wymachującego stalową lancą."
+                  ]
+                },
+                "Obrazy nie są magiczne ani szczególnie cenne. Duży obraz na wschodniej ścianie przedstawia rycerza-wilkołaka, który zbudował Twierdzę Błyskawic. Drzwi prowadzące na blanki są zamknięte tylko od zewnątrz. Do głównego holu prowadzą bliźniacze schody ({@area area K6|014|x}).",
+                {
+                  "type": "entries",
+                  "name": "Skarb",
+                  "id": "029",
+                  "entries": [
+                    "Zbroje są spawane, więc nie przewracają się ani nie zapadają. Trzy z nich są niemagiczne {@item Spear|PHB|włócznie}. Czwarte sprzęgła a {@item +1 spear} które można skutecznie wyrwać z uścisku zbroi {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdzać."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K15: Sypialnia",
+              "id": "02a",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "02b",
+                  "entries": [
+                    "W odległym kącie tego skromnie umeblowanego pokoju stoi wąskie łóżko. Na podłodze w nogach łóżka stoi pusta, przewrócona skrzynia i drewniany wieszak na ubrania."
+                  ]
+                },
+                "Z sypialni tej korzystał kapitan dowodzący strażą zamkową. Skrzynia została w większości opróżniona przed opuszczeniem twierdzy. Każda postać, która zbada skrzynię, znajdzie w jej pokrywie tajny schowek. W tej komorze znajduje się drewniana rurka do przewijania, wewnątrz której znajduje się skrawek papieru z następującymi słowami zapisanymi w Common:",
+                {
+                  "type": "insetReadaloud",
+                  "id": "02c",
+                  "entries": [
+                    "Drewniana lanca Model tańca w świetle księżyca utrzymuje Cysternę głęboko Pod tarczą Za pomocą ukrytych łańcuchów"
+                  ]
+                },
+                "Zwroty te dostarczają wskazówek co do lokalizacji sześciu piorunochronów (więcej szczegółów można znaleźć w {@area areas K8|018|x}, {@area K10|01d|x}, {@area K12|022|x}, {@area K17|02f|x}, {@area K18|032|x} i {@area K20|037|x})."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K16: Wtajemniczony",
+              "id": "02d",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "02e",
+                  "entries": [
+                    "W tym wychodku znajduje się umywalka, wanna na nóżkach, wieszak na ręczniki i nocnik - wszystko puste."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K17: Sypialnia",
+              "id": "02f",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "030",
+                  "entries": [
+                    "Łóżko z baldachimem, pokryte pajęczynami, stoi pod zachodnią ścianą, pomiędzy dwiema szafkami nocnymi, z których na jednej z nich znajduje się malowany drewniany model Twierdzy Błyskawic. Na przeciwległej ścianie zamontowane jest wysokie lustro w złoconej ramie, obok którego stoi zakurzona szafa.",
+                    "Na południowym krańcu pokoju, przed zamarzniętym oknem, kołysze się wysoka, ciemna postać z długimi pazurami."
+                  ]
+                },
+                "Wysoka, ciemna postać to {@creature Enderman|MCV3MC} która została przyciągnięta do tego świata przez zacieniony kąt pokoju. Nie mogąc wrócić do swojego świata, atakuje, jeśli się do niego zbliży lub ktoś do niego zadzwoni.",
+                "Szafa jest pusta, podobnie jak szuflady w szafkach nocnych.",
+                {
+                  "type": "entries",
+                  "name": "Model",
+                  "id": "031",
+                  "entries": [
+                    "Każda postać, która przyjrzy się modelowi na stoliku nocnym, zobaczy piorunochron wielkości wykałaczki zamontowany na dachu głównej wieży. Zaklęcie {@spell detect magic} ujawnia aurę magii transmutacyjnej wokół małego piorunochronu. Po oddzieleniu od modelu maleńki pręt w magiczny sposób wyrasta na stalowy piorunochron o długości 3 metrów, zakończony kulką na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K18: Sypialnia",
+              "id": "032",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "033",
+                  "entries": [
+                    "Gęsty kurz i pajęczyny spowijają łóżko z baldachimem, parę szafek nocnych, biurko, krzesło i owiniętą łańcuchami szafę. Na podłodze walają się fragmenty rozbitego lustra. Zasłony okienne są zaciągnięte."
+                  ]
+                },
+                "Szuflady w biurku i szafkach nocnych są puste, a dokładne zbadanie fragmentów luster pozwala przypuszczać, że lustro wisiało kiedyś na wschodniej ścianie obok szafy. (Haczyk, na którym kiedyś wisiało lustro, pękł, w wyniku czego lustro spadło ze ściany i pękło.)",
+                {
+                  "type": "entries",
+                  "name": "Szafa",
+                  "id": "034",
+                  "entries": [
+                    "Kiedy bohaterowie eksplorują ten pokój, szafa drży i przepycha się, jakby uwięziono w niej jedno lub więcej stworzeń. Łańcuchy wokół szafy są utrzymywane na miejscu za pomocą solidnej kłódki. Srebrny klucz znaleziony w {@area area K3|00f|x} otwiera ten zamek. W ramach akcji postać może również użyć narzędzi złodzieja, aby spróbować otworzyć zamek, wykonując udany test Zręczności {@dc 10}. Zamek można również złamać; ma KP 17, 7 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
+                    "Zaklęcie {@spell detect magic} ujawnia aurę magii iluzji wokół szafy. Drżenie i popychanie szafy jest efektem iluzorycznym, a szafa nie zawiera niczego niebezpiecznego. Po otwarciu ukazuje się stojąca na końcu drewniana skrzynia wysoka na 6 stóp, szeroka na 1 stopę i głęboka na 1 stopę. W tym pudełku znajdują się dwie połówki piorunochronu o długości 3 metrów. Po ułożeniu obie połówki magicznie łączą się w jeden piorunochron o długości 3 metrów z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K19: Barak wewnętrzny",
+              "id": "035",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "036",
+                  "entries": [
+                    "W tym zakurzonym, pokrytym pajęczyną pokoju znajduje się pięć łóżek piętrowych. Wszystkie materace wypełnione słomą są zbutwiałe. Nikt tu nie spał od dłuższego czasu."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K20: Studium prywatne",
+              "id": "037",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "038",
+                  "entries": [
+                    "W pokoju tym znajduje się biurko i krzesło ustawione przed oszronionym oknem. Biurko posiada dwie szuflady zamykane na zamek, jedną otwartą i drugą zamkniętą. Z otwartej szuflady wydobywa się migoczące czerwone światło.",
+                    "Zakurzone półki na książki rozciągają się na przeciwległej ścianie; pojedyncza oprawiona w skórę księga opiera się na jednym końcu najwyższej półki. Pokryta pajęczynami drabinka na kółkach sprawia, że ​​książka jest pod ręką."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Książka",
+                  "id": "039",
+                  "entries": [
+                    "Książkę znajdującą się na wysokiej półce możesz zdobyć wspinając się po drabinie lub korzystając z {@spell mage hand} zaklęcie lub podobną magię. Na grzbiecie książki srebrnym atramentem widnieje tytuł „Taniec w świetle księżyca”. Książka, napisana przez nieznanego autora kryminałów, jest powieścią kryminalną opartą na prawdziwej historii. W tej historii diabelski badacz imieniem Dagger Sharp próbuje rozwiązać sprawę morderstw kilku mieszkańców wioski Briar's End. Podejrzewa się, że istnieje wilkołak, ale prawdziwym winowajcą jest strach na wróble opętany przez złego ducha zabójcy, którego mieszkańcy wioski pochowali żywcem kilka miesięcy wcześniej. Sztylet pomaga mieszkańcom schwytać i rozczłonkować stracha na wróble, a następnie przekonuje wiejskiego księdza, aby poświęcił grób zabójcy, co pochowa złego ducha.",
+                    "Każda postać, która przegląda książkę, znajduje podartą materiałową zakładkę z wbitą stalową igłą. Zaklęcie {@spell detect magic} ujawnia aurę magii transmutacyjnej wokół igły. Jeśli igła zostanie użyta do pociągnięcia kropli krwi, w magiczny sposób powiększy się i stanie się stalowym piorunochronem o długości 3 metrów, zakończonym kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Szuflady biurka",
+                  "id": "03a",
+                  "entries": [
+                    "Otwarta szuflada biurka zawiera {@item Elemental Gem, Red Corundum||klejnot żywiołu (czerwony korund)} jest ciepły w dotyku i jest źródłem migoczącego czerwonego światła. Zamiast przywoływać żywiołaka ognia, przywołuje: {@creature blaze|MCV3MC}.",
+                    "Zamkniętą szufladę można otworzyć srebrnym kluczem znajdującym się w {@area area K3|00f|x}. W ramach akcji postać może zamiast tego użyć narzędzi złodziei, aby spróbować otworzyć zamek, wykonując udany test Zręczności {@dc 10}, lub może wymusić jego otwarcie, wykonując udany test Siły {@dc 13} ({@skill Athletics}). W tej szufladzie znajduje się otwarta drewniana skrzynia, której wieko nosi stalowe insygnia przedstawiające głowę wilka z trzema błyskawicami nad nią. Wewnątrz skrzyni znajduje się trzydzieści pierścieni wykonanych z niebieskiego jadeitu. Każdy niebieski pierścień z jadeitu jest wart 10 sz. Zaklęcie {@spell detect magic} ujawnia aurę magii wyrzeczenia się wokół każdego pierścienia. Pierścienie te chronią swoich użytkowników przed tarczą piorunową twierdzy (szczegóły w obszarze K21)."
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "K21: Kamienie węgielne",
+              "id": "03b",
+              "entries": [
+                {
+                  "type": "insetReadaloud",
+                  "id": "03c",
+                  "entries": [
+                    "W miejscu zbiegu blanków dwóch zbiegających się murów wmurowano kamień węgielny. W górnej części kamienia węgielnego wywiercony jest cylindryczny otwór o szerokości około pięciu cali i głębokości jednej stopy. Wnętrze otworu wyłożone jest ołowiem."
+                  ]
+                },
+                "Ściana zewnętrzna ma sześć kamieni węgielnych. Kiedy sześć magicznych piorunochronów zostanie włożonych w kamienie węgielne, aktywuje się tarcza odgromowa twierdzy. Kula na szczycie każdego piorunochronu brzęczy cicho, gdy zostaje naelektryzowana.",
+                {
+                  "type": "entries",
+                  "name": "Tarcza Błyskawicy",
+                  "id": "03d",
+                  "entries": [
+                    "W ramach akcji istota może włożyć piorunochron w kamień węgielny lub usunąć piorunochron z kamienia węgielnego; tylko istota nosząca niebieski jadeitowy pierścień (patrz obszar K20) może wyjąć pręt. Podczas gdy wszystkie sześć prętów jest pod napięciem, każde stworzenie nie noszące niebieskiego jadeitowego pierścienia, które znajduje się na zewnątrz - w tym na dziedzińcu, na dachach lub na szczycie zewnętrznej ściany - i rozpoczyna swoją turę w promieniu 60 stóp od twierdzy, musi wykonać {@dc 15} Rzut obronny na Kondycję, wykonanie 14 ({@dice 4d6}) obrażenia od błyskawicy przy nieudanym zapisie lub o połowę mniejsze przy udanym zapisie. Efekt ten ignoruje odporność i odporność na obrażenia od piorunów, ze względu na dziwaczną naturę elektryczności generowanej przez pręty.",
+                    "Gdy tarcza odgromowa jest aktywowana, Bestie potrafią wyczuć dziwną energię elektryczną i zachować dystans, aby uniknąć porażenia przez nią."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:00a": {
+      "type": "entries",
+      "name": "Zachowaj funkcje",
+      "id": "00a",
+      "entries": [
+        "Poniżej podsumowano dominujące cechy twierdzy:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Materiały budowlane",
+              "entry": "Wszystkie trzy budynki gospodarcze - oficyna ({@area area K3|00f|x}), barak zewnętrzny ({@area area K4|011|x}) i stajnia ({@area area K5|013|x}) - są wykonane z drewna i zbudowane na kamiennych fundamentach. Wszystko inne jest z kamienia."
+            },
+            {
+              "type": "item",
+              "name": "Sufity",
+              "entry": "Sufity na parterze mają wysokość 10 metrów. Sufity na piętrze mają wysokość 15 metrów."
+            },
+            {
+              "type": "item",
+              "name": "Drzwi",
+              "entry": "Drzwi wykonane są z solidnego drewna dębowego z żelaznymi zawiasami, uchwytami i okuciami. Niektóre drzwi są zamknięte. (Na mapie zamknięte drzwi są oznaczone małą kropką na drzwiach.) W ramach akcji postać może wyważyć otwarte drzwi, wykonując udane {@dc 20} Wytrzymałość ({@skill Athletics}) sprawdź lub użyj narzędzi złodziei, aby spróbować wyłamać zamek, czyniąc to z sukcesem {@dc 15} Kontrola zręczności."
+            },
+            {
+              "type": "item",
+              "name": "Oświetlenie wewnętrzne",
+              "entry": "Lokalizacje wewnętrzne są ciemne, chyba że mają okna wpuszczające naturalne światło. Opisy obszarów zakładają, że postacie mają źródło światła lub inny sposób widzenia w ciemności."
+            },
+            {
+              "type": "item",
+              "name": "Okna",
+              "entry": "Na piętrze głównej wieży znajdują się oszronione okna otwierane na żelaznych zawiasach. Każde okno zamykane jest na zatrzask od wewnątrz. W ramach akcji postać dysponująca narzędziami złodzieja może spróbować otworzyć okno od zewnątrz, czyniąc to skutecznie {@dc 15} Kontrola zręczności. Okno można również rozbić w ramach akcji."
+            }
+          ]
+        }
+      ]
+    },
+    "0:00b": {
+      "type": "entries",
+      "name": "Zachowaj lokalizacje",
+      "id": "00b",
+      "entries": [
+        "Następujące lokalizacje są powiązane z mapą Twierdzy Błyskawic.",
+        {
+          "type": "entries",
+          "name": "K1: Dolna Brama",
+          "id": "00c",
+          "entries": [
+            "Brama bramna jest niestrzeżona. Przejście pomiędzy wieżami bramnymi wznosi się w kierunku północnym, gdyż teren wewnątrz dziedzińca jest wyższy niż teren na zewnątrz donżonu.",
+            "Główną obroną wieży bramnej są solidne podwójne drzwi i żelazna brona:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Podwójne drzwi",
+                  "entry": "Te drzwi otwierają się do środka, skrzypiąc na zardzewiałych zawiasach. Chociaż nie są one zamknięte, drewniany drążek znajdujący się wewnątrz można opuścić do wsporników, aby utrzymać drzwi zamknięte. Wyważenie zakratowanych drzwi wymaga powodzenia {@dc 25} Wytrzymałość ({@skill Athletics}) sprawdzać."
+                },
+                {
+                  "type": "item",
+                  "name": "Brona",
+                  "entry": "Pomiędzy prętami żelaznej brony znajdują się wąskie szczeliny - zbyt wąskie, aby mała lub średnia postać mogła się przez nie przecisnąć. Do podnoszenia lub opuszczania brony można wykorzystać wyciągarkę znajdującą się na górnym poziomie wieży bramnej ({@area area K13|025|x})."
+                }
+              ]
+            },
+            "Obydwa drzwi do wież bramnych są zamknięte. Szczeliny strzałkowe w ścianach wieży bramnej pomiędzy broną a drzwiami zapewniają {@quickref cover||3||three-quarters cover} każdemu, kto za nimi stoi. Wewnątrz każdej wieży znajduje się drabina prowadząca do drewnianej klapy w suficie, nad którą znajduje się obszar K13."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K2: Dziedziniec",
+          "id": "00d",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "00e",
+              "entries": [
+                "Ten żwirowy dziedziniec jest dziesięć stóp wyższy od gruntu na zewnątrz twierdzy, więc jest tylko dziesięć stóp niższy od parapetów zewnętrznego muru. Kamienne schody łączą dziedziniec ze szczytem muru."
+              ]
+            },
+            "Podwórko jest puste."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K3: Wychodek",
+          "id": "00f",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "010",
+              "entries": [
+                "Nieszkodliwe szczury atakują ten drewniany budynek, który śmierdzi szczurzymi odchodami."
+              ]
+            },
+            "Postać może używać a {@spell speak with animals} zaklęcie przesłuchujące szczury, a karmienie szczurów zwiększa ich skłonność do pomocy. Zapytane szczury przekazują następujące informacje:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Główna Twierdza",
+                  "entry": "Szczury nie znalazły sposobu na wejście do głównej twierdzy, więc jej zawartość nie jest im znana."
+                },
+                {
+                  "type": "item",
+                  "name": "Inni goście",
+                  "entry": "Szczury są czasami nękane w nocy przez sowy, ale nie spotkały żadnych innych gości. W zewnętrznym baraku (obszar K4) przebywa kilka stworzeń, które szczury uważają za „nienaturalne”. Szczury ich unikają."
+                },
+                {
+                  "type": "item",
+                  "name": "Srebrny klucz",
+                  "entry": "Jeden ze szczurów znalazł zmatowiały srebrny klucz i zakopał go w południowo-wschodnim narożniku dziedzińca, za wychodkiem. Postać może przekonać szczura do przyniesienia klucza, co zakończy się sukcesem {@dc 10} Charyzma ({@skill Persuasion}) sprawdzać. Głowa klucza ma kształt głowy wilka. Kluczem można otworzyć lub zamknąć dowolne drzwi w zamku."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K4: Barak Zewnętrzny",
+          "id": "011",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "012",
+              "entries": [
+                "Wnętrze tego budynku cuchnie pleśnią i wszystko jest tu spowijane kurzem. Widzisz kamienny kominek i sześć zestawów drewnianych łóżek piętrowych, na których znajdują się gnijące materace wypełnione słomą. Na czterech z nich leżą ciemnozielone stworzenia o masywnych ciałach i głowach, ale bez rąk."
+              ]
+            },
+            "Bezrękich postaci leżących na łóżkach jest cztery {@creature Creeper|MCV3MC|foki}. Jeśli postacie natychmiast wycofają się z baraku, pnącza nie robią nic. Jeśli postacie pozostają, pnącza to zauważają, siadają na łóżkach i ruszają w stronę intruzów. Pnącza są wrogie i walczą, dopóki nie zostaną zniszczone."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K5: Stabilny",
+          "id": "013",
+          "entries": [
+            "Zawiasy w zewnętrznych drzwiach stajni są mocno zardzewiałe. Każda próba otwarcia podwójnych drzwi powoduje pęknięcie zawiasów.",
+            "W budynku znajduje się sześć pustych boksów dla koni oraz stary sprzęt jeździecki pokryty kurzem."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K6: Hol Główny",
+          "id": "014",
+          "entries": [
+            "Podwójne drzwi prowadzące z dziedzińca do holu głównego są zamknięte.",
+            {
+              "type": "insetReadaloud",
+              "id": "015",
+              "entries": [
+                "Ta zakurzona sala jest pusta, jeśli nie liczyć pajęczyn."
+              ]
+            },
+            "Na północnym krańcu korytarza do galerii prowadzą dwie kryte klatkami schodowymi ({@area area K14|027|x})."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K7: Przedsionek",
+          "id": "016",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "017",
+              "entries": [
+                "W tym pokoju znajdują się rzędy gołych haczyków na ścianach."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K8: Kuchnia i studnia",
+          "id": "018",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "019",
+              "entries": [
+                "Kamienna studnia zajmuje południowo-zachodni narożnik tej kuchni. Obok studni znajduje się drewniane wiadro przymocowane do liny o długości pięćdziesięciu stóp. Stół i szafki w kuchni są puste, a na żelaznym haku w zabrudzonym sadzą kominku wisi mały żelazny kociołek."
+              ]
+            },
+            "Szyb studni ma 5 stóp szerokości i 30 stóp głębokości i jest wykonany z cegieł, z których niektóre wystają lekko, tworząc uchwyty i oparcia dla stóp. Postać, która oświetla studnię, widzi srebrzysty blask w wodzie. Postać może wspiąć się lub zejść szybem bez konieczności wykonywania testu zdolności.",
+            {
+              "type": "entries",
+              "name": "Cysterna",
+              "id": "01a",
+              "entries": [
+                "Poniżej szybu studni znajduje się głęboka na 3 metry i szeroka na 3 metry cysterna wypełniona świeżą wodą. Cysterna jest strzeżona przez {@creature water weird} (patrz {@book Monster Manual|MM}), który atakuje każdą postać, która wejdzie do wody. Na dnie cysterny leży stalowy piorunochron o długości 3 metrów, zakończony kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K9: Spiżarnia",
+          "id": "01b",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "01c",
+              "entries": [
+                "Gołe półki zdobią tylną ścianę tej pustej spiżarni."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K10: Jadalnia",
+          "id": "01d",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "01e",
+              "entries": [
+                "Czternaście drewnianych krzeseł otacza drewniany stół jadalny. Nad stołem zawieszony jest żelazny żyrandol, w którym brakuje świec. Pod północną ścianą stoją dwa puste kredensy.",
+                "We wschodniej ścianie osadzony jest poczerniały kominek. Nad kominkiem z niebieskiego marmuru wisi metalowa tarcza z insygniami: głową wilka, a nad nią trzy błyskawice."
+              ]
+            },
+            "Postać, która sprawdza tarczę i odnosi sukces {@dc 10} Inteligencja ({@skill History}) check wie, że jego insygnia należą do rycerza-wilkołaka, który zbudował twierdzę. A {@spell detect magic} zaklęcie ujawnia aurę magii wyrzeczenia się wokół tarczy. Pierwsza istota, która dotknie metalowej tarczy, otrzymuje 13 ({@dice 3d8}) obrażenia od błyskawic, po których tarcza staje się niemagiczna i można nią manipulować bez obrażeń.",
+            {
+              "type": "entries",
+              "name": "Kominek z niebieskiego marmuru",
+              "id": "01f",
+              "entries": [
+                "Postać badająca gzyms kominka zdaje sobie sprawę, że jest to sprytnie zamaskowana pokrywa skrywająca długą, płytką komorę. W tym przedziale znajdują się dwie połówki piorunochronu o długości 3 metrów. Po ułożeniu obie połówki magicznie łączą się w jeden piorunochron o długości 3 metrów z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K11: Kwatery służby",
+          "id": "020",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "021",
+              "entries": [
+                "Ten pokój jest pełen kurzu i pajęczyn. Pod wschodnią ścianą stoją trzy pary łóżek piętrowych, a ich słomiane materace są mocno przegniłe."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K12: Zbrojownia",
+          "id": "022",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "023",
+              "entries": [
+                "Do ścian tego kwadratowego pomieszczenia przymocowane są drewniane stojaki przeznaczone do przechowywania broni. Większość broni usunięto dawno temu, ale kilka pozostało: sześć włóczni, cztery długie miecze, dwa długie łuki bez naciągu i wysoka drewniana lanca."
+              ]
+            },
+            "{@item Spear|PHB|włócznie}, {@item Longsword|PHB|miecze} i {@item Longbow|PHB|łuki} nie są magiczne.",
+            {
+              "type": "entries",
+              "name": "Drewniana lanca",
+              "id": "024",
+              "entries": [
+                "Dokładne badanie drewnianej lancy ujawnia, że ​​nie jest to broń, ale raczej futerał. Wewnątrz tej skrzynki znajduje się wysoki na 3 metry stalowy piorunochron z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K13: Górna Brama",
+          "id": "025",
+          "entries": [
+            "Górna brama jest niestrzeżona. Drzwi prowadzące na blanki zewnętrznego muru są zamknięte. Drewniane klapy w podłodze otwierają się, ukazując drabiny prowadzące do dolnej wieży bramnej ({@area area K1|00c|x}). Ściany są wyłożone szczelinami w kształcie strzałek, które zapewniają {@quickref cover||3||three-quarters cover} osobom za nimi.",
+            {
+              "type": "entries",
+              "name": "Wciągarka Portcullis",
+              "id": "026",
+              "entries": [
+                "W jedną ze ścian wbudowano żelazną wciągarkę. W ramach akcji postać może użyć wyciągarki, aby podnieść kratę i zablokować ją tak, aby nie spadła, lub zwolnić zaczep, który powoduje opuszczenie brony."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K14: Galeria",
+          "id": "027",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "028",
+              "entries": [
+                "Cztery puste zbroje strzegą tego wyłożonego wykładziną korytarza, którego ściany ozdobione są oprawionymi w ramki zdjęciami rycerzy, smoków, krajobrazów i wielkich bitew. Na wschodnim krańcu sali znajduje się duży obraz przedstawiający rycerza-wilkołaka wymachującego stalową lancą."
+              ]
+            },
+            "Obrazy nie są magiczne ani szczególnie cenne. Duży obraz na wschodniej ścianie przedstawia rycerza-wilkołaka, który zbudował Twierdzę Błyskawic. Drzwi prowadzące na blanki są zamknięte tylko od zewnątrz. Do głównego holu prowadzą bliźniacze schody ({@area area K6|014|x}).",
+            {
+              "type": "entries",
+              "name": "Skarb",
+              "id": "029",
+              "entries": [
+                "Zbroje są spawane, więc nie przewracają się ani nie zapadają. Trzy z nich są niemagiczne {@item Spear|PHB|włócznie}. Czwarte sprzęgła a {@item +1 spear} które można skutecznie wyrwać z uścisku zbroi {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdzać."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K15: Sypialnia",
+          "id": "02a",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "02b",
+              "entries": [
+                "W odległym kącie tego skromnie umeblowanego pokoju stoi wąskie łóżko. Na podłodze w nogach łóżka stoi pusta, przewrócona skrzynia i drewniany wieszak na ubrania."
+              ]
+            },
+            "Z sypialni tej korzystał kapitan dowodzący strażą zamkową. Skrzynia została w większości opróżniona przed opuszczeniem twierdzy. Każda postać, która zbada skrzynię, znajdzie w jej pokrywie tajny schowek. W tej komorze znajduje się drewniana rurka do przewijania, wewnątrz której znajduje się skrawek papieru z następującymi słowami zapisanymi w Common:",
+            {
+              "type": "insetReadaloud",
+              "id": "02c",
+              "entries": [
+                "Drewniana lanca Model tańca w świetle księżyca utrzymuje Cysternę głęboko Pod tarczą Za pomocą ukrytych łańcuchów"
+              ]
+            },
+            "Zwroty te dostarczają wskazówek co do lokalizacji sześciu piorunochronów (więcej szczegółów można znaleźć w {@area areas K8|018|x}, {@area K10|01d|x}, {@area K12|022|x}, {@area K17|02f|x}, {@area K18|032|x} i {@area K20|037|x})."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K16: Wtajemniczony",
+          "id": "02d",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "02e",
+              "entries": [
+                "W tym wychodku znajduje się umywalka, wanna na nóżkach, wieszak na ręczniki i nocnik - wszystko puste."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K17: Sypialnia",
+          "id": "02f",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "030",
+              "entries": [
+                "Łóżko z baldachimem, pokryte pajęczynami, stoi pod zachodnią ścianą, pomiędzy dwiema szafkami nocnymi, z których na jednej z nich znajduje się malowany drewniany model Twierdzy Błyskawic. Na przeciwległej ścianie zamontowane jest wysokie lustro w złoconej ramie, obok którego stoi zakurzona szafa.",
+                "Na południowym krańcu pokoju, przed zamarzniętym oknem, kołysze się wysoka, ciemna postać z długimi pazurami."
+              ]
+            },
+            "Wysoka, ciemna postać to {@creature Enderman|MCV3MC} która została przyciągnięta do tego świata przez zacieniony kąt pokoju. Nie mogąc wrócić do swojego świata, atakuje, jeśli się do niego zbliży lub ktoś do niego zadzwoni.",
+            "Szafa jest pusta, podobnie jak szuflady w szafkach nocnych.",
+            {
+              "type": "entries",
+              "name": "Model",
+              "id": "031",
+              "entries": [
+                "Każda postać, która przyjrzy się modelowi na stoliku nocnym, zobaczy piorunochron wielkości wykałaczki zamontowany na dachu głównej wieży. Zaklęcie {@spell detect magic} ujawnia aurę magii transmutacyjnej wokół małego piorunochronu. Po oddzieleniu od modelu maleńki pręt w magiczny sposób wyrasta na stalowy piorunochron o długości 3 metrów, zakończony kulką na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K18: Sypialnia",
+          "id": "032",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "033",
+              "entries": [
+                "Gęsty kurz i pajęczyny spowijają łóżko z baldachimem, parę szafek nocnych, biurko, krzesło i owiniętą łańcuchami szafę. Na podłodze walają się fragmenty rozbitego lustra. Zasłony okienne są zaciągnięte."
+              ]
+            },
+            "Szuflady w biurku i szafkach nocnych są puste, a dokładne zbadanie fragmentów luster pozwala przypuszczać, że lustro wisiało kiedyś na wschodniej ścianie obok szafy. (Haczyk, na którym kiedyś wisiało lustro, pękł, w wyniku czego lustro spadło ze ściany i pękło.)",
+            {
+              "type": "entries",
+              "name": "Szafa",
+              "id": "034",
+              "entries": [
+                "Kiedy bohaterowie eksplorują ten pokój, szafa drży i przepycha się, jakby uwięziono w niej jedno lub więcej stworzeń. Łańcuchy wokół szafy są utrzymywane na miejscu za pomocą solidnej kłódki. Srebrny klucz znaleziony w {@area area K3|00f|x} otwiera ten zamek. W ramach akcji postać może również użyć narzędzi złodzieja, aby spróbować otworzyć zamek, wykonując udany test Zręczności {@dc 10}. Zamek można również złamać; ma KP 17, 7 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
+                "Zaklęcie {@spell detect magic} ujawnia aurę magii iluzji wokół szafy. Drżenie i popychanie szafy jest efektem iluzorycznym, a szafa nie zawiera niczego niebezpiecznego. Po otwarciu ukazuje się stojąca na końcu drewniana skrzynia wysoka na 6 stóp, szeroka na 1 stopę i głęboka na 1 stopę. W tym pudełku znajdują się dwie połówki piorunochronu o długości 3 metrów. Po ułożeniu obie połówki magicznie łączą się w jeden piorunochron o długości 3 metrów z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K19: Barak wewnętrzny",
+          "id": "035",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "036",
+              "entries": [
+                "W tym zakurzonym, pokrytym pajęczyną pokoju znajduje się pięć łóżek piętrowych. Wszystkie materace wypełnione słomą są zbutwiałe. Nikt tu nie spał od dłuższego czasu."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K20: Studium prywatne",
+          "id": "037",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "038",
+              "entries": [
+                "W pokoju tym znajduje się biurko i krzesło ustawione przed oszronionym oknem. Biurko posiada dwie szuflady zamykane na zamek, jedną otwartą i drugą zamkniętą. Z otwartej szuflady wydobywa się migoczące czerwone światło.",
+                "Zakurzone półki na książki rozciągają się na przeciwległej ścianie; pojedyncza oprawiona w skórę księga opiera się na jednym końcu najwyższej półki. Pokryta pajęczynami drabinka na kółkach sprawia, że ​​książka jest pod ręką."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Książka",
+              "id": "039",
+              "entries": [
+                "Książkę znajdującą się na wysokiej półce możesz zdobyć wspinając się po drabinie lub korzystając z {@spell mage hand} zaklęcie lub podobną magię. Na grzbiecie książki srebrnym atramentem widnieje tytuł „Taniec w świetle księżyca”. Książka, napisana przez nieznanego autora kryminałów, jest powieścią kryminalną opartą na prawdziwej historii. W tej historii diabelski badacz imieniem Dagger Sharp próbuje rozwiązać sprawę morderstw kilku mieszkańców wioski Briar's End. Podejrzewa się, że istnieje wilkołak, ale prawdziwym winowajcą jest strach na wróble opętany przez złego ducha zabójcy, którego mieszkańcy wioski pochowali żywcem kilka miesięcy wcześniej. Sztylet pomaga mieszkańcom schwytać i rozczłonkować stracha na wróble, a następnie przekonuje wiejskiego księdza, aby poświęcił grób zabójcy, co pochowa złego ducha.",
+                "Każda postać, która przegląda książkę, znajduje podartą materiałową zakładkę z wbitą stalową igłą. Zaklęcie {@spell detect magic} ujawnia aurę magii transmutacyjnej wokół igły. Jeśli igła zostanie użyta do pociągnięcia kropli krwi, w magiczny sposób powiększy się i stanie się stalowym piorunochronem o długości 3 metrów, zakończonym kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Szuflady biurka",
+              "id": "03a",
+              "entries": [
+                "Otwarta szuflada biurka zawiera {@item Elemental Gem, Red Corundum||klejnot żywiołu (czerwony korund)} jest ciepły w dotyku i jest źródłem migoczącego czerwonego światła. Zamiast przywoływać żywiołaka ognia, przywołuje: {@creature blaze|MCV3MC}.",
+                "Zamkniętą szufladę można otworzyć srebrnym kluczem znajdującym się w {@area area K3|00f|x}. W ramach akcji postać może zamiast tego użyć narzędzi złodziei, aby spróbować otworzyć zamek, wykonując udany test Zręczności {@dc 10}, lub może wymusić jego otwarcie, wykonując udany test Siły {@dc 13} ({@skill Athletics}). W tej szufladzie znajduje się otwarta drewniana skrzynia, której wieko nosi stalowe insygnia przedstawiające głowę wilka z trzema błyskawicami nad nią. Wewnątrz skrzyni znajduje się trzydzieści pierścieni wykonanych z niebieskiego jadeitu. Każdy niebieski pierścień z jadeitu jest wart 10 sz. Zaklęcie {@spell detect magic} ujawnia aurę magii wyrzeczenia się wokół każdego pierścienia. Pierścienie te chronią swoich użytkowników przed tarczą piorunową twierdzy (szczegóły w obszarze K21)."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "K21: Kamienie węgielne",
+          "id": "03b",
+          "entries": [
+            {
+              "type": "insetReadaloud",
+              "id": "03c",
+              "entries": [
+                "W miejscu zbiegu blanków dwóch zbiegających się murów wmurowano kamień węgielny. W górnej części kamienia węgielnego wywiercony jest cylindryczny otwór o szerokości około pięciu cali i głębokości jednej stopy. Wnętrze otworu wyłożone jest ołowiem."
+              ]
+            },
+            "Ściana zewnętrzna ma sześć kamieni węgielnych. Kiedy sześć magicznych piorunochronów zostanie włożonych w kamienie węgielne, aktywuje się tarcza odgromowa twierdzy. Kula na szczycie każdego piorunochronu brzęczy cicho, gdy zostaje naelektryzowana.",
+            {
+              "type": "entries",
+              "name": "Tarcza Błyskawicy",
+              "id": "03d",
+              "entries": [
+                "W ramach akcji istota może włożyć piorunochron w kamień węgielny lub usunąć piorunochron z kamienia węgielnego; tylko istota nosząca niebieski jadeitowy pierścień (patrz obszar K20) może wyjąć pręt. Podczas gdy wszystkie sześć prętów jest pod napięciem, każde stworzenie nie noszące niebieskiego jadeitowego pierścienia, które znajduje się na zewnątrz - w tym na dziedzińcu, na dachach lub na szczycie zewnętrznej ściany - i rozpoczyna swoją turę w promieniu 60 stóp od twierdzy, musi wykonać {@dc 15} Rzut obronny na Kondycję, wykonanie 14 ({@dice 4d6}) obrażenia od błyskawicy przy nieudanym zapisie lub o połowę mniejsze przy udanym zapisie. Efekt ten ignoruje odporność i odporność na obrażenia od piorunów, ze względu na dziwaczną naturę elektryczności generowanej przez pręty.",
+                "Gdy tarcza odgromowa jest aktywowana, Bestie potrafią wyczuć dziwną energię elektryczną i zachować dystans, aby uniknąć porażenia przez nią."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "0:00c": {
+      "type": "entries",
+      "name": "K1: Dolna Brama",
+      "id": "00c",
+      "entries": [
+        "Brama bramna jest niestrzeżona. Przejście pomiędzy wieżami bramnymi wznosi się w kierunku północnym, gdyż teren wewnątrz dziedzińca jest wyższy niż teren na zewnątrz donżonu.",
+        "Główną obroną wieży bramnej są solidne podwójne drzwi i żelazna brona:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Podwójne drzwi",
+              "entry": "Te drzwi otwierają się do środka, skrzypiąc na zardzewiałych zawiasach. Chociaż nie są one zamknięte, drewniany drążek znajdujący się wewnątrz można opuścić do wsporników, aby utrzymać drzwi zamknięte. Wyważenie zakratowanych drzwi wymaga powodzenia {@dc 25} Wytrzymałość ({@skill Athletics}) sprawdzać."
+            },
+            {
+              "type": "item",
+              "name": "Brona",
+              "entry": "Pomiędzy prętami żelaznej brony znajdują się wąskie szczeliny - zbyt wąskie, aby mała lub średnia postać mogła się przez nie przecisnąć. Do podnoszenia lub opuszczania brony można wykorzystać wyciągarkę znajdującą się na górnym poziomie wieży bramnej ({@area area K13|025|x})."
+            }
+          ]
+        },
+        "Obydwa drzwi do wież bramnych są zamknięte. Szczeliny strzałkowe w ścianach wieży bramnej pomiędzy broną a drzwiami zapewniają {@quickref cover||3||three-quarters cover} każdemu, kto za nimi stoi. Wewnątrz każdej wieży znajduje się drabina prowadząca do drewnianej klapy w suficie, nad którą znajduje się obszar K13."
+      ]
+    },
+    "0:00d": {
+      "type": "entries",
+      "name": "K2: Dziedziniec",
+      "id": "00d",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "00e",
+          "entries": [
+            "Ten żwirowy dziedziniec jest dziesięć stóp wyższy od gruntu na zewnątrz twierdzy, więc jest tylko dziesięć stóp niższy od parapetów zewnętrznego muru. Kamienne schody łączą dziedziniec ze szczytem muru."
+          ]
+        },
+        "Podwórko jest puste."
+      ]
+    },
+    "0:00f": {
+      "type": "entries",
+      "name": "K3: Wychodek",
+      "id": "00f",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "010",
+          "entries": [
+            "Nieszkodliwe szczury atakują ten drewniany budynek, który śmierdzi szczurzymi odchodami."
+          ]
+        },
+        "Postać może używać a {@spell speak with animals} zaklęcie przesłuchujące szczury, a karmienie szczurów zwiększa ich skłonność do pomocy. Zapytane szczury przekazują następujące informacje:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Główna Twierdza",
+              "entry": "Szczury nie znalazły sposobu na wejście do głównej twierdzy, więc jej zawartość nie jest im znana."
+            },
+            {
+              "type": "item",
+              "name": "Inni goście",
+              "entry": "Szczury są czasami nękane w nocy przez sowy, ale nie spotkały żadnych innych gości. W zewnętrznym baraku (obszar K4) przebywa kilka stworzeń, które szczury uważają za „nienaturalne”. Szczury ich unikają."
+            },
+            {
+              "type": "item",
+              "name": "Srebrny klucz",
+              "entry": "Jeden ze szczurów znalazł zmatowiały srebrny klucz i zakopał go w południowo-wschodnim narożniku dziedzińca, za wychodkiem. Postać może przekonać szczura do przyniesienia klucza, co zakończy się sukcesem {@dc 10} Charyzma ({@skill Persuasion}) sprawdzać. Głowa klucza ma kształt głowy wilka. Kluczem można otworzyć lub zamknąć dowolne drzwi w zamku."
+            }
+          ]
+        }
+      ]
+    },
+    "0:011": {
+      "type": "entries",
+      "name": "K4: Barak Zewnętrzny",
+      "id": "011",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "012",
+          "entries": [
+            "Wnętrze tego budynku cuchnie pleśnią i wszystko jest tu spowijane kurzem. Widzisz kamienny kominek i sześć zestawów drewnianych łóżek piętrowych, na których znajdują się gnijące materace wypełnione słomą. Na czterech z nich leżą ciemnozielone stworzenia o masywnych ciałach i głowach, ale bez rąk."
+          ]
+        },
+        "Bezrękich postaci leżących na łóżkach jest cztery {@creature Creeper|MCV3MC|foki}. Jeśli postacie natychmiast wycofają się z baraku, pnącza nie robią nic. Jeśli postacie pozostają, pnącza to zauważają, siadają na łóżkach i ruszają w stronę intruzów. Pnącza są wrogie i walczą, dopóki nie zostaną zniszczone."
+      ]
+    },
+    "0:013": {
+      "type": "entries",
+      "name": "K5: Stabilny",
+      "id": "013",
+      "entries": [
+        "Zawiasy w zewnętrznych drzwiach stajni są mocno zardzewiałe. Każda próba otwarcia podwójnych drzwi powoduje pęknięcie zawiasów.",
+        "W budynku znajduje się sześć pustych boksów dla koni oraz stary sprzęt jeździecki pokryty kurzem."
+      ]
+    },
+    "0:014": {
+      "type": "entries",
+      "name": "K6: Hol Główny",
+      "id": "014",
+      "entries": [
+        "Podwójne drzwi prowadzące z dziedzińca do holu głównego są zamknięte.",
+        {
+          "type": "insetReadaloud",
+          "id": "015",
+          "entries": [
+            "Ta zakurzona sala jest pusta, jeśli nie liczyć pajęczyn."
+          ]
+        },
+        "Na północnym krańcu korytarza do galerii prowadzą dwie kryte klatkami schodowymi ({@area area K14|027|x})."
+      ]
+    },
+    "0:016": {
+      "type": "entries",
+      "name": "K7: Przedsionek",
+      "id": "016",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "017",
+          "entries": [
+            "W tym pokoju znajdują się rzędy gołych haczyków na ścianach."
+          ]
+        }
+      ]
+    },
+    "0:018": {
+      "type": "entries",
+      "name": "K8: Kuchnia i studnia",
+      "id": "018",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "019",
+          "entries": [
+            "Kamienna studnia zajmuje południowo-zachodni narożnik tej kuchni. Obok studni znajduje się drewniane wiadro przymocowane do liny o długości pięćdziesięciu stóp. Stół i szafki w kuchni są puste, a na żelaznym haku w zabrudzonym sadzą kominku wisi mały żelazny kociołek."
+          ]
+        },
+        "Szyb studni ma 5 stóp szerokości i 30 stóp głębokości i jest wykonany z cegieł, z których niektóre wystają lekko, tworząc uchwyty i oparcia dla stóp. Postać, która oświetla studnię, widzi srebrzysty blask w wodzie. Postać może wspiąć się lub zejść szybem bez konieczności wykonywania testu zdolności.",
+        {
+          "type": "entries",
+          "name": "Cysterna",
+          "id": "01a",
+          "entries": [
+            "Poniżej szybu studni znajduje się głęboka na 3 metry i szeroka na 3 metry cysterna wypełniona świeżą wodą. Cysterna jest strzeżona przez {@creature water weird} (patrz {@book Monster Manual|MM}), który atakuje każdą postać, która wejdzie do wody. Na dnie cysterny leży stalowy piorunochron o długości 3 metrów, zakończony kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+          ]
+        }
+      ]
+    },
+    "0:01a": {
+      "type": "entries",
+      "name": "Cysterna",
+      "id": "01a",
+      "entries": [
+        "Poniżej szybu studni znajduje się głęboka na 3 metry i szeroka na 3 metry cysterna wypełniona świeżą wodą. Cysterna jest strzeżona przez {@creature water weird} (patrz {@book Monster Manual|MM}), który atakuje każdą postać, która wejdzie do wody. Na dnie cysterny leży stalowy piorunochron o długości 3 metrów, zakończony kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+      ]
+    },
+    "0:01b": {
+      "type": "entries",
+      "name": "K9: Spiżarnia",
+      "id": "01b",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "01c",
+          "entries": [
+            "Gołe półki zdobią tylną ścianę tej pustej spiżarni."
+          ]
+        }
+      ]
+    },
+    "0:01d": {
+      "type": "entries",
+      "name": "K10: Jadalnia",
+      "id": "01d",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "01e",
+          "entries": [
+            "Czternaście drewnianych krzeseł otacza drewniany stół jadalny. Nad stołem zawieszony jest żelazny żyrandol, w którym brakuje świec. Pod północną ścianą stoją dwa puste kredensy.",
+            "We wschodniej ścianie osadzony jest poczerniały kominek. Nad kominkiem z niebieskiego marmuru wisi metalowa tarcza z insygniami: głową wilka, a nad nią trzy błyskawice."
+          ]
+        },
+        "Postać, która sprawdza tarczę i odnosi sukces {@dc 10} Inteligencja ({@skill History}) check wie, że jego insygnia należą do rycerza-wilkołaka, który zbudował twierdzę. A {@spell detect magic} zaklęcie ujawnia aurę magii wyrzeczenia się wokół tarczy. Pierwsza istota, która dotknie metalowej tarczy, otrzymuje 13 ({@dice 3d8}) obrażenia od błyskawic, po których tarcza staje się niemagiczna i można nią manipulować bez obrażeń.",
+        {
+          "type": "entries",
+          "name": "Kominek z niebieskiego marmuru",
+          "id": "01f",
+          "entries": [
+            "Postać badająca gzyms kominka zdaje sobie sprawę, że jest to sprytnie zamaskowana pokrywa skrywająca długą, płytką komorę. W tym przedziale znajdują się dwie połówki piorunochronu o długości 3 metrów. Po ułożeniu obie połówki magicznie łączą się w jeden piorunochron o długości 3 metrów z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+          ]
+        }
+      ]
+    },
+    "0:01f": {
+      "type": "entries",
+      "name": "Kominek z niebieskiego marmuru",
+      "id": "01f",
+      "entries": [
+        "Postać badająca gzyms kominka zdaje sobie sprawę, że jest to sprytnie zamaskowana pokrywa skrywająca długą, płytką komorę. W tym przedziale znajdują się dwie połówki piorunochronu o długości 3 metrów. Po ułożeniu obie połówki magicznie łączą się w jeden piorunochron o długości 3 metrów z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+      ]
+    },
+    "0:020": {
+      "type": "entries",
+      "name": "K11: Kwatery służby",
+      "id": "020",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "021",
+          "entries": [
+            "Ten pokój jest pełen kurzu i pajęczyn. Pod wschodnią ścianą stoją trzy pary łóżek piętrowych, a ich słomiane materace są mocno przegniłe."
+          ]
+        }
+      ]
+    },
+    "0:022": {
+      "type": "entries",
+      "name": "K12: Zbrojownia",
+      "id": "022",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "023",
+          "entries": [
+            "Do ścian tego kwadratowego pomieszczenia przymocowane są drewniane stojaki przeznaczone do przechowywania broni. Większość broni usunięto dawno temu, ale kilka pozostało: sześć włóczni, cztery długie miecze, dwa długie łuki bez naciągu i wysoka drewniana lanca."
+          ]
+        },
+        "{@item Spear|PHB|włócznie}, {@item Longsword|PHB|miecze} i {@item Longbow|PHB|łuki} nie są magiczne.",
+        {
+          "type": "entries",
+          "name": "Drewniana lanca",
+          "id": "024",
+          "entries": [
+            "Dokładne badanie drewnianej lancy ujawnia, że ​​nie jest to broń, ale raczej futerał. Wewnątrz tej skrzynki znajduje się wysoki na 3 metry stalowy piorunochron z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+          ]
+        }
+      ]
+    },
+    "0:024": {
+      "type": "entries",
+      "name": "Drewniana lanca",
+      "id": "024",
+      "entries": [
+        "Dokładne badanie drewnianej lancy ujawnia, że ​​nie jest to broń, ale raczej futerał. Wewnątrz tej skrzynki znajduje się wysoki na 3 metry stalowy piorunochron z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+      ]
+    },
+    "0:025": {
+      "type": "entries",
+      "name": "K13: Górna Brama",
+      "id": "025",
+      "entries": [
+        "Górna brama jest niestrzeżona. Drzwi prowadzące na blanki zewnętrznego muru są zamknięte. Drewniane klapy w podłodze otwierają się, ukazując drabiny prowadzące do dolnej wieży bramnej ({@area area K1|00c|x}). Ściany są wyłożone szczelinami w kształcie strzałek, które zapewniają {@quickref cover||3||three-quarters cover} osobom za nimi.",
+        {
+          "type": "entries",
+          "name": "Wciągarka Portcullis",
+          "id": "026",
+          "entries": [
+            "W jedną ze ścian wbudowano żelazną wciągarkę. W ramach akcji postać może użyć wyciągarki, aby podnieść kratę i zablokować ją tak, aby nie spadła, lub zwolnić zaczep, który powoduje opuszczenie brony."
+          ]
+        }
+      ]
+    },
+    "0:026": {
+      "type": "entries",
+      "name": "Wciągarka Portcullis",
+      "id": "026",
+      "entries": [
+        "W jedną ze ścian wbudowano żelazną wciągarkę. W ramach akcji postać może użyć wyciągarki, aby podnieść kratę i zablokować ją tak, aby nie spadła, lub zwolnić zaczep, który powoduje opuszczenie brony."
+      ]
+    },
+    "0:027": {
+      "type": "entries",
+      "name": "K14: Galeria",
+      "id": "027",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "028",
+          "entries": [
+            "Cztery puste zbroje strzegą tego wyłożonego wykładziną korytarza, którego ściany ozdobione są oprawionymi w ramki zdjęciami rycerzy, smoków, krajobrazów i wielkich bitew. Na wschodnim krańcu sali znajduje się duży obraz przedstawiający rycerza-wilkołaka wymachującego stalową lancą."
+          ]
+        },
+        "Obrazy nie są magiczne ani szczególnie cenne. Duży obraz na wschodniej ścianie przedstawia rycerza-wilkołaka, który zbudował Twierdzę Błyskawic. Drzwi prowadzące na blanki są zamknięte tylko od zewnątrz. Do głównego holu prowadzą bliźniacze schody ({@area area K6|014|x}).",
+        {
+          "type": "entries",
+          "name": "Skarb",
+          "id": "029",
+          "entries": [
+            "Zbroje są spawane, więc nie przewracają się ani nie zapadają. Trzy z nich są niemagiczne {@item Spear|PHB|włócznie}. Czwarte sprzęgła a {@item +1 spear} które można skutecznie wyrwać z uścisku zbroi {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdzać."
+          ]
+        }
+      ]
+    },
+    "0:029": {
+      "type": "entries",
+      "name": "Skarb",
+      "id": "029",
+      "entries": [
+        "Zbroje są spawane, więc nie przewracają się ani nie zapadają. Trzy z nich są niemagiczne {@item Spear|PHB|włócznie}. Czwarte sprzęgła a {@item +1 spear} które można skutecznie wyrwać z uścisku zbroi {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdzać."
+      ]
+    },
+    "0:02a": {
+      "type": "entries",
+      "name": "K15: Sypialnia",
+      "id": "02a",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "02b",
+          "entries": [
+            "W odległym kącie tego skromnie umeblowanego pokoju stoi wąskie łóżko. Na podłodze w nogach łóżka stoi pusta, przewrócona skrzynia i drewniany wieszak na ubrania."
+          ]
+        },
+        "Z sypialni tej korzystał kapitan dowodzący strażą zamkową. Skrzynia została w większości opróżniona przed opuszczeniem twierdzy. Każda postać, która zbada skrzynię, znajdzie w jej pokrywie tajny schowek. W tej komorze znajduje się drewniana rurka do przewijania, wewnątrz której znajduje się skrawek papieru z następującymi słowami zapisanymi w Common:",
+        {
+          "type": "insetReadaloud",
+          "id": "02c",
+          "entries": [
+            "Drewniana lanca Model tańca w świetle księżyca utrzymuje Cysternę głęboko Pod tarczą Za pomocą ukrytych łańcuchów"
+          ]
+        },
+        "Zwroty te dostarczają wskazówek co do lokalizacji sześciu piorunochronów (więcej szczegółów można znaleźć w {@area areas K8|018|x}, {@area K10|01d|x}, {@area K12|022|x}, {@area K17|02f|x}, {@area K18|032|x} i {@area K20|037|x})."
+      ]
+    },
+    "0:02d": {
+      "type": "entries",
+      "name": "K16: Wtajemniczony",
+      "id": "02d",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "02e",
+          "entries": [
+            "W tym wychodku znajduje się umywalka, wanna na nóżkach, wieszak na ręczniki i nocnik - wszystko puste."
+          ]
+        }
+      ]
+    },
+    "0:02f": {
+      "type": "entries",
+      "name": "K17: Sypialnia",
+      "id": "02f",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "030",
+          "entries": [
+            "Łóżko z baldachimem, pokryte pajęczynami, stoi pod zachodnią ścianą, pomiędzy dwiema szafkami nocnymi, z których na jednej z nich znajduje się malowany drewniany model Twierdzy Błyskawic. Na przeciwległej ścianie zamontowane jest wysokie lustro w złoconej ramie, obok którego stoi zakurzona szafa.",
+            "Na południowym krańcu pokoju, przed zamarzniętym oknem, kołysze się wysoka, ciemna postać z długimi pazurami."
+          ]
+        },
+        "Wysoka, ciemna postać to {@creature Enderman|MCV3MC} która została przyciągnięta do tego świata przez zacieniony kąt pokoju. Nie mogąc wrócić do swojego świata, atakuje, jeśli się do niego zbliży lub ktoś do niego zadzwoni.",
+        "Szafa jest pusta, podobnie jak szuflady w szafkach nocnych.",
+        {
+          "type": "entries",
+          "name": "Model",
+          "id": "031",
+          "entries": [
+            "Każda postać, która przyjrzy się modelowi na stoliku nocnym, zobaczy piorunochron wielkości wykałaczki zamontowany na dachu głównej wieży. Zaklęcie {@spell detect magic} ujawnia aurę magii transmutacyjnej wokół małego piorunochronu. Po oddzieleniu od modelu maleńki pręt w magiczny sposób wyrasta na stalowy piorunochron o długości 3 metrów, zakończony kulką na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+          ]
+        }
+      ]
+    },
+    "0:031": {
+      "type": "entries",
+      "name": "Model",
+      "id": "031",
+      "entries": [
+        "Każda postać, która przyjrzy się modelowi na stoliku nocnym, zobaczy piorunochron wielkości wykałaczki zamontowany na dachu głównej wieży. Zaklęcie {@spell detect magic} ujawnia aurę magii transmutacyjnej wokół małego piorunochronu. Po oddzieleniu od modelu maleńki pręt w magiczny sposób wyrasta na stalowy piorunochron o długości 3 metrów, zakończony kulką na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+      ]
+    },
+    "0:032": {
+      "type": "entries",
+      "name": "K18: Sypialnia",
+      "id": "032",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "033",
+          "entries": [
+            "Gęsty kurz i pajęczyny spowijają łóżko z baldachimem, parę szafek nocnych, biurko, krzesło i owiniętą łańcuchami szafę. Na podłodze walają się fragmenty rozbitego lustra. Zasłony okienne są zaciągnięte."
+          ]
+        },
+        "Szuflady w biurku i szafkach nocnych są puste, a dokładne zbadanie fragmentów luster pozwala przypuszczać, że lustro wisiało kiedyś na wschodniej ścianie obok szafy. (Haczyk, na którym kiedyś wisiało lustro, pękł, w wyniku czego lustro spadło ze ściany i pękło.)",
+        {
+          "type": "entries",
+          "name": "Szafa",
+          "id": "034",
+          "entries": [
+            "Kiedy bohaterowie eksplorują ten pokój, szafa drży i przepycha się, jakby uwięziono w niej jedno lub więcej stworzeń. Łańcuchy wokół szafy są utrzymywane na miejscu za pomocą solidnej kłódki. Srebrny klucz znaleziony w {@area area K3|00f|x} otwiera ten zamek. W ramach akcji postać może również użyć narzędzi złodzieja, aby spróbować otworzyć zamek, wykonując udany test Zręczności {@dc 10}. Zamek można również złamać; ma KP 17, 7 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
+            "Zaklęcie {@spell detect magic} ujawnia aurę magii iluzji wokół szafy. Drżenie i popychanie szafy jest efektem iluzorycznym, a szafa nie zawiera niczego niebezpiecznego. Po otwarciu ukazuje się stojąca na końcu drewniana skrzynia wysoka na 6 stóp, szeroka na 1 stopę i głęboka na 1 stopę. W tym pudełku znajdują się dwie połówki piorunochronu o długości 3 metrów. Po ułożeniu obie połówki magicznie łączą się w jeden piorunochron o długości 3 metrów z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+          ]
+        }
+      ]
+    },
+    "0:034": {
+      "type": "entries",
+      "name": "Szafa",
+      "id": "034",
+      "entries": [
+        "Kiedy bohaterowie eksplorują ten pokój, szafa drży i przepycha się, jakby uwięziono w niej jedno lub więcej stworzeń. Łańcuchy wokół szafy są utrzymywane na miejscu za pomocą solidnej kłódki. Srebrny klucz znaleziony w {@area area K3|00f|x} otwiera ten zamek. W ramach akcji postać może również użyć narzędzi złodzieja, aby spróbować otworzyć zamek, wykonując udany test Zręczności {@dc 10}. Zamek można również złamać; ma KP 17, 7 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
+        "Zaklęcie {@spell detect magic} ujawnia aurę magii iluzji wokół szafy. Drżenie i popychanie szafy jest efektem iluzorycznym, a szafa nie zawiera niczego niebezpiecznego. Po otwarciu ukazuje się stojąca na końcu drewniana skrzynia wysoka na 6 stóp, szeroka na 1 stopę i głęboka na 1 stopę. W tym pudełku znajdują się dwie połówki piorunochronu o długości 3 metrów. Po ułożeniu obie połówki magicznie łączą się w jeden piorunochron o długości 3 metrów z kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+      ]
+    },
+    "0:035": {
+      "type": "entries",
+      "name": "K19: Barak wewnętrzny",
+      "id": "035",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "036",
+          "entries": [
+            "W tym zakurzonym, pokrytym pajęczyną pokoju znajduje się pięć łóżek piętrowych. Wszystkie materace wypełnione słomą są zbutwiałe. Nikt tu nie spał od dłuższego czasu."
+          ]
+        }
+      ]
+    },
+    "0:037": {
+      "type": "entries",
+      "name": "K20: Studium prywatne",
+      "id": "037",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "038",
+          "entries": [
+            "W pokoju tym znajduje się biurko i krzesło ustawione przed oszronionym oknem. Biurko posiada dwie szuflady zamykane na zamek, jedną otwartą i drugą zamkniętą. Z otwartej szuflady wydobywa się migoczące czerwone światło.",
+            "Zakurzone półki na książki rozciągają się na przeciwległej ścianie; pojedyncza oprawiona w skórę księga opiera się na jednym końcu najwyższej półki. Pokryta pajęczynami drabinka na kółkach sprawia, że ​​książka jest pod ręką."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Książka",
+          "id": "039",
+          "entries": [
+            "Książkę znajdującą się na wysokiej półce możesz zdobyć wspinając się po drabinie lub korzystając z {@spell mage hand} zaklęcie lub podobną magię. Na grzbiecie książki srebrnym atramentem widnieje tytuł „Taniec w świetle księżyca”. Książka, napisana przez nieznanego autora kryminałów, jest powieścią kryminalną opartą na prawdziwej historii. W tej historii diabelski badacz imieniem Dagger Sharp próbuje rozwiązać sprawę morderstw kilku mieszkańców wioski Briar's End. Podejrzewa się, że istnieje wilkołak, ale prawdziwym winowajcą jest strach na wróble opętany przez złego ducha zabójcy, którego mieszkańcy wioski pochowali żywcem kilka miesięcy wcześniej. Sztylet pomaga mieszkańcom schwytać i rozczłonkować stracha na wróble, a następnie przekonuje wiejskiego księdza, aby poświęcił grób zabójcy, co pochowa złego ducha.",
+            "Każda postać, która przegląda książkę, znajduje podartą materiałową zakładkę z wbitą stalową igłą. Zaklęcie {@spell detect magic} ujawnia aurę magii transmutacyjnej wokół igły. Jeśli igła zostanie użyta do pociągnięcia kropli krwi, w magiczny sposób powiększy się i stanie się stalowym piorunochronem o długości 3 metrów, zakończonym kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Szuflady biurka",
+          "id": "03a",
+          "entries": [
+            "Otwarta szuflada biurka zawiera {@item Elemental Gem, Red Corundum||klejnot żywiołu (czerwony korund)} jest ciepły w dotyku i jest źródłem migoczącego czerwonego światła. Zamiast przywoływać żywiołaka ognia, przywołuje: {@creature blaze|MCV3MC}.",
+            "Zamkniętą szufladę można otworzyć srebrnym kluczem znajdującym się w {@area area K3|00f|x}. W ramach akcji postać może zamiast tego użyć narzędzi złodziei, aby spróbować otworzyć zamek, wykonując udany test Zręczności {@dc 10}, lub może wymusić jego otwarcie, wykonując udany test Siły {@dc 13} ({@skill Athletics}). W tej szufladzie znajduje się otwarta drewniana skrzynia, której wieko nosi stalowe insygnia przedstawiające głowę wilka z trzema błyskawicami nad nią. Wewnątrz skrzyni znajduje się trzydzieści pierścieni wykonanych z niebieskiego jadeitu. Każdy niebieski pierścień z jadeitu jest wart 10 sz. Zaklęcie {@spell detect magic} ujawnia aurę magii wyrzeczenia się wokół każdego pierścienia. Pierścienie te chronią swoich użytkowników przed tarczą piorunową twierdzy (szczegóły w obszarze K21)."
+          ]
+        }
+      ]
+    },
+    "0:039": {
+      "type": "entries",
+      "name": "Książka",
+      "id": "039",
+      "entries": [
+        "Książkę znajdującą się na wysokiej półce możesz zdobyć wspinając się po drabinie lub korzystając z {@spell mage hand} zaklęcie lub podobną magię. Na grzbiecie książki srebrnym atramentem widnieje tytuł „Taniec w świetle księżyca”. Książka, napisana przez nieznanego autora kryminałów, jest powieścią kryminalną opartą na prawdziwej historii. W tej historii diabelski badacz imieniem Dagger Sharp próbuje rozwiązać sprawę morderstw kilku mieszkańców wioski Briar's End. Podejrzewa się, że istnieje wilkołak, ale prawdziwym winowajcą jest strach na wróble opętany przez złego ducha zabójcy, którego mieszkańcy wioski pochowali żywcem kilka miesięcy wcześniej. Sztylet pomaga mieszkańcom schwytać i rozczłonkować stracha na wróble, a następnie przekonuje wiejskiego księdza, aby poświęcił grób zabójcy, co pochowa złego ducha.",
+        "Każda postać, która przegląda książkę, znajduje podartą materiałową zakładkę z wbitą stalową igłą. Zaklęcie {@spell detect magic} ujawnia aurę magii transmutacyjnej wokół igły. Jeśli igła zostanie użyta do pociągnięcia kropli krwi, w magiczny sposób powiększy się i stanie się stalowym piorunochronem o długości 3 metrów, zakończonym kulą na jednym końcu. Jest to jeden z sześciu piorunochronów potrzebnych do aktywacji tarczy odgromowej (patrz {@area area K21|03b|x})."
+      ]
+    },
+    "0:03a": {
+      "type": "entries",
+      "name": "Szuflady biurka",
+      "id": "03a",
+      "entries": [
+        "Otwarta szuflada biurka zawiera {@item Elemental Gem, Red Corundum||klejnot żywiołu (czerwony korund)} jest ciepły w dotyku i jest źródłem migoczącego czerwonego światła. Zamiast przywoływać żywiołaka ognia, przywołuje: {@creature blaze|MCV3MC}.",
+        "Zamkniętą szufladę można otworzyć srebrnym kluczem znajdującym się w {@area area K3|00f|x}. W ramach akcji postać może zamiast tego użyć narzędzi złodziei, aby spróbować otworzyć zamek, wykonując udany test Zręczności {@dc 10}, lub może wymusić jego otwarcie, wykonując udany test Siły {@dc 13} ({@skill Athletics}). W tej szufladzie znajduje się otwarta drewniana skrzynia, której wieko nosi stalowe insygnia przedstawiające głowę wilka z trzema błyskawicami nad nią. Wewnątrz skrzyni znajduje się trzydzieści pierścieni wykonanych z niebieskiego jadeitu. Każdy niebieski pierścień z jadeitu jest wart 10 sz. Zaklęcie {@spell detect magic} ujawnia aurę magii wyrzeczenia się wokół każdego pierścienia. Pierścienie te chronią swoich użytkowników przed tarczą piorunową twierdzy (szczegóły w obszarze K21)."
+      ]
+    },
+    "0:03b": {
+      "type": "entries",
+      "name": "K21: Kamienie węgielne",
+      "id": "03b",
+      "entries": [
+        {
+          "type": "insetReadaloud",
+          "id": "03c",
+          "entries": [
+            "W miejscu zbiegu blanków dwóch zbiegających się murów wmurowano kamień węgielny. W górnej części kamienia węgielnego wywiercony jest cylindryczny otwór o szerokości około pięciu cali i głębokości jednej stopy. Wnętrze otworu wyłożone jest ołowiem."
+          ]
+        },
+        "Ściana zewnętrzna ma sześć kamieni węgielnych. Kiedy sześć magicznych piorunochronów zostanie włożonych w kamienie węgielne, aktywuje się tarcza odgromowa twierdzy. Kula na szczycie każdego piorunochronu brzęczy cicho, gdy zostaje naelektryzowana.",
+        {
+          "type": "entries",
+          "name": "Tarcza Błyskawicy",
+          "id": "03d",
+          "entries": [
+            "W ramach akcji istota może włożyć piorunochron w kamień węgielny lub usunąć piorunochron z kamienia węgielnego; tylko istota nosząca niebieski jadeitowy pierścień (patrz obszar K20) może wyjąć pręt. Podczas gdy wszystkie sześć prętów jest pod napięciem, każde stworzenie nie noszące niebieskiego jadeitowego pierścienia, które znajduje się na zewnątrz - w tym na dziedzińcu, na dachach lub na szczycie zewnętrznej ściany - i rozpoczyna swoją turę w promieniu 60 stóp od twierdzy, musi wykonać {@dc 15} Rzut obronny na Kondycję, wykonanie 14 ({@dice 4d6}) obrażenia od błyskawicy przy nieudanym zapisie lub o połowę mniejsze przy udanym zapisie. Efekt ten ignoruje odporność i odporność na obrażenia od piorunów, ze względu na dziwaczną naturę elektryczności generowanej przez pręty.",
+            "Gdy tarcza odgromowa jest aktywowana, Bestie potrafią wyczuć dziwną energię elektryczną i zachować dystans, aby uniknąć porażenia przez nią."
+          ]
+        }
+      ]
+    },
+    "0:03d": {
+      "type": "entries",
+      "name": "Tarcza Błyskawicy",
+      "id": "03d",
+      "entries": [
+        "W ramach akcji istota może włożyć piorunochron w kamień węgielny lub usunąć piorunochron z kamienia węgielnego; tylko istota nosząca niebieski jadeitowy pierścień (patrz obszar K20) może wyjąć pręt. Podczas gdy wszystkie sześć prętów jest pod napięciem, każde stworzenie nie noszące niebieskiego jadeitowego pierścienia, które znajduje się na zewnątrz - w tym na dziedzińcu, na dachach lub na szczycie zewnętrznej ściany - i rozpoczyna swoją turę w promieniu 60 stóp od twierdzy, musi wykonać {@dc 15} Rzut obronny na Kondycję, wykonanie 14 ({@dice 4d6}) obrażenia od błyskawicy przy nieudanym zapisie lub o połowę mniejsze przy udanym zapisie. Efekt ten ignoruje odporność i odporność na obrażenia od piorunów, ze względu na dziwaczną naturę elektryczności generowanej przez pręty.",
+        "Gdy tarcza odgromowa jest aktywowana, Bestie potrafią wyczuć dziwną energię elektryczną i zachować dystans, aby uniknąć porażenia przez nią."
+      ]
+    },
+    "0:03e": {
+      "type": "section",
+      "name": "Zakończenie przygody",
+      "id": "03e",
+      "entries": [
+        "Gdy bohaterowie odnajdą sześć piorunochronów i uwolnią twierdzę od niebezpiecznych potworów, będą mogli schować pręty w bezpiecznym miejscu i powiadomić uchodźców, że można bezpiecznie zająć twierdzę, przekazując instrukcje, jak używać tarczy odgromowej. Niebieskie jadeitowe pierścienie znalezione w obszarze K20 pozwalają nowym obrońcom twierdzy patrolować zewnętrzny mur i dziedziniec bez ryzyka trafienia przez tarczę piorunów.",
+        {
+          "type": "entries",
+          "name": "Kontynuacja kampanii",
+          "id": "03f",
+          "entries": [
+            "Kiedy uchodźcy gromadzą się w twierdzy, grasujący smok może to zauważyć i dokładniej zbadać twierdzę. Tarcza błyskawic trzyma smoka na dystans - przynajmniej na jakiś czas. Bohaterowie mogą zostać poproszeni o konfrontację ze smokiem w późniejszym terminie, a może nawet wyśledzenie go do jego legowiska. Ostateczne starcie ze smokiem może być sednem późniejszej przygody w Twojej kampanii. Jeśli potrzebujesz pomocy w opracowaniu {@book dragon's lair|FTD|4}, pomysły znajdziesz w {@book Fizban's Treasury of Dragons|FTD}."
+          ]
+        }
+      ]
+    },
+    "0:03f": {
+      "type": "entries",
+      "name": "Kontynuacja kampanii",
+      "id": "03f",
+      "entries": [
+        "Kiedy uchodźcy gromadzą się w twierdzy, grasujący smok może to zauważyć i dokładniej zbadać twierdzę. Tarcza błyskawic trzyma smoka na dystans - przynajmniej na jakiś czas. Bohaterowie mogą zostać poproszeni o konfrontację ze smokiem w późniejszym terminie, a może nawet wyśledzenie go do jego legowiska. Ostateczne starcie ze smokiem może być sednem późniejszej przygody w Twojej kampanii. Jeśli potrzebujesz pomocy w opracowaniu {@book dragon's lair|FTD|4}, pomysły znajdziesz w {@book Fizban's Treasury of Dragons|FTD}."
+      ]
+    },
+    "1:041": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Główny projektant",
+                  "entries": [
+                    "Christophera Perkinsa"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Dyrektor artystyczny",
+                  "entries": [
+                    "Fury Galluzzi"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Redaktorzy",
+                  "entries": [
+                    "Judy Bauer, Janica Carter, Adrian Ng"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Projektant graficzny",
+                  "entries": [
+                    "Matta Cole’a"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Kartograf",
+                  "entries": [
+                    "Seana Macdonalda"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Ilustrator",
+                  "entries": [
+                    "Ilja Szkipin"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Konsultant",
+                  "entries": [
+                    "Jonathana Tomhave’a"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Architekci gier",
+                  "entries": [
+                    "Jeremy’ego Crawforda i Christophera Perkinsa"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Dyrektor artystyczny studia",
+                  "entries": [
+                    "Josh Herman"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Redaktor naczelny",
+                  "entries": [
+                    "Judy Bauer"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Starszy producent",
+                  "entries": [
+                    "Dan Tovar"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Producent",
+                  "entries": [
+                    "Andy'ego Smitha"
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Menedżer produktu",
+                  "entries": [
+                    "Natalia Egan"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "D&D Beyond",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Menedżer produktu",
+                          "entries": [
+                            "Jeff Turriff"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Zespół projektantów cyfrowych",
+                          "entries": [
+                            "Jay Jani, Sean Stoves, Adam Walton"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "043"
+                }
+              ],
+              "id": "042"
+            }
+          ]
+        }
+      ],
+      "id": "041"
+    }
+  }
+}

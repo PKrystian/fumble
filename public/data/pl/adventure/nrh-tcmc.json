@@ -1,0 +1,4075 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Przywracanie harmonii: Caper z Candy Mountain",
+      "page": 2,
+      "entries": [
+        "Witamy w Restoring Harmony, serii przygodowej Dungeons & Dragons powstałej we współpracy ze smacznym i kolorowym światem NERDS.",
+        "Aby rozegrać tę przygodę, potrzebujesz piątej edycji Basic Rules for D&D, którą możesz pobrać bezpłatnie tutaj. Wszystkie potrzebne magiczne przedmioty i bloki statystyk potworów znajdują się na końcu tej przygody.",
+        "Restoring Harmony to kampania podzielona na sześć miniprzygód pierwszego poziomu dla pojedynczego gracza i jedną dłuższą przygodę dla wielu graczy. Każda mini przygoda trwa około 45 minut, a ostatnia przygoda zajmuje około 60-90 minut.",
+        "Miniprzygody można rozgrywać w dowolnej kolejności, ale ostateczną przygodę należy rozegrać jako ostatnią. Oto lista wszystkich przygód:",
+        {
+          "type": "list",
+          "items": [
+            "{@adventure Adventure 1 The Candy Mountain Caper|NRH-TCMC}",
+            "{@adventure Adventure 2 A Voice in the Wilderness|NRH-AVitW}",
+            "{@adventure Adventure 3 A Sticky Situation|NRH-ASS}",
+            "{@adventure Adventure 4 Circus of Illusions|NRH-CoI}",
+            "{@adventure Adventure 5 The Lost Tomb|NRH-TLT}",
+            "{@adventure Adventure 6 A Web of Lies|NRH-AWoL}",
+            "{@adventure Adventure 7 Adventure Together|NRH-AT}"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Podsumowanie historii",
+          "page": 2,
+          "entries": [
+            "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+            "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony. Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+            "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+          ],
+          "id": "001"
+        },
+        {
+          "type": "entries",
+          "name": "Gra solo",
+          "page": 2,
+          "entries": [
+            "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+            "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+            {
+              "type": "entries",
+              "name": "TPK: Całkowite zniszczenie drużyny",
+              "entries": [
+                "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+                "W przypadku przedwczesnej śmierci możesz mieć pomocnego NPC (np {@creature Mr. Honeycutt|NRH-TCMC}) uratować sytuację i ożywić je, albo możesz pozwolić im zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w jakieś nieprzyjemne miejsce."
+              ],
+              "id": "003"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "entries",
+          "name": "Zarys przygody",
+          "page": 3,
+          "entries": [
+            "Oto krótki opis przygody:",
+            {
+              "type": "list",
+              "items": [
+                "Różowa Łotrzyczka otrzymuje tajemniczą wiadomość, aby spotkać się z „{@creature Mr. Honeycutt|NRH-TCMC}„na centralnym rynku.",
+                "Po spędzeniu czasu na rynku Pink spotyka się {@creature Mr. Honeycutt|NRH-TCMC}, który prosi ich o odnalezienie i odzyskanie Koralowego Klejnotu w opuszczonej kopalni pod Candy Mountain. {@creature Mr. Honeycutt|NRH-TCMC} daje Pinkowi dwa sposoby dotarcia do tego celu (jako DM może Ci się spodobać konkretna ścieżka, więc możesz wybrać {@creature Mr. Honeycutt|NRH-TCMC} dać Różowemu tylko jedną opcję).",
+                "Ścieżka 1 to długi tunel, w którym przebywa paskudny potwór, {@creature Slurmy|NRH-TCMC}, który próbuje zjeść Pink. Ścieżka 2 to infiltracja przez mur, obok strażników i do kopalni.",
+                "Pink w końcu dostaje się do opuszczonej kopalni, omija pułapki, otwiera skrzynię ze skarbami, omija koboldy i odzyskuje klejnot."
+              ]
+            }
+          ],
+          "id": "004"
+        },
+        {
+          "type": "entries",
+          "name": "Rozpoczęcie gry",
+          "page": 3,
+          "entries": [
+            "Wręcz kartę postaci (patrz „Pink the Rogue” poniżej) swojemu graczowi i pozwól mu zapoznać się z Pink.",
+            "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć. Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+          ],
+          "id": "005"
+        },
+        {
+          "type": "section",
+          "name": "Kapar z Candy Mountain",
+          "page": 3,
+          "entries": [
+            "Przygoda rozpoczyna się w tętniącym życiem i kolorowym mieście Harmony, gdzie tajemnicze „awarie kolorów” zaczynają budzić niepokój. Jako NERDS mieszkańcy Harmonii mają optymistyczne nastawienie i starają się żyć najlepiej, jak potrafią, bez zbytniego zmartwienia, ale brak koloru niepokoi nawet najbardziej energicznych NERDSów.",
+            "Gdy odtwarzacz będzie gotowy, przeczytaj poniższe informacje:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                "Miasto Harmonii to tętniący życiem ośrodek metropolitalny. Na targowiskach na świeżym powietrzu można kupić żywność i towary z całego świata. Ogromna biblioteka zapewnia obywatelom bezpłatny dostęp do tomów wiedzy, a tętniące życiem miejsca rozrywki karmią duszę miasta. Miłośnikom przyrody kilka parków i otaczający las zapewniają prostsze udogodnienia.",
+                "Jedno łączy miasto: jego żywe kolory. Legenda o założeniu Harmonii opowiada o magicznej iskrze, która rozświetliła krainy urzekającymi barwami. Nikt nie zna pochodzenia iskry, ale wielu szukało jej źródła w nadziei odkrycia zakresu jej mocy.",
+                "Ostatnio jednak mieszkańcami Harmonii wstrząsnęło dziwne zjawisko. W ciągu ostatnich kilku tygodni w całym mieście zgłaszano przerwy w dostawie prądu, przy czym nie było zbyt wielu wskazówek, co może być ich przyczyną.",
+                "Dziś rano budzisz się i widzisz wyjątkowo bezbarwny dzień. Zmartwione pomruki można już usłyszeć na zewnątrz pokoju. Rozglądając się, zauważasz, że pod drzwiami wsunąłeś kawałek papieru."
+              ],
+              "id": "007"
+            },
+            "Jeśli Pink przeczyta notatkę, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                {
+                  "type": "quote",
+                  "entries": [
+                    "Wiem, że jesteś NERDEM z określonym zestawem umiejętności. Spotkajmy się dziś rano na rynku centralnym. Będę miał na sobie garnitur i okulary w rogowej oprawie."
+                  ],
+                  "by": "{@creature Mr. Honeycutt|NRH-TCMC}"
+                }
+              ],
+              "id": "008"
+            },
+            "Centralny rynek znajduje się dziesięć minut spacerem od zajazdu, w którym znajduje się pokój Pink. Karczmarz Mauve zna Pink i przygotowuje śniadanie, gdy Pink schodzi na dół.",
+            {
+              "type": "entries",
+              "name": "Rynek Centralny",
+              "page": 3,
+              "entries": [
+                "Droga na rynek to ciąg krętych uliczek i skrótów przez alejki. W końcu Pink słyszy gwar centralnego rynku, dziś nieco przytłumiony z powodu braku koloru.",
+                "Gdy Pink pojawi się na rynku, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 3,
+                  "entries": [
+                    "Rozległy rynek centralny Harmony to labirynt straganów oraz mnóstwo dźwięków i widoków. Malarze twarzy i gawędziarze zachwycają swoich odbiorców. Sprzedawcy sprzedają wszelkiego rodzaju towary, od latarni po buty i komponenty zaklęć. W powietrzu unosi się zapach pysznych smakołyków."
+                  ],
+                  "id": "00a"
+                },
+                "Daj swojemu graczowi chwilę na odgrywanie ról, eksplorację rynku i wchodzenie w interakcję ze sprzedawcami. Floryści ubolewają nad wyblakłym kolorem swoich kwiatów, inni handlarze twierdzą, że kolor to zasób naturalny, który obecnie się wyczerpuje, a niektórzy nawet zastanawiają się, czy Harmonia nie została przeklęta."
+              ],
+              "id": "009"
+            },
+            {
+              "type": "entries",
+              "name": "Rozrywki na rynku",
+              "page": 4,
+              "entries": [
+                "Oto kilka innych ciekawych zajęć dla Pink:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Młody NERD, który podziwia Pink, chce kiedyś zostać wielkim łotrzykiem. Różowy może nauczyć je sztuczek ręcznych, otwierania zamków, zakładania przebrania, aby oszukać znajomego sprzedawcę, lub innych nieuczciwych umiejętności, takich jak przewracanie się lub chodzenie po linie. Wszystkie te umiejętności są {@dc 10} Testy zręczności (z odpowiednią umiejętnością, np {@skill Acrobatics} Lub {@skill Sleight of Hand}) i jeśli się powiedzie, zadziw młodego NERDA, zwiększając jego podziw.",
+                    "Rose, handlarka, którą Pink dobrze zna, odciąga Pink na bok i wskazuje podejrzanego NERDA, który ukradł kilka cennych jagód Rose. Rose pyta, czy Pink mógłby je ukraść. Aby tego dokonać, Pink musi odnieść sukces {@dc 12} Zręczność ({@skill Stealth}) sprawdź, czy podkraść się do złodzieja i wtedy zakończy się sukcesem {@dc 12} Zręczność ({@skill Sleight of Hand}) zaznacz, aby przesunąć jagody z powrotem. Niezaliczenie któregokolwiek z tych testów może skutkować próbą ucieczki złodzieja lub, w przypadku opanowania, sprowokowaniem bójki."
+                  ]
+                },
+                {
+                  "type": "inset",
+                  "name": "Wilkołaki i Towarzystwo Lorekeeperów",
+                  "page": 4,
+                  "entries": [
+                    "Szczurykołaki i inne dobre likantropy od dawna są członkami Towarzystwa Strażników Wiedzy. Możliwość przemiany w nieszkodliwe zwierzę pozwoliła Towarzystwu Lorekeeperów pozostać tajemnicą przez wiele stuleci.",
+                    "{@creature Mr. Honeycutt|NRH-TCMC} jest obecnym Magisterem Towarzystwa Strażników Wiedzy, a bycie szczurołakiem pozwala mu w tajemnicy obserwować wszystkie sprawy - duże i małe - w Harmonii."
+                  ],
+                  "id": "00c"
+                }
+              ],
+              "id": "00b"
+            },
+            {
+              "type": "entries",
+              "name": "Spotkanie z panem Honeycuttem",
+              "page": 4,
+              "entries": [
+                "Kiedy tylko chcesz, do Pink podchodzi życzliwy chłopak o siwych włosach i spiczastym nosie, ubrany w garnitur i okulary w rogowych oprawkach. To jest {@creature Mr. Honeycutt|NRH-TCMC}.",
+                {
+                  "type": "entries",
+                  "name": "Propozycja",
+                  "page": 4,
+                  "entries": [
+                    "Kiedy jest pewien, że są sami, {@creature Mr. Honeycutt|NRH-TCMC} aktywuje swoje {@item gem of seeing}. Jego okulary błyszczą magią, gdy patrzy na różowo od góry do dołu. Następnie mówi Pink, co następuje:",
+                    {
+                      "type": "insetReadaloud",
+                      "page": 4,
+                      "entries": [
+                        "Wybacz, że się przyglądam, ale musiałem się upewnić, że nie jesteś sobowtórem. Ostrożności nigdy za wiele, zwłaszcza w tych bezbarwnych czasach, gdy los Harmonii wisi na włosku.",
+                        "Nazywam się {@creature Mr. Honeycutt|NRH-TCMC}i należę do Towarzystwa Lorekeeperów. Nie słyszałeś o nas, ale obserwowaliśmy Cię i teraz potrzebujemy Twojej pomocy."
+                      ],
+                      "id": "00f"
+                    },
+                    "Honeycutt wyjaśnia dalej, że Towarzystwo Lorekeeperów potrzebuje odzyskania Koralowego Klejnotu. Towarzystwo ukryło klejnot wieki temu w katakumbach pod Candy Mountain - niegdyś tętniącej życiem kopalni, która dawno została opuszczona - ale teraz potrzebuje klejnotu z powrotem. {@creature Mr. Honeycutt|NRH-TCMC} Nie będę wdawał się w szczegóły dlaczego, powiem tylko, że klejnot jest potrzebny do rozwiązania zagadki przerw w dostawie kolorów.",
+                    "{@creature Mr. Honeycutt|NRH-TCMC} zna dwa wejścia do katakumb i może wskazać Różowej dowolną ścieżkę:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "Za fałszywą ścianą w pobliżu centralnego rynku ukryte jest wejście do sekretnego tunelu prowadzącego do katakumb pod Candy Mountain. {@creature Mr. Honeycutt|NRH-TCMC} mówi, że chociaż ta ścieżka oferuje tajne wejście do kopalni, może być niebezpieczna, ponieważ nie wiadomo, jak tunel przetrwał lata.",
+                        "U podnóża Candy Mountain znajduje się wejście do starej, opuszczonej kopalni. {@creature Mr. Honeycutt|NRH-TCMC} mówi, że cały kompleks jest otoczony śliskim kamiennym murem i strzeżony przez niesamowitych strażników bez twarzy."
+                      ]
+                    },
+                    "{@creature Mr. Honeycutt|NRH-TCMC} zakłada, że ​​Pink wykona tę pracę z obowiązku obywatelskiego, ale jeśli Pink poprosi o rekompensatę pieniężną, {@creature Mr. Honeycutt|NRH-TCMC} ręce Różowy woreczek zawierający 20 sztuk.",
+                    "Chyba, że ​​Pink ma inne pytania, {@creature Mr. Honeycutt|NRH-TCMC} daje im A {@item potion of healing} i pozostawia Pink, aby wybrała swoją ścieżkę."
+                  ],
+                  "id": "00e"
+                }
+              ],
+              "id": "00d"
+            }
+          ],
+          "id": "006"
+        },
+        {
+          "type": "section",
+          "name": "Ścieżka 1: Sekretny tunel",
+          "page": 5,
+          "entries": [
+            "Następny {@creature Mr. Honeycutt|NRH-TCMC}zgodnie ze wskazówkami Pink znajduje ślepą uliczkę. Jeśli Pink przebije się przez fałszywą ścianę, zobaczy zakurzone, kamienne schody, które schodzą 20 stóp pod miastem i zamieniają się w ciemny tunel prowadzący na wschód pod Harmony. Tunel ten ma średnio 3 metry szerokości i 3 metry wysokości i jest z grubsza wykuty w ziemi i skałach. Tunel ostatecznie otwiera się na obszar C5a w kopalni Candy Mountain (patrz poniżej).",
+            "Gdy Różowy wchodzi głębiej w tunel, widzi dziury w ścianach i suficie. Te dziury są zbyt małe, aby Pink mogła się do nich wczołgać, ale wystarczająco duże, aby ukryć się w nich coś nieprzyjemnego.",
+            {
+              "type": "entries",
+              "name": "Uwaga DM",
+              "page": 5,
+              "entries": [
+                "Zapytaj gracza, czy czuje się komfortowo w strasznych sytuacjach. Jeśli nie, możesz uczynić ten tunel nieco upiornym spacerem w ciemności, bez potworów i pułapek. Jeśli spodoba im się dobry strach, kontynuuj przygodę zgodnie z opisem."
+              ],
+              "id": "011"
+            },
+            {
+              "type": "entries",
+              "name": "Spotkanie ze Slurmym",
+              "page": 5,
+              "entries": [
+                "Tunel ciągnie się przez kilka mil, więc wędrówka jest długa, co daje wiele okazji do opisania przerażających chwil, kiedy Pink może usłyszeć coś w rodzaju skrobania, chichotania lub drapania - najprawdopodobniej z dziur rozmieszczonych w tunelu. Kiedy twój gracz będzie wystarczająco przestraszony, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 5,
+                  "entries": [
+                    "Coś bladego i błyszczącego przelatuje obok ciebie, tuż za twoim światłem pochodni, i wpada w dziurę w ścianie."
+                  ],
+                  "id": "013"
+                },
+                "Kiedy Twój gracz naprawdę się przestraszy, przeczytaj to:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 5,
+                  "entries": [
+                    "Z góry (a może dochodzi z tyłu?) słyszysz zgrzytliwy głos, który mówi: „Oooch. Pachnie, jakby świeże mięso zeszło w ciemność tylko na {@creature Slurmy|NRH-TCMC} na ucztę.”"
+                  ],
+                  "id": "014"
+                },
+                "{@creature Slurmy|NRH-TCMC} to nędzne, mięsożerne stworzenie o oślizgłej, cętkowanej zielonej skórze; straszne żółte oczy; długie, zakrzywione pazury; i usta wypełnione ostrymi jak igły kłami. {@creature Slurmy|NRH-TCMC} mieszka tu od dziesięcioleci, żerując na szczurach i innym robactwach."
+              ],
+              "id": "012"
+            },
+            {
+              "type": "entries",
+              "name": "Przyjaciel czy wróg?",
+              "page": 5,
+              "entries": [
+                "Jak we wszystkim w Harmony, szansa na przyjaźń jest możliwa. Jeśli {@creature Slurmy|NRH-TCMC} jest traktowany z wyjątkową życzliwością, częstowany jedzeniem i zdobywany sukcesem {@dc 14} Charyzma ({@skill Persuasion}) sprawdź, wtedy możliwy jest rozejm, a może nawet przyjaźń. Jeśli chcesz, możesz uczynić tę przyjaźń automatyczną, bez konieczności wykonywania rzutu."
+              ],
+              "id": "015"
+            },
+            {
+              "type": "entries",
+              "name": "Podstępny Slurmy",
+              "page": 5,
+              "entries": [
+                "Jeśli przyjaźń nie jest na stole, to wtedy {@creature Slurmy|NRH-TCMC} rusza w pościg, mając nadzieję, że wepchnie Różową w pułapkę i zdobędzie przewagę w postaci łatwego posiłku.",
+                "Istnieją dwie pułapki:",
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Pułapka",
+                      "entries": [
+                        "Podczas poruszania się ciemnym tunelem i bycia nękanym przez {@creature Slurmy|NRH-TCMC}, Różowy musi odnieść sukces {@dc 14} Mądrość ({@skill Perception}) sprawdź lub wpadnij do dołu, biorąc 3 ({@damage 1d6}) obrażenia przebijające od kolców. {@creature Slurmy|NRH-TCMC} wie dokładnie, gdzie znajduje się ta pułapka (i może ją łatwo ominąć) i radośnie wiwatuje, jeśli Różowy wpadnie do środka. Ale jeśli Różowej uda się uniknąć jamy, {@creature Slurmy|NRH-TCMC}przekleństwa odbijają się echem w tunelu. Jeśli Różowy wpadnie, {@creature Slurmy|NRH-TCMC} czeka, aż Pink wyjdzie, a następnie atakuje."
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Zawalenie się",
+                      "entries": [
+                        "Tutaj sufit się rozstąpił, w wyniku czego powstała sterta luźnych głazów i zdradliwe fundamenty ciągnące się przez 50 stóp. Traktuj gruz jako {@quickref difficult terrain||3}. Kiedy Pink jest w połowie drogi, {@creature Slurmy|NRH-TCMC} atakuje przez dziurę w suficie. {@creature Slurmy|NRH-TCMC} nie ma wpływu na {@quickref difficult terrain||3} i działa normalnie."
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "016"
+            },
+            {
+              "type": "entries",
+              "name": "Ścieżka 2: Kopalnia Candy Mountain",
+              "page": 6,
+              "entries": [
+                "{@creature Mr. Honeycutt|NRH-TCMC}Wskazówki pomagają Pink znaleźć Candy Mountain bez większych problemów. Różowy może wędrować po lesie lub podążać główną drogą do wejścia do opuszczonej kopalni położonej na zboczu góry.",
+                "Następujące lokalizacje są powiązane z mapą kopalni Candy Mountain:",
+                {
+                  "type": "image",
+                  "href": {
+                    "type": "internal",
+                    "path": "adventure/NRH-TCMC/002.webp"
+                  },
+                  "width": 2414,
+                  "height": 3149,
+                  "mapRegions": [
+                    {
+                      "area": "018",
+                      "points": [
+                        [
+                          1075,
+                          3010
+                        ],
+                        [
+                          1075,
+                          3117
+                        ],
+                        [
+                          1254,
+                          3117
+                        ],
+                        [
+                          1254,
+                          3010
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01b",
+                      "points": [
+                        [
+                          117,
+                          2726
+                        ],
+                        [
+                          117,
+                          2453
+                        ],
+                        [
+                          147,
+                          2453
+                        ],
+                        [
+                          256,
+                          2387
+                        ],
+                        [
+                          354,
+                          2278
+                        ],
+                        [
+                          390,
+                          2278
+                        ],
+                        [
+                          568,
+                          2210
+                        ],
+                        [
+                          816,
+                          2245
+                        ],
+                        [
+                          990,
+                          2245
+                        ],
+                        [
+                          1102,
+                          2197
+                        ],
+                        [
+                          1126,
+                          2184
+                        ],
+                        [
+                          1126,
+                          2206
+                        ],
+                        [
+                          1197,
+                          2206
+                        ],
+                        [
+                          1197,
+                          2176
+                        ],
+                        [
+                          1266,
+                          2173
+                        ],
+                        [
+                          1413,
+                          2208
+                        ],
+                        [
+                          1573,
+                          2278
+                        ],
+                        [
+                          1755,
+                          2310
+                        ],
+                        [
+                          1778,
+                          2325
+                        ],
+                        [
+                          1901,
+                          2312
+                        ],
+                        [
+                          1904,
+                          2301
+                        ],
+                        [
+                          2102,
+                          2277
+                        ],
+                        [
+                          2110,
+                          2294
+                        ],
+                        [
+                          2171,
+                          2320
+                        ],
+                        [
+                          2176,
+                          2520
+                        ],
+                        [
+                          2038,
+                          2797
+                        ],
+                        [
+                          1800,
+                          3005
+                        ],
+                        [
+                          645,
+                          3008
+                        ],
+                        [
+                          357,
+                          2936
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01c",
+                      "points": [
+                        [
+                          1126,
+                          1746
+                        ],
+                        [
+                          1126,
+                          2205
+                        ],
+                        [
+                          1197,
+                          2205
+                        ],
+                        [
+                          1197,
+                          1746
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "01e",
+                      "points": [
+                        [
+                          1061,
+                          1544
+                        ],
+                        [
+                          1061,
+                          1749
+                        ],
+                        [
+                          1270,
+                          1749
+                        ],
+                        [
+                          1270,
+                          1544
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "020",
+                      "points": [
+                        [
+                          1126,
+                          1211
+                        ],
+                        [
+                          1126,
+                          1520
+                        ],
+                        [
+                          1202,
+                          1520
+                        ],
+                        [
+                          1202,
+                          1211
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "026",
+                      "points": [
+                        [
+                          1210,
+                          568
+                        ],
+                        [
+                          1264,
+                          526
+                        ],
+                        [
+                          1309,
+                          565
+                        ],
+                        [
+                          1325,
+                          576
+                        ],
+                        [
+                          1325,
+                          587
+                        ],
+                        [
+                          1242,
+                          616
+                        ],
+                        [
+                          1237,
+                          595
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "027",
+                      "points": [
+                        [
+                          1179,
+                          347
+                        ],
+                        [
+                          1122,
+                          341
+                        ],
+                        [
+                          1094,
+                          309
+                        ],
+                        [
+                          1082,
+                          258
+                        ],
+                        [
+                          1085,
+                          192
+                        ],
+                        [
+                          1165,
+                          125
+                        ],
+                        [
+                          1270,
+                          123
+                        ],
+                        [
+                          1294,
+                          125
+                        ],
+                        [
+                          1326,
+                          130
+                        ],
+                        [
+                          1373,
+                          157
+                        ],
+                        [
+                          1406,
+                          211
+                        ],
+                        [
+                          1426,
+                          272
+                        ],
+                        [
+                          1422,
+                          322
+                        ],
+                        [
+                          1389,
+                          358
+                        ],
+                        [
+                          1350,
+                          373
+                        ],
+                        [
+                          1314,
+                          370
+                        ],
+                        [
+                          1277,
+                          379
+                        ],
+                        [
+                          1251,
+                          379
+                        ],
+                        [
+                          1205,
+                          360
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "024",
+                      "points": [
+                        [
+                          440,
+                          638
+                        ],
+                        [
+                          442,
+                          603
+                        ],
+                        [
+                          450,
+                          560
+                        ],
+                        [
+                          470,
+                          544
+                        ],
+                        [
+                          512,
+                          544
+                        ],
+                        [
+                          571,
+                          538
+                        ],
+                        [
+                          618,
+                          536
+                        ],
+                        [
+                          670,
+                          549
+                        ],
+                        [
+                          718,
+                          565
+                        ],
+                        [
+                          738,
+                          603
+                        ],
+                        [
+                          747,
+                          653
+                        ],
+                        [
+                          755,
+                          707
+                        ],
+                        [
+                          746,
+                          728
+                        ],
+                        [
+                          686,
+                          746
+                        ],
+                        [
+                          664,
+                          770
+                        ],
+                        [
+                          645,
+                          795
+                        ],
+                        [
+                          618,
+                          805
+                        ],
+                        [
+                          582,
+                          792
+                        ],
+                        [
+                          554,
+                          794
+                        ],
+                        [
+                          523,
+                          773
+                        ],
+                        [
+                          493,
+                          778
+                        ],
+                        [
+                          462,
+                          749
+                        ],
+                        [
+                          442,
+                          715
+                        ],
+                        [
+                          440,
+                          672
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "022",
+                      "points": [
+                        [
+                          552,
+                          1144
+                        ],
+                        [
+                          539,
+                          1106
+                        ],
+                        [
+                          557,
+                          1053
+                        ],
+                        [
+                          568,
+                          1016
+                        ],
+                        [
+                          619,
+                          995
+                        ],
+                        [
+                          653,
+                          990
+                        ],
+                        [
+                          710,
+                          987
+                        ],
+                        [
+                          744,
+                          971
+                        ],
+                        [
+                          789,
+                          966
+                        ],
+                        [
+                          858,
+                          976
+                        ],
+                        [
+                          875,
+                          1013
+                        ],
+                        [
+                          859,
+                          1051
+                        ],
+                        [
+                          816,
+                          1070
+                        ],
+                        [
+                          803,
+                          1102
+                        ],
+                        [
+                          790,
+                          1120
+                        ],
+                        [
+                          787,
+                          1155
+                        ],
+                        [
+                          779,
+                          1194
+                        ],
+                        [
+                          763,
+                          1206
+                        ],
+                        [
+                          757,
+                          1227
+                        ],
+                        [
+                          720,
+                          1230
+                        ],
+                        [
+                          699,
+                          1229
+                        ],
+                        [
+                          670,
+                          1243
+                        ],
+                        [
+                          629,
+                          1234
+                        ],
+                        [
+                          589,
+                          1221
+                        ],
+                        [
+                          563,
+                          1181
+                        ]
+                      ]
+                    },
+                    {
+                      "area": "02b",
+                      "points": [
+                        [
+                          1694,
+                          798
+                        ],
+                        [
+                          1698,
+                          787
+                        ],
+                        [
+                          1707,
+                          770
+                        ],
+                        [
+                          1709,
+                          712
+                        ],
+                        [
+                          1722,
+                          656
+                        ],
+                        [
+                          1766,
+                          597
+                        ],
+                        [
+                          1806,
+                          566
+                        ],
+                        [
+                          1862,
+                          565
+                        ],
+                        [
+                          1910,
+                          566
+                        ],
+                        [
+                          1968,
+                          605
+                        ],
+                        [
+                          2019,
+                          650
+                        ],
+                        [
+                          2046,
+                          670
+                        ],
+                        [
+                          2072,
+                          714
+                        ],
+                        [
+                          2072,
+                          766
+                        ],
+                        [
+                          2053,
+                          819
+                        ],
+                        [
+                          2027,
+                          848
+                        ],
+                        [
+                          2003,
+                          872
+                        ],
+                        [
+                          1998,
+                          914
+                        ],
+                        [
+                          1974,
+                          941
+                        ],
+                        [
+                          1941,
+                          960
+                        ],
+                        [
+                          1909,
+                          971
+                        ],
+                        [
+                          1821,
+                          970
+                        ],
+                        [
+                          1818,
+                          970
+                        ],
+                        [
+                          1778,
+                          955
+                        ],
+                        [
+                          1723,
+                          925
+                        ],
+                        [
+                          1691,
+                          886
+                        ],
+                        [
+                          1693,
+                          872
+                        ],
+                        [
+                          1682,
+                          832
+                        ],
+                        [
+                          1690,
+                          810
+                        ]
+                      ]
+                    }
+                  ],
+                  "imageType": "mapa",
+                  "grid": {
+                    "type": "square",
+                    "size": 70,
+                    "offsetX": 14,
+                    "scale": 2
+                  },
+                  "hrefThumbnail": {
+                    "type": "internal",
+                    "path": "adventure/NRH-TCMC/thumbnail/002.webp"
+                  },
+                  "id": "02e",
+                  "credit": "Red Central"
+                },
+                {
+                  "type": "entries",
+                  "name": "C1. Obwód kopalni",
+                  "page": 6,
+                  "entries": [
+                    "Jeśli Różowy uda się do głównego wejścia, przeczytaj co następuje:",
+                    {
+                      "type": "insetReadaloud",
+                      "page": 6,
+                      "entries": [
+                        "Zarośnięta polna droga prowadzi do zardzewiałej żelaznej bramy osadzonej w kamiennym murze. Po obu stronach bramy stoi dwóch strażników wyglądających jak opancerzone, szare manekiny. Nie mają żadnych dostrzegalnych cech."
+                      ],
+                      "id": "019"
+                    },
+                    "Różowy może zastosować kreatywne metody, aby ominąć jedno i drugie {@creature guard||gwardia} przy bramie. Oto kilka pomysłów:",
+                    {
+                      "type": "list",
+                      "items": [
+                        "Różowy może założyć przebranie i spróbować oszukać strażników. Aby tego dokonać, Pink musi odnieść sukces {@dc 14} Charyzma ({@skill Deception}) sprawdzać. Jeśli ich przebranie jest szczególnie kreatywne, Różowy ma przewagę w rzucie.",
+                        "Różowy może odwrócić uwagę, a następnie przekraść się obok strażników. Różowy musi odnieść sukces {@dc 12} Zręczność ({@skill Stealth}) sprawdzać. Jeśli uważasz, że odwrócenie uwagi jest skuteczne, daj Różowi przewagę w rzucie.",
+                        "Różowy może poczekać, aż przyjedzie pusty wóz i odebrać dostawę, a następnie wkraść się do wozu lub udawać kierowcę dostawy.",
+                        "Różowy może celowo zostać złapany i zabrany do środka."
+                      ]
+                    },
+                    "Jeśli Pink zostanie złapany, jeden ze strażników przetrzymuje je w zagrodzie o powierzchni 3 metrów kwadratowych, sąsiadującej z wejściem do podziemi. Różowy może z powodzeniem wybrać kajdanki {@dc 12} Zręczność ({@skill Sleight of Hand}), gdy wybrzeże będzie czyste.",
+                    "Alternatywnie Różowy może wejść do kopalni przekradając się przez mur obwodowy:",
+                    {
+                      "type": "entries",
+                      "name": "Kamienna ściana",
+                      "page": 6,
+                      "entries": [
+                        "Choć jest stary i zaniedbany, wysoki na 20 stóp kamienny mur otaczający kopalnię nadal budzi grozę. Aby wspiąć się na ścianę, Różowy musi odnieść sukces w dwóch kolejnych próbach {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdza. Jeśli pierwszy test się nie powiedzie, Różowy spada z 3 metrów i otrzymuje 3 ({@damage 1d6}) obrażenia tłuczące. Jeśli drugi test się nie powiedzie, Różowy spada z wysokości 20 stóp i otrzymuje 7 ({@damage 2d6}) obrażenia tłuczące.",
+                        "Jeśli Różowy ma sprzęt wspinaczkowy, zyskuje przewagę w testach."
+                      ],
+                      "id": "01a"
+                    }
+                  ],
+                  "id": "018"
+                },
+                {
+                  "type": "entries",
+                  "name": "C2. Obóz górniczy",
+                  "page": 6,
+                  "entries": [
+                    "Wewnątrz głównej bramy znajduje się wiele starych, zniszczonych budynków w różnych stadiach zniszczenia i upadku. Po krótkim spojrzeniu Pink z łatwością znajduje wejście do kopalni - bramę z żelaznych prętów zabezpieczoną łańcuchem i kłódką. Ciche otwieranie zamka wymaga powodzenia {@dc 12} Zręczność ({@skill Sleight of Hand}) sprawdzać. W przypadku awarii drzwi nadal się otwierają, ale hałas ostrzega koboldy w obszarze C5d i pobliskich strażników. Korzystanie z narzędzi złodziei zapewnia Różowej przewagę w rzucie."
+                  ],
+                  "id": "01b"
+                },
+                {
+                  "type": "entries",
+                  "name": "C3. Klatka schodowa",
+                  "page": 6,
+                  "entries": [
+                    "Kiedy Różowy otworzy bramę, przeczytaj co następuje:",
+                    {
+                      "type": "insetReadaloud",
+                      "page": 6,
+                      "entries": [
+                        "Schody wykute w kamieniu schodzą w ciemność. W kurzu widać ślady stóp, a pajęczyny zostały niedawno przerwane."
+                      ],
+                      "id": "01d"
+                    },
+                    "Schody schodzą na głębokość 40 stóp i kończą się drewnianymi drzwiami. Sukces {@dc 14} Inteligencja ({@skill Nature}) sprawdzenie ujawnia, że ​​ślady należą do kobolda."
+                  ],
+                  "id": "01c"
+                },
+                {
+                  "type": "entries",
+                  "name": "C4. Magazyn centralny",
+                  "page": 6,
+                  "entries": [
+                    "Kiedy Pink wejdzie do tego pokoju, przeczytaj co następuje:",
+                    {
+                      "type": "insetReadaloud",
+                      "page": 6,
+                      "entries": [
+                        "Widzisz z grubsza ociosane pomieszczenie o powierzchni 30 stóp kwadratowych, w którym nadal znajdują się stare, zardzewiałe kilofy, łopaty, łomy, taczka i drewniany wózek górniczy. Wszystko pokryte jest grubą warstwą kurzu i pajęczyn. Pochyłe przejście wychodzi na północ. Ślady stóp są widoczne na całej podłodze, ale większość kieruje się na północ."
+                      ],
+                      "id": "01f"
+                    },
+                    "Drewniany wózek górniczy nadal działa, ale jeśli Pink nie naoliwi kół przed przetoczeniem, wózek wyda straszny hałas, który zaalarmuje koboldy w obszarze C5d."
+                  ],
+                  "id": "01e"
+                },
+                {
+                  "type": "entries",
+                  "name": "C5. Wały kopalniane",
+                  "page": 7,
+                  "entries": [
+                    "Korytarze są tu jeszcze bardziej z grubsza wyciosane i mają nieregularną wysokość i szerokość. Tu i ówdzie wzdłuż tuneli połyskują kawałki pysznego cukierka skalnego, który wydobywano tu w przeszłości. Miejscami tworzą się kałuże wody o głębokości 6 cali lub większej; więcej niż wystarczająco, aby zgasić upuszczoną pochodnię.",
+                    "Jeśli koboldy nie zostały zaalarmowane, gdy Pink schodzi do kopalni, słyszą gorące rozmowy dochodzące z tuneli, ale ze względu na echo nie jest jasne, które.",
+                    {
+                      "type": "entries",
+                      "name": "Uwaga DM",
+                      "page": 7,
+                      "entries": [
+                        "Jeśli Różowy potrzebuje dodatkowego leczenia, możesz uzdrowić go za pomocą kamiennego cukierka {@dice 2d4} punkty wytrzymałości raz dziennie, jeśli zostaną zjedzone."
+                      ],
+                      "id": "021"
+                    }
+                  ],
+                  "id": "020"
+                },
+                {
+                  "type": "entries",
+                  "page": 7,
+                  "name": "C5A. Tajna jaskinia tunelowa",
+                  "entries": [
+                    "Kiedy Pink wejdzie, przeczytaj co następuje:",
+                    {
+                      "type": "insetReadaloud",
+                      "page": 7,
+                      "entries": [
+                        "Na tym obszarze porozrzucane są różne gruzy i śmieci. Ściana jaskini ma prymitywne ślady po hackach, jakby ktoś wściekle machał w nią kilofem."
+                      ],
+                      "id": "023"
+                    },
+                    "W pokoju nie ma nic wartościowego, ale jeśli Pink odniesie sukces {@dc 12} Mądrość ({@skill Perception}) sprawdź, odkrywają sekretne drzwi (patrz „Ścieżka 1: Sekretny tunel” powyżej), które wyglądają jak głaz osadzony w ścianie. Sekretne drzwi otwierają tunel prowadzący z powrotem do miasta Harmonii.",
+                    "Jeśli gracz wybrał Ścieżkę 2 i nie wybrał Ścieżki 1, pozwól mu wejść do tunelu na głębokość około 30 metrów, a następnie przypomnij mu, że może to być drugie wejście do kopalni prowadzącej z powrotem do Harmonii. Jeśli to zignorują i będą kontynuować, niech się spotkają {@creature Slurmy|NRH-TCMC} i pułapki przed pojawieniem się w pobliżu rynku."
+                  ],
+                  "id": "022"
+                },
+                {
+                  "type": "entries",
+                  "name": "C5B. Rock Candy Matka Lode",
+                  "entries": [
+                    "Kiedy Pink wejdzie do tego pokoju, przeczytaj co następuje:",
+                    {
+                      "type": "insetReadaloud",
+                      "page": 7,
+                      "entries": [
+                        "W tej jaskini znajdują się stosy gruzu, ale w ścianie nadal widać dobrą żyłę czerwonego cukierka skalnego."
+                      ],
+                      "id": "025"
+                    },
+                    "Jeśli zostanie zjedzony, cukierek skalny jest słodki i pyszny. Jeśli Różowy chce popracować przez 5 minut, można wydobyć ze ściany woreczek cukierków o wartości 5 punktów sp. Jeśli koboldy znajdują się w obszarze C5d, każdy hałas w tym miejscu je zaalarmuje.",
+                    "W pokoju nie ma nic innego interesującego."
+                  ],
+                  "id": "024"
+                },
+                {
+                  "type": "entries",
+                  "name": "C5C. Pułapka sieciowa",
+                  "entries": [
+                    "Szyb prowadzący do tego obszaru ma przewód wyzwalający rozciągnięty po podłodze na wysokości kostki. Sukces {@dc 14} Mądrość ({@skill Perception}) Aby go znaleźć, konieczne jest sprawdzenie. Jeśli zostanie uruchomiony przewód wyzwalający, na intruzów spadnie siatka wypełniona starymi puszkami. Różowy musi odnieść sukces {@dc 14} Rzut obronny na zręczność lub zaplątaj się w sieć i bądź {@condition restrained}. Różowy musi powtórzyć rzut obronny na koniec każdej swojej tury. Po sukcesie Pink ucieka z pułapki.",
+                    "Rakieta ostrzega tę dwójkę {@creature kobold||koboldy} w obszarze C5d, którzy przybywają 1 rundę po uruchomieniu pułapki."
+                  ],
+                  "id": "026"
+                },
+                {
+                  "type": "entries",
+                  "name": "C5D. Koralowy klejnot",
+                  "entries": [
+                    "Jeśli nie zostali wcześniej powiadomieni, są dwa {@creature kobold||koboldy}, Kribbitz i Zurff, kłócą się w tym pokoju o to, jak otworzyć zamkniętą kamienną skrzynię o powierzchni 6 stóp kwadratowych, którą odkryli w jaskini w najbardziej wysuniętej na północ ścianie. Jakiś {@condition unconscious} kobold Nurzle leży na podłodze z igłą w szyi. Koboldy to gadzie humanoidy, które na ogół unikają konfliktów, chyba że zostaną osaczone.",
+                    "Jeśli Różowy zaskoczy koboldy, te spróbują wyczuć Różę i zobaczą, czy uda im się namówić je do otwarcia pudełka. Następnie koboldy próbują ukraść klejnot i uciec.",
+                    "Jeśli zaalarmowano ich wcześniej, koboldy ukryły się ze swoimi rzeczami za starymi półkami pod płócienną plandeką {@condition unconscious} znajomego i czekamy, aż Pink otworzy pudełko.",
+                    {
+                      "type": "entries",
+                      "name": "Otwieranie pudełka",
+                      "page": 7,
+                      "entries": [
+                        "Kamienna skrzynia waży 3000 funtów i jest wykonana z kwarcytu - bardzo twardego rodzaju kamienia. Pudełko jest pokryte runami i glifami. Posiada dziurkę od klucza i sześć guzików. Zamek jest uwięziony i wymaga pomyślnego odblokowania {@dc 15} Zręczność ({@skill Sleight of Hand}) zaznacz, aby otworzyć. W przypadku niepowodzenia wystrzeliwuje zatruta igła. Ktokolwiek otwiera zamek, musi rzucić a {@dice d6}. Na poziomie 2-6 zostają wkłuci igłą i zasypiają na 8 godzin. Na 1 igła chybia. Tak czy inaczej, pudełko pozostaje zamknięte.",
+                        "Jeśli Pink uda się otworzyć pudełko, koboldy wybiegną i spróbują ukraść klejnot. Jeśli Pink jest na nie gotowa, koboldy próbują zastraszyć, wymienić się z Pinką lub błagać Pink, aby ją oddała. Pan Greystone wyraził się całkiem jasno, co stanie się z koboldami, jeśli poniosą porażkę, i nie jest to ani trochę przyjemne."
+                      ],
+                      "id": "028"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Nawiązywanie przyjaźni",
+                      "page": 8,
+                      "entries": [
+                        "Jeśli Pink chce zaprzyjaźnić się z koboldami, Pink musi obiecać, że ochroni koboldy przed gniewem pana Greystone'a, a następnie dokona udanego {@dc 14} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli tak się stanie, koboldy zgadzają się zostawić Pink z klejnotem i nie sprawiać więcej kłopotów.",
+                        "Jeśli Różowy nie podda się bez walki, koboldy stoczą 1 rundę walki. Gdy tylko ktoś odniesie obrażenia, uciekają i wrzeszczą o tym, co stanie się z Pink, gdy pan Greystone się o tym dowie."
+                      ],
+                      "id": "029"
+                    },
+                    {
+                      "type": "entries",
+                      "name": "Koralowy klejnot",
+                      "page": 8,
+                      "entries": [
+                        "Koralowy Klejnot to kamień wielkości pięści, wart 250 sz, świecący miękkim, różowym światłem. Nie ma własnych magicznych właściwości."
+                      ],
+                      "id": "02a"
+                    }
+                  ],
+                  "id": "027"
+                },
+                {
+                  "type": "entries",
+                  "name": "C5E. Skamielina smoka",
+                  "entries": [
+                    "W tej dużej jaskini znajduje się więcej stert cukierkowego gruzu, ale we wschodniej ścianie osadzona jest potężna skamielina smoka o długości 40 stóp.",
+                    "Jeśli Pink odniesie sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdź, wiedzą, że to skamielina niebieskiego smoka. Różowa wie o tym, że niebieskie smoki są nie tylko zaciekłymi łowcami, które zieją błyskawicami, aby ogłuszyć lub zabić swoją ofiarę, ale także są jednymi z najinteligentniejszych ze smoków.",
+                    "Jeśli Pink ostrożnie odłupuje skałę przez 20 minut i odniesie sukces {@dc 15} Test zręczności, mogą uwolnić z kamienia idealny ząb smoka. Jeśli koboldy nadal znajdują się w obszarze C5d, zostaną zaalarmowane przy każdej próbie uwolnienia skamieniałości.",
+                    "Ząb smoka jest wart 20 sz dla alchemika lub kolekcjonera. Uwolnienie całego szkieletu, który można sprzedać do muzeum za 1500 gp, zajęłoby około 6 miesięcy."
+                  ],
+                  "id": "02b"
+                }
+              ],
+              "id": "017"
+            },
+            {
+              "type": "entries",
+              "name": "Ukończenie Misji",
+              "page": 8,
+              "entries": [
+                "Kiedy Pink wraca do Harmony, wita ich {@creature Mr. Honeycutt|NRH-TCMC} w gospodzie, w której przebywa Pink. Jeśli Pink przekaże Koralowy Klejnot, {@creature Mr. Honeycutt|NRH-TCMC} oddycha z ulgą, po czym energicznie ściska dłoń Pink, dziękując jej serdecznie. {@creature Mr. Honeycutt|NRH-TCMC} zaprasza Reda do przyłączenia się do Towarzystwa Lorekeeperów. Jeśli Czerwony się zgodzi, {@creature Mr. Honeycutt|NRH-TCMC} następnie sięga do swojej torby i daje Pinkowi parę złodziejskich rękawiczek (patrz poniżej) w nadziei, że Pink zrobi z nich dobry użytek w nadchodzących dniach. „Walka jeszcze się nie skończyła” {@creature Mr. Honeycutt|NRH-TCMC} - krzyczy do Pink. „Jest jeszcze wiele do zrobienia, zanim kolor wróci do Harmony. Stowarzyszenie Lorekeeper Society skontaktuje się z Tobą”.",
+                "{@creature Mr. Honeycutt|NRH-TCMC} następnie kłania się i wychodzi za drzwi. Robiąc to, rzuca barmanowi sztukę złota. Mauve spogląda dwukrotnie, po czym kiwa głową z aprobatą Pink."
+              ],
+              "id": "02c"
+            }
+          ],
+          "id": "010"
+        },
+        {
+          "type": "section",
+          "name": "Magiczne przedmioty",
+          "page": 8,
+          "entries": [
+            "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+            {
+              "type": "list",
+              "items": [
+                "{@item Gloves of Thievery}"
+              ]
+            }
+          ],
+          "id": "02d"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-TCMC/sheet001.webp"
+          },
+          "width": 1275,
+          "height": 825
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-TCMC/sheet002.webp"
+          },
+          "width": 1275,
+          "height": 825
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Podsumowanie historii",
+      "page": 2,
+      "entries": [
+        "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+        "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony. Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+        "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "entries",
+      "name": "Gra solo",
+      "page": 2,
+      "entries": [
+        "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+        "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+        {
+          "type": "entries",
+          "name": "TPK: Całkowite zniszczenie drużyny",
+          "entries": [
+            "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+            "W przypadku przedwczesnej śmierci możesz mieć pomocnego NPC (np {@creature Mr. Honeycutt|NRH-TCMC}) uratować sytuację i ożywić je, albo możesz pozwolić im zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w jakieś nieprzyjemne miejsce."
+          ],
+          "id": "003"
+        }
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "name": "TPK: Całkowite zniszczenie drużyny",
+      "entries": [
+        "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+        "W przypadku przedwczesnej śmierci możesz mieć pomocnego NPC (np {@creature Mr. Honeycutt|NRH-TCMC}) uratować sytuację i ożywić je, albo możesz pozwolić im zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w jakieś nieprzyjemne miejsce."
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "entries",
+      "name": "Zarys przygody",
+      "page": 3,
+      "entries": [
+        "Oto krótki opis przygody:",
+        {
+          "type": "list",
+          "items": [
+            "Różowa Łotrzyczka otrzymuje tajemniczą wiadomość, aby spotkać się z „{@creature Mr. Honeycutt|NRH-TCMC}„na centralnym rynku.",
+            "Po spędzeniu czasu na rynku Pink spotyka się {@creature Mr. Honeycutt|NRH-TCMC}, który prosi ich o odnalezienie i odzyskanie Koralowego Klejnotu w opuszczonej kopalni pod Candy Mountain. {@creature Mr. Honeycutt|NRH-TCMC} daje Pinkowi dwa sposoby dotarcia do tego celu (jako DM może Ci się spodobać konkretna ścieżka, więc możesz wybrać {@creature Mr. Honeycutt|NRH-TCMC} dać Różowemu tylko jedną opcję).",
+            "Ścieżka 1 to długi tunel, w którym przebywa paskudny potwór, {@creature Slurmy|NRH-TCMC}, który próbuje zjeść Pink. Ścieżka 2 to infiltracja przez mur, obok strażników i do kopalni.",
+            "Pink w końcu dostaje się do opuszczonej kopalni, omija pułapki, otwiera skrzynię ze skarbami, omija koboldy i odzyskuje klejnot."
+          ]
+        }
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Rozpoczęcie gry",
+      "page": 3,
+      "entries": [
+        "Wręcz kartę postaci (patrz „Pink the Rogue” poniżej) swojemu graczowi i pozwól mu zapoznać się z Pink.",
+        "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć. Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+      ],
+      "id": "005"
+    },
+    "0:006": {
+      "type": "section",
+      "name": "Kapar z Candy Mountain",
+      "page": 3,
+      "entries": [
+        "Przygoda rozpoczyna się w tętniącym życiem i kolorowym mieście Harmony, gdzie tajemnicze „awarie kolorów” zaczynają budzić niepokój. Jako NERDS mieszkańcy Harmonii mają optymistyczne nastawienie i starają się żyć najlepiej, jak potrafią, bez zbytniego zmartwienia, ale brak koloru niepokoi nawet najbardziej energicznych NERDSów.",
+        "Gdy odtwarzacz będzie gotowy, przeczytaj poniższe informacje:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            "Miasto Harmonii to tętniący życiem ośrodek metropolitalny. Na targowiskach na świeżym powietrzu można kupić żywność i towary z całego świata. Ogromna biblioteka zapewnia obywatelom bezpłatny dostęp do tomów wiedzy, a tętniące życiem miejsca rozrywki karmią duszę miasta. Miłośnikom przyrody kilka parków i otaczający las zapewniają prostsze udogodnienia.",
+            "Jedno łączy miasto: jego żywe kolory. Legenda o założeniu Harmonii opowiada o magicznej iskrze, która rozświetliła krainy urzekającymi barwami. Nikt nie zna pochodzenia iskry, ale wielu szukało jej źródła w nadziei odkrycia zakresu jej mocy.",
+            "Ostatnio jednak mieszkańcami Harmonii wstrząsnęło dziwne zjawisko. W ciągu ostatnich kilku tygodni w całym mieście zgłaszano przerwy w dostawie prądu, przy czym nie było zbyt wielu wskazówek, co może być ich przyczyną.",
+            "Dziś rano budzisz się i widzisz wyjątkowo bezbarwny dzień. Zmartwione pomruki można już usłyszeć na zewnątrz pokoju. Rozglądając się, zauważasz, że pod drzwiami wsunąłeś kawałek papieru."
+          ],
+          "id": "007"
+        },
+        "Jeśli Pink przeczyta notatkę, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            {
+              "type": "quote",
+              "entries": [
+                "Wiem, że jesteś NERDEM z określonym zestawem umiejętności. Spotkajmy się dziś rano na rynku centralnym. Będę miał na sobie garnitur i okulary w rogowej oprawie."
+              ],
+              "by": "{@creature Mr. Honeycutt|NRH-TCMC}"
+            }
+          ],
+          "id": "008"
+        },
+        "Centralny rynek znajduje się dziesięć minut spacerem od zajazdu, w którym znajduje się pokój Pink. Karczmarz Mauve zna Pink i przygotowuje śniadanie, gdy Pink schodzi na dół.",
+        {
+          "type": "entries",
+          "name": "Rynek Centralny",
+          "page": 3,
+          "entries": [
+            "Droga na rynek to ciąg krętych uliczek i skrótów przez alejki. W końcu Pink słyszy gwar centralnego rynku, dziś nieco przytłumiony z powodu braku koloru.",
+            "Gdy Pink pojawi się na rynku, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                "Rozległy rynek centralny Harmony to labirynt straganów oraz mnóstwo dźwięków i widoków. Malarze twarzy i gawędziarze zachwycają swoich odbiorców. Sprzedawcy sprzedają wszelkiego rodzaju towary, od latarni po buty i komponenty zaklęć. W powietrzu unosi się zapach pysznych smakołyków."
+              ],
+              "id": "00a"
+            },
+            "Daj swojemu graczowi chwilę na odgrywanie ról, eksplorację rynku i wchodzenie w interakcję ze sprzedawcami. Floryści ubolewają nad wyblakłym kolorem swoich kwiatów, inni handlarze twierdzą, że kolor to zasób naturalny, który obecnie się wyczerpuje, a niektórzy nawet zastanawiają się, czy Harmonia nie została przeklęta."
+          ],
+          "id": "009"
+        },
+        {
+          "type": "entries",
+          "name": "Rozrywki na rynku",
+          "page": 4,
+          "entries": [
+            "Oto kilka innych ciekawych zajęć dla Pink:",
+            {
+              "type": "list",
+              "items": [
+                "Młody NERD, który podziwia Pink, chce kiedyś zostać wielkim łotrzykiem. Różowy może nauczyć je sztuczek ręcznych, otwierania zamków, zakładania przebrania, aby oszukać znajomego sprzedawcę, lub innych nieuczciwych umiejętności, takich jak przewracanie się lub chodzenie po linie. Wszystkie te umiejętności są {@dc 10} Testy zręczności (z odpowiednią umiejętnością, np {@skill Acrobatics} Lub {@skill Sleight of Hand}) i jeśli się powiedzie, zadziw młodego NERDA, zwiększając jego podziw.",
+                "Rose, handlarka, którą Pink dobrze zna, odciąga Pink na bok i wskazuje podejrzanego NERDA, który ukradł kilka cennych jagód Rose. Rose pyta, czy Pink mógłby je ukraść. Aby tego dokonać, Pink musi odnieść sukces {@dc 12} Zręczność ({@skill Stealth}) sprawdź, czy podkraść się do złodzieja i wtedy zakończy się sukcesem {@dc 12} Zręczność ({@skill Sleight of Hand}) zaznacz, aby przesunąć jagody z powrotem. Niezaliczenie któregokolwiek z tych testów może skutkować próbą ucieczki złodzieja lub, w przypadku opanowania, sprowokowaniem bójki."
+              ]
+            },
+            {
+              "type": "inset",
+              "name": "Wilkołaki i Towarzystwo Lorekeeperów",
+              "page": 4,
+              "entries": [
+                "Szczurykołaki i inne dobre likantropy od dawna są członkami Towarzystwa Strażników Wiedzy. Możliwość przemiany w nieszkodliwe zwierzę pozwoliła Towarzystwu Lorekeeperów pozostać tajemnicą przez wiele stuleci.",
+                "{@creature Mr. Honeycutt|NRH-TCMC} jest obecnym Magisterem Towarzystwa Strażników Wiedzy, a bycie szczurołakiem pozwala mu w tajemnicy obserwować wszystkie sprawy - duże i małe - w Harmonii."
+              ],
+              "id": "00c"
+            }
+          ],
+          "id": "00b"
+        },
+        {
+          "type": "entries",
+          "name": "Spotkanie z panem Honeycuttem",
+          "page": 4,
+          "entries": [
+            "Kiedy tylko chcesz, do Pink podchodzi życzliwy chłopak o siwych włosach i spiczastym nosie, ubrany w garnitur i okulary w rogowych oprawkach. To jest {@creature Mr. Honeycutt|NRH-TCMC}.",
+            {
+              "type": "entries",
+              "name": "Propozycja",
+              "page": 4,
+              "entries": [
+                "Kiedy jest pewien, że są sami, {@creature Mr. Honeycutt|NRH-TCMC} aktywuje swoje {@item gem of seeing}. Jego okulary błyszczą magią, gdy patrzy na różowo od góry do dołu. Następnie mówi Pink, co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 4,
+                  "entries": [
+                    "Wybacz, że się przyglądam, ale musiałem się upewnić, że nie jesteś sobowtórem. Ostrożności nigdy za wiele, zwłaszcza w tych bezbarwnych czasach, gdy los Harmonii wisi na włosku.",
+                    "Nazywam się {@creature Mr. Honeycutt|NRH-TCMC}i należę do Towarzystwa Lorekeeperów. Nie słyszałeś o nas, ale obserwowaliśmy Cię i teraz potrzebujemy Twojej pomocy."
+                  ],
+                  "id": "00f"
+                },
+                "Honeycutt wyjaśnia dalej, że Towarzystwo Lorekeeperów potrzebuje odzyskania Koralowego Klejnotu. Towarzystwo ukryło klejnot wieki temu w katakumbach pod Candy Mountain - niegdyś tętniącej życiem kopalni, która dawno została opuszczona - ale teraz potrzebuje klejnotu z powrotem. {@creature Mr. Honeycutt|NRH-TCMC} Nie będę wdawał się w szczegóły dlaczego, powiem tylko, że klejnot jest potrzebny do rozwiązania zagadki przerw w dostawie kolorów.",
+                "{@creature Mr. Honeycutt|NRH-TCMC} zna dwa wejścia do katakumb i może wskazać Różowej dowolną ścieżkę:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Za fałszywą ścianą w pobliżu centralnego rynku ukryte jest wejście do sekretnego tunelu prowadzącego do katakumb pod Candy Mountain. {@creature Mr. Honeycutt|NRH-TCMC} mówi, że chociaż ta ścieżka oferuje tajne wejście do kopalni, może być niebezpieczna, ponieważ nie wiadomo, jak tunel przetrwał lata.",
+                    "U podnóża Candy Mountain znajduje się wejście do starej, opuszczonej kopalni. {@creature Mr. Honeycutt|NRH-TCMC} mówi, że cały kompleks jest otoczony śliskim kamiennym murem i strzeżony przez niesamowitych strażników bez twarzy."
+                  ]
+                },
+                "{@creature Mr. Honeycutt|NRH-TCMC} zakłada, że ​​Pink wykona tę pracę z obowiązku obywatelskiego, ale jeśli Pink poprosi o rekompensatę pieniężną, {@creature Mr. Honeycutt|NRH-TCMC} ręce Różowy woreczek zawierający 20 sztuk.",
+                "Chyba, że ​​Pink ma inne pytania, {@creature Mr. Honeycutt|NRH-TCMC} daje im A {@item potion of healing} i pozostawia Pink, aby wybrała swoją ścieżkę."
+              ],
+              "id": "00e"
+            }
+          ],
+          "id": "00d"
+        }
+      ],
+      "id": "006"
+    },
+    "0:009": {
+      "type": "entries",
+      "name": "Rynek Centralny",
+      "page": 3,
+      "entries": [
+        "Droga na rynek to ciąg krętych uliczek i skrótów przez alejki. W końcu Pink słyszy gwar centralnego rynku, dziś nieco przytłumiony z powodu braku koloru.",
+        "Gdy Pink pojawi się na rynku, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            "Rozległy rynek centralny Harmony to labirynt straganów oraz mnóstwo dźwięków i widoków. Malarze twarzy i gawędziarze zachwycają swoich odbiorców. Sprzedawcy sprzedają wszelkiego rodzaju towary, od latarni po buty i komponenty zaklęć. W powietrzu unosi się zapach pysznych smakołyków."
+          ],
+          "id": "00a"
+        },
+        "Daj swojemu graczowi chwilę na odgrywanie ról, eksplorację rynku i wchodzenie w interakcję ze sprzedawcami. Floryści ubolewają nad wyblakłym kolorem swoich kwiatów, inni handlarze twierdzą, że kolor to zasób naturalny, który obecnie się wyczerpuje, a niektórzy nawet zastanawiają się, czy Harmonia nie została przeklęta."
+      ],
+      "id": "009"
+    },
+    "0:00b": {
+      "type": "entries",
+      "name": "Rozrywki na rynku",
+      "page": 4,
+      "entries": [
+        "Oto kilka innych ciekawych zajęć dla Pink:",
+        {
+          "type": "list",
+          "items": [
+            "Młody NERD, który podziwia Pink, chce kiedyś zostać wielkim łotrzykiem. Różowy może nauczyć je sztuczek ręcznych, otwierania zamków, zakładania przebrania, aby oszukać znajomego sprzedawcę, lub innych nieuczciwych umiejętności, takich jak przewracanie się lub chodzenie po linie. Wszystkie te umiejętności są {@dc 10} Testy zręczności (z odpowiednią umiejętnością, np {@skill Acrobatics} Lub {@skill Sleight of Hand}) i jeśli się powiedzie, zadziw młodego NERDA, zwiększając jego podziw.",
+            "Rose, handlarka, którą Pink dobrze zna, odciąga Pink na bok i wskazuje podejrzanego NERDA, który ukradł kilka cennych jagód Rose. Rose pyta, czy Pink mógłby je ukraść. Aby tego dokonać, Pink musi odnieść sukces {@dc 12} Zręczność ({@skill Stealth}) sprawdź, czy podkraść się do złodzieja i wtedy zakończy się sukcesem {@dc 12} Zręczność ({@skill Sleight of Hand}) zaznacz, aby przesunąć jagody z powrotem. Niezaliczenie któregokolwiek z tych testów może skutkować próbą ucieczki złodzieja lub, w przypadku opanowania, sprowokowaniem bójki."
+          ]
+        },
+        {
+          "type": "inset",
+          "name": "Wilkołaki i Towarzystwo Lorekeeperów",
+          "page": 4,
+          "entries": [
+            "Szczurykołaki i inne dobre likantropy od dawna są członkami Towarzystwa Strażników Wiedzy. Możliwość przemiany w nieszkodliwe zwierzę pozwoliła Towarzystwu Lorekeeperów pozostać tajemnicą przez wiele stuleci.",
+            "{@creature Mr. Honeycutt|NRH-TCMC} jest obecnym Magisterem Towarzystwa Strażników Wiedzy, a bycie szczurołakiem pozwala mu w tajemnicy obserwować wszystkie sprawy - duże i małe - w Harmonii."
+          ],
+          "id": "00c"
+        }
+      ],
+      "id": "00b"
+    },
+    "0:00d": {
+      "type": "entries",
+      "name": "Spotkanie z panem Honeycuttem",
+      "page": 4,
+      "entries": [
+        "Kiedy tylko chcesz, do Pink podchodzi życzliwy chłopak o siwych włosach i spiczastym nosie, ubrany w garnitur i okulary w rogowych oprawkach. To jest {@creature Mr. Honeycutt|NRH-TCMC}.",
+        {
+          "type": "entries",
+          "name": "Propozycja",
+          "page": 4,
+          "entries": [
+            "Kiedy jest pewien, że są sami, {@creature Mr. Honeycutt|NRH-TCMC} aktywuje swoje {@item gem of seeing}. Jego okulary błyszczą magią, gdy patrzy na różowo od góry do dołu. Następnie mówi Pink, co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 4,
+              "entries": [
+                "Wybacz, że się przyglądam, ale musiałem się upewnić, że nie jesteś sobowtórem. Ostrożności nigdy za wiele, zwłaszcza w tych bezbarwnych czasach, gdy los Harmonii wisi na włosku.",
+                "Nazywam się {@creature Mr. Honeycutt|NRH-TCMC}i należę do Towarzystwa Lorekeeperów. Nie słyszałeś o nas, ale obserwowaliśmy Cię i teraz potrzebujemy Twojej pomocy."
+              ],
+              "id": "00f"
+            },
+            "Honeycutt wyjaśnia dalej, że Towarzystwo Lorekeeperów potrzebuje odzyskania Koralowego Klejnotu. Towarzystwo ukryło klejnot wieki temu w katakumbach pod Candy Mountain - niegdyś tętniącej życiem kopalni, która dawno została opuszczona - ale teraz potrzebuje klejnotu z powrotem. {@creature Mr. Honeycutt|NRH-TCMC} Nie będę wdawał się w szczegóły dlaczego, powiem tylko, że klejnot jest potrzebny do rozwiązania zagadki przerw w dostawie kolorów.",
+            "{@creature Mr. Honeycutt|NRH-TCMC} zna dwa wejścia do katakumb i może wskazać Różowej dowolną ścieżkę:",
+            {
+              "type": "list",
+              "items": [
+                "Za fałszywą ścianą w pobliżu centralnego rynku ukryte jest wejście do sekretnego tunelu prowadzącego do katakumb pod Candy Mountain. {@creature Mr. Honeycutt|NRH-TCMC} mówi, że chociaż ta ścieżka oferuje tajne wejście do kopalni, może być niebezpieczna, ponieważ nie wiadomo, jak tunel przetrwał lata.",
+                "U podnóża Candy Mountain znajduje się wejście do starej, opuszczonej kopalni. {@creature Mr. Honeycutt|NRH-TCMC} mówi, że cały kompleks jest otoczony śliskim kamiennym murem i strzeżony przez niesamowitych strażników bez twarzy."
+              ]
+            },
+            "{@creature Mr. Honeycutt|NRH-TCMC} zakłada, że ​​Pink wykona tę pracę z obowiązku obywatelskiego, ale jeśli Pink poprosi o rekompensatę pieniężną, {@creature Mr. Honeycutt|NRH-TCMC} ręce Różowy woreczek zawierający 20 sztuk.",
+            "Chyba, że ​​Pink ma inne pytania, {@creature Mr. Honeycutt|NRH-TCMC} daje im A {@item potion of healing} i pozostawia Pink, aby wybrała swoją ścieżkę."
+          ],
+          "id": "00e"
+        }
+      ],
+      "id": "00d"
+    },
+    "0:00e": {
+      "type": "entries",
+      "name": "Propozycja",
+      "page": 4,
+      "entries": [
+        "Kiedy jest pewien, że są sami, {@creature Mr. Honeycutt|NRH-TCMC} aktywuje swoje {@item gem of seeing}. Jego okulary błyszczą magią, gdy patrzy na różowo od góry do dołu. Następnie mówi Pink, co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 4,
+          "entries": [
+            "Wybacz, że się przyglądam, ale musiałem się upewnić, że nie jesteś sobowtórem. Ostrożności nigdy za wiele, zwłaszcza w tych bezbarwnych czasach, gdy los Harmonii wisi na włosku.",
+            "Nazywam się {@creature Mr. Honeycutt|NRH-TCMC}i należę do Towarzystwa Lorekeeperów. Nie słyszałeś o nas, ale obserwowaliśmy Cię i teraz potrzebujemy Twojej pomocy."
+          ],
+          "id": "00f"
+        },
+        "Honeycutt wyjaśnia dalej, że Towarzystwo Lorekeeperów potrzebuje odzyskania Koralowego Klejnotu. Towarzystwo ukryło klejnot wieki temu w katakumbach pod Candy Mountain - niegdyś tętniącej życiem kopalni, która dawno została opuszczona - ale teraz potrzebuje klejnotu z powrotem. {@creature Mr. Honeycutt|NRH-TCMC} Nie będę wdawał się w szczegóły dlaczego, powiem tylko, że klejnot jest potrzebny do rozwiązania zagadki przerw w dostawie kolorów.",
+        "{@creature Mr. Honeycutt|NRH-TCMC} zna dwa wejścia do katakumb i może wskazać Różowej dowolną ścieżkę:",
+        {
+          "type": "list",
+          "items": [
+            "Za fałszywą ścianą w pobliżu centralnego rynku ukryte jest wejście do sekretnego tunelu prowadzącego do katakumb pod Candy Mountain. {@creature Mr. Honeycutt|NRH-TCMC} mówi, że chociaż ta ścieżka oferuje tajne wejście do kopalni, może być niebezpieczna, ponieważ nie wiadomo, jak tunel przetrwał lata.",
+            "U podnóża Candy Mountain znajduje się wejście do starej, opuszczonej kopalni. {@creature Mr. Honeycutt|NRH-TCMC} mówi, że cały kompleks jest otoczony śliskim kamiennym murem i strzeżony przez niesamowitych strażników bez twarzy."
+          ]
+        },
+        "{@creature Mr. Honeycutt|NRH-TCMC} zakłada, że ​​Pink wykona tę pracę z obowiązku obywatelskiego, ale jeśli Pink poprosi o rekompensatę pieniężną, {@creature Mr. Honeycutt|NRH-TCMC} ręce Różowy woreczek zawierający 20 sztuk.",
+        "Chyba, że ​​Pink ma inne pytania, {@creature Mr. Honeycutt|NRH-TCMC} daje im A {@item potion of healing} i pozostawia Pink, aby wybrała swoją ścieżkę."
+      ],
+      "id": "00e"
+    },
+    "0:010": {
+      "type": "section",
+      "name": "Ścieżka 1: Sekretny tunel",
+      "page": 5,
+      "entries": [
+        "Następny {@creature Mr. Honeycutt|NRH-TCMC}zgodnie ze wskazówkami Pink znajduje ślepą uliczkę. Jeśli Pink przebije się przez fałszywą ścianę, zobaczy zakurzone, kamienne schody, które schodzą 20 stóp pod miastem i zamieniają się w ciemny tunel prowadzący na wschód pod Harmony. Tunel ten ma średnio 3 metry szerokości i 3 metry wysokości i jest z grubsza wykuty w ziemi i skałach. Tunel ostatecznie otwiera się na obszar C5a w kopalni Candy Mountain (patrz poniżej).",
+        "Gdy Różowy wchodzi głębiej w tunel, widzi dziury w ścianach i suficie. Te dziury są zbyt małe, aby Pink mogła się do nich wczołgać, ale wystarczająco duże, aby ukryć się w nich coś nieprzyjemnego.",
+        {
+          "type": "entries",
+          "name": "Uwaga DM",
+          "page": 5,
+          "entries": [
+            "Zapytaj gracza, czy czuje się komfortowo w strasznych sytuacjach. Jeśli nie, możesz uczynić ten tunel nieco upiornym spacerem w ciemności, bez potworów i pułapek. Jeśli spodoba im się dobry strach, kontynuuj przygodę zgodnie z opisem."
+          ],
+          "id": "011"
+        },
+        {
+          "type": "entries",
+          "name": "Spotkanie ze Slurmym",
+          "page": 5,
+          "entries": [
+            "Tunel ciągnie się przez kilka mil, więc wędrówka jest długa, co daje wiele okazji do opisania przerażających chwil, kiedy Pink może usłyszeć coś w rodzaju skrobania, chichotania lub drapania - najprawdopodobniej z dziur rozmieszczonych w tunelu. Kiedy twój gracz będzie wystarczająco przestraszony, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 5,
+              "entries": [
+                "Coś bladego i błyszczącego przelatuje obok ciebie, tuż za twoim światłem pochodni, i wpada w dziurę w ścianie."
+              ],
+              "id": "013"
+            },
+            "Kiedy Twój gracz naprawdę się przestraszy, przeczytaj to:",
+            {
+              "type": "insetReadaloud",
+              "page": 5,
+              "entries": [
+                "Z góry (a może dochodzi z tyłu?) słyszysz zgrzytliwy głos, który mówi: „Oooch. Pachnie, jakby świeże mięso zeszło w ciemność tylko na {@creature Slurmy|NRH-TCMC} na ucztę.”"
+              ],
+              "id": "014"
+            },
+            "{@creature Slurmy|NRH-TCMC} to nędzne, mięsożerne stworzenie o oślizgłej, cętkowanej zielonej skórze; straszne żółte oczy; długie, zakrzywione pazury; i usta wypełnione ostrymi jak igły kłami. {@creature Slurmy|NRH-TCMC} mieszka tu od dziesięcioleci, żerując na szczurach i innym robactwach."
+          ],
+          "id": "012"
+        },
+        {
+          "type": "entries",
+          "name": "Przyjaciel czy wróg?",
+          "page": 5,
+          "entries": [
+            "Jak we wszystkim w Harmony, szansa na przyjaźń jest możliwa. Jeśli {@creature Slurmy|NRH-TCMC} jest traktowany z wyjątkową życzliwością, częstowany jedzeniem i zdobywany sukcesem {@dc 14} Charyzma ({@skill Persuasion}) sprawdź, wtedy możliwy jest rozejm, a może nawet przyjaźń. Jeśli chcesz, możesz uczynić tę przyjaźń automatyczną, bez konieczności wykonywania rzutu."
+          ],
+          "id": "015"
+        },
+        {
+          "type": "entries",
+          "name": "Podstępny Slurmy",
+          "page": 5,
+          "entries": [
+            "Jeśli przyjaźń nie jest na stole, to wtedy {@creature Slurmy|NRH-TCMC} rusza w pościg, mając nadzieję, że wepchnie Różową w pułapkę i zdobędzie przewagę w postaci łatwego posiłku.",
+            "Istnieją dwie pułapki:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Pułapka",
+                  "entries": [
+                    "Podczas poruszania się ciemnym tunelem i bycia nękanym przez {@creature Slurmy|NRH-TCMC}, Różowy musi odnieść sukces {@dc 14} Mądrość ({@skill Perception}) sprawdź lub wpadnij do dołu, biorąc 3 ({@damage 1d6}) obrażenia przebijające od kolców. {@creature Slurmy|NRH-TCMC} wie dokładnie, gdzie znajduje się ta pułapka (i może ją łatwo ominąć) i radośnie wiwatuje, jeśli Różowy wpadnie do środka. Ale jeśli Różowej uda się uniknąć jamy, {@creature Slurmy|NRH-TCMC}przekleństwa odbijają się echem w tunelu. Jeśli Różowy wpadnie, {@creature Slurmy|NRH-TCMC} czeka, aż Pink wyjdzie, a następnie atakuje."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Zawalenie się",
+                  "entries": [
+                    "Tutaj sufit się rozstąpił, w wyniku czego powstała sterta luźnych głazów i zdradliwe fundamenty ciągnące się przez 50 stóp. Traktuj gruz jako {@quickref difficult terrain||3}. Kiedy Pink jest w połowie drogi, {@creature Slurmy|NRH-TCMC} atakuje przez dziurę w suficie. {@creature Slurmy|NRH-TCMC} nie ma wpływu na {@quickref difficult terrain||3} i działa normalnie."
+                  ]
+                }
+              ]
+            }
+          ],
+          "id": "016"
+        },
+        {
+          "type": "entries",
+          "name": "Ścieżka 2: Kopalnia Candy Mountain",
+          "page": 6,
+          "entries": [
+            "{@creature Mr. Honeycutt|NRH-TCMC}Wskazówki pomagają Pink znaleźć Candy Mountain bez większych problemów. Różowy może wędrować po lesie lub podążać główną drogą do wejścia do opuszczonej kopalni położonej na zboczu góry.",
+            "Następujące lokalizacje są powiązane z mapą kopalni Candy Mountain:",
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-TCMC/002.webp"
+              },
+              "width": 2414,
+              "height": 3149,
+              "mapRegions": [
+                {
+                  "area": "018",
+                  "points": [
+                    [
+                      1075,
+                      3010
+                    ],
+                    [
+                      1075,
+                      3117
+                    ],
+                    [
+                      1254,
+                      3117
+                    ],
+                    [
+                      1254,
+                      3010
+                    ]
+                  ]
+                },
+                {
+                  "area": "01b",
+                  "points": [
+                    [
+                      117,
+                      2726
+                    ],
+                    [
+                      117,
+                      2453
+                    ],
+                    [
+                      147,
+                      2453
+                    ],
+                    [
+                      256,
+                      2387
+                    ],
+                    [
+                      354,
+                      2278
+                    ],
+                    [
+                      390,
+                      2278
+                    ],
+                    [
+                      568,
+                      2210
+                    ],
+                    [
+                      816,
+                      2245
+                    ],
+                    [
+                      990,
+                      2245
+                    ],
+                    [
+                      1102,
+                      2197
+                    ],
+                    [
+                      1126,
+                      2184
+                    ],
+                    [
+                      1126,
+                      2206
+                    ],
+                    [
+                      1197,
+                      2206
+                    ],
+                    [
+                      1197,
+                      2176
+                    ],
+                    [
+                      1266,
+                      2173
+                    ],
+                    [
+                      1413,
+                      2208
+                    ],
+                    [
+                      1573,
+                      2278
+                    ],
+                    [
+                      1755,
+                      2310
+                    ],
+                    [
+                      1778,
+                      2325
+                    ],
+                    [
+                      1901,
+                      2312
+                    ],
+                    [
+                      1904,
+                      2301
+                    ],
+                    [
+                      2102,
+                      2277
+                    ],
+                    [
+                      2110,
+                      2294
+                    ],
+                    [
+                      2171,
+                      2320
+                    ],
+                    [
+                      2176,
+                      2520
+                    ],
+                    [
+                      2038,
+                      2797
+                    ],
+                    [
+                      1800,
+                      3005
+                    ],
+                    [
+                      645,
+                      3008
+                    ],
+                    [
+                      357,
+                      2936
+                    ]
+                  ]
+                },
+                {
+                  "area": "01c",
+                  "points": [
+                    [
+                      1126,
+                      1746
+                    ],
+                    [
+                      1126,
+                      2205
+                    ],
+                    [
+                      1197,
+                      2205
+                    ],
+                    [
+                      1197,
+                      1746
+                    ]
+                  ]
+                },
+                {
+                  "area": "01e",
+                  "points": [
+                    [
+                      1061,
+                      1544
+                    ],
+                    [
+                      1061,
+                      1749
+                    ],
+                    [
+                      1270,
+                      1749
+                    ],
+                    [
+                      1270,
+                      1544
+                    ]
+                  ]
+                },
+                {
+                  "area": "020",
+                  "points": [
+                    [
+                      1126,
+                      1211
+                    ],
+                    [
+                      1126,
+                      1520
+                    ],
+                    [
+                      1202,
+                      1520
+                    ],
+                    [
+                      1202,
+                      1211
+                    ]
+                  ]
+                },
+                {
+                  "area": "026",
+                  "points": [
+                    [
+                      1210,
+                      568
+                    ],
+                    [
+                      1264,
+                      526
+                    ],
+                    [
+                      1309,
+                      565
+                    ],
+                    [
+                      1325,
+                      576
+                    ],
+                    [
+                      1325,
+                      587
+                    ],
+                    [
+                      1242,
+                      616
+                    ],
+                    [
+                      1237,
+                      595
+                    ]
+                  ]
+                },
+                {
+                  "area": "027",
+                  "points": [
+                    [
+                      1179,
+                      347
+                    ],
+                    [
+                      1122,
+                      341
+                    ],
+                    [
+                      1094,
+                      309
+                    ],
+                    [
+                      1082,
+                      258
+                    ],
+                    [
+                      1085,
+                      192
+                    ],
+                    [
+                      1165,
+                      125
+                    ],
+                    [
+                      1270,
+                      123
+                    ],
+                    [
+                      1294,
+                      125
+                    ],
+                    [
+                      1326,
+                      130
+                    ],
+                    [
+                      1373,
+                      157
+                    ],
+                    [
+                      1406,
+                      211
+                    ],
+                    [
+                      1426,
+                      272
+                    ],
+                    [
+                      1422,
+                      322
+                    ],
+                    [
+                      1389,
+                      358
+                    ],
+                    [
+                      1350,
+                      373
+                    ],
+                    [
+                      1314,
+                      370
+                    ],
+                    [
+                      1277,
+                      379
+                    ],
+                    [
+                      1251,
+                      379
+                    ],
+                    [
+                      1205,
+                      360
+                    ]
+                  ]
+                },
+                {
+                  "area": "024",
+                  "points": [
+                    [
+                      440,
+                      638
+                    ],
+                    [
+                      442,
+                      603
+                    ],
+                    [
+                      450,
+                      560
+                    ],
+                    [
+                      470,
+                      544
+                    ],
+                    [
+                      512,
+                      544
+                    ],
+                    [
+                      571,
+                      538
+                    ],
+                    [
+                      618,
+                      536
+                    ],
+                    [
+                      670,
+                      549
+                    ],
+                    [
+                      718,
+                      565
+                    ],
+                    [
+                      738,
+                      603
+                    ],
+                    [
+                      747,
+                      653
+                    ],
+                    [
+                      755,
+                      707
+                    ],
+                    [
+                      746,
+                      728
+                    ],
+                    [
+                      686,
+                      746
+                    ],
+                    [
+                      664,
+                      770
+                    ],
+                    [
+                      645,
+                      795
+                    ],
+                    [
+                      618,
+                      805
+                    ],
+                    [
+                      582,
+                      792
+                    ],
+                    [
+                      554,
+                      794
+                    ],
+                    [
+                      523,
+                      773
+                    ],
+                    [
+                      493,
+                      778
+                    ],
+                    [
+                      462,
+                      749
+                    ],
+                    [
+                      442,
+                      715
+                    ],
+                    [
+                      440,
+                      672
+                    ]
+                  ]
+                },
+                {
+                  "area": "022",
+                  "points": [
+                    [
+                      552,
+                      1144
+                    ],
+                    [
+                      539,
+                      1106
+                    ],
+                    [
+                      557,
+                      1053
+                    ],
+                    [
+                      568,
+                      1016
+                    ],
+                    [
+                      619,
+                      995
+                    ],
+                    [
+                      653,
+                      990
+                    ],
+                    [
+                      710,
+                      987
+                    ],
+                    [
+                      744,
+                      971
+                    ],
+                    [
+                      789,
+                      966
+                    ],
+                    [
+                      858,
+                      976
+                    ],
+                    [
+                      875,
+                      1013
+                    ],
+                    [
+                      859,
+                      1051
+                    ],
+                    [
+                      816,
+                      1070
+                    ],
+                    [
+                      803,
+                      1102
+                    ],
+                    [
+                      790,
+                      1120
+                    ],
+                    [
+                      787,
+                      1155
+                    ],
+                    [
+                      779,
+                      1194
+                    ],
+                    [
+                      763,
+                      1206
+                    ],
+                    [
+                      757,
+                      1227
+                    ],
+                    [
+                      720,
+                      1230
+                    ],
+                    [
+                      699,
+                      1229
+                    ],
+                    [
+                      670,
+                      1243
+                    ],
+                    [
+                      629,
+                      1234
+                    ],
+                    [
+                      589,
+                      1221
+                    ],
+                    [
+                      563,
+                      1181
+                    ]
+                  ]
+                },
+                {
+                  "area": "02b",
+                  "points": [
+                    [
+                      1694,
+                      798
+                    ],
+                    [
+                      1698,
+                      787
+                    ],
+                    [
+                      1707,
+                      770
+                    ],
+                    [
+                      1709,
+                      712
+                    ],
+                    [
+                      1722,
+                      656
+                    ],
+                    [
+                      1766,
+                      597
+                    ],
+                    [
+                      1806,
+                      566
+                    ],
+                    [
+                      1862,
+                      565
+                    ],
+                    [
+                      1910,
+                      566
+                    ],
+                    [
+                      1968,
+                      605
+                    ],
+                    [
+                      2019,
+                      650
+                    ],
+                    [
+                      2046,
+                      670
+                    ],
+                    [
+                      2072,
+                      714
+                    ],
+                    [
+                      2072,
+                      766
+                    ],
+                    [
+                      2053,
+                      819
+                    ],
+                    [
+                      2027,
+                      848
+                    ],
+                    [
+                      2003,
+                      872
+                    ],
+                    [
+                      1998,
+                      914
+                    ],
+                    [
+                      1974,
+                      941
+                    ],
+                    [
+                      1941,
+                      960
+                    ],
+                    [
+                      1909,
+                      971
+                    ],
+                    [
+                      1821,
+                      970
+                    ],
+                    [
+                      1818,
+                      970
+                    ],
+                    [
+                      1778,
+                      955
+                    ],
+                    [
+                      1723,
+                      925
+                    ],
+                    [
+                      1691,
+                      886
+                    ],
+                    [
+                      1693,
+                      872
+                    ],
+                    [
+                      1682,
+                      832
+                    ],
+                    [
+                      1690,
+                      810
+                    ]
+                  ]
+                }
+              ],
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 70,
+                "offsetX": 14,
+                "scale": 2
+              },
+              "hrefThumbnail": {
+                "type": "internal",
+                "path": "adventure/NRH-TCMC/thumbnail/002.webp"
+              },
+              "id": "02e",
+              "credit": "Red Central"
+            },
+            {
+              "type": "entries",
+              "name": "C1. Obwód kopalni",
+              "page": 6,
+              "entries": [
+                "Jeśli Różowy uda się do głównego wejścia, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 6,
+                  "entries": [
+                    "Zarośnięta polna droga prowadzi do zardzewiałej żelaznej bramy osadzonej w kamiennym murze. Po obu stronach bramy stoi dwóch strażników wyglądających jak opancerzone, szare manekiny. Nie mają żadnych dostrzegalnych cech."
+                  ],
+                  "id": "019"
+                },
+                "Różowy może zastosować kreatywne metody, aby ominąć jedno i drugie {@creature guard||gwardia} przy bramie. Oto kilka pomysłów:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Różowy może założyć przebranie i spróbować oszukać strażników. Aby tego dokonać, Pink musi odnieść sukces {@dc 14} Charyzma ({@skill Deception}) sprawdzać. Jeśli ich przebranie jest szczególnie kreatywne, Różowy ma przewagę w rzucie.",
+                    "Różowy może odwrócić uwagę, a następnie przekraść się obok strażników. Różowy musi odnieść sukces {@dc 12} Zręczność ({@skill Stealth}) sprawdzać. Jeśli uważasz, że odwrócenie uwagi jest skuteczne, daj Różowi przewagę w rzucie.",
+                    "Różowy może poczekać, aż przyjedzie pusty wóz i odebrać dostawę, a następnie wkraść się do wozu lub udawać kierowcę dostawy.",
+                    "Różowy może celowo zostać złapany i zabrany do środka."
+                  ]
+                },
+                "Jeśli Pink zostanie złapany, jeden ze strażników przetrzymuje je w zagrodzie o powierzchni 3 metrów kwadratowych, sąsiadującej z wejściem do podziemi. Różowy może z powodzeniem wybrać kajdanki {@dc 12} Zręczność ({@skill Sleight of Hand}), gdy wybrzeże będzie czyste.",
+                "Alternatywnie Różowy może wejść do kopalni przekradając się przez mur obwodowy:",
+                {
+                  "type": "entries",
+                  "name": "Kamienna ściana",
+                  "page": 6,
+                  "entries": [
+                    "Choć jest stary i zaniedbany, wysoki na 20 stóp kamienny mur otaczający kopalnię nadal budzi grozę. Aby wspiąć się na ścianę, Różowy musi odnieść sukces w dwóch kolejnych próbach {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdza. Jeśli pierwszy test się nie powiedzie, Różowy spada z 3 metrów i otrzymuje 3 ({@damage 1d6}) obrażenia tłuczące. Jeśli drugi test się nie powiedzie, Różowy spada z wysokości 20 stóp i otrzymuje 7 ({@damage 2d6}) obrażenia tłuczące.",
+                    "Jeśli Różowy ma sprzęt wspinaczkowy, zyskuje przewagę w testach."
+                  ],
+                  "id": "01a"
+                }
+              ],
+              "id": "018"
+            },
+            {
+              "type": "entries",
+              "name": "C2. Obóz górniczy",
+              "page": 6,
+              "entries": [
+                "Wewnątrz głównej bramy znajduje się wiele starych, zniszczonych budynków w różnych stadiach zniszczenia i upadku. Po krótkim spojrzeniu Pink z łatwością znajduje wejście do kopalni - bramę z żelaznych prętów zabezpieczoną łańcuchem i kłódką. Ciche otwieranie zamka wymaga powodzenia {@dc 12} Zręczność ({@skill Sleight of Hand}) sprawdzać. W przypadku awarii drzwi nadal się otwierają, ale hałas ostrzega koboldy w obszarze C5d i pobliskich strażników. Korzystanie z narzędzi złodziei zapewnia Różowej przewagę w rzucie."
+              ],
+              "id": "01b"
+            },
+            {
+              "type": "entries",
+              "name": "C3. Klatka schodowa",
+              "page": 6,
+              "entries": [
+                "Kiedy Różowy otworzy bramę, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 6,
+                  "entries": [
+                    "Schody wykute w kamieniu schodzą w ciemność. W kurzu widać ślady stóp, a pajęczyny zostały niedawno przerwane."
+                  ],
+                  "id": "01d"
+                },
+                "Schody schodzą na głębokość 40 stóp i kończą się drewnianymi drzwiami. Sukces {@dc 14} Inteligencja ({@skill Nature}) sprawdzenie ujawnia, że ​​ślady należą do kobolda."
+              ],
+              "id": "01c"
+            },
+            {
+              "type": "entries",
+              "name": "C4. Magazyn centralny",
+              "page": 6,
+              "entries": [
+                "Kiedy Pink wejdzie do tego pokoju, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 6,
+                  "entries": [
+                    "Widzisz z grubsza ociosane pomieszczenie o powierzchni 30 stóp kwadratowych, w którym nadal znajdują się stare, zardzewiałe kilofy, łopaty, łomy, taczka i drewniany wózek górniczy. Wszystko pokryte jest grubą warstwą kurzu i pajęczyn. Pochyłe przejście wychodzi na północ. Ślady stóp są widoczne na całej podłodze, ale większość kieruje się na północ."
+                  ],
+                  "id": "01f"
+                },
+                "Drewniany wózek górniczy nadal działa, ale jeśli Pink nie naoliwi kół przed przetoczeniem, wózek wyda straszny hałas, który zaalarmuje koboldy w obszarze C5d."
+              ],
+              "id": "01e"
+            },
+            {
+              "type": "entries",
+              "name": "C5. Wały kopalniane",
+              "page": 7,
+              "entries": [
+                "Korytarze są tu jeszcze bardziej z grubsza wyciosane i mają nieregularną wysokość i szerokość. Tu i ówdzie wzdłuż tuneli połyskują kawałki pysznego cukierka skalnego, który wydobywano tu w przeszłości. Miejscami tworzą się kałuże wody o głębokości 6 cali lub większej; więcej niż wystarczająco, aby zgasić upuszczoną pochodnię.",
+                "Jeśli koboldy nie zostały zaalarmowane, gdy Pink schodzi do kopalni, słyszą gorące rozmowy dochodzące z tuneli, ale ze względu na echo nie jest jasne, które.",
+                {
+                  "type": "entries",
+                  "name": "Uwaga DM",
+                  "page": 7,
+                  "entries": [
+                    "Jeśli Różowy potrzebuje dodatkowego leczenia, możesz uzdrowić go za pomocą kamiennego cukierka {@dice 2d4} punkty wytrzymałości raz dziennie, jeśli zostaną zjedzone."
+                  ],
+                  "id": "021"
+                }
+              ],
+              "id": "020"
+            },
+            {
+              "type": "entries",
+              "page": 7,
+              "name": "C5A. Tajna jaskinia tunelowa",
+              "entries": [
+                "Kiedy Pink wejdzie, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 7,
+                  "entries": [
+                    "Na tym obszarze porozrzucane są różne gruzy i śmieci. Ściana jaskini ma prymitywne ślady po hackach, jakby ktoś wściekle machał w nią kilofem."
+                  ],
+                  "id": "023"
+                },
+                "W pokoju nie ma nic wartościowego, ale jeśli Pink odniesie sukces {@dc 12} Mądrość ({@skill Perception}) sprawdź, odkrywają sekretne drzwi (patrz „Ścieżka 1: Sekretny tunel” powyżej), które wyglądają jak głaz osadzony w ścianie. Sekretne drzwi otwierają tunel prowadzący z powrotem do miasta Harmonii.",
+                "Jeśli gracz wybrał Ścieżkę 2 i nie wybrał Ścieżki 1, pozwól mu wejść do tunelu na głębokość około 30 metrów, a następnie przypomnij mu, że może to być drugie wejście do kopalni prowadzącej z powrotem do Harmonii. Jeśli to zignorują i będą kontynuować, niech się spotkają {@creature Slurmy|NRH-TCMC} i pułapki przed pojawieniem się w pobliżu rynku."
+              ],
+              "id": "022"
+            },
+            {
+              "type": "entries",
+              "name": "C5B. Rock Candy Matka Lode",
+              "entries": [
+                "Kiedy Pink wejdzie do tego pokoju, przeczytaj co następuje:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 7,
+                  "entries": [
+                    "W tej jaskini znajdują się stosy gruzu, ale w ścianie nadal widać dobrą żyłę czerwonego cukierka skalnego."
+                  ],
+                  "id": "025"
+                },
+                "Jeśli zostanie zjedzony, cukierek skalny jest słodki i pyszny. Jeśli Różowy chce popracować przez 5 minut, można wydobyć ze ściany woreczek cukierków o wartości 5 punktów sp. Jeśli koboldy znajdują się w obszarze C5d, każdy hałas w tym miejscu je zaalarmuje.",
+                "W pokoju nie ma nic innego interesującego."
+              ],
+              "id": "024"
+            },
+            {
+              "type": "entries",
+              "name": "C5C. Pułapka sieciowa",
+              "entries": [
+                "Szyb prowadzący do tego obszaru ma przewód wyzwalający rozciągnięty po podłodze na wysokości kostki. Sukces {@dc 14} Mądrość ({@skill Perception}) Aby go znaleźć, konieczne jest sprawdzenie. Jeśli zostanie uruchomiony przewód wyzwalający, na intruzów spadnie siatka wypełniona starymi puszkami. Różowy musi odnieść sukces {@dc 14} Rzut obronny na zręczność lub zaplątaj się w sieć i bądź {@condition restrained}. Różowy musi powtórzyć rzut obronny na koniec każdej swojej tury. Po sukcesie Pink ucieka z pułapki.",
+                "Rakieta ostrzega tę dwójkę {@creature kobold||koboldy} w obszarze C5d, którzy przybywają 1 rundę po uruchomieniu pułapki."
+              ],
+              "id": "026"
+            },
+            {
+              "type": "entries",
+              "name": "C5D. Koralowy klejnot",
+              "entries": [
+                "Jeśli nie zostali wcześniej powiadomieni, są dwa {@creature kobold||koboldy}, Kribbitz i Zurff, kłócą się w tym pokoju o to, jak otworzyć zamkniętą kamienną skrzynię o powierzchni 6 stóp kwadratowych, którą odkryli w jaskini w najbardziej wysuniętej na północ ścianie. Jakiś {@condition unconscious} kobold Nurzle leży na podłodze z igłą w szyi. Koboldy to gadzie humanoidy, które na ogół unikają konfliktów, chyba że zostaną osaczone.",
+                "Jeśli Różowy zaskoczy koboldy, te spróbują wyczuć Różę i zobaczą, czy uda im się namówić je do otwarcia pudełka. Następnie koboldy próbują ukraść klejnot i uciec.",
+                "Jeśli zaalarmowano ich wcześniej, koboldy ukryły się ze swoimi rzeczami za starymi półkami pod płócienną plandeką {@condition unconscious} znajomego i czekamy, aż Pink otworzy pudełko.",
+                {
+                  "type": "entries",
+                  "name": "Otwieranie pudełka",
+                  "page": 7,
+                  "entries": [
+                    "Kamienna skrzynia waży 3000 funtów i jest wykonana z kwarcytu - bardzo twardego rodzaju kamienia. Pudełko jest pokryte runami i glifami. Posiada dziurkę od klucza i sześć guzików. Zamek jest uwięziony i wymaga pomyślnego odblokowania {@dc 15} Zręczność ({@skill Sleight of Hand}) zaznacz, aby otworzyć. W przypadku niepowodzenia wystrzeliwuje zatruta igła. Ktokolwiek otwiera zamek, musi rzucić a {@dice d6}. Na poziomie 2-6 zostają wkłuci igłą i zasypiają na 8 godzin. Na 1 igła chybia. Tak czy inaczej, pudełko pozostaje zamknięte.",
+                    "Jeśli Pink uda się otworzyć pudełko, koboldy wybiegną i spróbują ukraść klejnot. Jeśli Pink jest na nie gotowa, koboldy próbują zastraszyć, wymienić się z Pinką lub błagać Pink, aby ją oddała. Pan Greystone wyraził się całkiem jasno, co stanie się z koboldami, jeśli poniosą porażkę, i nie jest to ani trochę przyjemne."
+                  ],
+                  "id": "028"
+                },
+                {
+                  "type": "entries",
+                  "name": "Nawiązywanie przyjaźni",
+                  "page": 8,
+                  "entries": [
+                    "Jeśli Pink chce zaprzyjaźnić się z koboldami, Pink musi obiecać, że ochroni koboldy przed gniewem pana Greystone'a, a następnie dokona udanego {@dc 14} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli tak się stanie, koboldy zgadzają się zostawić Pink z klejnotem i nie sprawiać więcej kłopotów.",
+                    "Jeśli Różowy nie podda się bez walki, koboldy stoczą 1 rundę walki. Gdy tylko ktoś odniesie obrażenia, uciekają i wrzeszczą o tym, co stanie się z Pink, gdy pan Greystone się o tym dowie."
+                  ],
+                  "id": "029"
+                },
+                {
+                  "type": "entries",
+                  "name": "Koralowy klejnot",
+                  "page": 8,
+                  "entries": [
+                    "Koralowy Klejnot to kamień wielkości pięści, wart 250 sz, świecący miękkim, różowym światłem. Nie ma własnych magicznych właściwości."
+                  ],
+                  "id": "02a"
+                }
+              ],
+              "id": "027"
+            },
+            {
+              "type": "entries",
+              "name": "C5E. Skamielina smoka",
+              "entries": [
+                "W tej dużej jaskini znajduje się więcej stert cukierkowego gruzu, ale we wschodniej ścianie osadzona jest potężna skamielina smoka o długości 40 stóp.",
+                "Jeśli Pink odniesie sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdź, wiedzą, że to skamielina niebieskiego smoka. Różowa wie o tym, że niebieskie smoki są nie tylko zaciekłymi łowcami, które zieją błyskawicami, aby ogłuszyć lub zabić swoją ofiarę, ale także są jednymi z najinteligentniejszych ze smoków.",
+                "Jeśli Pink ostrożnie odłupuje skałę przez 20 minut i odniesie sukces {@dc 15} Test zręczności, mogą uwolnić z kamienia idealny ząb smoka. Jeśli koboldy nadal znajdują się w obszarze C5d, zostaną zaalarmowane przy każdej próbie uwolnienia skamieniałości.",
+                "Ząb smoka jest wart 20 sz dla alchemika lub kolekcjonera. Uwolnienie całego szkieletu, który można sprzedać do muzeum za 1500 gp, zajęłoby około 6 miesięcy."
+              ],
+              "id": "02b"
+            }
+          ],
+          "id": "017"
+        },
+        {
+          "type": "entries",
+          "name": "Ukończenie Misji",
+          "page": 8,
+          "entries": [
+            "Kiedy Pink wraca do Harmony, wita ich {@creature Mr. Honeycutt|NRH-TCMC} w gospodzie, w której przebywa Pink. Jeśli Pink przekaże Koralowy Klejnot, {@creature Mr. Honeycutt|NRH-TCMC} oddycha z ulgą, po czym energicznie ściska dłoń Pink, dziękując jej serdecznie. {@creature Mr. Honeycutt|NRH-TCMC} zaprasza Reda do przyłączenia się do Towarzystwa Lorekeeperów. Jeśli Czerwony się zgodzi, {@creature Mr. Honeycutt|NRH-TCMC} następnie sięga do swojej torby i daje Pinkowi parę złodziejskich rękawiczek (patrz poniżej) w nadziei, że Pink zrobi z nich dobry użytek w nadchodzących dniach. „Walka jeszcze się nie skończyła” {@creature Mr. Honeycutt|NRH-TCMC} - krzyczy do Pink. „Jest jeszcze wiele do zrobienia, zanim kolor wróci do Harmony. Stowarzyszenie Lorekeeper Society skontaktuje się z Tobą”.",
+            "{@creature Mr. Honeycutt|NRH-TCMC} następnie kłania się i wychodzi za drzwi. Robiąc to, rzuca barmanowi sztukę złota. Mauve spogląda dwukrotnie, po czym kiwa głową z aprobatą Pink."
+          ],
+          "id": "02c"
+        }
+      ],
+      "id": "010"
+    },
+    "0:011": {
+      "type": "entries",
+      "name": "Uwaga DM",
+      "page": 5,
+      "entries": [
+        "Zapytaj gracza, czy czuje się komfortowo w strasznych sytuacjach. Jeśli nie, możesz uczynić ten tunel nieco upiornym spacerem w ciemności, bez potworów i pułapek. Jeśli spodoba im się dobry strach, kontynuuj przygodę zgodnie z opisem."
+      ],
+      "id": "011"
+    },
+    "0:012": {
+      "type": "entries",
+      "name": "Spotkanie ze Slurmym",
+      "page": 5,
+      "entries": [
+        "Tunel ciągnie się przez kilka mil, więc wędrówka jest długa, co daje wiele okazji do opisania przerażających chwil, kiedy Pink może usłyszeć coś w rodzaju skrobania, chichotania lub drapania - najprawdopodobniej z dziur rozmieszczonych w tunelu. Kiedy twój gracz będzie wystarczająco przestraszony, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 5,
+          "entries": [
+            "Coś bladego i błyszczącego przelatuje obok ciebie, tuż za twoim światłem pochodni, i wpada w dziurę w ścianie."
+          ],
+          "id": "013"
+        },
+        "Kiedy Twój gracz naprawdę się przestraszy, przeczytaj to:",
+        {
+          "type": "insetReadaloud",
+          "page": 5,
+          "entries": [
+            "Z góry (a może dochodzi z tyłu?) słyszysz zgrzytliwy głos, który mówi: „Oooch. Pachnie, jakby świeże mięso zeszło w ciemność tylko na {@creature Slurmy|NRH-TCMC} na ucztę.”"
+          ],
+          "id": "014"
+        },
+        "{@creature Slurmy|NRH-TCMC} to nędzne, mięsożerne stworzenie o oślizgłej, cętkowanej zielonej skórze; straszne żółte oczy; długie, zakrzywione pazury; i usta wypełnione ostrymi jak igły kłami. {@creature Slurmy|NRH-TCMC} mieszka tu od dziesięcioleci, żerując na szczurach i innym robactwach."
+      ],
+      "id": "012"
+    },
+    "0:015": {
+      "type": "entries",
+      "name": "Przyjaciel czy wróg?",
+      "page": 5,
+      "entries": [
+        "Jak we wszystkim w Harmony, szansa na przyjaźń jest możliwa. Jeśli {@creature Slurmy|NRH-TCMC} jest traktowany z wyjątkową życzliwością, częstowany jedzeniem i zdobywany sukcesem {@dc 14} Charyzma ({@skill Persuasion}) sprawdź, wtedy możliwy jest rozejm, a może nawet przyjaźń. Jeśli chcesz, możesz uczynić tę przyjaźń automatyczną, bez konieczności wykonywania rzutu."
+      ],
+      "id": "015"
+    },
+    "0:016": {
+      "type": "entries",
+      "name": "Podstępny Slurmy",
+      "page": 5,
+      "entries": [
+        "Jeśli przyjaźń nie jest na stole, to wtedy {@creature Slurmy|NRH-TCMC} rusza w pościg, mając nadzieję, że wepchnie Różową w pułapkę i zdobędzie przewagę w postaci łatwego posiłku.",
+        "Istnieją dwie pułapki:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Pułapka",
+              "entries": [
+                "Podczas poruszania się ciemnym tunelem i bycia nękanym przez {@creature Slurmy|NRH-TCMC}, Różowy musi odnieść sukces {@dc 14} Mądrość ({@skill Perception}) sprawdź lub wpadnij do dołu, biorąc 3 ({@damage 1d6}) obrażenia przebijające od kolców. {@creature Slurmy|NRH-TCMC} wie dokładnie, gdzie znajduje się ta pułapka (i może ją łatwo ominąć) i radośnie wiwatuje, jeśli Różowy wpadnie do środka. Ale jeśli Różowej uda się uniknąć jamy, {@creature Slurmy|NRH-TCMC}przekleństwa odbijają się echem w tunelu. Jeśli Różowy wpadnie, {@creature Slurmy|NRH-TCMC} czeka, aż Pink wyjdzie, a następnie atakuje."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Zawalenie się",
+              "entries": [
+                "Tutaj sufit się rozstąpił, w wyniku czego powstała sterta luźnych głazów i zdradliwe fundamenty ciągnące się przez 50 stóp. Traktuj gruz jako {@quickref difficult terrain||3}. Kiedy Pink jest w połowie drogi, {@creature Slurmy|NRH-TCMC} atakuje przez dziurę w suficie. {@creature Slurmy|NRH-TCMC} nie ma wpływu na {@quickref difficult terrain||3} i działa normalnie."
+              ]
+            }
+          ]
+        }
+      ],
+      "id": "016"
+    },
+    "0:017": {
+      "type": "entries",
+      "name": "Ścieżka 2: Kopalnia Candy Mountain",
+      "page": 6,
+      "entries": [
+        "{@creature Mr. Honeycutt|NRH-TCMC}Wskazówki pomagają Pink znaleźć Candy Mountain bez większych problemów. Różowy może wędrować po lesie lub podążać główną drogą do wejścia do opuszczonej kopalni położonej na zboczu góry.",
+        "Następujące lokalizacje są powiązane z mapą kopalni Candy Mountain:",
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-TCMC/002.webp"
+          },
+          "width": 2414,
+          "height": 3149,
+          "mapRegions": [
+            {
+              "area": "018",
+              "points": [
+                [
+                  1075,
+                  3010
+                ],
+                [
+                  1075,
+                  3117
+                ],
+                [
+                  1254,
+                  3117
+                ],
+                [
+                  1254,
+                  3010
+                ]
+              ]
+            },
+            {
+              "area": "01b",
+              "points": [
+                [
+                  117,
+                  2726
+                ],
+                [
+                  117,
+                  2453
+                ],
+                [
+                  147,
+                  2453
+                ],
+                [
+                  256,
+                  2387
+                ],
+                [
+                  354,
+                  2278
+                ],
+                [
+                  390,
+                  2278
+                ],
+                [
+                  568,
+                  2210
+                ],
+                [
+                  816,
+                  2245
+                ],
+                [
+                  990,
+                  2245
+                ],
+                [
+                  1102,
+                  2197
+                ],
+                [
+                  1126,
+                  2184
+                ],
+                [
+                  1126,
+                  2206
+                ],
+                [
+                  1197,
+                  2206
+                ],
+                [
+                  1197,
+                  2176
+                ],
+                [
+                  1266,
+                  2173
+                ],
+                [
+                  1413,
+                  2208
+                ],
+                [
+                  1573,
+                  2278
+                ],
+                [
+                  1755,
+                  2310
+                ],
+                [
+                  1778,
+                  2325
+                ],
+                [
+                  1901,
+                  2312
+                ],
+                [
+                  1904,
+                  2301
+                ],
+                [
+                  2102,
+                  2277
+                ],
+                [
+                  2110,
+                  2294
+                ],
+                [
+                  2171,
+                  2320
+                ],
+                [
+                  2176,
+                  2520
+                ],
+                [
+                  2038,
+                  2797
+                ],
+                [
+                  1800,
+                  3005
+                ],
+                [
+                  645,
+                  3008
+                ],
+                [
+                  357,
+                  2936
+                ]
+              ]
+            },
+            {
+              "area": "01c",
+              "points": [
+                [
+                  1126,
+                  1746
+                ],
+                [
+                  1126,
+                  2205
+                ],
+                [
+                  1197,
+                  2205
+                ],
+                [
+                  1197,
+                  1746
+                ]
+              ]
+            },
+            {
+              "area": "01e",
+              "points": [
+                [
+                  1061,
+                  1544
+                ],
+                [
+                  1061,
+                  1749
+                ],
+                [
+                  1270,
+                  1749
+                ],
+                [
+                  1270,
+                  1544
+                ]
+              ]
+            },
+            {
+              "area": "020",
+              "points": [
+                [
+                  1126,
+                  1211
+                ],
+                [
+                  1126,
+                  1520
+                ],
+                [
+                  1202,
+                  1520
+                ],
+                [
+                  1202,
+                  1211
+                ]
+              ]
+            },
+            {
+              "area": "026",
+              "points": [
+                [
+                  1210,
+                  568
+                ],
+                [
+                  1264,
+                  526
+                ],
+                [
+                  1309,
+                  565
+                ],
+                [
+                  1325,
+                  576
+                ],
+                [
+                  1325,
+                  587
+                ],
+                [
+                  1242,
+                  616
+                ],
+                [
+                  1237,
+                  595
+                ]
+              ]
+            },
+            {
+              "area": "027",
+              "points": [
+                [
+                  1179,
+                  347
+                ],
+                [
+                  1122,
+                  341
+                ],
+                [
+                  1094,
+                  309
+                ],
+                [
+                  1082,
+                  258
+                ],
+                [
+                  1085,
+                  192
+                ],
+                [
+                  1165,
+                  125
+                ],
+                [
+                  1270,
+                  123
+                ],
+                [
+                  1294,
+                  125
+                ],
+                [
+                  1326,
+                  130
+                ],
+                [
+                  1373,
+                  157
+                ],
+                [
+                  1406,
+                  211
+                ],
+                [
+                  1426,
+                  272
+                ],
+                [
+                  1422,
+                  322
+                ],
+                [
+                  1389,
+                  358
+                ],
+                [
+                  1350,
+                  373
+                ],
+                [
+                  1314,
+                  370
+                ],
+                [
+                  1277,
+                  379
+                ],
+                [
+                  1251,
+                  379
+                ],
+                [
+                  1205,
+                  360
+                ]
+              ]
+            },
+            {
+              "area": "024",
+              "points": [
+                [
+                  440,
+                  638
+                ],
+                [
+                  442,
+                  603
+                ],
+                [
+                  450,
+                  560
+                ],
+                [
+                  470,
+                  544
+                ],
+                [
+                  512,
+                  544
+                ],
+                [
+                  571,
+                  538
+                ],
+                [
+                  618,
+                  536
+                ],
+                [
+                  670,
+                  549
+                ],
+                [
+                  718,
+                  565
+                ],
+                [
+                  738,
+                  603
+                ],
+                [
+                  747,
+                  653
+                ],
+                [
+                  755,
+                  707
+                ],
+                [
+                  746,
+                  728
+                ],
+                [
+                  686,
+                  746
+                ],
+                [
+                  664,
+                  770
+                ],
+                [
+                  645,
+                  795
+                ],
+                [
+                  618,
+                  805
+                ],
+                [
+                  582,
+                  792
+                ],
+                [
+                  554,
+                  794
+                ],
+                [
+                  523,
+                  773
+                ],
+                [
+                  493,
+                  778
+                ],
+                [
+                  462,
+                  749
+                ],
+                [
+                  442,
+                  715
+                ],
+                [
+                  440,
+                  672
+                ]
+              ]
+            },
+            {
+              "area": "022",
+              "points": [
+                [
+                  552,
+                  1144
+                ],
+                [
+                  539,
+                  1106
+                ],
+                [
+                  557,
+                  1053
+                ],
+                [
+                  568,
+                  1016
+                ],
+                [
+                  619,
+                  995
+                ],
+                [
+                  653,
+                  990
+                ],
+                [
+                  710,
+                  987
+                ],
+                [
+                  744,
+                  971
+                ],
+                [
+                  789,
+                  966
+                ],
+                [
+                  858,
+                  976
+                ],
+                [
+                  875,
+                  1013
+                ],
+                [
+                  859,
+                  1051
+                ],
+                [
+                  816,
+                  1070
+                ],
+                [
+                  803,
+                  1102
+                ],
+                [
+                  790,
+                  1120
+                ],
+                [
+                  787,
+                  1155
+                ],
+                [
+                  779,
+                  1194
+                ],
+                [
+                  763,
+                  1206
+                ],
+                [
+                  757,
+                  1227
+                ],
+                [
+                  720,
+                  1230
+                ],
+                [
+                  699,
+                  1229
+                ],
+                [
+                  670,
+                  1243
+                ],
+                [
+                  629,
+                  1234
+                ],
+                [
+                  589,
+                  1221
+                ],
+                [
+                  563,
+                  1181
+                ]
+              ]
+            },
+            {
+              "area": "02b",
+              "points": [
+                [
+                  1694,
+                  798
+                ],
+                [
+                  1698,
+                  787
+                ],
+                [
+                  1707,
+                  770
+                ],
+                [
+                  1709,
+                  712
+                ],
+                [
+                  1722,
+                  656
+                ],
+                [
+                  1766,
+                  597
+                ],
+                [
+                  1806,
+                  566
+                ],
+                [
+                  1862,
+                  565
+                ],
+                [
+                  1910,
+                  566
+                ],
+                [
+                  1968,
+                  605
+                ],
+                [
+                  2019,
+                  650
+                ],
+                [
+                  2046,
+                  670
+                ],
+                [
+                  2072,
+                  714
+                ],
+                [
+                  2072,
+                  766
+                ],
+                [
+                  2053,
+                  819
+                ],
+                [
+                  2027,
+                  848
+                ],
+                [
+                  2003,
+                  872
+                ],
+                [
+                  1998,
+                  914
+                ],
+                [
+                  1974,
+                  941
+                ],
+                [
+                  1941,
+                  960
+                ],
+                [
+                  1909,
+                  971
+                ],
+                [
+                  1821,
+                  970
+                ],
+                [
+                  1818,
+                  970
+                ],
+                [
+                  1778,
+                  955
+                ],
+                [
+                  1723,
+                  925
+                ],
+                [
+                  1691,
+                  886
+                ],
+                [
+                  1693,
+                  872
+                ],
+                [
+                  1682,
+                  832
+                ],
+                [
+                  1690,
+                  810
+                ]
+              ]
+            }
+          ],
+          "imageType": "mapa",
+          "grid": {
+            "type": "square",
+            "size": 70,
+            "offsetX": 14,
+            "scale": 2
+          },
+          "hrefThumbnail": {
+            "type": "internal",
+            "path": "adventure/NRH-TCMC/thumbnail/002.webp"
+          },
+          "id": "02e",
+          "credit": "Red Central"
+        },
+        {
+          "type": "entries",
+          "name": "C1. Obwód kopalni",
+          "page": 6,
+          "entries": [
+            "Jeśli Różowy uda się do głównego wejścia, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 6,
+              "entries": [
+                "Zarośnięta polna droga prowadzi do zardzewiałej żelaznej bramy osadzonej w kamiennym murze. Po obu stronach bramy stoi dwóch strażników wyglądających jak opancerzone, szare manekiny. Nie mają żadnych dostrzegalnych cech."
+              ],
+              "id": "019"
+            },
+            "Różowy może zastosować kreatywne metody, aby ominąć jedno i drugie {@creature guard||gwardia} przy bramie. Oto kilka pomysłów:",
+            {
+              "type": "list",
+              "items": [
+                "Różowy może założyć przebranie i spróbować oszukać strażników. Aby tego dokonać, Pink musi odnieść sukces {@dc 14} Charyzma ({@skill Deception}) sprawdzać. Jeśli ich przebranie jest szczególnie kreatywne, Różowy ma przewagę w rzucie.",
+                "Różowy może odwrócić uwagę, a następnie przekraść się obok strażników. Różowy musi odnieść sukces {@dc 12} Zręczność ({@skill Stealth}) sprawdzać. Jeśli uważasz, że odwrócenie uwagi jest skuteczne, daj Różowi przewagę w rzucie.",
+                "Różowy może poczekać, aż przyjedzie pusty wóz i odebrać dostawę, a następnie wkraść się do wozu lub udawać kierowcę dostawy.",
+                "Różowy może celowo zostać złapany i zabrany do środka."
+              ]
+            },
+            "Jeśli Pink zostanie złapany, jeden ze strażników przetrzymuje je w zagrodzie o powierzchni 3 metrów kwadratowych, sąsiadującej z wejściem do podziemi. Różowy może z powodzeniem wybrać kajdanki {@dc 12} Zręczność ({@skill Sleight of Hand}), gdy wybrzeże będzie czyste.",
+            "Alternatywnie Różowy może wejść do kopalni przekradając się przez mur obwodowy:",
+            {
+              "type": "entries",
+              "name": "Kamienna ściana",
+              "page": 6,
+              "entries": [
+                "Choć jest stary i zaniedbany, wysoki na 20 stóp kamienny mur otaczający kopalnię nadal budzi grozę. Aby wspiąć się na ścianę, Różowy musi odnieść sukces w dwóch kolejnych próbach {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdza. Jeśli pierwszy test się nie powiedzie, Różowy spada z 3 metrów i otrzymuje 3 ({@damage 1d6}) obrażenia tłuczące. Jeśli drugi test się nie powiedzie, Różowy spada z wysokości 20 stóp i otrzymuje 7 ({@damage 2d6}) obrażenia tłuczące.",
+                "Jeśli Różowy ma sprzęt wspinaczkowy, zyskuje przewagę w testach."
+              ],
+              "id": "01a"
+            }
+          ],
+          "id": "018"
+        },
+        {
+          "type": "entries",
+          "name": "C2. Obóz górniczy",
+          "page": 6,
+          "entries": [
+            "Wewnątrz głównej bramy znajduje się wiele starych, zniszczonych budynków w różnych stadiach zniszczenia i upadku. Po krótkim spojrzeniu Pink z łatwością znajduje wejście do kopalni - bramę z żelaznych prętów zabezpieczoną łańcuchem i kłódką. Ciche otwieranie zamka wymaga powodzenia {@dc 12} Zręczność ({@skill Sleight of Hand}) sprawdzać. W przypadku awarii drzwi nadal się otwierają, ale hałas ostrzega koboldy w obszarze C5d i pobliskich strażników. Korzystanie z narzędzi złodziei zapewnia Różowej przewagę w rzucie."
+          ],
+          "id": "01b"
+        },
+        {
+          "type": "entries",
+          "name": "C3. Klatka schodowa",
+          "page": 6,
+          "entries": [
+            "Kiedy Różowy otworzy bramę, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 6,
+              "entries": [
+                "Schody wykute w kamieniu schodzą w ciemność. W kurzu widać ślady stóp, a pajęczyny zostały niedawno przerwane."
+              ],
+              "id": "01d"
+            },
+            "Schody schodzą na głębokość 40 stóp i kończą się drewnianymi drzwiami. Sukces {@dc 14} Inteligencja ({@skill Nature}) sprawdzenie ujawnia, że ​​ślady należą do kobolda."
+          ],
+          "id": "01c"
+        },
+        {
+          "type": "entries",
+          "name": "C4. Magazyn centralny",
+          "page": 6,
+          "entries": [
+            "Kiedy Pink wejdzie do tego pokoju, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 6,
+              "entries": [
+                "Widzisz z grubsza ociosane pomieszczenie o powierzchni 30 stóp kwadratowych, w którym nadal znajdują się stare, zardzewiałe kilofy, łopaty, łomy, taczka i drewniany wózek górniczy. Wszystko pokryte jest grubą warstwą kurzu i pajęczyn. Pochyłe przejście wychodzi na północ. Ślady stóp są widoczne na całej podłodze, ale większość kieruje się na północ."
+              ],
+              "id": "01f"
+            },
+            "Drewniany wózek górniczy nadal działa, ale jeśli Pink nie naoliwi kół przed przetoczeniem, wózek wyda straszny hałas, który zaalarmuje koboldy w obszarze C5d."
+          ],
+          "id": "01e"
+        },
+        {
+          "type": "entries",
+          "name": "C5. Wały kopalniane",
+          "page": 7,
+          "entries": [
+            "Korytarze są tu jeszcze bardziej z grubsza wyciosane i mają nieregularną wysokość i szerokość. Tu i ówdzie wzdłuż tuneli połyskują kawałki pysznego cukierka skalnego, który wydobywano tu w przeszłości. Miejscami tworzą się kałuże wody o głębokości 6 cali lub większej; więcej niż wystarczająco, aby zgasić upuszczoną pochodnię.",
+            "Jeśli koboldy nie zostały zaalarmowane, gdy Pink schodzi do kopalni, słyszą gorące rozmowy dochodzące z tuneli, ale ze względu na echo nie jest jasne, które.",
+            {
+              "type": "entries",
+              "name": "Uwaga DM",
+              "page": 7,
+              "entries": [
+                "Jeśli Różowy potrzebuje dodatkowego leczenia, możesz uzdrowić go za pomocą kamiennego cukierka {@dice 2d4} punkty wytrzymałości raz dziennie, jeśli zostaną zjedzone."
+              ],
+              "id": "021"
+            }
+          ],
+          "id": "020"
+        },
+        {
+          "type": "entries",
+          "page": 7,
+          "name": "C5A. Tajna jaskinia tunelowa",
+          "entries": [
+            "Kiedy Pink wejdzie, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 7,
+              "entries": [
+                "Na tym obszarze porozrzucane są różne gruzy i śmieci. Ściana jaskini ma prymitywne ślady po hackach, jakby ktoś wściekle machał w nią kilofem."
+              ],
+              "id": "023"
+            },
+            "W pokoju nie ma nic wartościowego, ale jeśli Pink odniesie sukces {@dc 12} Mądrość ({@skill Perception}) sprawdź, odkrywają sekretne drzwi (patrz „Ścieżka 1: Sekretny tunel” powyżej), które wyglądają jak głaz osadzony w ścianie. Sekretne drzwi otwierają tunel prowadzący z powrotem do miasta Harmonii.",
+            "Jeśli gracz wybrał Ścieżkę 2 i nie wybrał Ścieżki 1, pozwól mu wejść do tunelu na głębokość około 30 metrów, a następnie przypomnij mu, że może to być drugie wejście do kopalni prowadzącej z powrotem do Harmonii. Jeśli to zignorują i będą kontynuować, niech się spotkają {@creature Slurmy|NRH-TCMC} i pułapki przed pojawieniem się w pobliżu rynku."
+          ],
+          "id": "022"
+        },
+        {
+          "type": "entries",
+          "name": "C5B. Rock Candy Matka Lode",
+          "entries": [
+            "Kiedy Pink wejdzie do tego pokoju, przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 7,
+              "entries": [
+                "W tej jaskini znajdują się stosy gruzu, ale w ścianie nadal widać dobrą żyłę czerwonego cukierka skalnego."
+              ],
+              "id": "025"
+            },
+            "Jeśli zostanie zjedzony, cukierek skalny jest słodki i pyszny. Jeśli Różowy chce popracować przez 5 minut, można wydobyć ze ściany woreczek cukierków o wartości 5 punktów sp. Jeśli koboldy znajdują się w obszarze C5d, każdy hałas w tym miejscu je zaalarmuje.",
+            "W pokoju nie ma nic innego interesującego."
+          ],
+          "id": "024"
+        },
+        {
+          "type": "entries",
+          "name": "C5C. Pułapka sieciowa",
+          "entries": [
+            "Szyb prowadzący do tego obszaru ma przewód wyzwalający rozciągnięty po podłodze na wysokości kostki. Sukces {@dc 14} Mądrość ({@skill Perception}) Aby go znaleźć, konieczne jest sprawdzenie. Jeśli zostanie uruchomiony przewód wyzwalający, na intruzów spadnie siatka wypełniona starymi puszkami. Różowy musi odnieść sukces {@dc 14} Rzut obronny na zręczność lub zaplątaj się w sieć i bądź {@condition restrained}. Różowy musi powtórzyć rzut obronny na koniec każdej swojej tury. Po sukcesie Pink ucieka z pułapki.",
+            "Rakieta ostrzega tę dwójkę {@creature kobold||koboldy} w obszarze C5d, którzy przybywają 1 rundę po uruchomieniu pułapki."
+          ],
+          "id": "026"
+        },
+        {
+          "type": "entries",
+          "name": "C5D. Koralowy klejnot",
+          "entries": [
+            "Jeśli nie zostali wcześniej powiadomieni, są dwa {@creature kobold||koboldy}, Kribbitz i Zurff, kłócą się w tym pokoju o to, jak otworzyć zamkniętą kamienną skrzynię o powierzchni 6 stóp kwadratowych, którą odkryli w jaskini w najbardziej wysuniętej na północ ścianie. Jakiś {@condition unconscious} kobold Nurzle leży na podłodze z igłą w szyi. Koboldy to gadzie humanoidy, które na ogół unikają konfliktów, chyba że zostaną osaczone.",
+            "Jeśli Różowy zaskoczy koboldy, te spróbują wyczuć Różę i zobaczą, czy uda im się namówić je do otwarcia pudełka. Następnie koboldy próbują ukraść klejnot i uciec.",
+            "Jeśli zaalarmowano ich wcześniej, koboldy ukryły się ze swoimi rzeczami za starymi półkami pod płócienną plandeką {@condition unconscious} znajomego i czekamy, aż Pink otworzy pudełko.",
+            {
+              "type": "entries",
+              "name": "Otwieranie pudełka",
+              "page": 7,
+              "entries": [
+                "Kamienna skrzynia waży 3000 funtów i jest wykonana z kwarcytu - bardzo twardego rodzaju kamienia. Pudełko jest pokryte runami i glifami. Posiada dziurkę od klucza i sześć guzików. Zamek jest uwięziony i wymaga pomyślnego odblokowania {@dc 15} Zręczność ({@skill Sleight of Hand}) zaznacz, aby otworzyć. W przypadku niepowodzenia wystrzeliwuje zatruta igła. Ktokolwiek otwiera zamek, musi rzucić a {@dice d6}. Na poziomie 2-6 zostają wkłuci igłą i zasypiają na 8 godzin. Na 1 igła chybia. Tak czy inaczej, pudełko pozostaje zamknięte.",
+                "Jeśli Pink uda się otworzyć pudełko, koboldy wybiegną i spróbują ukraść klejnot. Jeśli Pink jest na nie gotowa, koboldy próbują zastraszyć, wymienić się z Pinką lub błagać Pink, aby ją oddała. Pan Greystone wyraził się całkiem jasno, co stanie się z koboldami, jeśli poniosą porażkę, i nie jest to ani trochę przyjemne."
+              ],
+              "id": "028"
+            },
+            {
+              "type": "entries",
+              "name": "Nawiązywanie przyjaźni",
+              "page": 8,
+              "entries": [
+                "Jeśli Pink chce zaprzyjaźnić się z koboldami, Pink musi obiecać, że ochroni koboldy przed gniewem pana Greystone'a, a następnie dokona udanego {@dc 14} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli tak się stanie, koboldy zgadzają się zostawić Pink z klejnotem i nie sprawiać więcej kłopotów.",
+                "Jeśli Różowy nie podda się bez walki, koboldy stoczą 1 rundę walki. Gdy tylko ktoś odniesie obrażenia, uciekają i wrzeszczą o tym, co stanie się z Pink, gdy pan Greystone się o tym dowie."
+              ],
+              "id": "029"
+            },
+            {
+              "type": "entries",
+              "name": "Koralowy klejnot",
+              "page": 8,
+              "entries": [
+                "Koralowy Klejnot to kamień wielkości pięści, wart 250 sz, świecący miękkim, różowym światłem. Nie ma własnych magicznych właściwości."
+              ],
+              "id": "02a"
+            }
+          ],
+          "id": "027"
+        },
+        {
+          "type": "entries",
+          "name": "C5E. Skamielina smoka",
+          "entries": [
+            "W tej dużej jaskini znajduje się więcej stert cukierkowego gruzu, ale we wschodniej ścianie osadzona jest potężna skamielina smoka o długości 40 stóp.",
+            "Jeśli Pink odniesie sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdź, wiedzą, że to skamielina niebieskiego smoka. Różowa wie o tym, że niebieskie smoki są nie tylko zaciekłymi łowcami, które zieją błyskawicami, aby ogłuszyć lub zabić swoją ofiarę, ale także są jednymi z najinteligentniejszych ze smoków.",
+            "Jeśli Pink ostrożnie odłupuje skałę przez 20 minut i odniesie sukces {@dc 15} Test zręczności, mogą uwolnić z kamienia idealny ząb smoka. Jeśli koboldy nadal znajdują się w obszarze C5d, zostaną zaalarmowane przy każdej próbie uwolnienia skamieniałości.",
+            "Ząb smoka jest wart 20 sz dla alchemika lub kolekcjonera. Uwolnienie całego szkieletu, który można sprzedać do muzeum za 1500 gp, zajęłoby około 6 miesięcy."
+          ],
+          "id": "02b"
+        }
+      ],
+      "id": "017"
+    },
+    "0:018": {
+      "type": "entries",
+      "name": "C1. Obwód kopalni",
+      "page": 6,
+      "entries": [
+        "Jeśli Różowy uda się do głównego wejścia, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 6,
+          "entries": [
+            "Zarośnięta polna droga prowadzi do zardzewiałej żelaznej bramy osadzonej w kamiennym murze. Po obu stronach bramy stoi dwóch strażników wyglądających jak opancerzone, szare manekiny. Nie mają żadnych dostrzegalnych cech."
+          ],
+          "id": "019"
+        },
+        "Różowy może zastosować kreatywne metody, aby ominąć jedno i drugie {@creature guard||gwardia} przy bramie. Oto kilka pomysłów:",
+        {
+          "type": "list",
+          "items": [
+            "Różowy może założyć przebranie i spróbować oszukać strażników. Aby tego dokonać, Pink musi odnieść sukces {@dc 14} Charyzma ({@skill Deception}) sprawdzać. Jeśli ich przebranie jest szczególnie kreatywne, Różowy ma przewagę w rzucie.",
+            "Różowy może odwrócić uwagę, a następnie przekraść się obok strażników. Różowy musi odnieść sukces {@dc 12} Zręczność ({@skill Stealth}) sprawdzać. Jeśli uważasz, że odwrócenie uwagi jest skuteczne, daj Różowi przewagę w rzucie.",
+            "Różowy może poczekać, aż przyjedzie pusty wóz i odebrać dostawę, a następnie wkraść się do wozu lub udawać kierowcę dostawy.",
+            "Różowy może celowo zostać złapany i zabrany do środka."
+          ]
+        },
+        "Jeśli Pink zostanie złapany, jeden ze strażników przetrzymuje je w zagrodzie o powierzchni 3 metrów kwadratowych, sąsiadującej z wejściem do podziemi. Różowy może z powodzeniem wybrać kajdanki {@dc 12} Zręczność ({@skill Sleight of Hand}), gdy wybrzeże będzie czyste.",
+        "Alternatywnie Różowy może wejść do kopalni przekradając się przez mur obwodowy:",
+        {
+          "type": "entries",
+          "name": "Kamienna ściana",
+          "page": 6,
+          "entries": [
+            "Choć jest stary i zaniedbany, wysoki na 20 stóp kamienny mur otaczający kopalnię nadal budzi grozę. Aby wspiąć się na ścianę, Różowy musi odnieść sukces w dwóch kolejnych próbach {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdza. Jeśli pierwszy test się nie powiedzie, Różowy spada z 3 metrów i otrzymuje 3 ({@damage 1d6}) obrażenia tłuczące. Jeśli drugi test się nie powiedzie, Różowy spada z wysokości 20 stóp i otrzymuje 7 ({@damage 2d6}) obrażenia tłuczące.",
+            "Jeśli Różowy ma sprzęt wspinaczkowy, zyskuje przewagę w testach."
+          ],
+          "id": "01a"
+        }
+      ],
+      "id": "018"
+    },
+    "0:01a": {
+      "type": "entries",
+      "name": "Kamienna ściana",
+      "page": 6,
+      "entries": [
+        "Choć jest stary i zaniedbany, wysoki na 20 stóp kamienny mur otaczający kopalnię nadal budzi grozę. Aby wspiąć się na ścianę, Różowy musi odnieść sukces w dwóch kolejnych próbach {@dc 10} Wytrzymałość ({@skill Athletics}) sprawdza. Jeśli pierwszy test się nie powiedzie, Różowy spada z 3 metrów i otrzymuje 3 ({@damage 1d6}) obrażenia tłuczące. Jeśli drugi test się nie powiedzie, Różowy spada z wysokości 20 stóp i otrzymuje 7 ({@damage 2d6}) obrażenia tłuczące.",
+        "Jeśli Różowy ma sprzęt wspinaczkowy, zyskuje przewagę w testach."
+      ],
+      "id": "01a"
+    },
+    "0:01b": {
+      "type": "entries",
+      "name": "C2. Obóz górniczy",
+      "page": 6,
+      "entries": [
+        "Wewnątrz głównej bramy znajduje się wiele starych, zniszczonych budynków w różnych stadiach zniszczenia i upadku. Po krótkim spojrzeniu Pink z łatwością znajduje wejście do kopalni - bramę z żelaznych prętów zabezpieczoną łańcuchem i kłódką. Ciche otwieranie zamka wymaga powodzenia {@dc 12} Zręczność ({@skill Sleight of Hand}) sprawdzać. W przypadku awarii drzwi nadal się otwierają, ale hałas ostrzega koboldy w obszarze C5d i pobliskich strażników. Korzystanie z narzędzi złodziei zapewnia Różowej przewagę w rzucie."
+      ],
+      "id": "01b"
+    },
+    "0:01c": {
+      "type": "entries",
+      "name": "C3. Klatka schodowa",
+      "page": 6,
+      "entries": [
+        "Kiedy Różowy otworzy bramę, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 6,
+          "entries": [
+            "Schody wykute w kamieniu schodzą w ciemność. W kurzu widać ślady stóp, a pajęczyny zostały niedawno przerwane."
+          ],
+          "id": "01d"
+        },
+        "Schody schodzą na głębokość 40 stóp i kończą się drewnianymi drzwiami. Sukces {@dc 14} Inteligencja ({@skill Nature}) sprawdzenie ujawnia, że ​​ślady należą do kobolda."
+      ],
+      "id": "01c"
+    },
+    "0:01e": {
+      "type": "entries",
+      "name": "C4. Magazyn centralny",
+      "page": 6,
+      "entries": [
+        "Kiedy Pink wejdzie do tego pokoju, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 6,
+          "entries": [
+            "Widzisz z grubsza ociosane pomieszczenie o powierzchni 30 stóp kwadratowych, w którym nadal znajdują się stare, zardzewiałe kilofy, łopaty, łomy, taczka i drewniany wózek górniczy. Wszystko pokryte jest grubą warstwą kurzu i pajęczyn. Pochyłe przejście wychodzi na północ. Ślady stóp są widoczne na całej podłodze, ale większość kieruje się na północ."
+          ],
+          "id": "01f"
+        },
+        "Drewniany wózek górniczy nadal działa, ale jeśli Pink nie naoliwi kół przed przetoczeniem, wózek wyda straszny hałas, który zaalarmuje koboldy w obszarze C5d."
+      ],
+      "id": "01e"
+    },
+    "0:020": {
+      "type": "entries",
+      "name": "C5. Wały kopalniane",
+      "page": 7,
+      "entries": [
+        "Korytarze są tu jeszcze bardziej z grubsza wyciosane i mają nieregularną wysokość i szerokość. Tu i ówdzie wzdłuż tuneli połyskują kawałki pysznego cukierka skalnego, który wydobywano tu w przeszłości. Miejscami tworzą się kałuże wody o głębokości 6 cali lub większej; więcej niż wystarczająco, aby zgasić upuszczoną pochodnię.",
+        "Jeśli koboldy nie zostały zaalarmowane, gdy Pink schodzi do kopalni, słyszą gorące rozmowy dochodzące z tuneli, ale ze względu na echo nie jest jasne, które.",
+        {
+          "type": "entries",
+          "name": "Uwaga DM",
+          "page": 7,
+          "entries": [
+            "Jeśli Różowy potrzebuje dodatkowego leczenia, możesz uzdrowić go za pomocą kamiennego cukierka {@dice 2d4} punkty wytrzymałości raz dziennie, jeśli zostaną zjedzone."
+          ],
+          "id": "021"
+        }
+      ],
+      "id": "020"
+    },
+    "0:021": {
+      "type": "entries",
+      "name": "Uwaga DM",
+      "page": 7,
+      "entries": [
+        "Jeśli Różowy potrzebuje dodatkowego leczenia, możesz uzdrowić go za pomocą kamiennego cukierka {@dice 2d4} punkty wytrzymałości raz dziennie, jeśli zostaną zjedzone."
+      ],
+      "id": "021"
+    },
+    "0:022": {
+      "type": "entries",
+      "page": 7,
+      "name": "C5A. Tajna jaskinia tunelowa",
+      "entries": [
+        "Kiedy Pink wejdzie, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 7,
+          "entries": [
+            "Na tym obszarze porozrzucane są różne gruzy i śmieci. Ściana jaskini ma prymitywne ślady po hackach, jakby ktoś wściekle machał w nią kilofem."
+          ],
+          "id": "023"
+        },
+        "W pokoju nie ma nic wartościowego, ale jeśli Pink odniesie sukces {@dc 12} Mądrość ({@skill Perception}) sprawdź, odkrywają sekretne drzwi (patrz „Ścieżka 1: Sekretny tunel” powyżej), które wyglądają jak głaz osadzony w ścianie. Sekretne drzwi otwierają tunel prowadzący z powrotem do miasta Harmonii.",
+        "Jeśli gracz wybrał Ścieżkę 2 i nie wybrał Ścieżki 1, pozwól mu wejść do tunelu na głębokość około 30 metrów, a następnie przypomnij mu, że może to być drugie wejście do kopalni prowadzącej z powrotem do Harmonii. Jeśli to zignorują i będą kontynuować, niech się spotkają {@creature Slurmy|NRH-TCMC} i pułapki przed pojawieniem się w pobliżu rynku."
+      ],
+      "id": "022"
+    },
+    "0:024": {
+      "type": "entries",
+      "name": "C5B. Rock Candy Matka Lode",
+      "entries": [
+        "Kiedy Pink wejdzie do tego pokoju, przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 7,
+          "entries": [
+            "W tej jaskini znajdują się stosy gruzu, ale w ścianie nadal widać dobrą żyłę czerwonego cukierka skalnego."
+          ],
+          "id": "025"
+        },
+        "Jeśli zostanie zjedzony, cukierek skalny jest słodki i pyszny. Jeśli Różowy chce popracować przez 5 minut, można wydobyć ze ściany woreczek cukierków o wartości 5 punktów sp. Jeśli koboldy znajdują się w obszarze C5d, każdy hałas w tym miejscu je zaalarmuje.",
+        "W pokoju nie ma nic innego interesującego."
+      ],
+      "id": "024"
+    },
+    "0:026": {
+      "type": "entries",
+      "name": "C5C. Pułapka sieciowa",
+      "entries": [
+        "Szyb prowadzący do tego obszaru ma przewód wyzwalający rozciągnięty po podłodze na wysokości kostki. Sukces {@dc 14} Mądrość ({@skill Perception}) Aby go znaleźć, konieczne jest sprawdzenie. Jeśli zostanie uruchomiony przewód wyzwalający, na intruzów spadnie siatka wypełniona starymi puszkami. Różowy musi odnieść sukces {@dc 14} Rzut obronny na zręczność lub zaplątaj się w sieć i bądź {@condition restrained}. Różowy musi powtórzyć rzut obronny na koniec każdej swojej tury. Po sukcesie Pink ucieka z pułapki.",
+        "Rakieta ostrzega tę dwójkę {@creature kobold||koboldy} w obszarze C5d, którzy przybywają 1 rundę po uruchomieniu pułapki."
+      ],
+      "id": "026"
+    },
+    "0:027": {
+      "type": "entries",
+      "name": "C5D. Koralowy klejnot",
+      "entries": [
+        "Jeśli nie zostali wcześniej powiadomieni, są dwa {@creature kobold||koboldy}, Kribbitz i Zurff, kłócą się w tym pokoju o to, jak otworzyć zamkniętą kamienną skrzynię o powierzchni 6 stóp kwadratowych, którą odkryli w jaskini w najbardziej wysuniętej na północ ścianie. Jakiś {@condition unconscious} kobold Nurzle leży na podłodze z igłą w szyi. Koboldy to gadzie humanoidy, które na ogół unikają konfliktów, chyba że zostaną osaczone.",
+        "Jeśli Różowy zaskoczy koboldy, te spróbują wyczuć Różę i zobaczą, czy uda im się namówić je do otwarcia pudełka. Następnie koboldy próbują ukraść klejnot i uciec.",
+        "Jeśli zaalarmowano ich wcześniej, koboldy ukryły się ze swoimi rzeczami za starymi półkami pod płócienną plandeką {@condition unconscious} znajomego i czekamy, aż Pink otworzy pudełko.",
+        {
+          "type": "entries",
+          "name": "Otwieranie pudełka",
+          "page": 7,
+          "entries": [
+            "Kamienna skrzynia waży 3000 funtów i jest wykonana z kwarcytu - bardzo twardego rodzaju kamienia. Pudełko jest pokryte runami i glifami. Posiada dziurkę od klucza i sześć guzików. Zamek jest uwięziony i wymaga pomyślnego odblokowania {@dc 15} Zręczność ({@skill Sleight of Hand}) zaznacz, aby otworzyć. W przypadku niepowodzenia wystrzeliwuje zatruta igła. Ktokolwiek otwiera zamek, musi rzucić a {@dice d6}. Na poziomie 2-6 zostają wkłuci igłą i zasypiają na 8 godzin. Na 1 igła chybia. Tak czy inaczej, pudełko pozostaje zamknięte.",
+            "Jeśli Pink uda się otworzyć pudełko, koboldy wybiegną i spróbują ukraść klejnot. Jeśli Pink jest na nie gotowa, koboldy próbują zastraszyć, wymienić się z Pinką lub błagać Pink, aby ją oddała. Pan Greystone wyraził się całkiem jasno, co stanie się z koboldami, jeśli poniosą porażkę, i nie jest to ani trochę przyjemne."
+          ],
+          "id": "028"
+        },
+        {
+          "type": "entries",
+          "name": "Nawiązywanie przyjaźni",
+          "page": 8,
+          "entries": [
+            "Jeśli Pink chce zaprzyjaźnić się z koboldami, Pink musi obiecać, że ochroni koboldy przed gniewem pana Greystone'a, a następnie dokona udanego {@dc 14} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli tak się stanie, koboldy zgadzają się zostawić Pink z klejnotem i nie sprawiać więcej kłopotów.",
+            "Jeśli Różowy nie podda się bez walki, koboldy stoczą 1 rundę walki. Gdy tylko ktoś odniesie obrażenia, uciekają i wrzeszczą o tym, co stanie się z Pink, gdy pan Greystone się o tym dowie."
+          ],
+          "id": "029"
+        },
+        {
+          "type": "entries",
+          "name": "Koralowy klejnot",
+          "page": 8,
+          "entries": [
+            "Koralowy Klejnot to kamień wielkości pięści, wart 250 sz, świecący miękkim, różowym światłem. Nie ma własnych magicznych właściwości."
+          ],
+          "id": "02a"
+        }
+      ],
+      "id": "027"
+    },
+    "0:028": {
+      "type": "entries",
+      "name": "Otwieranie pudełka",
+      "page": 7,
+      "entries": [
+        "Kamienna skrzynia waży 3000 funtów i jest wykonana z kwarcytu - bardzo twardego rodzaju kamienia. Pudełko jest pokryte runami i glifami. Posiada dziurkę od klucza i sześć guzików. Zamek jest uwięziony i wymaga pomyślnego odblokowania {@dc 15} Zręczność ({@skill Sleight of Hand}) zaznacz, aby otworzyć. W przypadku niepowodzenia wystrzeliwuje zatruta igła. Ktokolwiek otwiera zamek, musi rzucić a {@dice d6}. Na poziomie 2-6 zostają wkłuci igłą i zasypiają na 8 godzin. Na 1 igła chybia. Tak czy inaczej, pudełko pozostaje zamknięte.",
+        "Jeśli Pink uda się otworzyć pudełko, koboldy wybiegną i spróbują ukraść klejnot. Jeśli Pink jest na nie gotowa, koboldy próbują zastraszyć, wymienić się z Pinką lub błagać Pink, aby ją oddała. Pan Greystone wyraził się całkiem jasno, co stanie się z koboldami, jeśli poniosą porażkę, i nie jest to ani trochę przyjemne."
+      ],
+      "id": "028"
+    },
+    "0:029": {
+      "type": "entries",
+      "name": "Nawiązywanie przyjaźni",
+      "page": 8,
+      "entries": [
+        "Jeśli Pink chce zaprzyjaźnić się z koboldami, Pink musi obiecać, że ochroni koboldy przed gniewem pana Greystone'a, a następnie dokona udanego {@dc 14} Charyzma ({@skill Persuasion}) sprawdzać. Jeśli tak się stanie, koboldy zgadzają się zostawić Pink z klejnotem i nie sprawiać więcej kłopotów.",
+        "Jeśli Różowy nie podda się bez walki, koboldy stoczą 1 rundę walki. Gdy tylko ktoś odniesie obrażenia, uciekają i wrzeszczą o tym, co stanie się z Pink, gdy pan Greystone się o tym dowie."
+      ],
+      "id": "029"
+    },
+    "0:02a": {
+      "type": "entries",
+      "name": "Koralowy klejnot",
+      "page": 8,
+      "entries": [
+        "Koralowy Klejnot to kamień wielkości pięści, wart 250 sz, świecący miękkim, różowym światłem. Nie ma własnych magicznych właściwości."
+      ],
+      "id": "02a"
+    },
+    "0:02b": {
+      "type": "entries",
+      "name": "C5E. Skamielina smoka",
+      "entries": [
+        "W tej dużej jaskini znajduje się więcej stert cukierkowego gruzu, ale we wschodniej ścianie osadzona jest potężna skamielina smoka o długości 40 stóp.",
+        "Jeśli Pink odniesie sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdź, wiedzą, że to skamielina niebieskiego smoka. Różowa wie o tym, że niebieskie smoki są nie tylko zaciekłymi łowcami, które zieją błyskawicami, aby ogłuszyć lub zabić swoją ofiarę, ale także są jednymi z najinteligentniejszych ze smoków.",
+        "Jeśli Pink ostrożnie odłupuje skałę przez 20 minut i odniesie sukces {@dc 15} Test zręczności, mogą uwolnić z kamienia idealny ząb smoka. Jeśli koboldy nadal znajdują się w obszarze C5d, zostaną zaalarmowane przy każdej próbie uwolnienia skamieniałości.",
+        "Ząb smoka jest wart 20 sz dla alchemika lub kolekcjonera. Uwolnienie całego szkieletu, który można sprzedać do muzeum za 1500 gp, zajęłoby około 6 miesięcy."
+      ],
+      "id": "02b"
+    },
+    "0:02c": {
+      "type": "entries",
+      "name": "Ukończenie Misji",
+      "page": 8,
+      "entries": [
+        "Kiedy Pink wraca do Harmony, wita ich {@creature Mr. Honeycutt|NRH-TCMC} w gospodzie, w której przebywa Pink. Jeśli Pink przekaże Koralowy Klejnot, {@creature Mr. Honeycutt|NRH-TCMC} oddycha z ulgą, po czym energicznie ściska dłoń Pink, dziękując jej serdecznie. {@creature Mr. Honeycutt|NRH-TCMC} zaprasza Reda do przyłączenia się do Towarzystwa Lorekeeperów. Jeśli Czerwony się zgodzi, {@creature Mr. Honeycutt|NRH-TCMC} następnie sięga do swojej torby i daje Pinkowi parę złodziejskich rękawiczek (patrz poniżej) w nadziei, że Pink zrobi z nich dobry użytek w nadchodzących dniach. „Walka jeszcze się nie skończyła” {@creature Mr. Honeycutt|NRH-TCMC} - krzyczy do Pink. „Jest jeszcze wiele do zrobienia, zanim kolor wróci do Harmony. Stowarzyszenie Lorekeeper Society skontaktuje się z Tobą”.",
+        "{@creature Mr. Honeycutt|NRH-TCMC} następnie kłania się i wychodzi za drzwi. Robiąc to, rzuca barmanowi sztukę złota. Mauve spogląda dwukrotnie, po czym kiwa głową z aprobatą Pink."
+      ],
+      "id": "02c"
+    },
+    "0:02d": {
+      "type": "section",
+      "name": "Magiczne przedmioty",
+      "page": 8,
+      "entries": [
+        "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+        {
+          "type": "list",
+          "items": [
+            "{@item Gloves of Thievery}"
+          ]
+        }
+      ],
+      "id": "02d"
+    },
+    "1:02f": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "columns": 2,
+              "items": [
+                {
+                  "type": "entries",
+                  "name": "Zespół Dungeons & Dragons:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Projekt przygody",
+                          "entries": [
+                            "Kat Kruger i Adam Lee"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowy rozwój",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt postaci",
+                          "entries": [
+                            "Krzysia Tulacha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt graficzny",
+                          "entries": [
+                            "Emmę Ekblad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Redaktorzy",
+                          "entries": [
+                            "Ashley Michaela Lawson i Hannah Rose"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer twórców",
+                          "entries": [
+                            "Pelhama Greene’a"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Ilustracje",
+                          "entries": [
+                            "Czerwona Centrala"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Producent",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki",
+                          "entries": [
+                            "Shelly Mazzanoble"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencjonowania kategorii",
+                          "entries": [
+                            "Ann Earp"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "031"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Ferrary:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Starszy zastępca menedżera marki, NERDS:",
+                          "entries": [
+                            "Łukasz Krause"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer treści, NERDS:",
+                          "entries": [
+                            "Annie Belgrad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki, NERDS:",
+                          "entries": [
+                            "Joey'a Ratha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                          "entries": [
+                            "Amy Pagels"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "032"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Tripplexlix:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Partner Zarządzający",
+                          "entries": [
+                            "Jennifer Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Założyciel, Partner Zarządzający",
+                          "entries": [
+                            "Krzysztof Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Wiceprezes, szef marketingu partnerskiego",
+                          "entries": [
+                            "Kennetha Lindenbauma"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowe wsparcie",
+                          "entries": [
+                            "VMLY&R Commerce, Taxi, Pep i Golin"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "033"
+                }
+              ]
+            }
+          ],
+          "id": "030"
+        }
+      ],
+      "id": "02f"
+    },
+    "1:030": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "entries",
+              "name": "Zespół Dungeons & Dragons:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Projekt przygody",
+                      "entries": [
+                        "Kat Kruger i Adam Lee"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowy rozwój",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt postaci",
+                      "entries": [
+                        "Krzysia Tulacha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt graficzny",
+                      "entries": [
+                        "Emmę Ekblad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Redaktorzy",
+                      "entries": [
+                        "Ashley Michaela Lawson i Hannah Rose"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer twórców",
+                      "entries": [
+                        "Pelhama Greene’a"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Ilustracje",
+                      "entries": [
+                        "Czerwona Centrala"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Producent",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki",
+                      "entries": [
+                        "Shelly Mazzanoble"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencjonowania kategorii",
+                      "entries": [
+                        "Ann Earp"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "031"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Ferrary:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Starszy zastępca menedżera marki, NERDS:",
+                      "entries": [
+                        "Łukasz Krause"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer treści, NERDS:",
+                      "entries": [
+                        "Annie Belgrad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki, NERDS:",
+                      "entries": [
+                        "Joey'a Ratha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                      "entries": [
+                        "Amy Pagels"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "032"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Tripplexlix:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Partner Zarządzający",
+                      "entries": [
+                        "Jennifer Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Założyciel, Partner Zarządzający",
+                      "entries": [
+                        "Krzysztof Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Wiceprezes, szef marketingu partnerskiego",
+                      "entries": [
+                        "Kennetha Lindenbauma"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowe wsparcie",
+                      "entries": [
+                        "VMLY&R Commerce, Taxi, Pep i Golin"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "033"
+            }
+          ]
+        }
+      ],
+      "id": "030"
+    }
+  }
+}

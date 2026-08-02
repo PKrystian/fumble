@@ -9,7 +9,8 @@
           "Pociski do broni palnej są niszczone po użyciu w nowoczesnej broni palnej. Futurystyczna broń palna używa ogniw energetycznych, które wyczerpują się, ale według uznania MP można je ponownie naładować odpowiednim sprzętem."
         ]
       }
-    ]
+    ],
+    "abbreviation": "AF"
   },
   "ammunition-a-xphb": {
     "name": "Amunicja",
@@ -34,7 +35,8 @@
           "Jeśli używasz broni z właściwością Amunicja do wykonania ataku wręcz, traktujesz ją jak broń improwizowaną. Proca musi być załadowana, aby zadawać obrażenia podczas użycia w ten sposób."
         ]
       }
-    ]
+    ],
+    "abbreviation": "AF"
   },
   "ammunition-a-phb": {
     "name": "Amunicja",
@@ -43,7 +45,8 @@
         "type": "entries",
         "name": "Amunicja",
         "entries": [
-          "Możesz użyć broni z właściwością Amunicja do wykonania ataku dystansowego tylko wtedy, gdy masz amunicję do wystrzelenia z tej broni. Każdy atak zużywa jedną sztukę amunicji. Wyjęcie amunicji z kołczanu, futerału lub innego pojemnika jest częścią ataku. Do załadowania broni jednoręcznej potrzebujesz wolnej ręki. Na koniec walki możesz poświęcić minutę na przeszukanie pola bitwy i odzyskać połowę zużytej amunicji. Jeśli używasz broni z właściwością Amunicja do wykonania ataku wręcz, traktujesz ją jak broń improwizowaną. Proca musi być załadowana, aby zadawać obrażenia podczas użycia w ten sposób."
+          "Możesz użyć broni z właściwością Amunicja do wykonania ataku dystansowego tylko wtedy, gdy masz amunicję do wystrzelenia z tej broni. Każdy atak zużywa jedną sztukę amunicji. Wyjęcie amunicji z kołczanu, futerału lub innego pojemnika jest częścią ataku. Do załadowania broni jednoręcznej potrzebujesz wolnej ręki. Na koniec walki możesz poświęcić minutę na przeszukanie pola bitwy i odzyskać połowę zużytej amunicji. Jeśli używasz broni z właściwością Amunicja do wykonania ataku wręcz, traktujesz ją jak broń improwizowaną. Proca musi być załadowana, aby zadawać obrażenia podczas użycia w ten sposób.",
+          "Jeżeli używasz broni posiadającej właściwości amunicji do wykonania ataku wręcz, traktujesz ją jako broń improwizowaną. Aby proces użycia w ten sposób spowodował jakiekolwiek uszkodzenia, należy go naładować."
         ]
       }
     ]
@@ -55,10 +58,11 @@
         "type": "entries",
         "name": "Ogień seriami",
         "entries": [
-          "Jako akcję możesz zużyć 10 sztuk amunicji broni z właściwością Ogień seriami, by rozpylić pociski w {@variantrule Cube [Area of Effect]|XPHB|sześcianie} o boku 10 stóp znajdującym się w normalnym zasięgu broni. Każde stworzenie w tym obszarze musi zdać rzut obronny na Zręczność o ST 15 albo otrzyma obrażenia. Rzuć kośćmi obrażeń broni raz i zastosuj wynik do każdego stworzenia, które nie zdało rzutu."
+          "W ramach akcji możesz wydać 10 sztuk amunicji do broni Burst Fire, aby spryskać strzałami 3-metrowy {@variantrule Cube [Area of Effect]|XPHB|Sześcian} w normalnym zasięgu tej broni. Każde stworzenie na tym obszarze musi wykonać pomyślny rzut obronny na Zręczność {@dc 15}, w przeciwnym razie otrzyma obrażenia. Rzuć raz obrażeniami broni i zastosuj je do każdego stworzenia, któremu nie udało się wykonać rzutu obronnego."
         ]
       }
-    ]
+    ],
+    "abbreviation": "BF"
   },
   "burst-fire-bf-dmg": {
     "name": "Ogień seriami",
@@ -67,10 +71,11 @@
         "type": "entries",
         "name": "Ogień seriami",
         "entries": [
-          "Broń z właściwością Ogień seriami może wykonać atak przeciwko pojedynczemu celowi albo ostrzelać obszar w kształcie sześcianu o boku 10 stóp w normalnym zasięgu. Każde stworzenie w tym obszarze musi zdać rzut obronny na Zręczność o ST 15 albo otrzymać normalne obrażenia broni. Ta akcja zużywa dziesięć sztuk amunicji."
+          "Broń posiadająca zdolność strzelania seriami może atakować pojedynczy cel lub może ostrzeliwać obszar o powierzchni 3 stóp w normalnym zasięgu. Każde stworzenie na obszarze musi wykonać pomyślny rzut obronny na Zręczność {@dc 15}, w przeciwnym razie otrzyma normalne obrażenia broni. Akcja ta zużywa dziesięć sztuk amunicji."
         ]
       }
-    ]
+    ],
+    "abbreviation": "BF"
   },
   "finesse-f-xphb": {
     "name": "Finezja",
@@ -103,7 +108,7 @@
         "type": "entries",
         "name": "Ciężka",
         "entries": [
-          "Masz {@variantrule Disadvantage|XPHB|Utrudnienie} w rzutach na atak ciężką bronią, jeśli jest to broń do walki wręcz, a twoja Siła nie wynosi co najmniej 13, lub jeśli jest to broń dystansowa, a twoja Zręczność nie wynosi co najmniej 13."
+        "Masz {@variantrule Disadvantage|XPHB|Utrudnienie} w rzutach na atak ciężką bronią, jeśli jest to broń do walki wręcz, a twoja Siła nie wynosi co najmniej 13, lub jeśli jest to broń dystansowa, a twoja Zręczność nie wynosi co najmniej 13."
         ]
       }
     ]
@@ -127,7 +132,7 @@
         "type": "entries",
         "name": "Lekka",
         "entries": [
-          "Kiedy w swojej turze wykonujesz akcję {@action Attack|XPHB|Atak} i atakujesz lekką bronią, możesz później w tej samej turze wykonać jeden dodatkowy atak jako {@variantrule Bonus Action|XPHB|Akcję Dodatkową}. Ten dodatkowy atak musi być wykonany inną lekką bronią, a do jego obrażeń nie dodajesz modyfikatora cechy, chyba że jest on ujemny. Przykładowo możesz zaatakować jedną ręką sztyletem, a drugą krótkim mieczem, używając akcji Atak i Akcji Dodatkowej, lecz nie dodajesz modyfikatora Siły ani Zręczności do obrażeń ataku wykonanego w ramach Akcji Dodatkowej, chyba że jest on ujemny."
+          "Kiedy w swojej turze wykonasz akcję {@action Attack|XPHB} i zaatakujesz Lekką bronią, możesz wykonać jeden dodatkowy atak jako {@variantrule Bonus Action|XPHB} później w tej samej turze. Ten dodatkowy atak musi zostać wykonany inną bronią lekką i nie dodajesz swojego modyfikatora umiejętności do obrażeń dodatkowego ataku, chyba że ten modyfikator jest ujemny. Na przykład, możesz atakować {@item Shortsword|XPHB} w jednej ręce i {@item Dagger|XPHB} w drugiej, używając akcji {@action Attack|XPHB} i {@variantrule Bonus Action|XPHB}, ale nie dodajesz modyfikatora Siły ani Zręczności do rzutu obrażeń {@variantrule Bonus Action|XPHB}, chyba że ten modyfikator jest ujemny."
         ]
       }
     ]
@@ -151,10 +156,11 @@
         "type": "entries",
         "name": "Ładowanie",
         "entries": [
-          "Możesz wystrzelić tylko jeden pocisk z broni z właściwością Ładowanie, kiedy używasz akcji, {@variantrule Bonus Action|XPHB|Akcji Dodatkowej} lub reakcji do oddania strzału, niezależnie od liczby ataków, które normalnie możesz wykonać."
+          "Możesz wystrzelić tylko jedną sztukę amunicji z broni ładującej, gdy używasz akcji, {@variantrule Bonus Action|XPHB} lub {@variantrule Reaction|XPHB}, aby ją wystrzelić, niezależnie od liczby ataków, które normalnie możesz wykonać."
         ]
       }
-    ]
+    ],
+    "abbreviation": "LD"
   },
   "loading-ld-phb": {
     "name": "Ładowanie",
@@ -166,7 +172,8 @@
           "Ze względu na czas potrzebny do załadowania tej broni możesz wystrzelić z niej tylko jeden pocisk, kiedy używasz akcji, akcji dodatkowej lub reakcji do oddania strzału, niezależnie od liczby ataków, które normalnie możesz wykonać."
         ]
       }
-    ]
+    ],
+    "abbreviation": "LD"
   },
   "reach-r-xphb": {
     "name": "Dosięg",
@@ -199,10 +206,11 @@
         "type": "entries",
         "name": "Przeładowanie",
         "entries": [
-          "Możesz oddać ograniczoną liczbę strzałów z broni z właściwością Przeładowanie. Następnie musisz przeładować broń jako akcję albo {@variantrule Bonus Action|XPHB|Akcję Dodatkową}."
+          "Możesz oddać ograniczoną liczbę strzałów z broni z właściwością Przeładowanie. Następnie musisz przeładować broń jako akcję albo {@variantrule Bonus Action|XPHB}."
         ]
       }
-    ]
+    ],
+    "abbreviation": "RLD"
   },
   "reload-rld-dmg": {
     "name": "Przeładowanie",
@@ -214,7 +222,8 @@
           "Z broni z właściwością Przeładowanie można oddać ograniczoną liczbę strzałów. Następnie postać musi ją przeładować, używając akcji albo akcji dodatkowej, według swojego wyboru."
         ]
       }
-    ]
+    ],
+    "abbreviation": "RLD"
   },
   "s-s-phb": {
     "name": "Specjalna",
@@ -300,9 +309,10 @@
         "name": "Świadectwo Rozbieżności",
         "page": 200,
         "entries": [
-          "{@note Ten przedmiot jest Świadectwem Rozbieżności. Więcej informacji znajdziesz w sekcji {@book Świadectwa Rozbieżności|EGW|7|Świadectwa Rozbieżności}.}"
+          "{@note Ten przedmiot jest Świadectwem Rozbieżności. Więcej informacji znajdziesz w sekcji {@book Vestiges of Divergence|EGW|7|Świadectwa Rozbieżności}.}"
         ]
       }
-    ]
+    ],
+    "abbreviation": "Vst"
   }
 }

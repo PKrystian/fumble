@@ -1,0 +1,1387 @@
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Przywracanie harmonii: sieć kłamstw",
+      "page": 2,
+      "entries": [
+        "Witamy w Restoring Harmony, serii przygodowej Dungeons & Dragons powstałej we współpracy ze smacznym i kolorowym światem NERDS.",
+        "Aby rozegrać tę przygodę, potrzebujesz piątej edycji Basic Rules for D&D, którą możesz pobrać bezpłatnie tutaj. Wszystkie potrzebne magiczne przedmioty i bloki statystyk potworów znajdują się na końcu tej przygody.",
+        "Adventure Together to kampania podzielona na sześć miniprzygód pierwszego poziomu dla pojedynczego gracza i jedną dłuższą przygodę dla wielu graczy. Każda mini przygoda trwa około 45 minut, a ostatnia przygoda zajmuje około 60-90 minut.",
+        "Miniprzygody można rozgrywać w dowolnej kolejności, ale ostateczną przygodę należy rozegrać jako ostatnią. Oto lista wszystkich przygód:",
+        {
+          "type": "list",
+          "items": [
+            "{@adventure Adventure 1 The Candy Mountain Caper|NRH-TCMC}",
+            "{@adventure Adventure 2 A Voice in the Wilderness|NRH-AVitW}",
+            "{@adventure Adventure 3 A Sticky Situation|NRH-ASS}",
+            "{@adventure Adventure 4 Circus of Illusions|NRH-CoI}",
+            "{@adventure Adventure 5 The Lost Tomb|NRH-TLT}",
+            "{@adventure Adventure 6 A Web of Lies|NRH-AWoL}",
+            "{@adventure Adventure 7 Adventure Together|NRH-AT}"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Podsumowanie historii",
+          "page": 2,
+          "entries": [
+            "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+            "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony. Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+            "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+          ],
+          "id": "001"
+        },
+        {
+          "type": "entries",
+          "name": "Gra solo",
+          "page": 2,
+          "entries": [
+            "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+            "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+            {
+              "type": "entries",
+              "name": "TPK: Całkowite zniszczenie drużyny",
+              "page": 2,
+              "entries": [
+                "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+                "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+              ],
+              "id": "003"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "entries",
+          "name": "Zarys przygody",
+          "page": 3,
+          "entries": [
+            "Oto krótki opis przygody:",
+            {
+              "type": "list",
+              "items": [
+                "Do Kleryka Yellow podchodzi tajemniczy Pan Honeycutt podczas medytacji w Klasztorze Inspiracji.",
+                "Pan Honeycutt informuje Yellow, że szuka Szafranowego Klejnotu. Wierzy, że klejnot ukryty jest w pobliskiej świątyni.",
+                "Żółty udaje się do świątyni i znajduje tunel prowadzący do legowiska pająka.",
+                "Po rozprawieniu się z pająkiem Żółty otwiera skrzynię z zagadkami zawierającą Szafranowy Klejnot."
+              ]
+            }
+          ],
+          "id": "004"
+        },
+        {
+          "type": "entries",
+          "name": "Rozpoczęcie gry",
+          "page": 3,
+          "entries": [
+            "Daj kartę postaci (patrz „Żółty Kleryk” poniżej) swojemu graczowi i pozwól mu zapoznać się z Żółtym.",
+            "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć.",
+            "Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+          ],
+          "id": "005"
+        },
+        {
+          "type": "section",
+          "name": "Przygoda 6: Niepewna sytuacja",
+          "page": 3,
+          "entries": [
+            "Kiedy gra się rozpoczyna, Kleryk Żółty znajduje się w ogrodach medytacyjnych w Klasztorze Inspiracji. Przeczytaj lub sparafrazuj następujący tekst:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                "Duchowni w Klasztorze Inspiracji szukają odpowiedzi na problemy z kolorami, które mają miejsce w Harmonii. Wielu spędza dni na czytaniu grubych tomów wypełnionych starożytną wiedzą, podczas gdy inni współpracują ze społecznością, aby wzbudzić poczucie wspólnoty.",
+                "Dzisiaj siedzisz w pobliżu fontanny i zastanawiasz się nad tajemnicą utraty kolorów, kiedy widzisz pszczołę brodzącą w wodzie, która ma się utopić. Pamiętasz powiedzenie starszego z klasztoru, że należy oszczędzać wszystkie żyjące istoty, niezależnie od tego, jak małe są lub jeśli budzą strach, ponieważ taki jest porządek."
+              ],
+              "id": "007"
+            },
+            "Jeśli Żółty uratuje pszczołę, zyskają nieoczekiwanego sojusznika w dalszej części przygody.",
+            "Po spotkaniu z pszczołą przeczytaj co następuje:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                "Kiedy wracasz do zastanawiania się, co możesz zrobić, aby rozwiązać zagadkę utraty kolorów, podchodzi do ciebie niski mężczyzna w okularach w rogowych oprawkach i uśmiecha się."
+              ],
+              "id": "008"
+            },
+            "Mężczyzna przedstawia się jako {@creature Mr. Honeycutt|NRH-TCMC}, Magister Towarzystwa Lorekeeperów. Pyta Żółtego, czy mają trochę czasu, aby porozmawiać o niezwykle ważnej sprawie, stwierdzając, że stawką są wszystkie kolory Harmonii. Jeśli Żółty się zgadza, przeczytaj lub sparafrazuj poniższe zdanie:",
+            {
+              "type": "insetReadaloud",
+              "page": 3,
+              "entries": [
+                "Należę do tajnego zakonu, który przysiągł chronić Harmonię. Te przerwy w wyświetlaniu kolorów są spowodowane przez nikczemną siłę, która jest nam wciąż nieznana, ale potrzebujemy Twojej pomocy, aby odzyskać przedmiot, który pomoże nam wykorzenić zło. Przedmiot nazywa się Szafranowym Klejnotem. Zaginął już jakiś czas temu, ale dzięki moim ostatnim badaniom jestem prawie pewien, gdzie się znajduje. Czy możesz pomóc nam go odzyskać?"
+              ],
+              "id": "009"
+            },
+            "Pan Honeycutt daje Yellow starą mapę, która podkreśla lokalizację w głębi lasu Darkwood. Na mapie znajduje się tajemnicza notatka: „Podążaj za słodyczą”.",
+            "Pan Honeycutt życzy Yellow bezpiecznej podróży i mówi Yellow, że będzie na nich czekał w lokalnej tawernie Jenny Wren. Jeśli Żółty poprosi o pieniądze, Pan Honeycutt wręczy mu sakiewkę zawierającą 25 sz.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Podróż przez las Darkwood",
+                  "page": 4,
+                  "entries": [
+                    "Podczas podróży przez Mroczną Puszczę Żółty ma szansę dostrzec lecznicze zioła, które zebrane i zaparzone w herbacie mogą działać jak lekarstwo. {@item potion of healing}. Aby znaleźć wystarczającą ilość ziół na pojedynczą dawkę herbaty, Żółty musi najpierw odnieść sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdź, czy znajdziesz zioła, a następnie odnieś sukces {@dc 12} Inteligencja ({@skill Medicine}) sprawdź, czy zaparzyć z nich lek. Ziół wystarczy na jedną miksturę.",
+                    "Gdy Żółty zbliża się do świątyni, zaczyna wyczuwać w powietrzu słodycz - niepowtarzalny zapach miodu."
+                  ],
+                  "id": "00b"
+                }
+              ],
+              "id": "00a"
+            }
+          ],
+          "id": "006"
+        },
+        {
+          "type": "section",
+          "name": "Świątynia Miel",
+          "page": 4,
+          "entries": [
+            "Świątynia Miel była niegdyś sanktuarium poświęconym kultowi pszczół. Kiedy Żółty dotrze do świątyni, przeczytaj lub sparafrazuj następujące słowa:",
+            {
+              "type": "insetReadaloud",
+              "page": 4,
+              "entries": [
+                "Starożytna świątynia leży w ruinie. Sklepione sufity, obecnie zawalone, miały niegdyś kształt plastrów miodu. Posągi w kształcie pszczół leżą połamane wokół pokruszonego zarysu fundamentów świątyni.",
+                "Na dziedzińcu pierścień pokrytych mchem kamieni otacza studnię. Studnia wyposażona jest w podnośnik i łyżkę. Ze studni unosi się słodki zapach, gdy pszczoły gromadzą się wokół jej krawędzi."
+              ],
+              "id": "00d"
+            },
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "adventure/NRH-AWoL/012.webp"
+              },
+              "width": 560,
+              "height": 846,
+              "mapRegions": [
+                {
+                  "area": "011",
+                  "points": [
+                    [
+                      271,
+                      361
+                    ],
+                    [
+                      271,
+                      597
+                    ],
+                    [
+                      257,
+                      627
+                    ],
+                    [
+                      259,
+                      653
+                    ],
+                    [
+                      283,
+                      680
+                    ],
+                    [
+                      316,
+                      683
+                    ],
+                    [
+                      347,
+                      664
+                    ],
+                    [
+                      356,
+                      630
+                    ],
+                    [
+                      341,
+                      601
+                    ],
+                    [
+                      321,
+                      590
+                    ],
+                    [
+                      310,
+                      581
+                    ],
+                    [
+                      310,
+                      361
+                    ]
+                  ]
+                },
+                {
+                  "area": "012",
+                  "points": [
+                    [
+                      273,
+                      356
+                    ],
+                    [
+                      239,
+                      353
+                    ],
+                    [
+                      194,
+                      329
+                    ],
+                    [
+                      166,
+                      297
+                    ],
+                    [
+                      146,
+                      244
+                    ],
+                    [
+                      127,
+                      196
+                    ],
+                    [
+                      147,
+                      156
+                    ],
+                    [
+                      176,
+                      129
+                    ],
+                    [
+                      191,
+                      117
+                    ],
+                    [
+                      214,
+                      96
+                    ],
+                    [
+                      264,
+                      84
+                    ],
+                    [
+                      304,
+                      86
+                    ],
+                    [
+                      347,
+                      90
+                    ],
+                    [
+                      371,
+                      116
+                    ],
+                    [
+                      390,
+                      134
+                    ],
+                    [
+                      420,
+                      170
+                    ],
+                    [
+                      426,
+                      217
+                    ],
+                    [
+                      416,
+                      277
+                    ],
+                    [
+                      399,
+                      319
+                    ],
+                    [
+                      366,
+                      343
+                    ],
+                    [
+                      316,
+                      351
+                    ]
+                  ]
+                }
+              ],
+              "imageType": "mapa",
+              "grid": {
+                "type": "square",
+                "size": 70,
+                "scale": 2
+              },
+              "hrefThumbnail": {
+                "type": "internal",
+                "path": "adventure/NRH-AWoL/thumbnail/012.webp"
+              },
+              "id": "018",
+              "credit": "Red Central"
+            },
+            "Przeszukanie terenu świątyni nie odkrywa żadnych ukrytych drzwi ani pomieszczeń, chociaż jest wiele uli (patrz „Zdobywanie miodu” poniżej).",
+            {
+              "type": "entries",
+              "name": "Studnia",
+              "page": 4,
+              "entries": [
+                "Studnia ma głębokość 15 metrów i kończy się zbiornikiem wody słodzonej miodem. Jeśli Żółty wyśle ​​wiadro do studni i pobierze próbkę, stwierdzi, że woda jest chłodna, słodka i przyjemna do picia.",
+                "Z sukcesem {@dc 15} Inteligencja ({@skill Arcana}) sprawdź, Żółty może rozpoznać, że działa magia przywoływania.",
+                {
+                  "type": "entries",
+                  "name": "Wejście do Studni",
+                  "page": 4,
+                  "entries": [
+                    "Jeśli Żółty wejdzie do studni, spotka się z zastępem niezadowolonych pszczół (użyj {@creature swarm of insects} stat block), chyba że Żółty pomógł pszczołom w ogrodzie, w takim przypadku pszczoły pozwalają im przejść. Jeśli Żółty nie uratował pszczoły na początku przygody, rój nęka Żółtego, który musi z nim walczyć lub odwrócić jego uwagę. Pozwól tutaj na kreatywne rozwiązywanie problemów, na przykład budowanie gigantycznego kwiatu lub wędzenie pszczół do sennej uległości.",
+                    "Po uporaniu się z pszczołami Żółty może zejść do studni lub skorzystać z liny i wiadra i opaść na dół. Żółty musi odnieść sukces na a {@dc 12} Wytrzymałość ({@skill Athletics}) sprawdź lub wpadnij do wody słodzonej miodem. Jeśli Żółty zostanie pokryty wodą z miodem, pszczoły podążają za Żółtym przez resztę przygody, co pogarsza ich Zręczność ({@skill Stealth}) sprawdza.",
+                    "Tuż nad linią wody Żółty widzi otwór w ścianie studni - mały korytarz o szerokości 5 stóp (patrz obszar T1 na mapie poniżej).",
+                    {
+                      "type": "inset",
+                      "name": "Notatka Mistrza Lochów: Kontrola bezpieczeństwa",
+                      "page": 4,
+                      "entries": [
+                        "Obszar T2 to gniazdo gigantycznego pająka. Zanim przejdziesz do następnej sceny, upewnij się, że Twój gracz nie cierpi na arachnofobię (głęboki strach przed pająkami). Jeśli twój gracz nie czuje się komfortowo w towarzystwie pająków, obszar T2 jest zamiast tego strzeżony przez szkielet, a obszar T1 jest wypełniony kośćmi zamiast pajęczyn."
+                      ],
+                      "id": "010"
+                    }
+                  ],
+                  "id": "00f"
+                }
+              ],
+              "id": "00e"
+            },
+            {
+              "type": "entries",
+              "name": "T1. Wąski tunel",
+              "page": 4,
+              "entries": [
+                "Jeśli Żółty wejdzie do wąskiego tunelu prowadzącego ze studni do obszaru T2, zobaczy, że tunel jest wypełniony coraz grubszą siecią pajęczyn przecinającą ten obszar. Aby dotrzeć do obszaru T2, Żółty musi ostrożnie przedzierać się przez sieci.",
+                "Na każde 3 metry przejścia Żółtego przez sieci, poproś go, aby wykonał {@dc 13} Kontrola zręczności. W przypadku awarii dotykają sieci, która wysyła wibracje i alerty {@creature Szikzith|NRH-AWoL} (patrz obszar T2). {@creature Szikzith|NRH-AWoL} albo czeka w zasadzce, albo schodzi do tunelu, aby zbadać sprawę. Po sukcesie Żółty ma niespodziankę."
+              ],
+              "id": "011"
+            },
+            {
+              "type": "entries",
+              "name": "T2. Pokój Ula",
+              "page": 5,
+              "entries": [
+                "Kiedy Żółty wejdzie do tego pokoju, przeczytaj lub sparafrazuj następujące słowa:",
+                {
+                  "type": "insetReadaloud",
+                  "page": 5,
+                  "entries": [
+                    "Pokój ten ma kształt gigantycznego ula i jest pokryty plastrami miodu i pajęczynami. Ściany są wyrzeźbione w sześciokątne wzory, które zakrzywiają się w górę, aż do kopułowego sufitu znajdującego się 40 stóp nad głową. Ze ścian zwisają duże kawałki ula, a z plastrów kapie miód.",
+                    "Na podłodze, pod gęstą matą pajęczyn, znajduje się skrzynia na wysokim na 4 metry kamiennym cokole."
+                  ],
+                  "id": "013"
+                },
+                "To jest legowisko {@creature Szikzith|NRH-AWoL}, przebudzony gigantyczny pająk-wilk. {@creature Szikzith|NRH-AWoL} jest chciwy i podstępny i upodobał sobie miód. Chce tyle miodu, ile może dostać, ale zjadła już tyle pysznego miodu, że nie ma go już w pomieszczeniu z ulem i stała się zbyt gruba, aby uciec przez mały tunel.",
+                "{@creature Szikzith|NRH-AWoL} strzeże jej legowiska, a jeśli dowie się, że Żółty chce czegoś - na przykład skrzyni - żąda, aby przynieśli jej miód. {@creature Szikzith|NRH-AWoL} nie jest zbyt mądra, więc można ją oszukać sukcesem {@dc 13} Inteligencja ({@skill Deception}) sprawdzać. {@creature Szikzith|NRH-AWoL} nie waha się również wycofać się z umowy i zażądać więcej miodu, jeśli czuje, że może zastraszyć Żółtą, aby dostała więcej. Nagradzaj tutaj swojego gracza za dobre odgrywanie ról.",
+                {
+                  "type": "entries",
+                  "entries": [
+                    {
+                      "type": "entries",
+                      "name": "Zdobywanie miodu",
+                      "page": 5,
+                      "entries": [
+                        "Miód można znaleźć w pobliżu ruin świątyni, jednak jego zdobycie może być trudne. Żółty musi odnieść sukces na a {@dc 15} Inteligencja ({@skill Nature}) sprawdź, czy możesz zdobyć trochę miodu, unikając ataku pszczół (użyj {@creature swarm of insects} blok statystyk). Jeśli Twój gracz wymyśli sprytny plan zdobycia miodu, pozwól mu rzucić z przewagą lub automatycznie odniesie sukces. Dobre odgrywanie ról jest zawsze nagradzane!",
+                        "Zdobycie raz Klejnotu Szafranu {@creature Szikzith|NRH-AWoL} zostanie uporany, Żółty musi przeciąć sieci, aby odkryć zamkniętą skrzynię, pięknie ozdobioną motywami pszczół i kwiatów. Na wieczku skrzyni wypisana jest zagadka: „Jestem grzebieniem, ale nie do włosów”.",
+                        "Skrzynia ma pięć obracających się dysków na boku. Każdy dysk jest wyryty literami alfabetu i można go obracać niezależnie od pozostałych, tworząc różne kombinacje ułożenia liter. Aby otworzyć skrzynię, dyski muszą być ustawione tak, aby najwyższe litery tworzyły „MIÓD”.",
+                        "Jeśli Twój gracz nie lubi rozwiązywać zagadek lub jest sfrustrowany, pozwól Żółtemu otworzyć skrzynię sukcesem {@dc 10} Kontrola inteligencji. Wewnątrz skrzyni znajdziesz Szafranowy Kamień."
+                      ],
+                      "id": "015"
+                    }
+                  ],
+                  "id": "014"
+                }
+              ],
+              "id": "012"
+            },
+            {
+              "type": "entries",
+              "name": "Ukończenie Misji",
+              "page": 5,
+              "entries": [
+                "Jeśli Żółty wróci do klasztoru, aby spotkać się z panem Honeycuttem i zgodnie z obietnicą dostarczy Szafranowy Klejnot, pan Honeycutt obficie podziękuje Żółtemu. Oferuje Żółtemu członkostwo w Lorekeeper Society i pyta, czy Żółty pomoże mu położyć kres tym, którzy „odważą się stępić wibrującą duszę Harmonii”. Pan Honeycutt mówi, że jest już blisko odkrycia sprawców przerw w dostawie kolorów i czuje, że będzie potrzebował pomocy bohaterów, aby je powstrzymać.",
+                "Pan Honeycutt wręcza Yellowowi także długie drewniane pudełko, dziękując mu za „dołożenie wszelkich starań w służbie miastu Harmonii”. Wewnątrz pudełka znajduje się a {@item mace of disruption}."
+              ],
+              "id": "016"
+            }
+          ],
+          "id": "00c"
+        },
+        {
+          "type": "section",
+          "name": "Magiczne przedmioty",
+          "page": 5,
+          "entries": [
+            "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+            {
+              "type": "list",
+              "items": [
+                "{@item Mace of Disruption}"
+              ]
+            }
+          ],
+          "id": "017"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-AWoL/sheet011.webp"
+          },
+          "width": 1275,
+          "height": 825
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-AWoL/sheet012.webp"
+          },
+          "width": 1275,
+          "height": 825
+        }
+      ],
+      "id": "000"
+    },
+    "0:001": {
+      "type": "entries",
+      "name": "Podsumowanie historii",
+      "page": 2,
+      "entries": [
+        "Zawsze zazdrosny o wesołe usposobienie i kolorową pyszność NERDS, obserwator Emo i jego wynajęty mięsień, pan Greystone, zadali cios ukochanemu miastu Harmonii NERDS. Po latach poszukiwań nikczemny duet znalazł świętą Studnię Pryzmatyczną, która nadaje Harmonii żywe i bajeczne kolory. Teraz, mając dostęp do Pryzmatycznej Studni, Emo i Pan Greystone zaczęli wysysać kolor z miasta Harmonii. Jeśli nie zostaną zatrzymani, miasto stopniowo stanie się szare, a wszystko w końcu stanie się czarno-białe.",
+        "Dla NERDSów kolory zaczynające migotać i odpływać z Harmonii, są niepokojącą tajemnicą. To, co wnosi kolory do Harmony, jest dla nich zagadką. Jedyne, co mogą zrobić, to mieć nadzieję, że moc powróci i ponownie przywróci intensywność kolorów Harmony. Ale jedna grupa wie, co się dzieje, a tą grupą jest Stowarzyszenie Lorekeeperów - tajne stowarzyszenie, które przysięgło chronić Harmony. Strażnicy Wiedzy wiedzą o mocy Pryzmatycznej Studni, ale nawet oni sami nie znają jej prawdziwej lokalizacji. Mają jednak sposób na odnalezienie studni za pomocą starożytnego artefaktu znanego jako Amulet Harmonii, ale aby go aktywować, muszą znaleźć sześć Klejnotów Mocy. Po aktywacji amulet prowadzi osobę, która go kontroluje, do sekretnej lokalizacji Pryzmatycznej Studni. Ale po aktywacji amulet ma również moc wyłączenia studni.",
+        "Klejnoty Mocy dawno temu zostały ukryte w lochach, lasach i wieżach. Nikt w Lorekeeper Society nie zna szczegółów na temat magicznych bestii i pułapek strzegących klejnotów, ale nasi bohaterscy NERDS są więcej niż gotowi na wyzwanie przywrócenia Harmonii!"
+      ],
+      "id": "001"
+    },
+    "0:002": {
+      "type": "entries",
+      "name": "Gra solo",
+      "page": 2,
+      "entries": [
+        "Ze względu na charakter przygód dla gracza solo (z wyjątkiem Adventure 7 Adventure Together), poziom mocy niektórych potworów może być trudny w porównaniu z poziomem postaci. Możesz zaproponować rozwiązanie polegające na odgrywaniu ról (takie jak zaprzyjaźnienie się z potworem lub oszukanie go) graczom, którzy chcą rzucić się do walki. Przy każdym spotkaniu w tej lub kolejnych przygodach możesz przedstawić możliwości niekonwencjonalnych rozwiązań i alternatyw walki.",
+        "Możesz także dostosować historię tak, aby miała bardziej życzliwy charakter, pozwalając na automatyczne sukcesy w rzutach, pozwalając potworom natychmiastowo stać się przyjaciółmi lub dając graczowi przewagę we wszystkich rzutach.",
+        {
+          "type": "entries",
+          "name": "TPK: Całkowite zniszczenie drużyny",
+          "page": 2,
+          "entries": [
+            "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+            "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+          ],
+          "id": "003"
+        }
+      ],
+      "id": "002"
+    },
+    "0:003": {
+      "type": "entries",
+      "name": "TPK: Całkowite zniszczenie drużyny",
+      "page": 2,
+      "entries": [
+        "W grze solo zawsze istnieje ryzyko, że postać zginie. W przypadku pojedynczego poszukiwacza przygód śmierć ta oznacza koniec gry; co nie jest optymalne na popołudnie pełne zabawy! Jednym ze sposobów uniknięcia śmierci jest umożliwienie poszukiwaczowi przygód łatwego leczenia. Jeśli nie są leczone, poproś postać o znalezienie dziwnego {@item potion of healing} leżąc w zakurzonej skrzyni lub poproś, aby podczas podróży odkryli specjalną roślinę leczniczą, która po zjedzeniu przywraca im pełną wytrzymałość.",
+        "W przypadku przedwczesnej śmierci możesz poprosić pomocnego NPC (takiego jak Mr. Honeycutt) ocalić sytuację i ożywić go, lub możesz pozwolić mu zrezygnować z rzutów obronnych na śmierć i obudzić się, gdy są ciągnięci w nieprzyjemne miejsce."
+      ],
+      "id": "003"
+    },
+    "0:004": {
+      "type": "entries",
+      "name": "Zarys przygody",
+      "page": 3,
+      "entries": [
+        "Oto krótki opis przygody:",
+        {
+          "type": "list",
+          "items": [
+            "Do Kleryka Yellow podchodzi tajemniczy Pan Honeycutt podczas medytacji w Klasztorze Inspiracji.",
+            "Pan Honeycutt informuje Yellow, że szuka Szafranowego Klejnotu. Wierzy, że klejnot ukryty jest w pobliskiej świątyni.",
+            "Żółty udaje się do świątyni i znajduje tunel prowadzący do legowiska pająka.",
+            "Po rozprawieniu się z pająkiem Żółty otwiera skrzynię z zagadkami zawierającą Szafranowy Klejnot."
+          ]
+        }
+      ],
+      "id": "004"
+    },
+    "0:005": {
+      "type": "entries",
+      "name": "Rozpoczęcie gry",
+      "page": 3,
+      "entries": [
+        "Daj kartę postaci (patrz „Żółty Kleryk” poniżej) swojemu graczowi i pozwól mu zapoznać się z Żółtym.",
+        "Wszystkie stworzenia lub NPC wyróżnione pogrubioną czcionką posiadają bloki statystyk, które są dołączane na koniec przygody wraz ze wszelkimi magicznymi przedmiotami, które postacie mogą zdobyć.",
+        "Kiedy oboje będziecie gotowi, możecie rozpocząć sesję."
+      ],
+      "id": "005"
+    },
+    "0:006": {
+      "type": "section",
+      "name": "Przygoda 6: Niepewna sytuacja",
+      "page": 3,
+      "entries": [
+        "Kiedy gra się rozpoczyna, Kleryk Żółty znajduje się w ogrodach medytacyjnych w Klasztorze Inspiracji. Przeczytaj lub sparafrazuj następujący tekst:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            "Duchowni w Klasztorze Inspiracji szukają odpowiedzi na problemy z kolorami, które mają miejsce w Harmonii. Wielu spędza dni na czytaniu grubych tomów wypełnionych starożytną wiedzą, podczas gdy inni współpracują ze społecznością, aby wzbudzić poczucie wspólnoty.",
+            "Dzisiaj siedzisz w pobliżu fontanny i zastanawiasz się nad tajemnicą utraty kolorów, kiedy widzisz pszczołę brodzącą w wodzie, która ma się utopić. Pamiętasz powiedzenie starszego z klasztoru, że należy oszczędzać wszystkie żyjące istoty, niezależnie od tego, jak małe są lub jeśli budzą strach, ponieważ taki jest porządek."
+          ],
+          "id": "007"
+        },
+        "Jeśli Żółty uratuje pszczołę, zyskają nieoczekiwanego sojusznika w dalszej części przygody.",
+        "Po spotkaniu z pszczołą przeczytaj co następuje:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            "Kiedy wracasz do zastanawiania się, co możesz zrobić, aby rozwiązać zagadkę utraty kolorów, podchodzi do ciebie niski mężczyzna w okularach w rogowych oprawkach i uśmiecha się."
+          ],
+          "id": "008"
+        },
+        "Mężczyzna przedstawia się jako {@creature Mr. Honeycutt|NRH-TCMC}, Magister Towarzystwa Lorekeeperów. Pyta Żółtego, czy mają trochę czasu, aby porozmawiać o niezwykle ważnej sprawie, stwierdzając, że stawką są wszystkie kolory Harmonii. Jeśli Żółty się zgadza, przeczytaj lub sparafrazuj poniższe zdanie:",
+        {
+          "type": "insetReadaloud",
+          "page": 3,
+          "entries": [
+            "Należę do tajnego zakonu, który przysiągł chronić Harmonię. Te przerwy w wyświetlaniu kolorów są spowodowane przez nikczemną siłę, która jest nam wciąż nieznana, ale potrzebujemy Twojej pomocy, aby odzyskać przedmiot, który pomoże nam wykorzenić zło. Przedmiot nazywa się Szafranowym Klejnotem. Zaginął już jakiś czas temu, ale dzięki moim ostatnim badaniom jestem prawie pewien, gdzie się znajduje. Czy możesz pomóc nam go odzyskać?"
+          ],
+          "id": "009"
+        },
+        "Pan Honeycutt daje Yellow starą mapę, która podkreśla lokalizację w głębi lasu Darkwood. Na mapie znajduje się tajemnicza notatka: „Podążaj za słodyczą”.",
+        "Pan Honeycutt życzy Yellow bezpiecznej podróży i mówi Yellow, że będzie na nich czekał w lokalnej tawernie Jenny Wren. Jeśli Żółty poprosi o pieniądze, Pan Honeycutt wręczy mu sakiewkę zawierającą 25 sz.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Podróż przez las Darkwood",
+              "page": 4,
+              "entries": [
+                "Podczas podróży przez Mroczną Puszczę Żółty ma szansę dostrzec lecznicze zioła, które zebrane i zaparzone w herbacie mogą działać jak lekarstwo. {@item potion of healing}. Aby znaleźć wystarczającą ilość ziół na pojedynczą dawkę herbaty, Żółty musi najpierw odnieść sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdź, czy znajdziesz zioła, a następnie odnieś sukces {@dc 12} Inteligencja ({@skill Medicine}) sprawdź, czy zaparzyć z nich lek. Ziół wystarczy na jedną miksturę.",
+                "Gdy Żółty zbliża się do świątyni, zaczyna wyczuwać w powietrzu słodycz - niepowtarzalny zapach miodu."
+              ],
+              "id": "00b"
+            }
+          ],
+          "id": "00a"
+        }
+      ],
+      "id": "006"
+    },
+    "0:00a": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Podróż przez las Darkwood",
+          "page": 4,
+          "entries": [
+            "Podczas podróży przez Mroczną Puszczę Żółty ma szansę dostrzec lecznicze zioła, które zebrane i zaparzone w herbacie mogą działać jak lekarstwo. {@item potion of healing}. Aby znaleźć wystarczającą ilość ziół na pojedynczą dawkę herbaty, Żółty musi najpierw odnieść sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdź, czy znajdziesz zioła, a następnie odnieś sukces {@dc 12} Inteligencja ({@skill Medicine}) sprawdź, czy zaparzyć z nich lek. Ziół wystarczy na jedną miksturę.",
+            "Gdy Żółty zbliża się do świątyni, zaczyna wyczuwać w powietrzu słodycz - niepowtarzalny zapach miodu."
+          ],
+          "id": "00b"
+        }
+      ],
+      "id": "00a"
+    },
+    "0:00b": {
+      "type": "entries",
+      "name": "Podróż przez las Darkwood",
+      "page": 4,
+      "entries": [
+        "Podczas podróży przez Mroczną Puszczę Żółty ma szansę dostrzec lecznicze zioła, które zebrane i zaparzone w herbacie mogą działać jak lekarstwo. {@item potion of healing}. Aby znaleźć wystarczającą ilość ziół na pojedynczą dawkę herbaty, Żółty musi najpierw odnieść sukces {@dc 12} Inteligencja ({@skill Nature}) sprawdź, czy znajdziesz zioła, a następnie odnieś sukces {@dc 12} Inteligencja ({@skill Medicine}) sprawdź, czy zaparzyć z nich lek. Ziół wystarczy na jedną miksturę.",
+        "Gdy Żółty zbliża się do świątyni, zaczyna wyczuwać w powietrzu słodycz - niepowtarzalny zapach miodu."
+      ],
+      "id": "00b"
+    },
+    "0:00c": {
+      "type": "section",
+      "name": "Świątynia Miel",
+      "page": 4,
+      "entries": [
+        "Świątynia Miel była niegdyś sanktuarium poświęconym kultowi pszczół. Kiedy Żółty dotrze do świątyni, przeczytaj lub sparafrazuj następujące słowa:",
+        {
+          "type": "insetReadaloud",
+          "page": 4,
+          "entries": [
+            "Starożytna świątynia leży w ruinie. Sklepione sufity, obecnie zawalone, miały niegdyś kształt plastrów miodu. Posągi w kształcie pszczół leżą połamane wokół pokruszonego zarysu fundamentów świątyni.",
+            "Na dziedzińcu pierścień pokrytych mchem kamieni otacza studnię. Studnia wyposażona jest w podnośnik i łyżkę. Ze studni unosi się słodki zapach, gdy pszczoły gromadzą się wokół jej krawędzi."
+          ],
+          "id": "00d"
+        },
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "adventure/NRH-AWoL/012.webp"
+          },
+          "width": 560,
+          "height": 846,
+          "mapRegions": [
+            {
+              "area": "011",
+              "points": [
+                [
+                  271,
+                  361
+                ],
+                [
+                  271,
+                  597
+                ],
+                [
+                  257,
+                  627
+                ],
+                [
+                  259,
+                  653
+                ],
+                [
+                  283,
+                  680
+                ],
+                [
+                  316,
+                  683
+                ],
+                [
+                  347,
+                  664
+                ],
+                [
+                  356,
+                  630
+                ],
+                [
+                  341,
+                  601
+                ],
+                [
+                  321,
+                  590
+                ],
+                [
+                  310,
+                  581
+                ],
+                [
+                  310,
+                  361
+                ]
+              ]
+            },
+            {
+              "area": "012",
+              "points": [
+                [
+                  273,
+                  356
+                ],
+                [
+                  239,
+                  353
+                ],
+                [
+                  194,
+                  329
+                ],
+                [
+                  166,
+                  297
+                ],
+                [
+                  146,
+                  244
+                ],
+                [
+                  127,
+                  196
+                ],
+                [
+                  147,
+                  156
+                ],
+                [
+                  176,
+                  129
+                ],
+                [
+                  191,
+                  117
+                ],
+                [
+                  214,
+                  96
+                ],
+                [
+                  264,
+                  84
+                ],
+                [
+                  304,
+                  86
+                ],
+                [
+                  347,
+                  90
+                ],
+                [
+                  371,
+                  116
+                ],
+                [
+                  390,
+                  134
+                ],
+                [
+                  420,
+                  170
+                ],
+                [
+                  426,
+                  217
+                ],
+                [
+                  416,
+                  277
+                ],
+                [
+                  399,
+                  319
+                ],
+                [
+                  366,
+                  343
+                ],
+                [
+                  316,
+                  351
+                ]
+              ]
+            }
+          ],
+          "imageType": "mapa",
+          "grid": {
+            "type": "square",
+            "size": 70,
+            "scale": 2
+          },
+          "hrefThumbnail": {
+            "type": "internal",
+            "path": "adventure/NRH-AWoL/thumbnail/012.webp"
+          },
+          "id": "018",
+          "credit": "Red Central"
+        },
+        "Przeszukanie terenu świątyni nie odkrywa żadnych ukrytych drzwi ani pomieszczeń, chociaż jest wiele uli (patrz „Zdobywanie miodu” poniżej).",
+        {
+          "type": "entries",
+          "name": "Studnia",
+          "page": 4,
+          "entries": [
+            "Studnia ma głębokość 15 metrów i kończy się zbiornikiem wody słodzonej miodem. Jeśli Żółty wyśle ​​wiadro do studni i pobierze próbkę, stwierdzi, że woda jest chłodna, słodka i przyjemna do picia.",
+            "Z sukcesem {@dc 15} Inteligencja ({@skill Arcana}) sprawdź, Żółty może rozpoznać, że działa magia przywoływania.",
+            {
+              "type": "entries",
+              "name": "Wejście do Studni",
+              "page": 4,
+              "entries": [
+                "Jeśli Żółty wejdzie do studni, spotka się z zastępem niezadowolonych pszczół (użyj {@creature swarm of insects} stat block), chyba że Żółty pomógł pszczołom w ogrodzie, w takim przypadku pszczoły pozwalają im przejść. Jeśli Żółty nie uratował pszczoły na początku przygody, rój nęka Żółtego, który musi z nim walczyć lub odwrócić jego uwagę. Pozwól tutaj na kreatywne rozwiązywanie problemów, na przykład budowanie gigantycznego kwiatu lub wędzenie pszczół do sennej uległości.",
+                "Po uporaniu się z pszczołami Żółty może zejść do studni lub skorzystać z liny i wiadra i opaść na dół. Żółty musi odnieść sukces na a {@dc 12} Wytrzymałość ({@skill Athletics}) sprawdź lub wpadnij do wody słodzonej miodem. Jeśli Żółty zostanie pokryty wodą z miodem, pszczoły podążają za Żółtym przez resztę przygody, co pogarsza ich Zręczność ({@skill Stealth}) sprawdza.",
+                "Tuż nad linią wody Żółty widzi otwór w ścianie studni - mały korytarz o szerokości 5 stóp (patrz obszar T1 na mapie poniżej).",
+                {
+                  "type": "inset",
+                  "name": "Notatka Mistrza Lochów: Kontrola bezpieczeństwa",
+                  "page": 4,
+                  "entries": [
+                    "Obszar T2 to gniazdo gigantycznego pająka. Zanim przejdziesz do następnej sceny, upewnij się, że Twój gracz nie cierpi na arachnofobię (głęboki strach przed pająkami). Jeśli twój gracz nie czuje się komfortowo w towarzystwie pająków, obszar T2 jest zamiast tego strzeżony przez szkielet, a obszar T1 jest wypełniony kośćmi zamiast pajęczyn."
+                  ],
+                  "id": "010"
+                }
+              ],
+              "id": "00f"
+            }
+          ],
+          "id": "00e"
+        },
+        {
+          "type": "entries",
+          "name": "T1. Wąski tunel",
+          "page": 4,
+          "entries": [
+            "Jeśli Żółty wejdzie do wąskiego tunelu prowadzącego ze studni do obszaru T2, zobaczy, że tunel jest wypełniony coraz grubszą siecią pajęczyn przecinającą ten obszar. Aby dotrzeć do obszaru T2, Żółty musi ostrożnie przedzierać się przez sieci.",
+            "Na każde 3 metry przejścia Żółtego przez sieci, poproś go, aby wykonał {@dc 13} Kontrola zręczności. W przypadku awarii dotykają sieci, która wysyła wibracje i alerty {@creature Szikzith|NRH-AWoL} (patrz obszar T2). {@creature Szikzith|NRH-AWoL} albo czeka w zasadzce, albo schodzi do tunelu, aby zbadać sprawę. Po sukcesie Żółty ma niespodziankę."
+          ],
+          "id": "011"
+        },
+        {
+          "type": "entries",
+          "name": "T2. Pokój Ula",
+          "page": 5,
+          "entries": [
+            "Kiedy Żółty wejdzie do tego pokoju, przeczytaj lub sparafrazuj następujące słowa:",
+            {
+              "type": "insetReadaloud",
+              "page": 5,
+              "entries": [
+                "Pokój ten ma kształt gigantycznego ula i jest pokryty plastrami miodu i pajęczynami. Ściany są wyrzeźbione w sześciokątne wzory, które zakrzywiają się w górę, aż do kopułowego sufitu znajdującego się 40 stóp nad głową. Ze ścian zwisają duże kawałki ula, a z plastrów kapie miód.",
+                "Na podłodze, pod gęstą matą pajęczyn, znajduje się skrzynia na wysokim na 4 metry kamiennym cokole."
+              ],
+              "id": "013"
+            },
+            "To jest legowisko {@creature Szikzith|NRH-AWoL}, przebudzony gigantyczny pająk-wilk. {@creature Szikzith|NRH-AWoL} jest chciwy i podstępny i upodobał sobie miód. Chce tyle miodu, ile może dostać, ale zjadła już tyle pysznego miodu, że nie ma go już w pomieszczeniu z ulem i stała się zbyt gruba, aby uciec przez mały tunel.",
+            "{@creature Szikzith|NRH-AWoL} strzeże jej legowiska, a jeśli dowie się, że Żółty chce czegoś - na przykład skrzyni - żąda, aby przynieśli jej miód. {@creature Szikzith|NRH-AWoL} nie jest zbyt mądra, więc można ją oszukać sukcesem {@dc 13} Inteligencja ({@skill Deception}) sprawdzać. {@creature Szikzith|NRH-AWoL} nie waha się również wycofać się z umowy i zażądać więcej miodu, jeśli czuje, że może zastraszyć Żółtą, aby dostała więcej. Nagradzaj tutaj swojego gracza za dobre odgrywanie ról.",
+            {
+              "type": "entries",
+              "entries": [
+                {
+                  "type": "entries",
+                  "name": "Zdobywanie miodu",
+                  "page": 5,
+                  "entries": [
+                    "Miód można znaleźć w pobliżu ruin świątyni, jednak jego zdobycie może być trudne. Żółty musi odnieść sukces na a {@dc 15} Inteligencja ({@skill Nature}) sprawdź, czy możesz zdobyć trochę miodu, unikając ataku pszczół (użyj {@creature swarm of insects} blok statystyk). Jeśli Twój gracz wymyśli sprytny plan zdobycia miodu, pozwól mu rzucić z przewagą lub automatycznie odniesie sukces. Dobre odgrywanie ról jest zawsze nagradzane!",
+                    "Zdobycie raz Klejnotu Szafranu {@creature Szikzith|NRH-AWoL} zostanie uporany, Żółty musi przeciąć sieci, aby odkryć zamkniętą skrzynię, pięknie ozdobioną motywami pszczół i kwiatów. Na wieczku skrzyni wypisana jest zagadka: „Jestem grzebieniem, ale nie do włosów”.",
+                    "Skrzynia ma pięć obracających się dysków na boku. Każdy dysk jest wyryty literami alfabetu i można go obracać niezależnie od pozostałych, tworząc różne kombinacje ułożenia liter. Aby otworzyć skrzynię, dyski muszą być ustawione tak, aby najwyższe litery tworzyły „MIÓD”.",
+                    "Jeśli Twój gracz nie lubi rozwiązywać zagadek lub jest sfrustrowany, pozwól Żółtemu otworzyć skrzynię sukcesem {@dc 10} Kontrola inteligencji. Wewnątrz skrzyni znajdziesz Szafranowy Kamień."
+                  ],
+                  "id": "015"
+                }
+              ],
+              "id": "014"
+            }
+          ],
+          "id": "012"
+        },
+        {
+          "type": "entries",
+          "name": "Ukończenie Misji",
+          "page": 5,
+          "entries": [
+            "Jeśli Żółty wróci do klasztoru, aby spotkać się z panem Honeycuttem i zgodnie z obietnicą dostarczy Szafranowy Klejnot, pan Honeycutt obficie podziękuje Żółtemu. Oferuje Żółtemu członkostwo w Lorekeeper Society i pyta, czy Żółty pomoże mu położyć kres tym, którzy „odważą się stępić wibrującą duszę Harmonii”. Pan Honeycutt mówi, że jest już blisko odkrycia sprawców przerw w dostawie kolorów i czuje, że będzie potrzebował pomocy bohaterów, aby je powstrzymać.",
+            "Pan Honeycutt wręcza Yellowowi także długie drewniane pudełko, dziękując mu za „dołożenie wszelkich starań w służbie miastu Harmonii”. Wewnątrz pudełka znajduje się a {@item mace of disruption}."
+          ],
+          "id": "016"
+        }
+      ],
+      "id": "00c"
+    },
+    "0:00e": {
+      "type": "entries",
+      "name": "Studnia",
+      "page": 4,
+      "entries": [
+        "Studnia ma głębokość 15 metrów i kończy się zbiornikiem wody słodzonej miodem. Jeśli Żółty wyśle ​​wiadro do studni i pobierze próbkę, stwierdzi, że woda jest chłodna, słodka i przyjemna do picia.",
+        "Z sukcesem {@dc 15} Inteligencja ({@skill Arcana}) sprawdź, Żółty może rozpoznać, że działa magia przywoływania.",
+        {
+          "type": "entries",
+          "name": "Wejście do Studni",
+          "page": 4,
+          "entries": [
+            "Jeśli Żółty wejdzie do studni, spotka się z zastępem niezadowolonych pszczół (użyj {@creature swarm of insects} stat block), chyba że Żółty pomógł pszczołom w ogrodzie, w takim przypadku pszczoły pozwalają im przejść. Jeśli Żółty nie uratował pszczoły na początku przygody, rój nęka Żółtego, który musi z nim walczyć lub odwrócić jego uwagę. Pozwól tutaj na kreatywne rozwiązywanie problemów, na przykład budowanie gigantycznego kwiatu lub wędzenie pszczół do sennej uległości.",
+            "Po uporaniu się z pszczołami Żółty może zejść do studni lub skorzystać z liny i wiadra i opaść na dół. Żółty musi odnieść sukces na a {@dc 12} Wytrzymałość ({@skill Athletics}) sprawdź lub wpadnij do wody słodzonej miodem. Jeśli Żółty zostanie pokryty wodą z miodem, pszczoły podążają za Żółtym przez resztę przygody, co pogarsza ich Zręczność ({@skill Stealth}) sprawdza.",
+            "Tuż nad linią wody Żółty widzi otwór w ścianie studni - mały korytarz o szerokości 5 stóp (patrz obszar T1 na mapie poniżej).",
+            {
+              "type": "inset",
+              "name": "Notatka Mistrza Lochów: Kontrola bezpieczeństwa",
+              "page": 4,
+              "entries": [
+                "Obszar T2 to gniazdo gigantycznego pająka. Zanim przejdziesz do następnej sceny, upewnij się, że Twój gracz nie cierpi na arachnofobię (głęboki strach przed pająkami). Jeśli twój gracz nie czuje się komfortowo w towarzystwie pająków, obszar T2 jest zamiast tego strzeżony przez szkielet, a obszar T1 jest wypełniony kośćmi zamiast pajęczyn."
+              ],
+              "id": "010"
+            }
+          ],
+          "id": "00f"
+        }
+      ],
+      "id": "00e"
+    },
+    "0:00f": {
+      "type": "entries",
+      "name": "Wejście do Studni",
+      "page": 4,
+      "entries": [
+        "Jeśli Żółty wejdzie do studni, spotka się z zastępem niezadowolonych pszczół (użyj {@creature swarm of insects} stat block), chyba że Żółty pomógł pszczołom w ogrodzie, w takim przypadku pszczoły pozwalają im przejść. Jeśli Żółty nie uratował pszczoły na początku przygody, rój nęka Żółtego, który musi z nim walczyć lub odwrócić jego uwagę. Pozwól tutaj na kreatywne rozwiązywanie problemów, na przykład budowanie gigantycznego kwiatu lub wędzenie pszczół do sennej uległości.",
+        "Po uporaniu się z pszczołami Żółty może zejść do studni lub skorzystać z liny i wiadra i opaść na dół. Żółty musi odnieść sukces na a {@dc 12} Wytrzymałość ({@skill Athletics}) sprawdź lub wpadnij do wody słodzonej miodem. Jeśli Żółty zostanie pokryty wodą z miodem, pszczoły podążają za Żółtym przez resztę przygody, co pogarsza ich Zręczność ({@skill Stealth}) sprawdza.",
+        "Tuż nad linią wody Żółty widzi otwór w ścianie studni - mały korytarz o szerokości 5 stóp (patrz obszar T1 na mapie poniżej).",
+        {
+          "type": "inset",
+          "name": "Notatka Mistrza Lochów: Kontrola bezpieczeństwa",
+          "page": 4,
+          "entries": [
+            "Obszar T2 to gniazdo gigantycznego pająka. Zanim przejdziesz do następnej sceny, upewnij się, że Twój gracz nie cierpi na arachnofobię (głęboki strach przed pająkami). Jeśli twój gracz nie czuje się komfortowo w towarzystwie pająków, obszar T2 jest zamiast tego strzeżony przez szkielet, a obszar T1 jest wypełniony kośćmi zamiast pajęczyn."
+          ],
+          "id": "010"
+        }
+      ],
+      "id": "00f"
+    },
+    "0:011": {
+      "type": "entries",
+      "name": "T1. Wąski tunel",
+      "page": 4,
+      "entries": [
+        "Jeśli Żółty wejdzie do wąskiego tunelu prowadzącego ze studni do obszaru T2, zobaczy, że tunel jest wypełniony coraz grubszą siecią pajęczyn przecinającą ten obszar. Aby dotrzeć do obszaru T2, Żółty musi ostrożnie przedzierać się przez sieci.",
+        "Na każde 3 metry przejścia Żółtego przez sieci, poproś go, aby wykonał {@dc 13} Kontrola zręczności. W przypadku awarii dotykają sieci, która wysyła wibracje i alerty {@creature Szikzith|NRH-AWoL} (patrz obszar T2). {@creature Szikzith|NRH-AWoL} albo czeka w zasadzce, albo schodzi do tunelu, aby zbadać sprawę. Po sukcesie Żółty ma niespodziankę."
+      ],
+      "id": "011"
+    },
+    "0:012": {
+      "type": "entries",
+      "name": "T2. Pokój Ula",
+      "page": 5,
+      "entries": [
+        "Kiedy Żółty wejdzie do tego pokoju, przeczytaj lub sparafrazuj następujące słowa:",
+        {
+          "type": "insetReadaloud",
+          "page": 5,
+          "entries": [
+            "Pokój ten ma kształt gigantycznego ula i jest pokryty plastrami miodu i pajęczynami. Ściany są wyrzeźbione w sześciokątne wzory, które zakrzywiają się w górę, aż do kopułowego sufitu znajdującego się 40 stóp nad głową. Ze ścian zwisają duże kawałki ula, a z plastrów kapie miód.",
+            "Na podłodze, pod gęstą matą pajęczyn, znajduje się skrzynia na wysokim na 4 metry kamiennym cokole."
+          ],
+          "id": "013"
+        },
+        "To jest legowisko {@creature Szikzith|NRH-AWoL}, przebudzony gigantyczny pająk-wilk. {@creature Szikzith|NRH-AWoL} jest chciwy i podstępny i upodobał sobie miód. Chce tyle miodu, ile może dostać, ale zjadła już tyle pysznego miodu, że nie ma go już w pomieszczeniu z ulem i stała się zbyt gruba, aby uciec przez mały tunel.",
+        "{@creature Szikzith|NRH-AWoL} strzeże jej legowiska, a jeśli dowie się, że Żółty chce czegoś - na przykład skrzyni - żąda, aby przynieśli jej miód. {@creature Szikzith|NRH-AWoL} nie jest zbyt mądra, więc można ją oszukać sukcesem {@dc 13} Inteligencja ({@skill Deception}) sprawdzać. {@creature Szikzith|NRH-AWoL} nie waha się również wycofać się z umowy i zażądać więcej miodu, jeśli czuje, że może zastraszyć Żółtą, aby dostała więcej. Nagradzaj tutaj swojego gracza za dobre odgrywanie ról.",
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "entries",
+              "name": "Zdobywanie miodu",
+              "page": 5,
+              "entries": [
+                "Miód można znaleźć w pobliżu ruin świątyni, jednak jego zdobycie może być trudne. Żółty musi odnieść sukces na a {@dc 15} Inteligencja ({@skill Nature}) sprawdź, czy możesz zdobyć trochę miodu, unikając ataku pszczół (użyj {@creature swarm of insects} blok statystyk). Jeśli Twój gracz wymyśli sprytny plan zdobycia miodu, pozwól mu rzucić z przewagą lub automatycznie odniesie sukces. Dobre odgrywanie ról jest zawsze nagradzane!",
+                "Zdobycie raz Klejnotu Szafranu {@creature Szikzith|NRH-AWoL} zostanie uporany, Żółty musi przeciąć sieci, aby odkryć zamkniętą skrzynię, pięknie ozdobioną motywami pszczół i kwiatów. Na wieczku skrzyni wypisana jest zagadka: „Jestem grzebieniem, ale nie do włosów”.",
+                "Skrzynia ma pięć obracających się dysków na boku. Każdy dysk jest wyryty literami alfabetu i można go obracać niezależnie od pozostałych, tworząc różne kombinacje ułożenia liter. Aby otworzyć skrzynię, dyski muszą być ustawione tak, aby najwyższe litery tworzyły „MIÓD”.",
+                "Jeśli Twój gracz nie lubi rozwiązywać zagadek lub jest sfrustrowany, pozwól Żółtemu otworzyć skrzynię sukcesem {@dc 10} Kontrola inteligencji. Wewnątrz skrzyni znajdziesz Szafranowy Kamień."
+              ],
+              "id": "015"
+            }
+          ],
+          "id": "014"
+        }
+      ],
+      "id": "012"
+    },
+    "0:014": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Zdobywanie miodu",
+          "page": 5,
+          "entries": [
+            "Miód można znaleźć w pobliżu ruin świątyni, jednak jego zdobycie może być trudne. Żółty musi odnieść sukces na a {@dc 15} Inteligencja ({@skill Nature}) sprawdź, czy możesz zdobyć trochę miodu, unikając ataku pszczół (użyj {@creature swarm of insects} blok statystyk). Jeśli Twój gracz wymyśli sprytny plan zdobycia miodu, pozwól mu rzucić z przewagą lub automatycznie odniesie sukces. Dobre odgrywanie ról jest zawsze nagradzane!",
+            "Zdobycie raz Klejnotu Szafranu {@creature Szikzith|NRH-AWoL} zostanie uporany, Żółty musi przeciąć sieci, aby odkryć zamkniętą skrzynię, pięknie ozdobioną motywami pszczół i kwiatów. Na wieczku skrzyni wypisana jest zagadka: „Jestem grzebieniem, ale nie do włosów”.",
+            "Skrzynia ma pięć obracających się dysków na boku. Każdy dysk jest wyryty literami alfabetu i można go obracać niezależnie od pozostałych, tworząc różne kombinacje ułożenia liter. Aby otworzyć skrzynię, dyski muszą być ustawione tak, aby najwyższe litery tworzyły „MIÓD”.",
+            "Jeśli Twój gracz nie lubi rozwiązywać zagadek lub jest sfrustrowany, pozwól Żółtemu otworzyć skrzynię sukcesem {@dc 10} Kontrola inteligencji. Wewnątrz skrzyni znajdziesz Szafranowy Kamień."
+          ],
+          "id": "015"
+        }
+      ],
+      "id": "014"
+    },
+    "0:015": {
+      "type": "entries",
+      "name": "Zdobywanie miodu",
+      "page": 5,
+      "entries": [
+        "Miód można znaleźć w pobliżu ruin świątyni, jednak jego zdobycie może być trudne. Żółty musi odnieść sukces na a {@dc 15} Inteligencja ({@skill Nature}) sprawdź, czy możesz zdobyć trochę miodu, unikając ataku pszczół (użyj {@creature swarm of insects} blok statystyk). Jeśli Twój gracz wymyśli sprytny plan zdobycia miodu, pozwól mu rzucić z przewagą lub automatycznie odniesie sukces. Dobre odgrywanie ról jest zawsze nagradzane!",
+        "Zdobycie raz Klejnotu Szafranu {@creature Szikzith|NRH-AWoL} zostanie uporany, Żółty musi przeciąć sieci, aby odkryć zamkniętą skrzynię, pięknie ozdobioną motywami pszczół i kwiatów. Na wieczku skrzyni wypisana jest zagadka: „Jestem grzebieniem, ale nie do włosów”.",
+        "Skrzynia ma pięć obracających się dysków na boku. Każdy dysk jest wyryty literami alfabetu i można go obracać niezależnie od pozostałych, tworząc różne kombinacje ułożenia liter. Aby otworzyć skrzynię, dyski muszą być ustawione tak, aby najwyższe litery tworzyły „MIÓD”.",
+        "Jeśli Twój gracz nie lubi rozwiązywać zagadek lub jest sfrustrowany, pozwól Żółtemu otworzyć skrzynię sukcesem {@dc 10} Kontrola inteligencji. Wewnątrz skrzyni znajdziesz Szafranowy Kamień."
+      ],
+      "id": "015"
+    },
+    "0:016": {
+      "type": "entries",
+      "name": "Ukończenie Misji",
+      "page": 5,
+      "entries": [
+        "Jeśli Żółty wróci do klasztoru, aby spotkać się z panem Honeycuttem i zgodnie z obietnicą dostarczy Szafranowy Klejnot, pan Honeycutt obficie podziękuje Żółtemu. Oferuje Żółtemu członkostwo w Lorekeeper Society i pyta, czy Żółty pomoże mu położyć kres tym, którzy „odważą się stępić wibrującą duszę Harmonii”. Pan Honeycutt mówi, że jest już blisko odkrycia sprawców przerw w dostawie kolorów i czuje, że będzie potrzebował pomocy bohaterów, aby je powstrzymać.",
+        "Pan Honeycutt wręcza Yellowowi także długie drewniane pudełko, dziękując mu za „dołożenie wszelkich starań w służbie miastu Harmonii”. Wewnątrz pudełka znajduje się a {@item mace of disruption}."
+      ],
+      "id": "016"
+    },
+    "0:017": {
+      "type": "section",
+      "name": "Magiczne przedmioty",
+      "page": 5,
+      "entries": [
+        "W tej przygodzie pojawiają się następujące magiczne przedmioty.",
+        {
+          "type": "list",
+          "items": [
+            "{@item Mace of Disruption}"
+          ]
+        }
+      ],
+      "id": "017"
+    },
+    "1:019": {
+      "type": "section",
+      "name": "Autorzy",
+      "entries": [
+        {
+          "type": "entries",
+          "entries": [
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "columns": 2,
+              "items": [
+                {
+                  "type": "entries",
+                  "name": "Zespół Dungeons & Dragons:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Projekt przygody",
+                          "entries": [
+                            "Kat Kruger i Adam Lee"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowy rozwój",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt postaci",
+                          "entries": [
+                            "Krzysia Tulacha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Projekt graficzny",
+                          "entries": [
+                            "Emmę Ekblad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Redaktorzy",
+                          "entries": [
+                            "Ashley Michaela Lawson i Hannah Rose"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer twórców",
+                          "entries": [
+                            "Pelhama Greene’a"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Ilustracje",
+                          "entries": [
+                            "Czerwona Centrala"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Producent",
+                          "entries": [
+                            "Billa Benhama"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki",
+                          "entries": [
+                            "Shelly Mazzanoble"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencjonowania kategorii",
+                          "entries": [
+                            "Ann Earp"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "01b"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Ferrary:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Starszy zastępca menedżera marki, NERDS:",
+                          "entries": [
+                            "Łukasz Krause"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer treści, NERDS:",
+                          "entries": [
+                            "Annie Belgrad"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Menedżer marki, NERDS:",
+                          "entries": [
+                            "Joey'a Ratha"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                          "entries": [
+                            "Amy Pagels"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "01c"
+                },
+                {
+                  "type": "entries",
+                  "name": "Zespół Tripplexlix:",
+                  "entries": [
+                    {
+                      "type": "list",
+                      "style": "list-hang-notitle",
+                      "items": [
+                        {
+                          "type": "item",
+                          "name": "Partner Zarządzający",
+                          "entries": [
+                            "Jennifer Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Założyciel, Partner Zarządzający",
+                          "entries": [
+                            "Krzysztof Erb"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Wiceprezes, szef marketingu partnerskiego",
+                          "entries": [
+                            "Kennetha Lindenbauma"
+                          ]
+                        },
+                        {
+                          "type": "item",
+                          "name": "Dodatkowe wsparcie",
+                          "entries": [
+                            "VMLY&R Commerce, Taxi, Pep i Golin"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "01d"
+                }
+              ]
+            }
+          ],
+          "id": "01a"
+        }
+      ],
+      "id": "019"
+    },
+    "1:01a": {
+      "type": "entries",
+      "entries": [
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "columns": 2,
+          "items": [
+            {
+              "type": "entries",
+              "name": "Zespół Dungeons & Dragons:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Projekt przygody",
+                      "entries": [
+                        "Kat Kruger i Adam Lee"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowy rozwój",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt postaci",
+                      "entries": [
+                        "Krzysia Tulacha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Projekt graficzny",
+                      "entries": [
+                        "Emmę Ekblad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Redaktorzy",
+                      "entries": [
+                        "Ashley Michaela Lawson i Hannah Rose"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer twórców",
+                      "entries": [
+                        "Pelhama Greene’a"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Ilustracje",
+                      "entries": [
+                        "Czerwona Centrala"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Producent",
+                      "entries": [
+                        "Billa Benhama"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki",
+                      "entries": [
+                        "Shelly Mazzanoble"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencjonowania kategorii",
+                      "entries": [
+                        "Ann Earp"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "01b"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Ferrary:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Starszy zastępca menedżera marki, NERDS:",
+                      "entries": [
+                        "Łukasz Krause"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer treści, NERDS:",
+                      "entries": [
+                        "Annie Belgrad"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Menedżer marki, NERDS:",
+                      "entries": [
+                        "Joey'a Ratha"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dyrektor ds. licencji i partnerstwa, Ferrara Candy Co.",
+                      "entries": [
+                        "Amy Pagels"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "01c"
+            },
+            {
+              "type": "entries",
+              "name": "Zespół Tripplexlix:",
+              "entries": [
+                {
+                  "type": "list",
+                  "style": "list-hang-notitle",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Partner Zarządzający",
+                      "entries": [
+                        "Jennifer Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Założyciel, Partner Zarządzający",
+                      "entries": [
+                        "Krzysztof Erb"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Wiceprezes, szef marketingu partnerskiego",
+                      "entries": [
+                        "Kennetha Lindenbauma"
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Dodatkowe wsparcie",
+                      "entries": [
+                        "VMLY&R Commerce, Taxi, Pep i Golin"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "id": "01d"
+            }
+          ]
+        }
+      ],
+      "id": "01a"
+    }
+  }
+}

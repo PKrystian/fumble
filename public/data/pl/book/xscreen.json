@@ -1,1 +1,1155 @@
-{"data":{"0:000":{"name":"DM Screen","entries":[{"entries":[{"credit":"Joy Ang","width":1530,"height":340,"href":{"path":"book/XScreen/XScreen Front.webp"}}],"name":"Cover"},{"name":"Warunki","entries":[{"tag":"stan","name":"Blinded"},{"tag":"stan","name":"Charmed"},{"tag":"stan","name":"Deafened"},{"tag":"stan","name":"Exhaustion"},{"tag":"stan","name":"Frightened"},{"tag":"stan","name":"Grappled"},{"tag":"stan","name":"Incapacitated"},{"tag":"stan","name":"Invisible"},{"tag":"stan","name":"Paralyzed"},{"tag":"stan","name":"Petrified"},{"tag":"stan","name":"Poisoned"},{"tag":"stan","name":"Prone"},{"tag":"stan","name":"Restrained"},{"tag":"stan","name":"Stunned"},{"tag":"stan","name":"Unconscious"}]},{"name":"Tables","entries":[{"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Improvising Damage","colLabels":["Dice","Examples"],"rows":[["{@damage 1d10}","Burned by coals, hit by a falling bookcase, pricked by a poison needle"],["{@damage 2d10}","Struck by lightning, stumbling into a firepit"],["{@damage 4d10}","Hit by falling rubble in a collapsing tunnel, tumbling into a vat of acid"],["{@damage 10d10}","Crushed by compacting walls, hit by whirling steel blades, wading through lava"],["{@damage 18d10}","Submerged in lava, hit by a crashing flying fortress"],["{@damage 24d10}","Tumbling into a vortex of fire on the Elemental Plane of Fire, crushed in the jaws of a godlike creature or a moon-sized monster"]]},{"rows":[["1–4","5 ({@damage 1d10})","11 ({@damage 2d10})"],["5–10","11 ({@damage 2d10})","22 ({@damage 4d10})"],["11–16","22 ({@damage 4d10})","55 ({@damage 10d10})"],["17–20","55 ({@damage 10d10})","99 ({@damage 18d10})"]],"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Damage Severity and Level","colLabels":["Character Levels","Nuisance","Deadly"]},{"caption":"Akcje","data":{"genTables":{"tableChapterIgnore":true}},"colLabels":["Action","Summary"],"footnotes":["{@i See the Player's Handbook rules glossary for full action definitions}"],"rows":[["{@action Attack|XPHB}","Attack with a weapon or an {@variantrule Unarmed Strike|XPHB}."],["{@action Dash|XPHB}","For the rest of the turn, give yourself extra movement equal to your {@variantrule Speed|XPHB}."],["{@action Disengage|XPHB}","Your movement doesn't provoke {@action Opportunity Attack|XPHB|Opportunity Attacks} for the rest of the turn."],["{@action Dodge|XPHB}","Until the start of your next turn, attack rolls against you have {@variantrule Disadvantage|XPHB}, and you make Dexterity saving throws with {@variantrule Advantage|XPHB}. You lose this benefit if you have the {@condition Incapacitated|XPHB} condition or if your {@variantrule Speed|XPHB} is 0."],["{@action Help|XPHB}","Help another creature's ability check or attack roll, or administer first aid."],["{@action Hide|XPHB}","Make a Dexterity ({@skill Stealth|XPHB}) check."],["{@action Influence|XPHB}","Make a Charisma ({@skill Deception|XPHB}, {@skill Intimidation|XPHB}, {@skill Performance|XPHB}, or {@skill Persuasion|XPHB}) or Wisdom ({@skill Animal Handling|XPHB|}) check to alter a creature's attitude."],["{@action Magic|XPHB}","Cast a spell, use a magic item, or use a magical feature."],["{@action Ready|XPHB}","Prepare to take an action in response to a trigger you define."],["{@action Search|XPHB}","Make a Wisdom ({@skill Insight|XPHB}, {@skill Medicine|XPHB}, {@skill Perception|XPHB}, or {@skill Survival|XPHB}) check."],["{@action Study|XPHB}","Make an Intelligence ({@skill Arcana|XPHB}, {@skill History|XPHB}, {@skill Investigation|XPHB}, {@skill Nature|XPHB}, or {@skill Religion|XPHB}) check."],["{@action Utilize|XPHB}","Use a nonmagical object."]]},{"tag":"variantrule","name":"Long Jump"},{"tag":"variantrule","name":"High Jump"},{"tag":"status","name":"Concentration"},{"caption":"Umiejętności","data":{"genTables":{"tableChapterIgnore":true}},"colLabels":["Skill","Ability"],"rows":[["{@skill Acrobatics|XPHB}","Dexterity"],["{@skill Animal Handling|XPHB}","Mądrość"],["{@skill Arcana|XPHB}","Inteligencja"],["{@skill Athletics|XPHB}","Wytrzymałość"],["{@skill Deception|XPHB}","Charyzma"],["{@skill History|XPHB}","Inteligencja"],["{@skill Insight|XPHB}","Mądrość"],["{@skill Intimidation|XPHB}","Charyzma"],["{@skill Investigation|XPHB}","Inteligencja"],["{@skill Medicine|XPHB}","Mądrość"],["{@skill Nature|XPHB}","Inteligencja"],["{@skill Perception|XPHB}","Mądrość"],["{@skill Performance|XPHB}","Charyzma"],["{@skill Persuasion|XPHB}","Charyzma"],["{@skill Religion|XPHB}","Inteligencja"],["{@skill Sleight of Hand|XPHB}","Dexterity"],["{@skill Stealth|XPHB}","Dexterity"],["{@skill Survival|XPHB}","Mądrość"]]},{"data":{"variantRuleInclude":{"ruleType":"C"}},"name":"Death Saving Throws","entries":["When you start your turn with 0 HP, roll {@dice 1d20}, and you succeed on a 10+.",{"items":[{"name":"Third Success","entries":["You become {@variantrule Stable|XPHB}."]},{"name":"Third Failure","entries":["You die."]},{"name":"Rolling a 1","entries":["Counts as two failures."]},{"name":"Rolling a 20","entries":["You regain 1 Hit Point."]}]},"If you take damage at 0 HP, it counts as a failed {@variantrule Death Saving Throw|XPHB|Death Save} or two failures if the damage is from a {@variantrule Critical Hit|XPHB}."]},{"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Object Armor Class","colLabels":["AC","Substance"],"rows":[["11","Cloth, paper, rope"],["13","Crystal, glass, ice"],["15","Wood"],["17","Kamień"],["19","Żelazo, stal"],["21","Mithral"],["23","Adamantyn"]]},{"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Object Hit Points","colLabels":["Rozmiar","Fragile","Resilient"],"rows":[["Tiny (bottle, lock)","2 ({@dice 1d4})","5 ({@dice 2d4})"],["Small (chest, lute)","3 ({@dice 1d6})","10 ({@dice 3d6})"],["Medium (barrel, chandelier)","4 ({@dice 1d8})","18 ({@dice 4d8})"],["Large (cart, dining table)","5 ({@dice 1d10})","27 ({@dice 5d10})"]]},{"colLabels":["Przedmiot","Koszt"],"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Food, Drink, and Lodging","rows":[["{@item Ale (mug)|XPHB}","4 CP"],["{@item Bread (loaf)|XPHB}","2 CP"],["{@item Cheese (wedge)|XPHB}","1 SP"],["{@i Inn Stay per Day}",""],{"row":["Squalid","7 CP"]},{"row":["Słaby","1 SP"]},{"row":["Modest","5 SP"]},{"row":["Comfortable","8 SP"]},{"row":["Wealthy","2 GP"]},{"row":["Aristocratic","4 GP"]},["{@i Meal}",""],{"row":["Squalid","1 CP"]},{"row":["Słaby","2 CP"]},{"row":["Modest","1 SP"]},{"row":["Comfortable","2 SP"]},{"row":["Wealthy","3 SP"]},{"row":["Aristocratic","6 SP"]},["{@i Wine (bottle)}",""],{"row":["{@item Common Wine (bottle)|XPHB|Common}","2 SP"]},{"row":["{@item Fine Wine (bottle)|XPHB|Fine}","10 GP"]}]},{"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Typical Difficulty Classes","colLabels":["Task Difficulty","DC"],"rows":[["Very easy","5"],["Easy","10"],["Średni","15"],["Hard","20"],["Very hard","25"],["Nearly impossible","30"]]},{"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Light Sources","colLabels":["Source","Bright Light","Dim Light","Czas trwania"],"rows":[["{@item Candle|XPHB}","5 feet","+5 feet","1 godzina"],["{@item Lamp|XPHB}","15 stóp","+30 feet","6 hours"],["{@item Bullseye Lantern|XPHB|Lantern, Bullseye}","60-foot {@variantrule Cone [Area of Effect]|XPHB|Cone}","+60 feet","6 hours"],["{@item Hooded Lantern|XPHB|Lantern, Hooded}","30 feet (none with hood lowered)","+30 feet (5 feet with hood lowered)","6 hours"],["{@item Torch|XPHB}","20 feet","+20 feet","1 godzina"]]},{"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Obscured Areas","colLabels":["Obscureness","Efekt","Examples"],"rows":[["{@variantrule Lightly Obscured|XPHB}","Creatures have {@variantrule Disadvantage|XPHB} on Wisdom ({@skill Perception|XPHB}) checks that rely on sight","{@variantrule Dim Light|XPHB}, patchy fog, moderate foliage"],["{@variantrule Heavily Obscured|XPHB}","Creatures have the {@condition Blinded|XPHB} condition","{@variantrule Darkness|XPHB}, heavy fog, dense foliage"]]},{"caption":"Tempo podróży","data":{"genTables":{"tableChapterIgnore":true}},"colLabelRows":[["",{"width":3,"entry":"Distance Traveled Per..."},""],["Pace","Minute","Hour","Day","Efekt"]],"rows":[["Fast","400 feet","4 miles","30 miles","{@variantrule Disadvantage|XPHB} on Wisdom ({@skill Perception|XPHB} or {@skill Survival|XPHB}) and Dexterity ({@skill Stealth|XPHB}) checks"],["Normal","300 feet","3 miles","24 miles","{@variantrule Disadvantage|XPHB} on Dexterity ({@skill Stealth|XPHB}) checks"],["Powolne","200 feet","2 miles","18 miles","{@variantrule Advantage|XPHB} on Wisdom ({@skill Perception|XPHB} or {@skill Survival|XPHB}) checks"]]},{"colLabels":["Teren","Maksymalne tempo","Odległość spotkania","Żerowanie DC","Nawigacja DC","Szukaj DC"],"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Travel Terrain","rows":[["Arctic","Fast*","{@dice 6d6 × 10} stopy","20","10","10"],["Coastal","Normal","{@dice 2d10 × 10} feet","10","5","15"],["Pustynia","Normal","{@dice 6d6 × 10} stopy","20","10","10"],["Las","Normal","{@dice 2d8 × 10} feet","10","15","15"],["Użytki zielone","Fast","{@dice 6d6 × 10} stopy","15","5","15"],["Wzgórze","Normal","{@dice 2d10 × 10} feet","15","10","15"],["Góra","Powolne","{@dice 4d10 × 10} feet","20","15","20"],["Bagno","Powolne","{@dice 2d8 × 10} feet","10","15","20"],["Podmrok","Normal","{@dice 2d6 × 10} stopy","20","10","20"],["Miejski","Normal","{@dice 2d6 × 10} stopy","20","15","15"],["Waterborne","Special†","{@dice 6d6 × 10} stopy","15","10","15"]],"footnotes":["*Appropriate equipment (such as skis) is necessary to keep up a Fast pace in Arctic terrain.","†Characters' rate of travel while waterborne depends on the vehicle carrying them."]},{"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Cover","colLabels":["Cover Degree","Benefit to Target"],"rows":[["Half Cover","+2 bonus to AC and Dexterity saving throws"],["Three-Quarters Cover","+5 bonus to AC and Dexterity saving throws"],["Total Cover","Can't be targeted directly"]]},{"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Audible Distance","colLabels":["Noise","Distance"],"rows":[["Trying to be quiet","{@dice 2d6 × 5} feet"],["Normal noise level","{@dice 2d6 × 10} stopy"],["Very loud","{@dice 2d6 × 50} feet"]]},{"data":{"genTables":{"tableChapterIgnore":true}},"caption":"Visibility Outdoors","colLabels":["Warunki","Distance"],"rows":[["Clear day, no obstructions","2 miles (40 miles from a height)"],["Rain ({@variantrule Lightly Obscured|XPHB})","1 mile"],["Fog ({@variantrule Lightly Obscured|XPHB})","100 to 300 feet"]]},{"name":"Pogoda","tables":[{"caption":"Pogoda","colLabels":["1d20","Temperatura"],"rows":[["1–14","Normalne w sezonie"],["15–17","{@dice 1d4 × 10} stopnie Fahrenheita chłodniej"],["18–20","{@dice 1d4 × 10} stopnie Fahrenheita cieplej"]],"data":{"genTables":{"tableChapterIgnore":true}}},{"colLabels":["1d20","Wiatr","Opady"],"data":{"genTables":{"tableChapterIgnore":true}},"rows":[["1–12","Brak","Brak"],["13–17","Światło","Light rain or light snowfall"],["18–20","Silne","Heavy rain or heavy snowfall"]]}]}]}]}}}
+{
+  "data": {
+    "0:000": {
+      "type": "section",
+      "name": "Ekran DM",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Okładka",
+          "entries": [
+            {
+              "type": "image",
+              "href": {
+                "type": "internal",
+                "path": "book/XScreen/XScreen Front.webp"
+              },
+              "credit": "Joy Ang",
+              "width": 1530,
+              "height": 340
+            }
+          ],
+          "id": "001"
+        },
+        {
+          "type": "entries",
+          "name": "Warunki",
+          "entries": [
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Oślepiony"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Oczarowany"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Ogłuszony"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Wyczerpanie"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Przestraszony"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Chwycony"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Niezdolny"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Niewidzialny"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Sparaliżowany"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Skamieniały"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Zatruty"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Skłonny"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Powściągliwy"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Oszołomiony"
+            },
+            {
+              "type": "statblock",
+              "tag": "condition",
+              "source": "XPHB",
+              "name": "Nieświadomy"
+            }
+          ],
+          "id": "002"
+        },
+        {
+          "type": "entries",
+          "name": "Stoły",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Improwizowanie obrażeń",
+              "colLabels": [
+                "Kostka do gry",
+                "Przykłady"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "{@damage 1d10}",
+                  "Spalony węglem, uderzony spadającym regałem, ukłuty zatrutą igłą"
+                ],
+                [
+                  "{@damage 2d10}",
+                  "Urażony piorunem, wpadając do paleniska"
+                ],
+                [
+                  "{@damage 4d10}",
+                  "Uderzenie spadającym gruzem w zapadającym się tunelu, upadek do kadzi z kwasem"
+                ],
+                [
+                  "{@damage 10d10}",
+                  "Zmiażdżony przez ubijające się ściany, uderzony wirującymi stalowymi ostrzami, brodzący w lawie"
+                ],
+                [
+                  "{@damage 18d10}",
+                  "Zanurzony w lawie, uderzony przez rozbijającą się latającą fortecę"
+                ],
+                [
+                  "{@damage 24d10}",
+                  "Upadek w wir ognia na Planie Żywiołów Ognia, zmiażdżony w szczękach boskiego stworzenia lub potwora wielkości księżyca"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Siła i poziom obrażeń",
+              "colLabels": [
+                "Poziomy postaci",
+                "Niedogodność",
+                "Śmiertelnie"
+              ],
+              "colStyles": [
+                "col-4 text-center",
+                "col-4 text-center",
+                "col-4 text-center"
+              ],
+              "rows": [
+                [
+                  "1-4",
+                  "5 ({@damage 1d10})",
+                  "11 ({@damage 2d10})"
+                ],
+                [
+                  "5-10",
+                  "11 ({@damage 2d10})",
+                  "22 ({@damage 4d10})"
+                ],
+                [
+                  "11-16",
+                  "22 ({@damage 4d10})",
+                  "55 ({@damage 10d10})"
+                ],
+                [
+                  "17-20",
+                  "55 ({@damage 10d10})",
+                  "99 ({@damage 18d10})"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Akcje",
+              "colLabels": [
+                "Działanie",
+                "Streszczenie"
+              ],
+              "colStyles": [
+                "col-2",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "{@action Attack|XPHB}",
+                  "Atak bronią lub{@variantrule Unarmed Strike|XPHB}."
+                ],
+                [
+                  "{@action Dash|XPHB}",
+                  "Przez resztę tury zapewnij sobie dodatkowy ruch równy Twojemu{@variantrule Speed|XPHB}."
+                ],
+                [
+                  "{@action Disengage|XPHB}",
+                  "Twój ruch nie prowokuje{@action Opportunity Attack|XPHB|Ataki okazjonalne}przez resztę tury."
+                ],
+                [
+                  "{@action Dodge|XPHB}",
+                  "Do początku twojej następnej tury możesz wykonać rzuty ataku przeciwko tobie{@variantrule Disadvantage|XPHB}i wykonujesz rzuty obronne na Zręczność{@variantrule Advantage|XPHB}. Tracisz tę korzyść, jeśli posiadasz{@condition Incapacitated|XPHB}stan lub jeśli twój{@variantrule Speed|XPHB}wynosi 0."
+                ],
+                [
+                  "{@action Help|XPHB}",
+                  "Pomóż innemu stworzeniu sprawdzić zdolność lub rzut ataku albo udzielić pierwszej pomocy."
+                ],
+                [
+                  "{@action Hide|XPHB}",
+                  "Zrób zręczność ({@skill Stealth|XPHB}) sprawdzać."
+                ],
+                [
+                  "{@action Influence|XPHB}",
+                  "Wykonaj test Charyzmy ({@skill Deception|XPHB}, {@skill Intimidation|XPHB}, {@skill Performance|XPHB} lub {@skill Persuasion|XPHB}) lub Mądrości ({@skill Animal Handling|XPHB|}), aby zmienić postawę stworzenia."
+                ],
+                [
+                  "{@action Magic|XPHB}",
+                  "Rzuć zaklęcie, użyj magicznego przedmiotu lub użyj magicznej funkcji."
+                ],
+                [
+                  "{@action Ready|XPHB}",
+                  "Przygotuj się do podjęcia działania w odpowiedzi na zdefiniowany przez Ciebie wyzwalacz."
+                ],
+                [
+                  "{@action Search|XPHB}",
+                  "Naucz się mądrości ({@skill Insight|XPHB}, {@skill Medicine|XPHB}, {@skill Perception|XPHB}, Lub {@skill Survival|XPHB}) sprawdzać."
+                ],
+                [
+                  "{@action Study|XPHB}",
+                  "Stwórz inteligencję ({@skill Arcana|XPHB}, {@skill History|XPHB}, {@skill Investigation|XPHB}, {@skill Nature|XPHB}, Lub {@skill Religion|XPHB}) sprawdzać."
+                ],
+                [
+                  "{@action Utilize|XPHB}",
+                  "Użyj niemagicznego przedmiotu."
+                ]
+              ],
+              "footnotes": [
+                "{@i Pełne definicje akcji znajdziesz w słowniczku zasad Podręcznika Gracza}"
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "statblock",
+              "tag": "variantrule",
+              "source": "XPHB",
+              "name": "Skok w dal"
+            },
+            {
+              "type": "statblock",
+              "tag": "variantrule",
+              "source": "XPHB",
+              "name": "Skok wzwyż"
+            },
+            {
+              "type": "statblock",
+              "tag": "status",
+              "source": "XPHB",
+              "name": "Stężenie"
+            },
+            {
+              "type": "table",
+              "caption": "Umiejętności",
+              "colLabels": [
+                "Umiejętność",
+                "Umiejętność"
+              ],
+              "colStyles": [
+                "col-6",
+                "col-6"
+              ],
+              "rows": [
+                [
+                  "{@skill Acrobatics|XPHB}",
+                  "Zręczność"
+                ],
+                [
+                  "{@skill Animal Handling|XPHB}",
+                  "Mądrość"
+                ],
+                [
+                  "{@skill Arcana|XPHB}",
+                  "Inteligencja"
+                ],
+                [
+                  "{@skill Athletics|XPHB}",
+                  "Wytrzymałość"
+                ],
+                [
+                  "{@skill Deception|XPHB}",
+                  "Charyzma"
+                ],
+                [
+                  "{@skill History|XPHB}",
+                  "Inteligencja"
+                ],
+                [
+                  "{@skill Insight|XPHB}",
+                  "Mądrość"
+                ],
+                [
+                  "{@skill Intimidation|XPHB}",
+                  "Charyzma"
+                ],
+                [
+                  "{@skill Investigation|XPHB}",
+                  "Inteligencja"
+                ],
+                [
+                  "{@skill Medicine|XPHB}",
+                  "Mądrość"
+                ],
+                [
+                  "{@skill Nature|XPHB}",
+                  "Inteligencja"
+                ],
+                [
+                  "{@skill Perception|XPHB}",
+                  "Mądrość"
+                ],
+                [
+                  "{@skill Performance|XPHB}",
+                  "Charyzma"
+                ],
+                [
+                  "{@skill Persuasion|XPHB}",
+                  "Charyzma"
+                ],
+                [
+                  "{@skill Religion|XPHB}",
+                  "Inteligencja"
+                ],
+                [
+                  "{@skill Sleight of Hand|XPHB}",
+                  "Zręczność"
+                ],
+                [
+                  "{@skill Stealth|XPHB}",
+                  "Zręczność"
+                ],
+                [
+                  "{@skill Survival|XPHB}",
+                  "Mądrość"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "entries",
+              "name": "Rzuty Ratujące Śmierć",
+              "entries": [
+                "Kiedy zaczynasz swoją turę z 0 HP, rzuć{@dice 1d20}i odniesiesz sukces na 10+.",
+                {
+                  "type": "list",
+                  "style": "list-hang",
+                  "items": [
+                    {
+                      "type": "item",
+                      "name": "Trzeci sukces",
+                      "entries": [
+                        "Stajesz się{@variantrule Stable|XPHB}."
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Trzecia porażka",
+                      "entries": [
+                        "Umrzesz."
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Rzucanie 1",
+                      "entries": [
+                        "Liczy się jako dwie porażki."
+                      ]
+                    },
+                    {
+                      "type": "item",
+                      "name": "Rzucam 20",
+                      "entries": [
+                        "Odzyskujesz 1 punkt wytrzymałości."
+                      ]
+                    }
+                  ]
+                },
+                "Jeśli otrzymasz obrażenia przy 0 HP, liczy się to jako nieudane{@variantrule Death Saving Throw|XPHB|Ratunek Śmierci}lub dwie awarie, jeśli uszkodzenie wynika z a{@variantrule Critical Hit|XPHB}."
+              ],
+              "data": {
+                "variantRuleInclude": {
+                  "ruleType": "C"
+                }
+              },
+              "id": "004"
+            },
+            {
+              "type": "table",
+              "caption": "Klasa pancerza obiektu",
+              "colLabels": [
+                "AC",
+                "Substancja"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "11",
+                  "Tkanina, papier, lina"
+                ],
+                [
+                  "13",
+                  "Kryształ, szkło, lód"
+                ],
+                [
+                  "15",
+                  "Drewno"
+                ],
+                [
+                  "17",
+                  "Kamień"
+                ],
+                [
+                  "19",
+                  "Żelazo, stal"
+                ],
+                [
+                  "21",
+                  "Mithral"
+                ],
+                [
+                  "23",
+                  "Adamantyn"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Punkty życia obiektu",
+              "colLabels": [
+                "Rozmiar",
+                "Kruchy",
+                "Odporny"
+              ],
+              "colStyles": [
+                "col-6",
+                "col-3",
+                "col-3"
+              ],
+              "rows": [
+                [
+                  "Mały (butelka, zamek)",
+                  "2 ({@dice 1d4})",
+                  "5 ({@dice 2d4})"
+                ],
+                [
+                  "Mały (skrzynia, lutnia)",
+                  "3 ({@dice 1d6})",
+                  "10 ({@dice 3d6})"
+                ],
+                [
+                  "Średni (beczka, żyrandol)",
+                  "4 ({@dice 1d8})",
+                  "18 ({@dice 4d8})"
+                ],
+                [
+                  "Duży (wózek, stół jadalny)",
+                  "5 ({@dice 1d10})",
+                  "27 ({@dice 5d10})"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Jedzenie, napoje i zakwaterowanie",
+              "colLabels": [
+                "Przedmiot",
+                "Koszt"
+              ],
+              "colStyles": [
+                "col-8",
+                "col-4 text-right"
+              ],
+              "rows": [
+                [
+                  "{@item Ale (mug)|XPHB}",
+                  "4 kp"
+                ],
+                [
+                  "{@item Bread (loaf)|XPHB}",
+                  "2 kp"
+                ],
+                [
+                  "{@item Cheese (wedge)|XPHB}",
+                  "1 SP"
+                ],
+                [
+                  "{@i Pobyt w zajeździe dziennie}",
+                  ""
+                ],
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Plugawy",
+                    "7 kp"
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Słaby",
+                    "1 SP"
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Skromny",
+                    "5 SP"
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Wygodny",
+                    "8 SP"
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Bogaty",
+                    "2 GP"
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Arystokratyczny",
+                    "4 GP"
+                  ]
+                },
+                [
+                  "{@i Posiłek}",
+                  ""
+                ],
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Plugawy",
+                    "1 kp"
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Słaby",
+                    "2 kp"
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Skromny",
+                    "1 SP"
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Wygodny",
+                    "2 SP"
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Bogaty",
+                    "3 SP"
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "Arystokratyczny",
+                    "6 SP"
+                  ]
+                },
+                [
+                  "{@i Wino (butelka)}",
+                  ""
+                ],
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "{@item Common Wine (bottle)|XPHB|Wspólny}",
+                    "2 SP"
+                  ]
+                },
+                {
+                  "type": "row",
+                  "style": "row-indent-first",
+                  "row": [
+                    "{@item Fine Wine (bottle)|XPHB|Cienki}",
+                    "10 GP"
+                  ]
+                }
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Typowe klasy trudności",
+              "colLabels": [
+                "Trudność zadania",
+                "DC"
+              ],
+              "colStyles": [
+                "col-10",
+                "col-2 text-center"
+              ],
+              "rows": [
+                [
+                  "Bardzo łatwe",
+                  "5"
+                ],
+                [
+                  "Łatwy",
+                  "10"
+                ],
+                [
+                  "Średni",
+                  "15"
+                ],
+                [
+                  "Twardy",
+                  "20"
+                ],
+                [
+                  "Bardzo ciężko",
+                  "25"
+                ],
+                [
+                  "Prawie niemożliwe",
+                  "30"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Źródła światła",
+              "colLabels": [
+                "Źródło",
+                "Jasne Światło",
+                "Przyćmione światło",
+                "Czas trwania"
+              ],
+              "colStyles": [
+                "col-3",
+                "col-3",
+                "col-3",
+                "col-3"
+              ],
+              "rows": [
+                [
+                  "{@item Candle|XPHB}",
+                  "5 stóp",
+                  "+5 stóp",
+                  "1 godzina"
+                ],
+                [
+                  "{@item Lamp|XPHB}",
+                  "15 stóp",
+                  "+30 stóp",
+                  "6 godzin"
+                ],
+                [
+                  "{@item Bullseye Lantern|XPHB|Latarnia, Bullseye}",
+                  "60-stopowy {@variantrule Cone [Area of Effect]|XPHB|Stożek}",
+                  "+60 stóp",
+                  "6 godzin"
+                ],
+                [
+                  "{@item Hooded Lantern|XPHB|Latarnia, z kapturem}",
+                  "30 stóp (brak przy opuszczonym kapturze)",
+                  "+30 stóp (5 stóp z opuszczonym kapturem)",
+                  "6 godzin"
+                ],
+                [
+                  "{@item Torch|XPHB}",
+                  "20 stóp",
+                  "+20 stóp",
+                  "1 godzina"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Zasłonięte obszary",
+              "colLabels": [
+                "Niejasność",
+                "Efekt",
+                "Przykłady"
+              ],
+              "colStyles": [
+                "col-3",
+                "col-5",
+                "col-4"
+              ],
+              "rows": [
+                [
+                  "{@variantrule Lightly Obscured|XPHB}",
+                  "Stworzenia mają{@variantrule Disadvantage|XPHB}o Mądrości ({@skill Perception|XPHB}) testy polegające na wzroku",
+                  "{@variantrule Dim Light|XPHB}, niejednolita mgła, umiarkowane liście"
+                ],
+                [
+                  "{@variantrule Heavily Obscured|XPHB}",
+                  "Stworzenia posiadają{@condition Blinded|XPHB} stan",
+                  "{@variantrule Darkness|XPHB}, gęsta mgła, gęste liście"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Tempo podróży",
+              "colLabelRows": [
+                [
+                  "",
+                  {
+                    "type": "cellHeader",
+                    "width": 3,
+                    "entry": "Odległość przebyta na...",
+                    "style": "th-skewer"
+                  },
+                  ""
+                ],
+                [
+                  "Tempo",
+                  "Chwila",
+                  "Godzina",
+                  "Dzień",
+                  "Efekt"
+                ]
+              ],
+              "colStyles": [
+                "col-2",
+                "col-2",
+                "col-2",
+                "col-2",
+                "col-4"
+              ],
+              "rows": [
+                [
+                  "Szybko",
+                  "400 stóp",
+                  "4 mile",
+                  "30 mil",
+                  "{@variantrule Disadvantage|XPHB}o Mądrości ({@skill Perception|XPHB} Lub {@skill Survival|XPHB}) i Zręczność ({@skill Stealth|XPHB}) sprawdza"
+                ],
+                [
+                  "Normalna",
+                  "300 stóp",
+                  "3 mile",
+                  "24 mile",
+                  "{@variantrule Disadvantage|XPHB}na zręczność ({@skill Stealth|XPHB}) sprawdza"
+                ],
+                [
+                  "Powolne",
+                  "200 stóp",
+                  "2 mile",
+                  "18 mil",
+                  "{@variantrule Advantage|XPHB}o Mądrości ({@skill Perception|XPHB} Lub {@skill Survival|XPHB}) sprawdza"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Teren podróży",
+              "colLabels": [
+                "Teren",
+                "Maksymalne tempo",
+                "Odległość spotkania",
+                "Żerowanie DC",
+                "Nawigacja DC",
+                "Szukaj DC"
+              ],
+              "colStyles": [
+                "col-2",
+                "col-2 text-center",
+                "col-2 text-center",
+                "col-2 text-center",
+                "col-2 text-center",
+                "col-2 text-center"
+              ],
+              "rows": [
+                [
+                  "Arktyczny",
+                  "Szybko*",
+                  "{@dice 6d6 × 10} stopy",
+                  "20",
+                  "10",
+                  "10"
+                ],
+                [
+                  "Nadbrzeżny",
+                  "Normalna",
+                  "{@dice 2d10 × 10} stopy",
+                  "10",
+                  "5",
+                  "15"
+                ],
+                [
+                  "Pustynia",
+                  "Normalna",
+                  "{@dice 6d6 × 10} stopy",
+                  "20",
+                  "10",
+                  "10"
+                ],
+                [
+                  "Las",
+                  "Normalna",
+                  "{@dice 2d8 × 10} stopy",
+                  "10",
+                  "15",
+                  "15"
+                ],
+                [
+                  "Użytki zielone",
+                  "Szybko",
+                  "{@dice 6d6 × 10} stopy",
+                  "15",
+                  "5",
+                  "15"
+                ],
+                [
+                  "Wzgórze",
+                  "Normalna",
+                  "{@dice 2d10 × 10} stopy",
+                  "15",
+                  "10",
+                  "15"
+                ],
+                [
+                  "Góra",
+                  "Powolne",
+                  "{@dice 4d10 × 10} stopy",
+                  "20",
+                  "15",
+                  "20"
+                ],
+                [
+                  "Bagno",
+                  "Powolne",
+                  "{@dice 2d8 × 10} stopy",
+                  "10",
+                  "15",
+                  "20"
+                ],
+                [
+                  "Podmrok",
+                  "Normalna",
+                  "{@dice 2d6 × 10} stopy",
+                  "20",
+                  "10",
+                  "20"
+                ],
+                [
+                  "Miejski",
+                  "Normalna",
+                  "{@dice 2d6 × 10} stopy",
+                  "20",
+                  "15",
+                  "15"
+                ],
+                [
+                  "Wodorozcieńczalny",
+                  "Specjalny†",
+                  "{@dice 6d6 × 10} stopy",
+                  "15",
+                  "10",
+                  "15"
+                ]
+              ],
+              "footnotes": [
+                "*Do utrzymania szybkiego tempa w terenie arktycznym niezbędny jest odpowiedni sprzęt (np. narty).",
+                "† Szybkość przemieszczania się postaci na wodzie zależy od pojazdu, który je przewoży."
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Okładka",
+              "colLabels": [
+                "Stopień okładki",
+                "Korzyści dla celu"
+              ],
+              "colStyles": [
+                "col-3",
+                "col-9"
+              ],
+              "rows": [
+                [
+                  "Pół okładka",
+                  "Premia +2 do rzutów obronnych na KP i Zręczność"
+                ],
+                [
+                  "Okładka Trzy czwarte",
+                  "Premia +5 do rzutów obronnych na KP i Zręczność"
+                ],
+                [
+                  "Całkowita osłona",
+                  "Nie można kierować bezpośrednio"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Słyszalna odległość",
+              "colLabels": [
+                "Hałas",
+                "Dystans"
+              ],
+              "colStyles": [
+                "col-6",
+                "col-6"
+              ],
+              "rows": [
+                [
+                  "Próbuję być cicho",
+                  "{@dice 2d6 × 5} stopy"
+                ],
+                [
+                  "Normalny poziom hałasu",
+                  "{@dice 2d6 × 10} stopy"
+                ],
+                [
+                  "Bardzo głośno",
+                  "{@dice 2d6 × 50} stopy"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "table",
+              "caption": "Widoczność na zewnątrz",
+              "colLabels": [
+                "Warunki",
+                "Dystans"
+              ],
+              "colStyles": [
+                "col-6",
+                "col-6"
+              ],
+              "rows": [
+                [
+                  "Pogodny dzień, żadnych przeszkód",
+                  "2 mile (40 mil od wysokości)"
+                ],
+                [
+                  "Deszcz ({@variantrule Lightly Obscured|XPHB})",
+                  "1 mila"
+                ],
+                [
+                  "Mgła ({@variantrule Lightly Obscured|XPHB})",
+                  "100 do 300 stóp"
+                ]
+              ],
+              "data": {
+                "genTables": {
+                  "tableChapterIgnore": true
+                }
+              }
+            },
+            {
+              "type": "tableGroup",
+              "name": "Pogoda",
+              "tables": [
+                {
+                  "type": "table",
+                  "caption": "Pogoda",
+                  "colLabels": [
+                    "1d20",
+                    "Temperatura"
+                  ],
+                  "colStyles": [
+                    "col-2 text-center",
+                    "col-10"
+                  ],
+                  "rows": [
+                    [
+                      "1-14",
+                      "Normalne w sezonie"
+                    ],
+                    [
+                      "15-17",
+                      "{@dice 1d4 × 10} stopnie Fahrenheita chłodniej"
+                    ],
+                    [
+                      "18-20",
+                      "{@dice 1d4 × 10} stopnie Fahrenheita cieplej"
+                    ]
+                  ],
+                  "data": {
+                    "genTables": {
+                      "tableChapterIgnore": true
+                    }
+                  }
+                },
+                {
+                  "type": "table",
+                  "colLabels": [
+                    "1d20",
+                    "Wiatr",
+                    "Opady"
+                  ],
+                  "colStyles": [
+                    "col-2 text-center",
+                    "col-2",
+                    "col-8"
+                  ],
+                  "rows": [
+                    [
+                      "1-12",
+                      "Brak",
+                      "Brak"
+                    ],
+                    [
+                      "13-17",
+                      "Światło",
+                      "Lekki deszcz lub lekki śnieg"
+                    ],
+                    [
+                      "18-20",
+                      "Silne",
+                      "Ulewny deszcz lub obfite opady śniegu"
+                    ]
+                  ],
+                  "data": {
+                    "genTables": {
+                      "tableChapterIgnore": true
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "id": "003"
+        }
+      ],
+      "id": "000"
+    }
+  }
+}
