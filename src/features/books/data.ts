@@ -1,6 +1,8 @@
 import booksIndex from '@/data/generated/books.json';
+import plStorylines from '@/data/generated/pl/book-storylines.json';
 import type { Entry } from '@/data/compendium/entry';
 import type { BookIndexEntry } from '@/data/compendium/types';
+import type { Locale } from '@/i18n/locales';
 
 export const books = (booksIndex as BookIndexEntry[]).filter((b) => b.type === 'book');
 export const adventures = (booksIndex as BookIndexEntry[]).filter(
@@ -9,6 +11,14 @@ export const adventures = (booksIndex as BookIndexEntry[]).filter(
 
 export function getBook(id: string): BookIndexEntry | undefined {
   return (booksIndex as BookIndexEntry[]).find((b) => b.id === id);
+}
+
+export function localizedBookStoryline(
+  storyline: string | undefined,
+  locale: Locale,
+): string | undefined {
+  if (!storyline || locale !== 'pl') return storyline;
+  return plStorylines[storyline as keyof typeof plStorylines] ?? storyline;
 }
 
 export interface OutlineNode {

@@ -53,6 +53,7 @@ const mocks = vi.hoisted(() => ({
 vi.mock('./data', () => ({
   books: mocks.books,
   adventures: mocks.adventures,
+  localizedBookStoryline: (storyline: string | undefined) => storyline,
 }));
 
 vi.mock('@/features/ui/contentModeStore', () => ({

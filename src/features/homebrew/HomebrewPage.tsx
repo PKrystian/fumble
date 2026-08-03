@@ -316,7 +316,7 @@ export function HomebrewPage() {
           entries: imported,
           subclasses: importedSubclasses,
           skipped,
-        } = parse5etoolsHomebrew(parsed as Record<string, unknown>);
+        } = parse5etoolsHomebrew(parsed as Record<string, unknown>, importLocale);
         const count = addImported(imported, importLocale);
         const subclassCount = addImportedSubclasses(importedSubclasses);
         const total = count + subclassCount;
@@ -369,7 +369,7 @@ export function HomebrewPage() {
           </h1>
           <p className="mt-1 max-w-xl text-sm text-ink-300">
             {t('homebrew.description')}{' '}
-            <span className="text-ink-100">5etools homebrew</span>{' '}
+            <span className="text-ink-100">{t('homebrew.fiveToolsHomebrew')}</span>{' '}
             {t('homebrew.descriptionSuffix')} <span className="text-ember-400">HB</span>.
           </p>
         </div>

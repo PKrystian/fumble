@@ -3,6 +3,7 @@ import type {
   CompendiumCategoryId,
   CompendiumEntryBase,
 } from '@/data/compendium/types';
+import type { Locale } from '@/i18n/locales';
 import {
   type RawClassFile,
   normalizeAction,
@@ -41,44 +42,86 @@ export interface ImportedEntry {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AnyNormalizer = (raw: any) => CompendiumEntryBase;
+type AnyNormalizer = (raw: any, locale: Locale) => CompendiumEntryBase;
 
 const KEY_MAP: Record<
   string,
   { category: CompendiumCategoryId; normalize: AnyNormalizer }
 > = {
-  spell: { category: 'spells', normalize: normalizeSpell },
+  spell: { category: 'spells', normalize: (r, locale) => normalizeSpell(r, locale) },
   condition: {
     category: 'conditions',
     normalize: (r) => normalizeCondition(r, 'condition'),
   },
   disease: { category: 'conditions', normalize: (r) => normalizeCondition(r, 'disease') },
   status: { category: 'conditions', normalize: (r) => normalizeCondition(r, 'status') },
-  race: { category: 'species', normalize: (r) => normalizeSpecies(r) },
-  subrace: { category: 'species', normalize: (r) => normalizeSubrace(r) },
-  feat: { category: 'feats', normalize: (r) => normalizeFeat(r) },
-  background: { category: 'backgrounds', normalize: (r) => normalizeBackground(r) },
-  variantrule: { category: 'rules', normalize: normalizeRule },
-  item: { category: 'items', normalize: (r) => normalizeItem(r) },
-  baseitem: { category: 'items', normalize: (r) => normalizeItem(r) },
-  monster: { category: 'bestiary', normalize: (r) => normalizeMonster(r) },
-  action: { category: 'actions', normalize: normalizeAction },
-  optionalfeature: { category: 'optionalfeatures', normalize: normalizeOptionalFeature },
-  deity: { category: 'deities', normalize: normalizeDeity },
-  trap: { category: 'hazards', normalize: (r) => normalizeHazard(r, 'Trap') },
-  hazard: { category: 'hazards', normalize: (r) => normalizeHazard(r, 'Hazard') },
-  reward: { category: 'boons', normalize: normalizeBoon },
-  skill: { category: 'skills', normalize: normalizeSkill },
-  sense: { category: 'senses', normalize: normalizeSense },
-  language: { category: 'languages', normalize: normalizeLanguage },
+  race: {
+    category: 'species',
+    normalize: (r, locale) => normalizeSpecies(r, undefined, locale),
+  },
+  subrace: {
+    category: 'species',
+    normalize: (r, locale) => normalizeSubrace(r, undefined, locale),
+  },
+  feat: {
+    category: 'feats',
+    normalize: (r, locale) => normalizeFeat(r, undefined, locale),
+  },
+  background: {
+    category: 'backgrounds',
+    normalize: (r, locale) => normalizeBackground(r, undefined, locale),
+  },
+  variantrule: { category: 'rules', normalize: (r, locale) => normalizeRule(r, locale) },
+  item: {
+    category: 'items',
+    normalize: (r, locale) => normalizeItem(r, undefined, locale),
+  },
+  baseitem: {
+    category: 'items',
+    normalize: (r, locale) => normalizeItem(r, undefined, locale),
+  },
+  monster: {
+    category: 'bestiary',
+    normalize: (r, locale) => normalizeMonster(r, undefined, undefined, locale),
+  },
+  action: { category: 'actions', normalize: (r, locale) => normalizeAction(r, locale) },
+  optionalfeature: {
+    category: 'optionalfeatures',
+    normalize: (r, locale) => normalizeOptionalFeature(r, locale),
+  },
+  deity: { category: 'deities', normalize: (r, locale) => normalizeDeity(r, locale) },
+  trap: {
+    category: 'hazards',
+    normalize: (r, locale) => normalizeHazard(r, 'Trap', locale),
+  },
+  hazard: {
+    category: 'hazards',
+    normalize: (r, locale) => normalizeHazard(r, 'Hazard', locale),
+  },
+  reward: { category: 'boons', normalize: (r) => normalizeBoon(r) },
+  skill: { category: 'skills', normalize: (r, locale) => normalizeSkill(r, locale) },
+  sense: { category: 'senses', normalize: (r) => normalizeSense(r) },
+  language: {
+    category: 'languages',
+    normalize: (r, locale) => normalizeLanguage(r, locale),
+  },
   cult: { category: 'cultsboons', normalize: (r) => normalizeCultBoon(r, 'Cult') },
   boon: { category: 'cultsboons', normalize: (r) => normalizeCultBoon(r, 'Boon') },
-  facility: { category: 'facilities', normalize: normalizeFacility },
-  recipe: { category: 'recipes', normalize: normalizeRecipe },
-  object: { category: 'objects', normalize: normalizeObject },
-  vehicle: { category: 'vehicles', normalize: (r) => normalizeVehicle(r) },
-  itemMastery: { category: 'masteries', normalize: normalizeMastery },
-  charoption: { category: 'charoptions', normalize: normalizeCharOption },
+  facility: {
+    category: 'facilities',
+    normalize: (r, locale) => normalizeFacility(r, locale),
+  },
+  recipe: { category: 'recipes', normalize: (r, locale) => normalizeRecipe(r, locale) },
+  object: { category: 'objects', normalize: (r, locale) => normalizeObject(r, locale) },
+  vehicle: {
+    category: 'vehicles',
+    normalize: (r, locale) => normalizeVehicle(r, undefined, locale),
+  },
+  itemMastery: { category: 'masteries', normalize: (r) => normalizeMastery(r) },
+  charoption: {
+    category: 'charoptions',
+    normalize: (r, locale) => normalizeCharOption(r, locale),
+  },
   table: { category: 'tables', normalize: normalizeTable },
   deck: { category: 'decks', normalize: normalizeDeck },
 };
@@ -101,14 +144,22 @@ interface ParseResult {
   skipped: string[];
 }
 
-export function parse5etoolsHomebrew(obj: Record<string, unknown>): ParseResult {
+export function parse5etoolsHomebrew(
+  obj: Record<string, unknown>,
+  locale: Locale = 'en',
+): ParseResult {
   const entries: ImportedEntry[] = [];
   const subclasses: Array<{ className: string; subclass: ClassSubclass }> = [];
   const skipped: string[] = [];
 
   if (Array.isArray(obj.class) && obj.class.length) {
     try {
-      for (const cls of normalizeClasses(obj as RawClassFile)) {
+      for (const cls of normalizeClasses(
+        obj as RawClassFile,
+        undefined,
+        undefined,
+        locale,
+      )) {
         entries.push({ category: 'classes', data: cls });
       }
     } catch {
@@ -116,7 +167,9 @@ export function parse5etoolsHomebrew(obj: Record<string, unknown>): ParseResult 
     }
   } else if (Array.isArray(obj.subclass) && obj.subclass.length) {
     try {
-      subclasses.push(...normalizeStandaloneSubclasses(obj as RawClassFile));
+      subclasses.push(
+        ...normalizeStandaloneSubclasses(obj as RawClassFile, undefined, locale),
+      );
     } catch {
       skipped.push('subclass');
     }
@@ -134,7 +187,10 @@ export function parse5etoolsHomebrew(obj: Record<string, unknown>): ParseResult 
 
       if ('_copy' in raw) continue;
       try {
-        entries.push({ category: mapping.category, data: mapping.normalize(raw) });
+        entries.push({
+          category: mapping.category,
+          data: mapping.normalize(raw, locale),
+        });
       } catch {
         // Ignore malformed imported entry
       }

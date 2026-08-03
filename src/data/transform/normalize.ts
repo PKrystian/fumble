@@ -34,9 +34,8 @@ import type {
   VehicleEntry,
 } from '@/data/compendium/types';
 import { SPELL_SCHOOLS, proficiencyBonus, slugify, stripMarkup } from './util';
+import type { Locale } from '@/i18n/locales';
 import {
-  FEAT_CATEGORIES,
-  RULE_TYPES,
   crToProficiency,
   formatAbilityChoices,
   formatAbilityList,
@@ -56,6 +55,7 @@ import {
   formatDuration,
   formatFacilityPrereq,
   formatFacilityType,
+  formatFeatCategory,
   formatFeatRefs,
   formatHazardType,
   formatImmunities,
@@ -79,6 +79,7 @@ import {
   formatProficiencies,
   formatRange,
   formatRarity,
+  formatRuleType,
   formatSenses,
   formatServes,
   formatSize,
@@ -161,15 +162,15 @@ export interface RawSpell {
   entriesHigherLevel?: Entry[];
 }
 
-export function normalizeSpell(raw: RawSpell): SpellEntry {
+export function normalizeSpell(raw: RawSpell, locale: Locale = 'en'): SpellEntry {
   return {
     ...baseFields(raw),
     level: raw.level,
     school: SPELL_SCHOOLS[raw.school] ?? raw.school,
-    castingTime: formatCastingTime(raw.time),
-    range: formatRange(raw.range),
+    castingTime: formatCastingTime(raw.time, locale),
+    range: formatRange(raw.range, locale),
     components: formatComponents(raw.components),
-    duration: formatDuration(raw.duration),
+    duration: formatDuration(raw.duration, locale),
     concentration: hasConcentration(raw.duration),
     ritual: Boolean(raw.meta?.ritual),
     entries: raw.entries ?? [],
@@ -228,12 +229,13 @@ function extractSpeeds(speed: RawSpecies['speed']): {
 export function normalizeSpecies(
   raw: RawSpecies,
   fluff: Map<string, string> = EMPTY_IMAGES,
+  locale: Locale = 'en',
 ): SpeciesEntry {
   return {
     ...baseFields(raw),
     ...imageField(fluff, raw.name, raw.source),
-    size: formatSize(raw.size),
-    speed: formatSpeed(raw.speed),
+    size: formatSize(raw.size, locale),
+    speed: formatSpeed(raw.speed, locale),
     ...extractSpeeds(raw.speed),
     creatureType: (raw.creatureTypes ?? ['Humanoid'])
       .map((t) => t.charAt(0).toUpperCase() + t.slice(1))
@@ -255,6 +257,7 @@ export interface RawSubrace {
 export function normalizeSubrace(
   raw: RawSubrace,
   fluff: Map<string, string> = EMPTY_IMAGES,
+  _locale: Locale = 'en',
 ): SpeciesEntry {
   const name = raw.name ? `${raw.raceName} (${raw.name})` : raw.raceName;
   return {
@@ -283,12 +286,13 @@ export interface RawFeat {
 export function normalizeFeat(
   raw: RawFeat,
   fluff: Map<string, string> = EMPTY_IMAGES,
+  locale: Locale = 'en',
 ): FeatEntry {
   return {
     ...baseFields(raw),
     ...imageField(fluff, raw.name, raw.source),
-    category: raw.category ? (FEAT_CATEGORIES[raw.category] ?? raw.category) : 'Feat',
-    prerequisite: formatPrerequisite(raw.prerequisite),
+    category: formatFeatCategory(raw.category, locale),
+    prerequisite: formatPrerequisite(raw.prerequisite, locale),
     entries: raw.entries ?? [],
   };
 }
@@ -308,13 +312,14 @@ export interface RawBackground {
 export function normalizeBackground(
   raw: RawBackground,
   fluff: Map<string, string> = EMPTY_IMAGES,
+  locale: Locale = 'en',
 ): BackgroundEntry {
   return {
     ...baseFields(raw),
     ...imageField(fluff, raw.name, raw.source),
-    abilityScores: formatAbilityChoices(raw.ability),
-    skills: formatProficiencies(raw.skillProficiencies),
-    tools: formatProficiencies(raw.toolProficiencies),
+    abilityScores: formatAbilityChoices(raw.ability, locale),
+    skills: formatProficiencies(raw.skillProficiencies, locale),
+    tools: formatProficiencies(raw.toolProficiencies, locale),
     feat: formatFeatRefs(raw.feats),
     entries: raw.entries ?? [],
   };
@@ -329,10 +334,10 @@ export interface RawRule {
   entries?: Entry[];
 }
 
-export function normalizeRule(raw: RawRule): RuleEntry {
+export function normalizeRule(raw: RawRule, locale: Locale = 'en'): RuleEntry {
   return {
     ...baseFields(raw),
-    ruleType: raw.ruleType ? (RULE_TYPES[raw.ruleType] ?? raw.ruleType) : 'Rule',
+    ruleType: formatRuleType(raw.ruleType, locale),
     entries: raw.entries ?? [],
   };
 }
@@ -359,18 +364,19 @@ export interface RawItem {
 export function normalizeItem(
   raw: RawItem,
   fluff: Map<string, string> = EMPTY_IMAGES,
+  locale: Locale = 'en',
 ): ItemEntry {
   return {
     ...baseFields(raw),
     ...imageField(fluff, raw.name, raw.source),
-    type: formatItemType(raw.type, raw.rarity),
-    rarity: formatRarity(raw.rarity),
-    attunement: formatAttunement(raw.reqAttune),
-    weight: formatWeight(raw.weight),
-    value: formatValue(raw.value),
-    damage: formatWeaponDamage(raw.dmg1, raw.dmgType),
+    type: formatItemType(raw.type, raw.rarity, locale),
+    rarity: formatRarity(raw.rarity, locale),
+    attunement: formatAttunement(raw.reqAttune, locale),
+    weight: formatWeight(raw.weight, locale),
+    value: formatValue(raw.value, locale),
+    damage: formatWeaponDamage(raw.dmg1, raw.dmgType, locale),
     ac: raw.ac != null ? `${raw.ac}` : '',
-    properties: formatItemProperties(raw.property),
+    properties: formatItemProperties(raw.property, locale),
     ...(raw.weaponCategory ? { weaponCategory: raw.weaponCategory } : {}),
     ...(raw.property?.length ? { propertyRefs: formatItemReferences(raw.property) } : {}),
     ...(raw.mastery?.length
@@ -434,27 +440,42 @@ export interface RawMonster {
   hasToken?: boolean;
 }
 
-function spellcastingSections(list: RawSpellcasting[] | undefined): StatBlockSection[] {
+function spellcastingSections(
+  list: RawSpellcasting[] | undefined,
+  locale: Locale = 'en',
+): StatBlockSection[] {
   if (!list?.length) return [];
   return list.map((sc) => {
     const entries: Entry[] = [...(sc.headerEntries ?? [])];
-    if (sc.will?.length) entries.push(`At will: ${sc.will.join(', ')}`);
+    if (sc.will?.length)
+      entries.push(
+        `${locale === 'pl' ? 'Na żądanie' : 'At will'}: ${sc.will.join(', ')}`,
+      );
     for (const [key, spells] of Object.entries(sc.daily ?? {})) {
       if (Array.isArray(spells) && spells.length) {
-        entries.push(`${formatDailyLabel(key)}: ${spells.join(', ')}`);
+        entries.push(`${formatDailyLabel(key, locale)}: ${spells.join(', ')}`);
       }
     }
     for (const [level, data] of Object.entries(sc.spells ?? {})) {
       if (data.spells?.length) {
         const label =
           level === '0'
-            ? 'Cantrips (at will)'
-            : `Level ${level}${data.slots ? ` (${data.slots} slots)` : ''}`;
+            ? locale === 'pl'
+              ? 'Sztuczki (na żądanie)'
+              : 'Cantrips (at will)'
+            : `${locale === 'pl' ? 'Krąg' : 'Level'} ${level}${
+                data.slots
+                  ? ` (${data.slots} ${locale === 'pl' ? 'miejsc' : 'slots'})`
+                  : ''
+              }`;
         entries.push(`${label}: ${data.spells.join(', ')}`);
       }
     }
     if (sc.footerEntries?.length) entries.push(...sc.footerEntries);
-    return { name: sc.name ?? 'Spellcasting', entries };
+    return {
+      name: sc.name ?? (locale === 'pl' ? 'Rzucanie zaklęć' : 'Spellcasting'),
+      entries,
+    };
   });
 }
 
@@ -462,6 +483,7 @@ export function normalizeMonster(
   raw: RawMonster,
   fluff: Map<string, string> = EMPTY_IMAGES,
   legendaryGroups: Map<string, LegendaryGroup> = EMPTY_LEGENDARY,
+  locale: Locale = 'en',
 ): MonsterEntry {
   const crStr = typeof raw.cr === 'string' ? raw.cr : (raw.cr?.cr ?? '-');
   const pb = crToProficiency(crStr);
@@ -477,10 +499,16 @@ export function normalizeMonster(
     const uses = raw.legendaryActions ?? 3;
     const lair = raw.legendaryActionsLair;
     legendaryIntro =
-      `Legendary Action Uses: ${uses}${lair != null ? ` (${lair} in Lair)` : ''}. ` +
-      'Immediately after another creature’s turn, this creature can expend a use ' +
-      'to take one of the following actions; it regains all expended uses at the start ' +
-      'of each of its turns.';
+      locale === 'pl'
+        ? `Wykorzystania legendarnych akcji: ${uses}${
+            lair != null ? ` (${lair} w leżu)` : ''
+          }. Bezpośrednio po turze innego stworzenia to stworzenie może wykorzystać jedno ` +
+          'wykorzystanie, aby wykonać jedną z poniższych akcji; odzyskuje wszystkie ' +
+          'wykorzystania na początku każdej swojej tury.'
+        : `Legendary Action Uses: ${uses}${lair != null ? ` (${lair} in Lair)` : ''}. ` +
+          'Immediately after another creature’s turn, this creature can expend a use ' +
+          'to take one of the following actions; it regains all expended uses at the start ' +
+          'of each of its turns.';
   }
   const group = raw.legendaryGroup
     ? legendaryGroups.get(
@@ -492,37 +520,45 @@ export function normalizeMonster(
     ...baseFields(raw),
     ...(image ? { image } : {}),
     ...(tokenImage ? { token: tokenImage } : {}),
-    size: formatSize(raw.size),
-    creatureType: formatMonsterType(raw.type),
-    alignment: formatAlignment(raw.alignment),
+    size: formatSize(raw.size, locale),
+    creatureType: formatMonsterType(raw.type, locale),
+    alignment: formatAlignment(raw.alignment, locale),
     ac: formatMonsterAc(raw.ac),
     initiative: formatInitiative(raw.dex ?? 10, raw.initiative, pb),
     hp: formatMonsterHp(raw.hp),
-    speed: formatSpeed(raw.speed),
+    speed: formatSpeed(raw.speed, locale),
     str: raw.str ?? 10,
     dex: raw.dex ?? 10,
     con: raw.con ?? 10,
     int: raw.int ?? 10,
     wis: raw.wis ?? 10,
     cha: raw.cha ?? 10,
-    saves: formatKeyedBonuses(raw.save, true),
-    skills: formatKeyedBonuses(raw.skill),
+    saves: formatKeyedBonuses(raw.save, true, locale),
+    skills: formatKeyedBonuses(raw.skill, false, locale),
     vulnerabilities: formatDamageTypes(
       raw.vulnerable as Parameters<typeof formatDamageTypes>[0],
+      locale,
     ),
-    resistances: formatDamageTypes(raw.resist as Parameters<typeof formatDamageTypes>[0]),
-    immunities: formatDamageTypes(raw.immune as Parameters<typeof formatDamageTypes>[0]),
+    resistances: formatDamageTypes(
+      raw.resist as Parameters<typeof formatDamageTypes>[0],
+      locale,
+    ),
+    immunities: formatDamageTypes(
+      raw.immune as Parameters<typeof formatDamageTypes>[0],
+      locale,
+    ),
     conditionImmunities: formatConditionList(
       raw.conditionImmune as Parameters<typeof formatConditionList>[0],
+      locale,
     ),
-    senses: formatSenses(raw.senses, raw.passive),
-    languages: formatLanguages(raw.languages),
+    senses: formatSenses(raw.senses, raw.passive, locale),
+    languages: formatLanguages(raw.languages, locale),
     cr: crStr,
-    crDisplay: formatMonsterCrDisplay(raw.cr),
+    crDisplay: formatMonsterCrDisplay(raw.cr, locale),
     habitat: formatStringList(raw.environment),
     treasure: formatStringList(raw.treasure),
     traits: toSections(raw.trait),
-    spellcasting: spellcastingSections(raw.spellcasting),
+    spellcasting: spellcastingSections(raw.spellcasting, locale),
     actions: toSections(raw.action),
     bonusActions: toSections(raw.bonus),
     reactions: toSections(raw.reaction),
@@ -542,10 +578,10 @@ export interface RawAction {
   entries?: Entry[];
 }
 
-export function normalizeAction(raw: RawAction): ActionEntry {
+export function normalizeAction(raw: RawAction, locale: Locale = 'en'): ActionEntry {
   return {
     ...baseFields(raw),
-    time: raw.time ? formatCastingTime(raw.time) : '',
+    time: raw.time ? formatCastingTime(raw.time, locale) : '',
     entries: raw.entries ?? [],
   };
 }
@@ -560,11 +596,14 @@ export interface RawOptionalFeature {
   entries?: Entry[];
 }
 
-export function normalizeOptionalFeature(raw: RawOptionalFeature): OptionalFeatureEntry {
+export function normalizeOptionalFeature(
+  raw: RawOptionalFeature,
+  locale: Locale = 'en',
+): OptionalFeatureEntry {
   return {
     ...baseFields(raw),
-    featureType: formatOptionalFeatureType(raw.featureType),
-    prerequisite: formatPrerequisite(raw.prerequisite),
+    featureType: formatOptionalFeatureType(raw.featureType, locale),
+    prerequisite: formatPrerequisite(raw.prerequisite, locale),
     entries: raw.entries ?? [],
   };
 }
@@ -581,11 +620,11 @@ export interface RawDeity {
   entries?: Entry[];
 }
 
-export function normalizeDeity(raw: RawDeity): DeityEntry {
+export function normalizeDeity(raw: RawDeity, locale: Locale = 'en'): DeityEntry {
   return {
     ...baseFields(raw),
     pantheon: raw.pantheon ?? '',
-    alignment: formatAlignment(raw.alignment),
+    alignment: formatAlignment(raw.alignment, locale),
     domains: formatDomains(raw.domains),
     symbol: raw.symbol ?? '',
     entries: raw.entries ?? [],
@@ -601,10 +640,14 @@ export interface RawHazard {
   entries?: Entry[];
 }
 
-export function normalizeHazard(raw: RawHazard, fallback: string): HazardEntry {
+export function normalizeHazard(
+  raw: RawHazard,
+  fallback: string,
+  locale: Locale = 'en',
+): HazardEntry {
   return {
     ...baseFields(raw),
-    hazardType: formatHazardType(raw.trapHazType, fallback),
+    hazardType: formatHazardType(raw.trapHazType, fallback, locale),
     entries: raw.entries ?? [],
   };
 }
@@ -631,10 +674,10 @@ export interface RawSkill {
   entries?: Entry[];
 }
 
-export function normalizeSkill(raw: RawSkill): SkillEntry {
+export function normalizeSkill(raw: RawSkill, locale: Locale = 'en'): SkillEntry {
   return {
     ...baseFields(raw),
-    ability: formatAbilityList(raw.ability ? [raw.ability] : []),
+    ability: formatAbilityList(raw.ability ? [raw.ability] : [], locale),
     entries: raw.entries ?? [],
   };
 }
@@ -662,10 +705,13 @@ export interface RawLanguage {
   entries?: Entry[];
 }
 
-export function normalizeLanguage(raw: RawLanguage): LanguageEntry {
+export function normalizeLanguage(
+  raw: RawLanguage,
+  locale: Locale = 'en',
+): LanguageEntry {
   return {
     ...baseFields(raw),
-    languageType: formatLanguageType(raw.type),
+    languageType: formatLanguageType(raw.type, locale),
     script: raw.script ?? '',
     typicalSpeakers: formatStringList(raw.typicalSpeakers),
     entries: raw.entries ?? [],
@@ -703,12 +749,15 @@ export interface RawFacility {
   entries?: Entry[];
 }
 
-export function normalizeFacility(raw: RawFacility): FacilityEntry {
+export function normalizeFacility(
+  raw: RawFacility,
+  locale: Locale = 'en',
+): FacilityEntry {
   return {
     ...baseFields(raw),
-    facilityType: formatFacilityType(raw.facilityType),
+    facilityType: formatFacilityType(raw.facilityType, locale),
     level: raw.level != null ? `${raw.level}` : '',
-    prerequisite: formatFacilityPrereq(raw.prerequisite),
+    prerequisite: formatFacilityPrereq(raw.prerequisite, locale),
     space: formatStringList(raw.space),
     orders: formatStringList(raw.orders),
     entries: raw.entries ?? [],
@@ -739,19 +788,19 @@ function resolveIngredient(
   });
 }
 
-function recipeEntries(raw: RawRecipe): Entry[] {
+function recipeEntries(raw: RawRecipe, locale: Locale = 'en'): Entry[] {
   const out: Entry[] = [];
   if (raw.ingredients?.length) {
     out.push({
       type: 'entries',
-      name: 'Ingredients',
+      name: locale === 'pl' ? 'Składniki' : 'Ingredients',
       entries: [{ type: 'list', items: raw.ingredients.map(resolveIngredient) }],
     });
   }
   if (raw.instructions?.length) {
     out.push({
       type: 'entries',
-      name: 'Instructions',
+      name: locale === 'pl' ? 'Instrukcje' : 'Instructions',
       entries: [{ type: 'list', items: raw.instructions }],
     });
   }
@@ -759,13 +808,13 @@ function recipeEntries(raw: RawRecipe): Entry[] {
   return out;
 }
 
-export function normalizeRecipe(raw: RawRecipe): RecipeEntry {
+export function normalizeRecipe(raw: RawRecipe, locale: Locale = 'en'): RecipeEntry {
   return {
     ...baseFields(raw),
     recipeType: raw.type ?? 'Recipe',
     serves: formatServes(raw.serves),
-    diet: formatDiet(raw.diet),
-    entries: recipeEntries(raw),
+    diet: formatDiet(raw.diet, locale),
+    entries: recipeEntries(raw, locale),
   };
 }
 
@@ -791,7 +840,7 @@ export interface RawObject {
   hasToken?: boolean;
 }
 
-export function normalizeObject(raw: RawObject): ObjectEntry {
+export function normalizeObject(raw: RawObject, locale: Locale = 'en'): ObjectEntry {
   const ac =
     typeof raw.ac === 'number' ? `${raw.ac}` : raw.ac?.ac != null ? `${raw.ac.ac}` : '';
   const hp =
@@ -806,8 +855,8 @@ export function normalizeObject(raw: RawObject): ObjectEntry {
   return {
     ...baseFields(raw),
     ...(image ? { image } : {}),
-    size: formatSize(raw.size),
-    objectType: formatObjectType(raw.objectType),
+    size: formatSize(raw.size, locale),
+    objectType: formatObjectType(raw.objectType, locale),
     ac,
     hp,
     str: raw.str ?? 10,
@@ -817,7 +866,7 @@ export function normalizeObject(raw: RawObject): ObjectEntry {
     wis: raw.wis ?? 10,
     cha: raw.cha ?? 10,
     immune: formatImmunities(raw.immune),
-    senses: formatSenses(raw.senses, raw.passive),
+    senses: formatSenses(raw.senses, raw.passive, locale),
     actions: toSections(raw.actionEntries),
   };
 }
@@ -856,12 +905,13 @@ export interface RawVehicle {
   hasToken?: boolean;
 }
 
-function weaponSection(weapon: RawWeapon): StatBlockSection {
+function weaponSection(weapon: RawWeapon, locale: Locale = 'en'): StatBlockSection {
   const label = weapon.count && weapon.count > 1 ? ` (×${weapon.count})` : '';
   const statBits: string[] = [];
-  if (weapon.ac != null) statBits.push(`AC ${weapon.ac}`);
-  if (weapon.hp != null) statBits.push(`HP ${weapon.hp}`);
-  if (weapon.crew != null) statBits.push(`Crew ${weapon.crew}`);
+  if (weapon.ac != null) statBits.push(`${locale === 'pl' ? 'KP' : 'AC'} ${weapon.ac}`);
+  if (weapon.hp != null) statBits.push(`${locale === 'pl' ? 'PW' : 'HP'} ${weapon.hp}`);
+  if (weapon.crew != null)
+    statBits.push(`${locale === 'pl' ? 'Załoga' : 'Crew'} ${weapon.crew}`);
   const entries: Entry[] = [];
   if (statBits.length) entries.push(statBits.join(', '));
   if (weapon.entries?.length) entries.push(...weapon.entries);
@@ -872,7 +922,10 @@ function weaponSection(weapon: RawWeapon): StatBlockSection {
       entries: action.entries ?? action.headerEntries ?? [],
     });
   }
-  return { name: `${weapon.name ?? 'Weapon'}${label}`, entries };
+  return {
+    name: `${weapon.name ?? (locale === 'pl' ? 'Broń' : 'Weapon')}${label}`,
+    entries,
+  };
 }
 
 interface RawFeatureRef {
@@ -943,8 +996,15 @@ function slotCount(value: unknown): string {
   return typeof value === 'number' && value > 0 ? `${value}` : '-';
 }
 
-function buildClassTable(raw: RawClass, features: ClassFeature[]): ClassTable {
-  const headers = ['Level', 'Prof. Bonus', 'Features'];
+function buildClassTable(
+  raw: RawClass,
+  features: ClassFeature[],
+  locale: Locale = 'en',
+): ClassTable {
+  const headers =
+    locale === 'pl'
+      ? ['Poziom', 'Premia biegłości', 'Cechy']
+      : ['Level', 'Prof. Bonus', 'Features'];
   const groups = raw.classTableGroups ?? [];
   for (const group of groups) {
     for (const label of group.colLabels ?? []) headers.push(stripMarkup(label));
@@ -1150,6 +1210,7 @@ export function normalizeClasses(
   data: RawClassFile,
   fluff: Map<string, string> = EMPTY_IMAGES,
   keep: KeepFn = () => true,
+  locale: Locale = 'en',
 ): ClassEntry[] {
   const featureIndex = indexFeatures(data.classFeature ?? []);
   const subFeatureIndex = indexFeatures(data.subclassFeature ?? [], true);
@@ -1177,15 +1238,15 @@ export function normalizeClasses(
       ...baseFields(raw),
       ...imageField(fluff, raw.name, raw.source),
       hitDie: raw.hd ? `d${raw.hd.faces}` : '-',
-      primaryAbility: formatPrimaryAbility(raw.primaryAbility),
-      savingThrows: formatAbilityList(raw.proficiency),
-      proficiencies: formatStartingProficiencies(raw.startingProficiencies),
+      primaryAbility: formatPrimaryAbility(raw.primaryAbility, locale),
+      savingThrows: formatAbilityList(raw.proficiency, locale),
+      proficiencies: formatStartingProficiencies(raw.startingProficiencies, locale),
 
-      armorProficiencies: formatProfList(raw.startingProficiencies?.armor),
-      weaponProficiencies: formatProfList(raw.startingProficiencies?.weapons),
-      toolProficiencies: formatProfList(raw.startingProficiencies?.tools),
-      subclassTitle: raw.subclassTitle ?? 'Subclass',
-      table: buildClassTable(raw, features),
+      armorProficiencies: formatProfList(raw.startingProficiencies?.armor, locale),
+      weaponProficiencies: formatProfList(raw.startingProficiencies?.weapons, locale),
+      toolProficiencies: formatProfList(raw.startingProficiencies?.tools, locale),
+      subclassTitle: raw.subclassTitle ?? (locale === 'pl' ? 'Podklasa' : 'Subclass'),
+      table: buildClassTable(raw, features, locale),
       features,
       subclasses,
     });
@@ -1196,6 +1257,7 @@ export function normalizeClasses(
 export function normalizeStandaloneSubclasses(
   data: RawClassFile,
   keep: KeepFn = () => true,
+  _locale: Locale = 'en',
 ): Array<{ className: string; subclass: ClassSubclass }> {
   const featureIndex = indexFeatures(data.classFeature ?? []);
   const subFeatureIndex = indexFeatures(data.subclassFeature ?? [], true);
@@ -1245,6 +1307,16 @@ const CHAR_OPTION_TYPES: Record<string, string> = {
   DB: 'Dark Bargain',
 };
 
+const PL_CHAR_OPTION_TYPES: Record<string, string> = {
+  RF: 'Cecha rasy',
+  'RF:B': 'Cecha rasy z tła',
+  CS: 'Sekret postaci',
+  OF: 'Opcjonalna cecha',
+  SG: 'Nadnaturalny dar',
+  DG: 'Boski dar',
+  DB: 'Mroczny pakt',
+};
+
 export interface RawCharOption {
   name: string;
   source: string;
@@ -1255,13 +1327,21 @@ export interface RawCharOption {
   entries?: Entry[];
 }
 
-export function normalizeCharOption(raw: RawCharOption): CharOptionEntry {
+export function normalizeCharOption(
+  raw: RawCharOption,
+  locale: Locale = 'en',
+): CharOptionEntry {
   return {
     ...baseFields(raw),
     optionType:
-      (raw.optionType ?? []).map((t) => CHAR_OPTION_TYPES[t] ?? t).join(', ') ||
-      'Character Option',
-    prerequisite: formatPrerequisite(raw.prerequisite),
+      (raw.optionType ?? [])
+        .map((t) =>
+          locale === 'pl'
+            ? (PL_CHAR_OPTION_TYPES[t] ?? CHAR_OPTION_TYPES[t] ?? t)
+            : (CHAR_OPTION_TYPES[t] ?? t),
+        )
+        .join(', ') || (locale === 'pl' ? 'Opcja postaci' : 'Character Option'),
+    prerequisite: formatPrerequisite(raw.prerequisite, locale),
     entries: raw.entries ?? [],
   };
 }
@@ -1302,6 +1382,7 @@ export function normalizeDeck(raw: RawDeck): DeckEntry {
 export function normalizeVehicle(
   raw: RawVehicle,
   fluff: Map<string, string> = EMPTY_IMAGES,
+  locale: Locale = 'en',
 ): VehicleEntry {
   const size = Array.isArray(raw.size) ? raw.size : raw.size ? [raw.size] : undefined;
   const acValue = raw.hull?.ac ?? (typeof raw.ac === 'number' ? raw.ac : raw.ac?.ac);
@@ -1315,18 +1396,18 @@ export function normalizeVehicle(
   return {
     ...baseFields(raw),
     ...(image ? { image } : {}),
-    vehicleType: formatVehicleType(raw.vehicleType),
-    size: size ? formatSize(size) : '',
+    vehicleType: formatVehicleType(raw.vehicleType, locale),
+    size: size ? formatSize(size, locale) : '',
     dimensions: formatDimensions(raw.dimensions),
     terrain: formatStringList(raw.terrain),
-    capacity: formatVehicleCapacity(raw.capCrew, raw.capPassenger, raw.capCargo),
-    pace: formatPace(raw.pace),
-    speed: formatSpeed(raw.speed),
-    cost: formatCostGp(raw.cost),
+    capacity: formatVehicleCapacity(raw.capCrew, raw.capPassenger, raw.capCargo, locale),
+    pace: formatPace(raw.pace, locale),
+    speed: formatSpeed(raw.speed, locale),
+    cost: formatCostGp(raw.cost, locale),
     ac: acValue != null ? `${acValue}` : '',
     hp: hpValue != null ? `${hpValue}` : '',
     immune: formatImmunities(raw.immune),
     entries: raw.entries ?? [],
-    weapons: (raw.weapon ?? []).map(weaponSection),
+    weapons: (raw.weapon ?? []).map((weapon) => weaponSection(weapon, locale)),
   };
 }

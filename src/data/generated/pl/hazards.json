@@ -69,7 +69,7 @@
   "bile-lichen": {
     "name": "Żółciowy Porost",
     "entries": [
-      "Żółciowy porost to toksyczna, zielono-żółta substancja przypominająca wymiociny. Rozwija się tam, gdzie mieszają się skrajne upały i mrozy, na przykład przy otworach kominów parowych w Icewind Dale w Podmroku. Jedna plama żółciowego porostu zajmuje kwadrat o boku 5 stóp.",
+      "Żółciowy porost to toksyczna, zielono-żółta substancja przypominająca wymiociny. Rozwija się tam, gdzie mieszają się skrajne upały i mrozy, na przykład przy otworach kominów parowych w Dolina Lodowego Wichru w Podmroku. Jedna plama żółciowego porostu zajmuje kwadrat o boku 5 stóp.",
       "Jeśli plama żółciowego porostu zostanie dotknięta, uwalnia chmurę zarodników, która wypełnia dziesięciostopowy {@variantrule Cube [Area of Effect]|XPHB|Sześcian} i rozprasza się po {@dice 1d4} godzinach. Gdy stwór wchodzi do tej chmury po raz pierwszy w danej turze lub zaczyna w niej swoją turę, wykonuje rzut obronny Kondycji ({@dc 14}), otrzymując 11 ({@dice 2d10}) obrażeń Trucizną i zarażając się {@disease Lichen Plague|FRAiF} przy nieudanym rzucie (patrz „{@book Magical Contagions|FRAiF|3|Magiczne Zarazy}” dalej w tym rozdziale). Przy udanym rzucie stwór otrzymuje jedynie połowę tych obrażeń."
     ],
     "hazardType": "Zaryzykować"
@@ -293,14 +293,14 @@
     "name": "Upadek",
     "entries": [
       "Stwór, który spada, otrzymuje {@damage 1d6} obrażeń Obuchowych pod koniec upadku za każde 10 stóp, które przeleciał, maksymalnie {@damage 20d6}. Gdy stwór ląduje, uzyskuje stan {@condition Prone|XPHB}, chyba że uniknie otrzymania jakichkolwiek obrażeń z upadku.",
-      "Stwór, który wpada do wody lub innej cieczy, może użyć swojej {@variantrule Reaction|XPHB}, by wykonać test Siły ({@skill Athletics|XPHB}) lub Zręczności ({@skill Acrobatics|XPHB}) ({@dc 15}), by uderzyć w powierzchnię głową lub stopami do przodu. Przy udanym teście wszelkie obrażenia wynikające z upadku zostają zmniejszone o połowę."
+      "Stwór, który wpada do wody lub innej cieczy, może użyć swojej {@variantrule Reaction|XPHB}, by wykonać test Siły ({@skill Athletics|XPHB}) lub Zręczności ({@skill Athletics|XPHB}) ({@dc 15}), by uderzyć w powierzchnię głową lub stopami do przodu. Przy udanym teście wszelkie obrażenia wynikające z upadku zostają zmniejszone o połowę."
     ],
     "hazardType": "Zaryzykować"
   },
   "falling-into-water": {
     "name": "Wpadnięcie do Wody",
     "entries": [
-      "Stwór, który wpada do wody lub innej cieczy, może użyć swojej reakcji, by wykonać test Siły ({@skill Athletics}) lub Zręczności ({@skill Acrobatics}) ({@dc 15}), by uderzyć w powierzchnię głową lub stopami do przodu. Przy udanym teście wszelkie obrażenia wynikające z upadku zostają zmniejszone o połowę."
+      "Stwór, który wpada do wody lub innej cieczy, może użyć swojej reakcji, by wykonać test Siły ({@skill Athletics}) lub Zręczności ({@skill Athletics}) ({@dc 15}), by uderzyć w powierzchnię głową lub stopami do przodu. Przy udanym teście wszelkie obrażenia wynikające z upadku zostają zmniejszone o połowę."
     ],
     "hazardType": "Zagrożenie dzikiej przyrody"
   },
@@ -461,7 +461,7 @@
     "name": "Wiatr Obdzierający",
     "entries": [
       "Nadnaturalnie potężne wiatry - takie jak te z planów takich jak Pandemonium czy Minethys, trzecia warstwa Carceri - mogą powodować powstanie wiatrów obdzierających. Wiatr obdzierający to intensywna burza piaskowa, zbierająca duże kamienie i inne szczątki oprócz piasku i żwiru. Obszar wewnątrz burzy jest silnie przesłonięty, a stwór wystawiony na jej działanie otrzymuje {@damage 1d4} obrażeń tnących na początku każdej swojej tury. Jedynie solidna osłona lub schronienie zapewnia ochronę przed obdzierającym żwirem.",
-      "Wiatr obdzierający pozostawia po sobie {@dice 4d6} stóp piasku lub szczątków. Udany test Inteligencji ({@skill Arcana}) lub ({@skill Nature}) lub Mądrości ({@skill Survival}) ({@dc 15}) pozwala postaci rozpoznać wiatr obdzierający 1 minutę przed jego uderzeniem, dając czas na znalezienie schronienia. Wiatr obdzierający trwa zwykle {@dice 1d4 × 10} godzin."
+      "Wiatr obdzierający pozostawia po sobie {@dice 4d6} stóp piasku lub szczątków. Udany test Inteligencji ({@skill Arcana}) lub ({@skill Arcana}) lub Mądrości ({@skill Nature}) ({@dc 15}) pozwala postaci rozpoznać wiatr obdzierający 1 minutę przed jego uderzeniem, dając czas na znalezienie schronienia. Wiatr obdzierający trwa zwykle {@dice 1d4 × 10} godzin."
     ],
     "hazardType": "Niesamowita Burza"
   },
@@ -608,7 +608,7 @@
   "howling-wind": {
     "name": "Wyjący Wiatr",
     "entries": [
-      "Wiatry Icewind Dale mogą osiągać niewiarygodną siłę i głośność, uniemożliwiając słyszenie. Stwory przebywające na zewnątrz w wyjącym wietrze mają stan {@condition Deafened|XPHB}."
+      "Wiatry Dolina Lodowego Wichru mogą osiągać niewiarygodną siłę i głośność, uniemożliwiając słyszenie. Stwory przebywające na zewnątrz w wyjącym wietrze mają stan {@condition Deafened|XPHB}."
     ],
     "hazardType": "Zagrożenie dla środowiska"
   },
@@ -813,7 +813,7 @@
         "type": "entries",
         "name": "Wykrywanie Burz z Piorunami",
         "entries": [
-          "Stwór, który zda test Inteligencji ({@skill Nature|XPHB}) lub Mądrości ({@skill Survival|XPHB}) ({@dc 10}), przewiduje burzę z piorunami {@b {@dice 1d4}} godzin przed jej powstaniem w okolicy."
+          "Stwór, który zda test Inteligencji ({@skill Nature|XPHB}) lub Mądrości ({@skill Nature|XPHB}) ({@dc 10}), przewiduje burzę z piorunami {@b {@dice 1d4}} godzin przed jej powstaniem w okolicy."
         ]
       }
     ],
@@ -1246,7 +1246,7 @@
   "river-styx": {
     "name": "Rzeka Styks",
     "entries": [
-      "{@book River Styx|XDMG|5|Rzeka Styks} przepływa przez Niższe Plany. Skosztowanie lub dotknięcie jej wód może roztrzaskać intelekt i osobowość stwora, a także wymazać jego wspomnienia. Niektóre Diabelstwa są odporne na efekty rzeki.",
+      "{@book River Styx|XDMG|5|Rzeka Styks} przepływa przez Niższe Plany. Skosztowanie lub dotknięcie jej wód może roztrzaskać intelekt i osobowość stwora, a także wymazać jego wspomnienia. Niektóre Diabelstwa są odporne na efekty rzeki}",
       "O ile nie są odporne na efekty rzeki, stwory, które piją ze Styksu, wchodzą do rzeki lub zaczynają w niej swoją turę, wykonują rzut obronny Inteligencji ({@dc 20}). Przy nieudanym rzucie stwór otrzymuje 19 ({@damage 3d12}) obrażeń Psychicznych i nie może rzucać zaklęć ani podejmować akcji {@action Magic|XPHB} przez 30 dni. Dotknięty stwór może pić ze Styksu i pływać w jego wodach, nie doznając żadnych dodatkowych efektów.",
       "Efekt można zakończyć jedynie zaklęciem {@spell Greater Restoration|XPHB}, {@spell Heal|XPHB} lub {@spell Wish|XPHB}. Jeśli efekt nie zostanie zakończony po 30 dniach, staje się trwały, a stwór traci wszystkie swoje wspomnienia. W tym momencie nic poza zaklęciem {@spell Wish|XPHB} lub boską interwencją nie może cofnąć tego efektu.",
       "Woda pobrana z Rzeki Styks traci swoją moc po 24 godzinach, stając się nieszkodliwym, cuchnącym płynem. Arkanaloty, nocne wiedźmy i inne złowrogie stwory mogą znać rytuały zdolne przedłużyć moc wody, według uznania DM-a."
@@ -1333,7 +1333,7 @@
     "name": "Rdzawa Pleśń",
     "entries": [
       "Niewielu wie na pewno, skąd pochodzi rdzawa pleśń. Jedna historyczna relacja opowiada o poszukiwaczach przygód w paśmie górskim, którzy odkryli rdzawą pleśń i {@filter warzywnych pigmejów|bestiary|search=vegepygmy} w osobliwym metalowym lochu pełnym dziwnego życia. Inna opowieść mówi, że odkrywcy znaleźli rdzawą pleśń w kraterze pozostawionym przez spadającą gwiazdę, z {@creature Vegepygmy|MPMM|warzywnymi pigmejami} zasiedlającymi pobliski las.",
-      "Pleśń występuje jedynie w miejscach ciemnych, ciepłych i wilgotnych. Rdzawą pleśń rozprzestrzenioną na metalowym przedmiocie można pomylić z rdzą, a udany test Inteligencji ({@skill Nature}) lub Mądrości ({@skill Survival}) ({@dc 15}) jest wymagany, by ją zidentyfikować.",
+      "Pleśń występuje jedynie w miejscach ciemnych, ciepłych i wilgotnych. Rdzawą pleśń rozprzestrzenioną na metalowym przedmiocie można pomylić z rdzą, a udany test Inteligencji ({@skill Nature}) lub Mądrości ({@skill Nature}) ({@dc 15}) jest wymagany, by ją zidentyfikować.",
       {
         "type": "entries",
         "name": "Efekty Pleśni",
@@ -1683,7 +1683,7 @@
   "thrym-s-howl": {
     "name": "Wycie Thryma",
     "entries": [
-      "Te przenikające do szpiku kości zamiecie prowadzą ścianę wiatru i śniegu niczym żywy lodowiec. Burza rzutuje {@hazard extreme cold|skrajny mróz} (patrz {@book Dungeon Master's Guide|DMG|Podręcznik Mistrza Podziemi}). Ze względu na wyjący wiatr i gęste, niebiesko-białe cząsteczki lodu, obszar w burzy jest silnie przesłonięty, a rzuty na atak dystansowy i testy Mądrości ({@skill Perception}) wykonane w niej mają utrudnienie.",
+      "Te przenikające do szpiku kości zamiecie prowadzą ścianę wiatru i śniegu niczym żywy lodowiec. Burza rzutuje {@hazard extreme cold|} (patrz {@book Dungeon Master's Guide|DMG|Podręcznik Mistrza Podziemi}). Ze względu na wyjący wiatr i gęste, niebiesko-białe cząsteczki lodu, obszar w burzy jest silnie przesłonięty, a rzuty na atak dystansowy i testy Mądrości ({@skill Perception}) wykonane w niej mają utrudnienie.",
       "Każdy stwór wystawiony na burzę na początku swojej tury otrzymuje {@damage 2d6} obrażeń zimna i nie może odzyskiwać punktów wytrzymałości, dopóki nie spędzi co najmniej 1 godziny w ciepłym środowisku. Stwór, który umiera w burzy, zamarza na kamień. Stwory odporne na obrażenia zimna są odporne na efekty burzy i mogą w niej normalnie widzieć.",
       "Wycie Thryma trwa zwykle {@dice 2d10} godzin."
     ],
@@ -1739,7 +1739,7 @@
     "name": "Pajęczyny",
     "entries": [
       "Wielkie pająki tkają grube, lepkie pajęczyny w poprzek przejść oraz na dnie dołów, by chwytać zdobycz. Te wypełnione pajęczynami obszary to {@variantrule Difficult Terrain|XPHB}.",
-      "Stwór, który wejdzie do obszaru wypełnionego pajęczynami po raz pierwszy w danej turze lub zaczyna w nim swoją turę, musi zdać rzut obronny Zręczności ({@dc 12}) lub uzyskać stan {@condition Restrained|XPHB}. Jako akcję stwór Unieruchomiony przez pajęczyny może spróbować się z nich uwolnić, czyniąc to poprzez udany test Siły ({@skill Athletics|XPHB}) lub Zręczności ({@skill Acrobatics|XPHB}) ({@dc 12}).",
+      "Stwór, który wejdzie do obszaru wypełnionego pajęczynami po raz pierwszy w danej turze lub zaczyna w nim swoją turę, musi zdać rzut obronny Zręczności ({@dc 12}) lub uzyskać stan {@condition Restrained|XPHB}. Jako akcję stwór Unieruchomiony przez pajęczyny może spróbować się z nich uwolnić, czyniąc to poprzez udany test Siły ({@skill Athletics|XPHB}) lub Zręczności ({@skill Athletics|XPHB}) ({@dc 12}).",
       "Każdy dziesięciostopowy {@variantrule Cube [Area of Effect]|XPHB|Sześcian} pajęczyn ma KP 10, 15 pw, Podatność na obrażenia Ogniem oraz Immunitet na obrażenia Kłujące, Trucizną i Psychiczne."
     ],
     "hazardType": "Zaryzykować"

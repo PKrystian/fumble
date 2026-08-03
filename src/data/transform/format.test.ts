@@ -2,6 +2,31 @@ import { describe, expect, it } from 'vitest';
 import * as format from './format';
 
 describe('data formatters', () => {
+  it('formats generated labels in Polish', () => {
+    expect(format.formatCastingTime([{ number: 1, unit: 'action' }], 'pl')).toBe(
+      '1 akcję',
+    );
+    expect(
+      format.formatRange({ type: 'cone', distance: { type: 'feet', amount: 15 } }, 'pl'),
+    ).toBe('15 stóp (stożek, 15 stóp)');
+    expect(format.formatSize(['S', 'M'], 'pl')).toBe('Mały lub Średni');
+    expect(format.formatSpeed({ walk: 30, fly: 60 }, 'pl')).toBe('30 stóp, lot 60 stóp');
+    expect(format.formatItemType('HA', 'rare', 'pl')).toBe('Ciężki pancerz');
+    expect(format.formatRarity('very rare', 'pl')).toBe('Bardzo rzadki');
+    expect(format.formatWeaponDamage('1d8', 'S', 'pl')).toBe('1d8 sieczne');
+    expect(format.formatMonsterType('dragon', 'pl')).toBe('Smok');
+    expect(format.formatAlignment(['C', 'E'], 'pl')).toBe('Chaotyczny Zły');
+    expect(format.formatMonsterCrDisplay({ cr: '5', xp: 1800 }, 'pl')).toBe(
+      '5 (PD 1800; Premia biegłości +3)',
+    );
+    expect(format.formatDailyLabel('2e', 'pl')).toBe('2/każdy dzień');
+    expect(format.formatDiet('V', 'pl')).toBe('Wegetariańskie');
+    expect(format.formatFacilityType('basic', 'pl')).toBe('Podstawowa');
+    expect(format.formatVehicleCapacity(5, 10, 2, 'pl')).toBe(
+      'Załoga 5, Pasażerowie 10, Ładunek 2 ton',
+    );
+  });
+
   it('formats spell fields', () => {
     expect(format.formatCastingTime(undefined)).toBe('-');
     expect(

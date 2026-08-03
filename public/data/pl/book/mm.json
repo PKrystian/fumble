@@ -139,8 +139,8 @@
                       "type": "list",
                       "items": [
                         "Twierdza piekła na Avernus, pierwsze warstwy Dziewięciu Piekieł",
-                        "Nawiedzony zamek w Shadowfell, który służy jako legowisko smoka cienia",
-                        "Grobowiec królowej elfów w Feywild",
+                        "Nawiedzony zamek w Krainie Cieni, który służy jako legowisko smoka cienia",
+                        "Grobowiec królowej elfów w Krainie Wróżek",
                         "Pałac dżina na Planie Żywiołów Powietrza, dostępny cudownymi skradzionymi skarbami",
                         "Sekretny półplan licza, gdzie nieumarły arcymag ukryć swoje filakterium i księgę zaklęć"
                       ]
@@ -248,7 +248,7 @@
                 "{@b Konstrukcje}są stworzeni, a nie urodzenie. Zostały opracowane przez użytkowników tak, aby osiągnąć postęp z prostym zestawem terapeutycznym, podczas gdy inne są przepojone świadomością i stworzone do niezależnego myślenia. Golemy do ikonicznych konstruktów. Wiele stworzeń rodzimych na podstawie planu Mechanusa, takich jak modrony, to konstrukty stworzone z planu z woli potężniejszych stworzeń.",
                 "{@b Smoki}to duże gadzie tworzenia o starożytnym pochodzeniu i ogromnej mocy. Prawdziwe smoki, w tym dobre smoki metaliczne i złe smoki chromatyczne, są bardzo inteligentne i mają wrodzoną magię. Czy tej kategorii zaliczają się także tworzenia daleko spokrewnione z prawdziwymi smokami, ale słabsze, mniej inteligentne i mniej magiczne, takie jak wiwerny i pseudosmoki.",
                 "{@b Żywiołaki}są tworzone, wychodząc z żywiołów. Istnieje stworzenie tego typu, które jest niewiele więcej niż jeden żywioł, włączając w tworzenie zwane po prostu żywiołakami. Inni mają formę otwartą na energię elementarną. Rasy dżinów, w tym dżiny i efreety, najważniejsze cywilizacje na płaszczyznach żywiołów. Inne żywiołaki to azery, niewidzialni prześladowcy i dziwadła wodne.",
-                "{@b Fej}do stworzenia rozwiązania prawidłowego z siłami natury. Mieszkają w mrocznych gajach i mglistych lasach. W niektórych światach są one powiązane z Feywildem, znanym także Planem Faerie. Niektóre z nich można poznać także na Planach Zewnętrznych, szczególnie na planach Arborei i Krain Bestii. Fey obejmują driady, wróżki i satyry.",
+                "{@b Fej}do stworzenia rozwiązania prawidłowego z siłami natury. Mieszkają w mrocznych gajach i mglistych lasach. W niektórych światach są one powiązane z Krainą Wróżek, znanym także Planem Faerie. Niektóre z nich można poznać także na Planach Zewnętrznych, szczególnie na planach Arborei i Krain Bestii. Fey obejmują driady, wróżki i satyry.",
                 "{@b Diabły}tworząmi niegodziwości, które pochodzą z Niższych Planów. Niewielu jest sługami bóstw, ale o wiele więcej pracuje pod przywództwem arcydiabłów i książąt demonów. Źli kapłani i magowie czasami przywołują potwory do świata materialnego, aby wykonywali ich rozkazy. Jeśli zły niebiański duch jest rzadkością, dobry diabeł jest prawie nie do pomyślenia. Do potworów zaliczają się demony, diabły, piekielne psy, rakszasy i yugolothy.",
                 "{@b Giganci}góruje nad człowiekiem i ich gatunkami. Mają kształt zachowania do człowieka, chociaż niektóre mają wiele głów (ettins) lub deformacje (fomorianie). Sześć odmian prawdziwych olbrzymów do olbrzymy górskie, olbrzymy kamienne, olbrzymy mroźne, olbrzymy ogniste, olbrzymy chmurowe i olbrzymy burzowe. Poza tym tworzeniem takich jak gry i trolle są gigantami.",
                 "{@b Humanoidy}to główne narody świata D&D, jednostki cywilizowane, jak i dzikie, w tym ludzie i jedyne gatunki innych gatunków. Mają język i kulturę, brak, jeśli w ogóle, wrodzone umiejętności magiczne (chociaż pozostałych humanoidów może pojawić się rzucania zaklęć) i dwunożną formę. Najpopularniejsze rasy humanoidalne to te, które najlepiej sprawdzają się na postaciach graczy: ludzie, krasnoludy, elfy i niziołki. Niemal równie częste, lecz o wiele bardziej dzikie i brutalne oraz uniwersalne jednakowo złe, są rasy goblinoidów (gobliny, hobgobliny i niedźwiedzie robale), orków, gnolli, jaszczuroludzi i koboldów.",
@@ -300,7 +300,7 @@
                 "Modyfikator Kondycji potwora wpływa także na liczbę posiadanych przez niego punktów wytrzymałości. Modyfikator Kondycji jest mnożony przez liczbę posiadanych Kostek Wytrzymałości, a wynik jest dodawany do jego punktów wytrzymałości. Na przykład, jeśli potwór ma Kondycję 12 (+1 modyfikator) i Kostki Wytrzymałości {@dice 2d8}, ma punkty wytrzymałości {@dice 2d8 + 2} (średnio 11).",
                 {
                   "type": "table",
-                  "caption": "Hit Dice według rozmiaru",
+                  "caption": "Kości Wytrzymałości według rozmiaru",
                   "colLabels": [
                     "Rozmiar potwora",
                     "Kość Hitu",
@@ -1362,7 +1362,7 @@
           "name": "Szablon Smoka Cienia",
           "page": 84,
           "entries": [
-            "Tylko prawdziwy smok może przemienić się w smoka cienie i tylko wtedy, gdy urodzi się w Shadowfell lub przypada tam przez kilka lat. Dracolicha nie można zamienić w smoka cienia, ponieważ traci on swoją smoczą naturę, gdy staje się nieumarłym.",
+            "Tylko prawdziwy smok może przemienić się w smoka cienie i tylko wtedy, gdy urodzi się w Krainie Cieni lub przypada tam przez kilka lat. Dracolicha nie można zamienić w smoka cienia, ponieważ traci on swoją smoczą naturę, gdy staje się nieumarłym.",
             "Kiedy smok staje się dymem cieni, przedstawia swoje statystyki, z zachowaniem przepisów poniżej. Smok Cienia może być odłączony lub pozostawiony jako część lub wszystkie akcje z legowiskiem lub odziedziczone nowe, jeśli DM uzna to za odpowiednie.",
             {
               "type": "entries",
@@ -1798,8 +1798,8 @@
                   "type": "list",
                   "items": [
                     "Twierdza piekła na Avernus, pierwsze warstwy Dziewięciu Piekieł",
-                    "Nawiedzony zamek w Shadowfell, który służy jako legowisko smoka cienia",
-                    "Grobowiec królowej elfów w Feywild",
+                    "Nawiedzony zamek w Krainie Cieni, który służy jako legowisko smoka cienia",
+                    "Grobowiec królowej elfów w Krainie Wróżek",
                     "Pałac dżina na Planie Żywiołów Powietrza, dostępny cudownymi skradzionymi skarbami",
                     "Sekretny półplan licza, gdzie nieumarły arcymag ukryć swoje filakterium i księgę zaklęć"
                   ]
@@ -1944,8 +1944,8 @@
               "type": "list",
               "items": [
                 "Twierdza piekła na Avernus, pierwsze warstwy Dziewięciu Piekieł",
-                "Nawiedzony zamek w Shadowfell, który służy jako legowisko smoka cienia",
-                "Grobowiec królowej elfów w Feywild",
+                "Nawiedzony zamek w Krainie Cieni, który służy jako legowisko smoka cienia",
+                "Grobowiec królowej elfów w Krainie Wróżek",
                 "Pałac dżina na Planie Żywiołów Powietrza, dostępny cudownymi skradzionymi skarbami",
                 "Sekretny półplan licza, gdzie nieumarły arcymag ukryć swoje filakterium i księgę zaklęć"
               ]
@@ -2062,8 +2062,8 @@
           "type": "list",
           "items": [
             "Twierdza piekła na Avernus, pierwsze warstwy Dziewięciu Piekieł",
-            "Nawiedzony zamek w Shadowfell, który służy jako legowisko smoka cienia",
-            "Grobowiec królowej elfów w Feywild",
+            "Nawiedzony zamek w Krainie Cieni, który służy jako legowisko smoka cienia",
+            "Grobowiec królowej elfów w Krainie Wróżek",
             "Pałac dżina na Planie Żywiołów Powietrza, dostępny cudownymi skradzionymi skarbami",
             "Sekretny półplan licza, gdzie nieumarły arcymag ukryć swoje filakterium i księgę zaklęć"
           ]
@@ -2165,7 +2165,7 @@
             "{@b Konstrukcje}są stworzeni, a nie urodzenie. Zostały opracowane przez użytkowników tak, aby osiągnąć postęp z prostym zestawem terapeutycznym, podczas gdy inne są przepojone świadomością i stworzone do niezależnego myślenia. Golemy do ikonicznych konstruktów. Wiele stworzeń rodzimych na podstawie planu Mechanusa, takich jak modrony, to konstrukty stworzone z planu z woli potężniejszych stworzeń.",
             "{@b Smoki}to duże gadzie tworzenia o starożytnym pochodzeniu i ogromnej mocy. Prawdziwe smoki, w tym dobre smoki metaliczne i złe smoki chromatyczne, są bardzo inteligentne i mają wrodzoną magię. Czy tej kategorii zaliczają się także tworzenia daleko spokrewnione z prawdziwymi smokami, ale słabsze, mniej inteligentne i mniej magiczne, takie jak wiwerny i pseudosmoki.",
             "{@b Żywiołaki}są tworzone, wychodząc z żywiołów. Istnieje stworzenie tego typu, które jest niewiele więcej niż jeden żywioł, włączając w tworzenie zwane po prostu żywiołakami. Inni mają formę otwartą na energię elementarną. Rasy dżinów, w tym dżiny i efreety, najważniejsze cywilizacje na płaszczyznach żywiołów. Inne żywiołaki to azery, niewidzialni prześladowcy i dziwadła wodne.",
-            "{@b Fej}do stworzenia rozwiązania prawidłowego z siłami natury. Mieszkają w mrocznych gajach i mglistych lasach. W niektórych światach są one powiązane z Feywildem, znanym także Planem Faerie. Niektóre z nich można poznać także na Planach Zewnętrznych, szczególnie na planach Arborei i Krain Bestii. Fey obejmują driady, wróżki i satyry.",
+            "{@b Fej}do stworzenia rozwiązania prawidłowego z siłami natury. Mieszkają w mrocznych gajach i mglistych lasach. W niektórych światach są one powiązane z Krainą Wróżek, znanym także Planem Faerie. Niektóre z nich można poznać także na Planach Zewnętrznych, szczególnie na planach Arborei i Krain Bestii. Fey obejmują driady, wróżki i satyry.",
             "{@b Diabły}tworząmi niegodziwości, które pochodzą z Niższych Planów. Niewielu jest sługami bóstw, ale o wiele więcej pracuje pod przywództwem arcydiabłów i książąt demonów. Źli kapłani i magowie czasami przywołują potwory do świata materialnego, aby wykonywali ich rozkazy. Jeśli zły niebiański duch jest rzadkością, dobry diabeł jest prawie nie do pomyślenia. Do potworów zaliczają się demony, diabły, piekielne psy, rakszasy i yugolothy.",
             "{@b Giganci}góruje nad człowiekiem i ich gatunkami. Mają kształt zachowania do człowieka, chociaż niektóre mają wiele głów (ettins) lub deformacje (fomorianie). Sześć odmian prawdziwych olbrzymów do olbrzymy górskie, olbrzymy kamienne, olbrzymy mroźne, olbrzymy ogniste, olbrzymy chmurowe i olbrzymy burzowe. Poza tym tworzeniem takich jak gry i trolle są gigantami.",
             "{@b Humanoidy}to główne narody świata D&D, jednostki cywilizowane, jak i dzikie, w tym ludzie i jedyne gatunki innych gatunków. Mają język i kulturę, brak, jeśli w ogóle, wrodzone umiejętności magiczne (chociaż pozostałych humanoidów może pojawić się rzucania zaklęć) i dwunożną formę. Najpopularniejsze rasy humanoidalne to te, które najlepiej sprawdzają się na postaciach graczy: ludzie, krasnoludy, elfy i niziołki. Niemal równie częste, lecz o wiele bardziej dzikie i brutalne oraz uniwersalne jednakowo złe, są rasy goblinoidów (gobliny, hobgobliny i niedźwiedzie robale), orków, gnolli, jaszczuroludzi i koboldów.",
@@ -2217,7 +2217,7 @@
             "Modyfikator Kondycji potwora wpływa także na liczbę posiadanych przez niego punktów wytrzymałości. Modyfikator Kondycji jest mnożony przez liczbę posiadanych Kostek Wytrzymałości, a wynik jest dodawany do jego punktów wytrzymałości. Na przykład, jeśli potwór ma Kondycję 12 (+1 modyfikator) i Kostki Wytrzymałości {@dice 2d8}, ma punkty wytrzymałości {@dice 2d8 + 2} (średnio 11).",
             {
               "type": "table",
-              "caption": "Hit Dice według rozmiaru",
+              "caption": "Kości Wytrzymałości według rozmiaru",
               "colLabels": [
                 "Rozmiar potwora",
                 "Kość Hitu",
@@ -2950,7 +2950,7 @@
         "{@b Konstrukcje}są stworzeni, a nie urodzenie. Zostały opracowane przez użytkowników tak, aby osiągnąć postęp z prostym zestawem terapeutycznym, podczas gdy inne są przepojone świadomością i stworzone do niezależnego myślenia. Golemy do ikonicznych konstruktów. Wiele stworzeń rodzimych na podstawie planu Mechanusa, takich jak modrony, to konstrukty stworzone z planu z woli potężniejszych stworzeń.",
         "{@b Smoki}to duże gadzie tworzenia o starożytnym pochodzeniu i ogromnej mocy. Prawdziwe smoki, w tym dobre smoki metaliczne i złe smoki chromatyczne, są bardzo inteligentne i mają wrodzoną magię. Czy tej kategorii zaliczają się także tworzenia daleko spokrewnione z prawdziwymi smokami, ale słabsze, mniej inteligentne i mniej magiczne, takie jak wiwerny i pseudosmoki.",
         "{@b Żywiołaki}są tworzone, wychodząc z żywiołów. Istnieje stworzenie tego typu, które jest niewiele więcej niż jeden żywioł, włączając w tworzenie zwane po prostu żywiołakami. Inni mają formę otwartą na energię elementarną. Rasy dżinów, w tym dżiny i efreety, najważniejsze cywilizacje na płaszczyznach żywiołów. Inne żywiołaki to azery, niewidzialni prześladowcy i dziwadła wodne.",
-        "{@b Fej}do stworzenia rozwiązania prawidłowego z siłami natury. Mieszkają w mrocznych gajach i mglistych lasach. W niektórych światach są one powiązane z Feywildem, znanym także Planem Faerie. Niektóre z nich można poznać także na Planach Zewnętrznych, szczególnie na planach Arborei i Krain Bestii. Fey obejmują driady, wróżki i satyry.",
+        "{@b Fej}do stworzenia rozwiązania prawidłowego z siłami natury. Mieszkają w mrocznych gajach i mglistych lasach. W niektórych światach są one powiązane z Krainą Wróżek, znanym także Planem Faerie. Niektóre z nich można poznać także na Planach Zewnętrznych, szczególnie na planach Arborei i Krain Bestii. Fey obejmują driady, wróżki i satyry.",
         "{@b Diabły}tworząmi niegodziwości, które pochodzą z Niższych Planów. Niewielu jest sługami bóstw, ale o wiele więcej pracuje pod przywództwem arcydiabłów i książąt demonów. Źli kapłani i magowie czasami przywołują potwory do świata materialnego, aby wykonywali ich rozkazy. Jeśli zły niebiański duch jest rzadkością, dobry diabeł jest prawie nie do pomyślenia. Do potworów zaliczają się demony, diabły, piekielne psy, rakszasy i yugolothy.",
         "{@b Giganci}góruje nad człowiekiem i ich gatunkami. Mają kształt zachowania do człowieka, chociaż niektóre mają wiele głów (ettins) lub deformacje (fomorianie). Sześć odmian prawdziwych olbrzymów do olbrzymy górskie, olbrzymy kamienne, olbrzymy mroźne, olbrzymy ogniste, olbrzymy chmurowe i olbrzymy burzowe. Poza tym tworzeniem takich jak gry i trolle są gigantami.",
         "{@b Humanoidy}to główne narody świata D&D, jednostki cywilizowane, jak i dzikie, w tym ludzie i jedyne gatunki innych gatunków. Mają język i kulturę, brak, jeśli w ogóle, wrodzone umiejętności magiczne (chociaż pozostałych humanoidów może pojawić się rzucania zaklęć) i dwunożną formę. Najpopularniejsze rasy humanoidalne to te, które najlepiej sprawdzają się na postaciach graczy: ludzie, krasnoludy, elfy i niziołki. Niemal równie częste, lecz o wiele bardziej dzikie i brutalne oraz uniwersalne jednakowo złe, są rasy goblinoidów (gobliny, hobgobliny i niedźwiedzie robale), orków, gnolli, jaszczuroludzi i koboldów.",
@@ -3011,7 +3011,7 @@
         "Modyfikator Kondycji potwora wpływa także na liczbę posiadanych przez niego punktów wytrzymałości. Modyfikator Kondycji jest mnożony przez liczbę posiadanych Kostek Wytrzymałości, a wynik jest dodawany do jego punktów wytrzymałości. Na przykład, jeśli potwór ma Kondycję 12 (+1 modyfikator) i Kostki Wytrzymałości {@dice 2d8}, ma punkty wytrzymałości {@dice 2d8 + 2} (średnio 11).",
         {
           "type": "table",
-          "caption": "Hit Dice według rozmiaru",
+          "caption": "Kości Wytrzymałości według rozmiaru",
           "colLabels": [
             "Rozmiar potwora",
             "Kość Hitu",
@@ -4152,7 +4152,7 @@
       "name": "Szablon Smoka Cienia",
       "page": 84,
       "entries": [
-        "Tylko prawdziwy smok może przemienić się w smoka cienie i tylko wtedy, gdy urodzi się w Shadowfell lub przypada tam przez kilka lat. Dracolicha nie można zamienić w smoka cienia, ponieważ traci on swoją smoczą naturę, gdy staje się nieumarłym.",
+        "Tylko prawdziwy smok może przemienić się w smoka cienie i tylko wtedy, gdy urodzi się w Krainie Cieni lub przypada tam przez kilka lat. Dracolicha nie można zamienić w smoka cienia, ponieważ traci on swoją smoczą naturę, gdy staje się nieumarłym.",
         "Kiedy smok staje się dymem cieni, przedstawia swoje statystyki, z zachowaniem przepisów poniżej. Smok Cienia może być odłączony lub pozostawiony jako część lub wszystkie akcje z legowiskiem lub odziedziczone nowe, jeśli DM uzna to za odpowiednie.",
         {
           "type": "entries",
@@ -5468,7 +5468,7 @@
             "type": "internal",
             "path": "book/MM/mmcover.webp"
           },
-          "title": "Na okładce: Raymond Swanland ilustruje zasadzkę Xanathara na badaczy w najciemniejszych głębinach Undermountain, obciążając, że interesy władcy zbrodni należy do miasta Waterdeep.",
+          "title": "Na okładce: Raymond Swanland ilustruje zasadzkę Xanathara na badaczy w najciemniejszych głębinach Podgóra, obciążając, że interesy władcy zbrodni należy do miasta Waterdeep.",
           "maxWidth": 600,
           "width": 1500,
           "height": 972

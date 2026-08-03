@@ -139,7 +139,7 @@ export interface ItemEntry extends CompendiumEntryBase {
   ac: string;
   properties: string;
 
-  weaponCategory?: 'simple' | 'martial';
+  weaponCategory?: string;
   propertyRefs?: string[];
   mastery?: string;
   masteryRefs?: string[];

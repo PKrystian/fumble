@@ -21,9 +21,10 @@ import { useSeo } from '@/seo/useSeo';
 import { Button, IconButton, TextInput, ToggleChip } from '@/features/ui/primitives';
 import { panelClass } from '@/features/ui/styles';
 import {
-  EXCLUDED_ITEM_TYPES,
   TIERS,
+  isExcludedItemType,
   isUsableByParty,
+  rarityMatches,
   rarityAtMost,
   tierForLevel,
   usableByNames,
@@ -57,7 +58,7 @@ function pickRandom<T>(pool: T[], count: number): T[] {
 }
 
 function lootablePool(items: ItemEntry[]): ItemEntry[] {
-  return items.filter((item) => !item.hidden && !EXCLUDED_ITEM_TYPES.has(item.type));
+  return items.filter((item) => !item.hidden && !isExcludedItemType(item.type));
 }
 
 export function LootGeneratorPage() {
@@ -148,8 +149,7 @@ function TierMode({ status, pool, hoard, setHoard }: ModeProps) {
   const tier = TIERS.find((t) => t.id === tierId)!;
 
   const itemsByRarity = useMemo(() => {
-    const allowed = new Set(tier.rarities);
-    return pool.filter((item) => allowed.has(item.rarity));
+    return pool.filter((item) => rarityMatches(item.rarity, tier.rarities));
   }, [pool, tier]);
 
   const rollItems = (): HoardItem[] => {
@@ -230,17 +230,18 @@ function PartyMode({ status, pool, hoard, setHoard }: ModeProps) {
   const tier = tierForLevel(partyLevel);
 
   const poolFor = (rarities: string[]): ItemEntry[] => {
-    const allowed = new Set(rarities);
     return pool.filter(
       (item) =>
-        allowed.has(item.rarity) &&
+        rarityMatches(item.rarity, rarities) &&
         (source === 'manual' || isUsableByParty(item, selected)),
     );
   };
 
   const rollHoardItems = (candidates: ItemEntry[], count: number): HoardItem[] =>
     pickRandom(candidates, count).map((item) =>
-      source === 'saved' ? { item, usableBy: usableByNames(item, selected) } : { item },
+      source === 'saved'
+        ? { item, usableBy: usableByNames(item, selected, t('character.unnamed')) }
+        : { item },
     );
 
   const generateMinor = () => {

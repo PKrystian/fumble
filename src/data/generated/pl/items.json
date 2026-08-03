@@ -4389,7 +4389,7 @@
   "1-moon-sickle": {
     "name": "+1 Księżycowy Sierp",
     "entries": [
-      "Ten sierp o srebrnym ostrzu delikatnie migocze blaskiem księżyca. Trzymając tę magiczną broń, zyskujesz premię +1 do rzutów na atak i obrażenia wykonywanych nią, oraz zyskujesz premię +1 do rzutów na atak zaklęciem i klasy trudności rzutów obronnych twoich zaklęć druida i rangera. Dodatkowo możesz użyć sierpa jako ogniska czarodziejskiego dla swoich zaklęć druida i rangera.",
+      "Ten sierp o srebrnym ostrzu delikatnie migocze blaskiem księżyca. Trzymając tę magiczną broń, zyskujesz premię +1 do rzutów na atak i obrażenia wykonywanych nią, oraz zyskujesz premię +1 do rzutów na atak zaklęciem i klasy trudności rzutów obronnych twoich zaklęć druida i łowcy. Dodatkowo możesz użyć sierpa jako ogniska czarodziejskiego dla swoich zaklęć druida i łowcy.",
       "Gdy rzucasz zaklęcie przywracające punkty wytrzymałości, możesz rzucić {@dice d4} i dodać wyrzuconą liczbę do liczby przywróconych punktów wytrzymałości, o ile trzymasz sierp."
     ],
     "weight": "2 funty",
@@ -4572,7 +4572,7 @@
   "2-moon-sickle": {
     "name": "+2 Księżycowy Sierp",
     "entries": [
-      "Ten sierp o srebrnym ostrzu delikatnie migocze blaskiem księżyca. Trzymając tę magiczną broń, zyskujesz premię +2 do rzutów na atak i obrażenia wykonywanych nią, oraz zyskujesz premię +2 do rzutów na atak zaklęciem i klasy trudności rzutów obronnych twoich zaklęć druida i rangera. Dodatkowo możesz użyć sierpa jako ogniska czarodziejskiego dla swoich zaklęć druida i rangera.",
+      "Ten sierp o srebrnym ostrzu delikatnie migocze blaskiem księżyca. Trzymając tę magiczną broń, zyskujesz premię +2 do rzutów na atak i obrażenia wykonywanych nią, oraz zyskujesz premię +2 do rzutów na atak zaklęciem i klasy trudności rzutów obronnych twoich zaklęć druida i łowcy. Dodatkowo możesz użyć sierpa jako ogniska czarodziejskiego dla swoich zaklęć druida i łowcy.",
       "Gdy rzucasz zaklęcie przywracające punkty wytrzymałości, możesz rzucić {@dice d4} i dodać wyrzuconą liczbę do liczby przywróconych punktów wytrzymałości, o ile trzymasz sierp."
     ],
     "weight": "2 funty",
@@ -4755,7 +4755,7 @@
   "3-moon-sickle": {
     "name": "+3 Księżycowy Sierp",
     "entries": [
-      "Ten sierp o srebrnym ostrzu delikatnie migocze blaskiem księżyca. Trzymając tę magiczną broń, zyskujesz premię +3 do rzutów na atak i obrażenia wykonywanych nią, oraz zyskujesz premię +3 do rzutów na atak zaklęciem i klasy trudności rzutów obronnych twoich zaklęć druida i rangera. Dodatkowo możesz użyć sierpa jako ogniska czarodziejskiego dla swoich zaklęć druida i rangera.",
+      "Ten sierp o srebrnym ostrzu delikatnie migocze blaskiem księżyca. Trzymając tę magiczną broń, zyskujesz premię +3 do rzutów na atak i obrażenia wykonywanych nią, oraz zyskujesz premię +3 do rzutów na atak zaklęciem i klasy trudności rzutów obronnych twoich zaklęć druida i łowcy. Dodatkowo możesz użyć sierpa jako ogniska czarodziejskiego dla swoich zaklęć druida i łowcy.",
       "Gdy rzucasz zaklęcie przywracające punkty wytrzymałości, możesz rzucić {@dice d4} i dodać wyrzuconą liczbę do liczby przywróconych punktów wytrzymałości, o ile trzymasz sierp."
     ],
     "weight": "2 funty",
@@ -9906,7 +9906,7 @@
         "type": "entries",
         "name": "Chwytające Macki",
         "entries": [
-          "Dopóki tatuaż znajduje się na twojej skórze, możesz, jako akcję, sprawić, że tatuaż wysunie atramentowe macki, które sięgają w kierunku widocznego przez ciebie w promieniu 15 stóp stwora. Stwór musi zdać rzut obronny Siły o {@dc 14} albo otrzyma {@damage 3d6} obrażeń siłowych i zostanie {@condition grappled} przez ciebie. Jako akcję, stwór może uciec z chwytu, zdając test Siły ({@skill Athletics}) lub Zręczności ({@skill Acrobatics}) o {@dc 14}. Chwyt kończy się też, jeśli go przerwiesz (bez wymaganej akcji), jeśli stwór kiedykolwiek znajdzie się dalej niż 15 stóp od ciebie, lub jeśli użyjesz tego tatuażu na innym stworze."
+          "Dopóki tatuaż znajduje się na twojej skórze, możesz, jako akcję, sprawić, że tatuaż wysunie atramentowe macki, które sięgają w kierunku widocznego przez ciebie w promieniu 15 stóp stwora. Stwór musi zdać rzut obronny Siły o {@dc 14} albo otrzyma {@damage 3d6} obrażeń siłowych i zostanie {@condition grappled} przez ciebie. Jako akcję, stwór może uciec z chwytu, zdając test Siły ({@skill Athletics}) lub Zręczności ({@skill Athletics}) o {@dc 14}. Chwyt kończy się też, jeśli go przerwiesz (bez wymaganej akcji), jeśli stwór kiedykolwiek znajdzie się dalej niż 15 stóp od ciebie, lub jeśli użyjesz tego tatuażu na innym stworze."
         ]
       }
     ],
@@ -10850,7 +10850,7 @@
     "entries": [
       "Jako akcję {@action Magic|XPHB}, możesz umieścić tę 1-calową adamantytową statuetkę na ziemi i, wypowiadając hasło, sprawić, że szybko urośnie w kwadratową adamantytową wieżę. Ponowne wypowiedzenie hasła sprawia, że wieża wraca do formy statuetki, co działa tylko wtedy, gdy wieża jest pusta. Każdy stwór w obszarze, gdzie pojawia się wieża, zostaje odepchnięty do wolnej przestrzeni na zewnątrz, ale obok wieży. Przedmioty w tym obszarze, które nie są noszone ani niesione, również zostają odepchnięte poza wieżę.",
       "Wieża ma 20 stóp z każdej strony i 30 stóp wysokości, z otworami strzelniczymi na wszystkich stronach i blankami na szczycie. Jej wnętrze jest podzielone na dwa piętra, połączone drabiną, schodami lub rampą (twój wybór). Ta drabina, schody lub rampa kończą się klapą prowadzącą na dach. Gdy zostaje stworzona, wieża ma pojedyncze drzwi na poziomie gruntu po stronie zwróconej ku tobie. Drzwi otwierają się tylko na twój rozkaz, który możesz wydać jako {@variantrule Bonus Action|XPHB}. Są odporne na zaklęcie {@spell Knock|XPHB} i podobną magię.",
-      "{@action Magic|XPHB} zapobiega przewróceniu wieży. Dach, drzwi i ściany mają każde KP 20; 100 PW; {@variantrule Immunity|XPHB} na obrażenia Obuchowe, Kłute i Sieczne, poza tymi zadawanymi przez sprzęt oblężniczy; oraz {@variantrule Resistance|XPHB} na wszystkie inne obrażenia. Zmniejszenie wieży z powrotem do formy statuetki nie naprawia uszkodzeń wieży. Tylko zaklęcie {@spell Wish|XPHB} może naprawić wieżę (to użycie zaklęcia liczy się jako powielenie zaklęcia poziomu 8 lub niższego). Każde rzucenie Życzenia sprawia, że wieża odzyskuje wszystkie swoje {@variantrule Hit Points|XPHB}."
+      "{@action Magic|XPHB} zapobiega przewróceniu wieży. Dach, drzwi i ściany mają każde KP 20; 100 PW; {@variantrule Immunity|XPHB} na obrażenia Obuchowe, Kłute i Sieczne, poza tymi zadawanymi przez sprzęt oblężniczy; oraz {@variantrule Resistance|XPHB} na wszystkie inne obrażenia. Zmniejszenie wieży z powrotem do formy statuetki nie naprawia uszkodzeń wieży. Tylko zaklęcie {@spell Wish|XPHB} może naprawić wieżę (to użycie zaklęcia liczy się jako powielenie zaklęcia poziomu 8 lub niższego). Każde rzucenie Życzenia sprawia, że wieża odzyskuje wszystkie swoje {@variantrule Hit Points|XPHB}}"
     ],
     "attunement": "Wymaga zestrojenia",
     "type": "Cudowny Przedmiot",
@@ -11512,7 +11512,7 @@
           ],
           [
             "02",
-            "{@card Balance|Deck of Many More Things|BMT}*"
+            "{@card Balance|Deck of Many More Things|BMT}}"
           ],
           [
             "03",
@@ -11540,7 +11540,7 @@
           ],
           [
             "09",
-            "{@card Comet|Deck of Many More Things|BMT}*"
+            "{@card Comet|Deck of Many More Things|BMT}}"
           ],
           [
             "10",
@@ -11556,7 +11556,7 @@
           ],
           [
             "13",
-            "{@card Donjon|Deck of Many More Things|BMT}*"
+            "{@card Donjon|Deck of Many More Things|BMT}}"
           ],
           [
             "14",
@@ -11572,7 +11572,7 @@
           ],
           [
             "17",
-            "{@card Euryale|Deck of Many More Things|BMT}*"
+            "{@card Euryale|Deck of Many More Things|BMT}}"
           ],
           [
             "18",
@@ -11580,7 +11580,7 @@
           ],
           [
             "19",
-            "{@card Fates|Deck of Many More Things|BMT}*"
+            "{@card Fates|Deck of Many More Things|BMT}}"
           ],
           [
             "20",
@@ -11592,15 +11592,15 @@
           ],
           [
             "22",
-            "{@card Flames|Deck of Many More Things|BMT}*"
+            "{@card Flames|Deck of Many More Things|BMT}}"
           ],
           [
             "23",
-            "{@card Fool|Deck of Many More Things|BMT}*"
+            "{@card Fool|Deck of Many More Things|BMT}}"
           ],
           [
             "24",
-            "{@card Gem|Deck of Many More Things|BMT}*"
+            "{@card Gem|Deck of Many More Things|BMT}}"
           ],
           [
             "25",
@@ -11612,15 +11612,15 @@
           ],
           [
             "27",
-            "{@card Jester|Deck of Many More Things|BMT}*"
+            "{@card Jester|Deck of Many More Things|BMT}}"
           ],
           [
             "28",
-            "{@card Key|Deck of Many More Things|BMT}*"
+            "{@card Key|Deck of Many More Things|BMT}}"
           ],
           [
             "29",
-            "{@card Knight|Deck of Many More Things|BMT}*"
+            "{@card Knight|Deck of Many More Things|BMT}}"
           ],
           [
             "30",
@@ -11648,7 +11648,7 @@
           ],
           [
             "36",
-            "{@card Moon|Deck of Many More Things|BMT}*"
+            "{@card Moon|Deck of Many More Things|BMT}}"
           ],
           [
             "37",
@@ -11676,7 +11676,7 @@
           ],
           [
             "43",
-            "{@card Puzzle|Deck of Many More Things|BMT}*"
+            "{@card Puzzle|Deck of Many More Things|BMT}}"
           ],
           [
             "44",
@@ -11684,15 +11684,15 @@
           ],
           [
             "45",
-            "{@card Rogue|Deck of Many More Things|BMT}*"
+            "{@card Rogue|Deck of Many More Things|BMT}}"
           ],
           [
             "46",
-            "{@card Ruin|Deck of Many More Things|BMT}*"
+            "{@card Ruin|Deck of Many More Things|BMT}}"
           ],
           [
             "47",
-            "{@card Sage|Deck of Many More Things|BMT}*"
+            "{@card Sage|Deck of Many More Things|BMT}}"
           ],
           [
             "48",
@@ -11704,7 +11704,7 @@
           ],
           [
             "50",
-            "{@card Skull|Deck of Many More Things|BMT}*"
+            "{@card Skull|Deck of Many More Things|BMT}}"
           ],
           [
             "51",
@@ -11716,7 +11716,7 @@
           ],
           [
             "53",
-            "{@card Star|Deck of Many More Things|BMT}*"
+            "{@card Star|Deck of Many More Things|BMT}}"
           ],
           [
             "54",
@@ -11724,11 +11724,11 @@
           ],
           [
             "55",
-            "{@card Sun|Deck of Many More Things|BMT}*"
+            "{@card Sun|Deck of Many More Things|BMT}}"
           ],
           [
             "56",
-            "{@card Talons|Deck of Many More Things|BMT}*"
+            "{@card Talons|Deck of Many More Things|BMT}}"
           ],
           [
             "57",
@@ -11740,7 +11740,7 @@
           ],
           [
             "59",
-            "{@card Throne|Deck of Many More Things|BMT}*"
+            "{@card Throne|Deck of Many More Things|BMT}}"
           ],
           [
             "60",
@@ -11760,7 +11760,7 @@
           ],
           [
             "64",
-            "{@card Void|Deck of Many More Things|BMT}*"
+            "{@card Void|Deck of Many More Things|BMT}}"
           ],
           [
             "65",
@@ -11946,7 +11946,7 @@
         "type": "entries",
         "name": "Monstrum",
         "entries": [
-          "{@filter Duże lub większe Monstrum o WT 10 lub niższym|bestiary|source=|Challenge Rating=[&0;&10]|type=monstrosity|size=l;h;g} (wybrane przez MG) pojawia się w wolnej przestrzeni w promieniu 15 stóp od ciebie. Stwór jest wobec ciebie wrogi i atakuje natychmiast. Stwór znika, gdy zostanie zabity lub gdy twoje punkty wytrzymałości spadną do 0. Jeśli nie ma wystarczająco dużo miejsca, by pojawił się Duży lub większy stwór, ta karta nie ma efektu."
+          "{@filter Duże lub większe Monstrum o WT 10 lub niższym|bestiary|source=|Challenge Rating=[&0;&10]|type=monstrosity|size=l;h;g} (wybrane przez MG) pojawia się w wolnej przestrzeni w promieniu 15 stóp od ciebie. Stwór jest wobec ciebie wrogi i atakuje natychmiast. Stwór znika, gdy zostanie zabity lub gdy twoje punkty wytrzymałości spadną do 0. Jeśli nie ma wystarczająco dużo miejsca, by pojawił się Duży lub większy stwór, ta karta nie ma efektu}"
         ]
       },
       {
@@ -11995,14 +11995,14 @@
         "type": "entries",
         "name": "Pierścień",
         "entries": [
-          "{@filter rzadki lub rzadszy magiczny pierścień|items|source=|type=ring|rarity=rare;very rare;legendary;artifact|category=} pojawia się na twoim palcu. Jeśli masz dostępne miejsca dostrojenia, jesteś automatycznie dostrojony do pierścienia, gdy się pojawia. MG wybiera pierścień."
+          "{@filter rzadki lub rzadszy magiczny pierścień|items|source=|type=ring|rarity=rare;very rare;legendary;artifact|category=} pojawia się na twoim palcu. Jeśli masz dostępne miejsca dostrojenia, jesteś automatycznie dostrojony do pierścienia, gdy się pojawia. MG wybiera pierścień}"
         ]
       },
       {
         "type": "entries",
         "name": "Tarcza",
         "entries": [
-          "{@filter rzadka lub rzadsza magiczna zbroja|items|source=|type=light armor;heavy armor;medium armor|rarity=rare;very rare;legendary;artifact|category=}, w której jesteś biegły, pojawia się w twoich dłoniach. MG wybiera zbroję. Jeśli nie masz biegłości w żadnej zbroi, twoje bazowe KP wynosi teraz 12 + twój modyfikator Zręczności, dopóki nie nosisz zbroi."
+          "{@filter rzadka lub rzadsza magiczna zbroja|items|source=|type=light armor;heavy armor;medium armor|rarity=rare;very rare;legendary;artifact|category=}, w której jesteś biegły, pojawia się w twoich dłoniach. MG wybiera zbroję. Jeśli nie masz biegłości w żadnej zbroi, twoje bazowe KP wynosi teraz 12 + twój modyfikator Zręczności, dopóki nie nosisz zbroi}"
         ]
       },
       {
@@ -12016,7 +12016,7 @@
         "type": "entries",
         "name": "Laska",
         "entries": [
-          "{@filter rzadka lub rzadsza magiczna różdżka, laska lub berło|items|source=|type=rod;wand;staff|rarity=rare;very rare;legendary;artifact|category=} pojawia się w twoich dłoniach. MG wybiera przedmiot."
+          "{@filter rzadka lub rzadsza magiczna różdżka, laska lub berło|items|source=|type=rod;wand;staff|rarity=rare;very rare;legendary;artifact|category=} pojawia się w twoich dłoniach. MG wybiera przedmiot}"
         ]
       },
       {
@@ -12361,7 +12361,7 @@
         "type": "entries",
         "name": "Czaszka",
         "entries": [
-          "{@creature Avatar of Death|XDMG} pojawia się w wolnej przestrzeni tak blisko ciebie, jak to możliwe. Awatar obiera za cel swoich ataków tylko ciebie, przybierając postać widmowego szkieletu odzianego w postrzępioną czarną szatę i niosącego widmową kosę. Awatar znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB} lub gdy umrzesz. Jeśli twój sprzymierzeniec zada obrażenia awatarowi, ten sprzymierzeniec przyzywa kolejnego Awatara Śmierci. Nowy awatar pojawia się w wolnej przestrzeni tak blisko tego sprzymierzeńca, jak to możliwe, i obiera za cel swoich ataków tylko tego sprzymierzeńca. Ty i twoi sprzymierzeńcy możecie każdy przyzwać tylko jednego awatara w wyniku tego dobrania. Stwór zabity przez awatara nie może zostać przywrócony do życia."
+          "{@creature Avatar of Death|XDMG} pojawia się w wolnej przestrzeni tak blisko ciebie, jak to możliwe. Awatar obiera za cel swoich ataków tylko ciebie, przybierając postać widmowego szkieletu odzianego w postrzępioną czarną szatę i niosącego widmową kosę. Awatar znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB} lub gdy umrzesz. Jeśli twój sprzymierzeniec zada obrażenia awatarowi, ten sprzymierzeniec przyzywa kolejnego Awatara Śmierci. Nowy awatar pojawia się w wolnej przestrzeni tak blisko tego sprzymierzeńca, jak to możliwe, i obiera za cel swoich ataków tylko tego sprzymierzeńca. Ty i twoi sprzymierzeńcy możecie każdy przyzwać tylko jednego awatara w wyniku tego dobrania. Stwór zabity przez awatara nie może zostać przywrócony do życia}"
         ]
       },
       {
@@ -12458,7 +12458,7 @@
               },
               "entry": " 5 {@color ♦|#ff0000}"
             },
-            "{@item Rations (1 day)|PHB|Racje żywnościowe} na 5 dni"
+            "{@item Rations (1 day)|PHB|Racje żywnościowe} na 5 dn}"
           ],
           [
             {
@@ -12790,7 +12790,7 @@
               },
               "entry": "{@color ♦|#ff0000}"
             },
-            "{@card Chancellor|Deck of Wonder|BMT}*"
+            "{@card Chancellor|Deck of Wonder|BMT}}"
           ],
           [
             {
@@ -12830,7 +12830,7 @@
               },
               "entry": "2 {@color ♦|#ff0000}"
             },
-            "{@card Dusk|Deck of Wonder|BMT}*"
+            "{@card Dusk|Deck of Wonder|BMT}}"
           ],
           [
             {
@@ -12840,7 +12840,7 @@
               },
               "entry": "{@color ♥|#ff0000}"
             },
-            "{@card Destiny|Deck of Wonder|BMT}*"
+            "{@card Destiny|Deck of Wonder|BMT}}"
           ],
           [
             {
@@ -12880,7 +12880,7 @@
               },
               "entry": "2 {@color ♥|#ff0000}"
             },
-            "{@card Coin|Deck of Wonder|BMT}*"
+            "{@card Coin|Deck of Wonder|BMT}}"
           ],
           [
             {
@@ -12890,7 +12890,7 @@
               },
               "entry": "A ♣"
             },
-            "{@card Vulture|Deck of Wonder|BMT}*"
+            "{@card Vulture|Deck of Wonder|BMT}}"
           ],
           [
             {
@@ -12930,7 +12930,7 @@
               },
               "entry": "2 ♣"
             },
-            "{@card Mystery|Deck of Wonder|BMT}*"
+            "{@card Mystery|Deck of Wonder|BMT}}"
           ],
           [
             {
@@ -12940,7 +12940,7 @@
               },
               "entry": "A ♠"
             },
-            "{@card Isolation|Deck of Wonder|BMT}*"
+            "{@card Isolation|Deck of Wonder|BMT}}"
           ],
           [
             {
@@ -12980,7 +12980,7 @@
               },
               "entry": "2 ♠"
             },
-            "{@card Justice|Deck of Wonder|BMT}*"
+            "{@card Justice|Deck of Wonder|BMT}}"
           ],
           [
             {
@@ -12990,7 +12990,7 @@
               },
               "entry": "Dżoker (z ™)"
             },
-            "{@card Student|Deck of Wonder|BMT}*"
+            "{@card Student|Deck of Wonder|BMT}}"
           ],
           [
             {
@@ -13590,9 +13590,9 @@
         "name": "Losowe Właściwości",
         "entries": [
           "Docent ma następujące właściwości:",
-          "{@b Języki}. Docent zna Wspólny, Olbrzymi i {@dice 1d4} dodatkowych języków wybranych przez MG. Jeśli docent zna mniej niż sześć języków, może nauczyć się nowego języka, gdy usłyszy go lub przeczyta go przez twoje zmysły.",
-          "{@b Umiejętności}. Docent ma premię +7 do jednej z następujących umiejętności (rzuć {@dice d4}): (1) {@skill Arcana}, (2) {@skill History}, (3) {@skill Investigation} lub (4) {@skill Nature}.",
-          "{@b Zaklęcia}. Docent zna jedno z następujących zaklęć i może rzucić je dowolnie, nie wymagając komponentów (rzuć {@dice d6}): (1-2) {@spell detect evil and good} lub (3-6) {@spell detect magic}. Docent decyduje, kiedy rzucić zaklęcie."
+          "{@b Języki}. Docent zna Wspólny, Olbrzymi i {@dice 1d4} dodatkowych języków wybranych przez MG. Jeśli docent zna mniej niż sześć języków, może nauczyć się nowego języka, gdy usłyszy go lub przeczyta go przez twoje zmysły}",
+          "{@b Umiejętności}. Docent ma premię +7 do jednej z następujących umiejętności (rzuć {@dice d4}): (1) {@skill Arcana}, (2) {@skill History}, (3) {@skill Investigation} lub (4) {@skill Nature}}",
+          "{@b Zaklęcia}. Docent zna jedno z następujących zaklęć i może rzucić je dowolnie, nie wymagając komponentów (rzuć {@dice d6}): (1-2) {@spell detect evil and good} lub (3-6) {@spell detect magic}. Docent decyduje, kiedy rzucić zaklęcie}"
         ]
       },
       {
@@ -14326,7 +14326,7 @@
           ],
           [
             "10",
-            "{@creature efreeti|XMM} rozumie twoje języki i może raz rzucić dla ciebie {@spell Wish|XPHB}. Znika, gdy spełni życzenie lub po 1 godzinie, a butelka traci swoją magię."
+            "{@creature efreeti|XMM} rozumie twoje języki i może raz rzucić dla ciebie {@spell Wish|XPHB}. Znika, gdy spełni życzenie lub po 1 godzinie, a butelka traci swoją magię}"
           ]
         ]
       }
@@ -14938,7 +14938,7 @@
   "enspelled-staff-cantrip": {
     "name": "Zaczarowana Laska (Sztuczka)",
     "entries": [
-      "W tę laskę związana jest sztuczka. Sztuczka jest określana w momencie tworzenia laski i może być z dowolnej szkoły magii. Laska ma 6 ładunków i odzyskuje {@dice 1d6} zużytych ładunków każdego dnia o świcie. Trzymając laskę, możesz wydać 1 ładunek, by rzucić jej zaklęcie. Jeśli wydasz ostatni ładunek laski, rzuć {@dice 1d20}. Przy wyniku 1 laska traci swoje właściwości i staje się niemagicznym {@item Quarterstaff|XPHB}.",
+      "W tę laskę związana jest sztuczką. Sztuczka jest określana w momencie tworzenia laski i może być z dowolnej szkoły magii. Laska ma 6 ładunków i odzyskuje {@dice 1d6} zużytych ładunków każdego dnia o świcie. Trzymając laskę, możesz wydać 1 ładunek, by rzucić jej zaklęcie. Jeśli wydasz ostatni ładunek laski, rzuć {@dice 1d20}. Przy wyniku 1 laska traci swoje właściwości i staje się niemagicznym {@item Quarterstaff|XPHB}.",
       "KT rzutu obronnego zaklęcia wynosi 13, a jego premia do ataku wynosi {@hit 5}."
     ],
     "weight": "4 funty",
@@ -15447,7 +15447,7 @@
   "eye-of-vecna": {
     "name": "Oko Vecny",
     "entries": [
-      "{@book Vecna|XDMG|8|Vecna} był potężnym czarodziejem, który przez magię i podboje wykuł straszliwe imperium. Mimo całej swojej potęgi Vecna bał się śmierci i podjął kroki, by zapobiec swojemu zgonowi, stając się liczem.",
+      "{@book Vecna|XDMG|8|Vecna} był potężnym czarodziejem, który przez magię i podboje wykuł straszliwe imperium. Mimo całej swojej potęgi Vecna bał się śmierci i podjął kroki, by zapobiec swojemu zgonowi, stając się liczem}",
       "Zdradziecki porucznik imieniem Kas położył kres rządom Vecny w straszliwej bitwie. Z Vecny pozostały tylko jedna dłoń i jedno oko, upiorne Artefakty, które wciąż próbują realizować wolę Vecny w świecie.",
       "Oko Vecny i {@item Hand of Vecna|XDMG} to osobne Artefakty, które mogą zostać znalezione razem lub osobno. Oko wygląda jak przekrwiony organ wyrwany z oczodołu. Dłoń to zwiędnięta lewa kończyna.",
       {
@@ -15809,7 +15809,7 @@
   "figurine-of-wondrous-power-bronze-griffon": {
     "name": "Figurka Cudownej Mocy, Brązowy Gryf",
     "entries": [
-      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora.",
+      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora}",
       "Stwór jest {@variantrule Friendly [Attitude]|XPHB|Przyjazny} wobec ciebie i twoich sprzymierzeńców. Rozumie twoje języki, słucha twoich rozkazów i wykonuje swoją turę natychmiast po tobie w kolejności twojej {@variantrule Initiative|XPHB}. Jeśli nie wydasz żadnych rozkazów, stwór broni się, ale nie wykonuje żadnych innych akcji.",
       "Stwór istnieje przez czas działania specyficzny dla każdej figurki. Pod koniec czasu działania stwór wraca do formy figurki. Wraca do formy figurki wcześniej, jeśli jego forma stwora spadnie do 0 {@variantrule Hit Points|XPHB} lub jeśli wykonasz akcję {@action Magic|XPHB}, dotykając stwora, by sprawić, że wróci do formy figurki. Gdy stwór ponownie staje się figurką, jego właściwość nie może zostać ponownie użyta, dopóki nie minie pewna ilość czasu, jak określono poniżej.",
       {
@@ -15832,7 +15832,7 @@
   "figurine-of-wondrous-power-ebony-fly": {
     "name": "Figurka Cudownej Mocy, Hebanowa Mucha",
     "entries": [
-      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora.",
+      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora}",
       "Stwór jest {@variantrule Friendly [Attitude]|XPHB|Przyjazny} wobec ciebie i twoich sprzymierzeńców. Rozumie twoje języki, słucha twoich rozkazów i wykonuje swoją turę natychmiast po tobie w kolejności twojej {@variantrule Initiative|XPHB}. Jeśli nie wydasz żadnych rozkazów, stwór broni się, ale nie wykonuje żadnych innych akcji.",
       "Stwór istnieje przez czas działania specyficzny dla każdej figurki. Pod koniec czasu działania stwór wraca do formy figurki. Wraca do formy figurki wcześniej, jeśli jego forma stwora spadnie do 0 {@variantrule Hit Points|XPHB} lub jeśli wykonasz akcję {@action Magic|XPHB}, dotykając stwora, by sprawić, że wróci do formy figurki. Gdy stwór ponownie staje się figurką, jego właściwość nie może zostać ponownie użyta, dopóki nie minie pewna ilość czasu, jak określono poniżej.",
       {
@@ -15860,7 +15860,7 @@
   "figurine-of-wondrous-power-golden-lions": {
     "name": "Figurka Cudownej Mocy, Złote Lwy",
     "entries": [
-      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora.",
+      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora}",
       "Stwór jest {@variantrule Friendly [Attitude]|XPHB|Przyjazny} wobec ciebie i twoich sprzymierzeńców. Rozumie twoje języki, słucha twoich rozkazów i wykonuje swoją turę natychmiast po tobie w kolejności twojej {@variantrule Initiative|XPHB}. Jeśli nie wydasz żadnych rozkazów, stwór broni się, ale nie wykonuje żadnych innych akcji.",
       "Stwór istnieje przez czas działania specyficzny dla każdej figurki. Pod koniec czasu działania stwór wraca do formy figurki. Wraca do formy figurki wcześniej, jeśli jego forma stwora spadnie do 0 {@variantrule Hit Points|XPHB} lub jeśli wykonasz akcję {@action Magic|XPHB}, dotykając stwora, by sprawić, że wróci do formy figurki. Gdy stwór ponownie staje się figurką, jego właściwość nie może zostać ponownie użyta, dopóki nie minie pewna ilość czasu, jak określono poniżej.",
       {
@@ -15888,7 +15888,7 @@
   "figurine-of-wondrous-power-ivory-goats": {
     "name": "Figurka Cudownej Mocy, Kozły z Kości Słoniowej",
     "entries": [
-      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora.",
+      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora}",
       "Stwór jest {@variantrule Friendly [Attitude]|XPHB|Przyjazny} wobec ciebie i twoich sprzymierzeńców. Rozumie twoje języki, słucha twoich rozkazów i wykonuje swoją turę natychmiast po tobie w kolejności twojej {@variantrule Initiative|XPHB}. Jeśli nie wydasz żadnych rozkazów, stwór broni się, ale nie wykonuje żadnych innych akcji.",
       "Stwór istnieje przez czas działania specyficzny dla każdej figurki. Pod koniec czasu działania stwór wraca do formy figurki. Wraca do formy figurki wcześniej, jeśli jego forma stwora spadnie do 0 {@variantrule Hit Points|XPHB} lub jeśli wykonasz akcję {@action Magic|XPHB}, dotykając stwora, by sprawić, że wróci do formy figurki. Gdy stwór ponownie staje się figurką, jego właściwość nie może zostać ponownie użyta, dopóki nie minie pewna ilość czasu, jak określono poniżej.",
       {
@@ -15943,7 +15943,7 @@
   "figurine-of-wondrous-power-marble-elephant": {
     "name": "Figurka Cudownej Mocy, Marmurowy Słoń",
     "entries": [
-      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora.",
+      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora}",
       "Stwór jest {@variantrule Friendly [Attitude]|XPHB|Przyjazny} wobec ciebie i twoich sprzymierzeńców. Rozumie twoje języki, słucha twoich rozkazów i wykonuje swoją turę natychmiast po tobie w kolejności twojej {@variantrule Initiative|XPHB}. Jeśli nie wydasz żadnych rozkazów, stwór broni się, ale nie wykonuje żadnych innych akcji.",
       "Stwór istnieje przez czas działania specyficzny dla każdej figurki. Pod koniec czasu działania stwór wraca do formy figurki. Wraca do formy figurki wcześniej, jeśli jego forma stwora spadnie do 0 {@variantrule Hit Points|XPHB} lub jeśli wykonasz akcję {@action Magic|XPHB}, dotykając stwora, by sprawić, że wróci do formy figurki. Gdy stwór ponownie staje się figurką, jego właściwość nie może zostać ponownie użyta, dopóki nie minie pewna ilość czasu, jak określono poniżej.",
       {
@@ -15971,7 +15971,7 @@
   "figurine-of-wondrous-power-obsidian-steed": {
     "name": "Figurka Cudownej Mocy, Obsydianowy Rumak",
     "entries": [
-      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora.",
+      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora}",
       "Stwór jest {@variantrule Friendly [Attitude]|XPHB|Przyjazny} wobec ciebie i twoich sprzymierzeńców. Rozumie twoje języki, słucha twoich rozkazów i wykonuje swoją turę natychmiast po tobie w kolejności twojej {@variantrule Initiative|XPHB}. Jeśli nie wydasz żadnych rozkazów, stwór broni się, ale nie wykonuje żadnych innych akcji.",
       "Stwór istnieje przez czas działania specyficzny dla każdej figurki. Pod koniec czasu działania stwór wraca do formy figurki. Wraca do formy figurki wcześniej, jeśli jego forma stwora spadnie do 0 {@variantrule Hit Points|XPHB} lub jeśli wykonasz akcję {@action Magic|XPHB}, dotykając stwora, by sprawić, że wróci do formy figurki. Gdy stwór ponownie staje się figurką, jego właściwość nie może zostać ponownie użyta, dopóki nie minie pewna ilość czasu, jak określono poniżej.",
       {
@@ -16000,7 +16000,7 @@
   "figurine-of-wondrous-power-onyx-dog": {
     "name": "Figurka Cudownej Mocy, Onyksowy Pies",
     "entries": [
-      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora.",
+      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora}",
       "Stwór jest {@variantrule Friendly [Attitude]|XPHB|Przyjazny} wobec ciebie i twoich sprzymierzeńców. Rozumie twoje języki, słucha twoich rozkazów i wykonuje swoją turę natychmiast po tobie w kolejności twojej {@variantrule Initiative|XPHB}. Jeśli nie wydasz żadnych rozkazów, stwór broni się, ale nie wykonuje żadnych innych akcji.",
       "Stwór istnieje przez czas działania specyficzny dla każdej figurki. Pod koniec czasu działania stwór wraca do formy figurki. Wraca do formy figurki wcześniej, jeśli jego forma stwora spadnie do 0 {@variantrule Hit Points|XPHB} lub jeśli wykonasz akcję {@action Magic|XPHB}, dotykając stwora, by sprawić, że wróci do formy figurki. Gdy stwór ponownie staje się figurką, jego właściwość nie może zostać ponownie użyta, dopóki nie minie pewna ilość czasu, jak określono poniżej.",
       {
@@ -16023,7 +16023,7 @@
   "figurine-of-wondrous-power-serpentine-owl": {
     "name": "Figurka Cudownej Mocy, Serpentynowa Sowa",
     "entries": [
-      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora.",
+      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora}",
       "Stwór jest {@variantrule Friendly [Attitude]|XPHB|Przyjazny} wobec ciebie i twoich sprzymierzeńców. Rozumie twoje języki, słucha twoich rozkazów i wykonuje swoją turę natychmiast po tobie w kolejności twojej {@variantrule Initiative|XPHB}. Jeśli nie wydasz żadnych rozkazów, stwór broni się, ale nie wykonuje żadnych innych akcji.",
       "Stwór istnieje przez czas działania specyficzny dla każdej figurki. Pod koniec czasu działania stwór wraca do formy figurki. Wraca do formy figurki wcześniej, jeśli jego forma stwora spadnie do 0 {@variantrule Hit Points|XPHB} lub jeśli wykonasz akcję {@action Magic|XPHB}, dotykając stwora, by sprawić, że wróci do formy figurki. Gdy stwór ponownie staje się figurką, jego właściwość nie może zostać ponownie użyta, dopóki nie minie pewna ilość czasu, jak określono poniżej.",
       {
@@ -16051,7 +16051,7 @@
   "figurine-of-wondrous-power-silver-raven": {
     "name": "Figurka Cudownej Mocy, Srebrny Kruk",
     "entries": [
-      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora.",
+      "{@item Figurine of Wondrous Power|XDMG} to statuetka na tyle mała, by zmieścić się w kieszeni. Jeśli wykonasz akcję {@action Magic|XPHB}, by rzucić figurkę w punkt na ziemi w promieniu 60 stóp od siebie, figurka staje się żywym stworem określonym w opisie figurki poniżej. Jeśli przestrzeń, w której miałby pojawić się stwór, jest zajęta przez inne stwory lub przedmioty, lub jeśli nie ma wystarczająco dużo miejsca dla stwora, figurka nie zamienia się w stwora}",
       "Stwór jest {@variantrule Friendly [Attitude]|XPHB|Przyjazny} wobec ciebie i twoich sprzymierzeńców. Rozumie twoje języki, słucha twoich rozkazów i wykonuje swoją turę natychmiast po tobie w kolejności twojej {@variantrule Initiative|XPHB}. Jeśli nie wydasz żadnych rozkazów, stwór broni się, ale nie wykonuje żadnych innych akcji.",
       "Stwór istnieje przez czas działania specyficzny dla każdej figurki. Pod koniec czasu działania stwór wraca do formy figurki. Wraca do formy figurki wcześniej, jeśli jego forma stwora spadnie do 0 {@variantrule Hit Points|XPHB} lub jeśli wykonasz akcję {@action Magic|XPHB}, dotykając stwora, by sprawić, że wróci do formy figurki. Gdy stwór ponownie staje się figurką, jego właściwość nie może zostać ponownie użyta, dopóki nie minie pewna ilość czasu, jak określono poniżej.",
       {
@@ -17095,7 +17095,7 @@
         "type": "entries",
         "name": "Runa Podróży",
         "entries": [
-          "{@quickref difficult terrain||difficult terrain} nie kosztuje pomalowanego stwora dodatkowego ruchu."
+          "{@quickref difficult terrain||difficult terrain} nie kosztuje pomalowanego stwora dodatkowego ruchu}"
         ]
       },
       {
@@ -17840,7 +17840,7 @@
   "hand-of-vecna": {
     "name": "Dłoń Vecny",
     "entries": [
-      "{@book Vecna|XDMG|8|Vecna} był potężnym czarodziejem, który przez magię i podboje wykuł straszliwe imperium. Mimo całej swojej potęgi Vecna bał się śmierci i podjął kroki, by zapobiec swojemu zgonowi, stając się liczem.",
+      "{@book Vecna|XDMG|8|Vecna} był potężnym czarodziejem, który przez magię i podboje wykuł straszliwe imperium. Mimo całej swojej potęgi Vecna bał się śmierci i podjął kroki, by zapobiec swojemu zgonowi, stając się liczem}",
       "Zdradziecki porucznik imieniem Kas położył kres rządom Vecny w straszliwej bitwie. Z Vecny pozostały tylko jedna dłoń i jedno oko, upiorne Artefakty, które wciąż próbują realizować wolę Vecny w świecie.",
       "{@item Eye of Vecna|XDMG} i Dłoń Vecny to osobne Artefakty, które mogą zostać znalezione razem lub osobno. Oko wygląda jak przekrwiony organ wyrwany z oczodołu. Dłoń to zwiędnięta lewa kończyna.",
       {
@@ -18183,7 +18183,7 @@
               ],
               [
                 "86-90",
-                "{@variantrule Hostile [Attitude]|XPHB|Wrogie} {@creature Swarm of Bats|XMM} wylatuje z kapelusza, zajmuje twoją przestrzeń i cię atakuje."
+                "{@variantrule Hostile [Attitude]|XPHB|Wrogie} {@creature Swarm of Bats|XMM} wylatuje z kapelusza, zajmuje twoją przestrzeń i cię atakuje}"
               ],
               [
                 "91-95",
@@ -22788,7 +22788,7 @@
         "type": "entries",
         "name": "Wiedza Planarna",
         "entries": [
-          "Urządzenie zna podstawowe, użyteczne informacje o płaszczyznach egzystencji. Dopóki urządzenie się unosi, werbalnie odpowiada na pytania, które ty lub ktoś przez ciebie wyznaczony mu zadaje na ten temat. Zna informacje o płaszczyznach z Podręcznika Mistrza Podziemi, a także podstawowe informacje o miastach-bramach Outlands (przedstawionych w rozdziale 3 Sigil and the Outlands)."
+          "Urządzenie zna podstawowe, użyteczne informacje o płaszczyznach egzystencji. Dopóki urządzenie się unosi, werbalnie odpowiada na pytania, które ty lub ktoś przez ciebie wyznaczony mu zadaje na ten temat. Zna informacje o płaszczyznach z Podręcznika Mistrza Podziemi, a także podstawowe informacje o miastach-bramach Zewnętrzne Krainy (przedstawionych w rozdziale 3 Sigil i Zewnętrzne Krainy)."
         ]
       }
     ],
@@ -22941,7 +22941,7 @@
     "ac": "",
     "properties": "",
     "lore": [
-      "{@i Mieszkańcy Icewind Dale opracowali wiele strategii bezpiecznego podróżowania po niebezpiecznej dziczy. Ten strój, zaadaptowany ze stroju myśliwskiego, odstrasza zarówno obcych, jak i zwierzęta.}"
+      "{@i Mieszkańcy Dolina Lodowego Wichru opracowali wiele strategii bezpiecznego podróżowania po niebezpiecznej dziczy. Ten strój, zaadaptowany ze stroju myśliwskiego, odstrasza zarówno obcych, jak i zwierzęta.}"
     ],
     "gallery": [
       {
@@ -23312,7 +23312,7 @@
           ],
           [
             "76-80",
-            "{@i Księżycowe ostrze} zyskuje {@itemProperty T|XPHB|rzucony} o normalnym zasięgu 20 stóp i długim zasięgu 60 stóp. Za każdym razem, gdy rzucisz broń, po ataku wróci ona do twojej ręki."
+            "{@i Księżycowe ostrze} zyskuje {@itemProperty T|XPHB|rzucony} o normalnym zasięgu 20 stóp i długim zasięgu 60 stóp. Za każdym razem, gdy rzucisz broń, po ataku wróci ona do twojej ręki}"
           ],
           [
             "81-85",
@@ -23328,7 +23328,7 @@
           ],
           [
             "100",
-            "Możesz wykonać akcję {@action Magic|XPHB}, aby wyczarować widmową istotę przypominającą mrocznego elfa, jeśli jeszcze jej nie masz. Istota pojawia się w niezamieszkanym miejscu w promieniu 30 metrów od ciebie. Używa bloku statystyk {@creature Shadow|XMM} z tymi zmianami: jest Fey, ma neutralny charakter i nie tworzy nowych cieni. Kontrolujesz tę istotę, decydując o tym, jak działa i porusza się. Pozostaje dopóki nie spadnie do 0 {@variantrule Hit Points|XPHB} lub odrzucisz go jako akcję {@action Magic|XPHB}."
+            "Możesz wykonać akcję {@action Magic|XPHB}, aby wyczarować widmową istotę przypominającą mrocznego elfa, jeśli jeszcze jej nie masz. Istota pojawia się w niezamieszkanym miejscu w promieniu 30 metrów od ciebie. Używa bloku statystyk {@creature Shadow|XMM} z tymi zmianami: jest Fej, ma neutralny charakter i nie tworzy nowych cieni. Kontrolujesz tę istotę, decydując o tym, jak działa i porusza się. Pozostaje dopóki nie spadnie do 0 {@variantrule Hit Points|XPHB} lub odrzucisz go jako akcję {@action Magic|XPHB}."
           ]
         ]
       }
@@ -23428,7 +23428,7 @@
               ],
               [
                 "76-80",
-                "{@i Księżycowe ostrze} zyskuje {@itemProperty T|XPHB|rzucony} o normalnym zasięgu 20 stóp i długim zasięgu 60 stóp. Za każdym razem, gdy rzucisz broń, po ataku wróci ona do twojej ręki."
+                "{@i Księżycowe ostrze} zyskuje {@itemProperty T|XPHB|rzucony} o normalnym zasięgu 20 stóp i długim zasięgu 60 stóp. Za każdym razem, gdy rzucisz broń, po ataku wróci ona do twojej ręki}"
               ],
               [
                 "81-85",
@@ -23444,7 +23444,7 @@
               ],
               [
                 "100",
-                "Możesz wykonać akcję {@action Magic|XPHB}, aby wyczarować widmową istotę przypominającą mrocznego elfa, jeśli jeszcze jej nie masz. Istota pojawia się w niezamieszkanym miejscu w promieniu 30 metrów od ciebie. Używa bloku statystyk {@creature Shadow|XMM} z tymi zmianami: jest Fey, ma neutralny charakter i nie tworzy nowych cieni. Kontrolujesz tę istotę, decydując o tym, jak działa i porusza się. Pozostaje dopóki nie spadnie do 0 {@variantrule Hit Points|XPHB} lub odrzucisz go jako akcję {@action Magic|XPHB}."
+                "Możesz wykonać akcję {@action Magic|XPHB}, aby wyczarować widmową istotę przypominającą mrocznego elfa, jeśli jeszcze jej nie masz. Istota pojawia się w niezamieszkanym miejscu w promieniu 30 metrów od ciebie. Używa bloku statystyk {@creature Shadow|XMM} z tymi zmianami: jest Fej, ma neutralny charakter i nie tworzy nowych cieni. Kontrolujesz tę istotę, decydując o tym, jak działa i porusza się. Pozostaje dopóki nie spadnie do 0 {@variantrule Hit Points|XPHB} lub odrzucisz go jako akcję {@action Magic|XPHB}."
               ]
             ]
           }
@@ -26983,35 +26983,35 @@
         "rows": [
           [
             "1",
-            "{@b Androfagia.} Każdy stwór w promieniu 60 stóp od naczynia musi zdać rzut obronny Mądrości o {@dc 17} albo wpadnie w szał na 1 minutę. Szalejący stwór musi rozpocząć swoją turę, wykonując akcję {@action Attack}, by wykonać jeden atak wręcz lub dystansowy (jego wybór) przeciwko najbliższemu mu stworowi. Szalejący stwór może powtórzyć rzut obronny na koniec swojej tury, kończąc efekt na sobie przy sukcesie."
+            "{@b Androfagia.} Każdy stwór w promieniu 60 stóp od naczynia musi zdać rzut obronny Mądrości o {@dc 17} albo wpadnie w szał na 1 minutę. Szalejący stwór musi rozpocząć swoją turę, wykonując akcję {@action Attack}, by wykonać jeden atak wręcz lub dystansowy (jego wybór) przeciwko najbliższemu mu stworowi. Szalejący stwór może powtórzyć rzut obronny na koniec swojej tury, kończąc efekt na sobie przy sukcesie}"
           ],
           [
             "2",
-            "{@b Żółciowa Zaraza.} Naczynie rzuca zaklęcie {@spell harm} na każdego stwora w promieniu 30 stóp od niego."
+            "{@b Żółciowa Zaraza.} Naczynie rzuca zaklęcie {@spell harm} na każdego stwora w promieniu 30 stóp od niego}"
           ],
           [
             "3",
-            "{@b Powódź.} Naczynie rzuca zaklęcie {@spell tsunami} w punkt wybrany przez MG w promieniu 120 stóp od niego."
+            "{@b Powódź.} Naczynie rzuca zaklęcie {@spell tsunami} w punkt wybrany przez MG w promieniu 120 stóp od niego}"
           ],
           [
             "4",
-            "{@b Spojrzenie Meduzy.} Naczynie rzuca zaklęcie {@spell flesh to stone} na każdego stwora w promieniu 30 stóp od niego."
+            "{@b Spojrzenie Meduzy.} Naczynie rzuca zaklęcie {@spell flesh to stone} na każdego stwora w promieniu 30 stóp od niego}"
           ],
           [
             "5",
-            "{@b Labirynt.} Naczynie rzuca zaklęcie {@spell maze} na każdego stwora w promieniu 30 stóp od niego."
+            "{@b Labirynt.} Naczynie rzuca zaklęcie {@spell maze} na każdego stwora w promieniu 30 stóp od niego}"
           ],
           [
             "6",
-            "{@b Koszmar.} Macki cienia wysączają się z naczynia i formują się w {@dice 1d4} {@creature shadow demon||demonów cienia} (zobacz Bestiariusz po ich blok statystyk), które pojawiają się w wolnych przestrzeniach w promieniu 30 stóp od niego i są wrogie."
+            "{@b Koszmar.} Macki cienia wysączają się z naczynia i formują się w {@dice 1d4} {@creature shadow demon||demonów cienia} (zobacz Bestiariusz po ich blok statystyk), które pojawiają się w wolnych przestrzeniach w promieniu 30 stóp od niego i są wrogie}"
           ],
           [
             "7",
-            "{@b Rojące się Owady.} Naczynie rzuca zaklęcie {@spell insect plague}, wyśrodkowane na sobie, o promieniu 30 stóp."
+            "{@b Rojące się Owady.} Naczynie rzuca zaklęcie {@spell insect plague}, wyśrodkowane na sobie, o promieniu 30 stóp}"
           ],
           [
             "8",
-            "{@b Nieokiełznana Zabawa.} Naczynie rzuca zaklęcie {@spell Otto's irresistible dance} na każdego stwora w promieniu 30 stóp od niego."
+            "{@b Nieokiełznana Zabawa.} Naczynie rzuca zaklęcie {@spell Otto's irresistible dance} na każdego stwora w promieniu 30 stóp od niego}"
           ]
         ]
       }
@@ -28034,7 +28034,7 @@
                 "type": "item",
                 "name": "Woda",
                 "entries": [
-                  "Znasz Aquan, zyskujesz {@variantrule Swim Speed|XPHB} 60 stóp, i możesz oddychać pod wodą."
+                  "Znasz Akwan, zyskujesz {@variantrule Swim Speed|XPHB} 60 stóp, i możesz oddychać pod wodą."
                 ]
               }
             ]
@@ -28582,7 +28582,7 @@
     "entries": [
       "Nosząc ten pierścień, masz przewagę na rzutach na atak przeciwko żywiołakom z Płaszczyzny Żywiołowej Wody, a one mają utrudnienie na rzutach na atak przeciwko tobie. Dodatkowo masz dostęp do właściwości opartych na Płaszczyźnie Żywiołowej Wody.",
       "Pierścień ma 5 ładunków. Odzyskuje {@dice 1d4 + 1} zużytych ładunków każdego dnia o świcie. Zaklęcia rzucone z pierścienia mają KT rzutu obronnego 17.",
-      "Możesz wydać 2 ładunki pierścienia, by rzucić {@spell dominate monster} na {@creature water elemental}. Dodatkowo możesz stać na płynnych powierzchniach i po nich chodzić, jakby były stałym gruntem. Możesz też mówić i rozumieć Aquan.",
+      "Możesz wydać 2 ładunki pierścienia, by rzucić {@spell dominate monster} na {@creature water elemental}. Dodatkowo możesz stać na płynnych powierzchniach i po nich chodzić, jakby były stałym gruntem. Możesz też mówić i rozumieć Akwan.",
       "Jeśli pomożesz zabić {@creature water elemental}, będąc dostrojonym do pierścienia, zyskujesz dostęp do następujących dodatkowych właściwości:",
       {
         "type": "list",
@@ -29283,7 +29283,7 @@
     "name": "Lina Oplątania",
     "entries": [
       "Ta lina ma 30 stóp długości. Trzymając jeden koniec liny, możesz wykonać akcję {@action Magic|XPHB}, by rozkazać drugiemu końcowi rzucić się do przodu i oplątać jednego widocznego przez ciebie stwora w promieniu 20 stóp od siebie. Cel musi zdać rzut obronny Zręczności o {@dc 15} albo będzie mieć stan {@condition Restrained|XPHB}. Możesz uwolnić cel, puszczając swój koniec liny (sprawiając, że lina zwija się w przestrzeni celu) lub używając {@variantrule Bonus Action|XPHB}, by powtórzyć rozkaz (sprawiając, że lina zwija się w twojej dłoni).",
-      "Cel {@condition Restrained|XPHB} przez linę może wykonać akcję, by wykonać według wyboru test Siły ({@skill Athletics|XPHB}) lub Zręczności ({@skill Acrobatics|XPHB}) o {@dc 15}. Przy udanym teście cel nie jest już {@condition Restrained|XPHB} przez linę. Jeśli wciąż trzymasz linę, gdy cel się z niej uwalnia, możesz wykonać {@variantrule Reaction|XPHB}, by rozkazać linie zwinąć się w twojej dłoni; w przeciwnym razie lina zwija się w przestrzeni celu.",
+      "Cel {@condition Restrained|XPHB} przez linę może wykonać akcję, by wykonać według wyboru test Siły ({@skill Athletics|XPHB}) lub Zręczności ({@skill Athletics|XPHB}) o {@dc 15}. Przy udanym teście cel nie jest już {@condition Restrained|XPHB} przez linę. Jeśli wciąż trzymasz linę, gdy cel się z niej uwalnia, możesz wykonać {@variantrule Reaction|XPHB}, by rozkazać linie zwinąć się w twojej dłoni; w przeciwnym razie lina zwija się w przestrzeni celu.",
       "Lina ma KP 20, 20 PW i {@variantrule Immunity|XPHB} na obrażenia Trucizną i Psychiczne. Odzyskuje 1 {@variantrule Hit Points|XPHB|Punkt Wytrzymałości} co 5 minut, dopóki ma przynajmniej 1 {@variantrule Hit Points|XPHB|Punkt Wytrzymałości}. Jeśli lina spadnie do 0 {@variantrule Hit Points|XPHB}, zostaje zniszczona."
     ],
     "type": "Cudowny Przedmiot",
@@ -30235,7 +30235,7 @@
     "name": "Zwój Przywołania Tytana (Pan Zwierząt)",
     "entries": [
       "Gdy wykonujesz akcję {@action Magic|XPHB}, by przeczytać ten zwój, {@creature Animal Lord|XMM} pojawia się w wolnej przestrzeni na ziemi lub w wodzie widocznej przez ciebie w promieniu 1 mili od siebie.",
-      "{@creature Animal Lord|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Animal Lord|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany."
+      "{@creature Animal Lord|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Animal Lord|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany}"
     ],
     "type": "Zwój",
     "rarity": "Legendarna",
@@ -30250,7 +30250,7 @@
     "name": "Zwój Przywołania Tytana (Bryła Unicestwienia)",
     "entries": [
       "Gdy wykonujesz akcję {@action Magic|XPHB}, by przeczytać ten zwój, {@creature Blob of Annihilation|XMM} pojawia się w wolnej przestrzeni na ziemi lub w wodzie widocznej przez ciebie w promieniu 1 mili od siebie.",
-      "{@creature Blob of Annihilation|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wroga} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Blob of Annihilation|XMM} zostanie przyzwana do przestrzeni, która nie jest wystarczająco duża, by ją pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany."
+      "{@creature Blob of Annihilation|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wroga} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Blob of Annihilation|XMM} zostanie przyzwana do przestrzeni, która nie jest wystarczająco duża, by ją pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany}"
     ],
     "type": "Zwój",
     "rarity": "Legendarna",
@@ -30265,7 +30265,7 @@
     "name": "Zwój Przywołania Tytana (Kolos)",
     "entries": [
       "Gdy wykonujesz akcję {@action Magic|XPHB}, by przeczytać ten zwój, {@creature Colossus|XMM} pojawia się w wolnej przestrzeni na ziemi lub w wodzie widocznej przez ciebie w promieniu 1 mili od siebie.",
-      "{@creature Colossus|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Colossus|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany."
+      "{@creature Colossus|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Colossus|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany}"
     ],
     "type": "Zwój",
     "rarity": "Legendarna",
@@ -30280,7 +30280,7 @@
     "name": "Zwój Przywołania Tytana (Żywiołowy Kataklizm)",
     "entries": [
       "Gdy wykonujesz akcję {@action Magic|XPHB}, by przeczytać ten zwój, {@creature Elemental Cataclysm|XMM} pojawia się w wolnej przestrzeni na ziemi lub w wodzie widocznej przez ciebie w promieniu 1 mili od siebie.",
-      "{@creature Elemental Cataclysm|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Elemental Cataclysm|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany."
+      "{@creature Elemental Cataclysm|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Elemental Cataclysm|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany}"
     ],
     "type": "Zwój",
     "rarity": "Legendarna",
@@ -30295,7 +30295,7 @@
     "name": "Zwój Przywołania Tytana (Empirejczyk)",
     "entries": [
       "Gdy wykonujesz akcję {@action Magic|XPHB}, by przeczytać ten zwój, {@creature Empyrean|XMM} pojawia się w wolnej przestrzeni na ziemi lub w wodzie widocznej przez ciebie w promieniu 1 mili od siebie.",
-      "{@creature Empyrean|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Empyrean|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany."
+      "{@creature Empyrean|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Empyrean|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany}"
     ],
     "type": "Zwój",
     "rarity": "Legendarna",
@@ -30310,7 +30310,7 @@
     "name": "Zwój Przywołania Tytana (Kraken)",
     "entries": [
       "Gdy wykonujesz akcję {@action Magic|XPHB}, by przeczytać ten zwój, {@creature Kraken|XMM} pojawia się w wolnej przestrzeni w wodzie widocznej przez ciebie w promieniu 1 mili od siebie. {@creature kraken|XMM} wymaga zbiornika wody wystarczająco dużego, by go pomieścić, w przeciwnym razie przyzwanie zawodzi, a zwój zostaje zmarnowany",
-      "{@creature Kraken|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Kraken|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany."
+      "{@creature Kraken|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Kraken|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany}"
     ],
     "type": "Zwój",
     "rarity": "Legendarna",
@@ -30325,7 +30325,7 @@
     "name": "Zwój Przywołania Tytana (Tarrasque)",
     "entries": [
       "Gdy wykonujesz akcję {@action Magic|XPHB}, by przeczytać ten zwój, {@creature Tarrasque|XMM} pojawia się w wolnej przestrzeni na ziemi lub w wodzie widocznej przez ciebie w promieniu 1 mili od siebie.",
-      "{@creature Tarrasque|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Tarrasque|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany."
+      "{@creature Tarrasque|XMM} jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} wobec wszystkich innych stworów i znika, gdy spadnie do 0 {@variantrule Hit Points|XPHB}. Jeśli {@creature Tarrasque|XMM} zostanie przyzwany do przestrzeni, która nie jest wystarczająco duża, by go pomieścić, przyzwanie zawodzi, a zwój zostaje zmarnowany}"
     ],
     "type": "Zwój",
     "rarity": "Legendarna",
@@ -30419,7 +30419,7 @@
   "selesnya-keyrune": {
     "name": "Kluczruna Selesnya",
     "entries": [
-      "Wyrzeźbiona z białego i zielonego marmuru w kształcie wilczej głowy, ta kluczruna przemienia się w {@creature dire wolf}. Wilk utrzymuje się przez 8 godzin. Jego Inteligencja wynosi 6, i rozumie Elficki i Sylvan, ale nie potrafi mówić w tych językach. Dopóki znajduje się w promieniu 1 mili od ciebie, możecie komunikować się ze sobą telepatycznie.",
+      "Wyrzeźbiona z białego i zielonego marmuru w kształcie wilczej głowy, ta kluczruna przemienia się w {@creature dire wolf}. Wilk utrzymuje się przez 8 godzin. Jego Inteligencja wynosi 6, i rozumie Elficki i Leśny, ale nie potrafi mówić w tych językach. Dopóki znajduje się w promieniu 1 mili od ciebie, możecie komunikować się ze sobą telepatycznie.",
       "Gdy wykonujesz akcję, by wypowiedzieć hasło przedmiotu i umieścić kluczrunę na ziemi w wolnej przestrzeni w promieniu 5 stóp od siebie, kluczruna przemienia się w {@creature dire wolf}. Jeśli nie ma wystarczająco dużo miejsca dla stwora, kluczruna się nie przemienia.",
       "Stwór jest przyjazny wobec ciebie, twoich towarzyszy i innych członków twojej gildii (chyba że ci członkowie gildii są wobec ciebie wrodzy). Rozumie twoje języki i słucha twoich wypowiadanych rozkazów. Jeśli nie wydasz żadnych rozkazów, stwór wykonuje akcję {@action Dodge} i porusza się, by unikać niebezpieczeństwa.",
       "Pod koniec czasu działania stwór wraca do formy kluczruny. Wraca wcześniej, jeśli spadnie do 0 punktów wytrzymałości lub jeśli wykonasz akcję, by ponownie wypowiedzieć hasło, dotykając go. Gdy stwór wraca do formy kluczruny, nie może ponownie się przemienić, dopóki nie minie 36 godzin."
@@ -31284,19 +31284,19 @@
         "rows": [
           [
             "1",
-            "{@b Wygnanie.} Stwór, który otrzymuje obrażenia od tego pocisku, musi zdać rzut obronny Charyzmy o {@dc 15} albo zostanie wygnany, jakby był objęty zaklęciem {@spell banishment}."
+            "{@b Wygnanie.} Stwór, który otrzymuje obrażenia od tego pocisku, musi zdać rzut obronny Charyzmy o {@dc 15} albo zostanie wygnany, jakby był objęty zaklęciem {@spell banishment}}"
           ],
           [
             "2",
-            "{@b Fulguracja.} Przy trafieniu ten pocisk zadaje celowi dodatkowe {@damage 2d8} obrażeń Piorunem. Wszystkie inne stwory w promieniu 10 stóp od celu muszą każdy zdać rzut obronny Kondycji o {@dc 15} albo otrzymają {@damage 1d8} obrażeń Grzmotu."
+            "{@b Fulguracja.} Przy trafieniu ten pocisk zadaje celowi dodatkowe {@damage 2d8} obrażeń Piorunem. Wszystkie inne stwory w promieniu 10 stóp od celu muszą każdy zdać rzut obronny Kondycji o {@dc 15} albo otrzymają {@damage 1d8} obrażeń Grzmotu}"
           ],
           [
             "3",
-            "{@b Oszałamiający.} Przy trafieniu ten pocisk zadaje dodatkowe {@damage 1d10} obrażeń Siłowych, a cel ma stan {@condition stunned} do końca twojej następnej tury."
+            "{@b Oszałamiający.} Przy trafieniu ten pocisk zadaje dodatkowe {@damage 1d10} obrażeń Siłowych, a cel ma stan {@condition stunned} do końca twojej następnej tury}"
           ],
           [
             "4",
-            "{@b Śledzący.} Stwór, który otrzymuje obrażenia od tego pocisku, zostaje naznaczony świecącą runą w miejscu, gdzie trafił pocisk. Znak trwa 24 godziny. Dopóki stwór jest naznaczony, zawsze znasz kierunek do niego."
+            "{@b Śledzący.} Stwór, który otrzymuje obrażenia od tego pocisku, zostaje naznaczony świecącą runą w miejscu, gdzie trafił pocisk. Znak trwa 24 godziny. Dopóki stwór jest naznaczony, zawsze znasz kierunek do niego}"
           ]
         ]
       }
@@ -34025,7 +34025,7 @@
   "talarith": {
     "name": "Talarith",
     "entries": [
-      "{@creature reigar|BAM}, który tworzy tę biżuterię, wybiera jej formę: bransoletę, broszę, diadem lub naszyjnik. Dopóki reigar nosi talarith, każda broń używana przez {@creature reigar|BAM} zadaje dodatkowe {@damage 1d6} obrażeń siłowych przy trafieniu.",
+      "{@creature reigar|BAM}, który tworzy tę biżuterię, wybiera jej formę: bransoletę, broszę, diadem lub naszyjnik. Dopóki reigar nosi talarith, każda broń używana przez {@creature reigar|BAM} zadaje dodatkowe {@damage 1d6} obrażeń siłowych przy trafieniu}",
       "Jako akcję reigar może użyć swojego talarithu, by przyzwać golema wyglądającego dokładnie jak reigar. Golem słucha rozkazów reigara i korzysta ze statystyk {@creature reigar|BAM|reigara}, z tą różnicą, że jest Konstruktem, który nie ma własnego talarithu. Golem znika po 1 godzinie lub gdy zostanie zredukowany do 0 punktów wytrzymałości. Po przyzwaniu golema reigar musi zakończyć krótki lub długi odpoczynek, zanim ta właściwość może zostać ponownie użyta."
     ],
     "attunement": "Wymaga zestrojenia przez reigara, który je stworzył",
@@ -34240,7 +34240,7 @@
               [
                 "3",
                 "Złota Era Dhakaan (złoty goblinski ząb przedtrzonowy)",
-                "10 {@creature goblin||goblinów}, 1 {@creature goblin boss}",
+                "10 {@creature goblin||goblinowyów}, 1 {@creature goblin boss}",
                 "Gdy zostaniesz trafiony atakiem, a sojusznik znajduje się w promieniu 5 stóp od ciebie, możesz użyć reakcji, by sprawić, że to on zostanie trafiony zamiast ciebie. Nie możesz ponownie użyć tej reakcji, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
               ],
               [
@@ -35069,7 +35069,7 @@
     "name": "Podróżny Zestaw Alchemiczny",
     "entries": [
       "Również na randze 3 Centrala dostarcza ci podróżny zestaw alchemiczny - niepospolity magiczny przedmiot zawierający zminiaturyzowane wersje zarówno {@item alchemist's supplies|phb}, jak i {@item poisoner's kit|phb} (szklane fiolki, moździerz z tłuczkiem, chemikalia i szklany pręcik do mieszania). W ramach tego ulepszenia zyskujesz biegłość w {@item poisoner's kit|phb}.",
-      "Możesz używać tego magicznego zestawu, dopóki jest przy tobie, bez potrzeby wyciągania go czy chowania. Jeśli zostaniesz przeszukany, znalezienie twojego podróżnego zestawu alchemicznego wymaga udanego testu Inteligencji ({@skill Investigation}) lub Mądrości ({@skill Insight}) o {@dc 20}."
+      "Możesz używać tego magicznego zestawu, dopóki jest przy tobie, bez potrzeby wyciągania go czy chowania. Jeśli zostaniesz przeszukany, znalezienie twojego podróżnego zestawu alchemicznego wymaga udanego testu Inteligencji ({@skill Investigation}) lub Mądrości ({@skill Investigation}) o {@dc 20}."
     ],
     "type": "Cudowny Przedmiot",
     "rarity": "Niepospolita",
@@ -35876,7 +35876,7 @@
   "voting-kit": {
     "name": "Zestaw do Głosowania",
     "entries": [
-      "Na randze 4 twój zestaw do głosowania staje się pospolitym magicznym przedmiotem, który ukrywa przestrzeń pozawymiarową. Jako akcję dodatkową możesz umieścić w zestawie do głosowania jeden zestaw narzędzi, w którym jesteś biegły, lub go wyjąć. Żaden inny rodzaj obiektu nie może zostać umieszczony w tej przestrzeni pozawymiarowej. Stworzenie przeszukujące zestaw do głosowania znajduje i wyciąga zestaw narzędzi udanym testem Inteligencji ({@skill Investigation}) lub Mądrości ({@skill Perception}) o {@dc 20}.",
+      "Na randze 4 twój zestaw do głosowania staje się pospolitym magicznym przedmiotem, który ukrywa przestrzeń pozawymiarową. Jako akcję dodatkową możesz umieścić w zestawie do głosowania jeden zestaw narzędzi, w którym jesteś biegły, lub go wyjąć. Żaden inny rodzaj obiektu nie może zostać umieszczony w tej przestrzeni pozawymiarowej. Stworzenie przeszukujące zestaw do głosowania znajduje i wyciąga zestaw narzędzi udanym testem Inteligencji ({@skill Investigation}) lub Mądrości ({@skill Investigation}) o {@dc 20}.",
       "Dodatkowo możesz użyć zestawu do głosowania, by rzucić {@spell charm person} (rzut obronny {@dc 15}). Ta właściwość zestawu nie może zostać ponownie użyta aż do następnego świtu."
     ],
     "type": "Cudowny Przedmiot",
@@ -36040,7 +36040,7 @@
                 "1"
               ],
               [
-                "{@spell Fear|XPHB} (60-stopowy {@variantrule Cone [Area of Effect]|XPHB|Stożek})",
+                "{@spell Fear|XPHB} (60-stopowy {@variantrule Cone [Area of Effect]|XPHB|Stożek}}",
                 "3"
               ]
             ]
@@ -37065,7 +37065,7 @@
   "whistle-stick": {
     "name": "Gwizdopatyk",
     "entries": [
-      "{@race grung|OGA} z {@book One Grung Above|OGA|Jeden Grung Wyżej} są wyszkoleni w używaniu tego nowego instrumentu muzycznego. Jest to pusta rurka z otworami wyciętymi wzdłuż, podobna do fletu. Możesz grać na niej muzykę dla rozrywki, ale grungowie machają nią również na solidnym sznurze (przymocowanym), by stworzyć dźwięk rozpoznawalny przez inne grungi, dzięki czemu znają wzajemnie swoją przybliżoną lokalizację. Dodatkowo grungowie znający {@language Thieves' Cant} mogą używać gwizdopatyka w ten sposób, by komunikować się na odległość."
+      "{@race grung|OGA} z {@book One Grung Above|OGA|Jeden Grung Wyżej} są wyszkoleni w używaniu tego nowego instrumentu muzycznego. Jest to pusta rurka z otworami wyciętymi wzdłuż, podobna do fletu. Możesz grać na niej muzykę dla rozrywki, ale grungowie machają nią również na solidnym sznurze (przymocowanym), by stworzyć dźwięk rozpoznawalny przez inne grungi, dzięki czemu znają wzajemnie swoją przybliżoną lokalizację. Dodatkowo grungowie znający {@language Thieves' Cant} mogą używać gwizdopatyka w ten sposób, by komunikować się na odległość}"
     ],
     "type": "Instrument",
     "rarity": "",
@@ -38355,7 +38355,7 @@
           ],
           [
             "41-50",
-            "{@dice 1d6 + 6} {@creature shrieker||wrzeszczaków} kiełkuje."
+            "{@dice 1d6 + 6} {@creature shrieker||wrzeszczaków} kiełkuje}"
           ],
           [
             "51-60",
@@ -42272,7 +42272,7 @@
     "entries": [
       "Możesz wykorzystać akcję, by zadąć w ten róg. W odpowiedzi duchy wojowników z płaszczyzny Ysgard pojawiają się w promieniu 60 stóp od ciebie. Duchy te używają statystyk {@creature berserker}. Wracają do Ysgard po 1 godzinie lub gdy spadną do 0 punktów wytrzymałości. Gdy raz użyjesz rogu, nie może zostać ponownie użyty, dopóki nie minie 7 dni.",
       "Srebrny róg przyzywa {@dice 2d4 + 2} {@creature berserker||berserkerów}.",
-      "{@creature berserker||Berserkerowie} są przyjaźni wobec ciebie i twoich towarzyszy i słuchają twoich rozkazów."
+      "{@creature berserker||Berserkerowie} są przyjaźni wobec ciebie i twoich towarzyszy i słuchają twoich rozkazów}"
     ],
     "weight": "2 funty",
     "type": "Instrument",
@@ -43092,7 +43092,7 @@
     "entries": [
       "Zyskujesz premię +1 do rzutów na atak i obrażenia wykonywanych tą magiczną bronią. Premia wzrasta do +3, gdy używasz buławy, by zaatakować konstrukta.",
       "Gdy wyrzucisz 20 w rzucie na atak wykonanym tą bronią, cel otrzymuje dodatkowe 7 obrażeń obuchowych, lub dodatkowe 14 obrażeń obuchowych, jeśli jest konstruktem. Jeśli konstrukt ma 25 punktów wytrzymałości lub mniej po otrzymaniu tych obrażeń, zostaje zniszczony.",
-      "{@note Note: According to the SRD, it is an extra {@damage 2d6} i {@damage 4d6} obrażenia tłuczące, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}}."
+      "{@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 2d6} i {@damage 4d6} obrażenia tłuczące, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}}."
     ],
     "weight": "4 funty",
     "damage": "1d6 obuchowe",
@@ -44273,7 +44273,7 @@
   "potion-of-cloud-giant-strength-dmg": {
     "name": "Mikstura Siły Olbrzyma Chmur",
     "entries": [
-      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 27 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature cloud giant|olbrzyma chmur}.",
+      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 27 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature cloud olbrzymi|olbrzyma chmur}.",
       "W przezroczystym płynie tego eliksiru unosi się kawałek paznokcia {@creature cloud giant}."
     ],
     "type": "Mikstura",
@@ -44306,7 +44306,7 @@
   "potion-of-fire-giant-strength-dmg": {
     "name": "Mikstura Siły Olbrzyma Ognia",
     "entries": [
-      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 25 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature fire giant|olbrzyma ognia}.",
+      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 25 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature fire olbrzymi|olbrzyma ognia}.",
       "W przezroczystym płynie tego eliksiru unosi się kawałek paznokcia {@creature fire giant}."
     ],
     "type": "Mikstura",
@@ -44339,7 +44339,7 @@
   "potion-of-frost-giant-strength-dmg": {
     "name": "Mikstura Siły Olbrzyma Mrozu",
     "entries": [
-      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 23 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature frost giant|olbrzyma mrozu}.",
+      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 23 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature frost olbrzymi|olbrzyma mrozu}.",
       "W przezroczystym płynie tego eliksiru unosi się kawałek paznokcia {@creature frost giant}."
     ],
     "type": "Mikstura",
@@ -44390,7 +44390,7 @@
   "potion-of-hill-giant-strength-dmg": {
     "name": "Mikstura Siły Olbrzyma Wzgórz",
     "entries": [
-      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 21 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature hill giant|olbrzyma wzgórz}.",
+      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 21 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature hill olbrzymi|olbrzyma wzgórz}.",
       "W przezroczystym płynie tego eliksiru unosi się kawałek paznokcia {@creature hill giant}."
     ],
     "type": "Mikstura",
@@ -44488,7 +44488,7 @@
   "potion-of-stone-giant-strength-dmg": {
     "name": "Mikstura Siły Olbrzyma Kamienia",
     "entries": [
-      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 23 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature stone giant|olbrzyma kamienia}.",
+      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 23 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature stone olbrzymi|olbrzyma kamienia}.",
       "W przezroczystym płynie tego eliksiru unosi się kawałek paznokcia {@creature stone giant}."
     ],
     "type": "Mikstura",
@@ -44497,7 +44497,7 @@
   "potion-of-storm-giant-strength-dmg": {
     "name": "Mikstura Siły Olbrzyma Burzy",
     "entries": [
-      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 29 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature storm giant|olbrzyma burzy}.",
+      "Gdy wypijesz tę miksturę, twoja wartość Siły zmienia się na 29 na 1 godzinę. Mikstura nie ma na ciebie wpływu, jeśli twoja Siła jest równa lub większa niż ta wartość. W przezroczystym płynie tej mikstury unosi się odłamek paznokcia {@creature storm olbrzymi|olbrzyma burzy}.",
       "W przezroczystym płynie tego eliksiru unosi się kawałek paznokcia {@creature storm giant}."
     ],
     "type": "Mikstura",
@@ -47710,7 +47710,7 @@
         "name": "Osobowość",
         "type": "entries",
         "entries": [
-          "Celem Pogromcy jest mordować olbrzymy i goblinoidy. Dąży też do ochrony krasnoludów przed wszystkimi wrogami. Konflikt powstaje, jeśli władający nie niszczy goblinów i olbrzymów, ani nie chroni krasnoludów. Pogromca ma więzy z klanem krasnoludów, który go stworzył, zwanym różnie klanem Dankil lub Potężnego Młota. Tęskni za powrotem do tego klanu. Zrobiłby wszystko, by chronić te krasnoludy przed krzywdą. Młot nosi też sekretny wstyd. Wieki temu krasnolud imieniem Ctenmiir dzielnie władał nim przez pewien czas. Ale Ctenmiir został zamieniony w {@creature vampire}. Jego wola była wystarczająco silna, by ugiąć Pogromcę do swoich złych celów, zabijając nawet członków własnego klanu."
+          "Celem Pogromcy jest mordować olbrzymy i goblinoidy. Dąży też do ochrony krasnoludów przed wszystkimi wrogami. Konflikt powstaje, jeśli władający nie niszczy goblinowyów i olbrzymów, ani nie chroni krasnoludów. Pogromca ma więzy z klanem krasnoludów, który go stworzył, zwanym różnie klanem Dankil lub Potężnego Młota. Tęskni za powrotem do tego klanu. Zrobiłby wszystko, by chronić te krasnoludy przed krzywdą. Młot nosi też sekretny wstyd. Wieki temu krasnolud imieniem Ctenmiir dzielnie władał nim przez pewien czas. Ale Ctenmiir został zamieniony w {@creature vampire}. Jego wola była wystarczająco silna, by ugiąć Pogromcę do swoich złych celów, zabijając nawet członków własnego klanu."
         ]
       }
     ],
@@ -49342,7 +49342,7 @@
         "type": "entries",
         "name": "Deprawujący",
         "entries": [
-          "Ten przedmiot deprawuje. Zobacz sekcję \"{@adventure Infernal Item Corruption|CoA|16|Infernal Item Corruption}\"."
+          "Ten przedmiot deprawuje. Zobacz sekcję \"{@adventure Piekielny Item Corruption|CoA|16|Piekielny Item Corruption}\"."
         ]
       }
     ],
@@ -49416,7 +49416,7 @@
         "type": "entries",
         "name": "Deprawujący",
         "entries": [
-          "Ten przedmiot deprawuje. Zobacz sekcję \"{@adventure Infernal Item Corruption|CoA|16|Infernal Item Corruption}\"."
+          "Ten przedmiot deprawuje. Zobacz sekcję \"{@adventure Piekielny Item Corruption|CoA|16|Piekielny Item Corruption}\"."
         ]
       }
     ],
@@ -49909,7 +49909,7 @@
     "name": "Korona Lasu",
     "entries": [
       "Nosząc tę koronę, postać automatycznie oblewa każdy test Inteligencji ({@skill Investigation}) wykonywany, by przejrzeć iluzję. Iluzja, której się dotknie, wciąż ma ujawnioną swoją prawdziwą naturę. Jednak postać nosząca koronę ma tak silne poczucie, że iluzja jest prawdziwa, że może nie wiedzieć, któremu ze zmysłów wierzyć.",
-      "Jeśli tę koronę dokładnie zbada postać, która wykona udany test Inteligencji ({@skill Nature}) lub Roztropności ({@skill Perception}) o {@dc 20}, albo za pomocą zaklęcia {@spell detect magic} rzuconego z użyciem komórki zaklęcia 3. poziomu lub wyższej, natura jej magii zostaje odkryta."
+      "Jeśli tę koronę dokładnie zbada postać, która wykona udany test Inteligencji ({@skill Nature}) lub Roztropności ({@skill Nature}) o {@dc 20}, albo za pomocą zaklęcia {@spell detect magic} rzuconego z użyciem komórki zaklęcia 3. poziomu lub wyższej, natura jej magii zostaje odkryta."
     ],
     "attunement": "",
     "weight": "",
@@ -51302,12 +51302,12 @@
     "damage": "",
     "ac": "",
     "properties": "",
-    "name": "Feywildowy bibelot",
+    "name": "Bibelot z Krainy Wróżek",
     "entries": [
-      "Poniższa tabela Feywild Trinkets zawiera wybór bibelotów odpowiednich dla przygód z motywem Feywild, takich jak ta. Gracze, których postacie mają rękę feylost lub Witchlight, mogą rzucić na tę tabelę zamiast na tabelę {@book Trinkets|PHB|5|Błyskotki} w {@book Player's Handbook|PHB}, aby określić, jakie bibeloty posiadają ich postacie. Przygoda obejmuje kilka spotkań, które wymagają rzucenia się po stole w celu ustalenia, jakie losowe bibeloty bohaterowie znajdą w kluczowych lokalizacjach.",
+      "Poniższa tabela Kraina Wróżek Trinkets zawiera wybór bibelotów odpowiednich dla przygód z motywem Kraina Wróżek, takich jak ta. Gracze, których postacie mają rękę fejlost lub Witchlight, mogą rzucić na tę tabelę zamiast na tabelę {@book Trinkets|PHB|5|Błyskotki} w {@book Player's Handbook|PHB}, aby określić, jakie bibeloty posiadają ich postacie. Przygoda obejmuje kilka spotkań, które wymagają rzucenia się po stole w celu ustalenia, jakie losowe bibeloty bohaterowie znajdą w kluczowych lokalizacjach.",
       {
         "type": "table",
-        "caption": "Feywildowe bibeloty",
+        "caption": "Bibeloty z Krainy Wróżek",
         "colLabels": [
           "d100",
           "Cacko"
@@ -51371,7 +51371,7 @@
           ],
           [
             "14",
-            "Mały gwizdek elektrum, który słyszy tylko Fey"
+            "Mały gwizdek elektrum, który słyszy tylko Fej"
           ],
           [
             "15",
@@ -51463,7 +51463,7 @@
           ],
           [
             "37",
-            "Mała butelka wypełniona wodą deszczową zebraną z Feywild"
+            "Mała butelka wypełniona wodą deszczową zebraną z Kraina Wróżek"
           ],
           [
             "38",
@@ -52088,7 +52088,7 @@
         "type": "entries",
         "name": "Język smoka",
         "entries": [
-          "Potrafisz mówić i rozumieć Draconic. Masz także przewagę we wszystkich testach Charyzmy wykonywanych przeciwko Zielonym Smokom."
+          "Potrafisz mówić i rozumieć Smoczy. Masz także przewagę we wszystkich testach Charyzmy wykonywanych przeciwko Zielonym Smokom."
         ]
       },
       {
@@ -52184,8 +52184,8 @@
     "properties": "",
     "rarity": "Legendarny",
     "entries": [
-      "Hammock of Worlds to kolorowy hamak utkany w tradycyjne wzory Ataguanu. Może z niego korzystać wyłącznie członek zakonu zwanego Zielonymi Doktorami.",
-      "Możesz użyć akcji, aby rozłożyć i umieścić Hamak Światów na twardej powierzchni, po czym utworzy on dwukierunkowy portal do Widmowej Orchidei Tepui w Feywild lub do Suszającego Starszego w Dalekiej Krainie (wybór użytkownika). Możesz użyć akcji, aby zamknąć otwarty portal, chwytając krawędzie tkaniny i składając ją. Gdy Hammock of Worlds otworzy portal, nie będzie mógł tego zrobić ponownie przez kilka godzin {@dice 1d8}."
+      "Hamak Światów to kolorowy hamak utkany w tradycyjne wzory Ataguanu. Może z niego korzystać wyłącznie członek zakonu zwanego Zielonymi Doktorami.",
+      "Możesz użyć akcji, aby rozłożyć i umieścić Hamak Światów na twardej powierzchni, po czym utworzy on dwukierunkowy portal do Widmowej Orchidei Tepui w Kraina Wróżek lub do Suszającego Starszego w Dalekiej Krainie (wybór użytkownika). Możesz użyć akcji, aby zamknąć otwarty portal, chwytając krawędzie tkaniny i składając ją. Gdy Hamak Światów otworzy portal, nie będzie mógł tego zrobić ponownie przez kilka godzin {@dice 1d8}."
     ],
     "gallery": [
       {
@@ -52765,7 +52765,7 @@
     "rarity": "Bardzo rzadkie",
     "attunement": "Wymaga dostrojenia",
     "entries": [
-      "Pozwala dostrojonemu użytkownikowi zignorować magiczne ograniczenia Undermountain (patrz „Zmiany w magii”)."
+      "Pozwala dostrojonemu użytkownikowi zignorować magiczne ograniczenia Podgóra (patrz „Zmiany w magii”)."
     ],
     "name": "Rogaty Pierścień"
   },
@@ -52783,11 +52783,11 @@
     "damage": "",
     "ac": "",
     "properties": "",
-    "name": "Ozdoba Icewind Dale",
+    "name": "Ozdoba Dolina Lodowego Wichru",
     "entries": [
       {
         "type": "table",
-        "caption": "Błyskotki Icewind Dale",
+        "caption": "Błyskotki Dolina Lodowego Wichru",
         "colLabels": [
           "d100",
           "Cacko"
@@ -52969,7 +52969,7 @@
     "attunement": "Wymaga dostrojenia przez rzucającego zaklęcia",
     "name": "Kocioł Iggwilva",
     "entries": [
-      "{@creature Iggwilv the Witch Queen|WBtW|Iggwilv} stworzyła ten cudowny kocioł z pomocą swojej adopcyjnej matki, arcywróżki Baby Jagi. Kocioł ma dwie formy. Tylko Iggwilv lub Baba Jaga mogą zmienić kocioł z jednej formy w inną (poprzez akcję dotknięcia go), co można obejść bez dostrojenia się do przedmiotu. W swojej pierwszej formie kocioł jest wykonany z litego złota i wytłoczony na zewnątrz wizerunkami nagich gałęzi drzew, opadających liści i miotły. W drugiej formie kocioł jest wykonany z żelaza i ma wytłoczone na zewnątrz wizerunki nietoperzy, ropuch, kotów, jaszczurek i węży - po osiem sztuk każdego zwierzęcia. W obu postaciach kocioł ma około 3 stóp średnicy i szeroki na 2 stopy otwór, okrągłą pokrywkę z formowanym uchwytem na górze i osiem szponiastych nóżek zapewniających stabilność. Pusty kocioł waży 80 funtów i może pomieścić do 100 galonów płynu.",
+      "{@creature Iggwilv the Witch Queen|WBtW|Iggwilv} stworzyła ten cudowny kocioł z pomocą swojej adopcyjnej matki, arcywróżki Baby Jagi. Kocioł ma dwie formy. Tylko Iggwilv lub Baba Jaga mogą zmienić kocioł z jednej formy w inną (poprzez akcję dotknięcia go), co można obejść bez dostrojenia się do przedmiotu. W swojej pierwszej formie kocioł jest wykonany z litego złota i wytłoczony na zewnątrz wizerunkami nagich gałęzi drzew, opadających liści i miotły. W drugiej formie kocioł jest wykonany z żelaza i ma wytłoczone na zewnątrz wizerunki nietoperzy, ropuch, kotów, jaszczurek i węży - po osiem sztuk każdego zwierzęcia. W obu postaciach kocioł ma około 3 stóp średnicy i szeroki na 2 stopy otwór, okrągłą pokrywkę z formowanym uchwytem na górze i osiem szponiastych nóżek zapewniających stabilność. Pusty kocioł waży 80 funtów i może pomieścić do 100 galonów płynu}",
       {
         "type": "entries",
         "name": "Dostrojenie",
@@ -53120,7 +53120,7 @@
         "type": "entries",
         "name": "Zepsucie",
         "entries": [
-          "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Infernal Item Corruption|CoA|16|Infernal Item Corruption}”."
+          "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Piekielny Item Corruption|CoA|16|Piekielny Item Corruption}”."
         ]
       }
     ],
@@ -53152,7 +53152,7 @@
         "type": "entries",
         "name": "Zepsucie",
         "entries": [
-          "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Infernal Item Corruption|CoA|16|Infernal Item Corruption}”."
+          "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Piekielny Item Corruption|CoA|16|Piekielny Item Corruption}”."
         ]
       }
     ],
@@ -53324,7 +53324,7 @@
     "properties": "",
     "rarity": "Rzadki",
     "attunement": "Wymaga dostrojenia",
-    "name": "Ioun Stone, Wiedza historyczna",
+    "name": "Kamień Ioun, Wiedza historyczna",
     "entries": [
       "{@italic Kamień Ioun} nosi imię Iouna, boga wiedzy i proroctw czczonego na niektórych światach. Istnieje wiele typów {@italic Kamień Ioun}, każdy typ ma odrębną kombinację kształtu i koloru.",
       "Kiedy wykonujesz akcję podrzucenia jednego z tych kamieni w powietrze, kamień okrąża twoją głowę w odległości {@dice 1d3} stóp i zapewnia ci korzyść. Następnie inna istota musi wykonać akcję, aby chwycić kamień lub zasiać w sieć, aby oddzielić go od ciebie, albo wykonując udany rzut ataku przeciwko KP 24, albo udany test Zręczności {@dc 24} ({@skill Acrobatics}). Możesz użyć akcji, aby przejąć i schować kamień, kończąc jego działanie.",
@@ -53345,7 +53345,7 @@
     "properties": "",
     "rarity": "Rzadki",
     "attunement": "Wymaga dostrojenia",
-    "name": "Ioun Stone, Znajomość języków",
+    "name": "Kamień Ioun, Znajomość języków",
     "entries": [
       "{@italic Kamień Ioun} nosi imię Iouna, boga wiedzy i proroctw czczonego na niektórych światach. Istnieje wiele typów {@italic Kamień Ioun}, każdy typ ma odrębną kombinację kształtu i koloru.",
       "Kiedy wykonujesz akcję podrzucenia jednego z tych kamieni w powietrze, kamień okrąża twoją głowę w odległości {@dice 1d3} stóp i zapewnia ci korzyść. Następnie inna istota musi wykonać akcję, aby chwycić kamień lub zasiać w sieć, aby oddzielić go od ciebie, albo wykonując udany rzut ataku przeciwko KP 24, albo udany test Zręczności {@dc 24} ({@skill Acrobatics}). Możesz użyć akcji, aby przejąć i schować kamień, kończąc jego działanie.",
@@ -53387,7 +53387,7 @@
     "properties": "",
     "rarity": "Rzadki",
     "attunement": "Wymaga dostrojenia",
-    "name": "Ioun Stone, Wiedza religijna",
+    "name": "Kamień Ioun, Wiedza religijna",
     "entries": [
       "{@italic Kamień Ioun} nosi imię Iouna, boga wiedzy i proroctw czczonego na niektórych światach. Istnieje wiele typów {@italic Kamień Ioun}, każdy typ ma odrębną kombinację kształtu i koloru.",
       "Kiedy wykonujesz akcję podrzucenia jednego z tych kamieni w powietrze, kamień okrąża twoją głowę w odległości {@dice 1d3} stóp i zapewnia ci korzyść. Następnie inna istota musi wykonać akcję, aby chwycić kamień lub zasiać w sieć, aby oddzielić go od ciebie, albo wykonując udany rzut ataku przeciwko KP 24, albo udany test Zręczności {@dc 24} ({@skill Acrobatics}). Możesz użyć akcji, aby przejąć i schować kamień, kończąc jego działanie.",
@@ -53408,7 +53408,7 @@
     "properties": "",
     "rarity": "Rzadki",
     "attunement": "Wymaga dostrojenia",
-    "name": "Ioun Stone, Samozachowawczość",
+    "name": "Kamień Ioun, Samozachowawczość",
     "entries": [
       "{@italic Kamień Ioun} nosi imię Iouna, boga wiedzy i proroctw czczonego na niektórych światach. Istnieje wiele typów {@italic Kamień Ioun}, każdy typ ma odrębną kombinację kształtu i koloru.",
       "Kiedy wykonujesz akcję podrzucenia jednego z tych kamieni w powietrze, kamień okrąża twoją głowę w odległości {@dice 1d3} stóp i zapewnia ci korzyść. Następnie inna istota musi wykonać akcję, aby chwycić kamień lub zasiać w sieć, aby oddzielić go od ciebie, albo wykonując udany rzut ataku przeciwko KP 24, albo udany test Zręczności {@dc 24} ({@skill Acrobatics}). Możesz użyć akcji, aby przejąć i schować kamień, kończąc jego działanie.",
@@ -53429,7 +53429,7 @@
     "properties": "",
     "rarity": "Rzadki",
     "attunement": "Wymaga dostrojenia",
-    "name": "Ioun Stone, Najwyższy Intelekt",
+    "name": "Kamień Ioun, Najwyższy Intelekt",
     "entries": [
       "{@italic Kamień Ioun} nosi imię Iouna, boga wiedzy i proroctw czczonego na niektórych światach. Istnieje wiele typów {@italic Kamień Ioun}, każdy typ ma odrębną kombinację kształtu i koloru.",
       "Kiedy wykonujesz akcję podrzucenia jednego z tych kamieni w powietrze, kamień okrąża twoją głowę w odległości {@dice 1d3} stóp i zapewnia ci korzyść. Następnie inna istota musi wykonać akcję, aby chwycić kamień lub zasiać w sieć, aby oddzielić go od ciebie, albo wykonując udany rzut ataku przeciwko KP 24, albo udany test Zręczności {@dc 24} ({@skill Acrobatics}). Możesz użyć akcji, aby przejąć i schować kamień, kończąc jego działanie.",
@@ -53478,7 +53478,7 @@
     "name": "Żelazny Kieł",
     "damage": "Przebicie 1d8",
     "entries": [
-      "{@item war pick|phb} wykuty z jednego kawałka żelaza, Żelazny Kieł ma głowę przypominającą kły, na której wyryto starożytne runy. Kilof jest ciężki w dłoni, ale kiedy użytkownik macha nim w gniewie, broń wydaje się prawie nieważka. Ta broń jest odporna na jakąkolwiek formę rdzy, kwasu i korozji - nic nie wskazuje na to, by ją oznaczyć. Żelazny Kieł zawiera iskrę {@creature Ogrémoch|PotA}, Księcia Złej Ziemi.",
+      "{@item war pick|phb} wykuty z jednego kawałka żelaza, Żelazny Kieł ma głowę przypominającą kły, na której wyryto starożytne runy. Kilof jest ciężki w dłoni, ale kiedy użytkownik macha nim w gniewie, broń wydaje się prawie nieważka. Ta broń jest odporna na jakąkolwiek formę rdzy, kwasu i korozji - nic nie wskazuje na to, by ją oznaczyć. Żelazny Kieł zawiera iskrę {@creature Ogrémoch|PotA}, Księcia Złej Ziemi}",
       "Otrzymujesz premię +2 do testów ataku i obrażeń wykonywanych tą magiczną bronią. Kiedy nim trafisz, cel otrzymuje dodatkowe obrażenia od piorunów {@damage 1d8}.",
       {
         "type": "entries",
@@ -53826,7 +53826,7 @@
     "weaponCategory": "prosty",
     "name": "Nóż skradzionego ruchu oporu",
     "entries": [
-      "Korzystając z akcji, za pomocą tego noża wycinasz pojedynczą piekielną runę w ciele {@condition unconscious} Bestii, Niebiańskiego, Smoka, Fey lub Olbrzyma. W ciągu następnych 10 minut stworzenie umiera bolesną śmiercią, której nie można zapobiec bez zaklęcia {@spell Wish}. Jeśli stworzenie ma jakiekolwiek odporności lub odporności, zyskujesz te odporności i odporności, dopóki stworzenie nie umrze lub nie zostanie użyte zaklęcie {@spell Wish}, aby go uratować. Moc noża nie może być ponownie użyta, dopóki nie zakończysz długiego odpoczynku."
+      "Korzystając z akcji, za pomocą tego noża wycinasz pojedynczą piekielną runę w ciele {@condition unconscious} Bestii, Niebiańskiego, Smoka, Fej lub Olbrzyma. W ciągu następnych 10 minut stworzenie umiera bolesną śmiercią, której nie można zapobiec bez zaklęcia {@spell Wish}. Jeśli stworzenie ma jakiekolwiek odporności lub odporności, zyskujesz te odporności i odporności, dopóki stworzenie nie umrze lub nie zostanie użyte zaklęcie {@spell Wish}, aby go uratować. Moc noża nie może być ponownie użyta, dopóki nie zakończysz długiego odpoczynku."
     ]
   },
   "korolnor-scepter": {
@@ -53893,7 +53893,7 @@
     "rarity": "Wspólny",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Gdy latarnia znajduje się w promieniu 90 metrów od obiektów typu Celestials, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Gdy latarnia znajduje się w promieniu 90 metrów od obiektów typu Niebiańskis, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ],
     "name": "Latarnia Tropienia (Niebianie)"
   },
@@ -53967,10 +53967,10 @@
     "ac": "",
     "properties": "",
     "rarity": "Wspólny",
-    "name": "Latarnia Tropienia (Fey)",
+    "name": "Latarnia Tropienia (Fej)",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Gdy latarnia znajduje się w promieniu 90 metrów od typu Fey, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Gdy latarnia znajduje się w promieniu 90 metrów od typu Fej, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ]
   },
   "lantern-of-tracking-fiends": {
@@ -53988,7 +53988,7 @@
     "rarity": "Wspólny",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Kiedy latarnia znajduje się w promieniu 90 metrów od potworów typu Fiends, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Kiedy latarnia znajduje się w promieniu 90 metrów od potworów typu Diabelstwa, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ],
     "name": "Latarnia Tropienia (Biaty)"
   },
@@ -54134,7 +54134,7 @@
     ],
     "name": "Mały Hamak Światów",
     "entries": [
-      "Hammock of Worlds to kolorowy hamak utkany w tradycyjne wzory Ataguanu.",
+      "Hamak Światów to kolorowy hamak utkany w tradycyjne wzory Ataguanu.",
       "Możesz użyć akcji, aby rozłożyć i umieścić mniejszą wersję Hamaka Światów na solidnej powierzchni, po czym stworzy on dwukierunkowy portal do innego świata lub płaszczyzny istnienia. Za każdym razem, gdy przedmiot otwiera portal, DM decyduje, dokąd prowadzi, lub użytkownik może sprawić, że zawsze niezawodnie połączy się z Widmową Orchideą Tepui. Możesz użyć akcji, aby zamknąć otwarty portal, chwytając krawędzie tkaniny i składając ją. Gdy mniejsza wersja Hamaka Światów otworzy portal, nie będzie mogła tego zrobić ponownie przez kilka godzin {@dice 1d8}."
     ]
   },
@@ -55383,7 +55383,7 @@
     "entries": [
       "Uratowałem życie orkowi, który podarował mi kamień z wyrytym w nim symbolem plemienia Wielu Strzał (humanoidalna czaszka przebita trzema strzałami). Kamień to niezwykły magiczny przedmiot, który wymaga dostrojenia i tylko ja mogę się do niego dostroić.",
       "W ramach akcji mogę użyć kamienia, aby przywołać ducha orczego wojownika, który pojawia się w promieniu 30 stóp ode mnie. Duch używa bloku statystyk {@creature orc war chief} w Księdze Potworów i znika po 10 minutach lub gdy punkty wytrzymałości zostaną zredukowane do 0. Duch rozumie każdy język, którym mówię i jest posłuszny moim przykazaniom.",
-      "Po trzykrotnym użyciu kamień zamienia się w pył. (Patrz dodatek B do Icewind Dale: Rime of the Frostmaiden)"
+      "Po trzykrotnym użyciu kamień zamienia się w pył. (Patrz dodatek B do Dolina Lodowego Wichru: Szron Mroźnej Dziewicy)"
     ],
     "name": "Kamień Orka"
   },
@@ -55425,7 +55425,7 @@
         "name": "Osobowość",
         "type": "entries",
         "entries": [
-          "Orcsplitter jest ponury, małomówny i nieelastyczny. Wie niewiele więcej niż chęć zmierzenia się z {@creature orc||orki} w bitwie i służenia odważnemu, sprawiedliwemu posiadaczowi. Gardzi tchórzami i wszelkimi formami dwulicowości, oszustwa i nielojalności. Celem tej broni jest obrona krasnoludów i służenie jako symbol krasnoludzkiej determinacji. Nienawidzi tradycyjnych wrogów krasnoludów - gigantów, goblinów, a przede wszystkim {@creature orc||orki} - i po cichu namawia swojego posiadacza, aby spotkał się z takimi stworzeniami w walce."
+          "Orcsplitter jest ponury, małomówny i nieelastyczny. Wie niewiele więcej niż chęć zmierzenia się z {@creature orc||orki} w bitwie i służenia odważnemu, sprawiedliwemu posiadaczowi. Gardzi tchórzami i wszelkimi formami dwulicowości, oszustwa i nielojalności. Celem tej broni jest obrona krasnoludów i służenie jako symbol krasnoludzkiej determinacji. Nienawidzi tradycyjnych wrogów krasnoludów - gigantów, goblinowyów, a przede wszystkim {@creature orc||orki} - i po cichu namawia swojego posiadacza, aby spotkał się z takimi stworzeniami w walce."
         ]
       }
     ]
@@ -56451,7 +56451,7 @@
         "type": "entries",
         "name": "Język smoka",
         "entries": [
-          "Potrafisz mówić i rozumieć Draconic. Masz także przewagę we wszystkich testach Charyzmy wykonywanych przeciwko Czerwonym Smokom."
+          "Potrafisz mówić i rozumieć Smoczy. Masz także przewagę we wszystkich testach Charyzmy wykonywanych przeciwko Czerwonym Smokom."
         ]
       },
       {
@@ -56974,7 +56974,7 @@
     "attunement": "Wymaga dostrojenia",
     "name": "Laska Vonindoda",
     "entries": [
-      "{@creature fire giant} Książę Zalto zatrudnił czarodzieja, aby stworzył kilka takich adamantytowych prętów. Każdy z nich ma 4 stopy długości, waży 100 funtów i ma wymiary umożliwiające wygodne trzymanie w dłoni {@creature fire giant||ognisty gigant}. Wędka ma dwa zęby na jednym końcu i formowany uchwyt na przeciwległym końcu.",
+      "{@creature fire giant} Książę Zalto zatrudnił czarodzieja, aby stworzył kilka takich adamantytowych prętów. Każdy z nich ma 4 stopy długości, waży 100 funtów i ma wymiary umożliwiające wygodne trzymanie w dłoni {@creature fire giant||ognisty gigant}. Wędka ma dwa zęby na jednym końcu i formowany uchwyt na przeciwległym końcu}",
       "Wędka ma 10 ładunków i codziennie o świcie odzyskuje {@dice 1d6 + 4} zużytych ładunków. W ramach akcji możesz chwycić go za uchwyt i wydać 1 ładunek, aby rzucić z niego zaklęcie {@spell locate object}. Kiedy pręt służy do wykrywania obiektów wykonanych z adamantyny, takich jak fragmenty konstruktu Vonindod, jego zasięg zwiększa się do 16 mil."
     ]
   },
@@ -57287,7 +57287,7 @@
         "type": "list",
         "items": [
           "Kontrolujesz ruchy cienia i możesz sprawić, że cień przesunie się na odległość do 9 metrów po stałej lub płynnej powierzchni, w dowolnym kierunku (w tym wzdłuż powierzchni pionowych), pod warunkiem, że będzie on cały czas w zasięgu Twojego wzroku. Cień jest nieszkodliwy i nie można go skrzywdzić, a w ciemności jest {@condition invisible}. Nie potrafi mówić, nie potrzebuje powietrza, snu ani pożywienia.",
-          "Możesz zrezygnować z kontroli nad cieniem, w którym to momencie staje się on autonomiczny i zachowuje się zgodnie z życzeniem DM. Używa bloku statystyk {@creature shadow} z Księgi Potworów, ale jego typem stworzenia jest Fey, a nie Nieumarły. Istota, której Siła zostaje zmniejszona do 0 w wyniku ataku Wyssania Siły tego cienia, nie umiera, lecz zamiast tego upada {@condition unconscious}. Stworzenie odzyskuje przytomność i całą swoją Siłę po zakończeniu krótkiego lub długiego odpoczynku."
+          "Możesz zrezygnować z kontroli nad cieniem, w którym to momencie staje się on autonomiczny i zachowuje się zgodnie z życzeniem DM. Używa bloku statystyk {@creature shadow} z Księgi Potworów, ale jego typem stworzenia jest Fej, a nie Nieumarły. Istota, której Siła zostaje zmniejszona do 0 w wyniku ataku Wyssania Siły tego cienia, nie umiera, lecz zamiast tego upada {@condition unconscious}. Stworzenie odzyskuje przytomność i całą swoją Siłę po zakończeniu krótkiego lub długiego odpoczynku."
         ]
       },
       "Istota, której cień się od niej oddzielił, jest przeklęta. Jeśli bezcieniowa istota zostanie rzucona na zaklęcie kończące klątwę lub jeśli jej oderwany cień zostanie zredukowany do 0 punktów wytrzymałości, oderwany cień zniknie, a istota natychmiast odzyska swój normalny cień."
@@ -58039,7 +58039,7 @@
     "name": "Tarcza Srebrnego Smoka",
     "entries": [
       "Trzymając tę ​​tarczę, masz premię +2 do KP. Premia ta jest dodatkiem do normalnej premii do KP tarczy.",
-      "Tarcza jest ozdobiona stylizowanym srebrnym smokiem, który jest emblematem Zakonu Srebrnego Smoka (patrz {@adventure {@i Curse of Strahd}, chapter 7|CoS|7|The Order of the Silver Dragon}). Tarcza szepcze ostrzeżenia do swojego posiadacza, zapewniając premię +2 do inicjatywy, jeśli posiadacz nie jest {@condition incapacitated}.",
+      "Tarcza jest ozdobiona stylizowanym srebrnym smokiem, który jest emblematem Zakonu Srebrnego Smoka (patrz {@adventure {@i Curse of Strahd}, chapter 7|CoS|7|Zakon Srebrnego Smoka}). Tarcza szepcze ostrzeżenia do swojego posiadacza, zapewniając premię +2 do inicjatywy, jeśli posiadacz nie jest {@condition incapacitated}.",
       "Tarcza jest wykonana z drewna lub metalu i noszona jest w jednej ręce. Dzierżenie tarczy zwiększa Twoją klasę pancerza o 2. Możesz korzystać tylko z jednej tarczy na raz."
     ]
   },
@@ -58733,7 +58733,7 @@
     "entries": [
       "Obsydianowy klejnot zaklęcia może zawierać jedną sztuczkę z listy zaklęć dowolnej klasy. Stajesz się świadomy działania zaklęcia, kiedy poznajesz właściwości klejnotu. Trzymając klejnot, możesz rzucić z niego zaklęcie w ramach akcji, jeśli znasz to zaklęcie lub jeśli znajduje się ono na liście zaklęć twojej klasy. Nie wymaga to żadnych komponentów i nie wymaga dostrojenia. Następnie zaklęcie znika z klejnotu.",
       "Jeśli poziom czaru jest wyższy niż normalnie możesz rzucić, musisz wykonać test zdolności, korzystając ze swojej zdolności rzucania zaklęć, aby określić, czy rzuciłeś je pomyślnie. ST wynosi 10 + poziom zaklęcia. W przypadku nieudanego testu zaklęcie znika z klejnotu bez żadnego innego efektu.",
-      "Obsydianowy klejnot zaklęcia może przechowywać tylko sztuczki. Cantrips rzucane z zaklętego klejnotu mają ST rzutu obronnego wynoszący 13 i premię do ataku wynoszącą {@hit 5}.",
+      "Obsydianowy klejnot zaklęcia może przechowywać tylko sztuczki. Sztuczki rzucane z zaklętego klejnotu mają ST rzutu obronnego wynoszący 13 i premię do ataku wynoszącą {@hit 5}.",
       "Możesz nasycić klejnot zaklęciem, jeśli się do niego dostroisz i jest on pusty. Aby to zrobić, rzuć zaklęcie, trzymając klejnot. Zaklęcie jest przechowywane w klejnocie i nie wywołuje żadnego efektu. Rzucenie zaklęcia musi wymagać 1 akcji lub 1 minuty lub dłużej, a poziom czaru nie może być wyższy niż maksymalny poziom klejnotu. Jeśli zaklęcie należy do szkoły wyrzeczenia się i wymaga zużycia składników materialnych, musisz je zapewnić, ale mogą one być warte o połowę mniej niż normalnie.",
       "Po nasyceniu zaklęciem klejnot nie może zostać ponownie nasycony aż do następnego świtu.",
       "Głębinowe gnomy stworzyły te magiczne kamienie szlachetne i utrzymują proces tworzenia w tajemnicy."
@@ -59854,12 +59854,12 @@
         "type": "entries",
         "name": "Osobowość",
         "entries": [
-          "Tearulai podziwia wielkie piękno, muzykę, sztukę piękną i poezję. Na próżno, broń stara się poprawić swój wygląd. Pragnie kamieni szlachetnych i szuka lepszych, którymi mógłby się ozdobić. Przede wszystkim tęskni za powrotem do lasów wokół Myth Drannor, gdzie został stworzony. Jeśli cele jego posiadacza są sprzeczne z jego własnymi, Tearulai próbuje przejąć kontrolę nad swoim posiadaczem i uciec z Undermountain, po czym może użyć zaklęcia {@spell transport via plants}, aby wrócić skąd przyszedł."
+          "Tearulai podziwia wielkie piękno, muzykę, sztukę piękną i poezję. Na próżno, broń stara się poprawić swój wygląd. Pragnie kamieni szlachetnych i szuka lepszych, którymi mógłby się ozdobić. Przede wszystkim tęskni za powrotem do lasów wokół Myth Drannor, gdzie został stworzony. Jeśli cele jego posiadacza są sprzeczne z jego własnymi, Tearulai próbuje przejąć kontrolę nad swoim posiadaczem i uciec z Podgóra, po czym może użyć zaklęcia {@spell transport via plants}, aby wrócić skąd przyszedł."
         ]
       },
       "Kiedy atakujesz obiekt tym magicznym mieczem i uderzasz, zmaksymalizuj swoje obrażenia broni przeciwko celowi.",
       "Kiedy zaatakujesz istotę tą bronią i wyrzucisz w rzucie ataku 20, cel ten otrzymuje dodatkowe 14 obrażeń tnących. Następnie rzuć kolejnym {@dice d20}. Jeśli wyrzucisz 20, odetniesz celowi jedną z kończyn, a efekt takiej utraty określa DM. Jeśli stworzenie nie ma kończyny, którą można by odciąć, zamiast tego odcinasz część jego ciała.",
-      "{@note Note: According to the SRD, it is an extra {@damage 4d6} slashing damage, although {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}}.",
+      "{@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 4d6} obrażenia tnące, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}}.",
       "Ponadto możesz wypowiedzieć polecenie miecza, aby ostrze rzucało jasne światło w promieniu 3 stóp i przyćmione światło na dodatkowe 3 metry. Ponowne wypowiedzenie słowa rozkazu lub schowanie miecza gasi światło."
     ]
   },
@@ -59937,7 +59937,7 @@
     "entries": [
       "Kodycyl bieli to wysoki, cienki tom oprawiony w białe gronostajowe futro na sezonowanych deskach z białej sosny i zapieczętowany klamrą i zamkiem z matowego srebra. Książka jest zimna w dotyku, a futerko wytarte na krawędziach od użytkowania. Wewnątrz znajduje się dwadzieścia siedem stron z welinu, pomalowanych srebrnym złoceniem na zewnętrznych krawędziach. Całość wszyta jest w skórzaną oprawę z paskami ścięgien, dzięki czemu jest dość trwała.",
       "Istota posiadająca kodycyl jest odporna na obrażenia od zimna.",
-      "Kodycyl został napisany przez wyznawców Auril jako elementarz jej kultu. Pierwsza strona to strona tytułowa z symbolem płatka śniegu Auril. Pozostałe strony opisują różne rytuały i ceremonie kapłańskie z mrożącymi krew w żyłach szczegółami. Wśród tych opisów znajduje się zaklęcie, którego mogą się nauczyć czarodzieje ({@spell frost fingers|IDRotF}) oraz wiersz zatytułowany „Rime of the Frostmaiden” (patrz dodatek E). Wiersz jest zaklęciem, którego mocą można rozbić lodowiec (patrz rozdział 6). Wiersz może mieć inne możliwości, według własnego uznania"
+      "Kodycyl został napisany przez wyznawców Auril jako elementarz jej kultu. Pierwsza strona to strona tytułowa z symbolem płatka śniegu Auril. Pozostałe strony opisują różne rytuały i ceremonie kapłańskie z mrożącymi krew w żyłach szczegółami. Wśród tych opisów znajduje się zaklęcie, którego mogą się nauczyć czarodzieje ({@spell frost fingers|IDRotF}) oraz wiersz zatytułowany „Szron Mroźnej Dziewicy” (patrz dodatek E). Wiersz jest zaklęciem, którego mocą można rozbić lodowiec (patrz rozdział 6). Wiersz może mieć inne możliwości, według własnego uznania"
     ],
     "gallery": [
       {
@@ -60533,7 +60533,7 @@
           [
             "94",
             "W ramach akcji powodujesz, że wirująca burza skał i pyłu otacza cię w promieniu 3 stóp na 1 minutę. Każde wrogie ci stworzenie, które wejdzie na ten obszar, musi odnieść sukces w rzucie obronnym na Kondycję {@dc 12}, w przeciwnym razie otrzyma obrażenia tłuczące {@damage 1d6} i będzie {@condition blinded} przez 1 rundę. Możesz skorzystać z tej właściwości trzy razy.",
-            "{@creature fire elemental||Żywiołaki ognia}, {@creature water elemental||żywiołaki wody} i inne stworzenia z ognia i wody (według uznania DM) uważają cię za swojego wroga i skupiają swoje ataki na tobie, wykluczając wszystko inne."
+            "{@creature fire elemental||Żywiołaki ognia}, {@creature water elemental||żywiołaki wody} i inne stworzenia z ognia i wody (według uznania DM) uważają cię za swojego wroga i skupiają swoje ataki na tobie, wykluczając wszystko inne}"
           ],
           [
             "95",
@@ -60754,7 +60754,7 @@
     "name": "Odłamki prawdziwego lodu (sztylet)",
     "damage": "1d6 zimno",
     "entries": [
-      "{@note This item is paired with {@item True-Ice Shards (Rapier)|CoA}}",
+      "{@note Ten przedmiot jest połączony z {@item True-Ice Shards (Rapier)|CoA}}",
       "Wykonane z samego lodowca, w którym był uwięziony, Odłamki Prawdziwego Lodu to para rapierów i sztyletów parujących (głównych gauche), używana przez Levistusa. Są przykładem czasu spędzonego na lodowcu, wzmacniającego telepatię, wróżenie i obronę. Dzięki swojej kontroli nad lodem Levistus może przywołać Odłamki Prawdziwego Lodu z dowolnego miejsca, nawet jeśli zostały zniszczone.",
       "Kiedy używasz magicznego sztyletu, zyskujesz premię +3 do swojego KP, pod warunkiem, że jest on używany jako twoja broń druga i zadaje {@damage 1d6} obrażenia od zimna zamiast zwykłych obrażeń.",
       "Ponieważ Levistus przywołuje Odłamki Prawdziwego Lodu według własnego uznania, często nagradza kopię artefaktu swoich najbardziej lojalnych wyznawców. Kopie są identyczne z oryginałem z jednym wyjątkiem: Levistus może w dowolnym momencie zniszczyć lub odzyskać kopię.",
@@ -60822,7 +60822,7 @@
     "damage": "1d8 zimno",
     "properties": "Finezja",
     "entries": [
-      "{@note This item is paired with {@item True-Ice Shards (Dagger)|CoA}}",
+      "{@note Ten przedmiot jest połączony z {@item True-Ice Shards (Dagger)|CoA}}",
       "Wykonane z samego lodowca, w którym był uwięziony, Odłamki Prawdziwego Lodu to para rapierów i sztyletów parujących (głównych gauche), używana przez Levistusa. Są przykładem czasu spędzonego na lodowcu, wzmacniającego telepatię, wróżenie i obronę. Dzięki swojej kontroli nad lodem Levistus może przywołać Odłamki Prawdziwego Lodu z dowolnego miejsca, nawet jeśli zostały zniszczone.",
       "Otrzymujesz premię +3 do testów ataku i obrażeń wykonywanych magicznym rapierem, który zamiast zwykłych obrażeń zadaje {@damage 1d8} obrażenia od zimna.",
       "Ponieważ Levistus przywołuje Odłamki Prawdziwego Lodu według własnego uznania, często nagradza kopię artefaktu swoich najbardziej lojalnych wyznawców. Kopie są identyczne z oryginałem z jednym wyjątkiem: Levistus może w dowolnym momencie zniszczyć lub odzyskać kopię.",
@@ -61215,7 +61215,7 @@
         "type": "entries",
         "name": "Język smoka",
         "entries": [
-          "Potrafisz mówić i rozumieć Draconic. Masz także przewagę we wszystkich testach Charyzmy wykonywanych przeciwko Białym Smokom."
+          "Potrafisz mówić i rozumieć Smoczy. Masz także przewagę we wszystkich testach Charyzmy wykonywanych przeciwko Białym Smokom."
         ]
       },
       {
@@ -61599,7 +61599,7 @@
       "Zbudowany przez krasnoludzkich bogów i powierzony władcom Shanatar, starożytnego imperium krasnoludów. Tron Wyrmskull był przez niezliczone wieki symbolem krasnoludzkiej mocy i dumy. Tron wznosi się stopę nad ziemią i jest masywną rzeczą wykonaną z polerowanego obsydianu z dużymi stopami - przebitymi czaszkami czterech starożytnych niebieskich smoków. Runy błyszczą w rzeźbionym obsydianie i ożywają niebieską energią, gdy aktywowane są moce tronu.",
       "Po upadku Shanatara Tron Wyrmskull wpadł w szpony mniej honorowych stworzeń. Grupa poszukiwaczy przygód wyrwała tron ​​tyranowi wodnych elfów Gantarowi Kraokowi i sprzedała go {@creature storm giant} Neri za znaczną fortunę. Neri magicznie powiększyła tron ​​i podarowała go swemu mężowi, królowi Hekatonowi, w prezencie wraz z jednym z Berł Rządzących Shanatar, które znalazła we wraku na dnie Bezdrożnego Morza. Tylko istota dostrojona do Berła Rządzącego i posiadająca je może ujarzmić moc Tronu Wyrmskull, który stał się centralnym elementem sali tronowej króla Hekatona w podmorskiej cytadeli Maelstrom. Strach przed mocą tronu pomógł powstrzymać złych gigantów przed rzucaniem wyzwania lub grożeniem przywództwu Hekatona.",
       "Każde stworzenie, które nie jest dostrojone do Berła Rządzącego i zasiada na tronie, jest {@condition paralyzed} i jest otoczone magicznym polem siłowym. Kiedy stworzenie jest otoczone, nie można go dotknąć ani usunąć z tronu. Dotknięcie berłem rządzącym pola siłowego rozprasza to pole, chociaż stworzenie pozostaje {@condition paralyzed}, dopóki nie zostanie oddzielone od tronu.",
-      "Każda istota zasiadająca na tronie może usłyszeć słabe szepty w języku Draconic - szepty czterech niebieskich smoków, których czaszki zdobią tron. Choć bezsilne, duchy te próbują wpłynąć na decyzje władcy tronu.",
+      "Każda istota zasiadająca na tronie może usłyszeć słabe szepty w języku Smoczy - szepty czterech niebieskich smoków, których czaszki zdobią tron. Choć bezsilne, duchy te próbują wpłynąć na decyzje władcy tronu.",
       {
         "name": "Właściwości tronu",
         "type": "entries",
@@ -62955,7 +62955,7 @@
         }
       ],
       "entries": [
-        "{@note * This generic variant has the same name and source as the item {@item +1 Shield|XDMG}}.",
+        "{@note * Ta ogólna odmiana ma taką samą nazwę i źródło jak przedmiot {@item +1 Shield|XDMG}}.",
         "Trzymając tę ​​Tarczę, oprócz normalnej premii do KP, jaką daje Tarcza, otrzymujesz premię +1 do {@variantrule Armor Class|XPHB}."
       ],
       "inherits": {
@@ -63119,7 +63119,7 @@
         }
       ],
       "entries": [
-        "{@note * This generic variant has the same name and source as the item {@item +2 shield}}.",
+        "{@note * Ta ogólna odmiana ma taką samą nazwę i źródło jak przedmiot {@item +2 shield}}}",
         "Trzymając tę tarczę, masz premię +2 do KP. Premia ta jest dodatkiem do normalnej premii do KP tarczy."
       ],
       "inherits": {
@@ -63242,7 +63242,7 @@
         }
       ],
       "entries": [
-        "{@note * This generic variant has the same name and source as the item {@item +2 Shield|XDMG}}.",
+        "{@note * Ta ogólna odmiana ma taką samą nazwę i źródło jak przedmiot {@item +2 Shield|XDMG}}.",
         "Trzymając tę ​​Tarczę, oprócz normalnej premii do KP, jaką daje Tarcza, otrzymujesz premię +2 do {@variantrule Armor Class|XPHB}."
       ],
       "inherits": {
@@ -63492,7 +63492,7 @@
         }
       ],
       "entries": [
-        "{@note * This generic variant has the same name and source as the item {@item +3 Shield|XDMG}}.",
+        "{@note * Ta ogólna odmiana ma taką samą nazwę i źródło jak przedmiot {@item +3 Shield|XDMG}}.",
         "Trzymając tę ​​Tarczę, oprócz normalnej premii do KP, jaką daje Tarcza, otrzymujesz premię +3 do {@variantrule Armor Class|XPHB}."
       ],
       "inherits": {
@@ -63532,7 +63532,7 @@
         }
       ],
       "entries": [
-        "{@note * This generic variant has the same name and source as the item {@item +3 shield}}.",
+        "{@note * Ta ogólna odmiana ma taką samą nazwę i źródło jak przedmiot {@item +3 shield}}}",
         "Trzymając tę ​​tarczę, masz premię +3 do KP. Premia ta jest dodatkiem do normalnej premii do KP tarczy."
       ],
       "inherits": {
@@ -64161,7 +64161,7 @@
         }
       ],
       "entries": [
-        "{@note * This generic variant has the same name and source as the item {@item +1 shield}}.",
+        "{@note * Ta ogólna odmiana ma taką samą nazwę i źródło jak przedmiot {@item +1 shield}}}",
         "Trzymając tę ​​tarczę, masz premię +1 do KP. Premia ta jest dodatkiem do normalnej premii do KP tarczy."
       ],
       "inherits": {
@@ -65380,8 +65380,8 @@
       },
       "ammo": true,
       "entries": [
-        "{@note * This generic variant has the same name and source as the item {@item arrow of slaying}}.",
-        "{@i strzała zabicia} to magiczna broń przeznaczona do zabijania określonego rodzaju stworzeń. Niektórzy są bardziej skupieni niż inni; na przykład istnieją zarówno {@i strzały zabijające smoki}, jak i {@i strzały zabijające niebieskiego smoka}. Jeśli istota należąca do typu, rasy lub grupy powiązanej z {@i strzała zabicia} odniesie obrażenia od strzały, istota musi wykonać rzut obronny na Kondycję {@dc 17}, otrzymując dodatkowe obrażenia kłute {@damage 6d10} w przypadku nieudanego rzutu obronnego lub połowę dodatkowych obrażeń w przypadku udanego.",
+        "{@note * Ta ogólna odmiana ma taką samą nazwę i źródło jak przedmiot {@item arrow of slaying}}}",
+        "{@i strzała zabicia} to magiczna broń przeznaczona do zabijania określonego rodzaju stworzeń. Niektórzy są bardziej skupieni niż inni; na przykład istnieją zarówno {@i strzały zabijające smoki}, jak i {@i strzały zabijające niebieskiego smoka}. Jeśli istota należąca do typu, rasy lub grupy powiązanej z {@i strzała zabicia} odniesie obrażenia od strzały, istota musi wykonać rzut obronny na Kondycję {@dc 17}, otrzymując dodatkowe obrażenia kłute {@damage 6d10} w przypadku nieudanego rzutu obronnego lub połowę dodatkowych obrażeń w przypadku udanego}",
         "Gdy {@i strzała zabicia} zada dodatkowe obrażenia stworzeniu, staje się niemagiczną strzałą.",
         "Istnieją inne rodzaje magicznej amunicji tego rodzaju, takie jak bełty zabójcze przeznaczone do kuszy, chociaż najpowszechniejsze są strzały."
       ],
@@ -66349,7 +66349,7 @@
         "type": "entries",
         "name": "Zepsucie",
         "entries": [
-          "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Infernal Item Corruption|CoA|16|Infernal Item Corruption}”."
+          "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Piekielny Item Corruption|CoA|16|Piekielny Item Corruption}”."
         ]
       }
     ],
@@ -66384,7 +66384,7 @@
             "type": "entries",
             "name": "Zepsucie",
             "entries": [
-              "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Infernal Item Corruption|CoA|16|Infernal Item Corruption}”."
+              "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Piekielny Item Corruption|CoA|16|Piekielny Item Corruption}”."
             ]
           }
         ]
@@ -66713,16 +66713,16 @@
     ]
   },
   "enspelled-armor-cantrip": {
-    "name": "Zaklęta Zbroja (Cantrip)",
+    "name": "Zaklęta Zbroja (Sztuczka)",
     "type": "Wariant ogólny",
     "rarity": "Niezwykły",
     "attunement": "Wymaga dostrojenia",
     "entries": [
-      "Do tej zbroi przywiązany jest cantrip. Umiejętność jest określana w momencie tworzenia zbroi i musi należeć do szkoły magii {@filter Wyrzeczenie się lub iluzja|spells|school=A;I|level=0}. Pancerz ma 6 ładunków i codziennie o świcie odzyskuje {@dice 1d6} zużyte ładunki. Nosząc zbroję, możesz wydać 1 ładunek, aby rzucić jej zaklęcie.",
+      "Do tej zbroi przywiązany jest sztuczką. Umiejętność jest określana w momencie tworzenia zbroi i musi należeć do szkoły magii {@filter Wyrzeczenie się lub iluzja|spells|school=A;I|level=0}. Pancerz ma 6 ładunków i codziennie o świcie odzyskuje {@dice 1d6} zużyte ładunki. Nosząc zbroję, możesz wydać 1 ładunek, aby rzucić jej zaklęcie.",
       "ST rzutu obronnego czaru wynosi 13, a premia do ataku wynosi {@hit 5}."
     ],
     "variant": {
-      "name": "Zaklęta Zbroja (Cantrip)",
+      "name": "Zaklęta Zbroja (Sztuczka)",
       "type": "GV|XDMG",
       "requires": [
         {
@@ -66736,7 +66736,7 @@
         }
       ],
       "inherits": {
-        "namePrefix": "Zaczarowany (Cantrip)",
+        "namePrefix": "Zaczarowany (Sztuczka)",
         "source": "XDMG",
         "page": 258,
         "rarity": "niezwykły",
@@ -66745,7 +66745,7 @@
         "rechargeAmount": "{@dice 1d6}",
         "charges": 6,
         "entries": [
-          "Do tej zbroi przywiązany jest cantrip. Umiejętność jest określana w momencie tworzenia zbroi i musi należeć do szkoły magii {@filter Wyrzeczenie się lub iluzja|spells|school=A;I|level=0}. Pancerz ma 6 ładunków i codziennie o świcie odzyskuje {@dice 1d6} zużyte ładunki. Nosząc zbroję, możesz wydać 1 ładunek, aby rzucić jej zaklęcie.",
+          "Do tej zbroi przywiązany jest sztuczką. Umiejętność jest określana w momencie tworzenia zbroi i musi należeć do szkoły magii {@filter Wyrzeczenie się lub iluzja|spells|school=A;I|level=0}. Pancerz ma 6 ładunków i codziennie o świcie odzyskuje {@dice 1d6} zużyte ładunki. Nosząc zbroję, możesz wydać 1 ładunek, aby rzucić jej zaklęcie.",
           "ST rzutu obronnego czaru wynosi 13, a premia do ataku wynosi {@hit 5}."
         ],
         "spellScrollLevel": 0
@@ -66913,16 +66913,16 @@
     }
   },
   "enspelled-weapon-cantrip": {
-    "name": "Zaklęta Broń (Cantrip)",
+    "name": "Zaklęta Broń (Sztuczka)",
     "type": "Wariant ogólny",
     "rarity": "Niezwykły",
     "attunement": "Wymaga dostrojenia",
     "entries": [
-      "Z tą bronią związana jest sztuczka. Umiejętność jest określana w momencie tworzenia broni i musi należeć do szkoły magii {@filter Przywoływanie, wróżenie, ewokacja, nekromancja lub transmutacja|spells|school=C;D;V;N;T|level=0}. Broń ma 6 ładunków i codziennie o świcie odzyskuje {@dice 1d6} zużyte ładunki. Trzymając broń, możesz wydać 1 ładunek, aby rzucić jej zaklęcie.",
+      "Z tą bronią związana jest sztuczką. Umiejętność jest określana w momencie tworzenia broni i musi należeć do szkoły magii {@filter Przywoływanie, wróżenie, ewokacja, nekromancja lub transmutacja|spells|school=C;D;V;N;T|level=0}. Broń ma 6 ładunków i codziennie o świcie odzyskuje {@dice 1d6} zużyte ładunki. Trzymając broń, możesz wydać 1 ładunek, aby rzucić jej zaklęcie.",
       "ST rzutu obronnego czaru wynosi 13, a premia do ataku wynosi {@hit 5}."
     ],
     "variant": {
-      "name": "Zaklęta Broń (Cantrip)",
+      "name": "Zaklęta Broń (Sztuczka)",
       "type": "GV|XDMG",
       "requires": [
         {
@@ -66933,7 +66933,7 @@
         }
       ],
       "inherits": {
-        "namePrefix": "Zaczarowany (Cantrip)",
+        "namePrefix": "Zaczarowany (Sztuczka)",
         "source": "XDMG",
         "page": 258,
         "rarity": "niezwykły",
@@ -66942,7 +66942,7 @@
         "rechargeAmount": "{@dice 1d6}",
         "charges": 6,
         "entries": [
-          "Z tą bronią związana jest sztuczka. Umiejętność jest określana w momencie tworzenia broni i musi należeć do szkoły magii {@filter Przywoływanie, wróżenie, ewokacja, nekromancja lub transmutacja|spells|school=C;D;V;N;T|level=0}. Broń ma 6 ładunków i codziennie o świcie odzyskuje {@dice 1d6} zużyte ładunki. Trzymając broń, możesz wydać 1 ładunek, aby rzucić jej zaklęcie.",
+          "Z tą bronią związana jest sztuczką. Umiejętność jest określana w momencie tworzenia broni i musi należeć do szkoły magii {@filter Przywoływanie, wróżenie, ewokacja, nekromancja lub transmutacja|spells|school=C;D;V;N;T|level=0}. Broń ma 6 ładunków i codziennie o świcie odzyskuje {@dice 1d6} zużyte ładunki. Trzymając broń, możesz wydać 1 ładunek, aby rzucić jej zaklęcie.",
           "ST rzutu obronnego czaru wynosi 13, a premia do ataku wynosi {@hit 5}."
         ],
         "spellScrollLevel": 0
@@ -67723,7 +67723,7 @@
     "rarity": "Rzadki",
     "attunement": "Wymaga dostrojenia",
     "entries": [
-      "Ta kolorowa, kwiecista zbroja została wykuta w Feywild i jest nasycona zniewalającą magią tego samolotu.",
+      "Ta kolorowa, kwiecista zbroja została wykuta w Kraina Wróżek i jest nasycona zniewalającą magią tego samolotu.",
       "Nosząc tę ​​zbroję, masz przewagę w rzutach obronnych, które wykonujesz, aby uniknąć lub zakończyć stan {@condition charmed} na sobie.",
       "Ta zbroja ma 3 ładunki. Możesz użyć akcji, aby wydać ładunek, aby rzucić zaklęcie {@spell Compulsion} (zapisz {@dc 15}) z tej zbroi. Pancerz odzyskuje zużyte ładunki {@dice 1d3} codziennie o świcie."
     ],
@@ -67760,7 +67760,7 @@
         "rechargeAmount": "{@dice 1d3}",
         "charges": 3,
         "entries": [
-          "Ta kolorowa, kwiecista zbroja została wykuta w Feywild i jest nasycona zniewalającą magią tego samolotu.",
+          "Ta kolorowa, kwiecista zbroja została wykuta w Kraina Wróżek i jest nasycona zniewalającą magią tego samolotu.",
           "Nosząc tę ​​zbroję, masz przewagę w rzutach obronnych, które wykonujesz, aby uniknąć lub zakończyć stan {@condition charmed} na sobie.",
           "Ta zbroja ma 3 ładunki. Możesz użyć akcji, aby wydać ładunek, aby rzucić zaklęcie {@spell Compulsion} (zapisz {@dc 15}) z tej zbroi. Pancerz odzyskuje zużyte ładunki {@dice 1d3} codziennie o świcie."
         ],
@@ -68145,7 +68145,7 @@
     "rarity": "Rzadki",
     "attunement": "Wymaga dostrojenia",
     "entries": [
-      "Ta skomplikowana zbroja w skali szarości została wykuta w Shadowfell i jest nasycona mrokiem tego samolotu.",
+      "Ta skomplikowana zbroja w skali szarości została wykuta w Kraina Cieni i jest nasycona mrokiem tego samolotu.",
       "Kiedy nosisz tę zbroję, masz przewagę w rzutach obronnych, które wykonujesz, aby uniknąć lub zakończyć stan przerażenia na sobie.",
       "Ta zbroja ma 3 ładunki. Możesz wydać ładunek, aby rzucić zaklęcie {@spell Calm Emotions} (za wyjątkiem {@dc 15}) ze zbroi. Ten pancerz odzyskuje zużyte ładunki {@dice 1d3} codziennie o świcie."
     ],
@@ -68182,7 +68182,7 @@
         "rechargeAmount": "{@dice 1d3}",
         "charges": 3,
         "entries": [
-          "Ta skomplikowana zbroja w skali szarości została wykuta w Shadowfell i jest nasycona mrokiem tego samolotu.",
+          "Ta skomplikowana zbroja w skali szarości została wykuta w Kraina Cieni i jest nasycona mrokiem tego samolotu.",
           "Kiedy nosisz tę zbroję, masz przewagę w rzutach obronnych, które wykonujesz, aby uniknąć lub zakończyć stan przerażenia na sobie.",
           "Ta zbroja ma 3 ładunki. Możesz wydać ładunek, aby rzucić zaklęcie {@spell Calm Emotions} (za wyjątkiem {@dc 15}) ze zbroi. Ten pancerz odzyskuje zużyte ładunki {@dice 1d3} codziennie o świcie."
         ],
@@ -69896,7 +69896,7 @@
         }
       ],
       "entries": [
-        "{@note * This generic variant has the same name and source as the item {@item Plate Armor of Etherealness|XDMG}}.",
+        "{@note * Ta ogólna odmiana ma taką samą nazwę i źródło jak przedmiot {@item Plate Armor of Etherealness|XDMG}}.",
         "Nosząc tę ​​zbroję, możesz wykonać akcję {@action Magic|XPHB} i użyć słowa rozkazu, aby uzyskać efekt zaklęcia {@spell Etherealness|XPHB}. Zaklęcie kończy się natychmiast, jeśli zdejmiesz zbroję lub wykonasz akcję {@action Magic|XPHB}, aby powtórzyć słowo rozkazu. Z tej właściwości zbroi nie można skorzystać ponownie aż do następnego świtu."
       ],
       "inherits": {
@@ -70825,7 +70825,7 @@
     "attunement": "Wymaga dostrojenia",
     "entries": [
       "Kiedy atakujesz istotę tą magiczną bronią i w rzucie ataku wyrzucisz 20, cel ten otrzymuje dodatkowe 10 obrażeń nekrotycznych, jeśli nie jest konstruktem lub nieumarłym. Otrzymujesz także 10 tymczasowych punktów wytrzymałości.",
-      "{@note Note: According to the SRD, it is an extra {@damage 3d6} uszkodzenie martwicze, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
+      "{@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 3d6} uszkodzenie martwicze, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
     ],
     "variant": {
       "name": "Kradzież Miecza Życia",
@@ -70853,7 +70853,7 @@
         "reqAttune": true,
         "entries": [
           "Kiedy atakujesz istotę tą magiczną bronią i w rzucie ataku wyrzucisz 20, cel ten otrzymuje dodatkowe 10 obrażeń nekrotycznych, jeśli nie jest konstruktem lub nieumarłym. Otrzymujesz także 10 tymczasowych punktów wytrzymałości.",
-          "{@note Note: According to the SRD, it is an extra {@damage 3d6} uszkodzenie martwicze, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
+          "{@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 3d6} uszkodzenie martwicze, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
         ],
         "lootTables": [
           "Tabela magicznych przedmiotów G"
@@ -70888,7 +70888,7 @@
         "type": "entries",
         "name": "Zepsucie",
         "entries": [
-          "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Infernal Item Corruption|CoA|16|Infernal Item Corruption}”."
+          "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Piekielny Item Corruption|CoA|16|Piekielny Item Corruption}”."
         ]
       }
     ],
@@ -70923,7 +70923,7 @@
             "type": "entries",
             "name": "Zepsucie",
             "entries": [
-              "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Infernal Item Corruption|CoA|16|Infernal Item Corruption}”."
+              "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Piekielny Item Corruption|CoA|16|Piekielny Item Corruption}”."
             ]
           }
         ]
@@ -70993,7 +70993,7 @@
     "entries": [
       "Kiedy atakujesz obiekt tym magicznym mieczem i uderzasz, zmaksymalizuj swoje obrażenia broni przeciwko celowi.",
       "Kiedy zaatakujesz istotę tą bronią i wyrzucisz w rzucie ataku 20, cel ten otrzymuje dodatkowe 14 obrażeń tnących. Następnie rzuć kolejnym {@dice d20}. Jeśli wyrzucisz 20, odetniesz celowi jedną z kończyn, a efekt takiej utraty określa DM. Jeśli stworzenie nie ma kończyny, którą można by odciąć, zamiast tego odcinasz część jego ciała.",
-      "{@note Note: According to the SRD, it is an extra {@damage 4d6}, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}}.",
+      "{@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 4d6}, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}}.",
       "Ponadto możesz wypowiedzieć polecenie miecza, aby ostrze rzucało jasne światło w promieniu 3 stóp i przyćmione światło na dodatkowe 3 metry. Ponowne wypowiedzenie słowa rozkazu lub schowanie miecza gasi światło."
     ],
     "variant": {
@@ -71024,7 +71024,7 @@
         "entries": [
           "Kiedy atakujesz obiekt tym magicznym mieczem i uderzasz, zmaksymalizuj swoje obrażenia broni przeciwko celowi.",
           "Kiedy zaatakujesz istotę tą bronią i wyrzucisz w rzucie ataku 20, cel ten otrzymuje dodatkowe 14 obrażeń tnących. Następnie rzuć kolejnym {@dice d20}. Jeśli wyrzucisz 20, odetniesz celowi jedną z kończyn, a efekt takiej utraty określa DM. Jeśli stworzenie nie ma kończyny, którą można by odciąć, zamiast tego odcinasz część jego ciała.",
-          "{@note Note: According to the SRD, it is an extra {@damage 4d6}, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}}.",
+          "{@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 4d6}, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}}.",
           "Ponadto możesz wypowiedzieć polecenie miecza, aby ostrze rzucało jasne światło w promieniu 3 stóp i przyćmione światło na dodatkowe 3 metry. Ponowne wypowiedzenie słowa rozkazu lub schowanie miecza gasi światło."
         ],
         "light": [
@@ -71065,7 +71065,7 @@
         "type": "entries",
         "name": "Zepsucie",
         "entries": [
-          "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Infernal Item Corruption|CoA|16|Infernal Item Corruption}”."
+          "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Piekielny Item Corruption|CoA|16|Piekielny Item Corruption}”."
         ]
       }
     ],
@@ -71099,7 +71099,7 @@
             "type": "entries",
             "name": "Zepsucie",
             "entries": [
-              "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Infernal Item Corruption|CoA|16|Infernal Item Corruption}”."
+              "Ten przedmiot psuje się. Zobacz sekcję „{@adventure Piekielny Item Corruption|CoA|16|Piekielny Item Corruption}”."
             ]
           }
         ]
@@ -71473,12 +71473,12 @@
     }
   },
   "sylvan-talon": {
-    "name": "Sylvan Talon",
+    "name": "Leśny Szpon",
     "type": "Wariant ogólny",
     "rarity": "Wspólny",
     "attunement": "Wymaga dostrojenia",
     "entries": [
-      "Kiedy masz przy sobie tę broń, rozumiesz niepisaną komunikację wszystkich Fey, a oni rozumieją twoją.",
+      "Kiedy masz przy sobie tę broń, rozumiesz niepisaną komunikację wszystkich Fej, a oni rozumieją twoją.",
       {
         "type": "entries",
         "name": "Tajna wiadomość",
@@ -71488,7 +71488,7 @@
       }
     ],
     "variant": {
-      "name": "Sylvan Talon",
+      "name": "Leśny Szpon",
       "type": "GV|XDMG",
       "requires": [
         {
@@ -71517,13 +71517,13 @@
         }
       ],
       "inherits": {
-        "namePrefix": "Sylvan Talon",
+        "namePrefix": "Leśny Szpon",
         "source": "XDMG",
         "page": 314,
         "rarity": "wspólny",
         "reqAttune": true,
         "entries": [
-          "Kiedy masz przy sobie tę broń, rozumiesz niepisaną komunikację wszystkich Fey, a oni rozumieją twoją.",
+          "Kiedy masz przy sobie tę broń, rozumiesz niepisaną komunikację wszystkich Fej, a oni rozumieją twoją.",
           {
             "type": "entries",
             "name": "Tajna wiadomość",
@@ -71549,7 +71549,7 @@
     "gallery": [
       {
         "path": "items/XDMG/Sylvan Talon.webp",
-        "title": "Sylvan Talon (Sejmitar)"
+        "title": "Leśny Szpon (Sejmitar)"
       }
     ]
   },
@@ -71559,7 +71559,7 @@
     "rarity": "Rzadki",
     "entries": [
       "Kiedy wyrzucisz 20 za pomocą tej magicznej broni, cel otrzymuje dodatkowe 7 obrażeń {=dmgType}.",
-      "{@note Note: According to the SRD, it is an extra {@damage 2d6} {=dmgType} uszkodzenie, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
+      "{@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 2d6} {=dmgType} uszkodzenie, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
     ],
     "variant": {
       "name": "Okrutna Broń",
@@ -71578,7 +71578,7 @@
       },
       "entries": [
         "Kiedy wyrzucisz 20 za pomocą tej magicznej broni, cel otrzymuje dodatkowe 7 obrażeń typu broni.",
-        "Uszkodzenie {@note Note: According to the SRD, it is an extra {@damage 2d6}, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
+        "Uszkodzenie {@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 2d6}, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
       ],
       "inherits": {
         "namePrefix": "Podstępny",
@@ -71592,7 +71592,7 @@
         "rarity": "rzadki",
         "entries": [
           "Kiedy wyrzucisz 20 za pomocą tej magicznej broni, cel otrzymuje dodatkowe 7 obrażeń {=dmgType}.",
-          "{@note Note: According to the SRD, it is an extra {@damage 2d6} {=dmgType} uszkodzenie, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
+          "{@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 2d6} {=dmgType} uszkodzenie, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
         ],
         "lootTables": [
           "Tabela magicznych przedmiotów G"
@@ -71650,7 +71650,7 @@
     "entries": [
       "Masz premię {=bonusWeapon} do testów ataku i obrażeń wykonywanych tą bronią.",
       "Kiedy wyrzucisz 20 za pomocą tej magicznej broni, cel otrzymuje dodatkowe 7 obrażeń {=dmgType}.",
-      "{@note Note: According to the SRD, it is an extra {@damage 2d6} {=dmgType} uszkodzenie, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
+      "{@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 2d6} {=dmgType} uszkodzenie, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
     ],
     "variant": {
       "name": "Okrutna broń +1",
@@ -71665,7 +71665,7 @@
       },
       "entries": [
         "Kiedy wyrzucisz 20 za pomocą tej magicznej broni, cel otrzymuje dodatkowe 7 obrażeń typu broni.",
-        "Uszkodzenie {@note Note: According to the SRD, it is an extra {@damage 2d6}, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
+        "Uszkodzenie {@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 2d6}, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
       ],
       "inherits": {
         "namePrefix": "Okrutny +1",
@@ -71676,7 +71676,7 @@
         "entries": [
           "Masz premię {=bonusWeapon} do testów ataku i obrażeń wykonywanych tą bronią.",
           "Kiedy wyrzucisz 20 za pomocą tej magicznej broni, cel otrzymuje dodatkowe 7 obrażeń {=dmgType}.",
-          "{@note Note: According to the SRD, it is an extra {@damage 2d6} {=dmgType} uszkodzenie, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
+          "{@note Uwaga: Zgodnie z SRD są to dodatkowe {@damage 2d6} {=dmgType} uszkodzenie, chociaż {@link to jest nieprawidłowe|https://rpg.stackexchange.com/a/174522/53884}.}"
         ]
       }
     }

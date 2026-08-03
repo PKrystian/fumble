@@ -13,6 +13,7 @@ describe('compendium sources', () => {
   it('resolves source names with locale fallbacks', () => {
     expect(sourceName('XPHB')).not.toBe('XPHB');
     expect(sourceName('XPHB', 'pl')).not.toBe('XPHB');
+    expect(sourceName('TftYP', 'pl')).toBe('Opowieści z Ziewającego Portalu');
     expect(sourceName('UNKNOWN', 'pl')).toBe('UNKNOWN');
   });
 

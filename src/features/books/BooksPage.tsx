@@ -8,7 +8,7 @@ import { useT } from '@/i18n/useT';
 import type { Locale } from '@/i18n/locales';
 import { useContentModeStore } from '@/features/ui/contentModeStore';
 import { useSeo } from '@/seo/useSeo';
-import { adventures, books } from './data';
+import { adventures, books, localizedBookStoryline } from './data';
 import { sortDocs, typeLabel } from './filters';
 import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 import { Button, SearchField, ToggleChip } from '@/features/ui/primitives';
@@ -83,6 +83,8 @@ function BookTile({
   locale: Locale;
   t: TranslateFn;
 }) {
+  const storyline = localizedBookStoryline(doc.storyline, locale);
+
   return (
     <li>
       <Link
@@ -105,7 +107,7 @@ function BookTile({
           {localizedBookName(doc, locale)}
         </span>
         <span className="text-xs text-ink-400">
-          {doc.storyline ? `${doc.storyline} · ` : ''}
+          {storyline ? `${storyline} · ` : ''}
           {t(doc.contents.length === 1 ? 'books.chapterOne' : 'books.chapterOther', {
             count: doc.contents.length,
           })}

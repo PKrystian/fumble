@@ -469,6 +469,7 @@ const en = {
       rollOnTable: 'Roll {{dice}} on this table',
       tableRoll: 'Table roll',
       damage: 'Damage',
+      attackRoll: 'Attack roll',
       armorClass: 'Armor Class',
       properties: 'Properties',
       mastery: 'Weapon Mastery',
@@ -899,6 +900,7 @@ const en = {
     },
     chapterOne: '{{count}} chapter',
     chapterOther: '{{count}} chapters',
+    chapterFallback: 'Chapter {{n}}',
     noMatches: 'No books match "{{query}}".',
     couldNotLoad: 'Could not load this document.',
     collapseChapter: 'Collapse {{title}}',
@@ -1018,6 +1020,7 @@ const en = {
   sessionLog: {
     sessions: 'Sessions',
     newSession: 'New session',
+    newSessionTitle: 'Session - {{date}}',
     noSessionSelected: 'No session selected.',
     startNewSession: 'Start a new session',
     deleteSession: 'Delete session',
@@ -1036,6 +1039,18 @@ const en = {
     recording: 'recording',
     copied: 'Copied',
     copyTranscript: 'Copy transcript',
+    notesLabel: 'Notes:',
+    summaryPrompt:
+      'The following is an automatic speech-to-text transcript of a Dungeons & Dragons session. ' +
+      'The transcription quality is poor: expect misheard words, garbled sentences, and broken ' +
+      'grammar. Read through the errors and infer the actual in-story meaning before summarizing - ' +
+      'do not summarize the literal broken text. ' +
+      'Ignore anything that is not part of the story: jokes, banter, off-topic chat, rules talk, ' +
+      'and other out-of-character/metagame discussion. ' +
+      'Summarize only the actual story events as a numbered list of plot points, one per key event, ' +
+      'decision, or story beat, in chronological order ' +
+      '(e.g. "1. The players arrived at the king\'s court. 2. ..."). ' +
+      'Reply in the same language as the transcript, with the numbered list only, no preamble.',
     copyWithAiPromptTitle:
       'Copies a ready-to-paste AI prompt that asks for a numbered plot-point summary',
     copyWithAiPrompt: 'Copy with AI prompt',
@@ -1092,6 +1107,17 @@ const en = {
     add: 'Add',
     invalidLink: 'Enter a valid YouTube link.',
     untitledTrack: 'Untitled track',
+    defaultTrack: {
+      places: 'Noteworthy Places',
+      planes: 'Through the Planes of Existence',
+      situations: 'Events & Situations',
+      settlements: 'Cities & Villages',
+      ambience: 'Ambience',
+      travel: 'Travel Pace',
+      dungeons: 'Dungeons & Crypts',
+      tavern: 'You Meet In A Tavern',
+      combat: 'Roll For Initiative!',
+    },
     removeTrack: 'Remove {{name}}',
     categories: 'Sound categories',
     category: {
@@ -1114,6 +1140,8 @@ const en = {
   },
   seo: {
     homeTitle: 'Fumble',
+    defaultDescription:
+      'Free, no-login Dungeons & Dragons 2024 toolkit with character sheets, compendium, dice, DM tools, books, and a campaign wiki.',
     homeDescription:
       'Fumble is a free, no-login toolkit for Dungeons & Dragons 2024 (5.5e): ' +
       'character sheets, a full compendium, dice roller, DM screen, and an ' +
@@ -1123,10 +1151,12 @@ const en = {
     loading: 'Loading wiki…',
     campaignWiki: 'Campaign Wiki',
     noContentYet: 'No wiki content yet. Build it from your Obsidian vault with',
+    notYetUnlocked: 'Not yet unlocked',
     allPages: 'All pages',
   },
   homebrew: {
     description: 'Create custom entries or import a',
+    fiveToolsHomebrew: '5etools homebrew',
     descriptionSuffix:
       'file. Everything is stored only in this browser and appears in the Compendium marked',
     export: 'Export',

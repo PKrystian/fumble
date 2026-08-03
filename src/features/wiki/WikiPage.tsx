@@ -26,13 +26,16 @@ export function WikiPage() {
     selected ? `${selected.title} - ${selected.category}` : t('nav.wiki'),
   );
 
-  const html = useMemo(
-    () =>
-      selected
-        ? sanitizeWikiHtml(selected.html.replaceAll('%BASE%', import.meta.env.BASE_URL))
-        : '',
-    [selected],
-  );
+  const html = useMemo(() => {
+    if (!selected) return '';
+    const sanitized = sanitizeWikiHtml(
+      selected.html.replaceAll('%BASE%', import.meta.env.BASE_URL),
+    );
+    return sanitized.replace(
+      /(<div class="wiki-locked"[^>]*>)[^<]*(<\/div>)/g,
+      `$1${t('wiki.notYetUnlocked')}$2`,
+    );
+  }, [selected, t]);
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     const eventTarget = event.target as HTMLElement;

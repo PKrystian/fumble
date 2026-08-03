@@ -151,6 +151,15 @@ describe('parseMarkup', () => {
     expect(container.querySelector('.text-ember-400')).not.toBeNull();
   });
 
+  it('localizes quick-reference labels', () => {
+    expect(
+      renderMarkup('{@quickref Cover||3||half cover}', 'pl').container,
+    ).toHaveTextContent('Połowiczna osłona');
+    expect(
+      renderMarkup('{@quickref difficult terrain||trudny teren}', 'pl').container,
+    ).toHaveTextContent('trudny teren');
+  });
+
   it('uses translated display text and handles incomplete markup', () => {
     expect(
       renderMarkup('{@spell Fireball|XPHB|Kula Ognia}', 'pl').container,

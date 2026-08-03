@@ -69,9 +69,10 @@ vi.mock('./loot', () => {
     },
   ];
   return {
-    EXCLUDED_ITEM_TYPES: new Set(['currency']),
     TIERS: tiers,
+    isExcludedItemType: (type: string) => type === 'currency',
     isUsableByParty: () => true,
+    rarityMatches: (rarity: string, allowed: string[]) => allowed.includes(rarity),
     rarityAtMost: () => true,
     tierForLevel: (level: number) => (level >= 5 ? tiers[1] : tiers[0]),
     usableByNames: (_item: unknown, characters: Array<{ name: string }>) =>

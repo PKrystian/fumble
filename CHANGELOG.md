@@ -4,6 +4,21 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.5 - 2026-08-03
+
+- Fixed additional English fragments in Polish adventure and book data.
+- Localized labels generated while importing 5etools homebrew content in Polish mode.
+
+## 1.2.4 - 2026-08-03
+
+- Completed Polish localization for interface text, compendium data, and additional materials.
+
+## 1.2.3 - 2026-08-03
+
+- Completed Polish localization for generated source, creature, book, and storyline data.
+- Localized remaining interface fallbacks, session log prompts, wiki placeholders, and built-in soundboard names.
+- Fixed loot generation and armor class detection for localized Polish data.
+
 ## 1.2.2 - 2026-08-02
 
 - Added a complete Polish translation overlay for Tomb of Annihilation.
