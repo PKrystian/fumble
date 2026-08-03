@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import {
@@ -59,8 +59,44 @@ function CompendiumBrowser({
   const category = getCategory(categoryId)!;
   const filters = category.filters ?? NO_FILTERS;
   const { params, update } = useUrlSearchState();
-  const query = params.get('q') ?? '';
-  const queryRef = useRef(query);
+  const urlQuery = params.get('q') ?? '';
+  const [query, setQuery] = useState(urlQuery);
+  const queryRef = useRef(urlQuery);
+  const queryUpdateTimerRef = useRef<number | null>(null);
+  const updateRef = useRef(update);
+  updateRef.current = update;
+
+  useEffect(() => {
+    return () => {
+      if (queryUpdateTimerRef.current !== null) {
+        window.clearTimeout(queryUpdateTimerRef.current);
+      }
+    };
+  }, []);
+
+  const clearQueryUpdate = () => {
+    if (queryUpdateTimerRef.current === null) return;
+    window.clearTimeout(queryUpdateTimerRef.current);
+    queryUpdateTimerRef.current = null;
+  };
+
+  const scheduleQueryUpdate = (value: string) => {
+    clearQueryUpdate();
+    queryUpdateTimerRef.current = window.setTimeout(() => {
+      queryUpdateTimerRef.current = null;
+      updateRef.current({ q: value || null }, true);
+    }, 0);
+  };
+
+  const currentSearch = () => {
+    const search = new URLSearchParams(params);
+    if (queryRef.current) {
+      search.set('q', queryRef.current);
+    } else {
+      search.delete('q');
+    }
+    return search;
+  };
   const requestedSort = params.get('sort');
   const sortFields = new Set(['name', ...filters.map((filter) => filter.id)]);
   const sortField = sortFields.has(requestedSort ?? '') ? requestedSort! : 'name';
@@ -129,10 +165,11 @@ function CompendiumBrowser({
 
   const pickRandom = () => {
     if (filtered.length === 0) return;
+    clearQueryUpdate();
     const pick = filtered[Math.floor(Math.random() * filtered.length)]!;
     navigate({
       pathname: `/compendium/${categoryId}/${pick.id}`,
-      search: params.toString(),
+      search: currentSearch().toString(),
     });
   };
 
@@ -175,12 +212,15 @@ function CompendiumBrowser({
             <SearchField
               value={query}
               onChange={(event) => {
-                queryRef.current = event.target.value;
-                update({ q: event.target.value }, true);
+                const value = event.target.value;
+                queryRef.current = value;
+                setQuery(value);
+                scheduleQueryUpdate(value);
               }}
               onClear={() => {
                 queryRef.current = '';
-                update({ q: null }, true);
+                setQuery('');
+                scheduleQueryUpdate('');
               }}
               placeholder={t('compendium.searchPlaceholder', {
                 category: categoryLabel(category, t).toLowerCase(),
@@ -224,16 +264,14 @@ function CompendiumBrowser({
                 <Link
                   to={{
                     pathname: `/compendium/${categoryId}/${item.id}`,
-                    search: params.toString(),
+                    search: currentSearch().toString(),
                   }}
                   onClick={(event) => {
                     event.preventDefault();
-                    const search = new URLSearchParams(params);
-                    if (queryRef.current) search.set('q', queryRef.current);
-                    else search.delete('q');
+                    clearQueryUpdate();
                     navigate({
                       pathname: `/compendium/${categoryId}/${item.id}`,
-                      search: search.toString(),
+                      search: currentSearch().toString(),
                     });
                   }}
                   className={[

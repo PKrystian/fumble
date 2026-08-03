@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.10 - 2026-08-03
+
+- Updated the transitive brace-expansion dependency to 5.0.9 to address a high-severity denial-of-service advisory.
+
 ## 1.2.9 - 2026-08-03
 
 - Fixed compendium result links dropping the active search query on mobile.

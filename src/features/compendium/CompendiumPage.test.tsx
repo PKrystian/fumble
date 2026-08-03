@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { CompendiumPage } from './CompendiumPage';
@@ -221,6 +221,27 @@ describe('CompendiumPage', () => {
     renderPage('/compendium/species');
     fireEvent.click(screen.getByRole('link', { name: /Dragon/ }));
     expect(screen.getByRole('status')).toHaveTextContent('/compendium/species/dragon/');
+  });
+
+  it('updates the URL after a search change', () => {
+    vi.useFakeTimers();
+    renderPage('/compendium/species');
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'dragon' } });
+    act(() => vi.runAllTimers());
+    expect(screen.getByRole('status')).toHaveTextContent('/compendium/species?q=dragon');
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: '' } });
+    act(() => vi.runAllTimers());
+    expect(screen.getByRole('status')).toHaveTextContent('/compendium/species');
+    vi.useRealTimers();
+  });
+
+  it('cancels a pending search update when unmounted', () => {
+    vi.useFakeTimers();
+    const view = renderPage('/compendium/species');
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'dragon' } });
+    view.unmount();
+    expect(vi.getTimerCount()).toBe(0);
+    vi.useRealTimers();
   });
 
   it('evaluates valid and invalid sort parameters', () => {
