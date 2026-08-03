@@ -187,6 +187,8 @@ describe('BookReaderPage', () => {
 
   it('uses fallback chapter titles and handles books without authors', async () => {
     mocks.getBook.mockReturnValue({ ...book, author: undefined });
+    mocks.buildOutline.mockReset();
+    mocks.buildOutline.mockReturnValue(undefined as never);
     mocks.loadBookData.mockResolvedValue([
       { type: 'entries', entries: [] },
       { type: 'entries', page: 8, entries: [] },

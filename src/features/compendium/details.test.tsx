@@ -1,6 +1,6 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { ClassEntry } from '@/data/compendium/types';
 import * as normalize from '@/data/transform/normalize';
 import { useHomebrewStore } from '@/features/homebrew/store';
@@ -134,6 +134,130 @@ describe('compendium detail renderers', () => {
     view.unmount();
   });
 
+  it('renders the supported source data value shapes', () => {
+    const view = show(
+      <SourceDataDetail
+        entry={{
+          id: 'source-shapes',
+          name: 'Source Shapes',
+          source: 'TEST',
+          srd: false,
+          collection: 'test',
+          data: {
+            camelCaseField: 'plain text',
+            numberField: 3,
+            booleanField: true,
+            emptyField: null,
+            entriesArray: [{ type: 'entries', entries: ['Structured entry.'] }],
+            primitiveArray: ['text', 2, null, true],
+            tableValue: {
+              option: 'Clan',
+              diceExpression: 'd100',
+              table: [
+                {
+                  min: 0,
+                  max: 0,
+                  result: 'First',
+                  item: ['Sword', 2, null, true],
+                  coins: { cp: 1, gp: { min: 2, max: 3 } },
+                  gems: { amount: '2d6', type: 50 },
+                  artObjects: { amount: 2 },
+                  magicItems: { item: 'Wand', amount: 1 },
+                  cost: { min: 5, max: 5 },
+                  customField: { nestedValue: 'Nested' },
+                },
+                {
+                  min: 1,
+                  max: 3,
+                  result: 'Range',
+                  gems: {},
+                  artObjects: { type: 10 },
+                  cost: { min: 6, max: 8 },
+                },
+                {
+                  result: 'Sparse cost',
+                  cost: { min: 'unknown' },
+                },
+                'Primitive row',
+              ],
+            },
+            tableArray: [
+              { option: 'Female', table: [{ min: 1, max: 1, result: 'Female result' }] },
+              { option: 'Male', table: [{ min: 2, max: 2, result: 'Male result' }] },
+              { option: 'Unknown', table: [{ min: 3, max: 3, result: 'Other result' }] },
+            ],
+            levelTable: {
+              minlvl: 1,
+              maxlvl: 4,
+              table: [{ min: 1, max: 4, result: 'Level result' }],
+            },
+            typeTables: [
+              {
+                amount: '1d6',
+                typeTable: [
+                  { min: 1, max: 50, type: 'I', typeAltChoose: 'II' },
+                  { type: 'II', otherField: 'Other' },
+                  'Type result',
+                ],
+              },
+            ],
+            mmValue: { mm: 5, entry: '{@b Measure}' },
+            renderableValue: { type: 'entries', entries: ['Renderable entry.'] },
+            namedValue: {
+              name: 'Named value',
+              cost: { min: 2, max: 4 },
+              entries: ['Named entry.'],
+            },
+            namedWithoutCost: { name: 'No cost', entries: [] },
+            fallbackValue: {
+              unknownField: 'Unknown field',
+              renderableWithoutEntries: { type: 'unknown' },
+              nestedEmpty: { '': ['Empty key item'] },
+            },
+            '': [{ typeTable: [{ type: 'Empty key type' }] }],
+          },
+          entries: ['Top-level entry.'],
+        }}
+      />,
+    );
+    expect(view.container).toHaveTextContent('Source Shapes');
+    expect(view.container).toHaveTextContent('Structured entry.');
+    expect(view.container).toHaveTextContent('Named value');
+    expect(view.getAllByRole('table').length).toBeGreaterThan(3);
+    view.unmount();
+
+    const tableView = show(
+      <SourceDataDetail
+        entry={{
+          id: 'root-table',
+          name: 'Root Table',
+          source: 'TEST',
+          srd: false,
+          collection: 'test',
+          data: { table: [{ result: 'Root result' }] },
+          entries: [],
+        }}
+      />,
+    );
+    expect(tableView.getByText('Root result')).toBeVisible();
+    tableView.unmount();
+
+    const typeTableView = show(
+      <SourceDataDetail
+        entry={{
+          id: 'root-type-table',
+          name: 'Root Type Table',
+          source: 'TEST',
+          srd: false,
+          collection: 'test',
+          data: { typeTable: [{ type: 'I' }] },
+          entries: [],
+        }}
+      />,
+    );
+    expect(typeTableView.getByText('I')).toBeVisible();
+  });
+
   it('renders populated monster, item, table and vehicle fields', () => {
     const monster = normalize.normalizeMonster({
       ...base,
@@ -195,6 +319,20 @@ describe('compendium detail renderers', () => {
     expect(itemView.container).toHaveTextContent('Heavy Armor');
     expect(itemView.container).toHaveTextContent('Requires attunement');
     itemView.unmount();
+
+    const sparseItemView = show(
+      <ItemDetail
+        item={normalize.normalizeItem({
+          ...base,
+          property: ['|XPHB', 'Missing|XPHB'],
+          mastery: ['|XPHB', 'Missing|XPHB'],
+          variant: { customField: 'Custom value' },
+        })}
+      />,
+    );
+    expect(sparseItemView.container).toHaveTextContent('Variant data');
+    expect(sparseItemView.container).toHaveTextContent('Custom value');
+    sparseItemView.unmount();
 
     const tableView = show(
       <TableDetail
@@ -302,6 +440,28 @@ describe('compendium detail renderers', () => {
     );
     expect(view.container).toHaveTextContent('A Two-Handed weapon requires two hands');
     view.unmount();
+
+    const fetchMock = vi
+      .spyOn(globalThis, 'fetch')
+      .mockImplementation(() =>
+        Promise.resolve(new Response(JSON.stringify({ items: [] }), { status: 200 })),
+      );
+    const polishView = render(
+      <MemoryRouter initialEntries={['/pl/compendium/items']}>
+        <ItemDetail
+          item={normalize.normalizeItem({
+            ...base,
+            source: 'XPHB',
+            type: 'M|XPHB',
+            property: ['H|XPHB', '2H|XPHB'],
+            mastery: ['Graze|XPHB'],
+          })}
+        />
+      </MemoryRouter>,
+    );
+    expect(polishView.container).toHaveTextContent('Mistrzostwo broni');
+    polishView.unmount();
+    fetchMock.mockRestore();
   });
 
   it('switches, selects and merges class subclasses', () => {

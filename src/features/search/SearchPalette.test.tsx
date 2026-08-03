@@ -99,6 +99,9 @@ describe('SearchPalette', () => {
     expect(screen.getByText('Core Spell')).toBeInTheDocument();
     expect(screen.getByText('Custom')).toBeInTheDocument();
     expect(screen.getByText('Brew Spell EN')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'common.clearSearch' }));
+    expect(input).toHaveValue('');
+    fireEvent.change(input, { target: { value: 'spell' } });
 
     fireEvent.mouseMove(screen.getByRole('button', { name: /Wiki Note/ }));
     fireEvent.click(screen.getByRole('button', { name: /Wiki Note/ }));

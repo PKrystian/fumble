@@ -728,4 +728,85 @@ describe('data normalizers', () => {
       } as never),
     ).toMatchObject({ size: 'Large', ac: '13' });
   });
+
+  it('normalizes Polish labels and alternate optional shapes', () => {
+    expect(
+      normalize.normalizeItem(
+        { ...base, property: ['F'], mastery: ['Graze'], weaponCategory: 'martial' },
+        new Map(),
+        'pl',
+      ),
+    ).toMatchObject({ weaponCategory: 'martial', mastery: 'Graze' });
+
+    const monster = normalize.normalizeMonster(
+      {
+        ...base,
+        legendary: [{ entries: ['Legendary.'] }],
+        legendaryActionsLair: 2,
+        spellcasting: [
+          {
+            will: ['light'],
+            daily: { '1e': ['shield'], empty: [] },
+            spells: {
+              '0': { spells: ['fire bolt'] },
+              '2': { slots: 2, spells: ['misty step'] },
+            },
+            footerEntries: ['Footer.'],
+          },
+        ],
+      },
+      new Map(),
+      new Map(),
+      'pl',
+    );
+    expect(monster.spellcasting[0]!.name).toBe('Rzucanie zaklęć');
+    expect(monster.spellcasting[0]!.entries).toEqual(
+      expect.arrayContaining(['Na żądanie: light', 'Sztuczki (na żądanie): fire bolt']),
+    );
+
+    const noLairMonster = normalize.normalizeMonster(
+      { ...base, legendary: [{ entries: ['Legendary.'] }] },
+      new Map(),
+      new Map(),
+      'pl',
+    );
+    expect(noLairMonster.legendaryIntro).toContain('Wykorzystania');
+
+    expect(
+      normalize.normalizeRecipe(
+        { ...base, ingredients: ['Flour'], instructions: ['Mix'] },
+        'pl',
+      ).entries,
+    ).toHaveLength(2);
+
+    const vehicle = normalize.normalizeVehicle(
+      { ...base, weapon: [{ ac: 12, hp: 20, crew: 3 }] },
+      new Map(),
+      'pl',
+    );
+    expect(vehicle.weapons[0]!.name).toBe('Broń');
+
+    expect(vehicle.weapons[0]!.entries[0]).toContain('KP 12, PW 20');
+
+    const cls = normalize.normalizeClasses(
+      {
+        class: [{ ...base, hd: { faces: 6 }, classFeatures: [] }],
+      },
+      new Map(),
+      undefined,
+      'pl',
+    );
+    expect(cls[0]!.subclassTitle).toBe('Podklasa');
+
+    expect(
+      normalize.normalizeCharOption({ ...base, optionType: [] }, 'pl'),
+    ).toMatchObject({
+      optionType: 'Opcja postaci',
+    });
+    expect(
+      normalize.normalizeCharOption({ ...base, optionType: ['RF', 'UNKNOWN'] }, 'pl'),
+    ).toMatchObject({
+      optionType: 'Cecha rasy, UNKNOWN',
+    });
+  });
 });

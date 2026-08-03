@@ -61,10 +61,8 @@ function CompendiumBrowser({
   const { params, update, current } = useUrlSearchState();
   const query = params.get('q') ?? '';
   const requestedSort = params.get('sort');
-  const sortField =
-    requestedSort === 'name' || filters.some((filter) => filter.id === requestedSort)
-      ? (requestedSort ?? 'name')
-      : 'name';
+  const sortFields = new Set(['name', ...filters.map((filter) => filter.id)]);
+  const sortField = sortFields.has(requestedSort ?? '') ? requestedSort! : 'name';
   const sortDir: SortDir = params.get('order') === 'desc' ? 'desc' : 'asc';
   const selectedFilters = Object.fromEntries(
     filters.map((filter) => [filter.id, params.getAll(filter.id).filter(Boolean)]),

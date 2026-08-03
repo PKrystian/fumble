@@ -261,6 +261,12 @@ describe('HomebrewPage', () => {
     });
     renderPage();
 
+    const categoryFilter = screen.getByLabelText('Filter by category');
+    fireEvent.change(categoryFilter, { target: { value: 'all' } });
+    fireEvent.change(categoryFilter, { target: { value: 'feats' } });
+    const translationFilter = screen.getByLabelText('Filter by translation status');
+    fireEvent.change(translationFilter, { target: { value: 'all' } });
+    fireEvent.change(translationFilter, { target: { value: 'translated' } });
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'none' } });
     expect(screen.getByText('No entries match these filters.')).toBeInTheDocument();
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'alpha' } });

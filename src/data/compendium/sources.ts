@@ -18,8 +18,8 @@ for (const book of booksIndex as BookIndexEntry[]) {
 }
 
 export function sourceName(code: string, locale?: Locale): string {
-  if (locale === 'pl' && plSourceNames[code]) return plSourceNames[code]!;
-  return names[code] ?? code;
+  const sourceNames = locale === 'pl' ? plSourceNames : names;
+  return sourceNames[code] ?? code;
 }
 
 export function localizedBookName(entry: BookIndexEntry, locale?: Locale): string {

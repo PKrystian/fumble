@@ -53,6 +53,11 @@ describe('character store', () => {
     );
   });
 
+  it('ignores patches for an unknown character', () => {
+    useCharacterStore.getState().updateCharacter('missing', { name: 'Ignored' });
+    expect(useCharacterStore.getState().characters).toEqual({});
+  });
+
   it('migrates stranded characters saved before the import fix back into the order', () => {
     const migrate = useCharacterStore.persist.getOptions().migrate!;
 

@@ -52,7 +52,37 @@ import {
 } from './searchIndex';
 
 describe('search index construction', () => {
+  it('uses a prebuilt localized payload when it is available', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: vi.fn().mockResolvedValue({
+          categories: [
+            {
+              id: 'spells',
+              items: [{ id: 'bolt', name: 'Bolt', source: 'XPHB', srd: true }],
+            },
+          ],
+          wiki: [{ slug: 'page', title: 'Page' }],
+        }),
+      }),
+    );
+
+    await expect(loadSearchIndex('pl')).resolves.toMatchObject({
+      categories: [{ id: 'spells', label: 'compendium.categories.spells' }],
+      wiki: [
+        {
+          name: 'Page',
+          subtitle: '',
+          categoryLabel: 'nav.wiki',
+        },
+      ],
+    });
+  });
+
   it('loads and caches a localized index', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('offline')));
     const first = loadSearchIndex('en');
     const second = loadSearchIndex('en');
     expect(second).toBe(first);

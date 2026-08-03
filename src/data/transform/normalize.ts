@@ -20,6 +20,7 @@ import type {
   GalleryImage,
   HazardEntry,
   ItemEntry,
+  JsonObject,
   LanguageEntry,
   MonsterEntry,
   ObjectEntry,
@@ -358,6 +359,7 @@ export interface RawItem {
   mastery?: Array<string | { uid?: string }>;
   ac?: number;
   weaponCategory?: 'simple' | 'martial';
+  variant?: JsonObject;
   entries?: Entry[];
 }
 
@@ -385,6 +387,7 @@ export function normalizeItem(
           masteryRefs: formatItemReferences(raw.mastery),
         }
       : {}),
+    ...(raw.variant ? { variant: raw.variant } : {}),
     entries: raw.entries ?? [],
   };
 }

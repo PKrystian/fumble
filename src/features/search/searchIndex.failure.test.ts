@@ -22,4 +22,19 @@ describe('search index failure handling', () => {
       wiki: [],
     });
   });
+
+  it('falls back when a prebuilt payload cannot be decoded', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: vi.fn().mockRejectedValue(new Error('invalid payload')),
+      }),
+    );
+
+    await expect(loadSearchIndex('pl')).resolves.toEqual({
+      categories: [],
+      wiki: [],
+    });
+  });
 });

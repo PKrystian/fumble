@@ -4,6 +4,16 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.7 - 2026-08-03
+
+- Expanded automated tests to cover all application statements, branches, functions, and lines.
+- Documented the complete coverage expectation for new features while retaining the 95 percent CI minimum.
+
+## 1.2.6 - 2026-08-03
+
+- Raised combined unit and end-to-end coverage thresholds to 99 percent.
+- Added tests for previously uncovered application branches and data flows.
+
 ## 1.2.5 - 2026-08-03
 
 - Fixed additional English fragments in Polish adventure and book data.

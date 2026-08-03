@@ -149,6 +149,7 @@ describe('parseMarkup', () => {
     );
     expect(container).toHaveTextContent('Foot Quick Spell variable');
     expect(container.querySelector('.text-ember-400')).not.toBeNull();
+    expect(renderMarkup('{@quickref 123}').container).toHaveTextContent('123');
   });
 
   it('localizes quick-reference labels', () => {

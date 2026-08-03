@@ -136,6 +136,8 @@ describe('EncounterCalculatorPage', () => {
     expect(search).toHaveAttribute('placeholder', 'encounter.loadingBestiary');
     fireEvent.change(search, { target: { value: 'dragon' } });
     expect(screen.getByText('Dragon')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'common.clearSearch' }));
+    expect(search).toHaveValue('');
     fireEvent.change(search, { target: { value: ' ' } });
     expect(screen.queryByText('Dragon')).not.toBeInTheDocument();
     expect(screen.getByText('encounter.trivial')).toBeInTheDocument();

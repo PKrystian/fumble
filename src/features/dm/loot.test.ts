@@ -176,8 +176,36 @@ describe('rarityAtMost', () => {
   });
 
   it('recognizes localized excluded item types', () => {
+    expect(isExcludedItemType('Medium Armor')).toBe(false);
+    expect(isExcludedItemType('Light Armor')).toBe(false);
+    expect(isExcludedItemType('Shield')).toBe(false);
     expect(isExcludedItemType('Pojazd (Powietrzny)')).toBe(true);
     expect(isExcludedItemType('Skarb (Monety)')).toBe(true);
     expect(isExcludedItemType('Mikstura')).toBe(false);
+  });
+
+  it('recognizes localized weapon categories and unknown proficiencies', () => {
+    expect(isExcludedItemType('Broń do walki na dystans')).toBe(false);
+    expect(isExcludedItemType('Broń do walki wręcz')).toBe(false);
+    expect(
+      isUsableBy(
+        makeItem({ type: 'Broń do walki na dystans', weaponCategory: 'exotic' as never }),
+        makeCharacter({ weaponProficiencies: '' }),
+      ),
+    ).toBe(true);
+    expect(isExcludedItemType('Pojazd (Lądowy)')).toBe(true);
+    expect(isExcludedItemType('Pojazd (Wodny)')).toBe(true);
+    expect(isExcludedItemType('Pojazd (Kosmiczny)')).toBe(true);
+    expect(isExcludedItemType('Wierzchowiec')).toBe(true);
+    expect(isExcludedItemType('Uprząż')).toBe(true);
+    expect(isExcludedItemType('Towar handlowy')).toBe(true);
+    expect(isExcludedItemType('Sztabka handlowa')).toBe(true);
+    expect(isExcludedItemType('Skarb monet')).toBe(true);
+    expect(
+      isUsableBy(
+        makeItem({ type: 'Ranged Weapon', weaponCategory: 'simple' }),
+        makeCharacter({ weaponProficiencies: 'Simple weapons' }),
+      ),
+    ).toBe(true);
   });
 });
