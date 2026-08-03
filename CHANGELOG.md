@@ -4,6 +4,15 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.9 - 2026-08-03
+
+- Fixed compendium result links dropping the active search query on mobile.
+
+## 1.2.8 - 2026-08-03
+
+- Remembered the selected interface language when returning to the home page.
+- Added prerendered alternate language links for English, Polish, and the default locale.
+
 ## 1.2.7 - 2026-08-03
 
 - Expanded automated tests to cover all application statements, branches, functions, and lines.

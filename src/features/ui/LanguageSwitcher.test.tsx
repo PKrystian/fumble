@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, useLocation } from 'react-router-dom';
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { useLocaleStore } from '@/i18n/store';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 function Location() {
@@ -18,6 +19,11 @@ function renderSwitcher(compact = false) {
 }
 
 describe('LanguageSwitcher', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    useLocaleStore.setState({ locale: 'en' });
+  });
+
   it('opens, keeps the current locale and navigates to another locale', () => {
     renderSwitcher();
     const trigger = screen.getByRole('button', { name: 'Change language' });
@@ -29,6 +35,7 @@ describe('LanguageSwitcher', () => {
     fireEvent.click(trigger);
     fireEvent.click(screen.getByRole('option', { name: 'Polski' }));
     expect(screen.getByText('/pl/compendium/?q=spell')).toBeInTheDocument();
+    expect(useLocaleStore.getState().locale).toBe('pl');
   });
 
   it('closes from Escape and an outside click but not an inside click', () => {

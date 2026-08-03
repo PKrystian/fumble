@@ -81,6 +81,18 @@ describe('SEO head helpers', () => {
       'href',
       'https://fumble.krystianpinczak.com/pl/compendium/spells/',
     );
+    expect(document.head.querySelector('link[hreflang="en"]')).toHaveAttribute(
+      'href',
+      'https://fumble.krystianpinczak.com/compendium/spells/',
+    );
+    expect(document.head.querySelector('link[hreflang="pl"]')).toHaveAttribute(
+      'href',
+      'https://fumble.krystianpinczak.com/pl/compendium/spells/',
+    );
+    expect(document.head.querySelector('link[hreflang="x-default"]')).toHaveAttribute(
+      'href',
+      'https://fumble.krystianpinczak.com/compendium/spells/',
+    );
     expect(document.head.querySelectorAll('link[rel="alternate"]')).toHaveLength(3);
     expect(document.head.querySelector('meta[property="og:title"]')).toHaveAttribute(
       'content',

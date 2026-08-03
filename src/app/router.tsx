@@ -1,6 +1,7 @@
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 import type { RouteObject } from 'react-router-dom';
 import type { ComponentType } from 'react';
+import { LocaleEntryLayout } from '@/app/layout/LocaleEntryLayout';
 import { LocaleLayout } from '@/app/layout/LocaleLayout';
 import { HomePage } from '@/features/home/HomePage';
 
@@ -160,7 +161,7 @@ const appRouteChildren: RouteObject[] = [
 
 export const router = createBrowserRouter(
   [
-    { path: '/', element: <LocaleLayout locale="en" />, children: appRouteChildren },
+    { path: '/', element: <LocaleEntryLayout />, children: appRouteChildren },
     { path: '/pl', element: <LocaleLayout locale="pl" />, children: appRouteChildren },
 
     { path: '*', element: <Navigate to="/" replace /> },

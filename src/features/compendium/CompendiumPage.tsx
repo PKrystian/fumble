@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import {
@@ -58,8 +58,9 @@ function CompendiumBrowser({
 }) {
   const category = getCategory(categoryId)!;
   const filters = category.filters ?? NO_FILTERS;
-  const { params, update, current } = useUrlSearchState();
+  const { params, update } = useUrlSearchState();
   const query = params.get('q') ?? '';
+  const queryRef = useRef(query);
   const requestedSort = params.get('sort');
   const sortFields = new Set(['name', ...filters.map((filter) => filter.id)]);
   const sortField = sortFields.has(requestedSort ?? '') ? requestedSort! : 'name';
@@ -173,8 +174,14 @@ function CompendiumBrowser({
           <div className="border-b border-ink-700 p-3">
             <SearchField
               value={query}
-              onChange={(event) => update({ q: event.target.value }, true)}
-              onClear={() => update({ q: null }, true)}
+              onChange={(event) => {
+                queryRef.current = event.target.value;
+                update({ q: event.target.value }, true);
+              }}
+              onClear={() => {
+                queryRef.current = '';
+                update({ q: null }, true);
+              }}
               placeholder={t('compendium.searchPlaceholder', {
                 category: categoryLabel(category, t).toLowerCase(),
               })}
@@ -221,9 +228,12 @@ function CompendiumBrowser({
                   }}
                   onClick={(event) => {
                     event.preventDefault();
+                    const search = new URLSearchParams(params);
+                    if (queryRef.current) search.set('q', queryRef.current);
+                    else search.delete('q');
                     navigate({
                       pathname: `/compendium/${categoryId}/${item.id}`,
-                      search: current().toString(),
+                      search: search.toString(),
                     });
                   }}
                   className={[
