@@ -13,6 +13,27 @@ test('home page loads and shows the app name', async ({ page }) => {
   ).toBeVisible();
 });
 
+test('remembers the selected language on a later home visit', async ({ page }) => {
+  await page.goto('/');
+  if ((page.viewportSize()?.width ?? 1000) < 768) {
+    await page.getByRole('button', { name: 'Open menu' }).click();
+  }
+  await page.getByRole('button', { name: 'Change language' }).click();
+  await page.getByRole('option', { name: 'Polski' }).click();
+  await expect(page).toHaveURL(/\/pl\/$/);
+
+  await page.goto('/');
+  await expect(page).toHaveURL(/\/pl\/$/);
+  await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
+    'href',
+    'https://fumble.krystianpinczak.com/',
+  );
+  await expect(page.locator('link[rel="alternate"][hreflang="pl"]')).toHaveAttribute(
+    'href',
+    'https://fumble.krystianpinczak.com/pl/',
+  );
+});
+
 test('legal pages are available in both languages', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: 'Privacy policy' }).click();

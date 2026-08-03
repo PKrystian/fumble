@@ -1,12 +1,10 @@
-import { useCallback, useRef } from 'react';
+import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 type QueryValue = string | string[] | null;
 
 export function useUrlSearchState() {
   const [params, setSearchParams] = useSearchParams();
-  const currentRef = useRef(params);
-  currentRef.current = params;
 
   const update = useCallback(
     (values: Record<string, QueryValue>, replace = false) => {
@@ -24,16 +22,13 @@ export function useUrlSearchState() {
             }
           }
           next.sort();
-          currentRef.current = next;
           return next;
         },
-        { replace },
+        { replace, flushSync: replace },
       );
     },
     [setSearchParams],
   );
 
-  const current = useCallback(() => currentRef.current, []);
-
-  return { params, update, current };
+  return { params, update };
 }

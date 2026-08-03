@@ -677,6 +677,10 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
     /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/s,
     `<meta name="twitter:description" content="${description}" />`,
   );
+  html = html.replace(
+    /\s*<link\s+rel="alternate"\s+hreflang="[^"]+"\s+href="[^"]+"\s*\/?>/g,
+    '',
+  );
   const alternates = [
     ...SUPPORTED_LOCALES.map(
       ({ code }) =>

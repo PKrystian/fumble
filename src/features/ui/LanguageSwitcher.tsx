@@ -5,6 +5,7 @@ import { Check, ChevronDown, Globe } from 'lucide-react';
 import { SUPPORTED_LOCALES } from '@/i18n/locales';
 import { localizePath, stripLocale, useLocale } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
+import { useLocaleStore } from '@/i18n/store';
 import { Button } from './primitives';
 
 interface LanguageSwitcherProps {
@@ -17,6 +18,7 @@ export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
   const locale = useLocale();
   const location = useLocation();
   const navigate = useNavigate();
+  const setLocale = useLocaleStore((state) => state.setLocale);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,7 +41,8 @@ export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
     setOpen(false);
     if (code === locale) return;
     const { rest } = stripLocale(location.pathname);
-    navigate(localizePath(rest, code) + location.search);
+    setLocale(code);
+    navigate(localizePath(rest, code) + location.search + location.hash);
   };
 
   return (

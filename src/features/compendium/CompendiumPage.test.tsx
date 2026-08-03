@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { CompendiumPage } from './CompendiumPage';
 
@@ -101,7 +101,18 @@ function renderPage(path: string) {
         <Route path="/compendium/:category" element={<CompendiumPage />} />
         <Route path="/compendium/:category/:id" element={<CompendiumPage />} />
       </Routes>
+      <LocationProbe />
     </MemoryRouter>,
+  );
+}
+
+function LocationProbe() {
+  const location = useLocation();
+  return (
+    <output>
+      {location.pathname}
+      {location.search}
+    </output>
   );
 }
 
@@ -173,7 +184,11 @@ describe('CompendiumPage', () => {
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'dragon' } });
     const dragon = screen.getByRole('link', { name: /Dragon/ });
     expect(dragon).toBeInTheDocument();
+    expect(dragon).toHaveAttribute('href', '/compendium/species/dragon/?q=dragon');
     fireEvent.click(dragon);
+    expect(screen.getByRole('status')).toHaveTextContent(
+      '/compendium/species/dragon/?q=dragon',
+    );
 
     fireEvent.click(screen.getByRole('button', { name: 'Toggle Large' }));
     fireEvent.click(screen.getByRole('button', { name: 'Toggle Large' }));
@@ -200,6 +215,33 @@ describe('CompendiumPage', () => {
     expect(screen.getByRole('searchbox')).toHaveValue('dragon');
     expect(screen.getByRole('link', { name: /Dragon/ })).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /Wyvern/ })).not.toBeInTheDocument();
+  });
+
+  it('opens an item without adding an empty search query', () => {
+    renderPage('/compendium/species');
+    fireEvent.click(screen.getByRole('link', { name: /Dragon/ }));
+    expect(screen.getByRole('status')).toHaveTextContent('/compendium/species/dragon/');
+  });
+
+  it('updates the URL after a search change', () => {
+    vi.useFakeTimers();
+    renderPage('/compendium/species');
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'dragon' } });
+    act(() => vi.runAllTimers());
+    expect(screen.getByRole('status')).toHaveTextContent('/compendium/species?q=dragon');
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: '' } });
+    act(() => vi.runAllTimers());
+    expect(screen.getByRole('status')).toHaveTextContent('/compendium/species');
+    vi.useRealTimers();
+  });
+
+  it('cancels a pending search update when unmounted', () => {
+    vi.useFakeTimers();
+    const view = renderPage('/compendium/species');
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'dragon' } });
+    view.unmount();
+    expect(vi.getTimerCount()).toBe(0);
+    vi.useRealTimers();
   });
 
   it('evaluates valid and invalid sort parameters', () => {

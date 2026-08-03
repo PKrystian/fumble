@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { localizePath, stripLocale } from './path';
+import { rememberedLocaleTarget } from './localeTarget';
 
 describe('stripLocale', () => {
   it('treats a root path as English with no prefix', () => {
@@ -49,6 +50,20 @@ describe('localizePath', () => {
 
   it('adds a leading slash if missing', () => {
     expect(localizePath('character', 'pl')).toBe('/pl/character/');
+  });
+});
+
+describe('rememberedLocaleTarget', () => {
+  it('localizes the English root while preserving search and hash', () => {
+    expect(rememberedLocaleTarget('/', '?from=bookmark', '#top', 'pl')).toBe(
+      '/pl/?from=bookmark#top',
+    );
+  });
+
+  it('leaves explicit and default locale paths unchanged', () => {
+    expect(rememberedLocaleTarget('/pl/', '', '', 'pl')).toBeNull();
+    expect(rememberedLocaleTarget('/compendium/', '', '', 'pl')).toBeNull();
+    expect(rememberedLocaleTarget('/', '', '', 'en')).toBeNull();
   });
 });
 
