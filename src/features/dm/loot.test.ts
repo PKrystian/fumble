@@ -3,8 +3,10 @@ import { createCharacter, type Character } from '@/features/character/model';
 import type { ItemEntry } from '@/data/compendium/types';
 import {
   TIERS,
+  isExcludedItemType,
   isUsableBy,
   isUsableByParty,
+  rarityMatches,
   rarityAtMost,
   tierForLevel,
   usableByNames,
@@ -63,6 +65,21 @@ describe('isUsableBy', () => {
     const heavyArmor = makeItem({ type: 'Heavy Armor' });
     const lightOnly = makeCharacter({ armorProficiencies: 'Light armor' });
     expect(isUsableBy(heavyArmor, lightOnly)).toBe(false);
+  });
+
+  it('understands localized armor and weapon values', () => {
+    expect(
+      isUsableBy(
+        makeItem({ type: 'Ciężka Zbroja' }),
+        makeCharacter({ armorProficiencies: 'Lekka, Średnia, Ciężka, Tarcze' }),
+      ),
+    ).toBe(true);
+    expect(
+      isUsableBy(
+        makeItem({ type: 'Broń biała', weaponCategory: 'wojenny' }),
+        makeCharacter({ weaponProficiencies: 'proste, wojenne' }),
+      ),
+    ).toBe(true);
   });
 
   it('treats a blank armor proficiency as unknown, not disqualifying', () => {
@@ -150,5 +167,45 @@ describe('rarityAtMost', () => {
   it('allows unknown rarity values and unknown ceilings', () => {
     expect(rarityAtMost('Unknown', 'Common')).toBe(true);
     expect(rarityAtMost('Rare', 'Unknown')).toBe(true);
+  });
+
+  it('matches localized rarity labels', () => {
+    expect(rarityMatches('Niezwykły', ['Uncommon'])).toBe(true);
+    expect(rarityMatches('Bardzo Rzadka', ['Very Rare'])).toBe(true);
+    expect(rarityMatches('Legendarna', ['Rare'])).toBe(false);
+  });
+
+  it('recognizes localized excluded item types', () => {
+    expect(isExcludedItemType('Medium Armor')).toBe(false);
+    expect(isExcludedItemType('Light Armor')).toBe(false);
+    expect(isExcludedItemType('Shield')).toBe(false);
+    expect(isExcludedItemType('Pojazd (Powietrzny)')).toBe(true);
+    expect(isExcludedItemType('Skarb (Monety)')).toBe(true);
+    expect(isExcludedItemType('Mikstura')).toBe(false);
+  });
+
+  it('recognizes localized weapon categories and unknown proficiencies', () => {
+    expect(isExcludedItemType('Broń do walki na dystans')).toBe(false);
+    expect(isExcludedItemType('Broń do walki wręcz')).toBe(false);
+    expect(
+      isUsableBy(
+        makeItem({ type: 'Broń do walki na dystans', weaponCategory: 'exotic' as never }),
+        makeCharacter({ weaponProficiencies: '' }),
+      ),
+    ).toBe(true);
+    expect(isExcludedItemType('Pojazd (Lądowy)')).toBe(true);
+    expect(isExcludedItemType('Pojazd (Wodny)')).toBe(true);
+    expect(isExcludedItemType('Pojazd (Kosmiczny)')).toBe(true);
+    expect(isExcludedItemType('Wierzchowiec')).toBe(true);
+    expect(isExcludedItemType('Uprząż')).toBe(true);
+    expect(isExcludedItemType('Towar handlowy')).toBe(true);
+    expect(isExcludedItemType('Sztabka handlowa')).toBe(true);
+    expect(isExcludedItemType('Skarb monet')).toBe(true);
+    expect(
+      isUsableBy(
+        makeItem({ type: 'Ranged Weapon', weaponCategory: 'simple' }),
+        makeCharacter({ weaponProficiencies: 'Simple weapons' }),
+      ),
+    ).toBe(true);
   });
 });

@@ -549,7 +549,7 @@
       "name": "Uzbrojenie - powszechne",
       "source": "XDMG",
       "page": 326,
-      "type": "zbrojenia.common",
+      "type": "zbrojenia.wspólny",
       "table": [
         {
           "min": 1,
@@ -611,7 +611,7 @@
           "max": 80,
           "choose": {
             "fromGeneric": [
-              "Sylvan Talon|XDMG"
+              "Leśny Szpon|XDMG"
             ]
           }
         },
@@ -639,7 +639,7 @@
       "name": "Arkana - pospolita",
       "source": "XDMG",
       "page": 326,
-      "type": "arcana.common",
+      "type": "arcana.wspólny",
       "table": [
         {
           "min": 1,
@@ -784,10 +784,10 @@
         {
           "min": 69,
           "max": 82,
-          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Cantrip)|XDMG|sztuczka} lub {@item Spell Scroll (Level 1)|XDMG|poziom 1})",
+          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Cantrip)|XDMG|sztuczka} lub {@item Spell Scroll (Level 1)|XDMG|poziom 1}}",
           "choose": {
             "fromItems": [
-              "Zwój zaklęć (Cantrip)|XDMG",
+              "Zwój zaklęć (Sztuczka)|XDMG",
               "Zwój zaklęć (poziom 1)|XDMG"
             ]
           }
@@ -889,7 +889,7 @@
         {
           "min": 28,
           "max": 31,
-          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Greater Absorption|XDMG|większa absorpcja}, {@item Ioun Stone, Mastery|XDMG|mistrzostwo} lub {@item Ioun Stone, Regeneration|XDMG|regeneracja})",
+          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Greater Absorption|XDMG|większa absorpcja}, {@item Ioun Stone, Mastery|XDMG|mistrzostwo} lub {@item Ioun Stone, Regeneration|XDMG|regeneracja}}",
           "choose": {
             "fromItems": [
               "Kamień Ioun, większa absorpcja|XDMG",
@@ -916,7 +916,7 @@
         {
           "min": 46,
           "max": 49,
-          "item": "{@item Ring of Elemental Command|XDMG} ({@item Ring of Elemental Command (Air)|XDMG|powietrze}, {@item Ring of Elemental Command (Earth)|XDMG|ziemia}, {@item Ring of Elemental Command (Fire)|XDMG|ogień} lub {@item Ring of Elemental Command (Water)|XDMG|woda})",
+          "item": "{@item Ring of Elemental Command|XDMG} ({@item Ring of Elemental Command (Air)|XDMG|powietrze}, {@item Ring of Elemental Command (Earth)|XDMG|ziemia}, {@item Ring of Elemental Command (Fire)|XDMG|ogień} lub {@item Ring of Elemental Command (Water)|XDMG|woda}}",
           "choose": {
             "fromItems": [
               "Pierścień Dowództwa Żywiołów (Powietrza)|XDMG",
@@ -1091,10 +1091,10 @@
         {
           "min": 25,
           "max": 25,
-          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Cantrip)|XDMG|sztuczka} lub {@item Enspelled Staff (Level 1)|XDMG|poziom 1})",
+          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Cantrip)|XDMG|sztuczka} lub {@item Enspelled Staff (Level 1)|XDMG|poziom 1}}",
           "choose": {
             "fromItems": [
-              "Zaczarowany Kostur (Cantrip)|XDMG",
+              "Zaczarowany Kostur (Sztuczka)|XDMG",
               "Zaczarowany Kostur (Poziom 1)|XDMG"
             ]
           }
@@ -1236,7 +1236,7 @@
         {
           "min": 62,
           "max": 62,
-          "item": "{@item Quaal's Feather Token|XDMG} ({@item Quaal's Feather Token, Anchor|XDMG|kotwica}, {@item Quaal's Feather Token, Fan|XDMG|wentylator} lub {@item Quaal's Feather Token, Tree|XDMG|drzewo})",
+          "item": "{@item Quaal's Feather Token|XDMG} ({@item Quaal's Feather Token, Anchor|XDMG|kotwica}, {@item Quaal's Feather Token, Fan|XDMG|wentylator} lub {@item Quaal's Feather Token, Tree|XDMG|drzewo}}",
           "choose": {
             "fromItems": [
               "Żeton Pióra Quaala, Kotwica|XDMG",
@@ -1283,7 +1283,7 @@
         {
           "min": 75,
           "max": 82,
-          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 2)|XDMG|poziom 2} lub {@item Spell Scroll (Level 3)|XDMG|poziom 3})",
+          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 2)|XDMG|poziom 2} lub {@item Spell Scroll (Level 3)|XDMG|poziom 3}}",
           "choose": {
             "fromItems": [
               "Zwój zaklęć (poziom 2)|XDMG",
@@ -1582,7 +1582,7 @@
         {
           "min": 32,
           "max": 34,
-          "item": "{@item Enspelled Armor|XDMG} (zaklęcie {@item Enspelled Armor (Level 2)|XDMG|poziom 2} lub {@item Enspelled Armor (Level 3)|XDMG|3})",
+          "item": "{@item Enspelled Armor|XDMG} (zaklęcie {@item Enspelled Armor (Level 2)|XDMG|poziom 2} lub {@item Enspelled Armor (Level 3)|XDMG|3}}",
           "choose": {
             "fromGeneric": [
               "Zaklęta zbroja (poziom 2)|XDMG"
@@ -1592,7 +1592,7 @@
         {
           "min": 35,
           "max": 37,
-          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Level 2)|XDMG|poziom 2} lub {@item Enspelled Weapon (Level 3)|XDMG|3})",
+          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Level 2)|XDMG|poziom 2} lub {@item Enspelled Weapon (Level 3)|XDMG|3}}",
           "choose": {
             "fromGeneric": [
               "Zaklęta broń (poziom 2)|XDMG"
@@ -1625,7 +1625,7 @@
         {
           "min": 47,
           "max": 48,
-          "item": "{@item Horn of Valhalla|XDMG} ({@item Horn of Valhalla, Brass|XDMG|mosiądz} lub {@item Horn of Valhalla, Silver|XDMG|srebrny})",
+          "item": "{@item Horn of Valhalla|XDMG} ({@item Horn of Valhalla, Brass|XDMG|mosiądz} lub {@item Horn of Valhalla, Silver|XDMG|srebrny}}",
           "choose": {
             "fromItems": [
               "Róg Walhalli, mosiądz|XDMG",
@@ -1636,7 +1636,7 @@
         {
           "min": 49,
           "max": 51,
-          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Protection|XDMG|ochrona})",
+          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Protection|XDMG|ochrona}}",
           "choose": {
             "fromItems": [
               "Ioun Stone, ochrona|XDMG"
@@ -1666,7 +1666,7 @@
         {
           "min": 64,
           "max": 66,
-          "item": "{@item Potion of Giant Strength|XDMG} ({@item Potion of Frost Giant Strength|XDMG|mróz} lub {@item Potion of Stone Giant Strength|XDMG|kamień})",
+          "item": "{@item Potion of Giant Strength|XDMG} ({@item Potion of Frost Giant Strength|XDMG|mróz} lub {@item Potion of Stone Giant Strength|XDMG|kamień}}",
           "choose": {
             "fromItems": [
               "Mikstura siły mroźnego giganta|XDMG",
@@ -1835,7 +1835,7 @@
         {
           "min": 20,
           "max": 21,
-          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Level 2)|XDMG|poziom 2} lub {@item Enspelled Staff (Level 3)|XDMG|3})",
+          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Level 2)|XDMG|poziom 2} lub {@item Enspelled Staff (Level 3)|XDMG|3}}",
           "choose": {
             "fromItems": [
               "Zaczarowany Kostur (Poziom 2)|XDMG",
@@ -1846,7 +1846,7 @@
         {
           "min": 22,
           "max": 23,
-          "item": "{@item Figurine of Wondrous Power|XDMG} ({@item Figurine of Wondrous Power, Bronze Griffon|XDMG|brązowy gryf}, {@item Figurine of Wondrous Power, Ebony Fly|XDMG|hebanowa mucha}, {@item Figurine of Wondrous Power, Golden Lions|XDMG|złote lwy}, {@item Figurine of Wondrous Power, Ivory Goats|XDMG|kozy z kości słoniowej}, {@item Figurine of Wondrous Power, Marble Elephant|XDMG|marmurowy słoń}, {@item Figurine of Wondrous Power, Onyx Dog|XDMG|onyksowy pies} lub {@item Figurine of Wondrous Power, Serpentine Owl|XDMG|serpentynowa sowa})",
+          "item": "{@item Figurine of Wondrous Power|XDMG} ({@item Figurine of Wondrous Power, Bronze Griffon|XDMG|brązowy gryf}, {@item Figurine of Wondrous Power, Ebony Fly|XDMG|hebanowa mucha}, {@item Figurine of Wondrous Power, Golden Lions|XDMG|złote lwy}, {@item Figurine of Wondrous Power, Ivory Goats|XDMG|kozy z kości słoniowej}, {@item Figurine of Wondrous Power, Marble Elephant|XDMG|marmurowy słoń}, {@item Figurine of Wondrous Power, Onyx Dog|XDMG|onyksowy pies} lub {@item Figurine of Wondrous Power, Serpentine Owl|XDMG|serpentynowa sowa}}",
           "choose": {
             "fromItems": [
               "Figurka Cudownej Mocy, Brązowy Gryf|XDMG",
@@ -1937,7 +1937,7 @@
         {
           "min": 48,
           "max": 49,
-          "item": "{@item Potion of Giant Strength|XDMG} ({@item Potion of Frost Giant Strength|XDMG|mróz} lub {@item Potion of Stone Giant Strength|XDMG|kamień})",
+          "item": "{@item Potion of Giant Strength|XDMG} ({@item Potion of Frost Giant Strength|XDMG|mróz} lub {@item Potion of Stone Giant Strength|XDMG|kamień}}",
           "choose": {
             "fromItems": [
               "Mikstura siły mroźnego giganta|XDMG",
@@ -1968,7 +1968,7 @@
         {
           "min": 58,
           "max": 59,
-          "item": "{@item Quaal's Feather Token|XDMG} ({@item Quaal's Feather Token, Bird|XDMG|ptak}, {@item Quaal's Feather Token, Swan Boat|XDMG|łódź łabędzi} lub {@item Quaal's Feather Token, Whip|XDMG|bicz})",
+          "item": "{@item Quaal's Feather Token|XDMG} ({@item Quaal's Feather Token, Bird|XDMG|ptak}, {@item Quaal's Feather Token, Swan Boat|XDMG|łódź łabędzi} lub {@item Quaal's Feather Token, Whip|XDMG|bicz}}",
           "choose": {
             "fromItems": [
               "Żeton Pióra Quaala, Ptak|XDMG",
@@ -2015,7 +2015,7 @@
         {
           "min": 71,
           "max": 75,
-          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 4)|XDMG|poziom 4} lub {@item Spell Scroll (Level 5)|XDMG|poziom 5})",
+          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 4)|XDMG|poziom 4} lub {@item Spell Scroll (Level 5)|XDMG|poziom 5}}",
           "choose": {
             "fromItems": [
               "Zwój zaklęć (poziom 4)|XDMG",
@@ -2130,7 +2130,7 @@
         {
           "min": 15,
           "max": 17,
-          "item": "{@item Belt of Giant Strength|XDMG} ({@item Belt of Frost Giant Strength|XDMG|mróz} lub {@item Belt of Stone Giant Strength|XDMG|kamień})",
+          "item": "{@item Belt of Giant Strength|XDMG} ({@item Belt of Frost Giant Strength|XDMG|mróz} lub {@item Belt of Stone Giant Strength|XDMG|kamień}}",
           "choose": {
             "fromItems": [
               "Pas Siły Lodowego Giganta|XDMG",
@@ -2187,7 +2187,7 @@
         {
           "min": 35,
           "max": 37,
-          "item": "{@item Enspelled Armor|XDMG} (zaklęcie {@item Enspelled Armor (Level 4)|XDMG|poziom 4} lub {@item Enspelled Armor (Level 5)|XDMG|5})",
+          "item": "{@item Enspelled Armor|XDMG} (zaklęcie {@item Enspelled Armor (Level 4)|XDMG|poziom 4} lub {@item Enspelled Armor (Level 5)|XDMG|5}}",
           "choose": {
             "fromGeneric": [
               "Zaklęta zbroja (poziom 4)|XDMG"
@@ -2197,7 +2197,7 @@
         {
           "min": 38,
           "max": 40,
-          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Level 4)|XDMG|poziom 4} lub {@item Enspelled Weapon (Level 5)|XDMG|5})",
+          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Level 4)|XDMG|poziom 4} lub {@item Enspelled Weapon (Level 5)|XDMG|5}}",
           "choose": {
             "fromGeneric": [
               "Zaklęta broń (poziom 4)|XDMG"
@@ -2230,7 +2230,7 @@
         {
           "min": 50,
           "max": 52,
-          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Strength|XDMG|wytrzymałość})",
+          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Strength|XDMG|wytrzymałość}}",
           "choose": {
             "fromItems": [
               "Ioun Stone, siła|XDMG"
@@ -2414,10 +2414,10 @@
         {
           "min": 19,
           "max": 23,
-          "item": "{@item Enspelled Armor|XDMG} (zaklęcie {@item Enspelled Armor (Cantrip)|XDMG|sztuczka} lub {@item Enspelled Armor (Level 1)|XDMG|poziom 1})",
+          "item": "{@item Enspelled Armor|XDMG} (zaklęcie {@item Enspelled Armor (Cantrip)|XDMG|sztuczka} lub {@item Enspelled Armor (Level 1)|XDMG|poziom 1}}",
           "choose": {
             "fromGeneric": [
-              "Zaklęta Zbroja (Cantrip)|XDMG",
+              "Zaklęta Zbroja (Sztuczka)|XDMG",
               "Zaklęta zbroja (poziom 1)|XDMG"
             ]
           }
@@ -2425,10 +2425,10 @@
         {
           "min": 24,
           "max": 28,
-          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Cantrip)|XDMG|sztuczka} lub {@item Enspelled Weapon (Level 1)|XDMG|poziom 1})",
+          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Cantrip)|XDMG|sztuczka} lub {@item Enspelled Weapon (Level 1)|XDMG|poziom 1}}",
           "choose": {
             "fromGeneric": [
-              "Zaklęta broń (Cantrip)|XDMG",
+              "Zaklęta broń (Sztuczka)|XDMG",
               "Zaklęta broń (poziom 1)|XDMG"
             ]
           }
@@ -2644,7 +2644,7 @@
         {
           "min": 15,
           "max": 16,
-          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Level 4)|XDMG|poziom 4} lub {@item Enspelled Staff (Level 5)|XDMG|5})",
+          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Level 4)|XDMG|poziom 4} lub {@item Enspelled Staff (Level 5)|XDMG|5}}",
           "choose": {
             "fromItems": [
               "Zaczarowany Kostur (Poziom 4)|XDMG",
@@ -2675,7 +2675,7 @@
         {
           "min": 25,
           "max": 26,
-          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Absorption|XDMG|wchłanianie}, {@item Ioun Stone, Fortitude|XDMG|hart}, {@item Ioun Stone, Intellect|XDMG|intelekt} lub {@item Ioun Stone, Leadership|XDMG|przywództwo})",
+          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Absorption|XDMG|wchłanianie}, {@item Ioun Stone, Fortitude|XDMG|hart}, {@item Ioun Stone, Intellect|XDMG|intelekt} lub {@item Ioun Stone, Leadership|XDMG|przywództwo}}",
           "choose": {
             "fromItems": [
               "Ioun Stone, Absorpcja|XDMG",
@@ -2688,7 +2688,7 @@
         {
           "min": 27,
           "max": 28,
-          "item": "{@item Manual of Golems|XDMG} ({@item Manual of Clay Golems|XDMG|glina}, {@item Manual of Flesh Golems|XDMG|ciało}, {@item Manual of Iron Golems|XDMG|żelazo} lub {@item Manual of Stone Golems|XDMG|kamień})",
+          "item": "{@item Manual of Golems|XDMG} ({@item Manual of Clay Golems|XDMG|glina}, {@item Manual of Flesh Golems|XDMG|ciało}, {@item Manual of Iron Golems|XDMG|żelazo} lub {@item Manual of Stone Golems|XDMG|kamień}}",
           "choose": {
             "fromItems": [
               "Podręcznik glinianych golemów|XDMG",
@@ -2786,7 +2786,7 @@
         {
           "min": 74,
           "max": 85,
-          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 6)|XDMG|poziom 6}, {@item Spell Scroll (Level 7)|XDMG|poziom 7} lub {@item Spell Scroll (Level 8)|XDMG|poziom 8})",
+          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 6)|XDMG|poziom 6}, {@item Spell Scroll (Level 7)|XDMG|poziom 7} lub {@item Spell Scroll (Level 8)|XDMG|poziom 8}}",
           "choose": {
             "fromItems": [
               "Zwój zaklęć (poziom 6)|XDMG",
@@ -3007,7 +3007,7 @@
       "name": "Narzędzia - wspólne",
       "source": "XDMG",
       "page": 326,
-      "type": "implementuje.common",
+      "type": "implementuje.wspólny",
       "table": [
         {
           "min": 1,
@@ -3158,7 +3158,7 @@
           "max": 82,
           "choose": {
             "fromGeneric": [
-              "Sylvan Talon|XDMG"
+              "Leśny Szpon|XDMG"
             ]
           }
         },
@@ -3226,7 +3226,7 @@
         {
           "min": 18,
           "max": 34,
-          "item": "{@item Instrument of the Bards|XDMG} ({@item Instrument of the Bards, Ollamh Harp|XDMG|Harfa Ollamha})",
+          "item": "{@item Instrument of the Bards|XDMG} ({@item Instrument of the Bards, Ollamh Harp|XDMG|Harfa Ollamha}}",
           "choose": {
             "fromItems": [
               "Instrument bardów, Ollamh Harp|XDMG"
@@ -3307,7 +3307,7 @@
         {
           "min": 29,
           "max": 32,
-          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Level 2)|XDMG|poziom 2} lub {@item Enspelled Weapon (Level 3)|XDMG|3})",
+          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Level 2)|XDMG|poziom 2} lub {@item Enspelled Weapon (Level 3)|XDMG|3}}",
           "choose": {
             "fromGeneric": [
               "Zaklęta broń (poziom 2)|XDMG"
@@ -3337,7 +3337,7 @@
         {
           "min": 49,
           "max": 52,
-          "item": "{@item Instrument of the Bards|XDMG} ({@item Instrument of the Bards, Canaith Mandolin|XDMG|Mandolina Canaitha} lub {@item Instrument of the Bards, Cli Lyre|XDMG|Cli lira})",
+          "item": "{@item Instrument of the Bards|XDMG} ({@item Instrument of the Bards, Canaith Mandolin|XDMG|Mandolina Canaitha} lub {@item Instrument of the Bards, Cli Lyre|XDMG|Cli lira}}",
           "choose": {
             "fromItems": [
               "Instrument bardów, mandolina Canaith|XDMG",
@@ -3348,7 +3348,7 @@
         {
           "min": 53,
           "max": 56,
-          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Awareness|XDMG|świadomość})",
+          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Awareness|XDMG|świadomość}}",
           "choose": {
             "fromItems": [
               "Ioun Stone, Świadomość|XDMG"
@@ -3378,7 +3378,7 @@
         {
           "min": 77,
           "max": 80,
-          "item": "{@item Quaal's Feather Token|XDMG} ({@item Quaal's Feather Token, Bird|XDMG|ptak}, {@item Quaal's Feather Token, Swan Boat|XDMG|łódź łabędzi} lub {@item Quaal's Feather Token, Whip|XDMG|bicz})",
+          "item": "{@item Quaal's Feather Token|XDMG} ({@item Quaal's Feather Token, Bird|XDMG|ptak}, {@item Quaal's Feather Token, Swan Boat|XDMG|łódź łabędzi} lub {@item Quaal's Feather Token, Whip|XDMG|bicz}}",
           "choose": {
             "fromItems": [
               "Żeton Pióra Quaala, Ptak|XDMG",
@@ -3511,10 +3511,10 @@
         {
           "min": 37,
           "max": 38,
-          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Cantrip)|XDMG|sztuczka} lub {@item Enspelled Weapon (Level 1)|XDMG|poziom 1})",
+          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Cantrip)|XDMG|sztuczka} lub {@item Enspelled Weapon (Level 1)|XDMG|poziom 1}}",
           "choose": {
             "fromGeneric": [
-              "Zaklęta broń (Cantrip)|XDMG",
+              "Zaklęta broń (Sztuczka)|XDMG",
               "Zaklęta broń (poziom 1)|XDMG"
             ]
           }
@@ -3567,7 +3567,7 @@
         {
           "min": 56,
           "max": 57,
-          "item": "{@item Instrument of the Bards|XDMG} ({@item Instrument of the Bards, Doss Lute|XDMG|Doss lutnia}, {@item Instrument of the Bards, Fochlucan Bandore|XDMG|Bandore Fochlucana} lub {@item Instrument of the Bards, Mac-Fuirmidh Cittern|XDMG|Cytryna Mac-Fuirmidh})",
+          "item": "{@item Instrument of the Bards|XDMG} ({@item Instrument of the Bards, Doss Lute|XDMG|Doss lutnia}, {@item Instrument of the Bards, Fochlucan Bandore|XDMG|Bandore Fochlucana} lub {@item Instrument of the Bards, Mac-Fuirmidh Cittern|XDMG|Cytryna Mac-Fuirmidh}}",
           "choose": {
             "fromItems": [
               "Instrument bardów, Doss Lute|XDMG",
@@ -3619,7 +3619,7 @@
         {
           "min": 85,
           "max": 86,
-          "item": "{@item Quaal's Feather Token|XDMG} ({@item Quaal's Feather Token, Anchor|XDMG|kotwica}, {@item Quaal's Feather Token, Fan|XDMG|wentylator} lub {@item Quaal's Feather Token, Tree|XDMG|drzewo})",
+          "item": "{@item Quaal's Feather Token|XDMG} ({@item Quaal's Feather Token, Anchor|XDMG|kotwica}, {@item Quaal's Feather Token, Fan|XDMG|wentylator} lub {@item Quaal's Feather Token, Tree|XDMG|drzewo}}",
           "choose": {
             "fromItems": [
               "Żeton Pióra Quaala, Kotwica|XDMG",
@@ -3687,7 +3687,7 @@
         {
           "min": 9,
           "max": 12,
-          "item": "Kilka haftowanych poduszek przedstawiających wyrmling smoki"
+          "item": "Kilka haftowanych poduszek przedstawiających młode smoki"
         },
         {
           "min": 13,
@@ -3888,7 +3888,7 @@
         {
           "min": 22,
           "max": 28,
-          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Level 4)|XDMG|poziom 4} lub {@item Enspelled Weapon (Level 5)|XDMG|5})",
+          "item": "{@item Enspelled Weapon|XDMG} (zaklęcie {@item Enspelled Weapon (Level 4)|XDMG|poziom 4} lub {@item Enspelled Weapon (Level 5)|XDMG|5}}",
           "choose": {
             "fromGeneric": [
               "Zaklęta broń (poziom 4)|XDMG"
@@ -3908,7 +3908,7 @@
         {
           "min": 43,
           "max": 49,
-          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Agility|XDMG|zwinność})",
+          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Agility|XDMG|zwinność}}",
           "choose": {
             "fromItems": [
               "Ioun Stone, Zwinność|XDMG"
@@ -4834,10 +4834,10 @@
         {
           "min": 61,
           "max": 80,
-          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Cantrip)|XDMG|sztuczka} lub {@item Spell Scroll (Level 1)|XDMG|poziom 1})",
+          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Cantrip)|XDMG|sztuczka} lub {@item Spell Scroll (Level 1)|XDMG|poziom 1}}",
           "choose": {
             "fromItems": [
-              "Zwój zaklęć (Cantrip)|XDMG",
+              "Zwój zaklęć (Sztuczka)|XDMG",
               "Zwój zaklęć (poziom 1)|XDMG"
             ]
           }
@@ -4949,10 +4949,10 @@
         {
           "min": 1,
           "max": 5,
-          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Cantrip)|XDMG|sztuczka} lub {@item Enspelled Staff (Level 1)|XDMG|poziom 1})",
+          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Cantrip)|XDMG|sztuczka} lub {@item Enspelled Staff (Level 1)|XDMG|poziom 1}}",
           "choose": {
             "fromItems": [
-              "Zaczarowany Kostur (Cantrip)|XDMG",
+              "Zaczarowany Kostur (Sztuczka)|XDMG",
               "Zaczarowany Kostur (Poziom 1)|XDMG"
             ]
           }
@@ -5019,7 +5019,7 @@
         {
           "min": 71,
           "max": 80,
-          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 2)|XDMG|poziom 2} lub {@item Spell Scroll (Level 3)|XDMG|poziom 3})",
+          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 2)|XDMG|poziom 2} lub {@item Spell Scroll (Level 3)|XDMG|poziom 3}}",
           "choose": {
             "fromItems": [
               "Zwój zaklęć (poziom 2)|XDMG",
@@ -5053,7 +5053,7 @@
   },
   "dragon-wyrmling-ftd": {
     "data": {
-      "name": "Wyrmling",
+      "name": "Młody smok",
       "source": "FTD",
       "page": 72,
       "coins": {
@@ -5152,7 +5152,7 @@
         }
       ]
     },
-    "name": "Wyrmling",
+    "name": "Młody smok",
     "collection": "smok"
   },
   "dragon-young-ftd": {
@@ -5918,7 +5918,7 @@
         {
           "min": 17,
           "max": 19,
-          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Level 2)|XDMG|poziom 2} lub {@item Enspelled Staff (Level 3)|XDMG|3})",
+          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Level 2)|XDMG|poziom 2} lub {@item Enspelled Staff (Level 3)|XDMG|3}}",
           "choose": {
             "fromItems": [
               "Zaczarowany Kostur (Poziom 2)|XDMG",
@@ -5934,7 +5934,7 @@
         {
           "min": 23,
           "max": 25,
-          "item": "{@item Horn of Valhalla|XDMG} ({@item Horn of Valhalla, Brass|XDMG|mosiądz} lub {@item Horn of Valhalla, Silver|XDMG|srebrny})",
+          "item": "{@item Horn of Valhalla|XDMG} ({@item Horn of Valhalla, Brass|XDMG|mosiądz} lub {@item Horn of Valhalla, Silver|XDMG|srebrny}}",
           "choose": {
             "fromItems": [
               "Róg Walhalli, mosiądz|XDMG",
@@ -5945,7 +5945,7 @@
         {
           "min": 26,
           "max": 28,
-          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Reserve|XDMG|zarezerwować} lub {@item Ioun Stone, Sustenance|XDMG|utrzymanie})",
+          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Reserve|XDMG|zarezerwować} lub {@item Ioun Stone, Sustenance|XDMG|utrzymanie}}",
           "choose": {
             "fromItems": [
               "Ioun Stone, rezerwat|XDMG",
@@ -6006,7 +6006,7 @@
         {
           "min": 66,
           "max": 73,
-          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 4)|XDMG|poziom 4} lub {@item Spell Scroll (Level 5)|XDMG|poziom 5})",
+          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 4)|XDMG|poziom 4} lub {@item Spell Scroll (Level 5)|XDMG|poziom 5}}",
           "choose": {
             "fromItems": [
               "Zwój zaklęć (poziom 4)|XDMG",
@@ -6093,7 +6093,7 @@
         {
           "min": 16,
           "max": 20,
-          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Level 4)|XDMG|poziom 4} lub {@item Enspelled Staff (Level 5)|XDMG|5})",
+          "item": "{@item Enspelled Staff|XDMG} (zaklęcie {@item Enspelled Staff (Level 4)|XDMG|poziom 4} lub {@item Enspelled Staff (Level 5)|XDMG|5}}",
           "choose": {
             "fromItems": [
               "Zaczarowany Kostur (Poziom 4)|XDMG",
@@ -6109,7 +6109,7 @@
         {
           "min": 26,
           "max": 30,
-          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Insight|XDMG|wgląd})",
+          "item": "{@item Ioun Stone|XDMG} ({@item Ioun Stone, Insight|XDMG|wgląd}}",
           "choose": {
             "fromItems": [
               "Ioun Stone, Insight|XDMG"
@@ -6139,7 +6139,7 @@
         {
           "min": 56,
           "max": 65,
-          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 6)|XDMG|poziom 6}, {@item Spell Scroll (Level 7)|XDMG|poziom 7} lub {@item Spell Scroll (Level 8)|XDMG|poziom 8})",
+          "item": "{@item Spell Scroll|XDMG} (zaklęcie {@item Spell Scroll (Level 6)|XDMG|poziom 6}, {@item Spell Scroll (Level 7)|XDMG|poziom 7} lub {@item Spell Scroll (Level 8)|XDMG|poziom 8}}",
           "choose": {
             "fromItems": [
               "Zwój zaklęć (poziom 6)|XDMG",
@@ -6930,16 +6930,16 @@
           "item": "Szynaowa Zbroja Oporu",
           "choose": {
             "fromItems": [
-              "Splint Armor of Acid Resistance",
+              "Kolczuga płytowa odporności na kwas",
               "Zbroja Splintowa Odporności na Zimno",
-              "Splint Armor of Fire Resistance",
-              "Splint Armor of Force Resistance",
+              "Kolczuga płytowa odporności na ogień",
+              "Kolczuga płytowa odporności na moc",
               "Zbroja Splintowa Odporności na Błyskawice",
               "Zbroja Splintowa Nekrotycznego Oporu",
               "Łzawa zbroja odporności na truciznę",
-              "Splint Armor of Psychic Resistance",
-              "Splint Armor of Radiant Resistance",
-              "Splint Armor of Thunder Resistance"
+              "Kolczuga płytowa odporności psychicznej",
+              "Kolczuga płytowa odporności na promieniowanie",
+              "Kolczuga płytowa odporności na grom"
             ]
           }
         },

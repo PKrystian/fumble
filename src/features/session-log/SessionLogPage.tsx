@@ -13,7 +13,7 @@ import {
 } from './store';
 
 export function SessionLogPage() {
-  const { t } = useT();
+  const { locale, t } = useT();
   useSeo(t('nav.sessionLog'));
   const sessions = useSessionStore((s) => s.sessions);
   const addSession = useSessionStore((s) => s.addSession);
@@ -62,18 +62,27 @@ export function SessionLogPage() {
   };
 
   const createSession = () => {
-    setSelectedId(addSession());
+    const date = new Date().toLocaleDateString(locale === 'pl' ? 'pl-PL' : 'en-US');
+    setSelectedId(addSession(t('sessionLog.newSessionTitle', { date })));
     setMobileSessionsOpen(false);
   };
 
   const copyTranscript = async () => {
-    await navigator.clipboard.writeText(formatTranscriptForExport(session!));
+    await navigator.clipboard.writeText(
+      formatTranscriptForExport(session!, t('sessionLog.notesLabel')),
+    );
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
 
   const copyWithPrompt = async () => {
-    await navigator.clipboard.writeText(formatPromptWithTranscript(session!));
+    await navigator.clipboard.writeText(
+      formatPromptWithTranscript(
+        session!,
+        t('sessionLog.summaryPrompt'),
+        t('sessionLog.notesLabel'),
+      ),
+    );
     setPromptCopied(true);
     setTimeout(() => setPromptCopied(false), 1500);
   };

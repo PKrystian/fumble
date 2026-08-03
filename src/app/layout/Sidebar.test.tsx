@@ -50,12 +50,17 @@ describe('Sidebar', () => {
   it('stays labeled when collapse is disabled and reports navigation', () => {
     const onNavigate = vi.fn();
     useSidebarStore.setState({ collapsed: true });
-    renderSidebar(<Sidebar collapsible={false} onNavigate={onNavigate} />, '/dice');
+    renderSidebar(<Sidebar collapsible={false} onNavigate={onNavigate} />, '/dice/');
     expect(screen.getByText('Full language')).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /sidebar/i })).toBeNull();
     fireEvent.click(screen.getByRole('link', { name: 'Return to home page' }));
     expect(onNavigate).toHaveBeenCalledTimes(1);
     fireEvent.click(screen.getByRole('link', { name: 'Home' }));
     expect(onNavigate).toHaveBeenCalledTimes(2);
+  });
+
+  it('renders inactive navigation states', () => {
+    renderSidebar(<Sidebar />, '/not-a-route');
+    expect(screen.queryByRole('link', { current: 'page' })).toBeNull();
   });
 });

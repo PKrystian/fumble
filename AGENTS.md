@@ -36,6 +36,11 @@ npx playwright test --project=chromium   # when UI behaviour changed
 `npm run format` fixes formatting. Lint must be 0 errors (4 react-refresh warnings in
 `src/i18n/path.tsx` are pre-existing and expected).
 
+Coverage policy: run `npm run test:coverage:all` for coverage-sensitive changes. Every new
+feature and behavior branch must include tests for its success, empty, and error paths as
+applicable. Keep the combined global coverage at 100% for statements, branches, functions,
+and lines; the 95% value in the CI script is only the minimum enforcement threshold.
+
 ## Release hygiene
 
 Every pull request or completed change intended to ship to GitHub must include a new

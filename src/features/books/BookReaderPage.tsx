@@ -168,7 +168,10 @@ export function BookReaderPage() {
       if (
         fullBook &&
         scrollToHeading(
-          chapterTitle(chapters[chapterIndex]!, `Chapter ${chapterIndex + 1}`),
+          chapterTitle(
+            chapters[chapterIndex]!,
+            t('books.chapterFallback', { n: chapterIndex + 1 }),
+          ),
         )
       ) {
         return;
@@ -176,11 +179,23 @@ export function BookReaderPage() {
       document.getElementById('book-content')?.scrollTo({ top: 0 });
     }, 60);
     return () => clearTimeout(timer);
-  }, [chapters, chapterIndex, targetPage, targetName, fullBook]);
+  }, [chapters, chapterIndex, targetPage, targetName, fullBook, t]);
 
   const chapterOutlines = useMemo(
     () => (chapters ?? []).map((c) => buildOutline((c as EntryNode).entries)),
     [chapters],
+  );
+  const fallbackChapters = useMemo(
+    () =>
+      (book?.contents ?? []).map(
+        (_, index) =>
+          ({
+            type: 'section',
+            name: t('books.chapterFallback', { n: index + 1 }),
+            entries: [],
+          }) as Entry,
+      ),
+    [book, t],
   );
 
   const [expandedChapters, setExpandedChapters] = useState<Set<number>>(
@@ -207,7 +222,7 @@ export function BookReaderPage() {
   useSeo(
     book
       ? active
-        ? `${localizedBookName(book, locale)} - ${chapterTitle(active, `Chapter ${chapterIndex + 1}`)}`
+        ? `${localizedBookName(book, locale)} - ${chapterTitle(active, t('books.chapterFallback', { n: chapterIndex + 1 }))}`
         : localizedBookName(book, locale)
       : '',
   );
@@ -233,12 +248,12 @@ export function BookReaderPage() {
           className="min-h-0 flex-1 overflow-y-auto p-2"
           aria-label={t('books.chaptersNav')}
         >
-          {(chapters ?? book.contents).map((entry, index) => {
-            const title =
-              chapters != null
-                ? chapterTitle(entry as Entry, `Chapter ${index + 1}`)
-                : (entry as { name: string }).name;
-            const outline = chapterOutlines[index] ?? [];
+          {(chapters ?? fallbackChapters).map((entry, index) => {
+            const title = chapterTitle(
+              entry as Entry,
+              t('books.chapterFallback', { n: index + 1 }),
+            );
+            const outline = chapters != null ? (chapterOutlines[index] ?? []) : [];
             const isExpanded = expandedChapters.has(index);
             return (
               <div key={index}>
@@ -369,7 +384,11 @@ export function BookReaderPage() {
                   to={`/books/${book.id}/${chapterIndex - 1}`}
                   className="text-arcane-300 hover:text-arcane-500"
                 >
-                  ← {chapterTitle(chapters[chapterIndex - 1]!, `Chapter ${chapterIndex}`)}
+                  ←{' '}
+                  {chapterTitle(
+                    chapters[chapterIndex - 1]!,
+                    t('books.chapterFallback', { n: chapterIndex }),
+                  )}
                 </Link>
               ) : (
                 <span />
@@ -381,7 +400,7 @@ export function BookReaderPage() {
                 >
                   {chapterTitle(
                     chapters[chapterIndex + 1]!,
-                    `Chapter ${chapterIndex + 2}`,
+                    t('books.chapterFallback', { n: chapterIndex + 2 }),
                   )}{' '}
                   →
                 </Link>

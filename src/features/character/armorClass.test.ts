@@ -151,6 +151,10 @@ describe('armour class', () => {
     expect(parseArmorType('Light Armor')).toBe('light');
     expect(parseArmorType('Medium Armor')).toBe('medium');
     expect(parseArmorType('Shield')).toBe('shield');
+    expect(parseArmorType('Lekka Zbroja')).toBe('light');
+    expect(parseArmorType('Średni pancerz')).toBe('medium');
+    expect(parseArmorType('Ciężka zbroja')).toBe('heavy');
+    expect(parseArmorType('Tarcza')).toBe('shield');
     expect(parseArmorType('Melee Weapon')).toBeUndefined();
   });
 });

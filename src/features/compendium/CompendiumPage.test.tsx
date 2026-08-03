@@ -22,6 +22,11 @@ const mocks = vi.hoisted(() => ({
         label: 'Size',
         valuesFor: (item: { size?: string }) => (item.size ? [item.size] : []),
       },
+      {
+        id: 'source',
+        label: 'Source',
+        valuesFor: (item: { source?: string }) => (item.source ? [item.source] : []),
+      },
     ],
   },
 }));
@@ -53,6 +58,9 @@ vi.mock('./FilterBar', () => ({
       <button type="button" onClick={() => onToggle('size', 'Large')}>
         Toggle Large
       </button>
+      <button type="button" onClick={() => onToggle('missing', 'Value')}>
+        Toggle missing
+      </button>
       <button type="button" onClick={onClear}>
         Clear filters
       </button>
@@ -61,6 +69,9 @@ vi.mock('./FilterBar', () => ({
       </button>
       <button type="button" onClick={() => onSortField('source')}>
         Sort source
+      </button>
+      <button type="button" onClick={() => onSortField('name')}>
+        Sort name
       </button>
       <button type="button" onClick={onToggleSortDir}>
         Sort direction
@@ -143,6 +154,7 @@ describe('CompendiumPage', () => {
     mocks.result = { status: 'ready', items: [] };
     renderPage('/compendium/species');
     expect(screen.getByText('No matches.')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Random' }));
   });
 
   it('searches, filters, sorts and selects a random item', () => {
@@ -156,15 +168,20 @@ describe('CompendiumPage', () => {
     renderPage('/compendium/species');
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'missing' } });
     expect(screen.getByText('No matches.')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Clear search' }));
     fireEvent.click(screen.getByRole('button', { name: 'Random' }));
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'dragon' } });
-    expect(screen.getByRole('link', { name: /Dragon/ })).toBeInTheDocument();
+    const dragon = screen.getByRole('link', { name: /Dragon/ });
+    expect(dragon).toBeInTheDocument();
+    fireEvent.click(dragon);
 
     fireEvent.click(screen.getByRole('button', { name: 'Toggle Large' }));
     fireEvent.click(screen.getByRole('button', { name: 'Toggle Large' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Toggle missing' }));
     fireEvent.click(screen.getByRole('button', { name: 'Clear filters' }));
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: '' } });
     fireEvent.click(screen.getByRole('button', { name: 'Sort source' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Sort name' }));
     fireEvent.click(screen.getByRole('button', { name: 'Sort direction' }));
     fireEvent.click(screen.getByRole('button', { name: 'Sort direction' }));
     fireEvent.click(screen.getByRole('button', { name: 'Random' }));
@@ -183,6 +200,17 @@ describe('CompendiumPage', () => {
     expect(screen.getByRole('searchbox')).toHaveValue('dragon');
     expect(screen.getByRole('link', { name: /Dragon/ })).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /Wyvern/ })).not.toBeInTheDocument();
+  });
+
+  it('evaluates valid and invalid sort parameters', () => {
+    const validName = renderPage('/compendium/species?sort=name');
+    validName.unmount();
+    const validFilter = renderPage('/compendium/species?sort=size');
+    validFilter.unmount();
+    const validSource = renderPage('/compendium/species?sort=source');
+    validSource.unmount();
+    renderPage('/compendium/species?sort=invalid');
+    expect(screen.getByRole('heading', { name: 'Compendium' })).toBeInTheDocument();
   });
 
   it('renders rich selected entry media, lore, gallery and source links', () => {

@@ -53,6 +53,7 @@ const mocks = vi.hoisted(() => ({
 vi.mock('./data', () => ({
   books: mocks.books,
   adventures: mocks.adventures,
+  localizedBookStoryline: (storyline: string | undefined) => storyline,
 }));
 
 vi.mock('@/features/ui/contentModeStore', () => ({
@@ -124,6 +125,8 @@ describe('BooksPage', () => {
     expect(screen.queryByText('PL New Core')).not.toBeInTheDocument();
     fireEvent.change(search, { target: { value: 'missing' } });
     expect(screen.getByText('books.noMatches')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'common.clearSearch' }));
+    expect(search).toHaveValue('');
   });
 
   it('restores search and filters from the URL', () => {

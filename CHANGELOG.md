@@ -4,6 +4,31 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.7 - 2026-08-03
+
+- Expanded automated tests to cover all application statements, branches, functions, and lines.
+- Documented the complete coverage expectation for new features while retaining the 95 percent CI minimum.
+
+## 1.2.6 - 2026-08-03
+
+- Raised combined unit and end-to-end coverage thresholds to 99 percent.
+- Added tests for previously uncovered application branches and data flows.
+
+## 1.2.5 - 2026-08-03
+
+- Fixed additional English fragments in Polish adventure and book data.
+- Localized labels generated while importing 5etools homebrew content in Polish mode.
+
+## 1.2.4 - 2026-08-03
+
+- Completed Polish localization for interface text, compendium data, and additional materials.
+
+## 1.2.3 - 2026-08-03
+
+- Completed Polish localization for generated source, creature, book, and storyline data.
+- Localized remaining interface fallbacks, session log prompts, wiki placeholders, and built-in soundboard names.
+- Fixed loot generation and armor class detection for localized Polish data.
+
 ## 1.2.2 - 2026-08-02
 
 - Added a complete Polish translation overlay for Tomb of Annihilation.

@@ -92,4 +92,43 @@ describe('5etools homebrew import', () => {
       subclass: { name: 'Archivist' },
     });
   });
+
+  it('localizes generated fields for Polish imports', () => {
+    const result = parse5etoolsHomebrew(
+      {
+        item: [
+          {
+            name: 'Heavy Test Armor',
+            source: 'HB',
+            type: 'HA',
+            rarity: 'rare',
+            entries: [],
+          },
+        ],
+        monster: [
+          {
+            name: 'Test Dragon',
+            source: 'HB',
+            type: 'dragon',
+            alignment: ['C', 'E'],
+            languages: ['Common'],
+            vulnerable: ['fire'],
+            entries: [],
+          },
+        ],
+      },
+      'pl',
+    );
+
+    expect(result.entries).toMatchObject([
+      { data: { type: 'Ciężki pancerz', rarity: 'Rzadki' } },
+      {
+        data: {
+          alignment: 'Chaotyczny Zły',
+          languages: 'Wspólny',
+          vulnerabilities: 'od ognia',
+        },
+      },
+    ]);
+  });
 });

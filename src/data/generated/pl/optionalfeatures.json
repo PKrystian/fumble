@@ -141,7 +141,7 @@
   "banishing-arrow": {
     "name": "Wygnańcza Strzała",
     "entries": [
-      "Używasz magii abjuracji, by spróbować tymczasowo wygnać swój cel do nieszkodliwego miejsca na Krainie Fey. Stwór trafiony strzałą musi także zdać rzut obronny Charyzmy lub zostać wygnany. Podczas wygnania w ten sposób prędkość celu wynosi 0, a cel jest {@condition incapacitated}. Pod koniec swojej następnej tury cel pojawia się ponownie w opuszczonej przestrzeni lub w najbliższej wolnej przestrzeni, jeśli tamta jest zajęta.",
+      "Używasz magii abjuracji, by spróbować tymczasowo wygnać swój cel do nieszkodliwego miejsca na Krainie Wróżek. Stwór trafiony strzałą musi także zdać rzut obronny Charyzmy lub zostać wygnany. Podczas wygnania w ten sposób prędkość celu wynosi 0, a cel jest {@condition incapacitated}. Pod koniec swojej następnej tury cel pojawia się ponownie w opuszczonej przestrzeni lub w najbliższej wolnej przestrzeni, jeśli tamta jest zajęta.",
       "Po osiągnięciu 18. poziomu w tej klasie cel otrzymuje także {@damage 2d6} obrażeń siłą, gdy strzała go trafi."
     ],
     "featureType": "JAK",
@@ -431,7 +431,7 @@
   "druidic-warrior": {
     "name": "Druidzki Wojownik",
     "entries": [
-      "Uczysz się dwóch zaklęć prostych do wyboru z {@filter listy zaklęć druida|spells|level=0|class=druid}. Liczą się dla ciebie jako zaklęcia rangera, a twoją zdolnością czarodziejską dla nich jest Mądrość. Za każdym razem, gdy zdobywasz poziom w tej klasie, możesz zamienić jedno z tych zaklęć prostych na inne z listy zaklęć druida."
+      "Uczysz się dwóch zaklęć prostych do wyboru z {@filter listy zaklęć druida|spells|level=0|class=druid}. Liczą się dla ciebie jako zaklęcia łowcy, a twoją zdolnością czarodziejską dla nich jest Mądrość. Za każdym razem, gdy zdobywasz poziom w tej klasie, możesz zamienić jedno z tych zaklęć prostych na inne z listy zaklęć druida."
     ],
     "featureType": "FS:R",
     "prerequisite": ""
@@ -1047,7 +1047,7 @@
   "maddening-hex": {
     "name": "Szalejąca Klątwa",
     "entries": [
-      "Jako akcję dodatkową wywołujesz psychiczne zaburzenie wokół celu przeklętego twoim zaklęciem {@spell hex} lub cechą czarownika, taką jak Klątwa Ostrza Hexblade'a lub Znak Złej Wróżby. Gdy to robisz, zadajesz obrażenia psychiczne przeklętemu celowi oraz każdemu wybranemu przez ciebie widocznemu stworowi w promieniu 5 stóp od niego. Obrażenia psychiczne są równe twojemu modyfikatorowi Charyzmy (minimum 1 obrażenie). Aby użyć tej inwokacji, musisz widzieć przeklęty cel, a on musi znajdować się w promieniu 30 stóp od ciebie."
+      "Jako akcję dodatkową wywołujesz psychiczne zaburzenie wokół celu przeklętego twoim zaklęciem {@spell hex} lub cechą czarownika, taką jak Klątwa Ostrza Sześcioostrza lub Znak Złej Wróżby. Gdy to robisz, zadajesz obrażenia psychiczne przeklętemu celowi oraz każdemu wybranemu przez ciebie widocznemu stworowi w promieniu 5 stóp od niego. Obrażenia psychiczne są równe twojemu modyfikatorowi Charyzmy (minimum 1 obrażenie). Aby użyć tej inwokacji, musisz widzieć przeklęty cel, a on musi znajdować się w promieniu 30 stóp od ciebie."
     ],
     "featureType": "Niesamowita Inwokacja",
     "prerequisite": "klątwa/klątwa#x"
@@ -1431,7 +1431,7 @@
   "relentless-hex": {
     "name": "Nieustępliwa Klątwa",
     "entries": [
-      "Twoja klątwa tworzy tymczasową więź między tobą a twoim celem. Jako akcję dodatkową możesz magicznie teleportować się na odległość do 30 stóp do wolnej, widocznej przez ciebie przestrzeni w promieniu 5 stóp od celu przeklętego twoim zaklęciem {@spell hex} lub cechą czarownika, taką jak Klątwa Ostrza Hexblade'a lub Znak Złej Wróżby. By teleportować się w ten sposób, musisz widzieć przeklęty cel."
+      "Twoja klątwa tworzy tymczasową więź między tobą a twoim celem. Jako akcję dodatkową możesz magicznie teleportować się na odległość do 30 stóp do wolnej, widocznej przez ciebie przestrzeni w promieniu 5 stóp od celu przeklętego twoim zaklęciem {@spell hex} lub cechą czarownika, taką jak Klątwa Ostrza Sześcioostrza lub Znak Złej Wróżby. By teleportować się w ten sposób, musisz widzieć przeklęty cel."
     ],
     "featureType": "Niesamowita Inwokacja",
     "prerequisite": "klątwa/klątwa#x"
@@ -1476,7 +1476,7 @@
   "replicate-magic-item": {
     "name": "Replikacja Magicznego Przedmiotu",
     "entries": [
-      "Dzięki tej infuzji replikujesz konkretny magiczny przedmiot. Możesz nauczyć się tej infuzji wielokrotnie; za każdym razem wybierz magiczny przedmiot, który możesz nią stworzyć, spośród poniższych tabel Przedmiotów do Replikacji. Tytuł tabeli mówi, na jakim poziomie w klasie musisz być, by wybrać z niej przedmiot. Alternatywnie możesz wybrać magiczny przedmiot spośród {@filter zwykłych magicznych przedmiotów|items|type=!potion;!scroll|rarity=common} w grze, z wyłączeniem mikstur i zwojów.",
+      "Dzięki tej infuzji replikujesz konkretny magiczny przedmiot. Możesz nauczyć się tej infuzji wielokrotnie; za każdym razem wybierz magiczny przedmiot, który możesz nią stworzyć, spośród poniższych tabel Przedmiotów do Replikacji. Tytuł tabeli mówi, na jakim poziomie w klasie musisz być, by wybrać z niej przedmiot. Alternatywnie możesz wybrać magiczny przedmiot spośród {@filter zwykłych magicznych przedmiotów|items|type=!potion;!scroll|rarity=wspólny} w grze, z wyłączeniem mikstur i zwojów.",
       "W tabelach wpis przedmiotu informuje, czy przedmiot wymaga dostrojenia. Zobacz opis przedmiotu w {@book Dungeon Master's Guide|DMG|Podręczniku Mistrza Podziemi}, by dowiedzieć się więcej, w tym o rodzaju obiektu potrzebnego do jego wykonania.",
       {
         "type": "table",
@@ -1663,7 +1663,7 @@
             "Tak"
           ],
           [
-            "{@item Ventilating lungs|ERLW} (opisane w {@book chapter 5|ERLW|13})",
+            "{@item Ventilating lungs|ERLW} (opisane w {@book chapter 5|ERLW|13}}",
             "Tak"
           ],
           [
@@ -1689,7 +1689,7 @@
             "Tak"
           ],
           [
-            "{@item Arcane propulsion arm|ERLW} (opisane w {@book chapter 5|ERLW|13})",
+            "{@item Arcane propulsion arm|ERLW} (opisane w {@book chapter 5|ERLW|13}}",
             "Tak"
           ],
           [

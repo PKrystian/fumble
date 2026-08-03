@@ -149,6 +149,16 @@ describe('parseMarkup', () => {
     );
     expect(container).toHaveTextContent('Foot Quick Spell variable');
     expect(container.querySelector('.text-ember-400')).not.toBeNull();
+    expect(renderMarkup('{@quickref 123}').container).toHaveTextContent('123');
+  });
+
+  it('localizes quick-reference labels', () => {
+    expect(
+      renderMarkup('{@quickref Cover||3||half cover}', 'pl').container,
+    ).toHaveTextContent('Połowiczna osłona');
+    expect(
+      renderMarkup('{@quickref difficult terrain||trudny teren}', 'pl').container,
+    ).toHaveTextContent('trudny teren');
   });
 
   it('uses translated display text and handles incomplete markup', () => {

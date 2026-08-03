@@ -56,6 +56,7 @@ describe('soundboard store', () => {
     useSoundboardStore.getState().renameCategory(category.id, 'Final battles');
     useSoundboardStore.getState().addTrack('Dragon', 'dragon-id', category.id);
     expect(useSoundboardStore.getState().tracks[0]!.category).toBe(category.id);
+    useSoundboardStore.getState().addTrack('Other', 'other-id', 'custom');
 
     useSoundboardStore.getState().removeCategory(category.id);
     expect(useSoundboardStore.getState().tracks[0]!.category).toBe('custom');
@@ -66,9 +67,11 @@ describe('soundboard store', () => {
 
   it('changes track categories and clears the soundboard', () => {
     useSoundboardStore.getState().addTrack('Rain', 'rain-id', 'ambience');
+    useSoundboardStore.getState().addTrack('Fire', 'fire-id', 'combat');
     const id = useSoundboardStore.getState().tracks[0]!.id;
     useSoundboardStore.getState().setTrackCategory(id, 'travel');
     expect(useSoundboardStore.getState().tracks[0]!.category).toBe('travel');
+    useSoundboardStore.getState().setTrackCategory('missing', 'travel');
 
     useSoundboardStore.getState().resetEmpty();
     expect(useSoundboardStore.getState().tracks).toEqual([]);
@@ -105,6 +108,23 @@ describe('soundboard store', () => {
     expect(tracks.some((track) => track.id.startsWith('bardify-'))).toBe(true);
   });
 
+  it('creates categories for legacy tracks with custom category ids', async () => {
+    localStorage.setItem(
+      'fumble-soundboard',
+      JSON.stringify({
+        state: {
+          tracks: [{ ...custom, id: 'legacy', category: 'new-category' }],
+        },
+        version: 2,
+      }),
+    );
+    await useSoundboardStore.persist.rehydrate();
+    expect(useSoundboardStore.getState().categories).toContainEqual({
+      id: 'new-category',
+      name: 'new-category',
+    });
+  });
+
   it('fills a missing category in current persisted data', async () => {
     localStorage.setItem(
       'fumble-soundboard',
@@ -123,5 +143,15 @@ describe('soundboard store', () => {
     await useSoundboardStore.persist.rehydrate();
     expect(useSoundboardStore.getState().tracks).toEqual([]);
     expect(useSoundboardStore.getState().categories).toEqual(DEFAULT_CATEGORIES);
+  });
+
+  it('keeps persisted categories when the current version provides them', async () => {
+    const categories = [{ id: 'saved', name: 'Saved' }];
+    localStorage.setItem(
+      'fumble-soundboard',
+      JSON.stringify({ state: { tracks: [], categories }, version: 4 }),
+    );
+    await useSoundboardStore.persist.rehydrate();
+    expect(useSoundboardStore.getState().categories).toEqual(categories);
   });
 });

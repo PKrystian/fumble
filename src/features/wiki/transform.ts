@@ -98,7 +98,7 @@ export function processSecrets(body: string): string {
     .replace(/:::secret\b[\s\S]*?:::/g, '')
     .replace(
       /:::locked\b[\s\S]*?:::/g,
-      '\n<div class="wiki-locked">Not yet unlocked</div>\n',
+      '\n<div class="wiki-locked" data-wiki-locked="true">Not yet unlocked</div>\n',
     );
 }
 

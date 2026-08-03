@@ -2,6 +2,31 @@ import { describe, expect, it } from 'vitest';
 import * as format from './format';
 
 describe('data formatters', () => {
+  it('formats generated labels in Polish', () => {
+    expect(format.formatCastingTime([{ number: 1, unit: 'action' }], 'pl')).toBe(
+      '1 akcję',
+    );
+    expect(
+      format.formatRange({ type: 'cone', distance: { type: 'feet', amount: 15 } }, 'pl'),
+    ).toBe('15 stóp (stożek, 15 stóp)');
+    expect(format.formatSize(['S', 'M'], 'pl')).toBe('Mały lub Średni');
+    expect(format.formatSpeed({ walk: 30, fly: 60 }, 'pl')).toBe('30 stóp, lot 60 stóp');
+    expect(format.formatItemType('HA', 'rare', 'pl')).toBe('Ciężki pancerz');
+    expect(format.formatRarity('very rare', 'pl')).toBe('Bardzo rzadki');
+    expect(format.formatWeaponDamage('1d8', 'S', 'pl')).toBe('1d8 sieczne');
+    expect(format.formatMonsterType('dragon', 'pl')).toBe('Smok');
+    expect(format.formatAlignment(['C', 'E'], 'pl')).toBe('Chaotyczny Zły');
+    expect(format.formatMonsterCrDisplay({ cr: '5', xp: 1800 }, 'pl')).toBe(
+      '5 (PD 1800; Premia biegłości +3)',
+    );
+    expect(format.formatDailyLabel('2e', 'pl')).toBe('2/każdy dzień');
+    expect(format.formatDiet('V', 'pl')).toBe('Wegetariańskie');
+    expect(format.formatFacilityType('basic', 'pl')).toBe('Podstawowa');
+    expect(format.formatVehicleCapacity(5, 10, 2, 'pl')).toBe(
+      'Załoga 5, Pasażerowie 10, Ładunek 2 ton',
+    );
+  });
+
   it('formats spell fields', () => {
     expect(format.formatCastingTime(undefined)).toBe('-');
     expect(
@@ -304,5 +329,179 @@ describe('data formatters', () => {
       'Cargo many crates',
     );
     expect(format.formatCostGp(undefined)).toBe('');
+  });
+
+  it('covers Polish and sparse formatter branches', () => {
+    expect(
+      format.formatCastingTime(
+        [
+          { number: 2, unit: 'action', condition: 'when ready' },
+          { number: 1, unit: 'custom', condition: 'at dusk' },
+        ],
+        'pl',
+      ),
+    ).toContain('when ready');
+    expect(format.formatRange({ type: 'mystery' }, 'pl')).toBe('Mystery');
+    expect(
+      format.formatRange({ type: 'point', distance: { type: 'feet', amount: 1 } }, 'pl'),
+    ).toContain('stopa');
+    expect(
+      format.formatRange({ type: 'self', distance: { type: 'custom' } }, 'pl'),
+    ).toContain('custom');
+    expect(
+      format.formatRange({ type: 'point', distance: { type: 'yards', amount: 1 } }, 'pl'),
+    ).toContain('yard');
+    expect(
+      format.formatRange({ type: 'point', distance: { type: 'yards', amount: 2 } }, 'pl'),
+    ).toContain('yards');
+    expect(
+      format.formatRange({ type: 'self', distance: { type: 'self' } }, 'pl'),
+    ).toContain('Siebie');
+    expect(format.formatRange({ type: 'point', distance: { type: 'touch' } }, 'pl')).toBe(
+      'Dotyk',
+    );
+    expect(format.formatRange({ type: 'point', distance: { type: 'sight' } }, 'pl')).toBe(
+      'Widoczność',
+    );
+    expect(
+      format.formatRange({ type: 'point', distance: { type: 'unlimited' } }, 'pl'),
+    ).toBe('Nieograniczony');
+    expect(
+      format.formatDuration(
+        [
+          { type: 'instant' },
+          { type: 'permanent' },
+          { type: 'special' },
+          { type: 'timed' },
+          { type: 'timed', duration: { type: 'hour', amount: 2 } },
+          { type: 'timed', duration: { type: 'minute', amount: 1 }, concentration: true },
+        ],
+        'pl',
+      ),
+    ).toContain('Koncentracja');
+    expect(format.formatSize(['custom'], 'pl')).toBe('custom');
+    expect(format.formatSpeed(30, 'pl')).toContain('30');
+    expect(format.formatSpeed({ walk: 30, unknown: 20 }, 'pl')).toContain('unknown');
+    expect(
+      format.formatProficiencies([{ str: true, choose: { from: ['dex'] } }], 'pl'),
+    ).toContain('wybierz');
+    expect(
+      format.formatAbilityChoices([{ choose: { from: ['custom'] } }], 'pl'),
+    ).toContain('custom');
+    expect(format.formatFeatCategory(undefined, 'pl')).toBeTruthy();
+    expect(format.formatFeatCategory('custom', 'pl')).toBe('custom');
+    expect(format.formatRuleType(undefined, 'pl')).toBeTruthy();
+    expect(format.formatRuleType('custom', 'pl')).toBe('custom');
+    expect(
+      format.formatPrerequisite(
+        [
+          {
+            level: 4,
+            ability: [{ custom: 13 }],
+            pact: 'Blade',
+            patron: 'Fiend',
+            spellcasting2020: true,
+          },
+          { level: [{ level: 2 }] },
+        ],
+        'pl',
+      ),
+    ).toContain('Poziom');
+    expect(format.formatOptionalFeatureType([], 'pl')).toBeTruthy();
+    expect(
+      format.formatOptionalFeatureType(['EI', 'MM', 'MV', 'FS', 'PB', 'AI', 'RN'], 'pl'),
+    ).toContain('Run');
+    expect(format.formatHazardType('MAG', 'Trap', 'pl')).toContain('Pułapka');
+    expect(format.formatAbilityList(['str', 'custom'], 'pl')).toContain('custom');
+    expect(
+      format.formatPrimaryAbility([{ str: true, custom: true }, { dex: true }], 'pl'),
+    ).toContain('i');
+    expect(
+      format.formatStartingProficiencies(
+        {
+          armor: ['light armor'],
+          weapons: ['simple'],
+          tools: ['custom'],
+          skills: [{ dex: true }],
+        },
+        'pl',
+      ),
+    ).toContain('Umiejętności');
+
+    expect(format.formatItemType('GEN', undefined, 'pl')).toBeTruthy();
+    expect(format.formatItemType('CUSTOM', undefined, 'pl')).toBe('CUSTOM');
+    expect(format.formatItemType(undefined, 'rare', 'pl')).toBeTruthy();
+    expect(format.formatItemType(undefined, 'none', 'pl')).toBeTruthy();
+    expect(format.formatRarity('varies', 'pl')).toBeTruthy();
+    expect(format.formatWeight(1, 'pl')).toContain('1');
+    expect(format.formatWeight(2, 'pl')).toContain('2');
+    expect(format.formatValue(100, 'pl')).toBe('1 sz');
+    expect(format.formatValue(101, 'pl')).toContain('101');
+    expect(format.formatWeaponDamage('1d6', 'custom', 'pl')).toBe('1d6 custom');
+    expect(format.formatItemProperties(['2H', 'CUSTOM'], 'pl')).toContain('CUSTOM');
+    expect(format.formatItemReferences([{}, 'A'])).toEqual(['A']);
+    expect(format.formatItemReferenceNames([{}, 'A|XPHB'])).toBe('A');
+    expect(format.formatItemReferences(undefined)).toEqual([]);
+    expect(format.formatRarity('custom', 'pl')).toBe('Custom');
+    expect(format.formatAttunement(true, 'pl')).toContain('dostrojenia');
+    expect(format.formatAttunement('by a wizard', 'pl')).toContain('dostrojenia');
+
+    expect(
+      format.formatMonsterType({ type: { choose: ['custom'] }, tags: [{}] }, 'pl'),
+    ).toBe('Custom');
+    expect(
+      format.formatAlignment(['C', 'custom', { alignment: ['N', 'custom'] }], 'pl'),
+    ).toContain('Chaotyczny');
+    expect(format.formatKeyedBonuses({ str: '+2', luck: '+1' }, true, 'pl')).toContain(
+      'Siła',
+    );
+    expect(format.formatKeyedBonuses({ str: '+2', luck: '+1' }, false, 'pl')).toContain(
+      'Luck',
+    );
+    expect(format.formatSenses(['darkvision'], 12, 'pl')).toContain('Percepcja');
+    expect(
+      format.formatMonsterCrDisplay({ cr: '5', xp: 1000, xpLair: 2000 }, 'pl'),
+    ).toContain('leżu');
+    expect(
+      format.formatDamageTypes(
+        ['fire', { resist: ['cold'], note: 'note' }, { special: 'special' }, 'unknown'],
+        'pl',
+      ),
+    ).toContain('special');
+    expect(
+      format.formatConditionList(
+        [
+          'poisoned',
+          { conditionImmune: ['charmed'], note: 'note' },
+          { special: 'special' },
+          'custom',
+        ],
+        'pl',
+      ),
+    ).toContain('zauroczony');
+    expect(format.formatDailyLabel('9e', 'pl')).toContain('każdy');
+    expect(format.formatDailyLabel('9', 'pl')).toContain('dzień');
+    expect(format.formatLanguages(['Common', 'Unknown'], 'pl')).toContain('Unknown');
+    expect(format.formatLanguageType(undefined, 'pl')).toBeTruthy();
+    expect(format.formatDiet(['C', 'custom'], 'pl')).toContain('custom');
+    expect(format.formatFacilityType('custom', 'pl')).toBe('Custom');
+    expect(format.formatFacilityType(undefined, 'pl')).toBeTruthy();
+    expect(
+      format.formatFacilityPrereq(
+        [{ level: 1, membership: ['Guild'], other: 'Approval' }, { level: 2 }],
+        'pl',
+      ),
+    ).toContain('Poziom');
+    expect(format.formatObjectType('SW', 'pl')).toBeTruthy();
+    expect(format.formatObjectType('custom', 'pl')).toBe('Custom');
+    expect(format.formatObjectType(undefined, 'pl')).toBeTruthy();
+    expect(format.formatVehicleType('SHIP', 'pl')).toBeTruthy();
+    expect(format.formatVehicleType('unknown_type', 'pl')).toBe('Unknown Type');
+    expect(format.formatPace(5, 'pl')).toContain('5');
+    expect(format.formatPace({ walk: 4, unknown: 8 }, 'pl')).toContain('unknown');
+    expect(format.formatVehicleCapacity(undefined, undefined, 'box', 'pl')).toContain(
+      'box',
+    );
+    expect(format.formatCostGp(1234, 'pl')).toContain('sz');
   });
 });

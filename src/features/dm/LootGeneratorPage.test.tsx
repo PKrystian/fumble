@@ -69,9 +69,10 @@ vi.mock('./loot', () => {
     },
   ];
   return {
-    EXCLUDED_ITEM_TYPES: new Set(['currency']),
     TIERS: tiers,
+    isExcludedItemType: (type: string) => type === 'currency',
     isUsableByParty: () => true,
+    rarityMatches: (rarity: string, allowed: string[]) => allowed.includes(rarity),
     rarityAtMost: () => true,
     tierForLevel: (level: number) => (level >= 5 ? tiers[1] : tiers[0]),
     usableByNames: (_item: unknown, characters: Array<{ name: string }>) =>
@@ -157,12 +158,32 @@ describe('LootGeneratorPage', () => {
     const count = screen.getByRole('spinbutton', {
       name: 'dm.loot.characterCount',
     });
-    const level = screen.getByRole('spinbutton', {
+    fireEvent.change(count, { target: { value: '' } });
+    fireEvent.click(screen.getByRole('button', { name: 'dm.loot.majorReward' }));
+    fireEvent.click(screen.getByRole('button', { name: 'dm.loot.savedCharacters' }));
+    fireEvent.click(screen.getByRole('button', { name: 'dm.loot.manualParty' }));
+    const manualCount = screen.getByRole('spinbutton', {
+      name: 'dm.loot.characterCount',
+    });
+    const manualLevel = screen.getByRole('spinbutton', {
       name: 'dm.loot.characterLevel',
     });
-    fireEvent.change(count, { target: { value: '3' } });
-    fireEvent.change(level, { target: { value: '6' } });
+    fireEvent.change(manualCount, { target: { value: '3' } });
+    fireEvent.change(manualLevel, { target: { value: '' } });
+    fireEvent.change(manualLevel, { target: { value: '6' } });
     fireEvent.click(screen.getByRole('button', { name: 'dm.loot.addLevelGroup' }));
+    fireEvent.change(
+      screen.getAllByRole('spinbutton', { name: 'dm.loot.characterCount' })[1]!,
+      {
+        target: { value: '2' },
+      },
+    );
+    fireEvent.change(
+      screen.getAllByRole('spinbutton', { name: 'dm.loot.characterLevel' })[1]!,
+      {
+        target: { value: '7' },
+      },
+    );
     expect(screen.getAllByRole('spinbutton')).toHaveLength(4);
     fireEvent.click(
       screen.getAllByRole('button', { name: 'dm.loot.removeLevelGroup' })[1]!,

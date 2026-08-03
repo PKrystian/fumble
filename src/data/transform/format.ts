@@ -1,5 +1,94 @@
 import { XP_BY_CR } from '../../features/dm/xp';
 import { stripMarkup } from './util';
+import type { Locale } from '@/i18n/locales';
+
+const PLURAL_UNITS: Record<string, [string, string]> = {
+  action: ['akcję', 'akcje'],
+  bonus: ['akcję dodatkową', 'akcje dodatkowe'],
+  reaction: ['reakcję', 'reakcje'],
+  round: ['rundę', 'rundy'],
+  minute: ['minutę', 'minuty'],
+  hour: ['godzinę', 'godziny'],
+  day: ['dzień', 'dni'],
+  week: ['tydzień', 'tygodnie'],
+  month: ['miesiąc', 'miesiące'],
+  year: ['rok', 'lata'],
+};
+
+const PL_ABILITIES: Record<string, string> = {
+  str: 'Siła',
+  dex: 'Zręczność',
+  con: 'Kondycja',
+  int: 'Inteligencja',
+  wis: 'Mądrość',
+  cha: 'Charyzma',
+};
+
+const PL_SIZES: Record<string, string> = {
+  T: 'Maleńki',
+  S: 'Mały',
+  M: 'Średni',
+  L: 'Duży',
+  H: 'Wielki',
+  G: 'Ogromny',
+};
+
+const PL_FEAT_CATEGORIES: Record<string, string> = {
+  O: 'Pochodzenie',
+  G: 'Ogólny',
+  FS: 'Styl walki',
+  EB: 'Epicki dar',
+  V: 'Wariant',
+};
+
+const PL_RULE_TYPES: Record<string, string> = {
+  C: 'Podstawowe',
+  O: 'Opcjonalne',
+  V: 'Wariantowe',
+  VO: 'Opcjonalne wariantowe',
+};
+
+const PL_DISTANCE_UNITS: Record<string, [string, string]> = {
+  feet: ['stopa', 'stóp'],
+  foot: ['stopa', 'stóp'],
+  meter: ['metr', 'metrów'],
+  meters: ['metr', 'metrów'],
+  mile: ['mila', 'mil'],
+  miles: ['mila', 'mil'],
+};
+
+const PL_DAMAGE_TYPES: Record<string, string> = {
+  B: 'obuchowe',
+  P: 'kłute',
+  S: 'sieczne',
+  A: 'kwasowe',
+  C: 'od zimna',
+  F: 'od ognia',
+  O: 'od mocy',
+  L: 'od błyskawic',
+  N: 'nekrotyczne',
+  I: 'od trucizny',
+  Y: 'psychiczne',
+  R: 'promieniste',
+  T: 'od gromu',
+};
+
+const PL_MONSTER_TYPES: Record<string, string> = {
+  aberration: 'aberracja',
+  beast: 'bestia',
+  celestial: 'niebianin',
+  construct: 'konstrukt',
+  dragon: 'smok',
+  elemental: 'żywiołak',
+  fey: 'fey',
+  fiend: 'diabeł',
+  giant: 'olbrzym',
+  humanoid: 'humanoid',
+  monstrosity: 'monstrum',
+  ooze: 'szlam',
+  plant: 'roślina',
+  undead: 'nieumarły',
+};
 
 interface TimeEntry {
   number: number;
@@ -7,15 +96,25 @@ interface TimeEntry {
   condition?: string;
 }
 
-export function formatCastingTime(time: TimeEntry[] | undefined): string {
+export function formatCastingTime(
+  time: TimeEntry[] | undefined,
+  locale: Locale = 'en',
+): string {
   if (!time?.length) return '-';
   return time
     .map((t) => {
+      const units = PLURAL_UNITS[t.unit];
+      if (locale === 'pl' && units) {
+        const [singular, plural] = units;
+        const unit = t.number === 1 ? singular : plural;
+        const base = `${t.number} ${unit}`;
+        return t.condition ? `${base}, ${t.condition}` : base;
+      }
       const unit = t.number === 1 ? t.unit : `${t.unit}s`;
       const base = `${t.number} ${unit}`;
       return t.condition ? `${base}, ${t.condition}` : base;
     })
-    .join(' or ');
+    .join(locale === 'pl' ? ' lub ' : ' or ');
 }
 
 interface Range {
@@ -23,37 +122,61 @@ interface Range {
   distance?: { type: string; amount?: number };
 }
 
-export function formatRange(range: Range | undefined): string {
+export function formatRange(range: Range | undefined, locale: Locale = 'en'): string {
   if (!range) return '-';
   const dist = range.distance;
-  if (!dist) return capitalize(range.type);
+  if (!dist)
+    return locale === 'pl'
+      ? capitalize(PL_RANGE_TYPES[range.type] ?? range.type)
+      : capitalize(range.type);
 
   switch (dist.type) {
     case 'self':
-      return shapeSuffix('Self', range);
+      return shapeSuffix(locale === 'pl' ? 'Siebie' : 'Self', range, locale);
     case 'touch':
-      return 'Touch';
+      return locale === 'pl' ? 'Dotyk' : 'Touch';
     case 'sight':
-      return 'Sight';
+      return locale === 'pl' ? 'Widoczność' : 'Sight';
     case 'unlimited':
-      return 'Unlimited';
+      return locale === 'pl' ? 'Nieograniczony' : 'Unlimited';
     default: {
-      const unit =
-        dist.amount === 1
-          ? dist.type === 'feet'
-            ? 'foot'
-            : dist.type.replace(/s$/, '')
-          : dist.type;
-      const measure = `${dist.amount} ${unit}`;
-      return range.type === 'point' ? measure : shapeSuffix(measure, range);
+      const measure = formatDistance(dist.type, dist.amount, locale);
+      return range.type === 'point' ? measure : shapeSuffix(measure, range, locale);
     }
   }
 }
 
-function shapeSuffix(prefix: string, range: Range): string {
+const PL_RANGE_TYPES: Record<string, string> = {
+  point: 'punkt',
+  cone: 'stożek',
+  cube: 'sześcian',
+  cylinder: 'walec',
+  line: 'linia',
+  sphere: 'sfera',
+};
+
+function shapeSuffix(prefix: string, range: Range, locale: Locale): string {
   const amount = range.distance?.amount;
-  if (amount == null) return `${prefix} (${range.type})`;
-  return `${prefix} (${amount}-foot ${range.type})`;
+  const type = locale === 'pl' ? (PL_RANGE_TYPES[range.type] ?? range.type) : range.type;
+  if (amount == null) return `${prefix} (${type})`;
+  return locale === 'pl'
+    ? `${prefix} (${type}, ${amount} stóp)`
+    : `${prefix} (${amount}-foot ${type})`;
+}
+
+function formatDistance(
+  type: string,
+  amount: number | undefined,
+  locale: Locale,
+): string {
+  if (locale !== 'pl') {
+    const unit =
+      amount === 1 ? (type === 'feet' ? 'foot' : type.replace(/s$/, '')) : type;
+    return `${amount} ${unit}`;
+  }
+  const units = PL_DISTANCE_UNITS[type];
+  if (!units) return `${amount} ${amount === 1 ? type.replace(/s$/, '') : type}`;
+  return `${amount} ${amount === 1 ? units[0] : units[1]}`;
 }
 
 interface Components {
@@ -82,19 +205,28 @@ interface Duration {
   concentration?: boolean;
 }
 
-export function formatDuration(duration: Duration[] | undefined): string {
+export function formatDuration(
+  duration: Duration[] | undefined,
+  locale: Locale = 'en',
+): string {
   if (!duration?.length) return '-';
   return duration
     .map((d) => {
       switch (d.type) {
         case 'instant':
-          return 'Instantaneous';
+          return locale === 'pl' ? 'Natychmiastowa' : 'Instantaneous';
         case 'permanent':
-          return 'Until dispelled';
+          return locale === 'pl' ? 'Do rozproszenia' : 'Until dispelled';
         case 'special':
-          return 'Special';
+          return locale === 'pl' ? 'Specjalna' : 'Special';
         case 'timed': {
-          if (!d.duration) return 'Special';
+          if (!d.duration) return locale === 'pl' ? 'Specjalna' : 'Special';
+          const units = PLURAL_UNITS[d.duration.type];
+          if (locale === 'pl' && units) {
+            const [singular, plural] = units;
+            const measure = `${d.duration.amount} ${d.duration.amount === 1 ? singular : plural}`;
+            return d.concentration ? `Koncentracja, do ${measure}` : measure;
+          }
           const unit = d.duration.amount === 1 ? d.duration.type : `${d.duration.type}s`;
           const measure = `${d.duration.amount} ${unit}`;
           return d.concentration ? `Concentration, up to ${measure}` : measure;
@@ -103,7 +235,7 @@ export function formatDuration(duration: Duration[] | undefined): string {
           return capitalize(d.type);
       }
     })
-    .join(' or ');
+    .join(locale === 'pl' ? ' lub ' : ' or ');
 }
 
 export function hasConcentration(duration: Duration[] | undefined): boolean {
@@ -147,20 +279,38 @@ export const RULE_TYPES: Record<string, string> = {
   VO: 'Variant Optional',
 };
 
-export function formatSize(size: string[] | undefined): string {
+export function formatSize(size: string[] | undefined, locale: Locale = 'en'): string {
   if (!size?.length) return '-';
-  return size.map((s) => SIZES[s] ?? s).join(' or ');
+  return size
+    .map((s) => (locale === 'pl' ? (PL_SIZES[s] ?? SIZES[s] ?? s) : (SIZES[s] ?? s)))
+    .join(locale === 'pl' ? ' lub ' : ' or ');
 }
 
 type Speed = number | Record<string, number | boolean> | undefined;
 
-export function formatSpeed(speed: Speed): string {
+const PL_SPEED_MODES: Record<string, string> = {
+  burrow: 'kopanie',
+  climb: 'wspinaczka',
+  fly: 'lot',
+  swim: 'pływanie',
+};
+
+export function formatSpeed(speed: Speed, locale: Locale = 'en'): string {
   if (speed == null) return '-';
-  if (typeof speed === 'number') return `${speed} ft.`;
+  if (typeof speed === 'number')
+    return locale === 'pl' ? `${speed} stóp` : `${speed} ft.`;
   const parts: string[] = [];
   for (const [mode, value] of Object.entries(speed)) {
     if (typeof value === 'number') {
-      parts.push(mode === 'walk' ? `${value} ft.` : `${mode} ${value} ft.`);
+      if (locale === 'pl') {
+        parts.push(
+          mode === 'walk'
+            ? `${value} stóp`
+            : `${PL_SPEED_MODES[mode] ?? mode} ${value} stóp`,
+        );
+      } else {
+        parts.push(mode === 'walk' ? `${value} ft.` : `${mode} ${value} ft.`);
+      }
     }
   }
   return parts.join(', ') || '-';
@@ -168,6 +318,7 @@ export function formatSpeed(speed: Speed): string {
 
 export function formatProficiencies(
   list: Array<Record<string, unknown>> | undefined,
+  locale: Locale = 'en',
 ): string {
   if (!list?.length) return '';
   const out: string[] = [];
@@ -177,10 +328,14 @@ export function formatProficiencies(
       if (key === 'choose' && value && typeof value === 'object') {
         const choose = value as { from?: string[]; count?: number };
         const count = choose.count ?? 1;
-        const from = (choose.from ?? []).map(titleizeProf).join(', ');
-        out.push(`choose ${count} from ${from}`);
+        const from = (choose.from ?? [])
+          .map((value) => titleizeProf(value, locale))
+          .join(', ');
+        out.push(
+          locale === 'pl' ? `wybierz ${count} z ${from}` : `choose ${count} from ${from}`,
+        );
       } else if (value === true) {
-        fixed.push(titleizeProf(key));
+        fixed.push(titleizeProf(key, locale));
       }
     }
     if (fixed.length) out.push(fixed.join(', '));
@@ -190,15 +345,40 @@ export function formatProficiencies(
 
 export function formatAbilityChoices(
   ability: Array<Record<string, unknown>> | undefined,
+  locale: Locale = 'en',
 ): string {
   if (!ability?.length) return '';
   const froms = new Set<string>();
   for (const entry of ability) {
     const choose = entry.choose as { from?: string[]; weighted?: { from?: string[] } };
     const from = choose?.from ?? choose?.weighted?.from ?? [];
-    for (const ab of from) froms.add(ABILITIES[ab] ?? ab);
+    for (const ab of from)
+      froms.add(
+        locale === 'pl'
+          ? (PL_ABILITIES[ab] ?? ABILITIES[ab] ?? ab)
+          : (ABILITIES[ab] ?? ab),
+      );
   }
-  return froms.size ? `Choose from ${[...froms].join(', ')}` : '';
+  return froms.size
+    ? `${locale === 'pl' ? 'Wybierz spośród' : 'Choose from'} ${[...froms].join(', ')}`
+    : '';
+}
+
+export function formatFeatCategory(
+  category: string | undefined,
+  locale: Locale = 'en',
+): string {
+  if (!category) return locale === 'pl' ? 'Atut' : 'Feat';
+  return locale === 'pl'
+    ? (PL_FEAT_CATEGORIES[category] ?? FEAT_CATEGORIES[category] ?? category)
+    : (FEAT_CATEGORIES[category] ?? category);
+}
+
+export function formatRuleType(type: string | undefined, locale: Locale = 'en'): string {
+  if (!type) return locale === 'pl' ? 'Zasada' : 'Rule';
+  return locale === 'pl'
+    ? (PL_RULE_TYPES[type] ?? RULE_TYPES[type] ?? type)
+    : (RULE_TYPES[type] ?? type);
 }
 
 export function formatFeatRefs(
@@ -219,16 +399,22 @@ export function formatFeatRefs(
 
 export function formatPrerequisite(
   prereq: Array<Record<string, unknown>> | undefined,
+  locale: Locale = 'en',
 ): string {
   if (!prereq?.length) return '';
 
   const groups = prereq.map((req) => {
     const parts: string[] = [];
-    if (typeof req.level === 'number') parts.push(`Level ${req.level}+`);
+    if (typeof req.level === 'number')
+      parts.push(`${locale === 'pl' ? 'Poziom' : 'Level'} ${req.level}+`);
     if (Array.isArray(req.ability)) {
       for (const ab of req.ability as Array<Record<string, number>>) {
         for (const [key, value] of Object.entries(ab)) {
-          parts.push(`${ABILITIES[key] ?? key} ${value}+`);
+          const ability =
+            locale === 'pl'
+              ? (PL_ABILITIES[key] ?? ABILITIES[key] ?? key)
+              : (ABILITIES[key] ?? key);
+          parts.push(`${ability} ${value}+`);
         }
       }
     }
@@ -239,11 +425,13 @@ export function formatPrerequisite(
         class?: { name?: string };
       }>) {
         const cls = lvl.class?.name ? ` ${lvl.class.name}` : '';
-        parts.push(`Level ${lvl.level}+${cls}`);
+        parts.push(`${locale === 'pl' ? 'Poziom' : 'Level'} ${lvl.level}+${cls}`);
       }
     }
-    if (typeof req.pact === 'string') parts.push(`Pact of the ${req.pact}`);
-    if (typeof req.patron === 'string') parts.push(`${req.patron} patron`);
+    if (typeof req.pact === 'string')
+      parts.push(locale === 'pl' ? `Pakt ${req.pact}` : `Pact of the ${req.pact}`);
+    if (typeof req.patron === 'string')
+      parts.push(locale === 'pl' ? `patron: ${req.patron}` : `${req.patron} patron`);
     if (Array.isArray(req.spell)) {
       const summaries = (
         req.spell as Array<string | { entrySummary?: string; entry?: string }>
@@ -253,12 +441,12 @@ export function formatPrerequisite(
       if (summaries.length) parts.push(summaries.join(', '));
     }
     if (req.spellcasting === true || req.spellcasting2020 === true) {
-      parts.push('Spellcasting feature');
+      parts.push(locale === 'pl' ? 'Cecha rzucania zaklęć' : 'Spellcasting feature');
     }
     if (typeof req.other === 'string') parts.push(req.other);
     return parts.join(', ');
   });
-  return groups.filter(Boolean).join(' or ');
+  return groups.filter(Boolean).join(locale === 'pl' ? ' lub ' : ' or ');
 }
 
 const OPTIONAL_FEATURE_TYPES: Record<string, string> = {
@@ -273,9 +461,25 @@ const OPTIONAL_FEATURE_TYPES: Record<string, string> = {
   RN: 'Rune',
 };
 
-export function formatOptionalFeatureType(types: string[] | undefined): string {
-  if (!types?.length) return 'Option';
-  return [...new Set(types.map((t) => OPTIONAL_FEATURE_TYPES[t] ?? t))].join(', ');
+export function formatOptionalFeatureType(
+  types: string[] | undefined,
+  locale: Locale = 'en',
+): string {
+  if (!types?.length) return locale === 'pl' ? 'Opcja' : 'Option';
+  return [...new Set(types.map((t) => OPTIONAL_FEATURE_TYPES[t] ?? t))]
+    .map((value) =>
+      locale === 'pl'
+        ? value
+            .replace('Eldritch Invocation', 'Inwokacja nadnaturalna')
+            .replace('Metamagic', 'Metamagia')
+            .replace('Maneuver', 'Manewr')
+            .replace('Fighting Style', 'Styl walki')
+            .replace('Pact Boon', 'Dar paktu')
+            .replace('Artificer Infusion', 'Infuzja artificera')
+            .replace('Rune', 'Run')
+        : value,
+    )
+    .join(', ');
 }
 
 const HAZARD_TYPES: Record<string, string> = {
@@ -290,36 +494,67 @@ const HAZARD_TYPES: Record<string, string> = {
   TRP: 'Trap',
 };
 
-export function formatHazardType(type: string | undefined, fallback: string): string {
+export function formatHazardType(
+  type: string | undefined,
+  fallback: string,
+  locale: Locale = 'en',
+): string {
   if (!type) return fallback;
-  return HAZARD_TYPES[type] ?? fallback;
+  const value = HAZARD_TYPES[type] ?? fallback;
+  return locale === 'pl'
+    ? value
+        .replace('Environmental Hazard', 'Zagrożenie środowiskowe')
+        .replace('Eldritch Storm', 'Burza nadnaturalna')
+        .replace('Generic Hazard', 'Ogólne zagrożenie')
+        .replace('Magical Trap', 'Pułapka magiczna')
+        .replace('Mechanical Trap', 'Pułapka mechaniczna')
+        .replace('Wilderness Hazard', 'Zagrożenie dziczy')
+        .replace('Weather', 'Pogoda')
+        .replace('Hazard', 'Zagrożenie')
+        .replace('Trap', 'Pułapka')
+    : value;
 }
 
 export function formatDomains(domains: string[] | undefined): string {
   return domains?.length ? domains.join(', ') : '';
 }
 
-export function formatAbilityList(abilities: string[] | undefined): string {
+export function formatAbilityList(
+  abilities: string[] | undefined,
+  locale: Locale = 'en',
+): string {
   if (!abilities?.length) return '';
-  return abilities.map((ab) => ABILITIES[ab] ?? ab).join(', ');
+  return abilities
+    .map((ab) =>
+      locale === 'pl' ? (PL_ABILITIES[ab] ?? ABILITIES[ab] ?? ab) : (ABILITIES[ab] ?? ab),
+    )
+    .join(', ');
 }
 
 export function formatPrimaryAbility(
   primary: Array<Record<string, boolean>> | undefined,
+  locale: Locale = 'en',
 ): string {
   if (!primary?.length) return '';
   return primary
     .map((group) =>
       Object.entries(group)
         .filter(([, on]) => on)
-        .map(([key]) => ABILITIES[key] ?? key)
-        .join(' and '),
+        .map(([key]) =>
+          locale === 'pl'
+            ? (PL_ABILITIES[key] ?? ABILITIES[key] ?? key)
+            : (ABILITIES[key] ?? key),
+        )
+        .join(locale === 'pl' ? ' i ' : ' and '),
     )
     .filter(Boolean)
-    .join(' or ');
+    .join(locale === 'pl' ? ' lub ' : ' or ');
 }
 
-export function formatProfList(list: unknown[] | undefined): string {
+export function formatProfList(
+  list: unknown[] | undefined,
+  locale: Locale = 'en',
+): string {
   if (!list?.length) return '';
   return list
     .map((entry) => {
@@ -333,7 +568,7 @@ export function formatProfList(list: unknown[] | undefined): string {
       text = stripMarkup(text).trim();
       if (!text) return '';
 
-      return text.includes(' ') ? capitalize(text) : titleizeProf(text);
+      return text.includes(' ') ? capitalize(text) : titleizeProf(text, locale);
     })
     .filter(Boolean)
     .join(', ');
@@ -348,13 +583,26 @@ interface StartingProficiencies {
 
 export function formatStartingProficiencies(
   sp: StartingProficiencies | undefined,
+  locale: Locale = 'en',
 ): string {
   if (!sp) return '';
   const parts: string[] = [];
-  if (sp.armor?.length) parts.push(`Armor: ${formatProfList(sp.armor)}`);
-  if (sp.weapons?.length) parts.push(`Weapons: ${formatProfList(sp.weapons)}`);
-  if (sp.tools?.length) parts.push(`Tools: ${formatProfList(sp.tools)}`);
-  if (sp.skills?.length) parts.push(`Skills: ${formatProficiencies(sp.skills)}`);
+  if (sp.armor?.length)
+    parts.push(
+      `${locale === 'pl' ? 'Pancerz' : 'Armor'}: ${formatProfList(sp.armor, locale)}`,
+    );
+  if (sp.weapons?.length)
+    parts.push(
+      `${locale === 'pl' ? 'Broń' : 'Weapons'}: ${formatProfList(sp.weapons, locale)}`,
+    );
+  if (sp.tools?.length)
+    parts.push(
+      `${locale === 'pl' ? 'Narzędzia' : 'Tools'}: ${formatProfList(sp.tools, locale)}`,
+    );
+  if (sp.skills?.length)
+    parts.push(
+      `${locale === 'pl' ? 'Umiejętności' : 'Skills'}: ${formatProficiencies(sp.skills, locale)}`,
+    );
   return parts.join(' · ');
 }
 
@@ -397,6 +645,45 @@ const ITEM_TYPES: Record<string, string> = {
   W: 'Wondrous Item',
 };
 
+const PL_ITEM_TYPES: Record<string, string> = {
+  $: 'Skarb',
+  $A: 'Skarb (Dzieło sztuki)',
+  $C: 'Skarb (Monety)',
+  $G: 'Skarb (Kamień szlachetny)',
+  A: 'Amunicja',
+  AF: 'Amunicja (Broń palna)',
+  AIR: 'Pojazd (Powietrzny)',
+  AT: 'Narzędzia rzemieślnicze',
+  EXP: 'Materiał wybuchowy',
+  FD: 'Jedzenie i picie',
+  G: 'Ekwipunek podróżny',
+  GS: 'Zestaw do gier',
+  GV: 'Ogólny wariant',
+  HA: 'Ciężki pancerz',
+  INS: 'Instrument',
+  LA: 'Lekki pancerz',
+  M: 'Broń biała',
+  MA: 'Średni pancerz',
+  MNT: 'Wierzchowiec',
+  OTH: 'Inne',
+  P: 'Mikstura',
+  R: 'Broń dystansowa',
+  RD: 'Pręt',
+  RG: 'Pierścień',
+  S: 'Tarcza',
+  SC: 'Zwój',
+  SCF: 'Skupienie czarowania',
+  SHP: 'Pojazd (Wodny)',
+  SPC: 'Pojazd (Kosmiczny)',
+  T: 'Narzędzie',
+  TAH: 'Rząd i uprząż',
+  TB: 'Sztaba handlowa',
+  TG: 'Towar handlowy',
+  VEH: 'Pojazd (Lądowy)',
+  WD: 'Różdżka',
+  W: 'Cudowny przedmiot',
+};
+
 const ITEM_PROPERTIES: Record<string, string> = {
   '2H': 'Two-Handed',
   A: 'Ammunition',
@@ -412,6 +699,23 @@ const ITEM_PROPERTIES: Record<string, string> = {
   T: 'Thrown',
   V: 'Versatile',
   Vst: 'Versatile',
+};
+
+const PL_ITEM_PROPERTIES: Record<string, string> = {
+  '2H': 'Dwuręczna',
+  A: 'Amunicja',
+  AF: 'Amunicja (Broń palna)',
+  BF: 'Ogień ciągły',
+  F: 'Finezja',
+  H: 'Ciężka',
+  L: 'Lekka',
+  LD: 'Ładowanie',
+  R: 'Zasięg',
+  RLD: 'Przeładowanie',
+  S: 'Specjalna',
+  T: 'Rzucana',
+  V: 'Uniwersalna',
+  Vst: 'Uniwersalna',
 };
 
 const DAMAGE_TYPES: Record<string, string> = {
@@ -430,58 +734,116 @@ const DAMAGE_TYPES: Record<string, string> = {
   T: 'thunder',
 };
 
+const PL_DAMAGE_WORDS: Record<string, string> = {
+  bludgeoning: 'obuchowe',
+  piercing: 'kłute',
+  slashing: 'sieczne',
+  acid: 'kwasowe',
+  cold: 'od zimna',
+  fire: 'od ognia',
+  force: 'od mocy',
+  lightning: 'od błyskawic',
+  necrotic: 'nekrotyczne',
+  poison: 'od trucizny',
+  psychic: 'psychiczne',
+  radiant: 'promieniste',
+  thunder: 'od gromu',
+};
+
 const stripSource = (code: string) => code.split('|')[0]!;
 
 export function formatItemType(
   type: string | undefined,
   rarity: string | undefined,
+  locale: Locale = 'en',
 ): string {
   if (type) {
     const code = stripSource(type);
-    return ITEM_TYPES[code] ?? code;
+    return locale === 'pl'
+      ? (PL_ITEM_TYPES[code] ?? ITEM_TYPES[code] ?? code)
+      : (ITEM_TYPES[code] ?? code);
   }
+  if (locale === 'pl')
+    return rarity && rarity !== 'none' ? 'Cudowny przedmiot' : 'Ekwipunek podróżny';
   return rarity && rarity !== 'none' ? 'Wondrous Item' : 'Adventuring Gear';
 }
 
-export function formatRarity(rarity: string | undefined): string {
+const PL_RARITIES: Record<string, string> = {
+  common: 'Pospolity',
+  uncommon: 'Niepospolity',
+  rare: 'Rzadki',
+  'very rare': 'Bardzo rzadki',
+  legendary: 'Legendarny',
+  artifact: 'Artefakt',
+  varies: 'Różny',
+};
+
+export function formatRarity(rarity: string | undefined, locale: Locale = 'en'): string {
   if (!rarity || rarity === 'none' || rarity === 'unknown') return '';
-  return titleCase(rarity);
+  return locale === 'pl' ? (PL_RARITIES[rarity] ?? titleCase(rarity)) : titleCase(rarity);
 }
 
-export function formatAttunement(reqAttune: boolean | string | undefined): string {
-  if (reqAttune === true) return 'Requires attunement';
-  if (typeof reqAttune === 'string') return `Requires attunement ${reqAttune}`;
+export function formatAttunement(
+  reqAttune: boolean | string | undefined,
+  locale: Locale = 'en',
+): string {
+  if (reqAttune === true)
+    return locale === 'pl' ? 'Wymaga dostrojenia' : 'Requires attunement';
+  if (typeof reqAttune === 'string')
+    return locale === 'pl'
+      ? `Wymaga dostrojenia ${reqAttune}`
+      : `Requires attunement ${reqAttune}`;
   return '';
 }
 
-export function formatWeight(weight: number | undefined): string {
+export function formatWeight(weight: number | undefined, locale: Locale = 'en'): string {
   if (weight == null) return '';
-  return `${weight} lb.`;
+  return locale === 'pl'
+    ? `${weight} ${weight === 1 ? 'funt' : 'funtów'}`
+    : `${weight} lb.`;
 }
 
-export function formatValue(value: number | undefined): string {
+export function formatValue(value: number | undefined, locale: Locale = 'en'): string {
   if (value == null) return '';
   const gp = value / 100;
-  return Number.isInteger(gp) ? `${gp} gp` : `${value} cp`;
+  return locale === 'pl'
+    ? Number.isInteger(gp)
+      ? `${gp} sz`
+      : `${value} miedz.`
+    : Number.isInteger(gp)
+      ? `${gp} gp`
+      : `${value} cp`;
 }
 
 export function formatWeaponDamage(
   dmg1: string | undefined,
   dmgType: string | undefined,
+  locale: Locale = 'en',
 ): string {
   if (!dmg1) return '';
-  const type = dmgType ? (DAMAGE_TYPES[dmgType] ?? dmgType) : '';
+  const type = dmgType
+    ? locale === 'pl'
+      ? (PL_DAMAGE_TYPES[dmgType] ?? DAMAGE_TYPES[dmgType] ?? dmgType)
+      : (DAMAGE_TYPES[dmgType] ?? dmgType)
+    : '';
   return type ? `${dmg1} ${type}` : dmg1;
 }
 
 export function formatItemProperties(
   property: Array<string | { uid?: string }> | undefined,
+  locale: Locale = 'en',
 ): string {
   if (!property?.length) return '';
   return property
     .map((p) => (typeof p === 'string' ? p : (p.uid ?? '')))
     .filter(Boolean)
-    .map((code) => ITEM_PROPERTIES[stripSource(code)] ?? stripSource(code))
+    .map((code) =>
+      locale === 'pl'
+        ? (PL_ITEM_PROPERTIES[stripSource(code)] ??
+          ITEM_PROPERTIES[stripSource(code)] ??
+          stripSource(code))
+        : (ITEM_PROPERTIES[stripSource(code)] ?? stripSource(code)),
+    )
     .join(', ');
 }
 
@@ -522,20 +884,31 @@ const ALIGNMENTS: Record<string, string> = {
   A: 'Any Alignment',
 };
 
+const PL_ALIGNMENTS: Record<string, string> = {
+  L: 'Praworządny',
+  N: 'Neutralny',
+  C: 'Chaotyczny',
+  G: 'Dobry',
+  E: 'Zły',
+  U: 'Niezestrojony',
+  A: 'Dowolne nastawienie',
+};
+
 export function formatMonsterType(
   type:
     | string
     | { type?: string | { choose?: string[] }; tags?: Array<string | { tag?: string }> }
     | undefined,
+  locale: Locale = 'en',
 ): string {
   if (!type) return '';
-  if (typeof type === 'string') return titleCase(type);
+  if (typeof type === 'string') return localizeMonsterType(type, locale);
 
   const rawType = type.type;
   const base =
     typeof rawType === 'string'
-      ? titleCase(rawType)
-      : titleCase(rawType?.choose?.[0] ?? '');
+      ? localizeMonsterType(rawType, locale)
+      : localizeMonsterType(rawType?.choose?.[0] ?? '', locale);
 
   const tags = (type.tags ?? [])
     .map((t) => (typeof t === 'string' ? t : (t.tag ?? '')))
@@ -545,16 +918,26 @@ export function formatMonsterType(
   return tags.length ? `${base} (${tags.join(', ')})` : base;
 }
 
-export function formatAlignment(alignment: unknown[] | undefined): string {
+export function formatAlignment(
+  alignment: unknown[] | undefined,
+  locale: Locale = 'en',
+): string {
   if (!alignment?.length) return '';
   const tokens: string[] = [];
   for (const part of alignment) {
-    if (typeof part === 'string') tokens.push(ALIGNMENTS[part] ?? part);
+    if (typeof part === 'string')
+      tokens.push(
+        locale === 'pl' ? (PL_ALIGNMENTS[part] ?? part) : (ALIGNMENTS[part] ?? part),
+      );
     else if (part && typeof part === 'object') {
       const obj = part as { special?: string; alignment?: string[] };
       if (obj.special) tokens.push(obj.special);
       else if (obj.alignment)
-        tokens.push(...obj.alignment.map((a) => ALIGNMENTS[a] ?? a));
+        tokens.push(
+          ...obj.alignment.map((a) =>
+            locale === 'pl' ? (PL_ALIGNMENTS[a] ?? a) : (ALIGNMENTS[a] ?? a),
+          ),
+        );
     }
   }
   return tokens.join(' ');
@@ -580,12 +963,19 @@ export function formatMonsterHp(
 export function formatKeyedBonuses(
   record: Record<string, unknown> | undefined,
   abbreviate = false,
+  locale: Locale = 'en',
 ): string {
   if (!record) return '';
   return Object.entries(record)
     .filter(([, value]) => typeof value === 'string')
     .map(([key, value]) => {
-      const label = abbreviate ? (ABILITY_ABBR[key] ?? titleCase(key)) : titleCase(key);
+      const label = abbreviate
+        ? locale === 'pl'
+          ? (PL_ABILITIES[key] ?? titleCase(key))
+          : (ABILITY_ABBR[key] ?? titleCase(key))
+        : locale === 'pl'
+          ? (PL_ABILITIES[key] ?? titleCase(key))
+          : titleCase(key);
       return `${label} ${value as string}`;
     })
     .join(', ');
@@ -594,9 +984,13 @@ export function formatKeyedBonuses(
 export function formatSenses(
   senses: string[] | undefined,
   passive: number | undefined,
+  locale: Locale = 'en',
 ): string {
   const parts = [...(senses ?? [])];
-  if (passive != null) parts.push(`Passive Perception ${passive}`);
+  if (passive != null)
+    parts.push(
+      `${locale === 'pl' ? 'Percepcja pasywna' : 'Passive Perception'} ${passive}`,
+    );
   return parts.join(', ');
 }
 
@@ -630,6 +1024,7 @@ export function formatInitiative(
 
 export function formatMonsterCrDisplay(
   cr: string | { cr?: string; xp?: number; xpLair?: number } | undefined,
+  locale: Locale = 'en',
 ): string {
   if (cr == null) return '-';
   const crStr = typeof cr === 'string' ? cr : (cr.cr ?? '-');
@@ -639,11 +1034,15 @@ export function formatMonsterCrDisplay(
   const parts: string[] = [];
   if (xp != null) {
     parts.push(
-      `XP ${xp.toLocaleString('en-US')}` +
-        (xpLair != null ? `, or ${xpLair.toLocaleString('en-US')} in lair` : ''),
+      `${locale === 'pl' ? 'PD' : 'XP'} ${xp.toLocaleString(locale === 'pl' ? 'pl-PL' : 'en-US')}` +
+        (xpLair != null
+          ? locale === 'pl'
+            ? ` lub ${xpLair.toLocaleString('pl-PL')} w leżu`
+            : `, or ${xpLair.toLocaleString('en-US')} in lair`
+          : ''),
     );
   }
-  parts.push(`PB +${pb}`);
+  parts.push(`${locale === 'pl' ? 'Premia biegłości' : 'PB'} +${pb}`);
   return `${crStr} (${parts.join('; ')})`;
 }
 
@@ -656,15 +1055,23 @@ interface DamageGroup {
   special?: string;
 }
 
-export function formatDamageTypes(list: Array<string | DamageGroup> | undefined): string {
+function localizeDamageType(value: string, locale: Locale): string {
+  if (locale !== 'pl') return value;
+  return PL_DAMAGE_TYPES[value] ?? PL_DAMAGE_WORDS[value.toLowerCase()] ?? value;
+}
+
+export function formatDamageTypes(
+  list: Array<string | DamageGroup> | undefined,
+  locale: Locale = 'en',
+): string {
   if (!list?.length) return '';
   return list
     .map((entry) => {
-      if (typeof entry === 'string') return entry;
+      if (typeof entry === 'string') return localizeDamageType(entry, locale);
       if (entry.special) return entry.special;
       const inner = entry.resist ?? entry.immune ?? entry.vulnerable ?? [];
       const joined = inner
-        .map((i) => (typeof i === 'string' ? i : ''))
+        .map((i) => (typeof i === 'string' ? localizeDamageType(i, locale) : ''))
         .filter(Boolean)
         .join(', ');
       return entry.note ? `${joined} ${entry.note}` : joined;
@@ -677,17 +1084,41 @@ export function formatConditionList(
   list:
     | Array<string | { conditionImmune?: string[]; note?: string; special?: string }>
     | undefined,
+  locale: Locale = 'en',
 ): string {
   if (!list?.length) return '';
   return list
     .map((entry) => {
-      if (typeof entry === 'string') return entry;
+      if (typeof entry === 'string') return localizeCondition(entry, locale);
       if (entry.special) return entry.special;
-      const joined = (entry.conditionImmune ?? []).join(', ');
+      const joined = (entry.conditionImmune ?? [])
+        .map((condition) => localizeCondition(condition, locale))
+        .join(', ');
       return entry.note ? `${joined} ${entry.note}` : joined;
     })
     .filter(Boolean)
     .join('; ');
+}
+
+const PL_CONDITIONS: Record<string, string> = {
+  blinded: 'oślepiony',
+  charmed: 'zauroczony',
+  deafened: 'ogłuchły',
+  frightened: 'przerażony',
+  grappled: 'pochwycony',
+  incapacitated: 'obezwładniony',
+  invisible: 'niewidzialny',
+  paralyzed: 'sparaliżowany',
+  petrified: 'skamieniały',
+  poisoned: 'zatruty',
+  prone: 'leżący',
+  restrained: 'unieruchomiony',
+  stunned: 'ogłuszony',
+  unconscious: 'nieprzytomny',
+};
+
+function localizeCondition(value: string, locale: Locale): string {
+  return locale === 'pl' ? (PL_CONDITIONS[value.toLowerCase()] ?? value) : value;
 }
 
 const DAILY_LABELS: Record<string, string> = {
@@ -699,16 +1130,49 @@ const DAILY_LABELS: Record<string, string> = {
   '3e': '3/day each',
 };
 
-export function formatDailyLabel(key: string): string {
-  return DAILY_LABELS[key] ?? `${key}/day`;
+export function formatDailyLabel(key: string, locale: Locale = 'en'): string {
+  if (locale === 'en') return DAILY_LABELS[key] ?? `${key}/day`;
+  const suffix = key.endsWith('e') ? 'każdy dzień' : 'dzień';
+  return `${key.replace(/e$/, '')}/${suffix}`;
 }
 
-export function formatLanguages(languages: string[] | undefined): string {
-  return languages?.length ? languages.join(', ') : '';
+const PL_LANGUAGES: Record<string, string> = {
+  Abyssal: 'Otchłani',
+  Celestial: 'Niebiański',
+  Common: 'Wspólny',
+  Deep: 'Głębia',
+  Draconic: 'Smoczy',
+  Dwarvish: 'Krasnoludzki',
+  Elvish: 'Elficki',
+  Giant: 'Gigantów',
+  Gnomish: 'Gnomi',
+  Goblin: 'Gobliński',
+  Halfling: 'Niziołczy',
+  Infernal: 'Piekielny',
+  Orc: 'Orkowy',
+  Primordial: 'Pierwotny',
+  Sylvan: 'Sylvański',
+  Undercommon: 'Wspólny Podmroku',
+};
+
+export function formatLanguages(
+  languages: string[] | undefined,
+  locale: Locale = 'en',
+): string {
+  return languages?.length
+    ? languages
+        .map((language) =>
+          locale === 'pl' ? (PL_LANGUAGES[language] ?? language) : language,
+        )
+        .join(', ')
+    : '';
 }
 
-export function formatLanguageType(type: string | undefined): string {
-  return type ? titleCase(type) : 'Language';
+export function formatLanguageType(
+  type: string | undefined,
+  locale: Locale = 'en',
+): string {
+  return type ? titleCase(type) : locale === 'pl' ? 'Język' : 'Language';
 }
 
 export function formatStringList(list: string[] | undefined): string {
@@ -721,10 +1185,21 @@ const RECIPE_DIETS: Record<string, string> = {
   X: 'Vegan',
 };
 
-export function formatDiet(diet: string | string[] | undefined): string {
+export function formatDiet(
+  diet: string | string[] | undefined,
+  locale: Locale = 'en',
+): string {
   if (!diet) return '';
   const codes = Array.isArray(diet) ? diet : [diet];
-  return codes.map((d) => RECIPE_DIETS[d] ?? d).join(', ');
+  return codes
+    .map((d) =>
+      locale === 'pl'
+        ? ({ C: 'Zawiera mięso', V: 'Wegetariańskie', X: 'Wegańskie' }[d] ??
+          RECIPE_DIETS[d] ??
+          d)
+        : (RECIPE_DIETS[d] ?? d),
+    )
+    .join(', ');
 }
 
 export function formatServes(
@@ -743,25 +1218,41 @@ const FACILITY_TYPES: Record<string, string> = {
   special: 'Special',
 };
 
-export function formatFacilityType(type: string | undefined): string {
-  return type ? (FACILITY_TYPES[type] ?? titleCase(type)) : 'Facility';
+const PL_FACILITY_TYPES: Record<string, string> = {
+  basic: 'Podstawowa',
+  special: 'Specjalna',
+};
+
+export function formatFacilityType(
+  type: string | undefined,
+  locale: Locale = 'en',
+): string {
+  return type
+    ? locale === 'pl'
+      ? (PL_FACILITY_TYPES[type] ?? titleCase(type))
+      : (FACILITY_TYPES[type] ?? titleCase(type))
+    : locale === 'pl'
+      ? 'Obiekt'
+      : 'Facility';
 }
 
 export function formatFacilityPrereq(
   prereq: Array<Record<string, unknown>> | undefined,
+  locale: Locale = 'en',
 ): string {
   if (!prereq?.length) return '';
   return prereq
     .map((req) => {
       const parts: string[] = [];
-      if (typeof req.level === 'number') parts.push(`Level ${req.level}+`);
+      if (typeof req.level === 'number')
+        parts.push(`${locale === 'pl' ? 'Poziom' : 'Level'} ${req.level}+`);
       if (Array.isArray(req.membership))
         parts.push((req.membership as string[]).join(', '));
       if (typeof req.other === 'string') parts.push(req.other);
       return parts.join(', ');
     })
     .filter(Boolean)
-    .join(' or ');
+    .join(locale === 'pl' ? ' lub ' : ' or ');
 }
 
 const OBJECT_TYPES: Record<string, string> = {
@@ -770,8 +1261,19 @@ const OBJECT_TYPES: Record<string, string> = {
   U: 'Object',
 };
 
-export function formatObjectType(type: string | undefined): string {
-  return type ? (OBJECT_TYPES[type] ?? titleCase(type)) : 'Object';
+export function formatObjectType(
+  type: string | undefined,
+  locale: Locale = 'en',
+): string {
+  const labels =
+    locale === 'pl'
+      ? { SW: 'Broń oblężnicza', GEN: 'Obiekt ogólny', U: 'Obiekt' }
+      : OBJECT_TYPES;
+  return type
+    ? (labels[type as keyof typeof labels] ?? titleCase(type))
+    : locale === 'pl'
+      ? 'Obiekt'
+      : 'Object';
 }
 
 export function formatImmunities(immune: unknown[] | undefined): string {
@@ -791,20 +1293,45 @@ const VEHICLE_TYPES: Record<string, string> = {
   ELEMENTAL_AIRSHIP: 'Elemental Airship',
 };
 
-export function formatVehicleType(type: string | undefined): string {
-  if (!type) return 'Vehicle';
-  return VEHICLE_TYPES[type] ?? titleCase(type.replace(/_/g, ' '));
+const PL_VEHICLE_TYPES: Record<string, string> = {
+  SHIP: 'Statek',
+  SPELLJAMMER: 'Spelljammer',
+  OBJECT: 'Pojazd',
+  INFWAR: 'Piekielna machina wojenna',
+  CREATURE: 'Pojazd-stworzenie',
+  ELEMENTAL_AIRSHIP: 'Sterowiec żywiołów',
+};
+
+export function formatVehicleType(
+  type: string | undefined,
+  locale: Locale = 'en',
+): string {
+  if (!type) return locale === 'pl' ? 'Pojazd' : 'Vehicle';
+  return locale === 'pl'
+    ? (PL_VEHICLE_TYPES[type] ?? titleCase(type.replace(/_/g, ' ')))
+    : (VEHICLE_TYPES[type] ?? titleCase(type.replace(/_/g, ' ')));
 }
 
 export function formatDimensions(dimensions: string[] | undefined): string {
   return dimensions?.length ? dimensions.join(' × ') : '';
 }
 
-export function formatPace(pace: number | Record<string, number> | undefined): string {
+export function formatPace(
+  pace: number | Record<string, number> | undefined,
+  locale: Locale = 'en',
+): string {
   if (pace == null) return '';
-  if (typeof pace === 'number') return `${pace} mph`;
+  if (typeof pace === 'number') return locale === 'pl' ? `${pace} mil/h` : `${pace} mph`;
   return Object.entries(pace)
-    .map(([mode, value]) => (mode === 'walk' ? `${value} mph` : `${mode} ${value} mph`))
+    .map(([mode, value]) =>
+      mode === 'walk'
+        ? locale === 'pl'
+          ? `${value} mil/h`
+          : `${value} mph`
+        : locale === 'pl'
+          ? `${PL_SPEED_MODES[mode] ?? mode} ${value} mil/h`
+          : `${mode} ${value} mph`,
+    )
     .join(', ');
 }
 
@@ -812,22 +1339,38 @@ export function formatVehicleCapacity(
   crew: number | undefined,
   passenger: number | undefined,
   cargo: number | string | undefined,
+  locale: Locale = 'en',
 ): string {
   const parts: string[] = [];
-  if (crew != null) parts.push(`Crew ${crew}`);
-  if (passenger != null) parts.push(`Passengers ${passenger}`);
+  if (crew != null) parts.push(`${locale === 'pl' ? 'Załoga' : 'Crew'} ${crew}`);
+  if (passenger != null)
+    parts.push(`${locale === 'pl' ? 'Pasażerowie' : 'Passengers'} ${passenger}`);
   if (cargo != null) {
-    parts.push(`Cargo ${typeof cargo === 'number' ? `${cargo} tons` : cargo}`);
+    parts.push(
+      `${locale === 'pl' ? 'Ładunek' : 'Cargo'} ${
+        typeof cargo === 'number' ? `${cargo} ${locale === 'pl' ? 'ton' : 'tons'}` : cargo
+      }`,
+    );
   }
   return parts.join(', ');
 }
 
-export function formatCostGp(cost: number | undefined): string {
-  return cost != null ? `${cost.toLocaleString('en-US')} gp` : '';
+export function formatCostGp(cost: number | undefined, locale: Locale = 'en'): string {
+  return cost != null
+    ? `${cost.toLocaleString(locale === 'pl' ? 'pl-PL' : 'en-US')} ${locale === 'pl' ? 'sz' : 'gp'}`
+    : '';
 }
 
-function titleizeProf(value: string): string {
-  return ABILITIES[value] ?? titleCase(value);
+function titleizeProf(value: string, locale: Locale = 'en'): string {
+  return locale === 'pl'
+    ? (PL_ABILITIES[value] ?? titleCase(value))
+    : (ABILITIES[value] ?? titleCase(value));
+}
+
+function localizeMonsterType(value: string, locale: Locale): string {
+  return locale === 'pl'
+    ? capitalize(PL_MONSTER_TYPES[value.toLowerCase()] ?? value)
+    : titleCase(value);
 }
 
 function titleCase(value: string): string {

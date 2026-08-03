@@ -179,8 +179,8 @@ function protectHomecraftTerms(text: string): { protectedText: string; terms: st
   const terms: string[] = [];
   let protectedText = text;
   const patterns = [
-    /\b(?:Rnds?|Rds?|Rounds?)\s+\d+(?:\s*[–-]\s*\d+)?/gi,
-    /\bRows?\s+\d+(?:\s*[–-]\s*\d+)?/gi,
+    /\b(?:Rnds?|Rds?|Rounds?)\s+\d+(?:\s*[\u2013-]\s*\d+)?/gi,
+    /\bRows?\s+\d+(?:\s*[\u2013-]\s*\d+)?/gi,
     /(?<![A-Za-z])\d*(?:sc|hdc|dc|tr|dtr|ch|slst|flo|blo|inc|dec|fptr|bpdc|st|sts|yo|sk)\b/gi,
   ];
   for (const pattern of patterns) {
@@ -209,21 +209,22 @@ function restoreHomecraftTerms(text: string, terms: string[]): string {
 
 function normalizeHomecraftTranslation(source: string, translated: string): string {
   let result = translated;
-  const roundLabel = /^(?:Rd|Rnd|Rds|Rnds|Round|Rounds)\s+(\d+(?:[–-]\d+)?)\s*:?$/i.exec(
-    source.trim(),
-  );
+  const roundLabel =
+    /^(?:Rd|Rnd|Rds|Rnds|Round|Rounds)\s+(\d+(?:[\u2013-]\d+)?)\s*:?$/i.exec(
+      source.trim(),
+    );
   if (roundLabel) return `Runda ${roundLabel[1]}:`;
-  const rowLabel = /^(?:Row|Rows)\s+(\d+(?:[–-]\d+)?)\s*:?$/i.exec(source.trim());
+  const rowLabel = /^(?:Row|Rows)\s+(\d+(?:[\u2013-]\d+)?)\s*:?$/i.exec(source.trim());
   if (rowLabel) return `Rząd ${rowLabel[1]}:`;
   if (/\b(?:Rd|Rnd|Rds|Rnds|Round|Rounds)\b/i.test(source)) {
     result = result.replace(
-      /\b(?:II miejsce|Część|Runda|Rundy|Rd|Rnd|Rnds?)\s+(\d+(?:[–-]\d+)?)/gi,
+      /\b(?:II miejsce|Część|Runda|Rundy|Rd|Rnd|Rnds?)\s+(\d+(?:[\u2013-]\d+)?)/gi,
       'Runda $1',
     );
   }
   if (/\b(?:Row|Rows)\b/i.test(source)) {
     result = result.replace(
-      /\b(?:Wiersz|Wiersze|Rząd|Rzędy|Row|Rows)\s+(\d+(?:[–-]\d+)?)/gi,
+      /\b(?:Wiersz|Wiersze|Rząd|Rzędy|Row|Rows)\s+(\d+(?:[\u2013-]\d+)?)/gi,
       'Rząd $1',
     );
   }

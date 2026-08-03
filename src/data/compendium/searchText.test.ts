@@ -12,4 +12,11 @@ describe('search text helpers', () => {
       englishName: 'Weapon of Warning',
     });
   });
+
+  it('does not replace an existing original name', () => {
+    const withOriginal = { name: 'Translated', englishName: 'Existing' };
+    expect(withEnglishName(withOriginal, 'New original')).toBe(withOriginal);
+    const sameName = { name: 'Same' };
+    expect(withEnglishName(sameName, 'Same')).toBe(sameName);
+  });
 });

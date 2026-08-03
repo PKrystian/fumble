@@ -21,6 +21,9 @@ function Harness() {
       <button type="button" onClick={() => update({ q: 'fireball' }, true)}>
         Replace
       </button>
+      <button type="button" onClick={() => update({ source: ['', 'PHB'], q: '' })}>
+        Skip empty values
+      </button>
       <button type="button" onClick={() => update({ source: null })}>
         Clear
       </button>
@@ -57,5 +60,8 @@ describe('useUrlSearchState', () => {
         '?q=fireball&source=XPHB&source=PHB',
       ),
     );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Skip empty values' }));
+    expect(screen.getByRole('status')).toHaveTextContent('?source=PHB');
   });
 });

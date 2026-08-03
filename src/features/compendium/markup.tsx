@@ -3,6 +3,7 @@ import { parseExpression } from '@/features/dice/engine';
 import { RollableDice } from '@/features/dice/RollableDice';
 import { RechargeRoll } from '@/features/dice/RechargeRoll';
 import { DEFAULT_LOCALE, type Locale } from '@/i18n/locales';
+import { translate } from '@/i18n/useT';
 import { localizeFormula } from './formula';
 import { ReferenceLink } from './ReferenceLink';
 
@@ -123,6 +124,32 @@ const LABELS: Record<Locale, LabelSet> = {
   },
 };
 
+const QUICKREF_LABELS: Record<Locale, Record<string, string>> = {
+  en: {},
+  pl: {
+    cover: 'Osłona',
+    'difficult terrain': 'Trudny teren',
+    'vision and light': 'Wzrok i światło',
+    'total cover': 'Całkowita osłona',
+    'half cover': 'Połowiczna osłona',
+    'three-quarters cover': 'Trzy czwarte osłony',
+    'lightly obscured': 'Lekko przesłonięty',
+    'lightly obscure': 'Lekko przesłania',
+    'lightly obscures': 'Lekko przesłania',
+    'lightly obscuring': 'Lekko przesłaniając',
+    'heavily obscured': 'Silnie przesłonięty',
+    'heavily obscures': 'Silnie przesłania',
+    'bright light': 'Jasne światło',
+    'dim light': 'Słabe światło',
+    'dimly lit': 'Słabo oświetlony',
+    dim: 'Słabo',
+    dark: 'Ciemność',
+    'no light': 'Brak światła',
+    vision: 'Wzrok',
+    surprised: 'Zaskoczony',
+  },
+};
+
 export function markupLabel(locale: Locale, key: keyof LabelSet): string {
   return LABELS[locale][key];
 }
@@ -136,6 +163,15 @@ function failureBy(locale: Locale, n: string): string {
   return locale === 'pl'
     ? `Niepowodzenie o ${n} lub Więcej:`
     : `Failure by ${n} or More:`;
+}
+
+function quickrefLabel(locale: Locale, parts: string[]): string {
+  const candidates = [parts[2], parts[4], parts[3], parts[0]].filter(
+    (part): part is string =>
+      typeof part === 'string' && part.length > 0 && !/^\d+$/.test(part),
+  );
+  const value = candidates[0] ?? parts[0]!;
+  return QUICKREF_LABELS[locale][value.toLowerCase()] ?? value;
 }
 
 function slugify(value: string): string {
@@ -170,7 +206,7 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
           variant="attack"
           expression={`1d20 ${bonus}`}
           display={shown}
-          label="Attack roll"
+          label={translate(locale, 'compendium.detail.attackRoll')}
         />
       );
     }
@@ -246,9 +282,10 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
       );
     case 'filter':
     case 'footnote':
-    case 'quickref':
     case 'hitYourSpellAttack':
       return <Fragment key={key}>{first}</Fragment>;
+    case 'quickref':
+      return <Fragment key={key}>{quickrefLabel(locale, parts)}</Fragment>;
     case 'damage':
     case 'dice':
     case 'scaledamage':

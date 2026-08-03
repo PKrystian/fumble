@@ -59,9 +59,9 @@ const session = {
   entries: [{ time: Date.UTC(2026, 0, 1, 10, 0, 0), text: 'First transcript line' }],
 };
 
-const renderPage = () =>
+const renderPage = (path = '/') =>
   render(
-    <MemoryRouter>
+    <MemoryRouter initialEntries={[path]}>
       <SessionLogPage />
     </MemoryRouter>,
   );
@@ -97,6 +97,12 @@ describe('SessionLogPage', () => {
     expect(mocks.state.appendTranscript).not.toHaveBeenCalled();
     fireEvent.click(screen.getByRole('button', { name: 'Start a new session' }));
     expect(mocks.state.addSession).toHaveBeenCalled();
+  });
+
+  it('creates a session with a Polish localized date', () => {
+    renderPage('/pl/session-log');
+    fireEvent.click(screen.getByRole('button', { name: /Rozpocznij/ }));
+    expect(mocks.state.addSession).toHaveBeenCalledWith(expect.stringMatching(/\d{4}/));
   });
 
   it('edits, copies, navigates and deletes a populated session', async () => {

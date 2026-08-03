@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
+import { translate, useT } from '@/i18n/useT';
 import { setDocumentTitle, setMetaContent, setMetaDescription } from './head';
 
 const SITE_NAME = 'Fumble';
-const DEFAULT_DESCRIPTION =
-  'Free, no-login Dungeons & Dragons 2024 toolkit with character sheets, compendium, dice, DM tools, books, and a campaign wiki.';
 
 export function useSeo(title: string, description?: string, indexable = true): void {
+  const { locale } = useT();
   useEffect(() => {
     const fullTitle = title === SITE_NAME ? SITE_NAME : `${title} - ${SITE_NAME}`;
-    const fullDescription = description || DEFAULT_DESCRIPTION;
+    const fullDescription = description || translate(locale, 'seo.defaultDescription');
     setDocumentTitle(fullTitle);
     setMetaDescription(fullDescription);
     setMetaContent('meta[property="og:title"]', 'property', 'og:title', fullTitle);
@@ -31,5 +31,5 @@ export function useSeo(title: string, description?: string, indexable = true): v
       'robots',
       indexable ? 'index, follow' : 'noindex, nofollow',
     );
-  }, [title, description, indexable]);
+  }, [title, description, indexable, locale]);
 }

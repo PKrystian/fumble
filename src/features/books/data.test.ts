@@ -1,160 +1,155 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
-import type { BookIndexEntry } from '@/data/compendium/types';
-import { adventures, books, buildOutline, getBook, loadBookData } from './data';
+import { describe, expect, it, vi } from 'vitest';
+import {
+  buildOutline,
+  books,
+  getBook,
+  loadBookData,
+  localizedBookStoryline,
+  type BookOverlay,
+} from './data';
 
-const book = (id: string): BookIndexEntry =>
-  ({
-    id,
-    name: 'Test Book',
-    source: 'TEST',
-    type: 'book',
-  }) as BookIndexEntry;
+describe('book data localization', () => {
+  it('localizes indexed storylines on the Polish route', () => {
+    expect(localizedBookStoryline('Tales from the Yawning Portal', 'pl')).toBe(
+      'Opowieści z Ziewającego Portalu',
+    );
+    expect(localizedBookStoryline('Tales from the Yawning Portal', 'en')).toBe(
+      'Tales from the Yawning Portal',
+    );
+  });
 
-describe('book data', () => {
-  afterEach(() => vi.restoreAllMocks());
+  it('keeps unknown storylines available as a fallback', () => {
+    expect(localizedBookStoryline('Custom campaign', 'pl')).toBe('Custom campaign');
+    expect(localizedBookStoryline(undefined, 'pl')).toBeUndefined();
+  });
 
-  it('separates books and adventures and finds entries', () => {
-    expect(books.length).toBeGreaterThan(0);
-    expect(adventures.length).toBeGreaterThan(0);
-    expect(getBook(books[0]!.id)).toEqual(books[0]);
+  it('builds outlines only from named section entries', () => {
+    expect(
+      buildOutline([
+        'plain',
+        {
+          type: 'section',
+          name: 'Chapter',
+          entries: [{ type: 'entries', name: 'Part' }],
+        },
+        { type: 'item', name: 'Item' },
+      ]),
+    ).toEqual([{ name: 'Chapter', children: [{ name: 'Part', children: [] }] }]);
+    expect(buildOutline(undefined)).toEqual([]);
+    expect(buildOutline([{ type: 'section', name: 'Chapter' }], 0)).toEqual([]);
+  });
+
+  it('finds indexed books and returns undefined for unknown ids', () => {
+    expect(getBook(books[0]!.id)).toBe(books[0]);
     expect(getBook('missing-book')).toBeUndefined();
   });
 
-  it('builds a bounded section outline', () => {
-    const entries = [
-      'text',
-      {
-        type: 'section',
-        name: 'Chapter',
-        entries: [
-          {
-            type: 'entries',
-            name: 'Topic',
-            entries: [{ type: 'section', name: 'Too deep', entries: [] }],
-          },
-        ],
-      },
-      { type: 'table', caption: 'Ignored', rows: [] },
-    ];
-    expect(buildOutline(entries)).toEqual([
-      { name: 'Chapter', children: [{ name: 'Topic', children: [] }] },
-    ]);
-    expect(buildOutline(undefined)).toEqual([]);
-    expect(buildOutline(entries, 0)).toEqual([]);
-  });
-
-  it('loads English chapters and caches requests', async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
-      ok: true,
-      json: () => Promise.resolve({ data: [{ type: 'section', name: 'Chapter' }] }),
-    });
+  it('loads English data and reuses its cached promise', async () => {
+    const fetchMock = vi.fn();
     vi.stubGlobal('fetch', fetchMock);
-    const entry = book('coverage-english');
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: vi.fn().mockResolvedValue({ data: [{ type: 'section', name: 'Chapter' }] }),
+    });
+    const entry = { id: 'cache-test', type: 'book' } as never;
     const first = loadBookData(entry, 'en');
-    const second = loadBookData(entry, 'en');
-    expect(second).toBe(first);
+    expect(loadBookData(entry, 'en')).toBe(first);
     await expect(first).resolves.toEqual([{ type: 'section', name: 'Chapter' }]);
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).toHaveBeenCalledOnce();
   });
 
-  it('merges localized overlays recursively', async () => {
-    const fetchMock = vi
-      .fn()
+  it('applies nested Polish overlays and preserves untranslated entries', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+    fetchMock
       .mockResolvedValueOnce({
         ok: true,
-        json: () =>
-          Promise.resolve({
-            data: [
-              {
-                id: 'chapter',
-                type: 'section',
-                name: 'Chapter',
-                entries: [{ id: 'topic', type: 'entries', name: 'Topic', entries: [] }],
-              },
-            ],
-          }),
+        json: vi.fn().mockResolvedValue({
+          data: [
+            {
+              type: 'section',
+              id: 'chapter',
+              name: 'Chapter',
+              entries: [
+                { type: 'entries', id: 'child', name: 'Child', entries: ['English'] },
+                'Plain',
+              ],
+            },
+            { type: 'section', name: 'No id' },
+            { type: 'section', id: 'untranslated', name: 'No entries' },
+          ],
+        }),
       })
       .mockResolvedValueOnce({
         ok: true,
-        json: () =>
-          Promise.resolve({
-            data: {
-              '0:chapter': { name: 'Rozdział' },
-              '0:topic': { name: 'Temat' },
-            },
-          }),
-      });
-    vi.stubGlobal('fetch', fetchMock);
-    await expect(loadBookData(book('coverage-polish'), 'pl')).resolves.toMatchObject([
-      {
-        name: 'Rozdział',
-        entries: [{ name: 'Temat' }],
-      },
-    ]);
-  });
-
-  it('falls back when an overlay cannot be loaded', async () => {
-    vi.stubGlobal(
-      'fetch',
-      vi
-        .fn()
-        .mockResolvedValueOnce({
-          ok: true,
-          json: () => Promise.resolve({ data: ['Chapter'] }),
-        })
-        .mockRejectedValueOnce(new Error('offline')),
-    );
-    await expect(loadBookData(book('coverage-fallback'), 'pl')).resolves.toEqual([
-      'Chapter',
-    ]);
-  });
-
-  it('keeps untranslated leaf entries and primitive chapter content', async () => {
-    vi.stubGlobal(
-      'fetch',
-      vi
-        .fn()
-        .mockResolvedValueOnce({
-          ok: true,
-          json: () =>
-            Promise.resolve({
-              data: [
-                'Text',
-                { type: 'entries', name: 'No id', entries: [] },
-                { id: 'leaf', type: 'entries', name: 'Leaf' },
-              ],
-            }),
-        })
-        .mockResolvedValueOnce({
-          ok: true,
-          json: () => Promise.resolve({ data: { unrelated: { name: 'Other' } } }),
+        json: vi.fn().mockResolvedValue({
+          data: {
+            '0:chapter': { name: 'Rozdział' },
+            '0:child': { name: 'Dziecko', entries: ['Polski'] },
+          } satisfies BookOverlay,
         }),
-    );
-    await expect(loadBookData(book('coverage-leaves'), 'pl')).resolves.toEqual([
-      'Text',
-      { type: 'entries', name: 'No id', entries: [] },
-      { id: 'leaf', type: 'entries', name: 'Leaf' },
+      });
+
+    await expect(
+      loadBookData({ id: 'overlay-test', type: 'book' } as never, 'pl'),
+    ).resolves.toEqual([
+      {
+        type: 'section',
+        id: 'chapter',
+        name: 'Rozdział',
+        entries: [
+          { type: 'entries', id: 'child', name: 'Dziecko', entries: ['Polski'] },
+          'Plain',
+        ],
+      },
+      { type: 'section', name: 'No id' },
+      { type: 'section', id: 'untranslated', name: 'No entries' },
     ]);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
-  it('falls back when the overlay response is unsuccessful', async () => {
-    vi.stubGlobal(
-      'fetch',
-      vi
-        .fn()
-        .mockResolvedValueOnce({
-          ok: true,
-          json: () => Promise.resolve({}),
-        })
-        .mockResolvedValueOnce({ ok: false }),
-    );
-    await expect(loadBookData(book('coverage-overlay-http'), 'pl')).resolves.toEqual([]);
+  it('falls back when the overlay is unavailable or malformed', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: vi
+          .fn()
+          .mockResolvedValue({ data: [{ type: 'section', name: 'Original' }] }),
+      })
+      .mockResolvedValueOnce({ ok: false, status: 404 });
+    await expect(
+      loadBookData({ id: 'overlay-missing', type: 'book' } as never, 'pl'),
+    ).resolves.toEqual([{ type: 'section', name: 'Original' }]);
+
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: vi
+          .fn()
+          .mockResolvedValue({ data: [{ type: 'section', name: 'Original' }] }),
+      })
+      .mockRejectedValueOnce(new Error('offline'));
+    await expect(
+      loadBookData({ id: 'overlay-failed', type: 'book' } as never, 'pl'),
+    ).resolves.toEqual([{ type: 'section', name: 'Original' }]);
   });
 
-  it('rejects failed source requests', async () => {
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 404 }));
-    await expect(loadBookData(book('coverage-missing'), 'en')).rejects.toThrow(
-      'HTTP 404',
-    );
+  it('rejects failed book requests and accepts missing data arrays', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+    fetchMock.mockResolvedValueOnce({ ok: false, status: 503 });
+    await expect(
+      loadBookData({ id: 'book-failed', type: 'book' } as never, 'en'),
+    ).rejects.toThrow('HTTP 503');
+
+    fetchMock.mockResolvedValueOnce({
+      ok: true,
+      json: vi.fn().mockResolvedValue({}),
+    });
+    await expect(
+      loadBookData({ id: 'book-empty', type: 'book' } as never, 'en'),
+    ).resolves.toEqual([]);
   });
 });

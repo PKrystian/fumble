@@ -48,10 +48,16 @@ export type ArmorType = 'light' | 'medium' | 'heavy' | 'shield';
 
 export function parseArmorType(type: string): ArmorType | undefined {
   const value = type.toLowerCase();
-  if (value.includes('shield')) return 'shield';
-  if (value.includes('light armor')) return 'light';
-  if (value.includes('medium armor')) return 'medium';
-  if (value.includes('heavy armor')) return 'heavy';
+  if (value.includes('shield') || value.includes('tarcza')) return 'shield';
+  if (value.includes('light armor') || value.includes('lekka zbroja')) return 'light';
+  if (
+    value.includes('medium armor') ||
+    value.includes('średnia zbroja') ||
+    value.includes('średni pancerz')
+  ) {
+    return 'medium';
+  }
+  if (value.includes('heavy armor') || value.includes('ciężka zbroja')) return 'heavy';
   return undefined;
 }
 

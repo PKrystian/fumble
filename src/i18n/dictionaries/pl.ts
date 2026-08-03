@@ -76,7 +76,7 @@ const pl: Dictionary = {
     title: 'Szukaj',
     placeholder: 'Szukaj',
     shortcut: 'Ctrl K',
-    hint: 'Przeszukaj czary, potwory, przedmioty, homebrew, strony wiki i więcej.',
+    hint: 'Przeszukaj czary, potwory, przedmioty, własną zawartość, strony wiki i więcej.',
     noResults: 'Brak wyników.',
   },
   home: {
@@ -132,16 +132,16 @@ const pl: Dictionary = {
     principles: {
       localTitle: 'Twoje dane zostają w przeglądarce',
       localBody:
-        'Postacie, notatki, homebrew, układy i ustawienia narzędzi korzystają z lokalnej pamięci przeglądarki. Eksportuj ważne dane, ponieważ Fumble nie ma kont ani usługi odzyskiwania.',
+        'Postacie, notatki, własna zawartość, układy i ustawienia narzędzi korzystają z lokalnej pamięci przeglądarki. Eksportuj ważne dane, ponieważ Fumble nie ma kont ani usługi odzyskiwania.',
       editionsTitle: 'Treści 2024 i starsze',
       editionsBody:
         'Przełącz edycję w sidebarze, aby skupić się na poprawionych materiałach, starszych wersjach albo całym dostępnym zbiorze.',
       languageTitle: 'Polski i angielski',
       languageBody:
         'Interfejs i lokalizowane nakładki kompendium są dostępne w obu językach, a stabilne linki prowadzą do tej samej strony.',
-      openTitle: 'Open source i self-hosting',
+      openTitle: 'Otwarte oprogramowanie i samodzielny hosting',
       openBody:
-        'Kod aplikacji jest publiczny, a statyczny build można hostować bez serwera aplikacyjnego i płatnego backendu.',
+        'Kod aplikacji jest publiczny, a statyczną wersję można hostować bez serwera aplikacyjnego i płatnego zaplecza.',
     },
     faq: {
       eyebrow: 'Warto wiedzieć',
@@ -150,7 +150,7 @@ const pl: Dictionary = {
         'Fumble celowo upraszcza kwestie kont, zapisu danych i hostingu. Te informacje warto znać, zanim zaczniesz polegać na nim podczas kampanii.',
       costQuestion: 'Czy Fumble jest darmowe?',
       costAnswer:
-        'Tak. Nie ma subskrypcji, reklam, płatnych poziomów konta ani płatnego backendu aplikacji.',
+        'Tak. Nie ma subskrypcji, reklam, płatnych poziomów konta ani płatnego zaplecza aplikacji.',
       dataQuestion: 'Gdzie są moje postacie i notatki?',
       dataAnswer:
         'Są zapisane w tym profilu przeglądarki. Wyczyszczenie danych strony, tryb prywatny albo zmiana urządzenia mogą odebrać do nich dostęp, dlatego zachowuj eksporty ważnych treści.',
@@ -192,7 +192,7 @@ const pl: Dictionary = {
       navigation: 'Odkrywaj',
       about: 'O Fumble',
       aboutBody:
-        'Darmowe, open source i gotowe do samodzielnego hostowania. Nie wymaga konta, a dane pozostają w przeglądarce. Fumble jest nieoficjalnym projektem fanowskim.',
+        'Darmowe, otwarte oprogramowanie gotowe do samodzielnego hostowania. Nie wymaga konta, a dane pozostają w przeglądarce. Fumble jest nieoficjalnym projektem fanowskim.',
       version: 'Wersja {{version}}',
       copyright: '© {{year}} Fumble',
     },
@@ -207,10 +207,10 @@ const pl: Dictionary = {
       description: 'Fumble działa bez konta, analityki, reklam i serwera aplikacyjnego.',
       controllerHeading: 'Kto odpowiada za Fumble',
       controllerBody:
-        'Publiczną instancję utrzymuje Krystian Pińczak, dostępny przez profil GitHub @pkrystian i repozytorium Fumble. GitHub obsługuje infrastrukturę hostingową. Operator oddzielnej instancji self-hosted odpowiada za swoje wdrożenie, logi, konfigurację i dodatkowe usługi.',
+        'Publiczną instancję utrzymuje Krystian Pińczak, dostępny przez profil GitHub @pkrystian i repozytorium Fumble. GitHub obsługuje infrastrukturę hostingową. Operator oddzielnej instancji działającej na własnym hostingu odpowiada za swoje wdrożenie, logi, konfigurację i dodatkowe usługi.',
       localHeading: 'Dane zapisane w przeglądarce',
       localBody:
-        'Postacie, obrazy postaci, układy, stan inicjatywy, transkrypcje i notatki z sesji, wpisy homebrew, ustawienia soundboardu, wyglądu, edycji treści i języka są zapisywane w localStorage tej strony. Importowane pliki są przetwarzane w przeglądarce. Fumble nie otrzymuje ich kopii.\n\nDane pozostają w profilu przeglądarki i w obrębie domeny, w której je utworzono. Inni użytkownicy tego samego profilu mogą mieć do nich dostęp. Nie zapisuj sekretów na współdzielonym urządzeniu.',
+        'Postacie, obrazy postaci, układy, stan inicjatywy, transkrypcje i notatki z sesji, wpisy własnej zawartości, ustawienia panelu dźwięków, wyglądu, edycji treści i języka są zapisywane w localStorage tej strony. Importowane pliki są przetwarzane w przeglądarce. Fumble nie otrzymuje ich kopii.\n\nDane pozostają w profilu przeglądarki i w obrębie domeny, w której je utworzono. Inni użytkownicy tego samego profilu mogą mieć do nich dostęp. Nie zapisuj sekretów na współdzielonym urządzeniu.',
       permissionsHeading: 'Mikrofon i schowek',
       permissionsBody:
         'Dostęp do mikrofonu jest wymagany dopiero po uruchomieniu transkrypcji. Dźwięk jest przetwarzany w przeglądarce i nie trafia do serwera Fumble. Przeglądarka może pobrać model transkrypcji z Hugging Face. Schowek jest używany wyłącznie po wybraniu funkcji kopiowania.',
@@ -248,13 +248,13 @@ const pl: Dictionary = {
         'Uruchomienie: rozpoczęcie transkrypcji, gdy modelu nie ma w pamięci podręcznej. Cel: pobranie modelu i plików środowiska. Odbiorca: Hugging Face i jego infrastruktura. Dostawca może otrzymać adres IP, czas żądania, nazwy plików modelu i nagłówki. Dźwięk i tekst transkrypcji są przetwarzane lokalnie i nie są celowo wysyłane.',
       youtubeTitle: 'YouTube',
       youtubeBody:
-        'Uruchomienie: dodanie lub odtworzenie elementu YouTube w soundboardzie oraz wczytanie miniatury lub odtwarzacza. Cel: pokazanie i odtworzenie mediów. Odbiorca: Google/YouTube. Dostawca może otrzymać adres IP, czas żądania, identyfikator filmu lub playlisty, nagłówki i interakcje z odtwarzaczem. YouTube może używać własnych plików cookie lub pamięci lokalnej.',
+        'Uruchomienie: dodanie lub odtworzenie elementu YouTube w panelu dźwięków oraz wczytanie miniatury lub odtwarzacza. Cel: pokazanie i odtworzenie mediów. Odbiorca: Google/YouTube. Dostawca może otrzymać adres IP, czas żądania, identyfikator filmu lub playlisty, nagłówki i interakcje z odtwarzaczem. YouTube może używać własnych plików cookie lub pamięci lokalnej.',
       remoteMediaTitle: 'Zdalne media wskazane przez użytkownika',
       remoteMediaBody:
         'Uruchomienie: otwarcie strony własnej wiki lub importowanej treści zawierającej adres obrazu HTTPS. Cel: wyświetlenie wskazanego obrazu. Odbiorca: operator domeny z podanego adresu. Może on otrzymać adres IP, czas żądania, adres obrazu, nagłówki i stronę odsyłającą w zakresie dozwolonym przez przeglądarkę. Używaj mediów wyłącznie z zaufanych serwerów.',
       controlHeading: 'Jak ograniczyć połączenia',
       controlBody:
-        'Podstawowe narzędzia działają bez transkrypcji i YouTube. Unikaj wpisów ze zdalnymi grafikami, aby zapobiec tym żądaniom. Blokowanie treści, filtrowanie DNS albo wersja self-hosted z usuniętymi integracjami dają większą kontrolę. Blokada dostawcy może wyłączyć obrazy, transkrypcję lub media.',
+        'Podstawowe narzędzia działają bez transkrypcji i YouTube. Unikaj wpisów ze zdalnymi grafikami, aby zapobiec tym żądaniom. Blokowanie treści, filtrowanie DNS albo wersja działająca na własnym hostingu z usuniętymi integracjami dają większą kontrolę. Blokada dostawcy może wyłączyć obrazy, transkrypcję lub media.',
       githubPolicy: 'Polityka prywatności GitHub',
       huggingFacePolicy: 'Polityka prywatności Hugging Face',
       googlePolicy: 'Polityka prywatności Google',
@@ -262,7 +262,7 @@ const pl: Dictionary = {
     terms: {
       title: 'Warunki i zastrzeżenia',
       description:
-        'Warunki korzystania z publicznej instancji oraz obowiązki użytkowników i operatorów self-hostingu.',
+        'Warunki korzystania z publicznej instancji oraz obowiązki użytkowników i operatorów samodzielnego hostingu.',
       serviceHeading: 'Status usługi',
       serviceBody:
         'Fumble jest darmowym, nieoficjalnym i otwartoźródłowym projektem fanowskim bez konta i gwarancji usługi. Funkcje, treści, adresy i dostępność mogą się zmienić albo zostać wycofane. Nie powstaje płatna relacja usługowa ani gwarantowany okres wsparcia.',
@@ -271,13 +271,13 @@ const pl: Dictionary = {
         'Fumble nie jest zatwierdzony, wspierany ani sponsorowany przez Wizards of the Coast. Dungeons & Dragons oraz powiązane nazwy, zasady, postacie, grafiki i znaki należą do odpowiednich właścicieli. Dane stron trzecich nie są ponownie licencjonowane na licencji MIT Fumble.',
       userHeading: 'Twoje treści i obowiązki',
       userBody:
-        'Odpowiadasz za importowane lub publikowane pliki, obrazy, homebrew, strony wiki, linki i identyfikatory mediów. Nie rozpowszechniaj materiałów bez uprawnienia, złośliwego kodu, danych osobowych bez podstawy ani treści niezgodnych z prawem. Zachowuj kopie ważnych danych.',
+        'Odpowiadasz za importowane lub publikowane pliki, obrazy, własną zawartość, strony wiki, linki i identyfikatory mediów. Nie rozpowszechniaj materiałów bez uprawnienia, złośliwego kodu, danych osobowych bez podstawy ani treści niezgodnych z prawem. Zachowuj kopie ważnych danych.',
       noWarrantyHeading: 'Brak gwarancji',
       noWarrantyBody:
         'Oprogramowanie i publiczna instancja są udostępniane w stanie takim, w jakim są, bez gwarancji dostępności, poprawności, przydatności, zachowania danych lub zgodności prawnej. Sprawdzaj obliczenia i wyniki. W zakresie dozwolonym prawem osoby utrzymujące projekt nie odpowiadają za utratę danych, przerwy ani decyzje oparte na aplikacji.',
-      selfHostHeading: 'Self-hosting',
+      selfHostHeading: 'Samodzielny hosting',
       selfHostBody:
-        'Operator self-hostingu odpowiada za rozpowszechniane treści, logi, aktualizacje bezpieczeństwa, domenę, informacje o prywatności, analitykę, integracje, kontrolę dostępu oraz żądania użytkowników i właścicieli praw. Te informacje trzeba dostosować, jeśli wdrożenie działa inaczej.',
+        'Operator samodzielnego hostingu odpowiada za rozpowszechniane treści, logi, aktualizacje bezpieczeństwa, domenę, informacje o prywatności, analitykę, integracje, kontrolę dostępu oraz żądania użytkowników i właścicieli praw. Te informacje trzeba dostosować, jeśli wdrożenie działa inaczej.',
       contactHeading: 'Zgłoszenia i żądania usunięcia',
       contactBody:
         'Skontaktuj się z Krystianem Pińczakiem przez https://github.com/PKrystian albo użyj szablonu zgłoszenia treści w repozytorium do błędów atrybucji, korekt źródeł i żądań usunięcia. Podaj dokładny adres lub ścieżkę i uzasadnienie. Uzasadnione zgłoszenie właściciela praw może spowodować wyłączenie lub usunięcie danego źródła danych. Podatności bezpieczeństwa zgłaszaj prywatnie.',
@@ -342,7 +342,7 @@ const pl: Dictionary = {
     noMatches: 'Brak wyników.',
     back: 'Wstecz',
     homebrewBadge: 'HB',
-    homebrewLabel: 'Homebrew',
+    homebrewLabel: 'Własna zawartość',
     uaBadge: 'UA',
     uaLabel: 'Unearthed Arcana',
     lore: 'Opowieść',
@@ -471,6 +471,7 @@ const pl: Dictionary = {
       rollOnTable: 'Rzuć {{dice}} na tej tabeli',
       tableRoll: 'Rzut na tabeli',
       damage: 'Obrażenia',
+      attackRoll: 'Rzut na atak',
       armorClass: 'Klasa Pancerza',
       properties: 'Właściwości',
       mastery: 'Mistrzostwo broni',
@@ -901,6 +902,7 @@ const pl: Dictionary = {
     },
     chapterOne: '{{count}} rozdział',
     chapterOther: '{{count}} rozdziałów',
+    chapterFallback: 'Rozdział {{n}}',
     noMatches: 'Brak ksiąg pasujących do „{{query}}”.',
     couldNotLoad: 'Nie udało się wczytać tego dokumentu.',
     collapseChapter: 'Zwiń {{title}}',
@@ -1022,6 +1024,7 @@ const pl: Dictionary = {
   sessionLog: {
     sessions: 'Sesje',
     newSession: 'Nowa sesja',
+    newSessionTitle: 'Sesja - {{date}}',
     noSessionSelected: 'Nie wybrano sesji.',
     startNewSession: 'Rozpocznij nową sesję',
     deleteSession: 'Usuń sesję',
@@ -1040,6 +1043,18 @@ const pl: Dictionary = {
     recording: 'nagrywanie',
     copied: 'Skopiowano',
     copyTranscript: 'Kopiuj transkrypcję',
+    notesLabel: 'Notatki:',
+    summaryPrompt:
+      'Poniżej znajduje się automatyczna transkrypcja głosowa sesji Dungeons & Dragons. ' +
+      'Jakość transkrypcji jest słaba: spodziewaj się źle rozpoznanych słów, zniekształconych ' +
+      'zdań i błędnej gramatyki. Przeczytaj tekst i odtwórz rzeczywisty sens wydarzeń w świecie ' +
+      'gry przed napisaniem podsumowania - nie podsumowuj dosłownie zniekształconego tekstu. ' +
+      'Pomiń wszystko, co nie należy do fabuły: żarty, rozmowy poboczne, dyskusje o zasadach ' +
+      'oraz inne rozmowy poza grą. ' +
+      'Podsumuj wyłącznie wydarzenia fabularne w postaci numerowanej listy punktów, po jednym na ' +
+      'każde ważne wydarzenie, decyzję lub zwrot akcji, w kolejności chronologicznej ' +
+      '(np. "1. Gracze dotarli na dwór króla. 2. ..."). ' +
+      'Odpowiedz w tym samym języku co transkrypcja, wyłącznie numerowaną listą, bez wstępu.',
     copyWithAiPromptTitle:
       'Kopiuje gotowy do wklejenia prompt AI, proszący o ponumerowane podsumowanie wątków fabularnych',
     copyWithAiPrompt: 'Kopiuj z promptem AI',
@@ -1096,6 +1111,17 @@ const pl: Dictionary = {
     add: 'Dodaj',
     invalidLink: 'Wpisz prawidłowy link YouTube.',
     untitledTrack: 'Utwór bez nazwy',
+    defaultTrack: {
+      places: 'Ważne miejsca',
+      planes: 'Przez sfery istnienia',
+      situations: 'Wydarzenia i sytuacje',
+      settlements: 'Miasta i wioski',
+      ambience: 'Atmosfera',
+      travel: 'Tempo podróży',
+      dungeons: 'Lochy i krypty',
+      tavern: 'Spotykacie się w tawernie',
+      combat: 'Rzut na inicjatywę!',
+    },
     removeTrack: 'Usuń {{name}}',
     categories: 'Kategorie dźwięków',
     category: {
@@ -1119,6 +1145,8 @@ const pl: Dictionary = {
   },
   seo: {
     homeTitle: 'Fumble',
+    defaultDescription:
+      'Darmowy, niewymagający logowania zestaw narzędzi Dungeons & Dragons 2024 z kartami postaci, kompendium, rzutami kośćmi, narzędziami MG, księgami i wiki kampanii.',
     homeDescription:
       'Fumble to darmowe narzędzie do Dungeons & Dragons 2024 (5.5e), niewymagające ' +
       'logowania: karty postaci, pełne kompendium, rzuty kośćmi, ekran MG oraz wiki ' +
@@ -1129,10 +1157,12 @@ const pl: Dictionary = {
     campaignWiki: 'Wiki kampanii',
     noContentYet:
       'Brak jeszcze treści wiki. Zbuduj ją ze swojego magazynu Obsidian za pomocą',
+    notYetUnlocked: 'Jeszcze nieodblokowane',
     allPages: 'Wszystkie strony',
   },
   homebrew: {
     description: 'Twórz własne wpisy lub zaimportuj plik',
+    fiveToolsHomebrew: 'własnej zawartości z 5etools',
     descriptionSuffix:
       'do aplikacji. Wszystko jest przechowywane tylko w tej przeglądarce i ' +
       'pojawia się w Kompendium oznaczone jako',
@@ -1141,7 +1171,8 @@ const pl: Dictionary = {
     pasteJson: 'Wklej JSON',
     import: 'Importuj',
     importLanguage: 'Język JSON-a',
-    pastePlaceholderLabel: 'Wklej homebrew JSON z 5etools (lub eksport z Fumble)',
+    pastePlaceholderLabel:
+      'Wklej JSON własnej zawartości z 5etools (lub eksport z Fumble)',
     editEntry: 'Edytuj wpis',
     newEntry: 'Nowy wpis',
     compendiumEntry: 'Wpis kompendium',
@@ -1168,7 +1199,8 @@ const pl: Dictionary = {
     untranslated: 'Do przetłumaczenia',
     translated: 'Przetłumaczone',
     noMatchingEntries: 'Żaden wpis nie pasuje do wybranych filtrów.',
-    emptyState: 'Brak jeszcze treści homebrew. Stwórz wpis lub zaimportuj plik homebrew',
+    emptyState:
+      'Brak jeszcze własnej zawartości. Stwórz wpis lub zaimportuj plik własnej zawartości',
     emptyStateFile: 'z 5etools.',
     classLabel: 'Klasa',
     searchForClass: 'Szukaj klasy…',
@@ -1177,15 +1209,16 @@ const pl: Dictionary = {
     entryUpdated: 'Wpis zaktualizowany.',
     entryCreated: 'Wpis utworzony.',
     subclassCreated: 'Podklasa utworzona.',
-    importedFromEtoolsOne: 'Zaimportowano {{count}} wpis z homebrew 5etools.',
-    importedFromEtoolsOther: 'Zaimportowano {{count}} wpisów z homebrew 5etools.',
+    importedFromEtoolsOne: 'Zaimportowano {{count}} wpis z własnej zawartości 5etools.',
+    importedFromEtoolsOther:
+      'Zaimportowano {{count}} wpisów z własnej zawartości 5etools.',
     importedOwnOne: 'Zaimportowano {{count}} wpis.',
     importedOwnOther: 'Zaimportowano {{count}} wpisów.',
     skipped: ' Pominięto nieobsługiwane: {{list}}.',
     noImportable:
       'Nie znaleziono wpisów możliwych do zaimportowania w tych danych 5etools.',
     unrecognizedData:
-      'Nierozpoznane dane - oczekiwano homebrew z 5etools lub eksportu z Fumble.',
+      'Nierozpoznane dane - oczekiwano własnej zawartości z 5etools lub eksportu z Fumble.',
     couldNotRead: 'Nie udało się odczytać tego {{source}} - nieprawidłowy JSON.',
     nameLabel: 'Nazwa',
     namePlaceholder: 'np. Ostrze Rozłamu',
@@ -1200,7 +1233,7 @@ const pl: Dictionary = {
       'Podczas zestrojenia masz stan {@condition Blessed}.',
     adjustArtwork: 'Dostosuj grafikę',
     subclassNamePlaceholder: 'np. Przysięga Rozłamu',
-    sourcePlaceholder: 'np. Homebrew',
+    sourcePlaceholder: 'np. Własna zawartość',
     featuresPlaceholder: 'Na 3. poziomie zyskujesz...',
     editLabel: 'Edytuj {{name}}',
     fromEtoolsBadge: '5etools',

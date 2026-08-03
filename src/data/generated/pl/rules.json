@@ -330,7 +330,7 @@
   "death-saving-throw": {
     "name": "Rzut Obronny przed Śmiercią",
     "entries": [
-      "{@variantrule Player Character|XPHB|Postać gracza} musi wykonać Rzut Obronny przed Śmiercią (zwany też Rzutem przeciw Śmierci), jeśli rozpoczyna swoją turę z 0 {@variantrule Hit Points|XPHB}."
+      "{@variantrule Player Character|XPHB|Postać gracza} musi wykonać Rzut Obronny przed Śmiercią (zwany też Rzutem przeciw Śmierci), jeśli rozpoczyna swoją turę z 0 {@variantrule Hit Points|XPHB}}"
     ],
     "ruleType": "Rdzeń"
   },
@@ -449,7 +449,7 @@
   "attitude": {
     "name": "Nastawienie",
     "entries": [
-      "{@variantrule Monster|XPHB|Potwór} ma początkowe nastawienie wobec {@variantrule Player Character|XPHB|postaci gracza}: {@variantrule Friendly [Attitude]|XPHB|Przyjazne}, {@variantrule Hostile [Attitude]|XPHB|Wrogie} lub {@variantrule Indifferent [Attitude]|XPHB|Obojętne}."
+      "{@variantrule Monster|XPHB|Potwór} ma początkowe nastawienie wobec {@variantrule Player Character|XPHB|postaci gracza}: {@variantrule Friendly [Attitude]|XPHB|Przyjazne}, {@variantrule Hostile [Attitude]|XPHB|Wrogie} lub {@variantrule Indifferent [Attitude]|XPHB|Obojętne}}"
     ],
     "ruleType": "Rdzeń"
   },
@@ -742,7 +742,7 @@
     "name": "Trafianie Osłony",
     "entries": [
       "Gdy atak dystansowy chybia celu posiadającego osłonę, możesz użyć tej opcjonalnej zasady, by określić, czy atak trafił w osłonę.",
-      "Najpierw określ, czy rzut na trafienie trafiłby chroniony cel bez osłony. Jeśli rzut na trafienie mieści się w przedziale wystarczająco niskim, by chybić celu, ale wystarczająco wysokim, by trafić cel, gdyby nie było osłony, obiekt użyty jako osłona zostaje trafiony. Jeśli osłonę zapewnia inny stwór, a rzut na trafienie przekracza KP osłaniającego stwora, osłaniający stwór zostaje trafiony."
+      "Najpierw określ, czy rzut na trafienie trafiłby chroniony cel bez osłony. Jeśli rzut na trafienie mieści się w przedziale wystarczająco niskim, by chybić celu, ale wystarczająco wysokim, aby trafić cel, gdyby nie było osłony, obiekt użyty jako osłona zostaje trafiony. Jeśli osłonę zapewnia inny stwór, a rzut na trafienie przekracza KP osłaniającego stwora, osłaniający stwór zostaje trafiony."
     ],
     "ruleType": "Fakultatywny"
   },
@@ -1087,7 +1087,7 @@
   "diagonals": {
     "name": "Przekątne",
     "entries": [
-      "{@book Player's Handbook|PHB|Podręcznik Gracza} przedstawia prostą metodę liczenia ruchu i mierzenia zasięgu na siatce: licz każde pole jako 5 stóp, nawet jeśli poruszasz się po przekątnej. Choć jest to szybkie w grze, łamie prawa geometrii i jest niedokładne na dużych odległościach. Ta opcjonalna zasada zapewnia większy realizm, ale wymaga więcej wysiłku podczas walki.",
+      "{@book Player's Handbook|PHB|Podręcznik Gracza} przedstawia prostą metodę liczenia ruchu i mierzenia zasięgu na siatce: licz każde pole jako 5 stóp, nawet jeśli poruszasz się po przekątnej. Choć jest to szybkie w grze, łamie prawa geometrii i jest niedokładne na dużych odległościach. Ta opcjonalna zasada zapewnia większy realizm, ale wymaga więcej wysiłku podczas walki}",
       "Mierząc zasięg lub poruszając się po przekątnej na siatce, pierwsze pole po przekątnej liczy się jako 5 stóp, ale drugie pole po przekątnej liczy się jako 10 stóp. Ten wzorzec 5 stóp, a potem 10 stóp, powtarza się za każdym razem, gdy liczysz po przekątnej, nawet jeśli poruszasz się poziomo lub pionowo między różnymi odcinkami ruchu po przekątnej.",
       "Na przykład postać może poruszyć się o jedno pole po przekątnej (5 stóp), potem trzy pola prosto (15 stóp), a następnie kolejne pole po przekątnej (10 stóp), co daje łącznie 30 stóp ruchu."
     ],
@@ -3130,7 +3130,7 @@
             "type": "entries",
             "name": "Rozmiar",
             "entries": [
-              "{@variantrule Monster|XPHB|Potwór} jest Drobny, Mały, Średni, Duży, Ogromny lub Kolosalny."
+              "{@variantrule Monster|XPHB|Potwór} jest Drobny, Mały, Średni, Duży, Ogromny lub Kolosalny}"
             ]
           },
           {
@@ -3228,7 +3228,7 @@
             "type": "entries",
             "name": "Akcje",
             "entries": [
-              "{@variantrule Monster|XPHB|Potwór} może wykonywać te akcje oprócz tych opisanych w tym słowniku."
+              "{@variantrule Monster|XPHB|Potwór} może wykonywać te akcje oprócz tych opisanych w tym słowniku}"
             ]
           },
           {
@@ -3545,7 +3545,7 @@
                 "type": "entries",
                 "name": "Znane i Przygotowane Czary",
                 "entries": [
-                  "Ustalasz, jakie czary znasz i możesz przygotować dla każdej klasy osobno, tak jakbyś był postacią jednoklasową tej klasy. Jeśli jesteś na przykład rangerem 4/magiem 3, znasz trzy czary 1. poziomu rangera na podstawie swoich poziomów w klasie rangera. Jako mag 3. poziomu znasz trzy zaklęcia maga, a twoja księga czarów zawiera dziesięć czarów maga, z których dwa (te, które zdobyłeś, osiągając 3. poziom jako mag) mogą być czarami 2. poziomu. Jeśli twoja Inteligencja wynosi 16, możesz przygotować sześć czarów maga ze swojej księgi czarów.",
+                  "Ustalasz, jakie czary znasz i możesz przygotować dla każdej klasy osobno, tak jakbyś był postacią jednoklasową tej klasy. Jeśli jesteś na przykład łowcą 4/magiem 3, znasz trzy czary 1. poziomu łowcy na podstawie swoich poziomów w klasie łowcy. Jako mag 3. poziomu znasz trzy zaklęcia maga, a twoja księga czarów zawiera dziesięć czarów maga, z których dwa (te, które zdobyłeś, osiągając 3. poziom jako mag) mogą być czarami 2. poziomu. Jeśli twoja Inteligencja wynosi 16, możesz przygotować sześć czarów maga ze swojej księgi czarów.",
                   "Każdy znany i przygotowany przez ciebie czar jest powiązany z jedną z twoich klas i używasz cechy rzucania czarów tej klasy, gdy go rzucasz. Podobnie ognisko czarodziejskie, takie jak symbol świętości, może być użyte tylko do czarów z klasy powiązanej z tym ogniskiem."
                 ]
               },
@@ -3553,9 +3553,9 @@
                 "type": "entries",
                 "name": "Poziomy Czarów",
                 "entries": [
-                  "Ustalasz dostępne poziomy czarów, sumując wszystkie swoje poziomy w klasach barda, kleryka, druida, czarodzieja i maga, połowę swoich poziomów (zaokrąglonych w dół) w klasach paladyna i rangera, oraz jedną trzecią swoich poziomów wojownika lub łotrzyka (zaokrąglonych w dół), jeśli masz cechę Rycerz Mroku lub Arkaniczny Kanciarz. Użyj tej sumy, by ustalić swoje poziomy czarów, korzystając z tabeli Multiklasowy Rzucający Czary.",
+                  "Ustalasz dostępne poziomy czarów, sumując wszystkie swoje poziomy w klasach barda, kleryka, druida, czarodzieja i maga, połowę swoich poziomów (zaokrąglonych w dół) w klasach paladyna i łowcy, oraz jedną trzecią swoich poziomów wojownika lub łotrzyka (zaokrąglonych w dół), jeśli masz cechę Rycerz Mroku lub Arkaniczny Kanciarz. Użyj tej sumy, by ustalić swoje poziomy czarów, korzystając z tabeli Multiklasowy Rzucający Czary.",
                   "Jeśli masz więcej niż jedną klasę rzucającą czary, ta tabela może dać ci poziomy czarów wyższe niż czary, które znasz lub możesz przygotować. Możesz użyć tych poziomów, ale tylko do rzucania swoich czarów niższego poziomu. Jeśli rzucany przez ciebie czar niższego poziomu, taki jak {@spell burning hands}, ma wzmocniony efekt, gdy rzucany jest przy użyciu poziomu wyższej rangi, możesz użyć wzmocnionego efektu, nawet jeśli nie znasz żadnych czarów tego wyższego poziomu.",
-                  "Na przykład, jeśli jesteś wspomnianym rangerem 4/magiem 3, liczysz się jako postać 5. poziomu przy ustalaniu poziomów czarów: masz cztery poziomy 1. stopnia, trzy poziomy 2. stopnia i dwa poziomy 3. stopnia. Nie znasz jednak żadnych czarów 3. stopnia ani żadnych czarów rangera 2. stopnia. Możesz użyć poziomów czarów tych stopni, by rzucić czary, które znasz - i potencjalnie wzmocnić ich efekty."
+                  "Na przykład, jeśli jesteś wspomnianym łowcą 4/magiem 3, liczysz się jako postać 5. poziomu przy ustalaniu poziomów czarów: masz cztery poziomy 1. stopnia, trzy poziomy 2. stopnia i dwa poziomy 3. stopnia. Nie znasz jednak żadnych czarów 3. stopnia ani żadnych czarów łowcy 2. stopnia. Możesz użyć poziomów czarów tych stopni, by rzucić czary, które znasz - i potencjalnie wzmocnić ich efekty."
                 ]
               },
               {
@@ -4731,7 +4731,7 @@
         "type": "entries",
         "name": "Inicjatywa",
         "entries": [
-          "{@book Dungeon Master's Guide|DMG|Podręcznik Mistrza Gry} przedstawia wariantową zasadę zwaną {@variantrule Initiative Variants||Inicjatywa poboczna}, która jest idealna do starć statek-statek, ponieważ oszczędza kłopotu śledzenia inicjatywy dla poszczególnych stworów na pokładzie każdego statku.",
+          "{@book Dungeon Master's Guide|DMG|Podręcznik Mistrza Gry} przedstawia wariantową zasadę zwaną {@variantrule Initiative Variants||Inicjatywa poboczna}, która jest idealna do starć statek-statek, ponieważ oszczędza kłopotu śledzenia inicjatywy dla poszczególnych stworów na pokładzie każdego statku}",
           {
             "type": "inset",
             "name": "Broń Pokładowa",
@@ -8595,7 +8595,7 @@
       },
       {
         "type": "entries",
-        "name": "Górski Celestialny: Błogosławiona Życzliwość",
+        "name": "Górski Niebiańskiny: Błogosławiona Życzliwość",
         "entries": [
           "W przeciwieństwie do dysonansu odczuwanego przez złe stworzenia tutaj, dobre stworzenia są dosłownie błogosławione wszechobecną życzliwością planu. Stworzenia o dobrym nastawieniu zyskują korzyść zaklęcia {@spell bless}, dopóki pozostają na planie. Dodatkowo, ukończenie długiego odpoczynku na planie daje dobremu stworzeniu korzyść zaklęcia {@spell lesser restoration}."
         ]
@@ -9110,10 +9110,10 @@
             "name": "Narzędzia Grozy",
             "entries": [
               "Ocaleni pozwalają kontrolować, jak gracze będą angażować się w przygodę grozy. Bloki statystyk w następnej sekcji są zaprojektowane jako łatwe w użyciu postacie z odrobiną talentu, ale niewiele wyróżniające:",
-              "{@b Uczniowie} mają niewielki talent do magii i zwykle są oczytani.",
-              "{@b Wyznawcy} wiernie trzymają się zasad wybranych religii i otrzymują zaklęcia od bóstw, które czczą.",
-              "{@b Cichacze} przeżywają dzięki swojemu sprytowi i często są szarlatanami lub drobnymi złodziejaszkami.",
-              "{@b Giermkowie} posiadają odrobinę wyszkolenia bojowego i są niezawodnymi towarzyszami.",
+              "{@b Uczniowie} mają niewielki talent do magii i zwykle są oczytani}",
+              "{@b Wyznawcy} wiernie trzymają się zasad wybranych religii i otrzymują zaklęcia od bóstw, które czczą}",
+              "{@b Cichacze} przeżywają dzięki swojemu sprytowi i często są szarlatanami lub drobnymi złodziejaszkami}",
+              "{@b Giermkowie} posiadają odrobinę wyszkolenia bojowego i są niezawodnymi towarzyszami}",
               "Ustal, jak chcesz używać ocalonych w swojej przygodzie. Jeśli jest to ważne dla fabuły, być może wszyscy gracze używają tego samego bloku statystyk, reprezentując wspólne doświadczenie - grupa Cichaczy mogłaby być detektywami, podczas gdy grupa Wyznawców mogłaby stawić czoła grozie uwolnionej w klasztorze. Możesz też pozwolić graczom wybrać własnych ocalonych, ponieważ każdy ocalony może pełnić ogólną rolę, taką jak szlachcic, wieśniak czy marynarz z odrobiną talentu. Wykorzystaj te gotowe postacie w sposób najlepiej pasujący do twojej przygody."
             ]
           }
@@ -11014,12 +11014,12 @@
         "entries": [
           "Jeśli chcesz zgłębić prowadzenie statku, potrzebuje on oficerów nadzorujących jego działanie - oficerów pełniących sześć różnych ról. Niektóre role na statku odzwierciedlają potrzebę wyszkolonych ekspertów kierujących wysiłkami załogi. Inne role skupiają się na utrzymaniu zdrowia i morale załogi. Role te mają dać wyobrażenie o rodzajach testów współczynników przydatnych w zarządzaniu statkiem. Spośród nich jednak kapitan jest jedyną rolą, którą trzeba obsadzić, aby statek funkcjonował. Statek potrzebuje jednej osoby wydającej rozkazy i reagującej na zagrożenia, w przeciwnym razie grozi mu chaos i zamęt podczas kryzysu.",
           "Poniżej opisano każdy rodzaj oficera wraz ze współczynnikami i biegłościami, które pomagają postaci celować w tej roli:",
-          "{@b Kapitan}. Kapitan wydaje rozkazy. Najlepsi kapitanowie mają wysokie współczynniki Inteligencji i Charyzmy, a także biegłość z pojazdami wodnymi oraz umiejętnościami {@skill Intimidation} i {@skill Persuasion}.",
-          "{@b Pierwszy Oficer}. Ten specjalista utrzymuje wysokie morale załogi, zapewniając nadzór, zachętę i dyscyplinę. Pierwszy oficer korzysta z wysokiego współczynnika Charyzmy, a także biegłości z umiejętnościami {@skill Intimidation} i {@skill Persuasion}.",
+          "{@b Kapitan}. Kapitan wydaje rozkazy. Najlepsi kapitanowie mają wysokie współczynniki Inteligencji i Charyzmy, a także biegłość z pojazdami wodnymi oraz umiejętnościami {@skill Intimidation} i {@skill Persuasion}}",
+          "{@b Pierwszy Oficer}. Ten specjalista utrzymuje wysokie morale załogi, zapewniając nadzór, zachętę i dyscyplinę. Pierwszy oficer korzysta z wysokiego współczynnika Charyzmy, a także biegłości z umiejętnościami {@skill Intimidation} i {@skill Persuasion}}",
           "{@b Bosman}. Bosman zapewnia techniczne porady kapitanowi i załodze oraz kieruje pracami naprawczymi i konserwacyjnymi. Dobry bosman ma wysoki współczynnik Siły, a także biegłość z {@item carpenter's tools|PHB} i umiejętnością {@skill Athletics}.",
           "{@b Kwatermistrz}. Kwatermistrz wyznacza kurs statku, opierając się na znajomości map morskich oraz badaniu pogody i warunków morskich. Niezawodny kwatermistrz zwykle ma wysoki współczynnik Roztropności, a także biegłość z {@item navigator's tools|PHB} i umiejętnością {@skill Nature}.",
-          "{@b Medyk}. Okrętowy medyk zajmuje się obrażeniami, zapobiega rozprzestrzenianiu się chorób po statku i nadzoruje warunki sanitarne. Zdolny medyk korzysta z wysokiego współczynnika Inteligencji, a także biegłości z {@item Herbalism Kit|PHB|zestawami zielarskimi} i umiejętnością {@skill Medicine}.",
-          "{@b Kucharz}. Okrętowy kucharz pracuje z ograniczonymi składnikami na statku, by przyrządzać posiłki. Zdolny kucharz utrzymuje morale załogi w najlepszej formie, a kiepski obniża wydajność całej załogi. Utalentowany kucharz ma wysoki współczynnik Kondycji, a także biegłość z {@item brewer's supplies|PHB} i {@item cook's utensils|PHB}."
+          "{@b Medyk}. Okrętowy medyk zajmuje się obrażeniami, zapobiega rozprzestrzenianiu się chorób po statku i nadzoruje warunki sanitarne. Zdolny medyk korzysta z wysokiego współczynnika Inteligencji, a także biegłości z {@item Herbalism Kit|PHB|zestawami zielarskimi} i umiejętnością {@skill Medicine}}",
+          "{@b Kucharz}. Okrętowy kucharz pracuje z ograniczonymi składnikami na statku, by przyrządzać posiłki. Zdolny kucharz utrzymuje morale załogi w najlepszej formie, a kiepski obniża wydajność całej załogi. Utalentowany kucharz ma wysoki współczynnik Kondycji, a także biegłość z {@item brewer's supplies|PHB} i {@item cook's utensils|PHB}}"
         ]
       },
       {
@@ -11524,10 +11524,10 @@
         "name": "Komponenty",
         "entries": [
           "Statek składa się z różnych komponentów, z których każdy obejmuje wiele obiektów:",
-          "{@b Kadłub}. Kadłub statku to jego podstawowa rama, na której montowane są pozostałe komponenty.",
-          "{@b Sterowanie}. Komponent sterowania służy do kierowania statkiem.",
-          "{@b Ruch}. Komponent ruchu to element statku umożliwiający mu poruszanie się, na przykład zestaw żagli lub wioseł, i ma określoną szybkość.",
-          "{@b Broń}. Statek zdolny do użycia w walce ma jeden lub więcej komponentów broni, z których każdy jest obsługiwany osobno.",
+          "{@b Kadłub}. Kadłub statku to jego podstawowa rama, na której montowane są pozostałe komponenty}",
+          "{@b Sterowanie}. Komponent sterowania służy do kierowania statkiem}",
+          "{@b Ruch}. Komponent ruchu to element statku umożliwiający mu poruszanie się, na przykład zestaw żagli lub wioseł, i ma określoną szybkość}",
+          "{@b Broń}. Statek zdolny do użycia w walce ma jeden lub więcej komponentów broni, z których każdy jest obsługiwany osobno}",
           "Komponent statku może mieć specjalne zasady, opisane w bloku statystyk.",
           {
             "type": "entries",
@@ -11586,9 +11586,9 @@
     "name": "Pomocnicy",
     "entries": [
       "Podczas twoich przygód MP może ujawnić, że zaprzyjaźniłeś się ze szczególną postacią zwaną pomocnikiem, która dołącza do twojej drużyny. Ten dodatek przedstawia statystyki gry dla pomocników, których są trzy rodzaje:",
-      "{@b Ekspert}, zwinny i niezwykle pomocny majster-klepka",
-      "{@b Rzucający Zaklęcia}, użytkownik magii, który potrafi rzucać zaklęcia raniące twoich wrogów lub leczące ciebie i twoich przyjaciół",
-      "{@b Wojownik}, bojowy towarzysz specjalizujący się w atakowaniu twoich wrogów lub obronie ciebie i twoich sojuszników",
+      "{@b Ekspert}, zwinny i niezwykle pomocny majster-klepk}",
+      "{@b Rzucający Zaklęcia}, użytkownik magii, który potrafi rzucać zaklęcia raniące twoich wrogów lub leczące ciebie i twoich przyjació}",
+      "{@b Wojownik}, bojowy towarzysz specjalizujący się w atakowaniu twoich wrogów lub obronie ciebie i twoich sojusznikó}",
       "MP albo powie ci, którego rodzaju pomocnika użyć, albo pozwoli ci wybrać. Od ciebie i MP zależy, kto kontroluje pomocnika podczas gry.",
       {
         "type": "section",
@@ -11888,7 +11888,7 @@
               ],
               [
                 "09-12",
-                "{@dice 3d10} {@creature Dolphin|VGM|delfiny} (patrz {@adventure appendix C|GoS|11})"
+                "{@dice 3d10} {@creature Dolphin|VGM|delfiny} (patrz {@adventure appendix C|GoS|11}}"
               ],
               [
                 "13-14",
@@ -11924,7 +11924,7 @@
               ],
               [
                 "35-37",
-                "{@dice 1d4} {@creature koalinth|GoS} (patrz {@adventure appendix C|GoS|11})"
+                "{@dice 1d4} {@creature koalinth|GoS} (patrz {@adventure appendix C|GoS|11}}"
               ],
               [
                 "38-40",
@@ -11932,7 +11932,7 @@
               ],
               [
                 "41-45",
-                "{@dice 1d4} {@creature Locathah|GoS|lokathah} (patrz {@adventure appendix C|GoS|11})"
+                "{@dice 1d4} {@creature Locathah|GoS|lokathah} (patrz {@adventure appendix C|GoS|11}}"
               ],
               [
                 "46-51",
@@ -12034,7 +12034,7 @@
               ],
               [
                 "42-45",
-                "{@dice 2d4} {@creature Locathah|GoS|lokathah} (patrz {@adventure appendix C|GoS|11})"
+                "{@dice 2d4} {@creature Locathah|GoS|lokathah} (patrz {@adventure appendix C|GoS|11}}"
               ],
               [
                 "46-47",
@@ -12066,7 +12066,7 @@
               ],
               [
                 "64-65",
-                "{@dice 1d4} {@creature Sahuagin Blademaster|GoS|mistrzowie ostrzy sahuagin} (patrz {@adventure appendix C|GoS|11})"
+                "{@dice 1d4} {@creature Sahuagin Blademaster|GoS|mistrzowie ostrzy sahuagin} (patrz {@adventure appendix C|GoS|11}}"
               ],
               [
                 "66-69",
@@ -12152,7 +12152,7 @@
               ],
               [
                 "46-48",
-                "{@dice 1d4} {@creature koalinth sergeant|GoS} (patrz {@adventure appendix C|GoS|11}) i {@dice 3d10} {@creature koalinth|GoS} (patrz {@adventure appendix C|GoS|11})"
+                "{@dice 1d4} {@creature koalinth sergeant|GoS} (patrz {@adventure appendix C|GoS|11}) i {@dice 3d10} {@creature koalinth|GoS} (patrz {@adventure appendix C|GoS|11}}"
               ],
               [
                 "49-50",
@@ -12323,7 +12323,7 @@
                   ],
                   [
                     "6",
-                    "{@dice 1d8} {@creature Locathah Hunter|GoS|łowcy Locathah} (patrz {@adventure appendix C|GoS|11}) i {@dice 3d10} {@creature locathah|GoS} (patrz {@adventure appendix C|GoS|11})"
+                    "{@dice 1d8} {@creature Locathah Hunter|GoS|łowcy Locathah} (patrz {@adventure appendix C|GoS|11}) i {@dice 3d10} {@creature locathah|GoS} (patrz {@adventure appendix C|GoS|11}}"
                   ]
                 ]
               },
@@ -12823,7 +12823,7 @@
                 "rows": [
                   [
                     "1",
-                    "{@creature Bard|VGM} (patrz {@adventure appendix C|GoS|11})"
+                    "{@creature Bard|VGM} (patrz {@adventure appendix C|GoS|11}}"
                   ],
                   [
                     "2",
@@ -12948,7 +12948,7 @@
                   ],
                   [
                     "4",
-                    "{@hazard Razorvine} (patrz „{@book Wilderness Hazards|DMG|5|Zagrożenia dzikiej przyrody}” w rozdziale 5, „{@book Adventure Environments|DMG|5|Środowiska przygodowe}” {@book Dungeon Master's Guide|DMG}) rośnie w wysokich na 3 metry żywopłotach w kształcie zwierząt."
+                    "{@hazard Razorvine} (patrz „{@book Wilderness Hazards|DMG|5|Zagrożenia dzikiej przyrody}” w rozdziale 5, „{@book Adventure Environments|DMG|5|Środowiska przygodowe}” {@book Dungeon Master's Guide|DMG}) rośnie w wysokich na 3 metry żywopłotach w kształcie zwierząt}"
                   ],
                   [
                     "5",
@@ -13076,11 +13076,11 @@
                   ],
                   [
                     "3",
-                    "{@creature Pixie||Pixies} błagaj postacie, aby pomogły im wypędzić z wyspy grupę łowców trofeów {@dice 3d10} ({@creature Scout||harcerze})."
+                    "{@creature Pixie||Pixies} błagaj postacie, aby pomogły im wypędzić z wyspy grupę łowców trofeów {@dice 3d10} ({@creature Scout||harcerze})}"
                   ],
                   [
                     "4",
-                    "Na wyspie znajduje się grobowiec arcydruida, w którym znajduje się portal do Feywild."
+                    "Na wyspie znajduje się grobowiec arcydruida, w którym znajduje się portal do Kraina Wróżek."
                   ]
                 ]
               }
@@ -13211,9 +13211,9 @@
             "name": "Oświetlenie",
             "entries": [
               "Jeśli chodzi o światło, morze dzieli się na trzy warstwy:",
-              "{@b Strefa Słońca}. Strefa światła słonecznego rozciąga się od powierzchni wody do głębokości 200 metrów. Ten obszar morza ma takie same naturalne warunki oświetleniowe jak nad wodą.",
-              "{@b Strefa Mroku}. Strefa zmierzchu znajduje się na głębokości od 650 do 300 metrów. Kiedy górna strefa światła słonecznego jest skąpana w naturalnym, jasnym świetle, strefa zmierzchu jest wypełniona przyćmionym światłem. Jeśli strefa światła słonecznego jest wypełniona słabym światłem lub ciemnością, strefa zmierzchu jest ciemna.",
-              "{@b Strefa Północy}. Każda głębokość poniżej 300 metrów jest uważana za strefę północy, ponieważ żadne naturalne światło z powierzchni nie dociera na tę głębokość."
+              "{@b Strefa Słońca}. Strefa światła słonecznego rozciąga się od powierzchni wody do głębokości 200 metrów. Ten obszar morza ma takie same naturalne warunki oświetleniowe jak nad wodą}",
+              "{@b Strefa Mroku}. Strefa zmierzchu znajduje się na głębokości od 650 do 300 metrów. Kiedy górna strefa światła słonecznego jest skąpana w naturalnym, jasnym świetle, strefa zmierzchu jest wypełniona przyćmionym światłem. Jeśli strefa światła słonecznego jest wypełniona słabym światłem lub ciemnością, strefa zmierzchu jest ciemna}",
+              "{@b Strefa Północy}. Każda głębokość poniżej 300 metrów jest uważana za strefę północy, ponieważ żadne naturalne światło z powierzchni nie dociera na tę głębokość}"
             ]
           },
           {
@@ -13294,7 +13294,7 @@
               ],
               [
                 "3-4",
-                "Mgła Shadowfell"
+                "Mgła Kraina Cieni"
               ],
               [
                 "5-6",
@@ -13380,10 +13380,10 @@
           },
           {
             "type": "entries",
-            "name": "Mgła Shadowfell",
+            "name": "Mgła Kraina Cieni",
             "entries": [
-              "Mgła Shadowfell przedostaje się do Planu Materialnego w cienkich punktach na granicy pomiędzy dwoma płaszczyznami. Kontrola inteligencji {@dc 15} ({@skill Arcana}) ujawnia, że ​​ta mgła to mgła Shadowfell.",
-              "Kiedy statek przepływa przez tę przytłaczającą, nawiedzoną cieniem miazmę, jego załoga i pasażerowie odczuwają rozpacz. Za każdą godzinę zanurzenia statku we mgle załoga musi sprawdzić wynik jakości, rzucając znacznikiem {@dice d20} i dodając swój wynik jakości do uzyskanej liczby. ST tego testu wynosi 10 + liczba godzin, przez które statek był zanurzony we mgle Shadowfell. Jeśli załoga nie przejdzie tego testu, jej wynik jakości spadnie o 1 w mgle Shadowfell i przez 1 dzień później."
+              "Mgła Kraina Cieni przedostaje się do Planu Materialnego w cienkich punktach na granicy pomiędzy dwoma płaszczyznami. Kontrola inteligencji {@dc 15} ({@skill Arcana}) ujawnia, że ​​ta mgła to mgła Kraina Cieni.",
+              "Kiedy statek przepływa przez tę przytłaczającą, nawiedzoną cieniem miazmę, jego załoga i pasażerowie odczuwają rozpacz. Za każdą godzinę zanurzenia statku we mgle załoga musi sprawdzić wynik jakości, rzucając znacznikiem {@dice d20} i dodając swój wynik jakości do uzyskanej liczby. ST tego testu wynosi 10 + liczba godzin, przez które statek był zanurzony we mgle Kraina Cieni. Jeśli załoga nie przejdzie tego testu, jej wynik jakości spadnie o 1 w mgle Kraina Cieni i przez 1 dzień później."
             ]
           },
           {
@@ -13804,11 +13804,11 @@
                   ],
                   [
                     "6",
-                    "Feywilda"
+                    "Krainy Wróżek"
                   ],
                   [
                     "7",
-                    "Shadowfell"
+                    "Kraina Cieni"
                   ],
                   [
                     "8",

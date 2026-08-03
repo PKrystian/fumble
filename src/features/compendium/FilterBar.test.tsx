@@ -76,6 +76,13 @@ describe('FilterBar', () => {
     fireEvent.change(screen.getByRole('searchbox', { name: 'Search filter options' }), {
       target: { value: 'Size 18' },
     });
+    fireEvent.click(screen.getByRole('button', { name: 'Clear search' }));
+    expect(screen.getByRole('searchbox', { name: 'Search filter options' })).toHaveValue(
+      '',
+    );
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Search filter options' }), {
+      target: { value: 'Size 18' },
+    });
     fireEvent.click(screen.getByRole('button', { name: 'Size 18' }));
     expect(props.onToggle).toHaveBeenCalledWith('size', 'Size 18');
     fireEvent.change(screen.getByRole('searchbox', { name: 'Search filter options' }), {

@@ -19,7 +19,7 @@ interface SessionState {
   sessions: Session[];
 
   transcriptionLang: string;
-  addSession: () => string;
+  addSession: (title?: string) => string;
   updateSession: (id: string, patch: Partial<Omit<Session, 'entries'>>) => void;
   appendNote: (id: string, text: string) => void;
   appendTranscript: (id: string, text: string) => void;
@@ -32,11 +32,11 @@ export const useSessionStore = create<SessionState>()(
     (set) => ({
       sessions: [],
       transcriptionLang: 'english',
-      addSession: () => {
+      addSession: (title) => {
         const id = crypto.randomUUID();
         const session: Session = {
           id,
-          title: `Session ${new Date().toLocaleDateString()}`,
+          title: title ?? `Session ${new Date().toLocaleDateString()}`,
           createdAt: Date.now(),
           durationMs: 0,
           notes: '',
@@ -101,9 +101,12 @@ export function formatClockTime(ms: number): string {
   return `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
 }
 
-export function formatTranscriptForExport(session: Session): string {
+export function formatTranscriptForExport(
+  session: Session,
+  notesLabel = 'Notes:',
+): string {
   const header = `${session.title} - ${new Date(session.createdAt).toLocaleString()}`;
-  const notes = session.notes.trim() ? ['Notes:', session.notes.trim(), ''] : [];
+  const notes = session.notes.trim() ? [notesLabel, session.notes.trim(), ''] : [];
   const lines = session.entries.map((e) => `[${formatClockTime(e.time)}] ${e.text}`);
   return [header, '', ...notes, ...lines].join('\n');
 }
@@ -120,6 +123,10 @@ export const SUMMARY_PROMPT =
   '(e.g. "1. The players arrived at the king\'s court. 2. ..."). ' +
   'Reply in the same language as the transcript, with the numbered list only, no preamble.';
 
-export function formatPromptWithTranscript(session: Session): string {
-  return `${SUMMARY_PROMPT}\n\n${formatTranscriptForExport(session)}`;
+export function formatPromptWithTranscript(
+  session: Session,
+  prompt = SUMMARY_PROMPT,
+  notesLabel = 'Notes:',
+): string {
+  return `${prompt}\n\n${formatTranscriptForExport(session, notesLabel)}`;
 }

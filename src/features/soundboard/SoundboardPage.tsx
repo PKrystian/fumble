@@ -24,11 +24,38 @@ import {
   X,
 } from 'lucide-react';
 import { confirmDialog } from '@/features/ui/confirmStore';
+import plBardifyNames from '@/data/generated/pl/bardify.json';
+import type { Locale } from '@/i18n/locales';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { type SoundboardCategory, type Track, useSoundboardStore } from './store';
 import { embedUrl, parseYouTubeId, thumbnailUrl } from './youtube';
 import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
+
+const DEFAULT_TRACK_NAME_KEYS: Record<string, string> = {
+  'bardify-playlist-places': 'soundboard.defaultTrack.places',
+  'bardify-playlist-planes': 'soundboard.defaultTrack.planes',
+  'bardify-playlist-situations': 'soundboard.defaultTrack.situations',
+  'bardify-playlist-settlements': 'soundboard.defaultTrack.settlements',
+  'bardify-playlist-ambience': 'soundboard.defaultTrack.ambience',
+  'bardify-playlist-travel': 'soundboard.defaultTrack.travel',
+  'bardify-playlist-dungeons': 'soundboard.defaultTrack.dungeons',
+  'bardify-playlist-tavern': 'soundboard.defaultTrack.tavern',
+  'bardify-playlist-combat': 'soundboard.defaultTrack.combat',
+};
+
+function displayTrackName(
+  track: Track,
+  t: (key: string) => string,
+  locale: Locale,
+): string {
+  if (locale === 'pl') {
+    const localized = (plBardifyNames as Record<string, string>)[track.id];
+    if (localized) return localized;
+  }
+  const key = DEFAULT_TRACK_NAME_KEYS[track.id];
+  return key ? t(key) : track.name;
+}
 
 interface SortableTrackProps {
   track: Track;
@@ -53,7 +80,8 @@ function SortableTrack({
   onRemove,
   onCategoryChange,
 }: SortableTrackProps) {
-  const { t } = useT();
+  const { t, locale } = useT();
+  const displayName = displayTrackName(track, t, locale);
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
     useSortable({ id: track.id });
 
@@ -82,7 +110,7 @@ function SortableTrack({
           </span>
         </div>
         <span className="block truncate px-3 py-2 text-sm font-medium text-ink-50">
-          {track.name}
+          {displayName}
         </span>
       </button>
 
@@ -93,7 +121,7 @@ function SortableTrack({
             <select
               value={track.category}
               onChange={(event) => onCategoryChange(event.target.value)}
-              aria-label={t('soundboard.changeTrackCategory', { name: track.name })}
+              aria-label={t('soundboard.changeTrackCategory', { name: displayName })}
               className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-sm font-normal text-ink-50 focus:border-arcane-500 focus:outline-none"
             >
               {categories.map((category) => (
@@ -125,7 +153,7 @@ function SortableTrack({
       <div className="absolute right-1 top-1 flex gap-1 opacity-100 sm:opacity-0 sm:group-focus-within:opacity-100 sm:group-hover:opacity-100">
         <button
           type="button"
-          aria-label={t('soundboard.editTrack', { name: track.name })}
+          aria-label={t('soundboard.editTrack', { name: displayName })}
           onClick={onEdit}
           className="rounded bg-ink-950/80 p-1.5 text-ink-300 hover:text-ink-50"
         >
@@ -133,7 +161,7 @@ function SortableTrack({
         </button>
         <button
           type="button"
-          aria-label={t('soundboard.removeTrack', { name: track.name })}
+          aria-label={t('soundboard.removeTrack', { name: displayName })}
           onClick={onRemove}
           className="rounded bg-ink-950/80 p-1.5 text-ink-300 hover:text-red-400"
         >
@@ -145,6 +173,7 @@ function SortableTrack({
 }
 
 function TrackOverlay({ track }: { track: Track }) {
+  const { t, locale } = useT();
   return (
     <div className="w-56 rotate-1 overflow-hidden rounded-xl border border-arcane-400 bg-ink-900 shadow-2xl shadow-black/60">
       <img
@@ -153,14 +182,14 @@ function TrackOverlay({ track }: { track: Track }) {
         className="aspect-video w-full object-cover"
       />
       <div className="truncate px-3 py-2 text-sm font-medium text-ink-50">
-        {track.name}
+        {displayTrackName(track, t, locale)}
       </div>
     </div>
   );
 }
 
 export function SoundboardPage() {
-  const { t } = useT();
+  const { t, locale } = useT();
   useSeo(t('nav.soundboard'));
   const tracks = useSoundboardStore((s) => s.tracks);
   const categories = useSoundboardStore((s) => s.categories);
@@ -281,7 +310,7 @@ export function SoundboardPage() {
         <div className="mb-6 overflow-hidden rounded-xl border border-arcane-700 bg-ink-900">
           <div className="flex items-center justify-between px-4 py-2">
             <span className="font-medium text-ink-50">
-              {t('soundboard.nowPlaying', { name: active.name })}
+              {t('soundboard.nowPlaying', { name: displayTrackName(active, t, locale) })}
             </span>
             <button
               type="button"
@@ -294,7 +323,7 @@ export function SoundboardPage() {
           </div>
           <iframe
             key={active.id}
-            title={active.name}
+            title={displayTrackName(active, t, locale)}
             src={embedUrl(active.videoId, active.playlistId)}
             allow="autoplay; encrypted-media"
             className="aspect-video w-full"
