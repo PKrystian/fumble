@@ -4,6 +4,12 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.18 - 2026-08-04
+
+- Fixed the Polish Druid name casing.
+- Hid sidekick classes and Fighting Style options by default, with filters to reveal them.
+- Removed the Books link from the compendium category tags.
+
 ## 1.2.17 - 2026-08-04
 
 - Fixed the player-facing revealed-area hex grid so it renders complete hex outlines.

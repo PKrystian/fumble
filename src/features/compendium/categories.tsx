@@ -71,6 +71,10 @@ export interface CategoryFilter {
 
   valuesFor: (item: CompendiumEntryBase) => string[];
 
+  defaultVisible?: (item: CompendiumEntryBase) => boolean;
+
+  valueLabelKey?: (value: string) => string | undefined;
+
   sortKey?: (value: string) => number;
 
   labelFor?: (value: string, locale?: Locale) => string;
@@ -452,7 +456,38 @@ function filterLabel(key: string): string {
   return `compendium.filters.labels.${key}`;
 }
 
+const FILTER_VALUE_LABEL_KEYS: Record<string, string> = {
+  class: 'compendium.filters.values.class',
+  sidekick: 'compendium.filters.values.sidekick',
+  'Fighting Style': 'compendium.filters.values.fightingStyle',
+  'Styl walki': 'compendium.filters.values.fightingStyle',
+};
+
+function filterValueLabelKey(value: string): string | undefined {
+  return FILTER_VALUE_LABEL_KEYS[value];
+}
+
+function isSidekickClass(item: CompendiumEntryBase): boolean {
+  return (item.id ?? '').endsWith('-sidekick');
+}
+
+function isFightingStyle(item: CompendiumEntryBase): boolean {
+  const featureType = (item as OptionalFeatureEntry).featureType ?? '';
+  return featureType
+    .split(', ')
+    .some((value) => value === 'Fighting Style' || value === 'Styl walki');
+}
+
 const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
+  classes: [
+    {
+      id: 'type',
+      label: filterLabel('type'),
+      valuesFor: (item) => [isSidekickClass(item) ? 'sidekick' : 'class'],
+      defaultVisible: (item) => !isSidekickClass(item),
+      valueLabelKey: filterValueLabelKey,
+    },
+  ],
   species: [
     field<SpeciesEntry>('size', filterLabel('size'), (i) => i.size),
     field<SpeciesEntry>(
@@ -540,6 +575,8 @@ const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
       label: filterLabel('type'),
       valuesFor: (i) =>
         ((i as OptionalFeatureEntry).featureType ?? '').split(', ').filter(Boolean),
+      defaultVisible: (item) => !isFightingStyle(item),
+      valueLabelKey: filterValueLabelKey,
     },
   ],
   rules: [field<RuleEntry>('ruleType', filterLabel('type'), (i) => i.ruleType)],

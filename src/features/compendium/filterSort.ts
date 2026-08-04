@@ -6,6 +6,18 @@ type TranslateFn = (key: string, vars?: Record<string, string | number>) => stri
 
 export type SortDir = 'asc' | 'desc';
 
+export function matchesFilters(
+  item: CompendiumEntryBase,
+  filters: CategoryFilter[],
+  selected: Record<string, string[]>,
+): boolean {
+  return filters.every((filter) => {
+    const chosen = selected[filter.id];
+    if (!chosen || chosen.length === 0) return filter.defaultVisible?.(item) ?? true;
+    return filter.valuesFor(item).some((value) => chosen.includes(value));
+  });
+}
+
 export function displayValue(
   filter: CategoryFilter,
   value: string,
@@ -13,6 +25,8 @@ export function displayValue(
   locale: Locale,
 ): string {
   if (filter.labelFor) return filter.labelFor(value, locale);
+  const valueLabelKey = filter.valueLabelKey?.(value);
+  if (valueLabelKey) return t(valueLabelKey);
   if (value === 'Cantrip') return t('compendium.filters.cantrip');
   const levelMatch = /^Level (\d+)$/.exec(value);
   if (levelMatch) return t('compendium.filters.levelN', { level: levelMatch[1]! });

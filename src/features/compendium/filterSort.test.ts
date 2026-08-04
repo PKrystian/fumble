@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { CompendiumEntryBase } from '@/data/compendium/types';
 import type { CategoryFilter } from './categories';
-import { compareItems, displayValue } from './filterSort';
+import { compareItems, displayValue, matchesFilters } from './filterSort';
 
 const t = (key: string, vars?: Record<string, string | number>) =>
   vars?.level ? `${key}:${vars.level}` : key;
@@ -33,6 +33,31 @@ describe('compendium sorting', () => {
       displayValue({ ...filter, labelFor: (value) => `label:${value}` }, 'x', t, 'en'),
     ).toBe('label:x');
     expect(displayValue(filter, 'Other', t, 'en')).toBe('Other');
+    expect(
+      displayValue(
+        { ...filter, valueLabelKey: (value) => `compendium.filters.values.${value}` },
+        'sidekick',
+        t,
+        'en',
+      ),
+    ).toBe('compendium.filters.values.sidekick');
+  });
+
+  it('applies default visibility and selected filter values', () => {
+    const typeFilter: CategoryFilter = {
+      id: 'type',
+      label: 'Type',
+      valuesFor: (item) => [item.id === 'hidden' ? 'hidden' : 'visible'],
+      defaultVisible: (item) => item.id !== 'hidden',
+    };
+    expect(matchesFilters(entry('Visible'), [typeFilter], {})).toBe(true);
+    expect(matchesFilters(entry('Hidden'), [typeFilter], {})).toBe(false);
+    expect(matchesFilters(entry('Hidden'), [typeFilter], { type: ['hidden'] })).toBe(
+      true,
+    );
+    expect(matchesFilters(entry('Hidden'), [typeFilter], { type: ['visible'] })).toBe(
+      false,
+    );
   });
 
   it('sorts by name and direction', () => {

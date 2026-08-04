@@ -381,6 +381,11 @@ const pl: Dictionary = {
       levelN: 'Poziom {{level}}',
       yes: 'Tak',
       no: 'Nie',
+      values: {
+        class: 'Klasa',
+        sidekick: 'Kompan',
+        fightingStyle: 'Styl walki',
+      },
       labels: {
         size: 'Rozmiar',
         creatureType: 'Typ Stworzenia',
