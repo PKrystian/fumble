@@ -379,6 +379,11 @@ const en = {
       levelN: 'Level {{level}}',
       yes: 'Yes',
       no: 'No',
+      values: {
+        class: 'Class',
+        sidekick: 'Sidekick',
+        fightingStyle: 'Fighting Style',
+      },
       labels: {
         size: 'Size',
         creatureType: 'Creature Type',

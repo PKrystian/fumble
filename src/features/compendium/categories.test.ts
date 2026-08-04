@@ -38,6 +38,36 @@ describe('compendium categories', () => {
     expect(properties.valuesFor({ properties: undefined } as never)).toEqual([]);
   });
 
+  it('keeps sidekicks and fighting styles behind their filters', () => {
+    const classType = getCategory('classes')!.filters!.find(
+      (filter) => filter.id === 'type',
+    )!;
+    expect(classType.valuesFor({ id: 'expert-sidekick' } as never)).toEqual(['sidekick']);
+    expect(classType.valuesFor({ id: 'wizard' } as never)).toEqual(['class']);
+    expect(classType.defaultVisible?.({ id: 'expert-sidekick' } as never)).toBe(false);
+    expect(classType.defaultVisible?.({ id: 'wizard' } as never)).toBe(true);
+    expect(classType.valueLabelKey?.('sidekick')).toBe(
+      'compendium.filters.values.sidekick',
+    );
+
+    const featureType = getCategory('optionalfeatures')!.filters!.find(
+      (filter) => filter.id === 'featureType',
+    )!;
+    expect(
+      featureType.defaultVisible?.({ featureType: 'Fighting Style, FS:P' } as never),
+    ).toBe(false);
+    expect(
+      featureType.defaultVisible?.({ featureType: 'Styl walki, FS:P' } as never),
+    ).toBe(false);
+    expect(featureType.defaultVisible?.({ featureType: 'Metamagic' } as never)).toBe(
+      true,
+    );
+    expect(featureType.defaultVisible?.({} as never)).toBe(true);
+    expect(featureType.valueLabelKey?.('Styl walki')).toBe(
+      'compendium.filters.values.fightingStyle',
+    );
+  });
+
   it('executes every category contract', async () => {
     const entry = {
       ability: 'Dexterity',

@@ -11,7 +11,7 @@ import { useCategoryItems } from './useCategoryItems';
 import { applyContentMode } from './contentFilter';
 import { EntryRenderer } from './EntryRenderer';
 import { FilterBar } from './FilterBar';
-import { type SortDir, compareItems } from './filterSort';
+import { type SortDir, compareItems, matchesFilters } from './filterSort';
 import { imageUrl } from '@/data/compendium/images';
 import { isUaSource, sourceName } from '@/data/compendium/sources';
 import { isHomebrew } from '@/features/homebrew/store';
@@ -133,11 +133,7 @@ function CompendiumBrowser({
         !(item.englishName && normalizeSearchText(item.englishName).includes(term))
       )
         return false;
-      return filters.every((filter) => {
-        const chosen = selectedFilters[filter.id];
-        if (!chosen || chosen.length === 0) return true;
-        return filter.valuesFor(item).some((value) => chosen.includes(value));
-      });
+      return matchesFilters(item, filters, selectedFilters);
     });
   }, [visibleItems, query, filters, selectedFilters]);
 
@@ -192,12 +188,6 @@ function CompendiumBrowser({
               {categoryLabel(cat, t)}
             </Link>
           ))}
-          <Link
-            to="/books"
-            className="rounded-full border border-dashed border-ink-600 px-3 py-1 text-sm font-medium text-ink-300 transition-colors hover:bg-ink-800"
-          >
-            {t('nav.books')}
-          </Link>
         </nav>
       </div>
 
