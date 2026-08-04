@@ -155,6 +155,105 @@ body {
   width: 100%;
   border-radius: 0.5rem;
 }
+
+.wiki-chult-map__viewport {
+  overflow: hidden;
+  background: var(--color-ink-950);
+  touch-action: none;
+  user-select: none;
+}
+.wiki-chult-map__viewport:focus-visible {
+  outline: 2px solid var(--color-arcane-400);
+  outline-offset: -2px;
+}
+.wiki-chult-map__viewport--zoomed {
+  cursor: grab;
+}
+.wiki-chult-map__viewport--dragging {
+  cursor: grabbing;
+}
+.wiki-chult-map__canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1477 / 2000;
+  transform-origin: center;
+  transition: transform 160ms ease;
+  will-change: transform;
+}
+.wiki-chult-map__viewport--dragging .wiki-chult-map__canvas {
+  transition: none;
+}
+.wiki-chult-map__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+}
+.wiki-chult-map__grid {
+  position: absolute;
+  inset: 2.55% 3.69% 2.5% 3.33%;
+  display: grid;
+  grid-template-columns: repeat(72, minmax(0, 1fr) minmax(0, 2fr)) minmax(0, 1fr);
+  grid-gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.wiki-chult-map__grid--editor .wiki-chult-map__item {
+  pointer-events: auto;
+}
+.wiki-chult-map__item {
+  position: relative;
+  min-width: 0;
+  padding-bottom: 87%;
+  pointer-events: none;
+}
+.wiki-chult-map__hex {
+  position: absolute;
+  inset: -1px;
+  display: block;
+  background: rgb(93 86 69);
+  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+}
+.wiki-chult-map__grid--editor .wiki-chult-map__hex {
+  cursor: pointer;
+  pointer-events: auto;
+}
+.wiki-chult-map__grid--editor .wiki-chult-map__hex:focus-visible {
+  outline: 2px solid var(--color-arcane-300);
+  outline-offset: 1px;
+}
+.wiki-chult-map__hex::after {
+  position: absolute;
+  inset: 1px;
+  display: block;
+  content: '';
+  background: rgb(247 240 215);
+  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+}
+.wiki-chult-map__hex--revealed {
+  background: rgba(227, 179, 65, 0.08);
+}
+.wiki-chult-map__hex--revealed::after {
+  display: none;
+}
+.wiki-chult-map__grid-lines {
+  position: absolute;
+  top: 2.55%;
+  left: 3.33%;
+  width: 92.98%;
+  height: 94.95%;
+  overflow: visible;
+  pointer-events: none;
+}
+.wiki-chult-map__grid-line {
+  fill: none;
+  stroke: rgba(48, 54, 42, 0.68);
+  stroke-linejoin: round;
+  stroke-width: 0.12;
+}
+
 .wiki-pin {
   position: absolute;
   transform: translate(-50%, -100%);

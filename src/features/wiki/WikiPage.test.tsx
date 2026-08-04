@@ -3,41 +3,66 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useLightbox } from '@/features/ui/lightboxStore';
 import { WikiPage } from './WikiPage';
 
+function page(slug: string, title: string, category: string, html: string) {
+  return {
+    campaignId: 'glod-smoka',
+    slug,
+    title,
+    category,
+    html,
+  };
+}
+
 const mocks = vi.hoisted(() => ({
+  campaignId: undefined as string | undefined,
   slug: undefined as string | undefined,
   navigate: vi.fn(),
+  maps: [] as Array<{ campaignId: string; id: string }>,
   wiki: {
     status: 'ready',
     data: {
-      pages: [
+      campaigns: [
         {
-          slug: 'home',
-          title: 'Campaign Home',
-          category: 'Main',
-          html: '<p>Welcome %BASE%</p><a data-wiki-link="lore"><span>Lore link</span></a>',
-        },
-        {
-          slug: 'lore',
-          title: 'Lore',
-          category: 'Main',
-          html: '<a data-wiki-link="">Empty target</a><span>Plain text</span>',
-        },
-        {
-          slug: 'npc',
-          title: 'NPC',
-          category: 'People',
-          html: '<p>Person</p>',
+          id: 'glod-smoka',
+          title: 'Głód Smoka',
+          pages: [
+            page(
+              'home',
+              'Campaign Home',
+              'Main',
+              '<p>Welcome %BASE%</p><a data-wiki-link="glod-smoka/lore"><span>Lore link</span></a>',
+            ),
+            page(
+              'lore',
+              'Lore',
+              'Main',
+              '<a data-wiki-link="">Empty target</a><span>Plain text</span>',
+            ),
+            page('npc', 'NPC', 'People', '<p>Person</p>'),
+          ],
         },
       ],
     },
   } as {
     status: 'loading' | 'ready' | 'error';
-    data: { pages: Array<Record<string, string>> } | null;
+    data: {
+      campaigns: Array<{
+        id: string;
+        title: string;
+        pages: Array<Record<string, string>>;
+      }>;
+    } | null;
   },
 }));
 
 vi.mock('react-router-dom', () => ({
-  useParams: () => ({ slug: mocks.slug }),
+  useParams: () => ({ campaignId: mocks.campaignId, slug: mocks.slug }),
+}));
+
+vi.mock('@/features/campaign-map/maps', () => ({
+  CAMPAIGN_MAPS: mocks.maps,
+  getCampaignMap: (campaignId: string) =>
+    mocks.maps.find((map) => map.campaignId === campaignId) ?? null,
 }));
 
 vi.mock('@/i18n/path', () => ({
@@ -67,29 +92,32 @@ vi.mock('@/seo/useSeo', () => ({
 
 describe('WikiPage', () => {
   beforeEach(() => {
+    mocks.campaignId = undefined;
     mocks.slug = undefined;
+    mocks.maps.length = 0;
     mocks.navigate.mockReset();
     useLightbox.getState().close();
     mocks.wiki.status = 'ready';
     mocks.wiki.data = {
-      pages: [
+      campaigns: [
         {
-          slug: 'home',
-          title: 'Campaign Home',
-          category: 'Main',
-          html: '<p>Welcome %BASE%</p><a data-wiki-link="lore"><span>Lore link</span></a>',
-        },
-        {
-          slug: 'lore',
-          title: 'Lore',
-          category: 'Main',
-          html: '<a data-wiki-link="">Empty target</a><span>Plain text</span>',
-        },
-        {
-          slug: 'npc',
-          title: 'NPC',
-          category: 'People',
-          html: '<p>Person</p>',
+          id: 'glod-smoka',
+          title: 'Głód Smoka',
+          pages: [
+            page(
+              'home',
+              'Campaign Home',
+              'Main',
+              '<p>Welcome %BASE%</p><a data-wiki-link="glod-smoka/lore"><span>Lore link</span></a>',
+            ),
+            page(
+              'lore',
+              'Lore',
+              'Main',
+              '<a data-wiki-link="">Empty target</a><span>Plain text</span>',
+            ),
+            page('npc', 'NPC', 'People', '<p>Person</p>'),
+          ],
         },
       ],
     };
@@ -105,16 +133,43 @@ describe('WikiPage', () => {
     expect(screen.getByText('wiki.campaignWiki')).toBeInTheDocument();
 
     mocks.wiki.status = 'ready';
-    mocks.wiki.data = { pages: [] };
+    mocks.wiki.data = { campaigns: [] };
     view.rerender(<WikiPage />);
-    expect(screen.getByText(/npm run wiki:build/).parentElement).toHaveTextContent(
-      'wiki.noContentYet',
-    );
+    expect(screen.getByText('wiki.noCampaigns')).toBeInTheDocument();
 
     mocks.wiki.data = null;
     view.rerender(<WikiPage />);
-    expect(screen.getByText(/npm run wiki:build/).parentElement).toHaveTextContent(
-      'wiki.noContentYet',
+    expect(screen.getByText('wiki.noCampaigns')).toBeInTheDocument();
+
+    mocks.wiki.data = {
+      campaigns: [
+        {
+          id: 'glod-smoka',
+          title: 'Głód Smoka',
+          pages: [page('home', 'Campaign Home', 'Main', '<p>First body</p>')],
+        },
+      ],
+    };
+    mocks.campaignId = 'missing';
+    view.rerender(<WikiPage />);
+    expect(screen.getByText('wiki.noCampaigns')).toBeInTheDocument();
+  });
+
+  it('renders campaign landings with and without a map', () => {
+    mocks.wiki.data = {
+      campaigns: [{ id: 'empty', title: 'Empty Campaign', pages: [] }],
+    };
+    mocks.campaignId = 'empty';
+    const view = render(<WikiPage />);
+    expect(screen.getByRole('heading', { name: 'Empty Campaign' })).toBeInTheDocument();
+    expect(screen.getByText('wiki.campaignNoPages')).toBeInTheDocument();
+    expect(screen.queryByText('wiki.campaignDescription')).toBeNull();
+
+    mocks.maps.push({ campaignId: 'empty', id: 'chult' });
+    view.rerender(<WikiPage />);
+    expect(screen.getByRole('link', { name: /wiki.chultMap/ })).toHaveAttribute(
+      'href',
+      '/wiki/empty/map',
     );
   });
 
@@ -126,12 +181,56 @@ describe('WikiPage', () => {
     expect(screen.getByText(/Welcome/)).toHaveTextContent('Welcome /');
 
     fireEvent.click(screen.getByText('Lore link'));
-    expect(mocks.navigate).toHaveBeenCalledWith('/wiki/lore');
+    expect(mocks.navigate).toHaveBeenCalledWith('/wiki/glod-smoka/lore');
     fireEvent.click(screen.getByText(/Welcome/));
     expect(mocks.navigate).toHaveBeenCalledTimes(1);
   });
 
+  it('shows the campaign chooser when more than one campaign is available', () => {
+    mocks.wiki.data = {
+      campaigns: [
+        ...(mocks.wiki.data?.campaigns ?? []),
+        { id: 'second', title: 'Second Campaign', pages: [] },
+      ],
+    };
+    render(<WikiPage />);
+    expect(
+      screen.getByRole('heading', { name: 'wiki.chooseCampaign' }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Głód Smoka/ })).toHaveAttribute(
+      'href',
+      '/wiki/glod-smoka',
+    );
+  });
+
+  it('shows map details in the campaign chooser', () => {
+    mocks.maps.push({ campaignId: 'glod-smoka', id: 'chult' });
+    mocks.wiki.data = {
+      campaigns: [
+        ...(mocks.wiki.data?.campaigns ?? []),
+        { id: 'second', title: 'Second Campaign', pages: [] },
+      ],
+    };
+    const view = render(<WikiPage />);
+    expect(screen.getByText('wiki.chultMap')).toBeInTheDocument();
+
+    mocks.campaignId = 'glod-smoka';
+    view.rerender(<WikiPage />);
+    expect(
+      screen.getByRole('navigation', { name: 'wiki.breadcrumbs' }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'nav.wiki' })).toHaveAttribute(
+      'href',
+      '/wiki',
+    );
+    expect(screen.getByRole('link', { name: /wiki.chultMap/ })).toHaveAttribute(
+      'href',
+      '/wiki/glod-smoka/map',
+    );
+  });
+
   it('selects an explicit page and ignores empty wiki targets', () => {
+    mocks.campaignId = 'glod-smoka';
     mocks.slug = 'lore';
     render(<WikiPage />);
     expect(screen.getByRole('heading', { name: 'Lore' })).toBeInTheDocument();
@@ -141,14 +240,21 @@ describe('WikiPage', () => {
   });
 
   it('opens wiki images in the lightbox', () => {
+    mocks.campaignId = 'glod-smoka';
     mocks.slug = 'npc';
     mocks.wiki.data = {
-      pages: [
+      campaigns: [
         {
-          slug: 'npc',
-          title: 'NPC',
-          category: 'People',
-          html: '<aside><img src="%BASE%wiki-assets/npc.png" alt="NPC portrait"></aside>',
+          id: 'glod-smoka',
+          title: 'Głód Smoka',
+          pages: [
+            page(
+              'npc',
+              'NPC',
+              'People',
+              '<aside><img src="%BASE%wiki-assets/glod-smoka/npc.png" alt="NPC portrait"></aside>',
+            ),
+          ],
         },
       ],
     };
@@ -157,23 +263,27 @@ describe('WikiPage', () => {
     fireEvent.click(screen.getByRole('img', { name: 'NPC portrait' }));
 
     expect(useLightbox.getState()).toMatchObject({
-      src: expect.stringContaining('/wiki-assets/npc.png'),
+      src: expect.stringContaining('/wiki-assets/glod-smoka/npc.png'),
       caption: 'NPC portrait',
     });
   });
 
-  it('falls back to the home page and then the first page', () => {
+  it('supports legacy page paths and falls back to the home page', () => {
+    mocks.campaignId = 'lore';
+    render(<WikiPage />);
+    expect(screen.getByRole('heading', { name: 'Lore' })).toBeInTheDocument();
+
+    mocks.campaignId = 'glod-smoka';
     mocks.slug = 'missing';
     const view = render(<WikiPage />);
     expect(screen.getByRole('heading', { name: 'Campaign Home' })).toBeInTheDocument();
 
     mocks.wiki.data = {
-      pages: [
+      campaigns: [
         {
-          slug: 'first',
-          title: 'First',
-          category: 'Only',
-          html: '<p>First body</p>',
+          id: 'glod-smoka',
+          title: 'Głód Smoka',
+          pages: [page('first', 'First', 'Only', '<p>First body</p>')],
         },
       ],
     };

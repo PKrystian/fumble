@@ -1,11 +1,26 @@
 # Fumble Wiki - Obsidian Authoring Guide
 
-Write your campaign in any Obsidian vault, then build the **player-facing** wiki from it.
+Write your campaigns in any Obsidian vault, then build the **player-facing** wiki from it.
 Your vault stays outside this repo and is never committed - only the sanitized output is.
 
 ```bash
 npm run wiki:build -- --input "C:/path/to/your/Vault" [--watch] [--force]
 ```
+
+The first-level folders inside the input become campaigns. For example:
+
+```text
+Fumble-Vault/
+  Głód Smoka/
+  Grobowiec Zagłady/
+  .obsidian/
+  .git/
+```
+
+The last two folders are ignored automatically. The `_dm` folder is also ignored by
+default, including all of its subfolders. Use `--ignore folder-name` more than once or set
+`WIKI_IGNORE_DIRECTORIES=folder-name,another-folder` to add private folders. If the input
+folder contains Markdown files directly, the input itself is treated as one campaign.
 
 If you omit `--input`, Fumble checks the `WIKI_VAULT` env var, then - if you're running it
 interactively - asks for the path. Non-interactive runs (CI) fall back to the bundled
@@ -15,9 +30,31 @@ interactively - asks for the path. Non-interactive runs (CI) fall back to the bu
 - `--force` ignores the incremental cache and rebuilds every page from scratch.
 
 This regenerates `src/data/generated/wiki.json` and copies referenced images to
-`public/wiki-assets/`. Commit both so they deploy. A full working example lives in
+`public/wiki-assets/<campaign-id>/`. Commit both so they deploy. A full working example lives in
 [`wiki-example/`](../wiki-example); ready-to-copy starter notes for every page type below live
 in [`wiki-templates/`](../wiki-templates).
+
+## Campaign maps
+
+Campaign maps are separate read-only application views inside the selected campaign. The
+Chult map uses `public/campaign-maps/chultmap.jpg` and the committed revealed-hex ranges in
+`src/features/campaign-map/maps.ts`. Update those ranges in the repo and rebuild the site to
+publish a new player-facing map state. Production does not contain an uncover control or a
+map-state save in local storage.
+
+The Chult map has 72 columns and 85 rows. Hex indexes start at zero in the top-left corner and
+run left to right, then top to bottom. The index for a cell is `row * 72 + column`. The
+`revealedRanges` list accepts one index such as `1762` or an inclusive range such as `1765-1828`.
+Remove an index or range to hide those hexes again. Values outside `0-6119` are ignored. Keep the
+list as revealed cells only, then run `npm run build` before publishing. Players can use the map
+control to show or hide thin hex edges over revealed cells when they need to count travel distance.
+The white parchment masks for hidden cells are not affected by this control.
+
+When running the local Vite development server, open the Chult map and choose `Edit revealed
+hexes`. Click any hex to toggle it, then use `Copy ranges` to copy the generated
+`revealedRanges` block into `maps.ts`. The draft is saved under a campaign-specific local
+storage key so the map can be refreshed while editing. `Reset local changes` returns to the
+committed ranges. The editor is disabled from production builds.
 
 Every build prints a summary and any validation warnings - unknown frontmatter keys, `[[links]]`
 that don't resolve to any page (typos, not intentionally DM-hidden links, which stay silent),

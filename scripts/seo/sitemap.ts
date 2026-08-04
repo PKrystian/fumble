@@ -3,6 +3,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../../src/i18n/locales';
 import { withEnglishName } from '../../src/data/compendium/searchText';
+import { CAMPAIGN_MAPS } from '../../src/features/campaign-map/maps';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const SITE_URL = 'https://fumble.krystianpinczak.com';
@@ -44,10 +45,17 @@ interface Book {
 }
 
 interface WikiPage {
+  campaignId?: string;
   slug: string;
   title: string;
   category?: string;
   html?: string;
+}
+
+interface WikiCampaign {
+  id: string;
+  title: string;
+  pages?: WikiPage[];
 }
 
 const STATIC_PAGES: PageInfo[] = [
@@ -501,22 +509,49 @@ function collectPages(locale: string): PageInfo[] {
   }
 
   const wiki = JSON.parse(readFileSync(join(GENERATED_DIR, 'wiki.json'), 'utf8')) as {
+    campaigns?: WikiCampaign[];
     pages?: WikiPage[];
   };
-  for (const page of wiki.pages ?? []) {
+  for (const campaign of wiki.campaigns ?? []) {
     pages.push({
-      path: `/wiki/${page.slug}`,
-      title: `${page.title} - Campaign Wiki - Fumble`,
-      description: concise(
-        plainText(page.html),
-        `${page.title}${page.category ? ` in ${page.category}` : ''} - Fumble campaign wiki.`,
-      ),
-      content: excerpt(
-        plainText(page.html),
-        `${page.title}${page.category ? ` in ${page.category}` : ''}.`,
-      ),
+      path: `/wiki/${campaign.id}`,
+      title: `${campaign.title} - Campaign Wiki - Fumble`,
+      description: `Browse the ${campaign.title} campaign wiki generated from Obsidian.`,
+      kind: 'website',
+      parent: { path: '/wiki', title: 'Campaign Wiki' },
+    });
+    for (const page of campaign.pages ?? []) {
+      pages.push({
+        path: `/wiki/${campaign.id}/${page.slug}`,
+        title: `${page.title} - ${campaign.title} - Fumble`,
+        description: concise(
+          plainText(page.html),
+          `${page.title}${page.category ? ` in ${page.category}` : ''} - Fumble campaign wiki.`,
+        ),
+        content: excerpt(
+          plainText(page.html),
+          `${page.title}${page.category ? ` in ${page.category}` : ''}.`,
+        ),
+        kind: 'article',
+        parent: { path: `/wiki/${campaign.id}`, title: campaign.title },
+      });
+    }
+  }
+  for (const map of CAMPAIGN_MAPS) {
+    pages.push({
+      path: `/wiki/${map.campaignId}`,
+      title: `${map.campaignTitle} - Campaign Wiki - Fumble`,
+      description: `Browse the ${map.campaignTitle} campaign wiki and maps.`,
+      kind: 'website',
+      parent: { path: '/wiki', title: 'Campaign Wiki' },
+    });
+    pages.push({
+      path: `/wiki/${map.campaignId}/map`,
+      title: `${map.id === 'chult' ? 'Chult Map' : 'Campaign Map'} - ${map.campaignTitle} - Fumble`,
+      description: `Explore the player-facing hex map for ${map.campaignTitle}.`,
+      content: `Player-facing map for ${map.campaignTitle}.`,
       kind: 'article',
-      parent: { path: '/wiki', title: 'Wiki' },
+      parent: { path: `/wiki/${map.campaignId}`, title: map.campaignTitle },
     });
   }
 
@@ -783,11 +818,18 @@ function buildSearchIndex(locale: string): string {
     });
   }
   const wiki = JSON.parse(readFileSync(join(GENERATED_DIR, 'wiki.json'), 'utf8')) as {
+    campaigns?: WikiCampaign[];
     pages?: WikiPage[];
   };
+  const wikiPages = wiki.campaigns
+    ? wiki.campaigns.flatMap((campaign) =>
+        (campaign.pages ?? []).map((page) => ({ ...page, campaignId: campaign.id })),
+      )
+    : (wiki.pages ?? []);
   return JSON.stringify({
     categories,
-    wiki: (wiki.pages ?? []).map(({ slug, title, category }) => ({
+    wiki: wikiPages.map(({ campaignId, slug, title, category }) => ({
+      campaignId,
       slug,
       title,
       category,

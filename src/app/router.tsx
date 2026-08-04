@@ -122,7 +122,18 @@ const appRouteChildren: RouteObject[] = [
     lazy: lazyComponent(() => import('@/features/wiki/WikiPage'), 'WikiPage'),
   },
   {
-    path: 'wiki/:slug',
+    path: 'wiki/:campaignId/map',
+    lazy: lazyComponent(
+      () => import('@/features/campaign-map/CampaignMapPage'),
+      'CampaignMapPage',
+    ),
+  },
+  {
+    path: 'wiki/:campaignId/:slug',
+    lazy: lazyComponent(() => import('@/features/wiki/WikiPage'), 'WikiPage'),
+  },
+  {
+    path: 'wiki/:campaignId',
     lazy: lazyComponent(() => import('@/features/wiki/WikiPage'), 'WikiPage'),
   },
   {

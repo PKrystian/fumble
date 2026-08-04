@@ -209,6 +209,7 @@ describe('leafletToPercent', () => {
 describe('slugify', () => {
   it('produces url-safe slugs', () => {
     expect(slugify('The Sunken Temple')).toBe('the-sunken-temple');
+    expect(slugify('Głód Smoka')).toBe('glod-smoka');
   });
 });
 

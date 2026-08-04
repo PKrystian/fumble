@@ -27,8 +27,8 @@ Live site: https://fumble.krystianpinczak.com/
 ### Campaign wiki
 
 Fumble can build a player-facing wiki from an Obsidian vault. The generator supports
-wikilinks, images, infoboxes, maps, player-safe locked sections, and removal of DM-only
-content.
+multiple campaigns, wikilinks, images, infoboxes, maps, player-safe locked sections, and
+removal of DM-only content.
 
 The hosted demo contains the example wiki from this repository. To publish your own wiki,
 self-host Fumble and build the site with your own vault:
@@ -39,8 +39,13 @@ npm run wiki:build -- --input /path/to/your/vault
 BASE_PATH=/ npm run build
 ```
 
+When the input contains campaign folders, each first-level folder becomes a campaign in
+the wiki. Hidden folders, `.git`, `.obsidian`, and the `_dm` folder are ignored. Add more
+ignored folder names with repeated `--ignore name` flags or the
+`WIKI_IGNORE_DIRECTORIES=name,other-name` environment variable.
+
 The generated wiki is written to `src/data/generated/wiki.json`, with assets copied to
-`public/wiki-assets`. See [docs/wiki-templates.md](docs/wiki-templates.md) for the authoring
+`public/wiki-assets/<campaign-id>`. See [docs/wiki-templates.md](docs/wiki-templates.md) for the authoring
 format.
 
 ## Privacy and local data
