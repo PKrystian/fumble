@@ -13,6 +13,13 @@ Fumble is unofficial fan content. It is not approved, endorsed, or sponsored by 
 the Coast. Portions of the materials used are property of Wizards of the Coast LLC.
 Copyright Wizards of the Coast LLC.
 
+## Chult campaign map
+
+The `public/campaign-maps/chultmap.jpg` file was supplied locally for the Tomb of
+Annihilation campaign view. The map artwork and related trademarks are not covered by the
+Fumble MIT License. Their original rights remain with the respective rights holders, and
+the file should be removed if its distribution is not authorized.
+
 Some bundled reference data contains material outside the System Reference Document.
 That material is not offered under the Fumble MIT License. Redistribution may require
 permission from the relevant rights holder. The project maintainer has chosen to distribute

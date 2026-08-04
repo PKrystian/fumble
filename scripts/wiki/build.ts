@@ -31,7 +31,7 @@ import {
   wrapMap,
   type Frontmatter,
 } from '../../src/features/wiki/transform';
-import type { WikiData, WikiPage } from '../../src/features/wiki/types';
+import type { WikiCampaign, WikiData, WikiPage } from '../../src/features/wiki/types';
 import { imageSize } from './imageSize';
 
 const color = {
@@ -54,27 +54,51 @@ const KNOWN_FRONTMATTER_KEYS = [
   'facts',
 ] as const;
 
-function leafletLabel(target: string | null): string {
-  if (!target) return '';
-  const wiki = /^\[\[([^\]]+)\]\]$/.exec(target);
-  if (wiki) {
-    const [name, alias] = wiki[1]!.split('|').map((s) => s.trim());
-    return alias ?? name ?? '';
-  }
-  return target;
-}
-
+const DEFAULT_IGNORED_DIRECTORIES = ['_dm'] as const;
+const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg']);
 const OUTPUT_FILE = 'src/data/generated/wiki.json';
 const ASSET_DIR = 'public/wiki-assets';
 const CACHE_FILE = '.cache/wiki-cache.json';
+const CACHE_SCHEMA_VERSION = 2;
 
 interface CacheEntry {
   hash: string;
   page: WikiPage;
 }
+
 interface WikiCache {
+  schemaVersion: number;
   slugSignature: string;
   pages: Record<string, CacheEntry>;
+}
+
+interface CampaignSource {
+  id: string;
+  title: string;
+  root: string;
+  files: string[];
+}
+
+interface RawPage {
+  campaignId: string;
+  campaignTitle: string;
+  campaignRoot: string;
+  path: string;
+  name: string;
+  title: string;
+  category: string;
+  slug: string;
+  body: string;
+  raw: string;
+  data: Frontmatter;
+}
+
+interface CampaignBuild {
+  source: CampaignSource;
+  pages: RawPage[];
+  allNoteNames: Set<string>;
+  slugByName: Map<string, string>;
+  assetPaths: Map<string, string>;
 }
 
 function loadCache(): WikiCache | null {
@@ -85,7 +109,16 @@ function loadCache(): WikiCache | null {
     return null;
   }
 }
-const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg']);
+
+function leafletLabel(target: string | null): string {
+  if (!target) return '';
+  const wiki = /^\[\[([^\]]+)\]\]$/.exec(target);
+  if (wiki) {
+    const [name, alias] = wiki[1]!.split('|').map((s) => s.trim());
+    return alias ?? name ?? '';
+  }
+  return target;
+}
 
 async function resolveInput(argv: string[]): Promise<string> {
   const flag = argv.indexOf('--input');
@@ -109,42 +142,85 @@ async function resolveInput(argv: string[]): Promise<string> {
   return 'wiki-example';
 }
 
-function walk(dir: string): string[] {
+function ignoredDirectoryNames(argv: string[]): Set<string> {
+  const names: string[] = [...DEFAULT_IGNORED_DIRECTORIES];
+  const environmentNames = process.env.WIKI_IGNORE_DIRECTORIES;
+  if (environmentNames) names.push(...environmentNames.split(','));
+
+  for (let index = 0; index < argv.length; index += 1) {
+    if (argv[index] === '--ignore' && argv[index + 1]) {
+      names.push(argv[index + 1]!);
+      index += 1;
+    }
+  }
+
+  return new Set(names.map((name) => name.trim().toLowerCase()).filter(Boolean));
+}
+
+function walk(dir: string, ignoredNames: Set<string>): string[] {
   const out: string[] = [];
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name.startsWith('.')) continue;
+    if (
+      entry.isDirectory() &&
+      (entry.name.startsWith('.') || ignoredNames.has(entry.name.toLowerCase()))
+    ) {
+      continue;
+    }
     const full = join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...walk(full));
+    if (entry.isDirectory()) out.push(...walk(full, ignoredNames));
     else out.push(full);
   }
   return out;
 }
 
-interface RawPage {
-  path: string;
-  name: string;
-  title: string;
-  category: string;
-  slug: string;
-  body: string;
-  raw: string;
-  data: Frontmatter;
+function relativeParts(inputDir: string, file: string): string[] {
+  return relative(inputDir, file).split(sep).filter(Boolean);
 }
 
-function buildOnce(inputDir: string): void {
-  const files = walk(inputDir);
-  const assetPaths = new Map<string, string>();
-  const warnings: string[] = [];
+function discoverCampaigns(inputDir: string, files: string[]): CampaignSource[] {
+  const markdownFiles = files.filter((file) => extname(file).toLowerCase() === '.md');
+  const hasRootPage = markdownFiles.some(
+    (file) => relativeParts(inputDir, file).length === 1,
+  );
 
-  const allNoteNames = new Set<string>();
-  const pagesRaw: RawPage[] = [];
-  const slugByName = new Map<string, string>();
-  let skipped = 0;
+  if (hasRootPage) {
+    const title = basename(inputDir);
+    return [{ id: slugify(title), title, root: inputDir, files }];
+  }
 
+  const groups = new Map<string, string[]>();
   for (const file of files) {
+    const [folder] = relativeParts(inputDir, file);
+    if (!folder) continue;
+    const group = groups.get(folder) ?? [];
+    group.push(file);
+    groups.set(folder, group);
+  }
+
+  return [...groups.entries()]
+    .filter(([, group]) => group.some((file) => extname(file).toLowerCase() === '.md'))
+    .map(([title, group]) => ({
+      id: slugify(title),
+      title,
+      root: join(inputDir, title),
+      files: group,
+    }));
+}
+
+function collectCampaignBuild(source: CampaignSource, warnings: string[]): CampaignBuild {
+  const allNoteNames = new Set<string>();
+  const pages: RawPage[] = [];
+  const slugByName = new Map<string, string>();
+  const assetPaths = new Map<string, string>();
+
+  for (const file of source.files) {
     const ext = extname(file).toLowerCase();
     if (IMAGE_EXTENSIONS.has(ext)) {
-      assetPaths.set(basename(file), file);
+      const name = basename(file);
+      if (assetPaths.has(name)) {
+        warnings.push(`Duplicate image name "${name}" in campaign "${source.title}"`);
+      }
+      assetPaths.set(name, file);
       continue;
     }
     if (ext !== '.md') continue;
@@ -156,20 +232,22 @@ function buildOnce(inputDir: string): void {
     allNoteNames.add(name.toLowerCase());
     allNoteNames.add(title.toLowerCase());
 
-    if (!isPlayerVisible(data)) {
-      skipped += 1;
-      continue;
-    }
+    if (!isPlayerVisible(data)) continue;
 
     const category =
       typeof data.category === 'string' && data.category
         ? data.category
-        : (relative(inputDir, file).split(sep)[0] ?? 'General');
+        : (relativeParts(source.root, file)[0] ?? 'General');
     const slug = slugify(name);
-
+    if (slugByName.has(name.toLowerCase())) {
+      warnings.push(`Duplicate note name "${name}" in campaign "${source.title}"`);
+    }
     slugByName.set(name.toLowerCase(), slug);
     slugByName.set(title.toLowerCase(), slug);
-    pagesRaw.push({
+    pages.push({
+      campaignId: source.id,
+      campaignTitle: source.title,
+      campaignRoot: source.root,
       path: file,
       name,
       title,
@@ -181,18 +259,56 @@ function buildOnce(inputDir: string): void {
     });
   }
 
-  const resolveSlug = (title: string) =>
-    slugByName.get(title.trim().toLowerCase()) ?? null;
-  const resolveAsset = (file: string) => `${BASE_TOKEN}wiki-assets/${basename(file)}`;
+  return { source, pages, allNoteNames, slugByName, assetPaths };
+}
 
-  const processLeaflet = (body: string): string =>
-    body.replace(/```leaflet\r?\n([\s\S]*?)```/g, (_, content: string) => {
+function buildPage(page: RawPage, campaign: CampaignBuild, warnings: string[]): WikiPage {
+  const pageSlug = (title: string) =>
+    campaign.slugByName.get(title.trim().toLowerCase()) ?? null;
+  const resolveSlug = (title: string) => {
+    const slug = pageSlug(title);
+    return slug ? `${campaign.source.id}/${slug}` : null;
+  };
+  const resolveAsset = (file: string) =>
+    `${BASE_TOKEN}wiki-assets/${campaign.source.id}/${basename(file)}`;
+
+  for (const key of validateFrontmatterKeys(page.data, KNOWN_FRONTMATTER_KEYS)) {
+    warnings.push(`Unknown frontmatter key "${key}" on "${page.name}"`);
+  }
+
+  let body = processSecrets(page.body);
+
+  const warnBrokenLinks = (source: string) => {
+    for (const target of extractWikiLinkTargets(source)) {
+      if (!pageSlug(target) && !campaign.allNoteNames.has(target.toLowerCase())) {
+        warnings.push(`Broken link [[${target}]] on "${page.name}"`);
+      }
+    }
+  };
+  warnBrokenLinks(body);
+  const facts = page.data.facts;
+  if (facts && typeof facts === 'object' && !Array.isArray(facts)) {
+    for (const value of Object.values(facts)) warnBrokenLinks(value);
+  }
+  for (const file of extractImageRefs(body)) {
+    if (!campaign.assetPaths.has(basename(file))) {
+      warnings.push(`Missing image "${file}" referenced on "${page.name}"`);
+    }
+  }
+  if (typeof page.data.image === 'string' && page.data.image) {
+    if (!campaign.assetPaths.has(basename(page.data.image))) {
+      warnings.push(`Missing image "${page.data.image}" referenced on "${page.name}"`);
+    }
+  }
+
+  const processLeaflet = (source: string): string =>
+    source.replace(/```leaflet\r?\n([\s\S]*?)```/g, (_, content: string) => {
       const block = parseLeafletBlock(content);
       if (!block.image) return '';
       const file = basename(block.image);
-      const source = assetPaths.get(file);
-      const { width, height } = source
-        ? imageSize(source)
+      const imageSource = campaign.assetPaths.get(file);
+      const { width, height } = imageSource
+        ? imageSize(imageSource)
         : { width: 1000, height: 1000 };
       const pins = block.markers
         .filter((marker) => marker.type !== 'dm')
@@ -203,83 +319,91 @@ function buildOnce(inputDir: string): void {
       return wrapMap(resolveAsset(file), pins);
     });
 
-  const warnMissingImage = (file: string, pageName: string) => {
-    if (!assetPaths.has(basename(file))) {
-      warnings.push(`Missing image "${file}" referenced on "${pageName}"`);
-    }
+  body = processMaps(body, resolveAsset, resolveSlug);
+  body = processLeaflet(body);
+  body = processBoxes(body, resolveAsset, resolveSlug);
+  body = processImages(body, resolveAsset);
+  body = processWikiLinks(body, resolveSlug);
+  const html = marked.parse(body, { async: false });
+  const infobox = renderInfobox(page.data, page.title, resolveAsset, resolveSlug);
+  return {
+    campaignId: page.campaignId,
+    slug: page.slug,
+    title: page.title,
+    category: page.category,
+    html: infobox + html,
   };
+}
+
+function copyCampaignAssets(campaign: CampaignBuild): void {
+  const outputDir = join(ASSET_DIR, campaign.source.id);
+  mkdirSync(outputDir, { recursive: true });
+  for (const [name, source] of campaign.assetPaths) {
+    copyFileSync(source, join(outputDir, name));
+  }
+}
+
+function buildOnce(inputDir: string, ignoredNames: Set<string>): void {
+  const files = walk(inputDir, ignoredNames);
+  const warnings: string[] = [];
+  const campaignsBuild = discoverCampaigns(inputDir, files).map((source) =>
+    collectCampaignBuild(source, warnings),
+  );
+  const skipped = files.filter((file) => {
+    if (extname(file).toLowerCase() !== '.md') return false;
+    const raw = readFileSync(file, 'utf8');
+    return !isPlayerVisible(parseFrontmatter(raw).data);
+  }).length;
 
   const force = process.argv.includes('--force');
-  const slugSignature = [...pagesRaw.map((p) => p.slug)].sort().join(',');
+  const slugSignature = campaignsBuild
+    .flatMap((campaign) =>
+      campaign.pages.map((page) => `${campaign.source.id}:${page.slug}`),
+    )
+    .sort()
+    .join(',');
   const cache = force ? null : loadCache();
-  const cacheValid = cache?.slugSignature === slugSignature;
-  const nextCache: WikiCache = { slugSignature, pages: {} };
-  let reused = 0;
-
-  const transform = (page: RawPage): WikiPage => {
-    for (const key of validateFrontmatterKeys(page.data, KNOWN_FRONTMATTER_KEYS)) {
-      warnings.push(`Unknown frontmatter key "${key}" on "${page.name}"`);
-    }
-
-    let body = processSecrets(page.body);
-
-    const warnBrokenLinks = (source: string) => {
-      for (const target of extractWikiLinkTargets(source)) {
-        if (!resolveSlug(target) && !allNoteNames.has(target.toLowerCase())) {
-          warnings.push(`Broken link [[${target}]] on "${page.name}"`);
-        }
-      }
-    };
-    warnBrokenLinks(body);
-    const facts = page.data.facts;
-    if (facts && typeof facts === 'object' && !Array.isArray(facts)) {
-      for (const value of Object.values(facts)) warnBrokenLinks(value);
-    }
-    for (const file of extractImageRefs(body)) warnMissingImage(file, page.name);
-    if (typeof page.data.image === 'string' && page.data.image) {
-      warnMissingImage(page.data.image, page.name);
-    }
-
-    body = processMaps(body, resolveAsset, resolveSlug);
-    body = processLeaflet(body);
-    body = processBoxes(body, resolveAsset, resolveSlug);
-    body = processImages(body, resolveAsset);
-    body = processWikiLinks(body, resolveSlug);
-    const html = marked.parse(body, { async: false });
-    const infobox = renderInfobox(page.data, page.title, resolveAsset, resolveSlug);
-    return {
-      slug: page.slug,
-      title: page.title,
-      category: page.category,
-      html: infobox + html,
-    };
+  const cacheValid =
+    cache?.schemaVersion === CACHE_SCHEMA_VERSION &&
+    cache.slugSignature === slugSignature;
+  const nextCache: WikiCache = {
+    schemaVersion: CACHE_SCHEMA_VERSION,
+    slugSignature,
+    pages: {},
   };
+  let reused = 0;
+  let pageCount = 0;
+  const campaigns: WikiCampaign[] = [];
 
-  const pages: WikiPage[] = pagesRaw.map((page) => {
-    const hash = createHash('sha1').update(page.raw).digest('hex');
-    const cached = cacheValid ? cache!.pages[page.path] : undefined;
-    const result = cached && cached.hash === hash ? cached.page : transform(page);
-    if (cached && cached.hash === hash) reused += 1;
-    nextCache.pages[page.path] = { hash, page: result };
-    return result;
-  });
+  for (const campaign of campaignsBuild) {
+    const pages = campaign.pages.map((page) => {
+      const hash = createHash('sha1').update(page.raw).digest('hex');
+      const cached = cacheValid ? cache!.pages[page.path] : undefined;
+      const result =
+        cached && cached.hash === hash
+          ? cached.page
+          : buildPage(page, campaign, warnings);
+      if (cached && cached.hash === hash) reused += 1;
+      nextCache.pages[page.path] = { hash, page: result };
+      return result;
+    });
 
-  pages.sort(
-    (a, b) => a.category.localeCompare(b.category) || a.title.localeCompare(b.title),
-  );
-
-  mkdirSync(ASSET_DIR, { recursive: true });
-  for (const [name, source] of assetPaths) {
-    copyFileSync(source, join(ASSET_DIR, name));
+    pages.sort(
+      (a, b) => a.category.localeCompare(b.category) || a.title.localeCompare(b.title),
+    );
+    copyCampaignAssets(campaign);
+    campaigns.push({ id: campaign.source.id, title: campaign.source.title, pages });
+    pageCount += pages.length;
   }
 
+  campaigns.sort((a, b) => a.title.localeCompare(b.title));
   const data: WikiData = {
     meta: {
-      pageCount: pages.length,
+      pageCount,
       generatedAt: new Date().toISOString(),
       source: inputDir,
     },
-    pages,
+    campaigns,
   };
   mkdirSync('src/data/generated', { recursive: true });
   writeFileSync(OUTPUT_FILE, JSON.stringify(data));
@@ -287,22 +411,33 @@ function buildOnce(inputDir: string): void {
   mkdirSync('.cache', { recursive: true });
   writeFileSync(CACHE_FILE, JSON.stringify(nextCache));
 
-  printSummary(inputDir, pages.length, reused, assetPaths.size, skipped, warnings);
+  printSummary(
+    inputDir,
+    campaigns.length,
+    pageCount,
+    reused,
+    files.filter((file) => IMAGE_EXTENSIONS.has(extname(file).toLowerCase())).length,
+    skipped,
+    ignoredNames,
+    warnings,
+  );
 }
 
 function printSummary(
   inputDir: string,
+  campaignCount: number,
   pageCount: number,
   reused: number,
   assetCount: number,
   skipped: number,
+  ignoredNames: Set<string>,
   warnings: string[],
 ): void {
   console.log(
-    `${color.bold('Wiki built')} from ${inputDir}: ${pageCount} pages ` +
-      `(${reused} reused, ${pageCount - reused} rebuilt), ${assetCount} assets` +
+    `${color.bold('Wiki built')} from ${inputDir}: ${campaignCount} campaign${campaignCount === 1 ? '' : 's'}, ${pageCount} pages ` +
+      `(${reused} reused), ${assetCount} assets` +
       (skipped ? `, ${skipped} DM-only/unpublished skipped` : '') +
-      '.',
+      `. Ignored directories: ${[...ignoredNames].join(', ')}.`,
   );
   if (warnings.length === 0) {
     console.log(color.green('No issues found.'));
@@ -317,7 +452,8 @@ function printSummary(
 async function main(): Promise<void> {
   const argv = process.argv.slice(2);
   const inputDir = await resolveInput(argv);
-  buildOnce(inputDir);
+  const ignoredNames = ignoredDirectoryNames(argv);
+  buildOnce(inputDir, ignoredNames);
 
   if (!argv.includes('--watch')) return;
 
@@ -329,7 +465,7 @@ async function main(): Promise<void> {
       pending = setTimeout(() => {
         console.log(color.dim('\nChange detected, rebuilding...'));
         try {
-          buildOnce(inputDir);
+          buildOnce(inputDir, ignoredNames);
         } catch (err) {
           console.error(color.red(String(err)));
         }

@@ -3,6 +3,7 @@ export const BASE_TOKEN = '%BASE%';
 export function slugify(value: string): string {
   return value
     .toLowerCase()
+    .replace(/ł/g, 'l')
     .normalize('NFKD')
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')

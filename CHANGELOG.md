@@ -4,6 +4,43 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.17 - 2026-08-04
+
+- Fixed the player-facing revealed-area hex grid so it renders complete hex outlines.
+
+## 1.2.16 - 2026-08-04
+
+- Replaced the Chult map artwork and added a player-facing toggle for the revealed-area hex grid.
+
+## 1.2.15 - 2026-08-04
+
+- Added a local-only Chult hex editor with browser storage and copyable revealed ranges.
+
+## 1.2.14 - 2026-08-04
+
+- Styled hidden Chult hexes with opaque parchment fills and visible dark borders to match the reference map.
+
+## 1.2.13 - 2026-08-04
+
+- Removed the campaign chooser description and the redundant wiki page header.
+- Added wiki breadcrumbs and interactive Chult map zoom, reset, wheel, and drag controls.
+- Fixed map mask gaps and corrected the final revealed-cell range.
+- Documented the zero-based Chult hex index used to reveal or hide cells in the repository.
+
+## 1.2.12 - 2026-08-04
+
+- Removed release and reveal status text from the player map view.
+- Made the full map responsive without an internal scroll area.
+- Restored opaque masks for unrevealed hexes.
+
+## 1.2.11 - 2026-08-04
+
+- Added campaign selection and nested campaign navigation to the Obsidian wiki.
+- Added configurable ignored vault folders with `_dm` ignored by default.
+- Added a responsive, read-only Chult hex map whose revealed state is versioned in the repository.
+- Improved wiki category hierarchy and page counts in the sidebar.
+- Fixed Polish diacritics in wiki slugs.
+
 ## 1.2.10 - 2026-08-03
 
 - Updated the transitive brace-expansion dependency to 5.0.9 to address a high-severity denial-of-service advisory.

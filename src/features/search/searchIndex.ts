@@ -70,17 +70,21 @@ async function buildFallbackIndex(locale: Locale, t: TranslateFn): Promise<Searc
     })),
   );
   const wiki = await import('@/data/generated/wiki.json')
-    .then((module) => (module.default as unknown as WikiData).pages)
+    .then((module) =>
+      (module.default as unknown as WikiData).campaigns.flatMap(
+        (campaign) => campaign.pages,
+      ),
+    )
     .catch(() => []);
   return {
     categories: categoryData,
     wiki: wiki.map((page) => ({
       kind: 'wiki',
-      id: page.slug,
+      id: `${page.campaignId}/${page.slug}`,
       name: page.title,
       subtitle: page.category,
       categoryLabel: t('nav.wiki'),
-      to: `/wiki/${page.slug}`,
+      to: `/wiki/${page.campaignId}/${page.slug}`,
     })),
   };
 }
@@ -99,7 +103,12 @@ async function buildIndex(locale: Locale): Promise<SearchIndex> {
       (value) =>
         value as {
           categories: Array<{ id: string; items: CompendiumEntryBase[] }>;
-          wiki: Array<{ slug: string; title: string; category?: string }>;
+          wiki: Array<{
+            campaignId?: string;
+            slug: string;
+            title: string;
+            category?: string;
+          }>;
         },
     )
     .catch(() => null);
@@ -111,11 +120,13 @@ async function buildIndex(locale: Locale): Promise<SearchIndex> {
     })),
     wiki: raw.wiki.map((page) => ({
       kind: 'wiki',
-      id: page.slug,
+      id: page.campaignId ? `${page.campaignId}/${page.slug}` : page.slug,
       name: page.title,
       subtitle: page.category ?? '',
       categoryLabel: t('nav.wiki'),
-      to: `/wiki/${page.slug}`,
+      to: page.campaignId
+        ? `/wiki/${page.campaignId}/${page.slug}`
+        : `/wiki/${page.slug}`,
     })),
   };
 }

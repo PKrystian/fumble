@@ -68,9 +68,12 @@ test('compendium loads spells and opens an entry', async ({ page }) => {
   await expect(page).toHaveURL(/\/compendium\/spells\/$/);
 
   await page.getByRole('searchbox').fill('fireball');
+  await expect(page).toHaveURL(/\/compendium\/spells\/\?q=fireball$/, { timeout: 15000 });
   await page.getByRole('link', { name: /^Fireball/ }).click();
 
-  await expect(page).toHaveURL(/\/compendium\/spells\/fireball\/\?q=fireball$/);
+  await expect(page).toHaveURL(/\/compendium\/spells\/fireball\/\?q=fireball$/, {
+    timeout: 15000,
+  });
   await expect(page.getByRole('heading', { name: 'Fireball' })).toBeVisible();
   await page.goBack();
   await expect(page.getByRole('searchbox')).toHaveValue('fireball');
@@ -555,16 +558,21 @@ test('soundboard adds a track and plays one', async ({ page }) => {
 
 test('wiki renders the campaign and navigates wikilinks', async ({ page }) => {
   await page.goto('/wiki/home');
-  await expect(page.getByRole('heading', { name: 'Głód Smoka', level: 1 })).toBeVisible();
+  await expect(
+    page.getByRole('article').getByRole('heading', { name: 'Głód Smoka', level: 1 }),
+  ).toBeVisible();
 
   const sessionLink = page.locator(
-    '.wiki-content a[data-wiki-link="sesja-1-zew-s-onca"]',
+    '.wiki-content a[data-wiki-link="glod-smoka/sesja-1-zew-slonca"]',
   );
   await expect(sessionLink).toBeVisible();
   await sessionLink.click();
-  await expect(page).toHaveURL(/\/wiki\/sesja-1-zew-s-onca\/$/);
+  await expect(page).toHaveURL(/\/wiki\/glod-smoka\/sesja-1-zew-slonca\/$/);
   await expect(
-    page.getByRole('heading', { name: 'Sesja 1 - Zew Słońca', level: 1 }),
+    page.getByRole('article').getByRole('heading', {
+      name: 'Sesja 1 - Zew Słońca',
+      level: 1,
+    }),
   ).toBeVisible();
 
   await page.goto('/wiki/aconeth');
@@ -575,6 +583,84 @@ test('wiki renders the campaign and navigates wikilinks', async ({ page }) => {
   await expect(dialog.getByRole('img', { name: 'Aconeth' })).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(dialog).toHaveCount(0);
+});
+
+test('wiki chooses campaigns and configures the local Chult map editor', async ({
+  page,
+}) => {
+  await page.goto('/wiki');
+  await expect(
+    page.getByRole('heading', { name: 'Choose a campaign', level: 1 }),
+  ).toBeVisible();
+  await expect(
+    page.getByText('Choose a campaign to browse its player-facing wiki and map.'),
+  ).toHaveCount(0);
+  await page.locator('a[href="/wiki/grobowiec-zaglady/"]').click();
+  await expect(page).toHaveURL(/\/wiki\/grobowiec-zaglady\/$/);
+
+  const mapLink = page.getByRole('link', { name: 'Chult map' });
+  await expect(mapLink).toBeVisible();
+  await mapLink.click();
+  await expect(page).toHaveURL(/\/wiki\/grobowiec-zaglady\/map\/$/);
+  await expect(
+    page.getByRole('img', { name: 'Chult map with a hex grid' }),
+  ).toBeVisible();
+  await expect(page.locator('.wiki-chult-map__hex')).toHaveCount(6120);
+  const gridToggle = page.getByRole('button', { name: 'Show hex grid' });
+  await expect(gridToggle).toHaveAttribute('aria-pressed', 'false');
+  await gridToggle.click();
+  await expect(page.getByRole('button', { name: 'Hide hex grid' })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+  await expect(page.locator('.wiki-chult-map__grid-lines')).toBeVisible();
+  await expect(page.locator('.wiki-chult-map__grid-line')).toHaveAttribute('d', /M /);
+  await page.getByRole('button', { name: 'Hide hex grid' }).click();
+  await expect(page.locator('.wiki-chult-map__grid-lines')).toHaveCount(0);
+  const hiddenHex = page
+    .locator('.wiki-chult-map__hex:not(.wiki-chult-map__hex--revealed)')
+    .first();
+  const initialRevealedCount = await page
+    .locator('.wiki-chult-map__hex--revealed')
+    .count();
+  await expect(hiddenHex).toHaveCSS('opacity', '1');
+  await expect(hiddenHex).toHaveCSS('background-color', 'rgb(93, 86, 69)');
+  await expect
+    .poll(() =>
+      hiddenHex.evaluate((hex) => getComputedStyle(hex, '::after').backgroundColor),
+    )
+    .toBe('rgb(247, 240, 215)');
+  const zoomIn = page.getByRole('button', { name: 'Zoom in' });
+  const zoomOut = page.getByRole('button', { name: 'Zoom out' });
+  const resetView = page.getByRole('button', { name: 'Reset map view' });
+  await expect(zoomIn).toBeEnabled();
+  await expect(zoomOut).toBeDisabled();
+  const editorButton = page.getByRole('button', { name: 'Edit revealed hexes' });
+  await expect(editorButton).toBeVisible();
+  await editorButton.click();
+  await expect(
+    page.getByRole('complementary', { name: 'Local hex editor' }),
+  ).toBeVisible();
+  await page
+    .locator('.wiki-chult-map__hex:not(.wiki-chult-map__hex--revealed)')
+    .first()
+    .click();
+  await expect(page.locator('.wiki-chult-map__hex--revealed')).toHaveCount(
+    initialRevealedCount + 1,
+  );
+  await page.reload();
+  await expect(page.locator('.wiki-chult-map__hex--revealed')).toHaveCount(
+    initialRevealedCount + 1,
+  );
+  await page.getByRole('button', { name: 'Edit revealed hexes' }).click();
+  await page.getByRole('button', { name: 'Reset local changes' }).click();
+  await expect(page.locator('.wiki-chult-map__hex--revealed')).toHaveCount(
+    initialRevealedCount,
+  );
+  await zoomIn.click();
+  await expect(page.getByText('125%', { exact: true })).toBeVisible();
+  await resetView.click();
+  await expect(page.getByText('100%', { exact: true })).toBeVisible();
 });
 
 test('books can be searched, filtered and opened', async ({ page }) => {

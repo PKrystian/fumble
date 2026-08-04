@@ -64,7 +64,10 @@ describe('search index construction', () => {
               items: [{ id: 'bolt', name: 'Bolt', source: 'XPHB', srd: true }],
             },
           ],
-          wiki: [{ slug: 'page', title: 'Page' }],
+          wiki: [
+            { slug: 'page', title: 'Page' },
+            { campaignId: 'glod-smoka', slug: 'campaign-page', title: 'Campaign Page' },
+          ],
         }),
       }),
     );
@@ -76,6 +79,13 @@ describe('search index construction', () => {
           name: 'Page',
           subtitle: '',
           categoryLabel: 'nav.wiki',
+        },
+        {
+          id: 'glod-smoka/campaign-page',
+          name: 'Campaign Page',
+          subtitle: '',
+          categoryLabel: 'nav.wiki',
+          to: '/wiki/glod-smoka/campaign-page',
         },
       ],
     });
