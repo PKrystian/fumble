@@ -59,6 +59,17 @@ describe('AppLayout', () => {
     expect(container.querySelector('aside')).toHaveClass('w-16');
   });
 
+  it('keeps prerendered content on compendium routes', () => {
+    const prerendered = document.createElement('main');
+    prerendered.id = 'prerendered-content';
+    document.body.append(prerendered);
+    const view = renderLayout('/compendium/species');
+
+    expect(document.getElementById('prerendered-content')).toBe(prerendered);
+    view.unmount();
+    prerendered.remove();
+  });
+
   it('opens and closes the mobile sidebar from every control', () => {
     renderLayout();
     const menu = screen.getByRole('button', { name: 'Open menu' });

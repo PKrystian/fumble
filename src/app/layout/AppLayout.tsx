@@ -28,6 +28,12 @@ export function AppLayout() {
     setMobileOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (!location.pathname.includes('/compendium/')) {
+      document.getElementById('prerendered-content')?.remove();
+    }
+  }, [location.pathname]);
+
   return (
     <div className="flex h-full">
       <a

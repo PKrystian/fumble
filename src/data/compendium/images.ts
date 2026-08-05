@@ -8,7 +8,7 @@ export function imageUrl(path: string): string {
 export function optimizedImageUrl(
   path: string,
   transformOrigin?: string,
-  width = 480,
+  width = 440,
 ): string {
   const source = imageUrl(path);
   const origin = transformOrigin?.replace(/\/+$/, '');

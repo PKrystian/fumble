@@ -28,7 +28,7 @@ describe('imageUrl', () => {
     expect(
       optimizedImageUrl('classes/TEST/TestClass.webp', 'https://fumble.example'),
     ).toBe(
-      'https://fumble.example/cdn-cgi/image/width=480,quality=75,format=auto/https://5e.tools/img/classes/TEST/TestClass.webp',
+      'https://fumble.example/cdn-cgi/image/width=440,quality=75,format=auto/https://5e.tools/img/classes/TEST/TestClass.webp',
     );
     expect(
       optimizedImageUrl('https://example.com/image.webp', 'https://fumble.example'),

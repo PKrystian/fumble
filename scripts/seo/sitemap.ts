@@ -1042,7 +1042,7 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
   const fallbackImage = page.image
     ? `<div class="relative mb-4 inline-block min-h-80 max-w-full"><img src="${escapeHtml(imagePreloadUrl(page.image))}" alt="${heading}" loading="eager" fetchpriority="high" decoding="async" class="h-auto max-h-80 max-w-full rounded-lg border border-ink-700 object-contain" /></div>`
     : '';
-  const fallback = `<main data-prerendered="true"><nav aria-label="Breadcrumb">${breadcrumbs}</nav>${fallbackImage}<h1>${heading}</h1><p>${content}</p></main>`;
+  const fallback = `<main id="prerendered-content" data-prerendered="true"><nav aria-label="Breadcrumb">${breadcrumbs}</nav>${fallbackImage}<h1>${heading}</h1><p>${content}</p></main>`;
   const imagePreload = page.image
     ? `<link rel="preload" as="image" href="${escapeHtml(imagePreloadUrl(page.image))}" fetchpriority="high" />`
     : '';
@@ -1130,7 +1130,10 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
       : []),
   ].join('\n    ');
   html = html.replace('</head>', `    ${additions}\n  </head>`);
-  return html.replace('<div id="root"></div>', `<div id="root">${fallback}</div>`);
+  return html.replace(
+    '<div id="root"><div id="app-root"></div></div>',
+    `<div id="root"><div id="app-root"></div>${fallback}</div>`,
+  );
 }
 
 function writeRoute(path: string, html: string): void {

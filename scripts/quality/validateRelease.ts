@@ -146,6 +146,11 @@ requireValue(
     ),
   'Compendium pages must preload their route and category data',
 );
+requireValue(
+  sample.includes('<div id="app-root"></div>') &&
+    sample.includes('<main id="prerendered-content" data-prerendered="true">'),
+  'Static pages must preserve the app mount point and prerendered fallback',
+);
 const checkedImagePreloads = validateCompendiumImagePreloads();
 for (const html of [home, sample]) {
   requireValue(!html.includes('pkrystian.github.io/fumble'), 'Old domain found in HTML');
