@@ -118,7 +118,13 @@ function PortraitField({ character, update }: SectionProps) {
         className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-lg border border-ink-700 bg-ink-950 hover:border-arcane-500"
       >
         {character.portrait ? (
-          <img src={character.portrait} alt="" className="h-full w-full object-cover" />
+          <img
+            src={character.portrait}
+            alt=""
+            width={80}
+            height={80}
+            className="h-full w-full object-cover"
+          />
         ) : (
           <UserRound className="text-ink-600" size={32} aria-hidden="true" />
         )}

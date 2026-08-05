@@ -1153,6 +1153,7 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
               <select
                 value={viewMode}
                 onChange={(e) => setViewMode(e.target.value as ViewMode)}
+                aria-label={t('compendium.classDetail.viewLabel')}
                 className="rounded-md border border-ink-700 bg-ink-900 px-2 py-1 text-xs text-ink-200 focus:border-arcane-500 focus:outline-none"
               >
                 <option value="default">{t('compendium.classDetail.viewDefault')}</option>
@@ -1246,7 +1247,7 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
             key={`${feature.sub}-${feature.name}-${feature.level}-${index}`}
             className="flex flex-col gap-2"
           >
-            <h4 className="font-display text-lg font-semibold text-ink-50">
+            <h3 className="font-display text-lg font-semibold text-ink-50">
               <span className="mr-2 rounded bg-ink-800 px-1.5 py-0.5 text-xs text-ink-300">
                 {t('compendium.classDetail.level', { level: feature.level })}
               </span>
@@ -1256,7 +1257,7 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
                 </span>
               )}
               {feature.name}
-            </h4>
+            </h3>
             <EntryRenderer entries={feature.entries} />
           </div>
         ))}

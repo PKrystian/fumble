@@ -290,6 +290,31 @@ describe('CompendiumPage', () => {
     ).toBeInTheDocument();
   });
 
+  it('keeps constrained artwork sized by its CSS bounds', () => {
+    mocks.result = {
+      status: 'ready',
+      items: [
+        {
+          ...official,
+          image: 'classes/TEST/TestClass.webp',
+          token: undefined,
+          gallery: [],
+        },
+      ],
+    };
+
+    renderPage('/compendium/species/dragon');
+    const image = screen.getByAltText('Dragon');
+    Object.defineProperties(image, {
+      naturalWidth: { configurable: true, value: 1700 },
+      naturalHeight: { configurable: true, value: 2160 },
+    });
+    fireEvent.load(image);
+    expect(image).not.toHaveAttribute('width');
+    expect(image).not.toHaveAttribute('height');
+    expect(image).toHaveClass('h-auto', 'max-h-80', 'max-w-full');
+  });
+
   it('renders manual and imported homebrew variants', () => {
     mocks.result = {
       status: 'ready',

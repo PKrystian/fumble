@@ -12,7 +12,7 @@ import { applyContentMode } from './contentFilter';
 import { EntryRenderer } from './EntryRenderer';
 import { FilterBar } from './FilterBar';
 import { type SortDir, compareItems, matchesFilters } from './filterSort';
-import { imageUrl } from '@/data/compendium/images';
+import { imageUrl, optimizedImageUrl } from '@/data/compendium/images';
 import { isUaSource, sourceName } from '@/data/compendium/sources';
 import { isHomebrew } from '@/features/homebrew/store';
 import { HomebrewDetail } from '@/features/homebrew/HomebrewDetail';
@@ -327,7 +327,10 @@ function CompendiumBrowser({
               {selected.image && (
                 <div className="relative mb-4 inline-block min-h-80 max-w-full">
                   <img
-                    src={imageUrl(selected.image)}
+                    src={optimizedImageUrl(
+                      selected.image,
+                      import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN,
+                    )}
                     alt={selected.name}
                     loading="eager"
                     fetchPriority="high"
@@ -336,11 +339,15 @@ function CompendiumBrowser({
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
                     }}
-                    className="max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+                    className="h-auto max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
                   />
                   {selected.token && selected.token !== selected.image && (
                     <img
-                      src={imageUrl(selected.token)}
+                      src={optimizedImageUrl(
+                        selected.token,
+                        import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN,
+                        128,
+                      )}
                       alt={`${selected.name} ${t('compendium.token')}`}
                       title={t('compendium.token')}
                       loading="lazy"
@@ -397,7 +404,10 @@ function CompendiumBrowser({
                         .map((img) => (
                           <figure key={img.path} className="flex flex-col gap-1">
                             <img
-                              src={imageUrl(img.path)}
+                              src={optimizedImageUrl(
+                                img.path,
+                                import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN,
+                              )}
                               alt={img.title ?? selected.name}
                               loading="lazy"
                               onClick={() =>
@@ -409,7 +419,7 @@ function CompendiumBrowser({
                               onError={(e) => {
                                 e.currentTarget.closest('figure')!.style.display = 'none';
                               }}
-                              className="cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+                              className="h-auto cursor-zoom-in rounded-lg border border-ink-700 object-contain"
                             />
                             {(img.title || img.credit) && (
                               <figcaption className="text-xs text-ink-400">

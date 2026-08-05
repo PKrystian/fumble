@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { BookOpen, RotateCcw, Scroll } from 'lucide-react';
 import type { BookIndexEntry } from '@/data/compendium/types';
-import { imageUrl } from '@/data/compendium/images';
+import { optimizedImageUrl } from '@/data/compendium/images';
 import { localizedBookName } from '@/data/compendium/sources';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
@@ -93,7 +93,10 @@ function BookTile({
       >
         {doc.cover ? (
           <img
-            src={imageUrl(doc.cover)}
+            src={optimizedImageUrl(
+              doc.cover,
+              import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN,
+            )}
             alt=""
             loading="lazy"
             className="aspect-[2/3] w-full rounded object-cover"

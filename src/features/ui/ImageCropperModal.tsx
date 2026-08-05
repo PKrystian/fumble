@@ -236,12 +236,12 @@ export function ImageCropperModal({
               src={src}
               alt=""
               draggable={false}
-              onLoad={(e) =>
+              onLoad={(e) => {
                 setNatural({
                   width: e.currentTarget.naturalWidth,
                   height: e.currentTarget.naturalHeight,
-                })
-              }
+                });
+              }}
               className="pointer-events-none absolute left-1/2 top-1/2 max-w-none"
               style={{
                 width: displayWidth || undefined,

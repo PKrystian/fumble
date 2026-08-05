@@ -785,6 +785,7 @@ const pl: Dictionary = {
       viewRecent: 'Najnowsze',
       viewAll: 'Wszystkie Wydania',
       viewHomebrew: 'Standardowe + Własne',
+      viewLabel: 'Widok podklas',
       selectAllLabel: 'Zaznacz wszystkie widoczne podklasy',
       pickRandomLabel: 'Wylosuj podklasę',
       resetSelectionLabel: 'Wyczyść zaznaczenie',

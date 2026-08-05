@@ -537,6 +537,10 @@ describe('compendium detail renderers', () => {
     };
     const view = show(<ClassDetail cls={cls} />);
     expect(view.container).toHaveTextContent('Spellcasting');
+    expect(
+      screen.getByRole('heading', { name: /Spellcasting/, level: 3 }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Subclass view' })).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: "Evoker (PHB'24)" }));
     expect(view.container).toHaveTextContent('Sculpt Spells');

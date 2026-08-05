@@ -1,6 +1,6 @@
 import { Fragment, type ReactNode, useState } from 'react';
 import type { Entry, EntryNode } from '@/data/compendium/entry';
-import { imageUrl } from '@/data/compendium/images';
+import { imageUrl, optimizedImageUrl } from '@/data/compendium/images';
 import { stripMarkup } from '@/data/transform/util';
 import { useRollStore } from '@/features/dice/rollStore';
 import { useLightbox } from '@/features/ui/lightboxStore';
@@ -48,14 +48,14 @@ function BookImage({ src, title }: { src: string; title?: string }) {
   return (
     <figure className="my-2 flex flex-col items-center gap-1">
       <img
-        src={src}
+        src={optimizedImageUrl(src, import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN)}
         alt={plainTitle}
         loading="lazy"
         onClick={() => open(src, plainTitle)}
         onError={(e) => {
           e.currentTarget.closest('figure')!.style.display = 'none';
         }}
-        className="max-h-[32rem] cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+        className="h-auto max-h-[32rem] cursor-zoom-in rounded-lg border border-ink-700 object-contain"
       />
       {title && (
         <figcaption className="text-xs text-ink-400">
@@ -297,27 +297,30 @@ function RollableTable({ node }: { node: EntryNode }) {
         {node.colLabels && (
           <thead>
             <tr className="bg-ink-950/60">
-              {node.colLabels.map((label, index) => (
-                <th
-                  key={index}
-                  className="border-b border-ink-700 px-2 py-1 font-semibold text-ink-50"
-                >
-                  {index === 0 && dice ? (
-                    <button
-                      type="button"
-                      onClick={doRoll}
-                      title={translate(locale, 'compendium.detail.rollOnTable', {
-                        dice,
-                      })}
-                      className="cursor-pointer text-arcane-300 underline decoration-dotted underline-offset-2 hover:text-arcane-500"
-                    >
-                      {parseMarkup(label, locale)}
-                    </button>
-                  ) : (
-                    parseMarkup(label, locale)
-                  )}
-                </th>
-              ))}
+              {node.colLabels.map((label, index) => {
+                const content = parseMarkup(label, locale);
+                return (
+                  <th
+                    key={index}
+                    className="border-b border-ink-700 px-2 py-1 font-semibold text-ink-50"
+                  >
+                    {index === 0 && dice && !label.includes('{@') ? (
+                      <button
+                        type="button"
+                        onClick={doRoll}
+                        title={translate(locale, 'compendium.detail.rollOnTable', {
+                          dice,
+                        })}
+                        className="cursor-pointer text-arcane-300 underline decoration-dotted underline-offset-2 hover:text-arcane-500"
+                      >
+                        {content}
+                      </button>
+                    ) : (
+                      content
+                    )}
+                  </th>
+                );
+              })}
             </tr>
           </thead>
         )}
