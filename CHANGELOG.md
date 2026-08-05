@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.34 - 2026-08-05
+
+- Validated image-host preconnects on every compendium image page instead of a text-only sample page.
+
 ## 1.2.33 - 2026-08-05
 
 - Preloaded compendium route chunks and category data to shorten the critical request chain.
