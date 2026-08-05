@@ -284,5 +284,6 @@ export async function fillCharacterSheetPdf(
   }
 
   const filled = await doc.save();
-  return new Blob([filled], { type: 'application/pdf' });
+  const blobBytes = Uint8Array.from(filled);
+  return new Blob([blobBytes.buffer], { type: 'application/pdf' });
 }

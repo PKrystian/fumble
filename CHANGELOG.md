@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.20 - 2026-08-05
+
+- Fixed the development dependency peer conflict between TypeScript and typescript-eslint.
+
 ## 1.2.19 - 2026-08-05
 
 - Fixed clean dependency installs by synchronizing the npm lockfile with Tailwind's bundled WASI dependencies.
