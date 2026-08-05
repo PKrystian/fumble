@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.19 - 2026-08-05
+
+- Fixed clean dependency installs by synchronizing the npm lockfile with Tailwind's bundled WASI dependencies.
+
 ## 1.2.18 - 2026-08-04
 
 - Fixed the Polish Druid name casing.
