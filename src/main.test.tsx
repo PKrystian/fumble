@@ -15,7 +15,8 @@ vi.mock('./App', () => ({
 
 describe('main', () => {
   beforeEach(() => {
-    document.body.innerHTML = '<div id="root"><div id="app-root"></div></div>';
+    document.body.innerHTML =
+      '<div id="root"><div id="app-root" data-app-ready="false"></div></div>';
     vi.resetModules();
     mocks.render.mockReset();
     mocks.createRoot.mockReset();

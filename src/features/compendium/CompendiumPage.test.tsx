@@ -310,8 +310,8 @@ describe('CompendiumPage', () => {
       naturalHeight: { configurable: true, value: 2160 },
     });
     fireEvent.load(image);
-    expect(image).not.toHaveAttribute('width');
-    expect(image).not.toHaveAttribute('height');
+    expect(image).toHaveAttribute('width', '440');
+    expect(image).toHaveAttribute('height', '558');
     expect(image).toHaveClass('h-auto', 'max-h-80', 'max-w-full');
   });
 

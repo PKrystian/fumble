@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.36 - 2026-08-05
+
+- Reserved primary image dimensions and revealed the interactive app only after prerendered content was ready to prevent layout shifts.
+
 ## 1.2.35 - 2026-08-05
 
 - Kept prerendered detail-page content visible until the interactive page and its primary image are ready.

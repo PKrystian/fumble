@@ -147,7 +147,7 @@ requireValue(
   'Compendium pages must preload their route and category data',
 );
 requireValue(
-  sample.includes('<div id="app-root"></div>') &&
+  sample.includes('<div id="app-root" data-app-ready="false"></div>') &&
     sample.includes('<main id="prerendered-content" data-prerendered="true">'),
   'Static pages must preserve the app mount point and prerendered fallback',
 );

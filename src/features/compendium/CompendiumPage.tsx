@@ -12,7 +12,12 @@ import { applyContentMode } from './contentFilter';
 import { EntryRenderer } from './EntryRenderer';
 import { FilterBar } from './FilterBar';
 import { type SortDir, compareItems, matchesFilters } from './filterSort';
-import { imageUrl, optimizedImageUrl } from '@/data/compendium/images';
+import {
+  imageUrl,
+  optimizedImageUrl,
+  PRIMARY_IMAGE_HEIGHT,
+  PRIMARY_IMAGE_WIDTH,
+} from '@/data/compendium/images';
 import { isUaSource, sourceName } from '@/data/compendium/sources';
 import { isHomebrew } from '@/features/homebrew/store';
 import { HomebrewDetail } from '@/features/homebrew/HomebrewDetail';
@@ -28,6 +33,7 @@ import { SearchField } from '@/features/ui/primitives';
 import { toggleChipClass } from '@/features/ui/styles';
 import { normalizeSearchText } from '@/data/compendium/searchText';
 import { getCompendiumCategorySeo, getCompendiumEntrySeo } from '@/data/compendium/seo';
+import { revealApp } from '@/seo/prerendered';
 import packageInfo from '../../../package.json';
 
 function categoryLabel(category: CompendiumCategory, t: (key: string) => string): string {
@@ -109,13 +115,9 @@ function CompendiumBrowser({
   const { status, items } = useCategoryItems(category);
   const selected = selectedId ? items.find((item) => item.id === selectedId) : undefined;
 
-  const removePrerenderedContent = () => {
-    document.getElementById('prerendered-content')?.remove();
-  };
-
   useEffect(() => {
     if (status === 'error' || (status === 'ready' && !selected?.image)) {
-      removePrerenderedContent();
+      revealApp();
     }
   }, [selected?.image, status]);
 
@@ -343,14 +345,16 @@ function CompendiumBrowser({
                       import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN,
                     )}
                     alt={selected.name}
+                    width={PRIMARY_IMAGE_WIDTH}
+                    height={PRIMARY_IMAGE_HEIGHT}
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"
-                    onLoad={removePrerenderedContent}
+                    onLoad={revealApp}
                     onClick={() => openLightbox(imageUrl(selected.image!), selected.name)}
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
-                      removePrerenderedContent();
+                      revealApp();
                     }}
                     className="h-auto max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
                   />

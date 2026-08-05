@@ -41,6 +41,10 @@ body,
   height: 100%;
 }
 
+#app-root[data-app-ready='false'] {
+  visibility: hidden;
+}
+
 #prerendered-content {
   position: absolute;
   inset: 0;

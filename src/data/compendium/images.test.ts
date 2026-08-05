@@ -1,7 +1,18 @@
 import { describe, expect, it } from 'vitest';
-import { IMAGE_HOST, imageUrl, optimizedImageUrl } from './images';
+import {
+  IMAGE_HOST,
+  PRIMARY_IMAGE_HEIGHT,
+  PRIMARY_IMAGE_WIDTH,
+  imageUrl,
+  optimizedImageUrl,
+} from './images';
 
 describe('imageUrl', () => {
+  it('defines stable primary image dimensions', () => {
+    expect(PRIMARY_IMAGE_WIDTH).toBe(440);
+    expect(PRIMARY_IMAGE_HEIGHT).toBe(558);
+  });
+
   it('keeps absolute and data URLs', () => {
     expect(imageUrl('https://example.com/token.png')).toBe(
       'https://example.com/token.png',
