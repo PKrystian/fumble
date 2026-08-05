@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.23 - 2026-08-05
+
+- Stabilized the generated wiki import error test under coverage runs.
+
 ## 1.2.22 - 2026-08-05
 
 - Kept campaign map tests fast and stable on CI with a focused map fixture.
