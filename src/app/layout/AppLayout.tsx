@@ -9,6 +9,7 @@ import { Logo } from '@/features/ui/Logo';
 import { useSearchStore } from '@/features/search/searchStore';
 import { useT } from '@/i18n/useT';
 import { LegalFooter } from '@/features/legal/LegalFooter';
+import { revealApp } from '@/seo/prerendered';
 import { Sidebar } from './Sidebar';
 
 const SearchPalette = lazy(() =>
@@ -30,7 +31,7 @@ export function AppLayout() {
 
   useEffect(() => {
     if (!location.pathname.includes('/compendium/')) {
-      document.getElementById('prerendered-content')?.remove();
+      revealApp();
     }
   }, [location.pathname]);
 

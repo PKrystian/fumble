@@ -1,4 +1,6 @@
 export const IMAGE_HOST = 'https://5e.tools/img/';
+export const PRIMARY_IMAGE_WIDTH = 440;
+export const PRIMARY_IMAGE_HEIGHT = 558;
 
 export function imageUrl(path: string): string {
   if (/^(data:|https?:)/.test(path)) return path;
@@ -8,7 +10,7 @@ export function imageUrl(path: string): string {
 export function optimizedImageUrl(
   path: string,
   transformOrigin?: string,
-  width = 440,
+  width = PRIMARY_IMAGE_WIDTH,
 ): string {
   const source = imageUrl(path);
   const origin = transformOrigin?.replace(/\/+$/, '');

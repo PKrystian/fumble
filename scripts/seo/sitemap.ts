@@ -18,6 +18,8 @@ import {
   IMAGE_HOST,
   imageUrl,
   optimizedImageUrl,
+  PRIMARY_IMAGE_HEIGHT,
+  PRIMARY_IMAGE_WIDTH,
 } from '../../src/data/compendium/images';
 import { withEnglishName } from '../../src/data/compendium/searchText';
 import { translate } from '../../src/i18n/translate';
@@ -1040,7 +1042,7 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
       : []),
   ].join(' / ');
   const fallbackImage = page.image
-    ? `<div class="relative mb-4 inline-block min-h-80 max-w-full"><img src="${escapeHtml(imagePreloadUrl(page.image))}" alt="${heading}" loading="eager" fetchpriority="high" decoding="async" class="h-auto max-h-80 max-w-full rounded-lg border border-ink-700 object-contain" /></div>`
+    ? `<div class="relative mb-4 inline-block min-h-80 max-w-full"><img src="${escapeHtml(imagePreloadUrl(page.image))}" alt="${heading}" width="${PRIMARY_IMAGE_WIDTH}" height="${PRIMARY_IMAGE_HEIGHT}" loading="eager" fetchpriority="high" decoding="async" class="h-auto max-h-80 max-w-full rounded-lg border border-ink-700 object-contain" /></div>`
     : '';
   const fallback = `<main id="prerendered-content" data-prerendered="true"><nav aria-label="Breadcrumb">${breadcrumbs}</nav>${fallbackImage}<h1>${heading}</h1><p>${content}</p></main>`;
   const imagePreload = page.image
@@ -1131,8 +1133,8 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
   ].join('\n    ');
   html = html.replace('</head>', `    ${additions}\n  </head>`);
   return html.replace(
-    '<div id="root"><div id="app-root"></div></div>',
-    `<div id="root"><div id="app-root"></div>${fallback}</div>`,
+    '<div id="root"><div id="app-root" data-app-ready="false"></div></div>',
+    `<div id="root"><div id="app-root" data-app-ready="false"></div>${fallback}</div>`,
   );
 }
 
