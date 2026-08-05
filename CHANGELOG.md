@@ -4,6 +4,21 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.27 - 2026-08-05
+
+- Added localized metadata and structured data across public tools, books, maps, and wiki pages.
+- Marked local data and session pages as noindex and excluded them from sitemap discovery.
+
+## 1.2.26 - 2026-08-05
+
+- Extended localized SEO metadata to every compendium category and entry.
+- Added collection and website structured data and removed duplicate social metadata.
+
+## 1.2.25 - 2026-08-05
+
+- Improved compendium SEO metadata, prerendered descriptions, structured data, and Artificer page content.
+- Reduced layout shift on compendium detail pages and prioritized above-the-fold artwork.
+
 ## 1.2.24 - 2026-08-05
 
 - Fixed release URL validation so lookalike external hosts are rejected.

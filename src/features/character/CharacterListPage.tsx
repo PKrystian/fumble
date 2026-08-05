@@ -18,7 +18,7 @@ interface CharacterExportFile {
 
 export function CharacterListPage() {
   const { t } = useT();
-  useSeo(t('character.list.title'));
+  useSeo(t('seo.pageTitles.character'), t('seo.pageDescriptions.character'));
   const navigate = useNavigate();
   const characters = useCharacterList();
   const addCharacter = useCharacterStore((state) => state.addCharacter);

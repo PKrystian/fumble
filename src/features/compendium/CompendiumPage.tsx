@@ -27,6 +27,8 @@ import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 import { SearchField } from '@/features/ui/primitives';
 import { toggleChipClass } from '@/features/ui/styles';
 import { normalizeSearchText } from '@/data/compendium/searchText';
+import { getCompendiumCategorySeo, getCompendiumEntrySeo } from '@/data/compendium/seo';
+import packageInfo from '../../../package.json';
 
 function categoryLabel(category: CompendiumCategory, t: (key: string) => string): string {
   return t(`compendium.categories.${category.id}`);
@@ -145,19 +147,18 @@ function CompendiumBrowser({
   }, [filtered, sortField, sortDir, filters, t, locale]);
 
   const selected = selectedId ? items.find((item) => item.id === selectedId) : undefined;
+  const categoryTitle = categoryLabel(category, t);
+  const seo = selected
+    ? getCompendiumEntrySeo({
+        categoryId,
+        categoryLabel: categoryTitle,
+        item: selected,
+        locale,
+        sourceLabel: sourceName(selected.source, locale),
+      })
+    : getCompendiumCategorySeo(categoryId, categoryTitle, locale);
 
-  useSeo(
-    selected ? selected.name : categoryLabel(category, t),
-    selected
-      ? [
-          category.subtitle(selected, t),
-          sourceName(selected.source, locale),
-          categoryLabel(category, t),
-        ]
-          .filter(Boolean)
-          .join('. ')
-      : `${categoryLabel(category, t)} - ${t('compendium.title')}`,
-  );
+  useSeo(seo.title, seo.description);
 
   const pickRandom = () => {
     if (filtered.length === 0) return;
@@ -172,9 +173,18 @@ function CompendiumBrowser({
   return (
     <div className="flex h-full flex-col">
       <div className="border-b border-ink-700 px-4 py-3">
-        <h1 className="font-display text-2xl font-bold text-ink-50">
-          {t('compendium.title')}
-        </h1>
+        {selected ? (
+          <p className="font-display text-sm font-semibold uppercase tracking-wide text-ink-400">
+            {t('compendium.title')}
+          </p>
+        ) : (
+          <h1 className="font-display text-2xl font-bold text-ink-50">
+            {t('compendium.title')}
+          </h1>
+        )}
+        <p className="mt-1 text-xs text-ink-400">
+          {t('compendium.revision', { version: packageInfo.version })}
+        </p>
         <nav
           className="mt-3 flex flex-wrap gap-2"
           aria-label={t('compendium.categoriesNav')}
@@ -315,16 +325,18 @@ function CompendiumBrowser({
           {selected ? (
             <>
               {selected.image && (
-                <div className="relative mb-4 inline-block">
+                <div className="relative mb-4 inline-block min-h-80 max-w-full">
                   <img
                     src={imageUrl(selected.image)}
                     alt={selected.name}
-                    loading="lazy"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
                     onClick={() => openLightbox(imageUrl(selected.image!), selected.name)}
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
                     }}
-                    className="max-h-80 cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+                    className="max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
                   />
                   {selected.token && selected.token !== selected.image && (
                     <img
@@ -453,6 +465,17 @@ function CompendiumBrowser({
                 )}
               </div>
             </>
+          ) : selectedId && status === 'loading' ? (
+            <div
+              className="min-h-80 animate-pulse rounded-lg border border-ink-800 bg-ink-900/50 p-5"
+              aria-busy="true"
+            >
+              <p className="text-ink-400">{t('common.loading')}</p>
+            </div>
+          ) : selectedId && status === 'error' ? (
+            <p className="text-red-400" role="alert">
+              {t('compendium.failedToLoad')}
+            </p>
           ) : (
             <p className="text-ink-400">{t('compendium.selectPrompt')}</p>
           )}

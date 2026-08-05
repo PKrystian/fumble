@@ -42,6 +42,10 @@ requireValue(
   urls.every((url) => url.endsWith('/')),
   'Sitemap contains a URL without a trailing slash',
 );
+requireValue(
+  !urls.some((url) => url.includes('/data/') || url.includes('/session-log/')),
+  'Private local-data pages must not appear in the sitemap',
+);
 
 const home = read('index.html');
 const sample = read(join('compendium', 'spells', 'fireball', 'index.html'));
@@ -92,5 +96,11 @@ read('llms.txt');
 read('llms-full.txt');
 read(join('legal', 'accessibility', 'index.html'));
 read(join('legal', 'contact', 'index.html'));
+for (const path of ['data/index.html', 'session-log/index.html']) {
+  requireValue(
+    read(path).includes('noindex, nofollow'),
+    `Private page is missing noindex: ${path}`,
+  );
+}
 
 process.stdout.write(`Validated ${urls.length} release URLs and discovery files.\n`);

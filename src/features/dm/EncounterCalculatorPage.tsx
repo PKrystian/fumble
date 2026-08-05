@@ -36,7 +36,7 @@ const RATING_LABEL_KEYS: Record<string, string> = {
 
 export function EncounterCalculatorPage() {
   const { t } = useT();
-  useSeo(t('nav.encounterCr'));
+  useSeo(t('seo.pageTitles.encounter'), t('seo.pageDescriptions.encounter'));
   const [party, setParty] = useState<PartyMember[]>([{ level: 1, count: 4 }]);
   const [monsters, setMonsters] = useState<EncounterMonster[]>([]);
   const { params, update } = useUrlSearchState();

@@ -119,7 +119,7 @@ function BookTile({
 
 export function BooksPage() {
   const { t, locale } = useT();
-  useSeo(t('books.title'), t('books.subtitle'));
+  useSeo(t('seo.pageTitles.books'), t('seo.pageDescriptions.books'));
 
   const contentMode = useContentModeStore((s) => s.mode);
   const { params, update } = useUrlSearchState();

@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useLightbox } from '@/features/ui/lightboxStore';
+import { useSeo } from '@/seo/useSeo';
 import { WikiPage } from './WikiPage';
 
 function page(slug: string, title: string, category: string, html: string) {
@@ -121,6 +122,7 @@ describe('WikiPage', () => {
         },
       ],
     };
+    vi.mocked(useSeo).mockClear();
   });
 
   it('renders loading, error and empty states', () => {
@@ -237,6 +239,35 @@ describe('WikiPage', () => {
     fireEvent.click(screen.getByText('Empty target'));
     fireEvent.click(screen.getByText('Plain text'));
     expect(mocks.navigate).not.toHaveBeenCalled();
+  });
+
+  it('creates bounded excerpts and falls back for empty wiki pages', () => {
+    mocks.campaignId = 'glod-smoka';
+    mocks.slug = 'lore';
+    mocks.wiki.data = {
+      campaigns: [
+        {
+          id: 'glod-smoka',
+          title: 'GÅ‚Ã³d Smoka',
+          pages: [page('lore', 'Lore', 'Long', `<p>${'A'.repeat(200)}</p>`)],
+        },
+      ],
+    };
+
+    const view = render(<WikiPage />);
+    expect(useSeo).toHaveBeenLastCalledWith('Lore', expect.stringMatching(/\.\.\.$/));
+
+    mocks.wiki.data = {
+      campaigns: [
+        {
+          id: 'glod-smoka',
+          title: 'GÅ‚Ã³d Smoka',
+          pages: [page('lore', 'Lore', '', '')],
+        },
+      ],
+    };
+    view.rerender(<WikiPage />);
+    expect(useSeo).toHaveBeenLastCalledWith('Lore', 'seo.pageDescriptions.wiki');
   });
 
   it('opens wiki images in the lightbox', () => {
