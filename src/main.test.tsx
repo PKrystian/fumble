@@ -15,6 +15,7 @@ vi.mock('./App', () => ({
 
 describe('main', () => {
   beforeEach(() => {
+    document.body.innerHTML = '<div id="root"><div id="app-root"></div></div>';
     vi.resetModules();
     mocks.render.mockReset();
     mocks.createRoot.mockReset();
@@ -24,7 +25,14 @@ describe('main', () => {
   it('mounts the application', async () => {
     await import('./main');
 
-    expect(mocks.createRoot).toHaveBeenCalledWith(document.getElementById('root'));
+    expect(mocks.createRoot).toHaveBeenCalledWith(document.getElementById('app-root'));
     expect(mocks.render).toHaveBeenCalledOnce();
+  });
+
+  it('falls back to the page root for older generated documents', async () => {
+    document.body.innerHTML = '<div id="root"></div>';
+    await import('./main');
+
+    expect(mocks.createRoot).toHaveBeenCalledWith(document.getElementById('root'));
   });
 });

@@ -4,6 +4,11 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.35 - 2026-08-05
+
+- Kept prerendered detail-page content visible until the interactive page and its primary image are ready.
+- Reduced the transformed primary image width to match its displayed size on mobile.
+
 ## 1.2.34 - 2026-08-05
 
 - Validated image-host preconnects on every compendium image page instead of a text-only sample page.

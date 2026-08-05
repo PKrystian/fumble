@@ -107,6 +107,18 @@ function CompendiumBrowser({
     filters.map((filter) => [filter.id, params.getAll(filter.id).filter(Boolean)]),
   );
   const { status, items } = useCategoryItems(category);
+  const selected = selectedId ? items.find((item) => item.id === selectedId) : undefined;
+
+  const removePrerenderedContent = () => {
+    document.getElementById('prerendered-content')?.remove();
+  };
+
+  useEffect(() => {
+    if (status === 'error' || (status === 'ready' && !selected?.image)) {
+      removePrerenderedContent();
+    }
+  }, [selected?.image, status]);
+
   const openLightbox = useLightbox((s) => s.open);
   const navigate = useNavigate();
   const { t, locale } = useT();
@@ -146,7 +158,6 @@ function CompendiumBrowser({
     );
   }, [filtered, sortField, sortDir, filters, t, locale]);
 
-  const selected = selectedId ? items.find((item) => item.id === selectedId) : undefined;
   const categoryTitle = categoryLabel(category, t);
   const seo = selected
     ? getCompendiumEntrySeo({
@@ -335,9 +346,11 @@ function CompendiumBrowser({
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"
+                    onLoad={removePrerenderedContent}
                     onClick={() => openLightbox(imageUrl(selected.image!), selected.name)}
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
+                      removePrerenderedContent();
                     }}
                     className="h-auto max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
                   />
