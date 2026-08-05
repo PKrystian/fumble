@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.21 - 2026-08-05
+
+- Optimized Chult map rendering to keep campaign map tests and interactions responsive.
+
 ## 1.2.20 - 2026-08-05
 
 - Fixed the development dependency peer conflict between TypeScript and typescript-eslint.
