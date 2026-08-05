@@ -2,7 +2,11 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../../src/i18n/locales';
-import { optimizedImageUrl } from '../../src/data/compendium/images';
+import {
+  IMAGE_HOST,
+  imageUrl,
+  optimizedImageUrl,
+} from '../../src/data/compendium/images';
 import { cspHasSourceOrigin } from '../../src/seo/csp';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
@@ -39,6 +43,12 @@ function expectedImageUrl(path: string): string {
   return optimizedImageUrl(normalized, process.env.VITE_IMAGE_TRANSFORM_ORIGIN);
 }
 
+function usesImageHost(path: string): boolean {
+  const normalized = path.replace(/^%BASE%\/?/, '/');
+  if (normalized.startsWith('/')) return false;
+  return imageUrl(normalized).startsWith(IMAGE_HOST);
+}
+
 function validateCompendiumImagePreloads(): number {
   let checked = 0;
   for (const file of readdirSync(join(ROOT, 'src/data/generated'))) {
@@ -71,6 +81,16 @@ function validateCompendiumImagePreloads(): number {
             `<link rel="preload" as="image" href="${href}" fetchpriority="high" />`,
           ),
           `Compendium image preload is missing: ${route}`,
+        );
+        const shouldPreconnect =
+          !process.env.VITE_IMAGE_TRANSFORM_ORIGIN && usesImageHost(localized.image);
+        requireValue(
+          html.includes(
+            '<link rel="preconnect" href="https://5e.tools" crossorigin />',
+          ) === shouldPreconnect,
+          shouldPreconnect
+            ? `Direct image preconnect is missing: ${route}`
+            : `Unexpected direct image preconnect: ${route}`,
         );
         checked += 1;
       }
@@ -118,8 +138,13 @@ requireValue(
   'Cloudflare Web Analytics is missing from the CSP',
 );
 requireValue(
-  sample.includes('<link rel="preconnect" href="https://5e.tools" crossorigin />'),
-  'Compendium pages must preconnect to the image host',
+  sample.includes(
+    '<link rel="modulepreload" crossorigin href="/assets/CompendiumPage-',
+  ) &&
+    sample.includes(
+      '<link rel="preload" as="fetch" crossorigin fetchpriority="low" href="/assets/spells-',
+    ),
+  'Compendium pages must preload their route and category data',
 );
 const checkedImagePreloads = validateCompendiumImagePreloads();
 for (const html of [home, sample]) {
