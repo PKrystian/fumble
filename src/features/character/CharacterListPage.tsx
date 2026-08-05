@@ -99,6 +99,8 @@ export function CharacterListPage() {
                       <img
                         src={character.portrait}
                         alt=""
+                        width={44}
+                        height={44}
                         className="h-full w-full object-cover"
                       />
                     ) : (

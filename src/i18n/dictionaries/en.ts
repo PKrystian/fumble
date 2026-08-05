@@ -782,6 +782,7 @@ const en = {
       viewRecent: 'Most Recent',
       viewAll: 'All Printings',
       viewHomebrew: 'Standard + Homebrew',
+      viewLabel: 'Subclass view',
       selectAllLabel: 'Select all visible subclasses',
       pickRandomLabel: 'Pick a random subclass',
       resetSelectionLabel: 'Reset selection',

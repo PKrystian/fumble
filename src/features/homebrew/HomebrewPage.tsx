@@ -747,6 +747,8 @@ export function HomebrewPage() {
                         <img
                           src={form.image}
                           alt=""
+                          width={64}
+                          height={80}
                           className="h-full w-full object-cover"
                         />
                       ) : (
@@ -1027,6 +1029,8 @@ export function HomebrewPage() {
                     <img
                       src={entry.image}
                       alt=""
+                      width={32}
+                      height={40}
                       className="h-10 w-8 shrink-0 rounded object-cover"
                     />
                   )}

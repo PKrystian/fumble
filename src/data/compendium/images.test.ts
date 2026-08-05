@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { IMAGE_HOST, imageUrl } from './images';
+import { IMAGE_HOST, imageUrl, optimizedImageUrl } from './images';
 
 describe('imageUrl', () => {
   it('keeps absolute and data URLs', () => {
@@ -14,5 +14,19 @@ describe('imageUrl', () => {
     expect(imageUrl('bestiary/goblin chief.png')).toBe(
       `${IMAGE_HOST}bestiary/goblin%20chief.png`,
     );
+  });
+
+  it('uses Cloudflare transformations only when an origin is configured', () => {
+    expect(optimizedImageUrl('classes/TEST/TestClass.webp')).toBe(
+      `${IMAGE_HOST}classes/TEST/TestClass.webp`,
+    );
+    expect(
+      optimizedImageUrl('classes/TEST/TestClass.webp', 'https://fumble.example///', 640),
+    ).toBe(
+      'https://fumble.example/cdn-cgi/image/width=640,quality=75,format=auto/https://5e.tools/img/classes/TEST/TestClass.webp',
+    );
+    expect(
+      optimizedImageUrl('https://example.com/image.webp', 'https://fumble.example'),
+    ).toBe('https://example.com/image.webp');
   });
 });

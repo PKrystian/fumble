@@ -450,6 +450,9 @@ export function CampaignMapPage() {
               className="wiki-chult-map__image"
               src={imageSrc}
               alt={t('wiki.chultMapAlt')}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
             <ol
               className={[

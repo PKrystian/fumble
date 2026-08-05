@@ -4,6 +4,24 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.30 - 2026-08-05
+
+- Fixed constrained artwork stretching its border across the full detail panel after loading.
+- Kept image sizing controlled by responsive CSS instead of mutating natural dimensions at runtime.
+
+## 1.2.29 - 2026-08-05
+
+- Applied image loading, transformation, and dimension handling across the public site.
+- Added image preloads for compendium, book, wiki, and campaign map pages.
+- Validated every generated compendium image preload instead of one sample entry.
+- Removed nested table controls that caused browser hydration errors in book content.
+
+## 1.2.28 - 2026-08-05
+
+- Improved compendium image discovery and layout stability for the primary detail artwork.
+- Fixed the class detail heading hierarchy, select labeling, and Cloudflare Web Analytics CSP compatibility.
+- Added opt-in Cloudflare image transformations for smaller responsive compendium artwork.
+
 ## 1.2.27 - 2026-08-05
 
 - Added localized metadata and structured data across public tools, books, maps, and wiki pages.

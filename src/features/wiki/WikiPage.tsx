@@ -1,5 +1,5 @@
 import { ArrowLeft, ChevronRight, Map as MapIcon } from 'lucide-react';
-import { useMemo, type MouseEvent } from 'react';
+import { useMemo, useRef, type MouseEvent } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link, useNavigate } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
@@ -27,6 +27,7 @@ export function WikiPage() {
     slug?: string;
   }>();
   const navigate = useNavigate();
+  const articleRef = useRef<HTMLElement>(null);
   const openLightbox = useLightbox((state) => state.open);
   const { status, data } = useWiki();
   const campaigns = useMemo(() => mergeCampaigns(data?.campaigns ?? []), [data]);
@@ -247,7 +248,10 @@ export function WikiPage() {
             explicitPage ? 'block' : 'hidden md:block',
           ].join(' ')}
         >
-          <article className="mx-auto max-w-4xl px-4 py-6 sm:px-8 sm:py-8">
+          <article
+            ref={articleRef}
+            className="mx-auto max-w-4xl px-4 py-6 sm:px-8 sm:py-8"
+          >
             {explicitPage && (
               <Link
                 to={`/wiki/${selectedCampaign.id}`}

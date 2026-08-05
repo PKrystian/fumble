@@ -7,6 +7,7 @@ import {
   getCompendiumEntrySeo,
 } from '../../src/data/compendium/seo';
 import type { CompendiumEntryBase } from '../../src/data/compendium/types';
+import { optimizedImageUrl } from '../../src/data/compendium/images';
 import { withEnglishName } from '../../src/data/compendium/searchText';
 import { translate } from '../../src/i18n/translate';
 import { CAMPAIGN_MAPS } from '../../src/features/campaign-map/maps';
@@ -26,6 +27,7 @@ interface PageInfo {
   heading?: string;
   breadcrumbTitle?: string;
   modified?: string;
+  image?: string;
   kind: 'website' | 'article' | 'book';
   indexable?: boolean;
   parent?: { path: string; title: string };
@@ -52,6 +54,7 @@ interface Book {
   name: string;
   author?: string;
   storyline?: string;
+  cover?: string;
   contents: Array<{ name?: string }>;
 }
 
@@ -529,6 +532,10 @@ function excerpt(value: string, fallback: string): string {
   return text.length <= 2000 ? text : `${text.slice(0, 1997).trimEnd()}...`;
 }
 
+function firstImageSource(html: string): string | undefined {
+  return /<img\b[^>]*\bsrc=(['"])(.*?)\1/i.exec(html)?.[2];
+}
+
 function compendiumContext(item: CompendiumItem): string {
   return [
     item.subtitle,
@@ -647,6 +654,7 @@ function collectPages(locale: Locale): PageInfo[] {
         heading: displayName,
         breadcrumbTitle: displayName,
         modified: raw.meta?.generatedAt,
+        ...(typeof item.image === 'string' ? { image: item.image } : {}),
         kind: 'article',
         parent: { path: categoryPath, title: displayCategory },
       });
@@ -674,6 +682,7 @@ function collectPages(locale: Locale): PageInfo[] {
         [book.name, book.storyline, book.author].filter(Boolean).join('. '),
         translate(locale, 'seo.bookDescription', { name: book.name }),
       ),
+      ...(typeof book.cover === 'string' ? { image: book.cover } : {}),
       kind: 'book',
       parent: { path: '/books', title: translate(locale, 'seo.pageTitles.books') },
     });
@@ -707,6 +716,7 @@ function collectPages(locale: Locale): PageInfo[] {
       parent: { path: '/wiki', title: translate(locale, 'seo.pageTitles.wiki') },
     });
     for (const page of campaign.pages ?? []) {
+      const image = firstImageSource(page.html ?? '');
       pages.push({
         path: `/wiki/${campaign.id}/${page.slug}`,
         title: `${page.title} - ${localizedCampaignName} - Fumble`,
@@ -718,6 +728,7 @@ function collectPages(locale: Locale): PageInfo[] {
           plainText(page.html),
           `${page.title}${page.category ? ` in ${page.category}` : ''}.`,
         ),
+        ...(image ? { image } : {}),
         kind: 'article',
         parent: { path: `/wiki/${campaign.id}`, title: localizedCampaignName },
       });
@@ -747,6 +758,7 @@ function collectPages(locale: Locale): PageInfo[] {
       title: `${mapTitle} - ${localizedCampaignName} - Fumble`,
       description: mapDescription,
       content: mapDescription,
+      image: `/${map.imagePath}`,
       kind: 'article',
       parent: { path: `/wiki/${map.campaignId}`, title: localizedCampaignName },
     });
@@ -757,6 +769,12 @@ function collectPages(locale: Locale): PageInfo[] {
 
 function absolute(path: string, locale: string): string {
   return `${SITE_URL}${localizePath(path, locale)}`;
+}
+
+function imagePreloadUrl(path: string): string {
+  const normalized = path.replace(/^%BASE%\/?/, '/');
+  if (normalized.startsWith('/')) return `${SITE_URL}${normalized}`;
+  return optimizedImageUrl(normalized, process.env.VITE_IMAGE_TRANSFORM_ORIGIN);
 }
 
 function buildSitemap(pages: PageInfo[]): string {
@@ -970,7 +988,11 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
       : []),
   ].join(' / ');
   const fallback = `<main data-prerendered="true"><nav aria-label="Breadcrumb">${breadcrumbs}</nav><h1>${heading}</h1><p>${content}</p></main>`;
+  const imagePreload = page.image
+    ? `<link rel="preload" as="image" href="${escapeHtml(imagePreloadUrl(page.image))}" fetchpriority="high" />`
+    : '';
   let html = template.replace(/<html lang="[^"]+"/, `<html lang="${locale}"`);
+  if (imagePreload) html = html.replace('<head>', `<head>\n    ${imagePreload}`);
   html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
   html = replaceMeta(
     html,

@@ -103,6 +103,8 @@ function SortableTrack({
             src={thumbnailUrl(track.videoId)}
             alt=""
             loading="lazy"
+            width={320}
+            height={180}
             className="h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
           />
           <span className="absolute inset-0 flex items-center justify-center">
@@ -179,6 +181,8 @@ function TrackOverlay({ track }: { track: Track }) {
       <img
         src={thumbnailUrl(track.videoId)}
         alt=""
+        width={320}
+        height={180}
         className="aspect-video w-full object-cover"
       />
       <div className="truncate px-3 py-2 text-sm font-medium text-ink-50">

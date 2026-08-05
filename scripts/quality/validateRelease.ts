@@ -1,6 +1,8 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../../src/i18n/locales';
+import { optimizedImageUrl } from '../../src/data/compendium/images';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const DIST = join(ROOT, 'dist');
@@ -14,6 +16,66 @@ function read(path: string): string {
 
 function requireValue(condition: boolean, message: string): void {
   if (!condition) throw new Error(message);
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&apos;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;');
+}
+
+function localizedRoute(path: string, locale: string): string {
+  if (locale === DEFAULT_LOCALE) return path;
+  return `/${locale}${path}`;
+}
+
+function expectedImageUrl(path: string): string {
+  const normalized = path.replace(/^%BASE%\/?/, '/');
+  if (normalized.startsWith('/')) return `${SITE_URL}${normalized}`;
+  return optimizedImageUrl(normalized, process.env.VITE_IMAGE_TRANSFORM_ORIGIN);
+}
+
+function validateCompendiumImagePreloads(): number {
+  let checked = 0;
+  for (const file of readdirSync(join(ROOT, 'src/data/generated'))) {
+    if (!file.endsWith('.json')) continue;
+    const category = file.slice(0, -'.json'.length);
+    const source = JSON.parse(
+      readFileSync(join(ROOT, 'src/data/generated', file), 'utf8'),
+    ) as { items?: Array<{ id: string; hidden?: boolean; image?: unknown }> };
+    if (!Array.isArray(source.items)) continue;
+    for (const localeInfo of SUPPORTED_LOCALES) {
+      const locale = localeInfo.code;
+      const categoryRoute = localizedRoute(`/compendium/${category}/`, locale);
+      if (!existsSync(join(DIST, `${categoryRoute.slice(1)}index.html`))) continue;
+      const overlayPath = join(ROOT, 'src/data/generated', locale, file);
+      const overlay =
+        locale === DEFAULT_LOCALE || !existsSync(overlayPath)
+          ? {}
+          : (JSON.parse(readFileSync(overlayPath, 'utf8')) as Record<
+              string,
+              { hidden?: boolean; image?: unknown }
+            >);
+      for (const item of source.items) {
+        const localized = { ...item, ...(overlay[item.id] ?? {}) };
+        if (localized.hidden || typeof localized.image !== 'string') continue;
+        const route = localizedRoute(`/compendium/${category}/${item.id}/`, locale);
+        const html = read(`${route.slice(1)}index.html`);
+        const href = escapeHtml(expectedImageUrl(localized.image));
+        requireValue(
+          html.includes(
+            `<link rel="preload" as="image" href="${href}" fetchpriority="high" />`,
+          ),
+          `Compendium image preload is missing: ${route}`,
+        );
+        checked += 1;
+      }
+    }
+  }
+  return checked;
 }
 
 function isProductionUrl(value: string): boolean {
@@ -49,6 +111,16 @@ requireValue(
 
 const home = read('index.html');
 const sample = read(join('compendium', 'spells', 'fireball', 'index.html'));
+requireValue(
+  home.includes('https://static.cloudflareinsights.com') &&
+    home.includes('https://cloudflareinsights.com'),
+  'Cloudflare Web Analytics is missing from the CSP',
+);
+requireValue(
+  sample.includes('<link rel="preconnect" href="https://5e.tools" crossorigin />'),
+  'Compendium pages must preconnect to the image host',
+);
+const checkedImagePreloads = validateCompendiumImagePreloads();
 for (const html of [home, sample]) {
   requireValue(!html.includes('pkrystian.github.io/fumble'), 'Old domain found in HTML');
   requireValue(
@@ -103,4 +175,6 @@ for (const path of ['data/index.html', 'session-log/index.html']) {
   );
 }
 
-process.stdout.write(`Validated ${urls.length} release URLs and discovery files.\n`);
+process.stdout.write(
+  `Validated ${urls.length} release URLs, ${checkedImagePreloads} image preloads, and discovery files.\n`,
+);

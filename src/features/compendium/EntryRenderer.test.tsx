@@ -167,4 +167,18 @@ describe('entry renderer', () => {
     fireEvent.click(screen.getByRole('button', { name: 'd1' }));
     expect(screen.getByRole('button', { name: 'd1' })).toBeInTheDocument();
   });
+
+  it('does not nest interactive dice markup inside the table roll control', () => {
+    show([
+      {
+        type: 'table',
+        colLabels: ['{@dice 1d12}', 'Result'],
+        rows: [['1', 'Exact']],
+      },
+    ] as Entry[]);
+
+    const buttons = screen.getAllByRole('button');
+    expect(buttons).toHaveLength(1);
+    expect(buttons[0]).toHaveAttribute('title', 'Roll 1d12');
+  });
 });
