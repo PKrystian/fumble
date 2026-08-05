@@ -786,10 +786,10 @@ function absolute(path: string, locale: string): string {
   return `${SITE_URL}${localizePath(path, locale)}`;
 }
 
-function imagePreloadUrl(path: string): string {
+function imagePreloadUrl(path: string, width = PRIMARY_IMAGE_WIDTH): string {
   const normalized = path.replace(/^%BASE%\/?/, '/');
   if (normalized.startsWith('/')) return `${SITE_URL}${normalized}`;
-  return optimizedImageUrl(normalized, process.env.VITE_IMAGE_TRANSFORM_ORIGIN);
+  return optimizedImageUrl(normalized, process.env.VITE_IMAGE_TRANSFORM_ORIGIN, width);
 }
 
 function usesImageHost(path: string): boolean {
@@ -1033,6 +1033,9 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
   const robots = page.indexable === false ? 'noindex, nofollow' : 'index, follow';
   const content = escapeHtml(page.content ?? page.description);
   const heading = escapeHtml(pageHeading(page));
+  const primaryImageWidth = page.path.startsWith('/compendium/bestiary/')
+    ? 320
+    : PRIMARY_IMAGE_WIDTH;
   const breadcrumbs = [
     `<a href="${absolute('/', locale)}">Fumble</a>`,
     ...(page.parent
@@ -1042,11 +1045,11 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
       : []),
   ].join(' / ');
   const fallbackImage = page.image
-    ? `<div class="relative mb-4 inline-block min-h-80 max-w-full"><img src="${escapeHtml(imagePreloadUrl(page.image))}" alt="${heading}" width="${PRIMARY_IMAGE_WIDTH}" height="${PRIMARY_IMAGE_HEIGHT}" loading="eager" fetchpriority="high" decoding="async" class="h-auto max-h-80 max-w-full rounded-lg border border-ink-700 object-contain" /></div>`
+    ? `<div class="relative mb-4 inline-block min-h-80 max-w-full"><img src="${escapeHtml(imagePreloadUrl(page.image, primaryImageWidth))}" alt="${heading}" width="${PRIMARY_IMAGE_WIDTH}" height="${PRIMARY_IMAGE_HEIGHT}" loading="eager" fetchpriority="high" decoding="async" class="h-auto max-h-80 max-w-full rounded-lg border border-ink-700 object-contain" /></div>`
     : '';
   const fallback = `<main id="prerendered-content" data-prerendered="true"><nav aria-label="Breadcrumb">${breadcrumbs}</nav>${fallbackImage}<h1>${heading}</h1><p>${content}</p></main>`;
   const imagePreload = page.image
-    ? `<link rel="preload" as="image" href="${escapeHtml(imagePreloadUrl(page.image))}" fetchpriority="high" />`
+    ? `<link rel="preload" as="image" href="${escapeHtml(imagePreloadUrl(page.image, primaryImageWidth))}" fetchpriority="high" />`
     : '';
   const imagePreconnect =
     page.image && !process.env.VITE_IMAGE_TRANSFORM_ORIGIN && usesImageHost(page.image)

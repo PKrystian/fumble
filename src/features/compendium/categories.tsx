@@ -35,6 +35,7 @@ import { sourceName } from '@/data/compendium/sources';
 import { agreeSize } from './creatureMeta';
 import type { Locale } from '@/i18n/locales';
 import { XP_BY_CR } from '@/features/dm/xp';
+import { loadJson } from '@/data/compendium/json';
 import {
   ActionDetail,
   BackgroundDetail,
@@ -165,15 +166,18 @@ const categoryDataUrls = import.meta.glob<string>('../../data/generated/*.json',
   import: 'default',
 });
 
-function loader<T>(categoryId: string): () => Promise<T[]> {
+function loader<T>(categoryId: string, offload = false): () => Promise<T[]> {
   return async () => {
     const suffix = `/generated/${categoryId}.json`;
     const url = Object.entries(categoryDataUrls).find(([path]) =>
       path.endsWith(suffix),
     )![1];
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`Failed to load compendium data: ${categoryId}`);
-    return ((await response.json()) as CompendiumFile<T>).items;
+    try {
+      const file = await loadJson<CompendiumFile<T>>(url, offload);
+      return file.items;
+    } catch {
+      throw new Error(`Failed to load compendium data: ${categoryId}`);
+    }
   };
 }
 
@@ -241,7 +245,7 @@ export const categories: CompendiumCategory[] = [
   {
     id: 'bestiary',
     label: 'Bestiary',
-    load: loader<MonsterEntry>('bestiary'),
+    load: loader<MonsterEntry>('bestiary', true),
     subtitle: (item, t) => {
       const m = item as MonsterEntry;
       const size = m.size ? agreeSize(m.size, m.creatureType) : m.size;
