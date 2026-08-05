@@ -63,7 +63,7 @@ function lootablePool(items: ItemEntry[]): ItemEntry[] {
 
 export function LootGeneratorPage() {
   const { t } = useT();
-  useSeo(t('dm.loot.title'));
+  useSeo(t('seo.pageTitles.loot'), t('seo.pageDescriptions.loot'));
   const [mode, setMode] = useState<Mode>('party');
   const [hoard, setHoard] = useState<Hoard | null>(null);
   const { status, items } = useCategoryItems(getCategory('items'));

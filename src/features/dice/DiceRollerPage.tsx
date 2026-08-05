@@ -13,7 +13,7 @@ const MODES: RollMode[] = ['normal', 'advantage', 'disadvantage'];
 
 export function DiceRollerPage() {
   const { t } = useT();
-  useSeo(t('nav.diceRoller'));
+  useSeo(t('seo.pageTitles.dice'), t('seo.pageDescriptions.dice'));
   const MODE_LABELS: Record<RollMode, string> = {
     normal: t('dice.modeNormal'),
     advantage: t('dice.modeAdvantage'),

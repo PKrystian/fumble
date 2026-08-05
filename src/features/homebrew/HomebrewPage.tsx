@@ -92,7 +92,7 @@ const categoryLabel = (id: string, t: (key: string) => string) =>
 
 export function HomebrewPage() {
   const { t } = useT();
-  useSeo(t('nav.homebrew'));
+  useSeo(t('seo.pageTitles.homebrew'), t('seo.pageDescriptions.homebrew'));
   const entries = useHomebrewStore((s) => s.entries);
   const addManual = useHomebrewStore((s) => s.addManual);
   const updateManual = useHomebrewStore((s) => s.updateManual);

@@ -80,7 +80,7 @@ export function CampaignMapPage() {
     );
   }, [editorStorageKey, totalHexes]);
 
-  useSeo(t('wiki.chultMap'));
+  useSeo(t('seo.pageTitles.map'), t('seo.pageDescriptions.map'));
 
   const clampOffset = useCallback((value: MapOffset, level: number): MapOffset => {
     if (level <= MIN_ZOOM) return { x: 0, y: 0 };

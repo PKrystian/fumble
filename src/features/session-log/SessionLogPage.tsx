@@ -14,7 +14,7 @@ import {
 
 export function SessionLogPage() {
   const { locale, t } = useT();
-  useSeo(t('nav.sessionLog'));
+  useSeo(t('seo.pageTitles.sessionLog'), t('seo.pageDescriptions.sessionLog'), false);
   const sessions = useSessionStore((s) => s.sessions);
   const addSession = useSessionStore((s) => s.addSession);
   const updateSession = useSessionStore((s) => s.updateSession);

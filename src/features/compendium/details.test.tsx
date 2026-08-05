@@ -575,4 +575,79 @@ describe('compendium detail renderers', () => {
     );
     expect(screen.getAllByText('-')).toHaveLength(2);
   });
+
+  it('adds the Artificer overview and subclass comparison', () => {
+    const baseClass: ClassEntry = {
+      id: 'artificer',
+      name: 'Artificer',
+      source: 'EFA',
+      srd: false,
+      hitDie: 'd8',
+      primaryAbility: 'Intelligence',
+      savingThrows: 'Constitution, Intelligence',
+      proficiencies: 'Tools',
+      armorProficiencies: 'Light',
+      weaponProficiencies: 'Simple',
+      toolProficiencies: "Tinker's tools",
+      subclassTitle: 'Artificer Subclass',
+      table: { headers: ['Level'], rows: [['1']] },
+      features: [],
+      subclasses: [],
+    };
+
+    const noRows = show(
+      <ClassDetail
+        cls={{
+          ...baseClass,
+          subclasses: [{ name: 'Unknown', source: 'EFA', features: [] }],
+        }}
+      />,
+    );
+    expect(
+      screen.queryByRole('heading', { name: 'Artificer subclass comparison' }),
+    ).not.toBeInTheDocument();
+    noRows.unmount();
+
+    const view = show(
+      <ClassDetail
+        cls={{
+          ...baseClass,
+          subclasses: [
+            { name: 'Alchemist', source: 'EFA', features: [] },
+            { name: 'Armorer', source: 'EFA', features: [] },
+          ],
+        }}
+      />,
+    );
+    expect(screen.getByRole('heading', { name: 'Overview' })).toBeVisible();
+    expect(view.container).toHaveTextContent(
+      'Artificers are Intelligence-focused inventors',
+    );
+    expect(
+      screen.getByRole('heading', { name: 'Artificer subclass comparison' }),
+    ).toBeVisible();
+    const tables = screen.getAllByRole('table');
+    const comparison = tables[1]!;
+    expect(comparison).toHaveTextContent('Support and utility');
+    expect(comparison).toHaveTextContent('Defense and infiltration');
+    expect(comparison).toHaveTextContent('Create elixirs');
+    view.unmount();
+
+    const polishView = render(
+      <MemoryRouter initialEntries={['/pl/compendium/classes/artificer/']}>
+        <ClassDetail
+          cls={{
+            ...baseClass,
+            name: 'Rzemieślnik',
+            subclasses: [{ name: 'Alchemik', source: 'EFA', features: [] }],
+          }}
+        />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole('heading', { name: 'Opis' })).toBeVisible();
+    const polishComparison = screen.getAllByRole('table')[1]!;
+    expect(polishComparison).toHaveTextContent('Alchemik');
+    expect(polishComparison).toHaveTextContent('Wsparcie i użyteczność');
+    polishView.unmount();
+  });
 });

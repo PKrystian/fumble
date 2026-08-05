@@ -168,6 +168,17 @@ describe('CompendiumPage', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Random' }));
   });
 
+  it('keeps a selected detail area stable while data loads or fails', () => {
+    mocks.result = { status: 'loading', items: [] };
+    const loading = renderPage('/compendium/species/dragon');
+    expect(loading.container.querySelector('[aria-busy="true"]')).not.toBeNull();
+    loading.unmount();
+
+    mocks.result = { status: 'error', items: [] };
+    renderPage('/compendium/species/dragon');
+    expect(screen.getByRole('alert')).toHaveTextContent('Failed to load data.');
+  });
+
   it('searches, filters, sorts and selects a random item', () => {
     mocks.result.items.push({
       ...official,

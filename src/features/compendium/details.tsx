@@ -214,9 +214,9 @@ function DetailHeader({
 }) {
   return (
     <header>
-      <h2 className="font-display text-2xl font-bold text-ink-50">
+      <h1 className="font-display text-2xl font-bold text-ink-50">
         {title} <OriginalName name={original} className="ml-2 text-lg" />
-      </h2>
+      </h1>
       {subtitle && <p className="text-sm italic text-ink-300">{subtitle}</p>}
     </header>
   );
@@ -627,9 +627,9 @@ export function SpellDetail({ spell }: { spell: SpellEntry }) {
   return (
     <article className="flex flex-col gap-5">
       <header>
-        <h2 className="font-display text-2xl font-bold text-ink-50">
+        <h1 className="font-display text-2xl font-bold text-ink-50">
           {spell.name} <OriginalName name={spell.englishName} className="ml-2 text-lg" />
-        </h2>
+        </h1>
         <p className="text-sm italic text-ink-300">
           {levelLabel}
           {spell.ritual && t('compendium.detail.ritualSuffix')}
@@ -872,9 +872,9 @@ export function ItemDetail({ item }: { item: ItemEntry }) {
       )}
       {item.variant && (
         <section className="flex flex-col gap-3 border-t border-ink-800 pt-4">
-          <h3 className="font-display text-lg font-bold text-ember-400">
+          <h2 className="font-display text-lg font-bold text-ember-400">
             {t('compendium.detail.variantData')}
-          </h3>
+          </h2>
           <SourceDataValue value={item.variant} />
         </section>
       )}
@@ -893,9 +893,9 @@ function ProgressionTable({
   const featureCol = table.headers.indexOf('Features');
   return (
     <section className="flex flex-col gap-3">
-      <h3 className="font-display text-xl font-bold text-ember-400">
+      <h2 className="font-display text-xl font-bold text-ember-400">
         {t('compendium.detail.progression')}
-      </h3>
+      </h2>
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left text-sm">
           <thead>
@@ -954,6 +954,78 @@ function pickPreferred<T extends { source: string }>(
   }
   return group.reduce((best, s) =>
     sourceRank(s.source) > sourceRank(best.source) ? s : best,
+  );
+}
+
+const ARTIFICER_SUBCLASS_KEYS = [
+  { names: ['Alchemist', 'Alchemik'], key: 'alchemist' },
+  { names: ['Armorer', 'Zbrojmistrz'], key: 'armorer' },
+  { names: ['Artillerist', 'Artylerzysta'], key: 'artillerist' },
+  { names: ['Battle Smith', 'Kowal Bitewny'], key: 'battleSmith' },
+  { names: ['Cartographer', 'Kartograf'], key: 'cartographer' },
+  { names: ['Reanimator'], key: 'reanimator' },
+] as const;
+
+function ArtificerSubclassComparison({ cls }: { cls: ClassEntry }) {
+  const { t } = useT();
+  const rows = ARTIFICER_SUBCLASS_KEYS.flatMap((subclass) => {
+    const match = cls.subclasses.find((entry) =>
+      subclass.names.some((name) => name === entry.name),
+    );
+    return match ? [{ ...subclass, name: match.name }] : [];
+  });
+  if (rows.length === 0) return null;
+
+  return (
+    <section
+      className="flex flex-col gap-3"
+      aria-labelledby="artificer-subclass-comparison"
+    >
+      <h2
+        id="artificer-subclass-comparison"
+        className="font-display text-xl font-bold text-ember-400"
+      >
+        {t('compendium.classDetail.subclassComparison')}
+      </h2>
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse text-left text-sm">
+          <thead>
+            <tr className="bg-ink-950/60">
+              <th className="border-b border-ink-700 px-2 py-2 font-semibold text-ink-50">
+                {t('compendium.classDetail.subclass')}
+              </th>
+              <th className="border-b border-ink-700 px-2 py-2 font-semibold text-ink-50">
+                {t('compendium.classDetail.subclassRole')}
+              </th>
+              <th className="border-b border-ink-700 px-2 py-2 font-semibold text-ink-50">
+                {t('compendium.classDetail.subclassPlaystyle')}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((subclass) => (
+              <tr
+                key={subclass.key}
+                className="align-top odd:bg-ink-950 even:bg-ink-800/60"
+              >
+                <th
+                  scope="row"
+                  className="whitespace-nowrap px-2 py-2 font-semibold text-ink-50"
+                >
+                  {subclass.name}
+                </th>
+                <td className="px-2 py-2 text-ink-200">
+                  {t(`compendium.classDetail.subclasses.${subclass.key}.role`)}
+                </td>
+                <td className="px-2 py-2 text-ink-200">
+                  {t(`compendium.classDetail.subclasses.${subclass.key}.playstyle`)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
   );
 }
 
@@ -1036,6 +1108,19 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
         original={cls.englishName}
         subtitle={t('compendium.classDetail.subtitle')}
       />
+      {cls.id === 'artificer' && (
+        <section className="flex flex-col gap-2" aria-labelledby="class-overview">
+          <h2
+            id="class-overview"
+            className="font-display text-xl font-bold text-ember-400"
+          >
+            {t('compendium.classDetail.overview')}
+          </h2>
+          <p className="leading-relaxed text-ink-200">
+            {t('compendium.classDetail.artificerOverview')}
+          </p>
+        </section>
+      )}
       <dl className="grid grid-cols-2 gap-3 rounded-lg border border-ink-700 bg-ink-900 p-4 sm:grid-cols-3">
         <MetaCell label={t('compendium.classDetail.hitDie')} value={cls.hitDie} />
         <MetaCell
@@ -1055,6 +1140,8 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
       )}
 
       <ProgressionTable table={cls.table} featuresByLevel={featuresByLevel} />
+
+      {cls.id === 'artificer' && <ArtificerSubclassComparison cls={cls} />}
 
       {cls.subclasses.length > 0 && (
         <div className="flex flex-col gap-2">
@@ -1151,9 +1238,9 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
       )}
 
       <section className="flex flex-col gap-4">
-        <h3 className="font-display text-xl font-bold text-ember-400">
+        <h2 className="font-display text-xl font-bold text-ember-400">
           {t('compendium.classDetail.features')}
-        </h3>
+        </h2>
         {merged.map((feature, index) => (
           <div
             key={`${feature.sub}-${feature.name}-${feature.level}-${index}`}
@@ -1195,9 +1282,9 @@ function SectionGroup({
   return (
     <section className="flex flex-col gap-3">
       {title && (
-        <h3 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
+        <h2 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
           {title}
-        </h3>
+        </h2>
       )}
       {sections.map((section, index) => (
         <div key={`${section.name}-${index}`} className="text-ink-200">
@@ -1230,10 +1317,10 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
   return (
     <article className="flex flex-col gap-4">
       <header>
-        <h2 className="font-display text-2xl font-bold text-ink-50">
+        <h1 className="font-display text-2xl font-bold text-ink-50">
           {monster.name}{' '}
           <OriginalName name={monster.englishName} className="ml-2 text-lg" />
-        </h2>
+        </h1>
         <p className="text-sm italic text-ink-300">
           {monster.size && (
             <RulesLink rule="size">
@@ -1352,9 +1439,9 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
       />
       {monster.legendaryActions.length > 0 && (
         <section className="flex flex-col gap-3">
-          <h3 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
+          <h2 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
             {t('compendium.detail.legendaryActions')}
-          </h3>
+          </h2>
           {monster.legendaryIntro && (
             <p className="text-sm italic text-ink-300">
               {parseMarkup(monster.legendaryIntro, locale)}
@@ -1374,17 +1461,17 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
       )}
       {monster.lairActions.length > 0 && (
         <section className="flex flex-col gap-2">
-          <h3 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
+          <h2 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
             {t('compendium.detail.lairActions')}
-          </h3>
+          </h2>
           <EntryRenderer entries={monster.lairActions} />
         </section>
       )}
       {monster.regionalEffects.length > 0 && (
         <section className="flex flex-col gap-2">
-          <h3 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
+          <h2 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
             {t('compendium.detail.regionalEffects')}
-          </h3>
+          </h2>
           <EntryRenderer entries={monster.regionalEffects} />
         </section>
       )}
@@ -1396,10 +1483,10 @@ export function ConditionDetail({ condition }: { condition: ConditionEntry }) {
   return (
     <article className="flex flex-col gap-5">
       <header className="flex items-center gap-3">
-        <h2 className="font-display text-2xl font-bold text-ink-50">
+        <h1 className="font-display text-2xl font-bold text-ink-50">
           {condition.name}{' '}
           <OriginalName name={condition.englishName} className="ml-2 text-lg" />
-        </h2>
+        </h1>
         <span className="rounded-full border border-ink-600 px-2 py-0.5 text-xs uppercase tracking-wide text-ink-300">
           {condition.kind}
         </span>

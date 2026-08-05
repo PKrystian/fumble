@@ -12,7 +12,7 @@ import { sortCombatants, useInitiativeStore } from './store';
 
 export function InitiativeTrackerPage() {
   const { t } = useT();
-  useSeo(t('nav.initiative'));
+  useSeo(t('seo.pageTitles.initiative'), t('seo.pageDescriptions.initiative'));
   const { combatants, round, turnId } = useInitiativeStore();
   const addCombatant = useInitiativeStore((s) => s.addCombatant);
   const updateCombatant = useInitiativeStore((s) => s.updateCombatant);

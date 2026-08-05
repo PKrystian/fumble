@@ -1,8 +1,14 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../../src/i18n/locales';
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '../../src/i18n/locales';
+import {
+  getCompendiumCategorySeo,
+  getCompendiumEntrySeo,
+} from '../../src/data/compendium/seo';
+import type { CompendiumEntryBase } from '../../src/data/compendium/types';
 import { withEnglishName } from '../../src/data/compendium/searchText';
+import { translate } from '../../src/i18n/translate';
 import { CAMPAIGN_MAPS } from '../../src/features/campaign-map/maps';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
@@ -17,7 +23,11 @@ interface PageInfo {
   title: string;
   description: string;
   content?: string;
+  heading?: string;
+  breadcrumbTitle?: string;
+  modified?: string;
   kind: 'website' | 'article' | 'book';
+  indexable?: boolean;
   parent?: { path: string; title: string };
 }
 
@@ -33,6 +43,7 @@ interface CompendiumItem {
 }
 
 interface CompendiumFile {
+  meta?: { generatedAt?: string };
   items?: CompendiumItem[];
 }
 
@@ -259,6 +270,41 @@ const POLISH_CATEGORY_TITLES: Record<string, string> = {
   homecrafts: 'rzemiosło',
 };
 
+const SOURCE_NAMES = JSON.parse(
+  readFileSync(join(GENERATED_DIR, 'sources.json'), 'utf8'),
+) as Record<string, string>;
+const POLISH_SOURCE_NAMES = existsSync(join(GENERATED_DIR, 'pl', 'sources.json'))
+  ? (JSON.parse(
+      readFileSync(join(GENERATED_DIR, 'pl', 'sources.json'), 'utf8'),
+    ) as Record<string, string>)
+  : {};
+const BOOKS = JSON.parse(
+  readFileSync(join(GENERATED_DIR, 'books.json'), 'utf8'),
+) as Array<{ id: string; source: string }>;
+const POLISH_BOOKS = existsSync(join(GENERATED_DIR, 'pl', 'books.json'))
+  ? (JSON.parse(readFileSync(join(GENERATED_DIR, 'pl', 'books.json'), 'utf8')) as Record<
+      string,
+      { name?: string }
+    >)
+  : {};
+for (const book of BOOKS) {
+  const translatedName = POLISH_BOOKS[book.id]?.name;
+  if (translatedName) POLISH_SOURCE_NAMES[book.source] = translatedName;
+}
+
+function sourceLabel(code: string, locale: Locale): string {
+  const names = locale === 'pl' ? POLISH_SOURCE_NAMES : SOURCE_NAMES;
+  return names[code] ?? code;
+}
+
+function campaignName(id: string, fallback: string, locale: Locale): string {
+  const key =
+    id === 'grobowiec-zaglady' ? 'wiki.campaigns.tombOfAnnihilation' : undefined;
+  if (!key) return fallback;
+  const value = translate(locale, key);
+  return value === key ? fallback : value;
+}
+
 const POLISH_STATIC_PAGES: Record<string, Pick<PageInfo, 'title' | 'description'>> = {
   '/': {
     title: 'Fumble',
@@ -344,6 +390,91 @@ const POLISH_STATIC_PAGES: Record<string, Pick<PageInfo, 'title' | 'description'
   },
 };
 
+const STATIC_SEO_KEYS: Record<
+  string,
+  { title: string; description: string; indexable?: boolean }
+> = {
+  '/': { title: 'seo.homeTitle', description: 'seo.homeDescription' },
+  '/character': {
+    title: 'seo.pageTitles.character',
+    description: 'seo.pageDescriptions.character',
+  },
+  '/compendium': {
+    title: 'seo.pageTitles.compendium',
+    description: 'seo.pageDescriptions.compendium',
+  },
+  '/homebrew': {
+    title: 'seo.pageTitles.homebrew',
+    description: 'seo.pageDescriptions.homebrew',
+  },
+  '/books': {
+    title: 'seo.pageTitles.books',
+    description: 'seo.pageDescriptions.books',
+  },
+  '/dice': {
+    title: 'seo.pageTitles.dice',
+    description: 'seo.pageDescriptions.dice',
+  },
+  '/data': {
+    title: 'seo.pageTitles.data',
+    description: 'seo.pageDescriptions.data',
+    indexable: false,
+  },
+  '/session-log': {
+    title: 'seo.pageTitles.sessionLog',
+    description: 'seo.pageDescriptions.sessionLog',
+    indexable: false,
+  },
+  '/dm/initiative': {
+    title: 'seo.pageTitles.initiative',
+    description: 'seo.pageDescriptions.initiative',
+  },
+  '/dm/loot': {
+    title: 'seo.pageTitles.loot',
+    description: 'seo.pageDescriptions.loot',
+  },
+  '/dm/encounter': {
+    title: 'seo.pageTitles.encounter',
+    description: 'seo.pageDescriptions.encounter',
+  },
+  '/dm/soundboard': {
+    title: 'seo.pageTitles.soundboard',
+    description: 'seo.pageDescriptions.soundboard',
+  },
+  '/wiki': {
+    title: 'seo.pageTitles.wiki',
+    description: 'seo.pageDescriptions.wiki',
+  },
+  '/legal': {
+    title: 'legal.overview.title',
+    description: 'legal.overview.description',
+  },
+  '/legal/privacy': {
+    title: 'legal.privacy.title',
+    description: 'legal.privacy.description',
+  },
+  '/legal/connections': {
+    title: 'legal.connections.title',
+    description: 'legal.connections.description',
+  },
+  '/legal/terms': {
+    title: 'legal.terms.title',
+    description: 'legal.terms.description',
+  },
+  '/legal/licenses': {
+    title: 'legal.licenses.title',
+    description: 'legal.licenses.description',
+  },
+  '/legal/accessibility': {
+    title: 'legal.accessibility.title',
+    description: 'legal.accessibility.description',
+  },
+  '/legal/contact': {
+    title: 'legal.contact.title',
+    description: 'legal.contact.description',
+  },
+};
+
 function localizePath(path: string, locale: string): string {
   const normalized = path === '/' ? path : `${path.replace(/\/+$/, '')}/`;
   if (locale === DEFAULT_LOCALE) return normalized;
@@ -398,34 +529,76 @@ function excerpt(value: string, fallback: string): string {
   return text.length <= 2000 ? text : `${text.slice(0, 1997).trimEnd()}...`;
 }
 
-function collectPages(locale: string): PageInfo[] {
-  const pages = STATIC_PAGES.map((page) => ({
-    ...page,
-    ...(locale === 'pl' ? POLISH_STATIC_PAGES[page.path] : {}),
-  }));
+function compendiumContext(item: CompendiumItem): string {
+  return [
+    item.subtitle,
+    item.entries,
+    item.body,
+    item.lore,
+    item.features,
+    item.subclasses,
+    item.primaryAbility,
+    item.savingThrows,
+    item.proficiencies,
+  ]
+    .map(plainText)
+    .filter(Boolean)
+    .join(' ');
+}
+
+function collectPages(locale: Locale): PageInfo[] {
+  const pages = STATIC_PAGES.map((page) => {
+    const keys = STATIC_SEO_KEYS[page.path];
+    const fallback = locale === 'pl' ? POLISH_STATIC_PAGES[page.path] : undefined;
+    if (!keys) return { ...page, ...(fallback ?? {}) };
+    const title = translate(locale, keys.title);
+    const description = translate(locale, keys.description);
+    return {
+      ...page,
+      title:
+        title === keys.title
+          ? (fallback?.title ?? page.title)
+          : title === 'Fumble'
+            ? title
+            : `${title} - Fumble`,
+      description:
+        description === keys.description
+          ? (fallback?.description ?? page.description)
+          : description,
+      ...(keys.indexable === false ? { indexable: false } : {}),
+    };
+  });
   for (const file of readdirSync(GENERATED_DIR)) {
     const categoryId = file.replace(/\.json$/, '');
     if (!file.endsWith('.json') || !COMPENDIUM_CATEGORIES.has(categoryId)) continue;
+    const categoryKey = `compendium.categories.${categoryId}`;
+    const translatedCategory = translate(locale, categoryKey);
     const categoryTitle =
-      locale === 'pl'
-        ? (POLISH_CATEGORY_TITLES[categoryId] ?? categoryId.replaceAll('-', ' '))
-        : categoryId.replaceAll('-', ' ');
+      translatedCategory === categoryKey
+        ? locale === 'pl'
+          ? (POLISH_CATEGORY_TITLES[categoryId] ?? categoryId.replaceAll('-', ' '))
+          : categoryId.replaceAll('-', ' ')
+        : translatedCategory;
     const displayCategory =
       categoryTitle.charAt(0).toLocaleUpperCase(locale) + categoryTitle.slice(1);
     const categoryPath = `/compendium/${categoryId}`;
-    pages.push({
-      path: categoryPath,
-      title: `${displayCategory} - D&D Compendium - Fumble`,
-      description:
-        locale === 'pl'
-          ? `Przeglądaj ${categoryTitle} w kompendium D&D Fumble.`
-          : `Browse ${categoryTitle} in the Fumble D&D compendium.`,
-      kind: 'website',
-      parent: { path: '/compendium', title: 'Compendium' },
-    });
     const raw = JSON.parse(
       readFileSync(join(GENERATED_DIR, file), 'utf8'),
     ) as CompendiumFile;
+    const categorySeo = getCompendiumCategorySeo(categoryId, displayCategory, locale);
+    pages.push({
+      path: categoryPath,
+      title: `${categorySeo.title} - Fumble`,
+      description: categorySeo.description,
+      heading: displayCategory,
+      breadcrumbTitle: displayCategory,
+      modified: raw.meta?.generatedAt,
+      kind: 'website',
+      parent: {
+        path: '/compendium',
+        title: locale === 'pl' ? 'Kompendium' : 'Compendium',
+      },
+    });
     const overlayPath = join(GENERATED_DIR, locale, file);
     const overlay =
       locale === DEFAULT_LOCALE || !existsSync(overlayPath)
@@ -446,7 +619,7 @@ function collectPages(locale: string): PageInfo[] {
       localizedIdentityCounts.set(key, (localizedIdentityCounts.get(key) ?? 0) + 1);
     }
     for (const { baseItem, item } of items) {
-      const context = [item.subtitle, item.entries, item.body].map(plainText).join(' ');
+      const context = compendiumContext(item);
       const source = plainText(item.source);
       const localizedIdentity = `${item.name}|${source}`;
       const translationQualifier =
@@ -454,18 +627,26 @@ function collectPages(locale: string): PageInfo[] {
         (localizedIdentityCounts.get(localizedIdentity) ?? 0) > 1
           ? ` (${baseItem.name})`
           : '';
-      const identity =
-        locale === 'pl'
-          ? `${item.name}${translationQualifier} w kategorii ${displayCategory}${source ? `, źródło ${source}` : ''}.`
-          : `${item.name}${translationQualifier} in ${displayCategory}${source ? `, source ${source}` : ''}.`;
+      const displayName = `${item.name}${translationQualifier}`;
+      const seo = getCompendiumEntrySeo({
+        categoryId,
+        categoryLabel: displayCategory,
+        item: { ...item, source } as unknown as CompendiumEntryBase,
+        locale,
+        sourceLabel: sourceLabel(source, locale),
+        displayName,
+      });
       pages.push({
         path: `${categoryPath}/${item.id}`,
-        title: `${item.name}${translationQualifier} - ${displayCategory}${source ? ` (${source})` : ''} - Fumble`,
-        description: concise(
-          `${identity} ${context}`,
-          `${identity} Fumble D&D compendium.`,
+        title: `${seo.title} - Fumble`,
+        description: seo.description,
+        content: excerpt(
+          [seo.description, context].filter(Boolean).join(' '),
+          seo.description,
         ),
-        content: excerpt(context, identity),
+        heading: displayName,
+        breadcrumbTitle: displayName,
+        modified: raw.meta?.generatedAt,
         kind: 'article',
         parent: { path: categoryPath, title: displayCategory },
       });
@@ -491,17 +672,21 @@ function collectPages(locale: string): PageInfo[] {
       title: `${book.name} - Fumble`,
       description: concise(
         [book.name, book.storyline, book.author].filter(Boolean).join('. '),
-        `Read ${book.name} in Fumble.`,
+        translate(locale, 'seo.bookDescription', { name: book.name }),
       ),
       kind: 'book',
-      parent: { path: '/books', title: 'Books' },
+      parent: { path: '/books', title: translate(locale, 'seo.pageTitles.books') },
     });
     book.contents.forEach((chapter, index) => {
-      const chapterName = chapter.name || `Chapter ${index + 1}`;
+      const chapterName =
+        chapter.name || translate(locale, 'books.chapterFallback', { n: index + 1 });
       pages.push({
         path: `${bookPath}/${index}`,
         title: `${chapterName} - ${book.name} - Fumble`,
-        description: `Read ${chapterName} from ${book.name} in Fumble.`,
+        description: translate(locale, 'seo.bookChapterDescription', {
+          chapter: chapterName,
+          book: book.name,
+        }),
         kind: 'book',
         parent: { path: bookPath, title: book.name },
       });
@@ -513,17 +698,18 @@ function collectPages(locale: string): PageInfo[] {
     pages?: WikiPage[];
   };
   for (const campaign of wiki.campaigns ?? []) {
+    const localizedCampaignName = campaignName(campaign.id, campaign.title, locale);
     pages.push({
       path: `/wiki/${campaign.id}`,
-      title: `${campaign.title} - Campaign Wiki - Fumble`,
-      description: `Browse the ${campaign.title} campaign wiki generated from Obsidian.`,
+      title: `${localizedCampaignName} - ${translate(locale, 'seo.pageTitles.wiki')} - Fumble`,
+      description: `${translate(locale, 'seo.pageDescriptions.wiki')} ${localizedCampaignName}.`,
       kind: 'website',
-      parent: { path: '/wiki', title: 'Campaign Wiki' },
+      parent: { path: '/wiki', title: translate(locale, 'seo.pageTitles.wiki') },
     });
     for (const page of campaign.pages ?? []) {
       pages.push({
         path: `/wiki/${campaign.id}/${page.slug}`,
-        title: `${page.title} - ${campaign.title} - Fumble`,
+        title: `${page.title} - ${localizedCampaignName} - Fumble`,
         description: concise(
           plainText(page.html),
           `${page.title}${page.category ? ` in ${page.category}` : ''} - Fumble campaign wiki.`,
@@ -533,25 +719,36 @@ function collectPages(locale: string): PageInfo[] {
           `${page.title}${page.category ? ` in ${page.category}` : ''}.`,
         ),
         kind: 'article',
-        parent: { path: `/wiki/${campaign.id}`, title: campaign.title },
+        parent: { path: `/wiki/${campaign.id}`, title: localizedCampaignName },
       });
     }
   }
   for (const map of CAMPAIGN_MAPS) {
+    const localizedCampaignName = campaignName(map.campaignId, map.campaignTitle, locale);
+    const mapTitle = translate(
+      locale,
+      map.id === 'chult' ? 'seo.pageTitles.map' : 'seo.pageTitles.campaignMap',
+    );
+    const mapDescription = translate(
+      locale,
+      map.id === 'chult'
+        ? 'seo.pageDescriptions.map'
+        : 'seo.pageDescriptions.campaignMap',
+    );
     pages.push({
       path: `/wiki/${map.campaignId}`,
-      title: `${map.campaignTitle} - Campaign Wiki - Fumble`,
-      description: `Browse the ${map.campaignTitle} campaign wiki and maps.`,
+      title: `${localizedCampaignName} - ${translate(locale, 'seo.pageTitles.wiki')} - Fumble`,
+      description: `${translate(locale, 'seo.pageDescriptions.wiki')} ${localizedCampaignName}.`,
       kind: 'website',
-      parent: { path: '/wiki', title: 'Campaign Wiki' },
+      parent: { path: '/wiki', title: translate(locale, 'seo.pageTitles.wiki') },
     });
     pages.push({
       path: `/wiki/${map.campaignId}/map`,
-      title: `${map.id === 'chult' ? 'Chult Map' : 'Campaign Map'} - ${map.campaignTitle} - Fumble`,
-      description: `Explore the player-facing hex map for ${map.campaignTitle}.`,
-      content: `Player-facing map for ${map.campaignTitle}.`,
+      title: `${mapTitle} - ${localizedCampaignName} - Fumble`,
+      description: mapDescription,
+      content: mapDescription,
       kind: 'article',
-      parent: { path: `/wiki/${map.campaignId}`, title: map.campaignTitle },
+      parent: { path: `/wiki/${map.campaignId}`, title: localizedCampaignName },
     });
   }
 
@@ -608,11 +805,15 @@ function replaceMeta(html: string, pattern: RegExp, replacement: string): string
     : html.replace('</head>', `    ${replacement}\n  </head>`);
 }
 
+function pageHeading(page: PageInfo): string {
+  return page.heading ?? page.breadcrumbTitle ?? page.title.replace(/ - Fumble$/, '');
+}
+
 function breadcrumbJson(page: PageInfo, locale: string) {
   const items = [
     { name: 'Fumble', path: '/' },
     ...(page.parent ? [{ name: page.parent.title, path: page.parent.path }] : []),
-    { name: page.title.replace(/ - Fumble$/, ''), path: page.path },
+    { name: pageHeading(page), path: page.path },
   ];
   return {
     '@context': 'https://schema.org',
@@ -628,8 +829,13 @@ function breadcrumbJson(page: PageInfo, locale: string) {
 
 function structuredData(page: PageInfo, locale: string) {
   if (page.path === '/') {
-    return {
-      '@context': 'https://schema.org',
+    const website = {
+      '@type': 'WebSite',
+      name: 'Fumble',
+      url: absolute('/', locale),
+      inLanguage: locale,
+    };
+    const application = {
       '@type': 'SoftwareApplication',
       name: 'Fumble',
       url: absolute('/', locale),
@@ -643,24 +849,118 @@ function structuredData(page: PageInfo, locale: string) {
         url: 'https://github.com/PKrystian',
       },
     };
-  }
-  if (page.kind === 'book') {
     return {
       '@context': 'https://schema.org',
-      '@type': 'Book',
-      name: page.title.replace(/ - Fumble$/, ''),
-      url: absolute(page.path, locale),
-      description: page.description,
+      '@graph': [website, application],
     };
   }
-  return breadcrumbJson(page, locale);
+  if (page.kind === 'book') {
+    const book = {
+      '@type': 'Book',
+      name: pageHeading(page),
+      url: absolute(page.path, locale),
+      description: page.description,
+      inLanguage: locale,
+      ...(page.modified ? { dateModified: page.modified } : {}),
+    };
+    return {
+      '@context': 'https://schema.org',
+      '@graph': [breadcrumbJson(page, locale), book],
+    };
+  }
+  if (page.kind === 'article' && page.path.startsWith('/compendium/')) {
+    const url = absolute(page.path, locale);
+    const article = {
+      '@type': 'TechArticle',
+      headline: pageHeading(page),
+      name: pageHeading(page),
+      url,
+      description: page.description,
+      inLanguage: locale,
+      articleSection: page.parent?.title,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+      author: {
+        '@type': 'Person',
+        name: 'Krystian Pińczak',
+        url: 'https://github.com/PKrystian',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Fumble',
+        url: SITE_URL,
+      },
+      ...(page.parent
+        ? {
+            isPartOf: {
+              '@type': 'CollectionPage',
+              name: page.parent.title,
+              url: absolute(page.parent.path, locale),
+            },
+          }
+        : {}),
+      ...(page.modified ? { dateModified: page.modified } : {}),
+    };
+    return {
+      '@context': 'https://schema.org',
+      '@graph': [breadcrumbJson(page, locale), article],
+    };
+  }
+  if (page.path.startsWith('/compendium/')) {
+    const url = absolute(page.path, locale);
+    const collection = {
+      '@type': 'CollectionPage',
+      name: pageHeading(page),
+      url,
+      description: page.description,
+      inLanguage: locale,
+      ...(page.parent
+        ? {
+            isPartOf: {
+              '@type': 'CollectionPage',
+              name: page.parent.title,
+              url: absolute(page.parent.path, locale),
+            },
+          }
+        : {}),
+      ...(page.modified ? { dateModified: page.modified } : {}),
+    };
+    return {
+      '@context': 'https://schema.org',
+      '@graph': [breadcrumbJson(page, locale), collection],
+    };
+  }
+  const url = absolute(page.path, locale);
+  const webPage = {
+    '@type': page.kind === 'article' ? 'Article' : 'WebPage',
+    name: pageHeading(page),
+    url,
+    description: page.description,
+    inLanguage: locale,
+    ...(page.kind === 'article' ? { headline: pageHeading(page) } : {}),
+    ...(page.parent
+      ? {
+          isPartOf: {
+            '@type': 'WebPage',
+            name: page.parent.title,
+            url: absolute(page.parent.path, locale),
+          },
+        }
+      : {}),
+    ...(page.modified ? { dateModified: page.modified } : {}),
+  };
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [breadcrumbJson(page, locale), webPage],
+  };
 }
 
 function buildHtml(template: string, page: PageInfo, locale: string): string {
   const url = absolute(page.path, locale);
   const title = escapeHtml(page.title);
   const description = escapeHtml(page.description);
+  const robots = page.indexable === false ? 'noindex, nofollow' : 'index, follow';
   const content = escapeHtml(page.content ?? page.description);
+  const heading = escapeHtml(pageHeading(page));
   const breadcrumbs = [
     `<a href="${absolute('/', locale)}">Fumble</a>`,
     ...(page.parent
@@ -669,13 +969,18 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
         ]
       : []),
   ].join(' / ');
-  const fallback = `<main data-prerendered="true"><nav aria-label="Breadcrumb">${breadcrumbs}</nav><h1>${title}</h1><p>${content}</p></main>`;
+  const fallback = `<main data-prerendered="true"><nav aria-label="Breadcrumb">${breadcrumbs}</nav><h1>${heading}</h1><p>${content}</p></main>`;
   let html = template.replace(/<html lang="[^"]+"/, `<html lang="${locale}"`);
   html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
   html = replaceMeta(
     html,
     /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/s,
     `<meta name="description" content="${description}" />`,
+  );
+  html = replaceMeta(
+    html,
+    /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/,
+    `<meta name="robots" content="${robots}" />`,
   );
   html = replaceMeta(
     html,
@@ -704,6 +1009,11 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
   );
   html = replaceMeta(
     html,
+    /<meta\s+property="og:locale"\s+content="[^"]*"\s*\/?>/,
+    `<meta property="og:locale" content="${locale === 'pl' ? 'pl_PL' : 'en_US'}" />`,
+  );
+  html = replaceMeta(
+    html,
     /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
     `<meta name="twitter:title" content="${title}" />`,
   );
@@ -724,7 +1034,6 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
     `<link rel="alternate" hreflang="x-default" href="${absolute(page.path, DEFAULT_LOCALE)}" />`,
   ].join('\n    ');
   const additions = [
-    `<meta property="og:locale" content="${locale === 'pl' ? 'pl_PL' : 'en_US'}" />`,
     alternates,
     `<script type="application/ld+json">${JSON.stringify(structuredData(page, locale)).replaceAll('<', '\\u003c')}</script>`,
     ...(GOOGLE_VERIFICATION
@@ -853,7 +1162,8 @@ const sitemapGroups = new Map<string, PageInfo[]>([
   ['sitemap-books.xml', []],
   ['sitemap-wiki.xml', []],
 ]);
-for (const page of pages) {
+const indexablePages = pages.filter((page) => page.indexable !== false);
+for (const page of indexablePages) {
   const file = page.path.startsWith('/compendium')
     ? 'sitemap-compendium.xml'
     : page.path.startsWith('/books')
@@ -867,10 +1177,10 @@ for (const [file, group] of sitemapGroups) {
   writeFileSync(join(OUT_DIR, file), buildSitemap(group));
 }
 writeFileSync(join(OUT_DIR, 'sitemap.xml'), buildSitemapIndex([...sitemapGroups.keys()]));
-writeFileSync(join(OUT_DIR, 'llms-full.txt'), buildLlmsFull(pages));
+writeFileSync(join(OUT_DIR, 'llms-full.txt'), buildLlmsFull(indexablePages));
 for (const { code } of SUPPORTED_LOCALES) {
   writeFileSync(join(OUT_DIR, `search-index-${code}.json`), buildSearchIndex(code));
 }
 console.log(
-  `Wrote ${pages.length * SUPPORTED_LOCALES.length} static pages, sitemap URLs, and llms-full entries.`,
+  `Wrote ${pages.length * SUPPORTED_LOCALES.length} static pages and ${indexablePages.length * SUPPORTED_LOCALES.length} indexable URLs.`,
 );

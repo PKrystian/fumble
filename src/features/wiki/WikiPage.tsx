@@ -11,6 +11,15 @@ import { campaignTitle, mergeCampaigns, type WikiCampaignView } from './campaign
 import { useWiki } from './useWiki';
 import type { WikiPage as WikiPageData } from './types';
 
+function seoExcerpt(page: WikiPageData): string {
+  const text = page.html
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const value = [page.category, text].filter(Boolean).join('. ');
+  return value.length <= 155 ? value : `${value.slice(0, 152).trimEnd()}...`;
+}
+
 export function WikiPage() {
   const { t } = useT();
   const { campaignId: routeCampaignId, slug } = useParams<{
@@ -65,8 +74,12 @@ export function WikiPage() {
       ? selected.title
       : selectedCampaign
         ? campaignTitle(selectedCampaign, t)
-        : t('nav.wiki'),
-    selected ? `${selected.title} - ${selected.category}` : undefined,
+        : t('seo.pageTitles.wiki'),
+    selected
+      ? seoExcerpt(selected) || t('seo.pageDescriptions.wiki')
+      : selectedCampaign
+        ? t('wiki.campaignNoPages')
+        : t('seo.pageDescriptions.wiki'),
   );
 
   const html = useMemo(() => {
@@ -261,7 +274,7 @@ export function WikiPage() {
 
 function CampaignChooser({ campaigns }: { campaigns: WikiCampaignView[] }) {
   const { t } = useT();
-  useSeo(t('wiki.chooseCampaign'));
+  useSeo(t('wiki.chooseCampaign'), t('seo.pageDescriptions.wiki'));
 
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12">

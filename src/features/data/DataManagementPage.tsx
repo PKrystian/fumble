@@ -13,7 +13,7 @@ export function DataManagementPage() {
   const { t } = useT();
   const inputRef = useRef<HTMLInputElement>(null);
   const [status, setStatus] = useState<Status>('idle');
-  useSeo(t('data.title'), t('data.description'));
+  useSeo(t('seo.pageTitles.data'), t('seo.pageDescriptions.data'), false);
 
   const exportData = () => {
     try {

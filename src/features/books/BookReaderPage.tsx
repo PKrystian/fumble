@@ -225,6 +225,17 @@ export function BookReaderPage() {
         ? `${localizedBookName(book, locale)} - ${chapterTitle(active, t('books.chapterFallback', { n: chapterIndex + 1 }))}`
         : localizedBookName(book, locale)
       : '',
+    book
+      ? active
+        ? t('seo.bookChapterDescription', {
+            chapter: chapterTitle(
+              active,
+              t('books.chapterFallback', { n: chapterIndex + 1 }),
+            ),
+            book: localizedBookName(book, locale),
+          })
+        : t('seo.bookDescription', { name: localizedBookName(book, locale) })
+      : undefined,
   );
 
   if (!book) return <Navigate to="/books" replace />;
