@@ -14,6 +14,7 @@ import { FilterBar } from './FilterBar';
 import { type SortDir, compareItems, matchesFilters } from './filterSort';
 import {
   imageUrl,
+  optimizedImageSrcSet,
   optimizedImageUrl,
   PRIMARY_IMAGE_HEIGHT,
   PRIMARY_IMAGE_WIDTH,
@@ -173,6 +174,11 @@ function CompendiumBrowser({
 
   useSeo(seo.title, seo.description);
 
+  const primaryImageSrcSet =
+    categoryId === 'bestiary' && selected?.image
+      ? optimizedImageSrcSet(selected.image, import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN)
+      : undefined;
+
   const pickRandom = () => {
     if (filtered.length === 0) return;
     clearQueryUpdate();
@@ -262,7 +268,7 @@ function CompendiumBrowser({
             />
           )}
 
-          <ul className="min-h-0 flex-1 overflow-y-auto">
+          <ul className="min-h-0 flex-1 overflow-y-auto" data-category={categoryId}>
             {status === 'loading' && (
               <li className="p-4 text-sm text-ink-400">{t('common.loading')}</li>
             )}
@@ -344,6 +350,8 @@ function CompendiumBrowser({
                       selected.image,
                       import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN,
                     )}
+                    srcSet={primaryImageSrcSet}
+                    sizes={primaryImageSrcSet ? '320px' : undefined}
                     alt={selected.name}
                     width={PRIMARY_IMAGE_WIDTH}
                     height={PRIMARY_IMAGE_HEIGHT}

@@ -3,7 +3,9 @@ import {
   IMAGE_HOST,
   PRIMARY_IMAGE_HEIGHT,
   PRIMARY_IMAGE_WIDTH,
+  PRIMARY_IMAGE_WIDTHS,
   imageUrl,
+  optimizedImageSrcSet,
   optimizedImageUrl,
 } from './images';
 
@@ -11,6 +13,7 @@ describe('imageUrl', () => {
   it('defines stable primary image dimensions', () => {
     expect(PRIMARY_IMAGE_WIDTH).toBe(440);
     expect(PRIMARY_IMAGE_HEIGHT).toBe(558);
+    expect(PRIMARY_IMAGE_WIDTHS).toEqual([224, 320, 440]);
   });
 
   it('keeps absolute and data URLs', () => {
@@ -44,5 +47,14 @@ describe('imageUrl', () => {
     expect(
       optimizedImageUrl('https://example.com/image.webp', 'https://fumble.example'),
     ).toBe('https://example.com/image.webp');
+  });
+
+  it('builds responsive transformed image sources', () => {
+    expect(
+      optimizedImageSrcSet('bestiary/MM/Aarakocra.webp', 'https://fumble.example'),
+    ).toBe(
+      'https://fumble.example/cdn-cgi/image/width=224,quality=75,format=auto/https://5e.tools/img/bestiary/MM/Aarakocra.webp 224w, https://fumble.example/cdn-cgi/image/width=320,quality=75,format=auto/https://5e.tools/img/bestiary/MM/Aarakocra.webp 320w, https://fumble.example/cdn-cgi/image/width=440,quality=75,format=auto/https://5e.tools/img/bestiary/MM/Aarakocra.webp 440w',
+    );
+    expect(optimizedImageSrcSet('bestiary/MM/Aarakocra.webp')).toBeUndefined();
   });
 });

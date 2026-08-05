@@ -6,6 +6,7 @@ import {
   IMAGE_HOST,
   imageUrl,
   optimizedImageUrl,
+  PRIMARY_IMAGE_WIDTH,
 } from '../../src/data/compendium/images';
 import { cspHasSourceOrigin } from '../../src/seo/csp';
 
@@ -37,10 +38,10 @@ function localizedRoute(path: string, locale: string): string {
   return `/${locale}${path}`;
 }
 
-function expectedImageUrl(path: string): string {
+function expectedImageUrl(path: string, width = PRIMARY_IMAGE_WIDTH): string {
   const normalized = path.replace(/^%BASE%\/?/, '/');
   if (normalized.startsWith('/')) return `${SITE_URL}${normalized}`;
-  return optimizedImageUrl(normalized, process.env.VITE_IMAGE_TRANSFORM_ORIGIN);
+  return optimizedImageUrl(normalized, process.env.VITE_IMAGE_TRANSFORM_ORIGIN, width);
 }
 
 function usesImageHost(path: string): boolean {
@@ -75,7 +76,8 @@ function validateCompendiumImagePreloads(): number {
         if (localized.hidden || typeof localized.image !== 'string') continue;
         const route = localizedRoute(`/compendium/${category}/${item.id}/`, locale);
         const html = read(`${route.slice(1)}index.html`);
-        const href = escapeHtml(expectedImageUrl(localized.image));
+        const imageWidth = route.includes('/compendium/bestiary/') ? 320 : undefined;
+        const href = escapeHtml(expectedImageUrl(localized.image, imageWidth));
         requireValue(
           html.includes(
             `<link rel="preload" as="image" href="${href}" fetchpriority="high" />`,

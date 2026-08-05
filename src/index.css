@@ -8,7 +8,7 @@
   --color-ink-800: #1a1a1a;
   --color-ink-700: #2b2b2b;
   --color-ink-600: #3d3d3d;
-  --color-ink-400: #8b8b8b;
+  --color-ink-400: #a3a3a3;
   --color-ink-200: #cccccc;
   --color-ink-50: #f5f5f5;
 
@@ -52,6 +52,11 @@ body,
   overflow-y: auto;
   background-color: var(--color-ink-950);
   padding: 1.25rem;
+}
+
+ul[data-category='bestiary'] > li {
+  content-visibility: auto;
+  contain-intrinsic-size: 57px;
 }
 
 html {
