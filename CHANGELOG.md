@@ -4,6 +4,16 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.33 - 2026-08-05
+
+- Preloaded compendium route chunks and category data to shorten the critical request chain.
+
+## 1.2.32 - 2026-08-05
+
+- Reduced transformed image variants to 480 pixels for faster detail-page delivery.
+- Added prerendered image markup to warm decoding before the interactive app loads.
+- Removed unused direct image-host preconnects when Cloudflare transformations are enabled.
+
 ## 1.2.31 - 2026-08-05
 
 - Hardened release CSP validation to match exact source origins instead of URL substrings.

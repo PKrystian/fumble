@@ -118,8 +118,21 @@ requireValue(
   'Cloudflare Web Analytics is missing from the CSP',
 );
 requireValue(
-  sample.includes('<link rel="preconnect" href="https://5e.tools" crossorigin />'),
-  'Compendium pages must preconnect to the image host',
+  process.env.VITE_IMAGE_TRANSFORM_ORIGIN
+    ? !sample.includes('<link rel="preconnect" href="https://5e.tools" crossorigin />')
+    : sample.includes('<link rel="preconnect" href="https://5e.tools" crossorigin />'),
+  process.env.VITE_IMAGE_TRANSFORM_ORIGIN
+    ? 'Transformed image pages must not preconnect to the origin fetched by Cloudflare'
+    : 'Direct image pages must preconnect to the image host',
+);
+requireValue(
+  sample.includes(
+    '<link rel="modulepreload" crossorigin href="/assets/CompendiumPage-',
+  ) &&
+    sample.includes(
+      '<link rel="preload" as="fetch" crossorigin fetchpriority="low" href="/assets/spells-',
+    ),
+  'Compendium pages must preload their route and category data',
 );
 const checkedImagePreloads = validateCompendiumImagePreloads();
 for (const html of [home, sample]) {

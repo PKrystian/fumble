@@ -1,4 +1,11 @@
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '../../src/i18n/locales';
@@ -7,7 +14,11 @@ import {
   getCompendiumEntrySeo,
 } from '../../src/data/compendium/seo';
 import type { CompendiumEntryBase } from '../../src/data/compendium/types';
-import { optimizedImageUrl } from '../../src/data/compendium/images';
+import {
+  IMAGE_HOST,
+  imageUrl,
+  optimizedImageUrl,
+} from '../../src/data/compendium/images';
 import { withEnglishName } from '../../src/data/compendium/searchText';
 import { translate } from '../../src/i18n/translate';
 import { CAMPAIGN_MAPS } from '../../src/features/campaign-map/maps';
@@ -16,6 +27,8 @@ const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const SITE_URL = 'https://fumble.krystianpinczak.com';
 const GENERATED_DIR = join(ROOT, 'src/data/generated');
 const OUT_DIR = join(ROOT, 'dist');
+const ASSETS_DIR = join(OUT_DIR, 'assets');
+const ASSET_FILES = existsSync(ASSETS_DIR) ? readdirSync(ASSETS_DIR) : [];
 const GOOGLE_VERIFICATION = process.env.GOOGLE_SITE_VERIFICATION;
 const BING_VERIFICATION = process.env.BING_SITE_VERIFICATION;
 
@@ -777,6 +790,45 @@ function imagePreloadUrl(path: string): string {
   return optimizedImageUrl(normalized, process.env.VITE_IMAGE_TRANSFORM_ORIGIN);
 }
 
+function usesImageHost(path: string): boolean {
+  const normalized = path.replace(/^%BASE%\/?/, '/');
+  if (normalized.startsWith('/')) return false;
+  return imageUrl(normalized).startsWith(IMAGE_HOST);
+}
+
+function findBuiltAsset(prefix: string, extension: string): string | undefined {
+  return ASSET_FILES.find(
+    (file) => file.startsWith(`${prefix}-`) && file.endsWith(`.${extension}`),
+  );
+}
+
+function findGeneratedAsset(category: string): string | undefined {
+  const source = join(GENERATED_DIR, `${category}.json`);
+  if (!existsSync(source)) return undefined;
+  const size = statSync(source).size;
+  return ASSET_FILES.find(
+    (file) =>
+      file.startsWith(`${category}-`) &&
+      file.endsWith('.json') &&
+      statSync(join(ASSETS_DIR, file)).size === size,
+  );
+}
+
+function compendiumPreloadHints(page: PageInfo): string[] {
+  const category = /^\/compendium\/([^/]+)/.exec(page.path)?.[1];
+  if (!category) return [];
+  const routeAsset = findBuiltAsset('CompendiumPage', 'js');
+  const dataAsset = findGeneratedAsset(category);
+  return [
+    routeAsset
+      ? `<link rel="modulepreload" crossorigin href="/assets/${routeAsset}" />`
+      : '',
+    dataAsset
+      ? `<link rel="preload" as="fetch" crossorigin fetchpriority="low" href="/assets/${dataAsset}" />`
+      : '',
+  ].filter(Boolean);
+}
+
 function buildSitemap(pages: PageInfo[]): string {
   const entries = pages.flatMap((page) => {
     const alternates = [
@@ -987,12 +1039,22 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
         ]
       : []),
   ].join(' / ');
-  const fallback = `<main data-prerendered="true"><nav aria-label="Breadcrumb">${breadcrumbs}</nav><h1>${heading}</h1><p>${content}</p></main>`;
+  const fallbackImage = page.image
+    ? `<div class="relative mb-4 inline-block min-h-80 max-w-full"><img src="${escapeHtml(imagePreloadUrl(page.image))}" alt="${heading}" loading="eager" fetchpriority="high" decoding="async" class="h-auto max-h-80 max-w-full rounded-lg border border-ink-700 object-contain" /></div>`
+    : '';
+  const fallback = `<main data-prerendered="true"><nav aria-label="Breadcrumb">${breadcrumbs}</nav>${fallbackImage}<h1>${heading}</h1><p>${content}</p></main>`;
   const imagePreload = page.image
     ? `<link rel="preload" as="image" href="${escapeHtml(imagePreloadUrl(page.image))}" fetchpriority="high" />`
     : '';
+  const imagePreconnect =
+    page.image && !process.env.VITE_IMAGE_TRANSFORM_ORIGIN && usesImageHost(page.image)
+      ? '<link rel="preconnect" href="https://5e.tools" crossorigin />'
+      : '';
   let html = template.replace(/<html lang="[^"]+"/, `<html lang="${locale}"`);
-  if (imagePreload) html = html.replace('<head>', `<head>\n    ${imagePreload}`);
+  const headHints = [imagePreconnect, imagePreload, ...compendiumPreloadHints(page)]
+    .filter(Boolean)
+    .join('\n    ');
+  if (headHints) html = html.replace('<head>', `<head>\n    ${headHints}`);
   html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
   html = replaceMeta(
     html,
