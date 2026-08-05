@@ -16,6 +16,14 @@ function requireValue(condition: boolean, message: string): void {
   if (!condition) throw new Error(message);
 }
 
+function isProductionUrl(value: string): boolean {
+  try {
+    return new URL(value).origin === SITE_URL;
+  } catch {
+    return false;
+  }
+}
+
 const sitemap = read('sitemap.xml');
 const sitemapFiles = [...sitemap.matchAll(/<loc>[^<]+\/([^/]+\.xml)<\/loc>/g)].map(
   (match) => match[1]!,
@@ -27,7 +35,7 @@ const urls = sitemapFiles.flatMap((file) =>
 requireValue(urls.length > 0, 'Sitemap has no URLs');
 requireValue(new Set(urls).size === urls.length, 'Sitemap contains duplicate URLs');
 requireValue(
-  urls.every((url) => url.startsWith(SITE_URL)),
+  urls.every(isProductionUrl),
   'Sitemap contains a URL outside the production domain',
 );
 requireValue(

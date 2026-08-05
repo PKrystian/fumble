@@ -4,6 +4,11 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.24 - 2026-08-05
+
+- Fixed release URL validation so lookalike external hosts are rejected.
+- Sanitized image object URLs before rendering uploaded artwork.
+
 ## 1.2.23 - 2026-08-05
 
 - Stabilized the generated wiki import error test under coverage runs.
