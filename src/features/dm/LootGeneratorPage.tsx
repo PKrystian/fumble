@@ -130,6 +130,7 @@ function TierPicker({
           variant={option.id === tierId ? 'primary' : 'secondary'}
           className="h-auto flex-col items-start px-4 text-left"
           aria-pressed={option.id === tierId}
+          aria-label={`${t('dm.loot.tierLabel', { n: option.id })} ${t('dm.loot.tierLevels', { min: option.minLevel, max: option.maxLevel })}`}
         >
           <span className="block font-display font-bold text-ink-50">
             {t('dm.loot.tierLabel', { n: option.id })}

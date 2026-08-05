@@ -4,6 +4,22 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.23 - 2026-08-05
+
+- Stabilized the generated wiki import error test under coverage runs.
+
+## 1.2.22 - 2026-08-05
+
+- Kept campaign map tests fast and stable on CI with a focused map fixture.
+
+## 1.2.21 - 2026-08-05
+
+- Optimized Chult map rendering to keep campaign map tests and interactions responsive.
+
+## 1.2.20 - 2026-08-05
+
+- Fixed the development dependency peer conflict between TypeScript and typescript-eslint.
+
 ## 1.2.19 - 2026-08-05
 
 - Fixed clean dependency installs by synchronizing the npm lockfile with Tailwind's bundled WASI dependencies.

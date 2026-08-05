@@ -48,7 +48,9 @@ interface MapDrag {
 }
 
 export function CampaignMapPage() {
-  const { t } = useT();
+  const { locale, t } = useT();
+  const translateRef = useRef(t);
+  translateRef.current = t;
   const { campaignId } = useParams<{ campaignId?: string }>();
   const viewportRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef<MapDrag | null>(null);
@@ -150,31 +152,96 @@ export function CampaignMapPage() {
       map && showHexGrid ? getHexGridPath(map.columns, map.rows, displayedRevealed) : '',
     [displayedRevealed, map, showHexGrid],
   );
-  const editorRanges = compressRevealedRanges(displayedRevealed);
-  const editorExport =
-    editorRanges.length === 0
-      ? 'revealedRanges: []'
-      : `revealedRanges: [\n${editorRanges.map((range) => `  '${range}',`).join('\n')}\n]`;
+  const editorRanges = useMemo(
+    () => compressRevealedRanges(displayedRevealed),
+    [displayedRevealed],
+  );
+  const editorExport = useMemo(
+    () =>
+      editorRanges.length === 0
+        ? 'revealedRanges: []'
+        : `revealedRanges: [\n${editorRanges.map((range) => `  '${range}',`).join('\n')}\n]`,
+    [editorRanges],
+  );
   const editorActive = isMapEditorEnabled && isEditorOpen;
 
-  const toggleHex = (index: number) => {
-    const next = new Set(displayedRevealed);
-    if (next.has(index)) {
-      next.delete(index);
-    } else {
-      next.add(index);
-    }
-    const sorted = [...next].sort((left, right) => left - right);
-    localStorage.setItem(editorStorageKey!, JSON.stringify(sorted));
-    setLocalRevealed(next);
-    setIsRangesCopied(false);
-  };
+  const toggleHex = useCallback(
+    (index: number) => {
+      const next = new Set(displayedRevealed);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      const sorted = [...next].sort((left, right) => left - right);
+      localStorage.setItem(editorStorageKey!, JSON.stringify(sorted));
+      setLocalRevealed(next);
+      setIsRangesCopied(false);
+    },
+    [displayedRevealed, editorStorageKey],
+  );
 
-  const handleHexKeyDown = (event: KeyboardEvent<HTMLSpanElement>, index: number) => {
-    if (event.key !== 'Enter' && event.key !== ' ') return;
-    event.preventDefault();
-    toggleHex(index);
-  };
+  const handleHexKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLSpanElement>, index: number) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      toggleHex(index);
+    },
+    [toggleHex],
+  );
+
+  const gridItems = useMemo(() => {
+    if (!map) return null;
+    return Array.from({ length: totalHexes }, (_, index) => {
+      const column = index % map.columns;
+      const row = Math.floor(index / map.columns);
+      const gridRow = row * 2 + (column % 2 === 0 ? 2 : 1);
+      const isRevealed = displayedRevealed.has(index);
+      return (
+        <li
+          key={index}
+          className="wiki-chult-map__item"
+          style={{
+            gridColumn: `${column * 2 + 1} / span 3`,
+            gridRow: `${gridRow} / span 2`,
+          }}
+        >
+          <span
+            className={[
+              'wiki-chult-map__hex',
+              isRevealed ? 'wiki-chult-map__hex--revealed' : '',
+            ].join(' ')}
+            role={editorActive ? 'button' : undefined}
+            tabIndex={editorActive ? 0 : undefined}
+            aria-label={
+              editorActive
+                ? translateRef.current('wiki.mapEditorHex', {
+                    index,
+                    state: isRevealed
+                      ? translateRef.current('wiki.mapEditorRevealed')
+                      : translateRef.current('wiki.mapEditorHidden'),
+                  })
+                : undefined
+            }
+            aria-pressed={editorActive ? isRevealed : undefined}
+            onClick={editorActive ? () => toggleHex(index) : undefined}
+            onKeyDown={
+              editorActive ? (event) => handleHexKeyDown(event, index) : undefined
+            }
+          />
+        </li>
+      );
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    displayedRevealed,
+    editorActive,
+    handleHexKeyDown,
+    locale,
+    map,
+    toggleHex,
+    totalHexes,
+  ]);
 
   const copyEditorRanges = async () => {
     await navigator.clipboard.writeText(editorExport);
@@ -391,48 +458,7 @@ export function CampaignMapPage() {
               ].join(' ')}
               aria-hidden={editorActive ? undefined : true}
             >
-              {Array.from({ length: totalHexes }, (_, index) => {
-                const column = index % map.columns;
-                const row = Math.floor(index / map.columns);
-                const gridRow = row * 2 + (column % 2 === 0 ? 2 : 1);
-                const isRevealed = displayedRevealed.has(index);
-                return (
-                  <li
-                    key={index}
-                    className="wiki-chult-map__item"
-                    style={{
-                      gridColumn: `${column * 2 + 1} / span 3`,
-                      gridRow: `${gridRow} / span 2`,
-                    }}
-                  >
-                    <span
-                      className={[
-                        'wiki-chult-map__hex',
-                        isRevealed ? 'wiki-chult-map__hex--revealed' : '',
-                      ].join(' ')}
-                      role={editorActive ? 'button' : undefined}
-                      tabIndex={editorActive ? 0 : undefined}
-                      aria-label={
-                        editorActive
-                          ? t('wiki.mapEditorHex', {
-                              index,
-                              state: isRevealed
-                                ? t('wiki.mapEditorRevealed')
-                                : t('wiki.mapEditorHidden'),
-                            })
-                          : undefined
-                      }
-                      aria-pressed={editorActive ? isRevealed : undefined}
-                      onClick={editorActive ? () => toggleHex(index) : undefined}
-                      onKeyDown={
-                        editorActive
-                          ? (event) => handleHexKeyDown(event, index)
-                          : undefined
-                      }
-                    />
-                  </li>
-                );
-              })}
+              {gridItems}
             </ol>
             {showHexGrid && (
               <svg

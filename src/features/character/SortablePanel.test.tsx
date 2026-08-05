@@ -25,7 +25,9 @@ vi.mock('@dnd-kit/sortable', () => ({
 
 vi.mock('@dnd-kit/utilities', () => ({
   CSS: {
-    Transform: { toString: (value: unknown) => (value ? 'translated' : undefined) },
+    Transform: {
+      toString: (value: unknown) => (value ? 'translate3d(1px, 2px, 0)' : undefined),
+    },
   },
 }));
 
@@ -58,7 +60,7 @@ describe('sortable character panels', () => {
       'bound',
     );
     expect(container.firstChild).toHaveStyle({
-      transform: 'translated',
+      transform: 'translate3d(1px, 2px, 0)',
       transition: 'transform 1s',
     });
     expect(container.firstChild).not.toHaveClass('opacity-50');

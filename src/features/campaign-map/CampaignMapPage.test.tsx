@@ -10,6 +10,17 @@ vi.mock('react-router-dom', () => ({
   useParams: () => ({ campaignId: mocks.campaignId }),
 }));
 
+vi.mock('./maps', async () => {
+  const actual = await vi.importActual<typeof import('./maps')>('./maps');
+  const map = actual.CAMPAIGN_MAPS[0]!;
+  const testMap = { ...map, columns: 6, rows: 5, revealedRanges: ['0-14'] };
+  return {
+    ...actual,
+    getCampaignMap: (campaignId: string) =>
+      campaignId === testMap.campaignId ? testMap : null,
+  };
+});
+
 vi.mock('@/i18n/path', () => ({
   Link: ({ children, to, ...props }: React.ComponentProps<'a'> & { to: string }) => (
     <a href={to} {...props}>
@@ -145,7 +156,7 @@ describe('CampaignMapPage', () => {
     fireEvent.click(hiddenHex!);
     expect(hiddenHex).toHaveClass('wiki-chult-map__hex--revealed');
     expect(
-      screen.getByText(`wiki.mapEditorState:${initialRevealedCount + 1}/6120`),
+      screen.getByText(`wiki.mapEditorState:${initialRevealedCount + 1}/30`),
     ).toBeInTheDocument();
 
     const saved = JSON.parse(

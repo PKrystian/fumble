@@ -10,7 +10,9 @@ import { useWiki } from './useWiki';
 describe('useWiki errors', () => {
   it('reports a failed generated-data import', async () => {
     const { result } = renderHook(() => useWiki());
-    await waitFor(() => expect(result.current.status).toBe('error'));
+    await waitFor(() => expect(result.current.status).toBe('error'), {
+      timeout: 10_000,
+    });
     expect(result.current.data).toBeNull();
   });
 
