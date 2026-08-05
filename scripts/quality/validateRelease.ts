@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../../src/i18n/locales';
 import { optimizedImageUrl } from '../../src/data/compendium/images';
+import { cspHasSourceOrigin } from '../../src/seo/csp';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const DIST = join(ROOT, 'dist');
@@ -112,8 +113,8 @@ requireValue(
 const home = read('index.html');
 const sample = read(join('compendium', 'spells', 'fireball', 'index.html'));
 requireValue(
-  home.includes('https://static.cloudflareinsights.com') &&
-    home.includes('https://cloudflareinsights.com'),
+  cspHasSourceOrigin(home, 'connect-src', 'https://cloudflareinsights.com') &&
+    cspHasSourceOrigin(home, 'script-src', 'https://static.cloudflareinsights.com'),
   'Cloudflare Web Analytics is missing from the CSP',
 );
 requireValue(

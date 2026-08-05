@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.31 - 2026-08-05
+
+- Hardened release CSP validation to match exact source origins instead of URL substrings.
+
 ## 1.2.30 - 2026-08-05
 
 - Fixed constrained artwork stretching its border across the full detail panel after loading.
