@@ -1,3 +1,4 @@
+import DOMPurify from 'dompurify';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
@@ -153,6 +154,44 @@ describe('image cropper', () => {
       </MemoryRouter>,
     );
     expect(URL.revokeObjectURL).toHaveBeenCalledWith('blob:test');
+  });
+
+  it('rejects an object URL with a non-blob protocol', () => {
+    vi.mocked(URL.createObjectURL).mockReturnValueOnce('https://example.com/image.png');
+    const view = render(
+      <MemoryRouter>
+        <ImageCropperModal file={new Blob()} onCancel={vi.fn()} onSave={vi.fn()} />
+      </MemoryRouter>,
+    );
+
+    expect(view.container.querySelector('img')).toBeNull();
+    view.unmount();
+    expect(URL.revokeObjectURL).toHaveBeenCalledWith('https://example.com/image.png');
+  });
+
+  it('rejects a malformed object URL', () => {
+    vi.mocked(URL.createObjectURL).mockReturnValueOnce('malformed');
+    const view = render(
+      <MemoryRouter>
+        <ImageCropperModal file={new Blob()} onCancel={vi.fn()} onSave={vi.fn()} />
+      </MemoryRouter>,
+    );
+
+    expect(view.container.querySelector('img')).toBeNull();
+    view.unmount();
+    expect(URL.revokeObjectURL).toHaveBeenCalledWith('malformed');
+  });
+
+  it('rejects a sanitized URL that changes', () => {
+    const sanitize = vi.spyOn(DOMPurify, 'sanitize').mockReturnValue('');
+    const view = render(
+      <MemoryRouter>
+        <ImageCropperModal file={new Blob()} onCancel={vi.fn()} onSave={vi.fn()} />
+      </MemoryRouter>,
+    );
+
+    sanitize.mockRestore();
+    expect(view.container.querySelector('img')).toBeNull();
   });
 
   it('keeps the editor open when loading or exporting fails', async () => {

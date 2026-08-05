@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import DOMPurify from 'dompurify';
 import { Check, X, ZoomIn, ZoomOut } from 'lucide-react';
 import { useT } from '@/i18n/useT';
 
@@ -30,6 +31,18 @@ function loadImage(src: string): Promise<HTMLImageElement> {
   });
 }
 
+function sanitizeObjectUrl(url: string): string | null {
+  try {
+    if (new URL(url).protocol !== 'blob:') return null;
+    const sanitized = DOMPurify.sanitize(url, {
+      ALLOWED_URI_REGEXP: /^blob:/,
+    });
+    return sanitized === url ? sanitized : null;
+  } catch {
+    return null;
+  }
+}
+
 export function ImageCropperModal({
   file,
   aspect = 1,
@@ -50,9 +63,9 @@ export function ImageCropperModal({
   const pointers = useRef(new Map<number, Point>());
 
   useEffect(() => {
-    const url = URL.createObjectURL(file);
-    setSrc(url);
-    return () => URL.revokeObjectURL(url);
+    const objectUrl = URL.createObjectURL(file);
+    setSrc(sanitizeObjectUrl(objectUrl));
+    return () => URL.revokeObjectURL(objectUrl);
   }, [file]);
 
   useEffect(() => {
