@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.43 - 2026-08-06
+
+- Compressed book data in the GitHub Pages artifact to prevent deployment timeouts.
+
 ## 1.2.42 - 2026-08-06
 
 - Serialized GitHub Pages deployments so active production deploys are not cancelled.
