@@ -299,7 +299,9 @@ test('character list imports, validates and deletes character files', async ({
     ),
   });
   await expect(page.getByText('Imported Hero')).toBeVisible();
-  await page.getByRole('button', { name: 'Delete Imported Hero' }).click();
+  const deleteButton = page.getByRole('button', { name: 'Delete Imported Hero' });
+  await expect(deleteButton).toBeVisible();
+  await deleteButton.click();
   await page.getByRole('button', { name: 'Delete', exact: true }).click();
   await expect(
     page.getByText('No characters yet. Create one to get started.'),
@@ -331,7 +333,10 @@ test('character rolls tab rolls a d20 with modifiers', async ({ page }) => {
 test('character settings configure spell slots and preferences', async ({ page }) => {
   await page.goto('/character');
   await page.getByRole('button', { name: 'New Character' }).click();
-  await page.getByRole('button', { name: 'Settings' }).click();
+  const settingsButton = page.getByRole('button', { name: 'Settings' });
+  await expect(settingsButton).toBeVisible();
+  await expect(settingsButton).toHaveClass(/w-full/);
+  await settingsButton.click();
 
   const dialog = page.getByRole('dialog', { name: 'Character Settings' });
   await expect(dialog).toBeVisible();

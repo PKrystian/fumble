@@ -193,7 +193,9 @@ const pl: Dictionary = {
       about: 'O Fumble',
       aboutBody:
         'Darmowe, otwarte oprogramowanie gotowe do samodzielnego hostowania. Nie wymaga konta, a dane pozostają w przeglądarce. Fumble jest nieoficjalnym projektem fanowskim.',
-      version: 'Wersja {{version}}',
+      version: 'Wersja',
+      versionLink: 'Lista zmian wersji {{version}}',
+      reportIssue: 'Zgłoś problem',
       copyright: '© {{year}} Fumble',
     },
     updated: 'Data obowiązywania: 29 lipca 2026 r.',

@@ -2,6 +2,9 @@ import packageInfo from '../../../package.json';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 
+const CHANGELOG_URL = 'https://github.com/PKrystian/Fumble/blob/main/CHANGELOG.md';
+const ISSUE_URL = 'https://github.com/PKrystian/Fumble/issues/new/choose';
+
 export function LegalFooter() {
   const { t } = useT();
   const linkClass =
@@ -29,6 +32,9 @@ export function LegalFooter() {
               target="_blank"
             >
               GitHub
+            </a>
+            <a className={linkClass} href={ISSUE_URL} rel="noreferrer" target="_blank">
+              {t('legal.footer.reportIssue')}
             </a>
           </div>
         </section>
@@ -80,7 +86,18 @@ export function LegalFooter() {
       </div>
 
       <div className="mx-auto mt-8 flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 border-t border-ink-800 pt-5 text-xs">
-        <span>{t('legal.footer.version', { version: packageInfo.version })}</span>
+        <span>
+          {t('legal.footer.version')}{' '}
+          <a
+            aria-label={t('legal.footer.versionLink', { version: packageInfo.version })}
+            className={linkClass}
+            href={CHANGELOG_URL}
+            rel="noreferrer"
+            target="_blank"
+          >
+            {packageInfo.version}
+          </a>
+        </span>
         <span>{t('legal.footer.copyright', { year: new Date().getFullYear() })}</span>
         <nav
           aria-label={t('legal.footerLabel')}

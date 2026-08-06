@@ -113,6 +113,17 @@ describe('CharacterListPage', () => {
     );
     expect(screen.getByText('character.unnamed')).toBeInTheDocument();
     expect(screen.getByText('character.dmBadge')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'character.list.title' })).toHaveClass(
+      'text-2xl',
+      'sm:text-3xl',
+    );
+    expect(screen.getByRole('button', { name: 'character.list.import' })).toHaveClass(
+      'w-full',
+      'sm:w-auto',
+    );
+    expect(
+      screen.getAllByRole('button', { name: 'character.list.deleteLabel' })[0],
+    ).not.toHaveClass('opacity-0');
     fireEvent.click(screen.getByRole('button', { name: /Hero/ }));
     expect(mocks.navigate).toHaveBeenCalledWith('/character/hero');
 

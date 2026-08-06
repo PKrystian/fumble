@@ -190,7 +190,9 @@ const en = {
       about: 'About Fumble',
       aboutBody:
         'Free, open-source, and self-hostable. No account is required, and your data stays in your browser. Fumble is an unofficial fan project.',
-      version: 'Version {{version}}',
+      version: 'Version',
+      versionLink: 'Version {{version}} changelog',
+      reportIssue: 'Report issue',
       copyright: '© {{year}} Fumble',
     },
     updated: 'Effective date: July 29, 2026',
