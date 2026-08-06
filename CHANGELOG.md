@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.42 - 2026-08-06
+
+- Serialized GitHub Pages deployments so active production deploys are not cancelled.
+
 ## 1.2.41 - 2026-08-06
 
 - Made the character sheet action bar responsive on mobile screens.
