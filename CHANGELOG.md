@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.45 - 2026-08-06
+
+- Fixed stale GitHub Pages cleanup to use documented deployment status endpoints.
+
 ## 1.2.44 - 2026-08-06
 
 - Cleared stale GitHub Pages deployments before publishing a new site.
