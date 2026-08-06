@@ -145,9 +145,12 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
         run: |
-          deployment_ids=$(gh api --paginate "repos/${REPOSITORY}/pages/deployments?per_page=100" --jq '.[] | select(.status == "deployment_queued" or .status == "deployment_in_progress") | .id')
-          for deployment_id in $deployment_ids; do
-            gh api --method POST "repos/${REPOSITORY}/pages/deployments/${deployment_id}/cancel"
+          for deployment_sha in $(gh api "repos/${REPOSITORY}/commits?sha=main&per_page=30" --jq '.[].sha'); do
+            deployment_status=$(gh api "repos/${REPOSITORY}/pages/deployments/${deployment_sha}" --jq '.status' 2>/dev/null || true)
+            if [[ "$deployment_status" == "deployment_queued" || "$deployment_status" == "deployment_in_progress" ]]; then
+              echo "Canceling stale Pages deployment ${deployment_sha} (${deployment_status})"
+              gh api --method POST "repos/${REPOSITORY}/pages/deployments/${deployment_sha}/cancel" --silent || true
+            fi
           done
 
       - id: deployment
