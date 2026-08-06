@@ -50,13 +50,13 @@ export function CharacterListPage() {
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-10">
-      <header className="mb-8 flex items-center justify-between">
-        <h1 className="font-display text-3xl font-bold text-ink-50">
+    <div className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 sm:py-10">
+      <header className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
+        <h1 className="font-display text-2xl font-bold text-ink-50 sm:text-3xl">
           {t('character.list.title')}
         </h1>
-        <div className="flex gap-2">
-          <Button onClick={() => fileInput.current?.click()}>
+        <div className="flex flex-col gap-2 sm:flex-row">
+          <Button className="w-full sm:w-auto" onClick={() => fileInput.current?.click()}>
             <Upload size={16} /> {t('character.list.import')}
           </Button>
           <input
@@ -70,7 +70,7 @@ export function CharacterListPage() {
               event.target.value = '';
             }}
           />
-          <Button onClick={handleCreate} variant="primary">
+          <Button className="w-full sm:w-auto" onClick={handleCreate} variant="primary">
             <Plus size={16} /> {t('character.list.newCharacter')}
           </Button>
         </div>
@@ -83,16 +83,16 @@ export function CharacterListPage() {
       ) : (
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {characters.map((character) => (
-            <li key={character.id}>
+            <li key={character.id} className="min-w-0">
               <div
                 className={panelClass(
-                  'group relative flex flex-col gap-2 border-ink-700 p-4 transition-colors hover:border-arcane-500',
+                  'group relative flex min-w-0 flex-col gap-2 border-ink-700 p-4 transition-colors hover:border-arcane-500',
                 )}
               >
                 <button
                   type="button"
                   onClick={() => navigate(`/character/${character.id}`)}
-                  className="flex items-center gap-3 text-left"
+                  className="flex min-w-0 items-center gap-3 pr-10 text-left"
                 >
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-ink-700 bg-ink-950">
                     {character.portrait ? (
@@ -111,16 +111,18 @@ export function CharacterListPage() {
                       />
                     )}
                   </span>
-                  <div>
-                    <p className="flex items-center gap-2 font-display text-lg font-semibold text-ink-50">
-                      {character.name || t('character.unnamed')}
+                  <div className="min-w-0 flex-1">
+                    <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-lg font-semibold text-ink-50">
+                      <span className="break-words">
+                        {character.name || t('character.unnamed')}
+                      </span>
                       {isDmCharacter(character) && (
                         <span className="rounded-full border border-ember-500/50 px-1.5 text-[0.65rem] uppercase tracking-wide text-ember-400">
                           {t('character.dmBadge')}
                         </span>
                       )}
                     </p>
-                    <p className="text-sm text-ink-400">
+                    <p className="break-words text-sm text-ink-400">
                       {t('character.list.level', { level: character.level })}
                       {character.className && ` ${character.className}`}
                       {character.species && ` · ${character.species}`}
@@ -140,7 +142,7 @@ export function CharacterListPage() {
                   }}
                   variant="ghost"
                   size="sm"
-                  className="absolute right-3 top-3 text-ink-400 opacity-0 transition-opacity hover:text-red-400 group-focus-within:opacity-100 group-hover:opacity-100"
+                  className="absolute right-3 top-3 text-ink-400 hover:text-red-400"
                 >
                   <Trash2 size={16} />
                 </IconButton>

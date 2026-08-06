@@ -4,6 +4,22 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.41 - 2026-08-06
+
+- Made the character sheet action bar responsive on mobile screens.
+
+## 1.2.40 - 2026-08-06
+
+- Improved the mobile character list layout and kept character deletion available without hover.
+
+## 1.2.39 - 2026-08-06
+
+- Shortened the footer issue-reporting link label.
+
+## 1.2.38 - 2026-08-06
+
+- Linked the footer version to the GitHub changelog and added a direct issue-reporting link.
+
 ## 1.2.37 - 2026-08-05
 
 - Offloaded Bestiary JSON parsing, reduced its responsive artwork requests, and improved secondary text contrast.

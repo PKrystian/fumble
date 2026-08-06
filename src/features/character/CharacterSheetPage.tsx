@@ -202,26 +202,26 @@ function CharacterSheetBody({
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6 2xl:max-w-[min(92vw,120rem)]">
-      <div className="mb-4 flex items-center justify-between">
+    <div className="mx-auto w-full max-w-7xl px-4 py-6 2xl:max-w-[min(92vw,120rem)]">
+      <div className="mb-6 flex flex-col gap-4 sm:mb-4 sm:flex-row sm:items-center sm:justify-between">
         <Link
           to="/character"
           className="inline-flex items-center gap-1 text-sm text-ink-300 hover:text-ink-50"
         >
           <ArrowLeft size={16} /> {t('character.list.title')}
         </Link>
-        <div className="flex gap-2">
+        <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-end">
           <button
             type="button"
             onClick={() => setSettingsOpen(true)}
-            className="inline-flex items-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm text-ink-200 hover:bg-ink-800"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm text-ink-200 hover:bg-ink-800 sm:w-auto"
           >
             <Settings size={16} /> {t('character.sheet.settings')}
           </button>
           <button
             type="button"
             onClick={() => exportCharacter(character)}
-            className="inline-flex items-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm text-ink-200 hover:bg-ink-800"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm text-ink-200 hover:bg-ink-800 sm:w-auto"
           >
             <Download size={16} /> {t('character.sheet.export')}
           </button>
@@ -235,7 +235,7 @@ function CharacterSheetBody({
                 await exportCharacterSheetPdf(character, edition, t);
                 setPdfExporting(null);
               }}
-              className="inline-flex items-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm text-ink-200 hover:bg-ink-800 disabled:cursor-wait disabled:opacity-50"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm text-ink-200 hover:bg-ink-800 disabled:cursor-wait disabled:opacity-50 sm:w-auto"
             >
               <FileText size={16} />
               {pdfExporting === edition

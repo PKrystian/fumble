@@ -221,6 +221,18 @@ describe('CharacterSheetPage', () => {
     renderPage();
     expect(mocks.syncClassFeatures).toHaveBeenCalled();
     expect(mocks.updateCharacter).toHaveBeenCalledWith('test', { hitDice: '1d8' });
+    expect(screen.getByRole('button', { name: 'Character Settings' })).toHaveClass(
+      'w-full',
+      'sm:w-auto',
+    );
+    expect(screen.getByRole('button', { name: 'Export' })).toHaveClass(
+      'w-full',
+      'sm:w-auto',
+    );
+    expect(screen.getByRole('button', { name: 'Sheet (2024)' })).toHaveClass(
+      'w-full',
+      'sm:w-auto',
+    );
 
     fireEvent.click(screen.getByRole('button', { name: 'Identity' }));
     expect(mocks.updateCharacter).toHaveBeenCalledWith('test', { name: 'Updated' });
