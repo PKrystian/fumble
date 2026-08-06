@@ -140,5 +140,15 @@ jobs:
         with:
           path: dist
 
+      - name: Cancel stale Pages deployments
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          deployment_ids=$(gh api --paginate "repos/${REPOSITORY}/pages/deployments?per_page=100" --jq '.[] | select(.status == "deployment_queued" or .status == "deployment_in_progress") | .id')
+          for deployment_id in $deployment_ids; do
+            gh api --method POST "repos/${REPOSITORY}/pages/deployments/${deployment_id}/cancel"
+          done
+
       - id: deployment
         uses: actions/deploy-pages@v5
