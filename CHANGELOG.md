@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.70 - 2026-08-09
+
+- Patched transitive `js-yaml` and `nanoid` vulnerabilities so the security audit passes.
+
 ## 1.2.69 - 2026-08-08
 
 - Moved Fumble firearms, ammunition effects, grenades, sprays, and modifications into their own Compendium category.
