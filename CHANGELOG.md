@@ -4,6 +4,15 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.72 - 2026-08-09
+
+- Documented the complete CI checklist and added a local `verify:ci` command.
+
+## 1.2.71 - 2026-08-09
+
+- Made compendium reference previews usable after direct interaction on touch devices.
+- Stabilized the Chult map navigation check by targeting its concrete route.
+
 ## 1.2.70 - 2026-08-09
 
 - Patched transitive `js-yaml` and `nanoid` vulnerabilities so the security audit passes.

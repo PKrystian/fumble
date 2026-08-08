@@ -53,9 +53,6 @@ export function ReferenceLink({ category, slug, label, source }: ReferenceLinkPr
   }, []);
 
   const show = useCallback(() => {
-    if (typeof window !== 'undefined' && !window.matchMedia('(hover: hover)').matches) {
-      return;
-    }
     if (timerRef.current !== null) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => {
       const rect = ref.current!.getBoundingClientRect();

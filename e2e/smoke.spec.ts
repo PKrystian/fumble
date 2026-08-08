@@ -731,10 +731,12 @@ test('wiki chooses campaigns and configures the local Chult map editor', async (
   await page.locator('a[href="/wiki/grobowiec-zaglady/"]').click();
   await expect(page).toHaveURL(/\/wiki\/grobowiec-zaglady\/$/);
 
-  const mapLink = page.getByRole('link', { name: 'Chult map' });
+  const mapLink = page.locator('a[href="/wiki/grobowiec-zaglady/map/"]');
   await expect(mapLink).toBeVisible();
-  await mapLink.click();
-  await expect(page).toHaveURL(/\/wiki\/grobowiec-zaglady\/map\/$/);
+  await Promise.all([
+    page.waitForURL(/\/wiki\/grobowiec-zaglady\/map\/$/),
+    mapLink.click(),
+  ]);
   await expect(
     page.getByRole('img', { name: 'Chult map with a hex grid' }),
   ).toBeVisible();

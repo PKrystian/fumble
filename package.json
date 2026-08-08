@@ -1,6 +1,6 @@
 {
   "name": "fumble",
-  "version": "1.2.70",
+  "version": "1.2.72",
   "private": true,
   "type": "module",
   "description": "Fumble - a free, client-side D&D 2024 (5.5e) toolkit and Obsidian-powered campaign wiki.",
@@ -41,6 +41,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "security:audit": "audit-ci --high --allowlist GHSA-qwww-vcr4-c8h2",
+    "verify:ci": "npm run security:audit && npm run lint && npm run format:check && npm sbom --sbom-format cyclonedx > fumble-sbom.cdx.json && npm run typecheck && cross-env CI=1 npm run test:coverage:all && npm run build",
     "release:validate": "tsx scripts/quality/validateRelease.ts",
     "test": "vitest run",
     "test:watch": "vitest",
