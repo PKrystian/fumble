@@ -123,7 +123,7 @@ describe('ReferenceLink', () => {
     expect(screen.queryByRole('tooltip')).toBeNull();
   });
 
-  it('cancels pending timers and ignores hover-only UI on touch devices', () => {
+  it('cancels pending timers and shows previews on touch devices', async () => {
     renderLink();
     const link = screen.getByRole('link');
     fireEvent.mouseEnter(link);
@@ -135,7 +135,8 @@ describe('ReferenceLink', () => {
     vi.mocked(window.matchMedia).mockReturnValue({ matches: false } as MediaQueryList);
     fireEvent.mouseEnter(link);
     act(() => vi.advanceTimersByTime(220));
-    expect(screen.queryByRole('tooltip')).toBeNull();
+    await act(async () => undefined);
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Open to view the full entry.');
   });
 
   it('ignores a localized name resolved after unmounting', async () => {

@@ -57,6 +57,7 @@ const pl: Dictionary = {
     homebrew: 'Zawartość własna',
     diceRoller: 'Rzuty kośćmi',
     sessionLog: 'Dziennik sesji',
+    fumbleHomebrew: 'Homebrew Fumble',
     initiative: 'Inicjatywa',
     bestiary: 'Bestiariusz',
     lootGenerator: 'Generator łupów',
@@ -121,6 +122,7 @@ const pl: Dictionary = {
       soundboard: 'Organizuj muzykę kampanii i walki pochodzącą z YouTube.',
       wiki: 'Przeglądaj bezpieczną dla graczy wiki wygenerowaną z Obsidiana.',
       sessionLog: 'Przechowuj lokalne transkrypcje, notatki i podsumowania sesji.',
+      fumbleHomebrew: 'Przeglądaj homebrew kampanii utrzymywane przez twórców Fumble.',
       dice: 'Wykonuj rzuty, testy z ułatwieniem, pule kości i zapisane skróty.',
       data: 'Eksportuj lub przywracaj wszystkie lokalne dane Fumble w jednym pliku.',
     },
@@ -345,6 +347,8 @@ const pl: Dictionary = {
     back: 'Wstecz',
     homebrewBadge: 'HB',
     homebrewLabel: 'Własna zawartość',
+    fumbleBadge: 'Fumble',
+    fumbleTooltip: 'Homebrew używane przez twórców Fumble',
     uaBadge: 'UA',
     uaLabel: 'Unearthed Arcana',
     lore: 'Opowieść',
@@ -370,6 +374,8 @@ const pl: Dictionary = {
           'Przeglądaj zaklęcia D&D 2024 według poziomu, szkoły, czasu rzucania, zasięgu i czasu trwania.',
         items:
           'Przeglądaj magiczne przedmioty, broń, zbroje, rzadkość i właściwości D&D 2024.',
+        firearms:
+          'Przeglądaj broń palną Fumble, efekty amunicji, granaty, spreje i modyfikacje broni.',
         bestiary:
           'Przeglądaj potwory i stworzenia D&D 2024 według stopnia wyzwania, typu, rozmiaru i cech.',
         actions: 'Przeglądaj akcje D&D 2024 i zasady ich wykonywania podczas gry.',
@@ -410,6 +416,7 @@ const pl: Dictionary = {
         optionalfeatures: 'opcja lub cecha',
         spells: 'zaklęcie',
         items: 'przedmiot',
+        firearms: 'broń palna',
         bestiary: 'potwór',
         actions: 'akcja',
         conditions: 'stan',
@@ -565,6 +572,7 @@ const pl: Dictionary = {
       optionalfeatures: 'Opcje i cechy',
       spells: 'Zaklęcia',
       items: 'Przedmioty',
+      firearms: 'Broń palna',
       bestiary: 'Bestiariusz',
       actions: 'Akcje',
       conditions: 'Stany',
@@ -1343,6 +1351,7 @@ const pl: Dictionary = {
       character: 'Karty postaci D&D 2024',
       compendium: 'Kompendium D&D 2024',
       homebrew: 'Własna zawartość D&D 2024',
+      fumbleHomebrew: 'Biblioteka homebrew Fumble',
       books: 'Księgi i przygody D&D',
       dice: 'Rzuty kośćmi D&D',
       data: 'Kopia danych',
@@ -1362,6 +1371,8 @@ const pl: Dictionary = {
         'Przeglądaj zaklęcia, przedmioty, stworzenia, klasy, zasady i wszystkie kategorie kompendium D&D 2024.',
       homebrew:
         'Twórz, importuj, tłumacz i przechowuj własne wpisy D&D lokalnie w przeglądarce.',
+      fumbleHomebrew:
+        'Przeglądaj zasady kampanii, opcje, klasy, linie krwi i przedmioty twórców Fumble.',
       books:
         'Przeglądaj i czytaj zindeksowane podręczniki oraz przygody D&D według edycji i rozdziałów.',
       dice: 'Rzucaj kośćmi D&D, wyrażeniami, z przewagą i zapisanymi pulami w przeglądarce.',
@@ -1517,6 +1528,21 @@ const pl: Dictionary = {
     baseLanguage: 'Podstawowy',
     translationHint:
       'Uzupełnij tłumaczenie dla tego języka. Puste pola korzystają z treści podstawowej.',
+    fumbleTitle: 'Biblioteka homebrew Fumble',
+    showFumbleInCompendium: 'Pokazuj homebrew Fumble w Kompendium',
+    searchFumble: 'Szukaj',
+    allFumbleCategories: 'Cała zawartość Fumble',
+    fumbleShowing: '{{count}} z {{total}}',
+    noFumbleMatches: 'Żaden wpis Fumble nie pasuje do wyszukiwania.',
+    fumbleCampaignFilter: 'Kampania',
+    allFumbleCampaigns: 'Wszystkie kampanie',
+    fumbleCampaigns: {
+      tombOfAnnihilation: 'Grobowiec Zagłady',
+      crystalSphere: 'Kryształowa Sfera',
+      dragonHunger: 'Głód Smoka',
+      sevenFugitives: 'Siedmiu Zbiegów',
+      borderWanderers: 'Wędrowcy Granic',
+    },
   },
 };
 

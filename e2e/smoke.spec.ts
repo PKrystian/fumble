@@ -100,6 +100,21 @@ test('compendium exposes magic variants and imported source collections', async 
   await expect(page.getByRole('link', { name: /^Adaptive Body/ })).toBeVisible();
 });
 
+test('keeps Fumble firearms in their own category', async ({ page }) => {
+  await page.goto('/fumble-homebrew?category=firearms');
+  await expect(page.getByRole('button', { name: 'Firearms' })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+  await expect(page.getByRole('link', { name: /^Pneumatic Pistol/ })).toHaveAttribute(
+    'href',
+    '/compendium/firearms/pneumatic-pistol/',
+  );
+
+  await page.goto('/compendium/firearms/pneumatic-pistol');
+  await expect(page.getByRole('heading', { name: 'Pneumatic Pistol' })).toBeVisible();
+});
+
 test('weapon details include mastery and property rules in Polish', async ({ page }) => {
   await page.goto('/pl/compendium/items/greatsword');
 
@@ -238,7 +253,120 @@ test('spell filters include imported homebrew classes', async ({ page }) => {
   await page.getByRole('button', { name: 'Witch', exact: true }).click();
 
   await expect(page.getByRole('link', { name: /^Animate Hut/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /^Acid Splash/ })).toBeVisible();
   await expect(page.getByRole('link', { name: /^Fireball/ })).toHaveCount(0);
+});
+
+test('Polish spell filters include the Witch spell list', async ({ page }) => {
+  await page.goto('/pl/compendium/spells');
+  await page.getByRole('button', { name: /Filtry/ }).click();
+  await page.getByRole('searchbox', { name: 'Szukaj opcji filtrów' }).fill('Wiedźma');
+  await page.getByRole('button', { name: 'Wiedźma', exact: true }).click();
+
+  await expect(page.getByRole('link', { name: /^Kwaśny Pryskacz/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /^Kula Ognia/ })).toHaveCount(0);
+});
+
+test('Polish filters normalize values and bulk actions', async ({ page }) => {
+  await page.goto('/pl/compendium/spells');
+  await page.getByRole('button', { name: /Filtry/ }).click();
+
+  await expect(page.getByRole('button', { name: 'Kleryk', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Duchowny', exact: true })).toHaveCount(
+    0,
+  );
+  await expect(page.getByRole('button', { name: 'druid', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Druid', exact: true })).toHaveCount(1);
+
+  const spellAll = page.getByRole('button', { name: 'Wszystkie', exact: true });
+  await spellAll.nth(1).click();
+  await expect(page.getByRole('button', { name: 'Kleryk', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+  const spellClear = page.getByRole('button', { name: 'Wyczyść', exact: true });
+  await spellClear.nth(1).click();
+  await expect(page.getByRole('button', { name: 'Kleryk', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'false',
+  );
+
+  await page.getByRole('button', { name: 'Zamknij filtry' }).click();
+  await page.goto('/pl/compendium/items');
+  await page.getByRole('button', { name: /Filtry/ }).click();
+  await expect(
+    page.getByRole('button', { name: 'Broń do Walki Wręcz', exact: true }),
+  ).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Broń biała', exact: true })).toHaveCount(
+    0,
+  );
+  const itemAll = page.getByRole('button', { name: 'Wszystkie', exact: true });
+  await itemAll.nth(1).click();
+  await expect(
+    page.getByRole('button', { name: 'Broń do Walki Wręcz', exact: true }),
+  ).toHaveAttribute('aria-pressed', 'true');
+  const itemClear = page.getByRole('button', { name: 'Wyczyść', exact: true });
+  await itemClear.nth(1).click();
+  await expect(
+    page.getByRole('button', { name: 'Broń do Walki Wręcz', exact: true }),
+  ).toHaveAttribute('aria-pressed', 'false');
+});
+
+test('Fumble homebrew keeps class headers and hover previews usable', async ({
+  page,
+}) => {
+  await page.goto('/pl/fumble-homebrew');
+
+  await expect(page.getByRole('textbox', { name: 'Szukaj' })).toBeVisible();
+  await expect(
+    page.getByText(
+      'Zasady kampanii, opcje, klasy, linie krwi, podklasy i przedmioty utrzymywane przez twórców Fumble.',
+    ),
+  ).toHaveCount(0);
+  await expect(page.getByText('Linki otwierają zwykłe wpisy Kompendium.')).toHaveCount(0);
+
+  await page.getByRole('textbox', { name: 'Szukaj' }).fill('Witch');
+  await expect(page).toHaveURL(/\/pl\/fumble-homebrew\/?\?q=Witch/);
+  await page.getByRole('button', { name: 'Klasy', exact: true }).click();
+  await expect(page).toHaveURL(/\/pl\/fumble-homebrew\/?\?category=classes&q=Witch/);
+  await page.getByRole('link', { name: /^Wied/ }).first().click();
+  await expect(page).toHaveURL(/\/pl\/compendium\/classes\/witch\//);
+  await page.goBack();
+  await expect(page).toHaveURL(/\/pl\/fumble-homebrew\/?\?category=classes&q=Witch/);
+  await expect(page.getByRole('textbox', { name: 'Szukaj' })).toHaveValue('Witch');
+  await expect(page.getByRole('button', { name: 'Klasy', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+
+  await page.goto('/pl/compendium/classes/witch');
+  await expect(page.getByText('Klasa', { exact: true })).toBeVisible();
+
+  const cackle = page.getByRole('link', { name: 'Chichot', exact: true }).first();
+  await cackle.scrollIntoViewIfNeeded();
+  await cackle.hover();
+  await expect(page.getByRole('tooltip')).toContainText('Wydajesz szalony chichot');
+});
+
+test('keeps long pages inside the app scroll containers', async ({ page }) => {
+  for (const route of [
+    '/pl/fumble-homebrew/',
+    '/pl/compendium/rules/firearms-catalog/',
+  ]) {
+    await page.goto(route);
+    await expect(page.locator('main')).toBeVisible();
+    const metrics = await page.evaluate(() => ({
+      documentClientHeight: document.documentElement.clientHeight,
+      documentScrollHeight: document.documentElement.scrollHeight,
+      bodyScrollHeight: document.body.scrollHeight,
+      mainClientHeight: document.querySelector('main')?.clientHeight ?? 0,
+      mainScrollHeight: document.querySelector('main')?.scrollHeight ?? 0,
+    }));
+
+    expect(metrics.documentScrollHeight).toBe(metrics.documentClientHeight);
+    expect(metrics.bodyScrollHeight).toBe(metrics.documentClientHeight);
+    expect(metrics.mainScrollHeight).toBeGreaterThan(metrics.mainClientHeight);
+  }
 });
 
 test('can create a character and edit core stats', async ({ page }) => {
@@ -603,10 +731,12 @@ test('wiki chooses campaigns and configures the local Chult map editor', async (
   await page.locator('a[href="/wiki/grobowiec-zaglady/"]').click();
   await expect(page).toHaveURL(/\/wiki\/grobowiec-zaglady\/$/);
 
-  const mapLink = page.getByRole('link', { name: 'Chult map' });
+  const mapLink = page.locator('a[href="/wiki/grobowiec-zaglady/map/"]');
   await expect(mapLink).toBeVisible();
-  await mapLink.click();
-  await expect(page).toHaveURL(/\/wiki\/grobowiec-zaglady\/map\/$/);
+  await Promise.all([
+    page.waitForURL(/\/wiki\/grobowiec-zaglady\/map\/$/),
+    mapLink.click(),
+  ]);
   await expect(
     page.getByRole('img', { name: 'Chult map with a hex grid' }),
   ).toBeVisible();

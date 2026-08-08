@@ -41,6 +41,7 @@ function setup(
     items: availableItems,
     selected,
     onToggle: vi.fn(),
+    onSetFilter: vi.fn(),
     onClear: vi.fn(),
     onRandom: vi.fn(),
     sortField: 'name',
@@ -120,6 +121,24 @@ describe('FilterBar', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Core Book' }));
     expect(props.onToggle).toHaveBeenCalledWith('size', 'Size 1');
     expect(props.onToggle).toHaveBeenCalledWith('source', 'XPHB');
+  });
+
+  it('updates all visible values in one operation', () => {
+    const { props } = setup({ size: ['Size 1'] });
+    fireEvent.click(screen.getByRole('button', { name: /^Filters/ }));
+
+    const allButtons = screen.getAllByRole('button', { name: 'All' });
+    fireEvent.click(allButtons.at(-1)!);
+    expect(props.onSetFilter).toHaveBeenCalledWith(
+      'size',
+      expect.arrayContaining(['Size 1', 'Size 18']),
+    );
+    expect(props.onSetFilter).toHaveBeenCalledTimes(1);
+
+    const clearButtons = screen.getAllByRole('button', { name: 'Clear' });
+    fireEvent.click(clearButtons.at(-1)!);
+    expect(props.onSetFilter).toHaveBeenLastCalledWith('size', []);
+    expect(props.onSetFilter).toHaveBeenCalledTimes(2);
   });
 
   it('closes the modal with Escape and the backdrop', () => {

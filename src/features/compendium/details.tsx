@@ -38,18 +38,28 @@ import itemPropertyOverlay from '@/data/generated/pl/item-properties.json';
 import masteriesData from '@/data/generated/masteries.json';
 import masteryOverlay from '@/data/generated/pl/masteries.json';
 import type { Entry, EntryNode } from '@/data/compendium/entry';
-import { Fragment, type ReactNode, useMemo, useState } from 'react';
+import { Fragment, type ReactNode, useEffect, useMemo, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { CheckSquare, RotateCcw, Shuffle, Tag } from 'lucide-react';
+import { imageUrl, optimizedImageUrl } from '@/data/compendium/images';
 import { RollableDice } from '@/features/dice/RollableDice';
 import { sourceAbbrev, sourceRank } from '@/data/compendium/sources';
 import { useHomebrewStore } from '@/features/homebrew/store';
-import { Link, useLocale } from '@/i18n/path';
+import { useLightbox } from '@/features/ui/lightboxStore';
+import { Link, useLocale, useNavigate } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
+import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 import { OriginalName } from '@/features/ui/OriginalName';
 import { agreeSize } from './creatureMeta';
 import { EntryRenderer } from './EntryRenderer';
 import { localizeFormula } from './formula';
 import { parseMarkup } from './markup';
+import { findSubclassByRouteKey, subclassRouteKey } from './subclassRoute';
+import {
+  ClassReferenceList,
+  ClassReferenceText,
+  SubclassReferenceList,
+} from './classReferences';
 
 interface ItemRuleRecord {
   id: string;
@@ -207,27 +217,33 @@ function DetailHeader({
   title,
   original,
   subtitle,
+  badge,
 }: {
   title: string;
   original?: string | undefined;
-  subtitle?: string | undefined;
+  subtitle?: ReactNode;
+  badge?: ReactNode;
 }) {
   return (
     <header>
-      <h1 className="font-display text-2xl font-bold text-ink-50">
-        {title} <OriginalName name={original} className="ml-2 text-lg" />
-      </h1>
+      <div className="flex flex-wrap items-center gap-2">
+        <h1 className="font-display text-2xl font-bold text-ink-50">
+          {title} <OriginalName name={original} className="ml-2 text-lg" />
+        </h1>
+        {badge}
+      </div>
       {subtitle && <p className="text-sm italic text-ink-300">{subtitle}</p>}
     </header>
   );
 }
 
-function MetaRow({ label, value }: { label: string; value: string }) {
+function MetaRow({ label, value }: { label: string; value: ReactNode }) {
+  const locale = useLocale();
   if (!value) return null;
   return (
     <p className="text-sm text-ink-200">
       <span className="font-semibold text-ink-50">{label}: </span>
-      {value}
+      {typeof value === 'string' ? parseMarkup(value, locale) : value}
     </p>
   );
 }
@@ -653,13 +669,27 @@ export function SpellDetail({ spell }: { spell: SpellEntry }) {
           {spell.classes?.length && (
             <MetaRow
               label={t('compendium.filters.labels.class')}
-              value={spell.classes.join(', ')}
+              value={
+                <ClassReferenceList
+                  values={spell.classes}
+                  {...(spell._englishClasses
+                    ? { referenceValues: spell._englishClasses }
+                    : {})}
+                />
+              }
             />
           )}
           {spell.subclasses?.length && (
             <MetaRow
               label={t('compendium.filters.labels.subclass')}
-              value={spell.subclasses.join(', ')}
+              value={
+                <SubclassReferenceList
+                  values={spell.subclasses}
+                  {...(spell._englishSubclasses
+                    ? { referenceValues: spell._englishSubclasses }
+                    : {})}
+                />
+              }
             />
           )}
         </div>
@@ -668,9 +698,15 @@ export function SpellDetail({ spell }: { spell: SpellEntry }) {
   );
 }
 
-export function SpeciesDetail({ species }: { species: SpeciesEntry }) {
+export function SpeciesDetail({
+  species,
+  subtitle,
+}: {
+  species: SpeciesEntry;
+  subtitle?: string;
+}) {
   const { t } = useT();
-  const subtitle = species.parentRace
+  const defaultSubtitle = species.parentRace
     ? t('compendium.detail.subraceOf', { parent: species.parentRace })
     : species.creatureType;
   return (
@@ -678,7 +714,7 @@ export function SpeciesDetail({ species }: { species: SpeciesEntry }) {
       <DetailHeader
         title={species.name}
         original={species.englishName}
-        subtitle={subtitle}
+        subtitle={subtitle ?? defaultSubtitle}
       />
       <div className="flex flex-col gap-1">
         <MetaRow label={t('compendium.detail.size')} value={species.size} />
@@ -691,17 +727,24 @@ export function SpeciesDetail({ species }: { species: SpeciesEntry }) {
   );
 }
 
-export function FeatDetail({ feat }: { feat: FeatEntry }) {
+export function FeatDetail({ feat, subtitle }: { feat: FeatEntry; subtitle?: string }) {
   const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={feat.name}
         original={feat.englishName}
-        subtitle={t('compendium.detail.featCategory', { category: feat.category })}
+        subtitle={
+          subtitle ?? t('compendium.detail.featCategory', { category: feat.category })
+        }
       />
       <div className="flex flex-col gap-1">
-        <MetaRow label={t('compendium.detail.prerequisite')} value={feat.prerequisite} />
+        {feat.prerequisite && (
+          <MetaRow
+            label={t('compendium.detail.prerequisite')}
+            value={<ClassReferenceText text={feat.prerequisite} />}
+          />
+        )}
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={feat.entries} />
@@ -732,7 +775,12 @@ export function BackgroundDetail({ background }: { background: BackgroundEntry }
           label={t('compendium.detail.toolProficiencies')}
           value={background.tools}
         />
-        <MetaRow label={t('compendium.detail.feat')} value={background.feat} />
+        {background.feat && (
+          <MetaRow
+            label={t('compendium.detail.feat')}
+            value={<ClassReferenceText text={background.feat} />}
+          />
+        )}
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={background.entries} />
@@ -741,14 +789,14 @@ export function BackgroundDetail({ background }: { background: BackgroundEntry }
   );
 }
 
-export function RuleDetail({ rule }: { rule: RuleEntry }) {
+export function RuleDetail({ rule, subtitle }: { rule: RuleEntry; subtitle?: string }) {
   const { t } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={rule.name}
         original={rule.englishName}
-        subtitle={t('compendium.detail.ruleType', { type: rule.ruleType })}
+        subtitle={subtitle ?? t('compendium.detail.ruleType', { type: rule.ruleType })}
       />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={rule.entries} />
@@ -781,13 +829,15 @@ export function OptionalFeatureDetail({ feature }: { feature: OptionalFeatureEnt
       <DetailHeader
         title={feature.name}
         original={feature.englishName}
-        subtitle={feature.featureType}
+        subtitle={<ClassReferenceText text={feature.featureType} />}
       />
       <div className="flex flex-col gap-1">
-        <MetaRow
-          label={t('compendium.detail.prerequisite')}
-          value={feature.prerequisite}
-        />
+        {feature.prerequisite && (
+          <MetaRow
+            label={t('compendium.detail.prerequisite')}
+            value={<ClassReferenceText text={feature.prerequisite} />}
+          />
+        )}
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={feature.entries} />
@@ -847,21 +897,36 @@ export function BoonDetail({ boon }: { boon: BoonEntry }) {
   );
 }
 
-export function ItemDetail({ item }: { item: ItemEntry }) {
+export function ItemDetail({
+  item,
+  subtitle,
+}: {
+  item: ItemEntry;
+  subtitle?: ReactNode;
+}) {
   const { t } = useT();
   const locale = useLocale();
-  const subtitle = [item.type, item.rarity].filter(Boolean).join(', ');
+  const itemSubtitle = [item.type, item.rarity].filter(Boolean).join(', ');
   const rules = itemRuleEntries(item, locale, t('compendium.detail.weaponMastery'));
   const entries = [...item.entries, ...rules.entries];
   return (
     <article className="flex flex-col gap-5">
-      <DetailHeader title={item.name} original={item.englishName} subtitle={subtitle} />
+      <DetailHeader
+        title={item.name}
+        original={item.englishName}
+        subtitle={subtitle ?? itemSubtitle}
+      />
       <div className="flex flex-col gap-1">
         <MetaRow label={t('compendium.detail.damage')} value={item.damage} />
         <MetaRow label={t('compendium.detail.armorClass')} value={item.ac} />
         <MetaRow label={t('compendium.detail.properties')} value={item.properties} />
         <MetaRow label={t('compendium.detail.mastery')} value={rules.masteryNames} />
-        <MetaRow label={t('compendium.detail.attunement')} value={item.attunement} />
+        {item.attunement && (
+          <MetaRow
+            label={t('compendium.detail.attunement')}
+            value={<ClassReferenceText text={item.attunement} />}
+          />
+        )}
         <MetaRow label={t('compendium.detail.weight')} value={item.weight} />
         <MetaRow label={t('compendium.detail.value')} value={item.value} />
       </div>
@@ -936,12 +1001,12 @@ function ProgressionTable({
   );
 }
 
-type MergedFeature = ClassFeature & { sub: string };
+type MergedFeature = ClassFeature & { sub: string; subclass?: ClassSubclass };
 
 type ViewMode = 'default' | 'recent' | 'all' | 'homebrew';
 
 function subKey(sub: { name: string; source: string }): string {
-  return `${sub.name}|${sub.source}`;
+  return `${'id' in sub && typeof sub.id === 'string' ? sub.id : sub.name}|${sub.source}`;
 }
 
 function pickPreferred<T extends { source: string }>(
@@ -1029,15 +1094,44 @@ function ArtificerSubclassComparison({ cls }: { cls: ClassEntry }) {
   );
 }
 
-export function ClassDetail({ cls }: { cls: ClassEntry }) {
+function SubclassImage({ subclass }: { subclass: ClassSubclass }) {
+  const openLightbox = useLightbox((state) => state.open);
+  if (!subclass.image) return null;
+  return (
+    <img
+      src={optimizedImageUrl(subclass.image, import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN)}
+      alt={subclass.name}
+      loading="lazy"
+      onClick={() => openLightbox(imageUrl(subclass.image!), subclass.name)}
+      onError={(event) => {
+        event.currentTarget.style.display = 'none';
+      }}
+      className="h-auto max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+    />
+  );
+}
+
+export function ClassDetail({
+  cls,
+  badge,
+  subtitle,
+  selectedSubclassId,
+}: {
+  cls: ClassEntry;
+  badge?: ReactNode;
+  subtitle?: string;
+  selectedSubclassId?: string;
+}) {
   const { t } = useT();
+  const { params } = useUrlSearchState();
+  const navigate = useNavigate();
+  const { id: routeClassId, subclass: routeSubclassId } = useParams<{
+    id?: string;
+    subclass?: string;
+  }>();
   const [selected, setSelected] = useState<string[]>([]);
   const [viewMode, setViewMode] = useState<ViewMode>('default');
   const [showSourceLabels, setShowSourceLabels] = useState(true);
-  const toggle = (key: string) =>
-    setSelected((prev) =>
-      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key],
-    );
 
   const homebrewEntries = useHomebrewStore((s) => s.entries);
   const homebrewSubclasses = useMemo(
@@ -1050,6 +1144,77 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
         .map((e) => e.subclass),
     [homebrewEntries, cls.name],
   );
+
+  const allSubclasses = useMemo(
+    () => [...cls.subclasses, ...homebrewSubclasses],
+    [cls.subclasses, homebrewSubclasses],
+  );
+  const searchSignature = params.toString();
+  const querySubclassKeys = useMemo(
+    () => new URLSearchParams(searchSignature).getAll('subclass'),
+    [searchSignature],
+  );
+  const requestedRouteKeys = useMemo(
+    () =>
+      selectedSubclassId
+        ? [selectedSubclassId]
+        : routeSubclassId
+          ? [routeSubclassId]
+          : querySubclassKeys,
+    [querySubclassKeys, routeSubclassId, selectedSubclassId],
+  );
+  const requestedSubclasses = useMemo(
+    () =>
+      requestedRouteKeys
+        .map(
+          (key) =>
+            allSubclasses.find((subclass) => subKey(subclass) === key) ??
+            findSubclassByRouteKey(allSubclasses, key),
+        )
+        .filter((subclass): subclass is ClassSubclass => subclass !== undefined),
+    [allSubclasses, requestedRouteKeys],
+  );
+  const isClassRoute = routeClassId === cls.id;
+
+  useEffect(() => {
+    if (requestedSubclasses.length > 0) {
+      setSelected(requestedSubclasses.map(subKey));
+    } else if (isClassRoute) {
+      setSelected([]);
+    }
+  }, [isClassRoute, requestedSubclasses]);
+
+  const syncSelection = (next: string[]) => {
+    setSelected(next);
+    const nextSubclasses = next
+      .map(
+        (key) =>
+          allSubclasses.find((subclass) => subKey(subclass) === key) ??
+          findSubclassByRouteKey(allSubclasses, key),
+      )
+      .filter((subclass): subclass is ClassSubclass => subclass !== undefined);
+    const search = new URLSearchParams(params);
+    search.delete('subclass');
+    if (nextSubclasses.length === 1) {
+      navigate({
+        pathname: `/compendium/classes/${cls.id}/${subclassRouteKey(nextSubclasses[0]!)}`,
+        search: search.toString(),
+      });
+      return;
+    }
+    for (const subclass of nextSubclasses)
+      search.append('subclass', subclassRouteKey(subclass));
+    navigate({
+      pathname: `/compendium/classes/${cls.id}`,
+      search: search.toString(),
+    });
+  };
+
+  const toggle = (key: string) => {
+    syncSelection(
+      selected.includes(key) ? selected.filter((k) => k !== key) : [...selected, key],
+    );
+  };
 
   const groups = useMemo(() => {
     const m = new Map<string, ClassSubclass[]>();
@@ -1072,18 +1237,29 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
       viewMode === 'recent' ? pickPreferred(group) : pickPreferred(group, cls.source),
     );
     const list = viewMode === 'homebrew' ? [...base, ...homebrewSubclasses] : base;
+    for (const subclass of requestedSubclasses) {
+      if (!list.some((entry) => subKey(entry) === subKey(subclass))) list.push(subclass);
+    }
     return list.sort((a, b) => a.name.localeCompare(b.name));
-  }, [viewMode, groups, cls.subclasses, cls.source, homebrewSubclasses]);
+  }, [
+    viewMode,
+    groups,
+    cls.subclasses,
+    cls.source,
+    homebrewSubclasses,
+    requestedSubclasses,
+  ]);
 
   const allSelected =
     visibleSubclasses.length > 0 &&
     visibleSubclasses.every((s) => selected.includes(subKey(s)));
   const toggleSelectAll = () =>
-    setSelected(allSelected ? [] : visibleSubclasses.map(subKey));
-  const pickRandom = () =>
-    setSelected([
-      subKey(visibleSubclasses[Math.floor(Math.random() * visibleSubclasses.length)]!),
-    ]);
+    syncSelection(allSelected ? [] : visibleSubclasses.map(subKey));
+  const pickRandom = () => {
+    const subclass =
+      visibleSubclasses[Math.floor(Math.random() * visibleSubclasses.length)];
+    if (subclass) syncSelection([subKey(subclass)]);
+  };
 
   const selectedSubs = visibleSubclasses.filter((s) => selected.includes(subKey(s)));
 
@@ -1098,16 +1274,41 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
 
   const merged: MergedFeature[] = [
     ...cls.features.map((f) => ({ ...f, sub: '' })),
-    ...selectedSubs.flatMap((sub) => sub.features.map((f) => ({ ...f, sub: sub.name }))),
-  ].sort((a, b) => a.level - b.level || Number(Boolean(a.sub)) - Number(Boolean(b.sub)));
+    ...selectedSubs.flatMap((sub) => {
+      const context =
+        sub.image || sub.lore?.length
+          ? [
+              {
+                level: sub.features[0]?.level ?? 3,
+                name: sub.name,
+                entries: [],
+                sub: sub.name,
+                subclass: sub,
+              },
+            ]
+          : [];
+      return [...context, ...sub.features.map((f) => ({ ...f, sub: sub.name }))];
+    }),
+  ].sort((a, b) => {
+    const level = a.level - b.level;
+    if (level !== 0) return level;
+    const rank = (feature: MergedFeature) => (feature.subclass ? 1 : feature.sub ? 2 : 0);
+    return rank(a) - rank(b);
+  });
 
   return (
     <article className="flex flex-col gap-6">
       <DetailHeader
         title={cls.name}
         original={cls.englishName}
-        subtitle={t('compendium.classDetail.subtitle')}
+        subtitle={subtitle ?? t('compendium.classDetail.subtitle')}
+        badge={badge}
       />
+      {cls.intro && cls.intro.length > 0 && (
+        <div className="flex flex-col gap-3">
+          <EntryRenderer entries={cls.intro} />
+        </div>
+      )}
       {cls.id === 'artificer' && (
         <section className="flex flex-col gap-2" aria-labelledby="class-overview">
           <h2
@@ -1189,7 +1390,7 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
               </button>
               <button
                 type="button"
-                onClick={() => setSelected([])}
+                onClick={() => syncSelection([])}
                 aria-label={t('compendium.classDetail.resetSelectionLabel')}
                 className="rounded p-1.5 text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50"
               >
@@ -1258,7 +1459,15 @@ export function ClassDetail({ cls }: { cls: ClassEntry }) {
               )}
               {feature.name}
             </h3>
-            <EntryRenderer entries={feature.entries} />
+            {feature.subclass && (
+              <>
+                <SubclassImage subclass={feature.subclass} />
+                {feature.subclass.lore && (
+                  <EntryRenderer entries={feature.subclass.lore} />
+                )}
+              </>
+            )}
+            {feature.entries.length > 0 && <EntryRenderer entries={feature.entries} />}
           </div>
         ))}
       </section>
@@ -1723,10 +1932,12 @@ export function CharOptionDetail({ option }: { option: CharOptionEntry }) {
         subtitle={option.optionType}
       />
       <div className="flex flex-col gap-1">
-        <MetaRow
-          label={t('compendium.detail.prerequisite')}
-          value={option.prerequisite}
-        />
+        {option.prerequisite && (
+          <MetaRow
+            label={t('compendium.detail.prerequisite')}
+            value={<ClassReferenceText text={option.prerequisite} />}
+          />
+        )}
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={option.entries} />

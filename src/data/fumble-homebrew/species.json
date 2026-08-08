@@ -1,0 +1,420 @@
+{
+  "meta": {
+    "category": "species",
+    "count": 4,
+    "source": "Fumble"
+  },
+  "items": [
+    {
+      "id": "nocturnal-moth",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Nocturnal Moth",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "species",
+      "subtitle": "Monstrosity, Medium or Small",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Lore",
+          "entries": [
+            "Nocturnal Moths are envoys of the Great Moon Spirit who help mortals and transport messages between cities. Their adventurers have as many origins as other mortals."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Life Mode",
+          "entries": [
+            "Nocturnal Moths live a nomadic life. {@spell Daylight|XPHB} blinds them, so they cannot live in cities. Their caravans are moving towns called Star Systems. A Star Caravan forms the center, Satellites form the outer ring, and Scouts called Comets remain scattered around the edges. When a Comet detects a shadow, it warns the caravan, which changes course. Refusing help or refusing offered help is considered morally wrong in their culture, although a character may come from another culture."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Moth, a language that communicates through changing {@spell Light|XPHB} patterns like fast Morse code."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Creature Type",
+          "entries": ["Monstrosity."]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Medium or Small. You choose the {@variantrule Size|XPHB} when you gain this lineage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": ["Your walking {@variantrule Speed|XPHB} is 30 feet."]
+        },
+        {
+          "type": "entries",
+          "name": "Moon Strength",
+          "entries": ["You have resistance to Necrotic Damage."]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "You can see in {@variantrule Dim Light|XPHB} within 120 feet as if it were {@variantrule Bright Light|XPHB}, and in {@variantrule Darkness|XPHB} as if it were {@variantrule Dim Light|XPHB}. You discern colors in {@variantrule Darkness|XPHB} as shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sunlight Sensitivity",
+          "entries": [
+            "When directly in sunlight, you have {@variantrule Disadvantage|XPHB} on Wisdom ({@skill Perception|XPHB}) checks."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Feeding on Light",
+          "entries": [
+            "You do not need normal food or {@variantrule Sleep|XPHB} for sustenance. You consume light by basking in it for 4 hours, gaining sustenance for 1 day. During this time, you can perform only light activity."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Moon Favor",
+          "entries": [
+            "You have {@variantrule Advantage|XPHB} on Dexterity ({@skill Stealth|XPHB}) checks made to hide from silhouettes and on Wisdom ({@skill Survival|XPHB}, {@skill Insight|XPHB}, and {@skill Perception|XPHB}) checks related to silhouettes."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Light Speaker",
+          "entries": [
+            "You know the {@spell Light|XPHB} Cantrip and can also use it as the {@spell Message|XPHB} Cantrip. Creatures that can see the {@spell Light|XPHB} you produce and understand Moth can understand your signals."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Innate Spellcasting",
+          "entries": [
+            "Intelligence, Wisdom, or Charisma is your {@variantrule Spellcasting|XGE} ability for your innate spells. Choose the ability when you select this lineage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Moth Insectoid Characteristics",
+          "entries": [
+            "When you select this lineage, choose one of the following traits:",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Flight",
+                  "entry": "Because of your wings, you have a {@variantrule Flying|XPHB} {@variantrule Speed|XPHB} equal to your walking {@variantrule Speed|XPHB}. You cannot use this flying speed while wearing Medium or Heavy Armor."
+                },
+                {
+                  "type": "item",
+                  "name": "Secondary Arms",
+                  "entry": "You have two slightly smaller secondary arms below your primary pair of arms. The secondary arms can manipulate an {@variantrule Object|XPHB}, open or close a door or container, pick up or set down a Tiny {@variantrule Object|XPHB}, or wield a Weapon."
+                },
+                {
+                  "type": "item",
+                  "name": "Moon Spellcasting",
+                  "entries": [
+                    "You know the {@spell Sacred Flame|XPHB} Cantrip.",
+                    "Starting at level 3, you can cast {@spell Faerie Fire|XPHB} with this trait.",
+                    "Starting at level 5, you can also cast {@spell Moonbeam|XPHB} with this trait. You can cast either of those spells using any spell slots you have of the appropriate level."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Silk",
+                  "entry": "You can cast {@spell Web|XPHB} as an Action a number of times equal to your Proficiency Bonus. You regain all expended uses when you finish a {@variantrule Long Rest|XPHB}. You can also cast this spell using any spell slots you have of the appropriate level."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "size": "Medium or Small",
+      "speed": "30 ft.",
+      "creatureType": "Monstrosity"
+    },
+    {
+      "id": "diurnal-moth",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Diurnal Moth",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "species",
+      "subtitle": "Monstrosity, Medium or Small",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Lore",
+          "entries": [
+            "Diurnal Moth ancestors consumed the light of souls. This changed them into swarm creatures for whom the swarm is generally more important than the individual. Adventurers are usually outcasts or individuals who left the swarm. Their eusocial culture places the needs of the swarm above the needs of the individual and accepts the loss of personality and individuality. Each moth is assigned a role and a body adapted to that role."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Moth, a language that communicates through changing light patterns like fast Morse code."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Creature Type",
+          "entries": ["You are a Monstrosity."]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "You are Medium or Small. You choose the size when you gain this lineage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": ["Your walking {@variantrule Speed|XPHB} is 30 feet."]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "You can see in {@variantrule Dim Light|XPHB} within 120 feet as if it were {@variantrule Bright Light|XPHB}, and in {@variantrule Darkness|XPHB} as if it were {@variantrule Dim Light|XPHB}. You discern colors in {@variantrule Darkness|XPHB} as shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sunlight Sensitivity",
+          "entries": [
+            "When directly in sunlight, you have {@variantrule Disadvantage|XPHB} on Wisdom ({@skill Perception|XPHB}) checks."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Moon Favor",
+          "entries": [
+            "You have {@variantrule Advantage|XPHB} on Dexterity ({@skill Stealth|XPHB}) checks made to hide from silhouettes and on Wisdom ({@skill Survival|XPHB}, {@skill Insight|XPHB}, and {@skill Perception|XPHB}) checks related to silhouettes."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Light Speaker",
+          "entries": [
+            "You know the {@spell Light|XPHB} Cantrip and can also use it as the {@spell Message|XPHB} Cantrip. Creatures that can see the {@spell Light|XPHB} you produce and understand Moth can understand your signals."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Innate Spellcasting",
+          "entries": [
+            "Intelligence, Wisdom, or Charisma is your {@variantrule Spellcasting|XGE} ability for your innate spells. Choose the ability when you select this lineage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Caste Roles",
+          "entries": [
+            "When a Diurnal Moth hatches, it is already adapted to a specific role within the swarm. Choose one of the following roles:",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Caretaker",
+                  "entry": "You can innately cast {@spell Calm Emotions|XPHB} once per {@variantrule Long Rest|XPHB} and can also cast it with spell slots. You gain Proficiency in two skills of your choice. You can expend one {@variantrule Hit Point Dice|XPHB|Hit Die} without an Action to make your {@spell Light|XPHB} Cantrip emit sunlight instead of normal light."
+                },
+                {
+                  "type": "item",
+                  "name": "Soldier",
+                  "entries": [
+                    "Secondary Arms. You have two smaller secondary arms beneath your primary pair. They can manipulate objects, open or close doors or containers, pick up or set down Tiny objects, or wield a weapon.",
+                    "Bite. You have fang-like mandibles you can use to make {@variantrule Unarmed Strike|XPHB|unarmed strikes}. On a hit, the strike deals {@damage 1d6} plus your Strength modifier in Slashing damage instead of the normal Bludgeoning damage.",
+                    "Venomous Bite. As a {@variantrule Bonus Action|XPHB}, you can make a special attack with your Bite. On a hit, it deals additional Poison damage equal to your Proficiency Bonus multiplied by {@dice d6}. You can use this feature a number of times equal to your Proficiency Bonus and regain all expended uses after a {@variantrule Long Rest|XPHB}."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Builder",
+                  "entry": "You gain Proficiency with {@item Mason's Tools|XPHB}, {@item Weaver's Tools|XPHB}, and {@skill Sleight of Hand|XPHB}. You can cast {@spell Web|XPHB} as an Action a number of times equal to your Proficiency Bonus. You regain all expended uses after a {@variantrule Long Rest|XPHB}. You can also cast this spell using any spell slots you have of the appropriate level."
+                },
+                {
+                  "type": "item",
+                  "name": "Scout",
+                  "entries": [
+                    "You gain a {@variantrule Climb Speed|XPHB} equal to your walking {@variantrule Speed|XPHB}.",
+                    "Flight. Thanks to your wings, you have a {@variantrule Flying|XPHB} {@variantrule Speed|XPHB} equal to your walking speed. You cannot use this flying speed while wearing Medium or Heavy Armor."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "size": "Medium or Small",
+      "speed": "30 ft.",
+      "creatureType": "Monstrosity"
+    },
+    {
+      "id": "wooden-warforged",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Wooden Warforged",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "species",
+      "subtitle": "Humanoid, Medium",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Lore",
+          "entries": [
+            "Three centuries ago, wooden Warforged rebelled, removed their metal armor, and fled into the forest. The Citadel treats them with great distrust or hostility, while other cities welcome them. Their bodies are made from living wood."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Integrated Weapon",
+          "entries": [
+            "With 1 hour of work, you can integrate a Weapon into your body or grow a new wooden Weapon. Use {@item Woodcarver's Tools|XPHB} to determine the kinds of weapons, but the GM can allow other designs. You cannot hold anything in this hand, but the Weapon gains an equivalent +1 magical enhancement and you gain Proficiency with it."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Your size is Medium. Most Warforged stand between 5 and 6 1/2 feet tall. Weight and build are affected by your lineage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": ["Your walking {@variantrule Speed|XPHB} is 30 feet."]
+        },
+        {
+          "type": "entries",
+          "name": "Warforged Resilience",
+          "entries": [
+            "You have {@variantrule Advantage|XPHB} on saving throws against being {@condition Poisoned|XPHB}, resistance to Poison Damage, {@variantrule Immunity|XPHB} to Disease, and do not need to eat, drink, or breathe. You do not need to {@spell Sleep|XPHB}, do not suffer {@condition Exhaustion|XPHB} from lack of rest, and magic cannot put you to {@spell Sleep|XPHB}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sentry's Rest",
+          "entries": [
+            "During a {@variantrule Long Rest|XPHB}, you spend at least 6 hours inactive and motionless rather than sleeping. You appear inert but remain conscious and can see and hear normally."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Integrated Protection",
+          "entries": [
+            "Your body has built-in defensive layers. You gain no benefit from wearing armor, but apply a {@item Shield|XPHB}'s bonus normally. Darkwood Core sets your unarmored AC to 11 + your Dexterity modifier, adding your Proficiency Bonus if you are proficient with Light armor."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ability Score Increase",
+          "entries": [
+            "Increase one ability score by 2 and a different one by 1, or increase three different scores by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Creature Type",
+          "entries": ["Humanoid."]
+        }
+      ],
+      "size": "Medium",
+      "speed": "30 ft.",
+      "creatureType": "Humanoid"
+    },
+    {
+      "id": "spiryknot",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Spiryknot",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "species",
+      "subtitle": "Construct, Medium",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Lore",
+          "entries": [
+            "Spiryknot are conscious constructs of uncertain origin. Every city now has a manufactory where new Spiryknot are created. They serve cities as soldiers fighting the Umbra, and trade or {@variantrule Adventure|XPHB} to gather materials for more Spiryknot."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": ["Your walking {@variantrule Speed|XPHB} is 30 feet."]
+        },
+        {
+          "type": "entries",
+          "name": "Candle Nature",
+          "entries": [
+            "You have {@variantrule Immunity|XPHB} to Poison Damage and Disease, {@variantrule Advantage|XPHB} on saving throws against being {@condition Paralyzed|XPHB} or {@condition Poisoned|XPHB}, and do not need to eat, drink, or breathe. You have resistance to Cold Damage, but {@variantrule Vulnerability|XPHB} to Fire Damage. You cannot benefit from Fire resistance, but you can benefit from Fire {@variantrule Immunity|XPHB}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Armored Casing",
+          "entries": [
+            "While you are not wearing armor, your base AC is 13 + your Dexterity modifier. You can don only armor with which you are proficient. To don armor, you must incorporate it into your body over the course of 1 hour, during which you must remain in contact with the armor. To doff armor, you must spend 1 hour removing it. You can rest while donning or doffing armor in this way. While you live, your armor cannot be removed from your body against your will."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Soul Fire Candle",
+          "entries": [
+            "You shed magical {@variantrule Dim Light|XPHB} in a 20-foot radius. The {@spell Light|XPHB} has a level equal to your Proficiency Bonus. If it is the only {@spell Light|XPHB} affecting a Creature at the start of its turn, that Creature gains {@variantrule Temporary Hit Points|XPHB} equal to your Proficiency Bonus. Humanoids always benefit; you choose whether another non-Undead Creature benefits. When there is great need, you can burst the flame and sacrifice 1 year of your short lifespan to cast {@spell Aura of Life|XPHB} without {@condition Concentration|XPHB}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Healing Machine",
+          "entries": [
+            "When {@spell Mending|XPHB} is cast on you, you can spend a Hit Die, roll it, and regain the result + your Constitution modifier, minimum 1 Hit Point. You can also benefit from {@spell Cure Wounds|XPHB}, {@spell Healing Word|XPHB}, {@spell Mass Cure Wounds|XPHB}, {@spell Mass Healing Word|XPHB}, and {@spell Spare the Dying|XPHB} even though those spells normally do not affect Constructs."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sentry's Rest",
+          "entries": [
+            "During a {@variantrule Long Rest|XPHB}, you spend at least 6 hours inactive and motionless instead of sleeping, remaining conscious."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Constructed Resilience",
+          "entries": [
+            "Add your Constitution modifier to saving throws made to avoid {@condition Exhaustion|XPHB}, potentially adding it twice when the {@variantrule Save|XPHB} is a Constitution {@variantrule Save|XPHB}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Past Lives",
+          "entries": ["You gain Proficiency with one tool and one Skill."]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and one other language appropriate to your character and agreed with the GM."
+          ]
+        }
+      ],
+      "size": "Medium",
+      "speed": "30 ft.",
+      "creatureType": "Construct"
+    }
+  ]
+}

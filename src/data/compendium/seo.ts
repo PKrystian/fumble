@@ -76,6 +76,14 @@ const CATEGORY_DETAIL_FIELDS: Record<string, readonly DetailSpec[]> = {
     { key: 'damage', labelKey: 'compendium.seo.details.damage' },
     { key: 'ac', labelKey: 'compendium.seo.details.armorClass' },
   ],
+  firearms: [
+    { key: 'type', labelKey: 'compendium.seo.details.itemType' },
+    { key: 'rarity', labelKey: 'compendium.seo.details.rarity' },
+    { key: 'attunement', labelKey: 'compendium.seo.details.attunement' },
+    { key: 'properties', labelKey: 'compendium.seo.details.properties' },
+    { key: 'damage', labelKey: 'compendium.seo.details.damage' },
+    { key: 'ac', labelKey: 'compendium.seo.details.armorClass' },
+  ],
   languages: [
     { key: 'languageType', labelKey: 'compendium.seo.details.languageType' },
     { key: 'script', labelKey: 'compendium.seo.details.script' },

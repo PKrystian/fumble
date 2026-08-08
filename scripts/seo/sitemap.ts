@@ -24,6 +24,11 @@ import {
 import { withEnglishName } from '../../src/data/compendium/searchText';
 import { translate } from '../../src/i18n/translate';
 import { CAMPAIGN_MAPS } from '../../src/features/campaign-map/maps';
+import {
+  fumbleHomebrewItems,
+  fumbleParentClassId,
+} from '../../src/features/homebrew/fumbleHomebrew';
+import { slugify } from '../../src/data/transform/util';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const SITE_URL = 'https://fumble.krystianpinczak.com';
@@ -111,6 +116,12 @@ const STATIC_PAGES: PageInfo[] = [
     path: '/homebrew',
     title: 'Homebrew - Fumble',
     description: 'Create, import, translate, and manage local D&D homebrew content.',
+    kind: 'website',
+  },
+  {
+    path: '/fumble-homebrew',
+    title: 'Fumble Homebrew Library - Fumble',
+    description: 'Browse campaign homebrew maintained by the Fumble creators.',
     kind: 'website',
   },
   {
@@ -229,6 +240,7 @@ const COMPENDIUM_CATEGORIES = new Set([
   'deities',
   'facilities',
   'feats',
+  'firearms',
   'hazards',
   'items',
   'languages',
@@ -265,6 +277,7 @@ const POLISH_CATEGORY_TITLES: Record<string, string> = {
   deities: 'bóstwa',
   facilities: 'bastiony',
   feats: 'atuty',
+  firearms: 'broń palna',
   hazards: 'zagrożenia',
   items: 'przedmioty',
   languages: 'języki',
@@ -341,6 +354,10 @@ const POLISH_STATIC_PAGES: Record<string, Pick<PageInfo, 'title' | 'description'
   '/homebrew': {
     title: 'Zawartość własna - Fumble',
     description: 'Twórz, importuj, tłumacz i przechowuj lokalną zawartość do D&D.',
+  },
+  '/fumble-homebrew': {
+    title: 'Biblioteka homebrew Fumble - Fumble',
+    description: 'Przeglądaj homebrew kampanii utrzymywane przez twórców Fumble.',
   },
   '/books': {
     title: 'Księgi D&D - Fumble',
@@ -424,6 +441,10 @@ const STATIC_SEO_KEYS: Record<
   '/homebrew': {
     title: 'seo.pageTitles.homebrew',
     description: 'seo.pageDescriptions.homebrew',
+  },
+  '/fumble-homebrew': {
+    title: 'seo.pageTitles.fumbleHomebrew',
+    description: 'seo.pageDescriptions.fumbleHomebrew',
   },
   '/books': {
     title: 'seo.pageTitles.books',
@@ -562,10 +583,60 @@ function compendiumContext(item: CompendiumItem): string {
     item.primaryAbility,
     item.savingThrows,
     item.proficiencies,
+    item.classes,
+    item.subclasses,
+    item.attunement,
+    item.prerequisite,
+    item.featureType,
   ]
     .map(plainText)
     .filter(Boolean)
     .join(' ');
+}
+
+function subclassRouteKey(subclass: {
+  id?: unknown;
+  englishName?: unknown;
+  name: string;
+  source: string;
+}): string {
+  if (typeof subclass.id === 'string' && subclass.id) return subclass.id;
+  const name =
+    typeof subclass.englishName === 'string' ? subclass.englishName : subclass.name;
+  return `${slugify(name)}-${slugify(subclass.source)}`;
+}
+
+function subclassRecords(value: unknown): Array<Record<string, unknown>> {
+  if (!Array.isArray(value)) return [];
+  return value.filter(
+    (entry): entry is Record<string, unknown> =>
+      Boolean(entry) && typeof entry === 'object',
+  );
+}
+
+function localizedSubclass(
+  baseItem: CompendiumItem,
+  subclass: Record<string, unknown>,
+  index: number,
+): Record<string, unknown> {
+  const baseSubclasses = subclassRecords(baseItem.subclasses);
+  const baseSubclass =
+    baseSubclasses.find(
+      (candidate) =>
+        candidate.name === subclass.name && candidate.source === subclass.source,
+    ) ??
+    baseSubclasses.find((candidate) => candidate.source === subclass.source) ??
+    baseSubclasses[index];
+  if (
+    baseSubclass &&
+    typeof baseSubclass.name === 'string' &&
+    typeof subclass.name === 'string' &&
+    subclass.name !== baseSubclass.name &&
+    typeof subclass.englishName !== 'string'
+  ) {
+    return { ...subclass, englishName: baseSubclass.name };
+  }
+  return subclass;
 }
 
 function collectPages(locale: Locale): PageInfo[] {
@@ -590,7 +661,11 @@ function collectPages(locale: Locale): PageInfo[] {
       ...(keys.indexable === false ? { indexable: false } : {}),
     };
   });
-  for (const file of readdirSync(GENERATED_DIR)) {
+  const categoryFiles = new Set([
+    ...readdirSync(GENERATED_DIR).filter((file) => file.endsWith('.json')),
+    'firearms.json',
+  ]);
+  for (const file of categoryFiles) {
     const categoryId = file.replace(/\.json$/, '');
     if (!file.endsWith('.json') || !COMPENDIUM_CATEGORIES.has(categoryId)) continue;
     const categoryKey = `compendium.categories.${categoryId}`;
@@ -604,9 +679,10 @@ function collectPages(locale: Locale): PageInfo[] {
     const displayCategory =
       categoryTitle.charAt(0).toLocaleUpperCase(locale) + categoryTitle.slice(1);
     const categoryPath = `/compendium/${categoryId}`;
-    const raw = JSON.parse(
-      readFileSync(join(GENERATED_DIR, file), 'utf8'),
-    ) as CompendiumFile;
+    const rawPath = join(GENERATED_DIR, file);
+    const raw = existsSync(rawPath)
+      ? (JSON.parse(readFileSync(rawPath, 'utf8')) as CompendiumFile)
+      : { items: [] };
     const categorySeo = getCompendiumCategorySeo(categoryId, displayCategory, locale);
     pages.push({
       path: categoryPath,
@@ -672,6 +748,102 @@ function collectPages(locale: Locale): PageInfo[] {
         ...(typeof item.image === 'string' ? { image: item.image } : {}),
         kind: 'article',
         parent: { path: categoryPath, title: displayCategory },
+      });
+      if (categoryId === 'classes') {
+        for (const [index, rawSubclass] of subclassRecords(item.subclasses).entries()) {
+          const subclass = localizedSubclass(baseItem, rawSubclass, index);
+          const subclassName =
+            typeof subclass.name === 'string' ? subclass.name : 'Subclass';
+          const subclassSource =
+            typeof subclass.source === 'string'
+              ? subclass.source
+              : typeof item.source === 'string'
+                ? item.source
+                : 'XPHB';
+          const routedSubclass = {
+            ...subclass,
+            name: subclassName,
+            source: subclassSource,
+          };
+          const subclassKey = subclassRouteKey(routedSubclass);
+          const subclassItem = {
+            ...item,
+            name: `${item.name}: ${subclassName}`,
+            source: subclassSource,
+            lore: subclass.lore,
+            features: subclass.features,
+          };
+          const subclassSeo = getCompendiumEntrySeo({
+            categoryId,
+            categoryLabel: displayCategory,
+            item: subclassItem as unknown as CompendiumEntryBase,
+            locale,
+            sourceLabel: sourceLabel(subclassSource, locale),
+            displayName: `${item.name}: ${subclassName}`,
+          });
+          pages.push({
+            path: `${categoryPath}/${item.id}/${subclassKey}`,
+            title: `${subclassSeo.title} - Fumble`,
+            description: subclassSeo.description,
+            content: excerpt(
+              [
+                subclassSeo.description,
+                plainText(subclass.lore),
+                plainText(subclass.features),
+              ]
+                .filter(Boolean)
+                .join(' '),
+              subclassSeo.description,
+            ),
+            heading: `${item.name}: ${subclassName}`,
+            breadcrumbTitle: `${item.name}: ${subclassName}`,
+            modified: raw.meta?.generatedAt,
+            ...(typeof subclass.image === 'string' ? { image: subclass.image } : {}),
+            kind: 'article',
+            parent: { path: `${categoryPath}/${item.id}`, title: item.name },
+          });
+        }
+      }
+    }
+    for (const item of fumbleHomebrewItems(locale).filter(
+      (entry) => entry.category === categoryId,
+    )) {
+      const context = compendiumContext(item);
+      const source = plainText(item.source);
+      const parentClassId =
+        categoryId === 'classes' ? fumbleParentClassId(item) : undefined;
+      const parentClass = parentClassId
+        ? items.find(({ baseItem }) => baseItem.id === parentClassId)?.item
+        : undefined;
+      const seo = getCompendiumEntrySeo({
+        categoryId,
+        categoryLabel: displayCategory,
+        item: item as unknown as CompendiumEntryBase,
+        locale,
+        sourceLabel: sourceLabel(source, locale),
+        ...(item.isSubclass && item.subclassName
+          ? { displayName: item.subclassName }
+          : {}),
+      });
+      pages.push({
+        path: parentClassId
+          ? `${categoryPath}/${parentClassId}/${item.id}`
+          : `${categoryPath}/${item.id}`,
+        title: `${seo.title} - Fumble`,
+        description: seo.description,
+        content: excerpt(
+          [seo.description, context].filter(Boolean).join(' '),
+          seo.description,
+        ),
+        heading: item.subclassName ?? item.name,
+        breadcrumbTitle: item.subclassName ?? item.name,
+        kind: 'article',
+        parent: parentClassId
+          ? {
+              path: `${categoryPath}/${parentClassId}`,
+              title: parentClass?.name ?? displayCategory,
+            }
+          : { path: categoryPath, title: displayCategory },
       });
     }
   }
@@ -1197,12 +1369,13 @@ function searchItem(item: CompendiumItem): Record<string, unknown> {
   );
 }
 
-function buildSearchIndex(locale: string): string {
+function buildSearchIndex(locale: Locale): string {
   const categories: Array<{ id: string; items: Record<string, unknown>[] }> = [];
   for (const categoryId of COMPENDIUM_CATEGORIES) {
-    const raw = JSON.parse(
-      readFileSync(join(GENERATED_DIR, `${categoryId}.json`), 'utf8'),
-    ) as CompendiumFile;
+    const rawPath = join(GENERATED_DIR, `${categoryId}.json`);
+    const raw = existsSync(rawPath)
+      ? (JSON.parse(readFileSync(rawPath, 'utf8')) as CompendiumFile)
+      : { items: [] };
     const overlayPath = join(GENERATED_DIR, locale, `${categoryId}.json`);
     const overlay =
       locale === DEFAULT_LOCALE || !existsSync(overlayPath)
@@ -1213,9 +1386,16 @@ function buildSearchIndex(locale: string): string {
           >);
     categories.push({
       id: categoryId,
-      items: (raw.items ?? []).map((item) =>
-        searchItem(withEnglishName({ ...item, ...(overlay[item.id] ?? {}) }, item.name)),
-      ),
+      items: [
+        ...(raw.items ?? []).map((item) =>
+          searchItem(
+            withEnglishName({ ...item, ...(overlay[item.id] ?? {}) }, item.name),
+          ),
+        ),
+        ...fumbleHomebrewItems(locale)
+          .filter((item) => item.category === categoryId)
+          .map((item) => searchItem(item)),
+      ],
     });
   }
   const wiki = JSON.parse(readFileSync(join(GENERATED_DIR, 'wiki.json'), 'utf8')) as {

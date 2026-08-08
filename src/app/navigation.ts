@@ -21,6 +21,7 @@ import {
   WandSparkles,
   type LucideIcon,
 } from 'lucide-react';
+import { Logo } from '@/features/ui/Logo';
 
 export type NavAccent = 'arcane' | 'teal' | 'ember' | 'violet' | 'slate';
 
@@ -178,6 +179,12 @@ export const navSections: NavSection[] = [
         descriptionKey: 'home.cards.sessionLog',
         to: '/session-log',
         icon: Mic,
+      },
+      {
+        labelKey: 'nav.fumbleHomebrew',
+        descriptionKey: 'home.cards.fumbleHomebrew',
+        to: '/fumble-homebrew',
+        icon: Logo,
       },
     ],
   },

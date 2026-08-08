@@ -19,7 +19,7 @@ import {
   ToggleChip,
 } from '@/features/ui/primitives';
 import type { CategoryFilter } from './categories';
-import { type SortDir, displayValue } from './filterSort';
+import { filterValuesFor, type SortDir, displayValue } from './filterSort';
 
 type TranslateFn = (key: string, vars?: Record<string, string | number>) => string;
 
@@ -28,6 +28,7 @@ interface FilterBarProps {
   items: CompendiumEntryBase[];
   selected: Record<string, string[]>;
   onToggle: (filterId: string, value: string) => void;
+  onSetFilter: (filterId: string, values: string[]) => void;
   onClear: () => void;
   onRandom: () => void;
   sortField: string;
@@ -45,6 +46,7 @@ function FacetSection({
   group,
   selected,
   onToggle,
+  onSet,
   search,
   hideLabel,
   t,
@@ -53,6 +55,7 @@ function FacetSection({
   group: FilterGroup;
   selected: string[];
   onToggle: (value: string) => void;
+  onSet: (values: string[]) => void;
   search: string;
   hideLabel?: boolean;
   t: TranslateFn;
@@ -90,7 +93,7 @@ function FacetSection({
         <div className="ml-auto flex gap-2 text-[0.65rem] text-ink-400">
           <Button
             type="button"
-            onClick={() => visible.forEach((v) => !selected.includes(v) && onToggle(v))}
+            onClick={() => onSet([...new Set([...selected, ...visible])])}
             variant="ghost"
             size="sm"
             className="min-h-0 px-1 py-0 text-[0.65rem]"
@@ -99,7 +102,7 @@ function FacetSection({
           </Button>
           <Button
             type="button"
-            onClick={() => visible.forEach((v) => selected.includes(v) && onToggle(v))}
+            onClick={() => onSet(selected.filter((value) => !visible.includes(value)))}
             variant="ghost"
             size="sm"
             className="min-h-0 px-1 py-0 text-[0.65rem]"
@@ -140,6 +143,7 @@ export function FilterBar({
   items,
   selected,
   onToggle,
+  onSetFilter,
   onClear,
   onRandom,
   sortField,
@@ -164,7 +168,7 @@ export function FilterBar({
       filters.map((filter) => {
         const values = new Set<string>();
         for (const item of items)
-          for (const value of filter.valuesFor(item)) values.add(value);
+          for (const value of filterValuesFor(filter, item)) values.add(value);
         const sorted = [...values].sort((a, b) =>
           filter.sortKey
             ? filter.sortKey(a) - filter.sortKey(b)
@@ -342,6 +346,7 @@ export function FilterBar({
                         group={{ filter: sourceGroup.filter, values: coreValues }}
                         selected={selected.source ?? []}
                         onToggle={(value) => onToggle('source', value)}
+                        onSet={(values) => onSetFilter('source', values)}
                         search={search}
                         hideLabel
                         t={t}
@@ -358,6 +363,7 @@ export function FilterBar({
                         group={{ filter: sourceGroup.filter, values: homebrewValues }}
                         selected={selected.source ?? []}
                         onToggle={(value) => onToggle('source', value)}
+                        onSet={(values) => onSetFilter('source', values)}
                         search={search}
                         hideLabel
                         t={t}
@@ -374,6 +380,7 @@ export function FilterBar({
                   group={group}
                   selected={selected[group.filter.id] ?? []}
                   onToggle={(value) => onToggle(group.filter.id, value)}
+                  onSet={(values) => onSetFilter(group.filter.id, values)}
                   search={search}
                   t={t}
                   locale={locale}

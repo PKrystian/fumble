@@ -1,0 +1,953 @@
+{
+  "meta": {
+    "category": "rules",
+    "count": 22,
+    "source": "Fumble"
+  },
+  "items": [
+    {
+      "id": "critical-rolls",
+      "campaigns": [
+        "grobowiec-zaglady",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Critical Rolls",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "A natural 1 on a {@dice d20} is an automatic failure on attacks, ability checks, and saving throws. A natural 20 is an {@variantrule Automatic Success|DMG} whenever a {@dice d20} roll is required."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "healing-potions",
+      "campaigns": [
+        "grobowiec-zaglady",
+        "krysztalowa-sfera",
+        "glod-smoka",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Healing Potions",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "You can drink a potion as a {@variantrule Bonus Action|XPHB}. You can also use the {@action Utilize|XPHB} action to administer a healing potion to a creature within 5 feet of you, restoring Hit Points to that creature instead of yourself. If you use a {@variantrule Healing|XPHB} potion as an Action, it restores its maximum possible amount instead of requiring a roll. For example, a {@dice 2d4 + 2} potion restores 10 {@variantrule Hit Points|XPHB}."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "flanking",
+      "campaigns": [
+        "grobowiec-zaglady",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Flanking",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "You gain a +2 bonus to an {@variantrule Attack Roll|XPHB} against a Creature in melee when a conscious, able {@variantrule Ally|XPHB} stands on the opposite side of the {@variantrule Target|XPHB}, forming a line with you and the {@variantrule Target|XPHB}."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "starting-flaw-feat",
+      "campaigns": [
+        "krysztalowa-sfera",
+        "glod-smoka",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Starting Flaw Benefit",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "When you choose a starting flaw during character creation, you gain one additional General feat."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "help-death-saves",
+      "campaigns": ["krysztalowa-sfera", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Help with Death Saving Throws",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "A Creature can take the Help Action to Aid an {@variantrule Ally|XPHB}'s {@variantrule Death Saving Throw|XPHB}. The {@variantrule Advantage|XPHB} applies to that one roll."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "permanent-spell-dispelling",
+      "campaigns": ["krysztalowa-sfera", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Dispelling Permanent Spells",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "Permanent effects created by casting a Spell every day for a year require a dispelling check. The DC is 20 + the level of the permanent Spell - the level of the dispelling Spell. Add the caster's {@variantrule Spellcasting|XGE} ability modifier; an abjurer of 10th level or higher also adds their Proficiency Bonus.",
+        "On a failure, the caster must spend 1 hour studying the effect after 21 - their Intelligence score days, unless that value is 0, in which case the hour is immediate. Each attempt reduces the DC by 1. After the tenth attempt, use DC 10 + the Spell level."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "divine-intervention-2024",
+      "campaigns": ["krysztalowa-sfera"],
+      "name": "Divine Intervention 2024",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "The 2014 and 2024 versions of Divine Intervention can both be used. If either version succeeds, neither version can be used for 7 days.",
+        "When using the 2024 version, the casting time cannot exceed 1 minute. If it casts {@spell Revivify|XPHB} or {@spell Greater Restoration|XPHB}, that Spell cannot be chosen by this feature again for one week."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "prone-dexterity-saves",
+      "campaigns": ["krysztalowa-sfera", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Prone: Dexterity Saves",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "While {@condition Prone|XPHB}, you have {@variantrule Disadvantage|XPHB} on Dexterity saving throws."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "ability-score-rolling",
+      "campaigns": ["krysztalowa-sfera", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Ability Score Rolling",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "If the sum of your rolled ability scores is lower than 69, you can reroll once and keep the second set, or use Point Buy instead of rolling."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "partial-long-rests",
+      "campaigns": ["krysztalowa-sfera", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Partial Long Rests",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "Outside a safe zone, a Partial {@variantrule Long Rest|XPHB} restores one-third of spent Hit Dice instead of one-half, recharges abilities that recharge on a {@variantrule Short Rest|XPHB}, and does not remove {@condition Exhaustion|XPHB}. Characters do not gain {@condition Exhaustion|XPHB} because they did not take a full {@variantrule Long Rest|XPHB}.",
+        "Spellcasters recover Spell slots with a combined level equal to half their class level, rounded up. The character regains the option to take one {@variantrule Short Rest|XPHB} that recharges abilities before a full {@variantrule Long Rest|XPHB}. If that option was already available, they gain one additional {@variantrule Short Rest|XPHB}, up to two."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "shared-initiative-blocks",
+      "campaigns": ["krysztalowa-sfera", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Shared Initiative Blocks",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "When allies share the same {@variantrule Initiative|XPHB} result, they form one {@variantrule Initiative|XPHB} block. They can interleave movement, Actions, Bonus Actions, and Reactions in any order within the block without Ready actions. This also means an {@variantrule Ally|XPHB} can heal a fallen character before that character makes a {@variantrule Death Saving Throw|XPHB} in the block."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "recovery-from-zero",
+      "campaigns": ["krysztalowa-sfera", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Recovery from 0 Hit Points",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "When you stand up from 0 {@variantrule Hit Points|XPHB} by any method other than a Critical Success on a {@variantrule Death Saving Throw|XPHB} or a successful {@skill Medicine|XPHB} check, you gain 1 level of {@condition Exhaustion|XPHB}, up to level 5.",
+        "A {@skill Medicine|XPHB} check to stabilize a Creature is usually DC 15 and requires {@dice 1d4} hours of {@condition Unconscious|XPHB} rest. Each failed attempt increases the DC by 5. If the check fails by 5 or more, the Creature makes a DC 15 Constitution {@variantrule Save|XPHB} and takes 1 Damage on a failure."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "scroll-casting",
+      "campaigns": ["krysztalowa-sfera", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Spell Scrolls",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "To use a Spell scroll, you must be able to cast spells. The Spell does not need to be on your class Spell list, subject to the GM's reasonable judgment."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "long-distance-teleportation",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Long-Distance Teleportation",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "{@variantrule Teleportation|XPHB} circles more than a few miles away from the traveler do not function. {@spell Teleport|XPHB} is unstable at long distance, and the GM resolves its altered parameters and mishaps."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "talent-strain",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Talent Strain",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "Talent loses 3 points of Strain instead of losing all Strain when the relevant recovery feature is used."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "heroic-inspiration-reroll",
+      "campaigns": [
+        "grobowiec-zaglady",
+        "krysztalowa-sfera",
+        "glod-smoka",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Heroic Inspiration",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "{@variantrule Heroic Inspiration|XPHB} can be held up to 3 times, like Master {@variantrule Inspiration|DMG}. You can use it to reroll any {@dice d20} roll after rolling but before the result is known. After using it, you must use the new result, following the same principle as the Halfling's {@feat Lucky|XPHB} feature."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "chult-travel",
+      "campaigns": ["grobowiec-zaglady", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Travel in Chult",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Direction and Pace",
+          "entries": [
+            "Each day the party chooses a direction and a normal, fast, or slow travel pace. Normal pace covers the standard distance without modifiers. Fast pace gives every traveler -5 to passive Wisdom ({@skill Perception|XPHB}) and gives the navigator -5 to navigation checks. Roll a {@dice d4}; on a 3 or 4, the party moves 1 additional Hex. Slow pace gives the navigator +5 to navigation, allows the party to travel stealthily where the terrain permits, and on a {@dice d4} result of 1 or 2 the party moves 1 fewer Hex."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Additional Activities",
+          "entries": [
+            "The party can perform up to two additional activities using one travel {@dice d4} roll. On a 1 or 2, the activities delay the march by 1 Hex; on a 3 or 4, they have no effect on travel pace. This roll is separate from the slow-pace roll, so a slow journey with additional activities makes both rolls."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Chult Hexes and Water",
+          "entries": [
+            "Each Hex on the Chult Map represents 10 miles. On foot at normal pace, the party covers 1 Hex {@variantrule Per Day|XPHB}. By {@item Canoe|ToA}, it covers 2 hexes {@variantrule Per Day|XPHB} on a river or lake and 1 Hex through swamp. Each character must drink at least 2 gallons of fresh water {@variantrule Per Day|XPHB}. Water from natural sources must be boiled or treated. If a character drinks too little, they make a DC 15 Constitution {@variantrule Save|XPHB} at the end of the day, with {@variantrule Disadvantage|XPHB} in Medium or Heavy Armor and -5 while traveling fast. On a failure, they gain 1 level of {@condition Exhaustion|XPHB}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Pack Animals and Mounts",
+          "entries": [
+            "Companions, mounts, dinosaurs, and other creatures also need water and food according to their {@variantrule Size|XPHB}. Animals native to Chult, such as dinosaurs, can find food and water for themselves while in their natural environment."
+          ]
+        }
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "gathering",
+      "campaigns": ["grobowiec-zaglady"],
+      "name": "Gathering",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Gathering",
+          "entries": [
+            "Gathering is an 8-hour downtime activity that can be performed once {@variantrule Per Day|XPHB} in a natural environment. Depending on the environment and the character’s skills, it can provide food, raw materials, alchemical ingredients, magic components, or treasure. A significant interruption ends the activity without a result."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Example Gathering Types",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Gathering Types",
+              "colLabels": [
+                "Type",
+                "Example Environments",
+                "Ability",
+                "Example Proficiencies"
+              ],
+              "rows": [
+                [
+                  "Water",
+                  "Lakes, rivers, coasts, swamps",
+                  "Wisdom",
+                  "{@item Cook's Utensils|XPHB}, {@item Fishing Tackle|PHB}, {@skill Athletics|XPHB}, {@skill Perception|XPHB}, {@skill Survival|XPHB}"
+                ],
+                [
+                  "Plants",
+                  "Meadows, forests, jungles, mountains",
+                  "Intelligence",
+                  "{@item Herbalism Kit|XPHB}, {@skill Nature|XPHB}, {@skill Investigation|XPHB}"
+                ],
+                [
+                  "Minerals and Stone",
+                  "Mountains, cliffs, mines, caves",
+                  "Strength or Intelligence",
+                  "{@item Mason's Tools|XPHB}, {@item Smith's Tools|XPHB}, {@skill History|XPHB}, {@skill Nature|XPHB}"
+                ],
+                [
+                  "Hunting",
+                  "Plains, forests, wastelands, tundra",
+                  "Dexterity or Wisdom",
+                  "{@skill Stealth|XPHB}, {@skill Perception|XPHB}, {@item Longbow|XPHB}, Crossbow, {@skill Survival|XPHB}"
+                ],
+                [
+                  "Desert",
+                  "Deserts, steppes, ruins",
+                  "Wisdom",
+                  "{@skill Nature|XPHB}, {@skill Perception|XPHB}, {@item Cook's Utensils|XPHB}, {@item Cartographer's Tools|XPHB}, {@skill Survival|XPHB}"
+                ],
+                [
+                  "Forest General",
+                  "Mixed forests, wilderness",
+                  "Wisdom",
+                  "{@skill Nature|XPHB}, {@skill Perception|XPHB}, {@skill Survival|XPHB}"
+                ],
+                [
+                  "Caverns",
+                  "Caves, underground ruins, tunnels",
+                  "Intelligence",
+                  "{@skill Investigation|XPHB}, {@item Mason's Tools|XPHB}, {@item Thieves' Tools|XPHB}, {@skill Perception|XPHB}"
+                ],
+                [
+                  "Arctic",
+                  "Polar areas, permafrost, icy wastelands",
+                  "Constitution or Wisdom",
+                  "{@item Cook's Utensils|XPHB}, {@skill Perception|XPHB}, {@skill Nature|XPHB}, {@item Weaver's Tools|XPHB}, {@skill Survival|XPHB}"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Procedure",
+          "entries": [
+            "Roll {@dice 5d6} and record the results. Before calculating the final result, you can reroll a number of dice equal to the relevant ability modifier. If you have proficiency with an appropriate tool, you can reroll additional dice equal to your Proficiency Bonus. Reroll dice separately or together, but only once per activity.",
+            "Multiply the sum of the five dice by the multiplier for the final dice pattern and {@variantrule Round Down|XPHB}. Five of a Kind multiplies the sum by 3, Four of a Kind by 2.5, Full House by 2, Straight by 2.5, Three of a Kind by 1.4, Two Pair by 1.2, One Pair by 1.1, and no pattern by 1."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Resources and Assistance",
+          "entries": [
+            "You can spend resources such as {@item Rations|XPHB} or other suitable items to gain a bonus to the final result. Each resource adds +1, or more for a better resource. A proficient helper studying in the same environment grants one additional reroll, up to the helper’s Proficiency modifier. The GM can impose penalties for missing equipment, unfamiliar terrain, or severe conditions and can require a {@skill Survival|XPHB}, {@skill Nature|XPHB}, or {@skill Investigation|XPHB} check. Gathering cannot be performed at the same time as crafting, a longer rest, or training."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Gathering Mastery",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Gathering Ranks",
+              "colLabels": ["Rank", "Name", "Benefit"],
+              "rows": [
+                ["I", "Novice Gatherer", "+5 to the final result"],
+                ["II", "Experienced Gatherer", "+10 to the final result and +1 reroll"],
+                [
+                  "III",
+                  "Gathering Master",
+                  "+15 to the final result, +2 rerolls, and a 20% chance of an extra reward"
+                ],
+                [
+                  "IV",
+                  "Environment expert",
+                  "+20 to the final result, +3 rerolls, and a 40% chance of an extra reward"
+                ],
+                [
+                  "V",
+                  "{@skill Nature|XPHB} Grandmaster",
+                  "+25 to the final result, +4 rerolls, two rewards, and a 60% chance of an extra reward"
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "crafting",
+      "campaigns": ["grobowiec-zaglady"],
+      "name": "Crafting",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Activity and Requirements",
+          "entries": [
+            "Crafting is an 8-hour downtime activity that can be performed once {@variantrule Per Day|XPHB}. You need materials for the item, normally purchased for half the item’s price, and any spell access or class level required by the item. Potions are an exception and do not require spell access. Specific requirements can include tools, proficiency, a workshop, a formula, a teacher, a magical source, or a story quest. A significant interruption ends the activity without a result."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Crafting Types",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Crafting Types",
+              "colLabels": ["Type", "Relevant Tools and Ability"],
+              "rows": [
+                ["Potions", "{@item Alchemist's Supplies|XPHB} (Intelligence)"],
+                [
+                  "Poisons",
+                  "{@item Poisoner's Kit|XPHB} or {@item Herbalism Kit|XPHB} (Intelligence)"
+                ],
+                [
+                  "Salves and Alchemical Pastes",
+                  "{@item Herbalism Kit|XPHB} or {@item Alchemist's Supplies|XPHB} (Wisdom)"
+                ],
+                [
+                  "Spell Scrolls",
+                  "{@item Calligrapher's Supplies|XPHB} or {@item Tinker's Tools|XPHB} (Intelligence), and knowledge of the spell"
+                ],
+                [
+                  "Custom Weapons",
+                  "{@item Smith's Tools|XPHB}, {@item Alchemist's Supplies|XPHB}, {@item Tinker's Tools|XPHB}, or {@item Woodcarver's Tools|XPHB}"
+                ],
+                [
+                  "Armor",
+                  "{@item Smith's Tools|XPHB} or {@item Leatherworker's Tools|XPHB}"
+                ],
+                [
+                  "Magic Jewelry",
+                  "{@item Jeweler's Tools|XPHB}, {@item Painter's Supplies|XPHB}, {@item Calligrapher's Supplies|XPHB}, or {@item Weaver's Tools|XPHB}"
+                ],
+                [
+                  "Mechanical Devices",
+                  "{@item Tinker's Tools|XPHB}, {@item Carpenter's Tools|XPHB}, or {@item Woodcarver's Tools|XPHB}"
+                ],
+                [
+                  "Crossbows, Bows, and Bolts",
+                  "{@item Carpenter's Tools|XPHB}, {@item Woodcarver's Tools|XPHB}, or {@item Tinker's Tools|XPHB}"
+                ],
+                [
+                  "Weapon or Armor Enhancement",
+                  "{@item Smith's Tools|XPHB}, {@item Alchemist's Supplies|XPHB}, or {@item Calligrapher's Supplies|XPHB}"
+                ],
+                [
+                  "Clothing",
+                  "{@item Weaver's Tools|XPHB}, {@item Cobbler's Tools|XPHB}, or {@item Painter's Supplies|XPHB}"
+                ],
+                [
+                  "Magic Food",
+                  "{@item Cook's Utensils|XPHB}, {@item Herbalism Kit|XPHB}, or {@item Alchemist's Supplies|XPHB}"
+                ],
+                [
+                  "Transformation Elixirs",
+                  "{@item Alchemist's Supplies|XPHB} or {@item Herbalism Kit|XPHB}"
+                ],
+                ["Runic Items", "{@item Calligrapher's Supplies|XPHB}"],
+                ["Artifacts", "Determined by the item, often a combination of tools"]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Procedure",
+          "entries": [
+            "Roll {@dice 5d6}. You can reroll dice equal to the modifier of the relevant ability, with additional rerolls from tool proficiency and the following conditions: dangerous place -1, travel +0, safe shelter +1, no appropriate workshop +0, appropriate workshop +1, a proficient assistant +1, and a master with {@variantrule Expertise|XPHB} or a narrative {@variantrule Advantage|XPHB} +2. You can reroll dice separately or together, but only once per crafting activity.",
+            "Apply the final dice pattern: Five of a Kind x3, Four of a Kind x2.5, Full House x2, Straight x2.5, Three of a Kind x1.4, Two Pair x1.2, One Pair x1.1, and no pattern x1. Multiply the sum and {@variantrule Round Down|XPHB}. Crafting Progress Points are doubled by this {@variantrule Campaign|XPHB} rule. Studying together adds +3 to the final result.",
+            {
+              "type": "table",
+              "caption": "Crafting Progress Points",
+              "colLabels": ["Final Result", "Progress Points"],
+              "rows": [
+                ["5-14", "1"],
+                ["15-24", "2"],
+                ["25-34", "3"],
+                ["35-44", "4"],
+                ["45-54", "6"],
+                ["55-64", "8"],
+                ["65-74", "10"],
+                ["75-84", "13"],
+                ["85-89", "16"],
+                ["90+", "25"]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Progress and Requirements",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Progress Points Required",
+              "colLabels": ["Item", "Progress Points"],
+              "rows": [
+                ["Nonmagical item", "5-100, based on price"],
+                ["Common", "30"],
+                ["Uncommon", "90"],
+                ["Rare", "180"],
+                ["Very Rare", "400"],
+                ["Legendary", "700"],
+                ["Artifact", "1,000+"]
+              ]
+            },
+            "The GM determines unique requirements for artifacts and can require previous training in a related field or approval before a character crafts armor, weapon mastery, or another advanced proficiency."
+          ]
+        }
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "gathering-survival-proficiency",
+      "campaigns": ["grobowiec-zaglady"],
+      "name": "Survival in Gathering",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "Add {@skill Survival|XPHB} to the example proficiencies for Water, Hunting, Desert, Forest General, and Arctic Gathering. Do not add it to Plants, Minerals, or Caverns."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "training",
+      "campaigns": ["grobowiec-zaglady"],
+      "name": "Training",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Duration and Interruption",
+          "entries": [
+            "Training takes 8 hours and can be performed once {@variantrule Per Day|XPHB}. During the activity, the character can take only actions allowed during a {@variantrule Long Rest|XPHB}. Combat, {@variantrule Spellcasting|XGE}, strenuous exertion, or another significant distraction interrupts the activity and produces no result."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Requirements",
+          "entries": [
+            "The character must have a plausible way to gain the proficiency, such as a teacher, a {@item Book|XPHB}, practice on injured creatures, suitable tools, or an appropriate subject for study."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Training Roll and Rerolls",
+          "entries": [
+            "Roll {@dice 5d6}. You can reroll a number of dice equal to the modifier of the ability associated with the training. Reroll dice separately or together, but only once per training activity.",
+            {
+              "type": "table",
+              "caption": "Training Ability",
+              "colLabels": ["Training", "Ability"],
+              "rows": [
+                ["Skill", "The ability used by the skill"],
+                [
+                  "Language",
+                  "Intelligence; a language related to one you know grants +1 additional reroll"
+                ],
+                ["Tool", "The ability used by the tool"],
+                ["{@skill Animal Handling|XPHB}", "Wisdom"],
+                ["Gathering", "Intelligence or Wisdom"],
+                ["Armor", "Light or Medium: Dexterity; Heavy: Strength"],
+                [
+                  "{@item Shield|XPHB}",
+                  "Strength, Dexterity, or Constitution, chosen by the player"
+                ],
+                [
+                  "Martial Weapon",
+                  "Strength or Dexterity, based on the dominant damage type"
+                ],
+                [
+                  "Weapon Mastery",
+                  "Strength or Dexterity, based on the dominant damage type"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Training Conditions",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Reroll Modifiers",
+              "colLabels": ["Condition", "Rerolls"],
+              "rows": [
+                ["Training in a dangerous place", "-1"],
+                ["Training while traveling", "+0"],
+                ["Training in a safe shelter", "+1"],
+                ["No additional materials", "+0"],
+                ["A well-described {@item Book|XPHB} or scroll", "+1"],
+                ["A person with the proficiency", "+1"],
+                [
+                  "A master with {@variantrule Expertise|XPHB} or a narrative {@variantrule Advantage|XPHB}",
+                  "+2"
+                ],
+                ["Studying together", "+3 to the final result"]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Dice Patterns and Multipliers",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Dice Patterns",
+              "colLabels": ["Pattern", "Condition", "Multiplier"],
+              "rows": [
+                ["Five of a Kind", "All dice show the same value", "3"],
+                ["Four of a Kind", "Four dice show the same value", "2.5"],
+                ["Full House", "Three of one value and a pair", "2"],
+                ["Straight", "Five consecutive values", "2.5"],
+                ["Three of a Kind", "Three dice show the same value", "1.4"],
+                ["Two Pair", "Two different pairs", "1.2"],
+                ["One Pair", "One pair", "1.1"],
+                ["No Pattern", "All values are different", "1"]
+              ]
+            },
+            "Multiply the sum of the five dice by the appropriate multiplier and {@variantrule Round Down|XPHB}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Progress Points",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Final Result and Progress Points",
+              "colLabels": ["Final Result", "Progress Points"],
+              "rows": [
+                ["5-14", "1"],
+                ["15-24", "2"],
+                ["25-34", "3"],
+                ["35-44", "4"],
+                ["45-54", "6"],
+                ["55-64", "8"],
+                ["65-74", "10"],
+                ["75-84", "13"],
+                ["85-89", "16"],
+                ["90+", "25"]
+              ]
+            },
+            {
+              "type": "table",
+              "caption": "Progress Points Required",
+              "colLabels": ["Training", "Progress Points"],
+              "rows": [
+                ["Skill", "70"],
+                ["Language", "50"],
+                ["Tool", "60"],
+                ["{@skill Animal Handling|XPHB}, simple", "10"],
+                ["{@skill Animal Handling|XPHB}, complex", "30"],
+                ["Gathering I-V", "20 / 40 / 60 / 80 / 100"],
+                ["Armor", "90"],
+                ["{@item Shield|XPHB}", "100"],
+                ["Martial Weapon", "40"],
+                ["Weapon Mastery", "60"]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Gathering Ranks I-V",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Gathering Proficiency",
+              "colLabels": ["Rank", "Name", "Benefit"],
+              "rows": [
+                ["I", "Novice Gatherer", "+5 to the final result"],
+                ["II", "Experienced Gatherer", "+10 to the final result and +1 reroll"],
+                [
+                  "III",
+                  "Gathering Master",
+                  "+15 to the final result, +2 rerolls, and a 20% chance of an extra reward"
+                ],
+                [
+                  "IV",
+                  "Environment expert",
+                  "+20 to the final result, +3 rerolls, and a 40% chance of an extra reward"
+                ],
+                [
+                  "V",
+                  "{@skill Nature|XPHB} Grandmaster",
+                  "+25 to the final result, +4 rerolls, two rewards, and a 60% chance of an extra reward"
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "firearms-catalog",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Mire Arsenal Firearms",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Mire Arsenal",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Pneumatic {@variantrule Firearms|DMG}",
+              "colLabels": [
+                "Weapon",
+                "{@variantrule Size|XPHB}",
+                "Damage",
+                "Range",
+                "Properties",
+                "Mastery",
+                "Price"
+              ],
+              "rows": [
+                [
+                  "{@firearm Pneumatic Pistol|Fumble|Pneumatic Pistol}",
+                  "Tiny, Handheld",
+                  "{@dice 1d6}",
+                  "30/60",
+                  "Reload 100, {@spell Light|XPHB}",
+                  "{@itemMastery Vex|XPHB}",
+                  "600 gp"
+                ],
+                [
+                  "{@firearm Pneumatic Shotgun|Fumble|Pneumatic Shotgun}",
+                  "Tiny, Long",
+                  "{@dice 1d12}",
+                  "60/120",
+                  "Reload 100, Two-Handed, Heavy",
+                  "{@itemMastery Slow|XPHB} or {@itemMastery Push|XPHB}",
+                  "800 gp"
+                ],
+                [
+                  "{@firearm Pneumatic Rifle|Fumble|Pneumatic Rifle}",
+                  "Tiny, Long",
+                  "{@dice 1d6}",
+                  "60/120",
+                  "Reload 100, Automatic, Burst Fire, Two-Handed, Heavy",
+                  "{@itemMastery Slow|XPHB}",
+                  "800 gp"
+                ],
+                [
+                  "{@firearm Pneumatic Cannon|Fumble|Pneumatic Cannon}",
+                  "Large, Siege",
+                  "{@dice 8d10}",
+                  "400/1200",
+                  "Reload 1/4, Loading, Two-Handed",
+                  "{@itemMastery Push|XPHB} 10",
+                  "10,000 gp"
+                ],
+                [
+                  "{@firearm Pneumatic Machine Gun|Fumble|Pneumatic Machine Gun}",
+                  "Large, Siege",
+                  "{@dice 5d10}",
+                  "400/1200",
+                  "Reload 1000, Burst Fire, Automatic, Two-Handed, Heavy",
+                  "{@itemMastery Slow|XPHB}",
+                  "10,000 gp"
+                ],
+                [
+                  "{@firearm Pneumatic Grenade Launcher|Fumble|Pneumatic Grenade Launcher}",
+                  "Tiny, Handheld",
+                  "Grenade effect",
+                  "600 ft.",
+                  "Reload 1",
+                  "-",
+                  "700 gp"
+                ],
+                [
+                  "{@firearm Pneumatic Spray or Flamethrower|Fumble|Pneumatic Spray or Flamethrower}",
+                  "Tiny, Handheld",
+                  "Spray effect",
+                  "30 ft.",
+                  "Reload 2",
+                  "-",
+                  "700 gp"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Explosive Firearms",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Explosive {@variantrule Firearms|DMG}",
+              "colLabels": [
+                "Weapon",
+                "Damage",
+                "Range",
+                "Properties",
+                "Mastery",
+                "Price"
+              ],
+              "rows": [
+                [
+                  "{@firearm Explosive Pistol|Fumble|Explosive Pistol}",
+                  "{@dice 2d6}",
+                  "40/120",
+                  "Reload 6, {@spell Light|XPHB}",
+                  "{@itemMastery Vex|XPHB}",
+                  "400 gp"
+                ],
+                [
+                  "{@firearm Explosive Shotgun|Fumble|Explosive Shotgun}",
+                  "{@dice 2d12}",
+                  "80/240",
+                  "Reload 4, Two-Handed, Heavy",
+                  "{@itemMastery Slow|XPHB} or {@itemMastery Push|XPHB}",
+                  "600 gp"
+                ],
+                [
+                  "{@firearm Explosive Assault Rifle|Fumble|Explosive Assault Rifle}",
+                  "{@dice 2d6}",
+                  "80/240",
+                  "Reload 30, Burst Fire, Automatic, Two-Handed, Heavy",
+                  "{@itemMastery Slow|XPHB}",
+                  "600 gp"
+                ],
+                [
+                  "{@firearm Explosive Cannon|Fumble|Explosive Cannon}",
+                  "{@dice 9d10}",
+                  "500/1000",
+                  "Reload 1/4, Loading, Two-Handed",
+                  "{@itemMastery Push|XPHB} 10",
+                  "5,000 gp"
+                ],
+                [
+                  "{@firearm Explosive Machine Gun|Fumble|Explosive Machine Gun}",
+                  "{@dice 6d10}",
+                  "500/1000",
+                  "Reload 30, Burst Fire, Automatic, Two-Handed, Heavy",
+                  "{@itemMastery Slow|XPHB}",
+                  "10,000 gp"
+                ],
+                [
+                  "{@firearm Explosive Sniper Rifle|Fumble|Explosive Sniper Rifle}",
+                  "{@dice 3d12}",
+                  "300/800",
+                  "Reload 1",
+                  "{@itemMastery Slow|XPHB}",
+                  "1,000 gp"
+                ],
+                [
+                  "{@firearm Explosive Repeating Rifle|Fumble|Explosive Repeating Rifle}",
+                  "{@dice 1d12}",
+                  "80/240",
+                  "Loading, Two-Handed",
+                  "{@itemMastery Slow|XPHB}",
+                  "700 gp"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Grenades and Sprays",
+          "entries": [
+            "Ammunition for a launcher or spray has a {@variantrule Save|XPHB} DC of 12 + the attacker's Proficiency Bonus. A grenade can also be thrown using the Utilize Action to a point within 20 feet.",
+            "Grenades include {@firearm Explosion|Fumble|Explosion} using {@spell Shatter|XPHB} for 50 gp, {@firearm Greater Explosion|Fumble|Greater Explosion} using {@spell Fireball|XPHB} with half the Damage dice converted to Thunder for 300 gp, {@firearm Smoke|Fumble|Smoke} using {@spell Fog Cloud|XPHB} for 20 gp, {@firearm Flashbang|Fumble|Flashbang} using {@spell Confusion|XPHB} with a 1-round duration for 60 gp, {@firearm Gas|Fumble|Gas} using {@spell Stinking Cloud|XPHB} with a 10-minute duration for 100 gp, and {@firearm Mustard Gas|Fumble|Mustard Gas} using {@spell Cloudkill|XPHB} with a 10-minute duration for 500 gp. Sprays include {@firearm Bullet Spray|Fumble|Bullet Spray}, a 15-foot cube of {@dice 3d8} Piercing Burst Fire for 1 sp, {@firearm Fire|Fumble|Fire}, which uses {@spell Burning Hands|XPHB} at 3rd level with burning targets for 20 gp, {@firearm Napalm|Fumble|Napalm} for 100 gp, and {@firearm Acid|Fumble|Acid} using {@spell Tasha's Caustic Brew|XPHB} for 100 gp."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Shared Mechanics",
+          "entries": [
+            "Reload allows a limited number of shots before reloading as an Action or {@variantrule Bonus Action|XPHB}. Reload 1/4 requires four such actions, which can be spread across turns. Burst Fire uses 10 pieces of ammunition to fill a 10-foot cube. Creatures make a Dexterity {@variantrule Save|XPHB} against DC 8 + the shooter's Dexterity modifier + Proficiency Bonus; roll Damage once for each failed {@variantrule Save|XPHB}. Automatic lets the attacker make two attacks with {@variantrule Disadvantage|XPHB} instead of one, using twice the ammunition. A natural 1 on the {@dice d20} that determined an {@variantrule Attack Roll|XPHB} jams the firearm. Clearing the jam is an Action using Dexterity ({@skill Sleight of Hand|XPHB}) with {@item Tinker's Tools|XPHB}: DC 15 for explosive and DC 20 for pneumatic weapons. If the attack roll had Advantage or Disadvantage, use the d20 that determined the result when checking for a jam."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ammunition and Modifications",
+          "entries": [
+            "Pneumatic ammunition costs 5 gp for 100 rounds, while explosive ammunition costs 5 gp for 10 rounds and adds one Damage die, except for the sniper and repeating rifles as listed. {@firearm Firearm Scope|Fumble|A scope} extends the short range to the long range for one attack each turn. {@firearm Firearm Silencer|Fumble|A silencer} reduces the sound to 5 or 20 feet and allows a {@skill Stealth|XPHB} check as an Action or {@variantrule Bonus Action|XPHB}. {@firearm Firearm Bayonet|Fumble|A bayonet} deals {@dice 1d8} Piercing Damage and uses the base Weapon's Mastery, adding Reach 10 feet for long weapons. {@firearm Firearm Net Launcher|Fumble|A Net launcher} extends {@item Net|XPHB} range to 40 feet, is available only for long weapons, fires as a {@variantrule Bonus Action|XPHB}, and reloads as an Action."
+          ]
+        }
+      ],
+      "ruleType": "Fumble rule"
+    }
+  ]
+}

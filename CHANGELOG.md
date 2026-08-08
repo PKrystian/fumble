@@ -4,6 +4,140 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.72 - 2026-08-09
+
+- Documented the complete CI checklist and added a local `verify:ci` command.
+
+## 1.2.71 - 2026-08-09
+
+- Made compendium reference previews usable after direct interaction on touch devices.
+- Stabilized the Chult map navigation check by targeting its concrete route.
+
+## 1.2.70 - 2026-08-09
+
+- Patched transitive `js-yaml` and `nanoid` vulnerabilities so the security audit passes.
+
+## 1.2.69 - 2026-08-08
+
+- Moved Fumble firearms, ammunition effects, grenades, sprays, and modifications into their own Compendium category.
+
+## 1.2.68 - 2026-08-08
+
+- Assigned Fumble content to the five campaign filters and moved firearm content to Seven Fugitives and Border Wanderers.
+- Added the option to administer a healing potion to a nearby creature with the Utilize Action.
+
+## 1.2.67 - 2026-08-08
+
+- Corrected the Wooden Warforged creature type and kept Spiryknot as a Construct.
+- Fixed Mire Arsenal links and removed the duplicate document scrollbar from long pages.
+
+## 1.2.66 - 2026-08-08
+
+- Added Mire Arsenal firearms, ammunition effects, grenades, sprays, and weapon modifications.
+- Corrected Fumble feats against the Staring flaws source and removed duplicate taboo and healing entries.
+
+## 1.2.65 - 2026-08-08
+
+- Classified Oathbreaker as public UA content and completed the Fumble lineage catalog with Diurnal Moth.
+
+## 1.2.64 - 2026-08-08
+
+- Made Oathbreaker (UA) visible in Paladin subclass lists for every user and corrected its Polish name to Wiarołomca.
+
+## 1.2.63 - 2026-08-08
+
+- Added the translated Oathbreaker (UA) Paladin subclass and campaign tags for Fumble homebrew entries, including URL-persisted campaign filtering.
+
+## 1.2.62 - 2026-08-08
+
+- Fixed the Great Serpent Warlock's Strange Gifts to grant one chosen mutation and linked the related subclass rules more clearly.
+- Restored omitted details in the Serpent subclasses, including the eye ritual, Yuan-ti option, spell-slot note, and Sap mastery link.
+
+## 1.2.61 - 2026-08-08
+
+- Persisted Fumble homebrew search and category filters in the URL so browser history restores the selected view.
+
+## 1.2.60 - 2026-08-08
+
+- Removed the remaining Fumble homebrew note about Compendium links from the library page.
+
+## 1.2.59 - 2026-08-08
+
+- Matched the Fumble Witch detail header to other class entries and shortened the Fumble homebrew search label.
+- Removed redundant Fumble homebrew descriptions from the library page.
+- Added hover previews for Fumble and personal homebrew references.
+
+## 1.2.58 - 2026-08-08
+
+- Normalized localized compendium filter values so class, school, item type, rarity, and property facets no longer show duplicate labels.
+- Fixed the All and Clear facet actions to update every visible option in one operation.
+- Added regression coverage for localized values and bulk filter actions.
+
+## 1.2.57 - 2026-08-08
+
+- Linked spell classes and subclasses to their compendium pages in English and Polish.
+- Added class links to item attunement requirements and other prerequisite metadata.
+- Preserved English spell references so translated names still resolve to stable subclass routes.
+
+## 1.2.56 - 2026-08-08
+
+- Added the Zerth Warriors' 17th-level features in English and Polish with linked spell references.
+- Moved selected subclass lore and artwork into the subclass's first feature level and added shareable subclass routes with SEO and sitemap entries.
+- Fixed localized spell subclass metadata so details and filters no longer render `[object Object]`.
+
+## 1.2.55 - 2026-08-08
+
+- Reworked Crystal of Possibilities as a structured artifact with official-style sections, tables, and linked references.
+- Corrected mode placement so destructive spells are in Destruction, creation effects are in Creation, creature transformations are in Transformation, and Time Ravage is a Time Changer critical failure in both languages.
+- Clarified high-DC risks, failures, and critical failures in English and Polish.
+
+## 1.2.54 - 2026-08-08
+
+- Removed the redundant Witch spell table while keeping its 195-spell class filter list.
+- Changed the Witch class list tag to show Hit Die d8 and localized the Polish tag.
+- Added Polish Witch spell filtering for official and Fumble spells.
+
+## 1.2.53 - 2026-08-08
+
+- Improved the Witch data with linked spells and magic items.
+- Added 13 Witch spells, 9 magic items, and the Allied Hunter stat block with Polish localization.
+- Added Polish data for Great Serpent, Serpent Bloodline, and Zerth Warrior.
+- Removed Apothecary from the Fumble homebrew catalog.
+
+## 1.2.52 - 2026-08-07
+
+- Added complete Polish translations for the Witch and Apothecary classes, including tables, features, lore, and subclasses.
+
+## 1.2.51 - 2026-08-07
+
+- Added 5eTools subclass artwork to normalized class data and localized overlays.
+- Added the supplied Fumble artwork to classes, subclasses, and selected items.
+- Displayed selected subclass artwork in the class detail view.
+
+## 1.2.50 - 2026-08-07
+
+- Separated class introductions from lore so Apothecary and Witch descriptions are not duplicated.
+- Removed the redundant core trait tables from Fumble class lore.
+- Added Fumble subclasses to their parent class selectors with direct links that preselect the subclass.
+
+## 1.2.49 - 2026-08-07
+
+- Reworked Fumble homebrew data into structured JSON with compendium-style sections, tables, and links.
+- Preserved class progression and rendered Witch, Apothecary, and standalone subclasses as class records.
+- Expanded Crystal of Possibilities and the other supplied items, feats, species, and campaign rules.
+
+## 1.2.48 - 2026-08-06
+
+- Rebuilt Fumble homebrew records from the supplied source material and classified subclasses under Classes.
+
+## 1.2.47 - 2026-08-06
+
+- Moved the Fumble homebrew library to Campaign navigation and split its catalog into localized JSON files.
+
+## 1.2.46 - 2026-08-06
+
+- Added a curated Fumble homebrew library with localized Compendium links and opt-in visibility.
+
 ## 1.2.45 - 2026-08-06
 
 - Fixed stale GitHub Pages cleanup to use documented deployment status endpoints.

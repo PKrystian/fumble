@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { scoreResult, searchResults, type SearchResult } from './searchIndex';
+import { fumbleHomebrewItems } from '@/features/homebrew/fumbleHomebrew';
+import { buildPool, scoreResult, searchResults, type SearchResult } from './searchIndex';
 
 const result = (name: string, englishName?: string): SearchResult => ({
   kind: 'compendium',
@@ -38,6 +39,19 @@ describe('search index scoring', () => {
   it('matches Polish names without diacritics', () => {
     expect(searchResults([result('Człowiek')], 'Czlow')).toEqual([
       expect.objectContaining({ name: 'Człowiek' }),
+    ]);
+  });
+
+  it('keeps Fumble entries out of the pool until enabled', () => {
+    const fumble = fumbleHomebrewItems('en').find((item) => item.id === 'flanking')!;
+    const index = {
+      categories: [{ id: 'rules', label: 'Rules', items: [fumble] }],
+      wiki: [],
+    };
+
+    expect(buildPool(index, 'all', 'en')).toEqual([]);
+    expect(buildPool(index, 'all', 'en', true)).toEqual([
+      expect.objectContaining({ name: 'Flanking', to: '/compendium/rules/flanking' }),
     ]);
   });
 });

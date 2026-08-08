@@ -54,6 +54,7 @@ const en = {
     homebrew: 'Homebrew',
     diceRoller: 'Dice Roller',
     sessionLog: 'Session Log',
+    fumbleHomebrew: 'Fumble Homebrew',
     initiative: 'Initiative',
     bestiary: 'Bestiary',
     lootGenerator: 'Loot Generator',
@@ -118,6 +119,7 @@ const en = {
       soundboard: 'Organize campaign ambience and combat tracks from YouTube.',
       wiki: 'Browse the player-safe campaign wiki generated from Obsidian.',
       sessionLog: 'Keep local transcripts, session notes, and summaries.',
+      fumbleHomebrew: 'Browse campaign homebrew maintained by the Fumble creators.',
       dice: 'Roll expressions, advantage, dice pools, and saved shortcuts.',
       data: 'Export or restore all local Fumble data in one backup file.',
     },
@@ -343,6 +345,8 @@ const en = {
     back: 'Back',
     homebrewBadge: 'HB',
     homebrewLabel: 'Homebrew',
+    fumbleBadge: 'Fumble',
+    fumbleTooltip: 'Homebrew used by the Fumble creators',
     uaBadge: 'UA',
     uaLabel: 'Unearthed Arcana',
     lore: 'Lore',
@@ -366,6 +370,8 @@ const en = {
         spells:
           'Browse D&D 2024 spells by level, school, casting time, range, and duration.',
         items: 'Browse D&D 2024 magic items, weapons, armor, rarity, and properties.',
+        firearms:
+          'Browse Fumble firearms, ammunition effects, grenades, sprays, and weapon modifications.',
         bestiary:
           'Browse D&D 2024 monsters and creatures by challenge rating, type, size, and traits.',
         actions: 'Browse D&D 2024 actions and their timing rules for play.',
@@ -405,6 +411,7 @@ const en = {
         optionalfeatures: 'optional feature',
         spells: 'spell',
         items: 'item',
+        firearms: 'firearm',
         bestiary: 'monster',
         actions: 'action',
         conditions: 'condition',
@@ -561,6 +568,7 @@ const en = {
       optionalfeatures: 'Options & Features',
       spells: 'Spells',
       items: 'Items',
+      firearms: 'Firearms',
       bestiary: 'Bestiary',
       actions: 'Actions',
       conditions: 'Conditions',
@@ -1338,6 +1346,7 @@ const en = {
       character: 'D&D 2024 Character Sheets',
       compendium: 'D&D 2024 Compendium',
       homebrew: 'D&D 2024 Homebrew',
+      fumbleHomebrew: 'Fumble Homebrew Library',
       books: 'D&D Books and Adventures',
       dice: 'D&D Dice Roller',
       data: 'Data Backup',
@@ -1357,6 +1366,8 @@ const en = {
         'Browse D&D 2024 spells, items, creatures, classes, rules, and every available reference category.',
       homebrew:
         'Create, import, translate, and manage D&D homebrew entries stored locally in your browser.',
+      fumbleHomebrew:
+        'Browse the Fumble creators’ campaign rules, options, classes, lineages, and items.',
       books:
         'Browse and read indexed D&D rulebooks and adventures by edition, category, and chapter.',
       dice: 'Roll D&D dice, expressions, advantage checks, and reusable dice pools in your browser.',
@@ -1504,6 +1515,21 @@ const en = {
     baseLanguage: 'Base',
     translationHint:
       'Fill in a translation for this language. Empty fields fall back to the base content.',
+    fumbleTitle: 'Fumble homebrew library',
+    showFumbleInCompendium: 'Show Fumble homebrew in the Compendium',
+    searchFumble: 'Search',
+    allFumbleCategories: 'All Fumble content',
+    fumbleShowing: '{{count}} of {{total}}',
+    noFumbleMatches: 'No Fumble entries match this search.',
+    fumbleCampaignFilter: 'Campaign',
+    allFumbleCampaigns: 'All campaigns',
+    fumbleCampaigns: {
+      tombOfAnnihilation: 'Tomb of Annihilation',
+      crystalSphere: 'Crystal Sphere',
+      dragonHunger: "Dragon's Hunger",
+      sevenFugitives: 'Seven Fugitives',
+      borderWanderers: 'Border Wanderers',
+    },
   },
 };
 

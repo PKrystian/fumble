@@ -50,8 +50,22 @@ const appRouteChildren: RouteObject[] = [
     ),
   },
   {
+    path: 'compendium/:category/:id/:subclass',
+    lazy: lazyComponent(
+      () => import('@/features/compendium/CompendiumPage'),
+      'CompendiumPage',
+    ),
+  },
+  {
     path: 'homebrew',
     lazy: lazyComponent(() => import('@/features/homebrew/HomebrewPage'), 'HomebrewPage'),
+  },
+  {
+    path: 'fumble-homebrew',
+    lazy: lazyComponent(
+      () => import('@/features/homebrew/FumbleHomebrewPage'),
+      'FumbleHomebrewPage',
+    ),
   },
   {
     path: 'books',

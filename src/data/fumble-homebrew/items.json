@@ -1,0 +1,1870 @@
+{
+  "meta": {
+    "category": "items",
+    "count": 45,
+    "source": "Fumble"
+  },
+  "items": [
+    {
+      "id": "pneumatic-pistol",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Pneumatic Pistol",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, pneumatic, handheld",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 30 feet and a long range of 60 feet. It uses pneumatic ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "600 gp",
+      "damage": "1d6",
+      "ac": "",
+      "properties": "Reload 100",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Vex|XPHB}"
+    },
+    {
+      "id": "pneumatic-shotgun",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Pneumatic Shotgun",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, pneumatic, long",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 60 feet and a long range of 120 feet. It uses pneumatic ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "800 gp",
+      "damage": "1d12",
+      "ac": "",
+      "properties": "Reload 100, Two-Handed, Heavy",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Slow|XPHB} or {@itemMastery Push|XPHB}"
+    },
+    {
+      "id": "pneumatic-rifle",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Pneumatic Rifle",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, pneumatic, long",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 60 feet and a long range of 120 feet. It uses pneumatic ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "800 gp",
+      "damage": "1d6",
+      "ac": "",
+      "properties": "Reload 100, Automatic, Burst Fire, Two-Handed, Heavy",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Slow|XPHB}"
+    },
+    {
+      "id": "pneumatic-cannon",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Pneumatic Cannon",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, pneumatic, siege",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 400 feet and a long range of 1,200 feet. It uses pneumatic ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "10000 gp",
+      "damage": "8d10",
+      "ac": "",
+      "properties": "Reload 1/4, Loading, Two-Handed",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Push|XPHB} 10"
+    },
+    {
+      "id": "pneumatic-machine-gun",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Pneumatic Machine Gun",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, pneumatic, siege",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 400 feet and a long range of 1,200 feet. It uses pneumatic ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "10000 gp",
+      "damage": "5d10",
+      "ac": "",
+      "properties": "Reload 1000, Burst Fire, Automatic, Two-Handed, Heavy",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Slow|XPHB}"
+    },
+    {
+      "id": "pneumatic-grenade-launcher",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Pneumatic Grenade Launcher",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, pneumatic, handheld",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a range of 600 feet and launches grenades. It uses pneumatic ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "700 gp",
+      "damage": "Grenade effect",
+      "ac": "",
+      "properties": "Reload 1",
+      "weaponCategory": "martial"
+    },
+    {
+      "id": "pneumatic-spray-flamethrower",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Pneumatic Spray or Flamethrower",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, pneumatic, handheld",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a range of 30 feet and produces the effect of a spray. It uses pneumatic ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "700 gp",
+      "damage": "Spray effect",
+      "ac": "",
+      "properties": "Reload 2",
+      "weaponCategory": "martial"
+    },
+    {
+      "id": "explosive-pistol",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Explosive Pistol",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, explosive, handheld",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 40 feet and a long range of 120 feet. It uses explosive ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "400 gp",
+      "damage": "2d6",
+      "ac": "",
+      "properties": "Reload 6",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Vex|XPHB}"
+    },
+    {
+      "id": "explosive-shotgun",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Explosive Shotgun",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, explosive, long",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 80 feet and a long range of 240 feet. It uses explosive ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "600 gp",
+      "damage": "2d12",
+      "ac": "",
+      "properties": "Reload 4, Two-Handed, Heavy",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Slow|XPHB} or {@itemMastery Push|XPHB}"
+    },
+    {
+      "id": "explosive-assault-rifle",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Explosive Assault Rifle",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, explosive, long",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 80 feet and a long range of 240 feet. It uses explosive ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "600 gp",
+      "damage": "2d6",
+      "ac": "",
+      "properties": "Reload 30, Burst Fire, Automatic, Two-Handed, Heavy",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Slow|XPHB}"
+    },
+    {
+      "id": "explosive-cannon",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Explosive Cannon",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, explosive, siege",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 500 feet and a long range of 1,000 feet. It uses explosive ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "5000 gp",
+      "damage": "9d10",
+      "ac": "",
+      "properties": "Reload 1/4, Loading, Two-Handed",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Push|XPHB} 10"
+    },
+    {
+      "id": "explosive-machine-gun",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Explosive Machine Gun",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, explosive, siege",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 500 feet and a long range of 1,000 feet. It uses explosive ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "10000 gp",
+      "damage": "6d10",
+      "ac": "",
+      "properties": "Reload 30, Burst Fire, Automatic, Two-Handed, Heavy",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Slow|XPHB}"
+    },
+    {
+      "id": "explosive-sniper-rifle",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Explosive Sniper Rifle",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, explosive, handheld",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 300 feet and a long range of 800 feet. It uses explosive ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "1000 gp",
+      "damage": "3d12",
+      "ac": "",
+      "properties": "Reload 1",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Slow|XPHB}"
+    },
+    {
+      "id": "explosive-repeating-rifle",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Explosive Repeating Rifle",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Firearm, explosive, long",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Profile",
+          "entries": [
+            "This firearm has a normal range of 80 feet and a long range of 240 feet. It uses explosive ammunition and follows the {@variantrule firearms-catalog|Fumble|Mire Arsenal Firearms} rules."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "700 gp",
+      "damage": "1d12",
+      "ac": "",
+      "properties": "Loading, Two-Handed",
+      "weaponCategory": "martial",
+      "mastery": "{@itemMastery Slow|XPHB}"
+    },
+    {
+      "id": "explosion-grenade",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Explosion",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Grenade",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Effect",
+          "entries": [
+            "This grenade reproduces the effect of {@spell Shatter|XPHB}. It can be thrown using the Utilize Action to a point within 20 feet."
+          ]
+        }
+      ],
+      "type": "Adventuring Gear",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "50 gp",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "greater-explosion-grenade",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Greater Explosion",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Grenade",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Effect",
+          "entries": [
+            "This grenade reproduces the effect of {@spell Fireball|XPHB}. Half of the damage is Thunder damage instead of Fire damage. It can be thrown using the Utilize Action to a point within 20 feet."
+          ]
+        }
+      ],
+      "type": "Adventuring Gear",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "300 gp",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "smoke-grenade",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Smoke",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Grenade",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Effect",
+          "entries": [
+            "This grenade reproduces the effect of {@spell Fog Cloud|XPHB}. It can be thrown using the Utilize Action to a point within 20 feet."
+          ]
+        }
+      ],
+      "type": "Adventuring Gear",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "20 gp",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "flashbang-grenade",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Flashbang",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Grenade",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Effect",
+          "entries": [
+            "This grenade reproduces the effect of {@spell Confusion|XPHB}, but its duration is reduced to 1 round. It can be thrown using the Utilize Action to a point within 20 feet."
+          ]
+        }
+      ],
+      "type": "Adventuring Gear",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "60 gp",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "gas-grenade",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Gas",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Grenade",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Effect",
+          "entries": [
+            "This grenade reproduces the effect of {@spell Stinking Cloud|XPHB}, but its duration is 10 minutes. It can be thrown using the Utilize Action to a point within 20 feet."
+          ]
+        }
+      ],
+      "type": "Adventuring Gear",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "100 gp",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "mustard-gas-grenade",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Mustard Gas",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Grenade",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Effect",
+          "entries": [
+            "This grenade reproduces the effect of {@spell Cloudkill|XPHB}, but its duration is 10 minutes. It can be thrown using the Utilize Action to a point within 20 feet."
+          ]
+        }
+      ],
+      "type": "Adventuring Gear",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "500 gp",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "bullet-spray",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Bullet Spray",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Spray ammunition",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Effect",
+          "entries": [
+            "This ammunition uses Burst Fire to deal {@dice 3d8} Piercing damage in a 15-foot cube. The save DC for ammunition fired from a launcher or spray is 12 + the attacker's Proficiency Bonus."
+          ]
+        }
+      ],
+      "type": "Adventuring Gear",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "1 sp",
+      "damage": "3d8 Piercing",
+      "ac": "",
+      "properties": "Burst Fire"
+    },
+    {
+      "id": "fire-spray",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Fire",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Spray ammunition",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Effect",
+          "entries": [
+            "This spray reproduces {@spell Burning Hands|XPHB} cast as a 3rd-level spell. Targets that fail the save also start burning. The save DC for ammunition fired from a launcher or spray is 12 + the attacker's Proficiency Bonus."
+          ]
+        }
+      ],
+      "type": "Adventuring Gear",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "20 gp",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "napalm-spray",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Napalm",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Spray ammunition",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Effect",
+          "entries": [
+            "This spray produces a higher-level fire effect. Targets that fail the save start burning and take an extra {@dice 2d8} Fire damage. The save DC for ammunition fired from a launcher or spray is 12 + the attacker's Proficiency Bonus."
+          ]
+        }
+      ],
+      "type": "Adventuring Gear",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "100 gp",
+      "damage": "2d8 Fire",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "acid-spray",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Acid",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Spray ammunition",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Effect",
+          "entries": [
+            "This spray reproduces the effect of {@spell Tasha's Caustic Brew|XPHB}. The save DC for ammunition fired from a launcher or spray is 12 + the attacker's Proficiency Bonus."
+          ]
+        }
+      ],
+      "type": "Adventuring Gear",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "100 gp",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "firearm-scope",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Firearm Scope",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Weapon modification",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Scope",
+          "entries": [
+            "Once per turn, one attack made with the modified firearm can use its long range as its normal range."
+          ]
+        }
+      ],
+      "type": "Weapon Modification",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "1500 gp",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "firearm-silencer",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Firearm Silencer",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Weapon modification",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Silencer",
+          "entries": [
+            "The modified firearm's sound can be heard only within 5 or 20 feet, as determined by the GM. You can make a {@skill Stealth|XPHB} check when firing it."
+          ]
+        }
+      ],
+      "type": "Weapon Modification",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "5000 gp",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "firearm-bayonet",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Firearm Bayonet",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Weapon modification",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Bayonet",
+          "entries": [
+            "The bayonet deals {@dice 1d8} Piercing damage and uses the Mastery property of the base firearm. When attached to a long firearm, its reach is 10 feet."
+          ]
+        }
+      ],
+      "type": "Weapon Modification",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "100 gp",
+      "damage": "1d8 Piercing",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "firearm-net-launcher",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Firearm Net Launcher",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "firearms",
+      "subtitle": "Weapon modification",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Net Launcher",
+          "entries": [
+            "The modified firearm increases the normal and long ranges of a {@item Net|XPHB} to 40 feet. Firing the net is a Bonus Action, and reloading the launcher always requires an Action. This modification can be installed only on a long firearm."
+          ]
+        }
+      ],
+      "type": "Weapon Modification",
+      "rarity": "",
+      "attunement": "",
+      "weight": "",
+      "value": "700 gp",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "meteorite-fragment",
+      "campaigns": ["grobowiec-zaglady"],
+      "name": "Stellar Meteorite Fragment",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous item, common, requires attunement",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Spellcasting Focus",
+          "entries": [
+            "While holding this {@variantrule Spellcasting Focus|XPHB}, you gain a +1 bonus to {@variantrule Spell Attack|XPHB} rolls and to the {@variantrule Saving Throw|XPHB} DCs of your spells."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Meteorite Energy",
+          "entries": [
+            "Once per {@variantrule Short Rest|XPHB}, as a {@variantrule Bonus Action|XPHB}, you can use the fragment's hidden energy. Until the end of your next turn, one spell you cast that deals damage deals an extra {@dice 1d6} Force damage."
+          ]
+        }
+      ],
+      "type": "Wondrous Item",
+      "rarity": "Common",
+      "attunement": "Requires attunement",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "explorer-map-chult",
+      "campaigns": ["grobowiec-zaglady"],
+      "name": "Chult Explorer's Map",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous item, very rare",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "The Map",
+          "entries": [
+            "This seemingly ordinary Map is drawn on delicate but durable {@item Parchment|XPHB}. It shows only the coastlines, major mountain ranges, and a few landmarks of the Chult peninsula until its true power is used by an explorer."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Revealing the Map",
+          "entries": [
+            "When the bearer travels through the jungle, they can focus on remembered details of the terrain, rivers, lakes, ruins, or settlements to see those details appear on the {@item Parchment|XPHB}. The process is not automatic and requires a conscious act of will and a moment of reflection. If the bearer did not notice something or has forgotten it, the Map remains blank there until they remember the information or visit the area again."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Unreliable Knowledge",
+          "entries": [
+            "The Map does not show living creatures or moving objects. Its contents always reflect what the traveler believes to be true, even if that belief is wrong. False beliefs, omissions, and deliberate lies can appear on the {@item Parchment|XPHB} as readily as reliable knowledge."
+          ]
+        }
+      ],
+      "type": "Wondrous Item",
+      "rarity": "Very Rare",
+      "attunement": "Not required",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "sleeping-soul-song",
+      "campaigns": ["grobowiec-zaglady"],
+      "name": "Soul Song, Sleeping",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Weapon, rare, requires attunement",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Description",
+          "entries": [
+            "Soul Song looks like a strip of black, semi-liquid Obsidian. When drawn, it flows from the owner's hand and hardens into a shape chosen by the owner. Its edge does not reflect light, and every strike carries a whisper like a distant choir."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Magic Weapon",
+          "entries": [
+            "You gain a +1 bonus to attack and damage rolls made with this Magic Weapon."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Liquid Form",
+          "entries": [
+            "As a {@variantrule Bonus Action|XPHB}, you can give Soul Song the form of any simple or martial melee or ranged weapon. It retains all its magical properties.",
+            "If it takes the form of a ranged weapon, it creates its own Obsidian ammunition, which disappears immediately after hitting or missing. It cannot take the form of a firearm or a weapon with the Special property without the GM's permission."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Voice of the Dead",
+          "entries": [
+            "Once per {@variantrule Long Rest|XPHB}, you can use an action to cast {@spell Speak with Dead|XPHB} from Soul Song without components. The corpse does not need a mouth if you touch it with Soul Song, but it must contain at least part of a skull or heart."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "First Echo",
+          "entries": [
+            "After the conversation ends, you can record the speaker's echo in the weapon if it does not object. Soul Song can store one echo.",
+            "As an action, you can summon the echo for up to 10 minutes. It speaks telepathically only to you and answers from its knowledge, but it is not forced to tell the truth. After using this property, you cannot summon the echo again until a {@variantrule Long Rest|XPHB}. Recording a new echo releases the previous one."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "Rare",
+      "attunement": "Requires attunement",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "Variable form"
+    },
+    {
+      "id": "armed-gloves",
+      "campaigns": ["wedrowcy-granic"],
+      "name": "Armed Gloves",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous item, rare, requires attunement by a creature proficient with Medium Armor",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Saving Throws",
+          "entries": [
+            "You gain a +1 bonus to Strength, Constitution, and Dexterity saving throws."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Unarmored Strikes",
+          "entries": [
+            "If you are not wearing armor and are not using a {@item Shield|XPHB}, you gain a +1 bonus to AC. Your Unarmed Strikes deal {@dice 1d6} Bludgeoning damage instead of their normal damage and gain a +1 bonus to attack and damage rolls."
+          ]
+        }
+      ],
+      "type": "Wondrous Item",
+      "rarity": "Rare",
+      "attunement": "Requires attunement",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "+1",
+      "properties": ""
+    },
+    {
+      "id": "blade-of-dawn",
+      "campaigns": ["glod-smoka"],
+      "name": "Blade of Dawn",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Greatsword, artifact, requires attunement",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Weapon",
+          "entries": [
+            "Blade of Dawn is a great artifact of Aurelian, summoned by royal blood and entrusted to the party. It is a {@item Greatsword|XPHB} with a +3 bonus to attack rolls that deals {@dice 2d8} Slashing plus {@dice 2d6} Radiant damage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ignited Blade",
+          "entries": [
+            "As an action, you can ignite the blade. For that turn it deals an extra {@dice 2d8} Radiant damage and deals an additional {@dice 2d8} damage to its wielder. It also grants the effect of {@spell Fire Shield|XPHB} and shines as if affected by {@spell Daylight|XPHB}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Lore",
+          "entries": [
+            "King Edward summoned Blade of Dawn in a {@variantrule Ritual|XPHB} using his golden blood. A huge, shining sword formed from a {@spell Magic Circle|XPHB} and a ray of sunlight. It is one of three great artifacts. According to the king, it must be joined with the Gem of dawn and the Crown of Dusk to free the Sun absorbed by Randala."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Revealed Properties",
+          "entries": [
+            "During training in the palace, the blade was made to shine. It produces bright sunlight and strengthens its strikes with Radiant damage. The exact limits of its power remain to be tested in a real battle."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "Artifact",
+      "attunement": "Requires attunement",
+      "weight": "",
+      "value": "",
+      "damage": "2d8 Slashing + 2d6 Radiant",
+      "ac": "",
+      "properties": "Heavy, Two-Handed",
+      "image": "https://res.cloudinary.com/sbgzuael/image/upload/v1786089556/ostrze-zenitu_mrkzjw.png"
+    },
+    {
+      "id": "crystal-interface-whip",
+      "campaigns": ["krysztalowa-sfera"],
+      "name": "Crystal Interface",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Legendary whip, requires attunement",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Attunement",
+          "entries": [
+            "To attune to this item, a slippery metal serpent coils around your neck and drives one end into the back of your skull, dealing {@dice 10d10} Piercing damage. Ending {@variantrule Attunement|XPHB} deals damage again when you remove the spike."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Life Cost",
+          "entries": [
+            "While the interface is in you, your maximum {@variantrule Hit Points|XPHB} are reduced by 1 per character level."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Interface Whip",
+          "entries": [
+            "You can use the interface as a weapon. It grants a +2 bonus to attack and damage rolls, but attacks against Aberrations have {@variantrule Disadvantage|XPHB}. A creature hit by it takes an extra {@dice 1d6} Psychic damage. On a natural 20, the {@variantrule Target|XPHB} is {@condition Stunned|XPHB} until the end of its next turn. It has Finesse, Reach, and Slow mastery (-10 feet)."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Crystal Connection",
+          "entries": [
+            "As a {@variantrule Bonus Action|XPHB}, you can connect to the Crystal while within 5 feet of it. You can expend a spell slot to reduce the DC of a Crystal skill check by twice the slot level. Alternatively, you can deal unavoidable Necrotic damage equal to 5 per point of reduction. This damage also reduces your maximum {@variantrule Hit Points|XPHB} until the next {@variantrule Long Rest|XPHB}; {@spell Greater Restoration|XPHB} or {@spell Heal|XPHB} repairs it immediately."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Sacrificial Conduit",
+          "entries": [
+            "You add +2 to the DC of the Crystal's spells and effects. You can choose to take {@dice 10d10} Necrotic damage instead of suffering the Crystal's critical failure effect."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Shared Burden",
+          "entries": [
+            "Within 1 minute, you can connect one other willing or {@condition Incapacitated|XPHB} creature to the interface. When the connection succeeds, that creature takes {@dice 4d10} damage and is {@condition Grappled|XPHB} by you. The connected creature takes the life-cost damage from Crystal Connection instead of you."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "Legendary",
+      "attunement": "Requires attunement",
+      "weight": "",
+      "value": "",
+      "damage": "1d6 Psychic",
+      "ac": "",
+      "properties": "Finesse, Reach",
+      "image": "https://res.cloudinary.com/sbgzuael/image/upload/v1786089466/interface-krysztalu_bahtxc.jpg"
+    },
+    {
+      "id": "end-of-tyranny",
+      "campaigns": ["wedrowcy-granic"],
+      "name": "End of Tyranny",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Greataxe, legendary, requires attunement",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Magic Weapon",
+          "entries": [
+            "This Magic Weapon grants a +1 bonus to attack and damage rolls and returns to the wielder's hand immediately after it is used to make a ranged attack. Its ranged range is 30/60."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Tyrant Breaker",
+          "entries": [
+            "You cannot be disarmed while attuned. While {@condition Bloodied|XPHB}, you add your Constitution modifier to damage rolls in addition to Strength. The weapon scores a {@variantrule Critical Hit|XPHB} on a 19 or 20 and grants darkvision out to 60 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mastery Trigger",
+          "entries": [
+            "When you hit a Sorcerer or a Spirit, you also activate the Vex and Sap Mastery properties."
+          ]
+        }
+      ],
+      "type": "Weapon",
+      "rarity": "Legendary",
+      "attunement": "Requires attunement",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "Heavy, Two-Handed"
+    },
+    {
+      "id": "crystal-of-possibilities",
+      "campaigns": ["krysztalowa-sfera"],
+      "name": "Crystal of Possibilities",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous Item, Artifact, requires attunement",
+      "entries": [
+        "This enormous crystal is about 3 meters tall and 2 meters wide. It is shaped like two pyramids joined at their square bases, weighs about 1,000 pounds, and has facets in shades from blue to violet. To attune to a mode, you must reach the appropriate facet and arrange mysterious alien symbols with both hands.",
+        {
+          "type": "entries",
+          "name": "Attunement",
+          "entries": [
+            "Attuning to the crystal requires a successful Intelligence ({@skill Arcana|XPHB} or {@skill Investigation|XPHB}) check. You need both hands free to attune to the crystal and operate it. The crystal can be attuned to only one mode at a time.",
+            "Each time you successfully attune to the crystal, reduce your personal attunement DC by 1, to a minimum of 20. The Attunement table shows the time required.",
+            {
+              "type": "table",
+              "caption": "Attunement",
+              "colLabels": ["Check Result", "Time", "Result"],
+              "rows": [
+                ["30 or higher", "1 action", "You attune to the chosen mode."],
+                ["25-29", "1 minute", "You attune to the chosen mode."],
+                ["20-24", "{@dice 2d4} hours", "You attune to the chosen mode."],
+                ["19 or lower", "See Failure below", "You fail to attune to the crystal."]
+              ]
+            },
+            "On a failed check with a result below 20, you take {@damage 1d6} Psychic damage for each point by which the result is below 20 and have the {@condition Frightened|XPHB} condition with respect to the crystal. While you can see the crystal, you cannot move toward it for a number of hours equal to the number of points by which the result is below 20. For example, a result of 15 causes {@damage 5d6} Psychic damage and prevents you from moving toward the crystal for 5 hours.",
+            "The crystal remains attuned to the chosen mode for {@dice 3d4} hours or until another creature attunes to it."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Operation",
+          "entries": [
+            "While attuned to the crystal, you can use only its current mode. As a {@action Magic|XPHB} action, you can attempt one of the functions described below, using both hands and making the check listed for that function. If you propose another use, the GM determines whether the crystal can produce it and sets the appropriate check DC. With the GM's permission, any mode can produce a stronger effect that covers a larger area.",
+            {
+              "type": "table",
+              "caption": "Crystal Modes",
+              "colLabels": ["Mode", "Primary Function", "Instability"],
+              "rows": [
+                [
+                  "Destruction",
+                  "{@spell Meteor Swarm|XPHB}, {@spell Fire Storm|XPHB}, {@spell Fireball|XPHB}, and other destructive effects",
+                  "None"
+                ],
+                [
+                  "Creation",
+                  "{@spell Major Image|XPHB}, {@spell Fabricate|XPHB}, and the creation of matter",
+                  "None"
+                ],
+                [
+                  "Transformation",
+                  "{@spell Mass Polymorph|XGE}, {@spell Polymorph|XPHB}, and transformation of creatures, weather, or objects",
+                  "On a 1 or 2 on a {@dice d6}"
+                ],
+                [
+                  "Enchantment",
+                  "{@spell Mass Suggestion|XPHB}, {@spell Dominate Monster|XPHB}, and changes to creatures",
+                  "See the mode"
+                ],
+                [
+                  "Divination",
+                  "{@spell Foresight|XPHB}, {@spell Scrying|XPHB}, and supernatural knowledge",
+                  "On a 1, 2, or 3 on a {@dice d6}"
+                ],
+                [
+                  "Defensive",
+                  "{@spell Counterspell|XPHB}, {@spell Death Ward|XPHB}, and protective magic",
+                  "None"
+                ],
+                [
+                  "Teleportation",
+                  "{@spell Gate|XPHB}, {@spell Plane Shift|XPHB}, and movement through space",
+                  "None"
+                ],
+                [
+                  "Time Changer",
+                  "{@spell Time Stop|XPHB}, {@spell Temporal Shunt|EGW}, and temporal effects",
+                  "None"
+                ],
+                ["Disrupted", "Any other mode function at +10 DC", "Always"]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Using Higher DCs",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Effects of High DCs",
+              "colLabels": ["Function", "Effect"],
+              "rows": [
+                [
+                  "DC 40 function",
+                  "For at least 1 hour, you cannot use any property with a DC of 30 or higher."
+                ],
+                [
+                  "DC 50 function",
+                  "The crystal is permanently damaged, as far as you know, and cannot be used for 24 hours."
+                ],
+                [
+                  "Repeated DC 50 function",
+                  "Roll a {@dice d8} and record the result as the mode's disruption threshold. On a later DC 50 use in that mode, roll another {@dice d8}; if the result is equal to or lower than the threshold, the mode becomes Disrupted. Then add the new result to the threshold. If the threshold is 8 or higher, the GM determines the consequence."
+                ]
+              ]
+            },
+            "The crystal's unstable modes have additional risks described in their entries. When a mode becomes Disrupted, use the Disrupted mode entry below."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Destruction",
+          "entries": [
+            "As a {@action Magic|XPHB} action, you can direct the crystal at a creature and attempt one of the effects in the Destruction Functions table. Make an Intelligence ({@skill Arcana|XPHB}) check against the listed DC.",
+            {
+              "type": "table",
+              "caption": "Destruction Functions",
+              "colLabels": ["Arcana Check", "Effect"],
+              "rows": [
+                [
+                  "{@skill Arcana|XPHB} DC 40",
+                  "A {@item Sphere of Annihilation|XDMG} appears above the crystal for 1 minute. You control it, but another creature can contest control according to that item's rules. You can also cast {@spell Meteor Swarm|XPHB}."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 30",
+                  "You can cast {@spell Power Word Kill|XPHB} or {@spell Fire Storm|XPHB}."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 25",
+                  "You can cast {@spell Disintegrate|XPHB} with a spell save DC of {@dc 18}. A spell available at a lower DC can be cast at a level 2 higher than its normal level."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 20",
+                  "You can cast {@spell Fireball|XPHB} or {@spell Lightning Bolt|XPHB}, or cast {@spell Shatter|XPHB} at 5th level for {@damage 5d8} damage."
+                ]
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Failure",
+              "entries": [
+                "{@spell Fireball|XPHB} is centered on the crystal. Its spell level depends on the check result.",
+                {
+                  "type": "table",
+                  "caption": "Fireball Level on a Failure",
+                  "colLabels": ["Check Result", "Spell Level", "Damage"],
+                  "rows": [
+                    ["10 or higher", "3rd", "{@damage 8d6}"],
+                    ["9", "4th", "{@damage 9d6}"],
+                    ["7-8", "5th", "{@damage 10d6}"],
+                    ["5-6", "6th", "{@damage 11d6}"],
+                    ["3-4", "7th", "{@damage 12d6}"],
+                    ["2", "8th", "{@damage 13d6}"],
+                    ["1", "9th", "{@damage 14d6}"]
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Critical Failure",
+              "entries": [
+                "In addition to the effects of a normal failure, the operator and every creature within 5 feet of the crystal become targets of {@spell Disintegrate|XPHB}. Each target makes a DC 20 Dexterity saving throw."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Creation",
+          "entries": [
+            "As a {@action Magic|XPHB} action, you can cast an illusion spell from a list chosen by the GM. Make the appropriate Intelligence ({@skill Arcana|XPHB}) check and choose one nonliving, nonmagical {@variantrule Object|XPHB} that is part of the illusion and is not a {@item Diamond|XDMG}. After 6 seconds, at the start of your next turn, the object becomes real for 1 minute. Adamantine and mithral count as magical for this purpose.",
+            {
+              "type": "table",
+              "caption": "Creation Functions",
+              "colLabels": ["Arcana Check", "Effect"],
+              "rows": [
+                [
+                  "{@skill Arcana|XPHB} DC 40",
+                  "You can permanently create a {@item Diamond|XDMG} by stealing one from a reserve of diamonds, with consequences determined by the GM. You can create something larger than a 30-foot-by-30-foot area."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 30",
+                  "You can cast {@spell Major Image|XPHB}, including a magic item of Rare rarity. Examples include a potion that grants giant strength, {@item Potion of Invulnerability|XDMG}, a protection scroll, a spell scroll of up to 5th level, or {@item Daern's Instant Fortress|XDMG}. Alternatively, you can permanently create an {@variantrule Object|XPHB} that fits within a 15-foot cube. Complex objects require complete knowledge of their contents, armor and weapons require appropriate tools, and a building requires a DC 20 Intelligence check to avoid collapsing within a year."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 25",
+                  "You can cast {@spell Major Image|XPHB} in a 15-foot cube or cast {@spell Fabricate|XPHB}."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 20",
+                  "You can create a {@spell Minor Illusion|XPHB} in a 5-foot cube. One selected {@variantrule Object|XPHB} is real until the start of your next turn: it is an illusion in round 1, real in round 2, and vanishes in round 3."
+                ]
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Failure",
+              "entries": [
+                "The crystal becomes covered in stone that prevents its use until removed. Removing the stone takes 4 hours with a DC 20 Strength ({@skill Athletics|XPHB}) check or 3 hours with a DC 30 check. Appropriate tools reduce the time by 1 hour."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Critical Failure",
+              "entries": [
+                "In addition to the effects of a normal failure, iron spikes erupt from the crystal and pierce creatures within 10 feet. A creature makes a DC 18 Dexterity saving throw, taking {@damage 6d8} Piercing damage on a failed save. Removing the spikes takes 4 additional hours, and the crystal becomes Disrupted."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Transformation",
+          "entries": [
+            "As a {@action Magic|XPHB} action, you can use the crystal to transform creatures, weather, or objects. This mode is unstable. Before using it, roll a {@dice d6}; on a 1 or 2, the mode becomes Disrupted.",
+            {
+              "type": "table",
+              "caption": "Transformation Functions",
+              "colLabels": ["Arcana Check", "Effect"],
+              "rows": [
+                [
+                  "{@skill Arcana|XPHB} DC 40",
+                  "You can use the DC 30 function to change one creature into another, or change one creature into a more powerful creature with a Challenge Rating up to 10 higher for 1 minute while maintaining Concentration. After using this function, the crystal becomes Disrupted, and the Transformation mode cannot be attuned to for 8 hours."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 30",
+                  "You can cast {@spell Mass Polymorph|XGE} with a spell save DC of {@dc 18} for 1 minute, or change one creature into another creature of the same Challenge Rating for up to 1 week. A humanoid changed into another humanoid loses the original form's abilities and gains only the new form's Darkvision and Speed. The new form has no magical signature detectable by {@spell Detect Magic|XPHB}, and death does not return the creature to its previous form."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 25",
+                  "You can cast {@spell Polymorph|XPHB} without Concentration, limited to Beasts and subject to the creature's Challenge Rating, for 1 minute with a spell save DC of {@dc 18}. Alternatively, you can duplicate the effect of {@spell Animate Objects|XPHB} cast at 6th level."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 20",
+                  "You can manipulate the weather in a 120-foot radius for {@dice 1d4} hours, including by creating a storm, dense fog, extreme heat, or sudden cold. Alternatively, you can transform homogeneous, nonliving objects into other objects of a similar size. You transform 20 cubic feet per turn, can maintain the effect on later turns with an Intelligence ({@skill Arcana|XPHB}) check against DC 15, and the effect lasts for 1 hour."
+                ]
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Failure",
+              "entries": [
+                "The operator becomes a target of {@spell Flesh to Stone|XPHB} and makes a DC 18 Constitution saving throw."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Critical Failure",
+              "entries": [
+                "In addition to the effects of a normal failure, 10 random creatures within 60 feet become targets of {@spell Flesh to Stone|XPHB}. Each target makes a DC 20 Constitution saving throw, and the crystal becomes Disrupted."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Enchantment",
+          "entries": [
+            "As a {@action Magic|XPHB} action, you can use the crystal to control or improve creatures.",
+            {
+              "type": "table",
+              "caption": "Enchantment Functions",
+              "colLabels": ["Arcana Check", "Effect"],
+              "rows": [
+                [
+                  "{@skill Arcana|XPHB} DC 40",
+                  "You can cast {@spell Mass Suggestion|XPHB} at 9th level for 365 days, cast any Enchantment spell of 5th level or lower at 5th level, or cast {@spell Planar Binding|XPHB} as a Magic action with a spell save DC of {@dc 18}. You can give one creature one new movement mode: a Fly Speed equal to half its Speed while it is not wearing Heavy Armor, a Burrow Speed of 10 feet through earth that leaves a tunnel, a Swim Speed equal to its Speed, or a Climb Speed equal to its Speed. You can make one active spell of 2nd level or lower on a creature or {@variantrule Object|XPHB} permanent and remove its Concentration requirement by providing diamond dust worth 200 GP for a 1st-level spell or 400 GP for a 2nd-level spell. This function cannot be used with {@spell Shield of Faith|XPHB}, {@spell Pass without Trace|XPHB}, or {@spell Elminster's Elusion|FRHoF}. After using {@spell Mass Suggestion|XPHB}, this mode cannot be attuned to for 24 hours."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 30",
+                  "You can permanently increase one chosen ability score by 2 for one creature. Each creature can benefit from this function only once, and the effect is visible as a mutation. Alternatively, you can cast {@spell Dominate Monster|XPHB} with a spell save DC of {@dc 18}."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 25",
+                  "Chosen creatures within 30 feet are affected by {@spell Bless|XPHB} for 1 hour without Concentration. Alternatively, you can cast {@spell Hold Monster|XPHB} at 6th level on two creatures with a spell save DC of {@dc 18}."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 20",
+                  "You can cast {@spell Bane|XPHB} on chosen creatures within 30 feet with a spell save DC of {@dc 18}, or duplicate any Enchantment spell of 4th level or lower."
+                ]
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Failure",
+              "entries": [
+                "For each point by which the check result is below 20, the operator and the target or targets take 5 Psychic damage, divided evenly among them. If the result is below 10, the operator must succeed on a DC 20 Wisdom saving throw or become cursed."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Critical Failure",
+              "entries": [
+                "In addition to the effects of a normal failure, the operator becomes a target of {@spell Feeblemind|XPHB} and makes a DC 20 Wisdom saving throw. The crystal becomes Disrupted."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Divination",
+          "entries": [
+            "As a {@action Magic|XPHB} action, you can use the crystal to gain knowledge or copy a divination effect that pierces magical protections. This mode is unstable. Before using it, roll a {@dice d6}; on a 1, 2, or 3, the mode becomes Disrupted.",
+            {
+              "type": "table",
+              "caption": "Divination Functions",
+              "colLabels": ["Arcana Check", "Effect"],
+              "rows": [
+                [
+                  "{@skill Arcana|XPHB} DC 40",
+                  "You can cast {@spell Foresight|XPHB} for its full duration and maintain it on one creature, or cast {@spell Telepathy|XPHB}. The crystal can maintain only one {@spell Foresight|XPHB} effect at a time."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 30",
+                  "You can cast {@spell Foresight|XPHB}, but its duration is 1 hour. Alternatively, you can view a fragment of the future or past as with {@spell Scrying|XPHB}. The base DC is {@dc 20}; a glimpse of the future adds 10 to the target's saving throw, and a glimpse of the past adds 5."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 25",
+                  "You can cast {@spell Contact Other Plane|XPHB}. Alternatively, you can cast {@spell Scrying|XPHB}; the base DC is {@dc 20}, and its normal modifiers apply."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 20",
+                  "You can duplicate any Divination spell of 4th level or lower. Alternatively, roll a {@dice d20} and store the result for 1 hour. As a Reaction, you can replace a roll made by a creature you can see with the stored result. You can store only one result."
+                ]
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Failure",
+              "entries": [
+                "Roll on the Short-Term {@variantrule Madness|DMG} table. You also take {@damage 1d6} Psychic damage for each point by which the result is below 20 and have the {@condition Frightened|XPHB} condition with respect to the crystal. If the result is below 10, you are also cursed and must succeed on a DC 20 Wisdom saving throw."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Critical Failure",
+              "entries": [
+                "In addition to the effects of a normal failure, {@spell Psychic Scream|XGE} affects 10 random creatures within 90 feet. The GM determines an adverse turn of events for the operator, and the crystal becomes Disrupted."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Defensive",
+          "entries": [
+            "While operating the crystal in this mode, you can use a Reaction to cast {@spell Counterspell|XPHB} at a level you choose. Make an Intelligence ({@skill Arcana|XPHB}) check against DC 17 + the level of {@spell Counterspell|XPHB}. If {@spell Counterspell|XPHB} is lower level than the spell being countered, add 5 to the ability check made to resolve the spell.",
+            {
+              "type": "table",
+              "caption": "Defensive Functions",
+              "colLabels": ["Function", "Effect"],
+              "rows": [
+                [
+                  "{@skill Arcana|XPHB} DC 40",
+                  "You can cast {@spell Power Word Fortify|XPHB} or {@spell Mind Blank|XPHB}. Neither spell can be cast through the crystal again for 24 hours. Alternatively, you can cast {@spell Globe of Invulnerability|XPHB} in a 5-foot radius around the crystal."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 30",
+                  "You can cast {@spell Invulnerability|XGE} on one creature. Alternatively, you can create a {@spell Symbol|XPHB} in a chosen area with a spell save DC of {@dc 18}. A creature or {@variantrule Object|XPHB} marked by the Symbol can be moved up to 60 feet from where the Symbol was cast instead of 10 feet. Only two such Symbols can be active at a time."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 25",
+                  "You can cast {@spell Death Ward|XPHB} on one creature. Alternatively, you can cast {@spell Aura of Life|XPHB} without Concentration, treating the crystal as the source. While you touch the crystal, the spell knows which creatures are allies and which are enemies."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 20",
+                  "You can duplicate any Abjuration spell of 3rd level or lower with a spell save DC of {@dc 18} and a +5 spellcasting ability modifier, or give chosen creatures within 30 feet {@dice 5d10} Temporary Hit Points."
+                ]
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Failure",
+              "entries": [
+                "A magical eruption pushes creatures within a radius of {@dice 2d4} times 10 feet 30 feet away and deals {@damage 8d10 + 10} Force damage. A creature that succeeds on a DC 18 Constitution saving throw takes half as much damage."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Critical Failure",
+              "entries": [
+                "The operator becomes a target of {@spell Banishment|XPHB} and makes a DC 18 Charisma saving throw. The operator always arrives in the Astral Plane, is not Incapacitated, and remains there for 1 day. The crystal becomes Disrupted."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Teleportation",
+          "entries": [
+            "As a {@action Magic|XPHB} action, you can use the crystal to move through space.",
+            {
+              "type": "table",
+              "caption": "Teleportation Functions",
+              "colLabels": ["Function", "Effect"],
+              "rows": [
+                [
+                  "{@skill Arcana|XPHB} DC 40",
+                  "You can cast {@spell Gate|XPHB}, stealing the {@item Diamond|XDMG} if you do not provide its material component, or cast {@spell Blade of Disaster|FRHoF} or {@spell Demiplane|XPHB}. The crystal records demiplanes it creates and shows them for 1 second before you choose; a new demiplane is selected by default."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 30",
+                  "You can cast {@spell Plane Shift|XPHB} or {@spell Teleport|XPHB}, providing the material component. The crystal teleports with you. Alternatively, you can permanently summon an aberration using the effect of {@spell Summon Aberration|TCE}, without Concentration. It obeys the operator while the operator touches the crystal; regaining or contesting control requires a DC 20 Intelligence ({@skill Arcana|XPHB}) check or a contest determined by the GM."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 25",
+                  "You can create an {@spell Arcane Gate|XPHB} with both endpoints chosen by you, or cast {@spell Dimension Door|XPHB} if an ally can carry the crystal."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 20",
+                  "Chosen creatures within 30 feet can use a Reaction to cast {@spell Misty Step|XPHB}."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Time Changer",
+          "entries": [
+            "As a {@action Magic|XPHB} action, you can use the crystal to cast {@spell Telekinesis|XPHB} on yourself. The spell lasts while you touch the crystal with a free hand or for 1 hour.",
+            {
+              "type": "table",
+              "caption": "Time Changer Functions",
+              "colLabels": ["Function", "Effect"],
+              "rows": [
+                [
+                  "{@skill Arcana|XPHB} DC 40",
+                  "You can use Roll Redo from {@spell Wish|XPHB}, forcing a reroll of any die roll made within the last round, including your last turn. You choose whether to use the original or new result and whether the reroll has Advantage or Disadvantage. You can also use Sudden Learning from {@spell Wish|XPHB} to replace one feat with another feat for which you qualify. You cannot replace a feat that is a prerequisite for another feat or feature, or use this option again for the same creature. Alternatively, you can cast {@spell Time Stop|XPHB} with {@dice 2d4 + 1} additional turns instead of {@dice 1d4 + 1}."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 30",
+                  "You can cast {@spell Time Stop|XPHB}, or rewind the last 6 seconds for one creature or a 5-foot cube within 30 feet."
+                ],
+                [
+                  "Reaction, {@skill Arcana|XPHB} DC 25",
+                  "As a Reaction, you can copy {@spell Temporal Shunt|EGW} without gaining Exhaustion."
+                ],
+                [
+                  "{@skill Arcana|XPHB} DC 20",
+                  "You can cast {@spell Slow|XPHB} without Concentration with a spell save DC of {@dc 18}, or cast {@spell Haste|XPHB} without Concentration."
+                ]
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Failure",
+              "entries": [
+                "The crystal becomes Disrupted, and all creatures within 30 feet become targets of {@spell Slow|XPHB}; each target makes a DC 18 Wisdom saving throw. Black tentacles appear around the crystal, duplicating the effect of {@spell Evard's Black Tentacles|XPHB} centered on the crystal. The effect lasts until dispelled."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Critical Failure",
+              "entries": [
+                "The crystal becomes Disrupted. The operator becomes a target of {@spell Time Ravage|EGW} and makes a DC 20 Constitution saving throw. If the operator dies from the effect, the body remains where it was."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Disrupted",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Disrupted Mode",
+              "colLabels": ["Rule", "Effect"],
+              "rows": [
+                [
+                  "Using a function",
+                  "You can attempt any function from another mode, but the DC increases by 10. Declare the facet and intended mode before approaching the crystal."
+                ],
+                [
+                  "Failure",
+                  "Apply the failure effect from the mode whose function you attempted."
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "Wondrous Item",
+      "rarity": "Artifact",
+      "attunement": "Requires attunement",
+      "weight": "1000 lb.",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "",
+      "image": "https://res.cloudinary.com/sbgzuael/image/upload/v1786089467/krysztal-mozliwosci_cfuq3v.png"
+    },
+    {
+      "id": "bauble-trap",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Bauble Trap",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous item, uncommon or rare",
+      "entries": [
+        "These talismans are made to divert malicious spells from their intended subject and ensnare them for future use. A Bauble Trap always includes a strand of the protected subject's hair.",
+        {
+          "type": "entries",
+          "name": "Thwart",
+          "entries": [
+            "The attuned creature adds {@dice 1d4} to its saving throws against spells of which it is the sole target. If it succeeds, the spell fails and has no effect, and is stored within the Bauble Trap, which loses this property."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Unleash",
+          "entries": [
+            "Thereafter, a creature that breaks the Bauble Trap or is struck by it as an improvised thrown weapon releases the spell and becomes its new target. The Bauble Trap is then destroyed."
+          ]
+        },
+        "An Uncommon Bauble Trap can hold a spell of level 5 or lower. A Rare Bauble Trap can hold a spell of any level. When creating a Bauble Trap, a witch can name a specific spell against which the saving throw bonus increases to {@dice 2d6}."
+      ],
+      "type": "Wondrous Item",
+      "rarity": "Uncommon or Rare",
+      "attunement": "Requires attunement",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "craftwork-grimoire",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Craftwork Grimoire",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous item, uncommon (+1), rare (+2), or very rare (+3), requires attunement by a Witch",
+      "entries": [
+        "While holding this book, you can use it as a {@variantrule Spellcasting Focus|XPHB} for your Witch spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your Witch spells. The bonus is determined by the book's rarity.",
+        "In addition, you gain proficiency with one set of Artisan's Tools of your choice, and you can maintain 1 extra Witchcraft Token if you create it using the chosen tools."
+      ],
+      "type": "Wondrous Item",
+      "rarity": "Uncommon (+1), Rare (+2), or Very Rare (+3)",
+      "attunement": "Requires attunement by a Witch",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "grandmothers-traveling-cloak",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Grandmother's Traveling Cloak",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous item, uncommon, requires attunement by a Witch",
+      "entries": [
+        "This patchwork, quilted cloak smells faintly of hearth and home cooking. While wearing it, you gain the following benefits.",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Cozy",
+              "entry": "You automatically succeed on saving throws against extreme cold and extreme heat, and the cloak keeps you dry unless you are immersed in water."
+            },
+            {
+              "type": "item",
+              "name": "Focus",
+              "entry": "You can use the cloak as a {@variantrule Spellcasting Focus|XPHB} for your Witch spells."
+            },
+            {
+              "type": "item",
+              "name": "Shelter",
+              "entry": "You can cast {@spell Rope Trick|XPHB} with a duration of 8 hours. Once used, this property can't be used again until the next dawn."
+            }
+          ]
+        }
+      ],
+      "type": "Wondrous Item",
+      "rarity": "Uncommon",
+      "attunement": "Requires attunement by a Witch",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "hearth-keepers-ladle",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Hearth Keeper's Ladle",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous item, uncommon (+1), rare (+2), or very rare (+3), requires attunement by a Witch",
+      "entries": [
+        "While holding this ladle, you can use it as a {@variantrule Spellcasting Focus|XPHB} for your Witch spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your Witch spells determined by the ladle's rarity.",
+        "In addition, as an Action you can use the ladle to cast {@spell Create Food and Water|XPHB}. The food created in this way is a delicious soup or stew of your choice. Once the ladle is used to cast the spell, it can't do so again until the next dawn."
+      ],
+      "type": "Wondrous Item",
+      "rarity": "Uncommon (+1), Rare (+2), or Very Rare (+3)",
+      "attunement": "Requires attunement by a Witch",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "staff-of-the-coven",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Staff of the Coven",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Staff, very rare, requires attunement by a Druid or Witch",
+      "entries": [
+        "This Staff can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.",
+        "The Staff has 20 Charges and regains {@dice 2d8 + 4} expended Charges daily at dawn. If you expend the last Charge, roll a {@dice d20}. On a 1, the Staff retains its +2 bonus to attack rolls and damage rolls but loses all other properties. On a 20, the Staff regains {@dice 1d8 + 2} Charges.",
+        {
+          "type": "entries",
+          "name": "Spells",
+          "entries": [
+            "While holding the Staff, you can use a Magic action to cast one of the spells on the Staff of the Coven Spells table, using your spell save DC, spell attack bonus, and level. The table indicates how many Charges you must expend to cast the spell.",
+            {
+              "type": "table",
+              "caption": "Staff of the Coven Spells",
+              "colLabels": ["Spell", "Charge Cost"],
+              "rows": [
+                ["{@spell Bestow Curse|XPHB} (level 5 version)", "5"],
+                ["{@spell Cackle|Fumble}", "0"],
+                ["{@spell Chill Touch|XPHB}", "0"],
+                ["{@spell Cure Wounds|XPHB}", "1"],
+                ["{@spell Globe of Invulnerability|XPHB}", "6"],
+                ["{@spell Tasha's Hideous Laughter|XPHB|Hideous Laughter}", "1"],
+                ["{@spell Hold Monster|XPHB}", "5"],
+                ["{@spell Mass Cure Wounds|XPHB}", "5"],
+                ["{@spell Remove Curse|XPHB}", "3"],
+                ["{@spell Wall of Force|XPHB}", "5"]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Punishing Curse",
+          "entries": [
+            "When a creature that you can see within 60 feet of you damages you or forces you to make a saving throw, you can take a Reaction to cast {@spell Bestow Curse|XPHB} on the creature, ignoring the spell's normal range and paying its Charge cost as normal. When you cast the spell in this way, it doesn't require Concentration and has a duration of 1 minute, but ends early if you cast the spell again."
+          ]
+        }
+      ],
+      "type": "Staff",
+      "rarity": "Very Rare",
+      "attunement": "Requires attunement by a Druid or Witch",
+      "weight": "",
+      "value": "",
+      "damage": "1d6 Bludgeoning",
+      "ac": "",
+      "properties": "Versatile (1d8)"
+    },
+    {
+      "id": "talon-athame",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Talon Athame",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Weapon (Dagger or Sickle), uncommon (+1), rare (+2), or very rare (+3), requires attunement by a Witch",
+      "entries": [
+        "While holding this magic weapon, you gain a bonus to attack and damage rolls made with it, and you gain a bonus to spell attack rolls and the saving throw DCs of your Witch spells determined by the weapon's rarity. In addition, you can use the weapon as a {@variantrule Spellcasting Focus|XPHB} for your Witch spells.",
+        "When you hit a creature with this weapon, you can expend and roll one Hit Die to deal extra Necrotic damage equal to the number rolled."
+      ],
+      "type": "Weapon (Dagger or Sickle)",
+      "rarity": "Uncommon (+1), Rare (+2), or Very Rare (+3)",
+      "attunement": "Requires attunement by a Witch",
+      "weight": "",
+      "value": "",
+      "damage": "1d4 Piercing or Slashing",
+      "ac": "",
+      "properties": "Finesse, Light"
+    },
+    {
+      "id": "vine-braid",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Vine Braid",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous item, uncommon (+1), rare (+2), or very rare (+3), requires attunement by a Witch",
+      "entries": [
+        "While holding or wearing this bracelet, you can use it as a {@variantrule Spellcasting Focus|XPHB} for your Witch spells, and you gain a bonus to spell attack rolls and the saving throw DCs of your Witch spells determined by the bracelet's rarity.",
+        "In addition, when you cast a spell using a spell slot that restores Hit Points while holding or wearing this bracelet, you can roll a {@dice d4} and add it to the number of Hit Points restored."
+      ],
+      "type": "Wondrous Item",
+      "rarity": "Uncommon (+1), Rare (+2), or Very Rare (+3)",
+      "attunement": "Requires attunement by a Witch",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "warders-tocsin",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Warder's Tocsin",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous item, rare",
+      "entries": [
+        "This talisman usually takes the form of bottle chimes, a clapperless bell, or a similar noisemaker, but its humble form belies its clever anti-divinatory properties. The tocsin can be hung from a stable hook, branch, or peg with an Action.",
+        "Once it is set up, if a spell such as {@spell Scrying|XPHB} or {@spell Clairvoyance|XPHB} creates a sensor within 60 feet of the tocsin, it chimes, rings, squawks, or toots an alarm. The tocsin itself can't be seen or heard through such sensors.",
+        "Additionally, while a sensor remains open within range of the tocsin, the image of the spell's caster is visible as a dim reflection on the tocsin's surface."
+      ],
+      "type": "Wondrous Item",
+      "rarity": "Rare",
+      "attunement": "Not required",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    },
+    {
+      "id": "worry-stone",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Worry Stone",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous item, common",
+      "entries": [
+        "Often a smooth, polished stone small enough to fit in one's pocket, these talismans may also take the form of small toys, beaded bracelets, or rings a half-size too loose.",
+        "When you rub, fidget, or fiddle with this talisman for one minute during a Short or Long Rest, you can reroll an Intelligence check or a Wisdom (Insight) check that you made since the end of your last Short or Long Rest, even if the subject of the check is no longer at hand, and add {@dice 1d4} to the total. A given check can only be rerolled with the Worry Stone once."
+      ],
+      "type": "Wondrous Item",
+      "rarity": "Common",
+      "attunement": "Not required",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": ""
+    }
+  ]
+}

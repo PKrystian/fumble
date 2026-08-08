@@ -102,6 +102,50 @@ describe('data normalizers', () => {
     expect(normalize.normalizeClasses(data, new Map(), () => false)).toEqual([]);
   });
 
+  it('attaches subclass fluff media to normalized class records', () => {
+    const data = {
+      class: [
+        {
+          ...base,
+          hd: { faces: 8 },
+          primaryAbility: [{ int: true }],
+          proficiency: ['int', 'wis'],
+          classFeatures: [],
+        },
+      ],
+      subclass: [
+        {
+          ...base,
+          name: 'School',
+          shortName: 'School',
+          className: 'Test Entry',
+          classSource: 'XPHB',
+          subclassFeatures: [],
+        },
+      ],
+      classFeature: [],
+      subclassFeature: [],
+    };
+    const fluff = new Map([
+      [
+        'school|XPHB',
+        {
+          entries: [],
+          images: [{ path: 'classes/XPHB/School.webp' }],
+        },
+      ],
+    ]);
+
+    expect(
+      normalize.normalizeClasses(data, new Map(), undefined, 'en', fluff)[0]!
+        .subclasses[0],
+    ).toMatchObject({
+      name: 'School',
+      image: 'classes/XPHB/School.webp',
+      gallery: [{ path: 'classes/XPHB/School.webp' }],
+    });
+  });
+
   it('normalizes populated records', () => {
     expect(
       normalize.normalizeItem({

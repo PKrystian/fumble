@@ -73,6 +73,20 @@ describe('compendium SEO helpers', () => {
     expect(polish.description).toContain('Źródło: Eberron:');
   });
 
+  it('keeps the selected subclass in the detail title and description', () => {
+    const seo = getCompendiumEntrySeo({
+      categoryId: 'classes',
+      categoryLabel: 'Classes',
+      item: artificer,
+      locale: 'en',
+      sourceLabel: 'Eberron: Forge of the Artificer',
+      displayName: 'Artificer: Alchemist',
+    });
+
+    expect(seo.title).toBe('Artificer: Alchemist D&D 2024 class (EFA)');
+    expect(seo.description).toContain('Artificer: Alchemist');
+  });
+
   it('includes structured fields for spells and items', () => {
     const spell = {
       ...entry,

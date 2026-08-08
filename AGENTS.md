@@ -26,20 +26,42 @@ file that ships to GitHub (anything not gitignored):
 **Exception:** `src/data/generated/**` is generated D&D data. Its `—` cells are meaningful
 table content ("none"). Never hand-edit or de-dash those files.
 
-## Quality gates - all must pass before you are done
+## Quality gates - all must pass before opening or updating a PR
+
+GitHub Actions runs these checks before a PR can merge:
+
+- Dependency audit: `npm run security:audit`
+- Lint: `npm run lint`
+- Formatting: `npm run format:check`
+- SBOM generation: `npm sbom --sbom-format cyclonedx > fumble-sbom.cdx.json`
+- Typecheck: `npm run typecheck`
+- Unit tests with coverage: `npm run test:coverage`
+- Production build and release validation: `npm run build`
+- Chromium and mobile E2E tests with coverage: `npm run test:e2e:coverage`
+- Coverage merge: `npm run test:coverage:merge`
+- CodeQL analysis: the GitHub-only check from `.github/workflows/codeql.yml`
+
+Run the complete local equivalent with:
 
 ```
-npm run typecheck && npm run lint && npm run format:check && npm run test && npm run build
-npx playwright test --project=chromium   # when UI behaviour changed
+npm ci
+npx playwright install chromium
+npm run verify:ci
 ```
+
+`npm run verify:ci` includes every locally reproducible check above. CodeQL runs in
+GitHub Actions and must also be green on the PR. Stop any local dev server before running
+the command so Playwright starts the coverage-enabled server used by CI. The shorter
+`npm run test` and `npm run test:e2e` commands are useful for fast feedback, but they do
+not replace the coverage checks required by CI.
 
 `npm run format` fixes formatting. Lint must be 0 errors (4 react-refresh warnings in
 `src/i18n/path.tsx` are pre-existing and expected).
 
-Coverage policy: run `npm run test:coverage:all` for coverage-sensitive changes. Every new
-feature and behavior branch must include tests for its success, empty, and error paths as
-applicable. Keep the combined global coverage at 100% for statements, branches, functions,
-and lines; the 95% value in the CI script is only the minimum enforcement threshold.
+Coverage policy: every new feature and behavior branch must include tests for its success,
+empty, and error paths as applicable. Keep the combined global coverage at 100% for
+statements, branches, functions, and lines; the 95% value in the CI script is only the
+minimum enforcement threshold.
 
 ## Release hygiene
 

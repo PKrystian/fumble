@@ -11,7 +11,12 @@ import { useCategoryItems } from './useCategoryItems';
 import { applyContentMode } from './contentFilter';
 import { EntryRenderer } from './EntryRenderer';
 import { FilterBar } from './FilterBar';
-import { type SortDir, compareItems, matchesFilters } from './filterSort';
+import {
+  type SortDir,
+  compareItems,
+  matchesFilters,
+  normalizeFilterValue,
+} from './filterSort';
 import {
   imageUrl,
   optimizedImageSrcSet,
@@ -22,6 +27,13 @@ import {
 import { isUaSource, sourceName } from '@/data/compendium/sources';
 import { isHomebrew } from '@/features/homebrew/store';
 import { HomebrewDetail } from '@/features/homebrew/HomebrewDetail';
+import { FumbleBadge } from '@/features/homebrew/FumbleBadge';
+import { FumbleDetail } from '@/features/homebrew/FumbleDetail';
+import {
+  fumbleParentClassId,
+  isFumbleHomebrew,
+} from '@/features/homebrew/fumbleHomebrew';
+import { useFumbleHomebrewStore } from '@/features/homebrew/fumbleHomebrewStore';
 import { getBook } from '@/features/books/data';
 import { useLightbox } from '@/features/ui/lightboxStore';
 import { useContentModeStore } from '@/features/ui/contentModeStore';
@@ -34,6 +46,8 @@ import { SearchField } from '@/features/ui/primitives';
 import { toggleChipClass } from '@/features/ui/styles';
 import { normalizeSearchText } from '@/data/compendium/searchText';
 import { getCompendiumCategorySeo, getCompendiumEntrySeo } from '@/data/compendium/seo';
+import type { ClassEntry } from '@/data/compendium/types';
+import { findSubclassByRouteKey } from './subclassRoute';
 import { revealApp } from '@/seo/prerendered';
 import packageInfo from '../../../package.json';
 
@@ -44,7 +58,7 @@ function categoryLabel(category: CompendiumCategory, t: (key: string) => string)
 const NO_FILTERS: CategoryFilter[] = [];
 
 export function CompendiumPage() {
-  const { category: categoryId, id } = useParams();
+  const { category: categoryId, id, subclass: subclassId } = useParams();
 
   if (!categoryId) {
     return <Navigate to={`/compendium/${categories[0]!.id}`} replace />;
@@ -55,15 +69,24 @@ export function CompendiumPage() {
     return <Navigate to={`/compendium/${categories[0]!.id}`} replace />;
   }
 
-  return <CompendiumBrowser key={categoryId} categoryId={categoryId} selectedId={id} />;
+  return (
+    <CompendiumBrowser
+      key={categoryId}
+      categoryId={categoryId}
+      selectedId={id}
+      selectedSubclassId={subclassId}
+    />
+  );
 }
 
 function CompendiumBrowser({
   categoryId,
   selectedId,
+  selectedSubclassId,
 }: {
   categoryId: string;
   selectedId: string | undefined;
+  selectedSubclassId: string | undefined;
 }) {
   const category = getCategory(categoryId)!;
   const filters = category.filters ?? NO_FILTERS;
@@ -97,23 +120,43 @@ function CompendiumBrowser({
     }, 0);
   };
 
-  const currentSearch = () => {
+  const currentSearch = (keepSubclass = false) => {
     const search = new URLSearchParams(params);
     if (queryRef.current) {
       search.set('q', queryRef.current);
     } else {
       search.delete('q');
     }
+    if (!keepSubclass) search.delete('subclass');
     return search;
   };
   const requestedSort = params.get('sort');
+  const requestedSubclassIds = selectedSubclassId
+    ? [selectedSubclassId]
+    : params.getAll('subclass');
+  const requestedSubclassId = requestedSubclassIds[0];
   const sortFields = new Set(['name', ...filters.map((filter) => filter.id)]);
   const sortField = sortFields.has(requestedSort ?? '') ? requestedSort! : 'name';
   const sortDir: SortDir = params.get('order') === 'desc' ? 'desc' : 'asc';
   const selectedFilters = Object.fromEntries(
-    filters.map((filter) => [filter.id, params.getAll(filter.id).filter(Boolean)]),
+    filters.map((filter) => [
+      filter.id,
+      [
+        ...new Set(
+          params
+            .getAll(filter.id)
+            .filter(Boolean)
+            .map((value) => normalizeFilterValue(filter, value)),
+        ),
+      ],
+    ]),
   );
-  const { status, items } = useCategoryItems(category);
+  const { status, items } = useCategoryItems(
+    category,
+    true,
+    selectedId,
+    requestedSubclassIds,
+  );
   const selected = selectedId ? items.find((item) => item.id === selectedId) : undefined;
 
   useEffect(() => {
@@ -135,10 +178,20 @@ function CompendiumBrowser({
     });
   };
 
+  const setFilter = (filterId: string, values: string[]) => {
+    update({ [filterId]: values.length > 0 ? values : null });
+  };
+
   const contentMode = useContentModeStore((s) => s.mode);
+  const showFumbleHomebrew = useFumbleHomebrewStore((s) => s.showInCompendium);
   const visibleItems = useMemo(
-    () => applyContentMode(items, contentMode),
-    [items, contentMode],
+    () =>
+      applyContentMode(
+        items,
+        contentMode,
+        showFumbleHomebrew || Boolean(selected && isFumbleHomebrew(selected)),
+      ),
+    [items, contentMode, selected, showFumbleHomebrew],
   );
 
   const filtered = useMemo(() => {
@@ -162,6 +215,13 @@ function CompendiumBrowser({
   }, [filtered, sortField, sortDir, filters, t, locale]);
 
   const categoryTitle = categoryLabel(category, t);
+  const selectedSubclass =
+    categoryId === 'classes' && selected && requestedSubclassId
+      ? findSubclassByRouteKey(
+          (selected as Partial<ClassEntry>).subclasses ?? [],
+          requestedSubclassId,
+        )
+      : undefined;
   const seo = selected
     ? getCompendiumEntrySeo({
         categoryId,
@@ -169,10 +229,30 @@ function CompendiumBrowser({
         item: selected,
         locale,
         sourceLabel: sourceName(selected.source, locale),
+        ...(selectedSubclass
+          ? { displayName: `${selected.name}: ${selectedSubclass.name}` }
+          : {}),
       })
     : getCompendiumCategorySeo(categoryId, categoryTitle, locale);
 
   useSeo(seo.title, seo.description);
+
+  const legacyFumbleSubclass =
+    selected && isFumbleHomebrew(selected) && selected.isSubclass ? selected : undefined;
+  const legacyParentClassId = legacyFumbleSubclass
+    ? fumbleParentClassId(legacyFumbleSubclass)
+    : undefined;
+
+  if (legacyFumbleSubclass && legacyParentClassId) {
+    return (
+      <Navigate
+        to={{
+          pathname: `/compendium/classes/${legacyParentClassId}/${legacyFumbleSubclass.id}`,
+        }}
+        replace
+      />
+    );
+  }
 
   const primaryImageSrcSet =
     categoryId === 'bestiary' && selected?.image
@@ -257,6 +337,7 @@ function CompendiumBrowser({
               items={visibleItems}
               selected={selectedFilters}
               onToggle={toggleFilter}
+              onSetFilter={setFilter}
               onClear={() =>
                 update(Object.fromEntries(filters.map((filter) => [filter.id, null])))
               }
@@ -308,6 +389,7 @@ function CompendiumBrowser({
                         {t('compendium.homebrewBadge')}
                       </span>
                     )}
+                    {isFumbleHomebrew(item) && <FumbleBadge compact />}
                     {(isUaSource(item.source) || item.ua) && (
                       <span className="rounded-full border border-arcane-500/50 px-1.5 text-[0.65rem] uppercase tracking-wide text-arcane-300">
                         {t('compendium.uaBadge')}
@@ -317,7 +399,9 @@ function CompendiumBrowser({
                   <span className="block text-xs text-ink-400">
                     {isHomebrew(item) && item._manual
                       ? item.subtitle
-                      : category.subtitle(item, t)}
+                      : isFumbleHomebrew(item)
+                        ? item.subtitle
+                        : category.subtitle(item, t)}
                   </span>
                 </Link>
               </li>
@@ -334,7 +418,7 @@ function CompendiumBrowser({
           <Link
             to={{
               pathname: `/compendium/${categoryId}`,
-              search: params.toString(),
+              search: currentSearch().toString(),
             }}
             className="mb-4 inline-flex items-center gap-1 text-sm text-ink-300 hover:text-ink-50 md:hidden"
           >
@@ -400,7 +484,9 @@ function CompendiumBrowser({
                   {t('compendium.uaLabel')}
                 </span>
               )}
-              {isHomebrew(selected) && selected._manual ? (
+              {isFumbleHomebrew(selected) ? (
+                <FumbleDetail item={selected} />
+              ) : isHomebrew(selected) && selected._manual ? (
                 <HomebrewDetail item={selected} />
               ) : (
                 category.renderDetail(selected)

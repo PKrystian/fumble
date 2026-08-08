@@ -13,6 +13,11 @@ import type { WikiData } from '@/features/wiki/types';
 import { translate } from '@/i18n/useT';
 import type { Locale } from '@/i18n/locales';
 import { normalizeSearchText } from '@/data/compendium/searchText';
+import {
+  fumbleHomebrewItems,
+  fumbleParentClassId,
+  type FumbleHomebrewItem,
+} from '@/features/homebrew/fumbleHomebrew';
 
 export type SearchKind = 'compendium' | 'homebrew' | 'wiki';
 
@@ -39,6 +44,10 @@ function toResult(
   subtitle: string,
   categoryLabel: string,
 ): SearchResult {
+  const parentClassId =
+    categoryId === 'classes'
+      ? fumbleParentClassId(item as FumbleHomebrewItem)
+      : undefined;
   return {
     kind,
     id: item.id,
@@ -46,7 +55,9 @@ function toResult(
     ...(item.englishName ? { englishName: item.englishName } : {}),
     subtitle,
     categoryLabel,
-    to: `/compendium/${categoryId}/${item.id}`,
+    to: parentClassId
+      ? `/compendium/classes/${parentClassId}/${item.id}`
+      : `/compendium/${categoryId}/${item.id}`,
   };
 }
 
@@ -66,7 +77,10 @@ async function buildFallbackIndex(locale: Locale, t: TranslateFn): Promise<Searc
     categories.map(async (category) => ({
       id: category.id,
       label: t(`compendium.categories.${category.id}`),
-      items: await loadLocalizedItems(category.id, category.load, locale),
+      items: [
+        ...(await loadLocalizedItems(category.id, category.load, locale)),
+        ...fumbleHomebrewItems(locale).filter((item) => item.category === category.id),
+      ],
     })),
   );
   const wiki = await import('@/data/generated/wiki.json')
@@ -143,11 +157,12 @@ export function buildPool(
   index: SearchIndex,
   mode: ContentMode,
   locale: Locale,
+  showFumbleHomebrew = false,
 ): SearchResult[] {
   const t = translator(locale);
   const compendium = index.categories.flatMap((cat) => {
     const category = getCategory(cat.id);
-    return applyContentMode(cat.items, mode).map((item) =>
+    return applyContentMode(cat.items, mode, showFumbleHomebrew).map((item) =>
       toResult(
         'compendium',
         item,

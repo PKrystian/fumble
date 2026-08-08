@@ -1,0 +1,552 @@
+{
+  "meta": {
+    "category": "feats",
+    "count": 22,
+    "source": "Fumble"
+  },
+  "items": [
+    {
+      "id": "starting-flaw-immobile",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Immobile",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Immobile",
+          "entries": [
+            "Reduce Constitution or Dexterity by 1. Your {@variantrule Speed|XPHB} is reduced by 10 feet. You cannot take the Disengage Action, and a Creature can make an Opportunity Attack against you even if it has already used its Reaction."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "starting-flaw-stuttering",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Stuttering",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Stuttering",
+          "entries": [
+            "Reduce Charisma by 1. You have {@variantrule Disadvantage|XPHB} on Charisma checks that involve speaking. When you cast a Spell with a Verbal component, roll a {@dice d6}. On a 1 or 2, the Spell fails and your Action is wasted, but you do not expend the Spell slot."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "Spellcasting or Pact Magic feature"
+    },
+    {
+      "id": "starting-flaw-fragile",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Fragile",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Fragile",
+          "entries": [
+            "A natural 19 or 20 is a {@variantrule Critical Hit|XPHB} against you. When a Creature scores a {@variantrule Critical Hit|XPHB} against you, or when you roll a natural 1 on a {@variantrule Saving Throw|XPHB} against a damaging Spell, every {@variantrule Enemy|XPHB} has {@variantrule Advantage|XPHB} on attacks against you until the end of combat, until you use your Action to end this effect, or until you are {@condition Incapacitated|XPHB}."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "starting-flaw-slow",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Slow",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Slow",
+          "entries": [
+            "Reduce Dexterity by 1. Your {@variantrule Speed|XPHB} is reduced by 10 feet. You cannot take the Disengage Action, and a Creature can make an Opportunity Attack against you even if it has already used its Reaction."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "starting-flaw-unlucky",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Unlucky",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Unlucky",
+          "entries": [
+            "You cannot benefit from {@variantrule Advantage|XPHB} unless it cancels {@variantrule Disadvantage|XPHB}. The GM can lift this effect for a specific situation."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "starting-flaw-nonresilient",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Nonresilient",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Nonresilient",
+          "entries": [
+            "Reduce one ability score in which you have {@variantrule Saving Throw|XPHB} Proficiency by 1 and lose that {@variantrule Saving Throw|XPHB} Proficiency."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "starting-flaw-weak",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Weak",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Weak",
+          "entries": ["You permanently lose 3 {@variantrule Hit Points|XPHB} per level."]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "starting-flaw-wimp",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Wimp",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Wimp",
+          "entries": [
+            "When you are reduced to 0 {@variantrule Hit Points|XPHB}, you gain 2 levels of {@condition Exhaustion|XPHB}."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "starting-flaw-delicate",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Delicate",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Delicate",
+          "entries": [
+            "For a one-shot, reduce Constitution by 1. In a campaign, do not apply this ability score reduction. When you spend Hit Dice during a Short Rest, you regain only a number of Hit Points equal to your Constitution modifier per die spent instead of rolling the dice. You can still benefit from features such as the Chef feat and Song of Rest. You regain only one-quarter of your expended Hit Dice when you finish a Long Rest, and when you are reduced to 0 Hit Points, you gain 2 levels of Exhaustion."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "starting-flaw-scatterbrained",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Scatterbrained",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Scatterbrained",
+          "entries": [
+            "Reduce Constitution by 1. You have {@variantrule Disadvantage|XPHB} on Constitution checks made to maintain {@condition Concentration|XPHB}. You cannot take the {@feat War Caster|XPHB} feat or the {@optfeature Eldritch Mind|XPHB} invocation. You can use {@item Mind Sharpener|EFA}, but each use deals damage equal to twice the level of the Spell you were concentrating on and forces another Concentration check."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "Spellcasting or Pact Magic feature"
+    },
+    {
+      "id": "starting-flaw-weak-sight",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Weak Sight",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Weak Sight",
+          "entries": [
+            "Reduce Wisdom by 1. You cannot benefit from a species' Darkvision, or you can gain Sunlight Sensitivity instead. While in sunlight, you have {@variantrule Disadvantage|XPHB} on attack rolls. You treat Dim Light as Darkness after 10 feet, and you have {@variantrule Disadvantage|XPHB} on Wisdom (Perception) and Intelligence (Investigation) checks."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "starting-flaw-cant-use-it",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Can't Use It",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Can't Use It",
+          "entries": [
+            "Reduce Strength or Dexterity by 1. You permanently lose Proficiency with martial weapons and the highest tier of armor with which you are proficient. For example, a Fighter loses Heavy Armor and martial weapon Proficiency, while a Barbarian loses Medium Armor and martial weapon Proficiency. You cannot regain these proficiencies through {@variantrule Multiclassing|XPHB}."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "Martial class: Fighter, Ranger, Paladin, Barbarian, or Blood Hunter"
+    },
+    {
+      "id": "starting-flaw-only-big-spells",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Only Big Spells",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Only Big Spells",
+          "entries": ["You lose the ability to cast any damaging Cantrip."]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "Full caster class: Cleric, Bard, Warlock, Wizard, Druid, or Sorcerer"
+    },
+    {
+      "id": "starting-flaw-curse-of-fey",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Curse of Fey",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Curse of Fey",
+          "entries": [
+            "You can take the {@feat Fey Touched|TCE} or {@feat Shadow Touched|TCE} feat. Choose a taboo with the GM: a thing your character cannot do, no matter how much they want to do it. Examples include a Taboo of Passage, which prevents you from using teleportation or roads and from entering a place of influence without an invitation from its keeper, and a Taboo of Sun, which prevents you from regaining Hit Points in direct sunlight and causes you to appear in your true form."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "starting-flaw-attunement-scar",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Attunement Scar",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Attunement Scar",
+          "entries": [
+            "You permanently lose one {@variantrule Attunement|XPHB} slot. This flaw is not available for one-shots."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "starting-flaw-curse-of-giant",
+      "campaigns": [
+        "glod-smoka",
+        "krysztalowa-sfera",
+        "siedmiu-zbiegow",
+        "wedrowcy-granic"
+      ],
+      "name": "Curse of a Giant",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Curse of a Giant",
+          "entries": [
+            "Reduce Strength by 1. Your {@variantrule Size|XPHB} is reduced by one category, as if affected by {@spell Reduce|XPHB}, and you have {@variantrule Disadvantage|XPHB} on checks made to avoid being Shoved or {@condition Grappled|XPHB}."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "kielich-origin-feat",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Kielich",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Kielich",
+          "entries": [
+            "Origin feat. You cannot be a Spirit. With the GM, choose a Spirit that can take over your body, such as a Hell Hound, Dybbuk, Quasit, Dryad, Meenlock, Naiad, Pegasus, Couatl, Living Portent, Adult Faerie Dragon, or Dragon Wyrmling. You share your body with it and it can communicate with you, but it cannot see or hear anything beyond your senses.",
+            "As a free action, once per round, attempt to assume the Spirit form. Make a Constitution {@variantrule Saving Throw|XPHB} with DC 10 + twice the Spirit's CR. On a success, make a Wisdom {@variantrule Saving Throw|XPHB} with DC 5 + the Spirit's CR. On a failure, the Spirit controls the body for {@dice 1d4} hours. On a success, you control the body and can end the transformation as an Action.",
+            "When you return to your form, make a Charisma {@variantrule Saving Throw|XPHB} with DC 10 + the Spirit's CR. On a failure, your Hit Point maximum is permanently reduced by 1. If the Spirit reaches 0 {@variantrule Hit Points|XPHB}, it returns to the Spirit realm and leaves you {@condition Stunned|XPHB} until the end of your next turn. You cannot transform again until the next {@variantrule Long Rest|XPHB}.",
+            "The Spirit uses your Proficiency bonus unless its own is higher. Increase its relevant DCs and bonuses at character levels 5, 9, 13, and 17 with the GM."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "Origin feat"
+    },
+    {
+      "id": "potent-spirit-form",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Potent Spirit Form",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Potent Spirit Form",
+          "entries": [
+            "Prerequisite: Kielich. Increase one ability score by 1. After succeeding on the Wisdom {@variantrule Save|XPHB} during a Spirit transformation, you can strengthen the form. If you failed that {@variantrule Save|XPHB}, the Spirit decides.",
+            "At the same time as the transformation, the strengthened form casts {@spell Haste|XPHB} on itself without using a Spell slot and maintains Concentration on it. It also gains {@variantrule Temporary Hit Points|XPHB} equal to twice your level. You can use this feature a number of times equal to your Proficiency bonus per {@variantrule Long Rest|XPHB}.",
+            "When you return to your form, make a Constitution {@variantrule Saving Throw|XPHB} with DC 10 + the Spirit's CR. On a failure, you gain 1 level of {@condition Exhaustion|XPHB}."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "strong-wings",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Strong Wings",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Strong Wings",
+          "entries": [
+            "Prerequisite: Moth lineage with the {@variantrule Flying|XPHB|Flight} trait. Increase Strength or Constitution by 1. You can wear Medium Armor and Fly."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "soothing-moon-magic",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Soothing Moon Magic",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Soothing Moon Magic",
+          "entries": [
+            "Prerequisite: Moth lineage with an innate insectoid trait and {@variantrule Spellcasting|XGE|Spellcasting} or Pact Magic. Increase Intelligence, Wisdom, or Charisma by 1. You can cast {@spell Detect Evil and Good|XPHB} at will. You learn {@spell Aid|XPHB} and {@spell Prayer of Healing|XPHB}. You can cast each of those spells once without expending a Spell slot, and regain the ability to cast them in this way when you finish a {@variantrule Long Rest|XPHB}. Wisdom is your spellcasting ability for all three spells."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "silk-craftsman",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Silk Craftsman",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Silk Craftsman",
+          "entries": [
+            "Prerequisite: Moth lineage with the Silk trait. Increase Dexterity or Wisdom by 1. You have {@variantrule Expertise|XPHB} with {@item Weaver's Tools|XPHB}, and you can create objects from your own silk. Your webs are much stronger than normal, and creatures have {@variantrule Disadvantage|XPHB} on Dexterity saving throws and Strength checks made to avoid your webbing."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    },
+    {
+      "id": "four-weapon-wielder",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Four-Weapon Wielder",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "feats",
+      "subtitle": "General feat",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Four-Weapon Wielder",
+          "entries": [
+            "Prerequisite: Moth lineage with Secondary Arms. Increase Strength or Dexterity by 1. You can use all four hands without restrictions, including wielding a {@item Shield|XPHB}, a two-handed Weapon, and a {@variantrule Spellcasting Focus|XPHB}."
+          ]
+        }
+      ],
+      "featCategory": "General",
+      "prerequisite": "General feat"
+    }
+  ]
+}

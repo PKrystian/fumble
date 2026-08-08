@@ -101,6 +101,20 @@ describe('reference hints', () => {
     await expect(loadReferenceHint('spells-hint', 'unknown', 'pl')).resolves.toBeNull();
   });
 
+  it('loads static and personal homebrew references', async () => {
+    const { loadReferenceHint, loadReferenceName } = await import('./referenceHint');
+    await expect(
+      loadReferenceName('spells', 'cackle', 'pl', 'Cackle', 'Fumble'),
+    ).resolves.toBe('Chichot');
+    await expect(
+      loadReferenceHint('spells', 'cackle', 'pl', 'Fumble'),
+    ).resolves.toMatchObject({
+      name: 'Chichot',
+      englishName: 'Cackle',
+      subtitle: 'Sztuczka, uroki',
+    });
+  });
+
   it('uses traits and actions and truncates long descriptions', async () => {
     const { loadReferenceHint } = await import('./referenceHint');
     loadLocalizedItems.mockResolvedValueOnce([

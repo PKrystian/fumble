@@ -1,0 +1,224 @@
+{
+  "animate-hut": {
+    "name": "Ożywiona Chata",
+    "subtitle": "Zaklęcie 5. poziomu, przemiany",
+    "entries": [
+      "Rzucając to zaklęcie, dotykasz budynku o długości i szerokości nie większej niż 30 stóp oraz wysokości nie większej niż dwa piętra. Musisz mieć do niego prawa własności lub zamieszkania albo zgodę właściciela. W przeciwnym razie zaklęcie kończy się bez efektu.",
+      "Budynek staje się Konstruktem, który wykonuje twoje polecenia i działa natychmiast po twojej turze w ramach Inicjatywy. Pod budynkiem wyrastają dziesięciostopowe nogi przypominające istotę, której kości wykorzystano jako komponent materialny, albo kurze nogi, jeśli rzucono zaklęcie bez komponentów materialnych. Budynek zyskuje Szybkość 40 stóp. Może wstać albo usiąść, pokonując połowę swojej Szybkości, przy czym musi usiąść, aby obniżyć wejścia do poziomu gruntu.",
+      "Dopóki utrzymujesz koncentrację na zaklęciu, budynek może używać akcji, aby tupać nogami i wykonać atak bronią do walki wręcz, korzystając z twojego modyfikatora ataku zaklęciem. Przy trafieniu zadaje {@damage 3d10} obrażeń obuchowych. Budynek ma KP 15, 100 PW oraz niewrażliwość na obrażenia od trucizny i psychiczne. Korzysta z twoich premii do rzutów obronnych. Jeśli zostanie zredukowany do 0 PW, zaklęcie kończy się, a budynek osiada na ziemi.",
+      "Jeśli stracisz koncentrację na zaklęciu, budynek pozostaje ożywiony i do końca czasu trwania zaklęcia nadal wykonuje twoje polecenia, ale nie może już podejmować akcji.",
+      {
+        "type": "entries",
+        "name": "Rzucanie z użyciem komórki wyższego poziomu",
+        "entries": [
+          "Jeśli rzucisz to zaklęcie, używając komórki 8. poziomu lub wyższej, możesz dać budynkowi skrzydła oprócz nóg. Zyskuje on wtedy Szybkość Latania równą swojej Szybkości."
+        ]
+      }
+    ]
+  },
+  "breath-of-belladonna": {
+    "name": "Oddech Belladonny",
+    "subtitle": "Zaklęcie 2. poziomu, nekromancja",
+    "entries": [
+      "Zjadasz jagody belladonny użyte jako komponent materialny i otrzymujesz {@damage 3} obrażenia od trucizny, po czym wydmuchujesz chmurę trucizny. Każda istota w sześcianie o boku 15 stóp, którego źródłem jesteś ty, musi wykonać rzut obronny na Kondycję. Przy nieudanym rzucie otrzymuje {@damage 3d10} obrażeń od trucizny i do początku twojej następnej tury zyskuje stan {@condition Poisoned|XPHB}. Przy udanym rzucie otrzymuje tylko połowę tych obrażeń. Istota, która nie musi oddychać, automatycznie zdaje rzut obronny.",
+      {
+        "type": "entries",
+        "name": "Rzucanie z użyciem komórki wyższego poziomu",
+        "entries": [
+          "Jeśli rzucisz to zaklęcie, używając komórki 3. poziomu lub wyższej, obrażenia zadawane przez zaklęcie zwiększają się o {@damage 1d10} za każdy poziom komórki powyżej 2. Otrzymywane przez ciebie obrażenia nie zwiększają się."
+        ]
+      }
+    ]
+  },
+  "cackle": {
+    "name": "Chichot",
+    "subtitle": "Sztuczka, uroki",
+    "entries": [
+      "Wydajesz szalony chichot pod adresem jednej istoty w zasięgu, która może cię słyszeć, uwalniając moc swojej pogardy i wrogości. Cel musi wykonać rzut obronny na Mądrość. Przy nieudanym rzucie otrzymuje {@damage 1d8} obrażeń psychicznych i ma {@variantrule Disadvantage|XPHB} w następnym teście cechy albo rzucie obronnym opartym na Sile lub Zręczności, który wykona przed początkiem twojej następnej tury."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Ulepszenie sztuczki",
+        "entries": [
+          "Obrażenia zwiększają się o {@damage 1d8}, gdy osiągniesz poziom 5 ({@damage 2d8}), 11 ({@damage 3d8}) i 17 ({@damage 4d8})."
+        ]
+      }
+    ]
+  },
+  "call-to-the-hunter": {
+    "name": "Wezwanie Łowcy",
+    "subtitle": "Zaklęcie 3. poziomu, przywoływanie",
+    "entries": [
+      "Wzywasz sprzymierzoną Bestię, czerpiąc z wzajemnej więzi z żywymi istotami wokół ciebie. Przy przywoływaniu sprzymierzeńca wybierz jego rodzime środowisko: Powietrze, Ląd albo Woda. Stworzenie korzysta z bloku statystyk {@creature Allied Hunter|Fumble|Sprzymierzony Łowca} i przyjmuje postać zwierzęcia rodzimego dla wybranego środowiska, które określa wybrane właściwości jego bloku statystyk. Stworzenie znika, gdy jego PW spadną do 0 albo gdy zaklęcie się zakończy.",
+      "W walce łowca dzieli z tobą wynik Inicjatywy, ale wykonuje swoją turę natychmiast po twojej. Wykonuje twoje werbalne polecenia, które nie wymagają od ciebie akcji. Jeśli nie wydasz żadnego, broni się przed wrogimi stworzeniami albo wykonuje akcję Unik, wykorzystując swój ruch, by uniknąć niebezpieczeństwa.",
+      {
+        "type": "entries",
+        "name": "Rzucanie z użyciem komórki wyższego poziomu",
+        "entries": [
+          "Rzucając to zaklęcie z użyciem komórki 3. poziomu lub wyższej, użyj wyższego poziomu wszędzie tam, gdzie poziom zaklęcia występuje w bloku statystyk."
+        ]
+      }
+    ]
+  },
+  "cleansing-crystal": {
+    "name": "Oczyszczający Kryształ",
+    "subtitle": "Zaklęcie 2. poziomu, abjuracja",
+    "entries": [
+      "Nasycasz kryształ magią, aby pochłaniał szkodliwe wpływy. Gdy istota niosąca kryształ miałaby otrzymać obrażenia w wyniku zaklęcia albo magicznego efektu na obszarze, na którym znajduje się na początku swojej tury, kryształ zmniejsza otrzymywane obrażenia o {@damage 2d6}.",
+      "Gdy istota miałaby wykonać rzut obronny, aby uniknąć efektu zależnego od obszaru, na którym znajduje się na początku swojej tury, ma {@variantrule Advantage|XPHB} w tym rzucie.",
+      "Dopóki trwa zaklęcie, gdy istota niosąca kryształ miałaby otrzymać obrażenia nekrotyczne, od trucizny albo psychiczne, możesz zakończyć zaklęcie w ramach reakcji, aby dać jej odporność na rodzaj obrażeń, które wywołały tę reakcję, do końca jej następnej tury.",
+      {
+        "type": "entries",
+        "name": "Rzucanie z użyciem komórki wyższego poziomu",
+        "entries": [
+          "Rzucając to zaklęcie z użyciem komórki 4. poziomu lub wyższej, dajesz jego korzyści również stworzeniom w promieniu 10 stóp od kryształu."
+        ]
+      }
+    ]
+  },
+  "create-poppet": {
+    "name": "Stwórz Laleczkę",
+    "subtitle": "Zaklęcie 3. poziomu, przemiany",
+    "entries": [
+      "Rzucając to zaklęcie, formujesz z komponentów materialnych małą lalkę albo wyciągasz ją z własnego cienia, jeśli rzucasz zaklęcie bez komponentów materialnych. Trzymając lalkę, możesz wykonywać następujące akcje:",
+      {
+        "type": "list",
+        "items": [
+          {
+            "type": "item",
+            "name": "Uzdrawiający Dar",
+            "entry": "Jako akcję dodatkową wybierz jedną widzianą przez ciebie istotę w promieniu 15 stóp od siebie. Odzyskuje ona {@damage 1d8} PW + twój modyfikator cechy do rzucania zaklęć."
+          },
+          {
+            "type": "item",
+            "name": "Oczyszczający Dar",
+            "entry": "Jako akcję dodatkową wybierz jedną widzianą przez ciebie istotę w promieniu 15 stóp od siebie. Możesz zakończyć nękającą ją chorobę albo jeden z jej stanów. Może to być stan Oślepiony, Ogłuchły, Zatruty albo Ogłuszony."
+          },
+          {
+            "type": "item",
+            "name": "Dar Ochrony przed Klątwą",
+            "entry": "Jako reakcję, gdy stajesz się celem zaklęcia klątwy, negujesz jego efekt na sobie."
+          }
+        ]
+      },
+      "Gdy użyjesz lalki po raz trzeci, zostaje zniszczona, a jej serce pozostaje w postaci nasiona. Do zakończenia zaklęcia każda istota może zjeść nasiono jako akcję dodatkową. Istota, która to zrobi, zyskuje {@variantrule Temporary Hit Points|XPHB} równe {@damage 2d8}."
+    ]
+  },
+  "miser-s-menace": {
+    "name": "Groźba Skąpca",
+    "subtitle": "Zaklęcie 8. poziomu, uroki",
+    "entries": [
+      "Rzucając to zaklęcie, wybierz widzianą przez siebie istotę w zasięgu. Cel musi wykonać rzut obronny na Mądrość. Przy nieudanym rzucie zostaje przeklęty na czas trwania zaklęcia.",
+      "Przeklęty cel jest zmuszony oddawać całe swoje bogactwo, dobytek i pozycje władzy tym, którym ich brakuje, przekazując co najmniej dziesięć procent swojego bogactwa każdej napotkanej istocie, która nie jest Bestią.",
+      "Jeśli cel złamał swoją część umowy z tobą albo odmówił twojej uprzejmej prośbie o jedzenie i schronienie, mimo że nie wyrządziłeś mu krzywdy, możesz rzucić to zaklęcie jako akcję, a efekt staje się trwały. Kończy się dopiero, gdy klątwa zostanie zdjęta albo cel nie będzie miał nic poza łachmanami."
+    ]
+  },
+  "spellwarping-curse": {
+    "name": "Klątwa Zniekształcająca Zaklęcia",
+    "subtitle": "Zaklęcie 3. poziomu, abjuracja",
+    "entries": [
+      "Nakładasz klątwę na stworzenie w zasięgu. Cel musi wykonać rzut obronny na Mądrość. Przy nieudanym rzucie zostaje przeklęty na czas trwania zaklęcia. Przeklęte stworzenie otrzymuje {@damage 1d8} + twój modyfikator cechy do rzucania zaklęć, minimum 1, obrażeń psychicznych za każdym razem, gdy rzuca zaklęcie albo używa magicznej cechy, która zadaje obrażenia lub zmusza stworzenie do wykonania rzutu obronnego. Rzucone przez cel na siebie zaklęcie {@spell Remove Curse|XPHB|Zdjęcie klątwy} nie może zdjąć tej klątwy.",
+      {
+        "type": "entries",
+        "name": "Rzucanie z użyciem komórki wyższego poziomu",
+        "entries": [
+          "Rzucając to zaklęcie z użyciem komórki 6. poziomu lub wyższej, jeśli cel kiedykolwiek obrał cię za cel szkodliwego zaklęcia albo magicznego efektu wbrew twojej woli, ma {@variantrule Disadvantage|XPHB} w rzucie obronnym, a efekt staje się trwały, chyba że zostanie usunięty przez zaklęcie {@spell Remove Curse|XPHB|Zdjęcie klątwy}, {@spell Greater Restoration|XPHB|Większe odtworzenie} albo podobną magię."
+        ]
+      },
+      "Możesz również zakończyć zaklęcie, używając akcji, aby je odrzucić."
+    ]
+  },
+  "swineskin": {
+    "name": "Świńska Skóra",
+    "subtitle": "Zaklęcie 3. poziomu, przemiany",
+    "entries": [
+      "Wybierz widzianego albo słyszanego przez siebie humanoida w zasięgu. Cel musi wykonać rzut obronny na Mądrość. Przy nieudanym rzucie zostaje przeklęty. Przeklęty cel przyjmuje postać Bestii na czas trwania zaklęcia. Może to być dowolna wybrana przez ciebie Bestia o Stopniu Wyzwania nie większym niż 1.",
+      "Statystyki gry celu zostają zastąpione blokiem statystyk wybranej Bestii, ale cel zachowuje swoje nastawienie, osobowość, PW i Kości Wytrzymałości. Anatomia nowej postaci ogranicza akcje, które może wykonywać, a cel nie może mówić ani rzucać zaklęć.",
+      "Wyposażenie celu wtapia się w nową postać. Stworzenie nie może go używać ani czerpać z niego korzyści. Zaklęcie kończy się, gdy PW celu spadną do 0.",
+      {
+        "type": "entries",
+        "name": "Rzucanie z użyciem komórki wyższego poziomu",
+        "entries": [
+          "Rzucając to zaklęcie z użyciem komórki 6. poziomu lub wyższej, jeśli cel jadł twoje jedzenie albo spał w twoim domu w ciągu ostatnich 24 godzin lub jeśli w ciągu ostatnich 24 godzin okazał nieżyczliwość innej istocie w wybranej postaci, ma {@variantrule Disadvantage|XPHB} w rzucie obronnym, a efekt staje się trwały, chyba że zostanie usunięty przez zaklęcie {@spell Remove Curse|XPHB|Zdjęcie klątwy}, {@spell Greater Restoration|XPHB|Większe odtworzenie} albo podobną magię."
+        ]
+      },
+      "Możesz również zakończyć zaklęcie, używając akcji, aby je odrzucić. Istota trwale przeklęta tym zaklęciem odzyskuje zdolność mowy po zakończeniu {@variantrule Long Rest|XPHB}."
+    ]
+  },
+  "tongue-tie": {
+    "name": "Pętanie Języka",
+    "subtitle": "Zaklęcie 2. poziomu, uroki",
+    "entries": [
+      "Wybierz widzianą albo słyszaną przez siebie istotę w zasięgu. Cel musi wykonać rzut obronny na Mądrość. Przy nieudanym rzucie zostaje przeklęty na czas trwania zaklęcia. Rzucając zaklęcie, wybierz temat rozmowy. Dopóki cel pozostaje przeklęty, za każdym razem, gdy próbuje mówić o wybranym temacie, o tobie albo o tym zaklęciu, z jego ust zamiast słów wydobywa się wybrane przez ciebie zjawisko:",
+      {
+        "type": "list",
+        "items": [
+          "Małe ropuchy, węże, ćmy albo inne szkodniki",
+          "Krótkotrwałe dzikie kwiaty w pełnym rozkwicie",
+          "Czarny brud albo żółć",
+          "Baśnie i rymowanki",
+          "Niepochlebne, niezwiązane z tematem prawdy o celu albo osobach, do których się zwraca"
+        ]
+      },
+      "Próby obejścia klątwy przez pisanie o temacie skutkują prymitywnymi rysunkami wybranego zjawiska. Jeśli cel potrafi porozumiewać się telepatycznie albo inna istota czyta jego myśli, może w ten sposób przekazywać informacje o klątwie.",
+      "Jeśli przyłapałeś cel na kłamstwie albo był nieuprzejmy lub niewdzięczny po tym, jak spełniłeś jego prośbę, ma {@variantrule Disadvantage|XPHB} w rzucie obronnym, zaklęcie nie wymaga koncentracji, a efekt staje się trwały, chyba że zostanie usunięty przez zaklęcie {@spell Remove Curse|XPHB|Zdjęcie klątwy}, {@spell Greater Restoration|XPHB|Większe odtworzenie} albo podobną magię. Możesz również zakończyć zaklęcie, używając akcji, aby je odrzucić.",
+      {
+        "type": "entries",
+        "name": "Rzucanie z użyciem komórki wyższego poziomu",
+        "entries": [
+          "Rzucając to zaklęcie z użyciem komórki 3. poziomu lub wyższej, możesz obrać za cel jedną dodatkową istotę za każdy poziom komórki powyżej 2."
+        ]
+      }
+    ]
+  },
+  "verdant-slumber": {
+    "name": "Zielony Sen",
+    "subtitle": "Zaklęcie 7. poziomu, abjuracja",
+    "entries": [
+      "Przypływem mocy zachowujesz istotę w śmiertelnym niebezpieczeństwie w magicznym śnie. Istota natychmiast zasypia i zyskuje niewrażliwość na wszystkie obrażenia na czas trwania zaklęcia. Zyskuje stan {@condition Unconscious|XPHB} na 24 godziny, po czym budzi się tak, jakby zakończyła {@variantrule Long Rest|XPHB}. Możesz również zakończyć zaklęcie przed czasem jako akcję, budząc istotę z 1 PW.",
+      "Jeśli przeniesiesz istotę w obszar żyznej ziemi i naturalnego wzrostu, czas trwania jej snu wydłuża się do roku i dnia, gdy pokrywają ją mech i pnącza. Kiedy śpisz w promieniu 60 stóp od istoty, możesz porozumiewać się z nią w snach. Wiele zachowanych w ten sposób istot chętnie dzieli się wiedzą w zamian za późniejsze uwolnienie, a ty masz {@variantrule Advantage|XPHB} w testach Charyzmy wykonywanych podczas rozmowy z nią.",
+      "Możesz wydłużyć sen istoty o kolejny rok i dzień, ponownie rzucając to zaklęcie w dniu, w którym zakończyłby się jego czas trwania. W przeciwnym razie istota budzi się tak, jakby zakończyła {@variantrule Long Rest|XPHB}."
+    ]
+  },
+  "witch-s-grasp": {
+    "name": "Uścisk Wiedźmy",
+    "subtitle": "Zaklęcie 1. poziomu, wywoływanie",
+    "entries": [
+      "Zaciskasz dłoń w geście chwytania w stronę istoty w zasięgu, oplatając cel wijącymi się wstęgami cienia. Cel musi wykonać rzut obronny na Siłę. Przy nieudanym rzucie zyskuje stan {@condition Grappled|XPHB} i zostaje unieruchomiony na czas trwania zaklęcia. Istota pochwycona przez to zaklęcie może użyć akcji, aby wykonać wybrany przez siebie test Siły albo Zręczności przeciwko ST rzutu obronnego twoich zaklęć. Przy powodzeniu przestaje być pochwycona.",
+      "Jeśli cel zaatakował cię albo zmusił cię do wykonania rzutu obronnego w ciągu ostatniej minuty i nigdy nie otrzymał od ciebie obrażeń, ma {@variantrule Disadvantage|XPHB} w rzucie obronnym. Przy nieudanym rzucie możesz sprawić, że cel otrzyma w ramach rzucania zaklęcia {@damage 1d8} obrażeń nekrotycznych, a następnie dodatkowe {@damage 1d8} obrażeń nekrotycznych na początku każdej swojej tury, dopóki pozostaje pochwycony przez to zaklęcie.",
+      "Zaklęcie kończy się, gdy cel znajdzie się poza jego zasięgiem.",
+      {
+        "type": "entries",
+        "name": "Rzucanie z użyciem komórki wyższego poziomu",
+        "entries": [
+          "Rzucając to zaklęcie z użyciem komórki 2. poziomu lub wyższej, zwiększasz początkowe obrażenia o {@damage 1d8} za każdy poziom komórki powyżej 1."
+        ]
+      }
+    ]
+  },
+  "wyrding": {
+    "name": "Przemiana",
+    "subtitle": "Zaklęcie 4. poziomu, przemiany",
+    "entries": [
+      "W napadzie drgawek i skurczów przyjmujesz wyjątkową dla ciebie i twojej magii potworną, półhumanoidalną postać. Rzucając to zaklęcie, zyskujesz 20 {@variantrule Temporary Hit Points|XPHB}. Opisz nową postać i wybierz jedną z poniższych korzyści:",
+      {
+        "type": "list",
+        "items": [
+          "Wielkie, liniejące pióra i Szybkość Latania 30 stóp",
+          "Łuskowata skóra, zdolność oddychania pod wodą i Szybkość Pływania 60 stóp",
+          "Kudłate futro i KP równą 13 + twój modyfikator Mądrości"
+        ]
+      },
+      "Na czas trwania zaklęcia zyskujesz wybrane właściwości oraz {@variantrule Advantage|XPHB} w rzutach obronnych na Siłę i Kondycję oraz w testach tych cech. Jako akcję dodatkową możesz wykonać wręcz atak zaklęciem przeciwko istocie w swoim zasięgu. Przy trafieniu zadajesz {@damage 2d10} obrażeń od kwasu.",
+      "Możesz zakończyć Przemianę wcześniej jako akcję. Jeśli zaklęcie nie zakończy się wcześniej, zostajesz przeklęty do chwili zdjęcia klątwy przez zaklęcie {@spell Remove Curse|XPHB|Zdjęcie klątwy}, {@spell Greater Restoration|XPHB|Większe odtworzenie} albo podobną magię. Dopóki jesteś tak przeklęty, pozostajesz uwięziony w postaci Przemiany i tracisz zdolność mówienia, czytania, pisania, rozumienia języków oraz rzucania zaklęć z komponentem werbalnym.",
+      {
+        "type": "entries",
+        "name": "Rzucanie z użyciem komórki wyższego poziomu",
+        "entries": [
+          "Rzucając to zaklęcie z użyciem komórki 5. poziomu lub wyższej, zwiększasz liczbę tymczasowych PW o 5, a obrażenia zadawane wręcz atakiem zaklęciem zwiększają się o {@damage 1d10} za każdy poziom komórki powyżej 4."
+        ]
+      }
+    ]
+  }
+}

@@ -52,6 +52,7 @@ describe('compendium sources', () => {
   it('identifies playtest sources and abbreviates core books', () => {
     expect(isUaSource('UA2024')).toBe(true);
     expect(isUaSource('XPHB')).toBe(false);
+    expect(sourceAbbrev('UA10')).toBe('UA');
     expect(sourceAbbrev('XPHB')).toBe("PHB'24");
     expect(sourceAbbrev('PHB')).toBe("PHB'14");
     expect(sourceAbbrev('FRHoF')).toBe('FRHoF');

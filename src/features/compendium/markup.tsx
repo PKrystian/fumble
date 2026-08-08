@@ -16,6 +16,7 @@ const LINKABLE: Record<string, string> = {
   background: 'backgrounds',
   race: 'species',
   item: 'items',
+  firearm: 'firearms',
   class: 'classes',
   creature: 'bestiary',
   action: 'actions',
@@ -187,6 +188,7 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
   const rest = spaceIndex === -1 ? '' : content.slice(spaceIndex + 1);
   const parts = rest.split('|');
   const first = parts[0]!;
+  const source = parts[1] || undefined;
   const display = parts[2] || first;
 
   switch (tag) {
@@ -317,6 +319,7 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
             category={category}
             slug={slugify(first)}
             label={display}
+            {...(source ? { source } : {})}
           />
         );
       }

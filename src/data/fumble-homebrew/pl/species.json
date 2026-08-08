@@ -1,0 +1,377 @@
+{
+  "nocturnal-moth": {
+    "name": "Ciem nocny",
+    "subtitle": "Monstrosity, średni lub mały",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Historia",
+        "entries": [
+          "Ciemy nocne są wysłannikami Wielkiego Spirytu Księżyca, który pomaga śmiertelnikom i prowadzi transport między miastami. Ich poszukiwacze przygód mają równie różne pochodzenie jak inni śmiertelnicy."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Tryb życia",
+        "entries": [
+          "Ciemy nocne prowadzą nomadyczny tryb życia. {@spell Daylight|XPHB} oślepia je, dlatego nie mogą mieszkać w miastach. Ich karawany są ruchomymi miasteczkami zwanymi Układami Gwiezdnymi. Karawana-gwiazda stanowi centrum, satelity tworzą zewnętrzny krąg, a zwiadowcy zwani Kometami pozostają rozproszeni na obrzeżach. Gdy Kometa wykryje cień, ostrzega karawanę, która zmienia trasę. Odmowa pomocy lub odrzucenie ofiarowanej pomocy jest w ich kulturze uznawane za moralnie niewłaściwe, choć postać może pochodzić z innej kultury."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Języki",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać we wspólnym oraz w mowie ciemów. Mowa ciemów przekazuje informacje poprzez zmieniające się wzory {@spell Light|XPHB}, przypominające szybki alfabet Morse’a."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Typ istoty",
+        "entries": ["Jesteś Monstrosity."]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Jesteś średni lub mały. Wybierasz rozmiar, gdy zyskujesz tę linię rodową."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Szybkość",
+        "entries": ["Twoja szybkość chodzenia wynosi 30 stóp."]
+      },
+      {
+        "type": "entries",
+        "name": "Siła Księżyca",
+        "entries": ["Zyskujesz odporność na obrażenia nekrotyczne."]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w ciemności",
+        "entries": [
+          "Widzisz w {@variantrule Dim Light|XPHB} w promieniu 120 stóp tak, jakby było jasnym światłem, a w {@variantrule Darkness|XPHB} tak, jakby było przyćmionym światłem. W ciemności rozróżniasz kolory jako odcienie szarości."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wrażliwość na światło słoneczne",
+        "entries": [
+          "Gdy znajdujesz się w bezpośrednim świetle słonecznym, masz {@variantrule Disadvantage|XPHB} w testach Mądrości ({@skill Perception|XPHB})."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Żywienie się światłem",
+        "entries": [
+          "Nie potrzebujesz zwykłego pożywienia ani {@variantrule Sleep|XPHB|snu}. Żywisz się światłem, kąpiąc się w nim przez 4 godziny, aby zyskać pożywienie na 1 dzień. W tym czasie możesz wykonywać wyłącznie lekkie czynności."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Łaska Księżyca",
+        "entries": [
+          "Masz {@variantrule Advantage|XPHB} w testach Zręczności ({@skill Stealth|XPHB}) wykonywanych, aby ukryć się przed sylwetkami, oraz w testach Mądrości ({@skill Survival|XPHB}, {@skill Insight|XPHB} i {@skill Perception|XPHB}) dotyczących sylwetek."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Mówca Światła",
+        "entries": [
+          "Znasz sztuczkę {@spell Light|XPHB} i możesz używać jej również jako sztuczki {@spell Message|XPHB}. Istoty, które widzą wytwarzane przez ciebie światło i znają mowę ciemów, rozumieją twoje sygnały."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wrodzone czarowanie",
+        "entries": [
+          "Inteligencja, Mądrość albo Charyzma jest twoją cechą czarowania dla wrodzonych zaklęć. Wybierasz tę cechę, gdy wybierasz tę linię rodową."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Cechy owadzie",
+        "entries": [
+          "Gdy zyskujesz tę linię rodową, wybierz jedną z poniższych cech:",
+          {
+            "type": "list",
+            "items": [
+              {
+                "type": "item",
+                "name": "Lot",
+                "entry": "Dzięki skrzydłom zyskujesz {@variantrule Flying|XPHB|szybkość lotu} równą szybkości chodzenia. Nie możesz korzystać z tej szybkości lotu, gdy nosisz średni lub ciężki pancerz."
+              },
+              {
+                "type": "item",
+                "name": "Dodatkowe ramiona",
+                "entry": "Masz dwie nieco mniejsze dodatkowe ręce poniżej głównej pary. Mogą manipulować {@variantrule Object|XPHB|obiektem}, otwierać i zamykać drzwi lub pojemniki, podnosić i odkładać mały {@variantrule Object|XPHB|obiekt} oraz władać bronią."
+              },
+              {
+                "type": "item",
+                "name": "Księżycowe czarowanie",
+                "entries": [
+                  "Znasz sztuczkę {@spell Sacred Flame|XPHB}.",
+                  "Od 3. poziomu możesz rzucać {@spell Faerie Fire|XPHB} za pomocą tej cechy.",
+                  "Od 5. poziomu możesz również rzucać {@spell Moonbeam|XPHB} za pomocą tej cechy. Możesz rzucać oba te zaklęcia, zużywając dowolne posiadane komórki czarów odpowiedniego poziomu."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Jedwab",
+                "entry": "Możesz rzucać {@spell Web|XPHB} jako akcję liczbę razy równą premii biegłości. Odzyskujesz wszystkie zużyte użycia po zakończeniu {@variantrule Long Rest|XPHB}. Możesz też rzucać to zaklęcie, zużywając dowolne posiadane komórki czarów odpowiedniego poziomu."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "diurnal-moth": {
+    "name": "Ciem dzienny",
+    "subtitle": "Monstrosity, średni lub mały",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Historia",
+        "entries": [
+          "Przodkowie ciemów dziennych zjedli światło dusz. Zmieniło ich to w istoty rojowe, dla których rój jest zazwyczaj ważniejszy od jednostki. Poszukiwacze przygód są zwykle wyrzutkami albo osobami, które opuściły rój. Ich eusocjalna kultura stawia potrzeby roju ponad potrzebami jednostki i akceptuje utratę osobowości oraz indywidualności. Każdemu ciemowi przypisuje się rolę i ciało dostosowane do tej roli."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Języki",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać we wspólnym oraz w mowie ciemów. Mowa ciemów przekazuje informacje poprzez zmieniające się wzory światła, przypominające szybki alfabet Morse’a."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Typ istoty",
+        "entries": ["Jesteś Monstrosity."]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Jesteś średni lub mały. Wybierasz rozmiar, gdy zyskujesz tę linię rodową."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Szybkość",
+        "entries": ["Twoja szybkość chodzenia wynosi 30 stóp."]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w ciemności",
+        "entries": [
+          "Widzisz w {@variantrule Dim Light|XPHB} w promieniu 120 stóp tak, jakby było jasnym światłem, a w {@variantrule Darkness|XPHB} tak, jakby było przyćmionym światłem. W ciemności rozróżniasz kolory jako odcienie szarości."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wrażliwość na światło słoneczne",
+        "entries": [
+          "Gdy znajdujesz się w bezpośrednim świetle słonecznym, masz {@variantrule Disadvantage|XPHB} w testach Mądrości ({@skill Perception|XPHB})."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Łaska Księżyca",
+        "entries": [
+          "Masz {@variantrule Advantage|XPHB} w testach Zręczności ({@skill Stealth|XPHB}) wykonywanych, aby ukryć się przed sylwetkami, oraz w testach Mądrości ({@skill Survival|XPHB}, {@skill Insight|XPHB} i {@skill Perception|XPHB}) dotyczących sylwetek."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Mówca Światła",
+        "entries": [
+          "Znasz sztuczkę {@spell Light|XPHB} i możesz używać jej również jako sztuczki {@spell Message|XPHB}. Istoty, które widzą wytwarzane przez ciebie światło i znają mowę ciemów, rozumieją twoje sygnały."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wrodzone czarowanie",
+        "entries": [
+          "Inteligencja, Mądrość albo Charyzma jest twoją cechą czarowania dla wrodzonych zaklęć. Wybierasz tę cechę, gdy wybierasz tę linię rodową."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Role kastowe",
+        "entries": [
+          "Gdy Ciem dzienny się wykluwa, jest już przystosowany do określonej roli w roju. Wybierz jedną z poniższych ról:",
+          {
+            "type": "list",
+            "items": [
+              {
+                "type": "item",
+                "name": "Opiekun",
+                "entry": "Możesz raz na {@variantrule Long Rest|XPHB|długi odpoczynek} rzucić {@spell Calm Emotions|XPHB|Uspokojenie emocji} wrodzoną magią i możesz rzucać je również z użyciem komórek czarów. Zyskujesz biegłość w dwóch wybranych umiejętnościach. Możesz zużyć jedną {@variantrule Hit Point Dice|XPHB|Kość Wytrzymałości} bez akcji, aby twoja sztuczka {@spell Light|XPHB|Światło} emitowała światło słoneczne zamiast zwykłego światła."
+              },
+              {
+                "type": "item",
+                "name": "Żołnierz",
+                "entries": [
+                  "Dodatkowe ramiona. Masz dwie mniejsze dodatkowe ręce poniżej głównej pary. Mogą manipulować obiektami, otwierać i zamykać drzwi lub pojemniki, podnosić i odkładać małe obiekty oraz władać bronią.",
+                  "Ugryzienie. Masz żuwaczki przypominające kły, których możesz używać do wykonywania ataków bez broni. Trafienie zadaje {@damage 1d6} plus modyfikator Siły obrażeń ciętych zamiast normalnych obrażeń obuchowych.",
+                  "Jadowite ugryzienie. Jako akcję dodatkową możesz wykonać specjalny atak za pomocą Ugryzienia. Trafienie zadaje dodatkowe obrażenia od trucizny równe twojej premii biegłości pomnożonej przez {@dice d6}. Możesz użyć tej zdolności liczbę razy równą premii biegłości i odzyskujesz wszystkie zużyte użycia po zakończeniu {@variantrule Long Rest|XPHB|długiego odpoczynku}."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Budowniczy",
+                "entry": "Zyskujesz biegłość w {@item Mason's Tools|XPHB|narzędziach kamieniarskich}, {@item Weaver's Tools|XPHB|narzędziach tkackich} oraz umiejętności {@skill Sleight of Hand|XPHB|Zręczność manualna}. Możesz rzucać {@spell Web|XPHB|Pajęczyna} jako akcję liczbę razy równą premii biegłości. Odzyskujesz wszystkie zużyte użycia po zakończeniu {@variantrule Long Rest|XPHB|długiego odpoczynku}. Możesz też rzucać to zaklęcie, zużywając dowolne posiadane komórki czarów odpowiedniego poziomu."
+              },
+              {
+                "type": "item",
+                "name": "Zwiadowca",
+                "entries": [
+                  "Zyskujesz {@variantrule Climb Speed|XPHB|szybkość wspinania} równą szybkości chodzenia.",
+                  "Lot. Dzięki skrzydłom zyskujesz {@variantrule Flying|XPHB|szybkość lotu} równą szybkości chodzenia. Nie możesz korzystać z tej szybkości lotu, gdy nosisz średni lub ciężki pancerz."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "wooden-warforged": {
+    "name": "Warforged drzewny",
+    "subtitle": "Humanoid, średni",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Historia",
+        "entries": [
+          "Trzy stulecia temu drewniane warforgedy zbuntowały się, zdjęły metalowe pancerze i uciekły do lasu. Cytadela traktuje je z wielką nieufnością lub wrogością, podczas gdy inne miasta witają je przyjaźnie. Ich ciała są wykonane z żywego drewna."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wbudowana broń",
+        "entries": [
+          "Poświęcając 1 godzinę pracy, możesz wbudować broń w swoje ciało albo wyhodować nową drewnianą broń. Rodzaj broni określasz za pomocą narzędzi stolarskich, ale MG może dopuścić inne projekty. Nie możesz trzymać niczego w tej ręce, lecz broń zyskuje magiczne wzmocnienie odpowiadające premii +1, a ty zyskujesz biegłość w tej broni."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Jesteś średni. Większość warforgedów ma od 5 do 6,5 stopy wzrostu. Waga i budowa zależą od twojej linii rodowej."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Szybkość",
+        "entries": ["Twoja szybkość chodzenia wynosi 30 stóp."]
+      },
+      {
+        "type": "entries",
+        "name": "Odporność warforgeda",
+        "entries": [
+          "Masz {@variantrule Advantage|XPHB} w rzutach obronnych przeciwko zatruciu, odporność na obrażenia od trucizny, {@variantrule Immunity|XPHB} na choroby i nie musisz jeść, pić ani oddychać. Nie potrzebujesz {@spell Sleep|XPHB}, nie zyskujesz {@condition Exhaustion|XPHB} z powodu braku odpoczynku, a magia nie może uśpić cię zaklęciem."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Czuwanie wartownika",
+        "entries": [
+          "Podczas {@variantrule Long Rest|XPHB} spędzasz co najmniej 6 godzin w bezruchu zamiast spać. Wyglądasz wtedy jak nieaktywny, ale pozostajesz przytomny i normalnie widzisz oraz słyszysz."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wbudowana ochrona",
+        "entries": [
+          "Twoje ciało ma wbudowane warstwy ochronne. Nie zyskujesz korzyści z noszenia pancerza, ale normalnie stosujesz premię od {@item Shield|XPHB}. Rdzeń z ciemnego drewna ustala twoją klasę pancerza na 11 + modyfikator Zręczności, a jeśli masz biegłość w lekkim pancerzu, dodajesz również premię biegłości."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Zwiększenie cech",
+        "entries": [
+          "Zwiększ jedną cechę o 2, a inną o 1 albo zwiększ trzy różne cechy o 1."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Typ istoty",
+        "entries": ["Jesteś Humanoidem."]
+      }
+    ]
+  },
+  "spiryknot": {
+    "name": "Spiryknot",
+    "subtitle": "Konstrukt, średni",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Historia",
+        "entries": [
+          "Spiryknoty są świadomymi konstruktami o niejasnym pochodzeniu. W każdym mieście znajduje się manufaktura, w której tworzy się kolejne spiryknoty. Służą miastom jako żołnierze walczący z Umbrą, a także handlują i wyruszają na przygody, by zdobywać materiały dla następnych spiryknotów."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Szybkość",
+        "entries": ["Twoja szybkość chodzenia wynosi 30 stóp."]
+      },
+      {
+        "type": "entries",
+        "name": "Natura świecy",
+        "entries": [
+          "Zyskujesz {@variantrule Immunity|XPHB} na obrażenia od trucizny i choroby oraz {@variantrule Advantage|XPHB} w rzutach obronnych przeciwko paraliżowi i zatruciu. Nie musisz jeść, pić ani oddychać. Masz odporność na obrażenia od zimna, ale podatność na obrażenia od ognia. Nie możesz korzystać z odporności na ogień, ale możesz korzystać z niewrażliwości na ogień."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Pancerz obudowy",
+        "entries": [
+          "Gdy nie nosisz pancerza, twoja bazowa klasa pancerza wynosi 13 + modyfikator Zręczności. Możesz zakładać tylko pancerz, w którym masz biegłość. Aby założyć pancerz, musisz wbudować go w swoje ciało w ciągu 1 godziny, przez cały ten czas pozostając w kontakcie z pancerzem. Aby zdjąć pancerz, musisz poświęcić 1 godzinę na jego usunięcie. Możesz odpoczywać podczas zakładania lub zdejmowania pancerza w ten sposób. Dopóki żyjesz, nie można zdjąć pancerza z twojego ciała wbrew twojej woli."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Świeca duszy",
+        "entries": [
+          "Emitujesz magiczne {@variantrule Dim Light|XPHB} w promieniu 20 stóp. To {@spell Light|XPHB} ma poziom równy twojej premii biegłości. Jeśli na początku tury istoty jest jedynym światłem, które na nią oddziałuje, istota zyskuje tymczasowe punkty wytrzymałości równe twojej premii biegłości. Humanoidy zawsze odnoszą tę korzyść, a w przypadku innych istot niebędących nieumarłymi wybierasz, czy ją otrzymają. W chwili wielkiej potrzeby możesz rozbłysnąć płomieniem i poświęcić 1 rok swojego krótkiego życia, aby rzucić {@spell Aura of Life|XPHB} bez {@condition Concentration|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Maszyna lecznicza",
+        "entries": [
+          "Gdy ktoś rzuca na ciebie {@spell Mending|XPHB}, możesz zużyć Kość Wytrzymałości, rzucić ją i odzyskać liczbę punktów wytrzymałości równą wynikowi + modyfikator Kondycji, minimum 1. Możesz również korzystać z {@spell Cure Wounds|XPHB}, {@spell Healing Word|XPHB}, {@spell Mass Cure Wounds|XPHB}, {@spell Mass Healing Word|XPHB} i {@spell Spare the Dying|XPHB}, choć zaklęcia te normalnie nie działają na Konstrukty."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Czuwanie wartownika",
+        "entries": [
+          "Podczas {@variantrule Long Rest|XPHB} spędzasz co najmniej 6 godzin w bezruchu zamiast spać, ale pozostajesz przytomny."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Odporność konstruktu",
+        "entries": [
+          "Dodajesz modyfikator Kondycji do rzutów obronnych wykonywanych, aby uniknąć {@condition Exhaustion|XPHB}. Jeśli rzut dotyczy Kondycji, możesz dodać ten modyfikator dwukrotnie."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Poprzednie życia",
+        "entries": ["Zyskujesz biegłość w jednym narzędziu i jednej umiejętności."]
+      },
+      {
+        "type": "entries",
+        "name": "Języki",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać we wspólnym oraz w jednym innym języku ustalonym z MG."
+        ]
+      }
+    ]
+  }
+}

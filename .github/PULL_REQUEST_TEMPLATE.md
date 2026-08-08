@@ -11,12 +11,8 @@
 
 ## Checklist
 
-- [ ] `npm run lint` passes
-- [ ] `npm run format:check` passes
-- [ ] `npm run typecheck` passes
-- [ ] `npm run test:coverage:all` passes
-- [ ] `npm run build` passes
-- [ ] `npm run security:audit` passes
+- [ ] `npm run verify:ci` passes
+- [ ] CodeQL is green after opening or updating the PR
 - [ ] I added or updated tests for my changes
 - [ ] UI changes are responsive (desktop, tablet, mobile) and keyboard-accessible
 - [ ] User-facing strings are present in both English and Polish dictionaries

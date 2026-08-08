@@ -36,6 +36,49 @@ describe('compendium categories', () => {
     )!;
     expect(properties.valuesFor({ properties: '' } as never)).toEqual([]);
     expect(properties.valuesFor({ properties: undefined } as never)).toEqual([]);
+
+    const subclasses = getCategory('spells')!.filters!.find(
+      (filter) => filter.id === 'subclass',
+    )!;
+    expect(subclasses.valuesFor({ subclasses: [new String('Evoker')] } as never)).toEqual(
+      ['Evoker'],
+    );
+
+    const classes = getCategory('spells')!.filters!.find(
+      (filter) => filter.id === 'class',
+    )!;
+    expect(
+      classes.valuesFor({ classes: ['Duchowny', 'druid', 'Druid', 'Cleric'] } as never),
+    ).toEqual(['Cleric', 'Druid']);
+    expect(classes.labelFor?.('Cleric', 'pl')).toBe('Kleryk');
+    expect(classes.labelFor?.('Ranger', 'pl')).toBe('Leśniczy');
+
+    const school = getCategory('spells')!.filters!.find(
+      (filter) => filter.id === 'school',
+    )!;
+    expect(school.valuesFor({ school: 'Transmutacja' } as never)).toEqual([
+      'Transmutation',
+    ]);
+    expect(school.labelFor?.('Transmutation', 'pl')).toBe('Przemiana');
+
+    const itemType = getCategory('items')!.filters!.find(
+      (filter) => filter.id === 'type',
+    )!;
+    expect(itemType.valuesFor({ type: 'Broń biała' } as never)).toEqual(['Melee Weapon']);
+    expect(itemType.labelFor?.('Melee Weapon', 'pl')).toBe('Broń do Walki Wręcz');
+
+    const rarity = getCategory('items')!.filters!.find(
+      (filter) => filter.id === 'rarity',
+    )!;
+    expect(rarity.valuesFor({ rarity: 'Niezwykły' } as never)).toEqual(['Uncommon']);
+    expect(rarity.labelFor?.('Uncommon', 'pl')).toBe('Niepospolita');
+
+    const itemProperties = getCategory('items')!.filters!.find(
+      (filter) => filter.id === 'properties',
+    )!;
+    expect(
+      itemProperties.valuesFor({ properties: 'finezyjne, dwuręczny' } as never),
+    ).toEqual(['Finesse', 'Two-Handed']);
   });
 
   it('keeps sidekicks and fighting styles behind their filters', () => {
@@ -120,7 +163,9 @@ describe('compendium categories', () => {
     const t = (key: string) => key;
 
     for (const category of categories) {
-      await expect(category.load()).resolves.toEqual([entry]);
+      await expect(category.load()).resolves.toEqual(
+        category.id === 'firearms' ? [] : [entry],
+      );
       expect(category.subtitle(entry as never, t)).toEqual(expect.any(String));
       expect(category.renderDetail(entry as never)).toBeTruthy();
       for (const filter of category.filters ?? []) {
@@ -158,6 +203,7 @@ describe('compendium categories', () => {
       (filter) => filter.id === 'attunement',
     )!;
     expect(attunement.valuesFor({ attunement: '' } as never)).toEqual(['No']);
+    expect(getCategory('firearms')!.filters).toEqual(getCategory('items')!.filters);
 
     for (const filter of categories.flatMap((category) => category.filters ?? [])) {
       filter.valuesFor(empty as never);

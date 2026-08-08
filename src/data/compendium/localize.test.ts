@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { localizeEntry, localizeItems } from './localize';
-import type { CompendiumEntryBase } from './types';
+import type { ClassEntry, CompendiumEntryBase } from './types';
 
 function makeEntry(id: string, name: string): CompendiumEntryBase {
   return { id, name, source: 'XPHB', srd: true };
@@ -31,6 +31,69 @@ describe('localizeEntry', () => {
       undefined,
     );
     expect(localizeEntry(entry, { blinded: { name: 42 } }).englishName).toBe(undefined);
+  });
+
+  it('keeps subclass media when a localized class overlay replaces subclass text', () => {
+    const entry = {
+      ...makeEntry('monk', 'Monk'),
+      subclasses: [
+        {
+          name: 'Warrior of Shadow',
+          source: 'XPHB',
+          image: 'classes/XPHB/Shadow Monk.webp',
+          features: [],
+        },
+      ],
+    } as unknown as ClassEntry;
+
+    const result = localizeEntry(entry, {
+      monk: {
+        name: 'Mnich',
+        subclasses: [{ name: 'Wojownik Cienia', source: 'XPHB', features: [] }],
+      },
+    }) as ClassEntry;
+
+    expect(result.subclasses[0]).toMatchObject({
+      name: 'Wojownik Cienia',
+      englishName: 'Warrior of Shadow',
+      image: 'classes/XPHB/Shadow Monk.webp',
+    });
+  });
+
+  it('keeps spell subclass references as strings', () => {
+    const entry = {
+      ...makeEntry('alarm', 'Alarm'),
+      subclasses: ['Bard: College of Lore', 'Wizard: Abjurer'],
+    };
+    const result = localizeEntry(entry, {
+      alarm: {
+        subclasses: ['Bard: Szkoła Wiedzy', 'Wizard: Abjurer'],
+      },
+    });
+
+    expect(result.subclasses).toEqual(['Bard: Szkoła Wiedzy', 'Wizard: Abjurer']);
+    expect(result.subclasses?.every((value) => typeof value === 'string')).toBe(true);
+  });
+
+  it('keeps English spell references for localized routes', () => {
+    const entry = {
+      ...makeEntry('alarm', 'Alarm'),
+      classes: ['Wizard'],
+      subclasses: ['Sorcerer: Clockwork Soul'],
+    };
+    const result = localizeEntry(entry, {
+      alarm: {
+        classes: ['Czarodziej'],
+        subclasses: ['Czarodziej: Mechaniczna Dusza'],
+      },
+    });
+
+    expect(result).toMatchObject({
+      classes: ['Czarodziej'],
+      subclasses: ['Czarodziej: Mechaniczna Dusza'],
+      _englishClasses: ['Wizard'],
+      _englishSubclasses: ['Sorcerer: Clockwork Soul'],
+    });
   });
 });
 

@@ -108,6 +108,7 @@ export interface LegendaryGroup {
 const EMPTY_LEGENDARY = new Map<string, LegendaryGroup>();
 
 const EMPTY_IMAGES = new Map<string, string>();
+const EMPTY_FLUFF = new Map<string, FluffData>();
 
 function imageField(
   map: Map<string, string>,
@@ -1186,6 +1187,7 @@ function buildSubclasses(
   subFeatureIndex: Map<string, RawClassFeature>,
   className: string,
   keep: KeepFn,
+  fluff: Map<string, FluffData>,
 ): ClassSubclass[] {
   const byKey = new Map<string, RawSubclass>();
   for (const sub of subclassData) {
@@ -1194,18 +1196,23 @@ function buildSubclasses(
     if (!byKey.has(key)) byKey.set(key, sub);
   }
   return [...byKey.values()]
-    .map<ClassSubclass>((sub) => ({
-      name: sub.name,
-      source: sub.source,
-      features: resolveFeatures(
-        sub.subclassFeatures ?? [],
-        subFeatureIndex,
-        featureIndex,
-        subFeatureIndex,
-        sub.source,
-        sub.shortName,
-      ),
-    }))
+    .map<ClassSubclass>((sub) => {
+      const media = fluff.get(`${sub.name.toLowerCase()}|${sub.source}`);
+      return {
+        name: sub.name,
+        source: sub.source,
+        ...(media?.images[0] ? { image: media.images[0].path } : {}),
+        ...(media?.images.length ? { gallery: media.images } : {}),
+        features: resolveFeatures(
+          sub.subclassFeatures ?? [],
+          subFeatureIndex,
+          featureIndex,
+          subFeatureIndex,
+          sub.source,
+          sub.shortName,
+        ),
+      };
+    })
     .sort((a, b) => a.name.localeCompare(b.name) || a.source.localeCompare(b.source));
 }
 
@@ -1214,6 +1221,7 @@ export function normalizeClasses(
   fluff: Map<string, string> = EMPTY_IMAGES,
   keep: KeepFn = () => true,
   locale: Locale = 'en',
+  subclassFluff: Map<string, FluffData> = EMPTY_FLUFF,
 ): ClassEntry[] {
   const featureIndex = indexFeatures(data.classFeature ?? []);
   const subFeatureIndex = indexFeatures(data.subclassFeature ?? [], true);
@@ -1235,6 +1243,7 @@ export function normalizeClasses(
       subFeatureIndex,
       raw.name,
       keep,
+      subclassFluff,
     );
 
     classes.push({
@@ -1261,6 +1270,7 @@ export function normalizeStandaloneSubclasses(
   data: RawClassFile,
   keep: KeepFn = () => true,
   _locale: Locale = 'en',
+  subclassFluff: Map<string, FluffData> = EMPTY_FLUFF,
 ): Array<{ className: string; subclass: ClassSubclass }> {
   const featureIndex = indexFeatures(data.classFeature ?? []);
   const subFeatureIndex = indexFeatures(data.subclassFeature ?? [], true);
@@ -1281,6 +1291,7 @@ export function normalizeStandaloneSubclasses(
       subFeatureIndex,
       className,
       keep,
+      subclassFluff,
     )) {
       result.push({ className, subclass });
     }

@@ -23,18 +23,38 @@ docker compose up web    # production build served by nginx at :8080
 
 ## Quality gates
 
-Every PR must pass the same checks CI runs:
+Every PR must pass the same checks CI runs. After installing the dependencies and the
+Playwright browser, run the complete local check:
 
 ```bash
+npm ci
+npx playwright install chromium
+npm run verify:ci
+```
+
+The command covers the full CI sequence: dependency audit, lint, formatting, SBOM
+generation, TypeScript, unit coverage, production build, both Chromium and mobile E2E
+projects with coverage, and coverage merging. The generated `fumble-sbom.cdx.json` is a
+local CI artifact and is ignored by Git.
+
+CodeQL runs as a separate GitHub Actions check on every PR and must be green after the
+PR is opened or updated. It does not have a local npm equivalent in this repository.
+
+If you are iterating on one change, these individual commands are also available:
+
+```bash
+npm run security:audit
 npm run lint
 npm run format:check
 npm run typecheck
 npm run test
-npm run test:coverage:all
 npm run test:e2e
 npm run build
-npm run security:audit
 ```
+
+The individual test commands are faster, but a PR is ready only after
+`npm run verify:ci` passes. Stop the dev server before running it so Playwright can start
+the coverage-enabled server.
 
 `npm run format` will auto-fix formatting.
 

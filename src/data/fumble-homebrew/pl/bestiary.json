@@ -1,0 +1,69 @@
+{
+  "allied-hunter": {
+    "name": "Sprzymierzony Łowca",
+    "subtitle": "Mała lub Średnia Bestia",
+    "size": "Mała lub Średnia",
+    "creatureType": "Bestia",
+    "ac": "11 + poziom zaklęcia",
+    "hp": "20 (tylko Powietrze) albo 30 (tylko Ląd i Woda) + 10 za każdy poziom zaklęcia powyżej 3",
+    "speed": "30 stóp; Wspinaczka 30 stóp (tylko Ląd); Latanie 40 stóp (tylko Powietrze); Pływanie 30 stóp (tylko Woda)",
+    "skills": "Skradanie się +1 + PB, Przetrwanie +2 + PB",
+    "senses": "Ciemnowidzenie 60 stóp, bierna Percepcja 12",
+    "languages": "Rozumie języki, którymi władasz",
+    "crDisplay": "Brak (PD 0; PB równa się twojej premii z biegłości)",
+    "traits": [
+      {
+        "name": "Sprytny Sprzymierzeniec",
+        "entries": [
+          "Łowca ma {@variantrule Advantage|XPHB} w rzutach na atak przeciwko istocie, która ma stan {@condition Frightened|XPHB}, {@condition Grappled|XPHB} albo {@condition Incapacitated|XPHB}, albo jest pod wpływem nałożonej przez ciebie klątwy lub zaklęcia klątwy rzuconego przez ciebie."
+        ]
+      },
+      {
+        "name": "Pożeracz Klątw",
+        "entries": [
+          "Raz na turę, gdy łowca zada obrażenia istocie będącej pod wpływem nałożonej przez ciebie klątwy albo zaklęcia klątwy rzuconego przez ciebie, odzyskuje PW równe twojej premii z biegłości."
+        ]
+      },
+      {
+        "name": "Wodna Adaptacja (tylko Woda)",
+        "entries": [
+          "Łowca może oddychać wyłącznie pod wodą. Ma {@variantrule Advantage|XPHB} w testach cech i rzutach obronnych opartych na Zręczności, wykonywanych w środowisku wodnym."
+        ]
+      },
+      {
+        "name": "Unik (tylko Powietrze)",
+        "entries": [
+          "Gdy łowca zostaje poddany efektowi pozwalającemu mu wykonać rzut obronny na Zręczność, aby otrzymać tylko połowę obrażeń, przy udanym rzucie nie otrzymuje obrażeń, a przy nieudanym otrzymuje tylko połowę obrażeń."
+        ]
+      },
+      {
+        "name": "Wytrwały (tylko Ląd)",
+        "entries": [
+          "Łowca ma {@variantrule Advantage|XPHB} w testach cech i rzutach obronnych wykonywanych, aby uniknąć albo zakończyć stan {@condition Grappled|XPHB}."
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "name": "Wielokrotny Atak",
+        "entries": [
+          "Łowca wykonuje liczbę ataków równą połowie poziomu zaklęcia, zaokrąglając w dół."
+        ]
+      },
+      {
+        "name": "Cios Łowcy",
+        "entries": [
+          {
+            "type": "attack",
+            "attackEntries": [
+              "{@atk m} twój modyfikator ataku zaklęciem, zasięg 5 stóp."
+            ],
+            "hitEntries": [
+              "{@h} {@damage 1d8} + 4 + poziom zaklęcia obrażeń kłutych, a jeśli środowiskiem łowcy jest Ląd, cel zyskuje stan {@condition Grappled|XPHB} (ST wyrwania się równe ST twoich zaklęć)."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

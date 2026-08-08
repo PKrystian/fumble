@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "category": "bestiary",
+    "count": 1,
+    "source": "Fumble"
+  },
+  "items": [
+    {
+      "id": "allied-hunter",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Allied Hunter",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Small or Medium Beast",
+      "size": "Small or Medium",
+      "creatureType": "Beast",
+      "alignment": "",
+      "ac": "11 + the spell's level",
+      "initiative": "+1 (11)",
+      "hp": "20 (Air only) or 30 (Land and Water only) + 10 per spell level above 3",
+      "speed": "30 ft.; Climb 30 ft. (Land only); Fly 40 ft. (Air only); Swim 30 ft. (Water only)",
+      "str": 18,
+      "dex": 12,
+      "con": 16,
+      "int": 4,
+      "wis": 14,
+      "cha": 7,
+      "saves": "",
+      "skills": "Stealth +1 plus PB, Survival +2 plus PB",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "",
+      "senses": "Darkvision 60 ft., passive Perception 12",
+      "languages": "Understands the languages you know",
+      "cr": "0",
+      "crDisplay": "None (XP 0; PB equals your Proficiency Bonus)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [
+        {
+          "name": "Cunning Ally",
+          "entries": [
+            "The hunter has {@variantrule Advantage|XPHB} on attack rolls against a creature that has the {@condition Frightened|XPHB}, {@condition Grappled|XPHB}, or {@condition Incapacitated|XPHB} conditions, or that is under the effects of a curse you place or a curse spell you cast."
+          ]
+        },
+        {
+          "name": "Curse Eater",
+          "entries": [
+            "Once per turn, when the hunter deals damage to a creature that is under the effects of a curse you place or a curse spell you cast, the hunter regains Hit Points equal to your Proficiency Bonus."
+          ]
+        },
+        {
+          "name": "Aquatic Adaptation (Water Only)",
+          "entries": [
+            "The hunter can breathe only underwater. It has {@variantrule Advantage|XPHB} on ability checks and saving throws that rely on Dexterity while in aquatic environments."
+          ]
+        },
+        {
+          "name": "Evasion (Air Only)",
+          "entries": [
+            "When the hunter is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw and only half damage if it fails."
+          ]
+        },
+        {
+          "name": "Tenacious (Land Only)",
+          "entries": [
+            "The hunter has {@variantrule Advantage|XPHB} on ability checks and saving throws made to avoid or end the {@condition Grappled|XPHB} condition."
+          ]
+        }
+      ],
+      "spellcasting": [],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": [
+            "The hunter makes a number of attacks equal to half this spell's level, rounded down."
+          ]
+        },
+        {
+          "name": "Hunter's Strike",
+          "entries": [
+            {
+              "type": "attack",
+              "attackEntries": [
+                "{@atk m} {@hitYourSpellAttack|your spell attack modifier}, reach 5 ft."
+              ],
+              "hitEntries": [
+                "{@h} {@damage 1d8} + 4 + the spell's level Piercing damage, and if the hunter's environment is Land, the target has the {@condition Grappled|XPHB} condition (escape DC equals your spell save DC)."
+              ]
+            }
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": []
+    }
+  ]
+}
