@@ -624,10 +624,15 @@ function buildClasses(inputDir: string): ClassEntry[] {
     (f) => f.startsWith('class-') && f.endsWith('.json'),
   );
   const classes: ClassEntry[] = [];
+  const subclassFluff = loadFluff(
+    inputDir,
+    fluffFilesIn(inputDir, 'class', 'fluff-class-'),
+    'subclassFluff',
+  );
   for (const file of files) {
     const data = readDataFile<RawClassFile>(inputDir, join('class', file));
     const fluff = loadFluffImages(inputDir, join('class', `fluff-${file}`), 'classFluff');
-    classes.push(...normalizeClasses(data, fluff, keepEntry));
+    classes.push(...normalizeClasses(data, fluff, keepEntry, 'en', subclassFluff));
   }
 
   const resolvedFluff = loadFluff(
@@ -1431,6 +1436,10 @@ function main(): void {
       sourceCommit,
     );
     writeCategory('item-properties', buildItemProperties(inputDir), sourceCommit);
+    return;
+  }
+  if (category === 'classes') {
+    writeCategory('classes', buildClasses(inputDir), sourceCommit);
     return;
   }
   const sourceBuilder = category ? sourceBuilders[category] : undefined;

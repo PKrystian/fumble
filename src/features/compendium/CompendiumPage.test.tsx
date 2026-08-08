@@ -1,6 +1,7 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { useFumbleHomebrewStore } from '@/features/homebrew/fumbleHomebrewStore';
 import { CompendiumPage } from './CompendiumPage';
 
 const mocks = vi.hoisted(() => ({
@@ -100,6 +101,7 @@ function renderPage(path: string) {
         <Route path="/compendium" element={<CompendiumPage />} />
         <Route path="/compendium/:category" element={<CompendiumPage />} />
         <Route path="/compendium/:category/:id" element={<CompendiumPage />} />
+        <Route path="/compendium/:category/:id/:subclass" element={<CompendiumPage />} />
       </Routes>
       <LocationProbe />
     </MemoryRouter>,
@@ -135,9 +137,21 @@ const official = {
   otherVersions: [{ id: 'dragon-old', source: 'PHB' }],
 };
 
+const fumble = {
+  id: 'fumble-rule',
+  name: 'Fumble Rule',
+  source: 'Fumble',
+  srd: false,
+  _fumble: true,
+  category: 'species',
+  subtitle: 'Fumble rule',
+  entries: ['Fumble body'],
+};
+
 describe('CompendiumPage', () => {
   beforeEach(() => {
     mocks.result = { status: 'ready', items: [official] };
+    useFumbleHomebrewStore.setState({ showInCompendium: false });
     mocks.openLightbox.mockReset();
     mocks.getBook.mockReset();
     mocks.getBook.mockReturnValue({ id: 'xphb' });
@@ -232,6 +246,16 @@ describe('CompendiumPage', () => {
     renderPage('/compendium/species');
     fireEvent.click(screen.getByRole('link', { name: /Dragon/ }));
     expect(screen.getByRole('status')).toHaveTextContent('/compendium/species/dragon/');
+  });
+
+  it('keeps a direct Fumble link available while the library is hidden', () => {
+    mocks.result = { status: 'ready', items: [fumble] };
+
+    renderPage('/compendium/species/fumble-rule');
+
+    expect(screen.getByRole('heading', { name: 'Fumble Rule' })).toBeInTheDocument();
+    expect(screen.getByText('Fumble body')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Fumble Rule/ })).toBeInTheDocument();
   });
 
   it('updates the URL after a search change', () => {

@@ -64,6 +64,8 @@ export interface SpellEntry extends CompendiumEntryBase {
   ritual: boolean;
   classes?: string[];
   subclasses?: string[];
+  _englishClasses?: string[];
+  _englishSubclasses?: string[];
   entries: Entry[];
   entriesHigherLevel?: Entry[];
 }
@@ -160,9 +162,14 @@ export interface ClassFeature {
 }
 
 export interface ClassSubclass {
+  id?: string;
   name: string;
+  englishName?: string;
   source: string;
+  image?: string;
+  gallery?: GalleryImage[];
   features: ClassFeature[];
+  lore?: Entry[];
 }
 
 export interface ClassTable {
@@ -171,6 +178,7 @@ export interface ClassTable {
 }
 
 export interface ClassEntry extends CompendiumEntryBase {
+  intro?: Entry[];
   hitDie: string;
   primaryAbility: string;
   savingThrows: string;
@@ -341,6 +349,7 @@ export interface CompendiumFile<T> {
 
 export type CompendiumCategoryId =
   | 'spells'
+  | 'firearms'
   | 'conditions'
   | 'species'
   | 'feats'

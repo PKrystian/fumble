@@ -63,6 +63,14 @@ describe('parseMarkup', () => {
     );
   });
 
+  it('links Fumble firearm references to the firearm category', () => {
+    renderMarkup('use a {@firearm Pneumatic Pistol|Fumble}');
+    expect(screen.getByRole('link', { name: 'Pneumatic Pistol' })).toHaveAttribute(
+      'href',
+      '/compendium/firearms/pneumatic-pistol/',
+    );
+  });
+
   it('shows the label of a filter tag, not its parameters', () => {
     const { container } = renderMarkup(
       'gain a {@filter Fighting Style|feats|category=FS}',

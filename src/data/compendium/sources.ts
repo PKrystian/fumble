@@ -48,6 +48,7 @@ export function isUaSource(code: string): boolean {
 const CORE_2024 = new Set(['XPHB', 'XDMG', 'XMM']);
 
 export function sourceAbbrev(code: string): string {
+  if (isUaSource(code)) return 'UA';
   if (CORE_2024.has(code)) return `${code.slice(1)}'24`;
   if (CORE_2024.has(`X${code}`)) return `${code}'14`;
   return code;

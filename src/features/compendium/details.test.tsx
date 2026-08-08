@@ -1,5 +1,5 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { ClassEntry } from '@/data/compendium/types';
 import * as normalize from '@/data/transform/normalize';
@@ -41,6 +41,16 @@ const base = {
 };
 
 const show = (node: React.ReactNode) => render(<MemoryRouter>{node}</MemoryRouter>);
+
+function LocationProbe() {
+  const location = useLocation();
+  return (
+    <output data-testid="location">
+      {location.pathname}
+      {location.search}
+    </output>
+  );
+}
 
 describe('compendium detail renderers', () => {
   afterEach(() => {
@@ -420,6 +430,34 @@ describe('compendium detail renderers', () => {
     expect(objectView.container).toHaveTextContent('-1');
   });
 
+  it('links spell class metadata and item attunement requirements', () => {
+    const spell = normalize.normalizeSpell({ ...base, level: 1, school: 'A' });
+    Object.assign(spell, {
+      classes: ['Czarodziej'],
+      subclasses: ['Czarodziej: Mechaniczna Dusza'],
+      _englishClasses: ['Wizard'],
+      _englishSubclasses: ['Sorcerer: Clockwork Soul'],
+    });
+    const spellView = show(<SpellDetail spell={spell} />);
+    expect(screen.getByRole('link', { name: 'Czarodziej' })).toHaveAttribute(
+      'href',
+      '/compendium/classes/wizard/',
+    );
+    expect(
+      screen.getByRole('link', { name: 'Czarodziej: Mechaniczna Dusza' }),
+    ).toHaveAttribute('href', '/compendium/classes/sorcerer/clockwork-soul/');
+    spellView.unmount();
+
+    const item = normalize.normalizeItem({ ...base, reqAttune: true });
+    item.attunement = 'Requires attunement by a wizard';
+    const itemView = show(<ItemDetail item={item} />);
+    expect(screen.getByRole('link', { name: 'wizard' })).toHaveAttribute(
+      'href',
+      '/compendium/classes/wizard/',
+    );
+    itemView.unmount();
+  });
+
   it('renders weapon mastery and property rules', () => {
     const view = show(
       <ItemDetail
@@ -578,6 +616,88 @@ describe('compendium detail renderers', () => {
       />,
     );
     expect(screen.getAllByText('-')).toHaveLength(2);
+  });
+
+  it('renders media for a selected subclass', () => {
+    const cls: ClassEntry = {
+      id: 'monk',
+      name: 'Monk',
+      source: 'XPHB',
+      srd: true,
+      hitDie: 'd8',
+      primaryAbility: 'Wisdom',
+      savingThrows: 'Strength and Dexterity',
+      proficiencies: '',
+      armorProficiencies: '',
+      weaponProficiencies: '',
+      toolProficiencies: '',
+      subclassTitle: 'Monk Subclass',
+      table: { headers: ['Level'], rows: [['1']] },
+      features: [{ level: 1, name: 'Class Feature', entries: ['Base.'] }],
+      subclasses: [
+        {
+          id: 'zerth-warrior',
+          name: 'Zerth Warrior',
+          source: 'Fumble',
+          image: 'https://example.com/zerth.webp',
+          lore: ['Lore.'],
+          features: [{ level: 3, name: 'Psionic Wellspring', entries: ['Power.'] }],
+        },
+      ],
+    };
+
+    const view = show(<ClassDetail cls={cls} selectedSubclassId="zerth-warrior" />);
+    const image = screen.getByRole('img', { name: 'Zerth Warrior' });
+    expect(image).toHaveAttribute('src', 'https://example.com/zerth.webp');
+    const classFeature = screen.getByRole('heading', { name: /Class Feature/ });
+    expect(
+      classFeature.compareDocumentPosition(image) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(screen.getByText('Lore.')).toBeInTheDocument();
+    fireEvent.error(image);
+    expect(image).toHaveStyle({ display: 'none' });
+    view.unmount();
+  });
+
+  it('makes a selected subclass shareable through its route', () => {
+    const cls: ClassEntry = {
+      id: 'monk',
+      name: 'Monk',
+      source: 'XPHB',
+      srd: true,
+      hitDie: 'd8',
+      primaryAbility: 'Wisdom',
+      savingThrows: 'Strength and Dexterity',
+      proficiencies: '',
+      armorProficiencies: '',
+      weaponProficiencies: '',
+      toolProficiencies: '',
+      subclassTitle: 'Monk Subclass',
+      table: { headers: ['Level'], rows: [['1']] },
+      features: [],
+      subclasses: [
+        { id: 'zerth-warrior', name: 'Zerth Warrior', source: 'Fumble', features: [] },
+      ],
+    };
+    render(
+      <MemoryRouter initialEntries={['/compendium/classes/monk']}>
+        <Routes>
+          <Route path="/compendium/classes/:id" element={<ClassDetail cls={cls} />} />
+          <Route
+            path="/compendium/classes/:id/:subclass"
+            element={<ClassDetail cls={cls} />}
+          />
+        </Routes>
+        <LocationProbe />
+      </MemoryRouter>,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Zerth Warrior (Fumble)' }));
+    expect(screen.getByTestId('location')).toHaveTextContent(
+      '/compendium/classes/monk/zerth-warrior',
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Reset selection' }));
+    expect(screen.getByTestId('location')).toHaveTextContent('/compendium/classes/monk');
   });
 
   it('adds the Artificer overview and subclass comparison', () => {

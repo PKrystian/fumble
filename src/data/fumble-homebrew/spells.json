@@ -1,0 +1,426 @@
+{
+  "meta": {
+    "category": "spells",
+    "count": 13,
+    "source": "Fumble"
+  },
+  "items": [
+    {
+      "id": "animate-hut",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Animate Hut",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "5th-level Transmutation",
+      "level": 5,
+      "school": "Transmutation",
+      "castingTime": "1 minute",
+      "range": "Touch",
+      "components": "V, S, M (leg and foot bones from one creature)",
+      "duration": "Concentration, up to 8 hours",
+      "concentration": true,
+      "ritual": false,
+      "classes": ["Druid", "Warlock", "Witch", "Wizard"],
+      "entries": [
+        "When you cast this spell, you touch one building of up to 30 feet long by 30 feet wide and up to two stories tall. You must have either some claim to ownership or residency of the building or permission from its owners, or else the spell fails and has no effect.",
+        "The building becomes a Construct that follows your verbal commands and acts immediately after your turn in Initiative. Ten-foot-long legs resembling the creature whose bones you used as a Material component, or chicken legs if you cast the spell without Material components, sprout under the building, and it gains a Speed of 40 feet. The building can stand up or sit down using half its Speed, and it must sit down to lower its doorways to ground level.",
+        "While you concentrate on the spell, the building can use its action to stomp its legs, making a melee weapon attack using your spell attack bonus. On a hit, it deals {@damage 3d10} Bludgeoning damage. The building has AC 15, 100 Hit Points, and Immunity to Poison and Psychic damage. It uses your saving throw bonuses. If the building is reduced to 0 Hit Points, the spell ends and it settles to the ground.",
+        "If your Concentration on the spell ends, the building remains animate and continues to follow your verbal directions for the remainder of the spell's duration, but it can no longer take actions.",
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you use a level 8+ spell slot to cast this spell, you can give the building wings in addition to legs, and it gains a Fly Speed equal to its Speed."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "breath-of-belladonna",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Breath of Belladonna",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "2nd-level Necromancy",
+      "level": 2,
+      "school": "Necromancy",
+      "castingTime": "Action",
+      "range": "Self",
+      "components": "S, M (three belladonna berries, which the spell consumes)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "classes": ["Druid", "Warlock", "Witch", "Wizard"],
+      "entries": [
+        "You consume the belladonna berries used as a Material component, taking {@damage 3} Poison damage, and breathe out a poisonous cloud. Each creature in a 15-foot Cube originating from you must make a Constitution saving throw. On a failed save, a creature takes {@damage 3d10} Poison damage and has the {@condition Poisoned|XPHB} condition until the start of your next turn. On a success, the creature takes half as much damage only. A creature that doesn't need to breathe automatically succeeds on its saving throw.",
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "If you cast this spell using a level 3+ spell slot, the damage you deal increases by {@damage 1d10} for each spell slot level above 2. The damage you take doesn't increase."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cackle",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Cackle",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "Enchantment cantrip",
+      "level": 0,
+      "school": "Enchantment",
+      "castingTime": "Action",
+      "range": "60 feet",
+      "components": "V",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "classes": ["Witch"],
+      "entries": [
+        "You cackle wildly at one creature within range that can hear you, unleashing the power of your scorn and animosity. The target must succeed on a Wisdom saving throw or take {@damage 1d8} Psychic damage and have {@variantrule Disadvantage|XPHB} on the next ability check or saving throw based on Strength or Dexterity it makes before the start of your next turn."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "Cantrip Upgrade",
+          "entries": [
+            "The damage increases by {@damage 1d8} when you reach levels 5 ({@damage 2d8}), 11 ({@damage 3d8}), and 17 ({@damage 4d8})."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "call-to-the-hunter",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Call to the Hunter",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "3rd-level Conjuration",
+      "level": 3,
+      "school": "Conjuration",
+      "castingTime": "Action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 hour",
+      "concentration": true,
+      "ritual": false,
+      "classes": ["Druid", "Ranger", "Witch"],
+      "entries": [
+        "You call an allied Beast to your side in times of need, drawing on your reciprocal connection to the living things around you. When you summon this ally, choose its native environment: Air, Land, or Water. The creature uses the {@creature Allied Hunter|Fumble} stat block and has the form of an animal native to the chosen environment, which determines certain traits in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.",
+        "In combat, the hunter shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands, no action required by you. If you don't issue any, it defends itself against hostile creatures or takes the Dodge action, using its movement to avoid danger.",
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a level 3+ spell slot, use the higher level wherever the spell's level appears in the stat block."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cleansing-crystal",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Cleansing Crystal",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "2nd-level Abjuration",
+      "level": 2,
+      "school": "Abjuration",
+      "castingTime": "Action",
+      "range": "Touch",
+      "components": "V, S, M (a gem worth at least 50 GP)",
+      "duration": "1 hour",
+      "concentration": false,
+      "ritual": false,
+      "classes": ["Druid", "Witch"],
+      "entries": [
+        "You imbue a crystal with magic to absorb harmful influences. For the duration of the spell, when a creature carrying the crystal would take damage as a result of a spell or magical effect in the space it occupies at the start of its turn, the crystal reduces the damage it takes by {@damage 2d6}.",
+        "When the creature would make a saving throw to avoid an effect based on the space it occupies at the start of its turn, it has {@variantrule Advantage|XPHB} on the saving throw.",
+        "For the spell's duration, when a creature carrying the crystal would take Necrotic, Poison, or Psychic damage, you can end the spell as a Reaction to give the creature Resistance to the triggering damage type until the end of its next turn.",
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a level 4+ spell slot, creatures within 10 feet of the crystal also gain its benefits."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "create-poppet",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Create Poppet",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "3rd-level Transmutation",
+      "level": 3,
+      "school": "Transmutation",
+      "castingTime": "Action",
+      "range": "Self",
+      "components": "V, S, M (clay and willow branches)",
+      "duration": "1 minute",
+      "concentration": false,
+      "ritual": false,
+      "classes": ["Druid", "Warlock", "Witch"],
+      "entries": [
+        "When you cast this spell, you fashion the Material components into a Tiny doll, or pull the doll from your shadow if you cast it without Material components. While you hold this doll, you can take any of the following actions:",
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "item",
+              "name": "Healing Gift",
+              "entry": "As a Bonus Action, choose one creature you can see within 15 feet of you. That creature regains Hit Points equal to {@damage 1d8} + your spellcasting ability modifier."
+            },
+            {
+              "type": "item",
+              "name": "Cleansing Gift",
+              "entry": "As a Bonus Action, choose one creature you can see within 15 feet of you. You can end either one disease or one condition afflicting it. The condition can be Blinded, Deafened, Poisoned, or Stunned."
+            },
+            {
+              "type": "item",
+              "name": "Curse-Warding Gift",
+              "entry": "As a Reaction when you are targeted by a curse spell, you negate its effect on you."
+            }
+          ]
+        },
+        "When you use the doll for the third time, it is destroyed, leaving its heart behind in the form of a seed. Until the spell ends, any creature can eat the seed as a Bonus Action. A creature that does so gains {@variantrule Temporary Hit Points|XPHB} equal to {@damage 2d8}."
+      ]
+    },
+    {
+      "id": "miser-s-menace",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Miser's Menace",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "8th-level Enchantment",
+      "level": 8,
+      "school": "Enchantment",
+      "castingTime": "1 minute",
+      "range": "30 feet",
+      "components": "V, S",
+      "duration": "24 hours",
+      "concentration": false,
+      "ritual": false,
+      "classes": ["Witch"],
+      "entries": [
+        "When you cast this spell, choose a creature you can see within range. The target must succeed on a Wisdom saving throw or become cursed for the duration of the spell.",
+        "While the target is cursed, it is compelled to give away all its wealth, possessions, and positions of power to those who lack them, gifting at least ten percent of its wealth to each non-Beast creature it encounters.",
+        "If the target has broken its end of a bargain with you, or refused your polite request for food and shelter despite having done it no harm, you can cast this spell as an Action and the effect is permanent, ending only when the curse is broken or the target has nothing but rags to its name."
+      ]
+    },
+    {
+      "id": "spellwarping-curse",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Spellwarping Curse",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "3rd-level Abjuration",
+      "level": 3,
+      "school": "Abjuration",
+      "castingTime": "Action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "1 minute",
+      "concentration": false,
+      "ritual": false,
+      "classes": ["Sorcerer", "Warlock", "Witch", "Wizard"],
+      "entries": [
+        "You place a curse on a creature within range. The target must succeed on a Wisdom saving throw or become cursed for the duration of the spell. While cursed in this way, the creature takes {@damage 1d8} + your spellcasting ability modifier, minimum of 1, Psychic damage each time it casts a spell or uses a magical feature that deals damage or forces a creature to make a saving throw. A {@spell Remove Curse|XPHB} spell that the target casts on itself can't remove this curse.",
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a level 6+ spell slot and the target of this spell has ever targeted you with a harmful spell or magical effect against your will, the target has {@variantrule Disadvantage|XPHB} on the saving throw and the effect is permanent unless removed by {@spell Remove Curse|XPHB}, {@spell Greater Restoration|XPHB}, or similar magic."
+          ]
+        },
+        "You can also choose to end the spell by using an Action to dismiss it."
+      ]
+    },
+    {
+      "id": "swineskin",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Swineskin",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "3rd-level Transmutation",
+      "level": 3,
+      "school": "Transmutation",
+      "castingTime": "Action",
+      "range": "30 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 hour",
+      "concentration": true,
+      "ritual": false,
+      "classes": ["Witch"],
+      "entries": [
+        "Choose a Humanoid within range that you can see or hear. The target must succeed on a Wisdom saving throw or become cursed. While cursed, the target is shape-shifted into a Beast form for the duration. That form can be any Beast you choose that has a Challenge Rating of 1 or lower.",
+        "The target's game statistics are replaced by the stat block of the chosen Beast, but the target retains its alignment, personality, Hit Points, and Hit Point Dice. The target is limited in the actions it can perform by the anatomy of its new form, and it can't speak or cast spells.",
+        "The target's gear melds into the new form. The creature can't use or otherwise benefit from any of that equipment. The spell ends if the target is reduced to 0 Hit Points.",
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a level 6+ spell slot, if the target has eaten your food or slept in your home within the past 24 hours, or if it has shown unkindness to another creature of the chosen form in the past 24 hours, it has {@variantrule Disadvantage|XPHB} on the saving throw and the effect is permanent unless removed by {@spell Remove Curse|XPHB}, {@spell Greater Restoration|XPHB}, or similar magic."
+          ]
+        },
+        "You can also choose to end the spell by using an Action to dismiss it. A creature cursed permanently by this spell regains the ability to speak after it finishes a {@variantrule Long Rest|XPHB}."
+      ]
+    },
+    {
+      "id": "tongue-tie",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Tongue-Tie",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "2nd-level Enchantment",
+      "level": 2,
+      "school": "Enchantment",
+      "castingTime": "Action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 8 hours",
+      "concentration": true,
+      "ritual": false,
+      "classes": ["Witch"],
+      "entries": [
+        "Choose one creature within range that you can see or hear. The target must succeed on a Wisdom saving throw or become cursed for the duration of the spell. When you cast the spell, choose a topic of conversation. While the target remains cursed, whenever it attempts to speak about the chosen topic, you, or this spell, a phenomenon of your choice spills forth from its lips instead of words:",
+        {
+          "type": "list",
+          "items": [
+            "Tiny toads, snakes, moths, or other vermin",
+            "Short-lived wildflowers in full bloom",
+            "Black filth or bile",
+            "Fairy tales and nursery rhymes",
+            "Unflattering, unrelated truths about the target or those it is addressing"
+          ]
+        },
+        "Attempts to circumvent the curse by writing about the subject result in crude drawings of the chosen phenomenon. If the target can communicate telepathically or another creature reads its mind, it can communicate about the curse that way.",
+        "If you have caught the target in a lie, or if it was rude or ungrateful after you granted a request from it, the target has {@variantrule Disadvantage|XPHB} on its saving throw, the spell doesn't require Concentration, and the effect is permanent unless removed by {@spell Remove Curse|XPHB}, {@spell Greater Restoration|XPHB}, or similar magic. You can also choose to end the spell by using an Action to dismiss it.",
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a level 3+ spell slot, you can target one additional creature for each spell slot level above 2."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verdant-slumber",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Verdant Slumber",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "7th-level Abjuration",
+      "level": 7,
+      "school": "Abjuration",
+      "castingTime": "Reaction, which you take when a creature within range is reduced to 0 Hit Points or fails a Death Saving Throw",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "24 hours or 366 days",
+      "concentration": false,
+      "ritual": false,
+      "classes": ["Druid", "Witch"],
+      "entries": [
+        "With a burst of power, you preserve a creature in mortal peril in magical slumber. The creature instantly falls asleep and has Immunity to all damage for the duration of the spell. It has the {@condition Unconscious|XPHB} condition for 24 hours, then awakens as if it had finished a {@variantrule Long Rest|XPHB}. You can also end the spell prematurely as an Action, awakening the creature with 1 Hit Point.",
+        "If you move the creature to an area of fertile soil and natural growth, the duration of its slumber extends to a year and a day, as moss and vines grow over it. When you sleep within 60 feet of the creature, you can communicate with it in dreams. Many creatures preserved in this way are willing to share knowledge in exchange for eventual release, and you have {@variantrule Advantage|XPHB} on Charisma checks that you make to interact with it.",
+        "You can extend the duration of the creature's slumber by another year and a day by casting this spell again on the day that the duration would end. Otherwise, it wakes as if it had finished a {@variantrule Long Rest|XPHB}."
+      ]
+    },
+    {
+      "id": "witch-s-grasp",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Witch's Grasp",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "1st-level Evocation",
+      "level": 1,
+      "school": "Evocation",
+      "castingTime": "Action",
+      "range": "30 feet",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "classes": ["Witch"],
+      "entries": [
+        "You clench your hand in a grasping motion toward a creature within range, wrapping the target with twisting ribbons of shadow. The target must succeed on a Strength saving throw or have the {@condition Grappled|XPHB} condition and be held in place for the duration. A creature Grappled by this spell can take an Action to make a Strength or Dexterity check, its choice, against your spell save DC. If it succeeds, it is no longer Grappled.",
+        "If the target has attacked you or forced you to make a saving throw within the last minute and has never been damaged by you, it has {@variantrule Disadvantage|XPHB} on its saving throw. On a failure, you can choose for the target to take {@damage 1d8} Necrotic damage as part of the casting of this spell, and an additional {@damage 1d8} Necrotic damage at the start of each of its turns while Grappled by this spell.",
+        "The spell ends if the target is ever outside the spell's range.",
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a level 2+ spell slot, the initial damage increases by {@damage 1d8} for each spell slot level above 1."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wyrding",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Wyrding",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "4th-level Transmutation",
+      "level": 4,
+      "school": "Transmutation",
+      "castingTime": "Action",
+      "range": "Self",
+      "components": "S",
+      "duration": "1 minute",
+      "concentration": false,
+      "ritual": false,
+      "classes": ["Witch"],
+      "entries": [
+        "In a fit of shakes and spasms, you take on a monstrous semi-humanoid shape unique to you and your magic. When you cast this spell, you gain 20 {@variantrule Temporary Hit Points|XPHB}. Describe your new form and choose one of the following benefits:",
+        {
+          "type": "list",
+          "items": [
+            "Huge, molting feathers and a flying speed of 30 feet",
+            "Squamous skin, the ability to breathe water, and a swimming speed of 60 feet",
+            "Shaggy fur hide and an AC of 13 + your Wisdom modifier"
+          ]
+        },
+        "For the duration of the spell, you gain the chosen qualities and have {@variantrule Advantage|XPHB} on Strength and Constitution saving throws and ability checks. As a Bonus Action, you can make a melee spell attack against a creature within reach. On a hit, you deal {@damage 2d10} Acid damage.",
+        "You can end the Wyrding early as an Action. If the spell doesn't end early, you become cursed until the curse is lifted by {@spell Remove Curse|XPHB}, {@spell Greater Restoration|XPHB}, or similar magic. While cursed in this way, you remain trapped in your Wyrding form, and you lose the ability to speak, read, write, understand language, or cast spells with Verbal components.",
+        {
+          "type": "entries",
+          "name": "Using a Higher-Level Spell Slot",
+          "entries": [
+            "When you cast this spell using a level 5+ spell slot, the Temporary Hit Points it grants increase by 5 and the damage you deal with your melee spell attack increases by {@damage 1d10} for each spell level above 4."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -13,6 +13,7 @@ interface ReferenceLinkProps {
   category: string;
   slug: string;
   label: string;
+  source?: string;
 }
 
 interface Anchor {
@@ -23,7 +24,7 @@ interface Anchor {
 
 const POPOVER_WIDTH = 288;
 
-export function ReferenceLink({ category, slug, label }: ReferenceLinkProps) {
+export function ReferenceLink({ category, slug, label, source }: ReferenceLinkProps) {
   const { t } = useT();
   const locale = useLocale();
   const ref = useRef<HTMLAnchorElement>(null);
@@ -37,13 +38,13 @@ export function ReferenceLink({ category, slug, label }: ReferenceLinkProps) {
   useEffect(() => {
     let cancelled = false;
     setLocalizedLabel(null);
-    void loadReferenceName(category, slug, locale, label).then((name) => {
+    void loadReferenceName(category, slug, locale, label, source).then((name) => {
       if (!cancelled && name) setLocalizedLabel(name);
     });
     return () => {
       cancelled = true;
     };
-  }, [category, slug, locale, label]);
+  }, [category, slug, locale, label, source]);
 
   const hide = useCallback(() => {
     if (timerRef.current !== null) clearTimeout(timerRef.current);
@@ -60,9 +61,9 @@ export function ReferenceLink({ category, slug, label }: ReferenceLinkProps) {
       const rect = ref.current!.getBoundingClientRect();
       setHint(undefined);
       setAnchor({ left: rect.left, top: rect.top, bottom: rect.bottom });
-      void loadReferenceHint(category, slug, locale).then(setHint);
+      void loadReferenceHint(category, slug, locale, source).then(setHint);
     }, 220);
-  }, [category, slug, locale]);
+  }, [category, slug, locale, source]);
 
   useEffect(() => {
     if (!anchor) return;

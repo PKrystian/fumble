@@ -36,6 +36,17 @@ import { agreeSize } from './creatureMeta';
 import type { Locale } from '@/i18n/locales';
 import { XP_BY_CR } from '@/features/dm/xp';
 import { loadJson } from '@/data/compendium/json';
+import { canonicalClassFilterValue, classFilterLabel } from './classNames';
+import {
+  canonicalItemProperty,
+  canonicalItemRarity,
+  canonicalItemType,
+  canonicalSpellSchool,
+  itemPropertyLabel,
+  itemRarityLabel,
+  itemTypeLabel,
+  spellSchoolLabel,
+} from './filterValues';
 import {
   ActionDetail,
   BackgroundDetail,
@@ -72,6 +83,8 @@ export interface CategoryFilter {
 
   valuesFor: (item: CompendiumEntryBase) => string[];
 
+  normalizeValue?: (value: string) => string;
+
   defaultVisible?: (item: CompendiumEntryBase) => boolean;
 
   valueLabelKey?: (value: string) => string | undefined;
@@ -99,14 +112,20 @@ function field<T>(
   id: string,
   label: string,
   get: (item: T) => string | number | undefined,
+  normalizeValue?: (value: string) => string,
+  labelFor?: (value: string, locale?: Locale) => string,
 ): CategoryFilter {
   return {
     id,
     label,
     valuesFor: (item) => {
       const value = get(item as T);
-      return value == null || value === '' ? [] : [String(value)];
+      return value == null || value === ''
+        ? []
+        : [normalizeValue?.(String(value)) ?? String(value)];
     },
+    ...(normalizeValue ? { normalizeValue } : {}),
+    ...(labelFor ? { labelFor } : {}),
   };
 }
 
@@ -119,6 +138,8 @@ function splitField<T>(
   label: string,
   get: (item: T) => string,
   separator: string | RegExp = ',',
+  normalizeValue?: (value: string) => string,
+  labelFor?: (value: string, locale?: Locale) => string,
 ): CategoryFilter {
   return {
     id,
@@ -127,7 +148,10 @@ function splitField<T>(
       (get(item as T) ?? '')
         .split(separator)
         .map((v) => capitalize(v.trim()))
+        .map((value) => normalizeValue?.(value) ?? value)
         .filter(Boolean),
+    ...(normalizeValue ? { normalizeValue } : {}),
+    ...(labelFor ? { labelFor } : {}),
   };
 }
 
@@ -195,7 +219,17 @@ export const categories: CompendiumCategory[] = [
     load: loader<ClassEntry>('classes'),
     subtitle: (item, t) =>
       t('compendium.detail.hitDieValue', { die: (item as ClassEntry).hitDie }),
-    renderDetail: (item) => <ClassDetail cls={item as ClassEntry} />,
+    renderDetail: (item) => {
+      const cls = item as ClassEntry & { _fumbleSelectedSubclassId?: string };
+      return (
+        <ClassDetail
+          cls={cls}
+          {...(cls._fumbleSelectedSubclassId
+            ? { selectedSubclassId: cls._fumbleSelectedSubclassId }
+            : {})}
+        />
+      );
+    },
   },
   {
     id: 'backgrounds',
@@ -239,6 +273,16 @@ export const categories: CompendiumCategory[] = [
     subtitle: (item) => {
       const it = item as ItemEntry;
       return [it.type, it.rarity].filter(Boolean).join(' · ');
+    },
+    renderDetail: (item) => <ItemDetail item={item as ItemEntry} />,
+  },
+  {
+    id: 'firearms',
+    label: 'Firearms',
+    load: async () => [],
+    subtitle: (item) => {
+      const it = item as ItemEntry;
+      return [it.type, it.rarity].filter(Boolean).join(' Â· ');
     },
     renderDetail: (item) => <ItemDetail item={item as ItemEntry} />,
   },
@@ -505,12 +549,16 @@ const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
     {
       id: 'class',
       label: filterLabel('class'),
-      valuesFor: (i) => (i as SpellEntry).classes ?? [],
+      valuesFor: (i) => [
+        ...new Set((i as SpellEntry).classes?.map(canonicalClassFilterValue) ?? []),
+      ],
+      normalizeValue: canonicalClassFilterValue,
+      labelFor: (value, locale) => classFilterLabel(value, locale ?? 'en'),
     },
     {
       id: 'subclass',
       label: filterLabel('subclass'),
-      valuesFor: (i) => (i as SpellEntry).subclasses ?? [],
+      valuesFor: (i) => (i as SpellEntry).subclasses?.map((value) => String(value)) ?? [],
     },
     {
       id: 'level',
@@ -521,7 +569,13 @@ const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
       },
       sortKey: (v) => (v === 'Cantrip' ? 0 : Number(v.replace('Level ', ''))),
     },
-    field<SpellEntry>('school', filterLabel('school'), (i) => i.school),
+    field<SpellEntry>(
+      'school',
+      filterLabel('school'),
+      (i) => i.school,
+      canonicalSpellSchool,
+      spellSchoolLabel,
+    ),
     presenceField<SpellEntry>(
       'concentration',
       filterLabel('concentration'),
@@ -530,14 +584,33 @@ const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
     presenceField<SpellEntry>('ritual', filterLabel('ritual'), (i) => i.ritual),
   ],
   items: [
-    field<ItemEntry>('type', filterLabel('type'), (i) => i.type),
-    field<ItemEntry>('rarity', filterLabel('rarity'), (i) => i.rarity),
+    field<ItemEntry>(
+      'type',
+      filterLabel('type'),
+      (i) => i.type,
+      canonicalItemType,
+      itemTypeLabel,
+    ),
+    field<ItemEntry>(
+      'rarity',
+      filterLabel('rarity'),
+      (i) => i.rarity,
+      canonicalItemRarity,
+      itemRarityLabel,
+    ),
     presenceField<ItemEntry>(
       'attunement',
       filterLabel('attunement'),
       (i) => i.attunement,
     ),
-    splitField<ItemEntry>('properties', filterLabel('properties'), (i) => i.properties),
+    splitField<ItemEntry>(
+      'properties',
+      filterLabel('properties'),
+      (i) => i.properties,
+      ',',
+      canonicalItemProperty,
+      itemPropertyLabel,
+    ),
   ],
   bestiary: [
     {
@@ -609,7 +682,11 @@ const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
 };
 
 for (const category of categories) {
-  category.filters = [...(FILTERS_BY_ID[category.id] ?? []), sourceFilter];
+  category.filters = [
+    ...(FILTERS_BY_ID[category.id] ??
+      (category.id === 'firearms' ? (FILTERS_BY_ID.items ?? []) : [])),
+    sourceFilter,
+  ];
 }
 
 export function getCategory(id: string | undefined): CompendiumCategory | undefined {

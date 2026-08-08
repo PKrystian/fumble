@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { FlaskConical, Search, Shield, X } from 'lucide-react';
 import { useHomebrewStore } from '@/features/homebrew/store';
+import { useFumbleHomebrewStore } from '@/features/homebrew/fumbleHomebrewStore';
 import { OriginalName } from '@/features/ui/OriginalName';
 import { useContentModeStore } from '@/features/ui/contentModeStore';
 import { useLocale, useNavigate } from '@/i18n/path';
@@ -37,6 +38,7 @@ export function SearchPalette() {
   const { t } = useT();
   const homebrew = useHomebrewStore((s) => s.entries);
   const contentMode = useContentModeStore((s) => s.mode);
+  const showFumbleHomebrew = useFumbleHomebrewStore((s) => s.showInCompendium);
 
   const [index, setIndex] = useState<SearchIndex | null>(null);
   const [query, setQuery] = useState('');
@@ -68,9 +70,9 @@ export function SearchPalette() {
   const pool = useMemo(() => {
     const homebrewResults = buildHomebrewResults(homebrew, locale);
     return index
-      ? [...homebrewResults, ...buildPool(index, contentMode, locale)]
+      ? [...homebrewResults, ...buildPool(index, contentMode, locale, showFumbleHomebrew)]
       : homebrewResults;
-  }, [homebrew, index, contentMode, locale]);
+  }, [homebrew, index, contentMode, locale, showFumbleHomebrew]);
 
   const results = useMemo(() => searchResults(pool, query), [pool, query]);
 

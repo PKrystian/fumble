@@ -1,0 +1,1689 @@
+{
+  "meta": {
+    "category": "classes",
+    "count": 5,
+    "source": "Fumble"
+  },
+  "items": [
+    {
+      "id": "witch",
+      "campaigns": ["glod-smoka", "siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Witch",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "classes",
+      "subtitle": "Hit Die d8",
+      "hitDie": "d8",
+      "primaryAbility": "Wisdom",
+      "savingThrows": "Wisdom, Charisma",
+      "proficiencies": "Simple weapons; two Artisan's Tools or Artisan's Tools and Herbalism Kit; Light Armor",
+      "armorProficiencies": "Light armor",
+      "weaponProficiencies": "Simple weapons",
+      "toolProficiencies": "Two Artisan's Tools or Artisan's Tools and Herbalism Kit",
+      "spellList": [
+        "acid-splash",
+        "cackle",
+        "chill-touch",
+        "guidance",
+        "light",
+        "mending",
+        "message",
+        "minor-illusion",
+        "produce-flame",
+        "resistance",
+        "shillelagh",
+        "true-strike",
+        "animal-friendship",
+        "alarm",
+        "bane",
+        "bless",
+        "command",
+        "cure-wounds",
+        "detect-evil-and-good",
+        "detect-magic",
+        "detect-poison-and-disease",
+        "disguise-self",
+        "fog-cloud",
+        "heroism",
+        "tasha-s-hideous-laughter",
+        "inflict-wounds",
+        "protection-from-evil-and-good",
+        "shield",
+        "silent-image",
+        "sleep",
+        "speak-with-animals",
+        "witch-s-grasp",
+        "aid",
+        "animal-messenger",
+        "arcane-lock",
+        "augury",
+        "blindness-deafness",
+        "breath-of-belladonna",
+        "cleansing-crystal",
+        "continual-flame",
+        "darkness",
+        "darkvision",
+        "detect-thoughts",
+        "enhance-ability",
+        "enlarge-reduce",
+        "gust-of-wind",
+        "heat-metal",
+        "hold-person",
+        "invisibility",
+        "lesser-restoration",
+        "levitate",
+        "magic-mouth",
+        "misty-step",
+        "protection-from-poison",
+        "ray-of-enfeeblement",
+        "scorching-ray",
+        "see-invisibility",
+        "shatter",
+        "silence",
+        "spider-climb",
+        "tongue-tie",
+        "web",
+        "bestow-curse",
+        "call-lightning",
+        "call-to-the-hunter",
+        "clairvoyance",
+        "counterspell",
+        "create-poppet",
+        "dispel-magic",
+        "fear",
+        "fly",
+        "gaseous-form",
+        "glyph-of-warding",
+        "hypnotic-pattern",
+        "magic-circle",
+        "major-image",
+        "nondetection",
+        "phantom-steed",
+        "protection-from-energy",
+        "remove-curse",
+        "sending",
+        "slow",
+        "speak-with-dead",
+        "spellwarping-curse",
+        "swineskin",
+        "leomund-s-tiny-hut",
+        "tongues",
+        "water-breathing",
+        "water-walk",
+        "arcane-eye",
+        "banishment",
+        "confusion",
+        "conjure-minor-elementals",
+        "conjure-woodland-beings",
+        "control-water",
+        "death-ward",
+        "dimension-door",
+        "divination",
+        "fabricate",
+        "mordenkainen-s-faithful-hound",
+        "fire-shield",
+        "giant-insect",
+        "locate-creature",
+        "polymorph",
+        "mordenkainen-s-private-sanctum",
+        "leomund-s-secret-chest",
+        "stone-shape",
+        "stoneskin",
+        "wall-of-fire",
+        "wyrding",
+        "animate-hut",
+        "animate-objects",
+        "bigby-s-hand",
+        "awaken",
+        "commune",
+        "conjure-elemental",
+        "contact-other-plane",
+        "creation",
+        "dispel-evil-and-good",
+        "dream",
+        "geas",
+        "greater-restoration",
+        "hallow",
+        "insect-plague",
+        "legend-lore",
+        "mass-cure-wounds",
+        "modify-memory",
+        "passwall",
+        "planar-binding",
+        "scrying",
+        "seeming",
+        "telekinesis",
+        "rary-s-telepathic-bond",
+        "teleportation-circle",
+        "wall-of-force",
+        "wall-of-stone",
+        "conjure-fey",
+        "contingency",
+        "create-undead",
+        "eyebite",
+        "find-the-path",
+        "flesh-to-stone",
+        "forbiddance",
+        "globe-of-invulnerability",
+        "guards-and-wards",
+        "harm",
+        "heal",
+        "heroes-feast",
+        "drawmij-s-instant-summons",
+        "otto-s-irresistible-dance",
+        "magic-jar",
+        "move-earth",
+        "planar-ally",
+        "programmed-illusion",
+        "transport-via-plants",
+        "true-seeing",
+        "wall-of-ice",
+        "wall-of-thorns",
+        "etherealness",
+        "finger-of-death",
+        "forcecage",
+        "mordenkainen-s-magnificent-mansion",
+        "mirage-arcane",
+        "plane-shift",
+        "prismatic-spray",
+        "project-image",
+        "regenerate",
+        "reverse-gravity",
+        "sequester",
+        "simulacrum",
+        "symbol",
+        "teleport",
+        "verdant-slumber",
+        "animal-shapes",
+        "antimagic-field",
+        "antipathy-sympathy",
+        "befuddlement",
+        "control-weather",
+        "demiplane",
+        "earthquake",
+        "maze",
+        "mind-blank",
+        "miser-s-menace",
+        "power-word-stun",
+        "astral-projection",
+        "foresight",
+        "gate",
+        "imprisonment",
+        "mass-heal",
+        "power-word-kill",
+        "prismatic-wall",
+        "shapechange",
+        "true-polymorph",
+        "weird",
+        "wish"
+      ],
+      "subclasses": [
+        {
+          "name": "Coven of the Claw",
+          "source": "Fumble",
+          "features": [
+            {
+              "level": 3,
+              "name": "Claw Spells",
+              "entries": [
+                "When you reach a Witch level specified in the Coven of the Claw Spells table, you thereafter always have the listed spells prepared.",
+                {
+                  "type": "table",
+                  "caption": "Coven of the Claw Spells",
+                  "colLabels": ["Witch Level", "Prepared Spells"],
+                  "rows": [
+                    [
+                      "3",
+                      "{@spell Animal Friendship|XPHB}, {@spell Animal Messenger|XPHB}, {@spell Poison Spray|XPHB}, {@spell Speak with Animals|XPHB}, {@spell Spider Climb|XPHB}"
+                    ],
+                    ["5", "{@spell Haste|XPHB}, {@spell Water Breathing|XPHB}"],
+                    ["7", "{@spell Dominate Beast|XPHB}, {@spell Wyrding|Fumble}*"],
+                    ["9", "{@spell Insect Plague|XPHB}, {@spell Hold Monster|XPHB}"]
+                  ]
+                },
+                "{@spell Wyrding|Fumble|Wyrding} is a new Witch spell detailed at the end of this class."
+              ]
+            },
+            {
+              "level": 3,
+              "name": "Curse of the Claw",
+              "entries": [
+                "As a {@variantrule Bonus Action|XPHB}, you can curse a Creature within 60 feet of you and mark it as your prey for 1 hour. While the Creature is cursed in this way:",
+                {
+                  "type": "list",
+                  "items": [
+                    "You have {@variantrule Advantage|XPHB} on the first {@variantrule Attack Roll|XPHB} against it you make on a turn.",
+                    "You don’t provoke Opportunity Attacks from it.",
+                    "You have {@variantrule Advantage|XPHB} on any Wisdom ({@skill Perception|XPHB} or {@skill Survival|XPHB}) check you make to find it. You can use this feature twice. You regain one expended use when you finish a {@variantrule Short Rest|XPHB}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "name": "Crimson Gift",
+              "entries": [
+                "Witches of the Coven of the Claw are trained for battle as few other witches are. When you choose this coven, you gain the following benefits:",
+                {
+                  "type": "list",
+                  "items": [
+                    "While you aren’t wearing Medium or Heavy armor or wielding a {@item Shield|XPHB}, your base {@variantrule Armor Class|XPHB} equals 10 plus your Dexterity and Wisdom modifiers.",
+                    "Your Hit Point maximum increases by 2, and each time you gain a level in the witch class your Hit Point maximum increases by an additional 1 Hit Point. In addition, your physical form now hides a {@skill Nature|XPHB} that no longer belongs to the world of civilization. You can grow fearsome claws, fangs, spines, horns, or different natural weapons of your choice. When you make a melee attack using a natural Weapon, you can instead choose to make a melee {@variantrule Spell Attack|XPHB} that deals {@dice 1d6} Bludgeoning, Piercing, or Slashing Damage, as appropriate to the natural Weapon you chose, and you add your Wisdom modifier to the Damage. You can change these adaptations to your form as a {@variantrule Bonus Action|XPHB}."
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 6,
+              "name": "Fierce Familiar",
+              "entries": [
+                "You always have {@spell Call to the Hunter|Fumble|Call to the Hunter} prepared, and you can cast it as a Transmutation that targets your familiar and changes its game statistics to match the {@creature Allied Hunter|Fumble|Allied Hunter} stat block. If you do, the Spell’s duration becomes 1 minute, it doesn’t require {@condition Concentration|XPHB}, and its maximum {@variantrule Hit Points|XPHB} increase by 10. You can cast {@spell Call to the Hunter|Fumble|Call to the Hunter} once without expending a Spell slot. Once you do so, you can’t cast it in this way again until you finish a {@variantrule Long Rest|XPHB}."
+              ]
+            },
+            {
+              "level": 6,
+              "name": "Improved Crimson Gift",
+              "entries": [
+                "When you hit with a melee {@variantrule Spell Attack|XPHB} using your Crimson Gift feature, you deal an extra {@dice 1d6} Damage."
+              ]
+            },
+            {
+              "level": 10,
+              "name": "Red Frenzy",
+              "entries": [
+                "You can attack twice, instead of once, whenever you take the Attack Action on your turn, so long as both attacks are made using your natural weapons."
+              ]
+            },
+            {
+              "level": 14,
+              "name": "On the Hunt",
+              "entries": [
+                "The hunter’s tactics. The predator’s instincts. The thrill of the chase. Pursuing your prey is second nature to you, as a Creature of the wilds yourself. You gain one of the following feature options of your choice. As a Reaction when you take Damage from a Creature within 30 feet of you, you can move up to your {@variantrule Speed|XPHB} and make a melee {@variantrule Spell Attack|XPHB} with your Crimson Gift feature against the triggering Creature. Alternatively, your {@creature Allied Hunter|Fumble|Allied Hunter} (or familiar transformed by your Fierce Familiar feature) can make a Hunter’s Strike attack against the Creature. As a {@variantrule Bonus Action|XPHB}, you gain the {@condition Invisible|XPHB} Condition until the end of your next turn, you deal any Damage, or you force a Creature to make a {@variantrule Saving Throw|XPHB}. If you hit with an attack while {@condition Invisible|XPHB}, you deal an extra {@dice 4d6} Damage. You can use this feature once, and regain the use of it when you finish a Short or {@variantrule Long Rest|XPHB}, or expend a 2+ level Spell slot as a {@variantrule Bonus Action|XPHB}. When you Damage a Curse of the Claw {@variantrule Target|XPHB} that isn’t an Undead or a Construct with a melee {@variantrule Spell Attack|XPHB}, you inflict a wound that causes it to lose 5 {@variantrule Hit Points|XPHB} at the start of each of its turns. The first time on subsequent turns you hit a {@variantrule Target|XPHB} wounded with this feature, the {@variantrule Hit Points|XPHB} it loses at the start of each turn increase by 5. This Damage ends if the Creature is no longer affected by your Curse of the Claw; you can also choose to end the effect at any time. A Creature can take an Action to stanch the wound with a successful Wisdom ({@skill Medicine|XPHB}) check (the DC of this check equals your Spell {@variantrule Save|XPHB} DC). You can’t lose {@condition Concentration|XPHB} as a result of taking Damage. Additionally, you have {@variantrule Advantage|XPHB} on saving throws to avoid or end the {@condition Charmed|XPHB}, {@condition Frightened|XPHB}, and {@condition Stunned|XPHB} conditions on yourself. Whenever you gain a Witch level, you can replace the chosen option with another one."
+              ]
+            }
+          ],
+          "image": "https://res.cloudinary.com/sbgzuael/image/upload/v1786089463/claw-witch_p73v97.webp"
+        },
+        {
+          "name": "Coven of the Green",
+          "source": "Fumble",
+          "features": [
+            {
+              "level": 3,
+              "name": "Green Spells",
+              "entries": [
+                "When you reach a Witch level specified in the Coven of the Green Spells table, you thereafter always have the listed spells prepared.",
+                {
+                  "type": "table",
+                  "caption": "Coven of the Green Spells",
+                  "colLabels": ["Witch Level", "Prepared Spells"],
+                  "rows": [
+                    [
+                      "3",
+                      "{@spell Barkskin|XPHB}, {@spell Druidcraft|XPHB}, {@spell Entangle|XPHB}, {@spell Goodberry|XPHB}, {@spell Poison Spray|XPHB}, {@spell Spike Growth|XPHB}"
+                    ],
+                    ["5", "{@spell Plant Growth|XPHB}, {@spell Speak with Plants|XPHB}"],
+                    [
+                      "7",
+                      "{@spell Grasping Vine|XPHB}, {@spell Hallucinatory Terrain|XPHB}"
+                    ],
+                    ["9", "{@spell Commune with Nature|XPHB}, {@spell Tree Stride|XPHB}"]
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "name": "Curse of the Grasping Green",
+              "entries": [
+                "As a {@variantrule Bonus Action|XPHB}, you can curse a Creature within 60 feet of you for 1 hour. For the duration, a leeching vine grows around the {@variantrule Target|XPHB}, and when the Creature takes Damage, you can take a Reaction to choose another Creature within 60 feet of you to regain {@variantrule Hit Points|XPHB} equal to half the triggering Damage dealt to the cursed {@variantrule Target|XPHB}. If the {@variantrule Target|XPHB} is within your Veil of the Green, two creatures of your choice regain {@variantrule Hit Points|XPHB} instead of one. As an Action, the cursed Creature can make a Strength {@variantrule Saving Throw|XPHB} against your Spell {@variantrule Save|XPHB} DC to rip the leeching vine off of its body. On a success, the Creature takes Poison Damage equal to your Witch level, and a Creature of your choice within 60 feet regains {@variantrule Hit Points|XPHB} equal to half your Witch level. You can use this feature twice. You regain one expended use when you finish a {@variantrule Short Rest|XPHB}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+              ]
+            },
+            {
+              "level": 3,
+              "name": "Veil of the Green",
+              "entries": [
+                "As a {@variantrule Bonus Action|XPHB}, you can exude pollen or spores in a 15-foot Emanation that protects allies or hinders enemies. Choose one of the following veils. Deep Roots. Whenever creatures of your choice in the Emanation make a Strength or Constitution {@variantrule Saving Throw|XPHB}, they add {@dice 1d4} to the {@variantrule Save|XPHB}. Green Dreams. At the end of your turn, you can force one Creature in the Emanation to succeed on a Constitution {@variantrule Saving Throw|XPHB} against your Spell {@variantrule Save|XPHB} DC or gain 1 {@condition Exhaustion|XPHB} level, to a maximum of 1 level. This maximum increases when you reach Witch levels 5 (2 levels), 9 (3 levels), 13 (4 levels) and 17 (5 levels). Tangled Tread. The ground in the Emanation is {@variantrule Difficult Terrain|XPHB} for your enemies. When you move or this effect ends, the ground you affected is covered in moss. The Emanation continues until you end the veil (no Action required), gain the {@condition Incapacitated|XPHB} Condition, or use this feature again to choose a different veil."
+              ]
+            },
+            {
+              "level": 6,
+              "name": "Venom Ward",
+              "entries": [
+                "You and your familiar gain resistance to Poison Damage and you both have {@variantrule Advantage|XPHB} on saving throws to avoid or end the {@condition Poisoned|XPHB} Condition."
+              ]
+            },
+            {
+              "level": 6,
+              "name": "Wild Gifts",
+              "entries": [
+                "Plants around you grow faster while your dreaming mind works on them. When you plant seeds or clippings in fertile soil at the start of a {@variantrule Long Rest|XPHB}, they grow as if 30 days have passed when you finish that {@variantrule Long Rest|XPHB}. They must be exposed to sunlight or moonlight, and they must be within 30 feet of you for the duration of your rest. If you grow herbs with this feature, the next time you prepare spells, you can create a number of potions equal to your Proficiency Bonus from herbs that you grow, chosen from the following options:",
+                {
+                  "type": "list",
+                  "items": [
+                    "{@item Elixir of Health|XDMG}",
+                    "{@item Potion of Animal Friendship|XDMG}",
+                    "{@item Potion of Fire Breath|XDMG}",
+                    "{@item Potion of Growth|XDMG}",
+                    "{@item Potion of Healing|XDMG}",
+                    "{@item Potion of Mind Reading|XDMG}",
+                    "Potion of Resistance (you choose the Damage type for a potion when you create it)",
+                    "{@item Potion of Water Breathing|XDMG} Potions that you create with this feature lose their potency in 24 hours if unused."
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "Bloodthorn",
+              "entries": [
+                "Your magical bindings sprout pernicious thorns. As a {@variantrule Bonus Action|XPHB}, you can deal {@dice 2d6} + your Wisdom modifier Piercing Damage to a Creature that has the {@condition Grappled|XPHB}, {@condition Restrained|XPHB}, or {@condition Paralyzed|XPHB} conditions from a Witch Spell you cast, is cursed by your Curse of the Grasping Green feature, or is in {@variantrule Difficult Terrain|XPHB} you create."
+              ]
+            },
+            {
+              "level": 14,
+              "name": "Verdant Veil",
+              "entries": [
+                "Your Veil of the Green is now a 30-foot Emanation, and each veil now gains an additional effect: Deep Roots. At the end of your turn, you can choose one Creature in the Emanation to gain Half {@variantrule Cover|XPHB} until the start of your next turn or until it leaves the Emanation. Green Dreams. When a Creature fails the Constitution {@variantrule Saving Throw|XPHB} for this effect, it gains 2 {@condition Exhaustion|XPHB} levels instead of 1. If it fails the {@variantrule Saving Throw|XPHB} by 5 or more, it gains the {@condition Incapacitated|XPHB} Condition until the end of its next turn. Tangled Tread. When an {@variantrule Enemy|XPHB} attempts to move out of the Emanation, it must succeed on a Strength {@variantrule Saving Throw|XPHB} against your Spell {@variantrule Save|XPHB} DC or be unable to move outside the area this turn."
+              ]
+            }
+          ],
+          "image": "https://res.cloudinary.com/sbgzuael/image/upload/v1786089463/green-witch_vkgdpd.webp"
+        },
+        {
+          "name": "Coven of the Heart",
+          "source": "Fumble",
+          "features": [
+            {
+              "level": 3,
+              "name": "Heart Spells",
+              "entries": [
+                "When you reach a Witch level specified in the Coven of the Heart Spells table, you thereafter always have the listed spells prepared.",
+                {
+                  "type": "table",
+                  "caption": "Coven of the Heart Spells",
+                  "colLabels": ["Witch Level", "Prepared Spells"],
+                  "rows": [
+                    [
+                      "3",
+                      "{@spell Calm Emotions|XPHB}, {@spell Healing Word|XPHB}, {@spell Prestidigitation|XPHB}, {@spell Sanctuary|XPHB}, {@spell Spare the Dying|XPHB}, {@spell Warding Bond|XPHB}"
+                    ],
+                    ["5", "{@spell Mass Healing Word|XPHB}, {@spell Revivify|XPHB}"],
+                    [
+                      "7",
+                      "{@spell Death Ward|XPHB}, {@spell Otiluke's Resilient Sphere|XPHB}"
+                    ],
+                    [
+                      "9",
+                      "{@spell Rary's Telepathic Bond|XPHB}, {@spell Raise Dead|XPHB}"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "name": "Curse upon the Heartless",
+              "entries": [
+                "As a {@variantrule Bonus Action|XPHB}, you can curse a Creature within 60 feet of you for 1 hour. For the duration, whenever the Creature deals Damage, you can roll a {@dice d6} and reduce the Damage it deals to one {@variantrule Target|XPHB} by that amount. You reduce the Damage by {@dice 2d6} if the {@variantrule Target|XPHB} is an Undead or a Fiend. Once you reduce Damage in this way, you can’t do so again until the start of your next turn. When you reach level 10, you reduce the Damage by {@dice 2d6}, or {@dice 3d6} if the {@variantrule Target|XPHB} is an Undead or a Fiend. You can use this feature twice. You regain one expended use when you finish a {@variantrule Short Rest|XPHB}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+              ]
+            },
+            {
+              "level": 3,
+              "name": "Heart’s Gift",
+              "entries": [
+                "When you cast {@spell Spare the Dying|XPHB} or a Spell that restores {@variantrule Hit Points|XPHB} to a Creature, you can expend a number of {@variantrule Hit Point Dice|XPHB} up to your Proficiency Bonus to roll an equal number of d6s and add the total to the number of {@variantrule Hit Points|XPHB} one {@variantrule Target|XPHB} of your Spell regains."
+              ]
+            },
+            {
+              "level": 6,
+              "name": "Overflowing Heart",
+              "entries": [
+                "You channel your true feelings into your magic. When you finish a {@variantrule Long Rest|XPHB}, you can select a number of willing creatures up to your Wisdom modifier. When you cast a Spell that targets one or more of these creatures, you can replace one Verbal or Somatic component, or one Material component worth up to 500 GP. You replace that component with the {@variantrule Target|XPHB}’s laughter or tears, or a shared kiss or embrace."
+              ]
+            },
+            {
+              "level": 10,
+              "name": "Sympathetic Bond",
+              "entries": [
+                "The bonds of the heart care nothing for distance. When a Creature gives you an {@variantrule Object|XPHB} that symbolizes their friendship or love, such as a {@item Lock|XPHB} of hair or a rose in bloom, you can {@variantrule Target|XPHB} them with spells you cast as if you can see and touch them while you hold the {@variantrule Object|XPHB}, regardless of the Spell’s normal range. If the Creature’s friendship or love toward you ends, the {@variantrule Object|XPHB} loses this feature and you are aware of it."
+              ]
+            },
+            {
+              "level": 14,
+              "name": "Witch’s Grace",
+              "entries": [
+                "The power of your sympathy and empathy can overwhelm the hardest of hearts, making you a powerful force for reconciliation.",
+                {
+                  "type": "entries",
+                  "name": "Trigger",
+                  "entries": [
+                    "When a Creature that you and your allies haven’t harmed or insulted deals Damage to you or an {@variantrule Ally|XPHB} of yours that you can see or hear, or forces you or an {@variantrule Ally|XPHB} you can see or hear to make a {@variantrule Saving Throw|XPHB}, you can use an Action on your turn to implore the Creature to cease hostility. At the start of your next turn, if the Creature has not been attacked, damaged, or verbally threatened by you and your allies since you used this feature, it feels the presence of a curse eager to inflict consequences if it harms you or your allies."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Curse",
+                  "entries": [
+                    "For the next 24 hours, or until you or your allies attack, threaten, or force the Creature to make a {@variantrule Saving Throw|XPHB}, the act of harming you or your allies causes the curse to immediately take effect. While cursed in this way, the Creature has {@variantrule Disadvantage|XPHB} on {@dice D20} Tests for 24 hours, including on the Action that triggered the curse."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Limitations",
+                  "entries": [
+                    "Creatures that can’t understand a language can’t be affected by this feature. If you or your allies have harmed or insulted a Creature but made sufficient amends (as determined by the GM), you can use this feature as if you have not done or given insult."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Recovery",
+                  "entries": [
+                    "Once you use this feature, you can’t do so again until you finish a {@variantrule Long Rest|XPHB}. You can also restore your use of it by expending a level 7+ Spell slot (no Action required)."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Coven of the Wicked",
+          "source": "Fumble",
+          "features": [
+            {
+              "level": 3,
+              "name": "Curse of Spite",
+              "entries": [
+                "As a {@variantrule Bonus Action|XPHB}, you can curse a Creature within 60 feet of you for 1 hour. For the duration, when the Creature fails a {@dice D20} Test, they take Psychic or Necrotic Damage (your choice) equal to the difference between the result of their roll and the {@variantrule Armor Class|XPHB} of the {@variantrule Target|XPHB} or DC of the test. When you reach level 10, the power of your {@item Malice|XDMG} actively sabotages those who’ve earned your ire. Whenever the {@variantrule Target|XPHB} would succeed on a {@dice D20} Test, you can take a Reaction to subtract your Proficiency Bonus from the total. You can use this feature twice. You regain one expended use when you finish a {@variantrule Short Rest|XPHB}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+              ]
+            },
+            {
+              "level": 3,
+              "name": "Loathsome Gift",
+              "entries": [
+                "In your wickedness, you feed on death and misery.",
+                {
+                  "type": "entries",
+                  "name": "Recovering Spell Slots",
+                  "entries": [
+                    "When an {@variantrule Enemy|XPHB} dies while affected by your Curse of Spite feature, you can choose expended Spell slots to recover. The Spell slots can have a combined level equal to no more than half your Witch level, rounded up, and none of the slots can be level 6 or higher."
+                  ]
+                },
+                {
+                  "type": "entries",
+                  "name": "Uses",
+                  "entries": [
+                    "Once you use this feature, you can’t do so again until you finish a {@variantrule Long Rest|XPHB}."
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 6,
+              "name": "Detect Mercy",
+              "entries": [
+                "If a curse you cast is lifted by {@spell Remove Curse|XPHB}, {@spell Greater Restoration|XPHB}, or similar magic, you immediately become aware that it’s been lifted."
+              ]
+            },
+            {
+              "level": 6,
+              "name": "Curse-Token",
+              "entries": [
+                "Additionally, your curses are persistent in their power. When you cast a curse Spell with a level no higher than your Proficiency Bonus that requires {@condition Concentration|XPHB} on a Creature or creatures, you can anchor the curse to a nonmagical Tiny or Small {@variantrule Object|XPHB} that isn’t being worn or carried by another Creature. For the duration, you can’t lose {@condition Concentration|XPHB} on the Spell unless the {@variantrule Object|XPHB} is destroyed or you anchor another curse to the same {@variantrule Object|XPHB}. The {@variantrule Object|XPHB} has AC 12, HP 35, a {@variantrule Damage Threshold|XPHB} of 20, and {@variantrule Immunity|XPHB} to Necrotic, Poison, and Psychic Damage. Once you use this feature, you can’t do so again until you finish a Short or {@variantrule Long Rest|XPHB}."
+              ]
+            },
+            {
+              "level": 10,
+              "name": "Malicious Bond",
+              "entries": [
+                "Your unbounded {@item Malice|XDMG} cares nothing for distance. Using a {@item Lock|XPHB} of hair, nail clippings, or other body part from a Creature, you can {@variantrule Target|XPHB} it with a Spell as if you can see and touch it, so long as the Creature is on the same plane as you. An item with an active Spell from your Curse-token feature also satisfies this requirement for a Creature the Curse-token’s Spell affects. When you use a Creature’s body part to {@variantrule Target|XPHB} them with a Spell, it is consumed by the Spell."
+              ]
+            },
+            {
+              "level": 14,
+              "name": "Twisted by Cruelty",
+              "entries": [
+                "Your wicked disposition brings on changes to your physical form, as you embody the most vengeful aspects of nature. You gain the following benefits:",
+                {
+                  "type": "list",
+                  "items": [
+                    "Any {@variantrule Critical Hit|XPHB} against you that doesn’t include Radiant Damage is a normal hit instead.",
+                    "You have {@variantrule Advantage|XPHB} on saving throws to avoid or end the {@condition Poisoned|XPHB} and {@condition Stunned|XPHB} conditions.",
+                    "You can see normally in {@spell Darkness|XPHB}, both magical and nonmagical, out to a distance of 60 feet.",
+                    "Nonmagical plants within 30 feet of you wither after 1 hour in your presence. If you live in one location for at least a year, nonmagical plants within 5 miles of that place wither and the soil becomes barren."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "features": [
+        {
+          "level": 1,
+          "name": "Spellcasting",
+          "entries": [
+            "As a custodian of old folkways and the balance between worlds, you can cast Witch spells. Your magic works through subtle but emphatic suggestion, channeling your will to influence the wellbeing, fate, or opinions of beings who need a little (or not-so-little) nudge to exist in harmony with others.",
+            {
+              "type": "entries",
+              "name": "Cantrips",
+              "entries": [
+                "You know three cantrips of your choice from the Witch Spell list. {@spell Cackle|Fumble|Cackle}, {@spell Guidance|XPHB}, and {@spell Mending|XPHB} are recommended (the {@spell Cackle|Fumble|Cackle} cantrip is included in the New Spells section at the end of this class). Whenever you gain a Witch level, you can replace one of your cantrips with another Cantrip of your choice from the Witch Spell list. When you reach Witch levels 4 and 10, you learn another Witch Cantrip of your choice, as shown in the cantrips Known column of the Witch table."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Spell Slots",
+              "entries": [
+                "The Witch Features table shows how many spell slots you have to cast your level 1+ spells. You regain all expended slots when you finish a {@variantrule Long Rest|XPHB}."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Prepared Spells of Level 1+",
+              "entries": [
+                "You prepare the list of level 1+ spells that are available for you to cast with this feature. To start, choose four spells from the Witch Spell list. {@spell Bane|XPHB}, {@spell Cure Wounds|XPHB}, {@spell Detect Magic|XPHB}, and {@spell Witch's Grasp|Fumble|Witch’s Grasp} are recommended. The number of spells on your list increases as you gain Witch levels, as shown in the Prepared Spells column of the Witch Features table. Whenever that number increases, choose additional spells from the Witch Spell list until the number of spells on your list matches the number on the table. The chosen spells must be of a level for which you have spell slots. For example, if you’re a level 3 Witch, your list of prepared spells can include six spells of levels 1 or 2 in any combination. If another Witch feature gives you spells that you always have prepared, those spells don’t count against the number of spells you can prepare with this feature, but those spells otherwise count as Witch spells for you."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Changing Your Prepared Spells",
+              "entries": [
+                "Whenever you finish a {@variantrule Long Rest|XPHB}, you can change your list of prepared spells, replacing any of the spells with other Witch spells for which you have spell slots."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Spellcasting Ability",
+              "entries": [
+                "Wisdom is your {@variantrule Spellcasting|XGE} ability for your Witch spells."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Spellcasting Focus",
+              "entries": [
+                "You can use an Arcane Focus as a {@variantrule Spellcasting Focus|XPHB} for your Witch spells. Witches may also have unusual, homemade, or repurposed objects as their Arcane Focus, such as brooms, kitchen knives, kettles, dolls, or similar household objects. To use such an item as your Arcane Focus, you must spend 1 hour in meditation dedicating it to that purpose."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Curse Spells",
+              "entries": [
+                "A witch’s curse carries a personal grudge. Some features of the Witch covens imbue certain spells with additional potency. These spells are shown in the curse spells table.",
+                {
+                  "type": "table",
+                  "caption": "Curse Spells",
+                  "colLabels": ["Spell Level", "Spells"],
+                  "rows": [
+                    [
+                      "1",
+                      "{@spell Bane|XPHB}, {@spell Tasha's Hideous Laughter|XPHB|Hideous Laughter}, {@spell Witch's Grasp|Fumble|Witch’s Grasp}*"
+                    ],
+                    [
+                      "2",
+                      "{@spell Blindness/Deafness|XPHB}, {@spell Ray of Enfeeblement|XPHB}, {@spell Tongue-Tie|Fumble}*"
+                    ],
+                    ["3", "{@spell Bestow Curse|XPHB}, {@spell Swineskin|Fumble}*"],
+                    [
+                      "4",
+                      "{@spell Phantasmal Killer|XPHB}, {@spell Polymorph|XPHB}, {@spell Spellwarping Curse|Fumble}*"
+                    ],
+                    [
+                      "6",
+                      "{@spell Otto's Irresistible Dance|XPHB|Irresistible Dance}, {@spell Flesh to Stone|XPHB}"
+                    ],
+                    ["8", "{@spell Miser's Menace|Fumble|Miser’s Menace}*"],
+                    ["9", "{@spell Imprisonment|XPHB}"]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "Witchcraft Tokens",
+          "entries": [
+            "You bring a touch of magic to everyday materials and tasks, and as a result, the fruits of your labor bear a subtle-but potent-power. Savvy witches soon learn that common chores can be just as useful as flashier forms of {@variantrule Spellcasting|XGE}; they can channel magic just as easily by cooking up restorative meals, growing strange medicines in their gardens, weaving charm bracelets, and stitching protection into the seams of clothes. They also empower their familiars to Aid them in {@variantrule Spellcasting|XGE}. The minor results of a witch’s craft-potions, salves, one-use charms, and favors-are commonly called tokens, and any given witch can expect to make countless numbers of them in their lifetime. Many witches make a living by trading tokens with those in need, although few ever become wealthy that way. Any level 1 Witch Spell that targets one or more creatures can be crafted into a token with 1 hour of labor using Artisan’s Tools or an {@item Herbalism Kit|XPHB}. To craft it, you must have an unexpended Spell slot of a high enough level to cast the Spell (you need not have the Spell prepared) and you must succeed on a Wisdom check using your tools with a DC of 10 + the Spell’s level. On a failure, the item isn’t created unless you expend a Spell slot of the Spell’s level. You can attempt to make a single token during a Short or {@variantrule Long Rest|XPHB}. Tokens take a form appropriate to the tools you use to create them. An {@item Herbalism Kit|XPHB} might produce a potion or salve; Chef’s Tools might produce a cupcake. Once created, a Creature holding the token can cast the Spell from it using your Spell {@variantrule Save|XPHB} DC, {@variantrule Spell Attack|XPHB} bonus, and your {@variantrule Spellcasting|XGE} ability. If the Spell requires {@condition Concentration|XPHB}, the Creature must concentrate. The token then loses its magical properties, becoming a mundane item of its kind. You can maintain a number of active tokens equal to your Proficiency Bonus. If you make an additional token while at your limit, the magic fades from your oldest token."
+          ]
+        },
+        {
+          "level": 1,
+          "name": "Witch’s Familiar",
+          "entries": [
+            "A witch’s familiar is their lifelong companion and friend. You can choose to form a magical connection with a willing {@creature Badger|XMM}, Bat, Cat, {@creature Crab|XMM}, {@creature Frog|XMM} (toad), goat, {@creature Hawk|XMM}, {@creature Lizard|XMM}, {@creature Octopus|XMM}, Owl, {@creature Quipper|MM} (fish), Rat, {@creature Raven|XMM}, {@creature Sea Horse|MM}, {@creature Scorpion|XMM}, {@creature Spider|XMM}, {@creature Venomous Snake|XMM}, or {@creature Weasel|XMM} (Fox), or any CR 0 Creature approved by your GM.",
+            {
+              "type": "entries",
+              "name": "Witch’s Bond",
+              "entries": [
+                "Your familiar has a number of {@variantrule Hit Points|XPHB} equal to your Witch level, or the number in their {@variantrule Stat Block|XPHB} (whichever is higher). They can speak (but not read or write) any one language you speak. Your familiar acts independently of you, but they generally heed your requests."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Telepathic Connection",
+              "entries": [
+                "You can communicate telepathically with your familiar regardless of distance. Additionally, as a {@variantrule Bonus Action|XPHB}, you can see through your familiar’s eyes and hear what they hear until the start of your next turn, gaining the benefits of any special senses the familiar has."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Magical Assistant",
+              "entries": [
+                "When you cast a Spell with a range of Touch, your familiar can deliver the Spell as if they had cast the Spell. Your familiar must be within 100 feet of you, and they must use their Reaction to deliver the Spell when you cast it. If the Spell requires an {@variantrule Attack Roll|XPHB}, they use your attack modifier for the roll. If you lose {@condition Concentration|XPHB} on a Spell as a result of taking Damage or becoming {@condition Incapacitated|XPHB}, your familiar can temporarily concentrate on the Spell in your stead. If they are within 100 feet of you when you lose {@condition Concentration|XPHB}, they can transfer the {@condition Concentration|XPHB} to themself as a Reaction. At the start of your next turn, you can transfer {@condition Concentration|XPHB} on the Spell back to yourself as a {@variantrule Bonus Action|XPHB}. Otherwise, the Spell ends. Your familiar can use your Constitution {@variantrule Saving Throw|XPHB} bonus in place of their own if they must make a {@variantrule Saving Throw|XPHB} to maintain {@condition Concentration|XPHB}. The Spell ends if they lose {@condition Concentration|XPHB}. Once your familiar takes over {@condition Concentration|XPHB} in this way, they can’t do so again until you finish a Short or {@variantrule Long Rest|XPHB}."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Combat and Revival",
+              "entries": [
+                "In combat, they roll their own {@variantrule Initiative|XPHB} and act on their own turn. When your familiar would be reduced to 0 {@variantrule Hit Points|XPHB}, you can expend a level 1+ Spell slot to make them drop to 1 Hit Point instead (no Action required), provided you don’t have the {@condition Incapacitated|XPHB} Condition. If your familiar dies, their body vanishes, and you can perform a {@variantrule Ritual|XPHB} to revive them during a Short or {@variantrule Long Rest|XPHB}. The {@variantrule Ritual|XPHB} requires 10 GP of herbs or incense, and your familiar returns to life with all their {@variantrule Hit Points|XPHB} in an {@variantrule Unoccupied Space|XPHB} within 5 feet of you."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "One Familiar Only",
+              "entries": [
+                "You can’t have more than one familiar at a time. If you choose another animal as your witch’s familiar, you lose your connection to your previous familiar."
+              ]
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Retributive Curses",
+          "entries": [
+            "Witches are quick to punish those who wrong them. A Creature becomes a {@variantrule Target|XPHB} for retribution when it transgresses against you in one of the following ways:",
+            {
+              "type": "entries",
+              "name": "Harm",
+              "entries": [
+                "The Creature attacks or deals Damage to you, your familiar, or a Creature holding a token or talisman you created."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Threat",
+              "entries": [
+                "The Creature forces you to make a {@variantrule Saving Throw|XPHB}."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Betrayal",
+              "entries": [
+                "The Creature intentionally breaks a promise to you. As a Reaction when a Creature within 60 feet of you commits such a transgression, you can place one of the following curses on it:"
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Bloodguilt",
+              "entries": [
+                "The first time on a turn that the {@variantrule Target|XPHB} deals Damage to another Creature, it takes Psychic Damage equal to {@dice 1d6} + your Proficiency Bonus."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Leaden Shoes",
+              "entries": [
+                "The {@variantrule Target|XPHB}’s movement {@variantrule Speed|XPHB} is reduced to 5 feet and it can’t make Opportunity Attacks."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Uncanny Jinx",
+              "entries": [
+                "Whenever the {@variantrule Target|XPHB} makes a {@dice D20} Test, it must subtract {@dice 1d4} from the total."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Vengeful Gleam",
+              "entries": [
+                "The {@variantrule Target|XPHB} glows with a green witch-light that sheds {@variantrule Dim Light|XPHB} in a 5-foot radius. It can’t benefit from the {@condition Invisible|XPHB} Condition, and attacks against it have {@variantrule Advantage|XPHB} if the attacker can see it. The curse lasts for 1 minute. It ends early if the cursed Creature dies, you apply a different Retributive Curse to the Creature, or you choose to end the curse as an Action. You can use this feature twice, and regain expended uses when you finish a Short or {@variantrule Long Rest|XPHB}. If you or your allies initiated a fight with the Creature, it can make a Charisma {@variantrule Saving Throw|XPHB} against your Spell {@variantrule Save|XPHB} DC. On a successful {@variantrule Save|XPHB}, the curse has no effect but you don’t expend a use of this feature. GM Sidebar: A Witch’s Grudge Sometimes circumstances arise in which a Creature transgresses against a witch who isn’t present or is unable to exact retribution in the moment-for example, if someone breaks a promise to the witch while she isn’t present, or strikes her and knocks her {@condition Unconscious|XPHB}. In these cases, it makes sense for the DM to rule that a Witch can use their Retributive Curse feature against the Creature the next time the Witch enters combat against it. Moreover, some acts are so egregious to the cosmic balance that they warrant a more lasting punishment. A trusted {@variantrule Ally|XPHB}’s betrayal of their bond, the theft of an especially portentous artifact, or bringing violence to a place of lasting peace all might earn the transgressor an enduring curse. Using their narrative discretion, the GM may rule that the effects of a Retributive Curse last longer than 1 minute: a lunar cycle, a year and a day, or even indefinitely. In such cases, righting the wrong usually ends the curse, as do other means of cursebreaking."
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Witch Subclass",
+          "entries": [
+            "You gain a Witch subclass of your choice, joining a coven of witches whose magic resonates with your craft. The Coven of the Claw, Coven of the Green, and Coven of the Heart subclasses are detailed after this class’s description. A subclass is a specialization that grants you features at certain Witch levels. For the rest of your career, you gain each of your subclass’s features that are of your Witch level or lower."
+          ]
+        },
+        {
+          "level": 4,
+          "name": "Ability Score Improvement",
+          "entries": [
+            "You gain the {@feat Ability Score Improvement|XPHB} feat or another feat of your choice for which you qualify. You gain this feature again at Witch levels 8, 12, and 16."
+          ]
+        },
+        {
+          "level": 5,
+          "name": "Witchcraft Talismans",
+          "entries": [
+            "When you put your back into your craft and devote a little part of yourself to what you’re making, you can weave your magic into a talisman that will last forever. Many witches make talismans of clothing, though brooms, athames, keys, and tools are also popular-especially brooms as a means of fantastical conveyance for the witch themself. Most witches craft talismans specifically for companions, heroes, loved ones, or younger witches under their tutelage, but some guard their talismans jealously. As an Action while you can see a talisman, you can recover the sacrificed Spell slot. The talisman ceases to be a magic item, and you regain that Spell slot the next time you finish a {@variantrule Long Rest|XPHB}. Similarly, if the talisman is destroyed, you regain the Spell slot when you finish your next {@variantrule Long Rest|XPHB}. You always know the distance and direction to a talisman you created while you are on the same plane of existence. You can create the following kinds of talisman.",
+            {
+              "type": "entries",
+              "name": "Instilled Spell",
+              "entries": [
+                "Any Witch Spell that doesn’t require a costly Material component can be crafted into a talisman if you have an unexpended Spell slot of a high enough level to cast it (you need not have the Spell prepared). To craft a talisman, you must spend 24 hours of labor (this time need not be continuous) and make a DC 20 Wisdom check using Artisan’s Tools. On a success, you permanently sacrifice a Spell slot of the Spell’s level to complete the talisman. A Creature holding the talisman can cast that Spell from it, using your Spell {@variantrule Save|XPHB} DC, {@variantrule Spell Attack|XPHB} bonus, and your {@variantrule Spellcasting|XGE} ability. Once the talisman is used to cast its Spell, it can’t be used that way again until the next dawn. You can add more spells to a talisman, or more uses of the same Spell, with an additional 24 hours of labor, another Wisdom check using Artisan’s Tools, and another sacrificed Spell slot of the appropriate level."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Create Magic Item",
+              "entries": [
+                "Alternatively, you can sacrifice a level 3+ spell slot to craft an item from the Common and Uncommon Items table, or a level 6+ spell slot to craft an item from the Rare Items table.",
+                {
+                  "type": "table",
+                  "caption": "Common and Uncommon Items",
+                  "colLabels": ["Magic Item", "{@variantrule Attunement|XPHB}"],
+                  "rows": [
+                    [
+                      "{@item Amulet of Proof against Detection and Location|XDMG}",
+                      "Yes"
+                    ],
+                    ["{@item Bag of Tricks|XDMG}", "No"],
+                    ["{@item Bauble Trap|Fumble|Bauble Trap}*", "Yes"],
+                    ["{@item Boots of the Winterlands|XDMG}", "Yes"],
+                    ["{@item Brooch of Shielding|XDMG}", "Yes"],
+                    ["{@item Broom of Flying|XDMG}", "No"],
+                    ["{@item Cloak of the Manta Ray|XDMG}", "No"],
+                    ["{@item Eversmoking Bottle|XDMG}", "No"],
+                    ["{@item Gem of Brightness|XDMG}", "No"],
+                    ["{@item Lantern of Revealing|XDMG}", "No"],
+                    ["{@item Necklace of Adaptation|XDMG}", "Yes"],
+                    ["{@item Periapt of Health|XDMG}", "No"],
+                    ["{@item Periapt of Wound Closure|XDMG}", "Yes"],
+                    ["{@item Ring of Mind Shielding|XDMG}", "Yes"],
+                    ["{@item Slippers of Spider Climbing|XDMG}", "Yes"],
+                    ["{@item Stone of Good Luck|XDMG}", "Yes"],
+                    ["{@item Worry Stone|Fumble|Worry Stone}*", "No"]
+                  ]
+                },
+                {
+                  "type": "table",
+                  "caption": "Rare Items",
+                  "colLabels": ["Magic Item", "{@variantrule Attunement|XPHB}"],
+                  "rows": [
+                    ["{@item Cape of the Mountebank|XDMG}", "No"],
+                    ["{@item Cloak of the Bat|XDMG}", "Yes"],
+                    ["{@item Dagger of Venom|XDMG}", "No"],
+                    ["{@item Folding Boat|XDMG}", "No"],
+                    ["{@item Gem of Seeing|XDMG}", "Yes"],
+                    ["{@item Handy Haversack|XDMG}", "No"],
+                    ["{@item Horseshoes of Speed|XDMG}", "No"],
+                    ["{@item Mantle of Spell Resistance|XDMG}", "Yes"],
+                    ["{@item Periapt of Proof against Poison|XDMG}", "No"],
+                    ["{@item Ring of Feather Falling|XDMG}", "Yes"],
+                    ["{@item Rope of Entanglement|XDMG}", "No"],
+                    ["{@item Staff of Withering|XDMG}", "Yes"],
+                    ["{@item Warder's Tocsin|Fumble|Warder’s Tocsin}*", "No"]
+                  ]
+                },
+                "New magic items that Witches can craft as talismans are marked with an asterisk and detailed in the New Magic Items section at the end of this class."
+              ]
+            }
+          ]
+        },
+        {
+          "level": 7,
+          "name": "Willful Sanctum",
+          "entries": [
+            "A witch’s labor bears so much of their connection to magic that the very sticks, stones, walls, and hearth of their dwelling respond. You can spend 8 hours fashioning a place where you’ve taken a {@variantrule Long Rest|XPHB} into a sanctum. If the place is already owned or inhabited, you must have permission from its owner to reside there. You determine the boundaries of your sanctum, but you must be able to traverse its perimeter in an hour or less (alternatively, it must fit in a 2,000-foot-radius area). If you have a sanctum that’s at least 7 days old, your presence helps ward it against magical and spiritual prying; you can cast {@spell Mordenkainen's Private Sanctum|XPHB|Private Sanctum} within your sanctum without Material components. You always have {@spell Mordenkainen's Private Sanctum|XPHB|Private Sanctum} prepared. You can only have one sanctum at a time. Whenever you fashion a new sanctum, your old sanctum goes dormant, and if you decide to restore it, it takes another 8 hours of labor and another 7 days to regain its full power. If you designate a new sanctum, any {@spell Mordenkainen's Private Sanctum|XPHB|Private Sanctum} you cast on a previous sanctum with this feature immediately ends."
+          ]
+        },
+        {
+          "level": 7,
+          "name": "Improved Tokens",
+          "entries": ["You can create tokens using level 2 spells."]
+        },
+        {
+          "level": 9,
+          "name": "Improved Retribution",
+          "entries": [
+            "When you curse a {@variantrule Target|XPHB} with your feature, the curse now lasts for up to 10 minutes. Moreover, you gain the following additional curse options: Shared Suffering. The {@variantrule Target|XPHB} has the {@condition Poisoned|XPHB} Condition for 1 minute. Each time it casts a Spell or forces another Creature to make a {@variantrule Saving Throw|XPHB}, it takes {@dice 1d8} + your Proficiency Bonus Poison Damage. Enervation. The {@variantrule Target|XPHB} subtracts {@dice 1d8} from all its Damage rolls. Muzzle. The {@variantrule Target|XPHB} can’t use bite attacks or breath weapons, and it can’t cast spells that require Verbal components. Painful Reflection. The next time the {@variantrule Target|XPHB} deals Damage to a Creature, it gains {@variantrule Vulnerability|XPHB} to one type of Damage dealt (your choice) until the curse ends."
+          ]
+        },
+        {
+          "level": 11,
+          "name": "Hallowed Sanctum",
+          "entries": [
+            "You always have {@spell Hallow|XPHB} prepared. You can cast it without Material components on one area within your sanctum. Additionally, a Creature that tries to force its way into this area has {@variantrule Disadvantage|XPHB} on the Charisma {@variantrule Saving Throw|XPHB} it makes to ignore the Spell’s effects. If you designate a new sanctum, any {@spell Hallow|XPHB} Spell you cast on a previous sanctum with this feature immediately ends. You can also always have {@spell Word of Recall|XPHB} prepared and can cast it with your sanctum as the Spell’s designated {@spell Sanctuary|XPHB}."
+          ]
+        },
+        {
+          "level": 13,
+          "name": "Greater Tokens",
+          "entries": ["You can create tokens using level 3 spells."]
+        },
+        {
+          "level": 15,
+          "name": "Greater Retribution",
+          "entries": [
+            "When you curse a {@variantrule Target|XPHB} with your feature, the curse now lasts for up to 1 hour. Moreover, you gain the following additional curse option: Humbling Hex. You cast {@spell Polymorph|XPHB} on the {@variantrule Target|XPHB} without expending a Spell slot. On a failed {@variantrule Save|XPHB}, you transform it into a Beast with {@variantrule Challenge Rating|XPHB} 0 that can survive in its current environment. When you cast {@spell Polymorph|XPHB} in this way, it doesn’t require {@condition Concentration|XPHB}."
+          ]
+        },
+        {
+          "level": 18,
+          "name": "Shifting Sanctum",
+          "entries": [
+            "You always have {@spell Imprisonment|XPHB} prepared and can cast it without Material components while you are in your sanctum. You also always have {@spell Demiplane|XPHB} prepared and can cast it once in your sanctum with a duration of Permanent."
+          ]
+        },
+        {
+          "level": 19,
+          "name": "Epic Boon",
+          "entries": [
+            "You gain an Epic Boon feat or another feat of your choice for which you qualify. {@feat Boon of Truesight|XPHB} is recommended."
+          ]
+        },
+        {
+          "level": 20,
+          "name": "True Craft",
+          "entries": [
+            "You can now create a token or talisman using a Spell of level 8 or lower. Additionally, the Spell you choose can be from any class list, but you must expend (or risk, in the case of tokens) a Spell slot one level higher than the Spell you choose."
+          ]
+        }
+      ],
+      "table": {
+        "headers": [
+          "Level",
+          "Prof. Bonus",
+          "Features",
+          "Cantrips",
+          "Prepared Spells",
+          "1st",
+          "2nd",
+          "3rd",
+          "4th",
+          "5th",
+          "6th",
+          "7th",
+          "8th",
+          "9th"
+        ],
+        "rows": [
+          [
+            "1",
+            "+2",
+            "Spellcasting, Witchcraft Tokens, Witch’s Familiar",
+            "3",
+            "4",
+            "2",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "2",
+            "+2",
+            "Retributive Curses",
+            "3",
+            "5",
+            "3",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "3",
+            "+2",
+            "Witch Subclass",
+            "3",
+            "6",
+            "4",
+            "2",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "4",
+            "+2",
+            "Ability Score Improvement",
+            "4",
+            "7",
+            "4",
+            "3",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "5",
+            "+3",
+            "Witchcraft Talismans",
+            "4",
+            "9",
+            "4",
+            "3",
+            "2",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "6",
+            "+3",
+            "Coven Feature",
+            "4",
+            "10",
+            "4",
+            "3",
+            "3",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "7",
+            "+3",
+            "Willful Sanctum, Improved Tokens",
+            "4",
+            "11",
+            "4",
+            "3",
+            "3",
+            "1",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "8",
+            "+3",
+            "Ability Score Improvement",
+            "4",
+            "12",
+            "4",
+            "3",
+            "3",
+            "2",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "9",
+            "+4",
+            "Improved Retribution",
+            "4",
+            "14",
+            "4",
+            "3",
+            "3",
+            "3",
+            "1",
+            "-",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "10",
+            "+4",
+            "Coven Feature",
+            "5",
+            "15",
+            "4",
+            "3",
+            "3",
+            "3",
+            "2",
+            "-",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "11",
+            "+4",
+            "Hallowed Sanctum",
+            "5",
+            "16",
+            "4",
+            "3",
+            "3",
+            "3",
+            "2",
+            "1",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "12",
+            "+4",
+            "Ability Score Improvement",
+            "5",
+            "16",
+            "4",
+            "3",
+            "3",
+            "3",
+            "2",
+            "1",
+            "-",
+            "-",
+            "-"
+          ],
+          [
+            "13",
+            "+5",
+            "Greater Tokens",
+            "5",
+            "17",
+            "4",
+            "3",
+            "3",
+            "3",
+            "2",
+            "1",
+            "1",
+            "-",
+            "-"
+          ],
+          [
+            "14",
+            "+5",
+            "Coven Feature",
+            "5",
+            "17",
+            "4",
+            "3",
+            "3",
+            "3",
+            "2",
+            "1",
+            "1",
+            "-",
+            "-"
+          ],
+          [
+            "15",
+            "+5",
+            "Greater Retribution",
+            "5",
+            "18",
+            "4",
+            "3",
+            "3",
+            "3",
+            "2",
+            "1",
+            "1",
+            "1",
+            "-"
+          ],
+          [
+            "16",
+            "+5",
+            "Ability Score Improvement",
+            "5",
+            "18",
+            "4",
+            "3",
+            "3",
+            "3",
+            "2",
+            "1",
+            "1",
+            "1",
+            "-"
+          ],
+          ["17", "+6", "", "5", "19", "4", "3", "3", "3", "2", "1", "1", "1", "1"],
+          [
+            "18",
+            "+6",
+            "Shifting Sanctum",
+            "5",
+            "20",
+            "4",
+            "3",
+            "3",
+            "3",
+            "3",
+            "1",
+            "1",
+            "1",
+            "1"
+          ],
+          [
+            "19",
+            "+6",
+            "Epic Boon",
+            "5",
+            "21",
+            "4",
+            "3",
+            "3",
+            "3",
+            "3",
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          [
+            "20",
+            "+6",
+            "True Craft",
+            "5",
+            "22",
+            "4",
+            "3",
+            "3",
+            "3",
+            "3",
+            "2",
+            "2",
+            "1",
+            "1"
+          ]
+        ]
+      },
+      "subclassTitle": "Coven",
+      "lore": [
+        {
+          "type": "entries",
+          "name": "Powerful Consequences",
+          "entries": [
+            "Witches are infamous for their curses, but they do not curse others on a whim. A witch curse is most often a consequence for causing harm or disrespectful behavior toward the witch or the people and places under their care. curses range from minor, temporary rebukes to permanent punishments for wicked acts. If the recipient demonstrates understanding and remorse, the witch may be persuaded to lift the curse."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Connection and Community",
+          "entries": [
+            "A home-both a location and the people who live there- is a foundational part of witchcraft. A witch often serves as a protector, counselor, and {@feat Healer|XPHB} to the people (and animals, plants, and spirits) who live near them, whether or not this role is sanctioned by the local authorities. Often, this spellwork is seamlessly incorporated into simple home goods and handcrafts, familiar gifts that comfort their recipients and lie dormant until needed. While a witch doesn’t necessarily stay in one place, they understand the importance of community, and work to preserve balance between people, the natural world, and supernatural forces wherever they go."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Becoming a Witch",
+          "entries": [
+            "When making a Witch, consider your character’s relationship to the world and the creatures around them. How closely do they live to the subjects of their care, and what would it take to make your Witch break away from them? How did they meet their familiar, and what do they do for each other? What everyday rituals ground them in their work? Perhaps your character is new to witchcraft, or perhaps they spent years as an apprentice learning traditions, rituals, and hexes from their mentor. If your character had a mentor, what was your relationship with that Witch, and what lessons did they impart to you beyond the practices of {@variantrule Spellcasting|XGE} and magic?"
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "As a Level 1 Character",
+          "entries": [
+            {
+              "type": "list",
+              "items": [
+                "Gain the traits listed in the class overview.",
+                "Gain the Witch level 1 features in the Witch Features table."
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "entries",
+          "name": "Witch",
+          "entries": [
+            "Standing on moss-covered steps in the path of an advancing {@creature Ogre|XMM}, a young shrine maiden carefully pours a hot cup of tea. She whispers a word of thanks into the rising steam, and as she raises the drink, the {@creature Ogre|XMM} drops the {@item Greatclub|XPHB} from his hand as he sits in wonder, gazing at the offering. Peering over a bubbling cauldron, a mother watches her child breathe raggedly under a patchwork quilt. A crow alights upon her shoulder with white-blossoming herbs in its beak, and she sighs with relief as she adds them to the magic brew. Striding through the great mead hall, a wizened crone strikes terror into the hearts of once-brave warriors. She points a bony finger at the old king, and as {@creature Shadow|XMM} and fire leap to the fury of her cackling {@spell Command|XPHB}, the king dies knowing he has earned this fate. Witches are powerful mages as well as devoted caretakers, combining patience, {@skill Insight|XPHB}, and subtlety with extraordinary willfulness. While other spellcasters might use magic in grand gestures that bend the world to their whims, a witch’s power works in harmony with the people, plants, animals, and magical forces around them. The practice of witchcraft is often rooted in everyday rituals and chores, emphasizing the value in doing things with care and deliberation rather than taking shortcuts."
+          ]
+        }
+      ],
+      "image": "https://res.cloudinary.com/sbgzuael/image/upload/v1786089463/witch_ht9dpt.webp"
+    },
+    {
+      "id": "warlock-great-serpent",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Warlock: Great Serpent",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "classes",
+      "subtitle": "Otherworldly Patron subclass",
+      "className": "Warlock",
+      "subclassTitle": "Otherworldly Patron",
+      "featureType": "Subclass",
+      "prerequisite": "Warlock",
+      "isSubclass": true,
+      "lore": [
+        {
+          "type": "entries",
+          "name": "Otherworldly Patron",
+          "entries": [
+            "Your patron is the Spirit of the Great Serpent. Like the other animal Great Spirits, it sacrificed itself for animals, but it willingly lends its poison and hunger to those who agree to surrender part of themselves in a {@variantrule Ritual|XPHB}."
+          ]
+        }
+      ],
+      "features": [
+        {
+          "level": 3,
+          "name": "Serpent Spells",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Serpent Spells",
+              "colLabels": ["Warlock Level", "Spells"],
+              "rows": [
+                [
+                  "3",
+                  "{@spell Poison Spray|XPHB}, {@spell Ray of Sickness|XPHB}, {@spell Dissonant Whispers|XPHB}, {@spell Suggestion|XPHB}, {@spell Enlarge/Reduce|XPHB}"
+                ],
+                ["5", "{@spell Fear|XPHB}, {@spell Stinking Cloud|XPHB}"],
+                ["7", "{@spell Vitriolic Sphere|XPHB}, {@spell Confusion|XPHB}"],
+                ["9", "{@spell Contagion|XPHB}, {@spell Cloudkill|XPHB}"]
+              ]
+            },
+            "You can also cast {@spell Speak with Animals|XPHB}, {@spell Animal Friendship|XPHB}, {@spell Animal Messenger|XPHB}, and {@spell Beast Sense|XPHB} without expending a Spell slot, but only on snakes."
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Strange Gifts",
+          "entries": [
+            "Through sacred rituals, you gain one of the following mutations of your choice:",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Serpent Perception",
+                  "entry": "You gain Blindsight out to 30 feet, but lose the ability to see in any other way. During the ritual, you gouge out your eyes. You can add your Charisma modifier to {@skill Perception|XPHB} checks."
+                },
+                {
+                  "type": "item",
+                  "name": "Serpent Spirit",
+                  "entry": "Prerequisite: {@optfeature Pact of the Chain|XPHB} invocation. You can summon a {@creature Giant Venomous Snake|XMM} or {@creature Constrictor Snake|XMM} as your familiar without material components. Whenever it dies, make a Constitution {@variantrule Saving Throw|XPHB} against your Spell {@variantrule Save|XPHB} DC. On a failure, you take {@dice 1d6} Force Damage and lose the same amount from your maximum {@variantrule Hit Points|XPHB} until your next {@variantrule Long Rest|XPHB}."
+                },
+                {
+                  "type": "item",
+                  "name": "Serpent Hand",
+                  "entry": "You cut off an arm and cauterize the wound. It regrows as a snake and becomes a Weapon with which you are proficient and have Weapon Mastery. It can take the properties of any melee Weapon in the Player's Handbook and deals an extra {@dice 1d6} Poison Damage. It is a valid {@variantrule Target|XPHB} for {@optfeature Pact of the Blade|XPHB}. If the chosen Weapon is two-handed, you cannot use a {@item Shield|XPHB} at the same time."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 6,
+          "name": "Level 6",
+          "entries": [
+            "You gain resistance to Poison Damage. You can cast {@spell Suggestion|XPHB} without expending a Spell slot or components, and regain this ability after a {@variantrule Short Rest|XPHB}."
+          ]
+        },
+        {
+          "level": 10,
+          "name": "Stranger Gifts",
+          "entries": [
+            "Depending on which mutation you chose at 3rd level, you gain the corresponding benefit:",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Serpent Perception",
+                  "entry": "Your Blindsight increases to 120 feet, and you can cast {@spell Clairvoyance|XPHB} without expending a Spell slot."
+                },
+                {
+                  "type": "item",
+                  "name": "Serpent Spirit",
+                  "entry": "Your familiar can take the form of a {@creature Giant Constrictor Snake|XMM}."
+                },
+                {
+                  "type": "item",
+                  "name": "Serpent Hand",
+                  "entry": "The extra Poison Damage increases to {@dice 1d8}. After a one-hour {@variantrule Ritual|XPHB}, your snake hand can copy the properties of a melee Magic Weapon you possess, using one {@variantrule Attunement|XPHB} slot. It cannot copy artifacts. A copied legendary Weapon uses two {@variantrule Attunement|XPHB} slots."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 14,
+          "name": "Level 14",
+          "entries": [
+            "You can cast {@spell Shapechange|XPHB} without a material component once per {@variantrule Long Rest|XPHB}, but the only forms you can take are {@creature Yuan-ti Abomination|XMM} or any snake. The GM might allow you to transform into other Yuan-ti. Alternatively, if you expend all your Warlock Spell slots (3 or 4) and use Magical Cunning during a 10-minute {@variantrule Ritual|XPHB}, you can cast {@spell Shapechange|XPHB} again. The slots expended this way return only after a {@variantrule Long Rest|XPHB}. Rod of the Pact Keeper still works."
+          ]
+        }
+      ],
+      "parentClassId": "warlock",
+      "subclassName": "Great Serpent"
+    },
+    {
+      "id": "sorcerer-serpent-bloodline",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Sorcerer: Serpent Bloodline",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "classes",
+      "subtitle": "Sorcerous Origin subclass",
+      "className": "Sorcerer",
+      "subclassTitle": "Sorcerous Origin",
+      "featureType": "Subclass",
+      "prerequisite": "Sorcerer",
+      "isSubclass": true,
+      "lore": [
+        {
+          "type": "entries",
+          "name": "Sorcerous Origin",
+          "entries": [
+            "Your ancestor is the Spirit of the Great Serpent. Like the other animal Great Spirits, it sacrificed itself for animals, but it willingly lends its poison and hunger to those who agree to surrender part of themselves in a {@variantrule Ritual|XPHB}."
+          ]
+        }
+      ],
+      "features": [
+        {
+          "level": 3,
+          "name": "Serpent Spells",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Serpent Spells",
+              "colLabels": ["Sorcerer Level", "Spells"],
+              "rows": [
+                [
+                  "3",
+                  "{@spell Ray of Sickness|XPHB}, {@spell Sleep|XPHB}, {@spell Suggestion|XPHB}, {@spell Enlarge/Reduce|XPHB}"
+                ],
+                ["5", "{@spell Fear|XPHB}, {@spell Stinking Cloud|XPHB}"],
+                [
+                  "7",
+                  "{@spell Vitriolic Sphere|XPHB}, {@spell Evard's Black Tentacles|XPHB}"
+                ],
+                ["9", "{@spell Contagion|XPHB}, {@spell Cloudkill|XPHB}"]
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Improved Poison Spray",
+          "entries": [
+            "You learn {@spell Poison Spray|XPHB}, which does not count against your cantrips known. When you cast it, you can {@variantrule Target|XPHB} one Creature as normal or two creatures within 5 feet of each other. Its range is 60 feet."
+          ]
+        },
+        {
+          "level": 6,
+          "name": "Serpent Resistance",
+          "entries": ["You gain resistance to Poison Damage."]
+        },
+        {
+          "level": 6,
+          "name": "Serpent Transformation",
+          "entries": [
+            "You learn {@spell Polymorph|XPHB} (although you don't yet have Spell slots to cast it normally). You can cast it without expending a Spell slot, only on yourself, without {@condition Concentration|XPHB}, while retaining your mental ability scores. You can transform only into a {@creature Giant Venomous Snake|XMM}, {@creature Constrictor Snake|XMM}, {@creature Venomous Snake|XMM}, or {@creature Giant Constrictor Snake|XMM}. The last form lasts only 1 minute. After using this feature, you cannot use it again until a {@variantrule Long Rest|XPHB} unless you expend one use of Innate Sorcery to regain it."
+          ]
+        },
+        {
+          "level": 14,
+          "name": "Acidic Venom",
+          "entries": [
+            "When you use Innate Sorcery, you gain {@variantrule Immunity|XPHB} to Poison Damage, including while using Serpent Transformation. You learn the Transmute Spell Metamagic, or another Metamagic if you already know it. You can use Transmute Spell for free on spells that deal Poison Damage, changing it to acid Damage."
+          ]
+        },
+        {
+          "level": 18,
+          "name": "Serpent Abomination",
+          "entries": [
+            "You learn {@spell Tenser's Transformation|XGE} and can cast it without expending a Spell slot. When cast this way, you gain a Bite attack treated as a simple Weapon: {@dice 1d6} Piercing plus {@dice 1d12} Poison Damage, Reach, {@itemMastery Sap|XPHB}, and Weapon Mastery. After using this feature, you cannot use it again until a {@variantrule Long Rest|XPHB} unless you spend 5 Sorcery Points without an Action to regain it."
+          ]
+        }
+      ],
+      "parentClassId": "sorcerer",
+      "subclassName": "Serpent Bloodline"
+    },
+    {
+      "id": "zerth-warrior",
+      "campaigns": ["grobowiec-zaglady", "krysztalowa-sfera"],
+      "name": "Monk: Zerth Warrior",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "classes",
+      "subtitle": "Monastic Tradition subclass",
+      "className": "Monk",
+      "subclassTitle": "Monastic Tradition",
+      "featureType": "Subclass",
+      "prerequisite": "Monk",
+      "isSubclass": true,
+      "lore": [
+        {
+          "type": "entries",
+          "name": "Zerth Warriors",
+          "entries": [
+            "Zerth Warriors blend deep introspection with reality-bending {@skill Insight|XPHB}. Trained in ancient githzerai traditions, these monks use a mixture of Arcane Psionics and Discipline. The true Zerth title is available only to githzerai, but Sazar opened a monastery to spread the teachings of Zaerith Menyar-Ag-Gith to others willing to undergo rigorous training and {@spell Awaken|XPHB} psionic capabilities."
+          ]
+        }
+      ],
+      "features": [
+        {
+          "level": 3,
+          "name": "Psionic Wellspring",
+          "entries": [
+            {
+              "type": "table",
+              "caption": "Zerth Energy Dice",
+              "colLabels": [
+                "Monk Level",
+                "Die {@variantrule Size|XPHB}",
+                "Number of Dice"
+              ],
+              "rows": [
+                ["3", "{@dice d6}", "4"],
+                ["5", "{@dice d8}", "6"],
+                ["9", "{@dice d8}", "8"],
+                ["11", "{@dice d10}", "8"],
+                ["13", "{@dice d10}", "10"],
+                ["17", "{@dice d12}", "12"]
+              ]
+            },
+            "Any feature in this subclass that uses a Psionic Energy Die uses only these subclass dice. You cannot use such powers if you have no Psionic Energy Dice remaining. You regain half of your expended Psionic Energy Dice when you finish a {@variantrule Short Rest|XPHB} and all of them when you finish a {@variantrule Long Rest|XPHB}."
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Mental Shielding",
+          "entries": [
+            "When you use Patient Defense by spending 1 Discipline Point, you may also roll and expend 1 Psionic Energy Die. Add the result to your AC until the start of your next turn. During this time, you are immune to {@spell Magic Missile|XPHB}."
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Psychic Spells",
+          "entries": [
+            "You learn the {@spell Minor Illusion|XPHB} Cantrip and can cast the following spells by expending Psionic Energy Dice: {@spell Comprehend Languages|XPHB} and {@spell Jump|XPHB} cost 1; {@spell Detect Thoughts|XPHB} and {@spell See Invisibility|XPHB} cost 2; {@spell Blur|XPHB} costs 2; {@spell Sending|XPHB} and {@spell Tongues|XPHB} cost 3; {@spell Arcane Eye|XPHB} costs 4; {@spell Rary's Telepathic Bond|XPHB} and {@spell Telekinesis|XPHB} cost 5; {@spell Teleport|XPHB} and {@spell Plane Shift|XPHB} cost 7.",
+            "Psionic {@variantrule Spellcasting|XGE}: when you cast a psionic Spell using this feature, it requires no Verbal or Material components, even if its Components entry includes them, unless the material component is consumed by the Spell or has a gold piece cost."
+          ]
+        },
+        {
+          "level": 6,
+          "name": "Synaptic Blow",
+          "entries": [
+            "Once per turn when you hit a Creature with an attack using Martial Arts, you can expend up to your Proficiency Bonus in Psionic Energy Dice without an Action. Roll the dice and add the total as Psychic Damage. The {@variantrule Target|XPHB} must subtract one roll of your Psionic Energy Die from the next {@variantrule Saving Throw|XPHB} it makes before the end of your next turn."
+          ]
+        },
+        {
+          "level": 11,
+          "name": "Enlightened Form",
+          "entries": [
+            "As a {@variantrule Bonus Action|XPHB}, you can enter a temporary state of psionic enlightenment for 1 minute. You are Immune to Psychic Damage, gain a {@variantrule Flying|XPHB} {@variantrule Speed|XPHB} equal to your walking {@variantrule Speed|XPHB} and can {@variantrule Hover|XPHB}, and cast {@spell Telekinesis|XPHB} and {@spell Bigby's Hand|XPHB} without Verbal or Somatic components when you enter the state, maintaining them during it. You gain the benefits of Mental Shielding and roll its die at the start of your turn. You concentrate on this state as if on a Spell, cannot take the Attack Action, and lose it early if you lose {@condition Concentration|XPHB}. You can use this feature once per Short or {@variantrule Long Rest|XPHB}."
+          ]
+        },
+        {
+          "level": 17,
+          "name": "Improved Mental Shielding",
+          "entries": [
+            "When you use Mental Shielding, you also cast {@spell Sanctuary|XPHB} on yourself without expending a Spell slot or requiring Verbal, Somatic, or Material components."
+          ]
+        },
+        {
+          "level": 17,
+          "name": "Powerful Mind",
+          "entries": [
+            "When you enter your Enlightened Form, you cast {@spell Bigby's Hand|XPHB} at 7th level.",
+            "You can expend 4 Psionic Energy Dice without an action to regain your use of Enlightened Form."
+          ]
+        },
+        {
+          "level": 17,
+          "name": "Temporal Strike",
+          "entries": [
+            "Once per turn when you hit a target with a {@variantrule Melee Attack|XPHB}, you can, without an action, force it to make a Charisma saving throw against your Focus save DC. On a failed save, the target moves 1 round forward in time. A target moved forward in time vanishes for the duration. When the effect ends, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied."
+          ]
+        }
+      ],
+      "parentClassId": "monk",
+      "subclassName": "Zerth Warrior"
+    },
+    {
+      "id": "paladin-oathbreaker-ua",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
+      "name": "Paladin: Oathbreaker",
+      "source": "UA10",
+      "srd": false,
+      "alwaysVisible": true,
+      "category": "classes",
+      "subtitle": "Sacred Oath subclass",
+      "className": "Paladin",
+      "subclassTitle": "Sacred Oath",
+      "featureType": "Subclass",
+      "prerequisite": "Paladin",
+      "isSubclass": true,
+      "lore": [
+        {
+          "type": "entries",
+          "name": "Obtain Great Power at Any Cost",
+          "entries": [
+            "The power of a Paladin's oath is so great that it holds a distorted power even when it is violated.",
+            "When a Paladin betrays the tenets of their oath because of corruption, pride, or thirst for power, they lose the blessing granted by their original oath but sometimes take on the sinister blessing of the Oathbreaker in its place. Oathbreakers use fear and overwhelming power to achieve their goals. While many Oathbreakers are beyond redemption, some Paladins bend this oath to achieve a great and noble deed to atone for their past evils.",
+            "At the DM's discretion, a Paladin of any level who violates the tenets of their oath can lose the benefits granted by their original subclass and gain the features of the Oathbreaker subclass instead. Alternatively, a Paladin can choose this subclass at level 3 based on the character's backstory of falling from grace.",
+            "These Paladins often share the following tenets:",
+            {
+              "type": "list",
+              "items": [
+                "Fear is a tool in the hands of the powerful.",
+                "Strive for power at any cost.",
+                "Do what must be done, but never lose sight of your goal."
+              ]
+            }
+          ]
+        }
+      ],
+      "features": [
+        {
+          "level": 3,
+          "name": "Conjure Undead",
+          "entries": [
+            "As a {@variantrule Bonus Action|XPHB}, you can expend one use of your {@classFeature Channel Divinity|Paladin|Channel Divinity|3|XPHB} to summon a number of Undead equal to half your Charisma modifier (round up; minimum of one Undead summoned).",
+            "Each Undead appears in an unoccupied space you can see within 30 feet of you and is a type of your choice: {@creature Skeleton|XMM|Skeleton} or {@creature Zombie|XMM|Zombie} (see appendix B of the {@book Player's Handbook|XPHB}).",
+            "The Undead are under your control for 1 minute, after which they dissolve into ash.",
+            "Each Undead is an ally to you and your allies.",
+            "In combat, the Undead shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the {@action Dodge|XPHB} action and uses its movement to avoid danger."
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Dreadful Aspect",
+          "entries": [
+            "Immediately after you cast {@spell Divine Smite|XPHB}, you can expend one use of your {@classFeature Channel Divinity|Paladin|Channel Divinity|3|XPHB} to channel a burst of magical menace. Each creature of your choice in a 30-foot {@variantrule Emanation [Area of Effect]|XPHB|Emanation} originating from you must succeed on a Wisdom saving throw or have the {@condition Frightened|XPHB} condition for 1 minute. A {@condition Frightened|XPHB} creature repeats the save at the end of each of its turns, ending the effect on itself on a success."
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Oathbreaker Spells",
+          "entries": [
+            "The magic of your oath ensures you always have certain spells ready; when you reach a Paladin level specified in the Oathbreaker Spells table, you thereafter always have the listed spells prepared.",
+            {
+              "type": "table",
+              "caption": "Oathbreaker Spells",
+              "colLabels": ["Paladin Level", "Spells"],
+              "rows": [
+                ["3", "{@spell Hellish Rebuke|XPHB}, {@spell Witch Bolt|XPHB}"],
+                ["5", "{@spell Crown of Madness|XPHB}, {@spell Darkness|XPHB}"],
+                ["9", "{@spell Fear|XPHB}, {@spell Summon Undead|XPHB}"],
+                ["13", "{@spell Blight|XPHB}, {@spell Phantasmal Killer|XPHB}"],
+                ["17", "{@spell Contagion|XPHB}, {@spell Steel Wind Strike|XPHB}"]
+              ]
+            }
+          ]
+        },
+        {
+          "level": 7,
+          "name": "Aura of Hate",
+          "entries": [
+            "When you, as well as any Fiend or Undead in your {@classFeature Aura of Protection|Paladin|Aura of Protection|6|XPHB} that is an ally, hits a creature with a melee attack, that attack deals extra Necrotic damage equal to your Charisma modifier."
+          ]
+        },
+        {
+          "level": 15,
+          "name": "Supernatural Resistance",
+          "entries": [
+            "You gain {@variantrule Resistance|XPHB} to Bludgeoning, Piercing, and Slashing damage."
+          ]
+        },
+        {
+          "level": 20,
+          "name": "Dread Lord",
+          "entries": [
+            "As a {@variantrule Bonus Action|XPHB}, you can imbue your {@classFeature Aura of Protection|Paladin|Aura of Protection|6|XPHB} with unholy gloom, granting the benefits below for 10 minutes or until you end them (no action required). Once you use this feature, you can't use it again until you finish a {@variantrule Long Rest|XPHB}. You can also restore your use of it by expending a level 5 Spell slot (no action required).",
+            {
+              "type": "entries",
+              "name": "Darkness",
+              "entries": [
+                "Magical Darkness fills your Aura of Protection. You and allies in your Aura of Protection can see within this magical Darkness."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Fear",
+              "entries": [
+                "Whenever a creature with the {@condition Frightened|XPHB} condition starts its turn in your Aura of Protection, that creature takes {@damage 4d10} Psychic damage."
+              ]
+            },
+            {
+              "type": "entries",
+              "name": "Shadow Strike",
+              "entries": [
+                "As a {@variantrule Bonus Action|XPHB}, you can make a melee {@variantrule Spell Attack|XPHB}, shaping the gloom exuding from you into a blade that targets one creature in your Aura of Protection. On a hit, the attack deals Necrotic damage equal to {@damage 3d10} plus your Charisma modifier."
+              ]
+            }
+          ]
+        }
+      ],
+      "parentClassId": "paladin",
+      "subclassName": "Oathbreaker"
+    }
+  ]
+}

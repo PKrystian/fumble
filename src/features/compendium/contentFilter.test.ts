@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { CompendiumEntryBase } from '@/data/compendium/types';
+import { FUMBLE_SOURCE } from '@/features/homebrew/fumbleHomebrew';
 import { HOMEBREW_SOURCE } from '@/features/homebrew/store';
 import { applyContentMode } from './contentFilter';
 
@@ -17,6 +18,7 @@ describe('content mode filtering', () => {
   });
   const hidden = item('hidden', 'XPHB', { hidden: true });
   const homebrew = item('brew', HOMEBREW_SOURCE);
+  const fumble = { ...item('fumble', FUMBLE_SOURCE), _fumble: true };
 
   it('returns all visible entries', () => {
     expect(applyContentMode([old, revised, hidden, homebrew], 'all')).toEqual([
@@ -62,5 +64,14 @@ describe('content mode filtering', () => {
       ],
     });
     expect(applyContentMode([phb, dmg, current], '2014')).toEqual([phb, dmg, dmg]);
+  });
+
+  it('hides Fumble entries until explicitly enabled', () => {
+    expect(applyContentMode([fumble], 'all')).toEqual([]);
+    expect(applyContentMode([fumble], '2024')).toEqual([]);
+    expect(applyContentMode([fumble], '2014')).toEqual([]);
+    expect(applyContentMode([fumble], 'all', true)).toEqual([fumble]);
+    expect(applyContentMode([fumble], '2024', true)).toEqual([fumble]);
+    expect(applyContentMode([fumble], '2014', true)).toEqual([fumble]);
   });
 });

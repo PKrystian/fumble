@@ -6,6 +6,17 @@ type TranslateFn = (key: string, vars?: Record<string, string | number>) => stri
 
 export type SortDir = 'asc' | 'desc';
 
+export function normalizeFilterValue(filter: CategoryFilter, value: string): string {
+  return filter.normalizeValue?.(value) ?? value;
+}
+
+export function filterValuesFor(
+  filter: CategoryFilter,
+  item: CompendiumEntryBase,
+): string[] {
+  return filter.valuesFor(item).map((value) => normalizeFilterValue(filter, value));
+}
+
 export function matchesFilters(
   item: CompendiumEntryBase,
   filters: CategoryFilter[],
@@ -14,7 +25,7 @@ export function matchesFilters(
   return filters.every((filter) => {
     const chosen = selected[filter.id];
     if (!chosen || chosen.length === 0) return filter.defaultVisible?.(item) ?? true;
-    return filter.valuesFor(item).some((value) => chosen.includes(value));
+    return filterValuesFor(filter, item).some((value) => chosen.includes(value));
   });
 }
 
@@ -42,8 +53,8 @@ function compareByFilter(
   t: TranslateFn,
   locale: Locale,
 ): number {
-  const av = filter.valuesFor(a);
-  const bv = filter.valuesFor(b);
+  const av = filterValuesFor(filter, a);
+  const bv = filterValuesFor(filter, b);
   if (av.length === 0 || bv.length === 0) {
     if (av.length === 0 && bv.length === 0) return 0;
     return av.length === 0 ? 1 : -1;

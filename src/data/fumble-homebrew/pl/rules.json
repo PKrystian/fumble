@@ -1,0 +1,940 @@
+{
+  "critical-rolls": {
+    "name": "Krytyczne rzuty",
+    "entries": [
+      "Naturalne 1 na k20 zawsze jest automatyczną porażką przy ataku, teście cechy i rzucie obronnym. Naturalne 20 zawsze jest automatycznym sukcesem wszędzie tam, gdzie wymagany jest rzut k20."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "healing-potions": {
+    "name": "Mikstury leczenia",
+    "entries": [
+      "Miksturę można wypić jako {@variantrule Bonus Action|XPHB|akcję dodatkową}. Możesz również użyć {@action Utilize|XPHB|akcji Wykorzystanie}, aby podać miksturę leczniczą istocie znajdującej się w odległości do 5 stóp od ciebie, lecząc ją zamiast siebie. Jeśli użyjesz mikstury leczniczej jako akcji, przywraca maksymalną możliwą liczbę PW zamiast wymagać rzutu, na przykład 2k4 + 2 przywraca 10 PW."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "flanking": {
+    "name": "Flankowanie",
+    "entries": [
+      "Otrzymujesz premię +2 do rzutu ataku przeciwko stworzeniu w zwarciu, jeśli przytomny i zdolny do walki sojusznik stoi po przeciwnej stronie celu, tworząc linię z tobą i celem."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "starting-flaw-feat": {
+    "name": "Korzyść za wadę startową",
+    "entries": [
+      "Za wybranie wady podczas tworzenia postaci otrzymujesz dodatkowy atut ogólny."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "help-death-saves": {
+    "name": "Pomoc przy rzutach na śmierć",
+    "entries": [
+      "Można wykonać akcję Aid, aby wesprzeć sojusznika przy jego rzucie obronnym na śmierć. {@variantrule Advantage|XPHB} dotyczy tego jednego rzutu."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "permanent-spell-dispelling": {
+    "name": "Odczarowywanie permanentnych zaklęć",
+    "entries": [
+      "Permanentne efekty stworzone przez codzienne rzucanie zaklęcia przez rok wymagają testu odczarowania. ST wynosi 20 + poziom permanentnego zaklęcia - poziom zaklęcia odczarowania. Dodaj modyfikator cechy czarowania, a abjurator na 10. poziomie lub wyższym także premię biegłości.",
+      "Po porażce należy poświęcić godzinę na analizę efektu po liczbie dni równej 21 - wartość Inteligencji. Jeśli wynik wynosi 0, godzinę można poświęcić od razu. Każda próba obniża ST o 1. Po dziesiątej próbie używa się ST 10 + poziom zaklęcia."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "divine-intervention-2024": {
+    "name": "Boska interwencja 2024",
+    "entries": [
+      "Możnie używać jednocześnie wersji Boskiej Interwencji z 2014 i 2024 roku. Po sukcesie którejkolwiek wersji nie możnie używać żadnej z nich przez 7 dni.",
+      "Przy wersji 2024 czas rzucania nie może przekraczać 1 minuty. Jeśli cecha rzuci {@spell Revivify|XPHB} albo {@spell Greater Restoration|XPHB}, nie można użyć jej do rzucenia tego zaklęcia ponownie przez kolejny tydzień."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "prone-dexterity-saves": {
+    "name": "Powalenie: rzuty na Zręczność",
+    "entries": [
+      "Będąc Powalonym, masz {@variantrule Disadvantage|XPHB} w rzutach obronnych na Zręczność."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "ability-score-rolling": {
+    "name": "Rzucanie na statystyki",
+    "entries": [
+      "Jeśli suma wyrzuconych statystyk jest niższa niż 69, możesz raz przerzucić cały zestaw i zaakceptować drugi wynik albo użyć metody Point Buy."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "partial-long-rests": {
+    "name": "Częściowy długi odpoczynek",
+    "entries": [
+      "Poza bezpieczną strefą postać odzyskuje jedną trzecią wydanych Kości Wytrzymałości zamiast połowy, odnawia zdolności odnawiane po Krótkim Odpoczynku i nie usuwa Wyczerpania. nie zyskuje też Wyczerpania za brak pełnego Długiego Odpoczynku.",
+      "Czarujący odzyskuje komórki czarów o łącznym poziomie równym połowie poziomu klasy, zaokrąglonej w górę. Przed pełnym Długim Odpoczynkiem postać może wykonać jeden {@variantrule Short Rest|XPHB} odnawiający zdolności, a jeśli ta opcja była już dostępna, jeden dodatkowy, maksymalnie dwa."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "shared-initiative-blocks": {
+    "name": "Wspólne bloki inicjatywy",
+    "entries": [
+      "Sojusznicy z tym samym wynikiem inicjatywy tworzą jeden blok. Mogą dowolnie przeplatać ruch, akcje, Akcje Bonusowe i Reakcje w obrębie bloku, bez przygotowywania akcji. Dzięki temu sojusznik może uleczyć powalonego bohatera przed jego rzutem na śmierć."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "recovery-from-zero": {
+    "name": "Powrót z 0 PW",
+    "entries": [
+      "Gdy wstajesz z 0 PW inaczej niż dzięki krytycznemu sukcesowi na rzucie obronnym na śmierć albo udanemu testowi Medycyny, zyskujesz 1 poziom Wyczerpania, maksymalnie do poziomu 5.",
+      "Test Medycyny stabilizujący twór ma zwykle ST 15 i wymaga 1k4 godzin nieprzytomnego odpoczynku. Każda porażka zwiększa ST o 5. Jeśli test zakończy się porażką o 5 lub więcej, leczone {@spell Creation|XPHB|Stworzenie} wykonuje rzut na Kondycję o ST 15 i przy porażce otrzymuje 1 obrażenie."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "scroll-casting": {
+    "name": "Zwoje zaklęć",
+    "entries": [
+      "Aby skorzystać ze zwoju, musisz umieć rzucać zaklęcia. Spell nie musi znajdować się na liście twojej klasy, w granicach rozsądku ustalonych przez Mistrza Gry."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "long-distance-teleportation": {
+    "name": "Teleportacja dalekodystansowa",
+    "entries": [
+      "Kręgi teleportacyjne oddalone od podróżnika o więcej niż kilka mil nie działają. {@spell Teleport|XPHB} na dalekim dystansie jest niestabilna, a jej zmienione parametry i komplikacje ustala Mistrz Gry."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "talent-strain": {
+    "name": "Strain Talentu",
+    "entries": [
+      "Talent traci 3 punkty Strain zamiast wszystkich punktów Strain, gdy używa odpowiedniej cechy odzyskiwania."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "heroic-inspiration-reroll": {
+    "name": "Heroiczna Inspiracja",
+    "entries": [
+      "Można mieć maksymalnie 3 punkty Heroicznej Inspiracji, tak jak Mistrzowskiej Inspiracji. Inspirację można wykorzystać do przerzutu dowolnego rzutu k20 po rzucie, ale przed poznaniem wyniku. Po użyciu trzeba przyjąć nowy wynik, zgodnie z zasadą Szczęścia niziołka."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "chult-travel": {
+    "name": "Podróżowanie po Chult",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Kierunek i tempo podróży",
+        "entries": [
+          "Każdego dnia drużyna wybiera kierunek oraz tempo: normalne, szybkie albo wolne. Normalne tempo pozwala pokonać standardowy dystans bez kar i premii. Przy szybkim tempie podróżnicy otrzymują karę -5 do pasywnej Mądrości (Percepcji), a nawigator karę -5 do testów nawigacji. Rzuć k4: wynik 3-4 oznacza dodatkowy heks. Przy wolnym tempie nawigator otrzymuje premię +5 do testów nawigacji, a drużyna może poruszać się skrycie, jeśli pozwala na to teren. Rzuć k4: wynik 1-2 oznacza o 1 heks mniej."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Dodatkowe działania",
+        "entries": [
+          "Drużyna może wykonać do dwóch dodatkowych aktywności, korzystając z jednego rzutu k4. Wynik 1-2 opóźnia marsz o 1 heks, a wynik 3-4 nie wpływa na tempo. Przy wolnym tempie wykonuje się ten rzut dodatkowo do rzutu wynikającego z wyboru wolnego tempa."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Heksy Chult i woda",
+        "entries": [
+          "Każdy heks mapy Chult przedstawia 10 mil, około 15 km. Pieszo w normalnym tempie drużyna pokonuje 1 heks dziennie. Kajakiem można pokonać 2 heksy dziennie po rzece lub jeziorze oraz 1 heks przez bagno. Każda postać musi wypić co najmniej 2 galony świeżej wody, około 8 litrów, dziennie. Wodę z naturalnych źródeł trzeba przegotować albo uzdatnić. Przy niedoborze wody wykonuje się pod koniec dnia {@variantrule Save|XPHB} na Kondycję o ST 15, z Utrudnieniem w średniej lub ciężkiej zbroi i karą -5 przy szybkim tempie. Porażka oznacza 1 poziom Wyczerpania."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Zwierzęta juczne i wierzchowce",
+        "entries": [
+          "Zwierzęta towarzyszące, wierzchowce, dinozaury i inne stworzenia także wymagają wody oraz pożywienia zależnie od rozmiaru. Zwierzęta rodzime dla Chult, na przykład dinozaury, mogą samodzielnie znaleźć pożywienie i wodę w naturalnym środowisku."
+        ]
+      }
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "gathering": {
+    "name": "Zbieractwo",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Zbieractwo",
+        "entries": [
+          "Zbieractwo to aktywność downtimeowa umożliwiająca postaci pozyskiwanie zasobów naturalnych w określonym środowisku. W zależności od środowiska i umiejętności postaci można zdobyć pożywienie, surowce, składniki alchemiczne, przedmioty o właściwościach magicznych lub skarby."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Czas trwania",
+        "entries": [
+          "Zbieractwo trwa 8 godzin i może zostać wykonane raz dziennie. Postać musi znajdować się w środowisku naturalnym umożliwiającym pozyskiwanie danego rodzaju zasobów. Podczas zbieractwa może podejmować tylko działania dozwolone podczas {@variantrule Long Rest|XPHB}. Walka, intensywny wysiłek, rzucanie zaklęć lub inne wymagające działania niezwiązane ze zbieractwem przerywają aktywność i nie przynosi ona żadnych efektów."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przykładowe rodzaje zbieractwa",
+        "entries": [
+          {
+            "type": "table",
+            "caption": "Przykładowe rodzaje zbieractwa",
+            "colLabels": [
+              "Rodzaj",
+              "Przykładowe środowiska",
+              "Atrybut",
+              "Przykładowe biegłości"
+            ],
+            "rows": [
+              [
+                "Wodne",
+                "Jeziora, rzeki, wybrzeża, bagna",
+                "Mądrość",
+                "Zestaw kucharski, zestaw wędkarski, {@skill Athletics|XPHB}, {@skill Perception|XPHB}, {@skill Survival|XPHB}"
+              ],
+              [
+                "Roślinne",
+                "Łąki, lasy, dżungle, góry",
+                "Inteligencja",
+                "{@item Herbalism Kit|XPHB}, {@skill Nature|XPHB}, Sztuka przetrwania nie jest tu używana"
+              ],
+              [
+                "Minerały i kamienie",
+                "Góry, klify, kopalnie",
+                "Siła lub Inteligencja",
+                "Narzędzia kamieniarza, narzędzia kowala, {@skill History|XPHB}, {@skill Nature|XPHB}"
+              ],
+              [
+                "Polowanie",
+                "Równiny, lasy, pustkowia, tundry",
+                "Zręczność lub Mądrość",
+                "{@skill Stealth|XPHB}, {@skill Perception|XPHB}, biegłość w łuku długim, biegłość w kuszach, {@skill Survival|XPHB}"
+              ],
+              [
+                "Pustynne",
+                "Pustynie, stepy, ruiny",
+                "Mądrość",
+                "{@skill Nature|XPHB}, {@skill Perception|XPHB}, zestaw kucharski, zestaw kartografa, {@skill Survival|XPHB}"
+              ],
+              [
+                "Jaskiniowe",
+                "Jaskinie, ruiny podziemne, tunele",
+                "Inteligencja",
+                "{@skill Investigation|XPHB}, narzędzia kamieniarza, zestaw złodzieja, {@skill Perception|XPHB}"
+              ],
+              [
+                "Arktyczne",
+                "Obszary polarne, zmarzliny, lodowe pustkowia",
+                "Kondycja lub Mądrość",
+                "Zestaw kucharski, {@skill Perception|XPHB}, {@skill Nature|XPHB}, zestaw krawiecki, {@skill Survival|XPHB}"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Procedura",
+        "entries": [
+          "Aby wykonać zbieractwo, rzuć 5k6 i zanotuj wyniki. Możesz przerzucić liczbę kości równą modyfikatorowi atrybutu związanego z rodzajem zbieractwa. Jeśli posiadasz biegłość w odpowiednich narzędziach, możesz przerzucić dodatkową liczbę kości równą swojej premii biegłości. Kości można przerzucać pojedynczo lub wszystkie naraz, ale tylko raz na aktywność.",
+          {
+            "type": "table",
+            "caption": "Układy kości i mnożniki",
+            "colLabels": ["Układ", "Warunek", "Mnożnik"],
+            "rows": [
+              ["Five of a Kind", "Wszystkie kości takie same", "3"],
+              ["Four of a Kind", "Cztery kości tej samej wartości", "2,5"],
+              ["Full House", "Trzy kości jednej wartości i para", "2"],
+              ["Straight", "Sekwencja pięciu wartości, na przykład 2-6", "2,5"],
+              ["Three of a Kind", "Trzy kości tej samej wartości", "1,4"],
+              ["Two Pair", "Dwie pary różnych wartości", "1,2"],
+              ["One Pair", "Jedna para", "1,1"],
+              ["Brak układu", "Wszystkie wartości różne", "1"]
+            ]
+          },
+          "Pomnóż sumę pięciu kości przez odpowiedni mnożnik i zaokrąglij w dół. Otrzymany wynik określa liczbę zdobytych Punktów Postępu zgodnie z tabelą nagród właściwą dla danego środowiska."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Zużywanie zasobów",
+        "entries": [
+          "Podczas zbieractwa postać może zużyć zasoby, takie jak racje żywnościowe lub inne przedmioty, w liczbie odpowiadającej liczbie dostępnych przerzutów. Każdy zużyty zasób dodaje zazwyczaj +1 do końcowego wyniku, choć lepszy zasób może zapewniać większy bonus."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Pomoc w zbieractwie",
+        "entries": [
+          "Postać posiadająca biegłość w odpowiednim typie zbieractwa może udzielić pomocy innej postaci wykonującej tę aktywność. Obie postacie muszą znajdować się w tym samym środowisku. Osoba otrzymująca pomoc zyskuje jeden dodatkowy przerzut, a MG może zwiększyć tę korzyść, gdy pomocnik ma szczególnie wysoką biegłość."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uwagi dodatkowe",
+        "entries": [
+          "MG może nałożyć kary, gdy postać nie ma odpowiedniego wyposażenia, wiedzy lokalnej lub działa w wyjątkowo trudnych warunkach. Może również wymagać testu {@skill Survival|XPHB}, {@skill Nature|XPHB} albo {@skill Investigation|XPHB}. Zbieractwa nie można wykonywać jednocześnie z inną aktywnością downtimeową."
+        ]
+      }
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "crafting": {
+    "name": "Wytwarzanie",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Wytwarzanie",
+        "entries": [
+          "Wytwarzanie to aktywność downtimeowa, która pozwala postaci stopniowo tworzyć nowe przedmioty z wcześniej uzyskanych materiałów. Postęp zależy od rodzaju wytwarzania, atrybutów postaci, biegłości i warunków nauki."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Czas trwania i wymagania",
+        "entries": [
+          "Wytwarzanie trwa 8 godzin i może być wykonywane raz dziennie. Postać musi posiadać materiały do stworzenia przedmiotu. Można je zdobyć podczas eksploracji, zbieractwa lub kupić za połowę ceny przedmiotu. Do stworzenia magicznego przedmiotu potrzebny jest dostęp do odpowiedniego zaklęcia lub wystarczający poziom w klasie czarującej. Mikstury można wytwarzać bez znajomości zaklęcia. Szczególne wymagania przedmiotu określa MG."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rodzaje wytwarzania",
+        "entries": [
+          {
+            "type": "table",
+            "caption": "Rodzaje wytwarzania",
+            "colLabels": ["Rodzaj", "Atrybut i narzędzia"],
+            "rows": [
+              ["Mikstury", "{@item Alchemist's Supplies|XPHB} (Inteligencja)"],
+              [
+                "Trucizny",
+                "{@item Poisoner's Kit|XPHB} lub {@item Herbalism Kit|XPHB} (Inteligencja)"
+              ],
+              [
+                "Maści, balsamy i pasty alchemiczne",
+                "{@item Herbalism Kit|XPHB} lub {@item Alchemist's Supplies|XPHB} (Mądrość)"
+              ],
+              [
+                "Zwoje czarów",
+                "{@item Calligrapher's Supplies|XPHB}, zestaw majsterkowicza i znajomość zaklęcia (Inteligencja)"
+              ],
+              [
+                "Broń niestandardowa",
+                "Zestaw kowala, alchemika, majsterkowicza lub rzeźbiarza w drewnie (Siła lub Zręczność)"
+              ],
+              ["Zbroje", "Zestaw kowala lub garbarza (Siła, Zręczność albo Mądrość)"],
+              [
+                "Biżuteria magiczna",
+                "Zestaw jubilera, malarza, kaligrafa lub tkacza (Charyzma, Zręczność, Inteligencja albo Mądrość)"
+              ],
+              [
+                "Urządzenia mechaniczne",
+                "Zestaw majsterkowicza, cieśli lub rzeźbiarza w drewnie (Inteligencja lub Zręczność)"
+              ],
+              [
+                "Kusze, łuki i bełty",
+                "Zestaw cieśli, rzeźbiarza w drewnie lub majsterkowicza (Zręczność)"
+              ],
+              [
+                "Ulepszanie broni i zbroi",
+                "Zestaw kowala, alchemika lub kaligrafa (Siła albo Inteligencja)"
+              ],
+              [
+                "Ubrania",
+                "Zestaw tkacza, szewca lub malarza (Zręczność, Inteligencja albo Charyzma)"
+              ],
+              [
+                "Jedzenie o magicznych efektach",
+                "Zestaw kucharski, {@item Herbalism Kit|XPHB} lub {@item Alchemist's Supplies|XPHB}"
+              ],
+              [
+                "Eliksiry transformacji",
+                "{@item Alchemist's Supplies|XPHB} lub {@item Herbalism Kit|XPHB} (Inteligencja)"
+              ],
+              [
+                "Runiczne przedmioty",
+                "{@item Calligrapher's Supplies|XPHB} (Zręczność albo Inteligencja)"
+              ],
+              [
+                "Artefakty",
+                "Zależnie od przedmiotu, często kombinacja kilku rodzajów biegłości"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Procedura",
+        "entries": [
+          "Rzuć 5k6 i zanotuj wyniki. Możesz przerzucić liczbę kości równą modyfikatorowi atrybutu związanego z wytwarzaniem. Jeśli danego przedmiotu nie ma na liście, ustal atrybuty i narzędzia z MG. Kości można przerzucać pojedynczo lub wszystkie naraz, ale tylko raz na wytwarzanie.",
+          {
+            "type": "table",
+            "caption": "Warunki środowiskowe",
+            "colLabels": ["Warunek", "Przerzuty"],
+            "rows": [
+              ["Wytwarzanie w niebezpiecznym miejscu", "-1"],
+              ["Wytwarzanie w podróży", "+0"],
+              ["Wytwarzanie w bezpiecznym schronieniu", "+1"],
+              ["Brak odpowiedniego warsztatu", "+0"],
+              ["Odpowiedni warsztat", "+1"],
+              ["Osoba posiadająca daną biegłość", "+1"],
+              ["Mistrz, ekspertyza lub przewaga fabularna", "+2"]
+            ]
+          },
+          {
+            "type": "table",
+            "caption": "Układy kości i mnożniki",
+            "colLabels": ["Układ", "Mnożnik"],
+            "rows": [
+              ["Five of a Kind", "3"],
+              ["Four of a Kind", "2,5"],
+              ["Full House", "2"],
+              ["Straight", "2,5"],
+              ["Three of a Kind", "1,4"],
+              ["Two Pair", "1,2"],
+              ["One Pair", "1,1"],
+              ["Brak układu", "1"]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Punkty Postępu",
+        "entries": [
+          "Pomnóż sumę pięciu kości przez odpowiedni mnożnik i zaokrąglij w dół. W tej kampanii liczba Punktów Postępu zdobywanych podczas wytwarzania jest podwajana.",
+          {
+            "type": "table",
+            "caption": "Wynik końcowy i PP",
+            "colLabels": ["Wynik końcowy", "PP przed podwojeniem"],
+            "rows": [
+              ["5-14", "1"],
+              ["15-24", "2"],
+              ["25-34", "3"],
+              ["35-44", "4"],
+              ["45-54", "6"],
+              ["55-64", "8"],
+              ["65-74", "10"],
+              ["75-84", "13"],
+              ["85-89", "16"],
+              ["90+", "25"]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wymagania do wytwarzania",
+        "entries": [
+          {
+            "type": "table",
+            "caption": "Wymagane PP",
+            "colLabels": ["Rodzaj przedmiotu", "Wymagane PP", "Dodatkowe wymagania"],
+            "rows": [
+              ["Niemagiczny, cena do 50 sz", "5", "Narzędzia i materiały"],
+              ["Niemagiczny, 51-100 sz", "10", "Narzędzia i materiały"],
+              ["Niemagiczny, 101-250 sz", "20", "Biegłość w narzędziach"],
+              ["Niemagiczny, 251-500 sz", "35", "Biegłość w narzędziach"],
+              ["Niemagiczny, 501-1000 sz", "50", "Warsztat"],
+              ["Niemagiczny, 1001-2000 sz", "75", "Pomocnik"],
+              ["Niemagiczny, ponad 2000 sz", "100", "Mistrzowskie narzędzia"],
+              [
+                "Powszechny magiczny",
+                "30",
+                "3. poziom, biegłość w narzędziach, znajomość zaklęcia lub efektu"
+              ],
+              [
+                "Niespotykany magiczny",
+                "90",
+                "5. poziom i warsztat lub miejsce rytualne"
+              ],
+              ["Rzadki magiczny", "180", "9. poziom"],
+              [
+                "Bardzo rzadki magiczny",
+                "400",
+                "13. poziom i dostęp do magicznego źródła"
+              ],
+              ["Legendarny magiczny", "700", "17. poziom, osobista ofiara i mistrz"],
+              ["Artefakt", "1000+", "Unikalne warunki fabularne i osobna wyprawa"]
+            ]
+          }
+        ]
+      }
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "gathering-survival-proficiency": {
+    "name": "Sztuka Przetrwania w zbieractwie",
+    "entries": [
+      "Dodaj Sztukę Przetrwania do przykładowych biegłości dla zbieractwa wodnego, polowania, pustynnego, leśnego ogólnego i arktycznego. nie dodawaj jej do kategorii roślinnej, mineralnej ani jaskiniowej."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "training": {
+    "name": "Wyszkolenie",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Czas trwania i przerwanie",
+        "entries": [
+          "Wyszkolenie trwa 8 godzin i może być wykonywane raz dziennie. Podczas aktywności postać może podejmować tylko działania dozwolone podczas {@variantrule Long Rest|XPHB}. Walka, rzucanie zaklęć, intensywny wysiłek lub inne znaczące rozproszenie przerywają aktywność i nie przynosi ona żadnych efektów."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wymagania",
+        "entries": [
+          "Postać musi mieć uzasadnienie możliwości uzyskania danej biegłości, na przykład nauczyciela, księgę, praktykę na rannych lub odpowiednie narzędzia."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rzut i przerzuty",
+        "entries": [
+          "Rzuć 5k6. Możesz przerzucić liczbę kości równą modyfikatorowi odpowiedniej cechy. Kości można przerzucać pojedynczo lub wszystkie naraz, ale tylko raz na wyszkolenie.",
+          {
+            "type": "table",
+            "caption": "Atrybut wyszkolenia",
+            "colLabels": ["Rodzaj", "Atrybut"],
+            "rows": [
+              ["Umiejętność", "Zgodnie z opisem umiejętności"],
+              [
+                "Język",
+                "Inteligencja, a przy powiązaniu z już znanym językiem +1 przerzut"
+              ],
+              ["Narzędzie", "Zgodnie z opisem narzędzia"],
+              ["Tresura", "Opieka nad zwierzętami"],
+              ["Zbieractwo", "Inteligencja lub Mądrość"],
+              ["Pancerz", "Lekki lub średni: Zręczność; ciężki: Siła"],
+              ["Tarcze", "Siła, Zręczność lub Kondycja, wybrane przez gracza"],
+              [
+                "Broń żołnierska",
+                "Siła lub Zręczność, zależnie od dominującego typu obrażeń"
+              ],
+              [
+                "Mistrzostwo w broni",
+                "Siła lub Zręczność, zależnie od dominującego typu obrażeń"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Warunki nauki",
+        "entries": [
+          {
+            "type": "table",
+            "caption": "Modyfikatory przerzutów",
+            "colLabels": ["Warunek", "Przerzuty"],
+            "rows": [
+              ["Nauka w niebezpiecznym miejscu", "-1"],
+              ["Nauka w podróży", "+0"],
+              ["Nauka w bezpiecznym schronieniu", "+1"],
+              ["Brak dodatkowych materiałów", "+0"],
+              ["Dobrze opisana księga lub zwój", "+1"],
+              ["Osoba posiadająca daną biegłość", "+1"],
+              ["Mistrz, ekspertyza lub przewaga fabularna", "+2"],
+              ["Wspólna nauka", "+3 do końcowego wyniku"]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Układy kości i mnożniki",
+        "entries": [
+          {
+            "type": "table",
+            "caption": "Układy kości",
+            "colLabels": ["Układ", "Warunek", "Mnożnik"],
+            "rows": [
+              ["Five of a Kind", "Wszystkie kości takie same", "3"],
+              ["Four of a Kind", "Cztery kości tej samej wartości", "2,5"],
+              ["Full House", "Trzy kości jednej wartości i para", "2"],
+              ["Straight", "Sekwencja pięciu wartości", "2,5"],
+              ["Three of a Kind", "Trzy kości tej samej wartości", "1,4"],
+              ["Two Pair", "Dwie pary różnych wartości", "1,2"],
+              ["One Pair", "Jedna para", "1,1"],
+              ["Brak układu", "Wszystkie wartości różne", "1"]
+            ]
+          },
+          "Pomnóż sumę pięciu kości przez odpowiedni mnożnik i zaokrąglij w dół."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Punkty Postępu",
+        "entries": [
+          {
+            "type": "table",
+            "caption": "Wynik końcowy i PP",
+            "colLabels": ["Wynik", "PP"],
+            "rows": [
+              ["5-14", "1"],
+              ["15-24", "2"],
+              ["25-34", "3"],
+              ["35-44", "4"],
+              ["45-54", "6"],
+              ["55-64", "8"],
+              ["65-74", "10"],
+              ["75-84", "13"],
+              ["85-89", "16"],
+              ["90+", "25"]
+            ]
+          },
+          {
+            "type": "table",
+            "caption": "PP wymagane do zdobycia biegłości",
+            "colLabels": ["Rodzaj wyszkolenia", "PP"],
+            "rows": [
+              ["Umiejętność", "70"],
+              ["Język", "50"],
+              ["Narzędzie", "60"],
+              ["Tresura prosta", "10"],
+              ["Tresura złożona", "30"],
+              ["Zbieractwo I-V", "20 / 40 / 60 / 80 / 100"],
+              ["Pancerz", "90"],
+              ["Tarcze", "100"],
+              ["Broń żołnierska", "40"],
+              ["Mistrzostwo w broni", "60"]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Zbieractwo I-V",
+        "entries": [
+          {
+            "type": "table",
+            "caption": "Poziomy biegłości w zbieractwie",
+            "colLabels": ["Poziom", "Nazwa", "Efekt"],
+            "rows": [
+              ["I", "Uczeń Zbieracz", "+5 do końcowego wyniku"],
+              ["II", "Doświadczony Zbieracz", "+10 do wyniku i +1 przerzut"],
+              [
+                "III",
+                "Mistrz Zbieractwa",
+                "+15, +2 przerzuty, 20% szansy na dodatkową nagrodę"
+              ],
+              [
+                "IV",
+                "Ekspert Środowiska",
+                "+20, +3 przerzuty, 40% szansy na dodatkową nagrodę"
+              ],
+              [
+                "V",
+                "Arcymistrz Natury",
+                "+25, +4 przerzuty, 2 nagrody, 60% szansy na dodatkową nagrodę"
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "firearms-catalog": {
+    "name": "Katalog broni palnej",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Broń z arsenałów Szpiku",
+        "entries": [
+          "Broń palna jest pneumatyczna albo wybuchowa. Wszystkie bronie palne używają specjalnej amunicji, a MG może ograniczyć ich dostępność zgodnie z kampanią.",
+          {
+            "type": "table",
+            "caption": "Broń pneumatyczna",
+            "colLabels": [
+              "Broń",
+              "Rozmiar",
+              "Obrażenia",
+              "Zasięg",
+              "Właściwości",
+              "Mistrzostwo",
+              "Cena"
+            ],
+            "rows": [
+              [
+                "{@firearm Pneumatic Pistol|Fumble|Pistolet pneumatyczny}",
+                "Mała (ręczna)",
+                "{@dice 1d6}",
+                "30/60",
+                "Reload 100",
+                "{@itemMastery Vex|XPHB|Zwód}",
+                "600"
+              ],
+              [
+                "{@firearm Pneumatic Shotgun|Fumble|Strzelba pneumatyczna}",
+                "Mała (długa)",
+                "{@dice 1d12}",
+                "60/120",
+                "Reload 100, Two-Handed, Heavy",
+                "{@itemMastery Slow|XPHB|Spowolnienie} lub {@itemMastery Push|XPHB|Odepchnięcie}",
+                "800"
+              ],
+              [
+                "{@firearm Pneumatic Rifle|Fumble|Karabin pneumatyczny}",
+                "Mała (długa)",
+                "{@dice 1d6}",
+                "60/120",
+                "Reload 100, Automatic, Burst Fire, Two-Handed, Heavy",
+                "{@itemMastery Slow|XPHB|Spowolnienie}",
+                "800"
+              ],
+              [
+                "{@firearm Pneumatic Cannon|Fumble|Działo pneumatyczne}",
+                "Duża (okrętowa)",
+                "{@dice 8d10}",
+                "400/1200",
+                "Reload 1/4, Loading, Two-Handed",
+                "{@itemMastery Push|XPHB|Odepchnięcie} 10",
+                "10000"
+              ],
+              [
+                "{@firearm Pneumatic Machine Gun|Fumble|Karabin maszynowy pneumatyczny}",
+                "Duża (okrętowa)",
+                "{@dice 5d10}",
+                "400/1200",
+                "Reload 1000, Burst Fire, Automatic, Two-Handed, Heavy",
+                "{@itemMastery Slow|XPHB|Spowolnienie}",
+                "10000"
+              ],
+              [
+                "{@firearm Pneumatic Grenade Launcher|Fumble|Pneumatyczna wyrzutnia granatów}",
+                "Mała (ręczna)",
+                "Efekt granatu",
+                "600",
+                "Reload 1",
+                "-",
+                "700"
+              ],
+              [
+                "{@firearm Pneumatic Spray or Flamethrower|Fumble|Pneumatyczny sprej lub miotacz}",
+                "Mała (ręczna)",
+                "Efekt spreju",
+                "30",
+                "Reload 2",
+                "-",
+                "700"
+              ]
+            ]
+          },
+          {
+            "type": "table",
+            "caption": "Broń wybuchowa",
+            "colLabels": [
+              "Broń",
+              "Rozmiar",
+              "Obrażenia",
+              "Zasięg",
+              "Właściwości",
+              "Mistrzostwo",
+              "Cena"
+            ],
+            "rows": [
+              [
+                "{@firearm Explosive Pistol|Fumble|Pistolet wybuchowy}",
+                "Mała (ręczna)",
+                "{@dice 2d6}",
+                "40/120",
+                "Reload 6",
+                "{@itemMastery Vex|XPHB|Zwód}",
+                "400"
+              ],
+              [
+                "{@firearm Explosive Shotgun|Fumble|Strzelba wybuchowa}",
+                "Mała (długa)",
+                "{@dice 2d12}",
+                "80/240",
+                "Reload 4, Two-Handed, Heavy",
+                "{@itemMastery Slow|XPHB|Spowolnienie} lub {@itemMastery Push|XPHB|Odepchnięcie}",
+                "600"
+              ],
+              [
+                "{@firearm Explosive Assault Rifle|Fumble|Karabin szturmowy}",
+                "Mała (długa)",
+                "{@dice 2d6}",
+                "80/240",
+                "Reload 30, Burst Fire, Automatic, Two-Handed, Heavy",
+                "{@itemMastery Slow|XPHB|Spowolnienie}",
+                "600"
+              ],
+              [
+                "{@firearm Explosive Cannon|Fumble|Działo wybuchowe}",
+                "Duża (okrętowa)",
+                "{@dice 9d10}",
+                "500/1000",
+                "Reload 1/4, Loading, Two-Handed",
+                "{@itemMastery Push|XPHB|Odepchnięcie} 10",
+                "5000"
+              ],
+              [
+                "{@firearm Explosive Machine Gun|Fumble|Karabin maszynowy wybuchowy}",
+                "Duża (okrętowa)",
+                "{@dice 6d10}",
+                "500/1000",
+                "Reload 30, Burst Fire, Automatic, Two-Handed, Heavy",
+                "{@itemMastery Slow|XPHB|Spowolnienie}",
+                "10000"
+              ],
+              [
+                "{@firearm Explosive Sniper Rifle|Fumble|Snajperka}",
+                "Mała (ręczna)",
+                "{@dice 3d12}",
+                "300/800",
+                "Reload 1",
+                "{@itemMastery Slow|XPHB|Spowolnienie}",
+                "1000"
+              ],
+              [
+                "{@firearm Explosive Repeating Rifle|Fumble|Karabin powtarzalny}",
+                "Mała (długa)",
+                "{@dice 1d12}",
+                "80/240",
+                "Loading, Two-Handed",
+                "{@itemMastery Slow|XPHB|Spowolnienie}",
+                "700"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Granaty i spreje",
+        "entries": [
+          "ST amunicji do wyrzutni i spreju lub miotacza wynosi 12 + premia biegłości rzucającego. Granatem można również rzucić jako akcją Utilize na odległość do 20 stóp.",
+          {
+            "type": "table",
+            "caption": "Granaty",
+            "colLabels": ["Granat", "Zaklęcie bazowe", "Modyfikacja", "Cena"],
+            "rows": [
+              ["{@firearm Explosion|Fumble|Wybuch}", "{@spell Shatter|XPHB}", "-", "50"],
+              [
+                "{@firearm Greater Explosion|Fumble|Większy wybuch}",
+                "{@spell Fireball|XPHB}",
+                "Połowa obrażeń jest odgłuszająca",
+                "300"
+              ],
+              ["{@firearm Smoke|Fumble|Dymny}", "{@spell Fog Cloud|XPHB}", "-", "20"],
+              [
+                "{@firearm Flashbang|Fumble|Flashbang}",
+                "{@spell Confusion|XPHB}",
+                "Czas trwania skrócony do 1 rundy",
+                "60"
+              ],
+              [
+                "{@firearm Gas|Fumble|Gazowy}",
+                "{@spell Stinking Cloud|XPHB}",
+                "Czas trwania 10 minut",
+                "100"
+              ],
+              [
+                "{@firearm Mustard Gas|Fumble|Gaz musztardowy}",
+                "{@spell Cloudkill|XPHB}",
+                "Czas trwania 10 minut",
+                "500"
+              ]
+            ]
+          },
+          {
+            "type": "table",
+            "caption": "Spreje",
+            "colLabels": ["Sprej", "Efekt bazowy", "Modyfikacja", "Cena"],
+            "rows": [
+              [
+                "{@firearm Bullet Spray|Fumble|Kule}",
+                "Burst Fire",
+                "{@dice 3d8} obrażeń kłujących w sześcianie 15 stóp",
+                "1 sz"
+              ],
+              [
+                "{@firearm Fire|Fumble|Ogień}",
+                "{@spell Burning Hands|XPHB} na 3. poziomie",
+                "Cele zaczynają płonąć",
+                "20 sz"
+              ],
+              [
+                "{@firearm Napalm|Fumble|Napalm}",
+                "Ogień na wyższym poziomie",
+                "Cele zaczynają płonąć i otrzymują {@dice 2d8} obrażeń od ognia",
+                "100 sz"
+              ],
+              [
+                "{@firearm Acid|Fumble|Kwas}",
+                "{@spell Tasha's Caustic Brew|XPHB}",
+                "-",
+                "100 sz"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wspólne mechaniki",
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Reload",
+            "entries": [
+              "Broń z właściwością Reload pozwala oddać ograniczoną liczbę strzałów, zanim trzeba ją przeładować. Przeładowanie wymaga akcji albo akcji bonusowej. Zapis 1/4 oznacza, że trzeba poświęcić cztery akcje lub akcje bonusowe, aby przeładować broń."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Burst Fire",
+            "entries": [
+              "Jako akcję można zużyć 10 sztuk amunicji broni z właściwością Burst Fire, aby ostrzelać obszar w postaci sześcianu o boku 10 stóp w normalnym zasięgu broni. Każde stworzenie w obszarze wykonuje rzut obronny na Zręczność. ST wynosi 8 + modyfikator Zręczności + premia biegłości celującego. Przy porażce stworzenie otrzymuje obrażenia broni."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Automatic",
+            "entries": [
+              "Wykonując atak tą bronią, możesz zamiast tego wykonać dwa ataki. Wykonujesz je z utrudnieniem i zużywasz dwukrotność normalnej ilości amunicji."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Zacięcie",
+            "entries": [
+              "Gdy podczas rzutu na trafienie dowolną bronią palną wypadnie naturalna 1, broń się zacina. Zaklęcie {@spell Mending|XPHB} wymaga akcji oraz testu Zręczności ({@skill Sleight of Hand|XPHB}) z narzędziami rusznikarskimi. ST wynosi 15 dla broni wybuchowej i 20 dla pneumatycznej. Przy przewadze lub utrudnieniu zacięcie sprawdza się na kości, która faktycznie zdecydowała o wyniku ataku."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Modyfikacje do broni",
+        "entries": [
+          {
+            "type": "table",
+            "caption": "Modyfikacje",
+            "colLabels": ["Modyfikacja", "Efekt", "Cena"],
+            "rows": [
+              [
+                "{@firearm Firearm Scope|Fumble|Celownik broni palnej}",
+                "Jeden atak w turze może użyć dalekiego zasięgu jako krótkiego.",
+                "1500"
+              ],
+              [
+                "{@firearm Firearm Silencer|Fumble|Tłumik broni palnej}",
+                "Redukuje dźwięk do 5 lub 20 stóp. Możesz wykonać test {@skill Stealth|XPHB}.",
+                "5000"
+              ],
+              [
+                "{@firearm Firearm Bayonet|Fumble|Bagnet broni palnej}",
+                "{@dice 1d8} obrażeń kłujących i właściwość mistrzowska broni bazowej. Zasięg 10 stóp dla broni długiej.",
+                "100"
+              ],
+              [
+                "{@firearm Firearm Net Launcher|Fumble|Wyrzutnia sieci do broni palnej}",
+                "Zwiększa zasięg sieci do 40 stóp. Wystrzelenie to {@variantrule Bonus Action|XPHB}, przeładowanie zawsze wymaga akcji.",
+                "700"
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "subtitle": "Zasada Fumble"
+  }
+}
