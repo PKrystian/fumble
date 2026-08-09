@@ -6,6 +6,7 @@ import { OriginalName } from '@/features/ui/OriginalName';
 import {
   loadReferenceHint,
   loadReferenceName,
+  resolveReference,
   type ReferenceHint,
 } from './referenceHint';
 
@@ -34,13 +35,26 @@ export function ReferenceLink({ category, slug, label, source }: ReferenceLinkPr
   const [anchor, setAnchor] = useState<Anchor | null>(null);
 
   const [localizedLabel, setLocalizedLabel] = useState<string | null>(null);
+  const [resolvedSlug, setResolvedSlug] = useState<string | null | undefined>(undefined);
 
   useEffect(() => {
     let cancelled = false;
+    setResolvedSlug(undefined);
     setLocalizedLabel(null);
-    void loadReferenceName(category, slug, locale, label, source).then((name) => {
-      if (!cancelled && name) setLocalizedLabel(name);
-    });
+    void resolveReference(category, slug, locale, label, source)
+      .then((resolved) => {
+        if (cancelled) return;
+        setResolvedSlug(resolved?.slug ?? null);
+        if (!resolved) return;
+        void loadReferenceName(category, resolved.slug, locale, label, source)
+          .then((name) => {
+            if (!cancelled && name) setLocalizedLabel(name);
+          })
+          .catch(() => undefined);
+      })
+      .catch(() => {
+        if (!cancelled) setResolvedSlug(null);
+      });
     return () => {
       cancelled = true;
     };
@@ -53,14 +67,17 @@ export function ReferenceLink({ category, slug, label, source }: ReferenceLinkPr
   }, []);
 
   const show = useCallback(() => {
+    if (!resolvedSlug) return;
     if (timerRef.current !== null) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => {
       const rect = ref.current!.getBoundingClientRect();
       setHint(undefined);
       setAnchor({ left: rect.left, top: rect.top, bottom: rect.bottom });
-      void loadReferenceHint(category, slug, locale, source).then(setHint);
+      void loadReferenceHint(category, resolvedSlug, locale, source)
+        .then(setHint)
+        .catch(() => setHint(null));
     }, 220);
-  }, [category, slug, locale, source]);
+  }, [category, locale, resolvedSlug, source]);
 
   useEffect(() => {
     if (!anchor) return;
@@ -80,19 +97,24 @@ export function ReferenceLink({ category, slug, label, source }: ReferenceLinkPr
     ? Math.max(8, Math.min(anchor.left, window.innerWidth - POPOVER_WIDTH - 8))
     : 0;
 
+  const content = localizedLabel ?? label;
   return (
     <>
-      <Link
-        ref={ref}
-        to={`/compendium/${category}/${slug}`}
-        onMouseEnter={show}
-        onMouseLeave={hide}
-        onFocus={show}
-        onBlur={hide}
-        className="text-arcane-300 underline decoration-dotted underline-offset-2 hover:text-arcane-500"
-      >
-        {localizedLabel ?? label}
-      </Link>
+      {resolvedSlug ? (
+        <Link
+          ref={ref}
+          to={`/compendium/${category}/${resolvedSlug}`}
+          onMouseEnter={show}
+          onMouseLeave={hide}
+          onFocus={show}
+          onBlur={hide}
+          className="text-arcane-300 underline decoration-dotted underline-offset-2 hover:text-arcane-500"
+        >
+          {content}
+        </Link>
+      ) : (
+        <span>{content}</span>
+      )}
       {anchor &&
         createPortal(
           <div

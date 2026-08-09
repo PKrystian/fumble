@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { RollResultDock } from '@/features/dice/RollResultDock';
@@ -18,11 +18,24 @@ const SearchPalette = lazy(() =>
   })),
 );
 
+function classRouteKey(pathname: string): string | undefined {
+  const segments = pathname.split('/').filter(Boolean);
+  const compendiumIndex = segments.indexOf('compendium');
+  if (
+    compendiumIndex < 0 ||
+    segments[compendiumIndex + 1] !== 'classes' ||
+    segments.length > compendiumIndex + 4
+  )
+    return undefined;
+  return segments[compendiumIndex + 2];
+}
+
 export function AppLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const collapsed = useSidebarStore((s) => s.collapsed);
   const searchOpen = useSearchStore((s) => s.open);
   const location = useLocation();
+  const previousPathname = useRef(location.pathname);
   const { t } = useT();
 
   useEffect(() => {
@@ -33,6 +46,22 @@ export function AppLayout() {
     if (!location.pathname.includes('/compendium/')) {
       revealApp();
     }
+  }, [location.pathname]);
+
+  useLayoutEffect(() => {
+    const previous = previousPathname.current;
+    previousPathname.current = location.pathname;
+    if (
+      previous !== location.pathname &&
+      classRouteKey(previous) === classRouteKey(location.pathname) &&
+      classRouteKey(location.pathname) !== undefined
+    )
+      return;
+
+    const main = document.getElementById('main-content');
+    if (!main) return;
+    main.scrollTop = 0;
+    main.scrollLeft = 0;
   }, [location.pathname]);
 
   return (

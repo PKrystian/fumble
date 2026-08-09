@@ -1,22 +1,28 @@
 import type {
+  ActionEntry,
   ClassEntry,
   ClassFeature,
   FeatEntry,
   ItemEntry,
   MonsterEntry,
+  OptionalFeatureEntry,
   RuleEntry,
   SpeciesEntry,
   SpellEntry,
+  SourceDataEntry,
 } from '@/data/compendium/types';
 import { EntryRenderer } from '@/features/compendium/EntryRenderer';
 import {
+  ActionDetail,
   ClassDetail,
   FeatDetail,
   ItemDetail,
   MonsterDetail,
+  OptionalFeatureDetail,
   RuleDetail,
   SpeciesDetail,
   SpellDetail,
+  SourceDataDetail,
 } from '@/features/compendium/details';
 import { OriginalName } from '@/features/ui/OriginalName';
 import type { Entry } from '@/data/compendium/entry';
@@ -126,6 +132,22 @@ export function FumbleDetail({ item }: { item: FumbleHomebrewItem }) {
     );
   }
 
+  if (item.category === 'actions') {
+    return (
+      <TaggedDetail>
+        <ActionDetail action={item as unknown as ActionEntry} />
+      </TaggedDetail>
+    );
+  }
+
+  if (item.category === 'psionics') {
+    return (
+      <TaggedDetail>
+        <SourceDataDetail entry={item as unknown as SourceDataEntry} />
+      </TaggedDetail>
+    );
+  }
+
   if (item.category === 'bestiary') {
     return (
       <TaggedDetail>
@@ -146,6 +168,14 @@ export function FumbleDetail({ item }: { item: FumbleHomebrewItem }) {
           }
           subtitle={item.subtitle}
         />
+      </TaggedDetail>
+    );
+  }
+
+  if (item.category === 'optionalfeatures') {
+    return (
+      <TaggedDetail>
+        <OptionalFeatureDetail feature={item as unknown as OptionalFeatureEntry} />
       </TaggedDetail>
     );
   }

@@ -4,6 +4,46 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.81 - 2026-08-09
+
+- Audited compendium, book, wiki, and dictionary references across the application and prevented unresolved targets from becoming broken links.
+- Added global reference and wiki-link validation to the local CI checks.
+
+## 1.2.80 - 2026-08-09
+
+- Fixed broken Fumble compendium references and added a reference validation check.
+
+## 1.2.79 - 2026-08-09
+
+- Rendered the Witch GM guidance as a dedicated sidebar note.
+
+## 1.2.78 - 2026-08-09
+
+- Kept the reading position while switching class subclasses.
+- Stabilized filter option order so selecting a value only changes its active styling.
+
+## 1.2.77 - 2026-08-09
+
+- Reset the compendium scroll position when opening a record so its details start at the top on desktop and mobile.
+
+## 1.2.76 - 2026-08-09
+
+- Unified search focus styling so rounded search containers receive the focus highlight instead of inner rectangular outlines.
+
+## 1.2.75 - 2026-08-09
+
+- Unified the Fumble homebrew header controls with the shared button height, typography, spacing, and alignment.
+
+## 1.2.74 - 2026-08-09
+
+- Added a persistent Fumble Compendium visibility editor for campaign and content type selection.
+- Kept direct Fumble links available when their campaign or content type is filtered out.
+
+## 1.2.73 - 2026-08-09
+
+- Added the translated Talent and Apothecary classes, subclasses, powers, theories, spells, items, feats, actions, and related creatures for Seven Fugitives and Border Wanderers.
+- Added psionic and action interlinks, campaign-aware filters, spell class assignments, and Polish reference preservation for the new content.
+
 ## 1.2.72 - 2026-08-09
 
 - Documented the complete CI checklist and added a local `verify:ci` command.

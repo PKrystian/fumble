@@ -151,7 +151,11 @@ const fumble = {
 describe('CompendiumPage', () => {
   beforeEach(() => {
     mocks.result = { status: 'ready', items: [official] };
-    useFumbleHomebrewStore.setState({ showInCompendium: false });
+    useFumbleHomebrewStore.setState({
+      showInCompendium: false,
+      compendiumCampaigns: null,
+      compendiumCategories: null,
+    });
     mocks.openLightbox.mockReset();
     mocks.getBook.mockReset();
     mocks.getBook.mockReturnValue({ id: 'xphb' });

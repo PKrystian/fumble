@@ -13,7 +13,7 @@ import {
 import { categories } from '@/features/compendium/categories';
 import { CompendiumPicker } from '@/features/character/CompendiumPicker';
 import type { ClassEntry, CompendiumCategoryId } from '@/data/compendium/types';
-import { slugify } from '@/data/transform/util';
+import { classIdForName } from '@/features/compendium/classNames';
 import { confirmDialog } from '@/features/ui/confirmStore';
 import { ImageCropperModal } from '@/features/ui/ImageCropperModal';
 import { type Locale, SUPPORTED_LOCALES } from '@/i18n/locales';
@@ -89,6 +89,12 @@ const EMPTY_SUBCLASS_FORM: SubclassFormState = {
 
 const categoryLabel = (id: string, t: (key: string) => string) =>
   categories.find((c) => c.id === id) ? t(`compendium.categories.${id}`) : id;
+
+function categoryHref(category: string, id: string): string | undefined {
+  return categories.some((entry) => entry.id === category)
+    ? `/compendium/${category}/${id}`
+    : undefined;
+}
 
 export function HomebrewPage() {
   const { t } = useT();
@@ -1036,34 +1042,46 @@ export function HomebrewPage() {
                   )}
                   {entry.kind === 'subclass' ? (
                     <div className="min-w-0 flex-1">
-                      <Link
-                        to={`/compendium/classes/${slugify(entry.className)}`}
-                        className="flex items-center gap-2 truncate font-medium text-ink-50 hover:text-arcane-300"
-                      >
-                        <span className="truncate">{entry.subclass.name}</span>
-                      </Link>
+                      {classIdForName(entry.className) ? (
+                        <Link
+                          to={`/compendium/classes/${classIdForName(entry.className)}`}
+                          className="flex items-center gap-2 truncate font-medium text-ink-50 hover:text-arcane-300"
+                        >
+                          <span className="truncate">{entry.subclass.name}</span>
+                        </Link>
+                      ) : (
+                        <span className="flex items-center gap-2 truncate font-medium text-ink-50">
+                          <span className="truncate">{entry.subclass.name}</span>
+                        </span>
+                      )}
                       <span className="block truncate text-xs text-ink-400">
                         {t('homebrew.subclassOf', { className: entry.className })}
                       </span>
                     </div>
                   ) : (
                     <div className="min-w-0 flex-1">
-                      <Link
-                        to={`/compendium/${entry.category}/${entry.id}`}
-                        className="flex items-center gap-2 truncate font-medium text-ink-50 hover:text-arcane-300"
-                      >
-                        <span className="truncate">{entry.name}</span>
-                        {entry.kind === 'imported' && (
-                          <>
-                            <span className="shrink-0 rounded-full border border-ink-600 px-1.5 text-[0.6rem] uppercase text-ink-400">
-                              {t('homebrew.fromEtoolsBadge')}
-                            </span>
-                            <span className="shrink-0 rounded-full border border-arcane-700 px-1.5 text-[0.6rem] uppercase text-arcane-300">
-                              {entry.baseLocale}
-                            </span>
-                          </>
-                        )}
-                      </Link>
+                      {categoryHref(entry.category, entry.id) ? (
+                        <Link
+                          to={categoryHref(entry.category, entry.id)!}
+                          className="flex items-center gap-2 truncate font-medium text-ink-50 hover:text-arcane-300"
+                        >
+                          <span className="truncate">{entry.name}</span>
+                          {entry.kind === 'imported' && (
+                            <>
+                              <span className="shrink-0 rounded-full border border-ink-600 px-1.5 text-[0.6rem] uppercase text-ink-400">
+                                {t('homebrew.fromEtoolsBadge')}
+                              </span>
+                              <span className="shrink-0 rounded-full border border-arcane-700 px-1.5 text-[0.6rem] uppercase text-arcane-300">
+                                {entry.baseLocale}
+                              </span>
+                            </>
+                          )}
+                        </Link>
+                      ) : (
+                        <span className="flex items-center gap-2 truncate font-medium text-ink-50">
+                          <span className="truncate">{entry.name}</span>
+                        </span>
+                      )}
                       <span className="block truncate text-xs text-ink-400">
                         {categoryLabel(entry.category, t)}
                         {entry.kind === 'imported' &&

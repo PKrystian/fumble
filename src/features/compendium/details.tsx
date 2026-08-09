@@ -54,6 +54,7 @@ import { agreeSize } from './creatureMeta';
 import { EntryRenderer } from './EntryRenderer';
 import { localizeFormula } from './formula';
 import { parseMarkup } from './markup';
+import { ReferenceLink } from './ReferenceLink';
 import { findSubclassByRouteKey, subclassRouteKey } from './subclassRoute';
 import {
   ClassReferenceList,
@@ -133,13 +134,6 @@ function itemRuleEntries(
   };
 }
 
-function slugify(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-
 function RulesLink({ rule, children }: { rule: string; children: ReactNode }) {
   return (
     <Link
@@ -200,12 +194,7 @@ function LanguageLinks({ text }: { text: string }) {
       {langs.map((lang, index) => (
         <Fragment key={index}>
           {index > 0 && ', '}
-          <Link
-            to={`/compendium/languages/${slugify(lang)}`}
-            className="underline decoration-dotted decoration-ink-500 underline-offset-2 hover:text-arcane-300"
-          >
-            {lang}
-          </Link>
+          <ReferenceLink category="languages" slug={lang.toLowerCase()} label={lang} />
         </Fragment>
       ))}
       {special && <span className="text-ink-300">; {special}</span>}

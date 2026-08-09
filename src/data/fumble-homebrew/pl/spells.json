@@ -220,5 +220,555 @@
         ]
       }
     ]
+  },
+  "acid-burn": {
+    "name": "Oparzenie kwasem",
+    "subtitle": "Przywołanie Cantripa",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "W magiczny sposób wytwarzasz spray kwaśnej formuły w stożku o długości 5 stóp przed tobą. Wszystkie stworzenia w stożku muszą wykonać pomyślny rzut obronny na Zręczność, w przeciwnym razie otrzymają obrażenia od kwasu {@damage 1d6}.",
+      "Obrażenia tego czaru zwiększają się o {@dice 1d6}, gdy osiągniesz 5 poziom ({@dice 2d6}), 11 poziom ({@dice 3d6}) i 17 poziom ({@dice 4d6})."
+    ]
+  },
+  "bacterial-barrage": {
+    "name": "Zapora bakteryjna",
+    "subtitle": "Nekromancja Cantripa",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Atakujesz istotę w zasięgu za pomocą szybko rozprzestrzeniającej się infekcji, która wykorzystuje istniejące warunki. Wykonaj atak zaklęciem dystansowym przeciwko celowi, po trafieniu infekcja zadaje celowi obrażenia nekrotyczne {@damage 1d8}. Jeśli cel cierpi na stan lub chorobę {@condition poisoned}, zamiast tego otrzymuje obrażenia martwicze {@damage 1d12}.",
+      "Obrażenia zaklęcia zwiększają się o jedną kość, gdy osiągniesz 5 poziom ({@dice 2d8} lub {@dice 2d12}), 11 poziom ({@dice 3d8} lub {@dice 3d12}) i 17 poziom ({@dice 4d8} lub {@dice 4d12})."
+    ]
+  },
+  "poison-needle": {
+    "name": "Trująca Igła",
+    "subtitle": "Zaklęcie Cantripa",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Wystrzeliwujesz wyczarowaną strzałkę pokrytą śmiercionośną trucizną w istotę, którą widzisz w zasięgu. Wykonaj atak czarem dystansowym przeciwko celowi. Po trafieniu cel otrzymuje {@damage 1d10} obrażenia od trucizny.",
+      "Jeśli obrażenia od trucizny zmniejszą cel do 0 punktów wytrzymałości, cel jest stabilny, ale {@condition poisoned} przez 1 godzinę, nawet po odzyskaniu punktów wytrzymałości, i jest w ten sposób {@condition paralyzed}, podczas gdy {@condition poisoned}.",
+      "Obrażenia tego czaru zwiększają się o {@dice 1d10}, gdy osiągniesz 5 poziom ({@dice 2d10}), 11 poziom ({@dice 3d10}) i 17 poziom ({@dice 4d10})."
+    ]
+  },
+  "acrid-orb": {
+    "name": "Ostra Kula",
+    "subtitle": "Przywołanie 1. poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Tworzysz kulę kwaśnego żelu i rzucasz nią w jedno stworzenie w zasięgu. Wykonaj atak czarem dystansowym przeciwko celowi. Po trafieniu cel otrzymuje {@damage 2d6} obrażenia od kwasu. Niezależnie od tego, czy atak trafi, czy nie, kula eksploduje. Cel i każda istota w promieniu 1,5 metra od niego musi wykonać pomyślny rzut obronny na Zręczność, w przeciwnym razie otrzyma obrażenia od kwasu {@damage 2d6}."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucisz to zaklęcie, używając miejsca na zaklęcie poziomu 2 lub wyższego, obrażenia eksplodującego kwasu zwiększają się o {@dice 1d6} za każdy poziom gniazda powyżej 1."
+        ]
+      }
+    ]
+  },
+  "envenom": {
+    "name": "Podsycać",
+    "subtitle": "Zaklęcie 1 poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Wybierz stworzenie, które widzisz w zasięgu, aby zadać magiczną truciznę. Cel otrzymuje {@damage 2d4} obrażenia od trucizny i musi wykonać rzut obronny na Kondycję. W przypadku nieudanego rzutu obronnego zmienia się na {@condition poisoned} na czas trwania zaklęcia.",
+      "Podczas {@condition poisoned} w ten sposób cel musi wykonać rzut obronny na Kondycję na koniec każdej swojej tury. Przy nieudanym rzucie obronnym otrzymuje obrażenia od trucizny {@damage 2d4}. W przypadku powodzenia, czar kończy się na tym celu.",
+      "Zaklęcie {@spell lesser restoration} rzucone na cel kończy to zaklęcie wcześniej."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Jeśli rzucisz to zaklęcie, używając miejsca na zaklęcie poziomu 2 lub wyższego, możesz obrać za cel jedno dodatkowe stworzenie na każde miejsce na poziom powyżej 1."
+        ]
+      }
+    ]
+  },
+  "infect": {
+    "name": "Infekować",
+    "subtitle": "Nekromancja pierwszego poziomu",
+    "classes": ["Aptekarz"],
+    "subclasses": ["Aptekarz: Patogenista"],
+    "entries": [
+      "Zadajesz stworzeniu, które widzisz w zasięgu, magiczną chorobę. Na początku każdej tury celu musi on wykonać rzut obronny na Kondycję. Stworzenie otrzymuje {@damage 1d12} obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub połowę w przypadku udanego. Jeśli celowi uda się wykonać trzy z tych rzutów obronnych, czar dobiega końca.",
+      "Zaklęcie {@spell lesser restoration} rzucone na cel kończy to zaklęcie wcześniej."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Jeśli rzucisz to zaklęcie, używając miejsca na zaklęcie poziomu 2 lub wyższego, obrażenia wzrosną o {@dice 1d12} na każde dwa poziomy miejsca na zaklęcie powyżej pierwszego."
+        ]
+      }
+    ]
+  },
+  "stream-of-consumption": {
+    "name": "Strumień konsumpcji",
+    "subtitle": "Nekromancja pierwszego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Na czas trwania zaklęcia twój język staje się wydłużoną linką nekrotycznej zielonej energii, której możesz użyć do wypicia witalności innych stworzeń. Jedno wybrane przez ciebie stworzenie w promieniu 60 stóp od ciebie, które widzisz, musi wykonać rzut obronny na Kondycję. W przypadku nieudanego rzutu obronnego cel zyskuje 1 poziom {@condition exhaustion}, a ty odzyskujesz punkty wytrzymałości równe {@dice 1d4} + twój modyfikator zdolności rzucania zaklęć.",
+      "W każdej swojej turze, aż do zakończenia czaru, możesz użyć swojej akcji, aby obrać za cel to samo lub inne stworzenie, ale nie możesz obrać za cel stworzenia ponownie, jeśli udało mu się wykonać rzut obronny przeciwko temu rzuceniu strumienia spożycia"
+    ]
+  },
+  "toxic-shield": {
+    "name": "Toksyczna Tarcza",
+    "subtitle": "Zaklęcie 1 poziomu",
+    "classes": ["Aptekarz"],
+    "subclasses": ["Aptekarz: Mutagenista"],
+    "entries": [
+      "Zyskujesz odporność na obrażenia od trucizny i przewagę podczas rzutów obronnych przeciwko byciu {@condition poisoned} na czas trwania. Dodatkowo, gdy stwór w promieniu 5 stóp od ciebie uderzy cię atakiem wręcz, tarcza spryskuje je trucizną, zadając atakującemu obrażenia od trucizny {@damage 1d8}."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucasz to zaklęcie, używając miejsca na zaklęcie poziomu 2 lub wyższego, obrażenia od trucizny zwiększają się o {@dice 1d8} na każde 2 poziomy miejsca powyżej pierwszego."
+        ]
+      }
+    ]
+  },
+  "biohazard": {
+    "name": "Zagrożenie biologiczne",
+    "subtitle": "Przywołanie drugiego poziomu",
+    "classes": ["Aptekarz"],
+    "subclasses": ["Aptekarz: Patogenista"],
+    "entries": [
+      "Pokrywasz sześcian o szerokości 5 metrów toksycznym szlamem na czas działania zaklęcia. Teren jest trudny i wypełniony niebezpiecznymi oparami. Stworzenie, które wejdzie na ten obszar lub rozpocznie tam swoją turę, musi wykonać rzut obronny na Kondycję. W przypadku nieudanego rzutu obronnego, istota otrzymuje {@damage 1d8} obrażenia od trucizny i pozostaje {@condition poisoned} aż do rozpoczęcia swojej następnej tury. Stworzenia są dotknięte nawet wtedy, gdy wstrzymują oddech lub nie muszą oddychać."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Jeśli rzucisz to zaklęcie, używając miejsca na zaklęcie poziomu 3 lub wyższego, obrażenia wzrosną o {@dice 1d8} za każdy poziom gniazda powyżej 2."
+        ]
+      }
+    ]
+  },
+  "caustic-grip": {
+    "name": "Żrący chwyt",
+    "subtitle": "Przywołanie drugiego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Przez czas trwania zaklęcia twoja dłoń wydziela lepki, płonący kwas, którego możesz użyć do trzymania stworzenia w bolesnym uścisku. Kiedy rzucasz to zaklęcie i jako akcję w swojej turze, aż do zakończenia czaru, możesz wykonać atak czarem wręcz przeciwko jednej istocie znajdującej się w promieniu 5 stóp od ciebie. Przy trafieniu zadajesz celowi obrażenia kwasowe {@damage 4d4}, a stwór znajduje się w twoim kwasowym uścisku do końca twojej następnej tury. Możesz atakować ten sam cel runda po rundzie lub w dowolnym momencie wybrać nowy. Jeśli zmienisz cel, zaklęcie nie będzie już miało wpływu na poprzedni cel.",
+      "Istota {@condition restrained} znajdująca się w twoim uścisku może wykorzystać swoją akcję do wykonania testu Siły przeciwko Twojemu ST rzutu obronnego na zaklęcia. Jeśli się powiedzie, nie będzie to już {@condition restrained}. Za każdym razem, gdy stworzenie kończy swoją turę {@condition restrained} tym zaklęciem, otrzymuje dodatkowe obrażenia od kwasu {@damage 4d4}."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Jeśli rzucisz to zaklęcie, używając miejsca na zaklęcie poziomu 3 lub wyższego, obrażenia wzrosną o {@dice 2d4} za każdy poziom gniazda powyżej 2."
+        ]
+      }
+    ]
+  },
+  "grasping-ghost": {
+    "name": "Chwytanie Ducha",
+    "subtitle": "Nekromancja drugiego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Pojawia się stado unoszących się widmowych rąk, które chwytają cel widoczny w zasięgu. Cel musi odnieść sukces w rzucie obronnym na Siłę. Cel otrzymuje {@damage 3d8} obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu.",
+      "Dodatkowo, w przypadku nieudanego rzutu obronnego, widmowe ręce chwytają cel do końca twojej następnej tury i natychmiast przesuwają cel na odległość maksymalnie 30 stóp w wybranym przez ciebie kierunku (ale nie w górę). W swojej turze stworzenie może wykonać akcję, aby spróbować uciec z uścisku, wykonując test Siły lub Zręczności (według własnego wyboru) przeciwko Twojemu ST obronności na zaklęcia. Jeśli się uda, chwytak się zakończy."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Jeśli rzucisz to zaklęcie, używając miejsca na zaklęcie poziomu 3 lub wyższego, chwytający duch może obrać za cel jedno dodatkowe stworzenie w zasięgu na każdy poziom czaru powyżej 2."
+        ]
+      }
+    ]
+  },
+  "invigorate": {
+    "name": "Krzepić",
+    "subtitle": "Odrzucenie drugiego stopnia",
+    "classes": ["Aptekarz"],
+    "subclasses": ["Aptekarz: Reanimator"],
+    "entries": [
+      "Wybierz maksymalnie trzy stworzenia w zasięgu. Każdy cel zyskuje 10 tymczasowych punktów wytrzymałości."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucasz to zaklęcie, używając miejsca na zaklęcie poziomu 2 lub wyższego, tymczasowe punkty wytrzymałości zwiększają się o 5 za każdy poziom gniazda powyżej 2. poziomu."
+        ]
+      }
+    ]
+  },
+  "ocular-necrosis": {
+    "name": "Martwica oka",
+    "subtitle": "Nekromancja drugiego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Wykonaj dystansowy atak czarem przeciwko stworzeniu, które widzisz w zasięgu. Jeśli trafisz, zarażasz stworzenie śmiercionośną toksyną, która powoduje krwawienie jego oczu. Stworzenie otrzymuje {@damage 2d6} obrażenia nekrotyczne i pozostaje {@condition blinded} do końca twojej następnej tury."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucisz to zaklęcie, używając miejsca na zaklęcie poziomu 3 lub wyższego, obrażenia nekrotyczne zwiększają się o {@dice 1d6} za każde miejsce na zaklęcie powyżej 2. poziomu."
+        ]
+      }
+    ]
+  },
+  "corrosive-blast": {
+    "name": "Wybuch korozyjny",
+    "subtitle": "Przywołanie trzeciego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Z twoich rąk wydobywa się strumień gryzących chemikaliów. Każde stworzenie w stożku o długości 30 stóp musi wykonać rzut obronny na Zręczność. Stworzenie otrzymuje obrażenia od kwasu {@damage 10d4} w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu.",
+      "Kwas niszczy wszelkie obiekty wykonane z materiałów organicznych znajdujące się na obszarze działania zaklęcia. Ciało istoty zabitej tym zaklęciem ulega całkowitemu rozpuszczeniu, pozostawiając jedynie skorodowany szkielet."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucasz to zaklęcie, używając miejsca na zaklęcie poziomu 4 lub wyższego, obrażenia od kwasu zwiększają się o {@dice 2d4} za każdy poziom gniazda powyżej 3."
+        ]
+      }
+    ]
+  },
+  "fetid-blade": {
+    "name": "Cuchnące Ostrze",
+    "subtitle": "Przywołanie trzeciego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Pokrywasz broń, której dotykasz, kwaśną substancją. Do czasu zakończenia zaklęcia ataki bronią wykonane za jego pomocą zadają dodatkowe obrażenia od kwasu {@damage 2d4} przy trafieniu. Jeśli broń nie jest już bronią magiczną, na czas jej trwania staje się nią.",
+      "Dodatkowo, istota trafiona atakiem wręcz z użyciem tej broni musi wykonać rzut obronny na Kondycję. W przypadku nieudanego zapisu zmienia się na {@condition poisoned} do końca następnej tury atakującego."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucasz to zaklęcie, używając miejsca na zaklęcie poziomu 4 lub wyższego, obrażenia od kwasu zwiększają się o {@dice 1d4} za każdy poziom gniazda powyżej 3."
+        ]
+      }
+    ]
+  },
+  "pestilence": {
+    "name": "Zaraza",
+    "subtitle": "Nekromancja trzeciego poziomu",
+    "classes": ["Aptekarz"],
+    "subclasses": ["Aptekarz: Patogenista"],
+    "entries": [
+      "Zarażasz magiczną chorobą maksymalnie trzy stworzenia, które widzisz w zasięgu. Na początku każdej tury celu musi on wykonać rzut obronny na Kondycję. W przypadku nieudanego rzutu obronnego, istota otrzymuje {@damage 3d6} obrażenia nekrotyczne i zyskuje 1 poziom {@condition exhaustion}. Jeśli celowi uda się wykonać trzy z tych rzutów obronnych, czar kończy się dla tego stworzenia.",
+      "Zaklęcie {@spell lesser restoration} rzucone na cel kończy to zaklęcie wcześniej dla tego stworzenia."
+    ]
+  },
+  "purge-contamination": {
+    "name": "Usuń zanieczyszczenia",
+    "subtitle": "Wyrzeczenie się trzeciego stopnia",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Aplikujesz płyny alchemiczne lub wodę święconą na skażone humanoidalne stworzenie, recytując jednocześnie wymagającą magiczną pieśń, która usuwa dziwne zanieczyszczenia z jego ciała. Kiedy skończysz rzucać zaklęcie, wszystkie poziomy skażenia i mutacje zostaną usunięte ze stworzenia. Następnie zyskuje 1 poziom {@condition exhaustion} za każdy poziom skażenia usunięty tym zaklęciem."
+    ]
+  },
+  "tranquilizing-toxin": {
+    "name": "Uspokajająca toksyna",
+    "subtitle": "Przywołanie trzeciego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Jeden cel, który wybierzesz w zasięgu, musi wykonać rzut obronny na Kondycję lub otrzymać obrażenia od trucizny {@damage 8d6} i stać się {@condition poisoned} do końca twojej następnej tury. Podczas gdy w ten sposób {@condition poisoned}, celem jest również {@condition stunned}. Po udanym rzucie obronnym cel otrzymuje połowę obrażeń i nie jest {@condition poisoned}."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucasz to zaklęcie, używając miejsca na zaklęcie poziomu 4 lub wyższego, obrażenia od trucizny zwiększają się o {@dice 1d6} za każdy poziom gniazda powyżej 3."
+        ]
+      }
+    ]
+  },
+  "venomous-aura": {
+    "name": "Jadowita aura",
+    "subtitle": "Transmutacja trzeciego poziomu",
+    "classes": ["Aptekarz"],
+    "subclasses": ["Aptekarz: Patogenista"],
+    "entries": [
+      "Emitujesz złowrogą aurę, która dezorientuje istoty, które się do ciebie zbliżają. Wszelkie stworzenia, które rozpoczynają swoją turę w promieniu 3 stóp od ciebie, mają {@condition poisoned} aż do początku swojej następnej tury."
+    ]
+  },
+  "blood-worm": {
+    "name": "Krwawy Robak",
+    "subtitle": "Nekromancja czwartego poziomu",
+    "classes": ["Aptekarz"],
+    "subclasses": ["Aptekarz: Patogenista"],
+    "entries": [
+      "Zarażasz istotę, którą widzisz w zasięgu, magiczną chorobą w postaci złośliwego pasożyta. Raz na turę, gdy istota trafi zainfekowany cel atakiem bronią, atak ten zadaje dodatkowe obrażenia nekrotyczne {@damage 4d6}, a atakujący odzyskuje punkty wytrzymałości równe zadanym obrażeniom nekrotycznym. Za każdym razem, gdy zarażony cel otrzymuje obrażenia nekrotyczne, wykonuje rzut obronny na Kondycję przeciwko zaklęciu. Jeśli rzut obronny się powiedzie, zaklęcie dobiega końca."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucasz to zaklęcie, używając miejsca na zaklęcie poziomu 5 lub wyższego, obrażenia nekrotyczne zwiększają się o {@dice 1d6} za każdy poziom gniazda powyżej 4."
+        ]
+      }
+    ]
+  },
+  "corpse-explosion": {
+    "name": "Eksplozja zwłok",
+    "subtitle": "Nekromancja czwartego poziomu",
+    "classes": ["Aptekarz"],
+    "subclasses": ["Aptekarz: Reanimator"],
+    "entries": [
+      "Powodujesz, że ciało wyzwalającej istoty eksploduje gwałtownym deszczem krwi i zainfekowanego ciała. Istoty znajdujące się w promieniu 3 stóp od punktu znajdującego się na środku ciała aktywującej istoty otrzymują {@damage 4d8} obrażenia nekrotyczne i {@damage 4d8} obrażenia kwasowe lub połowę mniej obrażeń po udanym rzucie obronnym na Zręczność."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Jeśli rzucisz to zaklęcie, używając miejsca na zaklęcie poziomu 5 lub wyższego, obrażenia wzrosną o {@damage 1d8} obrażenia od kwasu za każdy poziom gniazda powyżej 4."
+        ]
+      }
+    ]
+  },
+  "corrupting-spores": {
+    "name": "Niszczące zarodniki",
+    "subtitle": "Nekromancja czwartego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Mała plama trzech trujących grzybów w magiczny sposób wyrasta na 5-metrowym kwadracie, który możesz zobaczyć w zasięgu. Grzyby wydzielają toksyczne zarodniki i każde stworzenie, które rozpoczyna swoją turę w promieniu 3 metrów od pola grzybów, musi wykonać rzut obronny na Kondycję. W przypadku nieudanego rzutu obronnego, stworzenie otrzymuje {@damage 1d8} obrażenia od trucizny za każdy grzyb w łacie i pozostaje {@condition poisoned} aż do rozpoczęcia swojej następnej tury.",
+      "Dopóki zaklęcie się nie skończy, możesz w swojej turze skorzystać z akcji dodatkowej, która sprawi, że na grządce wyrośnie dodatkowy grzyb."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucisz to zaklęcie, używając miejsca na zaklęcie poziomu 5 lub wyższego, wykiełkuje jeden dodatkowy grzyb z początkową łatką na każde miejsce na poziom powyżej 4."
+        ]
+      }
+    ]
+  },
+  "last-rites": {
+    "name": "Ostatnie namaszczenie",
+    "subtitle": "Odrzucenie czwartego stopnia",
+    "classes": ["Aptekarz"],
+    "subclasses": ["Aptekarz: Egzorcysta"],
+    "entries": [
+      "Celujesz w istotę, którą widzisz w zasięgu, za pomocą wiązki świętego światła, która świeci na nią. Cel musi wykonać rzut obronny na Mądrość. Cel otrzymuje obrażenia od promieniowania {@damage 8d8} w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu. Zaklęcie to nie działa na istoty niebieskie i konstrukty.",
+      "Jeśli obierasz za cel nieumarłego lub diabła, rzut obronny jest niekorzystny, a zaklęcie zadaje mu maksymalne obrażenia.",
+      "Jeśli nieumarły lub diabeł zostanie zredukowany do 0 punktów wytrzymałości przez to zaklęcie, umiera, a jego ciało zostaje zamienione w popiół."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucasz to zaklęcie, używając miejsca na zaklęcie poziomu 5 lub wyższego, możesz obrać za cel dodatkowe stworzenie w promieniu 30 stóp od siebie na każdy poziom czaru powyżej 5."
+        ]
+      }
+    ]
+  },
+  "poison-wave": {
+    "name": "Fala trucizny",
+    "subtitle": "Zaklęcie czwartego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Emanuje z ciebie fala trujących oparów. Stworzenia w promieniu 30 stóp od ciebie muszą wykonać rzut obronny na Kondycję.",
+      "W przypadku nieudanego rzutu obronnego każde stworzenie otrzymuje {@damage 4d12} obrażenia od trucizny i pozostaje {@condition poisoned} do końca twojej następnej tury. Po udanym rzucie obronnym istota otrzymuje o połowę mniejsze obrażenia i nie staje się {@condition poisoned}."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Jeśli rzucisz to zaklęcie, używając miejsca na zaklęcie poziomu 5 lub wyższego, obrażenia wzrosną o {@dice 1d12} za każdy poziom gniazda powyżej 4."
+        ]
+      }
+    ]
+  },
+  "vitriol-ichor": {
+    "name": "Witriol Ichor",
+    "subtitle": "Transmutacja czwartego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Wybierz istotę w zasięgu, która ma naturalny pancerz lub nosi pancerz. W magiczny sposób powodujesz, że naturalny lub sztuczny pancerz stworzenia staje się skorodowany i łamliwy na czas trwania zaklęcia. Kiedy jego zbroja jest skorodowana, KP stworzenia wynosi 10 + modyfikator Zręczności stworzenia."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucasz to zaklęcie, używając miejsca na zaklęcie poziomu 5 lub wyższego, możesz obrać za cel jedno dodatkowe stworzenie na każde miejsce na poziom powyżej 4."
+        ]
+      }
+    ]
+  },
+  "acid-rain": {
+    "name": "Kwaśny deszcz",
+    "subtitle": "Zaklęcie piątego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Dopóki zaklęcie się nie skończy, kwaśny deszcz spada w wysokim na 40 stóp cylindrze o promieniu 40 stóp, którego środek znajduje się w wybranym przez ciebie punkcie w zasięgu. Obszar jest lekko zasłonięty, a odsłonięte płomienie w tym obszarze zgaszone.",
+      "Na ziemi w okolicy gromadzą się baseny chemiczne, co utrudnia teren. Kiedy stwór wejdzie na obszar działania zaklęcia po raz pierwszy w swojej turze lub rozpocznie tam swoją turę, otrzymuje obrażenia od kwasu {@damage 3d6} i musi wykonać rzut obronny na Zręczność. W przypadku nieudanego zapisu, {@condition prone} wpada do basenów, zadając dodatkowe obrażenia kwasowe {@damage 3d6}."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucasz to zaklęcie, używając miejsca na zaklęcie poziomu 6 lub wyższego, obrażenia od kwasu zwiększają się o {@dice 1d6} za każdy poziom gniazda powyżej 5."
+        ]
+      }
+    ]
+  },
+  "nerve-gas": {
+    "name": "Gaz nerwowy",
+    "subtitle": "Nekromancja piątego poziomu",
+    "classes": ["Aptekarz"],
+    "subclasses": ["Aptekarz: Reanimator"],
+    "entries": [
+      "Tworzysz kulę toksycznej mgły o promieniu 3 stóp, skupioną w wybranym przez Ciebie punkcie w zasięgu. Mgła rozprzestrzenia się po zakrętach.",
+      "Trwa przez cały czas trwania zaklęcia lub do chwili, gdy silny wiatr rozproszy mgłę, kończąc zaklęcie. Obszar mgły jest mocno zasłonięty.",
+      "Kiedy stwór wejdzie na obszar czaru po raz pierwszy w swojej turze lub rozpocznie tam swoją turę, musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego, istota otrzymuje obrażenia psychiczne {@damage 3d6} i do początku swojej następnej tury zmienia się w {@condition stunned}. Po udanym rzucie obronnym stworzenie otrzymuje o połowę mniejsze obrażenia i nie jest {@condition stunned}. Stworzenia są dotknięte nawet wtedy, gdy wstrzymują oddech lub nie muszą oddychać."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Jeśli rzucisz to zaklęcie, korzystając z miejsca na zaklęcie poziomu 6 lub wyższego, obrażenia wzrosną o {@damage 1d6} obrażenia psychiczne za każdy poziom pola powyżej 5."
+        ]
+      }
+    ]
+  },
+  "septic-shock": {
+    "name": "Wstrząs septyczny",
+    "subtitle": "Nekromancja piątego poziomu",
+    "classes": ["Aptekarz"],
+    "subclasses": ["Aptekarz: Mutagenista"],
+    "entries": [
+      "Wybierz istotę, którą widzisz w zasięgu, a która nie ma jeszcze wszystkich punktów wytrzymałości. Zarażasz rany celu gnijącymi bakteriami. Cel musi wykonać rzut obronny na Kondycję.",
+      "Jeśli pozostało mu mniej niż połowa maksymalnych punktów wytrzymałości, rzut obronny jest niekorzystny. W przypadku nieudanego rzutu obronnego cel otrzymuje obrażenia nekrotyczne {@damage 10d8} i zyskuje 1 poziom {@condition exhaustion}. Przy udanym rzucie zadaje o połowę mniejsze obrażenia i nie zyskuje żadnych poziomów {@condition exhaustion}."
+    ]
+  },
+  "toxic-barrage": {
+    "name": "Toksyczna zapora",
+    "subtitle": "Zaklęcie piątego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Tworzysz cztery promienie czystej trucizny i rzucasz nimi w cele w zasięgu. Można nimi rzucić w jeden lub kilka celów.",
+      "Wykonaj atak zaklęciem dystansowym dla każdego promienia. Po trafieniu cel otrzymuje {@damage 3d6} obrażenia od trucizny. Jeśli cel zostanie trafiony jednym lub większą liczbą tych promieni, musi wykonać rzut obronny na Kondycję. W przypadku nieudanego zapisu celem jest {@condition poisoned} przez 1 minutę. Podczas {@condition poisoned} w ten sposób cel może powtórzyć rzut obronny na koniec każdej swojej tury. W przypadku powodzenia nie jest to już {@condition poisoned}."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucasz to zaklęcie, korzystając ze slotu na zaklęcie poziomu 6 lub wyższego, tworzysz jeden dodatkowy promień na każdy slot na poziomie powyżej 5"
+        ]
+      }
+    ]
+  },
+  "mephitic-vapors": {
+    "name": "Opary mefitu",
+    "subtitle": "Zaklęcie szóstego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Oblewasz obszar o promieniu 20 stóp, wyśrodkowany w punkcie, który widzisz w zasięgu, gryzącym śluzem, który pozostaje przez czas trwania zaklęcia. Obszar staje się trudnym terenem i każde stworzenie znajdujące się całkowicie w tym obszarze ma postać {@condition blinded} i nie może reagować.",
+      "Istota, która rozpoczyna swoją turę na tym obszarze, musi odnieść sukces w rzucie obronnym na Kondycję lub otrzymać {@damage 2d8} obrażenia od trucizny i {@damage 2d8} obrażenia od kwasu i zyskać jeden poziom {@condition exhaustion}."
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Jeśli rzucisz to zaklęcie, korzystając z miejsca na zaklęcie na poziomie 7 lub wyższym, obrażenia wzrosną o {@damage 1d8} obrażenia od trucizny i {@damage 1d8} obrażenia od kwasu dla każdego poziomu pola powyżej 6."
+        ]
+      }
+    ]
+  },
+  "vile-necrosis": {
+    "name": "Podła Nekroza",
+    "subtitle": "Nekromancja szóstego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Wskazujesz palcem na istotę w zasięgu, rzucając na nią bladozielony promień wyniszczającej energii.",
+      "Wykonaj atak czarem dystansowym przeciwko celowi. Po trafieniu cel otrzymuje {@damage 12d6} obrażenia nekrotyczne i staje się osłabiony.",
+      "Osłabiony przez to zaklęcie, cel zadaje połowę obrażeń atakami bronią i zaklęciami.",
+      "Osłabiony cel może wykonać rzut obronny na Kondycję na koniec każdej swojej tury. Po udanym rzucie słabość się kończy."
+    ]
+  },
+  "grievous-wounds": {
+    "name": "Ciężkie Rany",
+    "subtitle": "Nekromancja siódmego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Wybierz stworzenie, które widzisz w zasięgu. Na chwilę pozbawiasz cel fizjologię wszelkiej odporności na tyle, że zwykłe zadrapanie może stać się straszliwą kontuzją. Do końca twojej następnej tury cel traci odporność na obrażenia i niewrażliwość, staje się podatny na wszelkie obrażenia i wszystkie swoje rzuty obronne wykonuje z niekorzyścią."
+    ]
+  },
+  "miasma": {
+    "name": "Miazmat",
+    "subtitle": "Przywołanie siódmego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Tworzysz ścianę mdlących, żółtawo-zielonych, toksycznych oparów na twardej powierzchni w zasięgu. Możesz wykonać ścianę o długości do 60 stóp, wysokości 20 stóp i grubości 1 stopy lub ścianę pierścieniową o średnicy do 20 stóp, wysokości 20 stóp i grubości 1 stopy. Ściana jest nieprzezroczysta i utrzymuje się przez długi czas.",
+      "Kiedy pojawi się ściana, każde stworzenie w jej obszarze musi wykonać rzut obronny na Zręczność. W przypadku nieudanego rzutu obronnego, istota otrzymuje {@damage 10d4} obrażenia od kwasu lub połowę mniej w przypadku udanego rzutu.",
+      "Jedna strona ściany, wybrana przez ciebie podczas rzucania tego zaklęcia, wydziela toksyczne opary. Zadaje {@damage 8d8} obrażenia od trucizny każdemu stworzeniu, które zakończy swoją turę w promieniu 30 stóp od tej strony lub wewnątrz ściany. Stworzenie otrzymuje takie same obrażenia, gdy po raz pierwszy w turze wejdzie w ścianę. Druga strona ściany nie zadaje obrażeń.",
+      "Stworzenie, które otrzyma obrażenia od trucizny ze ściany, musi wykonać rzut obronny na Kondycję lub stać się {@condition poisoned} na czas trwania zaklęcia"
+    ],
+    "entriesHigherLevel": [
+      {
+        "type": "entries",
+        "name": "Na wyższych poziomach",
+        "entries": [
+          "Kiedy rzucasz to zaklęcie, używając miejsca na zaklęcie poziomu 8 lub wyższego, obrażenia zwiększają się o {@dice 2d8} za każdy poziom gniazda powyżej 7."
+        ]
+      }
+    ]
+  },
+  "pandemic": {
+    "name": "Pandemia",
+    "subtitle": "Przywołanie 9 poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Zarażasz jedno stworzenie, które widzisz w zasięgu, śmiertelną i wysoce zakaźną chorobą, która trwa do czasu, aż zostanie wyleczona poprzez większą regenerację, uzdrowienie lub życzenie. Inne zaklęcia i efekty magiczne usuwające choroby nie leczą infekcji spowodowanej tym zaklęciem.",
+      "Zarażone stworzenie musi wykonać rzut obronny na Kondycję na początku każdej swojej tury. W przypadku nieudanego rzutu obronnego otrzymuje obrażenia nekrotyczne {@damage 10d8} i do początku swojej następnej tury zmienia się w {@condition incapacitated}. Przy udanym zapisie zadaje o połowę mniejsze obrażenia i nie jest to {@condition incapacitated}. Zarażona istota musi wykonać rzut obronny na początku każdej swojej tury, aż do śmierci lub wyleczenia.",
+      "Stworzenie, które rozpoczyna swoją turę w promieniu 3 metrów od stworzenia zarażonego tym zaklęciem, musi wykonać rzut obronny na Kondycję.",
+      "W przypadku nieudanego rzutu obronnego, ta istota zaraża się infekcją.",
+      "Kiedy rzucasz zaklęcie, możesz wybrać siebie i maksymalnie osiem innych stworzeń, które nie będą dotknięte infekcją spowodowaną rzuceniem tego zaklęcia."
+    ]
+  },
+  "touch-of-death": {
+    "name": "Dotyk Śmierci",
+    "subtitle": "Nekromancja 9. poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Wykonaj atak czarem wręcz przeciwko celowi znajdującemu się w promieniu 5 stóp od ciebie.",
+      "Po trafieniu cel otrzymuje 200 obrażeń od trucizny. Obrażenia te ignorują wszelki opór lub odporność, jakie stworzenie posiada na obrażenia od trucizny i nie można ich w żaden sposób zmniejszyć ani im zapobiec.",
+      "Silna trucizna utrzymuje się w ciele celu i przyciąga go ku śmierci. Celowi zredukowanemu do zera punkty wytrzymałości w wyniku obrażeń od trucizny automatycznie nie wykonuje rzutów obronnych na śmierć, dopóki nie zakończy długiego odpoczynku. Zaklęcie leczące lub większe przywracające rzucone na cel również kończy ten efekt."
+    ]
+  },
+  "breath-of-nightshade": {
+    "name": "Oddech Nocnego Cienia",
+    "subtitle": "Zaklęcie ósmego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Wydychasz 60-metrowy stożek śmiercionośnej trucizny. Każde stworzenie na obszarze, w którym rzucasz zaklęcie, musi wykonać rzut obronny na Kondycję. W przypadku nieudanego zapisu stworzenie staje się {@condition poisoned} na 1 godzinę. Podczas gdy {@condition poisoned} jest pod wpływem tego zaklęcia, stworzeniem jest {@condition paralyzed}.",
+      "Zaklęcie kończy się, jeśli dotknięta istota otrzyma jakiekolwiek obrażenia."
+    ]
+  },
+  "plague-wind": {
+    "name": "Plaga Wiatru",
+    "subtitle": "Zaklęcie ósmego poziomu",
+    "classes": ["Aptekarz"],
+    "entries": [
+      "Przywołujesz wściekły wiatr pożerający mięso chorób i rozdzierający, wrzący krew dym, który unosi się nad obszarem emanującym z ciebie w kształcie stożka o długości 30 metrów. Stworzenia na tym obszarze muszą wykonać rzut obronny na Kondycję. W przypadku nieudanego rzutu obronnego stworzenie otrzymuje {@damage 5d8} obrażenia od trucizny i {@damage 5d8} obrażenia nekrotyczne lub połowę mniej, jeśli się powiedzie. Po otrzymaniu tych obrażeń, każde dotknięte stworzenie, któremu pozostało 25 lub mniej punktów wytrzymałości, natychmiast umiera i zostaje zredukowane do zwietrzałego szkieletu, a jego ciało i tkanki miękkie rozwiewają się jak popiół"
+    ]
   }
 }

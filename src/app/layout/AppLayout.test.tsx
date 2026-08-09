@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useSearchStore } from '@/features/search/searchStore';
 import { useSidebarStore } from '@/features/ui/sidebarStore';
@@ -34,6 +34,20 @@ const renderLayout = (path = '/') =>
       </Routes>
     </MemoryRouter>,
   );
+
+function NavigationProbe() {
+  const navigate = useNavigate();
+  return (
+    <>
+      <button type="button" onClick={() => navigate('/next')}>
+        Next page
+      </button>
+      <button type="button" onClick={() => navigate('/compendium/classes/wizard/evoker')}>
+        Select subclass
+      </button>
+    </>
+  );
+}
 
 describe('AppLayout', () => {
   beforeEach(() => {
@@ -91,5 +105,53 @@ describe('AppLayout', () => {
     useSearchStore.setState({ open: true });
     renderLayout();
     await waitFor(() => expect(screen.getByText('Search palette')).toBeInTheDocument());
+  });
+
+  it('returns the app scroll container to the top after navigation', () => {
+    render(
+      <MemoryRouter initialEntries={['/start']}>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="*" element={<NavigationProbe />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const main = document.getElementById('main-content');
+    expect(main).not.toBeNull();
+    main!.scrollTop = 480;
+
+    fireEvent.click(screen.getByRole('button', { name: 'Next page' }));
+
+    expect(main).toHaveProperty('scrollTop', 0);
+  });
+
+  it('handles a missing app scroll container', () => {
+    const getElementById = vi.spyOn(document, 'getElementById').mockReturnValue(null);
+
+    renderLayout('/start');
+
+    getElementById.mockRestore();
+  });
+
+  it('keeps the current position when selecting a class subclass', () => {
+    render(
+      <MemoryRouter initialEntries={['/compendium/classes/wizard']}>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="*" element={<NavigationProbe />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const main = document.getElementById('main-content');
+    expect(main).not.toBeNull();
+    main!.scrollTop = 480;
+
+    fireEvent.click(screen.getByRole('button', { name: 'Select subclass' }));
+
+    expect(main).toHaveProperty('scrollTop', 480);
   });
 });

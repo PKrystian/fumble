@@ -138,6 +138,23 @@ describe('reference hints', () => {
     await expect(loadReferenceName('missing', 'none', 'pl', 'None')).resolves.toBeNull();
   });
 
+  it('resolves IDs, localized labels, and failed loads safely', async () => {
+    const { resolveReference } = await import('./referenceHint');
+    await expect(
+      resolveReference('resolve-id', 'fireball', 'en', 'Fireball'),
+    ).resolves.toMatchObject({ slug: 'fireball' });
+    await expect(
+      resolveReference('resolve-name', 'kula-ognia', 'pl', 'Kula Ognia'),
+    ).resolves.toMatchObject({ slug: 'fireball' });
+    await expect(
+      resolveReference('resolve-empty', 'none', 'pl', 'None'),
+    ).resolves.toBeNull();
+    loadLocalizedItems.mockRejectedValueOnce(new Error('failed load'));
+    await expect(
+      resolveReference('resolve-failed', 'none', 'en', 'None'),
+    ).resolves.toBeNull();
+  });
+
   it('handles nested entry fields and empty optional sections', async () => {
     const { loadReferenceHint } = await import('./referenceHint');
     loadLocalizedItems.mockResolvedValueOnce([

@@ -1,7 +1,7 @@
 {
   "meta": {
     "category": "spells",
-    "count": 13,
+    "count": 50,
     "source": "Fumble"
   },
   "items": [
@@ -421,6 +421,1111 @@
           ]
         }
       ]
+    },
+    {
+      "id": "acid-burn",
+      "name": "Acid Burn",
+      "source": "GuideDrakkenheim",
+      "page": 186,
+      "srd": false,
+      "level": 0,
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "15 feet (15-foot cone)",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You magically produce a spray of acidic formula in a 15-foot cone in front of you. All creatures in the cone must succeed on a Dexterity saving throw or take {@damage 1d6} acid damage.",
+        "This spell's damage increases by {@dice 1d6} when you reach 5th level ({@dice 2d6}), 11th level ({@dice 3d6}), and 17th level ({@dice 4d6})."
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "Cantrip Evocation",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "bacterial-barrage",
+      "name": "Bacterial Barrage",
+      "source": "GuideDrakkenheim",
+      "page": 186,
+      "srd": false,
+      "level": 0,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You attack a creature in range with a quick spreading infection that takes advantage of existing conditions. Make a ranged spell attack against a target, on a hit the infection does {@damage 1d8} necrotic damage to the target. If the target is suffering from the {@condition poisoned} condition or a disease, it instead takes {@damage 1d12} necrotic damage.",
+        "The spell's damage increases by one die when you reach 5th level ({@dice 2d8} or {@dice 2d12}), 11th level ({@dice 3d8} or {@dice 3d12}), and 17th level ({@dice 4d8} or {@dice 4d12})."
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "Cantrip Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "poison-needle",
+      "name": "Poison Needle",
+      "source": "GuideDrakkenheim",
+      "page": 186,
+      "srd": false,
+      "level": 0,
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You launch a conjured dart coated with lethal poison at a creature you can see within range. Make a ranged spell attack against the target. On a hit, the target takes {@damage 1d10} poison damage.",
+        "If the poison damage reduces the target to 0 hit points, the target is stable but {@condition poisoned} for 1 hour, even after regaining hit points, and is {@condition paralyzed} while {@condition poisoned} in this way.",
+        "This spell's damage increases by {@dice 1d10} when you reach 5th level ({@dice 2d10}), 11th level ({@dice 3d10}), and 17th level ({@dice 4d10})."
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "Cantrip Conjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "acrid-orb",
+      "name": "Acrid Orb",
+      "source": "GuideDrakkenheim",
+      "page": 187,
+      "srd": false,
+      "level": 1,
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (a vial of stomach acid and a pinch of sulfate)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You create an orb of acid gel and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes {@damage 2d6} acid damage. Whether the attack hits or misses, the orb explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take {@damage 2d6} acid damage."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 2nd level or higher, the exploding acid damage increases by {@dice 1d6} for each slot level above 1st."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "1th-level Evocation",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "envenom",
+      "name": "Envenom",
+      "source": "GuideDrakkenheim",
+      "page": 187,
+      "srd": false,
+      "level": 1,
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (a vial of basic poison)",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "Choose a creature you can see within range to inflict with a magical poison. The target takes {@damage 2d4} poison damage and must make a Constitution saving throw. On a failed saving throw, it becomes {@condition poisoned} for the spell's duration.",
+        "While {@condition poisoned} in this way, the target must make a Constitution saving throw at the end of each of its turns. It takes {@damage 2d4} poison damage on a failed saving throw. On a success, the spell ends on that target.",
+        "A {@spell lesser restoration} spell cast on the target ends this spell early."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "If you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st"
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "1th-level Conjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "infect",
+      "name": "Infect",
+      "source": "GuideDrakkenheim",
+      "page": 187,
+      "srd": false,
+      "level": 1,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (a petri dish)",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "You inflict a creature you can see within range with a magical disease. At the start of each of the target's turns, it must make a Constitution saving throw. The creature takes {@damage 1d12} necrotic damage on a failed saving throw, or half as much on a successful one. If a target succeeds on three of these saves, the spell ends.",
+        "A {@spell lesser restoration} spell cast on the target ends this spell early."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "If you cast this spell using a spell slot of 2nd level or higher, the damage increases by {@dice 1d12} for every two slot levels above 1st."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "subclasses": ["Apothecary: Pathogenist"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "1th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "stream-of-consumption",
+      "name": "Stream of Consumption",
+      "source": "GuideDrakkenheim",
+      "page": 187,
+      "srd": false,
+      "level": 1,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "Self (point)",
+      "components": "V, S",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "For the spell's duration, your tongue becomes an elongated tether of necrotic green energy you can use to drink the vitality of other creatures. One creature of your choice within 60 feet of you that you can see must make a Constitution saving throw. On a failed save, the target gains 1 level of {@condition exhaustion}, and you regain hit points equal to {@dice 1d4} + your spellcasting ability modifier.",
+        "On each of your turns until the spell ends, you can use your action to target the same creature or a different one, but can't target a creature again if it has succeeded on a saving throw against this casting of stream of consumption"
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "1th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "toxic-shield",
+      "name": "Toxic Shield",
+      "source": "GuideDrakkenheim",
+      "page": 187,
+      "srd": false,
+      "level": 1,
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "Self (point)",
+      "components": "S, M (a drop of dwarven blood)",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "You gain resistance to poison damage and advantage on saves against being {@condition poisoned} for the duration. In addition, whenever a creature within 5 feet of you hits you with a melee attack, the shield sprays them with poison, dealing {@damage 1d8} poison damage to the attacker."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 2nd level or higher, the poison damage increases by {@dice 1d8} for every 2 slot levels above 1st."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "subclasses": ["Apothecary: Mutagenist"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "1th-level Conjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "biohazard",
+      "name": "Biohazard",
+      "source": "GuideDrakkenheim",
+      "page": 187,
+      "srd": false,
+      "level": 2,
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (a withered root and a drop of vinegar)",
+      "duration": "1 minute",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You coat a 15-foot-wide cube with toxic sludge for the spell's duration. The area is difficult terrain and filled with dangerous fumes. A creature that enters the area or starts its turn there must make a Constitution saving throw. On a failed saving throw, the creature takes {@damage 1d8} poison damage and is {@condition poisoned} until the start of its next turn. Creatures are affected even if they hold their breath or don't need to breathe."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "If you cast this spell using a spell slot of 3rd level or higher, the damage increases by {@dice 1d8} for each slot level above 2nd"
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "subclasses": ["Apothecary: Pathogenist"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "2th-level Conjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "caustic-grip",
+      "name": "Caustic Grip",
+      "source": "GuideDrakkenheim",
+      "page": 188,
+      "srd": false,
+      "level": 2,
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "Self (point)",
+      "components": "S",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "For the spell's duration, your hand secretes sticky burning acid which you can use to hold a creature in a painful clutch. When you cast this spell, and as an action on your turn until the spell ends, you can make a melee spell attack against one creature within 5 feet of you. On a hit, you deal {@damage 4d4} acid damage to the target, and the creature is {@condition restrained} in your acidic grip until the end of your next turn. You can attack the same target round after round, or choose a new one at any time. If you switch targets, the prior target is no longer affected by the spell.",
+        "A creature {@condition restrained} by your grip can use its action to make a Strength check against your spell save DC. If it succeeds, it is no longer {@condition restrained}. Each time a creature ends its turn {@condition restrained} by this spell, it takes an additional {@damage 4d4} acid damage."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "If you cast this spell using a spell slot of 3rd level or higher, the damage increases by {@dice 2d4} for each slot level above 2nd."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "2th-level Evocation",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "grasping-ghost",
+      "name": "Grasping Ghost",
+      "source": "GuideDrakkenheim",
+      "page": 188,
+      "srd": false,
+      "level": 2,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "S, M (a finger bone and a scrap of fabric)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "A flock of floating spectral hands appear and grasp a target you can see within range. The target must succeed on a Strength saving throw. A target takes {@damage 3d8} necrotic damage on a failed save, or half as much damage on a successful one.",
+        "In addition, on a failed saving throw the ghostly hands grapple the target until the end of your next turn, and immediately move the target up to 30 feet in a direction of your choice (but not upward). On its turn, the creature can use an action to attempt to escape the grapple by making a Strength or Dexterity check (its choice) against your spell save DC. If it succeeds, the grapple ends."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "If you cast this spell using a spell slot of 3rd level or higher, the grasping ghost can target one additional creature within range for each spell level above 2nd."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "2th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "invigorate",
+      "name": "Invigorate",
+      "source": "GuideDrakkenheim",
+      "page": 188,
+      "srd": false,
+      "level": 2,
+      "school": "Abjuration",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "S, M (a syringe and a blood sample)",
+      "duration": "1 hour",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "Choose up to three creatures within range. Each target gains 10 temporary hit points."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 2nd level or higher, the temporary hit points increase by 5 for each slot level above 2nd."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "subclasses": ["Apothecary: Reanimator"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "2th-level Abjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "ocular-necrosis",
+      "name": "Ocular Necrosis",
+      "source": "GuideDrakkenheim",
+      "page": 188,
+      "srd": false,
+      "level": 2,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "Make a ranged spell attack against a creature you can see in range. If you hit, you wrack the creature with a deadly toxin that causes their eyes to bleed. The creature takes {@damage 2d6} necrotic damage and is {@condition blinded} until the end of your next turn."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 3rd level or higher, the necrotic damage increases by {@dice 1d6} for each slot above 2nd."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "2th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "corrosive-blast",
+      "name": "Corrosive Blast",
+      "source": "GuideDrakkenheim",
+      "page": 188,
+      "srd": false,
+      "level": 3,
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "30 feet (30-foot cone)",
+      "components": "V, S, M (a vial of acid)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "A spew of acrid chemicals erupts from your hands. Each creature in a 30-foot cone must make a Dexterity saving throw. A creature takes {@damage 10d4} acid damage on a failed save, or half as much damage on a successful one.",
+        "The acid destroys any objects made of organic materials in the spell's area. A creature killed by this spell has its flesh entirely dissolved, leaving behind only a corroded skeleton."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 4th level or higher, the acid damage increases by {@dice 2d4} for each slot level above 3rd."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "3th-level Evocation",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "fetid-blade",
+      "name": "Fetid Blade",
+      "source": "GuideDrakkenheim",
+      "page": 188,
+      "srd": false,
+      "level": 3,
+      "school": "Evocation",
+      "castingTime": "1 bonus",
+      "range": "Touch",
+      "components": "V, S, M (a drop of acid and a pinch of iron dust)",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "You coat a weapon you touch in an acidic substance. Until the spell ends, weapon attacks made with it deal an extra {@damage 2d4} acid damage on a hit. If the weapon isn't already a magic weapon, it becomes one for the duration.",
+        "In addition, a creature hit with a melee attack using the weapon must make a Constitution saving throw. On a failed save, it becomes {@condition poisoned} until the end of the attacker's next turn."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 4th level or higher, the acid damage increases by {@dice 1d4} for each slot level above 3rd."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "3th-level Evocation",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "pestilence",
+      "name": "Pestilence",
+      "source": "GuideDrakkenheim",
+      "page": 189,
+      "srd": false,
+      "level": 3,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "90 feet",
+      "components": "V, S, M (a withered flower)",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "You infect up to three creatures you can see within range with a magical disease. At the start of each of the target's turns, it must make a Constitution saving throw. On a failed saving throw, the creature takes {@damage 3d6} necrotic damage and gains 1 level of {@condition exhaustion}. If a target succeeds on three of these saves, the spell ends for that creature.",
+        "A {@spell lesser restoration} spell cast on a target ends this spell early for that creature."
+      ],
+      "classes": ["Apothecary"],
+      "subclasses": ["Apothecary: Pathogenist"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "3th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "purge-contamination",
+      "name": "Purge Contamination",
+      "source": "GuideDrakkenheim",
+      "page": 189,
+      "srd": false,
+      "level": 3,
+      "school": "Abjuration",
+      "castingTime": "1 hour",
+      "range": "Touch",
+      "components": "V, S, M (100 gp of alchemical fluids or holy water, which the spell consumes)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You apply alchemical fluids or holy water to a contaminated humanoid creature while reciting an exacting magical chant which expels eldritch contaminants from its body. When you finish casting the spell, all contamination levels and mutations are removed from the creature. It then gains 1 level of {@condition exhaustion} for each contamination level removed with this spell."
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "3th-level Abjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "tranquilizing-toxin",
+      "name": "Tranquilizing Toxin",
+      "source": "GuideDrakkenheim",
+      "page": 189,
+      "srd": false,
+      "level": 3,
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "One target you choose within range must make a Constitution saving throw or take {@damage 8d6} poison damage and become {@condition poisoned} until the end of your next turn. While {@condition poisoned} in this way, the target is also {@condition stunned}. On a successful saving throw, the target takes half damage and is not {@condition poisoned}."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 4th level or higher, the poison damage increases by {@dice 1d6} for each slot level above 3rd."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "3th-level Evocation",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "venomous-aura",
+      "name": "Venomous Aura",
+      "source": "GuideDrakkenheim",
+      "page": 189,
+      "srd": false,
+      "level": 3,
+      "school": "Transmutation",
+      "castingTime": "1 bonus",
+      "range": "10 feet (10-foot radius)",
+      "components": "V, S, M (scales or fangs of a venomous snake)",
+      "duration": "1 minute",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You emit a baleful aura which disorients creatures who approach you. Any creatures that start their turn within 10 feet of you are {@condition poisoned} until the start of their next turn."
+      ],
+      "classes": ["Apothecary"],
+      "subclasses": ["Apothecary: Pathogenist"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "3th-level Transmutation",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "blood-worm",
+      "name": "Blood Worm",
+      "source": "GuideDrakkenheim",
+      "page": 189,
+      "srd": false,
+      "level": 4,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S, M (a jar full of leeches)",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "You infect a creature you can see within range with a magical disease in the form of a malignant parasite. Once per turn when a creature hits the infected target with a weapon attack, that attack deals an additional {@damage 4d6} necrotic damage, and the attacker regains hit points equal to the necrotic damage dealt. Each time the infected target takes this necrotic damage, it makes a Constitution saving throw against the spell. If the saving throw succeeds, the spell ends."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 5th level or higher, the necrotic damage increases by {@dice 1d6} for each slot level above 4th."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "subclasses": ["Apothecary: Pathogenist"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "4th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "corpse-explosion",
+      "name": "Corpse Explosion",
+      "source": "GuideDrakkenheim",
+      "page": 189,
+      "srd": false,
+      "level": 4,
+      "school": "Necromancy",
+      "castingTime": "1 reaction, which you take when a creature you can see dies within 120 feet of you.",
+      "range": "120 feet",
+      "components": "V, S",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You cause the triggering creature's body to explode in a violent shower of gore and infected flesh. Creatures within 10 feet of a point centered on the triggering creature's body take {@damage 4d8} necrotic damage and {@damage 4d8} acid damage, or half as much damage on a successful Dexterity saving throw."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "If you cast this spell using a spell slot of 5th level or higher, the damage increases by {@damage 1d8} acid damage for each slot level above 4th."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "subclasses": ["Apothecary: Reanimator"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "4th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "corrupting-spores",
+      "name": "Corrupting Spores",
+      "source": "GuideDrakkenheim",
+      "page": 190,
+      "srd": false,
+      "level": 4,
+      "school": "Necromancy",
+      "castingTime": "1 bonus",
+      "range": "120 feet",
+      "components": "V, S, M (a dried mushroom)",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "A small patch of three poison mushrooms magically sprout in a 5-foot square that you can see within range. The mushrooms emit toxic spores, and any creature that starts its turn within 10 feet of the mushroom patch must make a Constitution saving throw. On a failed save, the creature takes {@damage 1d8} poison damage for each mushroom in the patch and is {@condition poisoned} until the start of its next turn.",
+        "Until the spell ends, you can use a bonus action on your turn to cause an additional mushroom to sprout within the patch."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 5th level or higher, one additional mushroom sprouts with the initial patch for each slot level above 4th."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "4th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "last-rites",
+      "name": "Last Rites",
+      "source": "GuideDrakkenheim",
+      "page": 190,
+      "srd": false,
+      "level": 4,
+      "school": "Abjuration",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (a small piece of brass, a rose petal, and a drop of holy water)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You target a creature you can see within range with a beam of holy light that shines down upon them. The target must make a Wisdom saving throw. The target takes {@damage 8d8} radiant damage on a failed save, or half as much damage on a successful one. This spell has no effect on celestials or constructs.",
+        "If you target an undead or fiend, it makes the saving throw with disadvantage, and the spell deals maximum damage to it.",
+        "If an undead or fiend is reduced to 0 hit points by this spell, it dies and its body is reduced to ash."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 5th level or higher, you may target an additional creature within 30 feet of each other for each spell level above 5th."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "subclasses": ["Apothecary: Exorcist"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "4th-level Abjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "poison-wave",
+      "name": "Poison Wave",
+      "source": "GuideDrakkenheim",
+      "page": 190,
+      "srd": false,
+      "level": 4,
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "30 feet (30-foot sphere)",
+      "components": "V, S, M (a withered root and a drop of vinegar)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "A wave of poisonous fumes emanates from you. Creatures within 30 feet of you must make a Constitution saving throw.",
+        "On a failed save, each creature takes {@damage 4d12} poison damage and is {@condition poisoned} until the end of your next turn. On a successful saving throw, a creature takes half as much damage and does not become {@condition poisoned}."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "If you cast this spell using a spell slot of 5th level or higher, the damage increases by {@dice 1d12} for each slot level above 4th."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "4th-level Conjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "vitriol-ichor",
+      "name": "Vitriol Ichor",
+      "source": "GuideDrakkenheim",
+      "page": 191,
+      "srd": false,
+      "level": 4,
+      "school": "Transmutation",
+      "castingTime": "1 action",
+      "range": "30 feet",
+      "components": "V, S, M (a vial of nitric acid and a flask of water)",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "Choose a creature within range that has natural armor or is wearing armor. You magically cause the creature's natural or manufactured armor to become corroded and brittle for the spell's duration. While its armor is corroded, the creature's AC becomes 10 + the creature's Dexterity modifier."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 5th level or higher, you may target one additional creature for each slot level above 4th."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "4th-level Transmutation",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "acid-rain",
+      "name": "Acid Rain",
+      "source": "GuideDrakkenheim",
+      "page": 191,
+      "srd": false,
+      "level": 5,
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "150 feet",
+      "components": "V, S, M (a pinch of sulfur and ground coal)",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "Until the spell ends, acid rain falls in a 40-foot-tall cylinder with a 40-foot radius centered on a point you choose within range. The area is lightly obscured, and exposed flames in the area are doused.",
+        "Chemical pools accumulate on the ground in the area, making it difficult terrain. When a creature enters the spell's area for the first time on a turn or starts its turn there, it takes {@damage 3d6} acid damage and must make a Dexterity saving throw. On a failed save, it falls {@condition prone} in the pools, taking an additional {@damage 3d6} acid damage."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 6th level or higher, the acid damage increases by {@dice 1d6} for each slot level above 5th."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "5th-level Conjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "nerve-gas",
+      "name": "Nerve Gas",
+      "source": "GuideDrakkenheim",
+      "page": 191,
+      "srd": false,
+      "level": 5,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (samples of phosphate and chlorine mixed with a drop of pure alcohol)",
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "You create a 10-foot-radius sphere of toxic fog centered on a point you choose within range. The fog spreads around corners.",
+        "It lasts for the duration or until strong wind disperses the fog, ending the spell. The fog's area is heavily obscured.",
+        "When a creature enters the spell's area for the first time on a turn or starts its turn there, that creature must make an Intelligence saving throw. On a failed saving throw, the creature takes {@damage 3d6} psychic damage and becomes {@condition stunned} until the start of its next turn. On a successful saving throw, the creature takes half as much damage and is not {@condition stunned}. Creatures are affected even if they hold their breath or don't need to breathe."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "If you cast this spell using a spell slot of 6th level or higher, the damage increases by {@damage 1d6} psychic damage for each slot level above 5th."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "subclasses": ["Apothecary: Reanimator"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "5th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "septic-shock",
+      "name": "Septic Shock",
+      "source": "GuideDrakkenheim",
+      "page": 192,
+      "srd": false,
+      "level": 5,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "150 feet",
+      "components": "V, S, M (a piece of a rotten liver)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "Choose a creature you can see within range that doesn't have all its hit points. You infect the target's wounds with putrefying bacteria. The target must make a Constitution saving throw.",
+        "If it has less than half its maximum hit points remaining, it makes the saving throw with disadvantage. On a failed save, the target takes {@damage 10d8} necrotic damage and gains 1 level of {@condition exhaustion}. On a successful save, it takes half as much damage and does not gain any {@condition exhaustion} levels."
+      ],
+      "classes": ["Apothecary"],
+      "subclasses": ["Apothecary: Mutagenist"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "5th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "toxic-barrage",
+      "name": "Toxic Barrage",
+      "source": "GuideDrakkenheim",
+      "page": 192,
+      "srd": false,
+      "level": 5,
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (Four death cap mushrooms)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You create four rays of pure poison and hurl them at targets within range. You can hurl them at one target or several.",
+        "Make a ranged spell attack for each ray. On a hit, the target takes {@damage 3d6} poison damage. If a target is hit by one or more of these rays, it must make a Constitution saving throw. On a failed save, the target is {@condition poisoned} for 1 minute. While {@condition poisoned} in this way, the target can repeat the saving throw at the end of each of its turns. On a success, it is no longer {@condition poisoned}."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 6th level or higher, you create one additional ray for each slot level above 5th"
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "5th-level Conjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "mephitic-vapors",
+      "name": "Mephitic Vapors",
+      "source": "GuideDrakkenheim",
+      "page": 192,
+      "srd": false,
+      "level": 6,
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (a vial of chlorine)",
+      "duration": "Concentration, up to 10 minutes",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "You douse a 20-foot radius area centered on a point you can see within range with acrid slime, which remains for the spell's duration. The area becomes difficult terrain, and any creature wholly within the area is {@condition blinded} and can't take reactions.",
+        "A creature who starts its turn in the area must succeed on a Constitution saving throw or take {@damage 2d8} poison damage and {@damage 2d8} acid damage and gain one level of {@condition exhaustion}."
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "If you cast this spell using a spell slot of 7th level or higher, the damage increases by {@damage 1d8} poison damage and {@damage 1d8} acid damage for each slot level above 6th."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "6th-level Conjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "vile-necrosis",
+      "name": "Vile Necrosis",
+      "source": "GuideDrakkenheim",
+      "page": 192,
+      "srd": false,
+      "level": 6,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (a vial of coagulated blood)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You point your finger towards a creature within range, projecting a pale green beam of debilitating energy at them.",
+        "Make a ranged spell attack against the target. On a hit, the target takes {@damage 12d6} necrotic damage, and it becomes weakened.",
+        "While weakened by this spell, a target deals half damage with weapon attacks and spells.",
+        "A weakened target can make a Constitution saving throw at the end of each of its turns. On a successful save, the weakness ends."
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "6th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "grievous-wounds",
+      "name": "Grievous Wounds",
+      "source": "GuideDrakkenheim",
+      "page": 193,
+      "srd": false,
+      "level": 7,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (a needle and several stitches)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "Choose a creature you can see within range. You momentarily strip the target's physiology of all resilience, enough that a mere scratch can become a terrible injury. Until the end of your next turn, the target loses any damage resistances or immunities, becomes vulnerable to all damage, and makes all its saving throws with disadvantage."
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "7th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "miasma",
+      "name": "Miasma",
+      "source": "GuideDrakkenheim",
+      "page": 193,
+      "srd": false,
+      "level": 7,
+      "school": "Evocation",
+      "castingTime": "1 action",
+      "range": "120 feet",
+      "components": "V, S, M (a freshly harvested corpse lily)",
+      "duration": "Concentration, up to 1 minute",
+      "concentration": true,
+      "ritual": false,
+      "entries": [
+        "You create a wall of sickly, yellowish green, toxic fumes on a solid surface within range. You can make the wall up to 60 feet long, 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall is opaque and lasts for the duration.",
+        "When the wall appears, each creature within its area must make a Dexterity saving throw. On a failed save, a creature takes {@damage 10d4} acid damage, or half as much damage on a successful save.",
+        "One side of the wall, selected by you when you cast this spell, emits toxic fumes. It deals {@damage 8d8} poison damage to each creature that ends its turn within 30 feet of that side or inside the wall. A creature takes the same damage when it enters the wall for the first time on a turn. The other side of the wall deals no damage.",
+        "A creature who takes poison damage from the wall must make a Constitution saving throw or become {@condition poisoned} for the duration of the spell"
+      ],
+      "entriesHigherLevel": [
+        {
+          "type": "entries",
+          "name": "At Higher Levels",
+          "entries": [
+            "When you cast this spell using a spell slot of 8th level or higher, the damage increases by {@dice 2d8} for each slot level above 7th."
+          ]
+        }
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "7th-level Evocation",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "pandemic",
+      "name": "Pandemic",
+      "source": "GuideDrakkenheim",
+      "page": 193,
+      "srd": false,
+      "level": 9,
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet",
+      "components": "V, S, M (the fetid corpse of a plague rat)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You infect one creature you can see within range with a deadly and highly infectious disease which lasts until it is cured by greater restoration, heal or wish. Other spells and magical effects which remove diseases fail to cure the infection caused by this spell.",
+        "While infected, a creature must make a Constitution saving throw at the start of each of its turns. On a failed saving throw, it takes {@damage 10d8} necrotic damage and becomes {@condition incapacitated} until the start of its next turn. On a successful save, it takes half as much damage and is not {@condition incapacitated}. An infected creature must make the saving throw at the start of each of its turns until it dies or is cured.",
+        "A creature who starts its turn within 10 feet of a creature infected by this spell must make a Constitution saving throw.",
+        "On a failed saving throw, that creature contracts the infection.",
+        "When you cast the spell, you can choose yourself and up to eight other creatures to be unaffected by the infection caused by this casting of the spell."
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "9th-level Conjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "touch-of-death",
+      "name": "Touch of Death",
+      "source": "GuideDrakkenheim",
+      "page": 193,
+      "srd": false,
+      "level": 9,
+      "school": "Necromancy",
+      "castingTime": "1 action",
+      "range": "Touch",
+      "components": "V, S, M (the finger of a hag)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "Make a melee spell attack against a target within 5 feet of you.",
+        "On a hit, the target takes 200 poison damage. This damage ignores any resistance or immunity the creature has to poison damage, and can't be reduced or prevented in any way.",
+        "The potent poison lingers in the targets body and pulls it towards death. A target reduced to zero hit points by this poison damage automatically fails death saving throws until it finishes a long rest. A heal or greater restoration spell cast on the target also ends this effect."
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "9th-level Necromancy",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "breath-of-nightshade",
+      "name": "Breath of Nightshade",
+      "source": "GuideDrakkenheim",
+      "page": 193,
+      "srd": false,
+      "level": 8,
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "60 feet (60-foot cone)",
+      "components": "V, S, M (A pair of deadly nightshade flowers)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You exhale a 60-foot-cone of lethal poison. Each creature in the area when you cast the spell must make a Constitution saving throw. On a failed save, the creature becomes {@condition poisoned} for 1 hour. While {@condition poisoned} by this spell, the creature is {@condition paralyzed}.",
+        "The spell ends for an affected creature if it takes any damage."
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "8th-level Conjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "plague-wind",
+      "name": "Plague Wind",
+      "source": "GuideDrakkenheim",
+      "page": 193,
+      "srd": false,
+      "level": 8,
+      "school": "Conjuration",
+      "castingTime": "1 action",
+      "range": "120 feet (120-foot cone)",
+      "components": "V, S, M (mucus from a ghoul)",
+      "duration": "Instantaneous",
+      "concentration": false,
+      "ritual": false,
+      "entries": [
+        "You summon a roiling wind of flesh devouring disease and excruciating blood boiling fumes that sweeps over the area emanating from you in a 120-foot cone. Creatures in the area must make a Constitution saving throw. On a failed saving throw a creature takes {@damage 5d8} poison damage and {@damage 5d8} necrotic damage or half as much damage on a success. After taking this damage, any affected creature with 25 hit points or fewer remaining immediately dies and is reduced to a weathered skeleton as their flesh and soft tissue blows off like ash"
+      ],
+      "classes": ["Apothecary"],
+      "_fumble": true,
+      "category": "spells",
+      "subtitle": "8th-level Conjuration",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
     }
   ]
 }

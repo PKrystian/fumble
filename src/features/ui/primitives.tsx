@@ -84,7 +84,7 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
       <label
         className={classes(
           'flex min-h-10 w-full items-center gap-2 rounded-lg border border-ink-700 bg-ink-950 px-3',
-          'text-ink-500 transition-colors hover:border-ink-600 focus-within:border-arcane-500',
+          'text-ink-500 transition-colors hover:border-ink-600 focus-within:border-arcane-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-arcane-400 focus-within:ring-offset-2 focus-within:ring-offset-ink-950',
           className,
         )}
       >
@@ -94,7 +94,7 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
           ref={ref}
           type="search"
           value={value}
-          className="min-w-0 flex-1 bg-transparent py-2 text-sm text-ink-50 outline-none placeholder:text-ink-500"
+          className="min-w-0 flex-1 bg-transparent py-2 text-sm text-ink-50 outline-none placeholder:text-ink-500 focus:outline-none focus-visible:outline-none"
           {...props}
         />
         {hasValue && onClear ? (

@@ -70,12 +70,14 @@ function FacetSection({
       )
     : values;
   if (visible.length === 0) return null;
-  const selectedFirst = [
-    ...visible.filter((value) => selected.includes(value)),
-    ...visible.filter((value) => !selected.includes(value)),
-  ];
-  const shown = term || expanded ? visible : selectedFirst.slice(0, 16);
-  const hasMore = !term && visible.length > 16;
+  const shown =
+    term || expanded
+      ? visible
+      : [
+          ...visible.slice(0, 16),
+          ...visible.slice(16).filter((value) => selected.includes(value)),
+        ];
+  const hasMore = !term && (expanded || shown.length < visible.length);
 
   return (
     <div className="flex flex-col gap-1">
