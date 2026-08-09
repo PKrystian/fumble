@@ -2,6 +2,7 @@ import type { Locale } from '@/i18n/locales';
 
 export type ClassId =
   | 'artificer'
+  | 'apothecary'
   | 'barbarian'
   | 'bard'
   | 'cleric'
@@ -12,6 +13,7 @@ export type ClassId =
   | 'ranger'
   | 'rogue'
   | 'sorcerer'
+  | 'talent'
   | 'warlock'
   | 'wizard'
   | 'witch';
@@ -32,6 +34,7 @@ export const CLASS_ALIASES: Record<ClassId, readonly string[]> = {
     'twórcę',
     'twórcą',
   ],
+  apothecary: ['Apothecary', 'Aptekarz', 'aptekarza', 'aptekarzem'],
   barbarian: [
     'Barbarian',
     'barbarian',
@@ -85,6 +88,7 @@ export const CLASS_ALIASES: Record<ClassId, readonly string[]> = {
     'łotrzykiem',
   ],
   sorcerer: ['Sorcerer', 'sorcerera', 'Zaklinacz', 'zaklinacza', 'zaklinaczem'],
+  talent: ['Talent', 'talentu', 'talentem'],
   warlock: [
     'Warlock',
     'warlocka',
@@ -101,6 +105,7 @@ export const CLASS_ALIASES: Record<ClassId, readonly string[]> = {
 
 const CLASS_FILTER_NAMES: Record<ClassId, string> = {
   artificer: 'Artificer',
+  apothecary: 'Apothecary',
   barbarian: 'Barbarian',
   bard: 'Bard',
   cleric: 'Cleric',
@@ -111,6 +116,7 @@ const CLASS_FILTER_NAMES: Record<ClassId, string> = {
   ranger: 'Ranger',
   rogue: 'Rogue',
   sorcerer: 'Sorcerer',
+  talent: 'Talent',
   warlock: 'Warlock',
   wizard: 'Wizard',
   witch: 'Witch',
@@ -118,6 +124,7 @@ const CLASS_FILTER_NAMES: Record<ClassId, string> = {
 
 const CLASS_FILTER_LABELS: Record<ClassId, Record<Locale, string>> = {
   artificer: { en: 'Artificer', pl: 'Rzemieślnik' },
+  apothecary: { en: 'Apothecary', pl: 'Aptekarz' },
   barbarian: { en: 'Barbarian', pl: 'Barbarzyńca' },
   bard: { en: 'Bard', pl: 'Bard' },
   cleric: { en: 'Cleric', pl: 'Kleryk' },
@@ -128,6 +135,7 @@ const CLASS_FILTER_LABELS: Record<ClassId, Record<Locale, string>> = {
   ranger: { en: 'Ranger', pl: 'Leśniczy' },
   rogue: { en: 'Rogue', pl: 'Łotr' },
   sorcerer: { en: 'Sorcerer', pl: 'Zaklinacz' },
+  talent: { en: 'Talent', pl: 'Talent' },
   warlock: { en: 'Warlock', pl: 'Czarnoksiężnik' },
   wizard: { en: 'Wizard', pl: 'Czarodziej' },
   witch: { en: 'Witch', pl: 'Wiedźma' },

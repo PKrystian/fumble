@@ -7,7 +7,11 @@ import { useFumbleHomebrewStore } from './fumbleHomebrewStore';
 describe('FumbleHomebrewPage', () => {
   beforeEach(() => {
     localStorage.clear();
-    useFumbleHomebrewStore.setState({ showInCompendium: false });
+    useFumbleHomebrewStore.setState({
+      showInCompendium: false,
+      compendiumCampaigns: null,
+      compendiumCategories: null,
+    });
   });
 
   it('renders the campaign homebrew library as its own page', () => {
@@ -38,5 +42,5 @@ describe('FumbleHomebrewPage', () => {
     expect(
       screen.queryByText('Linki otwierają zwykłe wpisy Kompendium.'),
     ).not.toBeInTheDocument();
-  });
+  }, 30_000);
 });

@@ -1,12 +1,13 @@
-import { useMemo } from 'react';
-import { Search } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { Search, SlidersHorizontal } from 'lucide-react';
 import { categories } from '@/features/compendium/categories';
 import { normalizeSearchText } from '@/data/compendium/searchText';
 import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 import { Link, useLocale } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
-import { ToggleChip } from '@/features/ui/primitives';
+import { Button, ToggleChip } from '@/features/ui/primitives';
 import { FumbleBadge } from './FumbleBadge';
+import { FumbleVisibilityModal } from './FumbleVisibilityModal';
 import {
   FUMBLE_CAMPAIGNS,
   fumbleHomebrewItems,
@@ -28,6 +29,7 @@ export function FumbleLibrary({ page = false }: { page?: boolean }) {
   const { t } = useT();
   const locale = useLocale();
   const { params, update } = useUrlSearchState();
+  const [visibilityOpen, setVisibilityOpen] = useState(false);
   const showInCompendium = useFumbleHomebrewStore((s) => s.showInCompendium);
   const setShowInCompendium = useFumbleHomebrewStore((s) => s.setShowInCompendium);
   const items = useMemo(
@@ -68,17 +70,21 @@ export function FumbleLibrary({ page = false }: { page?: boolean }) {
             <FumbleBadge compact />
           </div>
         </div>
-        <label className="flex max-w-sm items-start gap-2 rounded-lg border border-ink-700 bg-ink-950 px-3 py-2 text-sm text-ink-200">
-          <input
-            type="checkbox"
-            checked={showInCompendium}
-            onChange={(event) => setShowInCompendium(event.target.checked)}
-            className="mt-0.5 accent-arcane-500"
-          />
-          <span className="block font-medium text-ink-50">
-            {t('homebrew.showFumbleInCompendium')}
-          </span>
-        </label>
+        <div className="flex flex-wrap items-start justify-end gap-2">
+          <label className="flex min-h-10 max-w-sm items-center gap-2 rounded-lg border border-ink-700 bg-ink-900 px-3.5 py-2 text-sm font-medium text-ink-200 transition-colors hover:border-ink-600 hover:bg-ink-800 hover:text-ink-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-arcane-400 focus-within:ring-offset-2 focus-within:ring-offset-ink-950">
+            <input
+              type="checkbox"
+              checked={showInCompendium}
+              onChange={(event) => setShowInCompendium(event.target.checked)}
+              className="accent-arcane-500"
+            />
+            <span className="block">{t('homebrew.showFumbleInCompendium')}</span>
+          </label>
+          <Button variant="secondary" size="md" onClick={() => setVisibilityOpen(true)}>
+            <SlidersHorizontal size={16} aria-hidden="true" />
+            {t('homebrew.editFumbleVisibility')}
+          </Button>
+        </div>
       </header>
 
       <div className="flex flex-col gap-3">
@@ -184,6 +190,10 @@ export function FumbleLibrary({ page = false }: { page?: boolean }) {
             </li>
           ))}
         </ul>
+      )}
+
+      {visibilityOpen && (
+        <FumbleVisibilityModal items={items} onClose={() => setVisibilityOpen(false)} />
       )}
     </section>
   );

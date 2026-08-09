@@ -167,6 +167,32 @@ describe('FilterBar', () => {
     expect(screen.getByRole('button', { name: 'Reset filters' })).toBeDisabled();
   });
 
+  it('keeps filter options in place when a value becomes selected', () => {
+    const initial = setup();
+    fireEvent.click(screen.getByRole('button', { name: /^Filters/ }));
+
+    const optionLabels = () =>
+      within(screen.getByRole('dialog', { name: 'Filters' }))
+        .getAllByRole('button')
+        .map((button) => button.textContent ?? '')
+        .filter((label) => /^Size \d+$/.test(label));
+
+    expect(optionLabels().slice(0, 4)).toEqual(['Size 1', 'Size 2', 'Size 3', 'Size 4']);
+
+    initial.rerender(
+      <MemoryRouter>
+        <FilterBar {...initial.props} selected={{ size: ['Size 3'] }} />
+      </MemoryRouter>,
+    );
+
+    expect(optionLabels().slice(0, 4)).toEqual(['Size 1', 'Size 2', 'Size 3', 'Size 4']);
+    expect(
+      within(screen.getByRole('dialog', { name: 'Filters' })).getByRole('button', {
+        name: 'Size 3',
+      }),
+    ).toHaveAttribute('aria-pressed', 'true');
+  });
+
   it('handles missing and single source groups', () => {
     const missing = setup({}, [sizeFilter]);
     fireEvent.click(screen.getByRole('button', { name: 'Filters' }));

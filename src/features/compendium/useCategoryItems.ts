@@ -14,11 +14,16 @@ import {
   fumbleHomebrewItems,
   fumbleParentClassId,
   fumbleSubclass,
+  isFumbleHomebrew,
   isFumbleAlwaysVisible,
 } from '@/features/homebrew/fumbleHomebrew';
-import { useFumbleHomebrewStore } from '@/features/homebrew/fumbleHomebrewStore';
+import {
+  fumbleItemMatchesVisibility,
+  useFumbleHomebrewStore,
+} from '@/features/homebrew/fumbleHomebrewStore';
 import { useLocale } from '@/i18n/path';
 import type { CompendiumCategory } from './categories';
+import { canonicalClassFilterValue } from './classNames';
 
 interface CategoryItemsState {
   status: 'loading' | 'ready' | 'error';
@@ -38,6 +43,8 @@ export function useCategoryItems(
   });
   const homebrew = useHomebrewStore((s) => s.entries);
   const showFumbleHomebrew = useFumbleHomebrewStore((s) => s.showInCompendium);
+  const compendiumCampaigns = useFumbleHomebrewStore((s) => s.compendiumCampaigns);
+  const compendiumCategories = useFumbleHomebrewStore((s) => s.compendiumCategories);
   const selectedFumbleSubclassKey = Array.isArray(selectedFumbleSubclassId)
     ? selectedFumbleSubclassId.join('\u0000')
     : (selectedFumbleSubclassId ?? '');
@@ -76,28 +83,77 @@ export function useCategoryItems(
     const fumbleCatalog = allFumbleCatalog.filter(
       (item) => item.category === category.id,
     );
-    const witchSpellIds = new Set(
-      allFumbleCatalog.find((item) => item.id === 'witch')?.spellList ?? [],
-    );
-    const witchClass = locale === 'pl' ? 'Wiedźma' : 'Witch';
+    const fumbleSpellClasses = new Map<string, string[]>();
+    const localizedFumbleClasses = new Map<string, string>();
+    for (const classItem of allFumbleCatalog) {
+      if (classItem.category !== 'classes' || classItem.isSubclass) continue;
+      const englishName = classItem.englishName ?? classItem.name;
+      const canonical = canonicalClassFilterValue(englishName);
+      localizedFumbleClasses.set(
+        canonical,
+        locale === 'pl' ? classItem.name : englishName,
+      );
+      for (const spellId of classItem.spellList ?? []) {
+        const names = fumbleSpellClasses.get(spellId) ?? [];
+        names.push(locale === 'pl' ? classItem.name : englishName);
+        fumbleSpellClasses.set(spellId, names);
+      }
+    }
+    const augmentFumbleSpell = (item: CompendiumEntryBase): CompendiumEntryBase => {
+      const spell = item as SpellEntry;
+      const classNames = [
+        ...(spell.classes ?? []),
+        ...(fumbleSpellClasses.get(item.id) ?? []),
+      ];
+      const seenClasses = new Set<string>();
+      const classes = classNames.flatMap((value) => {
+        const localized =
+          localizedFumbleClasses.get(canonicalClassFilterValue(value)) ?? value;
+        const canonical = canonicalClassFilterValue(localized);
+        if (seenClasses.has(canonical)) return [];
+        seenClasses.add(canonical);
+        return [localized];
+      });
+      return classes.length === (spell.classes ?? []).length &&
+        classes.every((value, index) => value === spell.classes?.[index])
+        ? item
+        : ({ ...item, classes } as SpellEntry);
+    };
     const selectedFumbleSubclass = fumbleCatalog.find(
       (item) => item.id === selectedId && item.isSubclass,
     );
+    const selectedFumbleItem = fumbleCatalog.find(
+      (item) => item.id === selectedId && !item.isSubclass,
+    );
+    const fumbleVisibility = {
+      campaigns: compendiumCampaigns,
+      categories: compendiumCategories,
+    };
     const fumble = includeFumble
       ? fumbleCatalog
           .filter((item) => !item.isSubclass)
+          .filter(
+            (item) =>
+              !showFumbleHomebrew ||
+              !isFumbleHomebrew(item) ||
+              fumbleItemMatchesVisibility(item, fumbleVisibility) ||
+              item.id === selectedId,
+          )
           .map((item) => {
-            if (category.id !== 'spells' || witchClass === 'Witch') return item;
-            const spell = item as unknown as SpellEntry;
-            if (!spell.classes?.includes('Witch')) return item;
-            return {
-              ...item,
-              classes: spell.classes.map((value) =>
-                value === 'Witch' ? witchClass : value,
-              ),
-            };
+            return category.id === 'spells' ? augmentFumbleSpell(item) : item;
           })
       : [];
+    if (
+      selectedFumbleItem &&
+      includeFumble &&
+      !fumble.some((item) => item.id === selectedFumbleItem.id)
+    ) {
+      fumble.push(
+        category.id === 'spells'
+          ? augmentFumbleSpell(selectedFumbleItem)
+          : selectedFumbleItem,
+      );
+    }
     if (selectedFumbleSubclass && includeFumble) fumble.push(selectedFumbleSubclass);
     const hasAlwaysVisibleSubclass = fumbleCatalog.some(
       (item) => item.isSubclass && isFumbleAlwaysVisible(item),
@@ -114,20 +170,20 @@ export function useCategoryItems(
         const subclass = fumbleSubclass(item);
         if (!parentClassId || !subclass) continue;
         if (
-          !showFumbleHomebrew &&
-          !isFumbleAlwaysVisible(item) &&
-          !selectedFumbleSubclassIds.includes(item.id)
+          (!showFumbleHomebrew &&
+            !isFumbleAlwaysVisible(item) &&
+            !selectedFumbleSubclassIds.includes(item.id)) ||
+          (showFumbleHomebrew &&
+            isFumbleHomebrew(item) &&
+            !fumbleItemMatchesVisibility(item, fumbleVisibility) &&
+            !selectedFumbleSubclassIds.includes(item.id))
         )
           continue;
         subclassByClass.set(`${parentClassId}|${item.id}`, subclass);
       }
     }
     const mergedState = state.items.map((item) => {
-      if (category.id === 'spells' && witchSpellIds.has(item.id)) {
-        const spell = item as SpellEntry;
-        if (spell.classes?.includes(witchClass)) return item;
-        return { ...spell, classes: [...(spell.classes ?? []), witchClass] };
-      }
+      if (category.id === 'spells') return augmentFumbleSpell(item);
       if (category.id !== 'classes' || subclassByClass.size === 0) return item;
       const cls = item as ClassEntry;
       const customSubclasses = [...subclassByClass.entries()]
@@ -154,9 +210,14 @@ export function useCategoryItems(
     });
     if (hb.length === 0 && fumble.length === 0 && mergedState === state.items)
       return state.items;
-    return [...hb, ...fumble, ...mergedState].sort((a, b) =>
-      a.name.localeCompare(b.name, locale),
-    );
+    const seenIds = new Set<string>();
+    return [...hb, ...fumble, ...mergedState]
+      .filter((item) => {
+        if (seenIds.has(item.id)) return false;
+        seenIds.add(item.id);
+        return true;
+      })
+      .sort((a, b) => a.name.localeCompare(b.name, locale));
   }, [
     state.items,
     homebrew,
@@ -166,6 +227,8 @@ export function useCategoryItems(
     selectedId,
     selectedFumbleSubclassIds,
     showFumbleHomebrew,
+    compendiumCampaigns,
+    compendiumCategories,
   ]);
 
   return { status: state.status, items };

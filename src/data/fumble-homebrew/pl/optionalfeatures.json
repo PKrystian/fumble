@@ -1,1 +1,450 @@
-{}
+{
+  "destructive-power": {
+    "name": "Niszczycielska moc",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Kiedy rzucasz obrażeniami dla mocy, możesz zyskać odkształcenie równe połowie kolejności mocy (minimum 1 odkształcenie), aby połowa rzuconych kości obrażeń zadała maksymalną wartość kości, a nie wyrzuconą liczbę."
+    ]
+  },
+  "dynamic-power": {
+    "name": "Moc dynamiczna",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Kiedy średnie lub mniejsze stworzenie zostanie trafione rzutem ataku dla manifestowanej przez ciebie mocy lub nie powiedzie się rzut obronny przeciwko manifestowanej przez ciebie mocy, możesz zyskać 2 obciążenie, aby przesunąć cel na odległość do 5 stóp w dowolnym kierunku lub powalić go {@condition prone}. Dzięki tej opcji Wysiłku Psionicznego możesz zyskać 3 Wysiłek, aby wpłynąć na Duże stworzenie, lub 4 Wysiłek, aby wpłynąć na Ogromne stworzenie."
+    ]
+  },
+  "expanded-power": {
+    "name": "Rozszerzona moc",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Po wykonaniu testu manifestacji dla {@action Manifest a Power|TalPsi|manifest a power}, który tworzy obszar efektu, możesz uzyskać obciążenie równe rozkazowi mocy, aby podwoić wszystkie wymiary obszaru efektu."
+    ]
+  },
+  "fascinating-power": {
+    "name": "Fascynująca moc",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Kiedy stworzeniu nie powiedzie się rzut obronny przeciwko mocy, którą manifestujesz, możesz aktywować tę opcję Wysiłku Psionicznego. Jeśli stwór ma poziom wyzwania równy lub niższy od twojego poziomu talentu (lub jeśli jego poziom jest równy lub niższy od twojego poziomu talentu, w przypadku stworzeń, które nie mają poziomu wyzwania), zyskujesz 2 szczepy, a celem jest dla ciebie {@condition charmed} przez 1 minutę lub do czasu, gdy ty lub twoi towarzysze zrobicie mu coś szkodliwego. Jeśli stwór ma poziom wyzwania lub poziom wyższy niż twój poziom talentu, nie zyskujesz żadnego wysiłku, a cel pozostaje nienaruszony.",
+      "Stworzenie {@condition charmed} jest w ten sposób dla Ciebie przyjazne. Kiedy stan celu zakończy się, będą wiedzieć, że został on przez Ciebie {@condition charmed}."
+    ]
+  },
+  "halting-power": {
+    "name": "Zatrzymywanie mocy",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Kiedy średniemu lub mniejszemu stworzeniu nie powiedzie się rzut obronny na moc, którą manifestujesz, możesz zyskać 2 odkształcenia, aby cel stał się {@condition restrained} do początku twojej następnej tury. Dzięki tej opcji Wysiłku Psionicznego możesz zyskać 4 Wysiłek, aby wpłynąć na Duże stworzenie."
+    ]
+  },
+  "magnified-power": {
+    "name": "Zwiększona moc",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Po wykonaniu testu manifestacji dla {@action Manifest a Power|TalPsi|manifest a power}, który trwa 1 minutę lub dłużej, możesz zyskać 1 szczep, aby podwoić jego czas trwania, maksymalnie do 24 godzin.",
+      "Alternatywnie, po wykonaniu testu manifestacji na {@action Manifest a Power|TalPsi|manifest a power} o zasięgu 5 stóp lub większym, możesz zyskać 1 szczep, aby podwoić zakres mocy. Po wykonaniu testu manifestacji dla {@action Manifest a Power|TalPsi|manifest a power}, który ma zasięg dotyku, możesz zyskać 1 obciążenie, aby zasięg mocy wynosił 30 stóp."
+    ]
+  },
+  "overwhelming-power": {
+    "name": "Przytłaczająca moc",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Kiedy stworzeniu powiedzie się rzut obronny przeciwko mocy, którą manifestujesz, możesz zyskać napięcie równe rozkazowi tej mocy, aby zmusić stworzenie do ponownego rzutu obronnego z karą równą twojej premii do biegłości. Stworzenie musi skorzystać z nowego rzutu."
+    ]
+  },
+  "shared-power": {
+    "name": "Wspólna władza",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Po wykonaniu testu manifestacji na {@action Manifest a Power|TalPsi|manifest a power}, który może obrać za cel tylko jedno stworzenie i nie tworzy obszaru działania, możesz zyskać napięcie równe rozkazowi mocy, aby obrać za cel drugie stworzenie w zasięgu z tą samą mocą."
+    ]
+  },
+  "terrifying-power": {
+    "name": "Przerażająca moc",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Kiedy stworzeniu nie powiedzie się rzut obronny przeciwko mocy, którą manifestujesz, możesz aktywować tę opcję Wysiłku Psionicznego. Jeśli stwór ma poziom wyzwania równy lub niższy od twojego poziomu talentu (lub jeśli jego poziom jest równy lub niższy od twojego poziomu talentu, w przypadku stworzeń, które nie mają poziomu wyzwania), zyskujesz 3 szczepy, a celem jest dla ciebie {@condition frightened} na 1 minutę. Jeśli stwór ma poziom wyzwania lub poziom wyższy niż twój poziom talentu, nie zyskujesz żadnego wysiłku, a cel pozostaje nienaruszony.",
+      "Ilekroć przestraszona w ten sposób istota otrzyma obrażenia, wykonuje rzut obronny na Mądrość przeciwko ST obronności twojego talentu, kończąc nałożony na nią warunek sukcesem."
+    ]
+  },
+  "acquired-tolerance": {
+    "name": "Nabyta tolerancja",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Masz przewagę w rzutach obronnych przeciwko truciźnie i zyskujesz odporność na obrażenia od trucizny. Ponadto automatycznie odnosisz sukces w rzutach obronnych przeciwko własnym zaklęciom aptekarskim i nigdy nie otrzymujesz obrażeń od własnych zaklęć aptekarskich."
+    ]
+  },
+  "adrenaline-surge": {
+    "name": "Przypływ adrenaliny",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 6+",
+    "entries": [
+      "Istota mająca 0 punktów wytrzymałości, która odzyskuje punkty wytrzymałości po zaklęciu rzuconym przy użyciu miejsca na zaklęcie aptekarza, zyskuje odporność na wszelkie obrażenia i ma przewagę w rzutach obronnych do końca swojej następnej tury. Zyskuje przewagę po pierwszym rzucie ataku, jaki wykona w swojej następnej turze."
+    ]
+  },
+  "anatomical-precision": {
+    "name": "Anatomiczna precyzja",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Kiedy wykonujesz atak bronią, możesz użyć swojego modyfikatora Inteligencji zamiast Siły lub Zręczności do testów ataku i obrażeń."
+    ]
+  },
+  "anesthesiology": {
+    "name": "Anestezjologia",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 14+",
+    "entries": [
+      "Możesz rzucić {@spell hold person} bez wydawania miejsca na zaklęcie i bez konieczności posiadania komponentów materialnych. Musisz zakończyć długi odpoczynek, zanim będziesz mógł ponownie użyć tej teorii na tym samym stworzeniu."
+    ]
+  },
+  "bedside-manner": {
+    "name": "Sposób przyłóżkowy",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Zyskujesz biegłość w umiejętnościach {@skill Insight} i {@skill Persuasion}. Twoja premia za biegłość jest podwajana za każdy test umiejętności, który wykonujesz, wykorzystując którąkolwiek z tych umiejętności."
+    ]
+  },
+  "caustic-formulae": {
+    "name": "Formuły żrące",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 6+",
+    "entries": [
+      "Raz na turę, gdy zadajesz obrażenia stworzeniu lub obiektowi zaklęciem aptekarskim, możesz wydać miejsce na zaklęcie aptekarskie, aby zadać temu celowi dodatkowe obrażenia od kwasu {@dice 2d4} plus kolejne {@dice 2d4} na poziom miejsca na zaklęcie."
+    ]
+  },
+  "clinical-conditioning": {
+    "name": "Kondycjonowanie kliniczne",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 6+",
+    "entries": ["Zyskujesz biegłość w rzutach obronnych na Kondycję."]
+  },
+  "combat-medic": {
+    "name": "Medyk bojowy",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": ["Zyskujesz biegłość w posługiwaniu się bronią bojową i tarczami."]
+  },
+  "corrosive-compound": {
+    "name": "Związek żrący",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 6+",
+    "entries": [
+      "Kiedy zadajesz obrażenia od trucizny zaklęciami aptekarskimi, możesz zamiast tego zadać połowę obrażeń zaklęcia jako obrażenia od trucizny, a połowę obrażeń zaklęcia jako obrażenia od kwasu."
+    ]
+  },
+  "cosmetic-surgery": {
+    "name": "Chirurgia kosmetyczna",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Możesz spędzić 8 godzin na wykonywaniu okultystycznego zabiegu chirurgicznego na ochotniczej istocie, trwale zmieniając jej wygląd. Ty decydujesz, jak wygląda stworzenie, w tym rysy twarzy, dźwięk jego głosu, długość włosów, ubarwienie i cechy wyróżniające, ale żadne statystyki gry się nie zmieniają. Nie możesz zmienić rozmiaru stworzenia, a jego podstawowy kształt pozostaje taki sam. Powstała w ten sposób transformacja nie jest magiczna, jednakże zaklęcie {@spell greater restoration} lub podobna magia rzucona na stworzenie może przywrócić mu jego pierwotny wygląd."
+    ]
+  },
+  "critical-condition": {
+    "name": "Stan krytyczny",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 6+",
+    "entries": [
+      "Kiedy istota wyrzuci naturalną 1 w rzucie obronnym wykonanym przeciwko jednemu z twoich {@filter apothecary spells that deals damage|spells|source=|class=apothecary (scgtd)|damage type=acid;bludgeoning;cold;fire;force;lightning;necrotic;piercing;poison;psychic;radiant;slashing;thunder|saving throw=strength;dexterity;constitution;intelligence;wisdom;charisma}, rzuć dwukrotnie wszystkimi kośćmi obrażeń czaru i dodaj je do siebie. Następnie dodaj odpowiednie modyfikatory w normalny sposób, aby określić obrażenia, jakie otrzyma stworzenie od zaklęcia."
+    ]
+  },
+  "diagnosis": {
+    "name": "Diagnoza",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Możesz wykonać akcję {@action Help} jako akcję dodatkową w swojej turze."
+    ]
+  },
+  "doctor-s-note": {
+    "name": "Notatka lekarza",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 6+",
+    "entries": [
+      "Możesz rzucić zaklęcie {@spell sending} według własnego uznania. Musisz zakończyć długi odpoczynek, zanim będziesz mógł skorzystać z tej teorii, aby ponownie skontaktować się z tym samym stworzeniem."
+    ]
+  },
+  "double-dose": {
+    "name": "Podwójna dawka",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 10+",
+    "entries": [
+      "Kiedy rzucisz na to stworzenie zaklęcie aptekarskie za pomocą {@filter apothecary spell slot that targets a single creature and restores hit points|spells|source=|class=apothecary (scgtd)|components & miscellaneous=hl;!reprinted|area style=st}, możesz obrać za cel dodatkowe stworzenie w zasięgu."
+    ]
+  },
+  "extracurricular-research": {
+    "name": "Badania pozalekcyjne",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Uczysz się dwóch dodatkowych sztuczek wybranych z listy zaklęć dowolnej klasy. Te sztuczki staną się dla ciebie aptecznymi sztuczkami."
+    ]
+  },
+  "inoculation": {
+    "name": "Szczepienie ochronne",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Masz odporność na obrażenia nekrotyczne, a maksymalna liczba punktów wytrzymałości nie może zostać zmniejszona. Ponadto jesteś odporny na choroby."
+    ]
+  },
+  "interdisciplinary-practice": {
+    "name": "Praktyka interdyscyplinarna",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 14+",
+    "entries": [
+      "Kiedy używasz swojej akcji do rzucenia zaklęcia, możesz wykonać jeden atak bronią jako akcję dodatkową."
+    ]
+  },
+  "laboratory-assistant": {
+    "name": "Asystent laboratoryjny",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Uczysz się zaklęcia {@spell find familiar} i zawsze miej je przygotowane. Nie wlicza się to do liczby zaklęć aptekarskich, które możesz przygotować."
+    ]
+  },
+  "liability-insurance": {
+    "name": "Ubezpieczenie odpowiedzialności cywilnej",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 14+",
+    "entries": [
+      "Możesz rzucić na siebie {@spell contingency} raz, bez komponentów materialnych. Nie możesz tego zrobić ponownie, dopóki nie zakończysz długiego odpoczynku."
+    ]
+  },
+  "medical-expertise": {
+    "name": "Wiedza medyczna",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Zyskujesz biegłość w umiejętnościach {@skill Medicine} i {@skill Nature}. Twoja premia za biegłość jest podwajana za każdy test umiejętności, który wykonujesz, wykorzystując którąkolwiek z tych umiejętności."
+    ]
+  },
+  "medical-lexicon": {
+    "name": "Leksykon medyczny",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Uczysz się sześciu wybranych przez siebie języków. Możesz dowolnie rzucać {@spell detect poison and disease}."
+    ]
+  },
+  "nerve-agent": {
+    "name": "Agent nerwowy",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 14+",
+    "entries": [
+      "Kiedy zadajesz obrażenia od trucizny zaklęciami aptekarskimi, możesz zamiast tego zadać obrażenia psychiczne."
+    ]
+  },
+  "noxious-blood": {
+    "name": "Szkodliwa Krew",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 6+",
+    "entries": [
+      "Kiedy stwór uderza cię atakiem wręcz, będąc w promieniu 5 stóp od ciebie, otrzymuje obrażenia od trucizny równe {@dice 1d6} + twój modyfikator Kondycji."
+    ]
+  },
+  "pharmacology": {
+    "name": "Farmakologia",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Kiedy rzucisz zaklęcie, korzystając z miejsca na zaklęcie aptekarza lub funkcji Większej Formuły, która przywraca stworzeniu punkty wytrzymałości, stworzenie odzyskuje dodatkowe punkty wytrzymałości równe twojemu modyfikatorowi Inteligencji."
+    ]
+  },
+  "physiological-analysis": {
+    "name": "Analiza fizjologiczna",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Jeśli poświęcisz przynajmniej 1 minutę na obserwację lub interakcję z innym stworzeniem poza walką, możesz dowiedzieć się pewnych informacji na temat jego fizjologii. Mistrz Gry odkrywa przed tobą dwie z następujących cech, które wybierasz:",
+      {
+        "type": "list",
+        "items": [
+          "Dowolny wynik umiejętności",
+          "Klasa zbroi",
+          "Aktualne punkty wytrzymałości",
+          "Odporności (jeśli występują)",
+          "Immunitety (jeśli występują)",
+          "Luki w zabezpieczeniach (jeśli występują)"
+        ]
+      },
+      "Alternatywnie możesz spędzić 1 minutę na obserwacji zwłok. Po 1 minucie ustalasz przyczynę śmierci."
+    ]
+  },
+  "practical-resuscitation": {
+    "name": "Praktyczna resuscytacja",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 10+",
+    "entries": [
+      "Kiedy rzucasz zaklęcie, którego jedynym efektem jest przywrócenie życia (ale nie nieśmierci), takie jak {@spell raise dead}, nie potrzebujesz komponentów materialnych, aby rzucić to zaklęcie, jeśli stworzenie umarło w ciągu ostatniej godziny."
+    ]
+  },
+  "putrefaction": {
+    "name": "Gnicie",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Twoje zaklęcia i zdolności aptekarskie ignorują odporność nieumarłych stworzeń na obrażenia od trucizn oraz odporność na stan {@condition poisoned}."
+    ]
+  },
+  "rapid-response": {
+    "name": "Szybka reakcja",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Kiedy rzucasz zaklęcie aptekarskie, które przywraca stworzeniu punkty wytrzymałości, przed lub po rzuceniu tego zaklęcia, możesz zwiększyć swoją prędkość bez prowokowania ataków okazyjnych."
+    ]
+  },
+  "routine-procedure": {
+    "name": "Rutynowa procedura",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 10+",
+    "entries": [
+      "Możesz rzucić {@spell lesser restoration} do woli, bez wydawania miejsca na zaklęcie."
+    ]
+  },
+  "stolen-secrets": {
+    "name": "Skradzione tajemnice",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 10+",
+    "entries": [
+      "Uczysz się jednego zaklęcia z listy zaklęć dowolnej klasy. Musi to być poziom, dla którego masz miejsca na zaklęcia aptekarskie lub niższy. Zaklęcie to jest dla ciebie traktowane jak zaklęcie aptekarskie i nie wlicza się do liczby znanych ci zaklęć aptekarskich."
+    ]
+  },
+  "subject-preparation": {
+    "name": "Przygotowanie przedmiotu",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 10+",
+    "entries": [
+      "Kiedy trafisz istotę atakiem bronią białą, ta istota będzie miała przewagę w następnym rzucie obronnym przeciwko zaklęciu aptekarskiemu, które rzucisz przed końcem twojej następnej tury."
+    ]
+  },
+  "surgeon-s-instinct": {
+    "name": "Instynkt chirurga",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": ["Masz {@sense blindsight} w zasięgu 3 stóp."]
+  },
+  "surgical-strikes": {
+    "name": "Uderzenia chirurgiczne",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 6+",
+    "entries": [
+      "Możesz zaatakować dwa razy zamiast raz, kiedy w swojej turze wykonasz akcję {@action Attack}."
+    ]
+  },
+  "toxicology": {
+    "name": "Toksykologia",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 6+",
+    "entries": [
+      "Dodaj swój modyfikator Inteligencji do testów obrażeń zaklęć zadających obrażenia od trucizny."
+    ]
+  },
+  "triage": {
+    "name": "Ocena stanu zdrowia rannych",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Nauczysz się sztuczki {@spell spare the dying}, jeśli jeszcze jej nie znasz. Kiedy rzucisz tę sztuczkę, ma ona zasięg 60 stóp."
+    ]
+  },
+  "unfailing-focus": {
+    "name": "Niezawodne skupienie",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 6+",
+    "entries": [
+      "Jeśli nie uda Ci się wykonać rzutu obronnego na Kondycję, aby utrzymać {@status concentration} na zaklęciu aptekarskim, możesz zamiast tego zdecydować się na sukces. Gdy skorzystasz z tej funkcji, nie możesz tego zrobić ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+    ]
+  },
+  "venomous-instruments": {
+    "name": "Jadowite instrumenty",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 10+",
+    "entries": [
+      "Kiedy trafisz istotę atakiem bronią, istota ta otrzymuje dodatkowe obrażenia od trucizny równe twojemu modyfikatorowi z Intelektu."
+    ]
+  },
+  "virulence": {
+    "name": "Zjadliwość",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Kiedy na kości obrażeń wypadnie 1 dla zaklęcia aptekarza zadającego obrażenia od trucizny, możesz rzucić kością ponownie. Musisz użyć nowego wyniku, nawet jeśli nowym rzutem jest 1."
+    ]
+  },
+  "vital-signs": {
+    "name": "Znaki życiowe",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "",
+    "entries": [
+      "Kiedy istocie, którą widzisz w promieniu 30 stóp od ciebie, nie powiedzie się rzut obronny lub rzut obronny na śmierć, możesz wykorzystać swoją reakcję, aby dodać swój modyfikator Inteligencji do rzutu stworzenia, potencjalnie zamieniając porażkę w sukces. Musisz zakończyć krótki odpoczynek, zanim będziesz mógł ponownie użyć tej teorii na tym samym stworzeniu."
+    ]
+  },
+  "vivisection": {
+    "name": "Wiwisekcja",
+    "subtitle": "Teoria Ezoteryczna",
+    "featureType": "Teoria Ezoteryczna",
+    "prerequisite": "Poziom 6+",
+    "entries": ["Twoje ataki bronią powodują trafienie krytyczne na poziomie 19 lub 20."]
+  }
+}

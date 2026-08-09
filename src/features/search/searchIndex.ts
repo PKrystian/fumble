@@ -57,7 +57,9 @@ function toResult(
     categoryLabel,
     to: parentClassId
       ? `/compendium/classes/${parentClassId}/${item.id}`
-      : `/compendium/${categoryId}/${item.id}`,
+      : getCategory(categoryId)
+        ? `/compendium/${categoryId}/${item.id}`
+        : '/homebrew',
   };
 }
 

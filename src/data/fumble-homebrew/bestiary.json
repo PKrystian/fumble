@@ -1,7 +1,7 @@
 {
   "meta": {
     "category": "bestiary",
-    "count": 1,
+    "count": 23,
     "source": "Fumble"
   },
   "items": [
@@ -100,6 +100,2110 @@
       "legendaryIntro": "",
       "lairActions": [],
       "regionalEffects": []
+    },
+    {
+      "id": "chronopath-expert",
+      "name": "Chronopath Expert",
+      "source": "TalPsi",
+      "page": 73,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "14",
+      "initiative": "+2 (12)",
+      "hp": "112 (15d8 + 45)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 14,
+      "con": 16,
+      "int": 18,
+      "wis": 12,
+      "cha": 10,
+      "saves": "Int +7, Wis +4",
+      "skills": "Arcana +7, History +7",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 11",
+      "languages": "any four languages",
+      "cr": "8",
+      "crDisplay": "8 (XP 3,900; PB +3)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [
+        {
+          "name": "Fickle Readiness",
+          "entries": [
+            "When the chronopath rolls initiative, they can switch the initiative count of two creatures they can see within 90 feet of them that rolled initiative at the same time as the chronopath."
+          ]
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the chronopath can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 15}):",
+            "At will: {@psionic illuminator|TalPsi}, {@psionic shared thoughts|TalPsi}",
+            "3/day each: {@psionic extinguish|TalPsi}, {@psionic penetrating sight|TalPsi}, {@psionic read object|TalPsi}, {@psionic read thoughts|TalPsi}",
+            "1/day each: {@psionic memory gap|TalPsi}, {@psionic restore the past|TalPsi}, {@psionic reveal the path|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Psionic Bolt (1st-Order Power)",
+          "entries": [
+            "{@atk rp} +7 to hit, range 120 ft., one target. {@h}10 ({@damage 3d6}) force damage, and if the target is Large or smaller, they are pushed 5 feet away from the chronopath."
+          ]
+        },
+        {
+          "name": "Intuition (3/Day; 2nd-Order Power; Concentration)",
+          "entries": [
+            "The chronopath gifts precognitive insight to up to three willing creatures within 30 feet of them that they can see.",
+            "For 1 minute, each time a target takes damage, the damage is reduced by {@dice 1d4} (minimum 0 damage)."
+          ]
+        },
+        {
+          "name": "Witness Demise (3/Day; 5th-Order Power)",
+          "entries": [
+            "The chronopath chooses up to three creatures they can see within 30 feet of them, each of which must make a {@dc 15} Wisdom saving throw. On a failed save, a target takes 36 ({@damage 8d8}) psychic damage and is {@condition frightened} of the chronopath for 1 minute. On a success, a target takes half as much damage and is not {@condition frightened}."
+          ]
+        }
+      ],
+      "bonusActions": [
+        {
+          "name": "Time Thief (1st-Order Power)",
+          "entries": [
+            "The chronopath chooses a creature within 30 feet of them, which must succeed on a {@dc 15} Constitution saving throw or take 7 ({@damage 3d4}) necrotic damage. The chronopath gains temporary hit points equal to the damage taken."
+          ]
+        }
+      ],
+      "reactions": [
+        {
+          "name": "Again (3/Day; 2nd-Order Power)",
+          "entries": [
+            "When the chronopath or a creature they can see within 30 feet of them misses with an attack roll, the chronopath momentarily rewinds time. The attacker can reroll the attack and must use the new roll."
+          ]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 8",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "chronopath-master",
+      "name": "Chronopath Master",
+      "source": "TalPsi",
+      "page": 74,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "15",
+      "initiative": "+3 (13)",
+      "hp": "150 (20d8 + 60)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 16,
+      "con": 17,
+      "int": 20,
+      "wis": 13,
+      "cha": 10,
+      "saves": "Int +9, Wis +5",
+      "skills": "Arcana +9, History +9",
+      "vulnerabilities": "",
+      "resistances": "psychic",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 11",
+      "languages": "any five languages",
+      "cr": "12",
+      "crDisplay": "12 (XP 8,400; PB +4)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [
+        {
+          "name": "Fickle Readiness",
+          "entries": [
+            "When the chronopath rolls initiative, they can switch the initiative count of two creatures they can see within 90 feet of them that rolled initiative at the same time as the chronopath."
+          ]
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the chronopath can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 17}):",
+            "At will: {@psionic illuminator|TalPsi}, {@psionic shared thoughts|TalPsi}",
+            "3/day each: {@psionic extinguish|TalPsi}, {@psionic penetrating sight|TalPsi}, {@psionic read object|TalPsi}, {@psionic read thoughts|TalPsi}, {@psionic stasis field|TalPsi}",
+            "1/day each: {@psionic memory gap|TalPsi}, {@psionic rejuvenate|TalPsi}, {@psionic restore the past|TalPsi}, {@psionic reveal the path|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Psionic Bolt (1st-Order Power)",
+          "entries": [
+            "{@atk rp} +9 to hit, range 120 ft., one target. {@h}14 ({@damage 4d6}) force damage, and if the target is Large or smaller, they are pushed 5 feet away from the chronopath."
+          ]
+        },
+        {
+          "name": "Intuition (3/Day; 2nd-Order Power; Concentration)",
+          "entries": [
+            "The chronopath gifts precognitive insight to up to three willing creatures within 30 feet of them that they can see.",
+            "For 1 minute, each time a target takes damage, the damage is reduced by {@dice 1d4} (minimum 0 damage)."
+          ]
+        },
+        {
+          "name": "Witness Demise (3/Day; 5th-Order Power)",
+          "entries": [
+            "The chronopath chooses up to three creatures they can see within 30 feet of them, each of which must make a {@dc 17} Wisdom saving throw. On a failed save, a target takes 36 ({@damage 8d8}) psychic damage and is {@condition frightened} of the chronopath for 1 minute. On a success, a target takes half as much damage and is not {@condition frightened}."
+          ]
+        },
+        {
+          "name": "Ally of Time (1/Day; 6th-Order Power; Concentration)",
+          "entries": [
+            "The chronopath alters time in a 40-foot cube within 120 feet of them. Whenever a creature starts their turn in the cube, the chronopath picks one of the following effects:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Accelerate",
+                  "entries": [
+                    "Until the start of the target's next turn, their speed is doubled, they have a +2 bonus to AC, and they have advantage on Dexterity saving throws. The target gains an additional action that can be used only to take the Attack action (one weapon attack only), the Cast a Spell action (cantrip only), the {@action Manifest a Power|TalPsi} action (1st-Order power only), or the Dash, Disengage, Hide, or Use an Object actions."
+                  ]
+                },
+                {
+                  "type": "item",
+                  "name": "Decelerate",
+                  "entries": [
+                    "The target must succeed on a {@dc 17} Wisdom saving throw or suffer the following effects until the start of their next turn: their speed is halved, they have a -2 penalty to AC, they have disadvantage on Dexterity saving throws, and they can't use reactions. Additionally, the creature can take an action or a bonus action on their current turn, but not both, and can't make more than one attack regardless of features or magic items."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bonusActions": [
+        {
+          "name": "Time Thief (1st-Order Power)",
+          "entries": [
+            "The chronopath chooses a creature within 30 feet of them, which must succeed on a {@dc 17} Constitution saving throw or take 10 ({@damage 4d4}) necrotic damage. The chronopath gains temporary hit points equal to the damage taken."
+          ]
+        }
+      ],
+      "reactions": [
+        {
+          "name": "Again (3/Day; 2nd-Order Power)",
+          "entries": [
+            "When the chronopath or a creature they can see within 30 feet of them misses with an attack roll, the chronopath momentarily rewinds time. The attacker can reroll the attack and must use the new roll."
+          ]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 12",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "chronopath-talent",
+      "name": "Chronopath Talent",
+      "source": "TalPsi",
+      "page": 72,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "13",
+      "initiative": "+1 (11)",
+      "hp": "65 (10d8 + 20)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 12,
+      "con": 14,
+      "int": 16,
+      "wis": 12,
+      "cha": 10,
+      "saves": "Int +5, Wis +3",
+      "skills": "Arcana +5, History +5",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "",
+      "senses": "Passive Perception 11",
+      "languages": "any three languages",
+      "cr": "4",
+      "crDisplay": "4 (XP 1,100; PB +2)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the chronopath can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 13}):",
+            "At will: {@psionic illuminator|TalPsi}, {@psionic shared thoughts|TalPsi}",
+            "3/day each: {@psionic extinguish|TalPsi}, {@psionic read object|TalPsi}",
+            "1/day each: {@psionic memory gap|TalPsi}, {@psionic restore the past|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Psionic Bolt (1st-Order Power)",
+          "entries": [
+            "{@atk rp} +5 to hit, range 120 ft., one target. {@h}10 ({@damage 3d6}) force damage, and if the target is Large or smaller, they are pushed 5 feet away from the chronopath."
+          ]
+        },
+        {
+          "name": "Intuition (3/Day; 2nd-Order Power; Concentration)",
+          "entries": [
+            "The chronopath gifts precognitive insight to up to three willing creatures within 30 feet of them that they can see. For 1 minute, each time a target takes damage, the damage is reduced by {@dice 1d4} (minimum 0 damage)."
+          ]
+        }
+      ],
+      "bonusActions": [
+        {
+          "name": "Time Thief (1st-Order Power)",
+          "entries": [
+            "The chronopath chooses a creature within 30 feet of them, which must succeed on a {@dc 13} Constitution saving throw or take 7 ({@damage 3d4}) necrotic damage. The chronopath gains temporary hit points equal to the damage taken."
+          ]
+        }
+      ],
+      "reactions": [
+        {
+          "name": "Again (3/Day; 2nd-Order Power)",
+          "entries": [
+            "When the chronopath or a creature they can see within 30 feet of them misses with an attack roll, the chronopath momentarily rewinds time. The attacker can reroll the attack and must use the new roll."
+          ]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 4",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "maverick-expert",
+      "name": "Maverick Expert",
+      "source": "TalPsi",
+      "page": 76,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "14",
+      "initiative": "+2 (12)",
+      "hp": "112 (15d8 + 45)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 14,
+      "con": 16,
+      "int": 18,
+      "wis": 12,
+      "cha": 10,
+      "saves": "Int +7, Wis +4",
+      "skills": "Arcana +7, Insight +4",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 11",
+      "languages": "any four languages",
+      "cr": "8",
+      "crDisplay": "8 (XP 3,900; PB +3)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [
+        {
+          "name": "Full Force (1/Day)",
+          "entries": [
+            "When the maverick deals damage with a power, they can deal maximum damage instead of rolling damage dice."
+          ]
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the maverick can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 15}):",
+            "At will: {@psionic rewrite|TalPsi}, {@psionic shared thoughts|TalPsi}",
+            "3/day each: {@psionic extinguish|TalPsi}, {@psionic guise|TalPsi}, {@psionic veritas|TalPsi}",
+            "1/day each: {@psionic distant voice|TalPsi}, {@psionic read thoughts|TalPsi}, {@psionic reminisce|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Psychic Stab (1st-Order Power)",
+          "entries": [
+            "One creature the maverick can see within 120 feet of them must succeed on a {@dc 15} Intelligence saving throw or take 20 ({@damage 3d10 + 4}) psychic damage."
+          ]
+        },
+        {
+          "name": "Flay (3/Day; 4th-Order Power)",
+          "entries": [
+            "The maverick shoots forth a 15-foot cone of pure psionic energy. Each creature in the area must make a {@dc 15} Intelligence saving throw, taking 21 ({@damage 6d6}) psychic damage on a failed save, or half as much damage on a successful one."
+          ]
+        },
+        {
+          "name": "Icon of Fear (1/Day; 3rd-Order Power; Concentration)",
+          "entries": [
+            "The maverick picks one creature they can see within 120 feet of them. Each creature of the maverick's choice within 30 feet of the target must succeed on a {@dc 15} Wisdom saving throw or be {@condition frightened} of the target for 1 minute (save ends at end of turn)."
+          ]
+        },
+        {
+          "name": "Melt (1/Day; 5th-Order Power)",
+          "entries": [
+            "The maverick chooses a manufactured mundane metal object no larger than Medium that they can see within 60 feet of them. If the object isn't being carried or worn by a creature, it melts into useless slag. If the object is being carried or worn by a creature, that creature must make a {@dc 15} Dexterity saving throw. On a failed save, the creature takes 38 ({@damage 7d10}) fire damage and the object melts into useless slag. On a success, the creature takes half as much damage and the object doesn't melt."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [
+        {
+          "name": "Shock Absorption (3/Day)",
+          "entries": ["When the maverick takes damage, they halve the damage they take."]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 8",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "maverick-master",
+      "name": "Maverick Master",
+      "source": "TalPsi",
+      "page": 77,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "15",
+      "initiative": "+3 (13)",
+      "hp": "150 (20d8 + 60)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 16,
+      "con": 17,
+      "int": 20,
+      "wis": 13,
+      "cha": 10,
+      "saves": "Int +9, Wis +5",
+      "skills": "Arcana +9, Insight +5",
+      "vulnerabilities": "",
+      "resistances": "psychic",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 11",
+      "languages": "any five languages",
+      "cr": "12",
+      "crDisplay": "12 (XP 8,400; PB +4)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [
+        {
+          "name": "Full Force (3/Day)",
+          "entries": [
+            "When the maverick deals damage with a power, they can deal maximum damage instead of rolling damage dice."
+          ]
+        },
+        {
+          "name": "Overwhelming Power (3/Day)",
+          "entries": [
+            "When a creature succeeds on a saving throw against a power the maverick manifests, the maverick can force the creature to reroll the saving throw with a -4 penalty. The creature must use the new roll."
+          ]
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the maverick can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 17}):",
+            "At will: {@psionic rewrite|TalPsi}, {@psionic shared thoughts|TalPsi}",
+            "3/day each: {@psionic adapt|TalPsi}, {@psionic extinguish|TalPsi}, {@psionic distant voice|TalPsi}, {@psionic guise|TalPsi}, {@psionic veritas|TalPsi}",
+            "1/day each: {@psionic broadcast|TalPsi}, {@psionic fold space|TalPsi}, {@psionic read thoughts|TalPsi}, {@psionic reminisce|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Psychic Stab (1st-Order Power)",
+          "entries": [
+            "One creature the maverick can see within 120 feet of them must succeed on a {@dc 17} Intelligence saving throw or take 27 ({@damage 4d10 + 5}) psychic damage."
+          ]
+        },
+        {
+          "name": "Flay (3/Day; 5th-Order Power)",
+          "entries": [
+            "The maverick shoots forth a 15-foot cone of pure psionic energy. Each creature in the area must make a {@dc 17} Intelligence saving throw, taking 28 ({@damage 8d6}) psychic damage on a failed save, or half as much damage on a successful one."
+          ]
+        },
+        {
+          "name": "Melt (3/Day; 6th-Order Power)",
+          "entries": [
+            "The maverick chooses a manufactured mundane metal object no larger than Medium that they can see within 60 feet of them. If the object isn't being carried or worn by a creature, it melts into useless slag. If the object is being carried or worn by a creature, that creature must make a {@dc 17} Dexterity saving throw. On a failed save, the creature takes 49 ({@damage 9d10}) fire damage and the object melts into useless slag. On a success, the creature takes half as much damage and the object doesn't melt."
+          ]
+        },
+        {
+          "name": "Icon of Fear (1/Day; 3rd-Order Power; Concentration)",
+          "entries": [
+            "The maverick picks one creature they can see within 120 feet of them. Each creature of the maverick's choice within 30 feet of the target must succeed on a {@dc 17} Wisdom saving throw or be {@condition frightened} of the target for 1 minute (save ends at end of turn)."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [
+        {
+          "name": "Shock Absorption",
+          "entries": ["When the maverick takes damage, they halve the damage they take."]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 12",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "maverick-talent",
+      "name": "Maverick Talent",
+      "source": "TalPsi",
+      "page": 75,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "13",
+      "initiative": "+1 (11)",
+      "hp": "65 (10d8 + 20)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 12,
+      "con": 14,
+      "int": 16,
+      "wis": 12,
+      "cha": 10,
+      "saves": "Int +5, Wis +3",
+      "skills": "Arcana +5, Insight +3",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "",
+      "senses": "Passive Perception 11",
+      "languages": "any three languages",
+      "cr": "4",
+      "crDisplay": "4 (XP 1,100; PB +2)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the maverick can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 13}):",
+            "At will: {@psionic rewrite|TalPsi}, {@psionic shared thoughts|TalPsi}",
+            "3/day each: {@psionic extinguish|TalPsi}, {@psionic sixth sense|TalPsi}",
+            "1/day each: {@psionic distant voice|TalPsi}, {@psionic read thoughts|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Psychic Stab (1st-Order Power)",
+          "entries": [
+            "One creature the maverick can see within 120 feet of them must succeed on a {@dc 13} Intelligence saving throw or take 19 ({@damage 3d10 + 3}) psychic damage."
+          ]
+        },
+        {
+          "name": "Flay (3/Day; 3rd-Order Power)",
+          "entries": [
+            "The maverick shoots forth a 15-foot cone of pure psionic energy. Each creature in the area must make a {@dc 13} Intelligence saving throw, taking 14 ({@damage 4d6}) psychic damage on a failed save, or half as much damage on a successful one."
+          ]
+        },
+        {
+          "name": "Icon of Fear (1/Day; 3rd-Order Power; Concentration)",
+          "entries": [
+            "The maverick picks one creature they can see within 120 feet of them. Each creature of the maverick's choice within 30 feet of the target must succeed on a {@dc 13} Wisdom saving throw or be {@condition frightened} of the target for 1 minute (save ends at end of turn)."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [
+        {
+          "name": "Shock Absorption (3/Day)",
+          "entries": ["When the maverick takes damage, they halve the damage they take."]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 4",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "metamorph-expert",
+      "name": "Metamorph Expert",
+      "source": "TalPsi",
+      "page": 79,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "14",
+      "initiative": "+2 (12)",
+      "hp": "112 (15d8 + 45)",
+      "speed": "30 ft.",
+      "str": 10,
+      "dex": 14,
+      "con": 16,
+      "int": 18,
+      "wis": 10,
+      "cha": 10,
+      "saves": "Int +7, Wis +3",
+      "skills": "Arcana +7, Perception +6",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 16",
+      "languages": "any four languages",
+      "cr": "8",
+      "crDisplay": "8 (XP 3,900; PB +3)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the metamorph can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 15}):",
+            "At will: {@psionic minor acceleration|TalPsi}, {@psionic sharpened senses|TalPsi}",
+            "3/day each: {@psionic cure ailment|TalPsi}, {@psionic penetrating sight|TalPsi}, {@psionic psionic resilience|TalPsi}, {@psionic sixth sense|TalPsi}",
+            "1/day each: {@psionic distant voice|TalPsi}, {@psionic embrace the deep|TalPsi}, {@psionic the real|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The metamorph makes two Psionic Bolt attacks."]
+        },
+        {
+          "name": "Dagger",
+          "entries": [
+            "{@atk mw,rw} +5 to hit, reach 5 ft. or range 20/60 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage."
+          ]
+        },
+        {
+          "name": "Psionic Bolt (1st-Order Power)",
+          "entries": [
+            "{@atk rp} +7 to hit, range 120 ft., one target. {@h}10 ({@damage 3d6}) force damage, and if the target is Large or smaller, they are pushed 5 feet away from the metamorph."
+          ]
+        },
+        {
+          "name": "Beam Gaze (3/Day; 4th-Order Power)",
+          "entries": [
+            "The metamorph unleashes a sickening beam of force at a creature they can see within 120 feet of them. The target must make a {@dc 15} Constitution saving throw, taking 27 ({@damage 5d10}) force damage on a failed save, or half as much damage on a successful one. On a failed save, a target also suffers the metamorph's choice of one of the following effects for 1 minute (save ends at end of turn):",
+            {
+              "type": "list",
+              "items": [
+                "The target is {@condition poisoned}.",
+                "The target's speed is halved, and they can't take reactions.",
+                "Attack rolls against the target are made with advantage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Flay (3/Day; 4th-Order Power)",
+          "entries": [
+            "The metamorph shoots forth a 15-foot cone of pure psionic energy. Each creature in the area must make a {@dc 15} Intelligence saving throw, taking 21 ({@damage 6d6}) psychic damage on a failed save, or half as much damage on a successful one."
+          ]
+        },
+        {
+          "name": "Mind Surgeon (3/Day)",
+          "entries": [
+            "The metamorph touches one creature (which can be themself), causing that creature to regain 16 ({@dice 3d10}) hit points, to be cured of all diseases, or to be neutralized of all poisons affecting them (the metamorph's choice)."
+          ]
+        }
+      ],
+      "bonusActions": [
+        {
+          "name": "Amplify (4th-Order Power)",
+          "entries": [
+            "The metamorph chooses one creature they can see within 30 feet of them. The next time the target hits a creature with a weapon attack within the next minute, the attack deals an extra {@damage 3d8} psychic damage."
+          ]
+        }
+      ],
+      "reactions": [],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 8",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "metamorph-master",
+      "name": "Metamorph Master",
+      "source": "TalPsi",
+      "page": 80,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "15",
+      "initiative": "+3 (13)",
+      "hp": "150 (20d8 + 60)",
+      "speed": "30 ft.",
+      "str": 11,
+      "dex": 16,
+      "con": 17,
+      "int": 20,
+      "wis": 10,
+      "cha": 10,
+      "saves": "Int +9, Wis +4",
+      "skills": "Arcana +9, Perception +8",
+      "vulnerabilities": "",
+      "resistances": "psychic",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 18",
+      "languages": "any five languages",
+      "cr": "12",
+      "crDisplay": "12 (XP 8,400; PB +4)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the metamorph can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 17}):",
+            "At will: {@psionic minor acceleration|TalPsi}, {@psionic sharpened senses|TalPsi}",
+            "3/day each: {@psionic cure ailment|TalPsi}, {@psionic penetrating sight|TalPsi}, {@psionic psionic resilience|TalPsi}, {@psionic read object|TalPsi}, {@psionic sixth sense|TalPsi}",
+            "1/day each: {@psionic distant voice|TalPsi}, {@psionic embrace the deep|TalPsi}, {@psionic paragon|TalPsi}, {@psionic the real|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The metamorph makes two Psionic Bolt attacks."]
+        },
+        {
+          "name": "Dagger",
+          "entries": [
+            "{@atk mw,rw} +7 to hit, reach 5 ft. or range 20/60 ft., one target. {@h}5 ({@damage 1d4 + 3}) piercing damage."
+          ]
+        },
+        {
+          "name": "Psionic Bolt (1st-Order Power)",
+          "entries": [
+            "{@atk rp} +9 to hit, range 120 ft., one target. {@h}14 ({@damage 4d6}) force damage, and if the target is Large or smaller, they are pushed 5 feet away from the metamorph."
+          ]
+        },
+        {
+          "name": "Beam Gaze (3/Day; 5th-Order Power)",
+          "entries": [
+            "The metamorph unleashes a sickening beam of force at a creature they can see within 120 feet of them. The target must make a {@dc 17} Constitution saving throw, taking 38 ({@damage 7d10}) force damage on a failed save, or half as much damage on a successful one. On a failed save, a target also suffers the metamorph's choice of one of the following effects for 1 minute (save ends at end of turn):",
+            {
+              "type": "list",
+              "items": [
+                "The target is {@condition poisoned}.",
+                "The target's speed is halved, and they can't take reactions.",
+                "Attack rolls against the target are made with advantage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Flay (3/Day; 5th-Order Power)",
+          "entries": [
+            "The metamorph shoots forth a 15-foot cone of pure psionic energy. Each creature in the area must make a {@dc 17} Intelligence saving throw, taking 28 ({@damage 8d6}) psychic damage on a failed save, or half as much damage on a successful one."
+          ]
+        },
+        {
+          "name": "Mind Surgeon (3/Day)",
+          "entries": [
+            "The metamorph touches one creature (which can be themself), causing that creature to regain 22 ({@dice 4d10}) hit points, to be cured of all diseases, or to be neutralized of all poisons affecting them (the metamorph's choice)."
+          ]
+        },
+        {
+          "name": "Steel (1/Day; 6th-Order Power; Concentration)",
+          "entries": [
+            "The metamorph's skin turns into a hard, shiny metal, granting them the following benefits for 10 minutes:",
+            {
+              "type": "list",
+              "items": [
+                "They have resistance to bludgeoning, piercing, and slashing damage.",
+                "Any critical hit against them becomes a normal hit.",
+                "They can take the Attack action to make up to three unarmed strikes. Each strike is a psionic melee weapon attack that has a +9 bonus to the attack roll and deals 16 ({@damage 2d10 + 5}) bludgeoning damage on a hit.",
+                "At the start of the metamorph's turn, if they have at least 1 hit point, they regain 10 hit points."
+              ]
+            }
+          ]
+        }
+      ],
+      "bonusActions": [
+        {
+          "name": "Amplify (4th-Order Power)",
+          "entries": [
+            "The metamorph chooses one creature they can see within 30 feet of them. The next time the target hits a creature with a weapon attack within the next minute, the attack deals an extra {@damage 3d8} psychic damage."
+          ]
+        }
+      ],
+      "reactions": [],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 12",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "metamorph-talent",
+      "name": "Metamorph Talent",
+      "source": "TalPsi",
+      "page": 78,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "13",
+      "initiative": "+1 (11)",
+      "hp": "65 (10d8 + 20)",
+      "speed": "30 ft.",
+      "str": 10,
+      "dex": 12,
+      "con": 14,
+      "int": 16,
+      "wis": 10,
+      "cha": 10,
+      "saves": "Int +5, Wis +2",
+      "skills": "Arcana +5, Perception +4",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "",
+      "senses": "Passive Perception 14",
+      "languages": "any three languages",
+      "cr": "4",
+      "crDisplay": "4 (XP 1,100; PB +2)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the metamorph can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 13}):",
+            "At will: {@psionic minor acceleration|TalPsi}, {@psionic sharpened senses|TalPsi}",
+            "3/day each: {@psionic penetrating sight|TalPsi}, {@psionic sixth sense|TalPsi}",
+            "1/day each: {@psionic cure ailment|TalPsi}, {@psionic embrace the deep|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The metamorph makes two Psionic Bolt attacks."]
+        },
+        {
+          "name": "Dagger",
+          "entries": [
+            "{@atk mw,rw} +3 to hit, reach 5 ft. or range 20/60 ft., one target. {@h}3 ({@damage 1d4 + 1}) piercing damage."
+          ]
+        },
+        {
+          "name": "Psionic Bolt (1st-Order Power)",
+          "entries": [
+            "{@atk rp} +5 to hit, range 120 ft., one target. {@h}10 ({@damage 3d6}) force damage, and if the target is Large or smaller, they are pushed 5 feet away from the metamorph."
+          ]
+        },
+        {
+          "name": "Beam Gaze (3/Day; 3rd-Order Power)",
+          "entries": [
+            "The metamorph unleashes a sickening beam of force at a creature they can see within 120 feet of them. The target must make a {@dc 13} Constitution saving throw, taking 16 ({@damage 3d10}) force damage on a failed save, or half as much damage on a successful one. On a failed save, a target also suffers the metamorph's choice of one of the following effects for 1 minute (save ends at end of turn):",
+            {
+              "type": "list",
+              "items": [
+                "The target is {@condition poisoned}.",
+                "The target's speed is halved, and they can't take reactions.",
+                "Attack rolls against the target are made with advantage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Mind Surgeon (3/Day)",
+          "entries": [
+            "The metamorph touches one creature (which can be themself), causing that creature to regain 11 ({@dice 2d10}) hit points, to be cured of all diseases, or to be neutralized of all poisons affecting them (the metamorph's choice)."
+          ]
+        }
+      ],
+      "bonusActions": [
+        {
+          "name": "Amplify (3rd-Order Power)",
+          "entries": [
+            "The metamorph chooses one creature they can see within 30 feet of them. The next time the target hits a creature with a weapon attack within the next minute, the attack deals an extra {@damage 2d8} psychic damage."
+          ]
+        }
+      ],
+      "reactions": [],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 4",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "pyrokinetic-expert",
+      "name": "Pyrokinetic Expert",
+      "source": "TalPsi",
+      "page": 82,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "14",
+      "initiative": "+2 (12)",
+      "hp": "112 (15d8 + 45)",
+      "speed": "30 ft.",
+      "str": 10,
+      "dex": 14,
+      "con": 16,
+      "int": 18,
+      "wis": 10,
+      "cha": 10,
+      "saves": "Int +7, Wis +3",
+      "skills": "Arcana +7, Perception +3",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 13",
+      "languages": "any four languages",
+      "cr": "8",
+      "crDisplay": "8 (XP 3,900; PB +3)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the pyrokinetic can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 15}):",
+            "At will: {@psionic flame's master|TalPsi}, {@psionic illuminator|TalPsi}",
+            "3/day each: {@psionic extinguish|TalPsi}, {@psionic heat shell|TalPsi}, {@psionic penetrating sight|TalPsi}, {@psionic read object|TalPsi}",
+            "1/day each: {@psionic distant voice|TalPsi}, {@psionic read thoughts|TalPsi}, {@psionic restore the past|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The pyrokinetic makes three Flame On attacks."]
+        },
+        {
+          "name": "Flame On",
+          "entries": [
+            "{@atk mp,rp} +7 to hit, reach 5 ft. or range 60 ft., one target. {@h}7 ({@damage 1d6 + 4}) fire damage, and any flammable object hit by the flame ignites if it isn't being worn or carried."
+          ]
+        },
+        {
+          "name": "Imbue Flame (3/Day; 3rd-Order Power; Concentration)",
+          "entries": [
+            "The pyrokinetic touches a willing creature, and for 10 minutes, that creature's weapon attacks and unarmed strikes deal an extra {@damage 1d6} fire damage."
+          ]
+        },
+        {
+          "name": "Kindling (3/Day; 4th-Order Power; Concentration)",
+          "entries": [
+            "The pyrokinetic chooses three Medium or smaller creatures or objects within 30 feet of them. A target creature must succeed on a {@dc 15} Constitution saving throw or suffer the appropriate effect for 1 minute (a target object automatically suffers the effect):",
+            {
+              "type": "list",
+              "items": [
+                "If the target has immunity to fire damage, they have resistance to fire damage instead.",
+                "If the target has resistance to fire damage, they lose this damage resistance.",
+                "If the target has no immunity or resistance to fire damage, they have vulnerability to fire damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Scorch (3/Day; 4th-Order Power)",
+          "entries": [
+            "The pyrokinetic creates a pulse of fire in a line 30 feet long and 5 feet wide. Each creature in the line must make a {@dc 15} Dexterity saving throw, taking 21 ({@damage 6d6}) fire damage on a failed save, or half as much damage on a successful one."
+          ]
+        },
+        {
+          "name": "Fire Form (1/Day; 4th-Order Power; Concentration)",
+          "entries": [
+            "The pyrokinetic encases themself in psionic flame and gains the following benefits for 10 minutes:",
+            {
+              "type": "list",
+              "items": [
+                "They have a flying speed of 60 feet.",
+                "They have immunity to cold and fire damage.",
+                "Whenever a creature within 5 feet of the pyrokinetic touches them for the first time on a turn or hits them with a melee attack, that creature takes 3 ({@damage 1d6}) fire damage.",
+                "The pyrokinetic's power attacks, weapon attacks, and unarmed strikes deal an extra 3 ({@damage 1d6}) fire damage."
+              ]
+            }
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 8",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "pyrokinetic-master",
+      "name": "Pyrokinetic Master",
+      "source": "TalPsi",
+      "page": 83,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "15",
+      "initiative": "+3 (13)",
+      "hp": "150 (20d8 + 60)",
+      "speed": "30 ft.",
+      "str": 10,
+      "dex": 16,
+      "con": 17,
+      "int": 20,
+      "wis": 10,
+      "cha": 10,
+      "saves": "Int +9, Wis +4",
+      "skills": "Arcana +9, Perception +4",
+      "vulnerabilities": "",
+      "resistances": "fire; psychic",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 14",
+      "languages": "any five languages",
+      "cr": "12",
+      "crDisplay": "12 (XP 8,400; PB +4)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the pyrokinetic can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 17}):",
+            "At will: {@psionic flame's master|TalPsi}, {@psionic illuminator|TalPsi}",
+            "3/day each: {@psionic distant voice|TalPsi}, {@psionic extinguish|TalPsi}, {@psionic heat shell|TalPsi}, {@psionic penetrating sight|TalPsi}, {@psionic read object|TalPsi}",
+            "1/day each: {@psionic broadcast|TalPsi}, {@psionic fold space|TalPsi}, {@psionic read thoughts|TalPsi}, {@psionic restore the past|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The pyrokinetic makes four Flame On attacks."]
+        },
+        {
+          "name": "Flame On",
+          "entries": [
+            "{@atk mp,rp} +9 to hit, reach 5 ft. or range 60 ft., one target. {@h}9 ({@damage 1d8 + 5}) fire damage, and any flammable object hit by the flame ignites if it isn't being worn or carried."
+          ]
+        },
+        {
+          "name": "Imbue Flame (3/Day; 3rd-Order Power; Concentration)",
+          "entries": [
+            "The pyrokinetic touches a willing creature, and for 10 minutes, that creature's weapon attacks and unarmed strikes deal an extra {@damage 1d6} fire damage."
+          ]
+        },
+        {
+          "name": "Kindling (3/Day; 5th-Order Power; Concentration)",
+          "entries": [
+            "The pyrokinetic chooses four Medium or smaller creatures or objects within 30 feet of them. A target creature must succeed on a {@dc 17} Constitution saving throw or suffer the appropriate effect for 1 minute (a target object automatically suffers the effect):",
+            {
+              "type": "list",
+              "items": [
+                "If the target has immunity to fire damage, they have resistance to fire damage instead.",
+                "If the target has resistance to fire damage, they lose this damage resistance.",
+                "If the target has no immunity or resistance to fire damage, they have vulnerability to fire damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Scorch (3/Day; 5th-Order Power)",
+          "entries": [
+            "The pyrokinetic creates a pulse of fire in a line 30 feet long and 5 feet wide. Each creature in the line must make a {@dc 17} Dexterity saving throw, taking 28 ({@damage 8d6}) fire damage on a failed save, or half as much damage on a successful one."
+          ]
+        },
+        {
+          "name": "Crucible (1/Day; 6th-Order Power; Concentration)",
+          "entries": [
+            "The pyrokinetic ignites a 50-foot-square area that is 10 feet high and centered on a point on the ground within 150 feet of them that they can see, and which continues to burn for 1 minute. Each creature that starts their turn in the area must make a {@dc 17} Dexterity saving throw, taking 38 ({@damage 7d10}) fire damage on a failed save, or half as much damage on a successful one. At the start of each of the pyrokinetic's turns, they can cause the fire to spread out 5 feet on all sides (no action required), expanding the area over any surface except for nonflammable liquid.",
+            "The fire damages objects in the area and ignites flammable objects that aren't being worn or carried."
+          ]
+        },
+        {
+          "name": "Fire Form (1/Day; 4th-Order Power; Concentration)",
+          "entries": [
+            "The pyrokinetic encases themself in psionic flame and gains the following benefits for 10 minutes:",
+            {
+              "type": "list",
+              "items": [
+                "They have a flying speed of 60 feet.",
+                "They have immunity to cold and fire damage.",
+                "Whenever a creature within 5 feet of the pyrokinetic touches them for the first time on a turn or hits them with a melee attack, that creature takes 3 ({@damage 1d6}) fire damage.",
+                "The pyrokinetic's power attacks, weapon attacks, and unarmed strikes deal an extra 3 ({@damage 1d6}) fire damage."
+              ]
+            }
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 12",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "pyrokinetic-talent",
+      "name": "Pyrokinetic Talent",
+      "source": "TalPsi",
+      "page": 81,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "13",
+      "initiative": "+1 (11)",
+      "hp": "65 (10d8 + 20)",
+      "speed": "30 ft.",
+      "str": 10,
+      "dex": 12,
+      "con": 14,
+      "int": 16,
+      "wis": 10,
+      "cha": 10,
+      "saves": "Int +5, Wis +2",
+      "skills": "Arcana +5, Perception +2",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "",
+      "senses": "Passive Perception 12",
+      "languages": "any three languages",
+      "cr": "4",
+      "crDisplay": "4 (XP 1,100; PB +2)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the pyrokinetic can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 13}):",
+            "At will: {@psionic flame's master|TalPsi}, {@psionic illuminator|TalPsi}",
+            "3/day each: {@psionic penetrating sight|TalPsi}, {@psionic read object|TalPsi}",
+            "1/day each: {@psionic distant voice|TalPsi}, {@psionic read thoughts|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The pyrokinetic makes three Flame On attacks.", "Flame"]
+        },
+        {
+          "name": "On",
+          "entries": [
+            "{@atk mp,rp} +5 to hit, reach 5 ft. or range 60 ft., one target. {@h}6 ({@damage 1d6 + 3}) fire damage, and any flammable object hit by the flame ignites if it isn't being worn or carried."
+          ]
+        },
+        {
+          "name": "Imbue Flame (3/Day; 3rd-Order Power; Concentration)",
+          "entries": [
+            "The pyrokinetic touches a willing creature, and for 10 minutes, that creature's weapon attacks and unarmed strikes deal an extra {@damage 1d6} fire damage."
+          ]
+        },
+        {
+          "name": "Kindling (3/Day; 3rd-Order Power; Concentration)",
+          "entries": [
+            "The pyrokinetic chooses two Medium or smaller creatures or objects within 30 feet of them. A target creature must succeed on a {@dc 13} Constitution saving throw or suffer the appropriate effect for 1 minute (a target object automatically suffers the effect): • If the target has immunity to fire damage, they have resistance to fire damage instead.",
+            {
+              "type": "list",
+              "items": [
+                "If the target has resistance to fire damage, they lose this damage resistance.",
+                "If the target has no immunity or resistance to fire damage, they have vulnerability to fire damage."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Scorch (3/Day; 3rdOrder Power)",
+          "entries": [
+            "The pyrokinetic creates a pulse of fire in a line 30 feet long and 5 feet wide. Each creature in the line must make a {@dc 13} Dexterity saving throw, taking 14 ({@damage 4d6}) fire damage on a failed save, or half as much damage on a successful one."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 4",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "resopath-expert",
+      "name": "Resopath Expert",
+      "source": "TalPsi",
+      "page": 85,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "14",
+      "initiative": "+2 (12)",
+      "hp": "112 (15d8 + 45)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 14,
+      "con": 16,
+      "int": 18,
+      "wis": 10,
+      "cha": 12,
+      "saves": "Int +7, Wis +3",
+      "skills": "Arcana +7, Deception +4",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 10",
+      "languages": "any four languages",
+      "cr": "8",
+      "crDisplay": "8 (XP 3,900; PB +3)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [
+        {
+          "name": "Nightmare Terrain",
+          "entries": [
+            "The ground within 20 feet of the resopath is difficult terrain for their enemies. At the start of each of the resopath's turns, they can choose up to three creatures they can see in that area, each of which takes 10 piercing damage."
+          ]
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the resopath can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 15}):",
+            "At will: {@psionic apparition|TalPsi}, {@psionic rewrite|TalPsi}",
+            "3/day each: {@psionic adapt|TalPsi}, {@psionic extinguish|TalPsi}, {@psionic guise|TalPsi}, {@psionic restructure|TalPsi}",
+            "1/day each: {@psionic fold space|TalPsi}, {@psionic read thoughts|TalPsi}, {@psionic reminisce|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The resopath makes two Psionic Bolt attacks."]
+        },
+        {
+          "name": "Dagger",
+          "entries": [
+            "{@atk mw,rw} +5 to hit, reach 5 ft. or range 20/60 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage."
+          ]
+        },
+        {
+          "name": "Psionic Bolt (1st-Order Power)",
+          "entries": [
+            "{@atk rp} +7 to hit, range 120 ft., one target. {@h}10 ({@damage 3d6}) force damage, and if the target is Large or smaller, they are pushed 5 feet away from the resopath."
+          ]
+        },
+        {
+          "name": "Elsewhere (3/Day; 4th-Order Power)",
+          "entries": [
+            "The resopath chooses four creatures they can see within 30 feet of them, each of which must make a {@dc 15} Intelligence saving throw. On a failed save, a target is teleported up to 30 feet to an unoccupied space the resopath can see, and their speed becomes 0 until the start of the resopath's next turn."
+          ]
+        },
+        {
+          "name": "Momentary Lapse of Reason (3/Day; 4th-Order Power)",
+          "entries": [
+            "The resopath chooses one creature or object they can see within 120 feet of them. Each creature of the resopath's choice within 30 feet of the target must make a {@dc 15} Wisdom saving throw. On a failed save, a creature drops whatever they are holding and uses their reaction, if available, to move their speed toward the target by the most direct route. If the creature gets within 5 feet of the target, they stop moving and fall {@condition prone}. Creatures that can't be {@condition charmed} are immune to this power."
+          ]
+        }
+      ],
+      "bonusActions": [
+        {
+          "name": "Jaunt (3/Day; 3rd-Order Power)",
+          "entries": [
+            "The resopath or one willing creature they touch teleports to an unoccupied space the resopath can see within 30 feet of them."
+          ]
+        }
+      ],
+      "reactions": [],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 8",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "resopath-master",
+      "name": "Resopath Master",
+      "source": "TalPsi",
+      "page": 86,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "15",
+      "initiative": "+3 (13)",
+      "hp": "150 (20d8 + 60)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 16,
+      "con": 17,
+      "int": 20,
+      "wis": 10,
+      "cha": 13,
+      "saves": "Int +9, Wis +4",
+      "skills": "Arcana +9, Deception +5",
+      "vulnerabilities": "",
+      "resistances": "psychic",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 10",
+      "languages": "any five languages",
+      "cr": "12",
+      "crDisplay": "12 (XP 8,400; PB +4)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [
+        {
+          "name": "Nightmare Terrain",
+          "entries": [
+            "The ground within 20 feet of the resopath is difficult terrain for their enemies. At the start of each of the resopath's turns, they can choose up to three creatures they can see in that area, each of which takes 15 piercing damage."
+          ]
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the resopath can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 17}):",
+            "At will: {@psionic apparition|TalPsi}, {@psionic rewrite|TalPsi}",
+            "3/day each: {@psionic adapt|TalPsi}, {@psionic extinguish|TalPsi}, {@psionic guise|TalPsi}, {@psionic restructure|TalPsi}, {@psionic stasis field|TalPsi}",
+            "1/day each: {@psionic fold space|TalPsi}, {@psionic memory gap|TalPsi}, {@psionic read thoughts|TalPsi}, {@psionic reminisce|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The resopath makes two Psionic Bolt attacks."]
+        },
+        {
+          "name": "Dagger",
+          "entries": [
+            "{@atk mw,rw} +7 to hit, reach 5 ft. or range 20/60 ft., one target. {@h}5 ({@damage 1d4 + 3}) piercing damage."
+          ]
+        },
+        {
+          "name": "Psionic Bolt (1st-Order Power)",
+          "entries": [
+            "{@atk rp} +9 to hit, range 120 ft., one target. {@h}14 ({@damage 4d6}) force damage, and if the target is Large or smaller, they are pushed 5 feet away from the resopath."
+          ]
+        },
+        {
+          "name": "Elsewhere (3/Day; 5th-Order Power)",
+          "entries": [
+            "The resopath chooses five creatures they can see within 30 feet of them, each of which must make a {@dc 17} Intelligence saving throw. On a failed save, a target is teleported up to 30 feet to an unoccupied space the resopath can see, and their speed becomes 0 until the start of the resopath's next turn."
+          ]
+        },
+        {
+          "name": "Momentary Lapse of Reason (3/Day; 4th-Order Power)",
+          "entries": [
+            "The resopath chooses one creature or object they can see within 120 feet of them. Each creature of the resopath's choice within 30 feet of the target must make a {@dc 17} Wisdom saving throw. On a failed save, a creature drops whatever they are holding and uses their reaction, if available, to move their speed toward the target by the most direct route. If the creature gets within 5 feet of the target, they stop moving and fall {@condition prone}. Creatures that can't be {@condition charmed} are immune to this power."
+          ]
+        },
+        {
+          "name": "Reflection (1/Day; 6th-Order Power; Concentration)",
+          "entries": [
+            "The resopath chooses one creature they can see within 60 feet of them that has a challenge rating of 10 or lower (or that is 10th level or lower, for creatures that don't have a challenge rating), then psionically creates a perfect copy of that creature. The copy appears within an unoccupied space of the resopath's choice that they can see within 60 feet of them and acts immediately after the resopath. The copy has the same statistics as the original creature, except that they have mundane copies of the creature's equipment, and have no lair actions, legendary actions, or villain actions. The copy reflects the original creature's current state, including current hit points and available actions. The copy is loyal to the resopath and understands the commands the resopath gives them through a mental link they share. They disappear when they are reduced to 0 hit points."
+          ]
+        }
+      ],
+      "bonusActions": [
+        {
+          "name": "Jaunt (3/Day; 3rd-Order Power)",
+          "entries": [
+            "The resopath or one willing creature they touch teleports to an unoccupied space the resopath can see within 30 feet of them."
+          ]
+        }
+      ],
+      "reactions": [],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 12",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "resopath-talent",
+      "name": "Resopath Talent",
+      "source": "TalPsi",
+      "page": 84,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "13",
+      "initiative": "+1 (11)",
+      "hp": "65 (10d8 + 20)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 12,
+      "con": 14,
+      "int": 16,
+      "wis": 10,
+      "cha": 12,
+      "saves": "Int +5, Wis +2",
+      "skills": "Arcana +5, Deception +3",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "",
+      "senses": "Passive Perception 10",
+      "languages": "any three languages",
+      "cr": "4",
+      "crDisplay": "4 (XP 1,100; PB +2)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [
+        {
+          "name": "Manipulate Terrain",
+          "entries": [
+            "The ground within 20 feet of the resopath is difficult terrain for their enemies."
+          ]
+        }
+      ],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the resopath can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 13}):",
+            "At will: {@psionic apparition|TalPsi}, {@psionic rewrite|TalPsi}",
+            "3/day each: {@psionic adapt|TalPsi}, {@psionic extinguish|TalPsi}",
+            "1/day each: {@psionic read thoughts|TalPsi}, {@psionic reminisce|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The resopath makes two Psionic Bolt attacks."]
+        },
+        {
+          "name": "Dagger",
+          "entries": [
+            "{@atk mw,rw} +3 to hit, reach 5 ft. or range 20/60 ft., one target. {@h}3 ({@damage 1d4 + 1}) piercing damage."
+          ]
+        },
+        {
+          "name": "Psionic Bolt (1st-Order Power)",
+          "entries": [
+            "{@atk rp} +5 to hit, range 120 ft., one target. {@h}10 ({@damage 3d6}) force damage, and if the target is Large or smaller, they are pushed 5 feet away from the resopath."
+          ]
+        },
+        {
+          "name": "Elsewhere (3/Day; 3rd-Order Power)",
+          "entries": [
+            "The resopath chooses three creatures they can see within 30 feet of them, each of which must make a {@dc 13} Intelligence saving throw. On a failed save, a target is teleported up to 30 feet to an unoccupied space the resopath can see, and their speed becomes 0 until the start of the resopath's next turn. BONUS ACTIONS"
+          ]
+        },
+        {
+          "name": "Jaunt (3/Day; 3rd-Order Power)",
+          "entries": [
+            "The resopath or one willing creature they touch teleports to an unoccupied space the resopath can see within 30 feet of them."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 4",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "telekinetic-expert",
+      "name": "Telekinetic Expert",
+      "source": "TalPsi",
+      "page": 88,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "14",
+      "initiative": "+2 (12)",
+      "hp": "112 (15d8 + 45)",
+      "speed": "30 ft., fly 60 ft.",
+      "str": 8,
+      "dex": 14,
+      "con": 16,
+      "int": 18,
+      "wis": 12,
+      "cha": 10,
+      "saves": "Int +7, Wis +4",
+      "skills": "Arcana +7, Investigation +7",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 11",
+      "languages": "any four languages",
+      "cr": "8",
+      "crDisplay": "8 (XP 3,900; PB +3)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the telekinetic can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 15}):",
+            "At will: {@psionic invisible force|TalPsi}, {@psionic shared thoughts|TalPsi}",
+            "3/day each: {@psionic extinguish|TalPsi}, {@psionic fulcrum|TalPsi}, {@psionic make friends|TalPsi}, {@psionic penetrating sight|TalPsi}",
+            "1/day each: {@psionic chariot of thought|TalPsi}, {@psionic distant voice|TalPsi}, {@psionic read thoughts|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The telekinetic uses Concussive Slam twice."]
+        },
+        {
+          "name": "Concussive Slam (1st-Order Power)",
+          "entries": [
+            "One creature within 30 feet of the telekinetic must succeed on a {@dc 15} Strength saving throw or take 7 ({@damage 3d4}) force damage and fall {@condition prone}."
+          ]
+        },
+        {
+          "name": "Kinetic Crush (3/Day; 4th-Order Power)",
+          "entries": [
+            "The telekinetic targets a creature they can see within 60 feet of them, which must make a {@dc 15} Strength saving throw. On a failed save, the target takes 27 ({@damage 6d8}) force damage and their speed becomes 0 until the start of the telekinetic's next turn. On a success, the target takes half as much damage and their speed isn't reduced."
+          ]
+        },
+        {
+          "name": "Telekinetic Burst (3/Day; 4th-Order Power)",
+          "entries": [
+            "The telekinetic unleashes a 20-foot-radius sphere of force centered on a point they can see within 90 feet of them. Each creature in the area must make a {@dc 15} Dexterity saving throw. On a failed save, a target takes 24 ({@damage 7d6}) force damage and is pushed 10 feet away from the center of the area. On a success, a target takes half as much damage and isn't pushed."
+          ]
+        },
+        {
+          "name": "Mass Choke (1/Day; 6th-Order Power; Concentration)",
+          "entries": [
+            "Each creature of the telekinetic's choice within 30 feet of them must succeed on a {@dc 15} Dexterity saving throw or become {@condition restrained} for 1 minute (save ends at end of turn). A creature {@condition restrained} in this way takes 22 ({@damage 5d8}) force damage at the start of each of their turns."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [
+        {
+          "name": "Reflective Armor (3/Day)",
+          "entries": [
+            "When the telekinetic or a creature they can see within 30 feet of them is hit by an attack, the target of the attack gains a +4 bonus to AC, including against the triggering attack, until the start of the telekinetic's next turn. If the triggering attack misses, the telekinetic makes a power attack roll (+7) against the attacker. If that attack hits, the attacker is hit by the triggering attack, which deals an extra 4 damage."
+          ]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 8",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "telekinetic-master",
+      "name": "Telekinetic Master",
+      "source": "TalPsi",
+      "page": 89,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "15",
+      "initiative": "+3 (13)",
+      "hp": "150 (20d8 + 60)",
+      "speed": "30 ft., fly 60 ft.",
+      "str": 8,
+      "dex": 16,
+      "con": 17,
+      "int": 20,
+      "wis": 12,
+      "cha": 10,
+      "saves": "Int +9, Wis +5",
+      "skills": "Arcana +9, Investigation +9",
+      "vulnerabilities": "",
+      "resistances": "psychic",
+      "immunities": "",
+      "conditionImmunities": "charmed; frightened",
+      "senses": "Passive Perception 11",
+      "languages": "any five languages",
+      "cr": "12",
+      "crDisplay": "12 (XP 8,400; PB +4)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the telekinetic can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 17}):",
+            "At will: {@psionic invisible force|TalPsi}, {@psionic shared thoughts|TalPsi}",
+            "3/day each: {@psionic distant voice|TalPsi}, {@psionic extinguish|TalPsi}, {@psionic fulcrum|TalPsi}, {@psionic make friends|TalPsi}, {@psionic penetrating sight|TalPsi}",
+            "1/day each: {@psionic broadcast|TalPsi}, {@psionic chariot of thought|TalPsi}, {@psionic read thoughts|TalPsi}, {@psionic fold space|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The telekinetic uses Concussive Slam twice."]
+        },
+        {
+          "name": "Concussive Slam (1st-Order Power)",
+          "entries": [
+            "One creature within 30 feet of the telekinetic must succeed on a {@dc 17} Strength saving throw or take 10 ({@damage 4d4}) force damage and fall {@condition prone}."
+          ]
+        },
+        {
+          "name": "Kinetic Crush (3/Day; 5th-Order Power)",
+          "entries": [
+            "The telekinetic targets a creature they can see within 60 feet of them, which must make a {@dc 17} Strength saving throw. On a failed save, the target takes 36 ({@damage 8d8}) force damage and their speed becomes 0 until the start of the telekinetic's next turn. On a success, the target takes half as much damage and their speed isn't reduced."
+          ]
+        },
+        {
+          "name": "Telekinetic Burst (3/Day; 5th-Order Power)",
+          "entries": [
+            "The telekinetic unleashes a 20-foot-radius sphere of force centered on a point they can see within 90 feet of them. Each creature in the area must make a {@dc 17} Dexterity saving throw. On a failed save, a target takes 31 ({@damage 9d6}) force damage and is pushed 10 feet away from the center of the area. On a success, a target takes half as much damage and isn't pushed."
+          ]
+        },
+        {
+          "name": "Concussive Wave (1/Day; 6th-Order Power)",
+          "entries": [
+            "Each creature of the telekinetic's choice within 30 feet of them must succeed on a {@dc 17} Strength saving throw or be thrown up to 90 feet vertically and up to 30 feet away from the telekinetic. Each creature is then slammed to the ground, taking {@damage 1d6} bludgeoning damage per 10 feet fallen and landing {@condition prone}."
+          ]
+        },
+        {
+          "name": "Mass Choke (1/Day; 6th-Order Power; Concentration)",
+          "entries": [
+            "Each creature of the telekinetic's choice within 30 feet of them must succeed on a {@dc 17} Dexterity saving throw or become {@condition restrained} for 1 minute (save ends at end of turn). A creature {@condition restrained} in this way takes 22 ({@damage 5d8}) force damage at the start of each of their turns."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [
+        {
+          "name": "Reflective Armor (3/Day)",
+          "entries": [
+            "When the telekinetic or a creature they can see within 30 feet of them is hit by an attack, the target of the attack gains a +5 bonus to AC, including against the triggering attack, until the start of the telekinetic's next turn. If the triggering attack misses, the telekinetic makes a power attack roll (+9) against the attacker. If that attack hits, the attacker is hit by the triggering attack, which deals an extra 5 damage."
+          ]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 12",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "telekinetic-talent",
+      "name": "Telekinetic Talent",
+      "source": "TalPsi",
+      "page": 87,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "13",
+      "initiative": "+1 (11)",
+      "hp": "65 (10d8 + 20)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 12,
+      "con": 14,
+      "int": 16,
+      "wis": 12,
+      "cha": 10,
+      "saves": "Int +5, Wis +3",
+      "skills": "Arcana +5, Investigation +5",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "",
+      "senses": "Passive Perception 11",
+      "languages": "any three languages",
+      "cr": "4",
+      "crDisplay": "4 (XP 1,100; PB +2)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the telekinetic can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 13}):",
+            "At will: {@psionic invisible force|TalPsi}, {@psionic shared thoughts|TalPsi}",
+            "3/day each: {@psionic extinguish|TalPsi}, {@psionic penetrating sight|TalPsi}",
+            "1/day each: {@psionic chariot of thought|TalPsi}, {@psionic read thoughts|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "entries": ["The telekinetic uses Concussive Slam twice."]
+        },
+        {
+          "name": "Concussive Slam (1st-Order Power)",
+          "entries": [
+            "One creature within 30 feet of the telekinetic must succeed on a {@dc 13} Strength saving throw or take 7 ({@damage 3d4}) force damage and fall {@condition prone}."
+          ]
+        },
+        {
+          "name": "Kinetic Crush (3/Day; 3rd-Order Power)",
+          "entries": [
+            "The telekinetic targets a creature they can see within 60 feet of them, which must make a {@dc 13} Strength saving throw. On a failed save, the target takes 18 ({@damage 4d8}) force damage and their speed becomes 0 until the start of the telekinetic's next turn. On a success, the target takes half as much damage and their speed isn't reduced."
+          ]
+        },
+        {
+          "name": "Telekinetic Burst (3/Day; 3rd-Order Power)",
+          "entries": [
+            "The telekinetic unleashes a 20-foot-radius sphere of force centered on a point they can see within 90 feet of them. Each creature in the area must make a {@dc 13} Dexterity saving throw. On a failed save, a target takes 17 ({@damage 5d6}) force damage and is pushed 10 feet away from the center of the area. On a success, a target takes half as much damage and isn't pushed."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [
+        {
+          "name": "Reflective Armor (3/Day)",
+          "entries": [
+            "When the telekinetic or a creature they can see within 30 feet of them is hit by an attack, the target of the attack gains a +3 bonus to AC, including against the triggering attack, until the start of the telekinetic's next turn. If the triggering attack misses, the telekinetic makes a power attack roll (+5) against the attacker. If that attack hits, the attacker is hit by the triggering attack, which deals an extra 3 damage."
+          ]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 4",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "telepath-expert",
+      "name": "Telepath Expert",
+      "source": "TalPsi",
+      "page": 91,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "14",
+      "initiative": "+2 (12)",
+      "hp": "112 (15d8 + 45)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 14,
+      "con": 16,
+      "int": 18,
+      "wis": 10,
+      "cha": 12,
+      "saves": "Int +7, Wis +3",
+      "skills": "Arcana +7, Persuasion +7",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "",
+      "senses": "Passive Perception 10",
+      "languages": "any four languages, telepathy 30 ft.",
+      "cr": "8",
+      "crDisplay": "8 (XP 3,900; PB +3)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the telepath can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 15}):",
+            "At will: {@psionic influence|TalPsi}, {@psionic rewrite|TalPsi}",
+            "3/day each: {@psionic distant voice|TalPsi}, {@psionic make friends|TalPsi}, {@psionic read thoughts|TalPsi}, {@psionic veritas|TalPsi}",
+            "1/day each: {@psionic broadcast|TalPsi}, {@psionic read object|TalPsi}, {@psionic reveal the path|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Psychic Stab (1st-Order Power)",
+          "entries": [
+            "One creature the telepath can see within 120 feet of them must succeed on a {@dc 15} Intelligence saving throw or take 16 ({@damage 3d10}) psychic damage."
+          ]
+        },
+        {
+          "name": "Dagger of the Mind (3/Day; 4th-Order Power)",
+          "entries": [
+            "The telepath chooses one creature they can see within 60 feet of them, which must make a {@dc 15} Intelligence saving throw. On a failed save, the target takes 33 ({@damage 6d10}) psychic damage and can take only the Dash, Disengage, or Dodge actions on their next turn. On a success, the target takes half as much damage and can take their turn normally."
+          ]
+        },
+        {
+          "name": "Fracture (1/Day; 5th-Order Power)",
+          "entries": [
+            "Each creature in a 20-foot-radius sphere centered on a point within 90 feet of the telepath must make a {@dc 15} Intelligence saving throw. On a failed save, a creature takes 27 ({@damage 6d8}) psychic damage and is fractured for 1 minute (save ends at end of turn). On a success, the creature takes half as much damage and isn't fractured.",
+            "While fractured, a creature's speed is halved; they have disadvantage on ability checks, attack rolls, and saving throws; and attack rolls against them have advantage."
+          ]
+        },
+        {
+          "name": "Harlequin (1/Day; 4th-Order Power; Concentration)",
+          "entries": [
+            "The telepath chooses one Humanoid they can see within 120 feet of them, which must succeed on a {@dc 15} Wisdom saving throw or be {@condition charmed} by the telepath for 1 hour. While the target is {@condition charmed} in this way, the telepath has a telepathic link with them as long as both are on the same plane of existence.",
+            "They can use this telepathic link to issue commands to the target (no action required), which the target does their best to obey. If the target completes an order and doesn't receive further direction from the telepath, they defend and preserve themself to the best of their ability.",
+            "The telepath can use an action to take total and precise control of a {@condition charmed} target. Until the end of the telepath's next turn, the target takes only the actions the telepath chooses, and doesn't do anything else. During this time, the telepath can also cause the target to use a reaction, but this requires the telepath to use their reaction as well.",
+            "Each time the target takes damage, they make a new Wisdom saving throw. If the saving throw succeeds, the {@condition charmed} condition ends."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [
+        {
+          "name": "Share Pain (3rd-Order Power)",
+          "entries": [
+            "When the telepath is damaged by a creature they can see within 60 feet of them, they force the creature to make a {@dc 15} Wisdom saving throw.",
+            "The target takes 13 ({@damage 2d12}) psychic damage on a failed save, or half as much damage on a successful one."
+          ]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 8",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "telepath-master",
+      "name": "Telepath Master",
+      "source": "TalPsi",
+      "page": 92,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "15",
+      "initiative": "+3 (13)",
+      "hp": "150 (20d8 + 60)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 16,
+      "con": 17,
+      "int": 20,
+      "wis": 10,
+      "cha": 13,
+      "saves": "Int +9, Wis +4",
+      "skills": "Arcana +9, Persuasion +9",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "",
+      "senses": "Passive Perception 10",
+      "languages": "any five languages, telepathy 30 ft.",
+      "cr": "12",
+      "crDisplay": "12 (XP 8,400; PB +4)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the telepath can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 17}):",
+            "At will: {@psionic influence|TalPsi}, {@psionic rewrite|TalPsi}",
+            "3/day each: {@psionic distant voice|TalPsi}, {@psionic make friends|TalPsi}, {@psionic read thoughts|TalPsi}, {@psionic reminisce|TalPsi}, {@psionic veritas|TalPsi}",
+            "1/day each: {@psionic broadcast|TalPsi}, {@psionic fold space|TalPsi}, {@psionic read object|TalPsi}, {@psionic reveal the path|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Psychic Stab (1st-Order Power)",
+          "entries": [
+            "One creature the telepath can see within 120 feet of them must succeed on a {@dc 17} Intelligence saving throw or take 22 ({@damage 4d10}) psychic damage."
+          ]
+        },
+        {
+          "name": "Dagger of the Mind (3/Day; 5th-Order Power)",
+          "entries": [
+            "The telepath chooses one creature they can see within 60 feet of them, which must make a {@dc 17} Intelligence saving throw. On a failed save, the target takes 44 ({@damage 8d10}) psychic damage and can take only the Dash, Disengage, or Dodge actions on their next turn. On a success, the target takes half as much damage and can take their turn normally."
+          ]
+        },
+        {
+          "name": "Fracture (3/Day; 6th-Order Power)",
+          "entries": [
+            "Each creature in a 20-foot-radius sphere centered on a point within 90 feet of the telepath must make a {@dc 17} Intelligence saving throw. On a failed save, a creature takes 36 ({@damage 8d8}) psychic damage and is fractured for 1 minute (save ends at end of turn). On a success, the creature takes half as much damage and isn't fractured.",
+            "While fractured, a creature's speed is halved; they have disadvantage on ability checks, attack rolls, and saving throws; and attack rolls against them have advantage."
+          ]
+        },
+        {
+          "name": "Harlequin (3/Day; 4th-Order Power; Concentration)",
+          "entries": [
+            "The telepath chooses one Humanoid they can see within 120 feet of them, which must succeed on a {@dc 17} Wisdom saving throw or be {@condition charmed} by the telepath for 1 hour. While the target is {@condition charmed} in this way, the telepath has a telepathic link with them as long as both are on the same plane of existence. They can use this telepathic link to issue commands to the target (no action required), which the target does their best to obey. If the target completes an order and doesn't receive further direction from the telepath, they defend and preserve themself to the best of their ability.",
+            "The telepath can use an action to take total and precise control of a {@condition charmed} target. Until the end of the telepath's next turn, the target takes only the actions the telepath chooses, and doesn't do anything else. During this time, the telepath can also cause the target to use a reaction, but this requires the telepath to use their reaction as well.",
+            "Each time the target takes damage, they make a new Wisdom saving throw. If the saving throw succeeds, the {@condition charmed} condition ends."
+          ]
+        },
+        {
+          "name": "Mindwipe (1/Day; 6th-Order Power; Concentration)",
+          "entries": [
+            "The telepath chooses a creature they can see within 60 feet of them, which must make a {@dc 17} Wisdom saving throw. On a success, the target takes 16 ({@damage 3d10}) psychic damage. On a failure, the target's proficiency bonus is +0 (reducing the bonus they add to ability checks, attack rolls, and saving throws they make with proficiency), and they can't cast spells, manifest powers, understand language, or communicate in any intelligible way. All these effects last for 1 minute."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [
+        {
+          "name": "Share Pain (4th-Order Power)",
+          "entries": [
+            "When the telepath is damaged by a creature they can see within 60 feet of them, they force the creature to make a {@dc 17} Wisdom saving throw.",
+            "The target takes 19 ({@damage 3d12}) psychic damage on a failed save, or half as much damage on a successful one."
+          ]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 12",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "telepath-talent",
+      "name": "Telepath Talent",
+      "source": "TalPsi",
+      "page": 90,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Humanoid (Talent)",
+      "alignment": "Any Alignment",
+      "ac": "13",
+      "initiative": "+1 (11)",
+      "hp": "65 (10d8 + 20)",
+      "speed": "30 ft.",
+      "str": 8,
+      "dex": 12,
+      "con": 14,
+      "int": 16,
+      "wis": 10,
+      "cha": 12,
+      "saves": "Int +5, Wis +2",
+      "skills": "Arcana +5, Persuasion +5",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "",
+      "conditionImmunities": "",
+      "senses": "Passive Perception 10",
+      "languages": "any three languages, telepathy 30 ft.",
+      "cr": "4",
+      "crDisplay": "4 (XP 1,100; PB +2)",
+      "habitat": "",
+      "treasure": "",
+      "traits": [],
+      "spellcasting": [
+        {
+          "name": "Powers",
+          "entries": [
+            "In addition to the other powers in this stat block, the telepath can manifest the following powers, using Intelligence as their manifestation ability (power save {@dc 13}):",
+            "At will: {@psionic influence|TalPsi}, {@psionic rewrite|TalPsi}",
+            "3/day each: {@psionic distant voice|TalPsi}, {@psionic read thoughts|TalPsi}",
+            "1/day each: {@psionic broadcast|TalPsi}, {@psionic read object|TalPsi}"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Psychic Stab (1st-Order Power)",
+          "entries": [
+            "One creature the telepath can see within 120 feet of them must succeed on a {@dc 13} Intelligence saving throw or take 16 ({@damage 3d10}) psychic damage."
+          ]
+        },
+        {
+          "name": "Dagger of the Mind (3/Day; 3rd-Order Power)",
+          "entries": [
+            "The telepath chooses one creature they can see within 60 feet of them, which must make a {@dc 13} Intelligence saving throw. On a failed save, the target takes 22 ({@damage 4d10}) psychic damage and can take only the Dash, Disengage, or Dodge actions on their next turn. On a success, the target takes half as much damage and can take their turn normally."
+          ]
+        },
+        {
+          "name": "Harlequin (1/Day; 4th-Order Power; Concentration)",
+          "entries": [
+            "The telepath chooses one Humanoid they can see within 120 feet of them, which must succeed on a {@dc 13} Wisdom saving throw or be {@condition charmed} by the telepath for 1 hour.",
+            "While the target is {@condition charmed} in this way, the telepath has a telepathic link with them as long as both are on the same plane of existence. The telepath can use this telepathic link to issue commands to the target (no action required), which the target does their best to obey. If the target completes an order and doesn't receive further direction from the telepath, they defend and preserve themself to the best of their ability.",
+            "The telepath can use an action to take total and precise control of a {@condition charmed} target. Until the end of the telepath's next turn, the target takes only the actions the telepath chooses, and doesn't do anything else. During this time, the telepath can also cause the target to use a reaction, but this requires the telepath to use their reaction as well.",
+            "Each time the target takes damage, they make a new Wisdom saving throw. If the saving throw succeeds, the {@condition charmed} condition ends."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [
+        {
+          "name": "Share Pain (2nd-Order Power)",
+          "entries": [
+            "When the telepath is damaged by a creature they can see within 60 feet of them, they force the creature to make a {@dc 13} Wisdom saving throw.",
+            "The target takes 6 ({@damage 1d12}) psychic damage on a failed save, or half as much damage on a successful one."
+          ]
+        }
+      ],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Humanoid (Talent), CR 4",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "corpsewrought-creature",
+      "name": "Corpsewrought Creature",
+      "source": "GuideDrakkenheim",
+      "page": 147,
+      "srd": false,
+      "size": "Medium",
+      "creatureType": "Construct",
+      "alignment": "",
+      "ac": "-",
+      "initiative": "+0 (10)",
+      "hp": "5 + five times your apothecary level (the creature has a number of hit dice [d12s] equal to your apothecary level)",
+      "speed": "30 ft.",
+      "str": 18,
+      "dex": 10,
+      "con": 16,
+      "int": 8,
+      "wis": 12,
+      "cha": 8,
+      "saves": "Con +3 plus PB, Wis +1 plus PB",
+      "skills": "Athletics +4 plus PB",
+      "vulnerabilities": "",
+      "resistances": "",
+      "immunities": "poison; lightning",
+      "conditionImmunities": "poisoned",
+      "senses": "darkvision 60 ft, Passive Perception 11",
+      "languages": "understands the languages of its creator but can't speak",
+      "cr": "-",
+      "crDisplay": "-",
+      "habitat": "",
+      "treasure": "",
+      "traits": [
+        {
+          "name": "Lightning Absorption",
+          "entries": [
+            "Whenever the corpsewrought creature is subjected to lightning damage, it takes no damage and regains a number of hit points equal to the lightning damage dealt."
+          ]
+        }
+      ],
+      "spellcasting": [],
+      "actions": [
+        {
+          "name": "Slam",
+          "entries": [
+            "{@atk mw} {@hit 4 plus PB} to hit, reach 5 ft., one target. {@h}{@damage 1d8 + 4} bludgeoning damage."
+          ]
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [],
+      "legendaryActions": [],
+      "legendaryIntro": "",
+      "lairActions": [],
+      "regionalEffects": [],
+      "_fumble": true,
+      "category": "bestiary",
+      "subtitle": "Construct, CR -",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
     }
   ]
 }

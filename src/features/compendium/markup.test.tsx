@@ -1,7 +1,19 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { markupLabel, parseMarkup } from './markup';
+
+vi.mock('./ReferenceLink', () => ({
+  ReferenceLink: ({
+    category,
+    slug,
+    label,
+  }: {
+    category: string;
+    slug: string;
+    label: string;
+  }) => <a href={`/compendium/${category}/${slug}/`}>{label}</a>,
+}));
 
 function renderMarkup(text: string, locale: 'en' | 'pl' = 'en') {
   return render(<MemoryRouter>{parseMarkup(text, locale)}</MemoryRouter>);
@@ -71,6 +83,14 @@ describe('parseMarkup', () => {
     );
   });
 
+  it('links Talent powers to the psionics category', () => {
+    renderMarkup('manifest {@psionic Adapt|TalPsi}');
+    expect(screen.getByRole('link', { name: 'Adapt' })).toHaveAttribute(
+      'href',
+      '/compendium/psionics/adapt/',
+    );
+  });
+
   it('shows the label of a filter tag, not its parameters', () => {
     const { container } = renderMarkup(
       'gain a {@filter Fighting Style|feats|category=FS}',
@@ -84,6 +104,14 @@ describe('parseMarkup', () => {
     expect(screen.getByRole('link', { name: 'Grappler' })).toHaveAttribute(
       'href',
       '/compendium/feats/grappler/',
+    );
+  });
+
+  it('links cards to their containing deck', () => {
+    renderMarkup('draw a {@card Dragon|Deck of Many More Things|BMT}');
+    expect(screen.getByRole('link', { name: 'Dragon' })).toHaveAttribute(
+      'href',
+      '/compendium/decks/deck-of-many-more-things/',
     );
   });
 

@@ -1,7 +1,7 @@
 {
   "meta": {
     "category": "items",
-    "count": 45,
+    "count": 63,
     "source": "Fumble"
   },
   "items": [
@@ -1865,6 +1865,522 @@
       "damage": "",
       "ac": "",
       "properties": ""
+    },
+    {
+      "id": "armor-of-psionic-absorption",
+      "name": "Armor of Psionic Absorption",
+      "source": "TalPsi",
+      "page": 56,
+      "srd": false,
+      "type": "Wondrous Item",
+      "rarity": "Very Rare",
+      "attunement": "Requires attunement by a talent",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "",
+      "entries": [
+        "While wearing this armor, you have a +1 bonus to AC. In addition, whenever you gain strain, the energy leeched from your body, mind, or soul is stored in the armor. For every 1 strain you gain, the armor gains 1 charge.",
+        "As an action, you can expend any number of charges from the armor to unleash a beam of force at a creature you can see within 60 feet of you. The target must make a Dexterity saving throw against your power save DC, taking {@damage 1d6} force damage for each expended charge on a failed save, or half as much damage on a successful one.",
+        "The armor can hold a maximum of 10 charges, and loses all unused charges each day at dawn."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous Item, Very Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "bedroll-of-vim",
+      "name": "Bedroll of Vim",
+      "source": "TalPsi",
+      "page": 56,
+      "srd": false,
+      "type": "Wondrous Item",
+      "rarity": "Rare",
+      "attunement": "",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "",
+      "entries": [
+        "If you spend at least 6 hours of a long rest wrapped in this silk bedroll, you regain all your spent Hit Dice when you finish the rest. Only one creature can benefit from the bedroll at a time."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous Item, Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "crystal-of-greater-rejuvenation",
+      "name": "Crystal of Greater Rejuvenation",
+      "source": "TalPsi",
+      "page": 56,
+      "srd": false,
+      "type": "Adventuring Gear",
+      "rarity": "Rare",
+      "attunement": "",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "Psionic Crystal",
+      "propertyRefs": ["PCR"],
+      "entries": [
+        "This crystal contains psionic energy that causes you to lose {@dice 1d4 + 1} strain when you break it.",
+        {
+          "type": "entries",
+          "name": "Psionic Crystal",
+          "entries": [
+            "Psionic items use the same categories as magic items, but add one additional category-psionic crystal, a consumable psionic item akin to potions or spell scrolls. A creature can use an action to break one of these applesized crystals, unleashing the psionic power stored within."
+          ]
+        }
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Adventuring Gear, Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "crystal-of-rejuvenation",
+      "name": "Crystal of Rejuvenation",
+      "source": "TalPsi",
+      "page": 56,
+      "srd": false,
+      "type": "Adventuring Gear",
+      "rarity": "Uncommon",
+      "attunement": "",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "Psionic Crystal",
+      "propertyRefs": ["PCR"],
+      "entries": [
+        "This crystal contains psionic energy that causes you to lose 1 strain when you break it.",
+        {
+          "type": "entries",
+          "name": "Psionic Crystal",
+          "entries": [
+            "Psionic items use the same categories as magic items, but add one additional category-psionic crystal, a consumable psionic item akin to potions or spell scrolls. A creature can use an action to break one of these applesized crystals, unleashing the psionic power stored within."
+          ]
+        },
+        "{@note * This item group has the same name and source as the item {@item Crystal of Rejuvenation|TalPsi}}",
+        "This crystal contains psionic energy that causes you to lose strain when you break it. The amount of strain you lose depends on the crystal's rarity, as shown in the Crystals of Rejuvenation table.",
+        {
+          "type": "table",
+          "caption": "Crystals of Rejuvenation",
+          "page": 56,
+          "colLabels": ["Crystal of ...", "Rarity", "Strain Lost"],
+          "colStyles": ["col-4 text-left", "col-3 text-left", "col-3 text-left"],
+          "rows": [
+            ["{@item Crystal of Rejuvenation|TalPsi|Rejuvenation}", "Uncommon", "1"],
+            [
+              "{@item Crystal of Greater Rejuvenation|TalPsi|Greater rejuvenation}",
+              "Rare",
+              "{@dice 1d4 + 1}"
+            ],
+            [
+              "{@item Crystal of Superior Rejuvenation|TalPsi|Superior rejuvenation}",
+              "Very rare",
+              "{@dice 2d4 + 2}"
+            ],
+            [
+              "{@item Crystal of Supreme Rejuvenation|TalPsi|Supreme rejuvenation}",
+              "Legendary",
+              "{@dice 4d4 + 4}"
+            ]
+          ]
+        }
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Adventuring Gear, Uncommon",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "crystal-of-superior-rejuvenation",
+      "name": "Crystal of Superior Rejuvenation",
+      "source": "TalPsi",
+      "page": 56,
+      "srd": false,
+      "type": "Adventuring Gear",
+      "rarity": "Very Rare",
+      "attunement": "",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "Psionic Crystal",
+      "propertyRefs": ["PCR"],
+      "entries": [
+        "This crystal contains psionic energy that causes you to lose {@dice 2d4 + 2} strain when you break it.",
+        {
+          "type": "entries",
+          "name": "Psionic Crystal",
+          "entries": [
+            "Psionic items use the same categories as magic items, but add one additional category-psionic crystal, a consumable psionic item akin to potions or spell scrolls. A creature can use an action to break one of these applesized crystals, unleashing the psionic power stored within."
+          ]
+        }
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Adventuring Gear, Very Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "crystal-of-supreme-rejuvenation",
+      "name": "Crystal of Supreme Rejuvenation",
+      "source": "TalPsi",
+      "page": 56,
+      "srd": false,
+      "type": "Adventuring Gear",
+      "rarity": "Legendary",
+      "attunement": "",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "Psionic Crystal",
+      "propertyRefs": ["PCR"],
+      "entries": [
+        "This crystal contains psionic energy that causes you to lose {@dice 4d4 + 4} strain when you break it.",
+        {
+          "type": "entries",
+          "name": "Psionic Crystal",
+          "entries": [
+            "Psionic items use the same categories as magic items, but add one additional category-psionic crystal, a consumable psionic item akin to potions or spell scrolls. A creature can use an action to break one of these applesized crystals, unleashing the psionic power stored within."
+          ]
+        }
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Adventuring Gear, Legendary",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "headband-of-power-storing",
+      "name": "Headband of Power Storing",
+      "source": "TalPsi",
+      "page": 57,
+      "srd": false,
+      "type": "Wondrous Item",
+      "rarity": "Rare",
+      "attunement": "Requires attunement",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "",
+      "entries": [
+        "This silver headband stores powers that are manifested into it, holding them until the attuned wearer uses them. The headband can store powers whose combined order totals 5 or fewer. When found, it contains powers determined by the GM, whose combined order totals {@dice 1d6 - 1}.",
+        "Any creature can {@action Manifest a Power|TalPsi|manifest a power} of {@filter 1st order through 5th order|psionics|order=1st-order;2nd-order;3rd-order;4th-order;5th-order|source=talpsi==extend} into the headband by touching the headband as the power is manifested. That power has no effect, other than to be stored in the headband. If the headband can't hold the power, the power is expended without effect.",
+        "While wearing this headband, you can manifest any power stored in it. The power uses the baseline order, power save DC, power attack modifier, and manifestation ability of the original manifester, but is otherwise treated as if you manifested the power.",
+        "A power manifested from the headband is no longer stored in it, freeing up space."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous Item, Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "hero-s-cape",
+      "name": "Hero's Cape",
+      "source": "TalPsi",
+      "page": 57,
+      "srd": false,
+      "type": "Wondrous Item",
+      "rarity": "Legendary",
+      "attunement": "Requires attunement",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "",
+      "entries": [
+        "While you wear this flowing, colorful cape, you have a flying speed of 90 feet and can hover.",
+        "Additionally, you can use an action to send forth a 15-foot cone of psionic force. Each creature in the area must make a DC 19 Dexterity saving throw, taking {@damage 6d6} force damage on a failed save, or half as much damage on a successful one."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous Item, Legendary",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "orb-of-psionic-might-1",
+      "name": "Orb of Psionic Might +1",
+      "source": "TalPsi",
+      "page": 57,
+      "srd": false,
+      "type": "Wondrous Item",
+      "rarity": "Uncommon",
+      "attunement": "Requires attunement by a talent",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "",
+      "entries": [
+        "While holding this grapefruit-sized crystal orb, you gain a +1 bonus to power attack rolls and to the saving throw DCs of your talent powers."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous Item, Uncommon",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "orb-of-psionic-might-2",
+      "name": "Orb of Psionic Might +2",
+      "source": "TalPsi",
+      "page": 57,
+      "srd": false,
+      "type": "Wondrous Item",
+      "rarity": "Rare",
+      "attunement": "Requires attunement by a talent",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "",
+      "entries": [
+        "While holding this grapefruit-sized crystal orb, you gain a +2 bonus to power attack rolls and to the saving throw DCs of your talent powers."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous Item, Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "orb-of-psionic-might-3",
+      "name": "Orb of Psionic Might +3",
+      "source": "TalPsi",
+      "page": 57,
+      "srd": false,
+      "type": "Wondrous Item",
+      "rarity": "Very Rare",
+      "attunement": "Requires attunement by a talent",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "",
+      "entries": [
+        "While holding this grapefruit-sized crystal orb, you gain a +3 bonus to power attack rolls and to the saving throw DCs of your talent powers."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Wondrous Item, Very Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "power-crystal",
+      "name": "Power Crystal",
+      "source": "TalPsi",
+      "page": 57,
+      "srd": false,
+      "type": "Adventuring Gear",
+      "rarity": "Varies",
+      "attunement": "",
+      "weight": "",
+      "value": "",
+      "damage": "",
+      "ac": "",
+      "properties": "Psionic Crystal",
+      "propertyRefs": ["PCR"],
+      "entries": [
+        "A {@i power crystal} holds a single psionic power. When you break this crystal as an action, you immediately manifest the power within it, regardless of the power's normal manifestation time. The order of the power in the crystal determines its power save DC and attack modifier, as well as the crystal's rarity, as shown on the Power Crystal table.",
+        {
+          "type": "table",
+          "caption": "Power Crystal",
+          "page": 57,
+          "colLabels": ["Power Order", "Rarity", "Save DC", "Attack Modifier"],
+          "colStyles": [
+            "col-1 text-center",
+            "col-3 text-left",
+            "col-3 text-center",
+            "col-3 text-center"
+          ],
+          "rows": [
+            ["1", "Common", "13", "+5"],
+            ["2", "Common", "13", "+5"],
+            ["3", "Uncommon", "15", "+7"],
+            ["4", "Rare", "17", "+9"],
+            ["5", "Very rare", "18", "+10"],
+            ["6", "Legendary", "19", "+11"]
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Psionic Crystal",
+          "entries": [
+            "Psionic items use the same categories as magic items, but add one additional category-psionic crystal, a consumable psionic item akin to potions or spell scrolls. A creature can use an action to break one of these applesized crystals, unleashing the psionic power stored within."
+          ]
+        }
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Adventuring Gear, Varies",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "staff-of-chronopathy",
+      "name": "Staff of Chronopathy",
+      "source": "TalPsi",
+      "page": 57,
+      "srd": false,
+      "type": "Melee Weapon",
+      "rarity": "Very Rare",
+      "attunement": "Requires attunement by a talent",
+      "weight": "4 lb.",
+      "value": "",
+      "damage": "1d6 bludgeoning",
+      "ac": "",
+      "properties": "Versatile",
+      "weaponCategory": "simple",
+      "propertyRefs": ["V"],
+      "entries": [
+        "This staff has 10 charges. While holding it, you can expend 1 or more of its charges to manifest one of the following powers from it, using an action or the power's indicated manifesting time, and using your talent power save DC: {@psionic forget|TalPsi} (2 charges), {@psionic intuition|TalPsi} (1 charge), {@psionic ravages of time|TalPsi} (2 charges), or {@psionic stasis field|TalPsi} (4 charges; 10 minutes).",
+        "Additionally, if you fail a saving throw while holding the staff, you can use your reaction to expend 1 charge and reroll the save, using either roll.",
+        "The staff regains {@dice 1d6 + 4} expended charges daily at dawn."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Melee Weapon, Very Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "staff-of-metamorphosis",
+      "name": "Staff of Metamorphosis",
+      "source": "TalPsi",
+      "page": 57,
+      "srd": false,
+      "type": "Melee Weapon",
+      "rarity": "Very Rare",
+      "attunement": "Requires attunement by a talent",
+      "weight": "4 lb.",
+      "value": "",
+      "damage": "1d6 bludgeoning",
+      "ac": "",
+      "properties": "Versatile",
+      "weaponCategory": "simple",
+      "propertyRefs": ["V"],
+      "entries": [
+        "This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to manifest one of the following powers from it, using your talent power save DC: {@psionic beam gaze|TalPsi} (2 charges), {@psionic cure ailment|TalPsi} (2 charges), {@psionic shadow form|TalPsi} (4 charges), or {@psionic sixth sense|TalPsi} (1 charge).",
+        "Additionally, while holding the staff, you can use an action to touch a creature with it and expend any number of charges. The creature regains {@dice 1d8} hit points per expended charge.",
+        "The staff regains {@dice 1d6 + 4} expended charges daily at dawn."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Melee Weapon, Very Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "staff-of-pyrokinesis",
+      "name": "Staff of Pyrokinesis",
+      "source": "TalPsi",
+      "page": 58,
+      "srd": false,
+      "type": "Melee Weapon",
+      "rarity": "Very Rare",
+      "attunement": "Requires attunement by a talent",
+      "weight": "4 lb.",
+      "value": "",
+      "damage": "1d6 bludgeoning",
+      "ac": "",
+      "properties": "Versatile",
+      "weaponCategory": "simple",
+      "propertyRefs": ["V"],
+      "entries": [
+        "This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to manifest one of the following powers from it, using your talent power save DC: {@psionic fire form|TalPsi} (4 charges), {@psionic imbue flame|TalPsi} (2 charges), {@psionic melt|TalPsi} (4 charges), or {@psionic scorch|TalPsi} (1 charge).",
+        "Additionally, when you make a melee attack with the staff, you can use your Intelligence modifier instead of your Strength modifier for attack and damage rolls.",
+        "When you hit with a melee attack using the staff, you can expend any number of charges, dealing an extra {@damage 1d8} fire damage to the target per expended charge.",
+        "The staff regains {@dice 1d6 + 4} expended charges daily at dawn."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Melee Weapon, Very Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "staff-of-resopathy",
+      "name": "Staff of Resopathy",
+      "source": "TalPsi",
+      "page": 58,
+      "srd": false,
+      "type": "Melee Weapon",
+      "rarity": "Very Rare",
+      "attunement": "Requires attunement by a talent",
+      "weight": "4 lb.",
+      "value": "",
+      "damage": "1d6 bludgeoning",
+      "ac": "",
+      "properties": "Versatile",
+      "weaponCategory": "simple",
+      "propertyRefs": ["V"],
+      "entries": [
+        "This staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to manifest one of the following powers from it, using your talent power save DC: {@psionic extinguish|TalPsi} (2 charges), {@psionic guise|TalPsi} (2 charges), {@psionic reminisce|TalPsi} (4 charges), or {@psionic weight|TalPsi} (1 charge).",
+        "Additionally, while holding the staff, you can expend 1 charge as a bonus action to give yourself {@sense truesight} out to a range of 30 feet for 1 minute.",
+        "The staff regains {@dice 1d6 + 4} expended charges daily at dawn."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Melee Weapon, Very Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "staff-of-telekinesis",
+      "name": "Staff of Telekinesis",
+      "source": "TalPsi",
+      "page": 58,
+      "srd": false,
+      "type": "Melee Weapon",
+      "rarity": "Very Rare",
+      "attunement": "Requires attunement by a talent",
+      "weight": "4 lb.",
+      "value": "",
+      "damage": "1d6 bludgeoning",
+      "ac": "",
+      "properties": "Versatile",
+      "weaponCategory": "simple",
+      "propertyRefs": ["V"],
+      "entries": [
+        "This staff has 10 charges. While holding it, you can expend 1 or more of its charges to manifest one of the following powers from it, using your talent power save DC: {@psionic fulcrum|TalPsi} (4 charges), {@psionic gravitational collapse|TalPsi} (4 charges), {@psionic repel|TalPsi} (1 charge), or {@psionic telekinetic burst|TalPsi} (2 charges).",
+        "Additionally, while holding the staff, you can expend 1 charge to give yourself a flying speed of 60 feet until the end of your next turn (no action required). If you already have a flying speed, that speed increases by 60 feet until the end of your next turn.",
+        "The staff regains {@dice 1d6 + 4} expended charges daily at dawn."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Melee Weapon, Very Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "staff-of-telepathy",
+      "name": "Staff of Telepathy",
+      "source": "TalPsi",
+      "page": 58,
+      "srd": false,
+      "type": "Melee Weapon",
+      "rarity": "Very Rare",
+      "attunement": "Requires attunement by a talent",
+      "weight": "4 lb.",
+      "value": "",
+      "damage": "1d6 bludgeoning",
+      "ac": "",
+      "properties": "Versatile",
+      "weaponCategory": "simple",
+      "propertyRefs": ["V"],
+      "entries": [
+        "This staff has 10 charges. While holding it, you can expend 1 or more of its charges to manifest one of the following powers from it, using your talent power save DC: {@psionic believe|TalPsi} (1 charge), {@psionic dagger of the mind|TalPsi} (2 charges), {@psionic distant voice|TalPsi} (2 charges), or {@psionic harlequin|TalPsi} (4 charges).",
+        "Additionally, while holding the staff, you can use an action to expend 1 charge and choose a creature you can see within 30 feet of you. For 1 minute, you learn the surface thoughts of that creature-what is most on their mind in that moment. If the creature has an Intelligence of 3 or lower or doesn't speak any language, you learn nothing from it.",
+        "While you are reading a creature's surface thoughts with the staff, you can expend 1 charge as a bonus action to dig deeper into the target's mind, forcing them to make an Intelligence saving throw against your talent power save DC. On a success, your ability to read the creature's surface thoughts ends. On a failure, you gain insight into the target's reasoning (if any), their emotional state, and one thing that looms large in their mind (a problem they are worried over, a person they love or hate, and so forth).",
+        "Whether the saving throw succeeds or fails, the target doesn't know that you attempted to dig into their mind.",
+        "The staff regains {@dice 1d6 + 4} expended charges daily at dawn."
+      ],
+      "_fumble": true,
+      "category": "items",
+      "subtitle": "Melee Weapon, Very Rare",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
     }
   ]
 }

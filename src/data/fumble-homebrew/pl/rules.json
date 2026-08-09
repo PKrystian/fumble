@@ -706,7 +706,7 @@
                 "700"
               ],
               [
-                "{@firearm Pneumatic Spray or Flamethrower|Fumble|Pneumatyczny sprej lub miotacz}",
+                "{@firearm Pneumatic Spray Flamethrower|Fumble|Pneumatyczny sprej lub miotacz}",
                 "Mała (ręczna)",
                 "Efekt spreju",
                 "30",
@@ -806,28 +806,38 @@
             "caption": "Granaty",
             "colLabels": ["Granat", "Zaklęcie bazowe", "Modyfikacja", "Cena"],
             "rows": [
-              ["{@firearm Explosion|Fumble|Wybuch}", "{@spell Shatter|XPHB}", "-", "50"],
               [
-                "{@firearm Greater Explosion|Fumble|Większy wybuch}",
+                "{@firearm Explosion Grenade|Fumble|Wybuch}",
+                "{@spell Shatter|XPHB}",
+                "-",
+                "50"
+              ],
+              [
+                "{@firearm Greater Explosion Grenade|Fumble|Większy wybuch}",
                 "{@spell Fireball|XPHB}",
                 "Połowa obrażeń jest odgłuszająca",
                 "300"
               ],
-              ["{@firearm Smoke|Fumble|Dymny}", "{@spell Fog Cloud|XPHB}", "-", "20"],
               [
-                "{@firearm Flashbang|Fumble|Flashbang}",
+                "{@firearm Smoke Grenade|Fumble|Dymny}",
+                "{@spell Fog Cloud|XPHB}",
+                "-",
+                "20"
+              ],
+              [
+                "{@firearm Flashbang Grenade|Fumble|Flashbang}",
                 "{@spell Confusion|XPHB}",
                 "Czas trwania skrócony do 1 rundy",
                 "60"
               ],
               [
-                "{@firearm Gas|Fumble|Gazowy}",
+                "{@firearm Gas Grenade|Fumble|Gazowy}",
                 "{@spell Stinking Cloud|XPHB}",
                 "Czas trwania 10 minut",
                 "100"
               ],
               [
-                "{@firearm Mustard Gas|Fumble|Gaz musztardowy}",
+                "{@firearm Mustard Gas Grenade|Fumble|Gaz musztardowy}",
                 "{@spell Cloudkill|XPHB}",
                 "Czas trwania 10 minut",
                 "500"
@@ -846,19 +856,19 @@
                 "1 sz"
               ],
               [
-                "{@firearm Fire|Fumble|Ogień}",
+                "{@firearm Fire Spray|Fumble|Ogień}",
                 "{@spell Burning Hands|XPHB} na 3. poziomie",
                 "Cele zaczynają płonąć",
                 "20 sz"
               ],
               [
-                "{@firearm Napalm|Fumble|Napalm}",
+                "{@firearm Napalm Spray|Fumble|Napalm}",
                 "Ogień na wyższym poziomie",
                 "Cele zaczynają płonąć i otrzymują {@dice 2d8} obrażeń od ognia",
                 "100 sz"
               ],
               [
-                "{@firearm Acid|Fumble|Kwas}",
+                "{@firearm Acid Spray|Fumble|Kwas}",
                 "{@spell Tasha's Caustic Brew|XPHB}",
                 "-",
                 "100 sz"

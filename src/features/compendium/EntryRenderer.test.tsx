@@ -82,10 +82,9 @@ describe('entry renderer', () => {
       'data-entry-name',
       'section-name',
     );
-    expect(screen.getByRole('link', { name: 'Ancient Dragon' })).toHaveAttribute(
-      'href',
-      '/compendium/bestiary/ancient-dragon/',
-    );
+    expect(screen.queryByRole('link', { name: 'Ancient Dragon' })).toBeNull();
+    expect(view.container).toHaveTextContent('Ancient Dragon');
+    expect(view.container.querySelector('aside')).toHaveTextContent('TipInset body');
     expect(view.container).toHaveTextContent('Unknown Block');
     expect(view.container).toHaveTextContent('Fallback entries');
     expect(view.container).toHaveTextContent('Fallback entry');

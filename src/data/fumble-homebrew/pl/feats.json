@@ -200,7 +200,7 @@
         "type": "entries",
         "name": "Klątwa olbrzyma",
         "entries": [
-          "Zmniejsz Siłę o 1. Twój {@variantrule Size|XPHB} zmniejsza się o jedną kategorię, jak przy działaniu zaklęcia {@spell Reduce|XPHB|Pomniejszenie}, a testy służące uniknięciu Odepchnięcia lub {@condition Grappled|XPHB|Chwytu} wykonujesz z {@variantrule Disadvantage|XPHB|Utrudnieniem}."
+          "Zmniejsz Siłę o 1. Twój {@variantrule Size|XPHB} zmniejsza się o jedną kategorię, jak przy działaniu zaklęcia {@spell Enlarge/Reduce|XPHB|Pomniejszenie}, a testy służące uniknięciu Odepchnięcia lub {@condition Grappled|XPHB|Chwytu} wykonujesz z {@variantrule Disadvantage|XPHB|Utrudnieniem}."
         ]
       }
     ]
@@ -284,6 +284,77 @@
         "name": "Cztery bronie",
         "entries": [
           "Wymaganie: linia krwi Ciemia z cechą Dodatkowe ramiona. Zwiększ Siłę lub Zręczność o 1. Możesz używać wszystkich czterech rąk bez ograniczeń, także trzymając tarczę, broń dwuręczną i fokus czarów."
+        ]
+      }
+    ]
+  },
+  "augmented-force": {
+    "name": "Zwiększona siła",
+    "subtitle": "Generał wyczyn",
+    "category": "feats",
+    "prerequisite": "Zdolność do manifestowania co najmniej jednej mocy",
+    "entries": [
+      "Kiedy zdobędziesz ten atut, wybierz jeden z następujących rodzajów obrażeń: ogień, siła lub psychiczne. Moce, które manifestujesz, ignorują odporność na obrażenia wybranego typu i zamiast tego traktują odporność na obrażenia tego typu jako odporność.",
+      "Dodatkowo, kiedy rzucasz obrażeniami dla manifestowanej mocy, która zadaje obrażenia wybranego typu, możesz potraktować dowolną 1 na kości obrażeń jako 2.",
+      "Możesz wybrać ten atut wielokrotnie. Za każdym razem, gdy to robisz, musisz wybrać inny rodzaj obrażeń."
+    ]
+  },
+  "battlemind": {
+    "name": "Umysł bojowy",
+    "subtitle": "Generał wyczyn",
+    "category": "feats",
+    "prerequisite": "Zdolność do manifestowania co najmniej jednej mocy",
+    "entries": [
+      "Twoje doświadczenie w manifestowaniu mocy podczas walki zapewnia ci następujące korzyści:",
+      {
+        "type": "list",
+        "items": [
+          "Masz przewagę w rzutach obronnych na Kondycję wykonywanych w celu utrzymania {@status concentration} na twoich aktywnych mocach, gdy otrzymujesz obrażenia.",
+          "Kiedy ruch wrogiej istoty prowokuje twój atak okazyjny, możesz wykorzystać swoją reakcję na {@action Manifest a Power|TalPsi|manifest a power}, który celuje w to stworzenie, zamiast wykonywać atak okazyjny. Moc musi mieć czas manifestacji równy 1 akcji i musi obierać za cel tylko to stworzenie.",
+          "Za każdym razem, gdy wzrasta napięcie, stres uruchamia bufor ochronny, który zapewnia tymczasowe punkty wytrzymałości {@dice 1d4}."
+        ]
+      }
+    ]
+  },
+  "better-under-pressure": {
+    "name": "Lepiej pod presją",
+    "subtitle": "Generał wyczyn",
+    "category": "feats",
+    "prerequisite": "Zdolność do manifestowania co najmniej jednej mocy i wzmocnienia napięcia",
+    "entries": [
+      "Jesteś w stanie zamienić napięcie ciała, umysłu i duszy w wybuchy skupionej energii, śledzone jako punkty nacisku. Ilekroć zyskujesz napięcie, zyskujesz także 1 punkt nacisku za każde napięcie, które zyskujesz w ten sposób. Następnie za każdym razem, gdy wykonasz test umiejętności, rzut ataku lub rzut obronny, możesz wydać do 3 punktów nacisku i dodać 1 do rzutu za każdy wydany punkt. Możesz poczekać, aż rzucisz {@dice d20}, zanim zdecydujesz się wydać punkty nacisku. Po zakończeniu długiego odpoczynku tracisz wszystkie punkty nacisku."
+    ]
+  },
+  "psionic-initiate": {
+    "name": "Psioniczny nowicjusz",
+    "subtitle": "Generał wyczyn",
+    "category": "feats",
+    "prerequisite": "",
+    "entries": [
+      "Możesz wykorzystać moc swojego umysłu, aby zamanifestować moce, co zapewni ci następujące korzyści:",
+      {
+        "type": "list",
+        "items": [
+          "Uczysz się dwóch wybranych {@filter 1st-order powers|psionics|order=1st-order|source=talpsi==extend}.",
+          "Uczysz się jednego wybranego {@filter 2nd-order power|psionics|order=2nd-order|source=talpsi==extend} i możesz go zamanifestować w najniższej kolejności bez konieczności wykonywania testu manifestacji. Gdy zamanifestujesz tę moc za pomocą tego atutu, nie możesz tego zrobić ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+        ]
+      },
+      "Twoją zdolnością manifestowania tych mocy jest Inteligencja, Mądrość lub Charyzma (twój wybór)."
+    ]
+  },
+  "psionic-trick": {
+    "name": "Psioniczna sztuczka",
+    "subtitle": "Generał wyczyn",
+    "category": "feats",
+    "prerequisite": "",
+    "entries": [
+      "Twój umysł może tworzyć efekty psioniczne, zapewniając następujące korzyści:",
+      {
+        "type": "list",
+        "items": [
+          "Możesz rozmawiać telepatycznie z każdą istotą, którą widzisz w promieniu 60 stóp od ciebie, która rozumie język. Twoja komunikacja nie daje stworzeniu możliwości reagowania na ciebie telepatycznie.",
+          "Poznasz moc {@psionic psionic shift|TalPsi}. Twoją zdolnością manifestacji tej mocy jest Inteligencja, Mądrość lub Charyzma (twój wybór).",
+          "Jako akcję dodatkową możesz wybrać mały lub mniejszy, przyziemny przedmiot, który widzisz w promieniu 30 stóp od ciebie i który nie jest noszony ani noszony przez inną istotę, a następnie podpalić ten przedmiot. Obiekt otrzymuje obrażenia od ognia {@damage 1d4} na koniec każdej twojej tury, dopóki nie zostanie zniszczony lub dopóki stworzenie nie użyje akcji lub akcji dodatkowej, aby ugasić płomienie."
         ]
       }
     ]

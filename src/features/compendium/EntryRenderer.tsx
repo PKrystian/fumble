@@ -4,10 +4,11 @@ import { imageUrl, optimizedImageUrl } from '@/data/compendium/images';
 import { stripMarkup } from '@/data/transform/util';
 import { useRollStore } from '@/features/dice/rollStore';
 import { useLightbox } from '@/features/ui/lightboxStore';
-import { Link, useLocale } from '@/i18n/path';
+import { useLocale } from '@/i18n/path';
 import type { Locale } from '@/i18n/locales';
 import { translate } from '@/i18n/useT';
 import { markupLabel, parseMarkup } from './markup';
+import { ReferenceLink } from './ReferenceLink';
 
 const STATBLOCK_CATEGORY: Record<string, string> = {
   creature: 'bestiary',
@@ -189,12 +190,12 @@ function renderNode(node: EntryNode, key: number, locale: Locale): ReactNode {
       return (
         <p key={key} className="my-1" data-entry-name={slug(name)}>
           {category ? (
-            <Link
-              to={`/compendium/${category}/${slug(name)}`}
-              className="text-arcane-300 underline decoration-dotted underline-offset-2 hover:text-arcane-500"
-            >
-              {name}
-            </Link>
+            <ReferenceLink
+              category={category}
+              slug={slug(name)}
+              label={name}
+              {...(typeof node.source === 'string' ? { source: node.source } : {})}
+            />
           ) : (
             <span className="font-semibold text-ink-50">{name}</span>
           )}{' '}

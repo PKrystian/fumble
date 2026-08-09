@@ -483,6 +483,7 @@ describe('HomebrewPage', () => {
 
     expect(screen.getByText('unknown')).toBeInTheDocument();
     expect(container.querySelector('img')).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: 'Image Entry' })).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: 'Polski' }));
     expect(screen.getByLabelText('Name')).toHaveAttribute(
       'placeholder',

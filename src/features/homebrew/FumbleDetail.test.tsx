@@ -1,6 +1,19 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+vi.mock('@/features/compendium/ReferenceLink', () => ({
+  ReferenceLink: ({
+    category,
+    slug,
+    label,
+  }: {
+    category: string;
+    slug: string;
+    label: string;
+  }) => <a href={`/compendium/${category}/${slug}/`}>{label}</a>,
+}));
+
 import { fumbleHomebrewItems } from './fumbleHomebrew';
 import { FumbleDetail } from './FumbleDetail';
 
@@ -24,6 +37,39 @@ describe('FumbleDetail', () => {
       'src',
       'https://res.cloudinary.com/sbgzuael/image/upload/v1786089463/claw-witch_p73v97.webp',
     );
+  });
+
+  it('renders the Polish Witch GM guidance as a sidebar note', () => {
+    const item = fumbleHomebrewItems('pl').find((entry) => entry.id === 'witch')!;
+
+    const view = render(
+      <MemoryRouter>
+        <FumbleDetail item={item} />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByText('Wskazówka dla GM: Uraza wiedźmy')).toBeInTheDocument();
+    expect(view.container.querySelector('aside')).toHaveTextContent(
+      'Czasami istota wykroczy przeciwko wiedźmie',
+    );
+  });
+
+  it('links the Polish Apothecary spellcasting focus to the rule record', () => {
+    const item = fumbleHomebrewItems('pl').find((entry) => entry.id === 'apothecary')!;
+
+    render(
+      <MemoryRouter>
+        <FumbleDetail item={item} />
+      </MemoryRouter>,
+    );
+
+    expect(
+      screen
+        .getAllByRole('link', { name: 'skupienia rzucającego zaklęcia' })
+        .every(
+          (link) => link.getAttribute('href') === '/compendium/rules/spellcasting-focus/',
+        ),
+    ).toBe(true);
   });
 
   it('renders ordinary Fumble entries without class data', () => {
@@ -70,7 +116,6 @@ describe('FumbleDetail', () => {
       name: 'Minimal Witch',
       entries: [],
       features: [],
-      subclasses: undefined,
       table: undefined,
     };
 
@@ -122,6 +167,47 @@ describe('FumbleDetail', () => {
 
     expect(screen.getByRole('heading', { name: /Chichot/ })).toBeInTheDocument();
     expect(screen.getByText(/Wydajesz szalony chichot/)).toBeInTheDocument();
+  });
+
+  it('keeps localized spell subclass references linked to class routes', () => {
+    const item = fumbleHomebrewItems('pl').find((entry) => entry.id === 'last-rites')!;
+
+    render(
+      <MemoryRouter>
+        <FumbleDetail item={item} />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole('link', { name: 'Aptekarz: Egzorcysta' })).toHaveAttribute(
+      'href',
+      '/compendium/classes/apothecary/exorcist/',
+    );
+  });
+
+  it('renders Fumble actions, psionics, and optional features', () => {
+    const entries = [
+      fumbleHomebrewItems('pl').find((entry) => entry.id === 'manifest-a-power')!,
+      fumbleHomebrewItems('pl').find((entry) => entry.id === 'adapt')!,
+      fumbleHomebrewItems('pl').find((entry) => entry.id === 'destructive-power')!,
+    ];
+
+    for (const item of entries) {
+      const view = render(
+        <MemoryRouter>
+          <FumbleDetail item={item} />
+        </MemoryRouter>,
+      );
+      expect(view.container.querySelector('h1')).not.toBeNull();
+      view.unmount();
+    }
+
+    render(
+      <MemoryRouter>
+        <FumbleDetail item={entries[0]!} />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole('heading', { name: /Manifestuj/ })).toBeInTheDocument();
+    expect(screen.getAllByText(/akcj/).length).toBeGreaterThan(0);
   });
 
   it('renders Fumble bestiary details', () => {

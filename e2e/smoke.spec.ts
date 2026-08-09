@@ -79,6 +79,22 @@ test('compendium loads spells and opens an entry', async ({ page }) => {
   await expect(page.getByRole('searchbox')).toHaveValue('fireball');
 });
 
+test('opens compendium records at the top after scrolling the list', async ({ page }) => {
+  await page.goto('/pl/compendium/rules');
+  await expect(page.locator('ul[data-category] a').last()).toBeVisible();
+
+  const main = page.locator('main');
+  const scrollTop = await main.evaluate((element) => {
+    element.scrollTop = element.scrollHeight;
+    return element.scrollTop;
+  });
+  expect(scrollTop).toBeGreaterThan(0);
+
+  await page.locator('ul[data-category] a').last().click();
+  await expect(page).toHaveURL(/\/pl\/compendium\/rules\/[^/]+\/$/);
+  await expect.poll(() => main.evaluate((element) => element.scrollTop)).toBe(0);
+});
+
 test('compendium links to older printings', async ({ page }) => {
   await page.goto('/compendium/spells/fireball');
   await expect(page.getByText('Source:')).toContainText("Player's Handbook (2024)");

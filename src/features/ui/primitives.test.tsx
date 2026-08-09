@@ -20,6 +20,14 @@ describe('UI primitives', () => {
     expect(onClear).toHaveBeenCalledOnce();
   });
 
+  it('keeps search focus styling on the rounded field container', () => {
+    render(<SearchField label="Search" value="" readOnly />);
+
+    const input = screen.getByRole('searchbox', { name: 'Search' });
+    expect(input).toHaveClass('focus-visible:outline-none');
+    expect(input.parentElement).toHaveClass('focus-within:ring-2');
+  });
+
   it('exposes filter state', () => {
     render(<ToggleChip active>Spells</ToggleChip>);
     expect(screen.getByRole('button', { name: 'Spells' })).toHaveAttribute(

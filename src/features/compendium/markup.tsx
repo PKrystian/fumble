@@ -21,6 +21,7 @@ const LINKABLE: Record<string, string> = {
   creature: 'bestiary',
   action: 'actions',
   optfeature: 'optionalfeatures',
+  psionic: 'psionics',
   deity: 'deities',
   hazard: 'hazards',
   reward: 'boons',
@@ -288,6 +289,20 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
       return <Fragment key={key}>{first}</Fragment>;
     case 'quickref':
       return <Fragment key={key}>{quickrefLabel(locale, parts)}</Fragment>;
+    case 'card': {
+      const deckName = parts[1]?.trim();
+      const deckSource = parts[2]?.trim();
+      if (!deckName) return <Fragment key={key}>{first}</Fragment>;
+      return (
+        <ReferenceLink
+          key={key}
+          category="decks"
+          slug={slugify(deckName)}
+          label={first}
+          {...(deckSource ? { source: deckSource } : {})}
+        />
+      );
+    }
     case 'damage':
     case 'dice':
     case 'scaledamage':

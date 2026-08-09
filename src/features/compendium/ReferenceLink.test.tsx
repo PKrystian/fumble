@@ -2,12 +2,17 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-const { loadReferenceHint, loadReferenceName } = vi.hoisted(() => ({
+const { loadReferenceHint, loadReferenceName, resolveReference } = vi.hoisted(() => ({
   loadReferenceHint: vi.fn(),
   loadReferenceName: vi.fn(),
+  resolveReference: vi.fn(),
 }));
 
-vi.mock('./referenceHint', () => ({ loadReferenceHint, loadReferenceName }));
+vi.mock('./referenceHint', () => ({
+  loadReferenceHint,
+  loadReferenceName,
+  resolveReference,
+}));
 
 import { ReferenceLink } from './ReferenceLink';
 
@@ -23,8 +28,13 @@ describe('ReferenceLink', () => {
     vi.useFakeTimers();
     loadReferenceHint.mockReset();
     loadReferenceName.mockReset();
+    resolveReference.mockReset();
     loadReferenceName.mockResolvedValue(null);
     loadReferenceHint.mockResolvedValue(null);
+    resolveReference.mockResolvedValue({
+      item: { id: 'fireball', name: 'Fireball' },
+      slug: 'fireball',
+    });
     vi.stubGlobal(
       'matchMedia',
       vi.fn(() => ({ matches: true })),
@@ -59,6 +69,7 @@ describe('ReferenceLink', () => {
       }),
     );
     renderLink();
+    await act(async () => undefined);
     const link = screen.getByRole('link');
     vi.spyOn(link, 'getBoundingClientRect').mockReturnValue({
       left: 40,
@@ -97,6 +108,7 @@ describe('ReferenceLink', () => {
     Object.defineProperty(window, 'innerWidth', { configurable: true, value: 200 });
     Object.defineProperty(window, 'innerHeight', { configurable: true, value: 800 });
     renderLink();
+    await act(async () => undefined);
     const link = screen.getByRole('link');
     vi.spyOn(link, 'getBoundingClientRect').mockReturnValue({
       left: 500,
@@ -125,6 +137,7 @@ describe('ReferenceLink', () => {
 
   it('cancels pending timers and shows previews on touch devices', async () => {
     renderLink();
+    await act(async () => undefined);
     const link = screen.getByRole('link');
     fireEvent.mouseEnter(link);
     fireEvent.mouseEnter(link);
@@ -149,5 +162,13 @@ describe('ReferenceLink', () => {
     const { unmount } = renderLink();
     unmount();
     await act(async () => resolveName('Kula Ognia'));
+  });
+
+  it('renders unresolved references as text instead of a broken link', async () => {
+    resolveReference.mockResolvedValue(null);
+    renderLink();
+    await act(async () => undefined);
+    expect(screen.queryByRole('link')).toBeNull();
+    expect(screen.getByText('Fireball')).toBeInTheDocument();
   });
 });

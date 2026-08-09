@@ -1235,5 +1235,382 @@
       "Często jest to gładki, wypolerowany kamień, wystarczająco mały, aby zmieścić się w kieszeni. Talizmany te mogą też przyjmować postać małych zabawek, bransoletek z koralików albo pierścieni zbyt luźnych o pół rozmiaru.",
       "Gdy przez 1 minutę podczas krótkiego albo długiego odpoczynku pocierasz, obracasz lub ugniatasz ten talizman, możesz przerzucić test Inteligencji albo test Mądrości (Wnikliwość), który wykonałeś od zakończenia poprzedniego krótkiego albo długiego odpoczynku, nawet jeśli jego przedmiot nie znajduje się już przed tobą, i dodać {@dice 1d4} do wyniku. Tego samego testu nie można przerzucić za pomocą Kamienia Zmartwień więcej niż raz."
     ]
+  },
+  "armor-of-psionic-absorption": {
+    "name": "Pancerz absorpcji psionicznej",
+    "subtitle": "Cudowny przedmiot, bardzo rzadki",
+    "type": "Cudowny przedmiot",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia poprzez talent",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "",
+    "entries": [
+      "Nosząc tę ​​zbroję, zyskujesz premię +1 do KP. Ponadto, ilekroć nabierzesz napięcia, energia wyssana z twojego ciała, umysłu lub duszy jest magazynowana w zbroi. Za każde 1 odkształcenie, które zyskasz, zbroja zyskuje 1 ładunek.",
+      "W ramach akcji możesz wydać dowolną liczbę ładunków pancerza, aby wyzwolić wiązkę mocy w stronę istoty, którą widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Zręczność przeciwko Twojemu DC oszczędzania energii, otrzymując obrażenia od siły {@damage 1d6} za każdy zużyty ładunek w przypadku nieudanego rzutu lub o połowę mniej w przypadku udanego rzutu.",
+      "Pancerz może pomieścić maksymalnie 10 ładunków i traci wszystkie niewykorzystane ładunki każdego dnia o świcie."
+    ]
+  },
+  "bedroll-of-vim": {
+    "name": "Łóżko Vima",
+    "subtitle": "Cudowny przedmiot, rzadki",
+    "type": "Cudowny przedmiot",
+    "rarity": "Rzadki",
+    "attunement": "",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "",
+    "entries": [
+      "Jeśli spędzisz co najmniej 6 godzin długiego odpoczynku owiniętego w tę jedwabną pościel, odzyskasz wszystkie wydane Kostki Wytrzymałości, gdy skończysz resztę. Tylko jedno stworzenie może korzystać z posłania na raz."
+    ]
+  },
+  "crystal-of-greater-rejuvenation": {
+    "name": "Kryształ Większego Odmłodzenia",
+    "subtitle": "Sprzęt poszukiwawczy, rzadki",
+    "type": "Sprzęt poszukiwawczy",
+    "rarity": "Rzadki",
+    "attunement": "",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "Kryształ psioniczny",
+    "entries": [
+      "Kryształ ten zawiera energię psioniczną, która powoduje utratę napięcia {@dice 1d4 + 1} w przypadku jego złamania.",
+      {
+        "type": "entries",
+        "name": "Psioniczny kryształ",
+        "entries": [
+          "Przedmioty psioniczne korzystają z tych samych kategorii co przedmioty magiczne, ale dodają jedną dodatkową kategorię - kryształ psioniczny, przedmiot psioniczny nadający się do spożycia, podobny do mikstur lub zwojów zaklęć. Istota może użyć akcji, aby rozbić jeden z kryształów wielkości jabłka, uwalniając zgromadzoną w nim moc psioniczną."
+        ]
+      }
+    ]
+  },
+  "crystal-of-rejuvenation": {
+    "name": "Kryształ Odmłodzenia",
+    "subtitle": "Sprzęt poszukiwawczy, niepospolity",
+    "type": "Sprzęt poszukiwawczy",
+    "rarity": "Niezwykły",
+    "attunement": "",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "Kryształ psioniczny",
+    "entries": [
+      "Kryształ ten zawiera energię psioniczną, która powoduje utratę 1 szczepu po jego złamaniu.",
+      {
+        "type": "entries",
+        "name": "Psioniczny kryształ",
+        "entries": [
+          "Przedmioty psioniczne korzystają z tych samych kategorii co przedmioty magiczne, ale dodają jedną dodatkową kategorię - kryształ psioniczny, przedmiot psioniczny nadający się do spożycia, podobny do mikstur lub zwojów zaklęć. Istota może użyć akcji, aby rozbić jeden z kryształów wielkości jabłka, uwalniając zgromadzoną w nim moc psioniczną."
+        ]
+      },
+      "{@note * This item group has the same name and source as the item {@item Crystal of Rejuvenation|TalPsi}}",
+      "Kryształ ten zawiera energię psioniczną, która powoduje, że tracisz napięcie, gdy go złamiesz. Ilość utraconego napięcia zależy od rzadkości kryształu, jak pokazano w tabeli Kryształy Odmłodzenia.",
+      {
+        "type": "table",
+        "caption": "Kryształy Odmłodzenia",
+        "page": 56,
+        "colLabels": ["Kryształ ...", "Rzadkość", "Strata napięcia"],
+        "colStyles": [
+          "col-4 tekst po lewej stronie",
+          "tekst w kolumnie 3 po lewej stronie",
+          "tekst w kolumnie 3 po lewej stronie"
+        ],
+        "rows": [
+          ["{@item Crystal of Rejuvenation|TalPsi|Rejuvenation}", "Niezwykły", "1"],
+          [
+            "{@item Crystal of Greater Rejuvenation|TalPsi|Greater rejuvenation}",
+            "Rzadki",
+            "{@dice 1d4 + 1}"
+          ],
+          [
+            "{@item Crystal of Superior Rejuvenation|TalPsi|Superior rejuvenation}",
+            "Bardzo rzadkie",
+            "{@dice 2d4 + 2}"
+          ],
+          [
+            "{@item Crystal of Supreme Rejuvenation|TalPsi|Supreme rejuvenation}",
+            "Legendarny",
+            "{@dice 4d4 + 4}"
+          ]
+        ]
+      }
+    ]
+  },
+  "crystal-of-superior-rejuvenation": {
+    "name": "Kryształ Doskonałego Odmłodzenia",
+    "subtitle": "Sprzęt poszukiwawczy, bardzo rzadki",
+    "type": "Sprzęt poszukiwawczy",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "Kryształ psioniczny",
+    "entries": [
+      "Kryształ ten zawiera energię psioniczną, która powoduje utratę napięcia {@dice 2d4 + 2} w przypadku jego złamania.",
+      {
+        "type": "entries",
+        "name": "Psioniczny kryształ",
+        "entries": [
+          "Przedmioty psioniczne korzystają z tych samych kategorii co przedmioty magiczne, ale dodają jedną dodatkową kategorię - kryształ psioniczny, przedmiot psioniczny nadający się do spożycia, podobny do mikstur lub zwojów zaklęć. Istota może użyć akcji, aby rozbić jeden z kryształów wielkości jabłka, uwalniając zgromadzoną w nim moc psioniczną."
+        ]
+      }
+    ]
+  },
+  "crystal-of-supreme-rejuvenation": {
+    "name": "Kryształ Najwyższego Odmłodzenia",
+    "subtitle": "Sprzęt poszukiwawczy, legendarny",
+    "type": "Sprzęt poszukiwawczy",
+    "rarity": "Legendarny",
+    "attunement": "",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "Kryształ psioniczny",
+    "entries": [
+      "Kryształ ten zawiera energię psioniczną, która powoduje utratę napięcia {@dice 4d4 + 4} w przypadku jego złamania.",
+      {
+        "type": "entries",
+        "name": "Psioniczny kryształ",
+        "entries": [
+          "Przedmioty psioniczne korzystają z tych samych kategorii co przedmioty magiczne, ale dodają jedną dodatkową kategorię - kryształ psioniczny, przedmiot psioniczny nadający się do spożycia, podobny do mikstur lub zwojów zaklęć. Istota może użyć akcji, aby rozbić jeden z kryształów wielkości jabłka, uwalniając zgromadzoną w nim moc psioniczną."
+        ]
+      }
+    ]
+  },
+  "headband-of-power-storing": {
+    "name": "Opaska na głowę magazynująca energię",
+    "subtitle": "Cudowny przedmiot, rzadki",
+    "type": "Cudowny przedmiot",
+    "rarity": "Rzadki",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "",
+    "entries": [
+      "Ta srebrna opaska przechowuje moce, które się w niej manifestują, i utrzymuje je, dopóki dostrojony użytkownik ich nie użyje. Opaska może przechowywać moce, których łączna liczba wynosi 5 lub mniej. Po znalezieniu zawiera moce określone przez GM, którego łączne zamówienie wynosi {@dice 1d6 - 1}.",
+      "Każde stworzenie może {@action Manifest a Power|TalPsi|manifest a power} z {@filter 1st order through 5th order|psionics|order=1st-order;2nd-order;3rd-order;4th-order;5th-order|source=talpsi==extend} umieścić w opasce, dotykając opaski podczas manifestacji mocy. Ta moc nie ma żadnego efektu poza przechowywaniem w opasce. Jeśli opaska nie jest w stanie utrzymać mocy, moc jest zużywana bez efektu.",
+      "Nosząc tę ​​opaskę, możesz manifestować całą zgromadzoną w niej moc. Moc korzysta z kolejności bazowej, ST oszczędzania energii, modyfikatora ataku mocy i zdolności manifestacji pierwotnego manifestującego, ale poza tym jest traktowana tak, jakbyś przejawił moc.",
+      "Moc manifestująca się w opasce nie jest już w niej przechowywana, uwalniając miejsce."
+    ]
+  },
+  "hero-s-cape": {
+    "name": "Przylądek Bohatera",
+    "subtitle": "Cudowny przedmiot, legendarny",
+    "type": "Cudowny przedmiot",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "",
+    "entries": [
+      "Nosząc tę ​​powiewającą, kolorową pelerynę, możesz latać z prędkością 30 metrów i możesz unosić się w powietrzu.",
+      "Dodatkowo możesz użyć akcji, aby wysłać 5-metrowy stożek siły psionicznej. Każda istota na obszarze musi wykonać rzut obronny na Zręczność o ST 19, który otrzyma obrażenia od siły {@damage 6d6} w przypadku nieudanego rzutu lub połowę mniej w przypadku udanego rzutu."
+    ]
+  },
+  "orb-of-psionic-might-1": {
+    "name": "Kula Psionicznej Mocy +1",
+    "subtitle": "Cudowny przedmiot, rzadki",
+    "type": "Cudowny przedmiot",
+    "rarity": "Niezwykły",
+    "attunement": "Wymaga dostrojenia poprzez talent",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "",
+    "entries": [
+      "Trzymając tę ​​kryształową kulę wielkości grejpfruta, zyskujesz premię +1 do testów ataku mocy i ST rzutów obronnych swoich mocy talentów."
+    ]
+  },
+  "orb-of-psionic-might-2": {
+    "name": "Kula Psionicznej Mocy +2",
+    "subtitle": "Cudowny przedmiot, rzadki",
+    "type": "Cudowny przedmiot",
+    "rarity": "Rzadki",
+    "attunement": "Wymaga dostrojenia poprzez talent",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "",
+    "entries": [
+      "Trzymając tę ​​kryształową kulę wielkości grejpfruta, zyskujesz premię +2 do testów ataku mocy i ST rzutów obronnych swoich mocy talentów."
+    ]
+  },
+  "orb-of-psionic-might-3": {
+    "name": "Kula Psionicznej Mocy +3",
+    "subtitle": "Cudowny przedmiot, bardzo rzadki",
+    "type": "Cudowny przedmiot",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia poprzez talent",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "",
+    "entries": [
+      "Trzymając tę ​​kryształową kulę wielkości grejpfruta, zyskujesz premię +3 do testów ataku mocy i ST rzutów obronnych swoich mocy talentów."
+    ]
+  },
+  "power-crystal": {
+    "name": "Kryształ Mocy",
+    "subtitle": "Sprzęt poszukiwawczy, różny",
+    "type": "Sprzęt poszukiwawczy",
+    "rarity": "Różnie",
+    "attunement": "",
+    "weight": "",
+    "value": "",
+    "damage": "",
+    "ac": "",
+    "properties": "Kryształ psioniczny",
+    "entries": [
+      "{@i power crystal} posiada pojedynczą moc psioniczną. Kiedy rozbijesz ten kryształ w ramach akcji, natychmiast manifestujesz znajdującą się w nim moc, niezależnie od normalnego czasu manifestacji tej mocy. Kolejność mocy w krysztale określa jego współczynnik oszczędzania energii i modyfikator ataku, a także rzadkość kryształu, jak pokazano w tabeli kryształów mocy.",
+      {
+        "type": "table",
+        "caption": "Kryształ Mocy",
+        "page": 57,
+        "colLabels": ["Rozkaz mocy", "Rzadkość", "Uratuj DC", "Modyfikator ataku"],
+        "colStyles": [
+          "col-1 centrum tekstowe",
+          "tekst w kolumnie 3 po lewej stronie",
+          "col-3 centrum tekstowe",
+          "col-3 centrum tekstowe"
+        ],
+        "rows": [
+          ["1", "Wspólny", "13", "+5"],
+          ["2", "Wspólny", "13", "+5"],
+          ["3", "Niezwykły", "15", "+7"],
+          ["4", "Rzadki", "17", "+9"],
+          ["5", "Bardzo rzadkie", "18", "+10"],
+          ["6", "Legendarny", "19", "+11"]
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Psioniczny kryształ",
+        "entries": [
+          "Przedmioty psioniczne korzystają z tych samych kategorii co przedmioty magiczne, ale dodają jedną dodatkową kategorię - kryształ psioniczny, przedmiot psioniczny nadający się do spożycia, podobny do mikstur lub zwojów zaklęć. Istota może użyć akcji, aby rozbić jeden z kryształów wielkości jabłka, uwalniając zgromadzoną w nim moc psioniczną."
+        ]
+      }
+    ]
+  },
+  "staff-of-chronopathy": {
+    "name": "Kostur Chronopatii",
+    "subtitle": "Broń biała, bardzo rzadka",
+    "type": "Broń do walki wręcz",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia poprzez talent",
+    "weight": "4 funty",
+    "value": "",
+    "damage": "1k6 tłuczenie",
+    "ac": "",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Kostur ten ma 10 podopiecznych. Trzymając ją, możesz wydać 1 lub więcej jej ładunków, aby zamanifestować z niej jedną z następujących mocy, korzystając z akcji lub wskazanego czasu manifestacji mocy i używając swojego talentu ST oszczędzania mocy: {@psionic forget|TalPsi} (2 ładunki), {@psionic intuition|TalPsi} (1 ładunek), {@psionic ravages of time|TalPsi} (2 ładunki) lub {@psionic stasis field|TalPsi} (4 ładunki; 10 minut).",
+      "Dodatkowo, jeśli nie uda Ci się wykonać rzutu obronnego, trzymając laskę, możesz wykorzystać swoją reakcję, aby wydać 1 ładunek i przerzucić rzut obronny, korzystając z dowolnego rzutu.",
+      "Personel odzyskuje zużyte opłaty {@dice 1d6 + 4} codziennie o świcie."
+    ]
+  },
+  "staff-of-metamorphosis": {
+    "name": "Laska Metamorfozy",
+    "subtitle": "Broń biała, bardzo rzadka",
+    "type": "Broń do walki wręcz",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia poprzez talent",
+    "weight": "4 funty",
+    "value": "",
+    "damage": "1k6 tłuczenie",
+    "ac": "",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Kostur ten ma 10 podopiecznych. Trzymając go, możesz wykonać akcję, aby wydać 1 lub więcej jego ładunków, aby zamanifestować z niego jedną z następujących mocy, używając DC oszczędzania energii talentu: {@psionic beam gaze|TalPsi} (2 ładunki), {@psionic cure ailment|TalPsi} (2 ładunki), {@psionic shadow form|TalPsi} (4 ładunki) lub {@psionic sixth sense|TalPsi} (1 ładunek).",
+      "Dodatkowo, trzymając laskę, możesz wykonać akcję, aby dotknąć nią stworzenia i wydać dowolną liczbę ładunków. Stworzenie odzyskuje punkty wytrzymałości {@dice 1d8} za każdy wydany ładunek.",
+      "Personel odzyskuje zużyte opłaty {@dice 1d6 + 4} codziennie o świcie."
+    ]
+  },
+  "staff-of-pyrokinesis": {
+    "name": "Kostur Pirokinezy",
+    "subtitle": "Broń biała, bardzo rzadka",
+    "type": "Broń do walki wręcz",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia poprzez talent",
+    "weight": "4 funty",
+    "value": "",
+    "damage": "1k6 tłuczenie",
+    "ac": "",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Kostur ten ma 10 podopiecznych. Trzymając go, możesz wykonać akcję, aby wydać 1 lub więcej jego ładunków, aby zamanifestować z niego jedną z następujących mocy, korzystając ze swojego DC oszczędzania energii talentu: {@psionic fire form|TalPsi} (4 ładunki), {@psionic imbue flame|TalPsi} (2 ładunki), {@psionic melt|TalPsi} (4 ładunki) lub {@psionic scorch|TalPsi} (1 ładunek).",
+      "Dodatkowo, kiedy wykonujesz atak wręcz laską, możesz użyć modyfikatora Inteligencji zamiast modyfikatora Siły do ​​testów ataku i obrażeń.",
+      "Kiedy uderzasz atakiem wręcz za pomocą laski, możesz zużyć dowolną liczbę ładunków, zadając celowi dodatkowe obrażenia od ognia {@damage 1d8} za każdy wydany ładunek.",
+      "Personel odzyskuje zużyte opłaty {@dice 1d6 + 4} codziennie o świcie."
+    ]
+  },
+  "staff-of-resopathy": {
+    "name": "Personel Rezopatii",
+    "subtitle": "Broń biała, bardzo rzadka",
+    "type": "Broń do walki wręcz",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia poprzez talent",
+    "weight": "4 funty",
+    "value": "",
+    "damage": "1k6 tłuczenie",
+    "ac": "",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Kostur ten ma 10 podopiecznych. Trzymając go, możesz wykonać akcję, aby wydać 1 lub więcej jego ładunków, aby zamanifestować z niego jedną z następujących mocy, używając DC oszczędzania energii talentu: {@psionic extinguish|TalPsi} (2 ładunki), {@psionic guise|TalPsi} (2 ładunki), {@psionic reminisce|TalPsi} (4 ładunki) lub {@psionic weight|TalPsi} (1 ładunek).",
+      "Dodatkowo, trzymając laskę, możesz wydać 1 ładunek jako akcję dodatkową, aby dać sobie {@sense truesight} na odległość 30 stóp na 1 minutę.",
+      "Personel odzyskuje zużyte opłaty {@dice 1d6 + 4} codziennie o świcie."
+    ]
+  },
+  "staff-of-telekinesis": {
+    "name": "Kostur Telekinezy",
+    "subtitle": "Broń biała, bardzo rzadka",
+    "type": "Broń do walki wręcz",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia poprzez talent",
+    "weight": "4 funty",
+    "value": "",
+    "damage": "1k6 tłuczenie",
+    "ac": "",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Kostur ten ma 10 podopiecznych. Trzymając go, możesz wydać 1 lub więcej jego ładunków, aby zamanifestować z niego jedną z następujących mocy, korzystając ze swojego DC oszczędzania energii talentu: {@psionic fulcrum|TalPsi} (4 ładunki), {@psionic gravitational collapse|TalPsi} (4 ładunki), {@psionic repel|TalPsi} (1 ładunek) lub {@psionic telekinetic burst|TalPsi} (2 ładunki).",
+      "Dodatkowo, trzymając laskę, możesz wydać 1 ładunek, aby zapewnić sobie prędkość lotu wynoszącą 60 stóp do końca twojej następnej tury (nie jest wymagana żadna akcja). Jeśli posiadasz już prędkość latania, prędkość ta wzrasta o 60 stóp do końca twojej następnej tury.",
+      "Personel odzyskuje zużyte opłaty {@dice 1d6 + 4} codziennie o świcie."
+    ]
+  },
+  "staff-of-telepathy": {
+    "name": "Kostur Telepatii",
+    "subtitle": "Broń biała, bardzo rzadka",
+    "type": "Broń do walki wręcz",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia poprzez talent",
+    "weight": "4 funty",
+    "value": "",
+    "damage": "1k6 tłuczenie",
+    "ac": "",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Kostur ten ma 10 podopiecznych. Trzymając go, możesz wydać 1 lub więcej jego ładunków, aby zamanifestować z niego jedną z następujących mocy, używając DC oszczędzania energii talentu: {@psionic believe|TalPsi} (1 ładunek), {@psionic dagger of the mind|TalPsi} (2 ładunki), {@psionic distant voice|TalPsi} (2 ładunki) lub {@psionic harlequin|TalPsi} (4 ładunki).",
+      "Dodatkowo, trzymając laskę, możesz użyć akcji, aby wydać 1 ładunek i wybrać stworzenie, które widzisz w promieniu 30 stóp od ciebie. Przez 1 minutę poznajesz powierzchowne myśli tej istoty - to, co w tej chwili najbardziej zaprząta jej głowę. Jeśli istota ma Inteligencję 3 lub niższą lub nie mówi w żadnym języku, niczego się od niej nie nauczysz.",
+      "Kiedy czytasz laską powierzchowne myśli istoty, możesz wydać 1 ładunek jako akcję dodatkową, aby wniknąć głębiej w umysł celu, zmuszając go do wykonania rzutu obronnego na Inteligencję przeciwko ST rzutu obronnego mocy twojego talentu. Jeśli się powiedzie, twoja zdolność czytania powierzchownych myśli istoty się kończy. W przypadku niepowodzenia zyskujesz wgląd w rozumowanie celu (jeśli istnieje), jego stan emocjonalny i jedną rzecz, która pojawia się w jego umyśle (problem, którym się martwi, osoba, którą kocha lub nienawidzi, i tak dalej).",
+      "Niezależnie od tego, czy rzut obronny się powiedzie, czy nie, cel nie wie, że próbowałeś wniknąć w jego umysł.",
+      "Personel odzyskuje zużyte opłaty {@dice 1d6 + 4} codziennie o świcie."
+    ]
   }
 }

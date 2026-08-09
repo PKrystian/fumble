@@ -73,7 +73,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-:focus-visible {
+:focus-visible:not(input[type='search']) {
   outline: 2px solid var(--color-arcane-300);
   outline-offset: 2px;
 }

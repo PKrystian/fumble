@@ -31,12 +31,21 @@ const spellsCategory = {
   load: vi.fn(),
 } as unknown as CompendiumCategory;
 
+const rulesCategory = {
+  id: 'rules',
+  load: vi.fn(),
+} as unknown as CompendiumCategory;
+
 describe('useCategoryItems', () => {
   beforeEach(() => {
     loadLocalizedItems.mockReset();
     localeMock.value = 'en';
     useHomebrewStore.setState({ entries: [] });
-    useFumbleHomebrewStore.setState({ showInCompendium: false });
+    useFumbleHomebrewStore.setState({
+      showInCompendium: false,
+      compendiumCampaigns: null,
+      compendiumCategories: null,
+    });
   });
 
   it('loads category items and combines sorted homebrew entries', async () => {
@@ -82,6 +91,60 @@ describe('useCategoryItems', () => {
     );
   });
 
+  it('filters Fumble entries by configured campaign and content type', async () => {
+    loadLocalizedItems.mockResolvedValue([]);
+    act(() =>
+      useFumbleHomebrewStore.setState({
+        showInCompendium: true,
+        compendiumCampaigns: ['grobowiec-zaglady'],
+        compendiumCategories: ['feats'],
+      }),
+    );
+
+    const { result } = renderHook(() => useCategoryItems(category, true));
+    await waitFor(() => expect(result.current.status).toBe('ready'));
+
+    expect(result.current.items.some((item) => item.id === 'potent-spirit-form')).toBe(
+      false,
+    );
+  });
+
+  it('keeps a directly selected Fumble entry visible outside the configured filters', async () => {
+    loadLocalizedItems.mockResolvedValue([]);
+    act(() =>
+      useFumbleHomebrewStore.setState({
+        showInCompendium: true,
+        compendiumCampaigns: ['grobowiec-zaglady'],
+        compendiumCategories: ['rules'],
+      }),
+    );
+
+    const { result } = renderHook(() =>
+      useCategoryItems(category, true, 'potent-spirit-form'),
+    );
+    await waitFor(() => expect(result.current.status).toBe('ready'));
+
+    expect(result.current.items.some((item) => item.id === 'potent-spirit-form')).toBe(
+      true,
+    );
+  });
+
+  it('keeps Fumble entries from duplicating official IDs', async () => {
+    loadLocalizedItems.mockResolvedValue([
+      { id: 'flanking', name: 'Official Flanking', source: 'DMG' },
+      { id: 'official', name: 'Official', source: 'XPHB' },
+    ]);
+
+    const { result } = renderHook(() => useCategoryItems(rulesCategory, true));
+    await waitFor(() => expect(result.current.status).toBe('ready'));
+
+    expect(result.current.items.filter((item) => item.id === 'flanking')).toHaveLength(1);
+    expect(result.current.items.find((item) => item.id === 'flanking')).toMatchObject({
+      name: 'Flanking',
+      source: 'Fumble',
+    });
+  });
+
   it('adds Witch to the official spells from its class list', async () => {
     loadLocalizedItems.mockResolvedValue([
       {
@@ -120,13 +183,13 @@ describe('useCategoryItems', () => {
     await waitFor(() => expect(result.current.status).toBe('ready'));
 
     expect(result.current.items.find((item) => item.id === 'acid-splash')).toMatchObject({
-      classes: ['Wizard', 'Witch'],
+      classes: ['Wizard', 'Witch', 'Apothecary'],
     });
     expect(result.current.items.find((item) => item.id === 'cackle')).toMatchObject({
       classes: ['Witch'],
     });
     expect(result.current.items.find((item) => item.id === 'fireball')).toMatchObject({
-      classes: ['Sorcerer', 'Wizard'],
+      classes: ['Sorcerer', 'Wizard', 'Apothecary'],
     });
   });
 
@@ -149,7 +212,7 @@ describe('useCategoryItems', () => {
     await waitFor(() => expect(result.current.status).toBe('ready'));
 
     expect(result.current.items.find((item) => item.id === 'acid-splash')).toMatchObject({
-      classes: ['Czarodziej', 'Wiedźma'],
+      classes: ['Czarodziej', 'Wiedźma', 'Aptekarz'],
     });
     expect(result.current.items.find((item) => item.id === 'cackle')).toMatchObject({
       classes: ['Wiedźma'],

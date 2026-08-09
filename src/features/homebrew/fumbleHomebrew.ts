@@ -7,6 +7,7 @@ import type {
 } from '@/data/compendium/types';
 import type { Locale } from '@/i18n/locales';
 import bestiaryData from '../../data/fumble-homebrew/bestiary.json';
+import actionsData from '../../data/fumble-homebrew/actions.json';
 import classesData from '../../data/fumble-homebrew/classes.json';
 import featsData from '../../data/fumble-homebrew/feats.json';
 import itemsData from '../../data/fumble-homebrew/items.json';
@@ -14,7 +15,9 @@ import optionalFeaturesData from '../../data/fumble-homebrew/optionalfeatures.js
 import rulesData from '../../data/fumble-homebrew/rules.json';
 import speciesData from '../../data/fumble-homebrew/species.json';
 import spellsData from '../../data/fumble-homebrew/spells.json';
+import psionicsData from '../../data/fumble-homebrew/psionics.json';
 import bestiaryPolish from '../../data/fumble-homebrew/pl/bestiary.json';
+import actionsPolish from '../../data/fumble-homebrew/pl/actions.json';
 import classesPolish from '../../data/fumble-homebrew/pl/classes.json';
 import featsPolish from '../../data/fumble-homebrew/pl/feats.json';
 import itemsPolish from '../../data/fumble-homebrew/pl/items.json';
@@ -22,6 +25,7 @@ import optionalFeaturesPolish from '../../data/fumble-homebrew/pl/optionalfeatur
 import rulesPolish from '../../data/fumble-homebrew/pl/rules.json';
 import speciesPolish from '../../data/fumble-homebrew/pl/species.json';
 import spellsPolish from '../../data/fumble-homebrew/pl/spells.json';
+import psionicsPolish from '../../data/fumble-homebrew/pl/psionics.json';
 
 export const FUMBLE_SOURCE = 'Fumble';
 
@@ -61,6 +65,10 @@ export type FumbleHomebrewItem = CompendiumEntryBase & {
   isSubclass?: boolean;
   parentClassId?: string;
   subclassName?: string;
+  classes?: string[];
+  subclasses?: unknown;
+  _englishClasses?: string[];
+  _englishSubclasses?: string[];
   entries?: Entry[];
 } & Record<string, unknown>;
 
@@ -83,16 +91,31 @@ interface FumbleOverlay {
   intro?: Entry[];
   entries?: Entry[];
   lore?: Entry[];
+  data?: Record<string, unknown>;
   features?: unknown[];
   subclassName?: string;
+  classes?: string[];
+}
+
+function isSubclassArray(value: unknown): value is ClassSubclass[] {
+  return (
+    Array.isArray(value) &&
+    value.every(
+      (entry) =>
+        entry !== null &&
+        typeof entry === 'object' &&
+        typeof (entry as Partial<ClassSubclass>).name === 'string' &&
+        Array.isArray((entry as Partial<ClassSubclass>).features),
+    )
+  );
 }
 
 function mergeClassSubclasses(
   base: unknown,
-  translated: ClassSubclass[] | undefined,
+  translated: unknown,
 ): ClassSubclass[] | undefined {
-  if (!translated) return undefined;
-  if (!Array.isArray(base)) return translated;
+  if (!isSubclassArray(translated)) return undefined;
+  if (!isSubclassArray(base)) return translated;
 
   return translated.map((subclass, index) => {
     const baseSubclass = base.find((candidate) => {
@@ -107,15 +130,21 @@ function mergeClassSubclasses(
   });
 }
 
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((entry) => typeof entry === 'string');
+}
+
 const dataFiles = [
   featsData,
   rulesData,
   optionalFeaturesData,
   speciesData,
   bestiaryData,
+  actionsData,
   classesData,
   itemsData,
   spellsData,
+  psionicsData,
 ] as FumbleDataFile[];
 
 const polishOverlays = [
@@ -124,42 +153,59 @@ const polishOverlays = [
   optionalFeaturesPolish,
   speciesPolish,
   bestiaryPolish,
+  actionsPolish,
   classesPolish,
   itemsPolish,
   spellsPolish,
+  psionicsPolish,
 ] as Record<string, FumbleOverlay>[];
 
 const englishItems = dataFiles.flatMap((file) => file.items);
 const polishItems = new Map(polishOverlays.flatMap((overlay) => Object.entries(overlay)));
+let polishCatalog: FumbleHomebrewItem[] | undefined;
 
 export const fumbleHomebrewDefinitions = englishItems;
 
 export function fumbleHomebrewItems(locale: Locale): FumbleHomebrewItem[] {
   if (locale !== 'pl') return englishItems;
+  if (polishCatalog) return polishCatalog;
 
-  return englishItems.map((item) => {
+  polishCatalog = englishItems.map((item) => {
     const overlay = polishItems.get(item.id) ?? {};
     const { subclasses: translatedSubclassData, ...overlayFields } = overlay;
     const translatedSubclasses = mergeClassSubclasses(
       item.subclasses,
       translatedSubclassData,
     );
-    return {
+    const localized = {
       ...item,
       ...overlayFields,
       ...(translatedSubclasses ? { subclasses: translatedSubclasses } : {}),
+      ...(!translatedSubclasses && translatedSubclassData !== undefined
+        ? { subclasses: translatedSubclassData }
+        : {}),
       ...(overlay.name && overlay.name !== item.name ? { englishName: item.name } : {}),
     };
+    if (isStringArray(item.classes) && Array.isArray(overlay.classes)) {
+      localized._englishClasses = item.classes;
+    }
+    if (isStringArray(item.subclasses) && Array.isArray(overlay.subclasses)) {
+      localized._englishSubclasses = item.subclasses;
+    }
+    return localized;
   });
+  return polishCatalog;
 }
 
 export function fumbleParentClassId(item: FumbleHomebrewItem): string | undefined {
   if (!item.isSubclass) return undefined;
   if (item.parentClassId) return item.parentClassId;
   const classIds: Record<string, string> = {
+    Apothecary: 'apothecary',
     Monk: 'monk',
     Paladin: 'paladin',
     Sorcerer: 'sorcerer',
+    Talent: 'talent',
     Warlock: 'warlock',
   };
   return typeof item.className === 'string' ? classIds[item.className] : undefined;

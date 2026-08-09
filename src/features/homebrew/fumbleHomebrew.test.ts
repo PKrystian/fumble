@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import type { CompendiumEntryBase } from '@/data/compendium/types';
+import type { FumbleHomebrewItem } from './fumbleHomebrew';
 import {
   FUMBLE_CAMPAIGNS,
   fumbleHomebrewDefinitions,
   fumbleHomebrewItems,
+  fumbleParentClassId,
   FUMBLE_SOURCE,
   isFumbleHomebrew,
 } from './fumbleHomebrew';
@@ -17,7 +19,8 @@ describe('Fumble homebrew catalog', () => {
     expect(items).toHaveLength(fumbleHomebrewDefinitions.length);
     expect(ids.size).toBe(items.length);
     expect(homebrewItems).toHaveLength(fumbleHomebrewDefinitions.length - 1);
-    expect(items.filter((item) => item.source === FUMBLE_SOURCE)).toHaveLength(
+    const fumbleSources = new Set([FUMBLE_SOURCE, 'TalPsi', 'GuideDrakkenheim']);
+    expect(items.filter((item) => fumbleSources.has(item.source))).toHaveLength(
       homebrewItems.length,
     );
     expect(
@@ -88,24 +91,30 @@ describe('Fumble homebrew catalog', () => {
       spells: 13,
     });
     expect(campaignCounts('siedmiu-zbiegow')).toEqual({
-      bestiary: 1,
-      classes: 4,
-      feats: 22,
+      actions: 1,
+      bestiary: 23,
+      classes: 19,
+      feats: 27,
       firearms: 28,
-      items: 9,
+      items: 27,
+      optionalfeatures: 49,
+      psionics: 103,
       rules: 17,
       species: 4,
-      spells: 13,
+      spells: 50,
     });
     expect(campaignCounts('wedrowcy-granic')).toEqual({
-      bestiary: 1,
-      classes: 4,
-      feats: 22,
+      actions: 1,
+      bestiary: 23,
+      classes: 19,
+      feats: 27,
       firearms: 28,
-      items: 11,
+      items: 29,
+      optionalfeatures: 49,
+      psionics: 103,
       rules: 17,
       species: 4,
-      spells: 13,
+      spells: 50,
     });
 
     expect(items.find((item) => item.id === 'firearms-catalog')?.campaigns).toEqual([
@@ -151,8 +160,104 @@ describe('Fumble homebrew catalog', () => {
       subclassName: 'Oathbreaker',
       alwaysVisible: true,
     });
-    expect(items.filter((item) => item.category === 'optionalfeatures')).toHaveLength(0);
-    expect(items.find((item) => item.id === 'apothecary')).toBeUndefined();
+    expect(items.filter((item) => item.category === 'optionalfeatures')).toHaveLength(49);
+    expect(items.find((item) => item.id === 'apothecary')).toMatchObject({
+      category: 'classes',
+      source: 'GuideDrakkenheim',
+      hitDie: 'd8',
+      primaryAbility: 'Intelligence',
+      campaigns: ['siedmiu-zbiegow', 'wedrowcy-granic'],
+    });
+    expect(items.find((item) => item.id === 'talent')).toMatchObject({
+      category: 'classes',
+      source: 'TalPsi',
+      hitDie: 'd6',
+      primaryAbility: 'Intelligence',
+      campaigns: ['siedmiu-zbiegow', 'wedrowcy-granic'],
+    });
+  });
+
+  it('imports related Talent and Apothecary records with their linked data', () => {
+    const english = fumbleHomebrewItems('en');
+    const polish = fumbleHomebrewItems('pl');
+    const talent = english.find((item) => item.id === 'talent')!;
+    const apothecary = english.find((item) => item.id === 'apothecary')!;
+    const talentFeatures = talent.features as Array<{ name: string }>;
+    const apothecaryFeatures = apothecary.features as Array<{ name: string }>;
+    const talentSubclasses = talent.subclasses as unknown as Array<{
+      name: string;
+      features: unknown[];
+    }>;
+    const apothecarySubclasses = apothecary.subclasses as unknown as Array<{
+      name: string;
+      features: unknown[];
+    }>;
+    const customSpell = english.find((item) => item.id === 'last-rites')!;
+    const psionic = english.find((item) => item.id === 'adapt')!;
+    const action = english.find((item) => item.id === 'manifest-a-power')!;
+    const powerCrystal = english.find((item) => item.id === 'power-crystal')!;
+    const corpsewrought = english.find((item) => item.id === 'corpsewrought-creature')!;
+
+    expect(talent.intro).toHaveLength(1);
+    expect(talentFeatures).toHaveLength(25);
+    expect(talentSubclasses).toHaveLength(7);
+    expect(talentSubclasses.map((subclass) => subclass.name)).toEqual(
+      expect.arrayContaining(['Chronopath', 'Maverick', 'Telepath']),
+    );
+    expect(apothecary.intro).toHaveLength(1);
+    expect(apothecaryFeatures).toHaveLength(20);
+    expect(apothecarySubclasses).toHaveLength(6);
+    expect(apothecary.spellList).toContain('acid-burn');
+    expect(apothecary.spellList).toContain('cure-wounds');
+    expect(customSpell).toMatchObject({
+      category: 'spells',
+      source: 'GuideDrakkenheim',
+      classes: ['Apothecary'],
+      subclasses: ['Apothecary: Exorcist'],
+    });
+    expect(JSON.stringify(customSpell)).toContain('{@damage');
+    expect(psionic).toMatchObject({
+      category: 'psionics',
+      source: 'TalPsi',
+      collection: 'psionic',
+    });
+    expect(JSON.stringify(psionic)).toContain('modes');
+    expect(action).toMatchObject({ category: 'actions', source: 'TalPsi' });
+    expect(action).toMatchObject({ time: 'Varies' });
+    expect(powerCrystal).toMatchObject({ properties: 'Psionic Crystal' });
+    expect(corpsewrought).toMatchObject({
+      category: 'bestiary',
+      source: 'GuideDrakkenheim',
+      creatureType: 'Construct',
+    });
+    expect(english.find((item) => item.id === 'cthrion-uroniziir')).toBeUndefined();
+
+    expect(polish.find((item) => item.id === 'talent')).toMatchObject({
+      name: 'Talent',
+    });
+    expect(polish.find((item) => item.id === 'apothecary')).toMatchObject({
+      name: 'Aptekarz',
+      englishName: 'Apothecary',
+    });
+    expect(polish.find((item) => item.id === 'apothecary-pathogenist')).toMatchObject({
+      name: 'Aptekarz: Patogenista',
+      englishName: 'Apothecary: Pathogenist',
+    });
+    expect(polish.find((item) => item.id === 'last-rites')).toMatchObject({
+      subclasses: ['Aptekarz: Egzorcysta'],
+      _englishClasses: ['Apothecary'],
+      _englishSubclasses: ['Apothecary: Exorcist'],
+    });
+    expect(polish.find((item) => item.id === 'power-crystal')).toMatchObject({
+      properties: 'Kryształ psioniczny',
+    });
+    expect(polish.find((item) => item.id === 'manifest-a-power')).toMatchObject({
+      time: 'Różny',
+    });
+    expect(polish.find((item) => item.id === 'adapt')?.name).not.toBe('Adapt');
+    expect(polish.find((item) => item.id === 'destructive-power')?.name).not.toBe(
+      'Destructive Power',
+    );
   });
 
   it('keeps the four Fumble lineages separate and complete', () => {
@@ -211,7 +316,7 @@ describe('Fumble homebrew catalog', () => {
       .filter((item) => item.category === 'feats')
       .map((item) => item.id);
 
-    expect(feats).toHaveLength(22);
+    expect(feats).toHaveLength(27);
     expect(feats).toContain('starting-flaw-immobile');
     expect(feats).toContain('starting-flaw-curse-of-giant');
     expect(feats).not.toContain('starting-flaw-taboo-of-passage');
@@ -304,7 +409,7 @@ describe('Fumble homebrew catalog', () => {
     expect(JSON.stringify(items.find((item) => item.id === 'witch'))).not.toContain(
       'Core Witch Traits',
     );
-    expect(JSON.stringify(items)).not.toContain('Apothecary');
+    expect(items.find((item) => item.id === 'apothecary')).toBeDefined();
   });
 
   it('localizes Witch and standalone subclass data in Polish', () => {
@@ -409,8 +514,16 @@ describe('Fumble homebrew catalog', () => {
     const english = fumbleHomebrewItems('en');
     const polish = fumbleHomebrewItems('pl');
 
-    expect(english.filter((item) => item.category === 'spells')).toHaveLength(13);
-    expect(english.filter((item) => item.category === 'items')).toHaveLength(17);
+    expect(
+      english.filter(
+        (item) => item.category === 'spells' && item.source === FUMBLE_SOURCE,
+      ),
+    ).toHaveLength(13);
+    expect(
+      english.filter(
+        (item) => item.category === 'items' && item.source === FUMBLE_SOURCE,
+      ),
+    ).toHaveLength(17);
     expect(english.filter((item) => item.category === 'firearms')).toHaveLength(28);
     const firearms = english.filter(
       (item) =>
@@ -450,7 +563,7 @@ describe('Fumble homebrew catalog', () => {
       '{@firearm Pneumatic Pistol|Fumble|Pneumatic Pistol}',
     );
     expect(JSON.stringify(firearmsRule)).toContain(
-      '{@firearm Explosion|Fumble|Explosion}',
+      '{@firearm Explosion Grenade|Fumble|Explosion}',
     );
     expect(JSON.stringify(firearmsRule)).toContain('{@itemMastery Slow|XPHB}');
     expect(JSON.stringify(polishFirearmsRule)).toContain(
@@ -605,5 +718,35 @@ describe('Fumble homebrew catalog', () => {
     expect(
       isFumbleHomebrew({ ...item!, _fumble: false } as unknown as CompendiumEntryBase),
     ).toBe(false);
+  });
+
+  it('resolves parent class IDs for standalone subclasses', () => {
+    expect(
+      fumbleParentClassId({
+        isSubclass: true,
+        className: 'Talent',
+      } as unknown as FumbleHomebrewItem),
+    ).toBe('talent');
+    expect(
+      fumbleParentClassId({
+        isSubclass: true,
+        className: 'Apothecary',
+      } as unknown as FumbleHomebrewItem),
+    ).toBe('apothecary');
+    expect(
+      fumbleParentClassId({
+        isSubclass: true,
+        className: 'Unknown',
+      } as unknown as FumbleHomebrewItem),
+    ).toBeUndefined();
+    expect(
+      fumbleParentClassId({
+        isSubclass: true,
+        parentClassId: 'custom',
+      } as FumbleHomebrewItem),
+    ).toBe('custom');
+    expect(
+      fumbleParentClassId({ isSubclass: false } as FumbleHomebrewItem),
+    ).toBeUndefined();
   });
 });

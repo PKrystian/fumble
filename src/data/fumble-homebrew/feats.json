@@ -1,7 +1,7 @@
 {
   "meta": {
     "category": "feats",
-    "count": 22,
+    "count": 27,
     "source": "Fumble"
   },
   "items": [
@@ -410,7 +410,7 @@
           "type": "entries",
           "name": "Curse of a Giant",
           "entries": [
-            "Reduce Strength by 1. Your {@variantrule Size|XPHB} is reduced by one category, as if affected by {@spell Reduce|XPHB}, and you have {@variantrule Disadvantage|XPHB} on checks made to avoid being Shoved or {@condition Grappled|XPHB}."
+            "Reduce Strength by 1. Your {@variantrule Size|XPHB} is reduced by one category, as if affected by {@spell Enlarge/Reduce|XPHB|Reduce}, and you have {@variantrule Disadvantage|XPHB} on checks made to avoid being Shoved or {@condition Grappled|XPHB}."
           ]
         }
       ],
@@ -547,6 +547,107 @@
       ],
       "featCategory": "General",
       "prerequisite": "General feat"
+    },
+    {
+      "id": "augmented-force",
+      "name": "Augmented Force",
+      "source": "TalPsi",
+      "page": 55,
+      "srd": false,
+      "category": "feats",
+      "prerequisite": "The ability to manifest at least one power",
+      "entries": [
+        "When you gain this feat, choose one of the following damage types: fire, force, or psychic. Powers you manifest ignore resistance to damage of the chosen type, and they treat immunity to damage of this type as resistance instead.",
+        "Additionally, when you roll damage for a power you manifest that deals damage of the chosen type, you can treat any 1 on a damage die as a 2.",
+        "You can select this feat multiple times. Each time you do so, you must choose a different damage type."
+      ],
+      "_fumble": true,
+      "subtitle": "General Feat",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "battlemind",
+      "name": "Battlemind",
+      "source": "TalPsi",
+      "page": 55,
+      "srd": false,
+      "category": "feats",
+      "prerequisite": "The ability to manifest at least one power",
+      "entries": [
+        "Your experience in manifesting powers during combat grants you the following benefits:",
+        {
+          "type": "list",
+          "items": [
+            "You have advantage on Constitution saving throws made to maintain {@status concentration} on your active powers when you take damage.",
+            "When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to {@action Manifest a Power|TalPsi|manifest a power} that targets the creature, rather than making an opportunity attack. The power must have a manifestation time of 1 action and must target only that creature.",
+            "Whenever you gain strain, that stress triggers a protective buffer that grants you {@dice 1d4} temporary hit points."
+          ]
+        }
+      ],
+      "_fumble": true,
+      "subtitle": "General Feat",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "better-under-pressure",
+      "name": "Better under Pressure",
+      "source": "TalPsi",
+      "page": 55,
+      "srd": false,
+      "category": "feats",
+      "prerequisite": "The ability to manifest at least one power and gain strain",
+      "entries": [
+        "You are able to turn the strain of body, mind, and soul into bursts of focused energy, tracked as pressure points. Whenever you gain strain, you also gain 1 pressure point for each strain you gain this way. Thereafter, whenever you make an ability check, attack roll, or saving throw, you can spend up to 3 pressure points and add 1 to the roll for each point spent. You can wait until after you roll the {@dice d20} before deciding to spend pressure points. You lose all your pressure points when you finish a long rest."
+      ],
+      "_fumble": true,
+      "subtitle": "General Feat",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "psionic-initiate",
+      "name": "Psionic Initiate",
+      "source": "TalPsi",
+      "page": 55,
+      "srd": false,
+      "category": "feats",
+      "prerequisite": "",
+      "entries": [
+        "You can tap into the power of your mind to manifest powers, granting you the following benefits:",
+        {
+          "type": "list",
+          "items": [
+            "You learn two {@filter 1st-order powers|psionics|order=1st-order|source=talpsi==extend} of your choice.",
+            "You learn one {@filter 2nd-order power|psionics|order=2nd-order|source=talpsi==extend} of your choice and can manifest it at its lowest order without needing to make a manifestation test. Once you manifest this power using this feat, you can't do so again until you finish a short or long rest."
+          ]
+        },
+        "Your manifestation ability for these powers is Intelligence, Wisdom, or Charisma (your choice)."
+      ],
+      "_fumble": true,
+      "subtitle": "General Feat",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
+    },
+    {
+      "id": "psionic-trick",
+      "name": "Psionic Trick",
+      "source": "TalPsi",
+      "page": 55,
+      "srd": false,
+      "category": "feats",
+      "prerequisite": "",
+      "entries": [
+        "You mind can create psionic effects, granting you the following benefits:",
+        {
+          "type": "list",
+          "items": [
+            "You can speak telepathically to any creature you can see within 60 feet of you that understands a language. Your communication doesn't give the creature the ability to respond to you telepathically.",
+            "You learn the {@psionic psionic shift|TalPsi} power. Your manifestation ability for this power is Intelligence, Wisdom, or Charisma (your choice).",
+            "As a bonus action, you can choose a Small or smaller mundane object that you can see within 30 feet of you that isn't being worn or carried by another creature, then light that object on fire. The object takes {@damage 1d4} fire damage at the end of each of your turns until it is destroyed, or until a creature uses an action or bonus action to put out the flames."
+          ]
+        }
+      ],
+      "_fumble": true,
+      "subtitle": "General Feat",
+      "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"]
     }
   ]
 }

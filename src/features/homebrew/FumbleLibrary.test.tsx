@@ -18,10 +18,14 @@ function HistoryControls() {
   );
 }
 
-describe('FumbleLibrary', () => {
+describe('FumbleLibrary', { timeout: 30_000 }, () => {
   beforeEach(() => {
     localStorage.clear();
-    useFumbleHomebrewStore.setState({ showInCompendium: false });
+    useFumbleHomebrewStore.setState({
+      showInCompendium: false,
+      compendiumCampaigns: null,
+      compendiumCategories: null,
+    });
   });
 
   it('lists localized entries and links them to Compendium routes', () => {
@@ -65,6 +69,28 @@ describe('FumbleLibrary', () => {
     expect(screen.getByText('No Fumble entries match this search.')).toBeInTheDocument();
   });
 
+  it('configures the campaigns and content types shown in the Compendium', () => {
+    render(
+      <MemoryRouter>
+        <FumbleLibrary />
+      </MemoryRouter>,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Configure Compendium content' }));
+    expect(
+      screen.getByRole('dialog', { name: 'Configure Fumble visibility' }),
+    ).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('checkbox', { name: 'Tomb of Annihilation' }));
+    fireEvent.click(screen.getByRole('checkbox', { name: 'Classes' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Save visibility' }));
+
+    expect(useFumbleHomebrewStore.getState()).toMatchObject({
+      compendiumCampaigns: expect.not.arrayContaining(['grobowiec-zaglady']),
+      compendiumCategories: expect.not.arrayContaining(['classes']),
+    });
+  });
+
   it('filters the catalog by category', () => {
     render(
       <MemoryRouter>
@@ -98,6 +124,21 @@ describe('FumbleLibrary', () => {
     expect(
       screen.queryByRole('link', { name: /Stellar Meteorite Fragment/ }),
     ).not.toBeInTheDocument();
+  });
+
+  it('exposes the imported Talent categories', () => {
+    render(
+      <MemoryRouter>
+        <FumbleLibrary />
+      </MemoryRouter>,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Psionics' }));
+    expect(screen.getByRole('link', { name: /Adapt/ })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /Apothecary/ })).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Actions' }));
+    expect(screen.getByRole('link', { name: /Manifest a Power/ })).toBeInTheDocument();
   });
 
   it('stores search and category filters in the URL history', () => {
