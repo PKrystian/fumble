@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEFAULT_LOCALE } from '../../src/i18n/locales';
+import { removeScriptElements } from '../../src/seo/removeScriptElements';
 import { translate } from '../../src/i18n/translate';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
@@ -34,12 +35,10 @@ html = html
   )
   .replace(/\s*<link\s+rel="canonical"[^>]*\/?\s*>/g, '')
   .replace(/\s*<link\s+rel="alternate"[^>]*\/?\s*>/g, '')
-  .replace(/\s*<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, '')
-  .replace(/\s*<script\b[^>]*\/\s*>/gi, '')
   .replace(/<main id="prerendered-content"[\s\S]*?<\/main>/, '')
   .replace(
     appMount,
     `${appMount}<main id="prerendered-content" data-prerendered="true"><h1>${escapeHtml(title)}</h1><p>${escapeHtml(message)}</p><a href="/">${escapeHtml(backLink)}</a></main>`,
   );
 
-writeFileSync(join(DIST, '404.html'), html);
+writeFileSync(join(DIST, '404.html'), removeScriptElements(html));
