@@ -34,7 +34,8 @@ html = html
   )
   .replace(/\s*<link\s+rel="canonical"[^>]*\/?\s*>/g, '')
   .replace(/\s*<link\s+rel="alternate"[^>]*\/?\s*>/g, '')
-  .replace(/<script\s+type="application\/ld\+json">[\s\S]*?<\/script>/g, '')
+  .replace(/\s*<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, '')
+  .replace(/\s*<script\b[^>]*\/\s*>/gi, '')
   .replace(/<main id="prerendered-content"[\s\S]*?<\/main>/, '')
   .replace(
     appMount,

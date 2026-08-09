@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.85 - 2026-08-09
+
+- Hardened the generated 404 document by removing all script elements and validating that none remain.
+
 ## 1.2.84 - 2026-08-09
 
 - Fixed Polish subclass identity mapping, including duplicated-source class routes.

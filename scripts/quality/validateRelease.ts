@@ -179,8 +179,9 @@ requireValue(
 requireValue(
   notFound.includes('<meta name="robots" content="noindex, nofollow" />') &&
     !(notFound.match(/rel="canonical"/g) ?? []).length &&
+    !/<script\b/i.test(notFound) &&
     notFound.includes('<main id="prerendered-content" data-prerendered="true">'),
-  '404.html must be a standalone noindex document',
+  '404.html must be a standalone noindex document without scripts',
 );
 const checkedImagePreloads = validateCompendiumImagePreloads();
 for (const html of [home, sample]) {
