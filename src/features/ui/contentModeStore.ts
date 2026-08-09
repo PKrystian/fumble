@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { fumbleStorage } from '@/features/storage/safeStorage';
 
 export type ContentMode = '2024' | '2014' | 'all';
 
@@ -14,6 +15,6 @@ export const useContentModeStore = create<ContentModeState>()(
       mode: 'all',
       setMode: (mode) => set({ mode }),
     }),
-    { name: 'fumble-content-mode', version: 1 },
+    { name: 'fumble-content-mode', version: 1, storage: fumbleStorage },
   ),
 );

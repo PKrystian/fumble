@@ -10,7 +10,7 @@ import type {
 import type { Entry, EntryNode } from '@/data/compendium/entry';
 import { getCategory } from '@/features/compendium/categories';
 import { loadLocalizedItems } from '@/data/compendium/overlay';
-import { useLocale } from '@/i18n/path';
+import { useLocale } from '@/i18n/pathUtils';
 import { stripMarkup } from '@/data/transform/util';
 import {
   SKILLS,

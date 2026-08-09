@@ -21,6 +21,12 @@ import { useParams } from 'react-router-dom';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
+import { NotFoundPage } from '@/features/NotFoundPage';
+import {
+  readLocalStorage,
+  removeLocalStorage,
+  writeLocalStorage,
+} from '@/features/storage/safeStorage';
 import {
   compressRevealedRanges,
   expandRevealedRanges,
@@ -69,18 +75,17 @@ export function CampaignMapPage() {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [localRevealed, setLocalRevealed] = useState<ReadonlySet<number> | null>(null);
   const [isRangesCopied, setIsRangesCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   useEffect(() => {
     if (!isMapEditorEnabled || !editorStorageKey) {
       setLocalRevealed(null);
       return;
     }
-    setLocalRevealed(
-      parseMapEditorCells(localStorage.getItem(editorStorageKey), totalHexes),
-    );
+    setLocalRevealed(parseMapEditorCells(readLocalStorage(editorStorageKey), totalHexes));
   }, [editorStorageKey, totalHexes]);
 
-  useSeo(t('seo.pageTitles.map'), t('seo.pageDescriptions.map'));
+  useSeo(t('seo.pageTitles.map'), t('seo.pageDescriptions.map'), Boolean(map));
 
   const clampOffset = useCallback((value: MapOffset, level: number): MapOffset => {
     if (level <= MIN_ZOOM) return { x: 0, y: 0 };
@@ -152,6 +157,15 @@ export function CampaignMapPage() {
       map && showHexGrid ? getHexGridPath(map.columns, map.rows, displayedRevealed) : '',
     [displayedRevealed, map, showHexGrid],
   );
+  const editorActive = isMapEditorEnabled && isEditorOpen;
+  const hiddenHexPath = useMemo(() => {
+    if (!map || editorActive) return '';
+    const hidden = new Set<number>();
+    for (let index = 0; index < totalHexes; index += 1) {
+      if (!displayedRevealed.has(index)) hidden.add(index);
+    }
+    return getHexGridPath(map.columns, map.rows, hidden);
+  }, [displayedRevealed, editorActive, map, totalHexes]);
   const editorRanges = useMemo(
     () => compressRevealedRanges(displayedRevealed),
     [displayedRevealed],
@@ -163,7 +177,6 @@ export function CampaignMapPage() {
         : `revealedRanges: [\n${editorRanges.map((range) => `  '${range}',`).join('\n')}\n]`,
     [editorRanges],
   );
-  const editorActive = isMapEditorEnabled && isEditorOpen;
 
   const toggleHex = useCallback(
     (index: number) => {
@@ -174,9 +187,10 @@ export function CampaignMapPage() {
         next.add(index);
       }
       const sorted = [...next].sort((left, right) => left - right);
-      localStorage.setItem(editorStorageKey!, JSON.stringify(sorted));
+      writeLocalStorage(editorStorageKey!, JSON.stringify(sorted));
       setLocalRevealed(next);
       setIsRangesCopied(false);
+      setCopyError(false);
     },
     [displayedRevealed, editorStorageKey],
   );
@@ -191,7 +205,7 @@ export function CampaignMapPage() {
   );
 
   const gridItems = useMemo(() => {
-    if (!map) return null;
+    if (!map || !editorActive) return null;
     return Array.from({ length: totalHexes }, (_, index) => {
       const column = index % map.columns;
       const row = Math.floor(index / map.columns);
@@ -244,31 +258,25 @@ export function CampaignMapPage() {
   ]);
 
   const copyEditorRanges = async () => {
-    await navigator.clipboard.writeText(editorExport);
-    setIsRangesCopied(true);
+    try {
+      await navigator.clipboard.writeText(editorExport);
+      setIsRangesCopied(true);
+      setCopyError(false);
+    } catch {
+      setIsRangesCopied(false);
+      setCopyError(true);
+    }
   };
 
   const resetEditor = () => {
-    localStorage.removeItem(editorStorageKey!);
+    removeLocalStorage(editorStorageKey!);
     setLocalRevealed(null);
     setIsRangesCopied(false);
+    setCopyError(false);
   };
 
   if (!map) {
-    return (
-      <div className="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6">
-        <h1 className="font-display text-2xl font-bold text-ink-50">
-          {t('wiki.mapUnavailable')}
-        </h1>
-        <Link
-          to="/wiki"
-          className="mt-6 inline-flex items-center gap-2 text-sm text-arcane-300 hover:text-arcane-500"
-        >
-          <ArrowLeft size={16} aria-hidden="true" />
-          {t('wiki.backToCampaigns')}
-        </Link>
-      </div>
-    );
+    return <NotFoundPage />;
   }
 
   const imageSrc = `${import.meta.env.BASE_URL}${map.imagePath}`;
@@ -399,6 +407,11 @@ export function CampaignMapPage() {
                   ? t('wiki.mapEditorCopied')
                   : t('wiki.mapEditorCopyRanges')}
               </button>
+              {copyError && (
+                <span role="alert" className="text-xs text-red-300">
+                  {t('common.clipboardError')}
+                </span>
+              )}
               <button
                 type="button"
                 onClick={resetEditor}
@@ -454,15 +467,21 @@ export function CampaignMapPage() {
               fetchPriority="high"
               decoding="async"
             />
-            <ol
-              className={[
-                'wiki-chult-map__grid',
-                editorActive ? 'wiki-chult-map__grid--editor' : '',
-              ].join(' ')}
-              aria-hidden={editorActive ? undefined : true}
-            >
-              {gridItems}
-            </ol>
+            {!editorActive && (
+              <svg
+                className="wiki-chult-map__hidden-grid"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path className="wiki-chult-map__hidden-hexes" d={hiddenHexPath} />
+              </svg>
+            )}
+            {editorActive && (
+              <ol className="wiki-chult-map__grid wiki-chult-map__grid--editor">
+                {gridItems}
+              </ol>
+            )}
             {showHexGrid && (
               <svg
                 className="wiki-chult-map__grid-lines"

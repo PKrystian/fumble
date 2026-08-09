@@ -21,7 +21,7 @@ import {
   fumbleItemMatchesVisibility,
   useFumbleHomebrewStore,
 } from '@/features/homebrew/fumbleHomebrewStore';
-import { useLocale } from '@/i18n/path';
+import { useLocale } from '@/i18n/pathUtils';
 import type { CompendiumCategory } from './categories';
 import { canonicalClassFilterValue } from './classNames';
 
@@ -35,6 +35,7 @@ export function useCategoryItems(
   includeFumble = false,
   selectedId?: string,
   selectedFumbleSubclassId?: string | string[],
+  retryKey = 0,
 ): CategoryItemsState {
   const locale = useLocale();
   const [state, setState] = useState<CategoryItemsState>({
@@ -69,7 +70,7 @@ export function useCategoryItems(
     return () => {
       cancelled = true;
     };
-  }, [category, locale]);
+  }, [category, locale, retryKey]);
 
   const items = useMemo(() => {
     if (!category) return state.items;

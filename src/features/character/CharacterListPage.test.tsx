@@ -50,7 +50,7 @@ vi.mock('@/features/ui/confirmStore', () => ({
   alertDialog: (...args: unknown[]) => mocks.alert(...args),
 }));
 
-vi.mock('@/i18n/path', () => ({
+vi.mock('@/i18n/pathUtils', () => ({
   useNavigate: () => mocks.navigate,
 }));
 

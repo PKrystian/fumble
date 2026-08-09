@@ -7,7 +7,6 @@ import {
   setHreflangAlternates,
   setMetaDescription,
 } from './head';
-import { useHreflangTags } from './useHreflangTags';
 import { useSeo } from './useSeo';
 
 function SeoHarness({
@@ -20,7 +19,6 @@ function SeoHarness({
   indexable?: boolean;
 }) {
   useSeo(title, description, indexable);
-  useHreflangTags();
   return null;
 }
 
@@ -132,5 +130,21 @@ describe('SEO head helpers', () => {
       'content',
       'noindex, nofollow',
     );
+    expect(document.head.querySelector('link[rel="canonical"]')).toBeNull();
+    expect(document.head.querySelector('link[rel="alternate"]')).toBeNull();
+  });
+
+  it('marks query variants as noindex while keeping links crawlable', () => {
+    render(
+      <MemoryRouter initialEntries={['/compendium/spells/?q=fireball']}>
+        <SeoHarness title="Spells" />
+      </MemoryRouter>,
+    );
+    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      'noindex, follow',
+    );
+    expect(document.head.querySelector('link[rel="canonical"]')).toBeNull();
+    expect(document.head.querySelector('link[rel="alternate"]')).toBeNull();
   });
 });

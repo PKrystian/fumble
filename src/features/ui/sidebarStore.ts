@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { fumbleStorage } from '@/features/storage/safeStorage';
 
 interface SidebarState {
   collapsed: boolean;
@@ -12,6 +13,6 @@ export const useSidebarStore = create<SidebarState>()(
       collapsed: false,
       toggle: () => set((state) => ({ collapsed: !state.collapsed })),
     }),
-    { name: 'fumble-sidebar', version: 1 },
+    { name: 'fumble-sidebar', version: 1, storage: fumbleStorage },
   ),
 );

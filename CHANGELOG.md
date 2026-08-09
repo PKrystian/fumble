@@ -4,6 +4,26 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.84 - 2026-08-09
+
+- Fixed Polish subclass identity mapping, including duplicated-source class routes.
+- Improved 5etools markup rendering for book links, feature labels, skill checks, units, external links, and hit or miss markers.
+- Added localized static book content, safer sitemap alternates, social images, and a redirect for the known legacy item URL.
+- Removed canonical and hreflang metadata from noindex routes and rendered long compendium lists in batches.
+
+## 1.2.83 - 2026-08-09
+
+- Prevented private tools, unresolved routes, failed data loads, and untranslated duplicate pages from being indexable.
+- Added a dedicated noindex GitHub Pages 404 document, safer sitemap alternates, retry controls, cache recovery, and local-storage error handling.
+- Reduced the static search index, avoided rendering the editor grid for public maps, improved clipboard and random loot handling, and added keyboard support for listbox controls.
+- Split i18n path utilities to remove Fast Refresh warnings, pinned CI to Node 22.23.1, and updated DOMPurify to 3.4.13 and React Router to 7.18.2.
+
+## 1.2.82 - 2026-08-09
+
+- Fixed localized subclass route generation when several subclasses share a source.
+- Marked query variants and unresolved compendium or book routes as non-indexable.
+- Added static route validation so sitemap URLs must have generated HTML files.
+
 ## 1.2.81 - 2026-08-09
 
 - Audited compendium, book, wiki, and dictionary references across the application and prevented unresolved targets from becoming broken links.

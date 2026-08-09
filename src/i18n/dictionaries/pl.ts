@@ -10,6 +10,10 @@ const pl: Dictionary = {
     ok: 'OK',
     delete: 'Usuń',
     save: 'Zapisz',
+    retry: 'Spróbuj ponownie',
+    storageError:
+      'Przeglądarka nie mogła zapisać lokalnych danych. Wykonaj kopię i zwolnij miejsce dla tej witryny.',
+    clipboardError: 'Przeglądarka nie mogła skopiować tego tekstu.',
     loading: 'Wczytywanie…',
     openMenu: 'Otwórz menu',
     closeMenu: 'Zamknij menu',
@@ -79,6 +83,7 @@ const pl: Dictionary = {
     shortcut: 'Ctrl K',
     hint: 'Przeszukaj czary, potwory, przedmioty, własną zawartość, strony wiki i więcej.',
     noResults: 'Brak wyników.',
+    couldNotLoad: 'Nie udało się wczytać danych wyszukiwania.',
   },
   home: {
     summary: 'Zestaw narzędzi dla graczy i Mistrzów Gry Dungeons & Dragons.',
@@ -344,6 +349,7 @@ const pl: Dictionary = {
     searchLabel: 'Szukaj: {{category}}',
     failedToLoad: 'Nie udało się wczytać danych.',
     noMatches: 'Brak wyników.',
+    loadMore: 'Wczytaj jeszcze {{count}}',
     back: 'Wstecz',
     homebrewBadge: 'HB',
     homebrewLabel: 'Własna zawartość',

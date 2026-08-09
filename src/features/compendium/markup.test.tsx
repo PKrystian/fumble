@@ -53,9 +53,19 @@ describe('parseMarkup', () => {
     expect(link).toHaveAttribute('href', '/compendium/conditions/prone/');
   });
 
-  it('does not link reference tags without a shipped target', () => {
-    const { container } = renderMarkup('{@adventure Curse of Strahd|CoS}');
-    expect(container).toHaveTextContent('Curse of Strahd');
+  it('links book and adventure references to the matching reader route', () => {
+    renderMarkup('{@adventure Curse of Strahd|CoS|0|Death House}');
+    expect(screen.getByRole('link', { name: 'Death House' })).toHaveAttribute(
+      'href',
+      '/books/cos/0/#name=Death+House',
+    );
+  });
+
+  it('keeps book references without a shipped target as text', () => {
+    const { container } = renderMarkup(
+      '{@adventure Unknown Adventure|UNKNOWN|0|Chapter}',
+    );
+    expect(container).toHaveTextContent('Chapter');
     expect(screen.queryByRole('link')).toBeNull();
   });
 
@@ -186,6 +196,27 @@ describe('parseMarkup', () => {
     expect(container).toHaveTextContent('Foot Quick Spell variable');
     expect(container.querySelector('.text-ember-400')).not.toBeNull();
     expect(renderMarkup('{@quickref 123}').container).toHaveTextContent('123');
+  });
+
+  it('renders feature, skill-check, unit, and external-link tags', () => {
+    const { container } = renderMarkup(
+      '{@classFeature Cunning Strike|Rogue|XPHB|5|XPHB} {@subclassFeature Fast Hands|Rogue||Thief||3} {@subclassFeature Spellfire Burst|Sorcerer|XPHB|Spellfire|FRHoF|3|FRHoF} {@skill Acrobatics} {@skillCheck acrobatics 6} {@unit 2|egg|eggs} {@link Rules|https://example.com}',
+    );
+    expect(container).toHaveTextContent('Cunning Strike Fast Hands Spellfire Burst');
+    expect(container).not.toHaveTextContent('FRHoF');
+    expect(screen.getByRole('link', { name: 'Acrobatics' })).toBeInTheDocument();
+    expect(container).toHaveTextContent('6');
+    expect(container).toHaveTextContent('2 eggs');
+    expect(screen.getByRole('link', { name: 'Rules' })).toHaveAttribute(
+      'href',
+      'https://example.com',
+    );
+  });
+
+  it('renders hit and miss markers', () => {
+    expect(renderMarkup('{@h} Hit text {@m} Miss text').container).toHaveTextContent(
+      'Hit: Hit text Miss: Miss text',
+    );
   });
 
   it('localizes quick-reference labels', () => {

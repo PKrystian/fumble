@@ -1,6 +1,6 @@
 {
   "name": "fumble",
-  "version": "1.2.81",
+  "version": "1.2.84",
   "private": true,
   "type": "module",
   "description": "Fumble - a free, client-side D&D 2024 (5.5e) toolkit and Obsidian-powered campaign wiki.",
@@ -33,7 +33,7 @@
     "dev:coverage": "cross-env E2E_COVERAGE=1 vite",
     "build": "tsc -b && vite build",
     "build:pages": "cross-env VITE_COMPRESSED_BOOK_DATA=true npm run build && tsx scripts/seo/compressBookData.ts",
-    "postbuild": "tsx scripts/seo/sitemap.ts && tsx scripts/quality/validateRelease.ts",
+    "postbuild": "tsx scripts/seo/sitemap.ts && tsx scripts/seo/create404.ts && tsx scripts/quality/validateRelease.ts",
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
     "lint": "eslint .",
@@ -61,12 +61,12 @@
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@huggingface/transformers": "^4.2.0",
-    "dompurify": "^3.4.12",
+    "dompurify": "^3.4.13",
     "lucide-react": "^1.28.0",
     "pdf-lib": "^1.17.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.18.1",
+    "react-router-dom": "^7.18.2",
     "zustand": "^5.0.5"
   },
   "devDependencies": {

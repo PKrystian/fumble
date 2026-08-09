@@ -13,7 +13,8 @@ import {
   getCompendiumCategorySeo,
   getCompendiumEntrySeo,
 } from '../../src/data/compendium/seo';
-import type { CompendiumEntryBase } from '../../src/data/compendium/types';
+import type { ClassSubclass, CompendiumEntryBase } from '../../src/data/compendium/types';
+import { localizeSubclasses } from '../../src/data/compendium/localize';
 import {
   IMAGE_HOST,
   imageUrl,
@@ -50,6 +51,7 @@ interface PageInfo {
   image?: string;
   kind: 'website' | 'article' | 'book';
   indexable?: boolean;
+  redirectTo?: string;
   parent?: { path: string; title: string };
 }
 
@@ -71,11 +73,20 @@ interface CompendiumFile {
 
 interface Book {
   id: string;
+  type: 'book' | 'adventure';
   name: string;
   author?: string;
   storyline?: string;
   cover?: string;
-  contents: Array<{ name?: string }>;
+  contents: BookChapter[];
+}
+
+interface BookChapter {
+  id?: string;
+  name?: string;
+  headers?: Array<string | { header?: string }>;
+  entries?: unknown;
+  [key: string]: unknown;
 }
 
 interface WikiPage {
@@ -225,6 +236,17 @@ const STATIC_PAGES: PageInfo[] = [
       'Owner, contact, security reporting, and content removal channels for Fumble.',
     kind: 'article',
   },
+];
+
+const LEGACY_REDIRECTS: Record<string, string> = {
+  '/compendium/items/danoth-s-visor': '/compendium/items/danoth-s-visor-dormant',
+};
+
+const LEGACY_NON_INDEXABLE_PATHS = [
+  '/compendium/bestiary/mind-flayer-nothic',
+  '/compendium/tables/random-magic-items-armaments',
+  '/compendium/languages/telepatia-30-metr-w',
+  '/compendium/languages/piekielny-i-pierwotny',
 ];
 
 const COMPENDIUM_CATEGORIES = new Set([
@@ -433,6 +455,7 @@ const STATIC_SEO_KEYS: Record<
   '/character': {
     title: 'seo.pageTitles.character',
     description: 'seo.pageDescriptions.character',
+    indexable: false,
   },
   '/compendium': {
     title: 'seo.pageTitles.compendium',
@@ -441,6 +464,7 @@ const STATIC_SEO_KEYS: Record<
   '/homebrew': {
     title: 'seo.pageTitles.homebrew',
     description: 'seo.pageDescriptions.homebrew',
+    indexable: false,
   },
   '/fumble-homebrew': {
     title: 'seo.pageTitles.fumbleHomebrew',
@@ -467,6 +491,7 @@ const STATIC_SEO_KEYS: Record<
   '/dm/initiative': {
     title: 'seo.pageTitles.initiative',
     description: 'seo.pageDescriptions.initiative',
+    indexable: false,
   },
   '/dm/loot': {
     title: 'seo.pageTitles.loot',
@@ -479,6 +504,7 @@ const STATIC_SEO_KEYS: Record<
   '/dm/soundboard': {
     title: 'seo.pageTitles.soundboard',
     description: 'seo.pageDescriptions.soundboard',
+    indexable: false,
   },
   '/wiki': {
     title: 'seo.pageTitles.wiki',
@@ -568,6 +594,86 @@ function excerpt(value: string, fallback: string): string {
   return text.length <= 2000 ? text : `${text.slice(0, 1997).trimEnd()}...`;
 }
 
+function bookChapterContext(chapter: BookChapter, includeEntries = false): string {
+  return [
+    chapter.name,
+    ...(chapter.headers ?? []).map((header) =>
+      typeof header === 'string' ? header : header.header,
+    ),
+    ...(includeEntries ? [plainText(chapter.entries)] : []),
+  ]
+    .filter((value): value is string => Boolean(value))
+    .join('. ');
+}
+
+function bookDataPath(book: Book, locale: Locale): string {
+  return locale === DEFAULT_LOCALE
+    ? join(ROOT, 'public/data', book.type, `${book.id}.json`)
+    : join(ROOT, 'public/data', locale, book.type, `${book.id}.json`);
+}
+
+function localizeBookEntry(
+  entry: unknown,
+  chapterIndex: number,
+  overlay: Record<string, BookChapter>,
+): unknown {
+  if (!entry || typeof entry !== 'object' || Array.isArray(entry)) return entry;
+  const record = entry as BookChapter;
+  const key = typeof record.id === 'string' ? `${chapterIndex}:${record.id}` : undefined;
+  const translation = key ? overlay[key] : undefined;
+  const merged = translation ? { ...record, ...translation } : record;
+  return Array.isArray(merged.entries)
+    ? {
+        ...merged,
+        entries: merged.entries.map((child) =>
+          localizeBookEntry(child, chapterIndex, overlay),
+        ),
+      }
+    : merged;
+}
+
+const bookChapterCache = new Map<string, BookChapter[]>();
+
+function loadBookChapters(book: Book, locale: Locale): BookChapter[] {
+  const key = `${locale}/${book.type}/${book.id}`;
+  const cached = bookChapterCache.get(key);
+  if (cached) return cached;
+  const dataPath = bookDataPath(book, locale);
+  if (!existsSync(dataPath)) return [];
+  const raw = JSON.parse(readFileSync(dataPath, 'utf8')) as { data?: unknown };
+  const chapters = Array.isArray(raw.data)
+    ? raw.data.filter(
+        (chapter): chapter is BookChapter =>
+          Boolean(chapter) && typeof chapter === 'object' && !Array.isArray(chapter),
+      )
+    : [];
+  if (locale === DEFAULT_LOCALE) {
+    bookChapterCache.set(key, chapters);
+    return chapters;
+  }
+  const localized = JSON.parse(readFileSync(dataPath, 'utf8')) as {
+    data?: Record<string, BookChapter>;
+  };
+  const basePath = bookDataPath(book, DEFAULT_LOCALE);
+  if (!existsSync(basePath)) return [];
+  const base = JSON.parse(readFileSync(basePath, 'utf8')) as { data?: unknown };
+  const baseChapters = Array.isArray(base.data)
+    ? base.data.filter(
+        (chapter): chapter is BookChapter =>
+          Boolean(chapter) && typeof chapter === 'object' && !Array.isArray(chapter),
+      )
+    : [];
+  const overlay = localized.data ?? {};
+  const result = baseChapters.map((chapter, index) => {
+    const localizedChapter = localizeBookEntry(chapter, index, overlay);
+    return localizedChapter && typeof localizedChapter === 'object'
+      ? (localizedChapter as BookChapter)
+      : chapter;
+  });
+  bookChapterCache.set(key, result);
+  return result;
+}
+
 function firstImageSource(html: string): string | undefined {
   return /<img\b[^>]*\bsrc=(['"])(.*?)\1/i.exec(html)?.[2];
 }
@@ -606,61 +712,56 @@ function subclassRouteKey(subclass: {
   return `${slugify(name)}-${slugify(subclass.source)}`;
 }
 
-function subclassRecords(value: unknown): Array<Record<string, unknown>> {
+function subclassRecords(value: unknown): unknown[] {
   if (!Array.isArray(value)) return [];
-  return value.filter(
-    (entry): entry is Record<string, unknown> =>
-      Boolean(entry) && typeof entry === 'object',
-  );
+  return value.filter((entry) => Boolean(entry) && typeof entry === 'object');
 }
 
-function localizedSubclass(
-  baseItem: CompendiumItem,
-  subclass: Record<string, unknown>,
-  index: number,
-): Record<string, unknown> {
-  const baseSubclasses = subclassRecords(baseItem.subclasses);
-  const baseSubclass =
-    baseSubclasses.find(
-      (candidate) =>
-        candidate.name === subclass.name && candidate.source === subclass.source,
-    ) ??
-    baseSubclasses.find((candidate) => candidate.source === subclass.source) ??
-    baseSubclasses[index];
-  if (
-    baseSubclass &&
-    typeof baseSubclass.name === 'string' &&
-    typeof subclass.name === 'string' &&
-    subclass.name !== baseSubclass.name &&
-    typeof subclass.englishName !== 'string'
-  ) {
-    return { ...subclass, englishName: baseSubclass.name };
-  }
-  return subclass;
+function isClassSubclass(value: unknown): value is ClassSubclass {
+  if (!value || typeof value !== 'object') return false;
+  const record = value as Partial<ClassSubclass>;
+  return typeof record.name === 'string' && typeof record.source === 'string';
 }
 
 function collectPages(locale: Locale): PageInfo[] {
-  const pages = STATIC_PAGES.map((page) => {
-    const keys = STATIC_SEO_KEYS[page.path];
-    const fallback = locale === 'pl' ? POLISH_STATIC_PAGES[page.path] : undefined;
-    if (!keys) return { ...page, ...(fallback ?? {}) };
-    const title = translate(locale, keys.title);
-    const description = translate(locale, keys.description);
-    return {
-      ...page,
-      title:
-        title === keys.title
-          ? (fallback?.title ?? page.title)
-          : title === 'Fumble'
-            ? title
-            : `${title} - Fumble`,
-      description:
-        description === keys.description
-          ? (fallback?.description ?? page.description)
-          : description,
-      ...(keys.indexable === false ? { indexable: false } : {}),
-    };
-  });
+  const pages = [
+    ...STATIC_PAGES.map((page) => {
+      const keys = STATIC_SEO_KEYS[page.path];
+      const fallback = locale === 'pl' ? POLISH_STATIC_PAGES[page.path] : undefined;
+      if (!keys) return { ...page, ...(fallback ?? {}) };
+      const title = translate(locale, keys.title);
+      const description = translate(locale, keys.description);
+      return {
+        ...page,
+        title:
+          title === keys.title
+            ? (fallback?.title ?? page.title)
+            : title === 'Fumble'
+              ? title
+              : `${title} - Fumble`,
+        description:
+          description === keys.description
+            ? (fallback?.description ?? page.description)
+            : description,
+        ...(keys.indexable === false ? { indexable: false } : {}),
+      };
+    }),
+    ...Object.entries(LEGACY_REDIRECTS).map(([path, redirectTo]) => ({
+      path,
+      title: translate(locale, 'notFound.title'),
+      description: translate(locale, 'notFound.message'),
+      kind: 'website' as const,
+      indexable: false,
+      redirectTo,
+    })),
+    ...LEGACY_NON_INDEXABLE_PATHS.map((path) => ({
+      path,
+      title: translate(locale, 'notFound.title'),
+      description: translate(locale, 'notFound.message'),
+      kind: 'website' as const,
+      indexable: false,
+    })),
+  ];
   const categoryFiles = new Set([
     ...readdirSync(GENERATED_DIR).filter((file) => file.endsWith('.json')),
     'firearms.json',
@@ -747,11 +848,20 @@ function collectPages(locale: Locale): PageInfo[] {
         modified: raw.meta?.generatedAt,
         ...(typeof item.image === 'string' ? { image: item.image } : {}),
         kind: 'article',
+        ...(locale === DEFAULT_LOCALE || overlay[baseItem.id]
+          ? {}
+          : { indexable: false }),
         parent: { path: categoryPath, title: displayCategory },
       });
       if (categoryId === 'classes') {
-        for (const [index, rawSubclass] of subclassRecords(item.subclasses).entries()) {
-          const subclass = localizedSubclass(baseItem, rawSubclass, index);
+        const baseSubclasses = subclassRecords(baseItem.subclasses).filter(
+          isClassSubclass,
+        );
+        const localizedSubclasses = localizeSubclasses(
+          baseSubclasses,
+          subclassRecords(item.subclasses).filter(isClassSubclass),
+        );
+        for (const subclass of localizedSubclasses) {
           const subclassName =
             typeof subclass.name === 'string' ? subclass.name : 'Subclass';
           const subclassSource =
@@ -800,6 +910,9 @@ function collectPages(locale: Locale): PageInfo[] {
             modified: raw.meta?.generatedAt,
             ...(typeof subclass.image === 'string' ? { image: subclass.image } : {}),
             kind: 'article',
+            ...(locale === DEFAULT_LOCALE || overlay[baseItem.id]
+              ? {}
+              : { indexable: false }),
             parent: { path: `${categoryPath}/${item.id}`, title: item.name },
           });
         }
@@ -862,6 +975,15 @@ function collectPages(locale: Locale): PageInfo[] {
   for (const baseBook of books) {
     const book = { ...baseBook, ...(bookOverlay[baseBook.id] ?? {}) };
     const bookPath = `/books/${book.id}`;
+    const localizedChapters = loadBookChapters(book, locale);
+    const indexableBook =
+      locale === DEFAULT_LOCALE || existsSync(bookDataPath(book, locale));
+    const bookContextSource =
+      locale === DEFAULT_LOCALE ? book.contents : localizedChapters;
+    const bookContext = bookContextSource
+      .map((chapter) => bookChapterContext(chapter, locale !== DEFAULT_LOCALE))
+      .filter(Boolean)
+      .join('. ');
     pages.push({
       path: bookPath,
       title: `${book.name} - Fumble`,
@@ -869,13 +991,20 @@ function collectPages(locale: Locale): PageInfo[] {
         [book.name, book.storyline, book.author].filter(Boolean).join('. '),
         translate(locale, 'seo.bookDescription', { name: book.name }),
       ),
+      content: excerpt(
+        [book.name, bookContext, book.storyline, book.author].filter(Boolean).join('. '),
+        translate(locale, 'seo.bookDescription', { name: book.name }),
+      ),
       ...(typeof book.cover === 'string' ? { image: book.cover } : {}),
       kind: 'book',
+      ...(indexableBook ? {} : { indexable: false }),
       parent: { path: '/books', title: translate(locale, 'seo.pageTitles.books') },
     });
-    book.contents.forEach((chapter, index) => {
+    book.contents.forEach((baseChapter, index) => {
+      const chapter = localizedChapters[index] ?? baseChapter;
       const chapterName =
         chapter.name || translate(locale, 'books.chapterFallback', { n: index + 1 });
+      const chapterContext = bookChapterContext(chapter, true);
       pages.push({
         path: `${bookPath}/${index}`,
         title: `${chapterName} - ${book.name} - Fumble`,
@@ -883,7 +1012,15 @@ function collectPages(locale: Locale): PageInfo[] {
           chapter: chapterName,
           book: book.name,
         }),
+        content: excerpt(
+          [chapterContext, book.name, book.author].filter(Boolean).join('. '),
+          translate(locale, 'seo.bookChapterDescription', {
+            chapter: chapterName,
+            book: book.name,
+          }),
+        ),
         kind: 'book',
+        ...(indexableBook ? {} : { indexable: false }),
         parent: { path: bookPath, title: book.name },
       });
     });
@@ -1003,21 +1140,36 @@ function compendiumPreloadHints(page: PageInfo): string[] {
   ].filter(Boolean);
 }
 
-function buildSitemap(pages: PageInfo[]): string {
+function indexablePathMap(
+  pagesByLocale: Map<string, PageInfo[]>,
+): Map<string, Set<string>> {
+  return new Map(
+    [...pagesByLocale.entries()].map(([locale, pages]) => [
+      locale,
+      new Set(pages.filter((page) => page.indexable !== false).map((page) => page.path)),
+    ]),
+  );
+}
+
+function buildSitemap(pages: PageInfo[], pagesByLocale: Map<string, PageInfo[]>): string {
   const entries = pages.flatMap((page) => {
-    const alternates = [
-      ...SUPPORTED_LOCALES.map(({ code }) => ({
-        hreflang: code,
-        href: absolute(page.path, code),
-      })),
-      { hreflang: 'x-default', href: absolute(page.path, DEFAULT_LOCALE) },
-    ]
+    const localizedPages = SUPPORTED_LOCALES.map(({ code }) => ({
+      code,
+      page: pagesByLocale.get(code)?.find((candidate) => candidate.path === page.path),
+    })).filter(
+      (entry): entry is { code: Locale; page: PageInfo } =>
+        entry.page !== undefined && entry.page.indexable !== false,
+    );
+    const alternates = localizedPages
       .map(
-        ({ hreflang, href }) =>
-          `    <xhtml:link rel="alternate" hreflang="${escapeXml(hreflang)}" href="${escapeXml(href)}"/>`,
+        ({ code }) =>
+          `    <xhtml:link rel="alternate" hreflang="${escapeXml(code)}" href="${escapeXml(absolute(page.path, code))}"/>`,
+      )
+      .concat(
+        `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(absolute(page.path, DEFAULT_LOCALE))}"/>`,
       )
       .join('\n');
-    return SUPPORTED_LOCALES.map(
+    return localizedPages.map(
       ({ code }) =>
         `  <url>\n    <loc>${escapeXml(absolute(page.path, code))}</loc>\n${alternates}\n  </url>`,
     );
@@ -1198,13 +1350,51 @@ function structuredData(page: PageInfo, locale: string) {
   };
 }
 
-function buildHtml(template: string, page: PageInfo, locale: string): string {
+function buildRedirectHtml(template: string, page: PageInfo, locale: string): string {
+  const title = escapeHtml(page.title);
+  const description = escapeHtml(page.description);
+  const target = absolute(page.redirectTo!, locale);
+  let html = template.replace(/<html lang="[^"]+"/, `<html lang="${locale}"`);
+  html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+  html = replaceMeta(
+    html,
+    /<meta\s+name="description"\s+content="[^"]*"\s*\/?>(?:\s*)?/s,
+    `<meta name="description" content="${description}" />`,
+  );
+  html = replaceMeta(
+    html,
+    /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>(?:\s*)?/s,
+    '<meta name="robots" content="noindex, nofollow" />',
+  );
+  html = html
+    .replace(/\s*<link\s+rel="canonical"\s+href="[^"]+"\s*\/?>(?:\s*)?/g, '')
+    .replace(/\s*<link\s+rel="alternate"[^>]*\/?>(?:\s*)?/g, '')
+    .replace(/\s*<meta\s+property="og:url"[^>]*\/?>(?:\s*)?/g, '');
+  const refresh = `<meta http-equiv="refresh" content="0; url=${escapeHtml(target)}" />`;
+  const body = `<main id="prerendered-content" data-prerendered="true"><h1>${title}</h1><p><a href="${escapeHtml(target)}">${escapeHtml(target)}</a></p></main>`;
+  html = html.replace('</head>', `    ${refresh}\n  </head>`);
+  return html.replace(
+    '<div id="root"><div id="app-root" data-app-ready="false"></div></div>',
+    `<div id="root"><div id="app-root" data-app-ready="false"></div>${body}</div>`,
+  );
+}
+
+function buildHtml(
+  template: string,
+  page: PageInfo,
+  locale: string,
+  indexablePaths: Map<string, Set<string>>,
+): string {
+  if (page.redirectTo) return buildRedirectHtml(template, page, locale);
   const url = absolute(page.path, locale);
   const title = escapeHtml(page.title);
   const description = escapeHtml(page.description);
   const robots = page.indexable === false ? 'noindex, nofollow' : 'index, follow';
   const content = escapeHtml(page.content ?? page.description);
   const heading = escapeHtml(pageHeading(page));
+  const socialImage = page.image
+    ? imagePreloadUrl(page.image, PRIMARY_IMAGE_WIDTH)
+    : `${SITE_URL}/og.png`;
   const primaryImageWidth = page.path.startsWith('/compendium/bestiary/')
     ? 320
     : PRIMARY_IMAGE_WIDTH;
@@ -1275,6 +1465,16 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
   );
   html = replaceMeta(
     html,
+    /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>(?:\s*)?/s,
+    `<meta property="og:image" content="${escapeHtml(socialImage)}" />`,
+  );
+  html = replaceMeta(
+    html,
+    /<meta\s+property="og:image:alt"\s+content="[^"]*"\s*\/?>(?:\s*)?/s,
+    `<meta property="og:image:alt" content="${heading}" />`,
+  );
+  html = replaceMeta(
+    html,
     /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
     `<meta name="twitter:title" content="${title}" />`,
   );
@@ -1283,17 +1483,39 @@ function buildHtml(template: string, page: PageInfo, locale: string): string {
     /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/s,
     `<meta name="twitter:description" content="${description}" />`,
   );
+  html = replaceMeta(
+    html,
+    /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>(?:\s*)?/s,
+    `<meta name="twitter:image" content="${escapeHtml(socialImage)}" />`,
+  );
+  html = replaceMeta(
+    html,
+    /<meta\s+name="twitter:image:alt"\s+content="[^"]*"\s*\/?>(?:\s*)?/s,
+    `<meta name="twitter:image:alt" content="${heading}" />`,
+  );
   html = html.replace(
     /\s*<link\s+rel="alternate"\s+hreflang="[^"]+"\s+href="[^"]+"\s*\/?>/g,
     '',
   );
-  const alternates = [
-    ...SUPPORTED_LOCALES.map(
-      ({ code }) =>
-        `<link rel="alternate" hreflang="${code}" href="${absolute(page.path, code)}" />`,
-    ),
-    `<link rel="alternate" hreflang="x-default" href="${absolute(page.path, DEFAULT_LOCALE)}" />`,
-  ].join('\n    ');
+  const alternates =
+    page.indexable === false
+      ? ''
+      : [
+          ...SUPPORTED_LOCALES.filter(({ code }) =>
+            indexablePaths.get(code)?.has(page.path),
+          ).map(
+            ({ code }) =>
+              `<link rel="alternate" hreflang="${code}" href="${absolute(page.path, code)}" />`,
+          ),
+          ...(indexablePaths.get(DEFAULT_LOCALE)?.has(page.path)
+            ? [
+                `<link rel="alternate" hreflang="x-default" href="${absolute(page.path, DEFAULT_LOCALE)}" />`,
+              ]
+            : []),
+        ].join('\n    ');
+  if (page.indexable === false) {
+    html = html.replace(/\s*<link\s+rel="canonical"\s+href="[^"]+"\s*\/?>(?:\s*)?/g, '');
+  }
   const additions = [
     alternates,
     `<script type="application/ld+json">${JSON.stringify(structuredData(page, locale)).replaceAll('<', '\\u003c')}</script>`,
@@ -1349,24 +1571,71 @@ function buildLlmsFull(pages: PageInfo[]): string {
   ].join('\n');
 }
 
+const SEARCH_ITEM_FIELDS = [
+  'id',
+  'name',
+  'englishName',
+  'source',
+  'srd',
+  'hidden',
+  'ua',
+  'otherVersions',
+  'size',
+  'hitDie',
+  'feat',
+  'category',
+  'featureType',
+  'level',
+  'school',
+  'type',
+  'rarity',
+  'cr',
+  'creatureType',
+  'time',
+  'kind',
+  'ruleType',
+  'pantheon',
+  'hazardType',
+  'boonType',
+  'ability',
+  'languageType',
+  'collection',
+  'facilityType',
+  'objectType',
+  'vehicleType',
+  'optionType',
+  'cardCount',
+  '_fumble',
+  'isSubclass',
+  'parentClassId',
+  'className',
+  'subtitle',
+] as const;
+
 function searchItem(item: CompendiumItem): Record<string, unknown> {
-  return Object.fromEntries(
-    Object.entries(item).filter(([, value]) => {
-      if (
-        value == null ||
-        typeof value === 'string' ||
-        typeof value === 'number' ||
-        typeof value === 'boolean'
-      )
-        return true;
-      if (!Array.isArray(value)) return false;
-      return value.every(
+  const result: Record<string, unknown> = {};
+  for (const field of SEARCH_ITEM_FIELDS) {
+    const value = item[field];
+    if (
+      value == null ||
+      typeof value === 'string' ||
+      typeof value === 'number' ||
+      typeof value === 'boolean'
+    ) {
+      if (value != null) result[field] = value;
+      continue;
+    }
+    if (field === 'otherVersions' && Array.isArray(value)) {
+      result.otherVersions = value.filter(
         (entry) =>
-          typeof entry === 'string' ||
-          (entry && typeof entry === 'object' && 'id' in entry && 'source' in entry),
+          entry &&
+          typeof entry === 'object' &&
+          typeof (entry as { id?: unknown }).id === 'string' &&
+          typeof (entry as { source?: unknown }).source === 'string',
       );
-    }),
-  );
+    }
+  }
+  return result;
 }
 
 function buildSearchIndex(locale: Locale): string {
@@ -1421,11 +1690,15 @@ function buildSearchIndex(locale: Locale): string {
 const pagesByLocale = new Map(
   SUPPORTED_LOCALES.map(({ code }) => [code, collectPages(code)]),
 );
+const indexablePaths = indexablePathMap(pagesByLocale);
 const pages = pagesByLocale.get(DEFAULT_LOCALE)!;
 const template = readFileSync(join(OUT_DIR, 'index.html'), 'utf8');
 for (const { code } of SUPPORTED_LOCALES) {
   for (const page of pagesByLocale.get(code) ?? []) {
-    writeRoute(localizePath(page.path, code), buildHtml(template, page, code));
+    writeRoute(
+      localizePath(page.path, code),
+      buildHtml(template, page, code, indexablePaths),
+    );
   }
 }
 const sitemapGroups = new Map<string, PageInfo[]>([
@@ -1446,7 +1719,7 @@ for (const page of indexablePages) {
   sitemapGroups.get(file)!.push(page);
 }
 for (const [file, group] of sitemapGroups) {
-  writeFileSync(join(OUT_DIR, file), buildSitemap(group));
+  writeFileSync(join(OUT_DIR, file), buildSitemap(group, pagesByLocale));
 }
 writeFileSync(join(OUT_DIR, 'sitemap.xml'), buildSitemapIndex([...sitemapGroups.keys()]));
 writeFileSync(join(OUT_DIR, 'llms-full.txt'), buildLlmsFull(indexablePages));

@@ -1,6 +1,7 @@
 import { Fragment, type ReactNode } from 'react';
 import { slugify } from '@/data/transform/util';
-import { Link, useLocale } from '@/i18n/path';
+import { Link } from '@/i18n/path';
+import { useLocale } from '@/i18n/pathUtils';
 import { CLASS_REFERENCE_NAMES, classIdForName } from './classNames';
 import { parseMarkup } from './markup';
 

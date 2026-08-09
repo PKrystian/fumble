@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { localizePath, stripLocale } from './path';
+import { localizePath, stripLocale } from './pathUtils';
 import { rememberedLocaleTarget } from './localeTarget';
 
 describe('stripLocale', () => {

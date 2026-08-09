@@ -106,5 +106,8 @@ export function loadBookData(entry: BookIndexEntry, locale: string): Promise<Ent
     loadBookOverlay(entry, locale),
   ]).then(([chapters, overlay]) => localizeChapters(chapters, overlay));
   cache.set(key, promise);
+  void promise.catch(() => {
+    if (cache.get(key) === promise) cache.delete(key);
+  });
   return promise;
 }

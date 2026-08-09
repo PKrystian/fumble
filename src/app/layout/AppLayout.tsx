@@ -10,6 +10,8 @@ import { useSearchStore } from '@/features/search/searchStore';
 import { useT } from '@/i18n/useT';
 import { LegalFooter } from '@/features/legal/LegalFooter';
 import { revealApp } from '@/seo/prerendered';
+import { STORAGE_ERROR_EVENT } from '@/features/storage/safeStorage';
+import { useDialogFocus } from '@/features/ui/useDialogFocus';
 import { Sidebar } from './Sidebar';
 
 const SearchPalette = lazy(() =>
@@ -17,6 +19,35 @@ const SearchPalette = lazy(() =>
     default: module.SearchPalette,
   })),
 );
+
+function StorageNotice() {
+  const { t } = useT();
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onStorageError = () => setVisible(true);
+    window.addEventListener(STORAGE_ERROR_EVENT, onStorageError);
+    return () => window.removeEventListener(STORAGE_ERROR_EVENT, onStorageError);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <div
+      role="alert"
+      className="fixed bottom-4 left-4 right-4 z-[90] flex items-center justify-between gap-3 rounded-lg border border-red-400/50 bg-ink-900 p-3 text-sm text-red-200 shadow-xl md:left-auto md:max-w-md"
+    >
+      <span>{t('common.storageError')}</span>
+      <button
+        type="button"
+        onClick={() => setVisible(false)}
+        className="shrink-0 rounded-md border border-red-400/50 px-2 py-1 text-red-100 hover:bg-red-400/10"
+      >
+        {t('common.close')}
+      </button>
+    </div>
+  );
+}
 
 function classRouteKey(pathname: string): string | undefined {
   const segments = pathname.split('/').filter(Boolean);
@@ -32,6 +63,7 @@ function classRouteKey(pathname: string): string | undefined {
 
 export function AppLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileDialogRef = useDialogFocus(mobileOpen);
   const collapsed = useSidebarStore((s) => s.collapsed);
   const searchOpen = useSearchStore((s) => s.open);
   const location = useLocation();
@@ -41,6 +73,15 @@ export function AppLayout() {
   useEffect(() => {
     setMobileOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [mobileOpen]);
 
   useEffect(() => {
     if (!location.pathname.includes('/compendium/')) {
@@ -89,7 +130,14 @@ export function AppLayout() {
             className="absolute inset-0 bg-black/60"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="absolute inset-y-0 left-0 w-72 max-w-[80vw] border-r border-ink-700 bg-ink-900 shadow-xl">
+          <div
+            ref={mobileDialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label={t('common.primaryNav')}
+            tabIndex={-1}
+            className="absolute inset-y-0 left-0 w-72 max-w-[80vw] border-r border-ink-700 bg-ink-900 shadow-xl"
+          >
             <Sidebar onNavigate={() => setMobileOpen(false)} collapsible={false} />
           </div>
         </div>
@@ -132,6 +180,7 @@ export function AppLayout() {
       <RollResultDock />
       <Lightbox />
       <ConfirmDialog />
+      <StorageNotice />
     </div>
   );
 }

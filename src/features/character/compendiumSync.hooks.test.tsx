@@ -16,7 +16,7 @@ const mocks = vi.hoisted(() => ({
   getCategory: vi.fn(),
 }));
 
-vi.mock('@/i18n/path', () => ({
+vi.mock('@/i18n/pathUtils', () => ({
   useLocale: () => mocks.locale,
 }));
 

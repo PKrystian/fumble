@@ -2,12 +2,14 @@ import { useEffect } from 'react';
 import { X } from 'lucide-react';
 import { useT } from '@/i18n/useT';
 import { useLightbox } from './lightboxStore';
+import { useDialogFocus } from './useDialogFocus';
 
 export function Lightbox() {
   const { t } = useT();
   const src = useLightbox((s) => s.src);
   const caption = useLightbox((s) => s.caption);
   const close = useLightbox((s) => s.close);
+  const dialogRef = useDialogFocus(Boolean(src));
 
   useEffect(() => {
     if (!src) return;
@@ -23,6 +25,8 @@ export function Lightbox() {
       role="dialog"
       aria-modal="true"
       aria-label={t('common.imageViewer')}
+      ref={dialogRef}
+      tabIndex={-1}
       onClick={close}
       className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-black/85 p-4"
     >

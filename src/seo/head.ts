@@ -27,6 +27,10 @@ export function setMetaContent(
   meta.content = content;
 }
 
+export function removeMeta(selector: string): void {
+  document.head.querySelector(selector)?.remove();
+}
+
 export function setCanonical(href: string): void {
   let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!link) {
@@ -35,6 +39,10 @@ export function setCanonical(href: string): void {
     document.head.appendChild(link);
   }
   link.href = href;
+}
+
+export function removeCanonical(): void {
+  document.head.querySelector('link[rel="canonical"]')?.remove();
 }
 
 export interface HreflangAlternate {
@@ -53,4 +61,10 @@ export function setHreflangAlternates(alternates: HreflangAlternate[]): void {
     link.href = alt.href;
     document.head.appendChild(link);
   }
+}
+
+export function removeHreflangAlternates(): void {
+  document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => {
+    el.remove();
+  });
 }

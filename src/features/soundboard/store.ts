@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import bardifyVideos from '@/data/generated/bardify.json';
+import { fumbleStorage } from '@/features/storage/safeStorage';
 
 export interface Track {
   id: string;
@@ -181,6 +182,7 @@ export const useSoundboardStore = create<SoundboardState>()(
     {
       name: 'fumble-soundboard',
       version: 5,
+      storage: fumbleStorage,
       migrate: (persisted, version) => {
         const state = persisted as Partial<SoundboardState>;
         const storedTracks = state.tracks ?? [];

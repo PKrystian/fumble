@@ -72,6 +72,9 @@ vi.mock('@/i18n/path', () => ({
       {children}
     </a>
   ),
+}));
+
+vi.mock('@/i18n/pathUtils', () => ({
   useNavigate: () => mocks.navigate,
 }));
 
@@ -154,7 +157,7 @@ describe('WikiPage', () => {
     };
     mocks.campaignId = 'missing';
     view.rerender(<WikiPage />);
-    expect(screen.getByText('wiki.noCampaigns')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'notFound.title' })).toBeInTheDocument();
   });
 
   it('renders campaign landings with and without a map', () => {
@@ -255,7 +258,11 @@ describe('WikiPage', () => {
     };
 
     const view = render(<WikiPage />);
-    expect(useSeo).toHaveBeenLastCalledWith('Lore', expect.stringMatching(/\.\.\.$/));
+    expect(useSeo).toHaveBeenLastCalledWith(
+      'Lore',
+      expect.stringMatching(/\.\.\.$/),
+      true,
+    );
 
     mocks.wiki.data = {
       campaigns: [
@@ -267,7 +274,7 @@ describe('WikiPage', () => {
       ],
     };
     view.rerender(<WikiPage />);
-    expect(useSeo).toHaveBeenLastCalledWith('Lore', 'seo.pageDescriptions.wiki');
+    expect(useSeo).toHaveBeenLastCalledWith('Lore', 'seo.pageDescriptions.wiki', true);
   });
 
   it('opens wiki images in the lightbox', () => {
@@ -299,15 +306,19 @@ describe('WikiPage', () => {
     });
   });
 
-  it('supports legacy page paths and falls back to the home page', () => {
+  it('supports legacy page paths and rejects unknown page paths', () => {
     mocks.campaignId = 'lore';
     render(<WikiPage />);
     expect(screen.getByRole('heading', { name: 'Lore' })).toBeInTheDocument();
 
     mocks.campaignId = 'glod-smoka';
-    mocks.slug = 'missing';
+    mocks.slug = undefined;
     const view = render(<WikiPage />);
     expect(screen.getByRole('heading', { name: 'Campaign Home' })).toBeInTheDocument();
+
+    mocks.slug = 'missing';
+    view.rerender(<WikiPage />);
+    expect(screen.getByRole('heading', { name: 'notFound.title' })).toBeInTheDocument();
 
     mocks.wiki.data = {
       campaigns: [
@@ -318,6 +329,7 @@ describe('WikiPage', () => {
         },
       ],
     };
+    mocks.slug = 'first';
     view.rerender(<WikiPage />);
     expect(screen.getByRole('heading', { name: 'First' })).toBeInTheDocument();
   });

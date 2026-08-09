@@ -35,10 +35,13 @@ import {
 } from '@/features/homebrew/fumbleHomebrew';
 import { useFumbleHomebrewStore } from '@/features/homebrew/fumbleHomebrewStore';
 import { getBook } from '@/features/books/data';
+import { bookAnchorHash } from '@/features/books/readerAnchor';
+import { NotFoundPage } from '@/features/NotFoundPage';
 import { useLightbox } from '@/features/ui/lightboxStore';
 import { useContentModeStore } from '@/features/ui/contentModeStore';
 import { OriginalName } from '@/features/ui/OriginalName';
-import { Link, Navigate, useNavigate } from '@/i18n/path';
+import { Link, Navigate } from '@/i18n/path';
+import { useNavigate } from '@/i18n/pathUtils';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
@@ -56,17 +59,61 @@ function categoryLabel(category: CompendiumCategory, t: (key: string) => string)
 }
 
 const NO_FILTERS: CategoryFilter[] = [];
+const LIST_PAGE_SIZE = 200;
+
+const LEGACY_ENTRY_ALIASES: Record<string, string> = {
+  'items/danoth-s-visor': 'items/danoth-s-visor-dormant',
+};
+
+function CompendiumLandingPage() {
+  const { t } = useT();
+  useSeo(t('seo.pageTitles.compendium'), t('seo.pageDescriptions.compendium'));
+
+  return (
+    <div className="mx-auto max-w-6xl px-6 py-8">
+      <header className="mb-8">
+        <h1 className="font-display text-3xl font-bold text-ink-50">
+          {t('compendium.title')}
+        </h1>
+        <p className="mt-2 max-w-3xl text-ink-300">
+          {t('seo.pageDescriptions.compendium')}
+        </p>
+      </header>
+      <nav aria-label={t('compendium.categoriesNav')}>
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {categories.map((category) => (
+            <li key={category.id}>
+              <Link
+                to={`/compendium/${category.id}`}
+                className="block h-full rounded-lg border border-ink-700 bg-ink-900 p-4 transition-colors hover:border-arcane-500 hover:bg-ink-800"
+              >
+                <h2 className="font-display text-lg font-bold text-ink-50">
+                  {categoryLabel(category, t)}
+                </h2>
+                <p className="mt-2 text-sm text-ink-300">
+                  {t(`compendium.seo.categoryDescriptions.${category.id}`)}
+                </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  );
+}
 
 export function CompendiumPage() {
   const { category: categoryId, id, subclass: subclassId } = useParams();
 
-  if (!categoryId) {
-    return <Navigate to={`/compendium/${categories[0]!.id}`} replace />;
-  }
+  if (!categoryId) return <CompendiumLandingPage />;
 
   const category = getCategory(categoryId);
-  if (!category) {
-    return <Navigate to={`/compendium/${categories[0]!.id}`} replace />;
+  if (!category) return <NotFoundPage />;
+
+  const legacyTarget =
+    id && !subclassId ? LEGACY_ENTRY_ALIASES[`${categoryId}/${id}`] : undefined;
+  if (legacyTarget) {
+    return <Navigate to={`/compendium/${legacyTarget}`} replace />;
   }
 
   return (
@@ -96,6 +143,7 @@ function CompendiumBrowser({
   const queryRef = useRef(urlQuery);
   const queryUpdateTimerRef = useRef<number | null>(null);
   const updateRef = useRef(update);
+  const [retryKey, setRetryKey] = useState(0);
   updateRef.current = update;
 
   useEffect(() => {
@@ -156,6 +204,7 @@ function CompendiumBrowser({
     true,
     selectedId,
     requestedSubclassIds,
+    retryKey,
   );
   const selected = selectedId ? items.find((item) => item.id === selectedId) : undefined;
 
@@ -214,6 +263,24 @@ function CompendiumBrowser({
     );
   }, [filtered, sortField, sortDir, filters, t, locale]);
 
+  const listResetKey = [
+    query,
+    sortField,
+    sortDir,
+    contentMode,
+    showFumbleHomebrew,
+    ...filters.flatMap((filter) => [filter.id, ...(selectedFilters[filter.id] ?? [])]),
+  ].join('|');
+  const [visibleCount, setVisibleCount] = useState(LIST_PAGE_SIZE);
+  useEffect(() => {
+    setVisibleCount(LIST_PAGE_SIZE);
+  }, [listResetKey]);
+  const selectedIndex = selectedId
+    ? sorted.findIndex((item) => item.id === selectedId)
+    : -1;
+  const listItems = sorted.slice(0, Math.max(visibleCount, selectedIndex + 1));
+  const remainingCount = sorted.length - listItems.length;
+
   const categoryTitle = categoryLabel(category, t);
   const selectedSubclass =
     categoryId === 'classes' && selected && requestedSubclassId
@@ -235,7 +302,19 @@ function CompendiumBrowser({
       })
     : getCompendiumCategorySeo(categoryId, categoryTitle, locale);
 
-  useSeo(seo.title, seo.description);
+  const routeNotFound =
+    status === 'ready' &&
+    Boolean(selectedId) &&
+    (!selected || Boolean(selectedSubclassId && !selectedSubclass));
+  const indexable = status === 'ready' && !routeNotFound;
+
+  useSeo(
+    routeNotFound ? t('notFound.title') : seo.title,
+    routeNotFound ? t('notFound.message') : seo.description,
+    indexable,
+  );
+
+  if (routeNotFound) return <NotFoundPage />;
 
   const legacyFumbleSubclass =
     selected && isFumbleHomebrew(selected) && selected.isSubclass ? selected : undefined;
@@ -354,12 +433,21 @@ function CompendiumBrowser({
               <li className="p-4 text-sm text-ink-400">{t('common.loading')}</li>
             )}
             {status === 'error' && (
-              <li className="p-4 text-sm text-red-400">{t('compendium.failedToLoad')}</li>
+              <li className="flex items-center justify-between gap-3 p-4 text-sm text-red-400">
+                <span>{t('compendium.failedToLoad')}</span>
+                <button
+                  type="button"
+                  onClick={() => setRetryKey((value) => value + 1)}
+                  className="shrink-0 rounded-md border border-red-400/50 px-3 py-1.5 text-red-200 hover:bg-red-400/10"
+                >
+                  {t('common.retry')}
+                </button>
+              </li>
             )}
             {status === 'ready' && sorted.length === 0 && (
               <li className="p-4 text-sm text-ink-400">{t('compendium.noMatches')}</li>
             )}
-            {sorted.map((item) => (
+            {listItems.map((item) => (
               <li key={item.id}>
                 <Link
                   to={{
@@ -406,6 +494,19 @@ function CompendiumBrowser({
                 </Link>
               </li>
             ))}
+            {status === 'ready' && remainingCount > 0 && (
+              <li className="p-3">
+                <button
+                  type="button"
+                  onClick={() => setVisibleCount((value) => value + LIST_PAGE_SIZE)}
+                  className="w-full rounded-md border border-ink-700 px-3 py-2 text-sm text-ink-200 transition-colors hover:border-arcane-500 hover:bg-ink-800"
+                >
+                  {t('compendium.loadMore', {
+                    count: Math.min(LIST_PAGE_SIZE, remainingCount),
+                  })}
+                </button>
+              </li>
+            )}
           </ul>
         </section>
 
@@ -553,10 +654,7 @@ function CompendiumBrowser({
                     <Link
                       to={{
                         pathname: `/books/${selected.source.toLowerCase()}`,
-                        search: new URLSearchParams({
-                          ...(selected.page ? { page: String(selected.page) } : {}),
-                          name: selected.name,
-                        }).toString(),
+                        hash: bookAnchorHash(selected.page, selected.name),
                       }}
                       className="text-arcane-300 hover:text-arcane-500"
                     >
@@ -594,9 +692,16 @@ function CompendiumBrowser({
               <p className="text-ink-400">{t('common.loading')}</p>
             </div>
           ) : selectedId && status === 'error' ? (
-            <p className="text-red-400" role="alert">
-              {t('compendium.failedToLoad')}
-            </p>
+            <div className="flex flex-wrap items-center gap-3 text-red-400" role="alert">
+              <span>{t('compendium.failedToLoad')}</span>
+              <button
+                type="button"
+                onClick={() => setRetryKey((value) => value + 1)}
+                className="rounded-md border border-red-400/50 px-3 py-1.5 text-red-200 hover:bg-red-400/10"
+              >
+                {t('common.retry')}
+              </button>
+            </div>
           ) : (
             <p className="text-ink-400">{t('compendium.selectPrompt')}</p>
           )}

@@ -3,12 +3,14 @@ import { useT } from '@/i18n/useT';
 import { useDialogStore } from './confirmStore';
 import { Button } from './primitives';
 import { panelClass } from './styles';
+import { useDialogFocus } from './useDialogFocus';
 
 export function ConfirmDialog() {
   const { t } = useT();
   const request = useDialogStore((s) => s.request);
   const respond = useDialogStore((s) => s.respond);
   const confirmRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useDialogFocus(Boolean(request));
 
   useEffect(() => {
     if (!request) return;
@@ -35,6 +37,8 @@ export function ConfirmDialog() {
       className="fixed inset-0 z-[80] flex items-center justify-center bg-black/70 p-4"
     >
       <div
+        ref={dialogRef}
+        tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
         className={panelClass('w-full max-w-sm border-ink-700 p-5 shadow-xl')}
       >

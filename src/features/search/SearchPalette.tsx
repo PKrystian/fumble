@@ -5,9 +5,10 @@ import { useHomebrewStore } from '@/features/homebrew/store';
 import { useFumbleHomebrewStore } from '@/features/homebrew/fumbleHomebrewStore';
 import { OriginalName } from '@/features/ui/OriginalName';
 import { useContentModeStore } from '@/features/ui/contentModeStore';
-import { useLocale, useNavigate } from '@/i18n/path';
+import { useLocale, useNavigate } from '@/i18n/pathUtils';
 import { useT } from '@/i18n/useT';
 import { IconButton, SearchField } from '@/features/ui/primitives';
+import { useDialogFocus } from '@/features/ui/useDialogFocus';
 import { useSearchStore } from './searchStore';
 import {
   buildHomebrewResults,
@@ -41,21 +42,30 @@ export function SearchPalette() {
   const showFumbleHomebrew = useFumbleHomebrewStore((s) => s.showInCompendium);
 
   const [index, setIndex] = useState<SearchIndex | null>(null);
+  const [loadError, setLoadError] = useState(false);
+  const [retry, setRetry] = useState(0);
   const [query, setQuery] = useState('');
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const dialogRef = useDialogFocus(open);
 
   useEffect(() => {
     if (!open) return;
     let cancelled = false;
-    void loadSearchIndex(locale).then((results) => {
-      if (!cancelled) setIndex(results);
-    });
+    setLoadError(false);
+    setIndex(null);
+    void loadSearchIndex(locale)
+      .then((results) => {
+        if (!cancelled) setIndex(results);
+      })
+      .catch(() => {
+        if (!cancelled) setLoadError(true);
+      });
     return () => {
       cancelled = true;
     };
-  }, [open, locale]);
+  }, [open, locale, retry]);
 
   useEffect(() => {
     if (open) {
@@ -127,6 +137,8 @@ export function SearchPalette() {
         role="dialog"
         aria-modal="true"
         aria-label={t('search.title')}
+        ref={dialogRef}
+        tabIndex={-1}
         className="relative flex max-h-[70vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-ink-700 bg-ink-900 shadow-2xl"
       >
         <div className="flex items-center gap-2 border-b border-ink-700 p-3">
@@ -149,6 +161,21 @@ export function SearchPalette() {
         </div>
 
         <ul ref={listRef} className="min-h-0 flex-1 overflow-y-auto">
+          {loadError && (
+            <li
+              className="flex items-center justify-between gap-3 p-4 text-sm text-red-400"
+              role="alert"
+            >
+              <span>{t('search.couldNotLoad')}</span>
+              <button
+                type="button"
+                onClick={() => setRetry((value) => value + 1)}
+                className="shrink-0 rounded-md border border-red-400/50 px-3 py-1.5 text-red-200 hover:bg-red-400/10"
+              >
+                {t('common.retry')}
+              </button>
+            </li>
+          )}
           {query.trim() === '' && (
             <li className="px-4 py-6 text-center text-sm text-ink-400">
               {t('search.hint')}

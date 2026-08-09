@@ -58,7 +58,7 @@ vi.mock('@/features/ui/OriginalName', () => ({
   OriginalName: ({ name }: { name?: string }) => <span>{name}</span>,
 }));
 
-vi.mock('@/i18n/path', () => ({
+vi.mock('@/i18n/pathUtils', () => ({
   useLocale: () => 'en',
   useNavigate: () => mocks.navigate,
 }));

@@ -1,5 +1,5 @@
 import { DEFAULT_LOCALE, type Locale } from './locales';
-import { localizePath, stripLocale } from './path';
+import { localizePath, stripLocale } from './pathUtils';
 
 export function rememberedLocaleTarget(
   pathname: string,

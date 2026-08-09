@@ -217,6 +217,21 @@ body {
   object-fit: contain;
   user-select: none;
 }
+.wiki-chult-map__hidden-grid {
+  position: absolute;
+  top: 2.55%;
+  left: 3.33%;
+  width: 92.98%;
+  height: 94.95%;
+  overflow: visible;
+  pointer-events: none;
+}
+.wiki-chult-map__hidden-hexes {
+  fill: rgb(247 240 215);
+  stroke: rgb(93 86 69);
+  stroke-linejoin: round;
+  stroke-width: 0.14;
+}
 .wiki-chult-map__grid {
   position: absolute;
   inset: 2.55% 3.69% 2.5% 3.33%;

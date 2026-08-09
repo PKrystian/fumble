@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { fumbleStorage } from '@/features/storage/safeStorage';
 
 export type LayoutZone = 'left' | 'center' | 'right';
 
@@ -49,6 +50,7 @@ export const useLayoutStore = create<LayoutState>()(
     {
       name: 'fumble-sheet-layout',
       version: 1,
+      storage: fumbleStorage,
       merge: (persisted, current) => {
         const persistedZones = (persisted as Partial<LayoutState> | undefined)?.zones;
         return persistedZones

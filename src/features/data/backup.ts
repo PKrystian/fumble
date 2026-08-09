@@ -1,5 +1,7 @@
 export const BACKUP_VERSION = 1;
 export const MAX_BACKUP_BYTES = 10 * 1024 * 1024;
+export const MAX_BACKUP_KEYS = 100;
+export const MAX_BACKUP_VALUE_BYTES = MAX_BACKUP_BYTES;
 
 export interface FumbleBackup {
   app: 'fumble';
@@ -24,6 +26,12 @@ export function createBackup(storage: Storage): FumbleBackup {
   };
 }
 
+export function serializeBackup(backup: FumbleBackup): string {
+  const text = JSON.stringify(backup, null, 2);
+  if (new Blob([text]).size > MAX_BACKUP_BYTES) throw new Error('backup-too-large');
+  return text;
+}
+
 export function parseBackup(text: string): FumbleBackup {
   if (new Blob([text]).size > MAX_BACKUP_BYTES) throw new Error('backup-too-large');
 
@@ -33,15 +41,21 @@ export function parseBackup(text: string): FumbleBackup {
   if (
     backup.app !== 'fumble' ||
     backup.version !== BACKUP_VERSION ||
+    typeof backup.exportedAt !== 'string' ||
     !backup.data ||
     typeof backup.data !== 'object' ||
     Array.isArray(backup.data)
   ) {
     throw new Error('backup-invalid');
   }
+  const keys = Object.keys(backup.data);
+  if (keys.length > MAX_BACKUP_KEYS) throw new Error('backup-too-many-keys');
   for (const [key, item] of Object.entries(backup.data)) {
     if (!key.startsWith('fumble-') || typeof item !== 'string') {
       throw new Error('backup-invalid');
+    }
+    if (new Blob([item]).size > MAX_BACKUP_VALUE_BYTES) {
+      throw new Error('backup-too-large');
     }
     JSON.parse(item);
   }

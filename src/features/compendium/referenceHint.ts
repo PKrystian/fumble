@@ -34,6 +34,9 @@ function loadItems(categoryId: string, locale: string): Promise<CompendiumEntryB
     ? loadLocalizedItems(categoryId, category.load, locale)
     : Promise.resolve([]);
   cache.set(cacheKey, promise);
+  void promise.catch(() => {
+    if (cache.get(cacheKey) === promise) cache.delete(cacheKey);
+  });
   return promise;
 }
 

@@ -27,6 +27,7 @@ export function SessionLogPage() {
   const [, setTick] = useState(0);
   const [copied, setCopied] = useState(false);
   const [promptCopied, setPromptCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
   const [mobileSessionsOpen, setMobileSessionsOpen] = useState(false);
   const recordStart = useRef<number | null>(null);
 
@@ -68,23 +69,33 @@ export function SessionLogPage() {
   };
 
   const copyTranscript = async () => {
-    await navigator.clipboard.writeText(
-      formatTranscriptForExport(session!, t('sessionLog.notesLabel')),
-    );
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
+    try {
+      await navigator.clipboard.writeText(
+        formatTranscriptForExport(session!, t('sessionLog.notesLabel')),
+      );
+      setCopied(true);
+      setCopyError(false);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      setCopyError(true);
+    }
   };
 
   const copyWithPrompt = async () => {
-    await navigator.clipboard.writeText(
-      formatPromptWithTranscript(
-        session!,
-        t('sessionLog.summaryPrompt'),
-        t('sessionLog.notesLabel'),
-      ),
-    );
-    setPromptCopied(true);
-    setTimeout(() => setPromptCopied(false), 1500);
+    try {
+      await navigator.clipboard.writeText(
+        formatPromptWithTranscript(
+          session!,
+          t('sessionLog.summaryPrompt'),
+          t('sessionLog.notesLabel'),
+        ),
+      );
+      setPromptCopied(true);
+      setCopyError(false);
+      setTimeout(() => setPromptCopied(false), 1500);
+    } catch {
+      setCopyError(true);
+    }
   };
 
   const liveDuration =
@@ -268,6 +279,11 @@ export function SessionLogPage() {
                     : t('sessionLog.copyWithAiPrompt')}
                 </button>
               </div>
+              {copyError && (
+                <span role="alert" className="w-full text-xs text-red-300 sm:w-auto">
+                  {t('common.clipboardError')}
+                </span>
+              )}
             </div>
 
             {interim && (

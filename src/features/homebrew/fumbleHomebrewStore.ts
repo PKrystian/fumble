@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { fumbleStorage } from '@/features/storage/safeStorage';
 import type { CompendiumCategoryId } from '@/data/compendium/types';
 import type { FumbleCampaignId, FumbleHomebrewItem } from './fumbleHomebrew';
 
@@ -44,6 +45,7 @@ export const useFumbleHomebrewStore = create<FumbleHomebrewState>()(
     {
       name: 'fumble-homebrew-visibility',
       version: 2,
+      storage: fumbleStorage,
       migrate: (persisted) => {
         const state = (persisted ?? {}) as Partial<FumbleHomebrewState>;
         return {

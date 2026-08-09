@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import DOMPurify from 'dompurify';
 import { Check, X, ZoomIn, ZoomOut } from 'lucide-react';
 import { useT } from '@/i18n/useT';
+import { useDialogFocus } from './useDialogFocus';
 
 interface ImageCropperModalProps {
   file: File | Blob;
@@ -53,6 +54,7 @@ export function ImageCropperModal({
   onSave,
 }: ImageCropperModalProps) {
   const { t } = useT();
+  const dialogTitle = title ?? t('common.adjustImage');
   const [src, setSrc] = useState<string | null>(null);
   const [natural, setNatural] = useState({ width: 0, height: 0 });
   const [frame, setFrame] = useState({ width: 0, height: 0 });
@@ -61,6 +63,7 @@ export function ImageCropperModal({
   const [saving, setSaving] = useState(false);
   const frameRef = useRef<HTMLDivElement>(null);
   const pointers = useRef(new Map<number, Point>());
+  const dialogRef = useDialogFocus(true);
 
   useEffect(() => {
     const objectUrl = URL.createObjectURL(file);
@@ -196,7 +199,9 @@ export function ImageCropperModal({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={title}
+      aria-label={dialogTitle}
+      ref={dialogRef}
+      tabIndex={-1}
       onClick={onCancel}
       className="fixed inset-0 z-[80] flex items-center justify-center bg-black/70 p-4"
     >
@@ -205,9 +210,7 @@ export function ImageCropperModal({
         className="flex w-full max-w-sm flex-col gap-4 rounded-xl border border-ink-700 bg-ink-900 p-5 shadow-xl"
       >
         <div className="flex items-center justify-between">
-          <h2 className="font-display text-lg font-bold text-ink-50">
-            {title ?? t('common.adjustImage')}
-          </h2>
+          <h2 className="font-display text-lg font-bold text-ink-50">{dialogTitle}</h2>
           <button
             type="button"
             onClick={onCancel}

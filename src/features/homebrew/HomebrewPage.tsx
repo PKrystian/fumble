@@ -98,7 +98,7 @@ function categoryHref(category: string, id: string): string | undefined {
 
 export function HomebrewPage() {
   const { t } = useT();
-  useSeo(t('seo.pageTitles.homebrew'), t('seo.pageDescriptions.homebrew'));
+  useSeo(t('seo.pageTitles.homebrew'), t('seo.pageDescriptions.homebrew'), false);
   const entries = useHomebrewStore((s) => s.entries);
   const addManual = useHomebrewStore((s) => s.addManual);
   const updateManual = useHomebrewStore((s) => s.updateManual);

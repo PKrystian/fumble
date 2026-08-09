@@ -1,4 +1,4 @@
-import { useLocale } from './path';
+import { useLocale } from './pathUtils';
 import { translate } from './translate';
 
 export { translate } from './translate';
