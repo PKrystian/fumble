@@ -1,7 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
-import { Link, Navigate, NavLink, useLocale, useNavigate } from './path';
+import { Link, Navigate, NavLink } from './path';
+import { useLocale, useNavigate } from './pathUtils';
 
 function LocationProbe() {
   const location = useLocation();

@@ -95,24 +95,20 @@ describe('CampaignMapPage', () => {
     expect(screen.getByText('wiki.mapZoomLevel:100')).toBeInTheDocument();
   });
 
-  it('shows an unavailable state for unknown campaigns', () => {
+  it('shows a noindex not found state for unknown campaigns', () => {
     mocks.campaignId = 'missing';
     render(<CampaignMapPage />);
-    expect(
-      screen.getByRole('heading', { name: 'wiki.mapUnavailable' }),
-    ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /wiki.backToCampaigns/ })).toHaveAttribute(
+    expect(screen.getByRole('heading', { name: 'notFound.title' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'notFound.backLink' })).toHaveAttribute(
       'href',
-      '/wiki',
+      '/',
     );
   });
 
-  it('shows an unavailable state when no campaign is selected', () => {
+  it('shows a not found state when no campaign is selected', () => {
     mocks.campaignId = undefined;
     render(<CampaignMapPage />);
-    expect(
-      screen.getByRole('heading', { name: 'wiki.mapUnavailable' }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'notFound.title' })).toBeInTheDocument();
   });
 
   it('pans a zoomed map and resets the view', () => {

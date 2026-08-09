@@ -53,7 +53,11 @@ interface Hoard {
 }
 
 function pickRandom<T>(pool: T[], count: number): T[] {
-  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+  const shuffled = [...pool];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex]!, shuffled[index]!];
+  }
   return shuffled.slice(0, count);
 }
 

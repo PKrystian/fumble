@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Plus, Trash2, Upload, UserRound } from 'lucide-react';
 import { alertDialog, confirmDialog } from '@/features/ui/confirmStore';
-import { useNavigate } from '@/i18n/path';
+import { useNavigate } from '@/i18n/pathUtils';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { Button, IconButton } from '@/features/ui/primitives';
@@ -18,7 +18,7 @@ interface CharacterExportFile {
 
 export function CharacterListPage() {
   const { t } = useT();
-  useSeo(t('seo.pageTitles.character'), t('seo.pageDescriptions.character'));
+  useSeo(t('seo.pageTitles.character'), t('seo.pageDescriptions.character'), false);
   const navigate = useNavigate();
   const characters = useCharacterList();
   const addCharacter = useCharacterStore((state) => state.addCharacter);

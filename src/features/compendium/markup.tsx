@@ -6,6 +6,9 @@ import { DEFAULT_LOCALE, type Locale } from '@/i18n/locales';
 import { translate } from '@/i18n/useT';
 import { localizeFormula } from './formula';
 import { ReferenceLink } from './ReferenceLink';
+import { getBook } from '@/features/books/data';
+import { bookAnchorHash } from '@/features/books/readerAnchor';
+import { Link } from '@/i18n/path';
 
 const LINKABLE: Record<string, string> = {
   spell: 'spells',
@@ -88,6 +91,7 @@ const ATTACK_TYPES: Record<Locale, Record<string, string>> = {
 
 interface LabelSet {
   hit: string;
+  miss: string;
   dc: string;
   dcYourSpellSave: string;
   saveSuffix: string;
@@ -102,6 +106,7 @@ interface LabelSet {
 const LABELS: Record<Locale, LabelSet> = {
   en: {
     hit: 'Hit:',
+    miss: 'Miss:',
     dc: 'DC',
     dcYourSpellSave: 'your spell save DC',
     saveSuffix: ' Saving Throw:',
@@ -114,6 +119,7 @@ const LABELS: Record<Locale, LabelSet> = {
   },
   pl: {
     hit: 'Trafienie:',
+    miss: 'Chybienie:',
     dc: 'ST',
     dcYourSpellSave: 'ST rzutu obronnego twojego zaklęcia',
     saveSuffix: '',
@@ -176,6 +182,73 @@ function quickrefLabel(locale: Locale, parts: string[]): string {
   return QUICKREF_LABELS[locale][value.toLowerCase()] ?? value;
 }
 
+function featureLabel(first: string, parts: string[], sourceIndexes: number[]): string {
+  const candidate = parts.at(-1)?.trim();
+  const sourceValues = sourceIndexes
+    .map((index) => parts[index]?.trim())
+    .filter((value): value is string => Boolean(value));
+  if (!candidate || /^\d+$/.test(candidate) || sourceValues.includes(candidate)) {
+    return first;
+  }
+  return candidate;
+}
+
+function bookReference(
+  tag: 'book' | 'adventure',
+  first: string,
+  parts: string[],
+  key: number,
+): ReactNode {
+  const source = parts[1]?.trim();
+  const display = parts[3]?.trim() || first;
+  const book = source ? getBook(source.toLowerCase()) : undefined;
+  if (!book) return <Fragment key={key}>{display}</Fragment>;
+  const chapter = Number(parts[2]);
+  const chapterPath = Number.isInteger(chapter) ? `/${chapter}` : '';
+  return (
+    <Link
+      key={key}
+      to={{
+        pathname: `/books/${book.id}${chapterPath}`,
+        ...(parts[3] ? { hash: bookAnchorHash(undefined, display) } : {}),
+      }}
+      className="text-arcane-300 underline decoration-arcane-500/50 underline-offset-2 hover:text-arcane-200"
+      data-reference-type={tag}
+    >
+      {display}
+    </Link>
+  );
+}
+
+function externalReference(first: string, parts: string[], key: number): ReactNode {
+  const firstIsUrl = /^https?:\/\//i.test(first);
+  const href = firstIsUrl ? first : parts[1]?.trim();
+  const label = firstIsUrl ? parts[2]?.trim() || first : first;
+  if (!href || !/^https?:\/\//i.test(href)) {
+    return <Fragment key={key}>{label}</Fragment>;
+  }
+  return (
+    <a key={key} href={href} target="_blank" rel="noreferrer">
+      {label}
+    </a>
+  );
+}
+
+function unitLabel(parts: string[]): string {
+  const amount = parts[0] ?? '';
+  const singular = parts[1]?.trim();
+  const plural = parts[2]?.trim() || singular;
+  if (!singular) return amount;
+  const numericAmount = Number(amount);
+  const unit = numericAmount === 1 ? singular : plural;
+  return `${amount} ${unit}`.trim();
+}
+
+function skillCheckLabel(first: string, parts: string[]): string {
+  const match = /^\S+\s+(.+)$/.exec(first.trim());
+  return match?.[1] ?? parts[2]?.trim() ?? parts[1]?.trim() ?? first;
+}
+
 function slugify(value: string): string {
   return value
     .toLowerCase()
@@ -224,6 +297,12 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
       return (
         <Fragment key={key}>
           <em className="text-ink-300">{LABELS[locale].hit}</em>{' '}
+        </Fragment>
+      );
+    case 'm':
+      return (
+        <Fragment key={key}>
+          <em className="text-ink-300">{LABELS[locale].miss}</em>{' '}
         </Fragment>
       );
     case 'dc':
@@ -287,6 +366,28 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
     case 'footnote':
     case 'hitYourSpellAttack':
       return <Fragment key={key}>{first}</Fragment>;
+    case 'classFeature':
+      return <Fragment key={key}>{featureLabel(first, parts, [2, 4])}</Fragment>;
+    case 'subclassFeature':
+      return <Fragment key={key}>{featureLabel(first, parts, [2, 4])}</Fragment>;
+    case 'skillCheck':
+      return <Fragment key={key}>{skillCheckLabel(first, parts)}</Fragment>;
+    case 'subclass':
+      return <Fragment key={key}>{first}</Fragment>;
+    case 'itemProperty':
+      return <Fragment key={key}>{display}</Fragment>;
+    case 'link':
+      return externalReference(first, parts, key);
+    case 'unit':
+      return <Fragment key={key}>{unitLabel(parts)}</Fragment>;
+    case 'color':
+    case 'style':
+    case 'd20':
+    case 'area':
+      return <Fragment key={key}>{first}</Fragment>;
+    case 'book':
+    case 'adventure':
+      return bookReference(tag, first, parts, key);
     case 'quickref':
       return <Fragment key={key}>{quickrefLabel(locale, parts)}</Fragment>;
     case 'card': {

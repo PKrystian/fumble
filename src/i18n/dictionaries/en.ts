@@ -8,6 +8,10 @@ const en = {
     ok: 'OK',
     delete: 'Delete',
     save: 'Save',
+    retry: 'Try again',
+    storageError:
+      'The browser could not save your local data. Export a backup and free some site storage.',
+    clipboardError: 'The browser could not copy that text.',
     loading: 'Loading…',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
@@ -76,6 +80,7 @@ const en = {
     shortcut: 'Ctrl K',
     hint: 'Search spells, monsters, items, homebrew, wiki pages and more.',
     noResults: 'No results.',
+    couldNotLoad: 'Search data could not be loaded.',
   },
   home: {
     summary: 'A suite of tools for Dungeons & Dragons players and Dungeon Masters.',
@@ -342,6 +347,7 @@ const en = {
     searchLabel: 'Search {{category}}',
     failedToLoad: 'Failed to load data.',
     noMatches: 'No matches.',
+    loadMore: 'Load {{count}} more',
     back: 'Back',
     homebrewBadge: 'HB',
     homebrewLabel: 'Homebrew',

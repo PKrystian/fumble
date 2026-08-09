@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { fumbleStorage } from '@/features/storage/safeStorage';
 import type { Entry } from '@/data/compendium/entry';
 import type {
   ClassSubclass,
@@ -76,7 +77,163 @@ function slugify(value: string): string {
 
 function makeId(name: string): string {
   const base = slugify(name) || 'entry';
-  return `hb-${base}-${Date.now().toString(36)}${Math.floor(Math.random() * 1000)}`;
+  const suffix =
+    globalThis.crypto?.randomUUID?.() ??
+    `${Date.now().toString(36)}${Math.floor(Math.random() * 1000)}`;
+  return `hb-${base}-${suffix}`;
+}
+
+const VALID_CATEGORIES = new Set<CompendiumCategoryId>([
+  'spells',
+  'firearms',
+  'conditions',
+  'species',
+  'feats',
+  'backgrounds',
+  'rules',
+  'items',
+  'classes',
+  'bestiary',
+  'actions',
+  'optionalfeatures',
+  'deities',
+  'hazards',
+  'boons',
+  'skills',
+  'senses',
+  'languages',
+  'cultsboons',
+  'facilities',
+  'recipes',
+  'objects',
+  'vehicles',
+  'masteries',
+  'charoptions',
+  'tables',
+  'decks',
+  'psionics',
+  'encounters',
+  'loot',
+  'life',
+  'names',
+  'monsterfeatures',
+  'homecrafts',
+]);
+
+const MAX_HOME_BREW_TEXT = 250_000;
+const MAX_HOME_BREW_ENTRY_BYTES = 512_000;
+const MAX_HOME_BREW_ENTRIES = 500;
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+function isText(value: unknown, max = MAX_HOME_BREW_TEXT): value is string {
+  return typeof value === 'string' && value.length <= max;
+}
+
+function isNonEmptyText(value: unknown, max = MAX_HOME_BREW_TEXT): value is string {
+  return isText(value, max) && value.trim().length > 0;
+}
+
+function isLocale(value: unknown): value is Locale {
+  return value === 'en' || value === 'pl';
+}
+
+function isCategory(value: unknown): value is CompendiumCategoryId {
+  return typeof value === 'string' && VALID_CATEGORIES.has(value as CompendiumCategoryId);
+}
+
+function fitsEntryLimit(value: unknown): boolean {
+  try {
+    return JSON.stringify(value).length <= MAX_HOME_BREW_ENTRY_BYTES;
+  } catch {
+    return false;
+  }
+}
+
+function isTranslation(value: unknown): value is HomebrewTranslation {
+  return (
+    isRecord(value) &&
+    isText(value.name, 500) &&
+    isText(value.subtitle, 2_000) &&
+    isText(value.body)
+  );
+}
+
+function isManualEntry(value: unknown): value is HomebrewManualEntry {
+  if (!isRecord(value)) return false;
+  if (
+    value.kind !== 'manual' ||
+    !isNonEmptyText(value.id, 200) ||
+    !isCategory(value.category) ||
+    !isNonEmptyText(value.name, 500) ||
+    !isText(value.subtitle, 2_000) ||
+    !isText(value.body) ||
+    typeof value.createdAt !== 'number'
+  )
+    return false;
+  if (value.image !== undefined && !isText(value.image, 2_048)) return false;
+  if (value.translations !== undefined) {
+    if (!isRecord(value.translations)) return false;
+    for (const [locale, translation] of Object.entries(value.translations)) {
+      if (!isLocale(locale) || !isTranslation(translation)) return false;
+    }
+  }
+  return fitsEntryLimit(value);
+}
+
+function isImportedData(
+  value: unknown,
+): value is CompendiumEntryBase & Record<string, unknown> {
+  return (
+    isRecord(value) &&
+    isNonEmptyText(value.id, 200) &&
+    isNonEmptyText(value.name, 500) &&
+    (value.source == null || isText(value.source, 200)) &&
+    fitsEntryLimit(value)
+  );
+}
+
+function isImportedEntry(value: unknown): value is HomebrewImportedEntry {
+  if (!isRecord(value)) return false;
+  if (
+    value.kind !== 'imported' ||
+    !isNonEmptyText(value.id, 200) ||
+    !isCategory(value.category) ||
+    !isNonEmptyText(value.name, 500) ||
+    !isLocale(value.baseLocale) ||
+    typeof value.createdAt !== 'number' ||
+    !isImportedData(value.data)
+  )
+    return false;
+  if (value.ua !== undefined && typeof value.ua !== 'boolean') return false;
+  if (value.translations !== undefined) {
+    if (!isRecord(value.translations)) return false;
+    for (const [locale, translation] of Object.entries(value.translations)) {
+      if (!isLocale(locale) || !isImportedData(translation)) return false;
+    }
+  }
+  return fitsEntryLimit(value);
+}
+
+function isSubclassEntry(value: unknown): value is HomebrewSubclassEntry {
+  if (!isRecord(value)) return false;
+  return (
+    value.kind === 'subclass' &&
+    isNonEmptyText(value.id, 200) &&
+    isNonEmptyText(value.className, 500) &&
+    isRecord(value.subclass) &&
+    isNonEmptyText(value.subclass.name, 500) &&
+    isNonEmptyText(value.subclass.source, 200) &&
+    Array.isArray(value.subclass.features) &&
+    typeof value.createdAt === 'number' &&
+    fitsEntryLimit(value)
+  );
+}
+
+function isSafeHomebrewEntry(value: unknown): value is HomebrewEntry {
+  return isManualEntry(value) || isImportedEntry(value) || isSubclassEntry(value);
 }
 
 export function bodyToEntries(body: string): Entry[] {
@@ -267,7 +424,9 @@ export const useHomebrewStore = create<HomebrewState>()(
       deleteEntry: (id) =>
         set((state) => ({ entries: state.entries.filter((e) => e.id !== id) })),
       addImported: (list, baseLocale) => {
-        const valid = list.filter((e) => e.data && typeof e.data.name === 'string');
+        const valid = list
+          .slice(0, MAX_HOME_BREW_ENTRIES)
+          .filter((e) => isCategory(e.category) && isImportedData(e.data));
         set((state) => ({
           entries: [
             ...valid.map<HomebrewImportedEntry>((e) => ({
@@ -312,7 +471,17 @@ export const useHomebrewStore = create<HomebrewState>()(
         return id;
       },
       addImportedSubclasses: (list) => {
-        const valid = list.filter((e) => e.className && e.subclass?.name);
+        const valid = list.slice(0, MAX_HOME_BREW_ENTRIES).filter(
+          (e) =>
+            isText(e.className, 500) &&
+            isSubclassEntry({
+              kind: 'subclass',
+              id: 'import',
+              className: e.className,
+              subclass: e.subclass,
+              createdAt: 0,
+            }),
+        );
         set((state) => ({
           entries: [
             ...valid.map<HomebrewSubclassEntry>((e) => ({
@@ -328,13 +497,14 @@ export const useHomebrewStore = create<HomebrewState>()(
         return valid.length;
       },
       importOwn: (list) => {
-        const valid = list.filter(
-          (e) =>
-            e &&
-            ((e.kind === 'manual' || e.kind === 'imported') && e.category
-              ? true
-              : e.kind === 'subclass' && Boolean(e.className)),
+        const prepared = (Array.isArray(list) ? list : []).map((entry) =>
+          entry && entry.kind === 'imported'
+            ? { ...entry, baseLocale: entry.baseLocale ?? 'en' }
+            : entry,
         );
+        const valid = prepared
+          .slice(0, MAX_HOME_BREW_ENTRIES)
+          .filter(isSafeHomebrewEntry);
         set((state) => ({
           entries: [
             ...valid.map((e) => ({
@@ -352,16 +522,19 @@ export const useHomebrewStore = create<HomebrewState>()(
     }),
     {
       name: 'fumble-homebrew',
-      version: 3,
+      version: 4,
+      storage: fumbleStorage,
       migrate: (persisted) => {
         const state = (persisted ?? {}) as Partial<HomebrewState>;
         return {
           ...state,
-          entries: (state.entries ?? []).map((entry) =>
-            entry.kind === 'imported'
-              ? { ...entry, baseLocale: entry.baseLocale ?? 'en' }
-              : entry,
-          ),
+          entries: (Array.isArray(state.entries) ? state.entries : [])
+            .map((entry) =>
+              entry && entry.kind === 'imported'
+                ? { ...entry, baseLocale: entry.baseLocale ?? 'en' }
+                : entry,
+            )
+            .filter(isSafeHomebrewEntry),
         } as HomebrewState;
       },
     },

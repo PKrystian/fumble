@@ -12,7 +12,7 @@ vi.mock('@/data/compendium/overlay', () => ({
   loadLocalizedItems: (...args: unknown[]) => loadLocalizedItems(...args),
 }));
 
-vi.mock('@/i18n/path', () => ({
+vi.mock('@/i18n/pathUtils', () => ({
   useLocale: () => localeMock.value,
 }));
 

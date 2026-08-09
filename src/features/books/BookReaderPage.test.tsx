@@ -205,14 +205,16 @@ describe('BookReaderPage', () => {
     expect(await screen.findByText('Could not load this document.')).toBeInTheDocument();
   });
 
-  it('redirects when the book is unknown', async () => {
+  it('shows a not found page when the book is unknown', async () => {
     mocks.getBook.mockReturnValue(undefined);
     renderReader('/books/missing');
-    expect(await screen.findByText('Books landing')).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { name: 'Natural 1.' }),
+    ).toBeInTheDocument();
     expect(mocks.loadBookData).not.toHaveBeenCalled();
   });
 
-  it('redirects when no book id parameter is present', async () => {
+  it('shows a not found page when no book id parameter is present', async () => {
     render(
       <MemoryRouter initialEntries={['/reader']}>
         <Routes>
@@ -221,8 +223,24 @@ describe('BookReaderPage', () => {
         </Routes>
       </MemoryRouter>,
     );
-    expect(await screen.findByText('Books landing')).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { name: 'Natural 1.' }),
+    ).toBeInTheDocument();
     expect(mocks.getBook).not.toHaveBeenCalled();
+  });
+
+  it('shows a not found page for an invalid chapter parameter', async () => {
+    renderReader('/books/test-book/not-a-number');
+    expect(
+      await screen.findByRole('heading', { name: 'Natural 1.' }),
+    ).toBeInTheDocument();
+  });
+
+  it('shows a not found page for a chapter outside the book', async () => {
+    renderReader('/books/test-book/9');
+    expect(
+      await screen.findByRole('heading', { name: 'Natural 1.' }),
+    ).toBeInTheDocument();
   });
 
   it('ignores a completed load after unmounting', async () => {

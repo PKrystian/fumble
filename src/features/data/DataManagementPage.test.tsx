@@ -10,6 +10,7 @@ const mocks = vi.hoisted(() => ({
     exportedAt: '2026-08-03T00:00:00.000Z',
     data: {},
   })),
+  serializeBackup: vi.fn(() => '{"app":"fumble"}'),
   parseBackup: vi.fn(),
   restoreBackup: vi.fn(),
   backupFilename: vi.fn(() => 'fumble-backup-test.json'),
@@ -20,6 +21,7 @@ const mocks = vi.hoisted(() => ({
 
 vi.mock('./backup', () => ({
   createBackup: mocks.createBackup,
+  serializeBackup: mocks.serializeBackup,
   parseBackup: mocks.parseBackup,
   restoreBackup: mocks.restoreBackup,
   backupFilename: mocks.backupFilename,

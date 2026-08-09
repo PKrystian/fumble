@@ -12,6 +12,7 @@ import {
 } from './model';
 import type { UpdateCharacter } from './sections';
 import { useLayoutStore } from './layoutStore';
+import { useDialogFocus } from '@/features/ui/useDialogFocus';
 
 interface CharacterSettingsModalProps {
   character: Character;
@@ -26,6 +27,7 @@ export function CharacterSettingsModal({
 }: CharacterSettingsModalProps) {
   const { t } = useT();
   const resetLayout = useLayoutStore((s) => s.reset);
+  const dialogRef = useDialogFocus(true);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
@@ -40,6 +42,8 @@ export function CharacterSettingsModal({
       role="dialog"
       aria-modal="true"
       aria-label={t('character.sheet.settingsModal.title')}
+      ref={dialogRef}
+      tabIndex={-1}
       onClick={onClose}
       className="fixed inset-0 z-[60] flex items-start justify-center bg-black/70 p-4 pt-12"
     >

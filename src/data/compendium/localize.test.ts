@@ -60,6 +60,77 @@ describe('localizeEntry', () => {
     });
   });
 
+  it('matches translated subclasses with repeated sources in order', () => {
+    const entry = {
+      ...makeEntry('artificer', 'Artificer'),
+      subclasses: [
+        { name: 'Alchemist', source: 'EFA', features: [] },
+        { name: 'Armorer', source: 'EFA', features: [] },
+        { name: 'Artillerist', source: 'EFA', features: [] },
+      ],
+    } as unknown as ClassEntry;
+
+    const result = localizeEntry(entry, {
+      artificer: {
+        name: 'RzemieÅ›lnik',
+        subclasses: [
+          { name: 'Alchemik', source: 'EFA', features: [] },
+          { name: 'Zbrojmistrz', source: 'EFA', features: [] },
+          { name: 'Artylerzysta', source: 'EFA', features: [] },
+        ],
+      },
+    }) as ClassEntry;
+
+    expect(result.subclasses.map(({ name, englishName }) => [name, englishName])).toEqual(
+      [
+        ['Alchemik', 'Alchemist'],
+        ['Zbrojmistrz', 'Armorer'],
+        ['Artylerzysta', 'Artillerist'],
+      ],
+    );
+  });
+
+  it('uses English identity when translated subclasses are out of order', () => {
+    const entry = {
+      ...makeEntry('druid', 'Druid'),
+      subclasses: [
+        { name: 'Circle of Stars', source: 'XPHB', features: [] },
+        { name: 'Circle of Wildfire', source: 'TCE', features: [] },
+      ],
+    } as unknown as ClassEntry;
+
+    const result = localizeEntry(entry, {
+      druid: {
+        name: 'Druid',
+        subclasses: [
+          {
+            name: 'Krąg Ognia Dzikiego',
+            source: 'TCE',
+            englishName: 'Circle of Wildfire',
+            features: [],
+          },
+          {
+            name: 'Krąg Gwiazd',
+            source: 'XPHB',
+            englishName: 'Circle of the Stars',
+            features: [],
+          },
+        ],
+      },
+    }) as ClassEntry;
+
+    expect(
+      result.subclasses.map(({ name, source, englishName }) => [
+        name,
+        source,
+        englishName,
+      ]),
+    ).toEqual([
+      ['Krąg Ognia Dzikiego', 'TCE', 'Circle of Wildfire'],
+      ['Krąg Gwiazd', 'XPHB', 'Circle of the Stars'],
+    ]);
+  });
+
   it('keeps spell subclass references as strings', () => {
     const entry = {
       ...makeEntry('alarm', 'Alarm'),

@@ -69,6 +69,73 @@ interface CategoryIndex {
   items: CompendiumEntryBase[];
 }
 
+const SEARCH_ITEM_FIELDS = [
+  'id',
+  'name',
+  'englishName',
+  'source',
+  'srd',
+  'hidden',
+  'ua',
+  'otherVersions',
+  'size',
+  'hitDie',
+  'feat',
+  'category',
+  'featureType',
+  'level',
+  'school',
+  'type',
+  'rarity',
+  'cr',
+  'creatureType',
+  'time',
+  'kind',
+  'ruleType',
+  'pantheon',
+  'hazardType',
+  'boonType',
+  'ability',
+  'languageType',
+  'collection',
+  'facilityType',
+  'objectType',
+  'vehicleType',
+  'optionType',
+  'cardCount',
+  '_fumble',
+  'isSubclass',
+  'parentClassId',
+  'className',
+  'subtitle',
+] as const;
+
+function compactSearchItem(item: CompendiumEntryBase): CompendiumEntryBase {
+  const result: Record<string, unknown> = {};
+  for (const field of SEARCH_ITEM_FIELDS) {
+    const value = (item as unknown as Record<string, unknown>)[field];
+    if (
+      value == null ||
+      typeof value === 'string' ||
+      typeof value === 'number' ||
+      typeof value === 'boolean'
+    ) {
+      if (value != null) result[field] = value;
+      continue;
+    }
+    if (field === 'otherVersions' && Array.isArray(value)) {
+      result.otherVersions = value.filter(
+        (entry): entry is { id: string; source: string } =>
+          Boolean(entry) &&
+          typeof entry === 'object' &&
+          typeof (entry as { id?: unknown }).id === 'string' &&
+          typeof (entry as { source?: unknown }).source === 'string',
+      );
+    }
+  }
+  return result as unknown as CompendiumEntryBase;
+}
+
 export interface SearchIndex {
   categories: CategoryIndex[];
   wiki: SearchResult[];
@@ -82,7 +149,7 @@ async function buildFallbackIndex(locale: Locale, t: TranslateFn): Promise<Searc
       items: [
         ...(await loadLocalizedItems(category.id, category.load, locale)),
         ...fumbleHomebrewItems(locale).filter((item) => item.category === category.id),
-      ],
+      ].map(compactSearchItem),
     })),
   );
   const wiki = await import('@/data/generated/wiki.json')
@@ -132,6 +199,7 @@ async function buildIndex(locale: Locale): Promise<SearchIndex> {
   return {
     categories: raw.categories.map((category) => ({
       ...category,
+      items: category.items.map(compactSearchItem),
       label: t(`compendium.categories.${category.id}`),
     })),
     wiki: raw.wiki.map((page) => ({
@@ -152,6 +220,9 @@ export function loadSearchIndex(locale: Locale): Promise<SearchIndex> {
   if (cached) return cached;
   const promise = buildIndex(locale);
   indexCache.set(locale, promise);
+  void promise.catch(() => {
+    if (indexCache.get(locale) === promise) indexCache.delete(locale);
+  });
   return promise;
 }
 

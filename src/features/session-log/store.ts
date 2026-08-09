@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { fumbleStorage } from '@/features/storage/safeStorage';
 
 export interface TranscriptEntry {
   time: number;
@@ -70,6 +71,7 @@ export const useSessionStore = create<SessionState>()(
     {
       name: 'fumble-sessions',
       version: 3,
+      storage: fumbleStorage,
       migrate: (persisted) => {
         const state = (persisted ?? {}) as Partial<SessionState>;
         return {

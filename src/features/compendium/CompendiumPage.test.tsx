@@ -30,11 +30,34 @@ const mocks = vi.hoisted(() => ({
       },
     ],
   },
+  classCategory: {
+    id: 'classes',
+    label: 'Classes',
+    load: vi.fn(),
+    subtitle: (item: { size?: string }) => item.size ?? '',
+    renderDetail: (item: { name: string }) => `Detail ${item.name}`,
+    filters: [],
+  },
+  itemsCategory: {
+    id: 'items',
+    label: 'Items',
+    load: vi.fn(),
+    subtitle: (item: { size?: string }) => item.size ?? '',
+    renderDetail: (item: { name: string }) => `Detail ${item.name}`,
+    filters: [],
+  },
 }));
 
 vi.mock('./categories', () => ({
-  categories: [mocks.category, { ...mocks.category, id: 'items', label: 'Items' }],
-  getCategory: (id: string) => (id === 'species' ? mocks.category : undefined),
+  categories: [mocks.category, mocks.classCategory, mocks.itemsCategory],
+  getCategory: (id: string) =>
+    id === 'species'
+      ? mocks.category
+      : id === 'classes'
+        ? mocks.classCategory
+        : id === 'items'
+          ? mocks.itemsCategory
+          : undefined,
 }));
 
 vi.mock('./useCategoryItems', () => ({
@@ -162,11 +185,30 @@ describe('CompendiumPage', () => {
     vi.spyOn(Math, 'random').mockReturnValue(0);
   });
 
-  it('redirects missing and unknown categories to the first category', () => {
-    renderPage('/compendium');
+  it('renders a landing page and a not found page for invalid categories', () => {
+    const landing = renderPage('/compendium');
     expect(screen.getByRole('heading', { name: 'Compendium' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Species Browse/ })).toBeInTheDocument();
+    landing.unmount();
+
     renderPage('/compendium/unknown');
-    expect(screen.getAllByRole('heading', { name: 'Compendium' })).toHaveLength(2);
+    expect(screen.getByRole('heading', { name: 'Natural 1.' })).toBeInTheDocument();
+  });
+
+  it('handles legacy missing entries and unknown selected entries', () => {
+    const legacy = renderPage('/compendium/items/danoth-s-visor');
+    expect(screen.getByRole('status')).toHaveTextContent(
+      '/compendium/items/danoth-s-visor-dormant/',
+    );
+    legacy.unmount();
+
+    renderPage('/compendium/species/missing');
+    expect(screen.getByRole('heading', { name: 'Natural 1.' })).toBeInTheDocument();
+  });
+
+  it('does not index an unknown class subclass route', () => {
+    renderPage('/compendium/classes/dragon/missing-subclass');
+    expect(screen.getByRole('heading', { name: 'Natural 1.' })).toBeInTheDocument();
   });
 
   it('shows loading, error and empty states', () => {
@@ -184,6 +226,21 @@ describe('CompendiumPage', () => {
     renderPage('/compendium/species');
     expect(screen.getByText('No matches.')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Random' }));
+  });
+
+  it('renders long lists in progressive batches', () => {
+    mocks.result = {
+      status: 'ready',
+      items: Array.from({ length: 225 }, (_, index) => ({
+        ...official,
+        id: `dragon-${index}`,
+        name: `Dragon ${index}`,
+      })),
+    };
+    renderPage('/compendium/species');
+    expect(screen.getAllByRole('link', { name: /Dragon/ })).toHaveLength(200);
+    fireEvent.click(screen.getByRole('button', { name: 'Load 25 more' }));
+    expect(screen.getAllByRole('link', { name: /Dragon/ })).toHaveLength(225);
   });
 
   it('keeps a selected detail area stable while data loads or fails', () => {

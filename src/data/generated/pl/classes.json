@@ -23790,8 +23790,13 @@
         ]
       },
       {
-        "name": "Pyromancer (PSK)",
+        "name": "Lunarna Magia",
         "source": "DSotDQ",
+        "englishName": "Lunar Sorcery"
+      },
+      {
+        "name": "Pyromancer (PSK)",
+        "source": "PSK",
         "features": [
           {
             "level": 1,
@@ -23945,48 +23950,13 @@
                 ]
               }
             ]
-          },
-          {
-            "level": 18,
-            "name": "Zjawisko księżycowe",
-            "entries": [
-              "{@i Funkcja Księżycowej Magii 18. poziomu}",
-              "Jako akcję dodatkową możesz wykorzystać specjalną moc swojej bieżącej fazy Wcielenia Księżyca. Alternatywnie, w ramach dodatkowej akcji, którą podejmujesz, aby zmienić fazę księżyca za pomocą funkcji Wzrastanie i zanikanie, możesz natychmiast użyć mocy fazy księżycowej, w którą wchodzisz:",
-              {
-                "type": "list",
-                "style": "list-hang-notitle",
-                "items": [
-                  {
-                    "type": "item",
-                    "name": "Pełnia księżyca",
-                    "entries": [
-                      "Przez chwilę emanujesz światłem księżyca. Każde wybrane przez ciebie stworzenie w promieniu 30 stóp od ciebie musi odnieść sukces w rzucie obronnym na Kondycję przeciwko twojemu ST rzutu obronnego na zaklęcia lub otrzymać {@condition blinded} do końca swojej następnej tury. Dodatkowo, jedno wybrane przez ciebie stworzenie na tym obszarze odzyskuje punkty wytrzymałości {@dice 3d8}."
-                    ]
-                  },
-                  {
-                    "type": "item",
-                    "name": "Nówy księżyc",
-                    "entries": [
-                      "Przez chwilę emanujesz mrokiem. Każde wybrane przez ciebie stworzenie w promieniu 30 stóp od ciebie musi wykonać pomyślny rzut obronny na Zręczność przeciwko twojemu ST rzutu obronnego na zaklęcia lub otrzymać obrażenia nekrotyczne {@damage 3d10} i zmniejszyć jego prędkość do 0 do końca swojej następnej tury. Ponadto stajesz się {@condition invisible} do końca swojej następnej tury lub do momentu bezpośrednio po wykonaniu rzutu ataku lub rzuceniu zaklęcia."
-                    ]
-                  },
-                  {
-                    "type": "item",
-                    "name": "Półksiężyc",
-                    "entries": [
-                      "Możesz magicznie teleportować się do niezajętej przestrzeni, którą widzisz w promieniu 60 stóp od siebie. Możesz zabrać ze sobą jedno chętne stworzenie, które widzisz w promieniu 5 stóp od siebie. To stworzenie teleportuje się na wybrane przez ciebie wolne miejsce, które możesz zobaczyć w promieniu 5 stóp od miejsca docelowego. Dodatkowo ty i to stworzenie zyskujecie odporność na wszelkie obrażenia do początku waszej następnej tury."
-                    ]
-                  }
-                ]
-              },
-              "Gdy skorzystasz z jednej z tych premiowych korzyści akcji, nie będziesz mógł z niej skorzystać ponownie, dopóki nie zakończysz długiego odpoczynku, chyba że wydasz 5 punktów magii, aby z niej skorzystać ponownie."
-            ]
           }
-        ]
+        ],
+        "englishName": "Pyromancer (PSK)"
       },
       {
         "name": "Shadow Magic",
-        "source": "PSK",
+        "source": "XGE",
         "features": [
           {
             "level": 1,
@@ -24023,11 +23993,12 @@
               "Od 18. poziomu możesz wydać 6 punktów zaklinaczstwa jako akcję dodatkową, aby magicznie przemienić się w cienistą postać. W tej postaci masz odporność na wszystkie obrażenia z wyjątkiem obrażeń siłowych i promienistych, oraz możesz poruszać się przez inne istoty i przedmioty tak, jakby były {@quickref difficult terrain||być terenem}. Otrzymujesz 5 obrażeń siłowych, jeśli zakończysz swoją turę wewnątrz przedmiotu."
             ]
           }
-        ]
+        ],
+        "englishName": "Shadow Magic"
       },
       {
         "name": "Shadow Sorcery",
-        "source": "XGE",
+        "source": "RHW",
         "features": [
           {
             "level": 1,
@@ -24123,11 +24094,12 @@
               "Pozostajesz w tej formie przez 1 minutę. Kończy się wcześniej, jeśli posiadasz {@condition incapacitated}, jeśli umrzesz lub jeśli odrzucisz to jako akcję bonusową."
             ]
           }
-        ]
+        ],
+        "englishName": "Shadow Sorcery"
       },
       {
         "name": "Spellfire Sorcery",
-        "source": "RHW",
+        "source": "FRHoF",
         "features": [
           {
             "level": 3,
@@ -24231,11 +24203,12 @@
               }
             ]
           }
-        ]
+        ],
+        "englishName": "Spellfire Sorcery"
       },
       {
         "name": "Storm Sorcery",
-        "source": "FRHoF",
+        "source": "XGE",
         "features": [
           {
             "level": 3,
@@ -24348,12 +24321,21 @@
                 ]
               }
             ]
+          },
+          {
+            "level": 18,
+            "name": "Dusza Wiatru",
+            "entries": [
+              "Na 18. poziomie zyskujesz odporność na obrażenia od błyskawic i grzmotów.",
+              "Zyskujesz także magiczną prędkość lotu wynoszącą 60 stóp. W ramach akcji możesz zmniejszyć prędkość lotu do 30 stóp na 1 godzinę i wybrać liczbę stworzeń w promieniu 30 stóp od ciebie równą 3 + twój modyfikator Charyzmy. Wybrane stworzenia zyskują magiczną prędkość lotu wynoszącą 30 stóp na 1 godzinę. Gdy zmniejszysz w ten sposób prędkość lotu, nie możesz tego zrobić ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+            ]
           }
-        ]
+        ],
+        "englishName": "Storm Sorcery"
       },
       {
         "name": "Wild Magic",
-        "source": "XGE",
+        "source": "PHB",
         "features": [
           {
             "level": 1,
@@ -24399,288 +24381,9 @@
             "entries": [
               "Zaczynając od 18. poziomu, szkodliwa energia twoich zaklęć się nasila. Gdy wykonujesz rzut na obrażenia zaklęcia i wyrzucisz najwyższy możliwy wynik na dowolnej z kości, wybierz jedną z tych kości, rzuć nią ponownie i dodaj ten wynik do obrażeń. Możesz użyć tej cechy tylko raz na turę."
             ]
-          },
-          {
-            "level": 18,
-            "name": "Dusza Wiatru",
-            "entries": [
-              "Na 18. poziomie zyskujesz odporność na obrażenia od błyskawic i grzmotów.",
-              "Zyskujesz także magiczną prędkość lotu wynoszącą 60 stóp. W ramach akcji możesz zmniejszyć prędkość lotu do 30 stóp na 1 godzinę i wybrać liczbę stworzeń w promieniu 30 stóp od ciebie równą 3 + twój modyfikator Charyzmy. Wybrane stworzenia zyskują magiczną prędkość lotu wynoszącą 30 stóp na 1 godzinę. Gdy zmniejszysz w ten sposób prędkość lotu, nie możesz tego zrobić ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
-            ]
           }
-        ]
-      },
-      {
-        "name": "Wild Magic Sorcery",
-        "source": "PHB",
-        "features": [
-          {
-            "level": 1,
-            "name": "Wild Magic Sorcery",
-            "entries": [
-              "{@i Uwolnij Chaotyczną Magię}",
-              {
-                "type": "entries",
-                "name": "Dziki Przypływ Magii",
-                "entries": [
-                  "Począwszy od wybrania tego źródła na 1. poziomie, rzucanie zaklęć może wyzwolić fale nieposkromionej magii. Natychmiast po rzuceniu zaklęcia czarnoksiężnika poziomu 1 lub wyższego, DM może kazać ci rzucić {@dice d20}. Jeśli wyrzucisz 1, rzuć na stół Dzikiej Magii, aby stworzyć losowy efekt magiczny. Dziki Przypływ Magii może nastąpić raz na turę.",
-                  "Jeśli efekt Dzikiej Magii jest zaklęciem, jest zbyt dziki, aby mógł na niego oddziaływać Metamagia. Jeśli normalnie wymaga {@status concentration}, w tym przypadku nie wymaga {@status concentration}; zaklęcie trwa przez cały czas trwania.",
-                  {
-                    "type": "table",
-                    "caption": "Dziki Przypływ Magii",
-                    "colLabels": [
-                      "{@dice d100}",
-                      "Efekt"
-                    ],
-                    "colStyles": [
-                      "col-1 text-center",
-                      "col-11"
-                    ],
-                    "rows": [
-                      [
-                        "01-02",
-                        "Rzuć na tym stole na początku każdej swojej tury przez następną minutę, ignorując ten wynik w kolejnych rzutach."
-                      ],
-                      [
-                        "03-04",
-                        "Przez następną minutę możesz widzieć dowolne stworzenie {@condition invisible}, jeśli masz je w polu widzenia."
-                      ],
-                      [
-                        "05-06",
-                        "{@filter modron|bestiary|source=mm|search=modron} wybrany i kontrolowany przez DM pojawia się na niezajętym obszarze w promieniu 5 stóp od ciebie, a następnie znika 1 minutę później}"
-                      ],
-                      [
-                        "07-08",
-                        "Rzucasz {@spell fireball} jako zaklęcie trzeciego poziomu skupione na tobie."
-                      ],
-                      [
-                        "09-10",
-                        "Rzucasz {@spell magic missile} jako zaklęcie piątego poziomu."
-                      ],
-                      [
-                        "11-12",
-                        "Rzuć żetonem {@dice d10}. Twój wzrost zmienia się o liczbę cali równą rzutowi. Jeśli rzut jest dziwny, kurczysz się. Jeśli rzut jest równy, rośniesz."
-                      ],
-                      [
-                        "13-14",
-                        "Rzucasz {@spell confusion} na siebie."
-                      ],
-                      [
-                        "15-16",
-                        "Przez następną minutę na początku każdej swojej tury odzyskujesz 5 punktów wytrzymałości."
-                      ],
-                      [
-                        "17-18",
-                        "Zapuszczasz długą brodę z piór, która pozostaje aż do kichnięcia, kiedy to pióra eksplodują z twojej twarzy."
-                      ],
-                      [
-                        "19-20",
-                        "Rzucasz {@spell grease} na siebie."
-                      ],
-                      [
-                        "21-22",
-                        "Stworzenia mają tę wadę, jeśli chodzi o rzuty obronne przeciwko następnemu zaklęciu, które rzucisz w ciągu następnej minuty, które wymaga rzutu obronnego."
-                      ],
-                      [
-                        "23-24",
-                        "Twoja skóra nabiera żywego odcienia błękitu. Zaklęcie {@spell remove curse} może zakończyć ten efekt."
-                      ],
-                      [
-                        "25-26",
-                        "Na następną minutę na twoim czole pojawia się oko. W tym czasie masz przewagę w testach Mądrości ({@skill Perception}), które opierają się na wzroku."
-                      ],
-                      [
-                        "27-28",
-                        "Przez następną minutę wszystkie twoje zaklęcia z czasem rzucania wynoszącym 1 akcję będą miały czas rzucania wynoszący 1 dodatkową akcję."
-                      ],
-                      [
-                        "29-30",
-                        "Teleportujesz się na odległość do 60 stóp do wybranego przez ciebie wolnego miejsca, które możesz zobaczyć."
-                      ],
-                      [
-                        "31-32",
-                        "Zostaniesz przeniesiony na Plan Astralny do końca swojej następnej tury, po czym wrócisz na pole, które poprzednio zajmowałeś lub do najbliższego niezajętego miejsca, jeśli jest ono zajęte."
-                      ],
-                      [
-                        "33-34",
-                        "Zmaksymalizuj obrażenia kolejnego zadającego obrażenia zaklęcia, które rzucisz w ciągu następnej minuty."
-                      ],
-                      [
-                        "35-36",
-                        "Rzuć żetonem {@dice d10}. Twój wiek zmienia się o liczbę lat równą rzutowi. Jeśli rzut jest nieparzysty, stajesz się młodszy (minimum 1 rok). Jeśli rolka jest równa, starzejesz się."
-                      ],
-                      [
-                        "37-38",
-                        "{@dice 1d6} {@creature flumph||fauluje} kontrolowany przez DM pojawia się na niezajętych polach w promieniu 60 stóp od ciebie i jest {@condition frightened} od ciebie. Znikają po 1 minucie}"
-                      ],
-                      [
-                        "39-40",
-                        "Odzyskujesz punkty wytrzymałości {@dice 2d10}."
-                      ],
-                      [
-                        "41-42",
-                        "Do początku swojej następnej tury zmieniasz się w roślinę doniczkową. Będąc rośliną, jesteś {@condition incapacitated} i jesteś podatny na wszelkie uszkodzenia. Jeśli spadniesz do 0 punktów życia, Twoja pula zostanie przerwana, a Twoja forma powróci."
-                      ],
-                      [
-                        "43-44",
-                        "Przez następną minutę możesz teleportować się na odległość do 20 stóp w ramach dodatkowej akcji w każdej swojej turze."
-                      ],
-                      [
-                        "45-46",
-                        "Rzucasz na siebie {@spell levitate}."
-                      ],
-                      [
-                        "47-48",
-                        "{@creature unicorn} kontrolowany przez DM pojawia się w promieniu 5 stóp od ciebie, a następnie znika 1 minutę później."
-                      ],
-                      [
-                        "49-50",
-                        "Nie możesz mówić przez następną minutę. Za każdym razem, gdy spróbujesz, z twoich ust wypływają różowe bąbelki."
-                      ],
-                      [
-                        "51-52",
-                        "Widmowa tarcza unosi się w pobliżu ciebie przez następną minutę, zapewniając ci premię +2 do KP i odporność na {@spell magic missile}."
-                      ],
-                      [
-                        "53-54",
-                        "Jesteś odporny na odurzenie alkoholem przez kolejne dni {@dice 5d6}."
-                      ],
-                      [
-                        "55-56",
-                        "Twoje włosy wypadają, ale odrastają w ciągu 24 godzin."
-                      ],
-                      [
-                        "57-58",
-                        "Przez następną minutę każdy łatwopalny przedmiot, którego dotkniesz, a który nie jest noszony lub noszony przez inną istotę, wybucha płomieniem."
-                      ],
-                      [
-                        "59-60",
-                        "Odzyskujesz wykorzystane miejsce na zaklęcie najniższego poziomu."
-                      ],
-                      [
-                        "61-62",
-                        "Przez następną minutę musisz krzyczeć, gdy mówisz."
-                      ],
-                      [
-                        "63-64",
-                        "Rzucasz {@spell fog cloud} na siebie."
-                      ],
-                      [
-                        "65-66",
-                        "Maksymalnie trzy wybrane przez ciebie stworzenia w promieniu 30 stóp od ciebie otrzymują obrażenia od błyskawic {@damage 4d10}."
-                      ],
-                      [
-                        "67-68",
-                        "Jesteś {@condition frightened} przez najbliższe stworzenie do końca twojej następnej tury."
-                      ],
-                      [
-                        "69-70",
-                        "Każde stworzenie w promieniu 30 stóp od ciebie staje się {@condition invisible}EM na następną minutę. Niewidzialność kończy się na stworzeniu, gdy ono zaatakuje lub rzuci zaklęcie."
-                      ],
-                      [
-                        "71-72",
-                        "Zyskujesz odporność na wszystkie obrażenia na następną minutę."
-                      ],
-                      [
-                        "73-74",
-                        "Losowe stworzenie w promieniu 60 stóp od ciebie staje się {@condition poisoned} na {@dice 1d4} godziny."
-                      ],
-                      [
-                        "75-76",
-                        "Przez następną minutę będziesz świecić jasnym światłem w promieniu 30 stóp. Każde stworzenie, które zakończy swoją turę w promieniu 5 stóp od ciebie, otrzymuje {@condition blinded} do końca swojej następnej tury."
-                      ],
-                      [
-                        "77-78",
-                        "Rzucasz na siebie {@spell polymorph}. Jeśli nie powiedzie się rzut obronny, na czas działania zaklęcia zamieniasz się w owcę."
-                      ],
-                      [
-                        "79-80",
-                        "Iluzoryczne motyle i płatki kwiatów trzepoczą w powietrzu w odległości 3 metrów od ciebie przez następną minutę."
-                      ],
-                      [
-                        "81-82",
-                        "Możesz od razu wykonać jedną dodatkową akcję."
-                      ],
-                      [
-                        "83-84",
-                        "Każde stworzenie w promieniu 30 stóp od ciebie otrzymuje {@damage 1d10} obrażenia nekrotyczne. Odzyskujesz punkty wytrzymałości równe sumie zadanych obrażeń nekrotycznych."
-                      ],
-                      [
-                        "85-86",
-                        "Rzucasz {@spell mirror image}."
-                      ],
-                      [
-                        "87-88",
-                        "Rzucasz {@spell fly} na losowe stworzenie w promieniu 60 stóp od ciebie."
-                      ],
-                      [
-                        "89-90",
-                        "Na następną minutę staniesz się {@condition invisible}. W tym czasie inne stworzenia Cię nie słyszą. Niewidzialność kończy się, jeśli zaatakujesz lub rzucisz zaklęcie."
-                      ],
-                      [
-                        "91-92",
-                        "Jeśli umrzesz w ciągu następnej minuty, natychmiast powrócisz do życia, jak zaklęciem {@spell reincarnate}."
-                      ],
-                      [
-                        "93-94",
-                        "Twój rozmiar zwiększa się o jedną kategorię rozmiaru przez następną minutę."
-                      ],
-                      [
-                        "95-96",
-                        "Ty i wszystkie stworzenia w promieniu 30 stóp od ciebie zyskujecie na następną minutę podatność na obrażenia przebijające."
-                      ],
-                      [
-                        "97-98",
-                        "Przez następną minutę jesteś otoczony słabą, eteryczną muzyką."
-                      ],
-                      [
-                        "99-00",
-                        "Odzyskujesz wszystkie wydane punkty magii."
-                      ]
-                    ],
-                    "data": {
-                      "genTables": {
-                        "tableInclude": true,
-                        "reprintedAs": [
-                          "Dziki Przypływ Magii|XPHB"
-                        ]
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "entries",
-                "name": "Skok Dzikiej Magii",
-                "entries": [
-                  "Twoje rzucanie zaklęć może uwolnić skoki nieokiełznanej magii. Raz na turę możesz rzucić {@dice 1d20} natychmiast po rzuceniu zaklęcia Zaklinacza z miejscem na zaklęcia. Jeśli wyrzucisz 20, wykonaj rzut na tabelę Skok Dzikiej Magii, aby stworzyć magiczny efekt.",
-                  "W dowolnym momencie, zanim odzyskasz możliwość korzystania z tej funkcji, DM może kazać ci rzucić na stół {@table Wild Magic Surge|PHB} natychmiast po rzuceniu zaklęcia czarnoksiężnika 1. poziomu lub wyższego.Następnie odzyskasz możliwość korzystania z tej funkcji."
-                ]
-              }
-            ]
-          },
-          {
-            "level": 6,
-            "name": "Wygięcie Losu",
-            "entries": [
-              "Począwszy od 6 poziomu, masz możliwość przekręcania losu za pomocą swojej dzikiej magii. Kiedy inna istota, którą widzisz, wykonuje rzut ataku, test zdolności lub rzut obronny, możesz wykorzystać swoją reakcję i wydać 2 punkty magii, aby wykonać rzut{@dice 1d4}i zastosuj wyrzuconą liczbę jako premię lub karę (twój wybór) do rzutu stwora. Możesz to zrobić po rzucie na stworzenie, ale przed wystąpieniem jakichkolwiek efektów rzutu."
-            ]
-          },
-          {
-            "level": 14,
-            "name": "Kontrolowany Chaos",
-            "entries": [
-              "Na 14. poziomie zyskujesz odrobinę kontroli nad przypływami swojej dzikiej magii.Za każdym razem, gdy rzucasz na stół {@table Wild Magic Surge|PHB}, możesz rzucić dwa razy i użyć dowolnej liczby."
-            ]
-          },
-          {
-            "level": 18,
-            "name": "Okiełznany Skok",
-            "entries": [
-              "Natychmiast po tym, jak rzucisz zaklęcie Zaklinacza z miejscem na zaklęcia, możesz stworzyć wybrany przez siebie efekt z tabeli {@table Wild Magic Surge|XPHB|Skok Dzikiej Magii} zamiast wykonywać na niej rzut. Możesz wybrać dowolny efekt z tabeli oprócz ostatniego wiersza, a jeśli wybrany efekt wymaga rzutu, musisz go wykonać."
-            ]
-          }
-        ]
+        ],
+        "englishName": "Wild Magic"
       },
       {
         "name": "Dzika magia",
@@ -24851,7 +24554,8 @@
               "Gdy skorzystasz z tej funkcji, nie będziesz mógł tego zrobić ponownie, dopóki nie ukończysz {@variantrule Long Rest|XPHB}."
             ]
           }
-        ]
+        ],
+        "englishName": "Wild Magic Sorcery"
       }
     ],
     "lore": [
@@ -43636,233 +43340,14 @@
         ]
       },
       {
-        "name": "Krąg Ognia Dzikiego",
+        "name": "Krąg Gwiazd",
         "source": "XPHB",
-        "features": [
-          {
-            "level": 3,
-            "name": "Krąg Ognia Dzikiego",
-            "entries": [
-              "{@i Wykorzystaj sekrety ukryte w konstelacjach}",
-              "Krąg Gwiazd od niepamiętnych czasów śledzi niebiańskie wzorce, odkrywając tajemnice ukryte wśród konstelacji. Rozumiejąc te tajemnice, Druidzi z tego kręgu starają się ujarzmić moce kosmosu.",
-              {
-                "type": "entries",
-                "name": "Przyzwanie Ducha Ognia Dzikiego",
-                "entries": [
-                  "{@variantrule Spellcasting Focus|XPHB}",
-                  "Trzymając mapę, masz przygotowane zaklęcia {@spell Guidance|XPHB} i {@spell Guiding Bolt|XPHB} i możesz rzucić {@spell Guiding Bolt|XPHB} bez wydawania miejsca na zaklęcie.Możesz rzucić go w ten sposób tyle razy, ile wynosi twój modyfikator Mądrości (minimum raz), a wszystkie użyte użycia odzyskujesz po ukończeniu {@variantrule Long Rest|XPHB}.",
-                  "Jeśli zgubisz mapę, możesz odprawić godzinną ceremonię, aby w magiczny sposób stworzyć jej zastępstwo.Ceremonię tę można wykonać podczas {@variantrule Short Rest|XPHB|Krótki} lub {@variantrule Long Rest|XPHB} i niszczy ona poprzednią mapę.",
-                  {
-                    "type": "table",
-                    "caption": "Mapa gwiazd",
-                    "colLabels": [
-                      "{@dice 1d6}",
-                      "Formularz mapy"
-                    ],
-                    "colStyles": [
-                      "col-2 text-center",
-                      "col-10"
-                    ],
-                    "rows": [
-                      [
-                        "1",
-                        "Zwój zawierający przedstawienia konstelacji"
-                      ],
-                      [
-                        "2",
-                        "Kamienna tablica z wywierconymi drobnymi otworami"
-                      ],
-                      [
-                        "3",
-                        "Skóra niedźwiedzia sowy ozdobiona gwiezdnymi symbolami"
-                      ],
-                      [
-                        "4",
-                        "Zbiór map oprawnych w hebanową okładkę"
-                      ],
-                      [
-                        "5",
-                        "Kryształ z wygrawerowanymi wzorami gwiazd"
-                      ],
-                      [
-                        "6",
-                        "Szklany dysk z wygrawerowanymi konstelacjami"
-                      ]
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "entries",
-                "name": "Gwiaździsta forma",
-                "entries": [
-                  "Jako {@variantrule Bonus Action|XPHB} możesz wykorzystać funkcję Dziki Kształt, aby przybrać gwiaździstą formę zamiast zmieniać kształt.",
-                  "Będąc w gwieździstej formie, zachowujesz statystyki gry, ale twoje ciało staje się świetliste, twoje stawy błyszczą jak gwiazdy, a świecące linie łączą je jak na mapie gwiazd. Ta forma usuwa {@variantrule Bright Light|XPHB} w promieniu 3 stóp i {@variantrule Dim Light|XPHB} o dodatkowe 10 stóp. Formularz trwa 10 minut. Kończy się wcześniej, jeśli go odrzucisz (nie jest wymagane żadne działanie), pojawi się warunek {@condition Incapacitated|XPHB} lub ponownie użyjesz tej funkcji.",
-                  "Ilekroć przybierasz gwiaździstą postać, wybierz, która z poniższych konstelacji błyszczy na twoim ciele; Twój wybór daje Ci pewne korzyści w formularzu.",
-                  {
-                    "type": "entries",
-                    "name": "Łucznik",
-                    "entries": [
-                      "Pojawia się na tobie konstelacja łucznika. Kiedy aktywujesz tę formę i jako {@variantrule Bonus Action|XPHB} w kolejnych turach, możesz wykonać atak zaklęciem dystansowym, rzucając świetlistą strzałę, która celuje w jedno stworzenie w promieniu 60 stóp od ciebie. Po trafieniu atak zadaje obrażenia Promieniujące równe {@damage 1d8} plus twój modyfikator Mądrości."
-                    ]
-                  },
-                  {
-                    "type": "entries",
-                    "name": "Kielich",
-                    "entries": [
-                      "Pojawia się na tobie konstelacja życiodajnego kielicha. Za każdym razem, gdy rzucisz zaklęcie przy użyciu miejsca na zaklęcie, które przywraca stworzeniu {@variantrule Hit Points|XPHB}, ty lub inna istota w promieniu 30 stóp od ciebie możecie odzyskać {@variantrule Hit Points|XPHB} w liczbie równej {@dice 1d8} plus twój modyfikator Mądrości."
-                    ]
-                  },
-                  {
-                    "type": "entries",
-                    "name": "Smok",
-                    "entries": [
-                      "Pojawia się na tobie konstelacja mądrego smoka. Kiedy wykonujesz test Inteligencji lub Mądrości albo rzut obronny na Kondycję, aby utrzymać {@status Concentration|XPHB}, możesz potraktować wynik 9 lub niższy na {@dice d20} jako 10."
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "level": 6,
-            "name": "Wzmocniona Więź",
-            "entries": [
-              "Za każdym razem, gdy ukończysz {@variantrule Long Rest|XPHB}, możesz sprawdzić swoją Mapę Gwiezdną w poszukiwaniu wróżb i rzucić kostką.Dopóki nie ukończysz następnego {@variantrule Long Rest|XPHB}, uzyskasz dostęp do specjalnego {@variantrule Reaction|XPHB} w zależności od tego, czy wyrzuciłeś na kostce liczbę parzystą czy nieparzystą:",
-              {
-                "type": "list",
-                "style": "list-hang-notitle",
-                "items": [
-                  {
-                    "type": "item",
-                    "name": "Weal (nawet)",
-                    "entries": [
-                      "Ilekroć istota, którą widzisz w promieniu 30 stóp od ciebie, ma zamiar wykonać {@variantrule D20 Test|XPHB}, możesz wziąć {@variantrule Reaction|XPHB}, aby rzucić {@dice 1d6} i dodać wyrzuconą liczbę do sumy."
-                    ]
-                  },
-                  {
-                    "type": "item",
-                    "name": "Biada (dziwne)",
-                    "entries": [
-                      "Ilekroć istota, którą widzisz w promieniu 30 stóp od ciebie, ma zamiar stworzyć {@variantrule D20 Test|XPHB}, możesz wziąć {@variantrule Reaction|XPHB}, aby rzucić {@dice 1d6} i odjąć wyrzuconą liczbę od sumy."
-                    ]
-                  }
-                ]
-              },
-              "Możesz użyć tego {@variantrule Reaction|XPHB} tyle razy, ile wynosi twój modyfikator Mądrości (minimum raz), a wszystkie wykorzystane użycia odzyskujesz po ukończeniu {@variantrule Long Rest|XPHB}."
-            ]
-          },
-          {
-            "level": 10,
-            "name": "Wypalające Płomienie",
-            "entries": [
-              "Konstelacje twojej Gwiezdnej Formy poprawiają się.{@damage 1d8} Łucznika i Kielicha zmienia się w {@damage 2d8}, a kiedy Smok jest aktywny, ty masz {@variantrule Fly Speed|XPHB} o długości 20 stóp i możesz się unosić.",
-              "Zyskujesz zdolność zamiany śmierci w magiczne płomienie, które mogą leczyć lub spopielać. Gdy istota rozmiaru małego lub większego umiera w promieniu 30 stóp od ciebie lub twojego ducha ognia dzikiego, w miejscu martwej istoty wytryskuje nieszkodliwy widmowy płomień, migoczący tam przez 1 minutę. Gdy widziana przez ciebie istota wejdzie w to miejsce, możesz użyć reakcji, by zgasić tam widmowy płomień i albo uleczyć istotę, albo zadać jej obrażenia od ognia. Leczenie lub obrażenia są równe {@dice 2d10} + twój modyfikator Mądrości."
-            ]
-          },
-          {
-            "level": 14,
-            "name": "Płomienne Odrodzenie",
-            "entries": [
-              "{@variantrule Resistance|XPHB}"
-            ]
-          }
-        ]
+        "englishName": "Circle of the Stars"
       },
       {
-        "name": "Krąg Gwiazd",
+        "name": "Krąg Ognia Dzikiego",
         "source": "TCE",
-        "features": [
-          {
-            "level": 2,
-            "name": "Krąg Gwiazd",
-            "entries": [
-              "{@i Okiełznaj Sekrety Ukryte w Konstelacjach}",
-              {
-                "type": "entries",
-                "name": "Zaklęcia Okrągłe",
-                "entries": [
-                  "{@i Funkcja Kręgu Dzikiego Ognia drugiego poziomu}",
-                  "Utworzyłeś więź z duchem dzikiego ognia, pierwotną istotą stworzenia i zniszczenia. Twoje połączenie z tym duchem zapewnia ci dostęp do niektórych zaklęć po osiągnięciu określonego poziomu w tej klasie, jak pokazano w tabeli Zaklęć Kręgu Dzikiego Ognia.",
-                  "Gdy uzyskasz dostęp do jednego z tych zaklęć, zawsze masz je przygotowane i nie wlicza się to do liczby zaklęć, które możesz przygotować każdego dnia. Jeśli uzyskasz dostęp do zaklęcia, które nie pojawia się na liście zaklęć druida, zaklęcie to mimo wszystko będzie dla ciebie zaklęciem druida.",
-                  {
-                    "type": "table",
-                    "caption": "Krąg Zaklęć Dzikiego Ognia",
-                    "colLabels": [
-                      "Poziom Druida",
-                      "Zaklęcia Okrągłe"
-                    ],
-                    "colStyles": [
-                      "col-2 text-center",
-                      "col-10"
-                    ],
-                    "rows": [
-                      [
-                        "2",
-                        "{@spell burning hands}, {@spell cure wounds}"
-                      ],
-                      [
-                        "3",
-                        "{@spell flaming sphere}, {@spell scorching ray}"
-                      ],
-                      [
-                        "5",
-                        "{@spell plant growth}, {@spell revivify}"
-                      ],
-                      [
-                        "7",
-                        "{@spell aura of life}, {@spell fire shield}"
-                      ],
-                      [
-                        "9",
-                        "{@spell flame strike}, {@spell mass cure wounds}"
-                      ]
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "entries",
-                "name": "Mapa Gwiazd",
-                "entries": [
-                  "W ramach swoich niebiańskich studiów stworzyłeś/-aś mapę gwiazd. Jest to Drobny przedmiot, którego możesz używać jako {@i Funkcja Kręgu Dzikiego Ognia drugiego poziomu} dla swoich zaklęć Druida. Jej formę określasz, rzucając na tabelę Mapy Gwiazd lub wybierając jedną z opcji.",
-                  "Gdy trzymasz mapę, masz przygotowane zaklęcia {@spell Guidance|XPHB|Wolne} i {@spell Guiding Bolt|XPHB|Prowadzący Pocisk}, i możesz rzucić {@spell Guiding Bolt|XPHB|Prowadzący Pocisk} bez zużywania miejsca na zaklęcie. Możesz rzucić je w ten sposób liczbę razy równą twojemu modyfikatorowi Mądrości (minimum raz), a odzyskujesz wszystkie wykorzystane użycia po zakończeniu {@variantrule Long Rest|XPHB|Długiego Odpoczynku}.",
-                  "Duch pojawia się w wybranym przez ciebie niezamieszkanym miejscu, które widzisz w promieniu 30 stóp od ciebie. Każde stworzenie w promieniu 3 stóp od ducha (inne niż ty), gdy się pojawi, musi wykonać pomyślny rzut obronny na Zręczność przeciwko twojemu zaklęciowi, ST obronny lub{@damage 2d6} obrażenia od ognia.",
-                  "Duch jest przyjazny tobie i twoim towarzyszom i słucha twoich poleceń. Zobacz statystyki gry tego stworzenia w bloku statystyk {@creature Wildfire Spirit|TCE}, który wykorzystuje twoją premię za biegłość (PB) w kilku miejscach. Ty decydujesz o wyglądzie ducha. Niektóre duchy przybierają postać humanoidalnej postaci zbudowanej z sękatych gałęzi pokrytych płomieniem, podczas gdy inne wyglądają jak bestie spowite ogniem.",
-                  "Podczas walki duch dzieli się z twoją inicjatywą, ale swoją turę wykonuje zaraz po twojej. Jedyną akcją, jaką wykonuje w swojej turze, jest akcja {@action Dodge}, chyba że wykonasz w swojej turze dodatkową akcję, aby nakazać mu wykonanie kolejnej akcji. Może to być akcja w bloku statystyk lub inna akcja. Jeśli jesteś {@condition incapacitated}, duch może wykonać dowolną wybraną przez siebie akcję, a nie tylko {@action Dodge}.",
-                  "Duch manifestuje się przez 1 godzinę, dopóki jego punkty wytrzymałości nie zostaną zredukowane do 0, dopóki nie użyjesz tej funkcji do ponownego przywołania ducha lub do chwili śmierci."
-                ]
-              }
-            ]
-          },
-          {
-            "level": 6,
-            "name": "Kosmiczny Omen",
-            "entries": [
-              "{@i Funkcja Kręgu Dzikiego Ognia szóstego poziomu}",
-              "Więź z duchem dzikiego ognia wzmacnia twoje niszczycielskie i regenerujące zaklęcia. Ilekroć rzucisz zaklęcie, które zadaje obrażenia od ognia lub przywraca punkty wytrzymałości, gdy przywoływany jest twój duch dzikiego ognia, rzuć {@dice d8}, a otrzymasz premię równą liczbie wyrzuconej do jednego rzutu na obrażenia lub leczenie czaru.",
-              "Możesz użyć tej {@variantrule Reaction|XPHB|Reakcji} liczbę razy równą twojemu modyfikatorowi Mądrości (minimum raz), a odzyskujesz wszystkie wykorzystane użycia po zakończeniu {@variantrule Long Rest|XPHB|Długiego Odpoczynku}."
-            ]
-          },
-          {
-            "level": 10,
-            "name": "Migoczące Konstelacje",
-            "entries": [
-              "{@i Funkcja Kręgu Dzikiego Ognia na 10. poziomie}",
-              "Zyskujesz zdolność zamieniania śmierci w magiczne płomienie, które mogą leczyć lub palić.Kiedy małe lub większe stworzenie umrze w promieniu 30 stóp od ciebie lub twojego ducha dzikiego ognia, w przestrzeni martwego stworzenia pojawia się nieszkodliwy widmowy płomień i migocze tam przez 1 minutę.Kiedy istota, którą widzisz, wejdzie na to pole, możesz użyć swojej reakcji, aby zgasić znajdujący się tam widmowy płomień i albo wyleczyć stworzenie, albo zadać mu obrażenia od ognia.Leczenie lub obrażenia wynoszą {@dice 2d10} + twój modyfikator Mądrości.",
-              "Możesz użyć tej reakcji tyle razy, ile wynosi twoja premia za biegłość, a wszystkie wykorzystane użycia odzyskujesz po zakończeniu długiego odpoczynku."
-            ]
-          },
-          {
-            "level": 14,
-            "name": "Pełnia Gwiazd",
-            "entries": [
-              "W Gwiezdnej Postaci stajesz się częściowo bezcielesny/-a, co daje ci {@i Funkcja Kręgu Dzikiego Ognia na 14. poziomie} na obrażenia obuchowe, kłute i sieczne.",
-              "Więź z duchem dzikiego ognia może ocalić cię od śmierci. Jeśli duch znajdzie się w promieniu 30 metrów od ciebie, gdy twoje punkty wytrzymałości zostaną zredukowane do 0 i tym samym upadniesz {@condition unconscious}, możesz spowodować, że duch spadnie do 0 punktów wytrzymałości. Następnie odzyskujesz połowę swoich punktów wytrzymałości i natychmiast wstajesz na nogi.",
-              "Po skorzystaniu z tej funkcji nie można jej ponownie użyć, dopóki nie zakończy się długi odpoczynek."
-            ]
-          }
-        ]
+        "englishName": "Circle of Wildfire"
       }
     ],
     "lore": [

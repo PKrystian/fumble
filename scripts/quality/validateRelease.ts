@@ -109,6 +109,12 @@ function isProductionUrl(value: string): boolean {
   }
 }
 
+function routeFile(url: string): string {
+  const pathname = decodeURIComponent(new URL(url).pathname);
+  const relative = pathname.replace(/^\/+/, '');
+  return join(DIST, relative, 'index.html');
+}
+
 const sitemap = read('sitemap.xml');
 const sitemapFiles = [...sitemap.matchAll(/<loc>[^<]+\/([^/]+\.xml)<\/loc>/g)].map(
   (match) => match[1]!,
@@ -128,16 +134,23 @@ requireValue(
   'Sitemap contains a URL without a trailing slash',
 );
 requireValue(
+  urls.every((url) => existsSync(routeFile(url))),
+  'Sitemap contains a route without a generated HTML file',
+);
+requireValue(
   !urls.some((url) => url.includes('/data/') || url.includes('/session-log/')),
   'Private local-data pages must not appear in the sitemap',
 );
 
 const home = read('index.html');
 const sample = read(join('compendium', 'spells', 'fireball', 'index.html'));
+const bookSample = read(join('books', 'aatm', 'index.html'));
+const privateSample = read(join('character', 'index.html'));
+const notFound = read('404.html');
 requireValue(
-  cspHasSourceOrigin(home, 'connect-src', 'https://cloudflareinsights.com') &&
-    cspHasSourceOrigin(home, 'script-src', 'https://static.cloudflareinsights.com'),
-  'Cloudflare Web Analytics is missing from the CSP',
+  !cspHasSourceOrigin(home, 'connect-src', 'https://cloudflareinsights.com') &&
+    !cspHasSourceOrigin(home, 'script-src', 'https://static.cloudflareinsights.com'),
+  'Cloudflare Web Analytics must stay disabled',
 );
 requireValue(
   sample.includes(
@@ -152,6 +165,23 @@ requireValue(
   sample.includes('<div id="app-root" data-app-ready="false"></div>') &&
     sample.includes('<main id="prerendered-content" data-prerendered="true">'),
   'Static pages must preserve the app mount point and prerendered fallback',
+);
+requireValue(
+  bookSample.includes('Using This Supplement') &&
+    bookSample.includes('Mortuary Creatures'),
+  'Book pages must preserve their indexed chapter outline',
+);
+requireValue(
+  privateSample.includes('noindex, nofollow') &&
+    !(privateSample.match(/rel="canonical"/g) ?? []).length,
+  'Private local-data pages must be noindex and canonical-free',
+);
+requireValue(
+  notFound.includes('<meta name="robots" content="noindex, nofollow" />') &&
+    !(notFound.match(/rel="canonical"/g) ?? []).length &&
+    !/<script\b/i.test(notFound) &&
+    notFound.includes('<main id="prerendered-content" data-prerendered="true">'),
+  '404.html must be a standalone noindex document without scripts',
 );
 const checkedImagePreloads = validateCompendiumImagePreloads();
 for (const html of [home, sample]) {

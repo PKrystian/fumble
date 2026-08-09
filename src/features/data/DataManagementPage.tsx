@@ -5,7 +5,13 @@ import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { Button } from '@/features/ui/primitives';
 import { panelClass } from '@/features/ui/styles';
-import { backupFilename, createBackup, parseBackup, restoreBackup } from './backup';
+import {
+  backupFilename,
+  createBackup,
+  parseBackup,
+  restoreBackup,
+  serializeBackup,
+} from './backup';
 
 type Status = 'idle' | 'exported' | 'invalid' | 'storage-error';
 
@@ -17,7 +23,7 @@ export function DataManagementPage() {
 
   const exportData = () => {
     try {
-      const blob = new Blob([JSON.stringify(createBackup(localStorage), null, 2)], {
+      const blob = new Blob([serializeBackup(createBackup(localStorage))], {
         type: 'application/json',
       });
       const url = URL.createObjectURL(blob);

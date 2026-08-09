@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { fumbleStorage } from '@/features/storage/safeStorage';
 import { DEFAULT_LOCALE, type Locale } from './locales';
 
 interface LocaleState {
@@ -13,6 +14,6 @@ export const useLocaleStore = create<LocaleState>()(
       locale: DEFAULT_LOCALE,
       setLocale: (locale) => set({ locale }),
     }),
-    { name: 'fumble-locale', version: 1 },
+    { name: 'fumble-locale', version: 1, storage: fumbleStorage },
   ),
 );

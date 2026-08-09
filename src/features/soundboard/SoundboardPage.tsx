@@ -194,7 +194,7 @@ function TrackOverlay({ track }: { track: Track }) {
 
 export function SoundboardPage() {
   const { t, locale } = useT();
-  useSeo(t('seo.pageTitles.soundboard'), t('seo.pageDescriptions.soundboard'));
+  useSeo(t('seo.pageTitles.soundboard'), t('seo.pageDescriptions.soundboard'), false);
   const tracks = useSoundboardStore((s) => s.tracks);
   const categories = useSoundboardStore((s) => s.categories);
   const addTrack = useSoundboardStore((s) => s.addTrack);

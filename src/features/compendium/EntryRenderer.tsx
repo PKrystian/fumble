@@ -4,7 +4,7 @@ import { imageUrl, optimizedImageUrl } from '@/data/compendium/images';
 import { stripMarkup } from '@/data/transform/util';
 import { useRollStore } from '@/features/dice/rollStore';
 import { useLightbox } from '@/features/ui/lightboxStore';
-import { useLocale } from '@/i18n/path';
+import { useLocale } from '@/i18n/pathUtils';
 import type { Locale } from '@/i18n/locales';
 import { translate } from '@/i18n/useT';
 import { markupLabel, parseMarkup } from './markup';

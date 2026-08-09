@@ -3,6 +3,7 @@ import type { RouteObject } from 'react-router-dom';
 import type { ComponentType } from 'react';
 import { LocaleEntryLayout } from '@/app/layout/LocaleEntryLayout';
 import { LocaleLayout } from '@/app/layout/LocaleLayout';
+import { RouterFallback } from '@/app/RouterFallback';
 import { HomePage } from '@/features/home/HomePage';
 
 function lazyComponent<T extends Record<string, unknown>>(
@@ -186,8 +187,18 @@ const appRouteChildren: RouteObject[] = [
 
 export const router = createBrowserRouter(
   [
-    { path: '/', element: <LocaleEntryLayout />, children: appRouteChildren },
-    { path: '/pl', element: <LocaleLayout locale="pl" />, children: appRouteChildren },
+    {
+      path: '/',
+      element: <LocaleEntryLayout />,
+      hydrateFallbackElement: <RouterFallback />,
+      children: appRouteChildren,
+    },
+    {
+      path: '/pl',
+      element: <LocaleLayout locale="pl" />,
+      hydrateFallbackElement: <RouterFallback />,
+      children: appRouteChildren,
+    },
 
     { path: '*', element: <Navigate to="/" replace /> },
   ],

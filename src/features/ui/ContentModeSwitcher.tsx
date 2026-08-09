@@ -16,6 +16,7 @@ export function ContentModeSwitcher({ compact = false }: ContentModeSwitcherProp
   const mode = useContentModeStore((s) => s.mode);
   const setMode = useContentModeStore((s) => s.setMode);
   const containerRef = useRef<HTMLDivElement>(null);
+  const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
   useEffect(() => {
     if (!open) return;
@@ -32,16 +33,54 @@ export function ContentModeSwitcher({ compact = false }: ContentModeSwitcherProp
   }, [open]);
 
   const label = (m: ContentMode) => t(`content.${m === 'all' ? 'all' : `e${m}`}`);
+  const currentIndex = MODES.indexOf(mode);
+
+  useEffect(() => {
+    if (open) optionRefs.current[currentIndex]?.focus();
+  }, [currentIndex, open]);
 
   const choose = (m: ContentMode) => {
     setOpen(false);
     setMode(m);
   };
 
+  const handleOptionKeyDown = (event: React.KeyboardEvent, index: number) => {
+    if (event.key === 'Escape') {
+      setOpen(false);
+      return;
+    }
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      choose(MODES[index]!);
+      return;
+    }
+    if (
+      event.key !== 'ArrowDown' &&
+      event.key !== 'ArrowUp' &&
+      event.key !== 'Home' &&
+      event.key !== 'End'
+    )
+      return;
+    event.preventDefault();
+    const next =
+      event.key === 'Home'
+        ? 0
+        : event.key === 'End'
+          ? MODES.length - 1
+          : (index + (event.key === 'ArrowDown' ? 1 : -1) + MODES.length) % MODES.length;
+    optionRefs.current[next]?.focus();
+  };
+
   return (
     <div ref={containerRef} className="relative">
       <Button
         onClick={() => setOpen((v) => !v)}
+        onKeyDown={(event) => {
+          if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            setOpen(true);
+          }
+        }}
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={t('content.aria')}
@@ -61,13 +100,18 @@ export function ContentModeSwitcher({ compact = false }: ContentModeSwitcherProp
           aria-label={t('content.aria')}
           className="absolute left-0 top-full z-20 mt-1 w-48 overflow-hidden rounded-md border border-ink-700 bg-ink-900 py-1 shadow-xl"
         >
-          {MODES.map((m) => (
+          {MODES.map((m, i) => (
             <li key={m}>
               <button
                 type="button"
                 role="option"
                 aria-selected={m === mode}
+                tabIndex={m === mode ? 0 : -1}
+                ref={(element) => {
+                  optionRefs.current[i] = element;
+                }}
                 onClick={() => choose(m)}
+                onKeyDown={(event) => handleOptionKeyDown(event, i)}
                 className={[
                   'flex w-full items-center justify-between px-3 py-1.5 text-left text-sm',
                   m === mode

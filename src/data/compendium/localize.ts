@@ -13,6 +13,56 @@ function isStringArray(value: unknown): value is string[] {
   return Array.isArray(value) && value.every((entry) => typeof entry === 'string');
 }
 
+export function localizeSubclasses(
+  baseSubclasses: ClassSubclass[],
+  localizedSubclasses: ClassSubclass[],
+): ClassSubclass[] {
+  const used = new Set<number>();
+  return localizedSubclasses.map((subclass, index) => {
+    const localizedEnglishName =
+      typeof subclass.englishName === 'string' ? subclass.englishName : undefined;
+    const exactIdentity = baseSubclasses.findIndex(
+      (candidate, candidateIndex) =>
+        !used.has(candidateIndex) &&
+        localizedEnglishName !== undefined &&
+        candidate.name === localizedEnglishName &&
+        candidate.source === subclass.source,
+    );
+    const exact = baseSubclasses.findIndex(
+      (candidate, candidateIndex) =>
+        !used.has(candidateIndex) &&
+        candidate.name === subclass.name &&
+        candidate.source === subclass.source,
+    );
+    const sameSource = baseSubclasses.findIndex(
+      (candidate, candidateIndex) =>
+        !used.has(candidateIndex) && candidate.source === subclass.source,
+    );
+    const indexed =
+      !used.has(index) && baseSubclasses[index]?.source === subclass.source ? index : -1;
+    const candidateIndex =
+      exactIdentity >= 0
+        ? exactIdentity
+        : exact >= 0
+          ? exact
+          : indexed >= 0
+            ? indexed
+            : sameSource >= 0
+              ? sameSource
+              : index;
+    const baseSubclass = baseSubclasses[candidateIndex];
+    if (!baseSubclass) return subclass;
+    used.add(candidateIndex);
+    return {
+      ...baseSubclass,
+      ...subclass,
+      ...(subclass.name !== baseSubclass.name && !subclass.englishName
+        ? { englishName: baseSubclass.name }
+        : {}),
+    };
+  });
+}
+
 function mergeSubclassMedia<T extends CompendiumEntryBase>(
   entry: T,
   translation: EntryOverlay,
@@ -28,30 +78,10 @@ function mergeSubclassMedia<T extends CompendiumEntryBase>(
   )
     return merged;
 
-  const used = new Set<number>();
-  const subclasses = (localizedSubclasses as ClassSubclass[]).map((subclass, index) => {
-    const exact = baseSubclasses.findIndex(
-      (candidate, candidateIndex) =>
-        !used.has(candidateIndex) &&
-        candidate.name === subclass.name &&
-        candidate.source === subclass.source,
-    );
-    const sameSource = baseSubclasses.findIndex(
-      (candidate, candidateIndex) =>
-        !used.has(candidateIndex) && candidate.source === subclass.source,
-    );
-    const candidateIndex = exact >= 0 ? exact : sameSource >= 0 ? sameSource : index;
-    const baseSubclass = baseSubclasses[candidateIndex];
-    if (!baseSubclass) return subclass;
-    used.add(candidateIndex);
-    return {
-      ...baseSubclass,
-      ...subclass,
-      ...(subclass.name !== baseSubclass.name && !subclass.englishName
-        ? { englishName: baseSubclass.name }
-        : {}),
-    };
-  });
+  const subclasses = localizeSubclasses(
+    baseSubclasses as ClassSubclass[],
+    localizedSubclasses as ClassSubclass[],
+  );
 
   return { ...merged, subclasses } as T;
 }

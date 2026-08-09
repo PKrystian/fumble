@@ -756,7 +756,9 @@ test('wiki chooses campaigns and configures the local Chult map editor', async (
   await expect(
     page.getByRole('img', { name: 'Chult map with a hex grid' }),
   ).toBeVisible();
-  await expect(page.locator('.wiki-chult-map__hex')).toHaveCount(6120);
+  await expect(page.locator('.wiki-chult-map__hex')).toHaveCount(0);
+  await expect(page.locator('.wiki-chult-map__hidden-grid')).toBeVisible();
+  await expect(page.locator('.wiki-chult-map__hidden-hexes')).toHaveAttribute('d', /M /);
   const gridToggle = page.getByRole('button', { name: 'Show hex grid' });
   await expect(gridToggle).toHaveAttribute('aria-pressed', 'false');
   await gridToggle.click();
@@ -768,6 +770,10 @@ test('wiki chooses campaigns and configures the local Chult map editor', async (
   await expect(page.locator('.wiki-chult-map__grid-line')).toHaveAttribute('d', /M /);
   await page.getByRole('button', { name: 'Hide hex grid' }).click();
   await expect(page.locator('.wiki-chult-map__grid-lines')).toHaveCount(0);
+  const editorButton = page.getByRole('button', { name: 'Edit revealed hexes' });
+  await expect(editorButton).toBeVisible();
+  await editorButton.click();
+  await expect(page.locator('.wiki-chult-map__hex')).toHaveCount(6120);
   const hiddenHex = page
     .locator('.wiki-chult-map__hex:not(.wiki-chult-map__hex--revealed)')
     .first();
@@ -786,9 +792,6 @@ test('wiki chooses campaigns and configures the local Chult map editor', async (
   const resetView = page.getByRole('button', { name: 'Reset map view' });
   await expect(zoomIn).toBeEnabled();
   await expect(zoomOut).toBeDisabled();
-  const editorButton = page.getByRole('button', { name: 'Edit revealed hexes' });
-  await expect(editorButton).toBeVisible();
-  await editorButton.click();
   await expect(
     page.getByRole('complementary', { name: 'Local hex editor' }),
   ).toBeVisible();
@@ -800,10 +803,10 @@ test('wiki chooses campaigns and configures the local Chult map editor', async (
     initialRevealedCount + 1,
   );
   await page.reload();
+  await page.getByRole('button', { name: 'Edit revealed hexes' }).click();
   await expect(page.locator('.wiki-chult-map__hex--revealed')).toHaveCount(
     initialRevealedCount + 1,
   );
-  await page.getByRole('button', { name: 'Edit revealed hexes' }).click();
   await page.getByRole('button', { name: 'Reset local changes' }).click();
   await expect(page.locator('.wiki-chult-map__hex--revealed')).toHaveCount(
     initialRevealedCount,

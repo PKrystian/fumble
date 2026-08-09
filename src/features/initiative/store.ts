@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { fumbleStorage } from '@/features/storage/safeStorage';
 
 export interface Combatant {
   id: string;
@@ -76,6 +77,6 @@ export const useInitiativeStore = create<InitiativeState>()(
           return { turnId: sorted[index - 1]!.id };
         }),
     }),
-    { name: 'fumble-initiative', version: 1 },
+    { name: 'fumble-initiative', version: 1, storage: fumbleStorage },
   ),
 );

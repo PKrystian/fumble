@@ -1,9 +1,11 @@
 import { ArrowLeft, ChevronRight, Map as MapIcon } from 'lucide-react';
-import { useMemo, useRef, type MouseEvent } from 'react';
+import { useMemo, useRef, useState, type MouseEvent } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link, useNavigate } from '@/i18n/path';
+import { Link } from '@/i18n/path';
+import { useNavigate } from '@/i18n/pathUtils';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
+import { NotFoundPage } from '@/features/NotFoundPage';
 import { getCampaignMap } from '@/features/campaign-map/maps';
 import { useLightbox } from '@/features/ui/lightboxStore';
 import { sanitizeWikiHtml } from './html';
@@ -27,9 +29,10 @@ export function WikiPage() {
     slug?: string;
   }>();
   const navigate = useNavigate();
+  const [retryKey, setRetryKey] = useState(0);
   const articleRef = useRef<HTMLElement>(null);
   const openLightbox = useLightbox((state) => state.open);
-  const { status, data } = useWiki();
+  const { status, data } = useWiki(retryKey);
   const campaigns = useMemo(() => mergeCampaigns(data?.campaigns ?? []), [data]);
   const sortedCampaigns = useMemo(
     () =>
@@ -64,11 +67,19 @@ export function WikiPage() {
   const selected = useMemo(() => {
     if (!selectedCampaign) return undefined;
     if (legacyPage) return legacyPage;
-    return (
-      selectedCampaign.pages.find((page) => page.slug === (slug ?? 'home')) ??
-      selectedCampaign.pages[0]
-    );
+    if (!slug) {
+      return (
+        selectedCampaign.pages.find((page) => page.slug === 'home') ??
+        selectedCampaign.pages[0]
+      );
+    }
+    return selectedCampaign.pages.find((page) => page.slug === slug);
   }, [legacyPage, selectedCampaign, slug]);
+
+  const routeNotFound =
+    status === 'ready' &&
+    ((Boolean(routeCampaignId) && !selectedCampaign && !legacyPage) ||
+      Boolean(selectedCampaign && slug && !selected));
 
   useSeo(
     selected
@@ -81,6 +92,7 @@ export function WikiPage() {
       : selectedCampaign
         ? t('wiki.campaignNoPages')
         : t('seo.pageDescriptions.wiki'),
+    status === 'ready' && !routeNotFound && Boolean(selectedCampaign || selected),
   );
 
   const html = useMemo(() => {
@@ -126,9 +138,17 @@ export function WikiPage() {
           </code>
           .
         </p>
+        <button
+          type="button"
+          onClick={() => setRetryKey((value) => value + 1)}
+          className="mt-6 rounded-md border border-ink-600 px-4 py-2 text-sm text-ink-100 hover:bg-ink-800"
+        >
+          {t('common.retry')}
+        </button>
       </div>
     );
   }
+  if (routeNotFound) return <NotFoundPage />;
   if (!selectedCampaign && sortedCampaigns.length > 1) {
     return <CampaignChooser campaigns={sortedCampaigns} />;
   }

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import {
   ArrowLeft,
   BookOpenText,
@@ -10,11 +10,13 @@ import {
 } from 'lucide-react';
 import type { Entry, EntryNode } from '@/data/compendium/entry';
 import { EntryRenderer } from '@/features/compendium/EntryRenderer';
+import { NotFoundPage } from '@/features/NotFoundPage';
 import { localizedBookName } from '@/data/compendium/sources';
-import { Link, Navigate } from '@/i18n/path';
+import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { type OutlineNode, buildOutline, getBook, loadBookData } from './data';
+import { bookAnchorHash, readBookAnchor } from './readerAnchor';
 
 function slug(value: string): string {
   return value
@@ -88,7 +90,10 @@ function OutlineList({
       {nodes.map((node) => (
         <li key={node.name}>
           <Link
-            to={`/books/${bookId}/${chapterIndex}?name=${encodeURIComponent(node.name)}`}
+            to={{
+              pathname: `/books/${bookId}/${chapterIndex}`,
+              hash: bookAnchorHash(undefined, node.name),
+            }}
             className={[
               'flex items-center gap-1 truncate rounded-md py-1.5 pr-3 text-xs text-ink-400 transition-colors hover:bg-ink-800/60 hover:text-ink-100',
               depth === 0 ? 'pl-6' : 'pl-9',
@@ -112,13 +117,23 @@ function OutlineList({
 export function BookReaderPage() {
   const { t, locale } = useT();
   const { id, chapter } = useParams();
-  const [searchParams] = useSearchParams();
+  const location = useLocation();
   const book = id ? getBook(id) : undefined;
-  const targetPage = searchParams.has('page') ? Number(searchParams.get('page')) : null;
-  const targetName = searchParams.get('name');
+  const { page: targetPage, name: targetName } = readBookAnchor(
+    location.hash,
+    location.search,
+  );
+  const requestedChapter = chapter == null ? null : Number(chapter);
+  const invalidChapterParam =
+    requestedChapter != null
+      ? !Number.isInteger(requestedChapter) || requestedChapter < 0
+      : chapter != null;
+  const validRequestedChapter =
+    requestedChapter != null && !invalidChapterParam ? requestedChapter : null;
 
   const [chapters, setChapters] = useState<Entry[] | null>(null);
   const [error, setError] = useState(false);
+  const [retryKey, setRetryKey] = useState(0);
 
   useEffect(() => {
     if (!book) return;
@@ -135,7 +150,7 @@ export function BookReaderPage() {
     return () => {
       cancelled = true;
     };
-  }, [book, locale]);
+  }, [book, locale, retryKey]);
 
   const chapterFromPage = useMemo(() => {
     if (chapters == null || targetPage == null) return null;
@@ -151,8 +166,7 @@ export function BookReaderPage() {
     return best;
   }, [chapters, targetPage]);
 
-  const chapterIndex =
-    chapter != null ? Math.max(0, Number(chapter) || 0) : (chapterFromPage ?? 0);
+  const chapterIndex = validRequestedChapter ?? chapterFromPage ?? 0;
 
   const [fullBook, setFullBook] = useState(false);
   const [wide, setWide] = useState(false);
@@ -219,26 +233,36 @@ export function BookReaderPage() {
     [chapters, chapterIndex],
   );
 
+  const routeNotFound =
+    !book ||
+    invalidChapterParam ||
+    (chapters != null && chapter != null && active == null);
+
   useSeo(
-    book
-      ? active
-        ? `${localizedBookName(book, locale)} - ${chapterTitle(active, t('books.chapterFallback', { n: chapterIndex + 1 }))}`
-        : localizedBookName(book, locale)
-      : '',
-    book
-      ? active
-        ? t('seo.bookChapterDescription', {
-            chapter: chapterTitle(
-              active,
-              t('books.chapterFallback', { n: chapterIndex + 1 }),
-            ),
-            book: localizedBookName(book, locale),
-          })
-        : t('seo.bookDescription', { name: localizedBookName(book, locale) })
-      : undefined,
+    routeNotFound
+      ? t('notFound.title')
+      : book
+        ? active
+          ? `${localizedBookName(book, locale)} - ${chapterTitle(active, t('books.chapterFallback', { n: chapterIndex + 1 }))}`
+          : localizedBookName(book, locale)
+        : '',
+    routeNotFound
+      ? t('notFound.message')
+      : book
+        ? active
+          ? t('seo.bookChapterDescription', {
+              chapter: chapterTitle(
+                active,
+                t('books.chapterFallback', { n: chapterIndex + 1 }),
+              ),
+              book: localizedBookName(book, locale),
+            })
+          : t('seo.bookDescription', { name: localizedBookName(book, locale) })
+        : undefined,
+    !routeNotFound && !error,
   );
 
-  if (!book) return <Navigate to="/books" replace />;
+  if (routeNotFound) return <NotFoundPage />;
 
   return (
     <div className="flex h-full min-h-0">
@@ -364,7 +388,18 @@ export function BookReaderPage() {
             <ArrowLeft size={16} aria-hidden="true" /> {t('common.allBooks')}
           </Link>
 
-          {error && <p className="text-red-400">{t('books.couldNotLoad')}</p>}
+          {error && (
+            <div className="flex flex-wrap items-center gap-3 text-red-400" role="alert">
+              <span>{t('books.couldNotLoad')}</span>
+              <button
+                type="button"
+                onClick={() => setRetryKey((value) => value + 1)}
+                className="rounded-md border border-red-400/50 px-3 py-1.5 text-red-200 hover:bg-red-400/10"
+              >
+                {t('common.retry')}
+              </button>
+            </div>
+          )}
           {!error && chapters == null && (
             <p className="text-ink-400">{t('common.loading')}</p>
           )}

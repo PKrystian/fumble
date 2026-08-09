@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { fumbleStorage } from '@/features/storage/safeStorage';
 import { type Character, createCharacter } from './model';
 
 interface CharacterState {
@@ -60,6 +61,7 @@ export const useCharacterStore = create<CharacterState>()(
     {
       name: 'fumble-characters',
       version: 2,
+      storage: fumbleStorage,
       migrate: (persisted) => {
         const state = (persisted ?? {}) as Partial<CharacterState>;
         const characters = state.characters ?? {};

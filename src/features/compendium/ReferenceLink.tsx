@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Link, useLocale } from '@/i18n/path';
+import { Link } from '@/i18n/path';
+import { useLocale } from '@/i18n/pathUtils';
 import { useT } from '@/i18n/useT';
 import { OriginalName } from '@/features/ui/OriginalName';
 import {

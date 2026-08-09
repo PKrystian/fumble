@@ -26,6 +26,9 @@ export function loadCategoryOverlay(
       })
     : Promise.resolve(undefined);
   overlayCache.set(cacheKey, promise);
+  void promise.catch(() => {
+    if (overlayCache.get(cacheKey) === promise) overlayCache.delete(cacheKey);
+  });
   return promise;
 }
 

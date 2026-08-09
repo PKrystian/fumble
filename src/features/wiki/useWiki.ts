@@ -6,7 +6,7 @@ interface WikiState {
   data: WikiData | null;
 }
 
-export function useWiki(): WikiState {
+export function useWiki(retryKey = 0): WikiState {
   const [state, setState] = useState<WikiState>({ status: 'loading', data: null });
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export function useWiki(): WikiState {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [retryKey]);
 
   return state;
 }

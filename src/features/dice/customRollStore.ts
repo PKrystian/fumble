@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { fumbleStorage } from '@/features/storage/safeStorage';
 
 export interface CustomRoll {
   id: string;
@@ -29,6 +30,6 @@ export const useCustomRollStore = create<CustomRollState>()(
           customRolls: state.customRolls.filter((roll) => roll.id !== id),
         })),
     }),
-    { name: 'fumble-custom-rolls' },
+    { name: 'fumble-custom-rolls', storage: fumbleStorage },
   ),
 );
