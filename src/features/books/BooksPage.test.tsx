@@ -63,7 +63,6 @@ vi.mock('@/features/ui/contentModeStore', () => ({
 
 vi.mock('@/data/compendium/images', () => ({
   imageUrl: (value: string) => `/images/${value}`,
-  optimizedImageUrl: (value: string) => `/images/${value}`,
 }));
 
 vi.mock('@/data/compendium/sources', () => ({

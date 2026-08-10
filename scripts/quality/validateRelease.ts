@@ -2,12 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../../src/i18n/locales';
-import {
-  IMAGE_HOST,
-  imageUrl,
-  optimizedImageUrl,
-  PRIMARY_IMAGE_WIDTH,
-} from '../../src/data/compendium/images';
+import { IMAGE_HOST, imageUrl } from '../../src/data/compendium/images';
 import { cspHasSourceOrigin } from '../../src/seo/csp';
 import { isBookChapterNameIndexable } from '../../src/features/books/chapterSeo';
 import { isCompendiumEntryIndexable } from '../../src/data/compendium/indexability';
@@ -40,10 +35,10 @@ function localizedRoute(path: string, locale: string): string {
   return `/${locale}${path}`;
 }
 
-function expectedImageUrl(path: string, width = PRIMARY_IMAGE_WIDTH): string {
+function expectedImageUrl(path: string): string {
   const normalized = path.replace(/^%BASE%\/?/, '/');
   if (normalized.startsWith('/')) return `${SITE_URL}${normalized}`;
-  return optimizedImageUrl(normalized, process.env.VITE_IMAGE_TRANSFORM_ORIGIN, width);
+  return imageUrl(normalized);
 }
 
 interface ReleaseCompendiumItem {
@@ -172,16 +167,14 @@ function validateCompendiumImagePreloads(): number {
         if (typeof localized.image !== 'string') continue;
         const route = localizedRoute(`/compendium/${category}/${item.id}/`, locale);
         const html = read(`${route.slice(1)}index.html`);
-        const imageWidth = route.includes('/compendium/bestiary/') ? 320 : undefined;
-        const href = escapeHtml(expectedImageUrl(localized.image, imageWidth));
+        const href = escapeHtml(expectedImageUrl(localized.image));
         requireValue(
           html.includes(
             `<link rel="preload" as="image" href="${href}" fetchpriority="high" />`,
           ),
           `Compendium image preload is missing: ${route}`,
         );
-        const shouldPreconnect =
-          !process.env.VITE_IMAGE_TRANSFORM_ORIGIN && usesImageHost(localized.image);
+        const shouldPreconnect = usesImageHost(localized.image);
         requireValue(
           html.includes(
             '<link rel="preconnect" href="https://5e.tools" crossorigin />',

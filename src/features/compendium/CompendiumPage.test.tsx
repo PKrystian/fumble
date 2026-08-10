@@ -404,6 +404,15 @@ describe('CompendiumPage', () => {
     expect(screen.getByText('Unearthed Arcana')).toBeInTheDocument();
 
     const images = screen.getAllByRole('img');
+    expect(images[0]).toHaveAttribute('src', 'https://5e.tools/img/dragon.webp');
+    expect(screen.getByTitle('Token')).toHaveAttribute(
+      'src',
+      'https://5e.tools/img/dragon-token.webp',
+    );
+    expect(screen.getByAltText('Other')).toHaveAttribute(
+      'src',
+      'https://5e.tools/img/other.webp',
+    );
     for (const image of images) fireEvent.click(image);
     expect(mocks.openLightbox).toHaveBeenCalledTimes(images.length);
 

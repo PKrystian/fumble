@@ -23,7 +23,6 @@ import { localizeCompendiumValue } from '../../src/data/compendium/localizeValue
 import {
   IMAGE_HOST,
   imageUrl,
-  optimizedImageUrl,
   PRIMARY_IMAGE_HEIGHT,
   PRIMARY_IMAGE_WIDTH,
 } from '../../src/data/compendium/images';
@@ -1247,10 +1246,10 @@ function absolute(path: string, locale: string): string {
   return `${SITE_URL}${localizePath(path, locale)}`;
 }
 
-function imagePreloadUrl(path: string, width = PRIMARY_IMAGE_WIDTH): string {
+function imagePreloadUrl(path: string): string {
   const normalized = path.replace(/^%BASE%\/?/, '/');
   if (normalized.startsWith('/')) return `${SITE_URL}${normalized}`;
-  return optimizedImageUrl(normalized, process.env.VITE_IMAGE_TRANSFORM_ORIGIN, width);
+  return imageUrl(normalized);
 }
 
 function usesImageHost(path: string): boolean {
@@ -1544,12 +1543,7 @@ function buildHtml(
   const robots = page.indexable === false ? 'noindex, nofollow' : 'index, follow';
   const content = escapeHtml(page.content ?? page.description);
   const heading = escapeHtml(pageHeading(page));
-  const socialImage = page.image
-    ? imagePreloadUrl(page.image, PRIMARY_IMAGE_WIDTH)
-    : `${SITE_URL}/og.png`;
-  const primaryImageWidth = page.path.startsWith('/compendium/bestiary/')
-    ? 320
-    : PRIMARY_IMAGE_WIDTH;
+  const socialImage = page.image ? imagePreloadUrl(page.image) : `${SITE_URL}/og.png`;
   const breadcrumbs = [
     `<a href="${absolute('/', locale)}">Fumble</a>`,
     ...(page.parent
@@ -1559,14 +1553,14 @@ function buildHtml(
       : []),
   ].join(' / ');
   const fallbackImage = page.image
-    ? `<div class="relative mb-4 inline-block min-h-80 max-w-full"><img src="${escapeHtml(imagePreloadUrl(page.image, primaryImageWidth))}" alt="${heading}" width="${PRIMARY_IMAGE_WIDTH}" height="${PRIMARY_IMAGE_HEIGHT}" loading="eager" fetchpriority="high" decoding="async" class="h-auto max-h-80 max-w-full rounded-lg border border-ink-700 object-contain" /></div>`
+    ? `<div class="relative mb-4 inline-block min-h-80 max-w-full"><img src="${escapeHtml(imagePreloadUrl(page.image))}" alt="${heading}" width="${PRIMARY_IMAGE_WIDTH}" height="${PRIMARY_IMAGE_HEIGHT}" loading="eager" fetchpriority="high" decoding="async" class="h-auto max-h-80 max-w-full rounded-lg border border-ink-700 object-contain" /></div>`
     : '';
   const fallback = `<main id="prerendered-content" data-prerendered="true"><nav aria-label="Breadcrumb">${breadcrumbs}</nav>${fallbackImage}<h1>${heading}</h1><p>${content}</p></main>`;
   const imagePreload = page.image
-    ? `<link rel="preload" as="image" href="${escapeHtml(imagePreloadUrl(page.image, primaryImageWidth))}" fetchpriority="high" />`
+    ? `<link rel="preload" as="image" href="${escapeHtml(imagePreloadUrl(page.image))}" fetchpriority="high" />`
     : '';
   const imagePreconnect =
-    page.image && !process.env.VITE_IMAGE_TRANSFORM_ORIGIN && usesImageHost(page.image)
+    page.image && usesImageHost(page.image)
       ? '<link rel="preconnect" href="https://5e.tools" crossorigin />'
       : '';
   let html = template.replace(/<html lang="[^"]+"/, `<html lang="${locale}"`);

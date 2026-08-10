@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.92 - 2026-08-10
+
+- Restored direct compendium image URLs after removing Cloudflare Image Transformations.
+
 ## 1.2.91 - 2026-08-10
 
 - Fixed Polish compendium labels, data values, book labels, and localized loot links.

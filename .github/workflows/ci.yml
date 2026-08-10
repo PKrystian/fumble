@@ -129,7 +129,6 @@ jobs:
         env:
           GOOGLE_SITE_VERIFICATION: ${{ secrets.GOOGLE_SITE_VERIFICATION }}
           BING_SITE_VERIFICATION: ${{ secrets.BING_SITE_VERIFICATION }}
-          VITE_IMAGE_TRANSFORM_ORIGIN: ${{ vars.VITE_IMAGE_TRANSFORM_ORIGIN }}
 
       - uses: actions/configure-pages@v6
 
