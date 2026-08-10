@@ -43,13 +43,19 @@ function attribute(tag: string, name: string): string {
 }
 
 function decodeHtml(value: string): string {
-  return value
-    .replaceAll('&amp;', '&')
-    .replaceAll('&quot;', '"')
-    .replaceAll('&#39;', "'")
-    .replaceAll('&apos;', "'")
-    .replaceAll('&lt;', '<')
-    .replaceAll('&gt;', '>');
+  const entities: Record<string, string> = {
+    '&amp;': '&',
+    '&quot;': '"',
+    '&#39;': "'",
+    '&apos;': "'",
+    '&lt;': '<',
+    '&gt;': '>',
+  };
+
+  return value.replace(
+    /&(amp|quot|#39|apos|lt|gt);/g,
+    (entity) => entities[entity] ?? entity,
+  );
 }
 
 function addIssue(issues: Issue[], kind: string, file: string): void {
