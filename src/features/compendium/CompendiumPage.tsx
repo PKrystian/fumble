@@ -63,6 +63,7 @@ const LIST_PAGE_SIZE = 200;
 
 const LEGACY_ENTRY_ALIASES: Record<string, string> = {
   'items/danoth-s-visor': 'items/danoth-s-visor-dormant',
+  'bestiary/mwaxanar': 'bestiary/mwaxanare',
 };
 
 function CompendiumLandingPage() {

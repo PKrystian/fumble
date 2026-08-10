@@ -199,6 +199,24 @@ describe('BookReaderPage', () => {
     expect(screen.getAllByRole('link', { name: /Chapter 1$/ })).toHaveLength(2);
   });
 
+  it('keeps credits chapters readable but out of search indexes', async () => {
+    mocks.loadBookData.mockResolvedValue([
+      {
+        type: 'entries',
+        name: 'Credits',
+        entries: [{ type: 'list', items: ['Written by Author'] }],
+      },
+    ]);
+    renderReader('/books/test-book/0');
+    await screen.findByRole('heading', { name: 'Credits' });
+    await waitFor(() =>
+      expect(document.querySelector('meta[name="robots"]')).toHaveAttribute(
+        'content',
+        'noindex, nofollow',
+      ),
+    );
+  });
+
   it('shows a loading failure', async () => {
     mocks.loadBookData.mockRejectedValue(new Error('failed'));
     renderReader();

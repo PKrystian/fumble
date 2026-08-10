@@ -16,6 +16,7 @@ import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { type OutlineNode, buildOutline, getBook, loadBookData } from './data';
+import { isBookChapterIndexable } from './chapterSeo';
 import { bookAnchorHash, readBookAnchor } from './readerAnchor';
 
 function slug(value: string): string {
@@ -259,7 +260,9 @@ export function BookReaderPage() {
             })
           : t('seo.bookDescription', { name: localizedBookName(book, locale) })
         : undefined,
-    !routeNotFound && !error,
+    !routeNotFound &&
+      !error &&
+      (chapter == null || active == null || isBookChapterIndexable(active)),
   );
 
   if (routeNotFound) return <NotFoundPage />;

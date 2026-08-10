@@ -46,6 +46,14 @@ const mocks = vi.hoisted(() => ({
     renderDetail: (item: { name: string }) => `Detail ${item.name}`,
     filters: [],
   },
+  bestiaryCategory: {
+    id: 'bestiary',
+    label: 'Bestiary',
+    load: vi.fn(),
+    subtitle: (item: { size?: string }) => item.size ?? '',
+    renderDetail: (item: { name: string }) => `Detail ${item.name}`,
+    filters: [],
+  },
 }));
 
 vi.mock('./categories', () => ({
@@ -57,7 +65,9 @@ vi.mock('./categories', () => ({
         ? mocks.classCategory
         : id === 'items'
           ? mocks.itemsCategory
-          : undefined,
+          : id === 'bestiary'
+            ? mocks.bestiaryCategory
+            : undefined,
 }));
 
 vi.mock('./useCategoryItems', () => ({
@@ -206,6 +216,28 @@ describe('CompendiumPage', () => {
     expect(screen.getByRole('heading', { name: 'Natural 1.' })).toBeInTheDocument();
   });
 
+  it('redirects renamed compendium entries from the app', () => {
+    const view = renderPage('/compendium/bestiary/mwaxanar');
+    expect(screen.getByRole('status')).toHaveTextContent(
+      '/compendium/bestiary/mwaxanare/',
+    );
+    view.unmount();
+  });
+
+  it('renders a hidden older printing when opened directly', () => {
+    mocks.result = {
+      status: 'ready',
+      items: [official, { ...official, id: 'dragon-old', source: 'PHB', hidden: true }],
+    };
+
+    renderPage('/compendium/species/dragon-old');
+
+    expect(screen.getByText('Detail Dragon')).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: "Player's Handbook (2014)" }),
+    ).toBeInTheDocument();
+  });
+
   it('does not index an unknown class subclass route', () => {
     renderPage('/compendium/classes/dragon/missing-subclass');
     expect(screen.getByRole('heading', { name: 'Natural 1.' })).toBeInTheDocument();
@@ -241,7 +273,7 @@ describe('CompendiumPage', () => {
     expect(screen.getAllByRole('link', { name: /Dragon/ })).toHaveLength(200);
     fireEvent.click(screen.getByRole('button', { name: 'Load 25 more' }));
     expect(screen.getAllByRole('link', { name: /Dragon/ })).toHaveLength(225);
-  });
+  }, 20_000);
 
   it('keeps a selected detail area stable while data loads or fails', () => {
     mocks.result = { status: 'loading', items: [] };

@@ -102,6 +102,10 @@ test('compendium links to older printings', async ({ page }) => {
   await page.getByRole('link', { name: "Player's Handbook (2014)" }).click();
   await expect(page).toHaveURL(/\/compendium\/spells\/fireball-phb\/$/);
   await expect(page.getByText('Source:')).toContainText("Player's Handbook (2014)");
+
+  await page.goto('/compendium/spells/fireball-phb');
+  await expect(page.getByRole('heading', { name: 'Fireball' })).toBeVisible();
+  await expect(page.getByText('Source:')).toContainText("Player's Handbook (2014)");
 });
 
 test('compendium exposes magic variants and imported source collections', async ({
@@ -840,6 +844,18 @@ test('books can be searched, filtered and opened', async ({ page }) => {
       .first()
       .click();
   }
+});
+
+test('book credit chapters remain readable without looking like empty pages', async ({
+  page,
+}) => {
+  await page.goto('/books/ps-k/4');
+  await expect(page.getByRole('heading', { name: 'Credits' })).toBeVisible();
+  await expect(page.getByText('Written by James Wyatt')).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+    'content',
+    'noindex, nofollow',
+  );
 });
 
 test('global search navigates to a compendium entry', async ({ page }) => {
