@@ -3,7 +3,7 @@ import { isBookChapterIndexable, isBookChapterNameIndexable } from './chapterSeo
 
 describe('book chapter SEO', () => {
   it('keeps populated chapters indexable', () => {
-    expect(isBookChapterNameIndexable()).toBe(true);
+    expect(isBookChapterNameIndexable(undefined)).toBe(true);
     expect(isBookChapterIndexable(undefined)).toBe(true);
     expect(isBookChapterIndexable('Introduction')).toBe(true);
     expect(
