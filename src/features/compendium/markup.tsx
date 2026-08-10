@@ -132,6 +132,54 @@ const LABELS: Record<Locale, LabelSet> = {
   },
 };
 
+function localizePolishGenericLabels(text: string, locale: Locale): string {
+  if (locale !== 'pl') return text;
+  return text.replace(/(\{@[^}]*}|\{#[^}]*})|([^{}]+)/g, (part, tag, plain) =>
+    tag ? part : localizePolishLabel(plain, locale),
+  );
+}
+
+function localizePolishLabel(text: string, locale: Locale): string {
+  if (locale !== 'pl') return text;
+  return text
+    .replace(/\bsee\s+the\s+appendix\b/gi, 'zobacz dodatek')
+    .replace(/\bsee\s+appendix\s+([A-Z])\b/gi, 'zobacz dodatek $1')
+    .replace(/\bchapters\s+(\d+)\b/gi, 'Rozdziały $1')
+    .replace(/\bchapter\s+(\d+)\b/gi, 'Rozdział $1')
+    .replace(/\bappendix\s+([A-Z])\b/gi, 'Dodatek $1')
+    .replace(/\brules glossary\b/gi, 'słownik zasad')
+    .replace(/\bspellcasting focus\b/gi, 'Ognisko Magiczne')
+    .replace(/\bspellcasting\b/gi, 'Rzucanie Czarów')
+    .replace(/\bunarmed strike\b/gi, 'Atak Bez Broni')
+    .replace(/\bopportunity attack\b/gi, 'Atak Okazyjny')
+    .replace(/\bincapacitated\b/gi, 'Bezradny')
+    .replace(/\bdisengage\b/gi, 'Wycofanie')
+    .replace(/\badvantage\b/gi, 'Przewaga')
+    .replace(/\bdisadvantage\b/gi, 'Utrudnienie')
+    .replace(/\battack\b/gi, 'Atak')
+    .replace(/\bdash\b/gi, 'Bieg')
+    .replace(/\bdodge\b/gi, 'Unik')
+    .replace(/\bhelp\b/gi, 'Pomoc')
+    .replace(/\bhide\b/gi, 'Ukrycie')
+    .replace(/\binfluence\b/gi, 'Wpływ')
+    .replace(/\bmagic\b/gi, 'Magia')
+    .replace(/\bready\b/gi, 'Gotowość')
+    .replace(/\butilize\b/gi, 'Wykorzystanie')
+    .replace(/\bfighting style\b/gi, 'Styl walki')
+    .replace(/\bfinesse\b/gi, 'Finezja')
+    .replace(/\breaction\b/gi, 'Reakcja')
+    .replace(/\bspeed\b/gi, 'Szybkość')
+    .replace(/\btouch\b/gi, 'Dotyk')
+    .replace(/\bconcentration\b/gi, 'Koncentracja')
+    .replace(/\bsearch\b/gi, 'Przeszukanie')
+    .replace(/\bstudy\b/gi, 'Nauka')
+    .replace(/\bnothing here\b/gi, 'Brak treści')
+    .replace(/\bchapter\b/gi, 'rozdział')
+    .replace(/\bappendix\b/gi, 'dodatek')
+    .replace(/\bhere\b/gi, 'tutaj')
+    .replace(/\bsee\b/gi, 'zobacz');
+}
+
 const QUICKREF_LABELS: Record<Locale, Record<string, string>> = {
   en: {},
   pl: {
@@ -198,9 +246,10 @@ function bookReference(
   first: string,
   parts: string[],
   key: number,
+  locale: Locale,
 ): ReactNode {
   const source = parts[1]?.trim();
-  const display = parts[3]?.trim() || first;
+  const display = localizePolishLabel(parts[3]?.trim() || first, locale);
   const book = source ? getBook(source.toLowerCase()) : undefined;
   if (!book) return <Fragment key={key}>{display}</Fragment>;
   const chapter = Number(parts[2]);
@@ -220,10 +269,18 @@ function bookReference(
   );
 }
 
-function externalReference(first: string, parts: string[], key: number): ReactNode {
+function externalReference(
+  first: string,
+  parts: string[],
+  key: number,
+  locale: Locale,
+): ReactNode {
   const firstIsUrl = /^https?:\/\//i.test(first);
   const href = firstIsUrl ? first : parts[1]?.trim();
-  const label = firstIsUrl ? parts[2]?.trim() || first : first;
+  const label = localizePolishLabel(
+    firstIsUrl ? parts[2]?.trim() || first : first,
+    locale,
+  );
   if (!href || !/^https?:\/\//i.test(href)) {
     return <Fragment key={key}>{label}</Fragment>;
   }
@@ -367,17 +424,29 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
     case 'hitYourSpellAttack':
       return <Fragment key={key}>{first}</Fragment>;
     case 'classFeature':
-      return <Fragment key={key}>{featureLabel(first, parts, [2, 4])}</Fragment>;
+      return (
+        <Fragment key={key}>
+          {localizePolishLabel(featureLabel(first, parts, [2, 4]), locale)}
+        </Fragment>
+      );
     case 'subclassFeature':
-      return <Fragment key={key}>{featureLabel(first, parts, [2, 4])}</Fragment>;
+      return (
+        <Fragment key={key}>
+          {localizePolishLabel(featureLabel(first, parts, [2, 4]), locale)}
+        </Fragment>
+      );
     case 'skillCheck':
-      return <Fragment key={key}>{skillCheckLabel(first, parts)}</Fragment>;
+      return (
+        <Fragment key={key}>
+          {localizePolishLabel(skillCheckLabel(first, parts), locale)}
+        </Fragment>
+      );
     case 'subclass':
       return <Fragment key={key}>{first}</Fragment>;
     case 'itemProperty':
-      return <Fragment key={key}>{display}</Fragment>;
+      return <Fragment key={key}>{localizePolishLabel(display, locale)}</Fragment>;
     case 'link':
-      return externalReference(first, parts, key);
+      return externalReference(first, parts, key, locale);
     case 'unit':
       return <Fragment key={key}>{unitLabel(parts)}</Fragment>;
     case 'color':
@@ -387,7 +456,7 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
       return <Fragment key={key}>{first}</Fragment>;
     case 'book':
     case 'adventure':
-      return bookReference(tag, first, parts, key);
+      return bookReference(tag, first, parts, key, locale);
     case 'quickref':
       return <Fragment key={key}>{quickrefLabel(locale, parts)}</Fragment>;
     case 'card': {
@@ -399,7 +468,7 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
           key={key}
           category="decks"
           slug={slugify(deckName)}
-          label={first}
+          label={localizePolishLabel(first, locale)}
           {...(deckSource ? { source: deckSource } : {})}
         />
       );
@@ -434,18 +503,19 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
             key={key}
             category={category}
             slug={slugify(first)}
-            label={display}
+            label={localizePolishLabel(display, locale)}
             {...(source ? { source } : {})}
           />
         );
       }
 
-      return <Fragment key={key}>{display}</Fragment>;
+      return <Fragment key={key}>{localizePolishLabel(display, locale)}</Fragment>;
     }
   }
 }
 
 export function parseMarkup(text: string, locale: Locale = DEFAULT_LOCALE): ReactNode[] {
+  text = localizePolishGenericLabels(text, locale);
   const nodes: ReactNode[] = [];
   let cursor = 0;
   let key = 0;

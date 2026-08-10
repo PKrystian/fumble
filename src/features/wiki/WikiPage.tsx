@@ -100,10 +100,12 @@ export function WikiPage() {
     const sanitized = sanitizeWikiHtml(
       selected.html.replaceAll('%BASE%', import.meta.env.BASE_URL),
     );
-    return sanitized.replace(
-      /(<div class="wiki-locked"[^>]*>)[^<]*(<\/div>)/g,
-      `$1${t('wiki.notYetUnlocked')}$2`,
-    );
+    return sanitized
+      .replace(
+        /(<div class="wiki-locked"[^>]*>)[^<]*(<\/div>)/g,
+        `$1${t('wiki.notYetUnlocked')}$2`,
+      )
+      .replace(/<p>Nothing here<\/p>/gi, `<p>${t('wiki.emptyPage')}</p>`);
   }, [selected, t]);
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {

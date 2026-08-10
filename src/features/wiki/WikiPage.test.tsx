@@ -251,7 +251,7 @@ describe('WikiPage', () => {
       campaigns: [
         {
           id: 'glod-smoka',
-          title: 'GÅ‚Ã³d Smoka',
+          title: 'Głód Smoka',
           pages: [page('lore', 'Lore', 'Long', `<p>${'A'.repeat(200)}</p>`)],
         },
       ],
@@ -268,7 +268,7 @@ describe('WikiPage', () => {
       campaigns: [
         {
           id: 'glod-smoka',
-          title: 'GÅ‚Ã³d Smoka',
+          title: 'Głód Smoka',
           pages: [page('lore', 'Lore', '', '')],
         },
       ],

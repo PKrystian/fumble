@@ -12,6 +12,11 @@ export function setMetaDescription(description: string): void {
   meta.content = description;
 }
 
+export function clipMetaDescription(value: string): string {
+  const text = value.trim();
+  return text.length <= 160 ? text : `${text.slice(0, 157).trimEnd()}...`;
+}
+
 export function setMetaContent(
   selector: string,
   attribute: 'name' | 'property',

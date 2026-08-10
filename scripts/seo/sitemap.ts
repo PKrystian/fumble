@@ -19,6 +19,7 @@ import {
 } from '../../src/data/compendium/indexability';
 import type { ClassSubclass, CompendiumEntryBase } from '../../src/data/compendium/types';
 import { localizeSubclasses } from '../../src/data/compendium/localize';
+import { localizeCompendiumValue } from '../../src/data/compendium/localizeValue';
 import {
   IMAGE_HOST,
   imageUrl,
@@ -575,17 +576,87 @@ function cleanText(value: string): string {
   return value.replaceAll('\u2014', '-').replaceAll('\u2013', '-');
 }
 
-function plainText(value: unknown): string {
+function localizePolishGenericLabels(value: string, locale: Locale): string {
+  if (locale !== 'pl') return value;
+  return value
+    .replace(/\bsee\s+the\s+appendix\b/gi, 'zobacz dodatek')
+    .replace(/\bsee\s+appendix\s+([A-Z])\b/gi, 'zobacz dodatek $1')
+    .replace(/\bchapters\s+(\d+)\b/gi, 'Rozdziały $1')
+    .replace(/\bchapter\s+(\d+)\b/gi, 'Rozdział $1')
+    .replace(/\bappendix\s+([A-Z])\b/gi, 'Dodatek $1')
+    .replace(/\brules glossary\b/gi, 'słownik zasad')
+    .replace(/\bspellcasting focus\b/gi, 'Ognisko Magiczne')
+    .replace(/\bspellcasting\b/gi, 'Rzucanie Czarów')
+    .replace(/\bdisadvantage\b/gi, 'Utrudnienie')
+    .replace(/\badvantage\b/gi, 'Przewaga')
+    .replace(/\bconcentration\b/gi, 'Koncentracja')
+    .replace(/\bsearch\b/gi, 'Przeszukanie')
+    .replace(/\bstudy\b/gi, 'Nauka')
+    .replace(/\bnothing here\b/gi, 'Brak treści')
+    .replace(/\bchapter\b/gi, 'rozdział')
+    .replace(/\bappendix\b/gi, 'dodatek')
+    .replace(/\bhere\b/gi, 'tutaj')
+    .replace(/\bsee\b/gi, 'zobacz');
+}
+
+const POLISH_REFERENCE_LABELS: Record<string, string> = {
+  Attack: 'Atak',
+  Advantage: 'Przewaga',
+  Burrow: 'Kopanie',
+  Climb: 'Wspinaczka',
+  Concentration: 'Koncentracja',
+  Dash: 'Bieg',
+  Disadvantage: 'Utrudnienie',
+  Disengage: 'Wycofanie',
+  Dodge: 'Unik',
+  Fly: 'Lot',
+  Finesse: 'Finezja',
+  Help: 'Pomoc',
+  Hide: 'Ukrycie',
+  Incapacitated: 'Bezradny',
+  Influence: 'Wpływ',
+  Magic: 'Magia',
+  'Opportunity Attack': 'Atak Okazyjny',
+  Ready: 'Gotowość',
+  Reaction: 'Reakcja',
+  Speed: 'Szybkość',
+  Swim: 'Pływanie',
+  Touch: 'Dotyk',
+  'Two-Handed': 'Dwuręczna',
+  'Unarmed Strike': 'Atak Bez Broni',
+  Utilize: 'Wykorzystanie',
+};
+
+function localizePolishReference(tag: string, value: string, locale: Locale): string {
+  const parts = value.split('|').map((part) => part.trim());
+  const target = parts[0] ?? '';
+  if (locale !== 'pl') return target;
+  const display = tag === 'book' || tag === 'adventure' ? parts[3] : parts[2];
+  return localizePolishGenericLabels(
+    display || POLISH_REFERENCE_LABELS[target] || target,
+    locale,
+  );
+}
+
+function plainText(value: unknown, locale: Locale = DEFAULT_LOCALE): string {
   if (typeof value === 'string') {
-    return cleanText(value)
-      .replace(/\{@\w+\s+([^}|]+)(?:\|[^}]*)?}/g, '$1')
+    const text = cleanText(value)
+      .replace(/\{@(\w+)\s+([^}]+)}/g, (_, tag, content) =>
+        localizePolishReference(tag, content, locale),
+      )
       .replace(/\{#\w+\s+([^}|]+)(?:\|[^}]*)?}/g, '$1')
       .replace(/\{(?:@|#)[^}]+}/g, ' ')
       .replace(/<[^>]+>/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
+    return localizePolishGenericLabels(text, locale);
   }
-  if (Array.isArray(value)) return value.map(plainText).filter(Boolean).join(' ');
+  if (Array.isArray(value)) {
+    return value
+      .map((entry) => plainText(entry, locale))
+      .filter(Boolean)
+      .join(' ');
+  }
   if (value && typeof value === 'object') {
     const record = value as Record<string, unknown>;
     return [
@@ -597,7 +668,7 @@ function plainText(value: unknown): string {
       record.caption,
       record.title,
     ]
-      .map(plainText)
+      .map((entry) => plainText(entry, locale))
       .filter(Boolean)
       .join(' ');
   }
@@ -614,13 +685,17 @@ function excerpt(value: string, fallback: string): string {
   return text.length <= 2000 ? text : `${text.slice(0, 1997).trimEnd()}...`;
 }
 
-function bookChapterContext(chapter: BookChapter, includeEntries = false): string {
+function bookChapterContext(
+  chapter: BookChapter,
+  includeEntries = false,
+  locale: Locale = DEFAULT_LOCALE,
+): string {
   return [
-    chapter.name,
+    plainText(chapter.name, locale),
     ...(chapter.headers ?? []).map((header) =>
-      typeof header === 'string' ? header : header.header,
+      plainText(typeof header === 'string' ? header : header.header, locale),
     ),
-    ...(includeEntries ? [plainText(chapter.entries)] : []),
+    ...(includeEntries ? [plainText(chapter.entries, locale)] : []),
   ]
     .filter((value): value is string => Boolean(value))
     .join('. ');
@@ -708,24 +783,42 @@ function firstImageSource(html: string): string | undefined {
   return /<img\b[^>]*\bsrc=(['"])(.*?)\1/i.exec(html)?.[2];
 }
 
-function compendiumContext(item: CompendiumItem): string {
-  return [
-    item.subtitle,
-    item.entries,
-    item.body,
-    item.lore,
-    item.features,
-    item.subclasses,
-    item.primaryAbility,
-    item.savingThrows,
-    item.proficiencies,
-    item.classes,
-    item.subclasses,
-    item.attunement,
-    item.prerequisite,
-    item.featureType,
-  ]
-    .map(plainText)
+function compendiumContext(item: CompendiumItem, locale: Locale): string {
+  const fields: Array<[string, unknown]> = [
+    ['subtitle', item.subtitle],
+    ['entries', item.entries],
+    ['body', item.body],
+    ['lore', item.lore],
+    ['features', item.features],
+    ['subclasses', item.subclasses],
+    ['primaryAbility', item.primaryAbility],
+    ['savingThrows', item.savingThrows],
+    ['proficiencies', item.proficiencies],
+    ['classes', item.classes],
+    ['attunement', item.attunement],
+    ['prerequisite', item.prerequisite],
+    ['featureType', item.featureType],
+    ['creatureType', item.creatureType],
+    ['size', item.size],
+    ['speed', item.speed],
+    ['school', item.school],
+    ['castingTime', item.castingTime],
+    ['range', item.range],
+    ['duration', item.duration],
+    ['type', item.type],
+    ['rarity', item.rarity],
+    ['properties', item.properties],
+    ['kind', item.kind],
+    ['languageType', item.languageType],
+    ['vehicleType', item.vehicleType],
+    ['ruleType', item.ruleType],
+    ['featCategory', item.featCategory],
+  ];
+  return fields
+    .map(([field, entry]) => {
+      const text = plainText(entry, locale);
+      return localizeCompendiumValue(text, locale, field) ?? text;
+    })
     .filter(Boolean)
     .join(' ');
 }
@@ -869,7 +962,7 @@ function collectPages(locale: Locale): PageInfo[] {
         rawIndexabilityItems[index]!,
         rawIndexabilityItems,
       );
-      const context = compendiumContext(item);
+      const context = compendiumContext(item, locale);
       const source = plainText(item.source);
       const localizedIdentity = `${item.name}|${source}`;
       const translationQualifier =
@@ -953,8 +1046,8 @@ function collectPages(locale: Locale): PageInfo[] {
             content: excerpt(
               [
                 subclassSeo.description,
-                plainText(subclass.lore),
-                plainText(subclass.features),
+                plainText(subclass.lore, locale),
+                plainText(subclass.features, locale),
               ]
                 .filter(Boolean)
                 .join(' '),
@@ -978,7 +1071,7 @@ function collectPages(locale: Locale): PageInfo[] {
     for (const item of fumbleHomebrewItems(locale).filter(
       (entry) => entry.category === categoryId,
     )) {
-      const context = compendiumContext(item);
+      const context = compendiumContext(item, locale);
       const source = plainText(item.source);
       const parentClassId =
         categoryId === 'classes' ? fumbleParentClassId(item) : undefined;
@@ -1038,7 +1131,7 @@ function collectPages(locale: Locale): PageInfo[] {
     const bookContextSource =
       locale === DEFAULT_LOCALE ? book.contents : localizedChapters;
     const bookContext = bookContextSource
-      .map((chapter) => bookChapterContext(chapter, locale !== DEFAULT_LOCALE))
+      .map((chapter) => bookChapterContext(chapter, locale !== DEFAULT_LOCALE, locale))
       .filter(Boolean)
       .join('. ');
     pages.push({
@@ -1061,7 +1154,7 @@ function collectPages(locale: Locale): PageInfo[] {
       const chapter = localizedChapters[index] ?? baseChapter;
       const chapterName =
         chapter.name || translate(locale, 'books.chapterFallback', { n: index + 1 });
-      const chapterContext = bookChapterContext(chapter, true);
+      const chapterContext = bookChapterContext(chapter, true, locale);
       pages.push({
         path: `${bookPath}/${index}`,
         title: `${chapterName} - ${book.name} - Fumble`,
@@ -1104,11 +1197,11 @@ function collectPages(locale: Locale): PageInfo[] {
         path: `/wiki/${campaign.id}/${page.slug}`,
         title: `${page.title} - ${localizedCampaignName} - Fumble`,
         description: concise(
-          plainText(page.html),
+          plainText(page.html, locale),
           `${page.title}${page.category ? ` in ${page.category}` : ''} - Fumble campaign wiki.`,
         ),
         content: excerpt(
-          plainText(page.html),
+          plainText(page.html, locale),
           `${page.title}${page.category ? ` in ${page.category}` : ''}.`,
         ),
         ...(image ? { image } : {}),
@@ -1411,7 +1504,7 @@ function structuredData(page: PageInfo, locale: string) {
 
 function buildRedirectHtml(template: string, page: PageInfo, locale: string): string {
   const title = escapeHtml(page.title);
-  const description = escapeHtml(page.description);
+  const description = escapeHtml(concise(page.description, page.title));
   const target = absolute(page.redirectTo!, locale);
   let html = template.replace(/<html lang="[^"]+"/, `<html lang="${locale}"`);
   html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
@@ -1447,7 +1540,7 @@ function buildHtml(
   if (page.redirectTo) return buildRedirectHtml(template, page, locale);
   const url = absolute(page.path, locale);
   const title = escapeHtml(page.title);
-  const description = escapeHtml(page.description);
+  const description = escapeHtml(concise(page.description, page.title));
   const robots = page.indexable === false ? 'noindex, nofollow' : 'index, follow';
   const content = escapeHtml(page.content ?? page.description);
   const heading = escapeHtml(pageHeading(page));

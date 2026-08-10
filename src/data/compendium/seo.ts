@@ -1,5 +1,6 @@
 import { translate } from '../../i18n/translate';
 import type { Locale } from '../../i18n/locales';
+import { localizeCompendiumValue } from './localizeValue';
 import type { CompendiumEntryBase } from './types';
 
 export interface CompendiumSeo {
@@ -162,7 +163,7 @@ function entryDetails(
     .map((field) => {
       const value = record[field.key];
       if (value === true) return translated(locale, field.labelKey);
-      const text = valueText(value);
+      const text = localizeCompendiumValue(valueText(value), locale, field.key);
       return text ? translated(locale, field.labelKey).replace('{{value}}', text) : '';
     })
     .filter(Boolean)

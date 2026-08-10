@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import type { Entry, EntryNode } from '@/data/compendium/entry';
 import { EntryRenderer } from '@/features/compendium/EntryRenderer';
+import { parseMarkup } from '@/features/compendium/markup';
 import { NotFoundPage } from '@/features/NotFoundPage';
 import { localizedBookName } from '@/data/compendium/sources';
 import { Link } from '@/i18n/path';
@@ -73,11 +74,13 @@ function OutlineList({
   bookId,
   chapterIndex,
   depth,
+  locale,
 }: {
   nodes: OutlineNode[];
   bookId: string;
   chapterIndex: number;
   depth: number;
+  locale: 'en' | 'pl';
 }) {
   if (nodes.length === 0) return null;
   return (
@@ -95,13 +98,14 @@ function OutlineList({
             ].join(' ')}
           >
             {depth > 0 && <span aria-hidden="true">-</span>}
-            <span className="truncate">{node.name}</span>
+            <span className="truncate">{parseMarkup(node.name, locale)}</span>
           </Link>
           <OutlineList
             nodes={node.children}
             bookId={bookId}
             chapterIndex={chapterIndex}
             depth={depth + 1}
+            locale={locale}
           />
         </li>
       ))}
@@ -338,6 +342,7 @@ export function BookReaderPage() {
                     bookId={book.id}
                     chapterIndex={index}
                     depth={0}
+                    locale={locale}
                   />
                 )}
               </div>

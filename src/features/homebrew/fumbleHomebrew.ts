@@ -79,6 +79,7 @@ interface FumbleDataFile {
 interface FumbleOverlay {
   name?: string;
   subtitle?: string;
+  prerequisite?: string;
   primaryAbility?: string;
   savingThrows?: string;
   proficiencies?: string;
@@ -96,6 +97,16 @@ interface FumbleOverlay {
   subclassName?: string;
   classes?: string[];
 }
+
+const POLISH_PREREQUISITES: Record<string, string> = {
+  'General feat': 'Atut ogólny',
+  'Spellcasting or Pact Magic feature': 'Cecha rzucania czarów lub Magia Paktu',
+  'Martial class: Fighter, Ranger, Paladin, Barbarian, or Blood Hunter':
+    'Klasa wojownicza: Wojownik, Łowca, Paladyn, Barbarzyńca lub Łowca Krwi',
+  'Full caster class: Cleric, Bard, Warlock, Wizard, Druid, or Sorcerer':
+    'Klasa pełnego rzucania czarów: Kleryk, Bard, Czarnoksiężnik, Czarodziej, Druid lub Zaklinacz',
+  'Origin feat': 'Atut pochodzenia',
+};
 
 function isSubclassArray(value: unknown): value is ClassSubclass[] {
   return (
@@ -177,9 +188,14 @@ export function fumbleHomebrewItems(locale: Locale): FumbleHomebrewItem[] {
       item.subclasses,
       translatedSubclassData,
     );
+    const basePrerequisite =
+      typeof item.prerequisite === 'string' ? item.prerequisite : undefined;
     const localized = {
       ...item,
       ...overlayFields,
+      ...(basePrerequisite && !overlay.prerequisite
+        ? { prerequisite: POLISH_PREREQUISITES[basePrerequisite] ?? basePrerequisite }
+        : {}),
       ...(translatedSubclasses ? { subclasses: translatedSubclasses } : {}),
       ...(!translatedSubclasses && translatedSubclassData !== undefined
         ? { subclasses: translatedSubclassData }
