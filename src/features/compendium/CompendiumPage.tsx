@@ -19,8 +19,6 @@ import {
 } from './filterSort';
 import {
   imageUrl,
-  optimizedImageSrcSet,
-  optimizedImageUrl,
   PRIMARY_IMAGE_HEIGHT,
   PRIMARY_IMAGE_WIDTH,
 } from '@/data/compendium/images';
@@ -357,11 +355,6 @@ function CompendiumBrowser({
     );
   }
 
-  const primaryImageSrcSet =
-    categoryId === 'bestiary' && selected?.image
-      ? optimizedImageSrcSet(selected.image, import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN)
-      : undefined;
-
   const pickRandom = () => {
     if (filtered.length === 0) return;
     clearQueryUpdate();
@@ -555,12 +548,7 @@ function CompendiumBrowser({
               {selected.image && (
                 <div className="relative mb-4 inline-block min-h-80 max-w-full">
                   <img
-                    src={optimizedImageUrl(
-                      selected.image,
-                      import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN,
-                    )}
-                    srcSet={primaryImageSrcSet}
-                    sizes={primaryImageSrcSet ? '320px' : undefined}
+                    src={imageUrl(selected.image)}
                     alt={selected.name}
                     width={PRIMARY_IMAGE_WIDTH}
                     height={PRIMARY_IMAGE_HEIGHT}
@@ -577,11 +565,7 @@ function CompendiumBrowser({
                   />
                   {selected.token && selected.token !== selected.image && (
                     <img
-                      src={optimizedImageUrl(
-                        selected.token,
-                        import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN,
-                        128,
-                      )}
+                      src={imageUrl(selected.token)}
                       alt={`${selected.name} ${t('compendium.token')}`}
                       title={t('compendium.token')}
                       loading="lazy"
@@ -640,10 +624,7 @@ function CompendiumBrowser({
                         .map((img) => (
                           <figure key={img.path} className="flex flex-col gap-1">
                             <img
-                              src={optimizedImageUrl(
-                                img.path,
-                                import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN,
-                              )}
+                              src={imageUrl(img.path)}
                               alt={img.title ?? selected.name}
                               loading="lazy"
                               onClick={() =>

@@ -1,6 +1,6 @@
 import { Fragment, type ReactNode, useState } from 'react';
 import type { Entry, EntryNode } from '@/data/compendium/entry';
-import { imageUrl, optimizedImageUrl } from '@/data/compendium/images';
+import { imageUrl } from '@/data/compendium/images';
 import { stripMarkup } from '@/data/transform/util';
 import { useRollStore } from '@/features/dice/rollStore';
 import { useLightbox } from '@/features/ui/lightboxStore';
@@ -49,7 +49,7 @@ function BookImage({ src, title }: { src: string; title?: string }) {
   return (
     <figure className="my-2 flex flex-col items-center gap-1">
       <img
-        src={optimizedImageUrl(src, import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN)}
+        src={imageUrl(src)}
         alt={plainTitle}
         loading="lazy"
         onClick={() => open(src, plainTitle)}

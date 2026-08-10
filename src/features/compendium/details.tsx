@@ -41,7 +41,7 @@ import type { Entry, EntryNode } from '@/data/compendium/entry';
 import { Fragment, type ReactNode, useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CheckSquare, RotateCcw, Shuffle, Tag } from 'lucide-react';
-import { imageUrl, optimizedImageUrl } from '@/data/compendium/images';
+import { imageUrl } from '@/data/compendium/images';
 import { localizeCompendiumValue } from '@/data/compendium/localizeValue';
 import { RollableDice } from '@/features/dice/RollableDice';
 import { sourceAbbrev, sourceRank } from '@/data/compendium/sources';
@@ -1139,7 +1139,7 @@ function SubclassImage({ subclass }: { subclass: ClassSubclass }) {
   if (!subclass.image) return null;
   return (
     <img
-      src={optimizedImageUrl(subclass.image, import.meta.env.VITE_IMAGE_TRANSFORM_ORIGIN)}
+      src={imageUrl(subclass.image)}
       alt={subclass.name}
       loading="lazy"
       onClick={() => openLightbox(imageUrl(subclass.image!), subclass.name)}
