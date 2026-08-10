@@ -4,6 +4,14 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.88 - 2026-08-10
+
+- Improved book chapter prerendering and excluded credits-only chapters from search indexes to prevent soft 404 reports.
+
+## 1.2.87 - 2026-08-10
+
+- Generated working static pages for every older compendium printing and redirected the renamed Mwaxanar route.
+
 ## 1.2.86 - 2026-08-09
 
 - Replaced regex-based script filtering in the generated 404 document with boundary-aware HTML scanning.

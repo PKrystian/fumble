@@ -9,6 +9,7 @@ import {
   PRIMARY_IMAGE_WIDTH,
 } from '../../src/data/compendium/images';
 import { cspHasSourceOrigin } from '../../src/seo/csp';
+import { isBookChapterNameIndexable } from '../../src/features/books/chapterSeo';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const DIST = join(ROOT, 'dist');
@@ -44,6 +45,86 @@ function expectedImageUrl(path: string, width = PRIMARY_IMAGE_WIDTH): string {
   return optimizedImageUrl(normalized, process.env.VITE_IMAGE_TRANSFORM_ORIGIN, width);
 }
 
+interface ReleaseCompendiumItem {
+  id: string;
+  hidden?: boolean;
+  image?: unknown;
+  otherVersions?: Array<{ id: string; source: string }>;
+}
+
+interface ReleaseBook {
+  id: string;
+  type: 'book' | 'adventure';
+  contents?: Array<{ name?: string }>;
+}
+
+function validateBookRoutes(): number {
+  const books = JSON.parse(
+    readFileSync(join(ROOT, 'src/data/generated/books.json'), 'utf8'),
+  ) as ReleaseBook[];
+  let checked = 0;
+  for (const localeInfo of SUPPORTED_LOCALES) {
+    const locale = localeInfo.code;
+    for (const book of books) {
+      const bookRoute = localizedRoute(`/books/${book.id}/`, locale);
+      requireValue(
+        existsSync(join(DIST, `${bookRoute.slice(1)}index.html`)),
+        `Missing book route: ${bookRoute}`,
+      );
+      for (const [index, chapter] of (book.contents ?? []).entries()) {
+        const route = localizedRoute(`/books/${book.id}/${index}/`, locale);
+        const html = read(`${route.slice(1)}index.html`);
+        if (!isBookChapterNameIndexable(chapter.name)) {
+          requireValue(
+            html.includes('<meta name="robots" content="noindex, nofollow" />'),
+            `Non-indexable book chapter must be noindex: ${route}`,
+          );
+        }
+        checked += 1;
+      }
+    }
+  }
+  return checked;
+}
+
+function validateCompendiumRoutes(): number {
+  let checked = 0;
+  for (const file of readdirSync(join(ROOT, 'src/data/generated'))) {
+    if (!file.endsWith('.json')) continue;
+    const category = file.slice(0, -'.json'.length);
+    const source = JSON.parse(
+      readFileSync(join(ROOT, 'src/data/generated', file), 'utf8'),
+    ) as { items?: ReleaseCompendiumItem[] };
+    if (!Array.isArray(source.items)) continue;
+    const ids = new Set(source.items.map((item) => item.id));
+    for (const item of source.items) {
+      for (const version of item.otherVersions ?? []) {
+        requireValue(
+          ids.has(version.id),
+          `Compendium other printing is missing: /compendium/${category}/${version.id}/`,
+        );
+      }
+    }
+    for (const localeInfo of SUPPORTED_LOCALES) {
+      const locale = localeInfo.code;
+      const categoryRoute = localizedRoute(`/compendium/${category}/`, locale);
+      if (!existsSync(join(DIST, `${categoryRoute.slice(1)}index.html`))) continue;
+      for (const item of source.items) {
+        const route = localizedRoute(`/compendium/${category}/${item.id}/`, locale);
+        const html = read(`${route.slice(1)}index.html`);
+        if (item.hidden) {
+          requireValue(
+            html.includes('<meta name="robots" content="noindex, nofollow" />'),
+            `Hidden compendium route must be noindex: ${route}`,
+          );
+        }
+        checked += 1;
+      }
+    }
+  }
+  return checked;
+}
+
 function usesImageHost(path: string): boolean {
   const normalized = path.replace(/^%BASE%\/?/, '/');
   if (normalized.startsWith('/')) return false;
@@ -73,7 +154,7 @@ function validateCompendiumImagePreloads(): number {
             >);
       for (const item of source.items) {
         const localized = { ...item, ...(overlay[item.id] ?? {}) };
-        if (localized.hidden || typeof localized.image !== 'string') continue;
+        if (typeof localized.image !== 'string') continue;
         const route = localizedRoute(`/compendium/${category}/${item.id}/`, locale);
         const html = read(`${route.slice(1)}index.html`);
         const imageWidth = route.includes('/compendium/bestiary/') ? 320 : undefined;
@@ -184,6 +265,8 @@ requireValue(
   '404.html must be a standalone noindex document without scripts',
 );
 const checkedImagePreloads = validateCompendiumImagePreloads();
+const checkedCompendiumRoutes = validateCompendiumRoutes();
+const checkedBookRoutes = validateBookRoutes();
 for (const html of [home, sample]) {
   requireValue(!html.includes('pkrystian.github.io/fumble'), 'Old domain found in HTML');
   requireValue(
@@ -239,5 +322,5 @@ for (const path of ['data/index.html', 'session-log/index.html']) {
 }
 
 process.stdout.write(
-  `Validated ${urls.length} release URLs, ${checkedImagePreloads} image preloads, and discovery files.\n`,
+  `Validated ${urls.length} release URLs, ${checkedCompendiumRoutes} compendium routes, ${checkedBookRoutes} book routes, ${checkedImagePreloads} image preloads, and discovery files.\n`,
 );

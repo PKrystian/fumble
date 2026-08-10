@@ -30,6 +30,10 @@ import {
   fumbleParentClassId,
 } from '../../src/features/homebrew/fumbleHomebrew';
 import { slugify } from '../../src/data/transform/util';
+import {
+  isBookChapterIndexable,
+  isBookChapterNameIndexable,
+} from '../../src/features/books/chapterSeo';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const SITE_URL = 'https://fumble.krystianpinczak.com';
@@ -240,6 +244,7 @@ const STATIC_PAGES: PageInfo[] = [
 
 const LEGACY_REDIRECTS: Record<string, string> = {
   '/compendium/items/danoth-s-visor': '/compendium/items/danoth-s-visor-dormant',
+  '/compendium/bestiary/mwaxanar': '/compendium/bestiary/mwaxanare',
 };
 
 const LEGACY_NON_INDEXABLE_PATHS = [
@@ -576,7 +581,15 @@ function plainText(value: unknown): string {
   if (Array.isArray(value)) return value.map(plainText).filter(Boolean).join(' ');
   if (value && typeof value === 'object') {
     const record = value as Record<string, unknown>;
-    return [record.name, record.entry, record.entries]
+    return [
+      record.name,
+      record.entry,
+      record.entries,
+      record.items,
+      record.rows,
+      record.caption,
+      record.title,
+    ]
       .map(plainText)
       .filter(Boolean)
       .join(' ');
@@ -604,6 +617,14 @@ function bookChapterContext(chapter: BookChapter, includeEntries = false): strin
   ]
     .filter((value): value is string => Boolean(value))
     .join('. ');
+}
+
+function isBookChapterIndexableForLocale(
+  baseChapter: BookChapter,
+  chapter: BookChapter,
+): boolean {
+  if (!isBookChapterNameIndexable(baseChapter.name)) return false;
+  return isBookChapterIndexable(chapter);
 }
 
 function bookDataPath(book: Book, locale: Locale): string {
@@ -806,12 +827,10 @@ function collectPages(locale: Locale): PageInfo[] {
             string,
             CompendiumItem
           >);
-    const items = (raw.items ?? [])
-      .map((baseItem) => ({
-        baseItem,
-        item: { ...baseItem, ...(overlay[baseItem.id] ?? {}) },
-      }))
-      .filter(({ item }) => !item.hidden);
+    const items = (raw.items ?? []).map((baseItem) => ({
+      baseItem,
+      item: { ...baseItem, ...(overlay[baseItem.id] ?? {}) },
+    }));
     const localizedIdentityCounts = new Map<string, number>();
     for (const { item } of items) {
       const key = `${item.name}|${plainText(item.source)}`;
@@ -848,9 +867,9 @@ function collectPages(locale: Locale): PageInfo[] {
         modified: raw.meta?.generatedAt,
         ...(typeof item.image === 'string' ? { image: item.image } : {}),
         kind: 'article',
-        ...(locale === DEFAULT_LOCALE || overlay[baseItem.id]
-          ? {}
-          : { indexable: false }),
+        ...(item.hidden || (locale !== DEFAULT_LOCALE && !overlay[baseItem.id])
+          ? { indexable: false }
+          : {}),
         parent: { path: categoryPath, title: displayCategory },
       });
       if (categoryId === 'classes') {
@@ -910,9 +929,9 @@ function collectPages(locale: Locale): PageInfo[] {
             modified: raw.meta?.generatedAt,
             ...(typeof subclass.image === 'string' ? { image: subclass.image } : {}),
             kind: 'article',
-            ...(locale === DEFAULT_LOCALE || overlay[baseItem.id]
-              ? {}
-              : { indexable: false }),
+            ...(item.hidden || (locale !== DEFAULT_LOCALE && !overlay[baseItem.id])
+              ? { indexable: false }
+              : {}),
             parent: { path: `${categoryPath}/${item.id}`, title: item.name },
           });
         }
@@ -1020,7 +1039,9 @@ function collectPages(locale: Locale): PageInfo[] {
           }),
         ),
         kind: 'book',
-        ...(indexableBook ? {} : { indexable: false }),
+        ...(indexableBook && isBookChapterIndexableForLocale(baseChapter, chapter)
+          ? {}
+          : { indexable: false }),
         parent: { path: bookPath, title: book.name },
       });
     });
