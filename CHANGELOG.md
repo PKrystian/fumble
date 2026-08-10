@@ -4,6 +4,16 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.90 - 2026-08-10
+
+- Indexed distinct older and newer compendium printings while keeping library filtering unchanged.
+
+## 1.2.89 - 2026-08-10
+
+- Fixed Polish SEO locale metadata after client-side language switches.
+- Revealed the interactive compendium landing page after prerender hydration.
+- Corrected duplicate Eberron and Witchlight chapter names in the reader and SEO output.
+
 ## 1.2.88 - 2026-08-10
 
 - Improved book chapter prerendering and excluded credits-only chapters from search indexes to prevent soft 404 reports.

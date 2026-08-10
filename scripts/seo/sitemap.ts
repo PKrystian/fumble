@@ -13,6 +13,10 @@ import {
   getCompendiumCategorySeo,
   getCompendiumEntrySeo,
 } from '../../src/data/compendium/seo';
+import {
+  isCompendiumEntryIndexable,
+  isCompendiumSubclassIndexable,
+} from '../../src/data/compendium/indexability';
 import type { ClassSubclass, CompendiumEntryBase } from '../../src/data/compendium/types';
 import { localizeSubclasses } from '../../src/data/compendium/localize';
 import {
@@ -34,6 +38,7 @@ import {
   isBookChapterIndexable,
   isBookChapterNameIndexable,
 } from '../../src/features/books/chapterSeo';
+import { normalizeBookChapterTitles } from '../../src/features/books/chapterTitle';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const SITE_URL = 'https://fumble.krystianpinczak.com';
@@ -62,7 +67,9 @@ interface PageInfo {
 interface CompendiumItem {
   id: string;
   name: string;
+  englishName?: string;
   hidden?: boolean;
+  otherVersions?: Array<{ id: string; source: string }>;
   entries?: unknown;
   body?: unknown;
   subtitle?: unknown;
@@ -669,8 +676,9 @@ function loadBookChapters(book: Book, locale: Locale): BookChapter[] {
       )
     : [];
   if (locale === DEFAULT_LOCALE) {
-    bookChapterCache.set(key, chapters);
-    return chapters;
+    const normalized = normalizeBookChapterTitles(book.id, chapters, locale);
+    bookChapterCache.set(key, normalized);
+    return normalized;
   }
   const localized = JSON.parse(readFileSync(dataPath, 'utf8')) as {
     data?: Record<string, BookChapter>;
@@ -691,8 +699,9 @@ function loadBookChapters(book: Book, locale: Locale): BookChapter[] {
       ? (localizedChapter as BookChapter)
       : chapter;
   });
-  bookChapterCache.set(key, result);
-  return result;
+  const normalized = normalizeBookChapterTitles(book.id, result, locale);
+  bookChapterCache.set(key, normalized);
+  return normalized;
 }
 
 function firstImageSource(html: string): string | undefined {
@@ -831,12 +840,35 @@ function collectPages(locale: Locale): PageInfo[] {
       baseItem,
       item: { ...baseItem, ...(overlay[baseItem.id] ?? {}) },
     }));
+    const rawIndexabilityItems = items.map(({ baseItem }) => ({
+      id: baseItem.id,
+      name: baseItem.name,
+      ...(typeof baseItem.englishName === 'string'
+        ? { englishName: baseItem.englishName }
+        : {}),
+      source: plainText(baseItem.source),
+      ...(baseItem.hidden !== undefined ? { hidden: baseItem.hidden } : {}),
+      ...(baseItem.otherVersions ? { otherVersions: baseItem.otherVersions } : {}),
+    }));
+    const visibleSubclassKeys = new Set(
+      items
+        .filter(({ baseItem }) => !baseItem.hidden)
+        .flatMap(({ baseItem }) =>
+          subclassRecords(baseItem.subclasses)
+            .filter(isClassSubclass)
+            .map(subclassRouteKey),
+        ),
+    );
     const localizedIdentityCounts = new Map<string, number>();
     for (const { item } of items) {
       const key = `${item.name}|${plainText(item.source)}`;
       localizedIdentityCounts.set(key, (localizedIdentityCounts.get(key) ?? 0) + 1);
     }
-    for (const { baseItem, item } of items) {
+    for (const [index, { baseItem, item }] of items.entries()) {
+      const baseIndexable = isCompendiumEntryIndexable(
+        rawIndexabilityItems[index]!,
+        rawIndexabilityItems,
+      );
       const context = compendiumContext(item);
       const source = plainText(item.source);
       const localizedIdentity = `${item.name}|${source}`;
@@ -867,7 +899,7 @@ function collectPages(locale: Locale): PageInfo[] {
         modified: raw.meta?.generatedAt,
         ...(typeof item.image === 'string' ? { image: item.image } : {}),
         kind: 'article',
-        ...(item.hidden || (locale !== DEFAULT_LOCALE && !overlay[baseItem.id])
+        ...(!baseIndexable || (locale !== DEFAULT_LOCALE && !overlay[baseItem.id])
           ? { indexable: false }
           : {}),
         parent: { path: categoryPath, title: displayCategory },
@@ -910,6 +942,10 @@ function collectPages(locale: Locale): PageInfo[] {
             sourceLabel: sourceLabel(subclassSource, locale),
             displayName: `${item.name}: ${subclassName}`,
           });
+          const subclassIndexable = isCompendiumSubclassIndexable(
+            baseItem,
+            visibleSubclassKeys.has(subclassKey),
+          );
           pages.push({
             path: `${categoryPath}/${item.id}/${subclassKey}`,
             title: `${subclassSeo.title} - Fumble`,
@@ -929,7 +965,9 @@ function collectPages(locale: Locale): PageInfo[] {
             modified: raw.meta?.generatedAt,
             ...(typeof subclass.image === 'string' ? { image: subclass.image } : {}),
             kind: 'article',
-            ...(item.hidden || (locale !== DEFAULT_LOCALE && !overlay[baseItem.id])
+            ...(!baseIndexable ||
+            !subclassIndexable ||
+            (locale !== DEFAULT_LOCALE && !overlay[baseItem.id])
               ? { indexable: false }
               : {}),
             parent: { path: `${categoryPath}/${item.id}`, title: item.name },

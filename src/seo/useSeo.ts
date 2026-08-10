@@ -27,6 +27,12 @@ export function useSeo(title: string, description?: string, indexable = true): v
       'og:description',
       fullDescription,
     );
+    setMetaContent(
+      'meta[property="og:locale"]',
+      'property',
+      'og:locale',
+      locale === 'pl' ? 'pl_PL' : 'en_US',
+    );
     setMetaContent('meta[name="twitter:title"]', 'name', 'twitter:title', fullTitle);
     setMetaContent(
       'meta[name="twitter:description"]',

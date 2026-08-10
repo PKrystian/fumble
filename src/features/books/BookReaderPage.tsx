@@ -17,6 +17,7 @@ import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { type OutlineNode, buildOutline, getBook, loadBookData } from './data';
 import { isBookChapterIndexable } from './chapterSeo';
+import { bookChapterTitle } from './chapterTitle';
 import { bookAnchorHash, readBookAnchor } from './readerAnchor';
 
 function slug(value: string): string {
@@ -65,13 +66,6 @@ function pageOf(chapter: Entry): number | undefined {
   return chapter && typeof chapter === 'object' && typeof chapter.page === 'number'
     ? chapter.page
     : undefined;
-}
-
-function chapterTitle(chapter: Entry, fallback: string): string {
-  if (chapter && typeof chapter === 'object' && typeof chapter.name === 'string') {
-    return chapter.name;
-  }
-  return fallback;
 }
 
 function OutlineList({
@@ -183,8 +177,11 @@ export function BookReaderPage() {
       if (
         fullBook &&
         scrollToHeading(
-          chapterTitle(
+          bookChapterTitle(
+            book?.id ?? '',
             chapters[chapterIndex]!,
+            chapterIndex,
+            locale,
             t('books.chapterFallback', { n: chapterIndex + 1 }),
           ),
         )
@@ -194,7 +191,7 @@ export function BookReaderPage() {
       document.getElementById('book-content')?.scrollTo({ top: 0 });
     }, 60);
     return () => clearTimeout(timer);
-  }, [chapters, chapterIndex, targetPage, targetName, fullBook, t]);
+  }, [chapters, chapterIndex, targetPage, targetName, fullBook, book?.id, locale, t]);
 
   const chapterOutlines = useMemo(
     () => (chapters ?? []).map((c) => buildOutline((c as EntryNode).entries)),
@@ -244,7 +241,7 @@ export function BookReaderPage() {
       ? t('notFound.title')
       : book
         ? active
-          ? `${localizedBookName(book, locale)} - ${chapterTitle(active, t('books.chapterFallback', { n: chapterIndex + 1 }))}`
+          ? `${localizedBookName(book, locale)} - ${bookChapterTitle(book.id, active, chapterIndex, locale, t('books.chapterFallback', { n: chapterIndex + 1 }))}`
           : localizedBookName(book, locale)
         : '',
     routeNotFound
@@ -252,8 +249,11 @@ export function BookReaderPage() {
       : book
         ? active
           ? t('seo.bookChapterDescription', {
-              chapter: chapterTitle(
+              chapter: bookChapterTitle(
+                book.id,
                 active,
+                chapterIndex,
+                locale,
                 t('books.chapterFallback', { n: chapterIndex + 1 }),
               ),
               book: localizedBookName(book, locale),
@@ -287,8 +287,11 @@ export function BookReaderPage() {
           aria-label={t('books.chaptersNav')}
         >
           {(chapters ?? fallbackChapters).map((entry, index) => {
-            const title = chapterTitle(
+            const title = bookChapterTitle(
+              book.id,
               entry as Entry,
+              index,
+              locale,
               t('books.chapterFallback', { n: index + 1 }),
             );
             const outline = chapters != null ? (chapterOutlines[index] ?? []) : [];
@@ -434,8 +437,11 @@ export function BookReaderPage() {
                   className="text-arcane-300 hover:text-arcane-500"
                 >
                   ←{' '}
-                  {chapterTitle(
+                  {bookChapterTitle(
+                    book.id,
                     chapters[chapterIndex - 1]!,
+                    chapterIndex - 1,
+                    locale,
                     t('books.chapterFallback', { n: chapterIndex }),
                   )}
                 </Link>
@@ -447,8 +453,11 @@ export function BookReaderPage() {
                   to={`/books/${book.id}/${chapterIndex + 1}`}
                   className="text-arcane-300 hover:text-arcane-500"
                 >
-                  {chapterTitle(
+                  {bookChapterTitle(
+                    book.id,
                     chapters[chapterIndex + 1]!,
+                    chapterIndex + 1,
+                    locale,
                     t('books.chapterFallback', { n: chapterIndex + 2 }),
                   )}{' '}
                   →
