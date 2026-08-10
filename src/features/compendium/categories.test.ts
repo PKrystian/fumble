@@ -23,6 +23,42 @@ describe('compendium categories', () => {
     expect(category.subtitle(monster, (key) => key)).toContain('construct');
   });
 
+  it('localizes category subtitles for Polish values', () => {
+    expect(
+      getCategory('conditions')!.subtitle(
+        { kind: 'status' } as never,
+        (key) => key,
+        'pl',
+      ),
+    ).toBe('status');
+    expect(
+      getCategory('languages')!.subtitle(
+        { languageType: 'Standard' } as never,
+        (key) => key,
+        'pl',
+      ),
+    ).toBe('standardowy');
+    expect(
+      categories
+        .find((category) => category.id === 'languages')!
+        .filters?.[0]?.labelFor?.('Standard', 'pl'),
+    ).toBe('standardowy');
+    expect(
+      getCategory('objects')!.subtitle(
+        { size: 'Mały lub Mały', objectType: 'Obiekt' } as never,
+        (key) => key,
+        'pl',
+      ),
+    ).toBe('Malutki lub Mały Obiekt');
+    expect(
+      getCategory('vehicles')!.subtitle(
+        { size: '', vehicleType: 'Zaklęcie zaklęć' } as never,
+        (key) => key,
+        'pl',
+      ),
+    ).toBe('Spelljammer');
+  });
+
   it('extracts empty and populated filter values', () => {
     const size = categories
       .find((category) => category.id === 'species')!
@@ -30,6 +66,12 @@ describe('compendium categories', () => {
     expect(size.valuesFor({ size: '' } as never)).toEqual([]);
     expect(size.valuesFor({ size: undefined } as never)).toEqual([]);
     expect(size.valuesFor({ size: 'Medium' } as never)).toEqual(['Medium']);
+    expect(size.labelFor?.('Medium', 'pl')).toBe('Średni');
+
+    const creatureType = categories
+      .find((category) => category.id === 'species')!
+      .filters!.find((filter) => filter.id === 'creatureType')!;
+    expect(creatureType.labelFor?.('Construct', 'pl')).toBe('Konstrukt');
 
     const properties = getCategory('items')!.filters!.find(
       (filter) => filter.id === 'properties',
@@ -109,6 +151,7 @@ describe('compendium categories', () => {
     expect(featureType.valueLabelKey?.('Styl walki')).toBe(
       'compendium.filters.values.fightingStyle',
     );
+    expect(featureType.labelFor?.('Fighting Style', 'pl')).toBe('Styl walki');
   });
 
   it('executes every category contract', async () => {

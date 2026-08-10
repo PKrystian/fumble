@@ -240,7 +240,7 @@ export function buildPool(
         'compendium',
         item,
         cat.id,
-        category ? category.subtitle(item, t) : '',
+        category ? category.subtitle(item, t, locale) : '',
         cat.label,
       ),
     );
@@ -264,7 +264,8 @@ export function buildHomebrewResults(
       const categoryLabel = category
         ? t(`compendium.categories.${category.id}`)
         : t('nav.homebrew');
-      const subtitle = item.subtitle || (category ? category.subtitle(item, t) : '');
+      const subtitle =
+        item.subtitle || (category ? category.subtitle(item, t, locale) : '');
       return toResult('homebrew', item, entry.category, subtitle, categoryLabel);
     });
 }

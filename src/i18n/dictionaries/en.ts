@@ -1345,9 +1345,8 @@ const en = {
     defaultDescription:
       'Free, no-login Dungeons & Dragons 2024 toolkit with character sheets, compendium, dice, DM tools, books, and a campaign wiki.',
     homeDescription:
-      'Fumble is a free, no-login toolkit for Dungeons & Dragons 2024 (5.5e): ' +
-      'character sheets, a full compendium, dice roller, DM screen, and an ' +
-      'Obsidian-powered campaign wiki.',
+      'Free, no-login D&D 2024 toolkit: character sheets, compendium, dice, DM screen, ' +
+      'and an Obsidian-powered campaign wiki.',
     pageTitles: {
       character: 'D&D 2024 Character Sheets',
       compendium: 'D&D 2024 Compendium',
@@ -1397,6 +1396,7 @@ const en = {
   },
   wiki: {
     loading: 'Loading wiki…',
+    emptyPage: 'Nothing here',
     campaignWiki: 'Campaign Wiki',
     noContentYet: 'No wiki content yet. Build it from your Obsidian vault with',
     notYetUnlocked: 'Not yet unlocked',

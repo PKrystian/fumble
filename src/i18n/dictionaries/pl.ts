@@ -562,7 +562,7 @@ const pl: Dictionary = {
         alignment: 'Nastawienie',
         resistances: 'Odporności',
         immunities: 'Immunitety',
-        conditionImmunities: 'Immunitety na Warunki',
+        conditionImmunities: 'Odporności na stany',
         languages: 'Języki',
         kind: 'Rodzaj',
         pantheon: 'Panteon',
@@ -651,7 +651,7 @@ const pl: Dictionary = {
       vulnerabilities: 'Podatności',
       resistances: 'Odporności',
       immunities: 'Immunitety',
-      conditionImmunities: 'Immunitety na Warunki',
+      conditionImmunities: 'Odporności na stany',
       senses: 'Zmysły',
       languages: 'Języki',
       cr: 'PW',
@@ -1350,9 +1350,8 @@ const pl: Dictionary = {
     defaultDescription:
       'Darmowy, niewymagający logowania zestaw narzędzi Dungeons & Dragons 2024 z kartami postaci, kompendium, rzutami kośćmi, narzędziami MG, księgami i wiki kampanii.',
     homeDescription:
-      'Fumble to darmowe narzędzie do Dungeons & Dragons 2024 (5.5e), niewymagające ' +
-      'logowania: karty postaci, pełne kompendium, rzuty kośćmi, ekran MG oraz wiki ' +
-      'kampanii oparte na Obsidian.',
+      'Darmowe narzędzie D&D 2024 bez logowania: karty postaci, kompendium, kości, ' +
+      'ekran MG i wiki kampanii Obsidian.',
     pageTitles: {
       character: 'Karty postaci D&D 2024',
       compendium: 'Kompendium D&D 2024',
@@ -1402,6 +1401,7 @@ const pl: Dictionary = {
   },
   wiki: {
     loading: 'Wczytywanie wiki…',
+    emptyPage: 'Brak treści',
     campaignWiki: 'Wiki kampanii',
     noContentYet:
       'Brak jeszcze treści wiki. Zbuduj ją ze swojego magazynu Obsidian za pomocą',

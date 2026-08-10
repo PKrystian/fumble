@@ -85,6 +85,14 @@ describe('parseMarkup', () => {
     );
   });
 
+  it('localizes variant-rule reference labels without changing their links', () => {
+    renderMarkup('zyskujesz {@variantrule Advantage|XPHB}', 'pl');
+    expect(screen.getByRole('link', { name: 'Przewaga' })).toHaveAttribute(
+      'href',
+      '/compendium/rules/advantage/',
+    );
+  });
+
   it('links Fumble firearm references to the firearm category', () => {
     renderMarkup('use a {@firearm Pneumatic Pistol|Fumble}');
     expect(screen.getByRole('link', { name: 'Pneumatic Pistol' })).toHaveAttribute(
@@ -235,5 +243,12 @@ describe('parseMarkup', () => {
     expect(renderMarkup('before {@b unfinished').container).toHaveTextContent(
       'before unfinished',
     );
+  });
+
+  it('localizes generic book labels in Polish prose', () => {
+    expect(
+      renderMarkup('Chapter 2 is here. See the appendix and rules glossary.', 'pl')
+        .container,
+    ).toHaveTextContent('Rozdział 2 is tutaj. zobacz dodatek and słownik zasad.');
   });
 });

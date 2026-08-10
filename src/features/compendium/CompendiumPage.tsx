@@ -513,7 +513,7 @@ function CompendiumBrowser({
                       ? item.subtitle
                       : isFumbleHomebrew(item)
                         ? item.subtitle
-                        : category.subtitle(item, t)}
+                        : category.subtitle(item, t, locale)}
                   </span>
                 </Link>
               </li>

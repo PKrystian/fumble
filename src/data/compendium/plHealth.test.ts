@@ -153,4 +153,19 @@ describe('pl translation health', () => {
       badSizes: [],
     });
   });
+
+  it('does not ship known mistranslated vehicle and object values', () => {
+    const vehicles = JSON.parse(
+      readFileSync(join(GEN, 'pl', 'vehicles.json'), 'utf8'),
+    ) as Record<string, { vehicleType?: string }>;
+    const objects = JSON.parse(
+      readFileSync(join(GEN, 'pl', 'objects.json'), 'utf8'),
+    ) as Record<string, { size?: string }>;
+    expect(
+      Object.values(vehicles).some((entry) => entry.vehicleType === 'Zaklęcie zaklęć'),
+    ).toBe(false);
+    expect(Object.values(objects).some((entry) => entry.size === 'Mały lub Mały')).toBe(
+      false,
+    );
+  });
 });

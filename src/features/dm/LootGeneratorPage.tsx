@@ -526,15 +526,15 @@ function HoardResult({ hoard }: { hoard: Hoard | null }) {
             {hoard.items.map(({ item, usableBy }) => (
               <li key={item.id} className="text-sm">
                 <div className="flex items-center justify-between">
-                  <a
-                    href={`${import.meta.env.BASE_URL}compendium/items/${item.id}`}
+                  <Link
+                    to={`/compendium/items/${item.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-ink-50 hover:text-arcane-300 hover:underline"
                   >
                     {item.name}
                     <ExternalLink size={12} className="text-ink-500" aria-hidden="true" />
-                  </a>
+                  </Link>
                   <span className="text-ink-400">
                     {item.type} · {item.rarity}
                   </span>

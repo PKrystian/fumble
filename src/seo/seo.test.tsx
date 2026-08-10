@@ -134,6 +134,18 @@ describe('SEO head helpers', () => {
     expect(document.head.querySelector('link[rel="alternate"]')).toBeNull();
   });
 
+  it('clips long descriptions to the search snippet limit', () => {
+    render(
+      <MemoryRouter>
+        <SeoHarness title="Long page" description={'A'.repeat(200)} />
+      </MemoryRouter>,
+    );
+    expect(document.head.querySelector('meta[name="description"]')).toHaveAttribute(
+      'content',
+      `${'A'.repeat(157)}...`,
+    );
+  });
+
   it('marks query variants as noindex while keeping links crawlable', () => {
     render(
       <MemoryRouter initialEntries={['/compendium/spells/?q=fireball']}>

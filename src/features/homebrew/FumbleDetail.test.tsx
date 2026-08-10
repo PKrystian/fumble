@@ -18,6 +18,13 @@ import { fumbleHomebrewItems } from './fumbleHomebrew';
 import { FumbleDetail } from './FumbleDetail';
 
 describe('FumbleDetail', () => {
+  it('localizes fallback prerequisites in Polish Fumble data', () => {
+    expect(
+      fumbleHomebrewItems('pl').find((entry) => entry.id === 'starting-flaw-stuttering')
+        ?.prerequisite,
+    ).toBe('Cecha rzucania czarów lub Magia Paktu');
+  });
+
   it('renders class progression, features, and subclasses', () => {
     const item = fumbleHomebrewItems('en').find((entry) => entry.id === 'witch')!;
 

@@ -72,7 +72,7 @@ describe('localizeEntry', () => {
 
     const result = localizeEntry(entry, {
       artificer: {
-        name: 'RzemieÅ›lnik',
+        name: 'Rzemieślnik',
         subclasses: [
           { name: 'Alchemik', source: 'EFA', features: [] },
           { name: 'Zbrojmistrz', source: 'EFA', features: [] },

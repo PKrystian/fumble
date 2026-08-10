@@ -131,6 +131,23 @@ describe('compendium SEO helpers', () => {
     expect(itemSeo.description).toContain('Requires attunement by a fighter');
   });
 
+  it('localizes corrected compendium values in Polish SEO descriptions', () => {
+    const seo = getCompendiumEntrySeo({
+      categoryId: 'vehicles',
+      categoryLabel: 'Pojazdy',
+      item: {
+        ...entry,
+        size: 'Mały lub Mały',
+        vehicleType: 'Zaklęcie zaklęć',
+      } as CompendiumEntryBase,
+      locale: 'pl',
+      sourceLabel: 'Przewodnik',
+    });
+    expect(seo.description).toContain('rozmiar Malutki lub Mały');
+    expect(seo.description).toContain('typ pojazdu Spelljammer');
+    expect(seo.description).not.toContain('Zaklęcie zaklęć');
+  });
+
   it('falls back for entries without a category-specific type and clips long descriptions', () => {
     const english = getCompendiumEntrySeo({
       categoryId: 'items',

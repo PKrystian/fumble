@@ -190,7 +190,11 @@ export async function loadReferenceHint(
   const subtitle =
     typeof itemSubtitle === 'string'
       ? itemSubtitle
-      : category!.subtitle(item, (key, vars) => translate(locale as Locale, key, vars));
+      : category!.subtitle(
+          item,
+          (key, vars) => translate(locale as Locale, key, vars),
+          locale as Locale,
+        );
   const description = truncate(firstText(describableEntries(item)));
   return {
     name: item.name,
