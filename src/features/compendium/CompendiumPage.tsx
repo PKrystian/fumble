@@ -48,9 +48,13 @@ import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 import { SearchField } from '@/features/ui/primitives';
 import { toggleChipClass } from '@/features/ui/styles';
 import { normalizeSearchText } from '@/data/compendium/searchText';
+import {
+  isCompendiumEntryIndexable,
+  isCompendiumSubclassIndexable,
+} from '@/data/compendium/indexability';
 import { getCompendiumCategorySeo, getCompendiumEntrySeo } from '@/data/compendium/seo';
 import type { ClassEntry } from '@/data/compendium/types';
-import { findSubclassByRouteKey } from './subclassRoute';
+import { findSubclassByRouteKey, subclassRouteKey } from './subclassRoute';
 import { revealApp } from '@/seo/prerendered';
 import packageInfo from '../../../package.json';
 
@@ -68,6 +72,9 @@ const LEGACY_ENTRY_ALIASES: Record<string, string> = {
 
 function CompendiumLandingPage() {
   const { t } = useT();
+  useEffect(() => {
+    revealApp();
+  }, []);
   useSeo(t('seo.pageTitles.compendium'), t('seo.pageDescriptions.compendium'));
 
   return (
@@ -290,6 +297,17 @@ function CompendiumBrowser({
           requestedSubclassId,
         )
       : undefined;
+  const hasVisibleSubclassParent =
+    selected?.hidden && selectedSubclass
+      ? items.some((candidate) => {
+          if (candidate.hidden || candidate.id === selected.id) return false;
+          const subclasses = (candidate as Partial<ClassEntry>).subclasses ?? [];
+          return subclasses.some(
+            (candidateSubclass) =>
+              subclassRouteKey(candidateSubclass) === subclassRouteKey(selectedSubclass),
+          );
+        })
+      : false;
   const seo = selected
     ? getCompendiumEntrySeo({
         categoryId,
@@ -307,7 +325,12 @@ function CompendiumBrowser({
     status === 'ready' &&
     Boolean(selectedId) &&
     (!selected || Boolean(selectedSubclassId && !selectedSubclass));
-  const indexable = status === 'ready' && !routeNotFound;
+  const indexable =
+    status === 'ready' &&
+    !routeNotFound &&
+    (!selected ||
+      (isCompendiumEntryIndexable(selected, items) &&
+        isCompendiumSubclassIndexable(selected, Boolean(hasVisibleSubclassParent))));
 
   useSeo(
     routeNotFound ? t('notFound.title') : seo.title,

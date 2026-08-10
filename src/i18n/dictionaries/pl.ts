@@ -451,7 +451,7 @@ const pl: Dictionary = {
         homecrafts: 'opcja rzemiosła',
       },
       entryTitle: '{{name}} - {{type}} D&D 2024 ({{source}})',
-      entryDescription: '{{type}} D&D 2024: {{name}}. {{details}} Źródło: {{source}}.',
+      entryDescription: '{{type}} D&D 2024: {{name}}. Źródło: {{source}}. {{details}}',
       entryDetailsFallback: 'Sprawdź zasady, cechy i informacje o źródle tego wpisu.',
       details: {
         level: 'poziom {{value}}',

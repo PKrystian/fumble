@@ -4,6 +4,7 @@ import type { Entry } from '@/data/compendium/entry';
 import type { BookIndexEntry } from '@/data/compendium/types';
 import type { Locale } from '@/i18n/locales';
 import { bookDataUrl, readBookData } from './dataCompression';
+import { normalizeBookChapterTitles } from './chapterTitle';
 
 export const books = (booksIndex as BookIndexEntry[]).filter((b) => b.type === 'book');
 export const adventures = (booksIndex as BookIndexEntry[]).filter(
@@ -104,7 +105,14 @@ export function loadBookData(entry: BookIndexEntry, locale: string): Promise<Ent
       .then((r) => readBookData<{ data?: Entry[] }>(r, COMPRESSED_BOOK_DATA))
       .then((d: { data?: Entry[] }) => d.data ?? []),
     loadBookOverlay(entry, locale),
-  ]).then(([chapters, overlay]) => localizeChapters(chapters, overlay));
+  ]).then(
+    ([chapters, overlay]) =>
+      normalizeBookChapterTitles(
+        entry.id,
+        localizeChapters(chapters, overlay),
+        locale === 'pl' ? 'pl' : 'en',
+      ) as Entry[],
+  );
   cache.set(key, promise);
   void promise.catch(() => {
     if (cache.get(key) === promise) cache.delete(key);

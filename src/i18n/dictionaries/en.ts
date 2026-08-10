@@ -446,7 +446,7 @@ const en = {
         homecrafts: 'crafting option',
       },
       entryTitle: '{{name}} D&D 2024 {{type}} ({{source}})',
-      entryDescription: 'D&D 2024 {{type}}: {{name}}. {{details}} Source: {{source}}.',
+      entryDescription: 'D&D 2024 {{type}}: {{name}}. Source: {{source}}. {{details}}',
       entryDetailsFallback:
         'Explore rules, features, and source references for this entry.',
       details: {

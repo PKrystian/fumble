@@ -227,15 +227,28 @@ describe('CompendiumPage', () => {
   it('renders a hidden older printing when opened directly', () => {
     mocks.result = {
       status: 'ready',
-      items: [official, { ...official, id: 'dragon-old', source: 'PHB', hidden: true }],
+      items: [
+        official,
+        {
+          ...official,
+          id: 'dragon-old',
+          source: 'PHB',
+          hidden: true,
+          otherVersions: [{ id: official.id, source: official.source }],
+        },
+      ],
     };
 
     renderPage('/compendium/species/dragon-old');
 
     expect(screen.getByText('Detail Dragon')).toBeInTheDocument();
     expect(
-      screen.getByRole('link', { name: "Player's Handbook (2014)" }),
+      screen.getByRole('link', { name: /Player's Handbook \(2014\)/ }),
     ).toBeInTheDocument();
+    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      'index, follow',
+    );
   });
 
   it('does not index an unknown class subclass route', () => {

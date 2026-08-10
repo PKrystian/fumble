@@ -10,6 +10,7 @@ import {
 } from '../../src/data/compendium/images';
 import { cspHasSourceOrigin } from '../../src/seo/csp';
 import { isBookChapterNameIndexable } from '../../src/features/books/chapterSeo';
+import { isCompendiumEntryIndexable } from '../../src/data/compendium/indexability';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const DIST = join(ROOT, 'dist');
@@ -47,6 +48,8 @@ function expectedImageUrl(path: string, width = PRIMARY_IMAGE_WIDTH): string {
 
 interface ReleaseCompendiumItem {
   id: string;
+  name: string;
+  source: string;
   hidden?: boolean;
   image?: unknown;
   otherVersions?: Array<{ id: string; source: string }>;
@@ -97,6 +100,13 @@ function validateCompendiumRoutes(): number {
     ) as { items?: ReleaseCompendiumItem[] };
     if (!Array.isArray(source.items)) continue;
     const ids = new Set(source.items.map((item) => item.id));
+    const indexabilityItems = source.items.map((item) => ({
+      id: item.id,
+      name: item.name,
+      source: item.source,
+      ...(item.hidden !== undefined ? { hidden: item.hidden } : {}),
+      ...(item.otherVersions ? { otherVersions: item.otherVersions } : {}),
+    }));
     for (const item of source.items) {
       for (const version of item.otherVersions ?? []) {
         requireValue(
@@ -112,10 +122,15 @@ function validateCompendiumRoutes(): number {
       for (const item of source.items) {
         const route = localizedRoute(`/compendium/${category}/${item.id}/`, locale);
         const html = read(`${route.slice(1)}index.html`);
-        if (item.hidden) {
+        if (!isCompendiumEntryIndexable(item, indexabilityItems)) {
           requireValue(
             html.includes('<meta name="robots" content="noindex, nofollow" />'),
             `Hidden compendium route must be noindex: ${route}`,
+          );
+        } else if (item.hidden) {
+          requireValue(
+            html.includes('<meta name="robots" content="index, follow" />'),
+            `Alternate compendium printing must be indexable: ${route}`,
           );
         }
         checked += 1;
