@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.95 - 2026-08-11
+
+- Stabilized legal-page E2E coverage around the remembered language preference.
+
 ## 1.2.94 - 2026-08-11
 
 - Applied the remembered language preference to every route.
