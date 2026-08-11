@@ -4,6 +4,16 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.94 - 2026-08-11
+
+- Applied the remembered language preference to every route.
+- Added Polish overlays for all newly imported 5etools compendium entries.
+
+## 1.2.93 - 2026-08-11
+
+- Imported 5etools copy-based records across the compendium, including adventure NPCs.
+- Preserved newer conditional movement data from 5etools.
+
 ## 1.2.92 - 2026-08-10
 
 - Restored direct compendium image URLs after removing Cloudflare Image Transformations.

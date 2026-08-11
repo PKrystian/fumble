@@ -86,6 +86,9 @@ describe('data formatters', () => {
     expect(format.formatSpeed({ walk: 30, fly: 60, hover: true })).toBe(
       '30 ft., fly 60 ft.',
     );
+    expect(
+      format.formatSpeed({ walk: { number: 30, condition: '(40 ft. in tiger form)' } }),
+    ).toBe('30 ft. (40 ft. in tiger form)');
     expect(format.formatSpeed(undefined)).toBe('-');
     expect(
       format.formatProficiencies([

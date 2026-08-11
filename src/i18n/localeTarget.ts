@@ -8,7 +8,7 @@ export function rememberedLocaleTarget(
   preferredLocale: Locale,
 ): string | null {
   const { locale, rest } = stripLocale(pathname);
-  if (locale !== DEFAULT_LOCALE || rest !== '/' || preferredLocale === DEFAULT_LOCALE) {
+  if (locale !== DEFAULT_LOCALE || preferredLocale === DEFAULT_LOCALE) {
     return null;
   }
   return `${localizePath(rest, preferredLocale)}${search}${hash}`;

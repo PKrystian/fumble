@@ -89,6 +89,24 @@ describe('pl translation health', () => {
     expect({ missing, extra }).toEqual({ missing: [], extra: [] });
   });
 
+  it('provides a Polish overlay for every generated compendium entry', () => {
+    const missing: string[] = [];
+    for (const file of readdirSync(GEN).filter((name) => name.endsWith('.json'))) {
+      const source = JSON.parse(readFileSync(join(GEN, file), 'utf8')) as {
+        items?: Array<{ id: string }>;
+      };
+      if (!source.items) continue;
+      const overlay = JSON.parse(readFileSync(join(GEN, 'pl', file), 'utf8')) as Record<
+        string,
+        unknown
+      >;
+      for (const item of source.items)
+        if (!Object.prototype.hasOwnProperty.call(overlay, item.id))
+          missing.push(`${file}:${item.id}`);
+    }
+    expect(missing).toEqual([]);
+  });
+
   it('pl overlays introduce no mass of broken reference links', () => {
     let enBroken = 0;
     for (const f of readdirSync(GEN).filter((f) => f.endsWith('.json'))) {
@@ -114,8 +132,12 @@ describe('pl translation health', () => {
       'Niebianin',
       'Nieumarły',
       'Olbrzym',
+      'Opiekun',
       'Roślina',
       'Smok',
+      'Strażnik Ognia',
+      'Totem',
+      'Zjawa',
       'Żywiołak',
     ]);
     const SIZES = new Set([

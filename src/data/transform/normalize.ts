@@ -201,7 +201,7 @@ export interface RawSpecies {
   page?: number;
   srd52?: boolean;
   size?: string[];
-  speed?: number | Record<string, number | boolean>;
+  speed?: Parameters<typeof formatSpeed>[0];
   creatureTypes?: string[];
   entries?: Entry[];
 }
@@ -218,7 +218,7 @@ function extractSpeeds(speed: RawSpecies['speed']): {
   }
   const walkSpeed = typeof speed.walk === 'number' ? speed.walk : 30;
 
-  const resolve = (value: number | boolean | undefined): number =>
+  const resolve = (value: unknown): number =>
     typeof value === 'number' ? value : value === true ? walkSpeed : 0;
   return {
     walkSpeed,
@@ -413,7 +413,7 @@ export interface RawMonster {
   ac?: Array<number | { ac?: number }>;
   initiative?: number | { proficiency?: number; initiative?: number };
   hp?: { average?: number; formula?: string; special?: string };
-  speed?: number | Record<string, number | boolean>;
+  speed?: Parameters<typeof formatSpeed>[0];
   str?: number;
   dex?: number;
   con?: number;
