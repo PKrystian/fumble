@@ -49,6 +49,11 @@ test('legal pages are available in both languages', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'YouTube' })).toBeVisible();
 
   await page.goto('/legal/accessibility');
+  await expect(page).toHaveURL(/\/pl\/legal\/accessibility\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dostępność');
+
+  await page.evaluate(() => localStorage.removeItem('fumble-locale'));
+  await page.goto('/legal/accessibility');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Accessibility');
 
   await page.goto('/pl/legal/contact');

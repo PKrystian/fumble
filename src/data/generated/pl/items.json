@@ -72164,5 +72164,2450 @@
         }
       }
     }
+  },
+  "alchemist-s-doom": {
+    "name": "Zagłada Alchemika",
+    "weight": "1 funt",
+    "entries": [
+      "Ten lepki, klejący płyn zapala się pod wpływem powietrza. W ramach akcji możesz rzucić tę kolbę na odległość do 20 stóp, rozbijając ją przy uderzeniu. Wykonaj atak dystansowy przeciwko stworzeniu lub przedmiotowi, traktując zagładę alchemika jako improwizowaną broń. Po trafieniu cel otrzymuje 7 ({@damage 2d6}) obrażeń od ognia na początku każdej swojej tury. Istota może zakończyć te obrażenia, wykorzystując swoją akcję do wykonania testu Zręczności {@dc 10} w celu ugaszenia płomieni."
+    ]
+  },
+  "ascendant-dragon-vessel": {
+    "name": "Wznoszący się statek smoka",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "entries": [
+      "Naczyniem tym może być butelka na eliksir, róg do picia lub inny pojemnik przeznaczony do przechowywania płynu.",
+      "Jako akcja dodatkowa, jeśli naczynie jest puste, możesz wypowiedzieć słowo polecenia, aby napełnić naczynie jednym z następujących (do wyboru): piwo, oliwa z oliwek, miód pitny, wino, whisky, a {@item potion of healing}, {@item potion of greater healing}, {@item potion of superior healing}, a {@item potion of supreme healing}, a {@item potion of climbing}, a {@item potion of fire breath}, {@item potion of flying} lub {@item potion of dragon's majesty|FTD}. Gdy ta właściwość zostanie wykorzystana, nie można z niej skorzystać aż do następnego świtu. Stworzony w ten sposób eliksir traci swoje magiczne właściwości, jeśli nie zostanie wypity w ciągu 24 godzin."
+    ]
+  },
+  "ascendant-dragon-touched-focus": {
+    "name": "Wznoszące się skupienie dotknięte smokiem",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia przez rzucającego zaklęcia",
+    "entries": [
+      "Tym cudownym przedmiotem może być berło, kula, amulet, kryształ lub inny pięknie wykonany przedmiot. Zwykle zawiera obrazy skrzydeł, pazurów, zębów lub łusek smoków.",
+      "Masz przewagę w rzutach na inicjatywę. Kiedy trzymasz skupienie, może ono działać jako skupienie rzucania zaklęć dla wszystkich twoich zaklęć.",
+      "Skupienie zyskuje dodatkową właściwość określoną przez rodzinę smoka, w którego skarbcu stało się Mieszające:",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Chromatyczny",
+            "entries": [
+              "Ilekroć używasz miejsca na zaklęcie, aby rzucić zaklęcie, które zadaje obrażenia od kwasu, zimna, ognia, błyskawic lub trucizny, rzuć {@dice d6}, a otrzymasz premię równą liczbie wyrzuconej do jednego z rzutów na obrażenia zaklęcia."
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Klejnot",
+            "entries": [
+              "Ilekroć używasz miejsca na zaklęcie do rzucenia zaklęcia, możesz natychmiast teleportować się do niezajętego miejsca, które widzisz w promieniu 5 stóp od ciebie."
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Metaliczny",
+            "entries": [
+              "Kiedy istota, którą widzisz w promieniu 30 stóp od ciebie, wykona rzut obronny, możesz wykorzystać swoją reakcję, aby dać temu stworzeniu przewagę w rzucie obronnym."
+            ]
+          }
+        ]
+      },
+      "Kiedy trzymasz skupienie Przebudzonego, możesz go używać do rzucania określonych zaklęć. Kiedy przedmiot zostanie użyty do rzucenia danego zaklęcia, nie można go użyć do rzucenia tego czaru ponownie aż do następnego świtu. Zaklęcia są określane przez rodzinę smoka, w którego skarbcu został Przebudzony.",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Chromatyczny",
+            "entries": [
+              "{@spell Hold monster}, {@spell Rime's binding ice|FTD}"
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Klejnot",
+            "entries": [
+              "{@spell Rary's telepathic bond}, {@spell Raulothim's psychic lance|FTD}"
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Metaliczny",
+            "entries": [
+              "{@spell Fizban's platinum shield|FTD}, {@spell legend lore}"
+            ]
+          }
+        ]
+      },
+      "Kiedy rzucisz zaklęcie 1. lub wyższego poziomu, trzymając to skupienie, możesz traktować je tak, jakby zostało rzucone przy użyciu miejsca na zaklęcie 9. poziomu. Gdy ta właściwość zostanie wykorzystana, nie można jej ponownie użyć aż do następnego świtu."
+    ]
+  },
+  "ascendant-scaled-ornament": {
+    "name": "Ozdoba w kształcie rosnącej łuski",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "entries": [
+      "Ozdobą może być biżuteria, płaszcz lub inny dodatek do noszenia. Wydaje się, że jest wykonany ze smoczej łuski, zęba lub pazura, albo zawiera obrazy w tych kształtach.",
+      "Otrzymujesz premię +1 do KP i nie możesz być {@condition charmed} ani {@condition frightened}. Co więcej, każde wybrane przez ciebie stworzenie w promieniu 30 stóp od ciebie ma przewagę w rzutach obronnych, które wykonuje, aby uniknąć bycia {@condition charmed} lub {@condition frightened} lub zakończyć te warunki na sobie.",
+      "Kiedy miałbyś otrzymać obrażenia zadawane przez oddech smoka, w którego skarbcu przebudziła się ozdoba, możesz zamiast tego użyć swojej reakcji, aby nie otrzymywać obrażeń i odzyskać punkty wytrzymałości równe obrażeniom, które byś przyjął. Gdy ta właściwość zostanie wykorzystana, nie można jej ponownie użyć aż do następnego świtu.",
+      "Kiedy nosisz ozdobę, zyskujesz prędkość lotu równą prędkości chodzenia i możesz unosić się w powietrzu. Kiedy lecisz z tą prędkością, na twoich plecach pojawiają się widmowe skrzydła smoka."
+    ]
+  },
+  "blade-of-broken-mirrors-awakened": {
+    "name": "Ostrze Rozbitych Luster (Przebudzony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia przez humanoida",
+    "weight": "1 funt",
+    "damage": "Piercing 1d4",
+    "properties": "Finezja, Lekkość, Rzucanie, Wszechstronność",
+    "weaponCategory": "prosty",
+    "entries": [
+      "Broń Tharizduna, ten sztylet to kawałek postrzępionego kamienia, którego ostrze jest wyryte wzorem przypominającym labirynt, bez początku ani końca.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Ostrze Rozbitych Luster jest świadomą, chaotyczną, złą bronią o Inteligencji 21, Mądrości 24 i Charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań i Wspólność."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "Szalony {@creature glabrezu} o imieniu Ragazuu żyje w Ostrzu Rozbitych Luster. Broń pragnie wywołać chaos. Uczy się zasad swojego posiadacza, a następnie wykorzystuje te ideały, aby zachęcić do lekkomyślnych działań. Sztylet szepcze idee rewolucji."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Sztylet zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz mówić, czytać i pisać Abyssal.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią. Natychmiast po wykonaniu ataku dystansowego tą bronią wraca ona do twojej ręki.",
+              "Ilekroć zabijesz humanoida atakiem z użyciem Ostrza Rozbitych Luster, ostrze zapamiętuje wygląd stworzenia. Trzymając sztylet, możesz wykonać akcję, aby zmienić swoją formę tak, aby pasowała do dowolnego humanoida zapamiętanego przez ostrze. Twoje statystyki, poza rozmiarem, się nie zmieniają. Żaden sprzęt, który nosisz lub nosisz, nie ulega transformacji. Możesz powrócić do swojego prawdziwego wyglądu w ramach akcji. Po śmierci automatycznie powracasz do swojego prawdziwego wyglądu. Kiedy Ostrze Rozbitych Luster dostraja się do nowego posiadacza, wygląd zabitych przez nie humanoidów zostaje wymazany z jego pamięci."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy sztylet osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "Trzymając broń, możesz wykonać akcję, aby rzucić z niej jedno z następujących zaklęć (zapisz {@dc 15}): {@spell fabricate}, {@spell hallucinatory terrain}, {@spell major image} lub {@spell phantasmal killer}. Kiedy zaklęcie zostanie rzucone za pomocą sztyletu, nie można go ponownie rzucić aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "cloak-of-billowing-xdmg": {
+    "name": "Płaszcz falujący",
+    "rarity": "Wspólny",
+    "entries": [
+      "Nosząc ten płaszcz, możesz wziąć {@variantrule Bonus Action|XPHB}, aby dramatycznie falował przez 1 minutę."
+    ]
+  },
+  "danoth-s-visor-awakened": {
+    "name": "Wizjer Danotha (Przebudzony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Te gogle z mithralową oprawką i przezroczystymi diamentowymi soczewkami były używane przez przywoływacza Danotha Oro do wykrywania wrogów {@condition invisible} i badania obszarów z daleka.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy Wizjer Danotha osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Widzisz stworzenia i obiekty {@condition invisible} w promieniu 60 stóp od ciebie, tak jakby były widoczne, i możesz zajrzeć do Planu Eterycznego. Eteryczne stworzenia i przedmioty wydają się upiorne i przezroczyste.",
+              "Jako akcja dodatkowa możesz wypowiedzieć słowo rozkazu i użyć gogli, aby zajrzeć do i przez materię stałą. Wizja ta ma promień 60 stóp i trwa 1 minutę. Dla ciebie obiekty stałe w tym promieniu wydają się przezroczyste. Wizja może przeniknąć do 1 stopy kamienia, 1 cala zwykłego metalu lub do 3 stóp drewna lub ziemi. Grubsze substancje blokują widzenie, podobnie jak cienka warstwa ołowiu. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
+              "Jako dodatkową akcję możesz wypowiedzieć polecenie, aby przełączyć gogle w tryb lunety. W tym trybie stworzenia i obiekty oglądane przez gogle są powiększane dwukrotnie. Ponowne wypowiedzenie słowa polecenia przywraca normalne działanie gogli."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Nosząc gogle w stanie uśpienia, możesz normalnie widzieć w ciemności, zarówno magicznej, jak i niemagicznej, na odległość 20 metrów. Dodatkowo masz przewagę w testach Inteligencji ({@skill Investigation}) i Mądrości ({@skill Perception}), które opierają się na wzroku."
+        ]
+      }
+    ]
+  },
+  "danoth-s-visor-exalted": {
+    "name": "Daszek Danotha (Wywyższony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Te gogle z mithralową oprawką i przezroczystymi diamentowymi soczewkami były używane przez przywoływacza Danotha Oro do wykrywania wrogów {@condition invisible} i badania obszarów z daleka.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy Wizjer Danotha osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Widzisz stworzenia i obiekty {@condition invisible} w promieniu 60 stóp od ciebie, tak jakby były widoczne, i możesz zajrzeć do Planu Eterycznego. Eteryczne stworzenia i przedmioty wydają się upiorne i przezroczyste.",
+              "Jako akcja dodatkowa możesz wypowiedzieć słowo rozkazu i użyć gogli, aby zajrzeć do i przez materię stałą. Wizja ta ma promień 60 stóp i trwa 1 minutę. Dla ciebie obiekty stałe w tym promieniu wydają się przezroczyste. Wizja może przeniknąć do 1 stopy kamienia, 1 cala zwykłego metalu lub do 3 stóp drewna lub ziemi. Grubsze substancje blokują widzenie, podobnie jak cienka warstwa ołowiu. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
+              "Jako dodatkową akcję możesz wypowiedzieć polecenie, aby przełączyć gogle w tryb lunety. W tym trybie stworzenia i obiekty oglądane przez gogle są powiększane dwukrotnie. Ponowne wypowiedzenie słowa polecenia przywraca normalne działanie gogli."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy Wizjer Danotha osiągnie wysoki stan, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Automatycznie wykrywasz iluzje, które możesz zobaczyć i automatycznie udaje Ci się wykonać rzuty obronne przeciwko nim. Ponadto wokół każdego stworzenia, które nie jest w swojej prawdziwej formie, widzisz jasną aurę.",
+              "Jako akcję możesz rzucić zaklęcie {@spell antimagic field} z wizjera. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Nosząc gogle w stanie uśpienia, możesz normalnie widzieć w ciemności, zarówno magicznej, jak i niemagicznej, na odległość 20 metrów. Dodatkowo masz przewagę w testach Inteligencji ({@skill Investigation}) i Mądrości ({@skill Perception}), które opierają się na wzroku."
+        ]
+      }
+    ]
+  },
+  "book-of-vile-darkness-variant": {
+    "name": "Księga Plugawej Ciemności (wariant)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "5 funtów",
+    "entries": [
+      "Zawartość tego obrzydliwego rękopisu niewysłowionej niegodziwości jest pokarmem i napojem tych, którzy są w niewoli zła. Żaden śmiertelnik nie miał poznać sekretów, jakie zawiera, wiedzy tak okropnej, że nawet rzut oka na nabazgrane strony prowadzi do szaleństwa.",
+      "Większość wierzy, że bóg-licz Vecna ​​jest autorem Księgi Plugawej Ciemności. Zapisywał na jej stronach każdy chory pomysł, każdą szaloną myśl i każdy przykład najczarniejszej magii, na jaką natrafił lub którą wymyślił. Vecna ​​poruszał każdy okropny temat, jaki tylko mógł, czyniąc z książki makabryczny katalog wszystkich śmiertelnych krzywd.",
+      "Inni praktykujący zło trzymali tę księgę i dodali swój własny wkład do jej katalogu podłej wiedzy. Ich uzupełnienia są jasne, gdyż autorzy późniejszych dzieł wszyli w tom to, co pisali, lub w niektórych przypadkach dokonali notatek i uzupełnień do istniejącego tekstu. Są miejsca, w których brakuje stron, są one podarte. lub pokryte tak całkowicie atramentem, krwią i zadrapaniami, że nie można odgadnąć oryginalnego tekstu.",
+      "Natura nie może znieść obecności księgi. Zwykłe rośliny więdną w jego obecności, zwierzęta niechętnie się do niego zbliżają, a księga stopniowo niszczy wszystko, czego dotknie. Nawet kamień pęka i zamienia się w proszek, jeśli książka spoczywa na nim wystarczająco długo.",
+      "Istota dostrojona do księgi musi spędzić 80 godzin na jej czytaniu i studiowaniu, aby przetrawić jej treść i czerpać z niej korzyści. Stworzenie może następnie dowolnie modyfikować zawartość księgi, pod warunkiem, że te modyfikacje posuną zło i poszerzą wiedzę już w niej zawartą.",
+      "Ilekroć nie-złe stworzenie dostraja się do Księgi Plugawej Ciemności, stworzenie to musi wykonać rzut obronny na Charyzmę {@dc 17}. W przypadku nieudanego rzutu obronnego charakter stworzenia zmienia się na neutralny zły.",
+      "Księga Plugawej Ciemności pozostanie z tobą tak długo, jak będziesz starał się czynić zło na świecie. Jeśli w ciągu 10 dni nie dokonasz chociaż jednego złego czynu lub jeśli dobrowolnie wykonasz dobry uczynek, księga znika. Jeśli umrzesz, dostrojony do księgi, istota wielkiego zła zawładnie twoją duszą. Nie możesz w żaden sposób zostać przywrócony do życia, dopóki twoja dusza pozostaje uwięziona.",
+      "Księga Plugawej Ciemności ma następujące właściwości:",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Krąg Śmierci",
+            "entries": [
+              "Dostrojony do księgi, możesz rzucić z niej {@spell circle of death} (zapisz {@dc 20}) jako akcję. Po rzuceniu zaklęcia rzuć {@dice d6}. Przy wyniku 1-5 nie możesz ponownie skorzystać z tej właściwości aż do następnego świtu."
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Immunitety warunkowe",
+            "entries": [
+              "Będąc dostrojonym do książki, nie możesz być {@condition charmed} Lub {@condition frightened}."
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Obecność zła",
+            "entries": [
+              "W księdze przebywa zły duch, który jest wobec ciebie wrogi. Kiedy dostroisz się do książki, duch będzie próbował opuścić książkę i wejść do twojego ciała. Jeśli nie uda Ci się a {@dc 20} Rzut obronny na Charyzmę kończy się sukcesem i stajesz się NPC pod kontrolą DM, dopóki natrętny duch nie zostanie wygnany za pomocą magii, takiej jak {@spell dispel evil and good} zaklęcie. Wygnany duch powraca do księgi."
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Skorygowane wyniki umiejętności",
+        "type": "entries",
+        "entries": [
+          "Po spędzeniu wymaganej ilości czasu na czytaniu i studiowaniu książki, jedna z wybranych przez ciebie wartości zdolności wzrasta o 2, do maksymalnie 24. Kolejna wybrana przez ciebie wartość zdolności zmniejsza się o 2, do minimum 3. Książka nie może ponownie dostosować twoich wartości zdolności."
+        ]
+      },
+      {
+        "name": "Znak Ciemności",
+        "type": "entries",
+        "entries": [
+          "Po spędzeniu wymaganej ilości czasu na czytaniu i studiowaniu tej książki, doznajesz fizycznego oszpecenia, będącego ohydną oznaką twojego oddania okropnej ciemności. Na twojej twarzy może pojawić się zła runa, twoje oczy mogą stać się lśniąco czarne, a z czoła mogą wyrosnąć rogi. Możesz też stać się pomarszczony i okropny, stracić wszystkie rysy twarzy, zyskać rozwidlony język lub inną cechę wybraną przez DM. Znak ciemności zapewnia ci przewagę w testach Charyzmy ({@skill Persuasion}) wykonywanych w celu interakcji ze złymi stworzeniami i testów Charyzmy ({@skill Intimidation}) wykonywanych w celu interakcji z nie-złymi stworzeniami."
+        ]
+      },
+      {
+        "name": "Rozkazuj złu",
+        "type": "entries",
+        "entries": [
+          "Kiedy jesteś dostrojony do księgi i trzymasz ją, możesz użyć akcji, aby rzucić zaklęcie {@spell dominate monster} na zły cel (za wyjątkiem {@dc 18}). Nie możesz ponownie korzystać z tej nieruchomości aż do następnego świtu."
+        ]
+      },
+      {
+        "name": "Mroczna wiedza",
+        "type": "entries",
+        "entries": [
+          "Możesz odwołać się do Księgi Plugawej Ciemności za każdym razem, gdy wykonujesz test Inteligencji, aby przypomnieć sobie informacje na temat jakiegoś aspektu zła, na przykład wiedzy o demonach. Kiedy to zrobisz, podwój swoją premię za biegłość w tym teście."
+        ]
+      },
+      {
+        "name": "Mroczna mowa",
+        "type": "entries",
+        "entries": [
+          "Kiedy nosisz Księgę Plugawej Ciemności i jesteś do niej dostrojony, możesz wykonać akcję, aby wyrecytować słowa z jej stron w wulgarnym języku znanym jako Mroczna Mowa. Za każdym razem, gdy to zrobisz, otrzymujesz obrażenia psychiczne {@damage 1d12}, a każda nie-zła istota w promieniu 5 stóp od ciebie otrzymuje obrażenia psychiczne {@damage 3d6}."
+        ]
+      },
+      {
+        "name": "Zniszczenie Księgi",
+        "type": "entries",
+        "entries": [
+          "Księga Plugawej Ciemności pozwala na wyrywanie stron, ale wszelka zła wiedza zawarta na tych stronach w końcu trafia z powrotem do księgi, zwykle wtedy, gdy nowy autor dodaje kolejne strony do tomu.",
+          "Jeśli {@creature solar} rozerwie książkę na dwie części, książka zostanie zniszczona na {@dice 1d100} lata, po czym odtworzy się w jakimś ciemnym zakątku wieloświata.",
+          "Istota dostrojona do księgi przez sto lat może odkryć frazę ukrytą w oryginalnym tekście, która po przetłumaczeniu na język niebiański i wypowiedziana na głos niszczy zarówno mówiącego, jak i księgę w oślepiającym błysku blasku. Jednakże, dopóki w wieloświecie istnieje zło, wiele lat później książka zmienia się w {@dice 1d10 × 100}.",
+          "Jeśli całe zło w wieloświecie zostanie zniszczone, księga obróci się w pył i zostanie na zawsze zniszczona."
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "items/DMG/Book of Vile Darkness.webp",
+        "credit": "Konceptopolis"
+      }
+    ]
+  },
+  "charred-wand-of-magic-missiles": {
+    "name": "Zwęglona Różdżka Magicznych Pocisków",
+    "rarity": "Niezwykły",
+    "weight": "1 funt",
+    "entries": [
+      "Ta różdżka ma 7 ładunków. Trzymając go, możesz wykonać akcję, aby wydać 1 lub więcej jego ładunków, aby rzucić z niego zaklęcie {@spell magic missile}. Za 1 ładunek rzucasz wersję zaklęcia pierwszego poziomu. Możesz zwiększyć poziom miejsca na zaklęcia o jeden za każdy dodatkowy ładunek, jaki wydasz.",
+      "Różdżka odzyskuje zużyte ładunki {@dice 1d6 + 1} codziennie o świcie. Jeśli zużyjesz ostatni ładunek różdżki, rzuć {@dice d20}. Przy wyniku 1 różdżka rozpada się na popiół i ulega zniszczeniu.",
+      "Za każdym razem, gdy zużyjesz ładunek z tej różdżki, istnieje {@chance 50} szansa, że ​​nic się nie stanie i ładunek zostanie zmarnowany."
+    ]
+  },
+  "enchanted-three-dragon-ante-set": {
+    "name": "Zestaw Ante Zaczarowanych Trzech Smoków",
+    "entries": [
+      "Jedna karta w tej talii jest zaczarowana tak, aby pojawiać się jako konkretna karta, którą rozkaże jej właściciel. Ta magia działa tylko w 25 procentach przypadków, ale talia jest warta 500 sz dla każdego poważnego hazardzisty, któremu nie przeszkadza ryzyko lub któremu się o tym nie mówi."
+    ]
+  },
+  "devlin-s-staff-of-striking": {
+    "name": "Kostur Uderzenia Devlina",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "4 funty",
+    "damage": "Tłuczenie 1d6",
+    "properties": "Wszechstronny",
+    "weaponCategory": "prosty",
+    "entries": [
+      "Kostura ta może być używana jako magiczna laska, która zapewnia premię +3 do wykonywanych nią testów ataku i obrażeń.",
+      "Personel ma 10 podopiecznych. Kiedy za jego pomocą uderzysz atakiem wręcz, możesz wydać do 3 jego ładunków. Za każdy wydany ładunek cel otrzymuje dodatkowe obrażenia od siły {@damage 1d6}. Personel odzyskuje zużyte opłaty {@dice 1d6 + 4} codziennie o świcie. Jeśli zużyjesz ostatni ładunek, rzuć {@dice d20}. Na 1 laska staje się niemagiczną laską.",
+      "Jeśli dostroisz się do tej laski, w ciągu 3 dni przekształcisz się w hybrydę kozy i humanoida. Diabelstwa są odporne na tę klątwę. Już pierwszego dnia kudłate futro zaczyna rosnąć na całym ciele. Po 24 godzinach twoje oczy stają się kozie, a z czoła wyrastają kikuty rogów. Ostatniego dnia palce u rąk i nóg łączą się w dwucyfrowe liczby, a rogi osiągają pełną długość. Ta transformacja nie uniemożliwia ci posługiwania się bronią ani rzucania zaklęć. {@spell Remove curse}, {@spell greater restoration} lub jakikolwiek inny efekt kończący klątwę przywraca twój pierwotny wygląd, ale tylko zaklęcie {@spell wish} może uwolnić laskę od jej mocy i przekształcić tych, którzy się do niej dostroją."
+    ]
+  },
+  "dread-helm-xdmg": {
+    "name": "Przerażający Hełm",
+    "rarity": "Wspólny",
+    "entries": [
+      "Kiedy nosisz ten przerażający stalowy hełm, twoje oczy świecą na czerwono, a reszta twarzy jest ukryta w cieniu."
+    ]
+  },
+  "blade-of-broken-mirrors-exalted": {
+    "name": "Ostrze Rozbitych Luster (Wywyższony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia przez humanoida",
+    "weight": "1 funt",
+    "damage": "Piercing 1d4",
+    "properties": "Finezja, Lekkość, Rzucanie, Wszechstronność",
+    "weaponCategory": "prosty",
+    "entries": [
+      "Broń Tharizduna, ten sztylet to kawałek postrzępionego kamienia, którego ostrze jest wyryte wzorem przypominającym labirynt, bez początku ani końca.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Ostrze Rozbitych Luster jest świadomą, chaotyczną, złą bronią o Inteligencji 21, Mądrości 24 i Charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań i Wspólność."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "Szalony {@creature glabrezu} o imieniu Ragazuu żyje w Ostrzu Rozbitych Luster. Broń pragnie wywołać chaos. Uczy się zasad swojego posiadacza, a następnie wykorzystuje te ideały, aby zachęcić do lekkomyślnych działań. Sztylet szepcze idee rewolucji."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Sztylet zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz mówić, czytać i pisać Abyssal.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią. Natychmiast po wykonaniu ataku dystansowego tą bronią wraca ona do twojej ręki.",
+              "Ilekroć zabijesz humanoida atakiem z użyciem Ostrza Rozbitych Luster, ostrze zapamiętuje wygląd stworzenia. Trzymając sztylet, możesz wykonać akcję, aby zmienić swoją formę tak, aby pasowała do dowolnego humanoida zapamiętanego przez ostrze. Twoje statystyki, poza rozmiarem, się nie zmieniają. Żaden sprzęt, który nosisz lub nosisz, nie ulega transformacji. Możesz powrócić do swojego prawdziwego wyglądu w ramach akcji. Po śmierci automatycznie powracasz do swojego prawdziwego wyglądu. Kiedy Ostrze Rozbitych Luster dostraja się do nowego posiadacza, wygląd zabitych przez nie humanoidów zostaje wymazany z jego pamięci."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy sztylet osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "Trzymając broń, możesz wykonać akcję, aby rzucić z niej jedno z następujących zaklęć (zapisz {@dc 15}): {@spell fabricate}, {@spell hallucinatory terrain}, {@spell major image} lub {@spell phantasmal killer}. Kiedy zaklęcie zostanie rzucone za pomocą sztyletu, nie można go ponownie rzucić aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy sztylet osiągnie wysoki stan, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +3.",
+              "ST rzutu obronnego na zaklęcia rzucane sztyletem wzrasta do 17.",
+              "Trzymając sztylet, możesz w ramach akcji obrócić {@condition invisible}. Wszystko, co masz na sobie lub nosisz, ma przy sobie {@condition invisible}. Pozostajesz {@condition invisible}, dopóki nie przestaniesz trzymać sztyletu, dopóki nie zaatakujesz lub nie rzucisz zaklęcia zmuszającego istotę do wykonania rzutu obronnego, lub dopóki nie użyjesz dodatkowej akcji, aby ponownie stać się widocznym."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "grimoire-infinitus-exalted": {
+    "name": "Grimoire Infinitus (Wywyższony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia przez czarodzieja",
+    "weight": "3 funty",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Kilka z tych ksiąg zaklęć ze złoconymi stronami i posrebrzanymi okładkami powstało podczas Ery Arkanum, ale tylko jedna została odnaleziona po zakończeniu Nieszczęścia. Książka ma nieskończoną liczbę stron, ma trzy cale grubości, osiem cali szerokości, dwanaście cali długości i waży trzy funty.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy Grimoire Infinitus osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Nosząc księgę zaklęć, masz przewagę w rzutach obronnych przeciwko zaklęciom i efektom magicznym.",
+              "Kiedy przygotowujesz zaklęcia czarodzieja, używając grymuaru jako księgi zaklęć, liczba zaklęć, które możesz przygotować, zwiększa się ponownie o 1."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy Grimoire Infinitus osiągnie stan wzniosły, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz teraz skorzystać z funkcji Arcane Recovery dwa razy pomiędzy długimi odpoczynkami, a nie raz.",
+              "Kiedy przygotowujesz zaklęcia czarodzieja, używając grymuaru jako księgi zaklęć, liczba zaklęć, które możesz przygotować, zwiększa się ponownie o 1."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Większa część księgi jest pusta, ale na pierwszych stronach tomu zapisane są następujące zaklęcia: {@spell alarm}, {@spell antimagic field}, {@spell Bigby's hand}, {@spell blight}, {@spell charm person}, {@spell confusion}, {@spell control weather}, {@spell create undead}, {@spell detect thoughts}, {@spell enlarge/reduce}, {@spell fear}, {@spell foresight}, {@spell gaseous form}, {@spell glyph of warding}, {@spell legend lore}, {@spell Leomund's tiny hut}, {@spell mass suggestion}, {@spell mislead}, {@spell misty step}, {@spell Mordenkainen's faithful hound}, {@spell prismatic spray}, {@spell ray of enfeeblement}, {@spell silent image}, {@spell teleport} i {@spell thunderwave}.",
+          "Możesz używać grimuaru jako swojej księgi zaklęć i możesz w normalny sposób zapisywać w nim nowe zaklęcia. Kiedy przygotowujesz zaklęcia czarodzieja za pomocą grymuaru, liczba zaklęć czarodzieja, które możesz przygotować, zwiększa się o 1."
+        ]
+      }
+    ]
+  },
+  "grimoire-infinitus-awakened": {
+    "name": "Grimoire Infinitus (Przebudzony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia przez czarodzieja",
+    "weight": "3 funty",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Kilka z tych ksiąg zaklęć ze złoconymi stronami i posrebrzanymi okładkami powstało podczas Ery Arkanum, ale tylko jedna została odnaleziona po zakończeniu Nieszczęścia. Książka ma nieskończoną liczbę stron, ma trzy cale grubości, osiem cali szerokości, dwanaście cali długości i waży trzy funty.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy Grimoire Infinitus osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Nosząc księgę zaklęć, masz przewagę w rzutach obronnych przeciwko zaklęciom i efektom magicznym.",
+              "Kiedy przygotowujesz zaklęcia czarodzieja, używając grymuaru jako księgi zaklęć, liczba zaklęć, które możesz przygotować, zwiększa się ponownie o 1."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Większa część księgi jest pusta, ale na pierwszych stronach tomu zapisane są następujące zaklęcia: {@spell alarm}, {@spell antimagic field}, {@spell Bigby's hand}, {@spell blight}, {@spell charm person}, {@spell confusion}, {@spell control weather}, {@spell create undead}, {@spell detect thoughts}, {@spell enlarge/reduce}, {@spell fear}, {@spell foresight}, {@spell gaseous form}, {@spell glyph of warding}, {@spell legend lore}, {@spell Leomund's tiny hut}, {@spell mass suggestion}, {@spell mislead}, {@spell misty step}, {@spell Mordenkainen's faithful hound}, {@spell prismatic spray}, {@spell ray of enfeeblement}, {@spell silent image}, {@spell teleport} i {@spell thunderwave}.",
+          "Możesz używać grimuaru jako swojej księgi zaklęć i możesz w normalny sposób zapisywać w nim nowe zaklęcia. Kiedy przygotowujesz zaklęcia czarodzieja za pomocą grymuaru, liczba zaklęć czarodzieja, które możesz przygotować, zwiększa się o 1."
+        ]
+      }
+    ]
+  },
+  "hide-of-the-feral-guardian-awakened": {
+    "name": "Ukrycie Dzikiego Strażnika (Przebudzony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "13 funtów",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Uważa się, że ta wypolerowana i pięknie wykończona skórzana zbroja była prezentem od Melory, podarowanym dawno zapomnianemu arcydruidowi i mistrzowi świata przyrody przed koszmarami Nieszczęścia.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy zbroja osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia do KP pancerza wzrasta do +2.",
+              "Kiedy zostajesz przemieniony przez efekt, który zastępuje dowolne statystyki twojej gry statystykami innego stworzenia, twoja premia do rzutów na atak wręcz i obrażenia wzrasta o 1 (do +2).",
+              "Kiedy rzucisz zaklęcie {@spell polymorph} przy użyciu tej zbroi, możesz przekształcić się w {@creature cave bear}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Nosząc zbroję w stanie uśpionym, zyskujesz następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Pancerz zapewnia premię +1 do KP.",
+              "Kiedy zostajesz przemieniony przez efekt, który zastępuje dowolne statystyki twojej gry statystykami innego stworzenia, otrzymujesz premię +1 do testów ataku w zwarciu i obrażeń oraz zachowujesz korzyści płynące z tej zbroi.",
+              "W ramach akcji możesz użyć zbroi, aby rzucić na siebie {@spell polymorph}, przekształcając się w {@creature giant owl}, zachowując jednocześnie swoje punkty Inteligencji, Mądrości i Charyzmy. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "hide-of-the-feral-guardian-exalted": {
+    "name": "Skóra Dzikiego Strażnika (Wywyższony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "13 funtów",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Uważa się, że ta wypolerowana i pięknie wykończona skórzana zbroja była prezentem od Melory, podarowanym dawno zapomnianemu arcydruidowi i mistrzowi świata przyrody przed koszmarami Nieszczęścia.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy zbroja osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia do KP pancerza wzrasta do +2.",
+              "Kiedy zostajesz przemieniony przez efekt, który zastępuje dowolne statystyki twojej gry statystykami innego stworzenia, twoja premia do rzutów na atak wręcz i obrażenia wzrasta o 1 (do +2).",
+              "Kiedy rzucisz zaklęcie {@spell polymorph} przy użyciu tej zbroi, możesz przekształcić się w {@creature cave bear}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy zbroja osiągnie wysoki stan, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia do AC pancerza wzrasta do +3.",
+              "Kiedy zostajesz przemieniony przez efekt, który zastępuje dowolne statystyki twojej gry statystykami innego stworzenia, twoja premia do rzutów na atak w zwarciu i obrażenia wzrasta o 1 (do +3).",
+              "Kiedy rzucisz zaklęcie {@spell polymorph} przy użyciu tej zbroi, możesz przekształcić się w {@creature guardian wolf|EGW}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Nosząc zbroję w stanie uśpionym, zyskujesz następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Pancerz zapewnia premię +1 do KP.",
+              "Kiedy zostajesz przemieniony przez efekt, który zastępuje dowolne statystyki twojej gry statystykami innego stworzenia, otrzymujesz premię +1 do testów ataku w zwarciu i obrażeń oraz zachowujesz korzyści płynące z tej zbroi.",
+              "W ramach akcji możesz użyć zbroi, aby rzucić na siebie {@spell polymorph}, przekształcając się w {@creature giant owl}, zachowując jednocześnie swoje punkty Inteligencji, Mądrości i Charyzmy. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "grovelthrash-exalted": {
+    "name": "Grovelthrash (Wywyższony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "2 funty",
+    "damage": "Tłuczenie 1d8",
+    "properties": "Wszechstronny, wszechstronny",
+    "weaponCategory": "wojenny",
+    "entries": [
+      "Wykonany z jednego kawałka obsydianu, ten młot bojowy Toroga wibruje magiczną energią i jest wyrzeźbiony wizerunkami twarzy krzyczących z bólu.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Grovelthrash jest świadomą, neutralną, złą bronią o Inteligencji 18, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Pospolity i Piekielny."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "W Grovelthrash mieszka chciwa {@creature ultroloth} o imieniu Ciria. Broń ceni dobra materialne i zadaje ból. Komplementuje swojego posiadacza, gdy ten zdobywa skarby i czerpie przyjemność z krzywdzenia innych."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Młot bojowy zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz mówić, czytać i pisać w Otchłani i Piekle.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią. Kiedy trafisz atakiem za pomocą tego młota bojowego, możesz zadać celowi dodatkowe obrażenia tłuczące {@damage 2d6}. Jeśli to zrobisz, otrzymasz obrażenia psychiczne {@damage 1d6}. Młot bojowy zadaje podwójne obrażenia obiektom i budowlom.",
+              "Trzymając tę ​​broń, masz przewagę w testach Mądrości ({@skill Insight}) wykonywanych w celu rozpoznania kłamstwa wypowiedzianego w zrozumiałym języku."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy młot bojowy osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "Zyskujesz prędkość kopania równą szybkości chodzenia. Możesz wykorzystać swoją prędkość kopania, aby poruszać się po piasku, luźnej ziemi, błocie lub lodzie, a nie po litej skale.",
+              "Kiedy istota, którą widzisz w promieniu 30 stóp od ciebie, uderzy cię atakiem, gdy dzierżysz młot bojowy, możesz wykorzystać swoją reakcję, aby zadać tej istocie obrażenia psychiczne równe obrażeniom otrzymanym w wyniku ataku. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy młot bojowy osiągnie wysoki stan, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +3.",
+              "Kiedy masz mniej punktów wytrzymałości niż połowa maksymalnego punktu wytrzymałości, młot bojowy zadaje dodatkowe obrażenia tłuczące {@damage 2d6} przy trafieniu. Możesz przekopać się przez litą skałę z połową prędkości kopania i pozostawić po sobie tunel o średnicy 5 stóp.",
+              "Jako akcję możesz użyć młota bojowego, aby rzucić z niego jedno z następujących zaklęć (zapisz {@dc 17}): {@spell earthquake}, {@spell meld into stone} lub {@spell stone shape}. Kiedy zaklęcie zostanie rzucone za pomocą młota bojowego, nie można go ponownie rzucić za pomocą młota bojowego aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "infiltrator-s-key-awakened": {
+    "name": "Klucz Infiltratora (Przebudzony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Ten mithralowy klucz szkieletowy został wykuty z krwi dwunastu mistrzów złodziei straconych za próbę kradzieży magicznych przedmiotów w Epoce Arkanum.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy Klucz Infiltratora osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Trzymając klucz, możesz użyć akcji dodatkowej, aby przekształcić klucz w magiczny sztylet lub z powrotem w klucz. Dopóki klucz ma postać sztyletu, zyskujesz premię +1 do testów ataku i obrażeń wykonanych nim, a klucz wraca do twojej ręki natychmiast po użyciu go do ataku dystansowego.",
+              "Trzymając klucz, możesz wykonać akcję, aby rzucić z niego jedno z następujących zaklęć: {@spell alter self}, {@spell invisibility}, {@spell knock} lub {@spell pass without trace}. Kiedy zaklęcie zostanie rzucone za pomocą klucza, nie można go użyć do rzucenia go ponownie aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Klucz Infiltratora zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Klucz może służyć jako {@item thieves' tools|phb} do otwierania zamków. Używając klucza, jesteś uważany za biegłego w {@item thieves' tools|PHB} i masz przewagę w testach umiejętności otwierania zamków.",
+              "Trzymając klawisz, twoje kroki są stłumione, co daje ci przewagę w testach Zręczności ({@skill Stealth}) wykonywanych w celu cichego poruszania się."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "grovelthrash-awakened": {
+    "name": "Grovelthrash (Przebudzony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "2 funty",
+    "damage": "Tłuczenie 1d8",
+    "properties": "Wszechstronny, wszechstronny",
+    "weaponCategory": "wojenny",
+    "entries": [
+      "Wykonany z jednego kawałka obsydianu, ten młot bojowy Toroga wibruje magiczną energią i jest wyrzeźbiony wizerunkami twarzy krzyczących z bólu.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Grovelthrash jest świadomą, neutralną, złą bronią o Inteligencji 18, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Pospolity i Piekielny."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "W Grovelthrash mieszka chciwa {@creature ultroloth} o imieniu Ciria. Broń ceni dobra materialne i zadaje ból. Komplementuje swojego posiadacza, gdy ten zdobywa skarby i czerpie przyjemność z krzywdzenia innych."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Młot bojowy zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz mówić, czytać i pisać w Otchłani i Piekle.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią. Kiedy trafisz atakiem za pomocą tego młota bojowego, możesz zadać celowi dodatkowe obrażenia tłuczące {@damage 2d6}. Jeśli to zrobisz, otrzymasz obrażenia psychiczne {@damage 1d6}. Młot bojowy zadaje podwójne obrażenia obiektom i budowlom.",
+              "Trzymając tę ​​broń, masz przewagę w testach Mądrości ({@skill Insight}) wykonywanych w celu rozpoznania kłamstwa wypowiedzianego w zrozumiałym języku."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy młot bojowy osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "Zyskujesz prędkość kopania równą szybkości chodzenia. Możesz wykorzystać swoją prędkość kopania, aby poruszać się po piasku, luźnej ziemi, błocie lub lodzie, a nie po litej skale.",
+              "Kiedy istota, którą widzisz w promieniu 30 stóp od ciebie, uderzy cię atakiem, gdy dzierżysz młot bojowy, możesz wykorzystać swoją reakcję, aby zadać tej istocie obrażenia psychiczne równe obrażeniom otrzymanym w wyniku ataku. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "horn-of-the-endless-maze": {
+    "name": "Róg Niekończącego się Labiryntu",
+    "rarity": "Rzadki",
+    "weight": "2 funty",
+    "entries": [
+      "Możesz użyć akcji, aby zadąć w ten róg. W odpowiedzi w promieniu 60 stóp od ciebie pojawiają się duchy wojowników z Otchłani. Duchy te wyglądają jak minotaury i korzystają ze statystyk {@creature berserker}. Wracają do Otchłani po 1 godzinie lub gdy spadną do 0 punktów wytrzymałości. Po użyciu klaksonu nie można go ponownie użyć przed upływem 7 dni.",
+      "Róg przywołuje {@dice 3d4 + 3} {@creature berserker||berserkers}. Aby używać rogu, musisz biegle posługiwać się wszystkimi prostymi broniami.",
+      "Jeśli zadmisz w róg nie spełniając jego wymagań, przyzwany {@creature berserker||berserkers} zaatakuje cię. Jeśli spełniasz wymagania, są przyjaźnie nastawieni do Ciebie i Twoich towarzyszy oraz wykonują Twoje polecenia."
+    ]
+  },
+  "infiltrator-s-key-exalted": {
+    "name": "Klucz Infiltratora (Wywyższony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Ten mithralowy klucz szkieletowy został wykuty z krwi dwunastu mistrzów złodziei straconych za próbę kradzieży magicznych przedmiotów w Epoce Arkanum.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy Klucz Infiltratora osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Trzymając klucz, możesz użyć akcji dodatkowej, aby przekształcić klucz w magiczny sztylet lub z powrotem w klucz. Dopóki klucz ma postać sztyletu, zyskujesz premię +1 do testów ataku i obrażeń wykonanych nim, a klucz wraca do twojej ręki natychmiast po użyciu go do ataku dystansowego.",
+              "Trzymając klucz, możesz wykonać akcję, aby rzucić z niego jedno z następujących zaklęć: {@spell alter self}, {@spell invisibility}, {@spell knock} lub {@spell pass without trace}. Kiedy zaklęcie zostanie rzucone za pomocą klucza, nie można go użyć do rzucenia go ponownie aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy Klucz Infiltratora osiągnie wysoki stan, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Jako akcję dodatkową możesz dotknąć kluczem podłogi, ściany lub sufitu o grubości nie większej niż 1,5 metra i spowodować pojawienie się na powierzchni magicznego otworu. Tworząc otwór, wybierasz jego długość i szerokość, do 10 stóp dla każdego wymiaru. Otwarcie trwa do momentu, aż klucz przejdzie przez nie na drugą stronę, po czym znika (jeśli w momencie zamykania się drzwi znajduje się w otworze istota, istota zostaje bezpiecznie przerzucona na najbliższe niezajęte miejsce). Klucza nie można użyć do stworzenia kolejnego otwarcia aż do następnego świtu.",
+              "Trzymając klucz, możesz wykonać akcję, aby rzucić z niego jedno z następujących zaklęć: {@spell dimension door}, {@spell gaseous form} lub {@spell mislead}. Kiedy zaklęcie zostanie rzucone za pomocą klucza, nie można go użyć do rzucenia go ponownie aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Klucz Infiltratora zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Klucz może służyć jako {@item thieves' tools|phb} do otwierania zamków. Używając klucza, jesteś uważany za biegłego w {@item thieves' tools|PHB} i masz przewagę w testach umiejętności otwierania zamków.",
+              "Trzymając klawisz, twoje kroki są stłumione, co daje ci przewagę w testach Zręczności ({@skill Stealth}) wykonywanych w celu cichego poruszania się."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "jewel-of-three-prayers-awakened": {
+    "name": "Klejnot Trzech Modlitw (Przebudzony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Klejnot Trzech Modlitw jest pozostałością rozbieżności (patrz pasek boczny „Ślady rozbieżności”). W starożytności Alyxian Apoteon nosił ten amulet jako symbol swego przymierza z trzema Najwyższymi Bóstwami: Sehanine, Tkaczką Księżycową, Avandrą Przynoszącą Zmiany i Corellonem Łuk Sercem. Kiedy klejnot zostanie znaleziony, w jego uśpionym sercu pulsuje tylko moc Sehanine. Moc pozostałych dwóch bóstw czeka, aż zostanie przebudzony przez bohatera - lub bohaterów - który może pójść w ślady Alyxiana.",
+      {
+        "type": "entries",
+        "name": "Stan przebudzony",
+        "entries": [
+          "W tym stanie klejnot otrzymał błogosławieństwo Avandry Przynoszącej Zmiany. Ze środka klejnotu wyrastają trzy delikatne iglice niczym pąki kwiatów otwierające się na wiosnę. Trzy kamienie lapis lazuli niczym krople rosy spoczywają na tych iglicach.",
+          {
+            "type": "list",
+            "items": [
+              "Następujące zalety klejnotu poprawiają się:",
+              "Premia, jaką klejnot zapewnia Twojemu KP, wzrasta do +2.",
+              "Liczba jego ładunków wzrasta do 5."
+            ]
+          },
+          "Klejnot zyskuje następujące dodatkowe właściwości, z których możesz skorzystać podczas jego noszenia lub trzymania:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz wydać 1 z ładunków klejnotu (nie jest wymagana żadna akcja), aby zakończyć na sobie jeden z następujących warunków: {@condition grappled}, {@condition paralyzed} lub {@condition restrained}.",
+              "Kiedy innemu stworzeniu, które widzisz w promieniu 60 stóp od ciebie, nie powiedzie się rzut obronny, możesz wydać 1 z ładunków klejnotu w reakcji, aby umożliwić temu stworzeniu przerzucenie rzutu obronnego, potencjalnie zamieniając porażkę w sukces. Stworzenie musi skorzystać z nowego rzutu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Stan uśpienia",
+        "entries": [
+          "W tym stanie Klejnot Trzech Modlitw to błyszczący złoty dysk przymocowany do delikatnego złotego łańcuszka. Łańcuszek w magiczny sposób zmienia swój rozmiar, aby pełnić funkcję naszyjnika dla istoty, która go nosi.",
+          "W stanie uśpienia klejnot ma następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Nosząc klejnot, zyskujesz premię +1 do KP.",
+              "Nosząc lub trzymając klejnot, możesz wykonać akcję, aby rozproszyć jasne światło w promieniu 5 stóp i przyćmione światło na dodatkowe 5 stóp. Światło świeci do momentu jego zgaśnięcia (nie jest wymagane żadne działanie).",
+              "Klejnot ma 3 ładunki i odzyskuje wszystkie zużyte ładunki codziennie o świcie. Trzymając klejnot, możesz wydać z niego 1 ładunek, aby rzucić zaklęcie {@spell invisibility}."
+            ]
+          }
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "items/CRCotN/Jewel of Three Prayers.webp",
+        "credit": "Para OfKooks"
+      }
+    ]
+  },
+  "jewel-of-three-prayers-exalted": {
+    "name": "Klejnot Trzech Modlitw (Wywyższony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Klejnot Trzech Modlitw jest pozostałością rozbieżności (patrz pasek boczny „Ślady rozbieżności”). W starożytności Alyxian Apoteon nosił ten amulet jako symbol swego przymierza z trzema Najwyższymi Bóstwami: Sehanine, Tkaczką Księżycową, Avandrą Przynoszącą Zmiany i Corellonem Łuk Sercem. Kiedy klejnot zostanie znaleziony, w jego uśpionym sercu pulsuje tylko moc Sehanine. Moc pozostałych dwóch bóstw czeka, aż zostanie przebudzony przez bohatera - lub bohaterów - który może pójść w ślady Alyxiana.",
+      {
+        "type": "entries",
+        "name": "Stan przebudzony",
+        "entries": [
+          "W tym stanie klejnot otrzymał błogosławieństwo Avandry Przynoszącej Zmiany. Ze środka klejnotu wyrastają trzy delikatne iglice niczym pąki kwiatów otwierające się na wiosnę. Trzy kamienie lapis lazuli niczym krople rosy spoczywają na tych iglicach.",
+          {
+            "type": "list",
+            "items": [
+              "Następujące zalety klejnotu poprawiają się:",
+              "Premia, jaką klejnot zapewnia Twojemu KP, wzrasta do +2.",
+              "Liczba jego ładunków wzrasta do 5."
+            ]
+          },
+          "Klejnot zyskuje następujące dodatkowe właściwości, z których możesz skorzystać podczas jego noszenia lub trzymania:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz wydać 1 z ładunków klejnotu (nie jest wymagana żadna akcja), aby zakończyć na sobie jeden z następujących warunków: {@condition grappled}, {@condition paralyzed} lub {@condition restrained}.",
+              "Kiedy innemu stworzeniu, które widzisz w promieniu 60 stóp od ciebie, nie powiedzie się rzut obronny, możesz wydać 1 z ładunków klejnotu w reakcji, aby umożliwić temu stworzeniu przerzucenie rzutu obronnego, potencjalnie zamieniając porażkę w sukces. Stworzenie musi skorzystać z nowego rzutu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wysoki stan",
+        "entries": [
+          "W tym stanie klejnot otrzymał błogosławieństwo Corellona Arch Heart. Na klejnocie pojawia się lśniący szmaragd otoczony aureolą złota.",
+          "Następujące zalety klejnotu poprawiają się:",
+          {
+            "type": "list",
+            "items": [
+              "Premia, którą klejnot zapewnia Twojemu KP, wzrasta do +3.",
+              "Liczba jego ładunków wzrasta do 7."
+            ]
+          },
+          "Klejnot zyskuje następujące dodatkowe właściwości, z których możesz skorzystać podczas jego noszenia lub trzymania:",
+          {
+            "type": "list",
+            "items": [
+              "Zyskujesz zdolność oddychania wodą i zyskujesz prędkość pływania równą prędkości chodzenia.",
+              "Każdy z twoich sojuszników w promieniu 9 metrów od ciebie zyskuje zdolność oddychania wodą i prędkość pływania równą jego szybkości chodzenia.",
+              "Jako akcję dodatkową możesz wydać 1 z ładunków klejnotu, aby obrać za cel siebie lub jedno chętne stworzenie, które widzisz w promieniu 5 stóp od ciebie. Cel teleportuje się do wybranego przez ciebie wolnego miejsca w promieniu 5 stóp od ciebie, wraz z całym wyposażeniem, który cel nosi lub nosi. Cel pojawia się w błysku złotego blasku, a każde wybrane przez ciebie stworzenie w promieniu 5 stóp od nowego miejsca celu musi wykonać rzut obronny na Kondycję {@dc 18}. W przypadku nieudanego rzutu obronnego, istota otrzymuje {@damage 4d10} obrażenia od promieniowania i pozostaje {@condition blinded} do początku twojej następnej tury. Po udanym rzucie stwór otrzymuje o połowę mniejsze obrażenia i nie jest {@condition blinded}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Stan uśpienia",
+        "entries": [
+          "W tym stanie Klejnot Trzech Modlitw to błyszczący złoty dysk przymocowany do delikatnego złotego łańcuszka. Łańcuszek w magiczny sposób zmienia swój rozmiar, aby pełnić funkcję naszyjnika dla istoty, która go nosi.",
+          "W stanie uśpienia klejnot ma następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Nosząc klejnot, zyskujesz premię +1 do KP.",
+              "Nosząc lub trzymając klejnot, możesz wykonać akcję, aby rozproszyć jasne światło w promieniu 5 stóp i przyćmione światło na dodatkowe 5 stóp. Światło świeci do momentu jego zgaśnięcia (nie jest wymagane żadne działanie).",
+              "Klejnot ma 3 ładunki i odzyskuje wszystkie zużyte ładunki codziennie o świcie. Trzymając klejnot, możesz wydać z niego 1 ładunek, aby rzucić zaklęcie {@spell invisibility}."
+            ]
+          }
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "items/CRCotN/Jewel of Three Prayers.webp",
+        "credit": "Para OfKooks"
+      }
+    ]
+  },
+  "jakarion-s-staff-of-frost": {
+    "name": "Kostur Mrozu Jakariona",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia przez druida, czarodzieja, czarnoksiężnika lub czarodzieja",
+    "weight": "4 funty",
+    "damage": "Tłuczenie 1d6",
+    "properties": "Wszechstronny",
+    "weaponCategory": "prosty",
+    "entries": [
+      "Trzymając tę ​​laskę, masz odporność na obrażenia od zimna.",
+      "Personel ma 10 podopiecznych. Trzymając go, możesz użyć akcji, aby wydać 1 lub więcej jego ładunków, aby rzucić z niego jedno z następujących zaklęć, wykorzystując swój ST obronny na czary: {@spell cone of cold} (5 ładunków), {@spell fog cloud} (1 ładunek), {@spell ice storm} (4 ładunki) lub {@spell wall of ice} (4 ładunki).",
+      "Personel odzyskuje zużyte opłaty {@dice 1d6 + 4} codziennie o świcie. Jeśli zużyjesz ostatni ładunek, rzuć {@dice d20}. Na 1. laska zamienia się w wodę i ulega zniszczeniu.",
+      "Na tej lasce odciśnięty jest fragment osobowości martwego czarodzieja. Pierwsza postać, która dotknie laski, zyskuje następującą wadę: „Nade wszystko pragnę władzy i zrobię wszystko, aby zdobyć jej więcej”. Ta wada przebija każdą sprzeczną cechę osobowości."
+    ]
+  },
+  "lash-of-shadows-awakened": {
+    "name": "Bicz cieni (przebudzony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "3 funty",
+    "damage": "1d4 cięcie",
+    "properties": "Finezja, zasięg, wszechstronność",
+    "weaponCategory": "wojenny",
+    "entries": [
+      "Ten bicz ze skóry węża jest dotknięty mocą Zehira i kończy się pięcioma ożywionymi głowami węża.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Lash of Shadows to świadoma, chaotyczna zła broń o inteligencji 18, mądrości 16 i charyzmie 20. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną i Smoczą."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "Szalony {@creature marilith} o imieniu Sizlifeth żyje w Lash of Shadows. Broń ma krótki temperament i doświadcza tylko skrajnych emocji. Największą radość sprawia mu wyrządzanie krzywdy."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Bicz zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Potrafisz mówić, czytać i pisać w Otchłani i Smoku.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
+              "Możesz podjąć próbę otrucia dowolnego stworzenia trafionego biczem. Stworzenie musi odnieść sukces w rzucie obronnym na Kondycję {@dc 13}, w przeciwnym razie zostanie poddane działaniu jednej z wybranych przez ciebie trucizn; po użyciu trucizny innej niż Jad Węża, trucizny tej nie można użyć ponownie aż do następnego świtu:",
+              {
+                "type": "list",
+                "style": "list-hang-notitle",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Martwe oczy",
+                    "entry": "Istota, której nie powiedzie się rzut obronny na tę truciznę, to {@condition poisoned} na 1 godzinę. Podczas gdy {@condition poisoned} w ten sposób stworzeniem jest {@condition blinded}."
+                  },
+                  {
+                    "type": "item",
+                    "name": "Wężowy Jad",
+                    "entry": "Istota, której nie powiedzie się rzut obronny na tę truciznę, otrzymuje {@damage 3d6} obrażenia od trucizny lub połowę mniej przy udanym rzucie obronnym."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy bicz osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "ST rzutu obronnego na trucizny broni wzrasta do 15.",
+              "Broń zyskuje nową opcję trucizny zwaną Krew Ghula. Stworzenie, któremu nie powiedzie się rzut obronny na tę truciznę, to {@condition poisoned} na 1 minutę. Podczas gdy {@condition poisoned} w ten sposób stworzeniem jest {@condition paralyzed}. Stworzenie może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc swój efekt sukcesem."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "mace-of-the-black-crown-exalted": {
+    "name": "Buzdygan Czarnej Korony (Wywyższony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "4 funty",
+    "damage": "Tłuczenie 1d6",
+    "properties": "Wszechstronny",
+    "weaponCategory": "prosty",
+    "entries": [
+      "Ta buława ma rękojeść z czarnego żelaza i rubinową główkę o diabelskim obliczu. Niosąc dobrodziejstwo Asmodeusza, nadaje się dla najpotężniejszych sług Dziewięciu Piekieł.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Buzdygan Czarnej Korony jest świadomą, legalną, złą bronią o Inteligencji 20, Mądrości 12 i Charyzmie 18. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny i Piekielny."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "Chciwy {@creature erinyes} o imieniu Xartaza żyje w Mace of the Black Crown. Xartaza chce zwerbować więcej dusz dla Asmodeusa, więc broń popycha jej posiadacza do zgodnych z prawem złych działań poprzez manipulowanie jego snami. Xartaza, były generał Wojny Krwi, nienawidzi demonów i uwielbia tworzyć rozsądne plany bitwy w każdym konflikcie."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Buzdygan zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz mówić, czytać i pisać Piekielny.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
+              "Trzymając buławę, możesz użyć akcji dodatkowej, aby wypowiedzieć jej piekielne słowo rozkazu, powodując wybuch płomieni z głowy. Płomienie te rzucają jasne światło w promieniu 40 stóp i słabe światło na dodatkowe 40 stóp. Kiedy buława płonie, zadaje dodatkowe obrażenia od ognia {@damage 1d6} każdemu trafionemu celowi. Płomienie trwają do momentu, gdy ponownie użyjesz akcji dodatkowej, aby wypowiedzieć słowo rozkazu, lub do chwili, gdy nie będziesz już trzymać buławy.",
+              "Trzymając buzdygan, możesz wykonać akcję przywołania {@creature imp}. Każdy diabeł, którego przywołasz za pomocą tej buławy, będzie przez cały czas przyjazny tobie i twoim towarzyszom. Imp słucha wszelkich poleceń słownych, jakie mu wydasz, i wraca do Dziewięciu Piekieł 10 minut po tym, jak go przyzwałeś. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy buława osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2, a dodatkowe obrażenia od ognia zadawane przez broń po jej zapaleniu wzrastają do {@dice 2d6}.",
+              "Funkcji Przywołania Diabła tej broni można także użyć do przywołania {@creature bearded devil}.",
+              "Trzymając tę ​​broń, masz odporność na obrażenia od trucizny."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy buzdygan osiągnie stan wysoki, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +3, a dodatkowe obrażenia od ognia zadawane przez broń po jej zapaleniu wzrastają do {@dice 3d6}. Obrażenia od ognia zadawane przez buzdygan ignorują odporność na obrażenia od ognia.",
+              "Funkcji Przywołania Diabła tej broni można także użyć do przywołania {@creature barbed devil}.",
+              "Trzymając tę ​​broń, masz odporność na obrażenia od ognia."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "lash-of-shadows-exalted": {
+    "name": "Bicz Cieni (Wysoki)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "3 funty",
+    "damage": "1d4 cięcie",
+    "properties": "Finezja, zasięg, wszechstronność",
+    "weaponCategory": "wojenny",
+    "entries": [
+      "Ten bicz ze skóry węża jest dotknięty mocą Zehira i kończy się pięcioma ożywionymi głowami węża.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Lash of Shadows to świadoma, chaotyczna zła broń o inteligencji 18, mądrości 16 i charyzmie 20. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną i Smoczą."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "Szalony {@creature marilith} o imieniu Sizlifeth żyje w Lash of Shadows. Broń ma krótki temperament i doświadcza tylko skrajnych emocji. Największą radość sprawia mu wyrządzanie krzywdy."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Bicz zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Potrafisz mówić, czytać i pisać w Otchłani i Smoku.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
+              "Możesz podjąć próbę otrucia dowolnego stworzenia trafionego biczem. Stworzenie musi odnieść sukces w rzucie obronnym na Kondycję {@dc 13}, w przeciwnym razie zostanie poddane działaniu jednej z wybranych przez ciebie trucizn; po użyciu trucizny innej niż Jad Węża, trucizny tej nie można użyć ponownie aż do następnego świtu:",
+              {
+                "type": "list",
+                "style": "list-hang-notitle",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Martwe oczy",
+                    "entry": "Istota, której nie powiedzie się rzut obronny na tę truciznę, to {@condition poisoned} na 1 godzinę. Podczas gdy {@condition poisoned} w ten sposób stworzeniem jest {@condition blinded}."
+                  },
+                  {
+                    "type": "item",
+                    "name": "Wężowy Jad",
+                    "entry": "Istota, której nie powiedzie się rzut obronny na tę truciznę, otrzymuje {@damage 3d6} obrażenia od trucizny lub połowę mniej przy udanym rzucie obronnym."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy bicz osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "ST rzutu obronnego na trucizny broni wzrasta do 15.",
+              "Broń zyskuje nową opcję trucizny zwaną Krew Ghula. Stworzenie, któremu nie powiedzie się rzut obronny na tę truciznę, to {@condition poisoned} na 1 minutę. Podczas gdy {@condition poisoned} w ten sposób stworzeniem jest {@condition paralyzed}. Stworzenie może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc swój efekt sukcesem."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy bicz osiągnie stan wzniosły, zyskuje następujące dodatkowe właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +3.",
+              "ST rzutu obronnego na trucizny broni wzrasta do 17.",
+              "Broń zyskuje nową opcję trucizny zwaną Łezami Cockatrice. Stworzenie, któremu nie powiedzie się rzut obronny na tę truciznę, zaczyna zamieniać się w kamień i ma postać {@condition restrained}. Musi powtórzyć rzut obronny na koniec swojej następnej tury. W przypadku sukcesu efekt się kończy. W przypadku niepowodzenia stworzenie zmienia się na {@condition petrified} na 24 godziny."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "professor-skant": {
+    "name": "Profesor Skant",
+    "rarity": "Rzadki",
+    "weight": "5 funtów",
+    "entries": [
+      "{@item professor orb|WDMM} należący do Vellynne Harpell i skradziony przez Nassa Lantomira nazywa się Profesor Skant. Jest to zgodne z prawem dobro, posiadające Mądrość na poziomie 11 i Charyzmę na poziomie 9 {@note (as a professor orb, it has an Intelligence of 18)}. Mówi i czyta w języku wspólnym, smoczym, elfickim i loross (martwy język Imperium Netheril). Profesor Skant jest gadułą i zakłada, że ​​wszyscy humanoidy to głupcy. Opisując swoje obszary specjalizacji, przyjmuje niezamierzony protekcjonalny ton. Posiada następujące cztery obszary specjalizacji:",
+      {
+        "type": "list",
+        "items": [
+          "Historia Netheril (patrz pasek boczny „{@adventure Fate of Netheril|IDRotF|17|Fate of Netheril}”)",
+          "Wampiryzm i cechy wampirów",
+          "Rytuały związane z wytwarzaniem, butelkowaniem i piciem Elverquisst (rzadkiego elfiego trunku o rubinowej barwie, destylowanego ze słońca i rzadkich letnich owoców)",
+          "{@creature tarrasque} (zobacz Księgę Potworów)"
+        ]
+      },
+      "Kiedy wykonujesz test Inteligencji, aby przywołać wiedzę z dowolnego obszaru swojej specjalizacji, kula otrzymuje premię +9 do rzutu (wliczając modyfikator Inteligencji).",
+      "Profesor Skant ma postać gładkiej, solidnej, ważącej 5 funtów kuli z przydymionego szarego kwarcu, wielkości mniej więcej grejpfruta. Dokładne badanie ujawnia dwa lub więcej punkcików srebrnego światła głęboko wewnątrz kuli.",
+      "Profesor Skant normalnie widzi i słyszy w promieniu 20 metrów. W przeciwieństwie do większości czujących przedmiotów, kula nie ma własnej woli i nie może zainicjować konfliktu z istotą, która ją posiada.",
+      "Oprócz posiadanej wiedzy profesor Skant może dowolnie rzucać sztuczkę {@spell mage hand}. Używa zaklęcia tylko do transportu. Jego zdolnością rzucania zaklęć jest Inteligencja."
+    ]
+  },
+  "mace-of-the-black-crown-awakened": {
+    "name": "Buzdygan Czarnej Korony (Przebudzony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "4 funty",
+    "damage": "Tłuczenie 1d6",
+    "properties": "Wszechstronny",
+    "weaponCategory": "prosty",
+    "entries": [
+      "Ta buława ma rękojeść z czarnego żelaza i rubinową główkę o diabelskim obliczu. Niosąc dobrodziejstwo Asmodeusza, nadaje się dla najpotężniejszych sług Dziewięciu Piekieł.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Buzdygan Czarnej Korony jest świadomą, legalną, złą bronią o Inteligencji 20, Mądrości 12 i Charyzmie 18. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny i Piekielny."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "Chciwy {@creature erinyes} o imieniu Xartaza żyje w Mace of the Black Crown. Xartaza chce zwerbować więcej dusz dla Asmodeusa, więc broń popycha jej posiadacza do zgodnych z prawem złych działań poprzez manipulowanie jego snami. Xartaza, były generał Wojny Krwi, nienawidzi demonów i uwielbia tworzyć rozsądne plany bitwy w każdym konflikcie."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Buzdygan zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz mówić, czytać i pisać Piekielny.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
+              "Trzymając buławę, możesz użyć akcji dodatkowej, aby wypowiedzieć jej piekielne słowo rozkazu, powodując wybuch płomieni z głowy. Płomienie te rzucają jasne światło w promieniu 40 stóp i słabe światło na dodatkowe 40 stóp. Kiedy buława płonie, zadaje dodatkowe obrażenia od ognia {@damage 1d6} każdemu trafionemu celowi. Płomienie trwają do momentu, gdy ponownie użyjesz akcji dodatkowej, aby wypowiedzieć słowo rozkazu, lub do chwili, gdy nie będziesz już trzymać buławy.",
+              "Trzymając buzdygan, możesz wykonać akcję przywołania {@creature imp}. Każdy diabeł, którego przywołasz za pomocą tej buławy, będzie przez cały czas przyjazny tobie i twoim towarzyszom. Imp słucha wszelkich poleceń słownych, jakie mu wydasz, i wraca do Dziewięciu Piekieł 10 minut po tym, jak go przyzwałeś. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy buława osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2, a dodatkowe obrażenia od ognia zadawane przez broń po jej zapaleniu wzrastają do {@dice 2d6}.",
+              "Funkcji Przywołania Diabła tej broni można także użyć do przywołania {@creature bearded devil}.",
+              "Trzymając tę ​​broń, masz odporność na obrażenia od trucizny."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "prosthetic-limb-xdmg": {
+    "name": "Proteza kończyny",
+    "rarity": "Wspólny",
+    "entries": [
+      "Ten magiczny przedmiot zastępuje utraconą kończynę – rękę, ramię, stopę, nogę lub podobną część ciała. Po zamocowaniu proteza działa identycznie jak część, którą zastępuje. Możesz go odłączyć lub ponownie podłączyć w ramach akcji {@action Magic|XPHB} i nie można go usunąć wbrew twojej woli za życia."
+    ],
+    "gallery": [
+      {
+        "path": "items/XDMG/Prosthetic Limb.webp",
+        "credit": "Silnik polarny"
+      }
+    ]
+  },
+  "stirring-dragon-touched-focus": {
+    "name": "Poruszające skupienie dotknięte smokiem",
+    "rarity": "Rzadki",
+    "attunement": "Wymaga dostrojenia przez rzucającego zaklęcia",
+    "entries": [
+      "Tym cudownym przedmiotem może być berło, kula, amulet, kryształ lub inny pięknie wykonany przedmiot. Zwykle zawiera obrazy skrzydeł, pazurów, zębów lub łusek smoków.",
+      "Masz przewagę w rzutach na inicjatywę. Kiedy trzymasz skupienie, może ono działać jako skupienie rzucania zaklęć dla wszystkich twoich zaklęć.",
+      "Skupienie zyskuje dodatkową właściwość określoną przez rodzinę smoka, w którego skarbcu stało się Mieszające:",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Chromatyczny",
+            "entries": [
+              "Ilekroć używasz miejsca na zaklęcie, aby rzucić zaklęcie, które zadaje obrażenia od kwasu, zimna, ognia, błyskawic lub trucizny, rzuć {@dice d6}, a otrzymasz premię równą liczbie wyrzuconej do jednego z rzutów na obrażenia zaklęcia."
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Klejnot",
+            "entries": [
+              "Ilekroć używasz miejsca na zaklęcie do rzucenia zaklęcia, możesz natychmiast teleportować się do niezajętego miejsca, które widzisz w promieniu 5 stóp od ciebie."
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Metaliczny",
+            "entries": [
+              "Kiedy istota, którą widzisz w promieniu 30 stóp od ciebie, wykona rzut obronny, możesz wykorzystać swoją reakcję, aby dać temu stworzeniu przewagę w rzucie obronnym."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "stirring-dragon-vessel": {
+    "name": "Mieszający Smoczy Naczynie",
+    "rarity": "Rzadki",
+    "attunement": "Wymaga dostrojenia",
+    "entries": [
+      "Naczyniem tym może być butelka na eliksir, róg do picia lub inny pojemnik przeznaczony do przechowywania płynu.",
+      "Jako akcja dodatkowa, jeśli naczynie jest puste, możesz wypowiedzieć słowo polecenia, aby napełnić naczynie jednym z następujących (do wyboru): ale, oliwa z oliwek, miód pitny, {@item potion of healing}, {@item potion of greater healing}, {@item potion of climbing} lub {@item potion of fire breath}. Gdy ta właściwość zostanie wykorzystana, nie można z niej skorzystać aż do następnego świtu. Stworzony w ten sposób eliksir traci swoje magiczne właściwości, jeśli nie zostanie wypity w ciągu 24 godzin."
+    ]
+  },
+  "silken-spite-exalted": {
+    "name": "Jedwabna Złość (Wywyższony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "2 funty",
+    "damage": "Piercing 1d8",
+    "properties": "Finezja, wszechstronność",
+    "weaponCategory": "wojenny",
+    "entries": [
+      "Ostrze tego rapieru wykonane jest z pajęczego jedwabiu. Jego onyksowa głowica zakończona jest rubinowym szlifem w kształcie pająka, a ostrze niesie błogosławieństwo Lolth.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Silken Spite to świadoma, chaotyczna zła broń o inteligencji 13, mądrości 15 i charyzmie 15. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną, Elficką i Podwspólną."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "W Silken Spite mieszka morderczy {@creature yochlol} o imieniu Sinnafex. Broń przemawia szeptem, zmuszając swojego posiadacza, aby nikomu nie ufał i zabijał tych, którzy powodują choćby najmniejszą osobistą obrazę."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "W stanie uśpienia rapier zapewnia następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Potrafisz mówić, czytać i pisać w języku Otchłani, Elfickim i Podwspólnym.",
+              "Masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, dostrojenie się do rapieru zwiększa zasięg twojego {@sense darkvision} o 20 metrów.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
+              "Możesz użyć akcji, która sprawi, że trucizna pokryje ostrze rapieru. Trucizna utrzymuje się przez 1 minutę lub do momentu, gdy atak tą bronią trafi istotę. To stworzenie musi odnieść sukces w rzucie obronnym na Kondycję {@dc 13} lub stać się {@condition poisoned} na 1 godzinę. Jeśli rzut obronny nie powiedzie się o 5 lub więcej, stworzenie jest również {@condition unconscious} podczas {@condition poisoned} w ten sposób. Stworzenie budzi się, jeśli otrzyma obrażenia lub jeśli inne stworzenie użyje swojej akcji, aby go obudzić.",
+              "Niosąc rapier, możesz poruszać się w górę, w dół, po pionowych powierzchniach i do góry nogami po sufitach, pozostawiając wolne ręce. Prędkość wspinania jest równa szybkości chodzenia. Dodatkowo nie możesz dać się złapać w żadne sieci i możesz poruszać się po nich tak, jakby były to {@quickref difficult terrain||3}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Rapier zapewnia następujące korzyści w stanie przebudzenia:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "ST rzutu obronnego na truciznę broni wzrasta do 15.",
+              "Trzymając rapier, możesz wykonać akcję, aby rzucić z niego jedno z następujących zaklęć (zapisz {@dc 15}): {@spell cloudkill}, {@spell darkness}, {@spell levitate} lub {@spell web}. Kiedy zaklęcie zostanie rzucone za pomocą rapieru, nie można go ponownie rzucić z rapieru aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Rapier zapewnia następujące korzyści w swoim wzniosłym stanie:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +3.",
+              "ST rzutu obronnego na truciznę i zaklęcia rzucane przez broń wzrasta do 17.",
+              "Magiczna ciemność nie przeszkadza Twojemu {@sense darkvision}.",
+              "Trzymając broń w słabym świetle lub ciemności, możesz skorzystać z dodatkowej akcji, aby teleportować się na odległość do 60 stóp do niezajętego miejsca, które, jak widzisz, również jest przyćmione lub ciemne. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "silken-spite-awakened": {
+    "name": "Silken Spite (Przebudzony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "2 funty",
+    "damage": "Piercing 1d8",
+    "properties": "Finezja, wszechstronność",
+    "weaponCategory": "wojenny",
+    "entries": [
+      "Ostrze tego rapieru wykonane jest z pajęczego jedwabiu. Jego onyksowa głowica zakończona jest rubinowym szlifem w kształcie pająka, a ostrze niesie błogosławieństwo Lolth.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Silken Spite to świadoma, chaotyczna zła broń o inteligencji 13, mądrości 15 i charyzmie 15. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną, Elficką i Podwspólną."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "W Silken Spite mieszka morderczy {@creature yochlol} o imieniu Sinnafex. Broń przemawia szeptem, zmuszając swojego posiadacza, aby nikomu nie ufał i zabijał tych, którzy powodują najdrobniejszą osobistą obrazę."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Rapier zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Potrafisz mówić, czytać i pisać w języku Otchłani, Elfickim i Podwspólnym.",
+              "Masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, dostrojenie się do rapieru zwiększa zasięg twojego {@sense darkvision} o 20 metrów.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
+              "Możesz użyć akcji, która sprawi, że trucizna pokryje ostrze rapieru. Trucizna utrzymuje się przez 1 minutę lub do momentu, gdy atak tą bronią trafi istotę. To stworzenie musi odnieść sukces w rzucie obronnym na Kondycję {@dc 13} lub stać się {@condition poisoned} na 1 godzinę. Jeśli rzut obronny nie powiedzie się o 5 lub więcej, stworzenie jest również {@condition unconscious} podczas {@condition poisoned} w ten sposób. Stworzenie budzi się, jeśli otrzyma obrażenia lub jeśli inne stworzenie użyje swojej akcji, aby go obudzić.",
+              "Niosąc rapier, możesz poruszać się w górę, w dół, po pionowych powierzchniach i do góry nogami po sufitach, pozostawiając wolne ręce. Prędkość wspinania jest równa szybkości chodzenia. Dodatkowo nie możesz dać się złapać w żadne sieci i możesz poruszać się po nich tak, jakby były to {@quickref difficult terrain||3}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Rapier zapewnia następujące korzyści w stanie przebudzenia:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "ST rzutu obronnego na truciznę broni wzrasta do 15.",
+              "Trzymając rapier, możesz wykonać akcję, aby rzucić z niego jedno z następujących zaklęć (zapisz {@dc 15}): {@spell cloudkill}, {@spell darkness}, {@spell levitate} lub {@spell web}. Kiedy zaklęcie zostanie rzucone za pomocą rapieru, nie można go ponownie rzucić z rapieru aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "ruin-s-wake-awakened": {
+    "name": "Przebudzenie Ruiny (Przebudzony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "3 funty",
+    "damage": "Piercing 1d6",
+    "properties": "Rzucane, wszechstronne, wszechstronne",
+    "weaponCategory": "prosty",
+    "entries": [
+      "Ta włócznia jest wykonana z kości słoniowej starożytnego złotego smoka i ma wyrzeźbiony hymn orków na cześć Gruumsha.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Ruin's Wake to świadoma, chaotyczna zła broń o inteligencji 20, mądrości 16 i charyzmie 22. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną i Orkową."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "Kochający rzeź {@creature balor} o imieniu Yarrowish mieszka w Przebudzeniu Ruin. Broń pragnie jedynie krwi i popycha jej posiadacza do rozwiązywania problemów za pomocą przemocy."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Włócznia zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz mówić, czytać i pisać Otchłani i Orków.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią, która zadaje dodatkowe obrażenia kłute {@damage 1d8} każdemu trafionemu celowi. Natychmiast po wykonaniu ataku dystansowego tą bronią, wraca ona do twojej ręki.",
+              "W reakcji na trafienie atakiem wręcz możesz wykonać atak wręcz za pomocą Przebudzenia Zniszczenia z przewagą nad atakującym. Nie można ponownie korzystać z tego obiektu, dopóki nie zakończy się krótki lub długi odpoczynek."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy włócznia osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2, a dodatkowe obrażenia kłute zadawane przez broń wzrastają do {@damage 2d8}.",
+              "Kiedy rzucisz włócznią i wypowiesz słowo rozkazu, przekształci się ona w błyskawicę, tworząc linię o szerokości 5 stóp, która rozciąga się od ciebie do stworzenia, które widzisz w promieniu 30 metrów od ciebie. Każde stworzenie w linii, z wyjątkiem ciebie, musi wykonać rzut obronny na Zręczność {@dc 15}, który otrzyma obrażenia od błyskawic {@damage 8d6} przy nieudanym rzucie lub połowę mniej przy udanym rzucie. Następnie Ruin's Wake wraca do twojej ręki. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "stirring-scaled-ornament": {
+    "name": "Mieszanie łuskowatego ornamentu",
+    "rarity": "Rzadki",
+    "attunement": "Wymaga dostrojenia",
+    "entries": [
+      "Ozdobą może być biżuteria, płaszcz lub inny dodatek do noszenia. Wydaje się, że jest wykonany ze smoczej łuski, zęba lub pazura, albo zawiera obrazy w tych kształtach.",
+      "Otrzymujesz premię +1 do KP i nie możesz być {@condition charmed} ani {@condition frightened}. Co więcej, każde wybrane przez ciebie stworzenie w promieniu 30 stóp od ciebie ma przewagę w rzutach obronnych, które wykonuje, aby uniknąć bycia {@condition charmed} lub {@condition frightened} lub zakończyć te warunki na sobie."
+    ]
+  },
+  "ruin-s-wake-exalted": {
+    "name": "Przebudzenie Ruiny (Wywyższony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "3 funty",
+    "damage": "Piercing 1d6",
+    "properties": "Rzucane, wszechstronne, wszechstronne",
+    "weaponCategory": "prosty",
+    "entries": [
+      "Ta włócznia jest wykonana z kości słoniowej starożytnego złotego smoka i ma wyrzeźbiony hymn orków na cześć Gruumsha.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Ruin's Wake to świadoma, chaotyczna zła broń o inteligencji 20, mądrości 16 i charyzmie 22. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną i Orkową."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "Kochający rzeź {@creature balor} o imieniu Yarrowish mieszka w Przebudzeniu Ruiny. Broń pragnie jedynie krwi i popycha jej posiadacza do rozwiązywania problemów za pomocą przemocy."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Włócznia zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz mówić, czytać i pisać Otchłani i Orków.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią, która zadaje dodatkowe obrażenia kłute {@damage 1d8} każdemu trafionemu celowi. Natychmiast po wykonaniu ataku dystansowego tą bronią, wraca ona do twojej ręki.",
+              "W reakcji na trafienie atakiem wręcz możesz wykonać atak wręcz za pomocą Przebudzenia Zniszczenia z przewagą nad atakującym. Nie można ponownie korzystać z tego obiektu, dopóki nie zakończy się krótki lub długi odpoczynek."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy włócznia osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2, a dodatkowe obrażenia kłute zadawane przez broń wzrastają do {@damage 2d8}.",
+              "Kiedy rzucisz włócznią i wypowiesz słowo rozkazu, przekształci się ona w błyskawicę, tworząc linię o szerokości 5 stóp, która rozciąga się od ciebie do stworzenia, które widzisz w promieniu 30 metrów od ciebie. Każde stworzenie w linii, z wyjątkiem ciebie, musi wykonać rzut obronny na Zręczność {@dc 15}, który otrzyma obrażenia od błyskawic {@damage 8d6} przy nieudanym rzucie lub połowę mniej przy udanym rzucie. Następnie Ruin's Wake wraca do twojej ręki. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy włócznia osiągnie wysoki stan, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +3.",
+              "Trzymając włócznię, możesz wydać okrzyk bojowy jako akcję dodatkową. Każde wybrane przez ciebie stworzenie w promieniu 30 stóp od ciebie zyskuje przewagę w testach ataku aż do początku twojej następnej tury. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
+              "Kiedy zmniejszysz istotę do 0 punktów wytrzymałości atakiem włócznią, możesz odzyskać punkty wytrzymałości równe obrażeniom, które zadałeś atakiem. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "stormgirdle-awakened": {
+    "name": "Obręcz burzy (przebudzony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Stormgirdle to szeroki pas wykonany z grubej skóry, na którym widnieje symbol Korda. Zapięcia pasa wykonane są ze smoczej kości słoniowej.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Nosząc Obręcz Burzy w stanie przebudzenia, zyskujesz następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Twój wynik Siły wynosi 23, jeśli nie wynosi już 23 lub więcej.",
+              "Uderzenie pioruna Twojego Avatara Burzy zadaje obrażenia od błyskawic {@damage 4d6} (zamiast {@dice 3d6}).",
+              "Po przemianie w Awatara Burzy zyskujesz prędkość lotu wynoszącą 30 stóp i możesz unosić się w powietrzu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Nosząc Obręcz Burzy w stanie uśpienia, masz odporność na obrażenia od błyskawic i grzmotów, a Twój wynik Siły wynosi 21, jeśli nie wynosi już 21 lub więcej. Ponadto możesz użyć akcji, aby stać się Awatarem Burzy na 1 minutę i zyskać na czas następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Masz odporność na obrażenia od błyskawic i grzmotów.",
+              "Kiedy trafisz atakiem bronią, który zwykle zadaje obrażenia obuchowe, zamiast tego zadaje obrażenia od piorunów. Kiedy trafisz atakiem bronią, który zwykle zadaje obrażenia kłute lub tnące, zamiast tego zadaje obrażenia od błyskawic.",
+              "Jako akcję dodatkową możesz wybrać jedno stworzenie, które widzisz w promieniu 30 stóp od ciebie, i które zostanie uderzone piorunem. Cel musi wykonać rzut obronny na Zręczność {@dc 15}, otrzymując obrażenia od błyskawic {@damage 3d6} przy nieudanym rzucie lub o połowę mniej przy udanym rzucie."
+            ]
+          },
+          "Gdy użyjesz właściwości Storm Avatar pasa, tej właściwości nie można użyć ponownie aż do następnego świtu."
+        ]
+      }
+    ]
+  },
+  "stormgirdle-exalted": {
+    "name": "Obręcz burzy (wywyższony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Stormgirdle to szeroki pas wykonany z grubej skóry, na którym widnieje symbol Korda. Zapięcia pasa wykonane są ze smoczej kości słoniowej.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Nosząc Obręcz Burzy w stanie przebudzenia, zyskujesz następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Twój wynik Siły wynosi 23, jeśli nie wynosi już 23 lub więcej.",
+              "Uderzenie pioruna Twojego Avatara Burzy zadaje obrażenia od błyskawic {@damage 4d6} (zamiast {@dice 3d6}).",
+              "Po przemianie w Awatara Burzy zyskujesz prędkość lotu wynoszącą 30 stóp i możesz unosić się w powietrzu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Nosząc Obręcz Burzy w jej wzniosłym stanie, zyskujesz następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Twój wynik Siły wynosi 25, jeśli nie wynosi już 25 lub więcej.",
+              "Uderzenie pioruna Twojego Avatara Burzy zadaje obrażenia od błyskawic {@damage 5d6} (zamiast {@dice 3d6}).",
+              "Z pasa możesz rzucić zaklęcie {@spell control weather}. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Nosząc Obręcz Burzy w stanie uśpienia, masz odporność na obrażenia od błyskawic i grzmotów, a Twój wynik Siły wynosi 21, jeśli nie wynosi już 21 lub więcej. Ponadto możesz użyć akcji, aby stać się Awatarem Burzy na 1 minutę i zyskać na czas następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Masz odporność na obrażenia od błyskawic i grzmotów.",
+              "Kiedy trafisz atakiem bronią, który zwykle zadaje obrażenia obuchowe, zamiast tego zadaje obrażenia od piorunów. Kiedy trafisz atakiem bronią, który zwykle zadaje obrażenia kłute lub tnące, zamiast tego zadaje obrażenia od błyskawic.",
+              "Jako akcję dodatkową możesz wybrać jedno stworzenie, które widzisz w promieniu 30 stóp od ciebie, i które zostanie uderzone piorunem. Cel musi wykonać rzut obronny na Zręczność {@dc 15}, otrzymując obrażenia od błyskawic {@damage 3d6} przy nieudanym rzucie lub o połowę mniej przy udanym rzucie."
+            ]
+          },
+          "Gdy użyjesz właściwości Storm Avatar pasa, tej właściwości nie można użyć ponownie aż do następnego świtu."
+        ]
+      }
+    ]
+  },
+  "the-bloody-end-awakened": {
+    "name": "Krwawy koniec (przebudzony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "4 funty",
+    "damage": "Piercing 1d8",
+    "properties": "Wszechstronny",
+    "weaponCategory": "wojenny",
+    "entries": [
+      "Ta adamantytowa gwiazda poranna, dzierżąca moc Bane'a, ma długie na stopę kolce i postrzępione ostrze na głowicy.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Krwawy Koniec to świadoma, legalna zła broń o inteligencji 22, mądrości 18 i charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny i Piekielny."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "W Krwawym Końcu mieszka tyran {@creature pit fiend} o imieniu Izeelzee. Broń hałaśliwie zmusza swojego posiadacza do podporządkowania sobie innych i nigdy nie rezygnowania z wyzwania. Jeśli posiadacz nie żąda wierności od innych, broń chętnie zażąda tego w jego imieniu."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Gwiazda Poranna zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz mówić, czytać i pisać Piekielny.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
+              "Trzymając gwiazdę poranną, możesz wykonać akcję, aby rzucić z niej jedno z następujących zaklęć (zapisz {@dc 13}): {@spell charm person}, {@spell dominate person} lub {@spell fear}. Kiedy zaklęcie zostanie rzucone przy użyciu Gwiazdy Porannej, nie można go ponownie rzucić aż do następnego świtu.",
+              "Trzymając gwiazdę poranną, masz przewagę w testach Charyzmy ({@skill Intimidation})."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy gwiazda poranna osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "ST rzutu obronnego na zaklęcia rzucane przez Gwiazdę Poranną wzrasta do 15.",
+              "Kiedy zmniejszysz istotę do 0 punktów wytrzymałości atakiem Krwawego Końca, możesz wywołać następujący efekt: każda wybrana przez ciebie istota w promieniu 5 stóp od ciebie musi odnieść sukces w rzucie obronnym na Mądrość {@dc 15} lub być {@condition frightened} tobą do końca twojej następnej tury. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
+              "Kiedy stwór uderza cię atakiem wręcz, możesz wykorzystać swoją reakcję, aby zadać atakującemu obrażenia psychiczne {@damage 1d6}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "wakened-scaled-ornament": {
+    "name": "Przebudzona łuskowa ozdoba",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia",
+    "entries": [
+      "Ozdobą może być biżuteria, płaszcz lub inny dodatek do noszenia. Wydaje się, że jest wykonany ze smoczej łuski, zęba lub pazura, albo zawiera obrazy w tych kształtach.",
+      "Otrzymujesz premię +1 do KP i nie możesz być {@condition charmed} ani {@condition frightened}. Co więcej, każde wybrane przez ciebie stworzenie w promieniu 30 stóp od ciebie ma przewagę w rzutach obronnych, które wykonuje, aby uniknąć bycia {@condition charmed} lub {@condition frightened} lub zakończyć te warunki na sobie.",
+      "Kiedy miałbyś otrzymać obrażenia zadawane przez oddech smoka, w którego skarbcu przebudziła się ozdoba, możesz zamiast tego użyć swojej reakcji, aby nie otrzymywać obrażeń i odzyskać punkty wytrzymałości równe obrażeniom, które byś przyjął. Gdy ta właściwość zostanie wykorzystana, nie można jej ponownie użyć aż do następnego świtu."
+    ]
+  },
+  "verminshroud-awakened": {
+    "name": "Robaczy Całun (Przebudzony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Ten niejednolity płaszcz został złożony ze skór szczurów znalezionych na uczcie na zmarłych w Blightshore i jest usiany w szwach wzdętymi ciałami magicznie zakonserwowanych owadów.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Nosząc Verminshrouda w stanie przebudzenia, zyskujesz następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Masz odporność na obrażenia od trucizny.",
+              "Możesz użyć akcji, aby rzucić zaklęcie {@spell insect plague} (zapisz {@dc 15}) z Robaczego Całunu, nie wymagając żadnych komponentów materialnych. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
+              "Kiedy rzucisz zaklęcie {@spell polymorph} za pomocą Verminshroud, możesz przekształcić się w {@creature giant wasp}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Nosząc Verminshrouda w stanie uśpienia, zyskujesz następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Masz przewagę w testach Mądrości ({@skill Perception}), które opierają się na węchu, jesteś odporny na choroby i potrafisz {@sense darkvision} promieniować na odległość 60 stóp. Jeśli posiadasz już {@sense darkvision}, noszenie płaszcza zwiększa zasięg twojego {@sense darkvision} o 60 stóp.",
+              "W ramach akcji możesz użyć Verminshroud, aby rzucić na siebie {@spell polymorph}, przekształcając się w {@creature giant rat} lub {@creature rat}, zachowując jednocześnie swoje punkty Inteligencji, Mądrości i Charyzmy, a także właściwości płaszcza. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "wakened-dragon-touched-focus": {
+    "name": "Przebudzone skupienie dotknięte smokiem",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia przez rzucającego zaklęcia",
+    "entries": [
+      "Tym cudownym przedmiotem może być berło, kula, amulet, kryształ lub inny pięknie wykonany przedmiot. Zwykle zawiera obrazy skrzydeł, pazurów, zębów lub łusek smoków.",
+      "Masz przewagę w rzutach na inicjatywę. Kiedy trzymasz skupienie, może ono działać jako skupienie rzucania zaklęć dla wszystkich twoich zaklęć.",
+      "Skupienie zyskuje dodatkową właściwość określoną przez rodzinę smoka, w którego skarbcu stało się Mieszające:",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Chromatyczny",
+            "entries": [
+              "Ilekroć używasz miejsca na zaklęcie, aby rzucić zaklęcie, które zadaje obrażenia od kwasu, zimna, ognia, błyskawic lub trucizny, rzuć {@dice d6}, a otrzymasz premię równą liczbie wyrzuconej do jednego z rzutów na obrażenia zaklęcia."
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Klejnot",
+            "entries": [
+              "Ilekroć używasz miejsca na zaklęcie do rzucenia zaklęcia, możesz natychmiast teleportować się do niezajętego miejsca, które widzisz w promieniu 5 stóp od ciebie."
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Metaliczny",
+            "entries": [
+              "Kiedy istota, którą widzisz w promieniu 30 stóp od ciebie, wykona rzut obronny, możesz wykorzystać swoją reakcję, aby dać temu stworzeniu przewagę w rzucie obronnym."
+            ]
+          }
+        ]
+      },
+      "Kiedy trzymasz skupienie Przebudzonego, możesz go używać do rzucania określonych zaklęć. Kiedy przedmiot zostanie użyty do rzucenia danego zaklęcia, nie można go użyć do rzucenia tego czaru ponownie aż do następnego świtu. Zaklęcia są określane przez rodzinę smoka, w którego skarbcu został Przebudzony.",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Chromatyczny",
+            "entries": [
+              "{@spell Hold monster}, {@spell Rime's binding ice|FTD}"
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Klejnot",
+            "entries": [
+              "{@spell Rary's telepathic bond}, {@spell Raulothim's psychic lance|FTD}"
+            ]
+          },
+          {
+            "type": "item",
+            "name": "Metaliczny",
+            "entries": [
+              "{@spell Fizban's platinum shield|FTD}, {@spell legend lore}"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "the-bloody-end-exalted": {
+    "name": "Krwawy koniec (Wywyższony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "4 funty",
+    "damage": "Piercing 1d8",
+    "properties": "Wszechstronny",
+    "weaponCategory": "wojenny",
+    "entries": [
+      "Ta adamantytowa gwiazda poranna, dzierżąca moc Bane'a, ma długie na stopę kolce i postrzępione ostrze na głowicy.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Krwawy Koniec to świadoma, legalna zła broń o inteligencji 22, mądrości 18 i charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny i Piekielny."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "W Krwawym Końcu mieszka tyran {@creature pit fiend} o imieniu Izeelzee. Broń hałaśliwie zmusza swojego posiadacza do podporządkowania sobie innych i nigdy nie rezygnowania z wyzwania. Jeśli posiadacz nie żąda wierności od innych, broń chętnie zażąda tego w jego imieniu."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Gwiazda Poranna zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Możesz mówić, czytać i pisać Piekielny.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
+              "Trzymając gwiazdę poranną, możesz wykonać akcję, aby rzucić z niej jedno z następujących zaklęć (zapisz {@dc 13}): {@spell charm person}, {@spell dominate person} lub {@spell fear}. Kiedy zaklęcie zostanie rzucone przy użyciu Gwiazdy Porannej, nie można go ponownie rzucić aż do następnego świtu.",
+              "Trzymając gwiazdę poranną, masz przewagę w testach Charyzmy ({@skill Intimidation})."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy gwiazda poranna osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "ST rzutu obronnego na zaklęcia rzucane przez Gwiazdę Poranną wzrasta do 15.",
+              "Kiedy zmniejszysz istotę do 0 punktów wytrzymałości atakiem Krwawego Końca, możesz wywołać następujący efekt: każda wybrana przez ciebie istota w promieniu 5 stóp od ciebie musi odnieść sukces w rzucie obronnym na Mądrość {@dc 15} lub być {@condition frightened} tobą do końca twojej następnej tury. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
+              "Kiedy stwór uderza cię atakiem wręcz, możesz wykorzystać swoją reakcję, aby zadać atakującemu obrażenia psychiczne {@damage 1d6}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy gwiazda poranna osiągnie stan wzniosły, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +3.",
+              "Dodaj {@spell dominate monster} do listy zaklęć, które można rzucić z Gwiazdy Porannej.",
+              "ST rzutu obronnego na zaklęcia rzucane przez Gwiazdę Poranną, a także na stworzenia, które unikają bycia przez nią {@condition frightened}, wzrasta do 17.",
+              "Kiedy używasz swojej reakcji, aby zadać obrażenia psychiczne stworzeniu, które uderzy cię atakiem wręcz, ilość obrażeń psychicznych wzrasta do {@damage 2d6}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "verminshroud-exalted": {
+    "name": "Robaczy Całun (Wywyższony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Ten niejednolity płaszcz został złożony ze skór szczurów znalezionych na uczcie na zmarłych w Blightshore i jest usiany w szwach wzdętymi ciałami magicznie zakonserwowanych owadów.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Nosząc Verminshroud w stanie przebudzenia, zyskujesz następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Masz odporność na obrażenia od trucizny.",
+              "Możesz użyć akcji, aby rzucić zaklęcie {@spell insect plague} (zapisz {@dc 15}) z Robaczego Całunu, nie wymagając żadnych komponentów materialnych. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
+              "Kiedy rzucisz zaklęcie {@spell polymorph} za pomocą Verminshroud, możesz przekształcić się w {@creature giant wasp}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Nosząc Verminshroud w jego wzniosłym stanie, zyskujesz następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Otrzymujesz prędkość wspinania równą prędkości chodzenia.",
+              "Twoje zęby stają się ostrą jak brzytwa naturalną bronią, której możesz używać do wykonywania ataków bez broni. Jeśli nimi trafisz, zadajesz obrażenia przebijające równe {@dice 1d6} + twój modyfikator Siły, zamiast obrażeń obuchowych normalnych dla ataku bez broni. Możesz wykonać ten atak jako akcję bonusową. Kiedy ugryziesz stworzenie i zadasz mu obrażenia, stworzenie to musi odnieść sukces w rzucie obronnym na Kondycję {@dc 17} lub być {@condition poisoned} przez 1 minutę. Cel może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc nałożony na siebie warunek sukcesem.",
+              "Kiedy rzucisz zaklęcie {@spell polymorph} za pomocą Verminshroud, możesz przekształcić się w {@creature giant scorpion}."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Nosząc Verminshrouda w stanie uśpienia, zyskujesz następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Masz przewagę w testach Mądrości ({@skill Perception}), które opierają się na węchu, jesteś odporny na choroby i potrafisz {@sense darkvision} promieniować na odległość 60 stóp. Jeśli posiadasz już {@sense darkvision}, noszenie płaszcza zwiększa zasięg twojego {@sense darkvision} o 60 stóp.",
+              "W ramach akcji możesz użyć Verminshroud, aby rzucić na siebie {@spell polymorph}, przekształcając się w {@creature giant rat} lub {@creature rat}, zachowując jednocześnie swoje punkty Inteligencji, Mądrości i Charyzmy, a także właściwości płaszcza. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "wakened-dragon-vessel": {
+    "name": "Przebudzony Smoczy Naczynie",
+    "rarity": "Bardzo rzadkie",
+    "attunement": "Wymaga dostrojenia",
+    "entries": [
+      "Naczyniem tym może być butelka na eliksir, róg do picia lub inny pojemnik przeznaczony do przechowywania płynu.",
+      "Jako akcja dodatkowa, jeśli naczynie jest puste, możesz wypowiedzieć słowo polecenia, aby napełnić naczynie jednym z następujących (wybór): piwo, oliwa z oliwek, miód pitny, wino, a {@item potion of healing}, {@item potion of greater healing}, {@item potion of superior healing}, {@item potion of climbing}, {@item potion of fire breath} lub {@item potion of flying}. Gdy ta właściwość zostanie wykorzystana, nie można z niej skorzystać aż do następnego świtu. Stworzony w ten sposób eliksir traci swoje magiczne właściwości, jeśli nie zostanie wypity w ciągu 24 godzin."
+    ]
+  },
+  "wreath-of-the-prism-awakened": {
+    "name": "Wieniec Pryzmatu (Przebudzony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Ta pętla złotych cierni jest wysadzana dziesiątkami klejnotów reprezentujących pięć kolorów Tiamat.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy Wianek Pryzmatu osiągnie stan przebudzenia, zyskuje następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Za pomocą wieńca możesz wpływać na stworzenia o poziomie wyzwania 10 lub niższym.",
+              "ST rzutu obronnego zaklęcia wieńca wzrasta do 15."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Nosząc wieniec w stanie uśpienia, masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, noszenie wieńca zwiększa zasięg twojego {@sense darkvision} o 20 metrów.",
+          "Kiedy trafisz atakiem bestię, smoka lub potwora o stopniu wyzwania 5 lub niższym, lub kiedy go złapiesz, możesz użyć wieńca, aby rzucić {@spell dominate monster} na stworzenie (z wyjątkiem {@dc 13}). Po pomyślnym rzucie obronnym cel jest odporny na moc wieńca na 24 godziny. W przypadku niepowodzenia, błyszczący, złoty obraz wieńca pojawia się jako obroża na szyi celu lub jako korona na jego głowie (twój wybór), dopóki nie będzie już {@condition charmed} przez zaklęcie. Jeśli użyjesz wieńca do oczarowania drugiego stworzenia, pierwsze zaklęcie natychmiast się zakończy. Kiedy zaklęcie się skończy, cel będzie wiedział, że to {@condition charmed} autorstwa ciebie."
+        ]
+      }
+    ]
+  },
+  "wyllow-s-staff-of-flowers": {
+    "name": "Kostur kwiatów Wyllowa",
+    "rarity": "Wspólny",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "4 funty",
+    "damage": "Tłuczenie 1d6",
+    "properties": "Wszechstronny",
+    "weaponCategory": "prosty",
+    "entries": [
+      "Ta drewniana laska ma 10 ładunków. Trzymając go, możesz wykonać akcję, aby wydać 1 ładunek laski i spowodować, że kwiat wyrośnie z kawałka ziemi lub ziemi w promieniu 1,5 metra od ciebie lub z samej laski. Jeśli nie wybierzesz konkretnego rodzaju kwiatu, laska stworzy delikatnie pachnącą stokrotkę. Kwiat jest nieszkodliwy i niemagiczny, rośnie lub więdnie jak normalny kwiat. Personel odzyskuje zużyte opłaty {@dice 1d6 + 4} codziennie o świcie. Jeśli zużyjesz ostatni ładunek, rzuć {@dice d20}. Na 1 laska zamienia się w płatki kwiatów i przepada na zawsze.",
+      "Laska Wyllowa wyróżnia się tym, że nie potrafi tworzyć róż, czego arcydruid nie lubi. Jeśli wybierzesz różę, zamiast niej wyrośnie stokrotka."
+    ]
+  },
+  "wreath-of-the-prism-exalted": {
+    "name": "Wieniec Pryzmatu (Wywyższony)",
+    "rarity": "Legendarny",
+    "attunement": "Wymaga dostrojenia",
+    "properties": "Wszechstronny",
+    "entries": [
+      "Ta pętla złotych cierni jest wysadzana dziesiątkami klejnotów reprezentujących pięć kolorów Tiamat.",
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy Wianek Pryzmatu osiągnie stan przebudzenia, zyskuje następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Za pomocą wieńca możesz wpływać na stworzenia o poziomie wyzwania 10 lub niższym.",
+              "ST rzutu obronnego zaklęcia wieńca wzrasta do 15."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy Wianek Pryzmatu osiągnie wysoki stan, zyskuje następujące korzyści:",
+          {
+            "type": "list",
+            "items": [
+              "Za pomocą wieńca możesz wpływać na stworzenia o poziomie wyzwania 15 lub niższym.",
+              "ST rzutu obronnego zaklęcia wieńca wzrasta do 17."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Nosząc wieniec w stanie uśpienia, masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, noszenie wieńca zwiększa zasięg twojego {@sense darkvision} o 20 metrów.",
+          "Kiedy trafisz atakiem bestię, smoka lub potwora o stopniu wyzwania 5 lub niższym, lub kiedy go złapiesz, możesz użyć wieńca, aby rzucić {@spell dominate monster} na stworzenie (z wyjątkiem {@dc 13}). Po pomyślnym rzucie obronnym cel jest odporny na moc wieńca na 24 godziny. W przypadku niepowodzenia, błyszczący, złoty obraz wieńca pojawia się jako obroża na szyi celu lub jako korona na jego głowie (twój wybór), dopóki nie będzie już {@condition charmed} przez zaklęcie. Jeśli użyjesz wieńca do oczarowania drugiego stworzenia, pierwsze zaklęcie natychmiast się zakończy. Kiedy zaklęcie się skończy, cel będzie wiedział, że to {@condition charmed} autorstwa ciebie."
+        ]
+      }
+    ]
+  },
+  "will-of-the-talon-awakened": {
+    "name": "Wola Szponu (Przebudzony)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "2 funty",
+    "damage": "Piercing 1d8",
+    "properties": "Wszechstronny",
+    "weaponCategory": "wojenny",
+    "entries": [
+      "Czarne, niebieskie, zielone, czerwone i białe klejnoty wyrzeźbione w kształcie smoczych głów pokrywają ten ostentacyjny złoty kilof wojenny, oznaczając go jako broń przekazującą moc Tiamat.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Wola Szponu to świadoma, legalna zła broń o Inteligencji 14, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny, Smoczy i Piekielny."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "W Woli Szponu żyje porywczy {@creature bone devil} o imieniu Ashtyrlon. Broń jest chciwa i ceni silne przywództwo. Wymaga, aby jego posiadacz podjął zdecydowane działania, aby utrzymać porządek w sytuacjach wysokiego napięcia – i aby w zamian zawsze otrzymywał odpowiednią część skarbów."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Wybór wojenny zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Potrafisz mówić, czytać i pisać w języku Draconic i Infernal.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
+              "Jako dodatkową akcję, trzymając kilof wojenny, możesz wywołać następujący efekt: każde wybrane przez ciebie stworzenie, które znajduje się w promieniu 30 stóp od ciebie i jest świadome ciebie, musi odnieść sukces w rzucie obronnym na Mądrość {@dc 13} lub stać się {@condition frightened} ciebie na 1 minutę. Stworzenie może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie. Jeśli rzut obronny stworzenia się powiedzie lub efekt się zakończy, stworzenie będzie odporne na Twoją Przerażającą Obecność na następne 24 godziny. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
+              "Trzymając kilof wojenny, możesz wykorzystać swoją akcję do wypuszczenia niszczycielskiej energii. Wybierz rodzaj obrażeń z tabeli Broni Oddechu Woli Szponu. Każda istota znajdująca się w obszarze wydechu musi wykonać rzut obronny {@dc 13}, którego rodzaj określony jest w tabeli. Stworzenie otrzymuje obrażenia {@damage 3d6} w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
+            ]
+          },
+          "Kiedy użyjesz kilofa wojennego, aby wyzwolić broń oddechową o określonym typie obrażeń, nie będziesz mógł wybrać tego samego typu obrażeń ponownie aż do następnego świtu."
+        ]
+      },
+      {
+        "type": "table",
+        "caption": "Wola Broni Oddechu Szpona",
+        "colStyles": [
+          "kol-3",
+          "kol-7",
+          "col-3 centrum tekstowe"
+        ],
+        "colLabels": [
+          "Typ uszkodzenia",
+          "Obszar",
+          "Rzut obronny"
+        ],
+        "rows": [
+          [
+            "Kwas",
+            "Linia o szerokości 5 stóp i długości 30 stóp",
+            "Zręczność"
+          ],
+          [
+            "Zimno",
+            "Stożek 15 stóp",
+            "Konstytucja"
+          ],
+          [
+            "Ogień",
+            "Stożek 15 stóp",
+            "Zręczność"
+          ],
+          [
+            "Błyskawica",
+            "Linia o szerokości 5 stóp i długości 30 stóp",
+            "Zręczność"
+          ],
+          [
+            "Zatruć",
+            "Stożek 15 stóp",
+            "Konstytucja"
+          ]
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy kilof wojenny osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "ST rzutu obronnego dla właściwości Broni Oddechowej wyboru wojennego wzrasta do 15, a właściwość ta zadaje obrażenia {@damage 4d6} w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu.",
+              "ST rzutu obronnego dla właściwości Przerażającej Obecności wyboru wojennego wzrasta do 15.",
+              "Nosząc broń, masz odporność na obrażenia od kwasu, zimna, ognia, błyskawic i trucizn."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
+  },
+  "will-of-the-talon-exalted": {
+    "name": "Wola Szponu (Wysoki)",
+    "rarity": "Artefakt",
+    "attunement": "Wymaga dostrojenia",
+    "weight": "2 funty",
+    "damage": "Piercing 1d8",
+    "properties": "Wszechstronny",
+    "weaponCategory": "wojenny",
+    "entries": [
+      "Czarne, niebieskie, zielone, czerwone i białe klejnoty wyrzeźbione w kształcie smoczych głów pokrywają ten ostentacyjny złoty kilof wojenny, oznaczając go jako broń przekazującą moc Tiamat.",
+      {
+        "type": "entries",
+        "name": "Wrażliwość",
+        "entries": [
+          "Wola Szponu to świadoma, legalna zła broń o Inteligencji 14, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny, Smoczy i Piekielny."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Osobowość",
+        "entries": [
+          "W Woli Szponu żyje porywczy {@creature bone devil} o imieniu Ashtyrlon. Broń jest chciwa i ceni silne przywództwo. Wymaga, aby jego posiadacz podjął zdecydowane działania, aby utrzymać porządek w sytuacjach wysokiego napięcia – i aby w zamian zawsze otrzymywał odpowiednią część skarbów."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Uśpiony",
+        "entries": [
+          "Wybór wojenny zapewnia następujące korzyści w stanie uśpienia:",
+          {
+            "type": "list",
+            "items": [
+              "Potrafisz mówić, czytać i pisać w języku Draconic i Infernal.",
+              "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
+              "Jako dodatkową akcję, trzymając kilof wojenny, możesz wywołać następujący efekt: każde wybrane przez ciebie stworzenie, które znajduje się w promieniu 30 stóp od ciebie i jest świadome ciebie, musi odnieść sukces w rzucie obronnym na Mądrość {@dc 13} lub stać się {@condition frightened} ciebie na 1 minutę. Stworzenie może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie. Jeśli rzut obronny stworzenia się powiedzie lub efekt się zakończy, stworzenie będzie odporne na Twoją Przerażającą Obecność na następne 24 godziny. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
+              "Trzymając kilof wojenny, możesz wykorzystać swoją akcję do wypuszczenia niszczycielskiej energii. Wybierz rodzaj obrażeń z tabeli Broni Oddechu Woli Szponu. Każda istota znajdująca się w obszarze wydechu musi wykonać rzut obronny {@dc 13}, którego rodzaj określony jest w tabeli. Stworzenie otrzymuje obrażenia {@damage 3d6} w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
+            ]
+          },
+          "Kiedy użyjesz kilofa wojennego, aby wyzwolić broń oddechową o określonym typie obrażeń, nie będziesz mógł wybrać tego samego typu obrażeń ponownie aż do następnego świtu."
+        ]
+      },
+      {
+        "type": "table",
+        "caption": "Wola Broni Oddechu Szpona",
+        "colStyles": [
+          "kol-3",
+          "kol-7",
+          "col-3 centrum tekstowe"
+        ],
+        "colLabels": [
+          "Typ uszkodzenia",
+          "Obszar",
+          "Rzut obronny"
+        ],
+        "rows": [
+          [
+            "Kwas",
+            "Linia o szerokości 5 stóp i długości 30 stóp",
+            "Zręczność"
+          ],
+          [
+            "Zimno",
+            "Stożek 15 stóp",
+            "Konstytucja"
+          ],
+          [
+            "Ogień",
+            "Stożek 15 stóp",
+            "Zręczność"
+          ],
+          [
+            "Błyskawica",
+            "Linia o szerokości 5 stóp i długości 30 stóp",
+            "Zręczność"
+          ],
+          [
+            "Zatruć",
+            "Stożek 15 stóp",
+            "Konstytucja"
+          ]
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przebudzony",
+        "entries": [
+          "Kiedy kilof wojenny osiągnie stan przebudzenia, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +2.",
+              "ST rzutu obronnego dla właściwości Broni Oddechowej wyboru wojennego wzrasta do 15, a właściwość ta zadaje obrażenia {@damage 4d6} w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu.",
+              "ST rzutu obronnego dla właściwości Przerażającej Obecności wyboru wojennego wzrasta do 15.",
+              "Nosząc broń, masz odporność na obrażenia od kwasu, zimna, ognia, błyskawic i trucizn."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Egzaltowany",
+        "entries": [
+          "Kiedy kilof wojenny osiągnie stan wzniosły, zyskuje następujące właściwości:",
+          {
+            "type": "list",
+            "items": [
+              "Premia broni do testów ataku i obrażeń wzrasta do +3.",
+              "ST rzutu obronnego dla właściwości Broni Oddechowej wyboru wojennego wzrasta do 17, a właściwość ta zadaje obrażenia w wysokości {@damage 5d6} w przypadku nieudanego rzutu obronnego lub o połowę mniej w przypadku udanego rzutu.",
+              "ST rzutu obronnego dla właściwości Przerażającej Obecności wyboru wojennego wzrasta do 17."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inset",
+        "name": "Właściwości artefaktu zdrajcy",
+        "entries": [
+          "Ramiona Zdrajców zyskują władzę w taki sam sposób, jak Ślady Rozbieżności. W stanie uśpienia każdy z tych artefaktów ma jedną właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i jedną właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy artefakt osiągnie stan przebudzenia, zyskuje dodatkową właściwość {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} i dodatkową właściwość {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental}. Kiedy przedmiot osiągnie swój wysoki stan, zyskuje właściwość {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial}. Aby uzyskać więcej informacji, zobacz „Właściwości artefaktu” w rozdziale 7 Przewodnika Mistrza Lochów."
+        ]
+      }
+    ]
   }
 }

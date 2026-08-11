@@ -25,7 +25,7 @@ describe('LocaleEntryLayout', () => {
     render(
       <MemoryRouter initialEntries={['/?from=bookmark#top']}>
         <Routes>
-          <Route path="/" element={<LocaleEntryLayout />} />
+          <Route path="*" element={<LocaleEntryLayout />} />
           <Route path="/pl/*" element={<output>polish route</output>} />
         </Routes>
         <Location />
@@ -36,8 +36,8 @@ describe('LocaleEntryLayout', () => {
     expect(screen.getByText('/pl/?from=bookmark#top')).toBeInTheDocument();
   });
 
-  it('keeps the default locale and non-root paths on the English layout', () => {
-    const { unmount } = render(
+  it('keeps the default locale on the English layout', () => {
+    render(
       <MemoryRouter initialEntries={['/']}>
         <Routes>
           <Route path="/" element={<LocaleEntryLayout />} />
@@ -46,16 +46,26 @@ describe('LocaleEntryLayout', () => {
     );
 
     expect(screen.getByText('locale:en')).toBeInTheDocument();
+  });
 
-    unmount();
+  it('redirects an English non-root path to the remembered locale', async () => {
+    useLocaleStore.setState({ locale: 'pl' });
+
     render(
-      <MemoryRouter initialEntries={['/compendium/']}>
+      <MemoryRouter
+        initialEntries={['/compendium/bestiary/azaka-stormfang/?page=2#actions']}
+      >
         <Routes>
-          <Route path="/compendium/" element={<LocaleEntryLayout />} />
+          <Route path="*" element={<LocaleEntryLayout />} />
+          <Route path="/pl/*" element={<output>polish route</output>} />
         </Routes>
+        <Location />
       </MemoryRouter>,
     );
 
-    expect(screen.getByText('locale:en')).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByText('polish route')).toBeInTheDocument());
+    expect(
+      screen.getByText('/pl/compendium/bestiary/azaka-stormfang/?page=2#actions'),
+    ).toBeInTheDocument();
   });
 });

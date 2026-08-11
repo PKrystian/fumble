@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import encounters from '@/data/generated/encounters.json';
+import backgrounds from '@/data/generated/backgrounds.json';
+import bestiary from '@/data/generated/bestiary.json';
 import homecrafts from '@/data/generated/homecrafts.json';
 import life from '@/data/generated/life.json';
 import loot from '@/data/generated/loot.json';
@@ -8,6 +10,8 @@ import names from '@/data/generated/names.json';
 import plMonsterfeatures from '@/data/generated/pl/monsterfeatures.json';
 import plNames from '@/data/generated/pl/names.json';
 import psionics from '@/data/generated/psionics.json';
+import plBestiary from '@/data/generated/pl/bestiary.json';
+import { localizeEntry } from './localize';
 
 describe('generated 5etools source collections', () => {
   it('keeps every imported source collection available to the compendium', () => {
@@ -54,5 +58,30 @@ describe('generated 5etools source collections', () => {
     expect(monsterfeatures.items.every((item) => localizedMonsterfeatures[item.id])).toBe(
       true,
     );
+  });
+
+  it('includes resolved source copies in the compendium', () => {
+    const azaka = bestiary.items.find(
+      (item) => item.name === 'Azaka Stormfang' && item.source === 'ToA',
+    );
+    expect(azaka).toMatchObject({
+      speed: '30 ft. (40 ft. in tiger form)',
+      hp: '120 (16d8 + 48)',
+    });
+    expect(backgrounds.items.some((item) => item.name === "Baldur's Gate Acolyte")).toBe(
+      true,
+    );
+  });
+
+  it('localizes the resolved adventure NPCs', () => {
+    const azaka = bestiary.items.find(
+      (item) => item.name === 'Azaka Stormfang' && item.source === 'ToA',
+    );
+    const localized = localizeEntry(azaka!, plBestiary);
+    expect(localized).toMatchObject({
+      name: 'Azaka Burzowy Kieł',
+      speed: '30 stóp (40 stóp w formie tygrysa)',
+    });
+    expect(localized.traits?.[0]?.name).toBe('Zmieniacz kształtu');
   });
 });

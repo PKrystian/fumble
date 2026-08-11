@@ -34,7 +34,7 @@ describe('generated item additions', () => {
     expect(
       masteryWeapons.every((entry) => entry.mastery && entry.masteryRefs?.length),
     ).toBe(true);
-    expect(propertyWeapons).toHaveLength(306);
+    expect(propertyWeapons).toHaveLength(341);
     expect(greatsword).toMatchObject({
       mastery: 'Graze',
       masteryRefs: ['Graze|XPHB'],

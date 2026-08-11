@@ -60,9 +60,21 @@ describe('rememberedLocaleTarget', () => {
     );
   });
 
+  it('localizes every English path while preserving search and hash', () => {
+    expect(
+      rememberedLocaleTarget(
+        '/compendium/bestiary/azaka-stormfang/',
+        '?page=2',
+        '#actions',
+        'pl',
+      ),
+    ).toBe('/pl/compendium/bestiary/azaka-stormfang/?page=2#actions');
+  });
+
   it('leaves explicit and default locale paths unchanged', () => {
     expect(rememberedLocaleTarget('/pl/', '', '', 'pl')).toBeNull();
-    expect(rememberedLocaleTarget('/compendium/', '', '', 'pl')).toBeNull();
+    expect(rememberedLocaleTarget('/pl/compendium/', '', '', 'pl')).toBeNull();
+    expect(rememberedLocaleTarget('/compendium/', '', '', 'en')).toBeNull();
     expect(rememberedLocaleTarget('/', '', '', 'en')).toBeNull();
   });
 });

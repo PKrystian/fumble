@@ -132,6 +132,11 @@ const GOOGLE_IGNORED_KEYS = new Set([
   'seeAlsoItem',
   'designers',
   'style',
+  'image',
+  'token',
+  'path',
+  'href',
+  'url',
 ]);
 
 function protectGoogleTags(text: string): { protectedText: string; tags: string[] } {
@@ -388,6 +393,100 @@ async function translateGoogleValue(
   return result;
 }
 
+type GoogleSourceItem = JsonObject & { id: string; name: string };
+
+const POLISH_CREATURE_TYPES: Record<string, string> = {
+  Aberration: 'Aberracja',
+  Beast: 'Bestia',
+  Celestial: 'Niebianin',
+  Construct: 'Konstrukt',
+  Dragon: 'Smok',
+  Elemental: 'Żywiołak',
+  Fey: 'Fej',
+  Fiend: 'Czart',
+  Giant: 'Olbrzym',
+  Humanoid: 'Humanoid',
+  Monstrosity: 'Monstrum',
+  Ooze: 'Maź',
+  Plant: 'Roślina',
+  Undead: 'Nieumarły',
+};
+
+const POLISH_CUSTOM_CREATURE_TYPES: Record<string, string> = {
+  Apparition: 'Zjawa',
+  'Fire Guardian': 'Strażnik Ognia',
+  Keeper: 'Opiekun',
+  'Totem Elemental': 'Totem',
+};
+
+const POLISH_SIZES: Record<string, string> = {
+  Gargantuan: 'Gigantyczny',
+  Huge: 'Wielki',
+  Large: 'Duży',
+  Medium: 'Średni',
+  Small: 'Mały',
+  Tiny: 'Malutki',
+  Varies: 'Zmienny',
+  V: 'Zmienny',
+};
+
+function canonicalCreatureType(source: string, translated: string): string {
+  if (POLISH_CUSTOM_CREATURE_TYPES[source]) return POLISH_CUSTOM_CREATURE_TYPES[source];
+  const sourceBase = source.split(/[\s(]/, 1)[0];
+  const base = POLISH_CREATURE_TYPES[sourceBase];
+  if (!base) return translated;
+  const suffix = translated.match(/\s*(\(.*\))$/)?.[1] ?? '';
+  return `${base}${suffix}`;
+}
+
+function canonicalSize(source: string): string {
+  return source
+    .split(/\s+or\s+/i)
+    .map((part) => POLISH_SIZES[part.trim()] ?? part.trim())
+    .join(' lub ');
+}
+
+function normalizeGoogleTranslation(
+  translation: JsonObject,
+  source: GoogleSourceItem,
+  categoryId: string,
+): JsonObject {
+  const normalized = { ...translation };
+  if (
+    (categoryId === 'bestiary' || categoryId === 'species') &&
+    typeof source.creatureType === 'string' &&
+    typeof normalized.creatureType === 'string'
+  ) {
+    normalized.creatureType = canonicalCreatureType(
+      source.creatureType,
+      normalized.creatureType,
+    );
+  }
+  if (
+    (categoryId === 'bestiary' || categoryId === 'species') &&
+    typeof source.size === 'string' &&
+    typeof normalized.size === 'string'
+  ) {
+    normalized.size = canonicalSize(source.size);
+  }
+  return normalized;
+}
+
+async function translateGoogleItem(
+  item: GoogleSourceItem,
+  categoryId: string,
+  cache: Record<string, string>,
+): Promise<JsonObject> {
+  const translation: JsonObject = {};
+  for (const [key, value] of Object.entries(item)) {
+    if (key === 'id') continue;
+    const translated = await translateGoogleValue(value, key, categoryId, cache);
+    if (JSON.stringify(translated) !== JSON.stringify(value))
+      translation[key] = translated;
+  }
+  return translation;
+}
+
 function polishSourceName(name: string, categoryId: string): string {
   if (categoryId === 'loot') {
     const gemstones = /^(\d[\d,]*) gp Gemstones$/.exec(name);
@@ -430,7 +529,7 @@ async function translateCategoryWithGoogle(
   const overlayDir = join(ROOT, `src/data/generated/${locale}`);
   const overlayPath = join(overlayDir, `${categoryId}.json`);
   const source = JSON.parse(readFileSync(sourcePath, 'utf8')) as {
-    items: Array<{ id: string; name: string; data?: JsonObject; hidden?: boolean }>;
+    items: GoogleSourceItem[];
   };
   const overlay: Record<string, unknown> = existsSync(overlayPath)
     ? JSON.parse(readFileSync(overlayPath, 'utf8'))
@@ -446,38 +545,37 @@ async function translateCategoryWithGoogle(
   );
   let cursor = 0;
   let completed = 0;
+  const saveInterval = 100;
+  let writeQueue = Promise.resolve();
+  const saveProgress = () => {
+    writeQueue = writeQueue.then(() => {
+      mkdirSync(overlayDir, { recursive: true });
+      writeFileSync(overlayPath, JSON.stringify(overlay, null, 2));
+      mkdirSync(join(ROOT, '.cache'), { recursive: true });
+      writeFileSync(GOOGLE_CACHE_PATH, JSON.stringify(cache));
+    });
+    return writeQueue;
+  };
   const worker = async () => {
     while (cursor < todo.length) {
       const index = cursor;
       cursor += 1;
       const item = todo[index]!;
-      const translatedName =
-        categoryId === 'names'
-          ? item.name
-          : polishSourceName(item.name, categoryId) !== item.name
-            ? polishSourceName(item.name, categoryId)
-            : await translateGoogleValue(item.name, 'name', categoryId, cache);
-      const translatedData = item.data
-        ? await translateGoogleValue(item.data, 'data', categoryId, cache)
-        : undefined;
-      const translation = {
-        ...(translatedName !== item.name ? { name: translatedName } : {}),
-        ...(translatedData && JSON.stringify(translatedData) !== JSON.stringify(item.data)
-          ? { data: translatedData }
-          : {}),
-      };
+      const translation = normalizeGoogleTranslation(
+        await translateGoogleItem(item, categoryId, cache),
+        item,
+        categoryId,
+      );
       if (Object.keys(translation).length > 0) overlay[item.id] = translation;
       completed += 1;
-      if (completed % 10 === 0 || completed === todo.length) {
-        mkdirSync(overlayDir, { recursive: true });
-        writeFileSync(overlayPath, JSON.stringify(overlay, null, 2));
-        mkdirSync(join(ROOT, '.cache'), { recursive: true });
-        writeFileSync(GOOGLE_CACHE_PATH, JSON.stringify(cache));
+      if (completed % saveInterval === 0 || completed === todo.length)
+        await saveProgress();
+      if (completed % saveInterval === 0 || completed === todo.length)
         console.log(`  ${completed}/${todo.length}`);
-      }
     }
   };
   await Promise.all(Array.from({ length: 6 }, worker));
+  await writeQueue;
   mkdirSync(overlayDir, { recursive: true });
   writeFileSync(overlayPath, JSON.stringify(overlay, null, 2));
   console.log(`Wrote ${overlayPath}`);

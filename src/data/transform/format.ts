@@ -286,7 +286,7 @@ export function formatSize(size: string[] | undefined, locale: Locale = 'en'): s
     .join(locale === 'pl' ? ' lub ' : ' or ');
 }
 
-type Speed = number | Record<string, number | boolean> | undefined;
+type Speed = number | Record<string, unknown> | undefined;
 
 const PL_SPEED_MODES: Record<string, string> = {
   burrow: 'kopanie',
@@ -310,6 +310,41 @@ export function formatSpeed(speed: Speed, locale: Locale = 'en'): string {
         );
       } else {
         parts.push(mode === 'walk' ? `${value} ft.` : `${mode} ${value} ft.`);
+      }
+      continue;
+    }
+    if (!value || typeof value !== 'object') continue;
+    if (mode === 'choose') {
+      const choose = value as { from?: unknown[]; amount?: number; note?: string };
+      if (typeof choose.amount !== 'number' || !Array.isArray(choose.from)) continue;
+      const from = choose.from.filter(
+        (entry): entry is string => typeof entry === 'string',
+      );
+      if (!from.length) continue;
+      parts.push(
+        `${choose.amount} ${locale === 'pl' ? '\u0073t\u00f3p' : 'ft.'} (${from.join(' or ')}${
+          choose.note ? `; ${choose.note}` : ''
+        })`,
+      );
+      continue;
+    }
+    const entries: Array<[string, unknown]> =
+      mode === 'alternate' ? Object.entries(value) : [[mode, value]];
+    for (const [entryMode, entryValue] of entries) {
+      const values = Array.isArray(entryValue) ? entryValue : [entryValue];
+      for (const item of values) {
+        if (!item || typeof item !== 'object') continue;
+        const detail = item as { number?: number; condition?: string };
+        if (typeof detail.number !== 'number') continue;
+        const label =
+          locale === 'pl'
+            ? entryMode === 'walk'
+              ? `${detail.number} \u0073t\u00f3p`
+              : `${PL_SPEED_MODES[entryMode] ?? entryMode} ${detail.number} \u0073t\u00f3p`
+            : entryMode === 'walk'
+              ? `${detail.number} ft.`
+              : `${entryMode} ${detail.number} ft.`;
+        parts.push(`${label}${detail.condition ? ` ${detail.condition}` : ''}`);
       }
     }
   }

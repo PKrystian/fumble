@@ -2640,5 +2640,238 @@
       "{@note Zobacz sekcję {@adventure Spirits of the Nine Trickster Gods|ToA|5|Spirits of the Nine Trickster Gods}, by uzyskać więcej informacji.}"
     ],
     "cardCount": 9
+  },
+  "deck-of-many-things-13-cards": {
+    "name": "Talia wielu rzeczy (13 kart)",
+    "entries": [
+      "Ta talia, zwykle znajdująca się w pudełku lub woreczku, zawiera pewną liczbę kart wykonanych z kości słoniowej lub welinu. Większość (75 procent) tych talii składa się z trzynastu kart, ale niektóre mają dwadzieścia dwie. Podczas losowania kart dobieranych z talii użyj odpowiedniej kolumny tabeli Talia Wielu Rzeczy.",
+      "Zanim dobierzesz kartę, musisz zadeklarować, ile kart zamierzasz dobrać, a następnie losować je. Wszelkie karty wylosowane powyżej tej liczby nie mają żadnego efektu. W przeciwnym razie, gdy tylko dobierzesz kartę z talii, jej magia zacznie działać. Każdą kartę musisz dobrać nie później niż 1 godzinę po poprzednim losowaniu. Jeśli nie uda ci się wylosować wybranej liczby, pozostała liczba kart samoistnie wyleci z talii i zacznie działać jednocześnie.",
+      "Po wyciągnięciu karta znika. Jeśli karta nie jest Błaznem lub Błaznem, pojawia się ponownie w talii, umożliwiając dwukrotne dobranie tej samej karty. (Kiedy Błazen lub Błazen opuści talię, rzuć ponownie na stół, jeśli ta karta pojawi się ponownie.)",
+      {
+        "type": "table",
+        "caption": "Talia wielu rzeczy",
+        "colStyles": [
+          "col-2 centrum tekstowe",
+          "kol-10"
+        ],
+        "colLabels": [
+          "1d100",
+          "Karta"
+        ],
+        "rows": [
+          [
+            "01-08",
+            "Euryale"
+          ],
+          [
+            "09-16",
+            "Płomienie"
+          ],
+          [
+            "17-24",
+            "Błazen"
+          ],
+          [
+            "25-32",
+            "Klawisz"
+          ],
+          [
+            "33-40",
+            "Rycerz"
+          ],
+          [
+            "41-48",
+            "Księżyc"
+          ],
+          [
+            "49-56",
+            "Łobuz"
+          ],
+          [
+            "57-64",
+            "Ruina"
+          ],
+          [
+            "65-72",
+            "Czaszka"
+          ],
+          [
+            "73-80",
+            "Gwiazda"
+          ],
+          [
+            "81-88",
+            "Słoneczny"
+          ],
+          [
+            "89-96",
+            "Tron"
+          ],
+          [
+            "97-00",
+            "Próżnia"
+          ]
+        ]
+      }
+    ]
+  },
+  "deck-of-many-things-13-cards-dmg": {
+    "name": "Talia wielu rzeczy (13 kart)",
+    "entries": [
+      "Ta talia, zwykle znajdująca się w pudełku lub woreczku, zawiera pewną liczbę kart wykonanych z kości słoniowej lub welinu. Większość ({@chance 75}) tych talii ma tylko trzynaście kart, ale reszta ma dwadzieścia dwie.",
+      "Zanim dobierzesz kartę, musisz zadeklarować, ile kart zamierzasz dobrać, a następnie losować je (możesz użyć zmienionej talii kart do gry, aby symulować talię). Wszelkie karty wylosowane powyżej tej liczby nie mają żadnego efektu. W przeciwnym razie, gdy tylko dobierzesz kartę z talii, jej magia zacznie działać. Każdą kartę musisz dobrać nie później niż 1 godzinę po poprzednim losowaniu. Jeśli nie uda ci się wylosować wybranej liczby, pozostała liczba kart samoistnie wyleci z talii i zacznie działać jednocześnie.",
+      "Kiedy karta zostanie wyciągnięta, przestaje istnieć. Jeśli nie jest to {@card Fool|Deck of Many Things} lub {@card Jester|Deck of Many Things}, karta pojawia się ponownie w talii, umożliwiając dwukrotne dobranie tej samej karty.",
+      {
+        "type": "entries",
+        "name": "Kwestia wrogości",
+        "entries": [
+          "Dwie karty w talii wielu rzeczy mogą sprawić, że postać stanie się wrogo nastawiona do innej istoty. Dzięki karcie {@card Flames|Deck of Many Things} wrogość jest jawna. Postać powinna wielokrotnie doświadczać złych wysiłków diabła. Wytropienie diabła nie powinno być prostym zadaniem, a poszukiwacz przygód powinien kilka razy starć się z sojusznikami i wyznawcami diabła, zanim będzie mógł stawić czoła samemu diabłu.",
+          "W przypadku karty {@card Rogue|Deck of Many Things} wrogość jest tajemnicą i powinna pochodzić od osoby uważanej za przyjaciela lub sojusznika. Jako Mistrz Podziemi powinieneś poczekać na dramatycznie odpowiedni moment, aby ujawnić tę wrogość, pozostawiając poszukiwaczowi przygód zgadywanie, kto najprawdopodobniej zostanie zdrajcą."
+        ]
+      },
+      {
+        "type": "table",
+        "colLabels": [
+          "{@dice 1d13|Playing Card}",
+          "Karta"
+        ],
+        "colStyles": [
+          "col-6 centrum tekstowe",
+          "col-6 centrum tekstowe"
+        ],
+        "rows": [
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 1
+              },
+              "entry": "Król karo"
+            },
+            "{@card Sun|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 2
+              },
+              "entry": "Królowa karo"
+            },
+            "{@card Moon|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 3
+              },
+              "entry": "Walet karo"
+            },
+            "{@card Star|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 4
+              },
+              "entry": "Król kier"
+            },
+            "{@card Throne|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 5
+              },
+              "entry": "Dama kier"
+            },
+            "{@card Key|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 6
+              },
+              "entry": "Walet kier"
+            },
+            "{@card Knight|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 7
+              },
+              "entry": "Król trefl"
+            },
+            "{@card The Void|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 8
+              },
+              "entry": "Dama trefl"
+            },
+            "{@card Flames|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 9
+              },
+              "entry": "Walet trefl"
+            },
+            "{@card Skull|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 10
+              },
+              "entry": "Król pik"
+            },
+            "{@card Ruin|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 11
+              },
+              "entry": "Dama pik"
+            },
+            "{@card Euryale|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 12
+              },
+              "entry": "Walet pik"
+            },
+            "{@card Rogue|Deck of Many Things}"
+          ],
+          [
+            {
+              "type": "cell",
+              "roll": {
+                "exact": 13
+              },
+              "entry": "Joker (bez TM)"
+            },
+            "{@card Jester|Deck of Many Things}"
+          ]
+        ]
+      }
+    ]
   }
 }

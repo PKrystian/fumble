@@ -118,6 +118,7 @@ import {
   normalizeSubrace,
   normalizeTable,
 } from '../../src/data/transform/normalize';
+import { classCopyKey, resolveCopies } from './copy';
 
 function attachFluff<
   T extends {
@@ -239,7 +240,7 @@ function buildSpells(inputDir: string): SpellEntry[] {
   const spells: SpellEntry[] = [];
   for (const file of files) {
     const data = readDataFile<{ spell?: RawSpell[] }>(inputDir, join('spells', file));
-    for (const raw of data.spell ?? []) {
+    for (const raw of resolveCopies(data.spell ?? [])) {
       if (!keepEntry(raw)) continue;
       const spellLookup = lookup[raw.source.toLowerCase()]?.[raw.name.toLowerCase()];
       spells.push(transformSpell(raw, spellLookup));
@@ -264,7 +265,7 @@ function buildConditions(inputDir: string): ConditionEntry[] {
   const kinds: ConditionKind[] = ['condition', 'disease', 'status'];
   const out: ConditionEntry[] = [];
   for (const kind of kinds) {
-    for (const raw of data[kind] ?? []) {
+    for (const raw of resolveCopies(data[kind] ?? [])) {
       if (!keepEntry(raw)) continue;
       out.push({
         id: slugify(raw.name),
@@ -286,10 +287,10 @@ function buildSpecies(inputDir: string): SpeciesEntry[] {
     'races.json',
   );
   const fluff = loadFluffImages(inputDir, 'fluff-races.json', 'raceFluff');
-  const races = (data.race ?? [])
+  const races = resolveCopies(data.race ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => normalizeSpecies(raw, fluff));
-  const subraces = (data.subrace ?? [])
+  const subraces = resolveCopies(data.subrace ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => normalizeSubrace(raw, fluff));
   return [...races, ...subraces].sort((a, b) => a.name.localeCompare(b.name));
@@ -308,7 +309,7 @@ interface RawFeat {
 function buildFeats(inputDir: string): FeatEntry[] {
   const data = readDataFile<{ feat?: RawFeat[] }>(inputDir, 'feats.json');
   const fluff = loadFluffImages(inputDir, 'fluff-feats.json', 'featFluff');
-  return (data.feat ?? [])
+  return resolveCopies(data.feat ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -342,7 +343,7 @@ function buildBackgrounds(inputDir: string): BackgroundEntry[] {
     'backgrounds.json',
   );
   const fluff = loadFluffImages(inputDir, 'fluff-backgrounds.json', 'backgroundFluff');
-  return (data.background ?? [])
+  return resolveCopies(data.background ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -371,7 +372,7 @@ interface RawRule {
 
 function buildRules(inputDir: string): RuleEntry[] {
   const data = readDataFile<{ variantrule?: RawRule[] }>(inputDir, 'variantrules.json');
-  return (data.variantrule ?? [])
+  return resolveCopies(data.variantrule ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -465,7 +466,7 @@ function buildMagicVariantItems(
     inputDir,
     'magicvariants.json',
   );
-  return (data.magicvariant ?? [])
+  return resolveCopies(data.magicvariant ?? [])
     .slice()
     .sort(
       (a, b) =>
@@ -564,8 +565,10 @@ function buildSourceDataCategory(
       );
       continue;
     }
-    for (const [index, value] of records.entries()) {
-      if (!isRawSourceRecord(value) || value._copy) continue;
+    for (const [index, value] of resolveCopies(
+      records.filter(isRawSourceRecord),
+    ).entries()) {
+      if (!isRawSourceRecord(value)) continue;
       const name =
         typeof value.name === 'string' ? value.name : `${category} ${index + 1}`;
       const source =
@@ -582,9 +585,12 @@ function buildSourceDataCategory(
 }
 
 function buildItems(inputDir: string): ItemEntry[] {
-  const base =
-    readDataFile<{ baseitem?: RawItem[] }>(inputDir, 'items-base.json').baseitem ?? [];
-  const magic = readDataFile<{ item?: RawItem[] }>(inputDir, 'items.json').item ?? [];
+  const base = resolveCopies(
+    readDataFile<{ baseitem?: RawItem[] }>(inputDir, 'items-base.json').baseitem ?? [],
+  );
+  const magic = resolveCopies(
+    readDataFile<{ item?: RawItem[] }>(inputDir, 'items.json').item ?? [],
+  );
   const fluff = loadFluffImages(inputDir, 'fluff-items.json', 'itemFluff');
   const standardItems = [...base, ...magic]
     .filter((raw) => keepEntry(raw))
@@ -598,7 +604,7 @@ function buildItemProperties(inputDir: string): ItemPropertyEntry[] {
     inputDir,
     'items-base.json',
   );
-  return (data.itemProperty ?? [])
+  return resolveCopies(data.itemProperty ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => {
       const first = raw.entries?.[0];
@@ -631,8 +637,21 @@ function buildClasses(inputDir: string): ClassEntry[] {
   );
   for (const file of files) {
     const data = readDataFile<RawClassFile>(inputDir, join('class', file));
+    const resolvedData: RawClassFile = {
+      ...data,
+      ...(data.class ? { class: resolveCopies(data.class, classCopyKey) } : {}),
+      ...(data.subclass ? { subclass: resolveCopies(data.subclass, classCopyKey) } : {}),
+      ...(data.classFeature
+        ? { classFeature: resolveCopies(data.classFeature, classCopyKey) }
+        : {}),
+      ...(data.subclassFeature
+        ? { subclassFeature: resolveCopies(data.subclassFeature, classCopyKey) }
+        : {}),
+    };
     const fluff = loadFluffImages(inputDir, join('class', `fluff-${file}`), 'classFluff');
-    classes.push(...normalizeClasses(data, fluff, keepEntry, 'en', subclassFluff));
+    classes.push(
+      ...normalizeClasses(resolvedData, fluff, keepEntry, 'en', subclassFluff),
+    );
   }
 
   const resolvedFluff = loadFluff(
@@ -670,15 +689,17 @@ function buildMonsters(inputDir: string): MonsterEntry[] {
     'monsterFluff',
   );
   const legendary = loadLegendaryGroups(inputDir);
-  const monsters: MonsterEntry[] = [];
+  const rawMonsters: RawMonster[] = [];
   for (const file of files) {
     const data = readDataFile<{ monster?: RawMonster[] }>(
       inputDir,
       join('bestiary', file),
     );
-    for (const raw of data.monster ?? []) {
-      if (keepEntry(raw)) monsters.push(normalizeMonster(raw, fluffImages, legendary));
-    }
+    rawMonsters.push(...(data.monster ?? []));
+  }
+  const monsters: MonsterEntry[] = [];
+  for (const raw of resolveCopies(rawMonsters)) {
+    if (keepEntry(raw)) monsters.push(normalizeMonster(raw, fluffImages, legendary));
   }
   const fluff = loadFluff(
     inputDir,
@@ -700,7 +721,7 @@ interface RawAction {
 
 function buildActions(inputDir: string): ActionEntry[] {
   const data = readDataFile<{ action?: RawAction[] }>(inputDir, 'actions.json');
-  return (data.action ?? [])
+  return resolveCopies(data.action ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -729,7 +750,7 @@ function buildOptionalFeatures(inputDir: string): OptionalFeatureEntry[] {
     inputDir,
     'optionalfeatures.json',
   );
-  return (data.optionalfeature ?? [])
+  return resolveCopies(data.optionalfeature ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -758,7 +779,7 @@ interface RawDeity {
 
 function buildDeities(inputDir: string): DeityEntry[] {
   const data = readDataFile<{ deity?: RawDeity[] }>(inputDir, 'deities.json');
-  return (data.deity ?? [])
+  return resolveCopies(data.deity ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -799,8 +820,12 @@ function buildHazards(inputDir: string): HazardEntry[] {
     entries: raw.entries ?? [],
   });
   return [
-    ...(data.trap ?? []).filter((r) => keepEntry(r)).map((r) => normalize(r, 'Trap')),
-    ...(data.hazard ?? []).filter((r) => keepEntry(r)).map((r) => normalize(r, 'Hazard')),
+    ...resolveCopies(data.trap ?? [])
+      .filter((r) => keepEntry(r))
+      .map((r) => normalize(r, 'Trap')),
+    ...resolveCopies(data.hazard ?? [])
+      .filter((r) => keepEntry(r))
+      .map((r) => normalize(r, 'Hazard')),
   ].sort((a, b) => a.name.localeCompare(b.name));
 }
 
@@ -815,7 +840,7 @@ interface RawReward {
 
 function buildBoons(inputDir: string): BoonEntry[] {
   const data = readDataFile<{ reward?: RawReward[] }>(inputDir, 'rewards.json');
-  return (data.reward ?? [])
+  return resolveCopies(data.reward ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -840,7 +865,7 @@ interface RawSkill {
 
 function buildSkills(inputDir: string): SkillEntry[] {
   const data = readDataFile<{ skill?: RawSkill[] }>(inputDir, 'skills.json');
-  return (data.skill ?? [])
+  return resolveCopies(data.skill ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -864,7 +889,7 @@ interface RawSense {
 
 function buildSenses(inputDir: string): SenseEntry[] {
   const data = readDataFile<{ sense?: RawSense[] }>(inputDir, 'senses.json');
-  return (data.sense ?? [])
+  return resolveCopies(data.sense ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -890,7 +915,7 @@ interface RawLanguage {
 
 function buildLanguages(inputDir: string): LanguageEntry[] {
   const data = readDataFile<{ language?: RawLanguage[] }>(inputDir, 'languages.json');
-  return (data.language ?? [])
+  return resolveCopies(data.language ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -931,8 +956,12 @@ function buildCultsBoons(inputDir: string): CultBoonEntry[] {
     entries: raw.entries ?? [],
   });
   return [
-    ...(data.cult ?? []).filter((r) => keepEntry(r)).map((r) => make(r, 'Cult')),
-    ...(data.boon ?? []).filter((r) => keepEntry(r)).map((r) => make(r, 'Boon')),
+    ...resolveCopies(data.cult ?? [])
+      .filter((r) => keepEntry(r))
+      .map((r) => make(r, 'Cult')),
+    ...resolveCopies(data.boon ?? [])
+      .filter((r) => keepEntry(r))
+      .map((r) => make(r, 'Boon')),
   ].sort((a, b) => a.name.localeCompare(b.name));
 }
 
@@ -951,7 +980,7 @@ interface RawFacility {
 
 function buildFacilities(inputDir: string): FacilityEntry[] {
   const data = readDataFile<{ facility?: RawFacility[] }>(inputDir, 'bastions.json');
-  return (data.facility ?? [])
+  return resolveCopies(data.facility ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -1015,7 +1044,7 @@ function recipeEntries(raw: RawRecipe): Entry[] {
 
 function buildRecipes(inputDir: string): RecipeEntry[] {
   const data = readDataFile<{ recipe?: RawRecipe[] }>(inputDir, 'recipes.json');
-  return (data.recipe ?? [])
+  return resolveCopies(data.recipe ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({
       id: slugify(raw.name),
@@ -1055,7 +1084,7 @@ interface RawObject {
 
 function buildObjects(inputDir: string): ObjectEntry[] {
   const data = readDataFile<{ object?: RawObject[] }>(inputDir, 'objects.json');
-  return (data.object ?? [])
+  return resolveCopies(data.object ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => {
       const ac =
@@ -1121,7 +1150,7 @@ interface RawVehicle {
   capPassenger?: number;
   capCargo?: number | string;
   pace?: number | Record<string, number>;
-  speed?: number | Record<string, number | boolean>;
+  speed?: Parameters<typeof formatSpeed>[0];
   cost?: number;
   ac?: number | { ac?: number };
   hp?: number | { hp?: number; average?: number; formula?: string; special?: string };
@@ -1189,7 +1218,7 @@ function normalizeVehicle(raw: RawVehicle, fluff: Map<string, string>): VehicleE
 function buildVehicles(inputDir: string): VehicleEntry[] {
   const data = readDataFile<{ vehicle?: RawVehicle[] }>(inputDir, 'vehicles.json');
   const fluff = loadFluffImages(inputDir, 'fluff-vehicles.json', 'vehicleFluff');
-  return (data.vehicle ?? [])
+  return resolveCopies(data.vehicle ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => normalizeVehicle(raw, fluff))
     .sort((a, b) => a.name.localeCompare(b.name));
@@ -1197,7 +1226,7 @@ function buildVehicles(inputDir: string): VehicleEntry[] {
 
 function buildMasteries(inputDir: string): MasteryEntry[] {
   const data = readDataFile<{ itemMastery?: RawMastery[] }>(inputDir, 'items-base.json');
-  return (data.itemMastery ?? [])
+  return resolveCopies(data.itemMastery ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => normalizeMastery(raw))
     .sort((a, b) => a.name.localeCompare(b.name));
@@ -1208,7 +1237,7 @@ function buildCharOptions(inputDir: string): CharOptionEntry[] {
     inputDir,
     'charcreationoptions.json',
   );
-  return (data.charoption ?? [])
+  return resolveCopies(data.charoption ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => normalizeCharOption(raw))
     .sort((a, b) => a.name.localeCompare(b.name));
@@ -1216,7 +1245,7 @@ function buildCharOptions(inputDir: string): CharOptionEntry[] {
 
 function buildTables(inputDir: string): TableEntry[] {
   const data = readDataFile<{ table?: RawTable[] }>(inputDir, 'tables.json');
-  return (data.table ?? [])
+  return resolveCopies(data.table ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => normalizeTable(raw))
     .sort((a, b) => a.name.localeCompare(b.name));
@@ -1224,7 +1253,7 @@ function buildTables(inputDir: string): TableEntry[] {
 
 function buildDecks(inputDir: string): DeckEntry[] {
   const data = readDataFile<{ deck?: RawDeck[] }>(inputDir, 'decks.json');
-  return (data.deck ?? [])
+  return resolveCopies(data.deck ?? [])
     .filter((raw) => keepEntry(raw))
     .map((raw) => normalizeDeck(raw))
     .sort((a, b) => a.name.localeCompare(b.name));

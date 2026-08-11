@@ -86,6 +86,42 @@ describe('data formatters', () => {
     expect(format.formatSpeed({ walk: 30, fly: 60, hover: true })).toBe(
       '30 ft., fly 60 ft.',
     );
+    expect(
+      format.formatSpeed({ walk: { number: 30, condition: '(40 ft. in tiger form)' } }),
+    ).toBe('30 ft. (40 ft. in tiger form)');
+    expect(
+      format.formatSpeed({
+        choose: { amount: 2, from: ['walk', 30, 'fly'], note: 'while climbing' },
+        alternate: {
+          walk: [{ number: 30 }, { number: 'invalid' }, null, 'invalid'],
+          fly: { number: 60, condition: 'only in sunlight' },
+          custom: { number: 10 },
+        },
+        swim: { number: 20 },
+        burrow: false,
+        climb: 'not a speed',
+      }),
+    ).toBe(
+      '2 ft. (walk or fly; while climbing), 30 ft., fly 60 ft. only in sunlight, custom 10 ft., swim 20 ft.',
+    );
+    expect(format.formatSpeed({ choose: { amount: 'two', from: ['walk'] } })).toBe('-');
+    expect(format.formatSpeed({ choose: { amount: 2, from: 'walk' } })).toBe('-');
+    expect(format.formatSpeed({ choose: { amount: 2, from: [30, false] } })).toBe('-');
+    const polishSpeed = format.formatSpeed(
+      {
+        choose: { amount: 1, from: ['walk', 'fly'] },
+        alternate: {
+          walk: { number: 30 },
+          swim: [{ number: 40, condition: 'tylko w wodzie' }],
+          custom: { number: 20 },
+        },
+      },
+      'pl',
+    );
+    expect(polishSpeed).toContain('1 stóp (walk or fly)');
+    expect(polishSpeed).toContain('30 stóp');
+    expect(polishSpeed).toContain('pływanie 40 stóp tylko w wodzie');
+    expect(polishSpeed).toContain('custom 20 stóp');
     expect(format.formatSpeed(undefined)).toBe('-');
     expect(
       format.formatProficiencies([

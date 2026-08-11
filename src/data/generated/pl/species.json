@@ -20526,5 +20526,1605 @@
         ]
       }
     ]
+  },
+  "goblin-erlw": {
+    "name": "Chochlik",
+    "size": "Mały",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Gobliny osiągają dorosłość w wieku 8 lat i żyją do 60 lat."
+        ]
+      },
+      {
+        "name": "Rozmiar",
+        "type": "entries",
+        "entries": [
+          "Twój rozmiar to Mały."
+        ]
+      },
+      {
+        "name": "Widzenie w ciemności",
+        "entries": [
+          "Możesz widzieć w przyćmionym świetle w promieniu 60 stóp od ciebie, jak gdyby było jasne światło, a w ciemności, jakby było przyćmione światło. W ciemności nie można rozpoznać koloru, a jedynie odcienie szarości."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Wściekłość Małego",
+        "entries": [
+          "Kiedy zadajesz obrażenia stworzeniu atakiem lub zaklęciem, a jego rozmiar jest większy niż twój, możesz sprawić, że atak lub zaklęcie zada dodatkowe obrażenia stworzeniu. Dodatkowe obrażenia są równe Twojemu poziomowi. Gdy raz użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Zwinna ucieczka",
+        "entries": [
+          "Możesz wykonać akcję {@action Disengage} lub {@action Hide} jako akcję dodatkową w każdej swojej turze."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać w języku wspólnym i goblińskim."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Wyrównanie",
+        "type": "entries",
+        "entries": [
+          "W Eberron gobliny są zazwyczaj neutralne. Mają tendencję do dbania o siebie, najlepiej bez przyciągania niechcianej uwagi większych, potężniejszych ludzi."
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "races/ERLW/Goblinoids.webp",
+        "credit": "Cory'ego Trego-Erdnera"
+      }
+    ]
+  },
+  "boggart": {
+    "name": "Bogin",
+    "size": "Mały",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Typ stworzenia",
+        "entries": [
+          "Jesteś humanoidem. Jesteś także uważany za goblinoida ze względu na każdy warunek lub efekt, który wymaga, abyś był goblinoidem."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w ciemności",
+        "entries": [
+          "Możesz widzieć w przyćmionym świetle w promieniu 60 stóp od ciebie, jak gdyby było jasne światło, a w ciemności, jak gdyby było przyćmione światło. Kolory w tej ciemności rozpoznajesz jedynie jako odcienie szarości."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Fey Przodkowie",
+        "entries": [
+          "Masz przewagę w rzutach obronnych, które wykonujesz, aby uniknąć lub zakończyć na sobie stan {@condition charmed}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wściekłość Małego",
+        "entries": [
+          "Kiedy zadajesz obrażenia stworzeniu atakiem lub zaklęciem, a jego rozmiar jest większy niż twój, możesz sprawić, że atak lub zaklęcie zada dodatkowe obrażenia stworzeniu. Dodatkowe obrażenia są równe premii za biegłość.",
+          "Możesz użyć tej cechy tyle razy, ile wynosi twoja premia do biegłości, odzyskując wszystkie wykorzystane użycia po zakończeniu długiego odpoczynku i możesz jej użyć nie częściej niż raz na turę."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Zwinna ucieczka",
+        "entries": [
+          "Możesz wykonać akcję {@action Disengage} lub {@action Hide} jako akcję dodatkową w każdej swojej turze."
+        ]
+      }
+    ],
+    "lore": [
+      "Boginy to małe, przysadziste goblinoidy występujące w krainie Lorwyn-Shadowmoor. Mają zwierzęce cechy fizyczne, w tym rogi i zwierzęce pyski. Poza tymi podobieństwami wygląd boginów jest bardzo zróżnicowany. Jeden bogin może wyglądać jak jeż, ma kolczaste futro i paciorkowate oczy, podczas gdy inny może mieć pysk i mięsiste uszy świni. Boginy zazwyczaj uwielbiają wytwarzać mikstury i zwykle specjalizują się w określonych obszarach, jak opisano w poniższych sekcjach.",
+      {
+        "type": "entries",
+        "name": "W Lorwynie",
+        "entries": [
+          "Boginy w Lorwyn rodzą się w wspólnych norach, gdzie prawa i hierarchie są uważane za sugestie. Najstarsze i najpotężniejsze boginy, zwane „ciotkami”, służą jako szanowani przywódcy, którzy strzegą pokoju. Boginy Lorwyn cenią dzielenie się wiedzą i przeszłymi doświadczeniami ze swoimi społecznościami. Wielu jest skłonnych stawić czoła wielkim niebezpieczeństwom w pogoni za nowymi doświadczeniami, a poszukiwacze przygód są powszechni.",
+          "Boginy Lorwyn również mają talent do magii. Boginy, których pociąga nauka i używanie tych naturalnych skłonności, często stają się druidami. Bogin Lorwyn może alternatywnie znaleźć powołanie jako Łowca, zwłaszcza podklasa {@class Ranger|XPHB|Fey Wanderer|Fey Wanderer}, lub jako Czarodziej, zwłaszcza podklasa {@class Wizard|XPHB|Diviner|Diviner}, ponieważ boginy lubią zdobywać informacje za pomocą magii wróżbiarskiej."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "W Shadowmoor",
+        "entries": [
+          "Boginy w Shadowmoor mają na ogół ostrzejsze cechy fizyczne niż boginy Lorwyn, w tym dodatkowy zestaw rogów. Znani są również z modyfikacji ciała, takich jak przynitowanie płyt pancernych do ich ciała. Społeczeństwo boginów Shadowmoor jest chaotyczne i zdecentralizowane; ich społeczności są nieliczne i prawdopodobnie można je znaleźć w odizolowanych lub niebezpiecznych środowiskach. Ciotki z Shadowmoor wędrują po krainach, witając napotkanych ludzi arbitralnymi testami, dobrodziejstwami, a nawet przekleństwami.",
+          "Podobnie jak ich odpowiedniki z Lorwyn, boginy Shadowmoor przyciąga magia. Te boginy mogą stać się Czarnoksiężnikami, szczególnie skłaniając się ku podklasie {@class Warlock|XPHB|Archfey Patron|Archfey}; niektórzy mogą wierzyć, że ich patronem jest Isilu. Inni okazują się być Czarownikami i szczególnie prawdopodobne jest, że zamanifestują swoją moc w postaci podklasy {@class Sorcerer|XPHB|Wild Magic Sorcery|Wild Magic}."
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "races/LFL/Boggart.webp",
+        "title": "Bogin w Lorwyn używa żaby jako wahadła różdżkarskiego",
+        "credit": "Ioannisa Fiore’a"
+      }
+    ]
+  },
+  "faerie": {
+    "name": "Wróżka",
+    "size": "Mały",
+    "speed": "30 stóp",
+    "creatureType": "Fej",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Typ stworzenia",
+        "entries": [
+          "Jesteś Fey."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Magia Wróżek",
+        "entries": [
+          "Znasz sztuczkę {@spell druidcraft}. Począwszy od 3 poziomu możesz rzucić zaklęcie {@spell faerie fire} z tą cechą. Począwszy od 5 poziomu możesz także rzucić zaklęcie {@spell enlarge/reduce} z tą cechą. Gdy rzucisz {@spell faerie fire} lub {@spell enlarge/reduce} z tą cechą, nie możesz rzucić tego czaru ponownie, dopóki nie zakończysz długiego odpoczynku. Możesz także rzucić którekolwiek z tych zaklęć, korzystając z dowolnych miejsc na zaklęcia na odpowiednim poziomie.",
+          "Inteligencja, Mądrość lub Charyzma to zdolność rzucania zaklęć w przypadku tych zaklęć, jeśli rzucasz je z tą cechą (wybierz, gdy wybierasz tę rasę)."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Lot",
+        "entries": [
+          "Dzięki swoim skrzydłom możesz latać z prędkością równą prędkości chodzenia. Nie możesz używać tej prędkości lotu, jeśli nosisz średni lub ciężki pancerz."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Pochodzenie Faerie",
+        "entries": [
+          "Jako mieszkaniec Lorwyn i Shadowmoor możesz zyskać dodatkowe cechy.",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Lorwyn",
+                "entries": [
+                  "Nie zyskujesz żadnych dodatkowych cech."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Shadowmoor",
+                "entries": [
+                  "Masz {@sense Darkvision|XPHB} o zasięgu 30 metrów."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "lore": [
+      "Znane ze swoich psot, wróżki przypominają owady o humanoidalnych cechach. Ich wielkość i kształt mogą się różnić, ale wszystkie mają czułki, czarne oczy, chitynową skórę oraz insektopodobne nogi i skrzydła. Każda wróżka rodzi się z kwiatu i posiada wrodzoną magię, którą wielu wykorzystuje do płatania figli.",
+      "Niektóre wróżki Lorwyn służą królowej Ourie, która ogłosiła się władczynią wróżek. Jednak nie wszystkie wróżki uznają władzę Oury. W Shadowmoor wróżki mogłyby zamiast tego czcić królową Maralen, elfkę, która obaliła poprzednią królową faerie i, jak twierdzą niektórzy, zapoczątkowała starcie Lorwyna i Shadowmoor. (Aby uzyskać więcej informacji, zobacz {@book \"Lorwyn-Shadowmoor's History\"|LFL|0|Lorwyn-Shadowmoor's History} we wstępie.)"
+    ],
+    "gallery": [
+      {
+        "path": "races/LFL/Faerie.webp",
+        "title": "Wróżki z krainy Lorwyn-Shadowmoor często rozkoszują się kaprysami",
+        "credit": "Bena Hilla"
+      }
+    ]
+  },
+  "goblin-dankwood": {
+    "size": "Mały",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Gobliny Dankwood osiągają dorosłość w wieku 8 lat i żyją do 60 lat."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Gobliny Dankwood mają od 3 do 4 stóp wzrostu i ważą od 40 do 80 funtów. Twój rozmiar to Mały."
+        ]
+      },
+      {
+        "name": "Widzenie w ciemności",
+        "entries": [
+          "Możesz widzieć w przyćmionym świetle w promieniu 60 stóp od ciebie, jak gdyby było jasne światło, a w ciemności, jakby było przyćmione światło. W ciemności nie można rozpoznać koloru, a jedynie odcienie szarości."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Porozmawiaj z Małymi Bestiami",
+        "type": "entries",
+        "entries": [
+          "Za pomocą dźwięków i gestów możesz przekazywać proste pomysły Małym lub mniejszym zwierzętom. Gobliny z Dankwood kochają zwierzęta i często trzymają wiewiórki, borsuki, króliki, krety, dzięcioły i inne stworzenia jako ukochane zwierzęta domowe."
+        ]
+      },
+      {
+        "name": "Zwinna ucieczka",
+        "entries": [
+          "Możesz wykonać akcję {@action Disengage} lub {@action Hide} jako akcję dodatkową w każdej swojej turze."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać w języku wspólnym i goblińskim."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Wyrównanie",
+        "type": "entries",
+        "entries": [
+          "Gobliny z Dankwood są zazwyczaj neutralne lub neutralne, chociaż niektóre złośliwe gobliny z Dankwood są chaotycznie neutralne."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              {
+                "type": "quote",
+                "entries": [
+                  "Ach te gobliny z Dankwood! W swoim czasie podróżowałem daleko i szeroko i nigdy nie spotkałem tak wyjątkowych i interesujących goblinów jak te. Być może jest to spowodowane magiczną naturą samego Dankwood, ponieważ kiedyś krążyły pogłoski, że ten las był starożytnym sanktuarium potężnego netheryjskiego czarodzieja, ale kto ma to powiedzieć? Ten świat jest cudowny i gdziekolwiek się udasz, znajdziesz coś nowego, co będzie olśniewać i zadziwiać!"
+                ],
+                "by": "Strażnicy Liściaste Skiptoes"
+              },
+              "Gobliny z Dankwood są podobne do innych zwykłych goblinów, ale są o wiele delikatniejsze i bardziej artystyczne niż dzikie i nieokrzesane gobliny tego świata.",
+              "Są ciekawskie i mają magiczną więź z małymi leśnymi stworzeniami, z którymi często się przyjaźnią. Są szybkie, zwinne i uwielbiają eksplorować. Z tego powodu są świetnymi poszukiwaczami przygód i przewodnikami."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "flamekin": {
+    "name": "Płomień",
+    "size": "Mały lub Średni",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Jesteś średni lub mały. Rozmiar wybierasz po wybraniu tej rasy."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Widzenie w ciemności",
+        "entries": [
+          "Możesz widzieć w przyćmionym świetle w promieniu 60 stóp od ciebie, jak gdyby było jasne światło, a w ciemności, jak gdyby było przyćmione światło. Kolory w tej ciemności rozpoznajesz jedynie jako odcienie szarości."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Odporność na ogień",
+        "entries": [
+          "Masz odporność na obrażenia od ognia."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Dotrzyj do Blaze'a",
+        "entries": [
+          "Znasz sztuczkę {@spell produce flame|XPHB}. Począwszy od 3 poziomu możesz rzucić zaklęcie {@spell burning hands|XPHB} z tą cechą. Począwszy od 5 poziomu możesz rzucić zaklęcie {@spell flame blade|XPHB} z tą cechą, bez komponentu materialnego. Gdy rzucisz {@spell burning hands|XPHB} lub {@spell flame blade|XPHB} z tą cechą, nie możesz rzucić tego czaru ponownie, dopóki nie zakończysz długiego odpoczynku. Możesz także rzucić którekolwiek z tych zaklęć, korzystając z dowolnych miejsc na zaklęcia na odpowiednim poziomie.",
+          "Inteligencja, Mądrość lub Charyzma to zdolność rzucania zaklęć w przypadku tych zaklęć, jeśli rzucasz je z tą cechą (wybierz, gdy wybierasz tę rasę)."
+        ]
+      }
+    ],
+    "lore": [
+      "Flamekini to ludzie stworzeni z dwóch kluczowych elementów stworzenia: ognia i kamienia. W rezultacie wielu flamekinów czuje silną więź ze światem przyrody. Ciała Flamekina promieniują nieszkodliwymi magicznymi płomieniami, chociaż posiadają wrodzoną magię, która pozwala im tworzyć płonące płomienie w wielu formach.",
+      "Flamekin uważa odkrywanie siebie i wyrażanie siebie za najszlachetniejsze aspiracje i wierzy, że samorealizacja jest najważniejszą rzeczą, jaką jednostka może zrobić ze swoim życiem. Flamekin nazywa tę trwającą całe życie pogoń Ścieżką Płomienia.",
+      "Flamekiny zamieszkują albo Lorwyn, albo Shadowmoor. Fizycznie i kulturowo są podobni w obu krajach.",
+      {
+        "type": "inset",
+        "name": "Popiół",
+        "entries": [
+          "W Shadowmoor niektóre płomienie, które stłumiły swoje gorące emocje, znane są jako Popiół, ponieważ ich magiczne płomienie przygasły. Chociaż nadal mają ogniste zdolności, te Popiół wizualnie różnią się od innych płomieni. Podczas gdy niektóre w końcu odzyskują płonące płomienie, inne zamieniają się w {@race rimekin|LFL}, co wyjaśniono w dalszej części tego rozdziału."
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "races/LFL/Flamekin.webp",
+        "credit": "Jozue Rafał"
+      }
+    ]
+  },
+  "hobgoblin-erlw": {
+    "name": "Chochlik",
+    "size": "Średni",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Hobgobliny dojrzewają w tym samym tempie co ludzie i mają podobną długość życia."
+        ]
+      },
+      {
+        "name": "Rozmiar",
+        "entries": [
+          "Twój rozmiar to Średni."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Widzenie w ciemności",
+        "entries": [
+          "Możesz widzieć w przyćmionym świetle w promieniu 60 stóp od ciebie, jak gdyby było jasne światło, a w ciemności, jakby było przyćmione światło. W ciemności nie można rozpoznać koloru, a jedynie odcienie szarości."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Trening walki",
+        "entries": [
+          "Jesteś biegły w posługiwaniu się dwoma wybranymi {@filter martial weapons|items|source=phb|category=basic|type=martial weapon} i lekkim pancerzem."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Ratowanie twarzy",
+        "entries": [
+          "Hobgobliny pilnują, aby nie okazywać słabości przed swoimi sojusznikami, w obawie przed utratą statusu. Jeśli spudłujesz w rzucie ataku, nie powiedzie się test umiejętności lub rzut obronny, możesz otrzymać premię do rzutu równą liczbie sojuszników, których widzisz w promieniu 30 stóp od ciebie (maksymalna premia +5). Gdy raz użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać w języku wspólnym i goblińskim."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Wyrównanie",
+        "entries": [
+          "Społeczeństwo hobgoblinów w Eberron kształtuje ideał ścisłego kodeksu honorowego i sztywnej dyscypliny walki. Większość hobgoblinów jest praworządna i ma tendencję do surowego egzekwowania swoich praw."
+        ],
+        "type": "entries"
+      }
+    ],
+    "gallery": [
+      {
+        "path": "races/ERLW/Goblinoids.webp",
+        "credit": "Cory'ego Trego-Erdnera"
+      }
+    ]
+  },
+  "centaur-mot": {
+    "size": "Średni",
+    "speed": "40 stóp",
+    "creatureType": "Fej",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Centaury dojrzewają i starzeją się mniej więcej w tym samym tempie co ludzie."
+        ]
+      },
+      {
+        "name": "Wyrównanie",
+        "type": "entries",
+        "entries": [
+          "Centaury są skłonne do neutralności. Centaury Lagonna są bardziej praworządne, podczas gdy centaury Pheres są częściej chaotyczne."
+        ]
+      },
+      {
+        "name": "Rozmiar",
+        "type": "entries",
+        "entries": [
+          "Centaury mają od 6 do 7 stóp wzrostu, a ich końskie ciała sięgają około 4 stóp w kłębie. Centaury Pheres są zwykle nieco większe niż centaury Lagonna. Twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Fej",
+        "entries": [
+          "Twoim typem stworzenia jest istota baśniowa, a nie humanoidalna."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Ładuj",
+        "entries": [
+          "Jeśli podejdziesz co najmniej 30 stóp prosto do celu, a następnie w tej samej turze trafisz go atakiem bronią białą, możesz natychmiast po tym ataku wykonać akcję dodatkową, wykonując jeden atak kopytami na cel."
+        ],
+        "type": "entries"
+      },
+      {
+        "type": "entries",
+        "name": "Kopyta",
+        "entries": [
+          "Twoje kopyta to naturalna broń do walki wręcz, której możesz używać do wykonywania ataków bez broni. Jeśli nimi trafisz, zadajesz obrażenia obuchowe równe {@damage 1d4} + twój modyfikator Siły, zamiast obrażeń obuchowych normalnych dla ataku bez broni."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Budowa konia",
+        "entries": [
+          "Przy określaniu nośności i ciężaru, który możesz pchać lub ciągnąć, liczysz się jako jeden rozmiar większy.",
+          "Ponadto każda wspinaczka wymagająca rąk i stóp jest dla ciebie szczególnie trudna ze względu na końskie nogi. Kiedy się wspinasz, każda stopa ruchu kosztuje cię 4 dodatkowe stopy zamiast normalnej 1 dodatkowej stopy."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Niedobitek",
+        "entries": [
+          "Posiadasz biegłość w jednej z wybranych umiejętności: {@skill Animal Handling}, {@skill Medicine}, {@skill Nature} lub {@skill Survival}."
+        ]
+      },
+      {
+        "name": "Języki",
+        "type": "entries",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać w języku Common i Sylvan."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          "Potężne i ciekawe, szybkie w działaniu i posiadające wiedzę na temat szerszego świata, centaury pragną doświadczyć bezgranicznych bogactw życia. Centaury z Theros dzielą się na dwie grupy: członkowie dalekiej podróży bandy Lagonna i dumni najeźdźcy bandy Pheres. Zespoły te zajmują terytoria położone pomiędzy trzema głównymi ludzkimi polami, co czyni je częstym widokiem dla tych, którzy podróżują po ludzkich ziemiach. Centaury nie są jednak przeznaczone do osiedlenia się w stałych domach. Centaury można spotkać wszędzie tam, gdzie można zobaczyć cuda i przeżyć przygody.",
+          {
+            "type": "entries",
+            "name": "Oznaczenia stada",
+            "entries": [
+              "Chociaż centaury mają tę samą podstawową fizjologię, pasma centaurów są powszechnie kojarzone z ich własnymi, odrębnymi cechami.",
+              "Centaury z grupy Lagonna są zwykle smukłe i muskularne, a ich potężne nogi są zbudowane raczej z myślą o wytrzymałości niż szybkości. Zwykle mają szatę w jednym kolorze, często z połyskiem, który w jasnym świetle może wyglądać metalicznie.",
+              "Centaury z grupy Pheres mają zazwyczaj długie, zwinne nogi i szczupłe ciało, a ich skóra często jest oznakowana naturalnymi kolorami. Centaury Pheres czasami malują lub tatuują górną część ciała, aby dopasować je do wzorów w dolnej połowie. Czasami centaur Pheres rodzi się z pionowymi paskami na kopytach, co wróży ekscytujące i pełne przygód życie."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Rodziny Kupców Lagonna",
+            "entries": [
+              "Centaury Lagonna podróżują w małych grupach rodzinnych kupieckich zwanych {@i guri}. Grupy te często handlują z Meletis, która zapewnia największy rynek zbytu dla ich towarów, ale robią też interesy z Setessą i mniejszymi społecznościami na ziemiach Akros.",
+              "Najstarszy członek każdego guros zazwyczaj przewodzi rodzinie. W czasach niezgody przywódcy guri zbierają się, aby wspólnie podejmować decyzje. Inni członkowie guro pracują jako handlarze, zbieracze, pakowacze i zwiadowcy. Guros pełni kilka wyspecjalizowanych ról wymaganych do osiągnięcia sukcesu w podróżach i handlu: handlarz barterem, omener, kursant i najlepiej {@i koletra}.",
+              "Handlarz negocjuje umowy między guro a innymi handlarzami. Handlowcy muszą znać zwyczaje innych kultur i mówić kilkoma różnymi językami.",
+              "Omener to wyrocznia, która czyta wiadomości od bogów w świecie przyrody i ujawnia, w jaki sposób nieśmiertelni chcą podróżować guro.",
+              "Kursor odkrywa nowe terytoria handlowe dla swoich guro. Są doświadczonymi tropicielami i nawigatorami, potrafiącymi zapuścić się w głąb niezbadanych terytoriów i bezbłędnie wrócić do swoich rodzin.",
+              "Wreszcie każdy guro stara się podróżować z przynajmniej jedną koletrą, jednym z potężnych, dobrze wyszkolonych wojowników Lagonny, o którym mówi się, że ma krew pierwszych, legendarnych bohaterów-centaurów. Mówi się, że Koletry przynoszą zespołowi szczęście, ale zazwyczaj jest im też pisane zginąć w obronie swojej rodziny. Nie każdy guro ma własną koletrę i guri dzielą się między sobą swoimi najlepszymi wojownikami na znak dobrej woli i sposób na tworzenie więzi."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Podróże odkrywcze",
+            "entries": [
+              "Kiedy młode centaury Lagonna dorastają, często opuszczają swoją bandę i samotnie podróżują po świecie. Ten czas samopoznania, zwany {@i protoporos}, może trwać od kilku tygodni do kilku lat. Lagonna wierzą, że protoporos pomaga młodym centaurom odnaleźć swoje miejsce na świecie. Omener odczytuje znaki szczęścia, po czym wysyła młode centaury w drogę, wyznaczając im pierwsze kroki w podróży. Chociaż większość centaurów w końcu wraca do zespołu, niektórzy znajdują swoje powołanie gdzie indziej. Kiedy Lagonna opowiadają historie o swoich największych bohaterach, często wspominają o centaurach, które odnalazły swoje bohaterskie przeznaczenie na protoporos."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Najeźdźcy Feresa",
+            "entries": [
+              "Pheres wędrują po dzikich krainach pomiędzy Setessą i Akros w małych stadach. Stada te są stowarzyszeniami dobrowolnymi, w przeciwieństwie do grup rodzinnych Lagonna. Kiedy jest to konieczne, kilka małych grup łączy się w większe stado, aby obrać za cel szczególnie niebezpieczne, ale bogate w zasoby cele — czy to humanoidalnych handlarzy, czy wędrowne, chciwe potwory. Zespoły łączą się także, aby pokonać wspólne zagrożenia lub polować na zwierzynę łowną.",
+              "Pheres cenią siłę fizyczną, szybkość i waleczność zarówno w polowaniu, jak i walce. Często bandą dowodzi najsilniejszy i najbardziej dominujący wojownik, zwany szarżystą. Jednak niektóre zespoły wynoszą taktyka lub stratega na to szanowane stanowisko. Ferowie potrafią być brutalni i chciwi, ale są też sprytni i rozumieją wartość strategicznego przywództwa.",
+              "Inne centaury w stadach Pheres pracują jako zwiadowcy, łucznicy, wojownicy i zbieracze. Ponadto większość stad Pheres zawiera wołającego i trompera.",
+              "Przywoływacze Pheres to zazwyczaj druidzi lub tropiciele, którzy mogą przyciągnąć zwierzęta do swojego stada. Przyzywający często mają u boku jednego lub więcej zwierzęcych sojuszników i mogą rozmawiać ze zwierzętami, aby dowiedzieć się o okolicznych krainach.",
+              "Trompersy to najpotężniejsi i najgroźniejsi wojownicy w stadzie. Legendy o centaurach mówią, że kiedy bogowie po raz pierwszy stworzyli ludzi z czerwonego błota najstarszej rzeki, trompersy Pheres nauczyły ich, jak zapędzać się w róg i zabijać zdobycz. Historia mówi, że aby spłacić ten dług, ludzie są winni centaurom część tego, co złowią. Chociaż ludzie nie pamiętają tego rozwiązania, Pheres często cytują je jako uzasadnienie swoich najazdów."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Feres Renegaci",
+            "entries": [
+              "Członkowie zespołu Pheres przetrwają dzięki wspólnej pracy i walce, ale niektóre centaury nadal decydują się na samodzielny atak. Ci renegaci często czują się jak outsiderzy we własnym zespole. Mogą być pacyfistami i pragną poznać innych ludzi, zamiast z nimi walczyć. Mogą też odczuwać w duszy niepokój, którego nic innego nie jest w stanie ukoić. Chociaż renegaci budują własne życie z dala od zespołu, większość zachowuje jakiś związek ze swoją przeszłością. Niektóre historie mówią o renegatach powracających, aby pomóc swojemu zespołowi w potrzebie, zanim ponownie znikną."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Imiona centaurów",
+            "entries": [
+              "Centaury Lagonna preferują imiona składające się z trzech lub czterech sylab, często zapożyczone z kultur, które spotkały podczas swoich podróży. Centaury Pheres mają zwykle krótsze, ostrzej brzmiące imiona, często uzupełnione honorem zdobytym w bitwie.",
+              {
+                "type": "list",
+                "style": "list-hang-notitle",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Imiona żeńskie Lagonny:",
+                    "entry": "Honotia, Kelitia, Lileo, Meloe"
+                  },
+                  {
+                    "type": "item",
+                    "name": "Imiona męskie Lagonna:",
+                    "entry": "Aughus, Dririos, Ormasos, Volien"
+                  },
+                  {
+                    "type": "item",
+                    "name": "Imiona żeńskie Pheres:",
+                    "entry": "Bido, Daxa, Saya, Tesia"
+                  },
+                  {
+                    "type": "item",
+                    "name": "Męskie imiona Pheres:",
+                    "entry": "Eno, Roth, Skelor, Stihl"
+                  },
+                  {
+                    "type": "item",
+                    "name": "Pheres zwroty grzecznościowe:",
+                    "entry": "Threekills, Razorhoof, Unsleeping, Daggereye, Silentstep"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "races/MOT/Lagonna Band Centaur.webp",
+        "title": "Centaur z zespołu Lagonna",
+        "credit": "Min mniam"
+      },
+      {
+        "path": "races/MOT/Pheres Band Centaur.webp",
+        "title": "Centaur z zespołu Pheres",
+        "credit": "Sławomir Maniak"
+      }
+    ]
+  },
+  "human-ixalan": {
+    "name": "Człowiek (Ixalan)",
+    "size": "Średni",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Ludzie osiągają dorosłość w późnym wieku kilkunastu lat i żyją krócej niż sto lat."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Ludzie różnią się znacznie wzrostem i budową, od zaledwie 5 stóp do znacznie ponad 6 stóp wzrostu. Niezależnie od twojej pozycji w tym zakresie, twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Języki",
+        "type": "entries",
+        "entries": [
+          "Możesz mówić, czytać i pisać {@language Common} oraz w jednym dodatkowym wybranym języku. Lub, jeśli w Twojej kampanii zastosowano opcjonalne zasady dotyczące języków opisane w poprzedniej sekcji, Twoje pochodzenie narodowe określa Twój język ojczysty: {@language Itzocan|PSX} w przypadku Imperium Słońca, {@language Coalition pidgin|PSX} w przypadku Koalicji Bezczelnej lub {@language Vampire|PSX} w przypadku Legionu Zmierzchu. Nadal mówisz w jednym wybranym przez siebie języku oraz {@language Common Trade Pidgin|PSX|Common}, jeśli istnieje on w Twojej kampanii."
+        ]
+      },
+      {
+        "name": "Wyrównanie",
+        "type": "entries",
+        "entries": [
+          "Ludzie nie mają skłonności do żadnego szczególnego charakteru. Można wśród nich znaleźć najlepszych i najgorszych."
+        ]
+      },
+      {
+        "name": "Prędkość",
+        "type": "entries",
+        "entries": [
+          "Twoja podstawowa prędkość chodzenia wynosi 30 stóp."
+        ]
+      }
+    ],
+    "lore": [
+      "Ludzi można spotkać na całym planie Ixalana, zarówno na ziemiach Torrezon (obecnie kontrolowanych przez Legion Zmierzchu), jak i w Imperium Słońca. Wampiry Legionu Zmierzchu były kiedyś ludźmi, a populacja chłopów i sług, którymi rządzą, nadal nimi jest. Gdy Legion Zmierzchu podbił Torrezon, jego siły wypędziły przed siebie wiele populacji ludzkich, w tym tych, którzy pierwsi utworzyli Wolne Miasta, a później uciekli za ocean, tworząc rdzeń Koalicji Bezczelnej."
+    ],
+    "gallery": [
+      {
+        "path": "races/PSX/Human.webp",
+        "title": "Strażnik Ixalli",
+        "credit": "Jezioro Hurwitz"
+      },
+      {
+        "path": "races/PSX/Human2.webp",
+        "title": "Ruina nawigatora",
+        "credit": "Zoltana Borosa"
+      },
+      {
+        "path": "races/PSX/Human3.webp",
+        "title": "Dziedzic Poszukiwacza",
+        "credit": "Antoni Palumbo"
+      }
+    ]
+  },
+  "goblin-ggr": {
+    "name": "Chochlik",
+    "size": "Mały",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Gobliny osiągają dorosłość w wieku około 8 lat. Starzeją się zauważalnie szybciej niż ludzie i chociaż niewiele goblinów dożywa starości, najbardziej ostrożne rzadko żyją dłużej niż 60 lat."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Gobliny mają od 3 do 4 stóp wzrostu i ważą od 40 do 80 funtów. Twój rozmiar to Mały."
+        ]
+      },
+      {
+        "name": "Widzenie w ciemności",
+        "entries": [
+          "Możesz widzieć w przyćmionym świetle w promieniu 60 stóp od ciebie, jak gdyby było jasne światło, a w ciemności, jakby było przyćmione światło. W ciemności nie można rozpoznać koloru, a jedynie odcienie szarości."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Wściekłość Małego",
+        "entries": [
+          "Kiedy zadajesz obrażenia stworzeniu atakiem lub zaklęciem, a jego rozmiar jest większy niż twój, możesz sprawić, że atak lub zaklęcie zada dodatkowe obrażenia stworzeniu. Dodatkowe obrażenia są równe Twojemu poziomowi. Gdy raz użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Zwinna ucieczka",
+        "entries": [
+          "Możesz wykonać akcję {@action Disengage} lub {@action Hide} jako akcję dodatkową w każdej swojej turze."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "type": "entries",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać w języku wspólnym i goblińskim. W Ravnicy gobliński jest językiem uproszczonym, z ograniczonym słownictwem i płynnymi regułami gramatycznymi, nienadającym się do żadnej wyrafinowanej rozmowy."
+        ]
+      },
+      {
+        "name": "Wyrównanie",
+        "type": "entries",
+        "entries": [
+          "Gobliny są zazwyczaj neutralnym złem, gdyż dbają tylko o własne potrzeby. Kilka goblinów może mieć tendencję do dobra lub neutralności, ale tylko rzadko."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          {
+            "type": "entries",
+            "entries": [
+              "Niezależnie od tego, czy płaczą ze strachu, chichoczą w szaleńczym śmiechu, czy warczą w wściekłości, gobliny są nędzne i nieistotne – przynajmniej w oczach większości pozostałych mieszkańców Ravnicy. Jednak w ich mniemaniu zadowalają się ukrywaniem w cieniu tylko do czasu, aż w pełni dojdą do siebie i zyskają uznanie, na jakie według nich zasługują. Mają prawo do uznania za swoją wytrwałość, zwinność, przebiegłą pomysłowość i głupie szczęście, a wszystko to pozwoliło im przetrwać w świecie opanowanym przez stworzenia większe i potężniejsze od nich.",
+              {
+                "type": "entries",
+                "name": "Mały i żylasty",
+                "entries": [
+                  "Mając około 3 stóp wzrostu i pokryte brodawkowatą, zieloną lub czerwoną skórą, gobliny mają ogromne nosy i uszy. Ich żylaste ciała są zaskakująco silne, a ich usta są pełne ostrych, krzywych zębów.",
+                  "Większość goblinów jest łysa, albo z dziedziczności, albo z wyboru, ale kilka może poszczycić się burzą rudych lub czarnych włosów. Ich ręce i nogi są wydłużone proporcjonalnie do małych ciał, a palce u rąk i nóg są również długie i smukłe. Wiele goblinów woli chodzić bez butów, aby pozostawić palce u nóg odsłonięte podczas wspinaczki."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Nieskrępowane emocje",
+                "entries": [
+                  "Stworzenia o surowym impulsie, gobliny można znaleźć wśród gildii ceniących tę cechę, szczególnie Izzet (gdzie zazwyczaj służą jako pomocnicy badaczom), Gruul (w obozach tworzących nieszczęsne bufory między klanami a cywilizowanymi regionami), Rakdos (dobrze wykorzystują swoją miłość do eksplozji) i czasami Boro (jeśli odkryją w sobie studnię dyscypliny i odwagi lub nie będą w stanie oprzeć się połyskowi broni i zbroi Boros). Wiele goblinów nie ma gildii i udaje się do gangów ulicznych.",
+                  "Czasami kierują się dzikimi wahaniami nastroju, gobliny mają skłonność do zniszczenia, co może przybrać zabawną formę, ale często nie jest to wcale takie oczywiste. Niektóre gobliny tłuką rzeczy, inne lubią je podpalać, a wiele z nich uwielbia wysadzać rzeczy w powietrze.",
+                  "Gobliny mają skandaliczne poczucie humoru, zwykle wyrażane poprzez psotne dowcipy. Złośliwi spośród nich czerpią przyjemność z nieszczęścia innych i mają tendencję do maniakalnego chichotu, gdy ich to bawi. Mogą działać w sposób pozornie losowy, czasami tylko po to, aby zmylić i oszołomić innych."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Imiona Goblinów",
+                "entries": [
+                  "Język goblinów lubi pewne dźwięki, a imiona goblinów mają tendencję do powtarzania tych dźwięków, tworząc słowa, które mogą brzmieć jak nonsensowne słowa. Imię goblina nie wskazuje na płeć.",
+                  {
+                    "type": "list",
+                    "style": "list-hang-notitle",
+                    "items": [
+                      {
+                        "type": "item",
+                        "name": "Imiona goblinów:",
+                        "entry": "Azzinax, Babolax, Blixanix, Crixizix, Dazzaz, Estrix, Finizix, Juzba, Kaluzax, Lyzaxa, Mizzix, Myznar, Nixispix, Paxizaz, Ravixiz, Stixil, Sunnix, Tozinox, Uxivozi, Vazozav, Wexiny, Zizzix"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "elf-xphb": {
+    "size": "Średni",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Widzenie w ciemności",
+        "entries": [
+          "Masz {@sense Darkvision|XPHB} o zasięgu 60 stóp."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Elficki rodowód",
+        "entries": [
+          "Jesteś częścią linii, która zapewnia ci nadprzyrodzone zdolności. Wybierz rodowód z tabeli rodowodów elfów. Otrzymujesz korzyść poziomu 1 z tej linii.",
+          "Kiedy osiągniesz poziom postaci 3 i 5, nauczysz się zaklęcia wyższego poziomu, jak pokazano w tabeli. Zawsze masz przygotowane to zaklęcie. Możesz rzucić go raz bez miejsca na zaklęcie i odzyskasz możliwość rzucenia go w ten sposób po ukończeniu {@variantrule Long Rest|XPHB}. Możesz także rzucić zaklęcie, korzystając z dowolnych miejsc na zaklęcia, które posiadasz na odpowiednim poziomie.",
+          "Inteligencja, Mądrość lub Charyzma to zdolność rzucania zaklęć dla zaklęć, które rzucasz z tą cechą (wybierz tę umiejętność, wybierając linię rodową).",
+          {
+            "type": "table",
+            "caption": "Elfie rody",
+            "colLabels": [
+              "Rodowód",
+              "Poziom 1",
+              "Poziom 3",
+              "Poziom 5"
+            ],
+            "colStyles": [
+              "kol-2",
+              "kol-6",
+              "kol-2",
+              "kol-2"
+            ],
+            "rows": [
+              [
+                "Drow",
+                "Zasięg Twojego {@sense Darkvision|XPHB} wzrasta do 30 metrów. Znasz także cantrip {@spell Dancing Lights|XPHB}.",
+                "{@spell Faerie Fire|XPHB}",
+                "{@spell Darkness|XPHB}"
+              ],
+              [
+                "Wysoki Elf",
+                "Znasz sztuczkę {@spell Prestidigitation|XPHB}. Za każdym razem, gdy skończysz {@variantrule Long Rest|XPHB}, możesz zastąpić ten trip innym {@filter cantrip from the Wizard spell list|spells|level=0|class=Wizard}.",
+                "{@spell Detect Magic|XPHB}",
+                "{@spell Misty Step|XPHB}"
+              ],
+              [
+                "Leśny Elf",
+                "Twój {@variantrule Speed|XPHB} wzrasta do 35 stóp. Znasz także cantrip {@spell Druidcraft|XPHB}.",
+                "{@spell Longstrider|XPHB}",
+                "{@spell Pass without Trace|XPHB}"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Fey Przodkowie",
+        "entries": [
+          "Masz {@variantrule Advantage|XPHB} na rzuty obronne, które wykonujesz, aby uniknąć lub zakończyć warunek {@condition Charmed|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Wyostrzone zmysły",
+        "entries": [
+          "Posiadasz biegłość w umiejętności {@skill Insight|XPHB}, {@skill Perception|XPHB} lub {@skill Survival|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Trans",
+        "entries": [
+          "Nie musisz spać, a magia nie może cię uśpić. Możesz ukończyć {@variantrule Long Rest|XPHB} w 4 godziny, jeśli spędzisz te godziny w medytacji przypominającej trans, podczas której zachowasz świadomość."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          "Stworzone przez boga Corellona, ​​pierwsze elfy mogły dowolnie zmieniać swoje postacie. Stracili tę zdolność, gdy Corellon przeklął ich za spiskowanie z bóstwem Lolth, które próbowało uzurpować sobie władzę Corellona, ​​ale bezskutecznie. Kiedy Lolth została wrzucona do Otchłani, większość elfów wyrzekła się jej i zyskała przebaczenie Corellona, ​​ale to, co Corellon im odebrał, zostało utracone na zawsze.",
+          "Nie mogąc już dowolnie zmieniać kształtu, elfy wycofały się do Feywild, gdzie ich smutek pogłębił się pod wpływem tego planu. Z biegiem czasu ciekawość skłoniła wielu z nich do eksploracji innych płaszczyzn egzystencji, w tym światów na Planie Materialnym.",
+          "Elfy mają spiczaste uszy i nie mają owłosienia na twarzy ani ciele. Żyją około 750 lat i nie śpią, lecz wpadają w trans, kiedy potrzebują odpoczynku. W tym stanie pozostają świadomi otoczenia, pogrążając się we wspomnieniach i medytacjach.",
+          "Środowisko subtelnie przekształca elfy, gdy zamieszkują je przez tysiąc lat lub dłużej, i zapewnia im pewne rodzaje magii. Dowy, wysokie elfy i leśne elfy są przykładami elfów, które zostały przemienione w ten sposób.",
+          {
+            "type": "entries",
+            "name": "Drow",
+            "entries": [
+              "Dowy zazwyczaj zamieszkują Podmrok i zostały przez nie ukształtowane. Niektóre jednostki i społeczeństwa drowów całkowicie unikają Podmroku, a mimo to noszą w sobie jego magię. Na przykład w świecie Eberron drowy zamieszkują lasy deszczowe i cyklopowe ruiny na kontynencie Xen'drik."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Wysokie Elfy",
+            "entries": [
+              "Wysokie elfy zostały nasycone magią przejść pomiędzy Feywildem a Planem Materialnym. Na niektórych światach wysokie elfy nazywają siebie innymi imionami. Na przykład nazywają siebie elfami słońca lub księżyca w scenerii Zapomniane Krainy, Silvanesti i Qualinesti w scenerii Smocza Lanca oraz Aereni w scenerii Eberron."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Drewniane elfy",
+            "entries": [
+              "Leśne elfy noszą w sobie magię pierwotnych lasów. Znane są pod wieloma innymi imionami, w tym dzikimi elfami, zielonymi elfami i leśnymi elfami. Grugach to samotne leśne elfy z scenerii Greyhawk, podczas gdy Kagonesti i Tairnadal to leśne elfy z scenerii, odpowiednio, Dragonlance i Eberron."
+            ]
+          }
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "races/XPHB/Elf.webp",
+        "credit": "Mike Pape"
+      },
+      {
+        "path": "races/XPHB/148-05-022.elf-city.webp",
+        "title": "Statek wypływa z miasta zbudowanego przez wysokie elfy",
+        "credit": "Jedda Chevriera"
+      }
+    ]
+  },
+  "human-amonkhet": {
+    "name": "Człowiek (Amonchet)",
+    "parentRace": "Człowiek",
+    "entries": [
+      {
+        "name": "Umiejętności",
+        "entries": [
+          "Zyskujesz biegłość w jednej wybranej umiejętności."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Wyczyn",
+        "entries": [
+          "Otrzymujesz jeden wybrany model {@5etools feat|feats.html}."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Ludzie osiągają dorosłość w późnym okresie dojrzewania. Większość ludzkich wtajemniczonych ukończyła próby i znalazła chwalebną lub niechlubną śmierć przed ukończeniem 30. roku życia. Wezyrowie mogą cieszyć się dłuższą służbą swoim bogom, teoretycznie dożywając nawet stu lat."
+        ],
+        "data": {
+          "overwrite": "Wiek"
+        }
+      },
+      {
+        "name": "Języki",
+        "entries": [
+          "Możesz mówić, czytać i pisać w języku wspólnym oraz w jednym dodatkowym, wybranym przez siebie języku."
+        ],
+        "type": "entries",
+        "data": {
+          "overwrite": "Języki"
+        }
+      },
+      {
+        "name": "Wyrównanie",
+        "type": "entries",
+        "entries": [
+          "Ludzie nie mają skłonności do żadnego szczególnego charakteru. Można wśród nich znaleźć najlepszych i najgorszych."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          "Spośród pięciu humanoidalnych ras Amonkheta ludzie są najbardziej różnorodni i elastyczni. Różni ludzie trenują różnorodne style walki, łącznie z tymi szczególnie preferowanymi przez inne rasy. Ludzki mag może używać dowolnego z pięciu kolorów many, podczas gdy magowie innych ras skupiają się na jednym z zaledwie dwóch kolorów. Ludzkie {@background vizier|PSA|viziers} służą wszystkim pięciu bogom, a różne ludzkie {@background initiate|PSA|initiates} przodują w różnych próbach. Ludzie przeciwstawiają się trendom i kategoryzacji, a przeciwnicy, którzy stają twarzą w twarz z człowiekiem w walce jeden na jednego, nie wiedzą, jakiego rodzaju walki się spodziewać – od przewidywania i przebiegłości często kojarzonej z Kefnetem, po bezwzględność naśladującą Bontu. Na początku takiej walki ta niepewność może dać przewagę walczącemu człowiekowi.",
+          "Oczywiście po rozpoczęciu walki zwycięstwo zależy od różnych czynników. Ale tutaj ludzkie dążenie do doskonałości po raz kolejny przechyla szalę na ich korzyść. Ludzie są gotowi posunąć się do wszystkiego, wyczerpując wszystkie dostępne opcje, aby osiągnąć szczyt osiągnięć i zdobyć przychylność Boga-Faraona.",
+          {
+            "type": "entries",
+            "name": "Dwie drogi do doskonałości",
+            "entries": [
+              "Choć pod wieloma względami są zróżnicowani, ludzie z Amonkhet mają wspólne dążenie do doskonałości. Jednak inaczej podchodzą do tego wyzwania. Niektórzy ludzie specjalizują się w stosunkowo wąskim zestawie umiejętności, podczas gdy inni starają się opanować szeroki zakres.",
+              {
+                "type": "entries",
+                "name": "Perfekcja poprzez specjalizację",
+                "entries": [
+                  "Ludzie wybierający ścieżkę specjalizacji często pobożnie utożsamiają się z jednym z pięciu bogów (często jako {@background vizier|PSA}), a tym samym skupiają się na jednym aspekcie doskonałości. Dla nich najlepszym sposobem na zdobycie miejsca w zaświatach jest doskonalenie jednego aspektu swojego charakteru do najwyższej jakości, a jako {@background initiate|PSA|initiates} mają nadzieję wykorzystać tę cechę we wszystkich pięciu próbach. Mag {@background initiate|PSA}, który utożsamia się z Hazoretem, może kultywować zapał ponad wszystkie inne cnoty, opanować zaklęcia ognistej magii, aby skierować te potężne emocje i polegać na czystej energii i entuzjazmie, aby przejść przez cztery próby prowadzące do ostatecznego testu Hazoreta. Z drugiej strony {@background initiate|PSA} poświęcony Oketrze opiera się na współpracy, solidarności i pracy zespołowej, aby przetrwać próby - nawet Próbę Ambicji Bontu, która próbuje przełamać takie więzi. Dla ucznia Oketry ambicja oznacza dążenie do pomocy całej grupie wtajemniczonych w osiągnięciu wspólnej chwały, zamiast wywyższania się nad innymi. Ludzie z tego punktu widzenia widzą, że wybrana przez nich cnota zabarwia wszystkie inne i wierzą, że pięciu bogów oferuje swoim ludziom wybór, którą cnotę mają naśladować i podkreślać."
+                ]
+              },
+              {
+                "type": "entries",
+                "name": "Perfekcja poprzez Równowagę",
+                "entries": [
+                  "Inni ludzie wierzą, że prawdziwa doskonałość polega na opanowaniu wszystkich cnót, bez faworyzowania którejkolwiek z nich. Porównują się do wieloaspektowych kamieni, których piękno tkwi w dopracowanej perfekcji każdej fasety. Ci ludzie pilnują, aby ich umiejętności w jednym obszarze nie przyćmiły innych, a jeśli osiągną zbyt wysoki poziom w jednym zestawie umiejętności, odkładają to na bok i skupiają swój trening na innych, dopóki ich umiejętności nie znajdą się ponownie w równowadze.",
+                  "Z filozoficznego punktu widzenia tacy ludzie wierzą, że bogów jest pięciu, co ma przypominać mieszkańcom Amonkheta, aby nie skupiali swojej uwagi na jednym bogu lub jednej cnocie, ale aby jednakowo służyli bogom i w równym stopniu opanowali ich nauki. W ten sposób mają nadzieję osiągnąć zrównoważony stan doskonałości, który zagwarantuje im wstęp do zaświatów."
+                ]
+              }
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Klasy bojowe",
+            "entries": [
+              "Większość ludzkich wtajemniczonych koncentruje swoje studia na jednej specjalizacji – walce wręcz, walce na dystans lub walce magicznej. Ludzie, którzy wybierają walkę wręcz, mogą z pełnym oddaniem skupić się na używaniu khopeszu o sierpowym ostrzu (traktuj jako {@item longsword|phb}). Inni specjaliści od walki wręcz przyjmują szerszą perspektywę i jednakowo badają użycie każdej broni.",
+              "Jednakże niektórzy ludzie stosują ideę doskonałości poprzez równowagę również w tych specjalizacjach bojowych, łącząc wiele stylów w unikalną mieszankę. Na przykład człowiek {@background initiate|PSA} może używać zaklęć, aby uformować miecz z piasku lub owinąć strzały magią wysysającą życie. Inny {@background initiate|PSA|initiates} uderza toporem w jednej ręce, rzucając mniejszymi toporami drugą, wykorzystując techniki walki wręcz i na dystans. Niektórzy ludzie używają proc do wystrzeliwania kul ognia, tworzenia iluzorycznych sieci powstrzymujących przeciwników lub wytwarzania ostrzy ze stałych toksyn."
+            ]
+          },
+          "Ludzie z Amonkhet używają cech {@race Human (Variant)|PHB|variant human} przedstawionych w {@book Player's Handbook|PHB}. Pozwala im to na większą specjalizację od samego początku kariery zawodowej i podkreśla różnorodność rasy ludzkiej."
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "races/PSA/Human (Amonkhet).webp",
+        "title": "Mag Blizn Duszy",
+        "credit": "Steve'a Argyle'a"
+      },
+      {
+        "path": "races/PSA/Human (Amonkhet)2.webp",
+        "title": "Zwycięstwo",
+        "credit": "Grzegorza Rutkowskiego"
+      }
+    ]
+  },
+  "human-kaladesh": {
+    "name": "Człowiek (Kaladesz)",
+    "size": "Średni",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Ludzie osiągają dorosłość w późnym wieku kilkunastu lat i żyją krócej niż sto lat."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Ludzie różnią się znacznie wzrostem i budową, od zaledwie 5 stóp do znacznie ponad 6 stóp wzrostu. Niezależnie od twojej pozycji w tym zakresie, twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Języki",
+        "type": "entries",
+        "entries": [
+          "Możesz mówić, czytać i pisać w języku wspólnym oraz w jednym dodatkowym, wybranym przez siebie języku. Ludzie zazwyczaj uczą się języków innych narodów, z którymi mają do czynienia, w tym mało znanych dialektów. Lubią posypywać swoją mowę słowami zapożyczonymi z innych języków: krasnoludzkimi przekleństwami, elfickimi wyrażeniami muzycznymi, żargonem naukowym {@race Vedalken|PSK} i tak dalej."
+        ]
+      },
+      {
+        "name": "Wyrównanie",
+        "type": "entries",
+        "entries": [
+          "Ludzie nie mają skłonności do żadnego szczególnego charakteru."
+        ]
+      },
+      {
+        "name": "Prędkość",
+        "type": "entries",
+        "entries": [
+          "Twoja podstawowa prędkość chodzenia wynosi 30 stóp."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "quote",
+        "entries": [
+          "Ciekawość to uczucie swędzenia, które należy podrapać."
+        ]
+      },
+      "Ludzie z Kaladesh to rasa pełna namiętnych aspiracji. W najlepszym wydaniu ludzie podejmują wielkie i ekspansywne przedsięwzięcia, motywowani dążeniem do najwznioślejszych i najbardziej niemożliwych celów. W najgorszym przypadku ludzie są powierzchownymi, niepraktycznymi marzycielami, którzy są ślepi na konsekwencje swoich błędnych działań. Nie można jednak zaprzeczyć, że najlepsi i najgorsi przedstawiciele ludzkości – wraz z ogromną rzeszą ludzkości pomiędzy nimi – odegrali kluczową rolę w kształtowaniu historii Kaladesh i nadal kształtują losy planu. Ich ciekawość, ambicja, pozornie nieograniczona energia i zakres ich wizji to potężne siły, które napędzają rozwój wynalazków.",
+      "Ludzkie postacie rozwijają się dzięki różnorodności i pragną nowych doświadczeń. Nierzadko zdarza się, że ludzie w ciągu swojego życia zgłębiają kilka różnych dziedzin i dyscyplin, czasami porzucając lata osiągnięć w jednym zajęciu na rzecz czegoś nowego i ekscytującego. Ta tendencja często tworzy postacie, które mają wystarczającą wiedzę z wielu różnych dziedzin, aby być niebezpieczne w każdej z nich. Ale jednocześnie wielu ludzi przoduje w tworzeniu syntezy i znajdowaniu powiązań między pozornie odmiennymi dyscyplinami, co powoduje zapylenie krzyżowe w procesie wynalazczości, który napędza innowacje we wszystkich dziedzinach."
+    ],
+    "gallery": [
+      {
+        "path": "races/PSK/Human.webp",
+        "title": "Objawienie rzemieślnika",
+        "credit": "Kierana Yannera"
+      }
+    ]
+  },
+  "orc-egw": {
+    "name": "Ork",
+    "size": "Średni",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Orkowie osiągają dorosłość w wieku 16 lat i żyją do 80 lat."
+        ]
+      },
+      {
+        "name": "Wyrównanie",
+        "type": "entries",
+        "entries": [
+          "Orkowie boją się klątwy ruiny, która rzekomo nęka ich rasę, i silnie skłaniają się albo do chaosu (akceptacja swojego losu), albo do prawa (odrzucenie go)."
+        ]
+      },
+      {
+        "name": "Rozmiar",
+        "type": "entries",
+        "entries": [
+          "Orki mierzą 8 stóp wzrostu i są uzbrojone w potężne mięśnie, ważąc do 280 funtów. Twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Widzenie w ciemności",
+        "entries": [
+          "Możesz widzieć w przyćmionym świetle w promieniu 60 stóp od ciebie, jak gdyby było jasne światło, a w ciemności, jakby było przyćmione światło. W ciemności nie można rozpoznać koloru, a jedynie odcienie szarości."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Agresywny",
+        "entries": [
+          "Jako akcję dodatkową możesz poruszyć się z maksymalną prędkością ruchu w stronę wrogiego stworzenia, które możesz zobaczyć lub usłyszeć. Musisz zakończyć ten ruch bliżej wroga, niż zacząłeś."
+        ],
+        "type": "entries"
+      },
+      {
+        "type": "entries",
+        "name": "Pierwotna intuicja",
+        "entries": [
+          "Posiadasz biegłość w dwóch wybranych umiejętnościach: {@skill Animal Handling}, {@skill Insight}, {@skill Intimidation}, {@skill Medicine}, {@skill Perception} i {@skill Survival}."
+        ]
+      },
+      {
+        "name": "Potężna konstrukcja",
+        "entries": [
+          "Przy określaniu nośności i ciężaru, który możesz pchać, ciągnąć lub podnosić, liczysz się jako jeden rozmiar większy."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać w języku wspólnym i orkowym."
+        ],
+        "type": "entries"
+      }
+    ]
+  },
+  "human-zendikar": {
+    "name": "Człowiek (Zendikar)",
+    "size": "Średni",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Ludzie osiągają dorosłość w późnym wieku kilkunastu lat i żyją krócej niż sto lat."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Ludzie różnią się znacznie wzrostem i budową, od zaledwie 5 stóp do znacznie ponad 6 stóp wzrostu. Niezależnie od twojej pozycji w tym zakresie, twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Języki",
+        "entries": [
+          "Możesz mówić, czytać i pisać w języku wspólnym oraz w jednym dodatkowym, wybranym przez siebie języku. Ludzie zazwyczaj uczą się języków innych narodów, z którymi mają do czynienia, w tym mało znanych dialektów. Lubią posypywać swoją mowę słowami zapożyczonymi z innych języków: przekleństwami wampirów, elfickimi wyrażeniami muzycznymi, żargonem naukowym merfolk i tak dalej."
+        ],
+        "type": "entries"
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          "Ludzie są najliczniejszą, najbardziej różnorodną i łatwo przystosowującą się ludnością Zendikaru i stanowią trzon większości odkrywczych i pełnych przygód wypraw po całym planie. Chociaż wielu ludzi skrywa się za kamiennymi murami i drewnianymi wałami, przynajmniej w pewnym stopniu chronionymi przed niebezpieczeństwami Zendikaru, znaczna ich liczba wyrusza z bezpiecznych murów, aby eksplorować i bronić swojego świata. W miarę rozprzestrzeniania się Eldrazi coraz więcej ludzi jest wypędzanych ze swoich schronień i zmuszonych do stawienia czoła trudnej rzeczywistości zagrożenia ze strony obcych.",
+          {
+            "type": "entries",
+            "name": "Życie na granicach",
+            "entries": [
+              "Większość społeczności ludzkich na Zendikar to maleńkie wioski, odległe placówki lub tymczasowe obozowiska. Osady te można znaleźć na każdym kontynencie, od nadmorskich wiosek Guul Draz po gigantyczną karawanę Goma Fada na Akoum. Bez bezpieczeństwa w postaci murów i wałów życie na pograniczu skupia się wyłącznie na walce o przetrwanie, pozostawiając niewiele czasu i energii na zajęcia naukowe. Mieszkańcy większości tych społeczności zajmują się polowaniem, zbieractwem, hodowlą zwierząt i handlem żywnością oraz innymi potrzebnymi im towarami. Niektórzy jednak przeżywają, żerując na ludziach z innych społeczności i karawanach."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Cywilizowana ludzkość",
+            "entries": [
+              "Pomimo surowego życia na Zendikarze, cywilizacja ludzka rozkwita w kilku rozproszonych miastach. Brama Morska (na kontynencie Tazeem), miasto Affa (na Akoum) i tak zwane Wolne Miasto Nimana (w Guul Draz) to najbardziej godne uwagi z nich, szczycące się zorganizowanymi siłami zbrojnymi, instytucjami naukowymi, ustalonymi tradycjami magii, domami modlitwy oraz mrocznymi podbrzuszami przestępczości i korupcji. Z populacją mierzoną w tysiącach, osady te ledwo kwalifikowałyby się jako miasta na innych planach, ale na Zendikarze nie mają żadnych rywali, z wyjątkiem wampirzego miasta Malakir, które popada w ruinę od czasu pojawienia się Eldrazi.",
+              {
+                "type": "entries",
+                "name": "Domy Ekspedycyjne",
+                "entries": [
+                  "W Sea Gate pięć tak zwanych domów ekspedycyjnych organizuje regularne wycieczki w dzicz w różnych celach. Nazwane na cześć miejsc ich pierwszych wypraw, są to Dom Valakut, Fundacja Pelakka oraz Domy Ekspedycyjne Akoum, Murasa i Bala Ged. Rywalizacja między domami jest legendarna i wiadomo, że sabotują swoje wyprawy. Każdy z nich utrzymuje schroniska w różnych osadach, które służą jako zasoby dla poszukiwaczy przygód i odkrywców, którzy muszą wynająć przewodników lub kupić zapasy."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "races/PSZ/Human.webp",
+        "title": "Wyrzucony Mistrz Smoków",
+        "credit": "Raymonda Swanlanda"
+      },
+      {
+        "path": "races/PSZ/Human2.webp",
+        "title": "Mistrz ostrzy Kazandu",
+        "credit": "Michał Komarck"
+      },
+      {
+        "path": "races/PSZ/Human3.webp",
+        "title": "Spokojny Steward",
+        "credit": "Magali Villeneuve’a"
+      },
+      {
+        "path": "races/PSZ/Human4.webp",
+        "title": "Wyrocznia Morskiej Bramy",
+        "credit": "Daniela Ljunggrena"
+      }
+    ]
+  },
+  "kithkin": {
+    "name": "Kithkina",
+    "size": "Mały",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Odważny",
+        "entries": [
+          "Masz {@variantrule Advantage|XPHB} na rzuty obronne, które wykonujesz, aby uniknąć lub zakończyć warunek {@condition Frightened|XPHB}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Niziołek Zwinność",
+        "entries": [
+          "Możesz poruszać się po przestrzeni dowolnej istoty o rozmiar większej od ciebie, ale nie możesz zatrzymać się w tej samej przestrzeni."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Szczęście",
+        "entries": [
+          "Kiedy wyrzucisz 1 na {@dice D20} {@variantrule D20 Test|XPHB}, możesz rzucić kostką ponownie i musisz skorzystać z nowego rzutu."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Naturalnie dyskretny",
+        "entries": [
+          "Możesz wykonać akcję {@action Hide|XPHB} nawet wtedy, gdy jesteś zasłonięty jedynie przez istotę, która jest co najmniej o jeden rozmiar większa od ciebie."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Pochodzenie Kithkina",
+        "entries": [
+          "Jako mieszkaniec Lorwyn i Shadowmoor możesz zyskać dodatkowe cechy.",
+          {
+            "type": "list",
+            "style": "list-hang-notitle",
+            "items": [
+              {
+                "type": "item",
+                "name": "Lorwyn",
+                "entries": [
+                  "Nie zyskujesz żadnych dodatkowych cech."
+                ]
+              },
+              {
+                "type": "item",
+                "name": "Shadowmoor",
+                "entries": [
+                  "Masz {@sense Darkvision|XPHB} o zasięgu 30 metrów."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "lore": [
+      "Kithkin to niski lud o grubych nogach, długich ramionach i mocnym tułowiu. Ich szerokie twarze; okrągłe uszy; i duże, wyraziste oczy nadają im nieco niedźwiedziego wyglądu.",
+      "Większość kithkinów jest połączona empatyczną siecią, która pozwala im wyczuwać uczucia pobliskiego kithkina. Z powodu tego połączenia wielu Kithkinów ufa sobie bezgranicznie.",
+      "Niektóre kithkiny tymczasowo lub nawet na stałe usuwają się z tej empatycznej sieci z różnych powodów, często z powodu traumy doznanej podczas inwazji Phyrexian (patrz {@book \"Lorwyn-Shadowmoor's History\"|LFL|0|Lorwyn-Shadowmoor's History}). Niezależnie od tego, Kithkin zazwyczaj wierzy, że zdrada własnego ciała jest okropną zbrodnią.",
+      {
+        "type": "entries",
+        "name": "W Lorwynie",
+        "entries": [
+          "Lorwyn kithkin mieszkają w pasterskich wioskach zwanych klachanami i chętnie witają osoby z zewnątrz w swoich społecznościach. Ci Kithkini gromadzą swoje dziedzictwo kulturowe w tomie zatytułowanym {@i Book of Kith and Kin}. Często żywią także wiele przesądów, szczególnie związanych z {@filter incarnations of nature|bestiary|source=LFL|search=incarnation of nature} Lorwyna."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "W Shadowmoor",
+        "entries": [
+          "Kithkin Shadowmoor są bardziej wyspiarskie i ksenofobiczne. Mieszkają przeważnie w ufortyfikowanych osadach zwanych dounami, gdzie obowiązują surowe zwyczaje mające na celu zachowanie porządku społecznego. Przywódcy Kithkin Shadowmoor uważnie obserwują swoje społeczności, monitorując wszelkie oznaki przestępstwa lub zdrady stanu."
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "races/LFL/Kithkin (Shadowmoor).webp",
+        "title": "Mieszkańcy Shadowmoor, tacy jak ten Kithkin, często uważają tę krainę za przerażające miejsce",
+        "credit": "Edgara Sáncheza Hidalgo"
+      }
+    ]
+  },
+  "triton-mot": {
+    "name": "Tryton",
+    "size": "Średni",
+    "speed": "30 stóp, przepłyń 30 stóp.",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Trytony osiągają dojrzałość około 15 roku życia i mogą żyć do 200 lat."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Trytony są nieco krótsze od ludzi, mają średnio około 1,5 metra wzrostu. Twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Prędkość pływania",
+        "entries": [
+          "Masz prędkość pływania 30 stóp."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Amfibia",
+        "entries": [
+          "Można oddychać powietrzem i wodą."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Kontroluj powietrze i wodę",
+        "entries": [
+          "Dziecko morza, możesz przywołać magię żywiołów powietrza i wody. Z tą cechą możesz rzucić {@spell fog cloud}. Zaczynając od 3 poziomu możesz rzucić nim {@spell gust of wind}, a począwszy od 5 poziomu możesz także rzucić nim {@spell wall of water|xge}. Gdy rzucisz zaklęcie z tą cechą, nie możesz rzucić tego czaru ponownie, dopóki nie zakończysz długiego odpoczynku. Charyzma to umiejętność rzucania tych zaklęć."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Widzenie w ciemności",
+        "type": "entries",
+        "entries": [
+          "Możesz widzieć w przyćmionym świetle w promieniu 60 stóp od ciebie, jak gdyby było jasne światło, a w ciemności, jak gdyby było przyćmione światło. W ciemności nie można rozpoznać koloru, a jedynie odcienie szarości."
+        ]
+      },
+      {
+        "name": "Wysłannik Morza",
+        "entries": [
+          "Wodne bestie mają niezwykłą więź z twoim ludem. Możesz przekazywać proste pomysły zwierzętom oddychającym wodą. Mogą zrozumieć znaczenie twoich słów, chociaż nie masz specjalnej zdolności do ich zrozumienia w zamian."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Strażnicy Głębin",
+        "entries": [
+          "Dostosowany do nawet najbardziej ekstremalnych głębokości oceanicznych, masz odporność na uszkodzenia spowodowane zimnem."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać w języku wspólnym i pierwotnym."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Wyrównanie",
+        "type": "entries",
+        "entries": [
+          "Trytony mają tendencję do neutralności. Ich kultura zachęca ich, aby zwracali uwagę na prądy życia i wiedzieli, kiedy ujarzmić przypływy losu, a kiedy płynąć wraz z nimi."
+        ]
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          "Trytony zamieszkują całe Morze Syreny, eksplorując świat lasów koralowych i tajemniczych gór, których „suchi ludzie” ze świata powierzchni nigdy nie poznają. Choć większość z nich całe życie spędza pod powierzchnią morza, nie są one przywiązane do głębin. Kierując się wrodzoną ciekawością, niektóre trytony wyruszają poza fale, próbując odkryć cały świat cudów wykraczający poza ich własny.",
+          {
+            "type": "entries",
+            "name": "Zrodzony z Morza",
+            "entries": [
+              "Trytony to zwierzęta ziemnowodne, żyjące w wodzie jak w domu, ale poruszające się na suchym lądzie. Ich ciała pokryte są drobnymi łuskami w odcieniach od żółtawo-zielonego, poprzez odcienie niebieskiego, aż do głębokiego fioletu. Ich głowy zwieńczone są wydatnymi grzebieniami, a płetwy wyrastają z przedramion, łydek i ramion. Ich palce są pokryte błoną, co pozwala im pływać tak szybko, jak potrafią biegać.",
+              "Dobrze przystosowane do życia w głębinach, trytony noszą niewiele ubrań, chyba że są opancerzone do walki. Tworzą większość swoich ubrań i innych przedmiotów z materiałów znalezionych w oceanie: koralowców, wodorostów, muszli, kości, kolców jeżowca, muszli potwornych skorupiaków i tak dalej. Posiadając starą, dobrze rozwiniętą cywilizację, Trytony wiedzą wiele o tym, jak uszlachetnić te materiały, aby uzyskać tak bogate stroje i broń tak wytrzymałą, jak każda inna, którą można znaleźć na lądzie."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Ziemia i morze",
+            "entries": [
+              "Przez stulecia suchy lud łowił ryby w morzach Theros i wykorzystywał powierzchnię morza do podróży. Wiele trytonów interpretuje to jako wtargnięcie na ich domeny. W rezultacie niektóre wojownicze społeczności trytonów odpowiadają okresowymi atakami na marynarzy i statki rybackie. Inni uważają, że zwrot jest uczciwą grą, dlatego wyruszają na ląd, aby polować na mięso, kraść zapasy podróżnym z wybrzeża lub napadać na polais w poszukiwaniu bogactw.",
+              "Pomimo napięć między trytonami a ludami powierzchni, niektóre trytony żyją na lądzie. Oczarowany uczuciem wiatru, szelestem liści, pomysłowością zamieszkujących ląd wynalazców lub którymkolwiek z niezliczonych innych uroków świata powierzchniowego, każdy tryton żyjący za falami robi to z własnych powodów. W niektórych miejscach, jak polis Meletis, wśród sąsiadów suchego ludu rozkwitają całe społeczności trytonów. Więcej szczegółów na temat trytonów Meletis i Morza Syren można znaleźć w {@book chapter 3|MOT|3|Meletis}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Ręka Thasy",
+            "entries": [
+              "Podczas gdy trytony oddają cześć wielu bogom, mają tendencję do czczenia Thassy, ​​boga morza, ponad wszystkimi innymi bóstwami. Jej wyznawcy postrzegają ją jako głównego boga panteonu, wierząc, że wyprowadzi ich lud do panowania nad potworami morskimi i poleis na lądzie."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Głębia ciekawości",
+            "entries": [
+              "Wiele trytonów jest zaintrygowanych kulturą powierzchniową. Ciekawscy zapuszczają się do zatopionych ruin i wraków statków, przeszukując gruzy w poszukiwaniu tego, co przyciągnie ich uwagę. Często te trytony tworzą kolekcje określonego rodzaju przedmiotów lub wiedzy, handlując między sobą w miarę rozwijania pewnego rodzaju wiedzy specjalistycznej w swojej dziedzinie. Niektóre trytony podchodzą do badań suchego ludu z naukową dyscypliną. Tacy uczeni często utrzymują teorie, które pasują do ich zbiorów, a hipotezy, które wielu chętnie sprawdza, poznając nowych suchych ludzi.",
+              {
+                "type": "insetReadaloud",
+                "entries": [
+                  "Mit o Dalakosie i Krakenie",
+                  "Dalakos uważał się za trytona jak każdy inny – ciekawskiego, bystrego, może nawet obdarzonego wyjątkową sprytem przez bogów. Jednak był niekoncentrowany i łatwo się rozpraszał, a jego potencjał był rozproszony jak nasiona na kamieniu. Dopiero gdy kraken wynurzył się z najgłębszych głębin oceanu i rozpoczął szaleństwo, które zagroziło społeczności Dalakos, był zmuszony się skupić. Gdy bestia się zbliżyła, Dalakos szukał sposobów, aby zawrócić potwora z drogi. Pracował dzień i noc, ale ostatecznie jego plany zawiodły. Wszystko, co wiedział Dalakos, zostało zniszczone, zniszczone przez potęgę krakena.",
+                  "Jednak kraken ruszył dalej, kierując się w stronę przybrzeżnej osady ludzkiej. Pośród ruin swojego domu Dalakos doznał objawienia. Pracując desperacko, Triton stworzył cudowne urządzenie, które ostatecznie powaliło krakena i uratowało miasto. Dziś Dalakos przebywa w skorupie krakena, gdzie pracuje dzień i noc ze złamanym sercem, ale jego umysł jest zawsze skupiony na ożywianiu swoich darów."
+                ]
+              }
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Imiona Trytona",
+            "entries": [
+              "Imię trytona jest symbolem wyboru. Po osiągnięciu dorosłości tryton mógł zrzucić imię nadane mu przez rodziców na wybrane przez siebie imię. Niektórzy decydują się na zachowanie swojego imienia, ale większość wybiera to, które reprezentuje dorosłość, jaką się stali. Trytony mogą nawet wybrać jeszcze inne imiona, przechodząc z jednej fazy życia do drugiej lub po znaczących wydarzeniach życiowych. Opuszczenie społeczności domowej lub zamieszkanie wśród suchych ludzi może stanowić takie zmiany w życiu. Trytony mają również płynną koncepcję płci i mogą swobodnie zmieniać imiona w miarę zmiany tożsamości płciowej.",
+              {
+                "type": "list",
+                "style": "list-hang-notitle",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Imiona żeńskie:",
+                    "entry": "Amathe, Gnorcys, Leurybia, Margomestra, Nereones, Oleia, Samathe, Saphiro, Tethene, Theaneia, Thectra"
+                  },
+                  {
+                    "type": "item",
+                    "name": "Imiona męskie:",
+                    "entry": "Byseusz, Cetos, Galaukus, Galiton, Kenessos, Odeks, Palamon, Pontreus, Reteusz, Trazjusz"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "races/MOT/Triton.webp",
+        "credit": "Ryana Pancoasta"
+      },
+      {
+        "path": "races/MOT/Triton 2.webp",
+        "credit": "Jacka Wanga"
+      }
+    ]
+  },
+  "minotaur-mot": {
+    "size": "Średni",
+    "speed": "30 stóp",
+    "creatureType": "Humanoid",
+    "entries": [
+      {
+        "type": "entries",
+        "entries": [
+          "{@note These traits are also suitable for minotaurs in other D&D worlds where these people have avoided the demonic influence of Baphomet.}"
+        ]
+      },
+      {
+        "name": "Wiek",
+        "type": "entries",
+        "entries": [
+          "Minotaury dojrzewają i starzeją się mniej więcej w tym samym tempie co ludzie."
+        ]
+      },
+      {
+        "name": "Wyrównanie",
+        "type": "entries",
+        "entries": [
+          "Minotaury, które opuszczają mury Skofos, mają szansę uwolnić się od jego kultury i podążać za chaotycznymi sojuszami, podczas gdy ci, którzy pozostają w polis i jego tyrańskim reżimie, dążą do zgodnych z prawem sojuszy."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rozmiar",
+        "entries": [
+          "Minotaury mają średnio ponad 1,5 metra wzrostu i są krępej budowy ciała. Twój rozmiar to Średni."
+        ]
+      },
+      {
+        "name": "Rogi",
+        "entries": [
+          "Twoje rogi to naturalna broń do walki wręcz, której możesz używać do wykonywania ataków bez broni. Jeśli nimi trafisz, zadajesz obrażenia przebijające równe {@damage 1d6} + twój modyfikator Siły, zamiast obrażeń obuchowych normalnych dla ataku bez broni."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Goringowy pośpiech",
+        "entries": [
+          "Natychmiast po użyciu akcji {@action Dash} w swojej turze i przesunięciu się na odległość co najmniej 6 metrów, możesz wykonać jeden atak wręcz rogami jako akcję dodatkową."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Młot Rogi",
+        "entries": [
+          "Natychmiast po trafieniu stworzenia atakiem wręcz w ramach akcji {@action Attack} w swojej turze, możesz użyć akcji dodatkowej, aby spróbować odepchnąć ten cel swoimi rogami. Cel nie może być większy od ciebie o więcej niż jeden rozmiar i znajdować się w odległości do 5 stóp od ciebie. Jeśli nie powiedzie się rzut obronny na Siłę przeciwko ST równemu 8 + twoja premia do biegłości + twój modyfikator Siły, odpychasz go na odległość do 3 metrów od siebie."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Imponująca obecność",
+        "entries": [
+          "Posiadasz biegłość w jednej z wybranych umiejętności: {@skill Intimidation} lub {@skill Persuasion}."
+        ],
+        "type": "entries"
+      },
+      {
+        "name": "Języki",
+        "entries": [
+          "Potrafisz mówić, czytać i pisać w języku wspólnym i minotaurze."
+        ],
+        "type": "entries"
+      }
+    ],
+    "lore": [
+      {
+        "type": "entries",
+        "entries": [
+          "Minotaury zamieszkujące jałowe krainy Phoberos i odległe polis Skophos są uwięzione pomiędzy dwoma światami. Niektórzy podążają za mrocznym bogiem Mogisem, który tyranizował ich przez niezliczone wieki i pokazał im szlak rzezi, jaki znało wiele minotaurów. Inni jednak wyszli z tej krwawej ścieżki i znaleźli świat, który wita tych, którzy podążają za własnym przeznaczeniem i bohaterskimi powołaniami.",
+          {
+            "type": "entries",
+            "name": "Zbudowany, aby przetrwać",
+            "entries": [
+              "Minotaury to humanoidy o beczkowatych piersiach i głowach przypominających bycze. Ich rogi mają rozmiary od około 1 stopy długości do wielkich, zakręconych broni, które z łatwością są trzykrotnie dłuższe. Minotaury Theros często rzeźbią swoje rogi, aby zaostrzyć ich krawędzie, ryją na nich symbole mocy lub okrywają je brązem, aby zapobiec stłuczeniu ich podczas bitwy.",
+              "Gęste włosy sięgają szyi minotaurów i potężnych grzbietów, a niektóre mają długie łaty na brodzie i policzkach. Ich nogi zakończone są ciężkimi, rozszczepionymi kopytami i mają długie, czubate ogony. Kapłani minotaurów często ozdabiają się świętymi przedmiotami, niezależnie od tego, czy są to trofea otrzymane od poległych wrogów, pamiątki z ojczyzny, czy też naturalnie występujące znaki łaski ich boga."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Wieki Ciemności",
+            "entries": [
+              "Chociaż minotaury nie są z natury złe i mogą czcić dowolnego boga, wiele z nich wychowuje się wśród tych, którzy są oddani nikczemnym kaprysom Mogisa. Mity mówią, że Mogis stworzył pierwsze minotaury ze swoich wyznawców, zazwyczaj przestępców i potworów o niewypowiedzianej deprawacji. Podczas gdy wiele grup minotaurów nadal czci swoich nikczemnych przodków, inne porzuciły swoich przodków i wyszły poza swoje zbrodnie, szukając swojego losu w przyszłości, a nie w przeszłości.",
+              "Podczas gdy mieszkańcy Akros i innych rejonów w pobliżu Foberos, ojczyzny większości stad minotaurów, toczą niekończące się konflikty z krwiożerczymi minotaurami, wiedzą, że są tacy, którzy porzucają deprawację Mogisa. Mieszkańcy Meletis, Setessy i innych krain są również ogólnie otwarci i ciekawi minotaurów, którzy wędrują na ich ziemie. Eposy takie jak {@i The Callapheia} również opisują wiele bohaterskich minotaurów. W rezultacie minotaur podróżujący w towarzystwie innych osób niebędących minotaurami prawdopodobnie zostanie zaakceptowany w każdym polis.",
+              "Więcej szczegółów na temat Phoberos, polis minotaurów na Skophos i różnych grup minotaurów można znaleźć w {@book chapter 3|MOT|3|Phoberos and Skophos}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Pasja i zapał",
+            "entries": [
+              "Minotaury są znane z tego, że dają upust swemu oburzeniu poprzez przemoc, ale na ogół nie wpadają szybko w gniew. Są pełni pasji, gorąco kochają swoich przyjaciół i partnerów, a także śmieją się głośno i długo z dobrych dowcipów. Ta gorliwość rozciąga się także na ich wiarę. Ci, którzy uniknęli zepsutego wpływu Mogisa, skłaniają się ku służbie bogom, którzy podzielają ich odważną naturę, zwłaszcza Erebosowi, Keranosowi i Purphorosowi. Ci, którzy odrzucili Mogisa, czasami obejmują jego znienawidzonego brata bliźniaka, Iroasa."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Imiona Minotaurów",
+            "entries": [
+              "W labiryncie polis Skophos, wśród krętych sal wyryte są czyny mistrzów minotaurów. Minotaury często nadają swoim dzieciom imiona tych wielkich bohaterów, wierząc, że dziecko odziedziczy siłę, śmiałość, przebiegłość lub strach po bohaterskim imienniku. Inni rodzice minotaurów wymyślają jednak własne imiona, wierząc, że ich dziecko ma potencjał do rozświetlenia nowej konstelacji w Nyks blaskiem własnej duszy.",
+              "Tabela Imiennik Minotaura sugeruje możliwe cechy lub czyny, z których mógł być znany imiennik minotaura. Twoja postać może starać się naśladować tę cechę lub stworzyć nowe dziedzictwo, które będzie kojarzone z Twoim imieniem przez przyszłe pokolenia.",
+              {
+                "type": "list",
+                "style": "list-hang-notitle",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Imiona żeńskie:",
+                    "entry": "Bozzri, Dhazdoro, Erinimachis, Ghalantzo, Halafoti, Kerania, Mitévra, Philoprodis, Tavromiki, Ypoudoris"
+                  },
+                  {
+                    "type": "item",
+                    "name": "Imiona męskie:",
+                    "entry": "Bamvros, Fotiyinos, Halafotios, Keranios, Menetavro, Nikavros, Prodos, Rhordon, Tavrostenes, Thyrogog"
+                  }
+                ]
+              },
+              {
+                "type": "insetReadaloud",
+                "entries": [
+                  "Mit o Mogisie i Minotaurach",
+                  "Niektóre legendy głoszą, że Mogis stworzył minotaury, przemieniając swoich najbardziej krwiożerczych wyznawców, tak że ich potężne ciała przypominały jego własne. Jednakże, choć opowieści opowiadane w labiryncie-polis Skophos potwierdzają, że Mogis nagrodził swoich najbardziej oddanych wyznawców, twierdzą, że ci wyznawcy byli już minotaurami i jedyne, co zrobił Mogis, to wywyższenie ich do zaszczytnego statusu. Wśród minotaurów oddających cześć Mogisowi bohaterowie ci są czczeni jako duchowi, jeśli nie dosłowni przodkowie. Morał z tej historii jest taki, że Mogis jest bogiem, który nagradza swoje wierne sługi.",
+                  "Minotaury, które nie podążają za Mogisem, szybko zwracają uwagę, że ten mit nie mówi nic o naturze minotaurów. Twierdzą, że kult Mogisa nie jest im bardziej nieodłączny niż ludziom, a przeznaczeniem minotaurów nie jest życie na rzezi ze względu na okoliczności ich stworzenia. Być może najważniejsze jest to, że minotaury nie są odgałęzieniem ludzkości, ale odrębnym narodem i ani ich natura, ani przeznaczenie nie są powiązane z jednym bogiem."
+                ]
+              },
+              {
+                "type": "table",
+                "caption": "Imiennik Minotaura",
+                "colLabels": [
+                  "d8",
+                  "Cechy przodka"
+                ],
+                "colStyles": [
+                  "col-2 centrum tekstowe",
+                  "kol-10"
+                ],
+                "rows": [
+                  [
+                    "1",
+                    "Mój imiennik pokonał potężnego wroga."
+                  ],
+                  [
+                    "2",
+                    "Mój imiennik słynął z zaciekłego oddania bogu."
+                  ],
+                  [
+                    "3",
+                    "Mój imiennik był szanowanym przywódcą innych wojowników."
+                  ],
+                  [
+                    "4",
+                    "Mój imiennik przebiegł całą szerokość Foberosa, aby ostrzec minotaury przed atakiem Akroan."
+                  ],
+                  [
+                    "5",
+                    "Mój imiennik słynął z wielkich zdolności magicznych."
+                  ],
+                  [
+                    "6",
+                    "Mój imiennik był oddanym towarzyszem bohatera."
+                  ],
+                  [
+                    "7",
+                    "Mój imiennik jest pamiętany z powodu niesamowitej hojności."
+                  ],
+                  [
+                    "8",
+                    "Mój imiennik był wielką wyrocznią."
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "path": "races/MOT/Minotaur.webp",
+        "credit": "Jasona Rainville’a"
+      },
+      {
+        "path": "races/MOT/Minotaur 2.webp",
+        "credit": "Steve'a Prescotta"
+      }
+    ]
   }
 }

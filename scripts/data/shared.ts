@@ -8,6 +8,7 @@ import {
   slugify,
   stripMarkup,
 } from '../../src/data/transform/util';
+import { resolveCopies } from './copy';
 
 export { SPELL_SCHOOLS, proficiencyBonus, slugify, stripMarkup };
 
@@ -112,6 +113,24 @@ interface FluffEntry {
   name: string;
   source: string;
   images?: Array<{ href?: { type?: string; path?: string } }>;
+  entries?: Entry[];
+}
+
+function readFluffEntries(
+  inputDir: string,
+  relativePaths: string[],
+  key: string,
+): FluffEntry[] {
+  const entries: FluffEntry[] = [];
+  for (const relativePath of relativePaths) {
+    try {
+      const data = readDataFile<Record<string, FluffEntry[]>>(inputDir, relativePath);
+      entries.push(...(data[key] ?? []));
+    } catch {
+      continue;
+    }
+  }
+  return resolveCopies(entries);
 }
 
 export function loadFluffImages(
@@ -120,13 +139,7 @@ export function loadFluffImages(
   key: string,
 ): Map<string, string> {
   const map = new Map<string, string>();
-  let data: Record<string, FluffEntry[]>;
-  try {
-    data = readDataFile<Record<string, FluffEntry[]>>(inputDir, relativePath);
-  } catch {
-    return map;
-  }
-  for (const entry of data[key] ?? []) {
+  for (const entry of readFluffEntries(inputDir, [relativePath], key)) {
     const path = entry.images?.find((i) => i.href?.type === 'internal')?.href?.path;
     if (path) map.set(`${entry.name.toLowerCase()}|${entry.source}`, path);
   }
@@ -149,11 +162,14 @@ export function loadAllFluffImages(
   } catch {
     return map;
   }
-  for (const file of files) {
-    const sub = loadFluffImages(inputDir, join(subDir, file), key);
-    for (const [k, v] of sub) {
-      if (!map.has(k)) map.set(k, v);
-    }
+  const entries = readFluffEntries(
+    inputDir,
+    files.map((file) => join(subDir, file)),
+    key,
+  );
+  for (const entry of entries) {
+    const path = entry.images?.find((i) => i.href?.type === 'internal')?.href?.path;
+    if (path) map.set(`${entry.name.toLowerCase()}|${entry.source}`, path);
   }
   return map;
 }
@@ -165,26 +181,18 @@ export interface FluffData {
   images: GalleryImage[];
 }
 
-interface RawFluffImage {
-  href?: { type?: string; path?: string };
-  title?: string;
-  credit?: string;
-}
-
-interface RawModOp {
-  mode?: string;
-  items?: unknown;
-}
-
 interface RawFluff {
   name: string;
   source: string;
   entries?: Entry[];
-  images?: RawFluffImage[];
-  _copy?: { name: string; source: string; _mod?: Record<string, RawModOp | RawModOp[]> };
+  images?: Array<{
+    href?: { type?: string; path?: string };
+    title?: string;
+    credit?: string;
+  }>;
 }
 
-function fluffImagePaths(images: RawFluffImage[] | undefined): GalleryImage[] {
+function fluffImagePaths(images: RawFluff['images']): GalleryImage[] {
   if (!images?.length) return [];
   return images
     .filter((i) => i.href?.type === 'internal' && i.href.path)
@@ -193,47 +201,6 @@ function fluffImagePaths(images: RawFluffImage[] | undefined): GalleryImage[] {
       ...(i.title ? { title: i.title } : {}),
       ...(i.credit ? { credit: i.credit } : {}),
     }));
-}
-
-function applyArrMod<T>(
-  base: T[],
-  mod: RawModOp | RawModOp[] | undefined,
-  extract: (items: unknown) => T[],
-): T[] {
-  if (!mod) return base;
-  let out = base;
-  for (const op of Array.isArray(mod) ? mod : [mod]) {
-    const items = extract(op.items);
-    if (op.mode === 'prependArr') out = [...items, ...out];
-    else if (op.mode === 'appendArr' || op.mode === 'insertArr') out = [...out, ...items];
-  }
-  return out;
-}
-
-function resolveFluff(
-  entry: RawFluff,
-  index: Map<string, RawFluff>,
-  depth = 0,
-): FluffData {
-  let entries: Entry[] = entry.entries ?? [];
-  let images = fluffImagePaths(entry.images);
-
-  if (entry._copy && depth < 5) {
-    const target = index.get(`${entry._copy.name.toLowerCase()}|${entry._copy.source}`);
-    if (target) {
-      const base = resolveFluff(target, index, depth + 1);
-      entries = base.entries;
-      images = base.images;
-    }
-    const mod = entry._copy._mod ?? {};
-    entries = applyArrMod(entries, mod.entries, (i) =>
-      Array.isArray(i) ? (i as Entry[]) : [],
-    );
-    images = applyArrMod(images, mod.images, (i) =>
-      Array.isArray(i) ? fluffImagePaths(i as RawFluffImage[]) : [],
-    );
-  }
-  return { entries, images };
 }
 
 export function fluffFilesIn(
@@ -255,22 +222,16 @@ export function loadFluff(
   relativePaths: string[],
   key: string,
 ): Map<string, FluffData> {
-  const index = new Map<string, RawFluff>();
-  for (const rel of relativePaths) {
-    let data: Record<string, RawFluff[]>;
-    try {
-      data = readDataFile<Record<string, RawFluff[]>>(inputDir, rel);
-    } catch {
-      continue;
-    }
-    for (const entry of data[key] ?? []) {
-      index.set(`${entry.name.toLowerCase()}|${entry.source}`, entry);
-    }
-  }
+  const entries = readFluffEntries(inputDir, relativePaths, key) as RawFluff[];
   const out = new Map<string, FluffData>();
-  for (const [k, entry] of index) {
-    const resolved = resolveFluff(entry, index);
-    if (resolved.entries.length || resolved.images.length) out.set(k, resolved);
+  for (const entry of entries) {
+    const resolved = {
+      entries: entry.entries ?? [],
+      images: fluffImagePaths(entry.images),
+    };
+    if (resolved.entries.length || resolved.images.length) {
+      out.set(`${entry.name.toLowerCase()}|${entry.source}`, resolved);
+    }
   }
   return out;
 }
@@ -289,7 +250,7 @@ export function loadLegendaryGroups(inputDir: string): Map<string, LegendaryGrou
   } catch {
     return map;
   }
-  for (const group of data.legendaryGroup ?? []) {
+  for (const group of resolveCopies(data.legendaryGroup ?? [])) {
     map.set(`${group.name.toLowerCase()}|${group.source}`, {
       ...(group.lairActions ? { lairActions: group.lairActions } : {}),
       ...(group.regionalEffects ? { regionalEffects: group.regionalEffects } : {}),
