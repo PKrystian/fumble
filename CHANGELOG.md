@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.96 - 2026-08-11
+
+- Expanded speed formatter coverage for imported 5etools movement data.
+
 ## 1.2.95 - 2026-08-11
 
 - Stabilized legal-page E2E coverage around the remembered language preference.
