@@ -11,6 +11,30 @@ describe('generated item additions', () => {
     expect(variants).toHaveLength(214);
     expect(new Set(variants.map((entry) => entry.id)).size).toBe(variants.length);
     expect(variants.every((entry) => entry.variant?.inherits)).toBe(true);
+    expect(variants.every((entry) => entry.variant?.baseItems?.length)).toBe(true);
+  });
+
+  it('resolves the base items and bonus text for the 2024 armor variant', () => {
+    const armor = itemsData.items.find((entry) => entry.id === '1-armor');
+    expect(armor).toMatchObject({
+      entries: ['You have a +1 bonus to AC while wearing this armor.'],
+      variant: {
+        baseItems: [
+          { name: 'Breastplate', source: 'XPHB' },
+          { name: 'Chain Mail', source: 'XPHB' },
+          { name: 'Chain Shirt', source: 'XPHB' },
+          { name: 'Half Plate Armor', source: 'XPHB' },
+          { name: 'Hide Armor', source: 'XPHB' },
+          { name: 'Leather Armor', source: 'XPHB' },
+          { name: 'Padded Armor', source: 'XPHB' },
+          { name: 'Plate Armor', source: 'XPHB' },
+          { name: 'Ring Mail', source: 'XPHB' },
+          { name: 'Scale Mail', source: 'XPHB' },
+          { name: 'Splint Armor', source: 'XPHB' },
+          { name: 'Studded Leather Armor', source: 'XPHB' },
+        ],
+      },
+    });
   });
 
   it('includes Weapon of Warning from the 5etools magic variant data', () => {

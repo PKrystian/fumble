@@ -149,6 +149,11 @@ export interface ItemEntry extends CompendiumEntryBase {
   entries: Entry[];
 }
 
+export interface ItemVariantBaseItem {
+  name: string;
+  source: string;
+}
+
 export interface SourceDataEntry extends CompendiumEntryBase {
   collection: string;
   data: JsonObject;

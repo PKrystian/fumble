@@ -13,6 +13,10 @@ function isStringArray(value: unknown): value is string[] {
   return Array.isArray(value) && value.every((entry) => typeof entry === 'string');
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
 export function localizeSubclasses(
   baseSubclasses: ClassSubclass[],
   localizedSubclasses: ClassSubclass[],
@@ -86,6 +90,17 @@ function mergeSubclassMedia<T extends CompendiumEntryBase>(
   return { ...merged, subclasses } as T;
 }
 
+function mergeVariantData<T extends CompendiumEntryBase>(
+  entry: T,
+  translation: EntryOverlay,
+  merged: T,
+): T {
+  const baseVariant = (entry as { variant?: unknown }).variant;
+  const translatedVariant = translation.variant;
+  if (!isRecord(baseVariant) || !isRecord(translatedVariant)) return merged;
+  return { ...merged, variant: { ...baseVariant, ...translatedVariant } } as T;
+}
+
 function preserveSpellReferences<T extends CompendiumEntryBase>(
   entry: T,
   translation: EntryOverlay,
@@ -113,7 +128,11 @@ export function localizeEntry<T extends CompendiumEntryBase>(
     ...entry,
     ...translation,
   } as T);
-  const localized = preserveSpellReferences(entry, translation, merged);
+  const localized = preserveSpellReferences(
+    entry,
+    translation,
+    mergeVariantData(entry, translation, merged),
+  );
   const translatedName = (translation as { name?: unknown }).name;
   if (typeof translatedName === 'string' && translatedName !== entry.name) {
     localized.englishName = entry.name;

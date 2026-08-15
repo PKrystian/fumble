@@ -25,6 +25,25 @@ describe('localizeEntry', () => {
     expect(result.source).toBe('XPHB');
   });
 
+  it('merges localized variant fields without losing resolved base items', () => {
+    const entry = {
+      ...makeEntry('armor-variant', '+1 Armor'),
+      variant: {
+        inherits: { namePrefix: '+1 ' },
+        baseItems: [{ name: 'Breastplate', source: 'XPHB' }],
+      },
+    };
+    const result = localizeEntry(entry, {
+      'armor-variant': {
+        variant: { inherits: { namePrefix: '+1 ' } },
+      },
+    });
+    expect(result.variant).toEqual({
+      inherits: { namePrefix: '+1 ' },
+      baseItems: [{ name: 'Breastplate', source: 'XPHB' }],
+    });
+  });
+
   it('does not record an English name for unchanged or non-string names', () => {
     const entry = makeEntry('blinded', 'Blinded');
     expect(localizeEntry(entry, { blinded: { name: 'Blinded' } }).englishName).toBe(

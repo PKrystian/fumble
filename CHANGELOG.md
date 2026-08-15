@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.108 - 2026-08-16
+
+- Fixed magic item variants so their bonuses, applicable base items, class features, and loot tables render correctly in every supported locale.
+
 ## 1.2.107 - 2026-08-15
 
 - Raised automated branch coverage to 98% with tests for localization, compendium fallbacks, homebrew visibility, search, storage, and backup flows.

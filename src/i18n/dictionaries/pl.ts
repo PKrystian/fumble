@@ -699,6 +699,11 @@ const pl: Dictionary = {
       deckCardsShort: '{{count}} kart',
       deity: 'Bóstwo',
       variantData: 'Dane wariantu',
+      variantBaseItems: 'Bazowe przedmioty',
+      variantBaseItemsIntro:
+        'Ten wariant przedmiotu można zastosować do następujących bazowych przedmiotów:',
+      variantClassFeatures: 'Cechy klasowe',
+      variantFoundOn: 'Występuje w',
     },
     sourceData: {
       range: 'Zakres',

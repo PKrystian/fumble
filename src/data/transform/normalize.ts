@@ -37,6 +37,10 @@ import type {
 import { SPELL_SCHOOLS, proficiencyBonus, slugify, stripMarkup } from './util';
 import type { Locale } from '@/i18n/locales';
 import {
+  interpolateVariantEntries,
+  variantInherits,
+} from '@/data/compendium/itemVariants';
+import {
   crToProficiency,
   formatAbilityChoices,
   formatAbilityList,
@@ -363,6 +367,7 @@ export interface RawItem {
   weaponCategory?: 'simple' | 'martial';
   variant?: JsonObject;
   entries?: Entry[];
+  [key: string]: unknown;
 }
 
 export function normalizeItem(
@@ -390,7 +395,7 @@ export function normalizeItem(
         }
       : {}),
     ...(raw.variant ? { variant: raw.variant } : {}),
-    entries: raw.entries ?? [],
+    entries: interpolateVariantEntries(raw.entries, variantInherits(raw.variant)),
   };
 }
 
