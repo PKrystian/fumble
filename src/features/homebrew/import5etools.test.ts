@@ -126,7 +126,7 @@ describe('5etools homebrew import', () => {
         data: {
           alignment: 'Chaotyczny Zły',
           languages: 'Wspólny',
-          vulnerabilities: 'od ognia',
+          vulnerabilities: 'ogień',
         },
       },
     ]);

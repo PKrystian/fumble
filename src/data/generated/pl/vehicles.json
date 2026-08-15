@@ -199,7 +199,7 @@
     "hp": "",
     "immune": "",
     "vehicleType": "Statek",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "entries": [],
     "terrain": "Powietrze",
     "token": "vehicles/tokens/MTF/Astral Brig.webp",
@@ -218,7 +218,7 @@
     "hp": "",
     "immune": "",
     "vehicleType": "Statek",
-    "size": "Ogromny",
+    "size": "Wielki",
     "terrain": "Powietrze",
     "entries": [],
     "weapons": [],
@@ -243,7 +243,7 @@
         "name": "Wyrzutnia Harpunów (×3)",
         "entries": [
           "KP 15, PW 50",
-          "{@atk rw} {@hit 8} do trafienia, zasięg 30/480 stóp, jeden cel.{@h} 11 ( {@damage 2d10} ) obrażenia przebijające, a celem jest {@condition grappled} (ucieczka {@dc 16}).Dopóki chwytanie się nie zakończy, prędkość celu zmniejsza się o połowę i nie może on oddalić się od balonu bojowego.Każdy z dział harpunowych balonu bojowego może chwycić jeden cel.Chociaż ma jeden lub więcej celów {@condition grappled} za pomocą ataku harpunowego, prędkość balonu bojowego nie zmniejsza się o połowę."
+          "{@atk rw} {@hit 8} do trafienia, zasięg 30/480 stóp, jeden cel.{@h} 11 ( {@damage 2d10} ) obrażenia kłute, a celem jest {@condition grappled} (ucieczka {@dc 16}).Dopóki chwytanie się nie zakończy, prędkość celu zmniejsza się o połowę i nie może on oddalić się od balonu bojowego.Każdy z dział harpunowych balonu bojowego może chwycić jeden cel.Chociaż ma jeden lub więcej celów {@condition grappled} za pomocą ataku harpunowego, prędkość balonu bojowego nie zmniejsza się o połowę."
         ]
       }
     ],
@@ -253,7 +253,7 @@
     "ac": "15",
     "hp": "500",
     "vehicleType": "Statek",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "terrain": "Powietrze",
     "immune": "trucizna, psychiczna",
     "entries": [],
@@ -701,7 +701,7 @@
     "capacity": "Załoga 5, ładunek 10 ton",
     "lore": [
       "Na pokładach żywych statków często można znaleźć druidów, tropicieli i duchownych oddanych bogom natury, podobnie jak badaczy dzikiej przestrzeni, którzy nie chcą się martwić, że powłoka powietrzna ich statku ulegnie zanieczyszczeniu podczas długiej podróży.",
-      "Główną cechą wyróżniającą ten statek jest w pełni rozwinięty {@creature treant} na pokładzie rufowym. Drzewo ma prędkość 0, ponieważ jego korzenie są wplecione w pokład; on i statek są nierozłączne. Jeśli wytrzymałość statku spadnie do 0, drzewo umiera z powodu szoku. Statek może działać, jeśli jego drzewiec umrze, ale drzewca nigdy nie można zastąpić innym.",
+      "Główną cechą wyróżniającą ten statek jest w pełni rozwinięty {@creature treant} na pokładzie rufowym. Drzewiec ma prędkość 0, ponieważ jego korzenie są wplecione w pokład; drzewiec i statek są nierozłączne. Jeśli wytrzymałość statku spadnie do 0, drzewiec umiera z powodu szoku. Statek może działać, jeśli drzewiec umrze, ale nie można go zastąpić innym.",
       "Kiedy drzewiec zakończy długi odpoczynek, naprawia kadłub statku, umożliwiając statkowi odzyskanie punktów wytrzymałości {@dice 4d12} i odświeża powłokę powietrzną statku (zamieniając śmiercionośne powietrze w cuchnące powietrze lub cuchnące powietrze w świeże powietrze).",
       "Żywy statek może unosić się na wodzie i przepłynąć po niej, ale nie może bezpiecznie wylądować na ziemi (kil spowodowałby, że przewróciłby się na bok). Jego standardową bronią jest balista montowana na rufie."
     ],
@@ -736,7 +736,7 @@
             "type": "entries",
             "name": "Wystrzał Piorunowy (Wymaga Rdzenia Żywiołaka)",
             "entries": [
-              "{@atkr rw} {@hit 9} trafienia, zasięg 80/320 stóp. {@h}22 ({@damage 4d10}) obrażeń piorunem."
+              "{@atkr rw} {@hit 9} trafienia, zasięg 80/320 stóp. {@h}22 ({@damage 4d10}) obrażeń od pioruna."
             ]
           }
         ]
@@ -822,7 +822,7 @@
               {
                 "type": "item",
                 "name": "Promień Dezintegracji",
-                "entry": "Jeśli cel jest stworzeniem, musi wykonać udany rzut obronny Zręczności o {@dc 15} lub otrzymać 18 ({@damage 4d8}) obrażeń siłowych. Jeśli te obrażenia zredukują stworzenie do 0 punktów wytrzymałości, jego ciało zamienia się w stertę drobnego szarego pyłu. Jeśli cel jest Dużym lub mniejszym niemagicznym obiektem lub tworem magicznej siły, ulega dezintegracji bez rzutu obronnego. Jeśli cel jest Ogromnym lub większym obiektem lub tworem magicznej siły, promień ten dezintegruje 10-stopowy sześcian tego obiektu."
+                "entry": "Jeśli cel jest stworzeniem, musi wykonać udany rzut obronny Zręczności o {@dc 15} lub otrzymać 18 ({@damage 4d8}) obrażeń od mocy. Jeśli te obrażenia zredukują stworzenie do 0 punktów wytrzymałości, jego ciało zamienia się w stertę drobnego szarego pyłu. Jeśli cel jest Dużym lub mniejszym niemagicznym obiektem lub tworem magicznej siły, ulega dezintegracji bez rzutu obronnego. Jeśli cel jest Ogromnym lub większym obiektem lub tworem magicznej siły, promień ten dezintegruje 10-stopowy sześcian tego obiektu."
               },
               {
                 "type": "item",
@@ -845,7 +845,7 @@
     "ac": "18",
     "hp": "200",
     "vehicleType": "Statek",
-    "size": "Ogromny",
+    "size": "Wielki",
     "pace": "3 mile na godzinę",
     "immune": "trucizna, psychiczna",
     "entries": [],
@@ -866,7 +866,7 @@
             "type": "entries",
             "entries": [
               "{@i Kiedy słyszysz, jak mechaniczny obserwator ożywa, brzmi to tak, jakby sama śmierć pstrykała palcami.}",
-              "Mechaniczny obserwator przybiera postać ogromnego tyrana oka, którego centralnym okiem jest okno widokowe. Częściowo środek transportu, częściowo laboratorium, a częściowo machinę oblężniczą. Pojazd może transportować do sześciu humanoidów w dowolnym terenie i na dowolnym nośniku, w tym pod wodą i przez lity kamień. Pierwotne mechaniczne beholdery sterowały skomplikowanymi i często niebezpiecznymi manipulacjami przekładniami, dźwigniami i przyciskami, ale nowsze modele wyposażone są w magiczne elementy sterujące, które reagują na polecenia głosowe - choć nie zawsze dokładnie.",
+              "Mechaniczny obserwator przybiera postać ogromnego tyrana oka, którego centralnym okiem jest okno widokowe. Częściowo środek transportu, częściowo laboratorium, a częściowo machinę oblężniczą. Pojazd może transportować do sześciu humanoidalnych istot w dowolnym terenie i na dowolnym nośniku, w tym pod wodą i przez lity kamień. Pierwotne mechaniczne beholdery sterowały skomplikowanymi i często niebezpiecznymi manipulacjami przekładniami, dźwigniami i przyciskami, ale nowsze modele wyposażone są w magiczne elementy sterujące, które reagują na polecenia głosowe - choć nie zawsze dokładnie.",
               {
                 "type": "entries",
                 "name": "Sprzęt i opcje",
@@ -1056,7 +1056,7 @@
     "hp": "",
     "immune": "",
     "vehicleType": "Statek",
-    "size": "Ogromny",
+    "size": "Wielki",
     "terrain": "Powietrze",
     "pace": "12 mil na godzinę",
     "entries": [],
@@ -1432,7 +1432,7 @@
             "type": "entries",
             "name": "Wystrzał Energii",
             "entries": [
-              "{@atkr rw} {@hit 7}, zasięg 100/500 stóp. {@h}14 ({@damage 4d6}) obrażeń siłowych."
+              "{@atkr rw} {@hit 7}, zasięg 100/500 stóp. {@h}14 ({@damage 4d6}) obrażeń od mocy."
             ]
           }
         ]
@@ -1545,7 +1545,7 @@
             "type": "entries",
             "name": "Promień Niszczący",
             "entries": [
-              "{@atk rs} {@hit 8} trafienia, zasięg 120/480 stóp, jeden cel. {@h}35 ({@damage 10d6}) obrażeń siłowych."
+              "{@atk rs} {@hit 8} trafienia, zasięg 120/480 stóp, jeden cel. {@h}35 ({@damage 10d6}) obrażeń od mocy."
             ]
           }
         ]
@@ -1565,7 +1565,7 @@
     "token": "vehicles/tokens/AAG/Tyrant Ship.webp",
     "capacity": "Załoga 10, ładunek 20 ton",
     "lore": [
-      "{@creature Beholder||Widzowie} rzeźbi statki tyranów w kamieniu, używając ich promieni dezintegracji i używa tych statków do wędrówek po Planie Astralnym w poszukiwaniu światów do podbicia i rywalizujących ze sobą obserwatorów do zniszczenia. Nie ma dwóch identycznych statków tyranów, ale wszystkie mają jedną lub więcej cech przypominających ich twórców, takich jak bulwiasty kształt i łodygi oczu}",
+      "{@creature Beholder||Widzowie} rzeźbi statki tyranów w kamieniu, używając ich promieni dezintegracji i używa tych statków do wędrówek po Planie Astralnym w poszukiwaniu światów do podbicia i rywalizujących ze sobą obserwatorów do zniszczenia. Nie ma dwóch identycznych statków tyranów, ale wszystkie mają jedną lub więcej cech przypominających ich twórców, takich jak bulwiasty kształt i łodygi oczu",
       "Kulista komora na pokładzie dowodzenia statku działa jak {@item spelljamming helm|AAG}, do którego mogą się dostroić tylko obserwatorzy. Każdy obserwator przebywający w tej komnacie może się do niej dostroić. Zmniejszenie statku tyrana do 0 punktów wytrzymałości nie tylko go niszczy, ale także niszczy {@item spelljamming helm|AAG} statku i działa gałki ocznej.",
       "Statek tyranów nie może unosić się na wodzie, ale może bezpiecznie wylądować na ziemi."
     ],
@@ -1646,7 +1646,7 @@
     "cost": "",
     "ac": "",
     "hp": "200",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "entries": [],
     "weapons": [],
     "terrain": "Grunt",
@@ -1717,7 +1717,7 @@
     "ac": "15",
     "hp": "500",
     "vehicleType": "Statek",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "terrain": "Morze",
     "immune": "trucizna, psychiczna",
     "entries": [],
@@ -1891,7 +1891,7 @@
     "ac": "15",
     "hp": "100",
     "vehicleType": "Statek",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "terrain": "Morze",
     "immune": "trucizna, psychiczna",
     "entries": [],
@@ -2012,7 +2012,7 @@
     "ac": "15",
     "hp": "300",
     "vehicleType": "Statek",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "terrain": "Morze",
     "immune": "trucizna, psychiczna",
     "entries": [],
@@ -2138,7 +2138,7 @@
     "ac": "15",
     "hp": "300",
     "vehicleType": "Statek",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "terrain": "Morze",
     "pace": "5 mil na godzinę",
     "immune": "trucizna, psychiczna",
@@ -2388,7 +2388,7 @@
     "ac": "",
     "hp": "150",
     "vehicleType": "Piekielna machina wojenna",
-    "size": "Ogromny",
+    "size": "Wielki",
     "terrain": "Grunt",
     "immune": "ogień, trucizna, psychiczne",
     "entries": [],
@@ -2428,7 +2428,7 @@
     "immune": "trucizna, psychiczna",
     "entries": [],
     "weapons": [],
-    "vehicleType": "Pojazd Stworzenia"
+    "vehicleType": "Pojazd-stworzenie"
   },
   "tasha-s-creeping-keelboat": {
     "name": "Pełzająca Łódź Kilowa Tashy",
@@ -2444,7 +2444,7 @@
     "hp": "",
     "immune": "",
     "vehicleType": "Pojazd",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "terrain": "Morze",
     "weapons": [],
     "capacity": "Ładunek 0,5 tony",
@@ -2460,7 +2460,7 @@
     "ac": "",
     "hp": "60",
     "vehicleType": "Piekielna machina wojenna",
-    "size": "Ogromny",
+    "size": "Wielki",
     "terrain": "Grunt",
     "immune": "ogień, trucizna, psychiczne",
     "entries": [],
@@ -2495,7 +2495,7 @@
     "ac": "19",
     "hp": "200",
     "vehicleType": "Piekielna machina wojenna",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "terrain": "Grunt",
     "capacity": "Ładunek 2000 ton",
     "immune": "ogień, trucizna, psychiczne",
@@ -2511,7 +2511,7 @@
     "ac": "15",
     "hp": "500",
     "vehicleType": "Statek",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "terrain": "Morze",
     "pace": "4 mile na godzinę",
     "immune": "trucizna, psychiczna",

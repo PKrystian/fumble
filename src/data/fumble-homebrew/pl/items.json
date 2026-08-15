@@ -228,7 +228,7 @@
         "type": "entries",
         "name": "Efekt",
         "entries": [
-          "Ten granat odtwarza efekt {@spell Fireball|XPHB|Kuli ognia}. Połowa obrażeń to obrażenia od dźwięku zamiast obrażeń od ognia. Można nim rzucić jako akcją Wykorzystanie na punkt w odległości do 20 stóp."
+          "Ten granat odtwarza efekt {@spell Fireball|XPHB|Kuli ognia}. Połowa obrażeń to obrażenia od gromu zamiast obrażeń od ognia. Można nim rzucić jako akcją Wykorzystanie na punkt w odległości do 20 stóp."
         ]
       }
     ]
@@ -247,7 +247,7 @@
     ]
   },
   "flashbang-grenade": {
-    "name": "Flashbang",
+    "name": "Granat hukowy",
     "subtitle": "Granat",
     "entries": [
       {
@@ -294,7 +294,7 @@
         "type": "entries",
         "name": "Efekt",
         "entries": [
-          "Ta amunicja wykorzystuje Ogień seryjny, zadając {@dice 3k8} obrażeń kłujących w sześcianie o boku 15 stóp. ST wynosi 12 + premia biegłości rzucającego."
+          "Ta amunicja wykorzystuje Ogień seryjny, zadając {@dice 3k8} obrażeń kłutych w sześcianie o boku 15 stóp. ST wynosi 12 + premia biegłości rzucającego."
         ]
       }
     ]
@@ -372,7 +372,7 @@
         "type": "entries",
         "name": "Bagnet",
         "entries": [
-          "Bagnet zadaje {@dice 1k8} obrażeń kłujących i korzysta z właściwości Mistrzostwo bazowej broni palnej. Jeśli jest zamocowany do długiej broni palnej, jego zasięg wynosi 10 stóp."
+          "Bagnet zadaje {@dice 1k8} obrażeń kłutych i korzysta z właściwości Mistrzostwo bazowej broni palnej. Jeśli jest zamocowany do długiej broni palnej, jego zasięg wynosi 10 stóp."
         ]
       }
     ]
@@ -385,7 +385,7 @@
         "type": "entries",
         "name": "Wyrzutnia sieci",
         "entries": [
-          "Zmodyfikowana broń palna zwiększa normalny i daleki zasięg {@item Net|XPHB|sieci} do 40 stóp. Wystrzelenie sieci jest Akcją Bonusową, a przeładowanie wyrzutni zawsze wymaga Akcji. Modyfikację można zamontować tylko na długiej broni palnej."
+          "Zmodyfikowana broń palna zwiększa normalny i daleki zasięg {@item Net|XPHB|sieci} do 40 stóp. Wystrzelenie sieci jest Akcją Dodatkową, a przeładowanie wyrzutni zawsze wymaga Akcji. Modyfikację można zamontować tylko na długiej broni palnej."
         ]
       }
     ]
@@ -508,14 +508,14 @@
         "type": "entries",
         "name": "Broń",
         "entries": [
-          "Ostrze Świtu to wielki artefakt Aureliana, przywołany przez królewską krew i powierzony drużynie. Jest wielkim mieczem, który zapewnia premię +3 do rzutów ataku i zadaje {@dice 2d8} obrażeń ciętych oraz {@dice 2d6} obrażeń od światłości."
+          "Ostrze Świtu to wielki artefakt Aureliana, przywołany przez królewską krew i powierzony drużynie. Jest wielkim mieczem, który zapewnia premię +3 do rzutów ataku i zadaje {@dice 2d8} obrażeń siecznych oraz {@dice 2d6} obrażeń promienistych."
         ]
       },
       {
         "type": "entries",
         "name": "Rozpalone ostrze",
         "entries": [
-          "Jako akcję możesz rozpalić ostrze. Do końca tury zadaje ono dodatkowe {@dice 2d8} obrażeń od światłości, a ty otrzymujesz dodatkowe {@dice 2d8} obrażeń. Ostrze zapewnia ci również efekt zaklęcia {@spell Fire Shield|XPHB} i świeci tak, jakby oddziaływało na nie zaklęcie {@spell Daylight|XPHB}."
+          "Jako akcję możesz rozpalić ostrze. Do końca tury zadaje ono dodatkowe {@dice 2d8} obrażeń promienistych, a ty otrzymujesz dodatkowe {@dice 2d8} obrażeń. Ostrze zapewnia ci również efekt zaklęcia {@spell Fire Shield|XPHB} i świeci tak, jakby oddziaływało na nie zaklęcie {@spell Daylight|XPHB}."
         ]
       },
       {
@@ -623,11 +623,27 @@
           {
             "type": "table",
             "caption": "Dostrojenie",
-            "colLabels": ["Wynik testu", "Czas", "Skutek"],
+            "colLabels": [
+              "Wynik testu",
+              "Czas",
+              "Skutek"
+            ],
             "rows": [
-              ["30 lub więcej", "1 akcja", "Dostrajasz się do wybranego trybu."],
-              ["25-29", "1 minuta", "Dostrajasz się do wybranego trybu."],
-              ["20-24", "{@dice 2d4} godziny", "Dostrajasz się do wybranego trybu."],
+              [
+                "30 lub więcej",
+                "1 akcja",
+                "Dostrajasz się do wybranego trybu."
+              ],
+              [
+                "25-29",
+                "1 minuta",
+                "Dostrajasz się do wybranego trybu."
+              ],
+              [
+                "20-24",
+                "{@dice 2d4} godziny",
+                "Dostrajasz się do wybranego trybu."
+              ],
               [
                 "19 lub mniej",
                 "Zobacz Niepowodzenie",
@@ -647,7 +663,11 @@
           {
             "type": "table",
             "caption": "Tryby kryształu",
-            "colLabels": ["Tryb", "Główne zastosowanie", "Niestabilność"],
+            "colLabels": [
+              "Tryb",
+              "Główne zastosowanie",
+              "Niestabilność"
+            ],
             "rows": [
               [
                 "Niszczenie",
@@ -705,7 +725,10 @@
           {
             "type": "table",
             "caption": "Skutki wysokich ST",
-            "colLabels": ["Funkcja", "Skutek"],
+            "colLabels": [
+              "Funkcja",
+              "Skutek"
+            ],
             "rows": [
               [
                 "Funkcja o ST 40",
@@ -732,7 +755,10 @@
           {
             "type": "table",
             "caption": "Funkcje trybu niszczenia",
-            "colLabels": ["Test Arcany", "Efekt"],
+            "colLabels": [
+              "Test Arcany",
+              "Efekt"
+            ],
             "rows": [
               [
                 "{@skill Arcana|XPHB} ST 40",
@@ -760,15 +786,47 @@
               {
                 "type": "table",
                 "caption": "Poziom zaklęcia Fireball przy niepowodzeniu",
-                "colLabels": ["Wynik testu", "Poziom zaklęcia", "Obrażenia"],
+                "colLabels": [
+                  "Wynik testu",
+                  "Poziom zaklęcia",
+                  "Obrażenia"
+                ],
                 "rows": [
-                  ["10 lub więcej", "3.", "{@damage 8d6}"],
-                  ["9", "4.", "{@damage 9d6}"],
-                  ["7-8", "5.", "{@damage 10d6}"],
-                  ["5-6", "6.", "{@damage 11d6}"],
-                  ["3-4", "7.", "{@damage 12d6}"],
-                  ["2", "8.", "{@damage 13d6}"],
-                  ["1", "9.", "{@damage 14d6}"]
+                  [
+                    "10 lub więcej",
+                    "3.",
+                    "{@damage 8d6}"
+                  ],
+                  [
+                    "9",
+                    "4.",
+                    "{@damage 9d6}"
+                  ],
+                  [
+                    "7-8",
+                    "5.",
+                    "{@damage 10d6}"
+                  ],
+                  [
+                    "5-6",
+                    "6.",
+                    "{@damage 11d6}"
+                  ],
+                  [
+                    "3-4",
+                    "7.",
+                    "{@damage 12d6}"
+                  ],
+                  [
+                    "2",
+                    "8.",
+                    "{@damage 13d6}"
+                  ],
+                  [
+                    "1",
+                    "9.",
+                    "{@damage 14d6}"
+                  ]
                 ]
               }
             ]
@@ -790,7 +848,10 @@
           {
             "type": "table",
             "caption": "Funkcje trybu tworzenia",
-            "colLabels": ["Test Arcany", "Efekt"],
+            "colLabels": [
+              "Test Arcany",
+              "Efekt"
+            ],
             "rows": [
               [
                 "{@skill Arcana|XPHB} ST 40",
@@ -834,19 +895,22 @@
           {
             "type": "table",
             "caption": "Funkcje trybu przemiany",
-            "colLabels": ["Test Arcany", "Efekt"],
+            "colLabels": [
+              "Test Arcany",
+              "Efekt"
+            ],
             "rows": [
               [
                 "{@skill Arcana|XPHB} ST 40",
-                "Możesz użyć funkcji o ST 30, aby zmienić jedno stworzenie w inne, albo zmienić jedno stworzenie w potężniejszą istotę o CR wyższym o maksymalnie 10 na 1 minutę, utrzymując koncentrację. Po użyciu tej funkcji kryształ staje się rozstrojony, a do trybu przemiany nie można ponownie dostroić się przez 8 godzin."
+                "Możesz użyć funkcji o ST 30, aby zmienić jedno stworzenie w inne, albo zmienić jedno stworzenie w potężniejszą istotę o SW wyższym o maksymalnie 10 na 1 minutę, utrzymując koncentrację. Po użyciu tej funkcji kryształ staje się rozstrojony, a do trybu przemiany nie można ponownie dostroić się przez 8 godzin."
               ],
               [
                 "{@skill Arcana|XPHB} ST 30",
-                "Możesz rzucić {@spell Mass Polymorph|XGE} ze ST rzutu obronnego {@dc 18} na 1 minutę albo zmienić jedną istotę w inną istotę o tym samym CR na czas do 1 tygodnia. Humanoid zmieniony w innego humanoida traci zdolności pierwotnej formy i zyskuje wyłącznie widzenie w ciemności oraz szybkość nowej formy. Nowa forma nie ma sygnatury magicznej wykrywalnej przez {@spell Detect Magic|XPHB}, a śmierć nie przywraca istocie poprzedniej postaci."
+                "Możesz rzucić {@spell Mass Polymorph|XGE} ze ST rzutu obronnego {@dc 18} na 1 minutę albo zmienić jedną istotę w inną istotę o tym samym SW na czas do 1 tygodnia. humanoidalna istota zmieniona w inną humanoidalną istotę traci zdolności pierwotnej formy i zyskuje wyłącznie widzenie w ciemności oraz szybkość nowej formy. Nowa forma nie ma sygnatury magicznej wykrywalnej przez {@spell Detect Magic|XPHB}, a śmierć nie przywraca istocie poprzedniej postaci."
               ],
               [
                 "{@skill Arcana|XPHB} ST 25",
-                "Możesz rzucić {@spell Polymorph|XPHB} bez koncentracji, wyłącznie na bestię i z ograniczeniem przez CR, na 1 minutę, ze ST rzutu obronnego {@dc 18}. Alternatywnie możesz skopiować efekt {@spell Animate Objects|XPHB} rzuconego na 6. poziomie."
+                "Możesz rzucić {@spell Polymorph|XPHB} bez koncentracji, wyłącznie na bestię i z ograniczeniem przez SW, na 1 minutę, ze ST rzutu obronnego {@dc 18}. Alternatywnie możesz skopiować efekt {@spell Animate Objects|XPHB} rzuconego na 6. poziomie."
               ],
               [
                 "{@skill Arcana|XPHB} ST 20",
@@ -878,7 +942,10 @@
           {
             "type": "table",
             "caption": "Funkcje trybu zaklinania",
-            "colLabels": ["Test Arcany", "Efekt"],
+            "colLabels": [
+              "Test Arcany",
+              "Efekt"
+            ],
             "rows": [
               [
                 "{@skill Arcana|XPHB} ST 40",
@@ -922,7 +989,10 @@
           {
             "type": "table",
             "caption": "Funkcje trybu wróżenia",
-            "colLabels": ["Test Arcany", "Efekt"],
+            "colLabels": [
+              "Test Arcany",
+              "Efekt"
+            ],
             "rows": [
               [
                 "{@skill Arcana|XPHB} ST 40",
@@ -966,7 +1036,10 @@
           {
             "type": "table",
             "caption": "Funkcje trybu obronnego",
-            "colLabels": ["Funkcja", "Efekt"],
+            "colLabels": [
+              "Funkcja",
+              "Efekt"
+            ],
             "rows": [
               [
                 "{@skill Arcana|XPHB} ST 40",
@@ -1010,7 +1083,10 @@
           {
             "type": "table",
             "caption": "Funkcje trybu teleportacji",
-            "colLabels": ["Funkcja", "Efekt"],
+            "colLabels": [
+              "Funkcja",
+              "Efekt"
+            ],
             "rows": [
               [
                 "{@skill Arcana|XPHB} ST 40",
@@ -1040,11 +1116,14 @@
           {
             "type": "table",
             "caption": "Funkcje trybu czaso-zmieniacza",
-            "colLabels": ["Funkcja", "Efekt"],
+            "colLabels": [
+              "Funkcja",
+              "Efekt"
+            ],
             "rows": [
               [
                 "{@skill Arcana|XPHB} ST 40",
-                "Możesz użyć opcji Roll Redo z zaklęcia {@spell Wish|XPHB}, zmuszając do ponownego rzutu dowolnej kości rzuconej w ciągu ostatniej rundy, w tym podczas swojej ostatniej tury. Wybierasz, czy użyć pierwotnego, czy nowego wyniku, oraz czy ponowny rzut ma odbyć się z ułatwieniem albo utrudnieniem. Możesz także użyć opcji Sudden Learning z zaklęcia {@spell Wish|XPHB}, aby zastąpić jeden atut innym, do którego spełniasz wymagania. Nie możesz zastąpić atutu będącego wymaganiem innego atutu lub cechy ani użyć tej opcji ponownie dla tej samej istoty. Alternatywnie możesz rzucić {@spell Time Stop|XPHB}, zyskując {@dice 2d4 + 1} dodatkowych tur zamiast {@dice 1d4 + 1}."
+                "Możesz użyć opcji Ponowny rzut z zaklęcia {@spell Wish|XPHB}, zmuszając do ponownego rzutu dowolnej kości rzuconej w ciągu ostatniej rundy, w tym podczas swojej ostatniej tury. Wybierasz, czy użyć pierwotnego, czy nowego wyniku, oraz czy ponowny rzut ma odbyć się z ułatwieniem albo utrudnieniem. Możesz także użyć opcji Nagła nauka z zaklęcia {@spell Wish|XPHB}, aby zastąpić jeden atut innym, do którego spełniasz wymagania. Nie możesz zastąpić atutu będącego wymaganiem innego atutu lub cechy ani użyć tej opcji ponownie dla tej samej istoty. Alternatywnie możesz rzucić {@spell Time Stop|XPHB}, zyskując {@dice 2d4 + 1} dodatkowych tur zamiast {@dice 1d4 + 1}."
               ],
               [
                 "{@skill Arcana|XPHB} ST 30",
@@ -1083,7 +1162,10 @@
           {
             "type": "table",
             "caption": "Tryb rozstrojony",
-            "colLabels": ["Zasada", "Skutek"],
+            "colLabels": [
+              "Zasada",
+              "Skutek"
+            ],
             "rows": [
               [
                 "Użycie funkcji",
@@ -1178,18 +1260,51 @@
           {
             "type": "table",
             "caption": "Zaklęcia Kostura Sabatu",
-            "colLabels": ["Zaklęcie", "Koszt w ładunkach"],
+            "colLabels": [
+              "Zaklęcie",
+              "Koszt w ładunkach"
+            ],
             "rows": [
-              ["{@spell Bestow Curse|XPHB|Rzuć klątwę} (wariant 5. poziomu)", "5"],
-              ["{@spell Cackle|Fumble|Chichot}", "0"],
-              ["{@spell Chill Touch|XPHB|Dotyk chłodu}", "0"],
-              ["{@spell Cure Wounds|XPHB|Leczenie ran}", "1"],
-              ["{@spell Globe of Invulnerability|XPHB|Sfera niewrażliwości}", "6"],
-              ["{@spell Tasha's Hideous Laughter|XPHB|Śmiech Tashy}", "1"],
-              ["{@spell Hold Monster|XPHB|Uwięzienie potwora}", "5"],
-              ["{@spell Mass Cure Wounds|XPHB|Masowe leczenie ran}", "5"],
-              ["{@spell Remove Curse|XPHB|Zdjęcie klątwy}", "3"],
-              ["{@spell Wall of Force|XPHB|Ściana mocy}", "5"]
+              [
+                "{@spell Bestow Curse|XPHB|Rzuć klątwę} (wariant 5. poziomu)",
+                "5"
+              ],
+              [
+                "{@spell Cackle|Fumble|Chichot}",
+                "0"
+              ],
+              [
+                "{@spell Chill Touch|XPHB|Dotyk chłodu}",
+                "0"
+              ],
+              [
+                "{@spell Cure Wounds|XPHB|Leczenie ran}",
+                "1"
+              ],
+              [
+                "{@spell Globe of Invulnerability|XPHB|Sfera niewrażliwości}",
+                "6"
+              ],
+              [
+                "{@spell Tasha's Hideous Laughter|XPHB|Śmiech Tashy}",
+                "1"
+              ],
+              [
+                "{@spell Hold Monster|XPHB|Uwięzienie potwora}",
+                "5"
+              ],
+              [
+                "{@spell Mass Cure Wounds|XPHB|Masowe leczenie ran}",
+                "5"
+              ],
+              [
+                "{@spell Remove Curse|XPHB|Zdjęcie klątwy}",
+                "3"
+              ],
+              [
+                "{@spell Wall of Force|XPHB|Ściana mocy}",
+                "5"
+              ]
             ]
           }
         ]
@@ -1249,7 +1364,7 @@
     "properties": "",
     "entries": [
       "Nosząc tę ​​zbroję, zyskujesz premię +1 do KP. Ponadto, ilekroć nabierzesz napięcia, energia wyssana z twojego ciała, umysłu lub duszy jest magazynowana w zbroi. Za każde 1 odkształcenie, które zyskasz, zbroja zyskuje 1 ładunek.",
-      "W ramach akcji możesz wydać dowolną liczbę ładunków pancerza, aby wyzwolić wiązkę mocy w stronę istoty, którą widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Zręczność przeciwko Twojemu DC oszczędzania energii, otrzymując obrażenia od siły {@damage 1d6} za każdy zużyty ładunek w przypadku nieudanego rzutu lub o połowę mniej w przypadku udanego rzutu.",
+      "W ramach akcji możesz wydać dowolną liczbę ładunków pancerza, aby wyzwolić wiązkę mocy w stronę istoty, którą widzisz w promieniu 60 stóp od ciebie. Cel musi wykonać rzut obronny na Zręczność przeciwko Twojemu DC oszczędzania energii, otrzymując obrażenia od mocy {@damage 1d6} za każdy zużyty ładunek w przypadku nieudanego rzutu lub o połowę mniej w przypadku udanego rzutu.",
       "Pancerz może pomieścić maksymalnie 10 ładunków i traci wszystkie niewykorzystane ładunki każdego dnia o świcie."
     ]
   },
@@ -1310,20 +1425,28 @@
           "Przedmioty psioniczne korzystają z tych samych kategorii co przedmioty magiczne, ale dodają jedną dodatkową kategorię - kryształ psioniczny, przedmiot psioniczny nadający się do spożycia, podobny do mikstur lub zwojów zaklęć. Istota może użyć akcji, aby rozbić jeden z kryształów wielkości jabłka, uwalniając zgromadzoną w nim moc psioniczną."
         ]
       },
-      "{@note * This item group has the same name and source as the item {@item Crystal of Rejuvenation|TalPsi}}",
+      "{@note * Ta grupa przedmiotów ma taką samą nazwę i źródło jak przedmiot {@item Crystal of Rejuvenation|TalPsi}}",
       "Kryształ ten zawiera energię psioniczną, która powoduje, że tracisz napięcie, gdy go złamiesz. Ilość utraconego napięcia zależy od rzadkości kryształu, jak pokazano w tabeli Kryształy Odmłodzenia.",
       {
         "type": "table",
         "caption": "Kryształy Odmłodzenia",
         "page": 56,
-        "colLabels": ["Kryształ ...", "Rzadkość", "Strata napięcia"],
+        "colLabels": [
+          "Kryształ ...",
+          "Rzadkość",
+          "Strata napięcia"
+        ],
         "colStyles": [
           "col-4 tekst po lewej stronie",
           "tekst w kolumnie 3 po lewej stronie",
           "tekst w kolumnie 3 po lewej stronie"
         ],
         "rows": [
-          ["{@item Crystal of Rejuvenation|TalPsi|Rejuvenation}", "Niezwykły", "1"],
+          [
+            "{@item Crystal of Rejuvenation|TalPsi|Rejuvenation}",
+            "Niezwykły",
+            "1"
+          ],
           [
             "{@item Crystal of Greater Rejuvenation|TalPsi|Greater rejuvenation}",
             "Rzadki",
@@ -1399,14 +1522,14 @@
     "ac": "",
     "properties": "",
     "entries": [
-      "Ta srebrna opaska przechowuje moce, które się w niej manifestują, i utrzymuje je, dopóki dostrojony użytkownik ich nie użyje. Opaska może przechowywać moce, których łączna liczba wynosi 5 lub mniej. Po znalezieniu zawiera moce określone przez GM, którego łączne zamówienie wynosi {@dice 1d6 - 1}.",
+      "Ta srebrna opaska przechowuje moce, które się w niej manifestują, i utrzymuje je, dopóki dostrojony użytkownik ich nie użyje. Opaska może przechowywać moce, których łączna liczba wynosi 5 lub mniej. Po znalezieniu zawiera moce określone przez GM, którego łączny krąg wynosi {@dice 1d6 - 1}.",
       "Każde stworzenie może {@action Manifest a Power|TalPsi|manifest a power} z {@filter 1st order through 5th order|psionics|order=1st-order;2nd-order;3rd-order;4th-order;5th-order|source=talpsi==extend} umieścić w opasce, dotykając opaski podczas manifestacji mocy. Ta moc nie ma żadnego efektu poza przechowywaniem w opasce. Jeśli opaska nie jest w stanie utrzymać mocy, moc jest zużywana bez efektu.",
-      "Nosząc tę ​​opaskę, możesz manifestować całą zgromadzoną w niej moc. Moc korzysta z kolejności bazowej, ST oszczędzania energii, modyfikatora ataku mocy i zdolności manifestacji pierwotnego manifestującego, ale poza tym jest traktowana tak, jakbyś przejawił moc.",
+      "Nosząc tę ​​opaskę, możesz manifestować całą zgromadzoną w niej moc. Moc korzysta z kręgu bazowego, ST oszczędzania energii, modyfikatora ataku mocy i zdolności manifestacji pierwotnego manifestującego, ale poza tym jest traktowana tak, jakbyś przejawił moc.",
       "Moc manifestująca się w opasce nie jest już w niej przechowywana, uwalniając miejsce."
     ]
   },
   "hero-s-cape": {
-    "name": "Przylądek Bohatera",
+    "name": "Płaszcz Bohatera",
     "subtitle": "Cudowny przedmiot, legendarny",
     "type": "Cudowny przedmiot",
     "rarity": "Legendarny",
@@ -1418,7 +1541,7 @@
     "properties": "",
     "entries": [
       "Nosząc tę ​​powiewającą, kolorową pelerynę, możesz latać z prędkością 30 metrów i możesz unosić się w powietrzu.",
-      "Dodatkowo możesz użyć akcji, aby wysłać 5-metrowy stożek siły psionicznej. Każda istota na obszarze musi wykonać rzut obronny na Zręczność o ST 19, który otrzyma obrażenia od siły {@damage 6d6} w przypadku nieudanego rzutu lub połowę mniej w przypadku udanego rzutu."
+      "Dodatkowo możesz użyć akcji, aby wysłać 5-metrowy stożek siły psionicznej. Każda istota na obszarze musi wykonać rzut obronny na Zręczność o ST 19, który otrzyma obrażenia od mocy {@damage 6d6} w przypadku nieudanego rzutu lub połowę mniej w przypadku udanego rzutu."
     ]
   },
   "orb-of-psionic-might-1": {
@@ -1478,12 +1601,17 @@
     "ac": "",
     "properties": "Kryształ psioniczny",
     "entries": [
-      "{@i power crystal} posiada pojedynczą moc psioniczną. Kiedy rozbijesz ten kryształ w ramach akcji, natychmiast manifestujesz znajdującą się w nim moc, niezależnie od normalnego czasu manifestacji tej mocy. Kolejność mocy w krysztale określa jego współczynnik oszczędzania energii i modyfikator ataku, a także rzadkość kryształu, jak pokazano w tabeli kryształów mocy.",
+      "{@i power crystal} posiada pojedynczą moc psioniczną. Kiedy rozbijesz ten kryształ w ramach akcji, natychmiast manifestujesz znajdującą się w nim moc, niezależnie od normalnego czasu manifestacji tej mocy. Krąg mocy w krysztale określa jego współczynnik oszczędzania energii i modyfikator ataku, a także rzadkość kryształu, jak pokazano w tabeli kryształów mocy.",
       {
         "type": "table",
         "caption": "Kryształ Mocy",
         "page": 57,
-        "colLabels": ["Rozkaz mocy", "Rzadkość", "Uratuj DC", "Modyfikator ataku"],
+        "colLabels": [
+          "Rozkaz mocy",
+          "Rzadkość",
+          "Uratuj DC",
+          "Modyfikator ataku"
+        ],
         "colStyles": [
           "col-1 centrum tekstowe",
           "tekst w kolumnie 3 po lewej stronie",
@@ -1491,12 +1619,42 @@
           "col-3 centrum tekstowe"
         ],
         "rows": [
-          ["1", "Wspólny", "13", "+5"],
-          ["2", "Wspólny", "13", "+5"],
-          ["3", "Niezwykły", "15", "+7"],
-          ["4", "Rzadki", "17", "+9"],
-          ["5", "Bardzo rzadkie", "18", "+10"],
-          ["6", "Legendarny", "19", "+11"]
+          [
+            "1",
+            "Wspólny",
+            "13",
+            "+5"
+          ],
+          [
+            "2",
+            "Wspólny",
+            "13",
+            "+5"
+          ],
+          [
+            "3",
+            "Niezwykły",
+            "15",
+            "+7"
+          ],
+          [
+            "4",
+            "Rzadki",
+            "17",
+            "+9"
+          ],
+          [
+            "5",
+            "Bardzo rzadkie",
+            "18",
+            "+10"
+          ],
+          [
+            "6",
+            "Legendarny",
+            "19",
+            "+11"
+          ]
         ]
       },
       {
@@ -1516,7 +1674,7 @@
     "attunement": "Wymaga dostrojenia poprzez talent",
     "weight": "4 funty",
     "value": "",
-    "damage": "1k6 tłuczenie",
+    "damage": "1k6 obuchowe",
     "ac": "",
     "properties": "Wszechstronny",
     "entries": [
@@ -1533,7 +1691,7 @@
     "attunement": "Wymaga dostrojenia poprzez talent",
     "weight": "4 funty",
     "value": "",
-    "damage": "1k6 tłuczenie",
+    "damage": "1k6 obuchowe",
     "ac": "",
     "properties": "Wszechstronny",
     "entries": [
@@ -1550,7 +1708,7 @@
     "attunement": "Wymaga dostrojenia poprzez talent",
     "weight": "4 funty",
     "value": "",
-    "damage": "1k6 tłuczenie",
+    "damage": "1k6 obuchowe",
     "ac": "",
     "properties": "Wszechstronny",
     "entries": [
@@ -1561,14 +1719,14 @@
     ]
   },
   "staff-of-resopathy": {
-    "name": "Personel Rezopatii",
+    "name": "Kostur Rezopatii",
     "subtitle": "Broń biała, bardzo rzadka",
     "type": "Broń do walki wręcz",
     "rarity": "Bardzo rzadkie",
     "attunement": "Wymaga dostrojenia poprzez talent",
     "weight": "4 funty",
     "value": "",
-    "damage": "1k6 tłuczenie",
+    "damage": "1k6 obuchowe",
     "ac": "",
     "properties": "Wszechstronny",
     "entries": [
@@ -1585,7 +1743,7 @@
     "attunement": "Wymaga dostrojenia poprzez talent",
     "weight": "4 funty",
     "value": "",
-    "damage": "1k6 tłuczenie",
+    "damage": "1k6 obuchowe",
     "ac": "",
     "properties": "Wszechstronny",
     "entries": [
@@ -1602,7 +1760,7 @@
     "attunement": "Wymaga dostrojenia poprzez talent",
     "weight": "4 funty",
     "value": "",
-    "damage": "1k6 tłuczenie",
+    "damage": "1k6 obuchowe",
     "ac": "",
     "properties": "Wszechstronny",
     "entries": [

@@ -11,6 +11,7 @@ import plMonsterfeatures from '@/data/generated/pl/monsterfeatures.json';
 import plNames from '@/data/generated/pl/names.json';
 import psionics from '@/data/generated/psionics.json';
 import plBestiary from '@/data/generated/pl/bestiary.json';
+import plSpecies from '@/data/generated/pl/species.json';
 import { localizeEntry } from './localize';
 
 describe('generated 5etools source collections', () => {
@@ -83,5 +84,27 @@ describe('generated 5etools source collections', () => {
       speed: '30 stóp (40 stóp w formie tygrysa)',
     });
     expect(localized.traits?.[0]?.name).toBe('Zmieniacz kształtu');
+  });
+
+  it('keeps creature identities distinct in Polish overlays', () => {
+    expect(plBestiary['goblin']?.name).toBe('Goblin');
+    expect(plBestiary['hobgoblin']?.name).toBe('Hobgoblin');
+    expect(plBestiary['imp']?.name).toBe('Diablik');
+    expect(plBestiary['zombie']?.name).toBe('Zombie');
+    expect(plBestiary['fiend-cultist']?.name).toBe('Czarci Kultysta');
+    expect(plBestiary['pit-fiend']?.name).toBe('Czart Otchłani');
+    expect(plBestiary['displacer-fiend']?.name).toBe('Wysiedlający Czart');
+    expect(plSpecies['goblin']?.name).toBe('Goblin');
+    expect(plSpecies['goblin-ixalan']?.parentRace).toBe('Goblin');
+    expect(plSpecies['zombie']?.name).toBe('Zombie');
+    expect(
+      plMonsterfeatures['monsterfeatures-martial-advantage-dmg']?.data?.example,
+    ).toBe('Hobgoblin');
+    expect(plMonsterfeatures['monsterfeatures-nimble-escape-dmg']?.data?.example).toBe(
+      'Goblin',
+    );
+    expect(plMonsterfeatures['monsterfeatures-undead-fortitude-dmg']?.data?.example).toBe(
+      'Zombie',
+    );
   });
 });

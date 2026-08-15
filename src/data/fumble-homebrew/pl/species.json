@@ -1,7 +1,7 @@
 {
   "nocturnal-moth": {
     "name": "Ciem nocny",
-    "subtitle": "Monstrosity, średni lub mały",
+    "subtitle": "Monstrum, średni lub mały",
     "entries": [
       {
         "type": "entries",
@@ -27,7 +27,9 @@
       {
         "type": "entries",
         "name": "Typ istoty",
-        "entries": ["Jesteś Monstrosity."]
+        "entries": [
+          "Jesteś monstrum."
+        ]
       },
       {
         "type": "entries",
@@ -39,12 +41,16 @@
       {
         "type": "entries",
         "name": "Szybkość",
-        "entries": ["Twoja szybkość chodzenia wynosi 30 stóp."]
+        "entries": [
+          "Twoja szybkość chodzenia wynosi 30 stóp."
+        ]
       },
       {
         "type": "entries",
         "name": "Siła Księżyca",
-        "entries": ["Zyskujesz odporność na obrażenia nekrotyczne."]
+        "entries": [
+          "Zyskujesz odporność na obrażenia nekrotyczne."
+        ]
       },
       {
         "type": "entries",
@@ -128,7 +134,7 @@
   },
   "diurnal-moth": {
     "name": "Ciem dzienny",
-    "subtitle": "Monstrosity, średni lub mały",
+    "subtitle": "Monstrum, średni lub mały",
     "entries": [
       {
         "type": "entries",
@@ -147,7 +153,9 @@
       {
         "type": "entries",
         "name": "Typ istoty",
-        "entries": ["Jesteś Monstrosity."]
+        "entries": [
+          "Jesteś monstrum."
+        ]
       },
       {
         "type": "entries",
@@ -159,7 +167,9 @@
       {
         "type": "entries",
         "name": "Szybkość",
-        "entries": ["Twoja szybkość chodzenia wynosi 30 stóp."]
+        "entries": [
+          "Twoja szybkość chodzenia wynosi 30 stóp."
+        ]
       },
       {
         "type": "entries",
@@ -214,7 +224,7 @@
                 "name": "Żołnierz",
                 "entries": [
                   "Dodatkowe ramiona. Masz dwie mniejsze dodatkowe ręce poniżej głównej pary. Mogą manipulować obiektami, otwierać i zamykać drzwi lub pojemniki, podnosić i odkładać małe obiekty oraz władać bronią.",
-                  "Ugryzienie. Masz żuwaczki przypominające kły, których możesz używać do wykonywania ataków bez broni. Trafienie zadaje {@damage 1d6} plus modyfikator Siły obrażeń ciętych zamiast normalnych obrażeń obuchowych.",
+                  "Ugryzienie. Masz żuwaczki przypominające kły, których możesz używać do wykonywania ataków bez broni. Trafienie zadaje {@damage 1d6} plus modyfikator Siły obrażeń siecznych zamiast normalnych obrażeń obuchowych.",
                   "Jadowite ugryzienie. Jako akcję dodatkową możesz wykonać specjalny atak za pomocą Ugryzienia. Trafienie zadaje dodatkowe obrażenia od trucizny równe twojej premii biegłości pomnożonej przez {@dice d6}. Możesz użyć tej zdolności liczbę razy równą premii biegłości i odzyskujesz wszystkie zużyte użycia po zakończeniu {@variantrule Long Rest|XPHB|długiego odpoczynku}."
                 ]
               },
@@ -238,8 +248,8 @@
     ]
   },
   "wooden-warforged": {
-    "name": "Warforged drzewny",
-    "subtitle": "Humanoid, średni",
+    "name": "Drewniany Warforged",
+    "subtitle": "Humanoidalny, średni",
     "entries": [
       {
         "type": "entries",
@@ -265,7 +275,9 @@
       {
         "type": "entries",
         "name": "Szybkość",
-        "entries": ["Twoja szybkość chodzenia wynosi 30 stóp."]
+        "entries": [
+          "Twoja szybkość chodzenia wynosi 30 stóp."
+        ]
       },
       {
         "type": "entries",
@@ -298,7 +310,9 @@
       {
         "type": "entries",
         "name": "Typ istoty",
-        "entries": ["Jesteś Humanoidem."]
+        "entries": [
+          "Jesteś humanoidalną istotą."
+        ]
       }
     ]
   },
@@ -316,7 +330,9 @@
       {
         "type": "entries",
         "name": "Szybkość",
-        "entries": ["Twoja szybkość chodzenia wynosi 30 stóp."]
+        "entries": [
+          "Twoja szybkość chodzenia wynosi 30 stóp."
+        ]
       },
       {
         "type": "entries",
@@ -336,7 +352,7 @@
         "type": "entries",
         "name": "Świeca duszy",
         "entries": [
-          "Emitujesz magiczne {@variantrule Dim Light|XPHB} w promieniu 20 stóp. To {@spell Light|XPHB} ma poziom równy twojej premii biegłości. Jeśli na początku tury istoty jest jedynym światłem, które na nią oddziałuje, istota zyskuje tymczasowe punkty wytrzymałości równe twojej premii biegłości. Humanoidy zawsze odnoszą tę korzyść, a w przypadku innych istot niebędących nieumarłymi wybierasz, czy ją otrzymają. W chwili wielkiej potrzeby możesz rozbłysnąć płomieniem i poświęcić 1 rok swojego krótkiego życia, aby rzucić {@spell Aura of Life|XPHB} bez {@condition Concentration|XPHB}."
+          "Emitujesz magiczne {@variantrule Dim Light|XPHB} w promieniu 20 stóp. To {@spell Light|XPHB} ma poziom równy twojej premii biegłości. Jeśli na początku tury istoty jest jedynym światłem, które na nią oddziałuje, istota zyskuje tymczasowe punkty wytrzymałości równe twojej premii biegłości. humanoidalne istoty zawsze odnoszą tę korzyść, a w przypadku innych istot niebędących nieumarłymi wybierasz, czy ją otrzymają. W chwili wielkiej potrzeby możesz rozbłysnąć płomieniem i poświęcić 1 rok swojego krótkiego życia, aby rzucić {@spell Aura of Life|XPHB} bez {@condition Concentration|XPHB}."
         ]
       },
       {
@@ -363,7 +379,9 @@
       {
         "type": "entries",
         "name": "Poprzednie życia",
-        "entries": ["Zyskujesz biegłość w jednym narzędziu i jednej umiejętności."]
+        "entries": [
+          "Zyskujesz biegłość w jednym narzędziu i jednej umiejętności."
+        ]
       },
       {
         "type": "entries",

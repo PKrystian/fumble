@@ -1260,7 +1260,7 @@
                   "id": "7f5",
                   "entries": [
                     "Każda postać z pasywnym wynikiem Mądrości ({@skill Perception}) wynoszącym 17 lub więcej lub która pomyślnie wykona test {@dc 17} Mądrości ({@skill Perception}), zauważa słabą kolumnę dymu unoszącą się nad wodospadem. Postacie, które kontynuują wspinaczkę po zboczu góry, odkrywają ukryty, szeroki na 3 stopy żelazny komin wznoszący się nad skalistym podłożem. Komin jest zbyt gładki, aby można było się na niego wspiąć, chyba że za pomocą liny zakotwiczonej w skałach powyżej. Schodzi 30 stóp, po czym rozdziela się na trzy kominy prowadzące do kuchni ({@adventure area L6|DD|0|L6. Kitchen}), kuźni ({@adventure area L14|DD|0|L14. Smithy}) i kuźni zegarowej ({@adventure area L19|DD|0|L19. Clockwork Forge}).",
-                    "Każda postać, która spróbuje zejść przez komin bez liny lub prędkości wspinaczkowej, nieuchronnie upadnie. Rzuć a {@dice d3} aby określić, z którego dolnego komina postać się przewróci. Pod koniec upadku postać musi odnieść sukces {@dc 12} Rzut lub przyjęcie obronne na zręczność {@dice 1d6} obrażenia tłuczące. Dodatkowo ogień na dole zadaje obrażenia stworzeniom, które się z nim zetkną, jak wskazano w opisie każdego obszaru."
+                    "Każda postać, która spróbuje zejść przez komin bez liny lub prędkości wspinaczkowej, nieuchronnie upadnie. Rzuć a {@dice d3} aby określić, z którego dolnego komina postać się przewróci. Pod koniec upadku postać musi odnieść sukces {@dc 12} Rzut lub przyjęcie obronne na zręczność {@dice 1d6} obrażenia obuchowe. Dodatkowo ogień na dole zadaje obrażenia stworzeniom, które się z nim zetkną, jak wskazano w opisie każdego obszaru."
                   ]
                 }
               ]
@@ -5818,7 +5818,7 @@
                     "Ta naturalna jaskinia jest wzmocniona belkami nośnymi na całej długości pięćdziesięciu stóp. Gładki kamienny filar wznosi się pośrodku jaskini na wysokość ośmiu stóp, prawie dotykając wysokiego na trzy metry sufitu. Tunel biegnie dalej za jaskinią, zakręcając gwałtownie na zachód i znikając z pola widzenia."
                   ]
                 },
-                "Dowolna postać posiadająca pasywną Mądrość ({@skill Perception}) wynik 16 lub więcej, lub który odniesie sukces na a {@dc 16} Mądrość ({@skill Perception}) sprawdza, zauważa, że ​​na szczycie kamiennej kolumny zamontowana jest ręczna kusza. Ta mechaniczna kusza pozostaje bezwładna, chyba że Stahlmast jest świadomy postaci, w którym to przypadku w każdej rundzie atakuje najbliższą istotę w promieniu 30 stóp od niej. Kusza jest {@hit 5} trafić i zadaje 3 ({@dice 1d6}) obrażenia przebijające przy trafieniu. Jeśli w rzucie ataku kuszy wypadnie 1 lub 2, kusza psuje się i przestaje działać.",
+                "Dowolna postać posiadająca pasywną Mądrość ({@skill Perception}) wynik 16 lub więcej, lub który odniesie sukces na a {@dc 16} Mądrość ({@skill Perception}) sprawdza, zauważa, że ​​na szczycie kamiennej kolumny zamontowana jest ręczna kusza. Ta mechaniczna kusza pozostaje bezwładna, chyba że Stahlmast jest świadomy postaci, w którym to przypadku w każdej rundzie atakuje najbliższą istotę w promieniu 30 stóp od niej. Kusza jest {@hit 5} trafić i zadaje 3 ({@dice 1d6}) obrażenia kłute przy trafieniu. Jeśli w rzucie ataku kuszy wypadnie 1 lub 2, kusza psuje się i przestaje działać.",
                 "Wieża kuszy to duży obiekt z KP 17, 15 punktami wytrzymałości i odpornością na trucizny i obrażenia psychiczne."
               ]
             },
@@ -5870,7 +5870,7 @@
                     "Krótkie schody prowadzą w dół do tej małej jaskini, której powietrze jest ciężkie od zapachu siarki. Liczne skrzynie i beczki wypełnione są prochem wybuchowym, prochem czarnym i innymi niebezpiecznymi materiałami wybuchowymi."
                   ]
                 },
-                "Ta jaskinia jest niezwykle niebezpieczna. Każdy otwarty płomień wniesiony na dany obszar (łącznie z pochodnią), jak również każdy efekt wywołany ogniem lub błyskawicą zastosowany w tym obszarze, ma {@chance 30} ryzyko zdetonowania przechowywanych tu materiałów. Ta detonacja zajmuje {@dice 4d10} obrażenia tłuczące każdemu stworzeniu w pomieszczeniu i zbrojowni (obszar L2). Częściowo zawala także tę jaskinię i ostrzega wszystkie stworzenia w legowisku o wtargnięciu postaci.",
+                "Ta jaskinia jest niezwykle niebezpieczna. Każdy otwarty płomień wniesiony na dany obszar (łącznie z pochodnią), jak również każdy efekt wywołany ogniem lub błyskawicą zastosowany w tym obszarze, ma {@chance 30} ryzyko zdetonowania przechowywanych tu materiałów. Ta detonacja zajmuje {@dice 4d10} obrażenia obuchowe każdemu stworzeniu w pomieszczeniu i zbrojowni (obszar L2). Częściowo zawala także tę jaskinię i ostrzega wszystkie stworzenia w legowisku o wtargnięciu postaci.",
                 "Dowolna postać posiadająca pasywną Mądrość ({@skill Perception}) wynik 13 lub więcej, lub który odniesie sukces na a {@dc 13} Mądrość ({@skill Perception}) sprawdza, zauważa, że ​​materiały są przechowywane w sposób niebezpieczny i ocenia, że ​​to cud, że jeszcze żaden nie eksplodował.",
                 {
                   "type": "entries",
@@ -8529,7 +8529,7 @@
               "id": "7f5",
               "entries": [
                 "Każda postać z pasywnym wynikiem Mądrości ({@skill Perception}) wynoszącym 17 lub więcej lub która pomyślnie wykona test {@dc 17} Mądrości ({@skill Perception}), zauważa słabą kolumnę dymu unoszącą się nad wodospadem. Postacie, które kontynuują wspinaczkę po zboczu góry, odkrywają ukryty, szeroki na 3 stopy żelazny komin wznoszący się nad skalistym podłożem. Komin jest zbyt gładki, aby można było się na niego wspiąć, chyba że za pomocą liny zakotwiczonej w skałach powyżej. Schodzi 30 stóp, po czym rozdziela się na trzy kominy prowadzące do kuchni ({@adventure area L6|DD|0|L6. Kitchen}), kuźni ({@adventure area L14|DD|0|L14. Smithy}) i kuźni zegarowej ({@adventure area L19|DD|0|L19. Clockwork Forge}).",
-                "Każda postać, która spróbuje zejść przez komin bez liny lub prędkości wspinaczkowej, nieuchronnie upadnie. Rzuć a {@dice d3} aby określić, z którego dolnego komina postać się przewróci. Pod koniec upadku postać musi odnieść sukces {@dc 12} Rzut lub przyjęcie obronne na zręczność {@dice 1d6} obrażenia tłuczące. Dodatkowo ogień na dole zadaje obrażenia stworzeniom, które się z nim zetkną, jak wskazano w opisie każdego obszaru."
+                "Każda postać, która spróbuje zejść przez komin bez liny lub prędkości wspinaczkowej, nieuchronnie upadnie. Rzuć a {@dice d3} aby określić, z którego dolnego komina postać się przewróci. Pod koniec upadku postać musi odnieść sukces {@dc 12} Rzut lub przyjęcie obronne na zręczność {@dice 1d6} obrażenia obuchowe. Dodatkowo ogień na dole zadaje obrażenia stworzeniom, które się z nim zetkną, jak wskazano w opisie każdego obszaru."
               ]
             }
           ]
@@ -8795,7 +8795,7 @@
           "id": "7f5",
           "entries": [
             "Każda postać z pasywnym wynikiem Mądrości ({@skill Perception}) wynoszącym 17 lub więcej lub która pomyślnie wykona test {@dc 17} Mądrości ({@skill Perception}), zauważa słabą kolumnę dymu unoszącą się nad wodospadem. Postacie, które kontynuują wspinaczkę po zboczu góry, odkrywają ukryty, szeroki na 3 stopy żelazny komin wznoszący się nad skalistym podłożem. Komin jest zbyt gładki, aby można było się na niego wspiąć, chyba że za pomocą liny zakotwiczonej w skałach powyżej. Schodzi 30 stóp, po czym rozdziela się na trzy kominy prowadzące do kuchni ({@adventure area L6|DD|0|L6. Kitchen}), kuźni ({@adventure area L14|DD|0|L14. Smithy}) i kuźni zegarowej ({@adventure area L19|DD|0|L19. Clockwork Forge}).",
-            "Każda postać, która spróbuje zejść przez komin bez liny lub prędkości wspinaczkowej, nieuchronnie upadnie. Rzuć a {@dice d3} aby określić, z którego dolnego komina postać się przewróci. Pod koniec upadku postać musi odnieść sukces {@dc 12} Rzut lub przyjęcie obronne na zręczność {@dice 1d6} obrażenia tłuczące. Dodatkowo ogień na dole zadaje obrażenia stworzeniom, które się z nim zetkną, jak wskazano w opisie każdego obszaru."
+            "Każda postać, która spróbuje zejść przez komin bez liny lub prędkości wspinaczkowej, nieuchronnie upadnie. Rzuć a {@dice d3} aby określić, z którego dolnego komina postać się przewróci. Pod koniec upadku postać musi odnieść sukces {@dc 12} Rzut lub przyjęcie obronne na zręczność {@dice 1d6} obrażenia obuchowe. Dodatkowo ogień na dole zadaje obrażenia stworzeniom, które się z nim zetkną, jak wskazano w opisie każdego obszaru."
           ]
         }
       ]
@@ -8807,7 +8807,7 @@
       "id": "7f5",
       "entries": [
         "Każda postać z pasywnym wynikiem Mądrości ({@skill Perception}) wynoszącym 17 lub więcej lub która pomyślnie wykona test {@dc 17} Mądrości ({@skill Perception}), zauważa słabą kolumnę dymu unoszącą się nad wodospadem. Postacie, które kontynuują wspinaczkę po zboczu góry, odkrywają ukryty, szeroki na 3 stopy żelazny komin wznoszący się nad skalistym podłożem. Komin jest zbyt gładki, aby można było się na niego wspiąć, chyba że za pomocą liny zakotwiczonej w skałach powyżej. Schodzi 30 stóp, po czym rozdziela się na trzy kominy prowadzące do kuchni ({@adventure area L6|DD|0|L6. Kitchen}), kuźni ({@adventure area L14|DD|0|L14. Smithy}) i kuźni zegarowej ({@adventure area L19|DD|0|L19. Clockwork Forge}).",
-        "Każda postać, która spróbuje zejść przez komin bez liny lub prędkości wspinaczkowej, nieuchronnie upadnie. Rzuć a {@dice d3} aby określić, z którego dolnego komina postać się przewróci. Pod koniec upadku postać musi odnieść sukces {@dc 12} Rzut lub przyjęcie obronne na zręczność {@dice 1d6} obrażenia tłuczące. Dodatkowo ogień na dole zadaje obrażenia stworzeniom, które się z nim zetkną, jak wskazano w opisie każdego obszaru."
+        "Każda postać, która spróbuje zejść przez komin bez liny lub prędkości wspinaczkowej, nieuchronnie upadnie. Rzuć a {@dice d3} aby określić, z którego dolnego komina postać się przewróci. Pod koniec upadku postać musi odnieść sukces {@dc 12} Rzut lub przyjęcie obronne na zręczność {@dice 1d6} obrażenia obuchowe. Dodatkowo ogień na dole zadaje obrażenia stworzeniom, które się z nim zetkną, jak wskazano w opisie każdego obszaru."
       ]
     },
     "0:7f6": {
@@ -13427,7 +13427,7 @@
                 "Ta naturalna jaskinia jest wzmocniona belkami nośnymi na całej długości pięćdziesięciu stóp. Gładki kamienny filar wznosi się pośrodku jaskini na wysokość ośmiu stóp, prawie dotykając wysokiego na trzy metry sufitu. Tunel biegnie dalej za jaskinią, zakręcając gwałtownie na zachód i znikając z pola widzenia."
               ]
             },
-            "Dowolna postać posiadająca pasywną Mądrość ({@skill Perception}) wynik 16 lub więcej, lub który odniesie sukces na a {@dc 16} Mądrość ({@skill Perception}) sprawdza, zauważa, że ​​na szczycie kamiennej kolumny zamontowana jest ręczna kusza. Ta mechaniczna kusza pozostaje bezwładna, chyba że Stahlmast jest świadomy postaci, w którym to przypadku w każdej rundzie atakuje najbliższą istotę w promieniu 30 stóp od niej. Kusza jest {@hit 5} trafić i zadaje 3 ({@dice 1d6}) obrażenia przebijające przy trafieniu. Jeśli w rzucie ataku kuszy wypadnie 1 lub 2, kusza psuje się i przestaje działać.",
+            "Dowolna postać posiadająca pasywną Mądrość ({@skill Perception}) wynik 16 lub więcej, lub który odniesie sukces na a {@dc 16} Mądrość ({@skill Perception}) sprawdza, zauważa, że ​​na szczycie kamiennej kolumny zamontowana jest ręczna kusza. Ta mechaniczna kusza pozostaje bezwładna, chyba że Stahlmast jest świadomy postaci, w którym to przypadku w każdej rundzie atakuje najbliższą istotę w promieniu 30 stóp od niej. Kusza jest {@hit 5} trafić i zadaje 3 ({@dice 1d6}) obrażenia kłute przy trafieniu. Jeśli w rzucie ataku kuszy wypadnie 1 lub 2, kusza psuje się i przestaje działać.",
             "Wieża kuszy to duży obiekt z KP 17, 15 punktami wytrzymałości i odpornością na trucizny i obrażenia psychiczne."
           ]
         },
@@ -13479,7 +13479,7 @@
                 "Krótkie schody prowadzą w dół do tej małej jaskini, której powietrze jest ciężkie od zapachu siarki. Liczne skrzynie i beczki wypełnione są prochem wybuchowym, prochem czarnym i innymi niebezpiecznymi materiałami wybuchowymi."
               ]
             },
-            "Ta jaskinia jest niezwykle niebezpieczna. Każdy otwarty płomień wniesiony na dany obszar (łącznie z pochodnią), jak również każdy efekt wywołany ogniem lub błyskawicą zastosowany w tym obszarze, ma {@chance 30} ryzyko zdetonowania przechowywanych tu materiałów. Ta detonacja zajmuje {@dice 4d10} obrażenia tłuczące każdemu stworzeniu w pomieszczeniu i zbrojowni (obszar L2). Częściowo zawala także tę jaskinię i ostrzega wszystkie stworzenia w legowisku o wtargnięciu postaci.",
+            "Ta jaskinia jest niezwykle niebezpieczna. Każdy otwarty płomień wniesiony na dany obszar (łącznie z pochodnią), jak również każdy efekt wywołany ogniem lub błyskawicą zastosowany w tym obszarze, ma {@chance 30} ryzyko zdetonowania przechowywanych tu materiałów. Ta detonacja zajmuje {@dice 4d10} obrażenia obuchowe każdemu stworzeniu w pomieszczeniu i zbrojowni (obszar L2). Częściowo zawala także tę jaskinię i ostrzega wszystkie stworzenia w legowisku o wtargnięciu postaci.",
             "Dowolna postać posiadająca pasywną Mądrość ({@skill Perception}) wynik 13 lub więcej, lub który odniesie sukces na a {@dc 13} Mądrość ({@skill Perception}) sprawdza, zauważa, że ​​materiały są przechowywane w sposób niebezpieczny i ocenia, że ​​to cud, że jeszcze żaden nie eksplodował.",
             {
               "type": "entries",
@@ -13746,7 +13746,7 @@
             "Ta naturalna jaskinia jest wzmocniona belkami nośnymi na całej długości pięćdziesięciu stóp. Gładki kamienny filar wznosi się pośrodku jaskini na wysokość ośmiu stóp, prawie dotykając wysokiego na trzy metry sufitu. Tunel biegnie dalej za jaskinią, zakręcając gwałtownie na zachód i znikając z pola widzenia."
           ]
         },
-        "Dowolna postać posiadająca pasywną Mądrość ({@skill Perception}) wynik 16 lub więcej, lub który odniesie sukces na a {@dc 16} Mądrość ({@skill Perception}) sprawdza, zauważa, że ​​na szczycie kamiennej kolumny zamontowana jest ręczna kusza. Ta mechaniczna kusza pozostaje bezwładna, chyba że Stahlmast jest świadomy postaci, w którym to przypadku w każdej rundzie atakuje najbliższą istotę w promieniu 30 stóp od niej. Kusza jest {@hit 5} trafić i zadaje 3 ({@dice 1d6}) obrażenia przebijające przy trafieniu. Jeśli w rzucie ataku kuszy wypadnie 1 lub 2, kusza psuje się i przestaje działać.",
+        "Dowolna postać posiadająca pasywną Mądrość ({@skill Perception}) wynik 16 lub więcej, lub który odniesie sukces na a {@dc 16} Mądrość ({@skill Perception}) sprawdza, zauważa, że ​​na szczycie kamiennej kolumny zamontowana jest ręczna kusza. Ta mechaniczna kusza pozostaje bezwładna, chyba że Stahlmast jest świadomy postaci, w którym to przypadku w każdej rundzie atakuje najbliższą istotę w promieniu 30 stóp od niej. Kusza jest {@hit 5} trafić i zadaje 3 ({@dice 1d6}) obrażenia kłute przy trafieniu. Jeśli w rzucie ataku kuszy wypadnie 1 lub 2, kusza psuje się i przestaje działać.",
         "Wieża kuszy to duży obiekt z KP 17, 15 punktami wytrzymałości i odpornością na trucizny i obrażenia psychiczne."
       ]
     },
@@ -13816,7 +13816,7 @@
             "Krótkie schody prowadzą w dół do tej małej jaskini, której powietrze jest ciężkie od zapachu siarki. Liczne skrzynie i beczki wypełnione są prochem wybuchowym, prochem czarnym i innymi niebezpiecznymi materiałami wybuchowymi."
           ]
         },
-        "Ta jaskinia jest niezwykle niebezpieczna. Każdy otwarty płomień wniesiony na dany obszar (łącznie z pochodnią), jak również każdy efekt wywołany ogniem lub błyskawicą zastosowany w tym obszarze, ma {@chance 30} ryzyko zdetonowania przechowywanych tu materiałów. Ta detonacja zajmuje {@dice 4d10} obrażenia tłuczące każdemu stworzeniu w pomieszczeniu i zbrojowni (obszar L2). Częściowo zawala także tę jaskinię i ostrzega wszystkie stworzenia w legowisku o wtargnięciu postaci.",
+        "Ta jaskinia jest niezwykle niebezpieczna. Każdy otwarty płomień wniesiony na dany obszar (łącznie z pochodnią), jak również każdy efekt wywołany ogniem lub błyskawicą zastosowany w tym obszarze, ma {@chance 30} ryzyko zdetonowania przechowywanych tu materiałów. Ta detonacja zajmuje {@dice 4d10} obrażenia obuchowe każdemu stworzeniu w pomieszczeniu i zbrojowni (obszar L2). Częściowo zawala także tę jaskinię i ostrzega wszystkie stworzenia w legowisku o wtargnięciu postaci.",
         "Dowolna postać posiadająca pasywną Mądrość ({@skill Perception}) wynik 13 lub więcej, lub który odniesie sukces na a {@dc 13} Mądrość ({@skill Perception}) sprawdza, zauważa, że ​​materiały są przechowywane w sposób niebezpieczny i ocenia, że ​​to cud, że jeszcze żaden nie eksplodował.",
         {
           "type": "entries",

@@ -444,4 +444,76 @@ describe('homebrew store', () => {
     expect(migrated.entries[0]).toMatchObject({ baseLocale: 'en' });
     expect(migrated.entries[1]).toBe(manual);
   });
+
+  it('rejects malformed manual, imported and subclass exports', () => {
+    const manual = {
+      kind: 'manual',
+      id: 'manual',
+      category: 'items',
+      name: 'Manual',
+      subtitle: '',
+      body: '',
+      createdAt: 0,
+    };
+    const imported = {
+      kind: 'imported',
+      id: 'imported',
+      category: 'items',
+      name: 'Imported',
+      baseLocale: 'en',
+      data: { id: 'data', name: 'Data', source: 'HB' },
+      createdAt: 0,
+    };
+    const subclass = {
+      kind: 'subclass',
+      id: 'subclass',
+      className: 'Wizard',
+      subclass: { name: 'Subclass', source: 'HB', features: [] },
+      createdAt: 0,
+    };
+    const circular: Record<string, unknown> = { ...manual };
+    circular.extra = circular;
+    const invalid = [
+      null,
+      {},
+      { ...manual, id: '' },
+      { ...manual, category: 'unknown' },
+      { ...manual, name: ' ' },
+      { ...manual, subtitle: 1 },
+      { ...manual, body: 1 },
+      { ...manual, createdAt: 'now' },
+      { ...manual, image: 1 },
+      { ...manual, translations: [] },
+      { ...manual, translations: { xx: {} } },
+      { ...manual, translations: { pl: { name: 1, subtitle: '', body: '' } } },
+      circular,
+      {
+        ...manual,
+        body: 'a'.repeat(250_000),
+        translations: {
+          en: { name: 'a', subtitle: '', body: 'a'.repeat(250_000) },
+          pl: { name: 'a', subtitle: '', body: 'a'.repeat(250_000) },
+        },
+      },
+      { ...imported, id: '' },
+      { ...imported, category: 'unknown' },
+      { ...imported, name: '' },
+      { ...imported, baseLocale: 'xx' },
+      { ...imported, createdAt: 'now' },
+      { ...imported, data: { id: '', name: 'Data' } },
+      { ...imported, ua: 'yes' },
+      { ...imported, translations: { xx: imported.data } },
+      { ...subclass, id: '' },
+      { ...subclass, className: '' },
+      { ...subclass, subclass: { ...subclass.subclass, name: '' } },
+      { ...subclass, subclass: { ...subclass.subclass, source: '' } },
+      { ...subclass, subclass: { ...subclass.subclass, features: {} } },
+      { ...subclass, createdAt: 'now' },
+    ];
+
+    expect(
+      useHomebrewStore.getState().importOwn(invalid as unknown as HomebrewEntry[]),
+    ).toBe(0);
+    expect(useHomebrewStore.getState().entries).toEqual([]);
+  });
 });

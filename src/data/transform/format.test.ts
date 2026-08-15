@@ -14,7 +14,9 @@ describe('data formatters', () => {
     expect(format.formatItemType('HA', 'rare', 'pl')).toBe('Ciężki pancerz');
     expect(format.formatRarity('very rare', 'pl')).toBe('Bardzo rzadki');
     expect(format.formatWeaponDamage('1d8', 'S', 'pl')).toBe('1d8 sieczne');
+    expect(format.formatWeaponDamage('1d8', 'O', 'pl')).toBe('1d8 moc');
     expect(format.formatMonsterType('dragon', 'pl')).toBe('Smok');
+    expect(format.formatMonsterType('humanoid', 'pl')).toBe('Humanoidalny');
     expect(format.formatAlignment(['C', 'E'], 'pl')).toBe('Chaotyczny Zły');
     expect(format.formatMonsterCrDisplay({ cr: '5', xp: 1800 }, 'pl')).toBe(
       '5 (PD 1800; Premia biegłości +3)',
@@ -118,7 +120,7 @@ describe('data formatters', () => {
       },
       'pl',
     );
-    expect(polishSpeed).toContain('1 stóp (walk or fly)');
+    expect(polishSpeed).toContain('1 stóp (chód lub lot)');
     expect(polishSpeed).toContain('30 stóp');
     expect(polishSpeed).toContain('pływanie 40 stóp tylko w wodzie');
     expect(polishSpeed).toContain('custom 20 stóp');
@@ -240,6 +242,13 @@ describe('data formatters', () => {
     expect(format.formatLanguages(['Common', 'Elvish'])).toBe('Common, Elvish');
     expect(format.formatLanguageType('standard')).toBe('Standard');
     expect(format.formatStringList(['fire damage', 'cold'])).toBe('Fire Damage, Cold');
+    expect(format.formatLanguageScript('Elvish', 'pl')).toBe('Elficki');
+    expect(format.formatLanguageType('standard', 'pl')).toBe('Standardowy');
+    expect(format.formatStringList(['Urban', 'Underdark'], 'pl', 'habitat')).toBe(
+      'Miejski, Podmrok',
+    );
+    expect(format.formatDomains(['Life', 'Trickery'], 'pl')).toBe('Życie, Oszustwo');
+    expect(format.formatServes({ exact: 4, note: 'people' }, 'pl')).toBe('4 osób');
     expect(format.formatDiet(['C', 'X'])).toBe('Contains meat, Vegan');
     expect(format.formatServes({ min: 2, max: 4, note: 'people' })).toBe('2-4 people');
     expect(format.formatServes({ exact: 1 })).toBe('1');
@@ -251,6 +260,9 @@ describe('data formatters', () => {
     ).toBe('Level 5+, Guild, Approval');
     expect(format.formatObjectType('SW')).toBe('Siege Weapon');
     expect(format.formatImmunities(['fire', {}, 'cold'])).toBe('fire, cold');
+    expect(format.formatImmunities(['fire', 'force', 'lightning'], 'pl')).toBe(
+      'ogień, moc, piorun',
+    );
     expect(format.formatVehicleType('INFWAR')).toBe('Infernal War Machine');
     expect(format.formatVehicleType('sea_skiff')).toBe('Sea Skiff');
     expect(format.formatDimensions(['10 ft.', '20 ft.'])).toContain('10 ft.');
@@ -486,6 +498,12 @@ describe('data formatters', () => {
       format.formatMonsterType({ type: { choose: ['custom'] }, tags: [{}] }, 'pl'),
     ).toBe('Custom');
     expect(
+      format.formatMonsterType(
+        { type: { choose: ['fiend'] }, tags: ['demon', 'shapechanger'] },
+        'pl',
+      ),
+    ).toBe('Czart (demon, zmiennokształtny)');
+    expect(
       format.formatAlignment(['C', 'custom', { alignment: ['N', 'custom'] }], 'pl'),
     ).toContain('Chaotyczny');
     expect(format.formatKeyedBonuses({ str: '+2', luck: '+1' }, true, 'pl')).toContain(
@@ -504,6 +522,9 @@ describe('data formatters', () => {
         'pl',
       ),
     ).toContain('special');
+    expect(
+      format.formatDamageTypes(['acid', 'cold', 'force', 'lightning', 'thunder'], 'pl'),
+    ).toBe('kwas; zimno; moc; piorun; gromu');
     expect(
       format.formatConditionList(
         [

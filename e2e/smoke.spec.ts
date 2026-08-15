@@ -145,7 +145,7 @@ test('weapon details include mastery and property rules in Polish', async ({ pag
 
   const article = page.locator('article');
   await expect(
-    article.getByText('Mistrzostwo broni: Musnięcie', { exact: true }),
+    article.getByRole('heading', { name: 'Mistrzostwo broni: Musnięcie', exact: true }),
   ).toBeVisible();
   await expect(article.getByText('Ciężka', { exact: true })).toBeVisible();
   await expect(article.getByText('Dwuręczna', { exact: true })).toBeVisible();

@@ -351,28 +351,35 @@ export const categories: CompendiumCategory[] = [
     id: 'deities',
     label: 'Deities',
     load: loader<DeityEntry>('deities'),
-    subtitle: (item, t) => (item as DeityEntry).pantheon || t('compendium.detail.deity'),
+    subtitle: (item, t, locale = 'en') =>
+      localizeCompendiumValue((item as DeityEntry).pantheon, locale, 'pantheon') ??
+      t('compendium.detail.deity'),
     renderDetail: (item) => <DeityDetail deity={item as DeityEntry} />,
   },
   {
     id: 'hazards',
     label: 'Hazards',
     load: loader<HazardEntry>('hazards'),
-    subtitle: (item) => (item as HazardEntry).hazardType,
+    subtitle: (item, _, locale = 'en') =>
+      localizeCompendiumValue((item as HazardEntry).hazardType, locale, 'hazardType') ??
+      '',
     renderDetail: (item) => <HazardDetail hazard={item as HazardEntry} />,
   },
   {
     id: 'boons',
     label: 'Boons',
     load: loader<BoonEntry>('boons'),
-    subtitle: (item) => (item as BoonEntry).boonType,
+    subtitle: (item, _, locale = 'en') =>
+      localizeCompendiumValue((item as BoonEntry).boonType, locale, 'boonType') ?? '',
     renderDetail: (item) => <BoonDetail boon={item as BoonEntry} />,
   },
   {
     id: 'skills',
     label: 'Skills',
     load: loader<SkillEntry>('skills'),
-    subtitle: (item, t) => (item as SkillEntry).ability || t('compendium.detail.skill'),
+    subtitle: (item, t, locale = 'en') =>
+      localizeCompendiumValue((item as SkillEntry).ability, locale, 'ability') ??
+      t('compendium.detail.skill'),
     renderDetail: (item) => <SkillDetail skill={item as SkillEntry} />,
   },
   {
@@ -398,9 +405,14 @@ export const categories: CompendiumCategory[] = [
     id: 'cultsboons',
     label: 'Cults & Boons',
     load: loader<CultBoonEntry>('cultsboons'),
-    subtitle: (item) => {
+    subtitle: (item, _, locale = 'en') => {
       const cb = item as CultBoonEntry;
-      return [cb.category, cb.kind].filter(Boolean).join(' ');
+      return [
+        localizeCompendiumValue(cb.category, locale, 'cultBoonCategory'),
+        localizeCompendiumValue(cb.kind, locale, 'cultBoonKind'),
+      ]
+        .filter(Boolean)
+        .join(' ');
     },
     renderDetail: (item) => <CultBoonDetail cultBoon={item as CultBoonEntry} />,
   },
@@ -408,10 +420,10 @@ export const categories: CompendiumCategory[] = [
     id: 'facilities',
     label: 'Bastions',
     load: loader<FacilityEntry>('facilities'),
-    subtitle: (item, t) => {
+    subtitle: (item, t, locale = 'en') => {
       const f = item as FacilityEntry;
       return [
-        f.facilityType,
+        localizeCompendiumValue(f.facilityType, locale, 'facilityType'),
         f.level && t('compendium.detail.levelValue', { level: f.level }),
       ]
         .filter(Boolean)
@@ -423,7 +435,9 @@ export const categories: CompendiumCategory[] = [
     id: 'recipes',
     label: 'Recipes',
     load: loader<RecipeEntry>('recipes'),
-    subtitle: (item) => (item as RecipeEntry).recipeType,
+    subtitle: (item, _, locale = 'en') =>
+      localizeCompendiumValue((item as RecipeEntry).recipeType, locale, 'recipeType') ??
+      '',
     renderDetail: (item) => <RecipeDetail recipe={item as RecipeEntry} />,
   },
   {
@@ -432,7 +446,10 @@ export const categories: CompendiumCategory[] = [
     load: loader<ObjectEntry>('objects'),
     subtitle: (item, _, locale = 'en') => {
       const o = item as ObjectEntry;
-      return [localizeCompendiumValue(o.size, locale, 'objectSize'), o.objectType]
+      return [
+        localizeCompendiumValue(o.size, locale, 'objectSize'),
+        localizeCompendiumValue(o.objectType, locale, 'objectType'),
+      ]
         .filter(Boolean)
         .join(' ');
     },
@@ -464,7 +481,12 @@ export const categories: CompendiumCategory[] = [
     id: 'charoptions',
     label: 'Character Options',
     load: loader<CharOptionEntry>('charoptions'),
-    subtitle: (item) => (item as CharOptionEntry).optionType,
+    subtitle: (item, _, locale = 'en') =>
+      localizeCompendiumValue(
+        (item as CharOptionEntry).optionType,
+        locale,
+        'optionType',
+      ) ?? '',
     renderDetail: (item) => <CharOptionDetail option={item as CharOptionEntry} />,
   },
   {
@@ -694,19 +716,32 @@ const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
       (value, locale) =>
         localizeCompendiumValue(value, locale ?? 'en', 'objectSize') ?? value,
     ),
-    field<MonsterEntry>('alignment', filterLabel('alignment'), (i) => i.alignment),
+    field<MonsterEntry>(
+      'alignment',
+      filterLabel('alignment'),
+      (i) => i.alignment,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'alignment') ?? value,
+    ),
 
     splitField<MonsterEntry>(
       'resistances',
       filterLabel('resistances'),
       (i) => i.resistances,
       ';',
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'damageType') ?? value,
     ),
     splitField<MonsterEntry>(
       'immunities',
       filterLabel('immunities'),
       (i) => i.immunities,
       ';',
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'damageType') ?? value,
     ),
     splitField<MonsterEntry>(
       'conditionImmunities',
@@ -748,10 +783,46 @@ const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
         localizeCompendiumValue(value, locale ?? 'en', 'ruleType') ?? value,
     ),
   ],
-  deities: [field<DeityEntry>('pantheon', filterLabel('pantheon'), (i) => i.pantheon)],
-  hazards: [field<HazardEntry>('hazardType', filterLabel('type'), (i) => i.hazardType)],
-  boons: [field<BoonEntry>('boonType', filterLabel('type'), (i) => i.boonType)],
-  skills: [field<SkillEntry>('ability', filterLabel('ability'), (i) => i.ability)],
+  deities: [
+    field<DeityEntry>(
+      'pantheon',
+      filterLabel('pantheon'),
+      (i) => i.pantheon,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'pantheon') ?? value,
+    ),
+  ],
+  hazards: [
+    field<HazardEntry>(
+      'hazardType',
+      filterLabel('type'),
+      (i) => i.hazardType,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'hazardType') ?? value,
+    ),
+  ],
+  boons: [
+    field<BoonEntry>(
+      'boonType',
+      filterLabel('type'),
+      (i) => i.boonType,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'boonType') ?? value,
+    ),
+  ],
+  skills: [
+    field<SkillEntry>(
+      'ability',
+      filterLabel('ability'),
+      (i) => i.ability,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'ability') ?? value,
+    ),
+  ],
   languages: [
     field<LanguageEntry>(
       'languageType',
@@ -763,26 +834,79 @@ const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
     ),
   ],
   cultsboons: [
-    field<CultBoonEntry>('kind', filterLabel('kind'), (i) => i.kind),
-    field<CultBoonEntry>('category', filterLabel('category'), (i) => i.category),
+    field<CultBoonEntry>(
+      'kind',
+      filterLabel('kind'),
+      (i) => i.kind,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'cultBoonKind') ?? value,
+    ),
+    field<CultBoonEntry>(
+      'category',
+      filterLabel('category'),
+      (i) => i.category,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'cultBoonCategory') ?? value,
+    ),
   ],
   facilities: [
-    field<FacilityEntry>('facilityType', filterLabel('type'), (i) => i.facilityType),
+    field<FacilityEntry>(
+      'facilityType',
+      filterLabel('type'),
+      (i) => i.facilityType,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'facilityType') ?? value,
+    ),
   ],
-  recipes: [field<RecipeEntry>('recipeType', filterLabel('type'), (i) => i.recipeType)],
-  objects: [field<ObjectEntry>('objectType', filterLabel('type'), (i) => i.objectType)],
+  recipes: [
+    field<RecipeEntry>(
+      'recipeType',
+      filterLabel('type'),
+      (i) => i.recipeType,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'recipeType') ?? value,
+    ),
+  ],
+  objects: [
+    field<ObjectEntry>(
+      'objectType',
+      filterLabel('type'),
+      (i) => i.objectType,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'objectType') ?? value,
+    ),
+  ],
   vehicles: [
-    field<VehicleEntry>('vehicleType', filterLabel('type'), (i) => i.vehicleType),
+    field<VehicleEntry>(
+      'vehicleType',
+      filterLabel('type'),
+      (i) => i.vehicleType,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'vehicleType') ?? value,
+    ),
   ],
   charoptions: [
-    field<CharOptionEntry>('optionType', filterLabel('type'), (i) => i.optionType),
+    field<CharOptionEntry>(
+      'optionType',
+      filterLabel('type'),
+      (i) => i.optionType,
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'optionType') ?? value,
+    ),
   ],
 };
 
 for (const category of categories) {
   category.filters = [
     ...(FILTERS_BY_ID[category.id] ??
-      (category.id === 'firearms' ? (FILTERS_BY_ID.items ?? []) : [])),
+      (category.id === 'firearms' ? FILTERS_BY_ID.items! : [])),
     sourceFilter,
   ];
 }

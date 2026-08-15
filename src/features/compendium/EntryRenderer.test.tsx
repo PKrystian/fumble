@@ -90,6 +90,23 @@ describe('entry renderer', () => {
     expect(view.container).toHaveTextContent('Fallback entry');
   });
 
+  it('localizes statblock names without changing their source slug', () => {
+    const view = render(
+      <MemoryRouter initialEntries={['/pl/']}>
+        <EntryRenderer
+          entries={
+            [{ type: 'statblock', tag: 'unknown', name: 'Adult Black Dragon' }] as Entry[]
+          }
+        />
+      </MemoryRouter>,
+    );
+    expect(view.container).toHaveTextContent('Dorosły Czarny Smok');
+    expect(view.container.querySelector('[data-entry-name]')).toHaveAttribute(
+      'data-entry-name',
+      'adult-black-dragon',
+    );
+  });
+
   it('renders images, galleries and opens the lightbox', () => {
     const view = show([
       {

@@ -611,11 +611,11 @@ describe('Fumble homebrew catalog', () => {
       subtitle: 'Construct, Medium',
     });
     expect(polish.find((item) => item.id === 'wooden-warforged')).toMatchObject({
-      subtitle: 'Humanoid, średni',
+      subtitle: 'Humanoidalny, średni',
     });
     expect(
       JSON.stringify(polish.find((item) => item.id === 'wooden-warforged')),
-    ).toContain('Jesteś Humanoidem.');
+    ).toContain('Jesteś humanoidalną istotą.');
   });
 
   it('includes the Zerth Warriors 17th-level features in both locales', () => {

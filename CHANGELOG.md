@@ -4,6 +4,58 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.107 - 2026-08-15
+
+- Raised automated branch coverage to 98% with tests for localization, compendium fallbacks, homebrew visibility, search, storage, and backup flows.
+
+## 1.2.106 - 2026-08-15
+
+- Restored optional platform dependency entries required by clean Linux installs.
+
+## 1.2.105 - 2026-08-15
+
+- Updated lucide-react and eight compatible development dependencies from the requested dependency updates.
+- Kept TypeScript 6 because the requested TypeScript 7 update is incompatible with typescript-eslint and the current compiler configuration.
+
+## 1.2.104 - 2026-08-15
+
+- Fixed an ESLint parser stack overflow caused by the Polish markup localization rules.
+
+## 1.2.103 - 2026-08-15
+
+- Continued the Polish translation audit across compendium content, books, homebrew, and soundboard entries.
+- Corrected residual headings, creature and damage labels, recipe units, tools and treasure fields, and book navigation names.
+- Fixed remaining English dice-pattern labels and display-only table references without changing technical link targets.
+
+## 1.2.102 - 2026-08-14
+
+- Completed another Polish translation audit across compendium data, homebrew content, and generated tables.
+- Corrected residual English labels, creature names, species terminology, title fragments, units, and tag display text without changing reference targets.
+
+## 1.2.101 - 2026-08-14
+
+- Audited and corrected Polish UI, compendium metadata, homebrew content, and remaining translation terminology.
+- Standardized creature, damage, item, spell, hazard, vehicle, language, and rules metadata in Polish.
+
+## 1.2.100 - 2026-08-14
+
+- Standardized Polish creature-type and damage-type names across compendium data, tables, books, and adventures.
+- Corrected Force to Moc, Lightning to Piorun, Radiant to Promieniste, Thunder to Gromu, and related damage phrases.
+
+## 1.2.99 - 2026-08-14
+
+- Standardized Polish translations of fiend as czart across compendium data, books, adventures, items, spells, and markup labels.
+
+## 1.2.98 - 2026-08-14
+
+- Corrected Polish creature identities for goblins, hobgoblins, zombies, pixies, and bugbears.
+- Fixed the same mistranslations in Polish books, adventures, and encounter tables.
+
+## 1.2.97 - 2026-08-14
+
+- Filled missing Polish translations in compendium entries, Fumble data, books, and adventures.
+- Added missing hag lair actions, regional effects, language speakers, item lore, and storyline labels.
+
 ## 1.2.96 - 2026-08-11
 
 - Expanded speed formatter coverage for imported 5etools movement data.

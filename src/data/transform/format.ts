@@ -61,16 +61,16 @@ const PL_DAMAGE_TYPES: Record<string, string> = {
   B: 'obuchowe',
   P: 'kłute',
   S: 'sieczne',
-  A: 'kwasowe',
-  C: 'od zimna',
-  F: 'od ognia',
-  O: 'od mocy',
-  L: 'od błyskawic',
+  A: 'kwas',
+  C: 'zimno',
+  F: 'ogień',
+  O: 'moc',
+  L: 'piorun',
   N: 'nekrotyczne',
-  I: 'od trucizny',
+  I: 'trucizna',
   Y: 'psychiczne',
   R: 'promieniste',
-  T: 'od gromu',
+  T: 'gromu',
 };
 
 const PL_MONSTER_TYPES: Record<string, string> = {
@@ -80,14 +80,29 @@ const PL_MONSTER_TYPES: Record<string, string> = {
   construct: 'konstrukt',
   dragon: 'smok',
   elemental: 'żywiołak',
-  fey: 'fey',
-  fiend: 'diabeł',
+  fey: 'fej',
+  fiend: 'czart',
   giant: 'olbrzym',
-  humanoid: 'humanoid',
+  humanoid: 'humanoidalny',
   monstrosity: 'monstrum',
-  ooze: 'szlam',
+  ooze: 'maź',
   plant: 'roślina',
   undead: 'nieumarły',
+};
+
+const PL_CREATURE_TAGS: Record<string, string> = {
+  'any race': 'dowolna rasa',
+  demon: 'demon',
+  devil: 'diabeł',
+  dragonborn: 'smocze dziecię',
+  dwarf: 'krasnolud',
+  elf: 'elf',
+  fey: 'fej',
+  goblinoid: 'goblinoid',
+  gnome: 'gnom',
+  halfling: 'niziołek',
+  human: 'człowiek',
+  shapechanger: 'zmiennokształtny',
 };
 
 interface TimeEntry {
@@ -293,6 +308,7 @@ const PL_SPEED_MODES: Record<string, string> = {
   climb: 'wspinaczka',
   fly: 'lot',
   swim: 'pływanie',
+  walk: 'chód',
 };
 
 export function formatSpeed(speed: Speed, locale: Locale = 'en'): string {
@@ -322,7 +338,9 @@ export function formatSpeed(speed: Speed, locale: Locale = 'en'): string {
       );
       if (!from.length) continue;
       parts.push(
-        `${choose.amount} ${locale === 'pl' ? '\u0073t\u00f3p' : 'ft.'} (${from.join(' or ')}${
+        `${choose.amount} ${locale === 'pl' ? '\u0073t\u00f3p' : 'ft.'} (${from
+          .map((mode) => (locale === 'pl' ? (PL_SPEED_MODES[mode] ?? mode) : mode))
+          .join(locale === 'pl' ? ' lub ' : ' or ')}${
           choose.note ? `; ${choose.note}` : ''
         })`,
       );
@@ -550,8 +568,17 @@ export function formatHazardType(
     : value;
 }
 
-export function formatDomains(domains: string[] | undefined): string {
-  return domains?.length ? domains.join(', ') : '';
+export function formatDomains(
+  domains: string[] | undefined,
+  locale: Locale = 'en',
+): string {
+  return domains?.length
+    ? domains
+        .map((domain) =>
+          locale === 'pl' ? (PL_DOMAINS[domain] ?? titleCase(domain)) : domain,
+        )
+        .join(', ')
+    : '';
 }
 
 export function formatAbilityList(
@@ -682,12 +709,12 @@ const ITEM_TYPES: Record<string, string> = {
 
 const PL_ITEM_TYPES: Record<string, string> = {
   $: 'Skarb',
-  $A: 'Skarb (Dzieło sztuki)',
-  $C: 'Skarb (Monety)',
-  $G: 'Skarb (Kamień szlachetny)',
+  $A: 'Skarb (dzieło sztuki)',
+  $C: 'Skarb (monety)',
+  $G: 'Skarb (klejnot)',
   A: 'Amunicja',
-  AF: 'Amunicja (Broń palna)',
-  AIR: 'Pojazd (Powietrzny)',
+  AF: 'Amunicja (broń palna)',
+  AIR: 'Pojazd (powietrzny)',
   AT: 'Narzędzia rzemieślnicze',
   EXP: 'Materiał wybuchowy',
   FD: 'Jedzenie i picie',
@@ -697,7 +724,7 @@ const PL_ITEM_TYPES: Record<string, string> = {
   HA: 'Ciężki pancerz',
   INS: 'Instrument',
   LA: 'Lekki pancerz',
-  M: 'Broń biała',
+  M: 'Broń do walki wręcz',
   MA: 'Średni pancerz',
   MNT: 'Wierzchowiec',
   OTH: 'Inne',
@@ -707,14 +734,14 @@ const PL_ITEM_TYPES: Record<string, string> = {
   RG: 'Pierścień',
   S: 'Tarcza',
   SC: 'Zwój',
-  SCF: 'Skupienie czarowania',
-  SHP: 'Pojazd (Wodny)',
-  SPC: 'Pojazd (Kosmiczny)',
+  SCF: 'Ognisko rzucania zaklęć',
+  SHP: 'Pojazd (wodny)',
+  SPC: 'Pojazd (kosmiczny)',
   T: 'Narzędzie',
-  TAH: 'Rząd i uprząż',
-  TB: 'Sztaba handlowa',
+  TAH: 'Uprząż i osprzęt',
+  TB: 'Sztabka handlowa',
   TG: 'Towar handlowy',
-  VEH: 'Pojazd (Lądowy)',
+  VEH: 'Pojazd (lądowy)',
   WD: 'Różdżka',
   W: 'Cudowny przedmiot',
 };
@@ -773,16 +800,28 @@ const PL_DAMAGE_WORDS: Record<string, string> = {
   bludgeoning: 'obuchowe',
   piercing: 'kłute',
   slashing: 'sieczne',
-  acid: 'kwasowe',
-  cold: 'od zimna',
-  fire: 'od ognia',
-  force: 'od mocy',
-  lightning: 'od błyskawic',
+  acid: 'kwas',
+  cold: 'zimno',
+  fire: 'ogień',
+  force: 'moc',
+  lightning: 'piorun',
   necrotic: 'nekrotyczne',
-  poison: 'od trucizny',
+  poison: 'trucizna',
   psychic: 'psychiczne',
   radiant: 'promieniste',
-  thunder: 'od gromu',
+  thunder: 'gromu',
+  siła: 'moc',
+  siłowe: 'moc',
+  błyskawica: 'piorun',
+  błyskawice: 'piorun',
+  grom: 'gromu',
+  grzmot: 'gromu',
+  psychiczny: 'psychiczne',
+  psychiczna: 'psychiczne',
+  nekrotyczny: 'nekrotyczne',
+  nekrotyczna: 'nekrotyczne',
+  trujący: 'trucizna',
+  trująca: 'trucizna',
 };
 
 const stripSource = (code: string) => code.split('|')[0]!;
@@ -948,7 +987,11 @@ export function formatMonsterType(
   const tags = (type.tags ?? [])
     .map((t) => (typeof t === 'string' ? t : (t.tag ?? '')))
     .filter(Boolean)
-    .map(titleCase);
+    .map((tag) =>
+      locale === 'pl'
+        ? (PL_CREATURE_TAGS[tag.toLowerCase()] ?? titleCase(tag))
+        : titleCase(tag),
+    );
 
   return tags.length ? `${base} (${tags.join(', ')})` : base;
 }
@@ -1021,7 +1064,17 @@ export function formatSenses(
   passive: number | undefined,
   locale: Locale = 'en',
 ): string {
-  const parts = [...(senses ?? [])];
+  const parts = [...(senses ?? [])].map((sense) =>
+    locale === 'pl'
+      ? sense
+          .replace(/\bdarkvision\b/gi, 'widzenie w ciemności')
+          .replace(/\bblindsight\b/gi, 'ślepowidzenie')
+          .replace(/\btremorsense\b/gi, 'wyczuwanie drgań')
+          .replace(/\btruesight\b/gi, 'prawdziwe widzenie')
+          .replace(/\bfeet?\b/gi, 'stóp')
+          .replace(/\bft\.?\b/gi, 'stóp')
+      : sense,
+  );
   if (passive != null)
     parts.push(
       `${locale === 'pl' ? 'Percepcja pasywna' : 'Passive Perception'} ${passive}`,
@@ -1190,6 +1243,93 @@ const PL_LANGUAGES: Record<string, string> = {
   Undercommon: 'Wspólny Podmroku',
 };
 
+const PL_LANGUAGE_TYPES: Record<string, string> = {
+  exotic: 'Egzotyczny',
+  language: 'Język',
+  rare: 'Rzadki',
+  secret: 'Sekretny',
+  standard: 'Standardowy',
+};
+
+const PL_LANGUAGE_SCRIPTS: Record<string, string> = {
+  Celestial: 'Niebiański',
+  Common: 'Wspólny',
+  Draconic: 'Smoczy',
+  Dwarvish: 'Krasnoludzki',
+  Elvish: 'Elficki',
+  Giant: 'Olbrzymi',
+  Goblin: 'Gobliński',
+  Infernal: 'Piekielny',
+  Ogre: 'Ogrzy',
+  Primordial: 'Pierwotny',
+  none: 'Brak',
+};
+
+const PL_DOMAINS: Record<string, string> = {
+  Arcana: 'Arkana',
+  Death: 'Śmierć',
+  Forge: 'Kuźnia',
+  Grave: 'Grobowiec',
+  Knowledge: 'Wiedza',
+  Life: 'Życie',
+  Light: 'Światło',
+  Nature: 'Natura',
+  Order: 'Porządek',
+  Peace: 'Pokój',
+  Tempest: 'Burza',
+  Trickery: 'Oszustwo',
+  Twilight: 'Zmierzch',
+  War: 'Wojna',
+  Unknown: 'Nieznana',
+};
+
+const PL_STRING_LISTS: Record<string, Record<string, string>> = {
+  habitat: {
+    abyss: 'Otchłań',
+    air: 'Powietrze',
+    arctic: 'Arktyka',
+    coastal: 'Wybrzeże',
+    desert: 'Pustynia',
+    elemental: 'Plany Żywiołów',
+    forest: 'Las',
+    feywild: 'Kraina Feerii',
+    grassland: 'Równiny',
+    hill: 'Wzgórza',
+    limbo: 'Limbo',
+    lower: 'Niższe Plany',
+    mountain: 'Góry',
+    'nine hells': 'Dziewięć Piekieł',
+    planar: 'Planarne',
+    shadowfell: 'Kraina Cieni',
+    swamp: 'Bagna',
+    underdark: 'Podmrok',
+    underwater: 'Podwodne',
+    urban: 'Miejski',
+    upper: 'Wyższe Plany',
+  },
+  space: { cramped: 'Zatłoczona', roomy: 'Przestronna', vast: 'Ogromna' },
+  orders: {
+    empower: 'Wzmacnianie',
+    craft: 'Wytwarzanie',
+    research: 'Badania',
+    recruit: 'Rekrutacja',
+    trade: 'Handel',
+    harvest: 'Zbiory',
+  },
+  terrain: { air: 'Powietrze', land: 'Ląd', sea: 'Morze', space: 'Kosmos' },
+  treasure: {
+    any: 'Dowolny',
+    arcana: 'Arkana',
+    armaments: 'Uzbrojenie',
+    implements: 'Narzędzia',
+    individual: 'Indywidualny',
+    relics: 'Relikty',
+    goods: 'Dobra',
+    tools: 'Narzędzia',
+    none: 'Brak',
+  },
+};
+
 export function formatLanguages(
   languages: string[] | undefined,
   locale: Locale = 'en',
@@ -1203,15 +1343,42 @@ export function formatLanguages(
     : '';
 }
 
+export function formatLanguageScript(
+  script: string | undefined,
+  locale: Locale = 'en',
+): string {
+  if (!script) return '';
+  return locale === 'pl' ? (PL_LANGUAGE_SCRIPTS[script] ?? titleCase(script)) : script;
+}
+
 export function formatLanguageType(
   type: string | undefined,
   locale: Locale = 'en',
 ): string {
-  return type ? titleCase(type) : locale === 'pl' ? 'Język' : 'Language';
+  return type
+    ? locale === 'pl'
+      ? (PL_LANGUAGE_TYPES[type.toLowerCase()] ?? titleCase(type))
+      : titleCase(type)
+    : locale === 'pl'
+      ? 'Język'
+      : 'Language';
 }
 
-export function formatStringList(list: string[] | undefined): string {
-  return list?.length ? list.map(titleCase).join(', ') : '';
+export function formatStringList(
+  list: string[] | undefined,
+  locale: Locale = 'en',
+  kind?: keyof typeof PL_STRING_LISTS,
+): string {
+  if (!list?.length) return '';
+  const values = PL_STRING_LISTS[kind ?? ''] ?? {};
+  return list
+    .flatMap((value) => value.split(/,\s*/u))
+    .map((value) =>
+      locale === 'pl'
+        ? (values[value.toLowerCase()] ?? titleCase(value))
+        : titleCase(value),
+    )
+    .join(', ');
 }
 
 const RECIPE_DIETS: Record<string, string> = {
@@ -1239,13 +1406,22 @@ export function formatDiet(
 
 export function formatServes(
   serves: { exact?: number; min?: number; max?: number; note?: string } | undefined,
+  locale: Locale = 'en',
 ): string {
   if (!serves) return '';
   let count = '';
   if (serves.exact != null) count = `${serves.exact}`;
   else if (serves.min != null && serves.max != null)
     count = `${serves.min}-${serves.max}`;
-  return [count, serves.note].filter(Boolean).join(' ');
+  const note =
+    locale === 'pl'
+      ? serves.note
+          ?.replace(/\bas an appetizer\b/gi, 'jako przystawka')
+          .replace(/\bas a snack\b/gi, 'jako przekąska')
+          .replace(/\bpeople\b/gi, 'osób')
+          .replace(/\bcreatures\b/gi, 'stworzeń')
+      : serves.note;
+  return [count, note].filter(Boolean).join(' ');
 }
 
 const FACILITY_TYPES: Record<string, string> = {
@@ -1311,10 +1487,13 @@ export function formatObjectType(
       : 'Object';
 }
 
-export function formatImmunities(immune: unknown[] | undefined): string {
+export function formatImmunities(
+  immune: unknown[] | undefined,
+  locale: Locale = 'en',
+): string {
   if (!immune?.length) return '';
   return immune
-    .map((entry) => (typeof entry === 'string' ? entry : ''))
+    .map((entry) => (typeof entry === 'string' ? localizeDamageType(entry, locale) : ''))
     .filter(Boolean)
     .join(', ');
 }

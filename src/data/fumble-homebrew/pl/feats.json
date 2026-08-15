@@ -84,7 +84,9 @@
       {
         "type": "entries",
         "name": "Słaby",
-        "entries": ["Trwale tracisz 3 {@variantrule Hit Points|XPHB} za każdy poziom."]
+        "entries": [
+          "Trwale tracisz 3 {@variantrule Hit Points|XPHB} za każdy poziom."
+        ]
       }
     ]
   },
@@ -168,12 +170,12 @@
     ]
   },
   "starting-flaw-curse-of-fey": {
-    "name": "Klątwa Fey",
+    "name": "Klątwa Feja",
     "subtitle": "Atut ogólny",
     "entries": [
       {
         "type": "entries",
-        "name": "Klątwa Fey",
+        "name": "Klątwa Feja",
         "entries": [
           "Możesz wybrać atut {@feat Fey Touched|TCE} lub {@feat Shadow Touched|TCE}. Wybierz z Mistrzem Gry tabu, czyli rzecz, której twoja postać nie może zrobić, bez względu na to, jak bardzo chce. Przykłady to Tabu przejścia, które uniemożliwia korzystanie z teleportacji i dróg oraz wejście do miejsca wpływu bez zaproszenia jego opiekuna, a także Tabu słońca, które uniemożliwia odzyskiwanie Punktów Wytrzymałości w bezpośrednim świetle słońca i sprawia, że pojawiasz się w swojej prawdziwej formie."
         ]
@@ -215,8 +217,8 @@
         "name": "Kielich",
         "entries": [
           "Atut Pochodzenia. Nie możesz być Spirytem. Z pomocą Mistrza Gry wybierz spiryta, który może przejąć twoje ciało, na przykład Piekielnego ogara, Dybbuka, Quasita, Driadę, Meenlocka, Najadę, Pegaza, Couatla, Żywy Znak, dorosłego smoka wróżkowego albo młodego smoka. Współdzielicie ciało, a spiryt może się z tobą komunikować, ale nie widzi i nie słyszy niczego poza tym, co dociera do twoich zmysłów.",
-          "Jako darmową akcję, raz na rundę, możesz spróbować przywołać formę spiryta. Wykonaj {@variantrule Save|XPHB} na Kondycję o ST 10 + dwukrotność CR spiryta. Przy sukcesie wykonaj {@variantrule Save|XPHB} na Mądrość o ST 5 + CR spiryta. Przy porażce spiryt kontroluje ciało przez 1k4 godzin. Przy sukcesie zachowujesz kontrolę i możesz zakończyć przemianę jako akcję.",
-          "Po powrocie do swojej formy wykonaj {@variantrule Save|XPHB} na Charyzmę o ST 10 + CR spiryta. Przy porażce trwale zmniejszasz maksymalne PW o 1. Jeśli spiryt spadnie do 0 PW, wraca do krainy spiry­tów, a ty zyskujesz Ogłuszenie do końca swojej następnej tury. nie możesz przemienić się ponownie do następnego Długiego Odpoczynku.",
+          "Jako darmową akcję, raz na rundę, możesz spróbować przywołać formę spiryta. Wykonaj {@variantrule Save|XPHB} na Kondycję o ST 10 + dwukrotność SW spiryta. Przy sukcesie wykonaj {@variantrule Save|XPHB} na Mądrość o ST 5 + SW spiryta. Przy porażce spiryt kontroluje ciało przez 1k4 godzin. Przy sukcesie zachowujesz kontrolę i możesz zakończyć przemianę jako akcję.",
+          "Po powrocie do swojej formy wykonaj {@variantrule Save|XPHB} na Charyzmę o ST 10 + SW spiryta. Przy porażce trwale zmniejszasz maksymalne PW o 1. Jeśli spiryt spadnie do 0 PW, wraca do krainy spiry­tów, a ty zyskujesz Ogłuszenie do końca swojej następnej tury. nie możesz przemienić się ponownie do następnego Długiego Odpoczynku.",
           "Spiryt używa twojej premii biegłości, chyba że jego premia jest wyższa. na 5, 9, 13 i 17 poziomie ustal z Mistrzem Gry zwiększenie jego ST i premii."
         ]
       }
@@ -232,7 +234,7 @@
         "entries": [
           "Wymaganie: Kielich. Zwiększ jedną cechę o 1. Po udanym rzucie obronnym na Mądrość podczas przemiany w spiryta możesz wzmocnić formę. Jeśli nie zdałeś tego rzutu, decyzję podejmuje spiryt.",
           "Jednocześnie z przemianą wzmocniona forma rzuca na siebie {@spell Haste|XPHB|Pośpiech} bez zużywania komórki czaru i utrzymuje na sobie Koncentrację na tym zaklęciu. Zyskuje także tymczasowe PW równe dwukrotności twojego poziomu. Możesz użyć tej cechy tyle razy, ile wynosi twoja premia biegłości na {@variantrule Long Rest|XPHB|Długi Odpoczynek}.",
-          "Po powrocie do swojej formy wykonaj {@variantrule Save|XPHB} na Kondycję o ST 10 + CR spiryta. Przy porażce zyskujesz 1 poziom Wyczerpania."
+          "Po powrocie do swojej formy wykonaj {@variantrule Save|XPHB} na Kondycję o ST 10 + SW spiryta. Przy porażce zyskujesz 1 poziom Wyczerpania."
         ]
       }
     ]
@@ -291,18 +293,18 @@
   },
   "augmented-force": {
     "name": "Zwiększona siła",
-    "subtitle": "Generał wyczyn",
+    "subtitle": "Atut ogólny",
     "category": "feats",
     "prerequisite": "Zdolność do manifestowania co najmniej jednej mocy",
     "entries": [
-      "Kiedy zdobędziesz ten atut, wybierz jeden z następujących rodzajów obrażeń: ogień, siła lub psychiczne. Moce, które manifestujesz, ignorują odporność na obrażenia wybranego typu i zamiast tego traktują odporność na obrażenia tego typu jako odporność.",
+      "Kiedy zdobędziesz ten atut, wybierz jeden z następujących rodzajów obrażeń: ogień, moc lub psychiczne. Moce, które manifestujesz, ignorują odporność na obrażenia wybranego typu i zamiast tego traktują odporność na obrażenia tego typu jako odporność.",
       "Dodatkowo, kiedy rzucasz obrażeniami dla manifestowanej mocy, która zadaje obrażenia wybranego typu, możesz potraktować dowolną 1 na kości obrażeń jako 2.",
       "Możesz wybrać ten atut wielokrotnie. Za każdym razem, gdy to robisz, musisz wybrać inny rodzaj obrażeń."
     ]
   },
   "battlemind": {
     "name": "Umysł bojowy",
-    "subtitle": "Generał wyczyn",
+    "subtitle": "Atut ogólny",
     "category": "feats",
     "prerequisite": "Zdolność do manifestowania co najmniej jednej mocy",
     "entries": [
@@ -319,7 +321,7 @@
   },
   "better-under-pressure": {
     "name": "Lepiej pod presją",
-    "subtitle": "Generał wyczyn",
+    "subtitle": "Atut ogólny",
     "category": "feats",
     "prerequisite": "Zdolność do manifestowania co najmniej jednej mocy i wzmocnienia napięcia",
     "entries": [
@@ -328,7 +330,7 @@
   },
   "psionic-initiate": {
     "name": "Psioniczny nowicjusz",
-    "subtitle": "Generał wyczyn",
+    "subtitle": "Atut ogólny",
     "category": "feats",
     "prerequisite": "",
     "entries": [
@@ -337,7 +339,7 @@
         "type": "list",
         "items": [
           "Uczysz się dwóch wybranych {@filter 1st-order powers|psionics|order=1st-order|source=talpsi==extend}.",
-          "Uczysz się jednego wybranego {@filter 2nd-order power|psionics|order=2nd-order|source=talpsi==extend} i możesz go zamanifestować w najniższej kolejności bez konieczności wykonywania testu manifestacji. Gdy zamanifestujesz tę moc za pomocą tego atutu, nie możesz tego zrobić ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+          "Uczysz się jednego wybranego {@filter 2nd-order power|psionics|order=2nd-order|source=talpsi==extend} i możesz go zamanifestować w najniższym kręgu bez konieczności wykonywania testu manifestacji. Gdy zamanifestujesz tę moc za pomocą tego atutu, nie możesz tego zrobić ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
         ]
       },
       "Twoją zdolnością manifestowania tych mocy jest Inteligencja, Mądrość lub Charyzma (twój wybór)."
@@ -345,7 +347,7 @@
   },
   "psionic-trick": {
     "name": "Psioniczna sztuczka",
-    "subtitle": "Generał wyczyn",
+    "subtitle": "Atut ogólny",
     "category": "feats",
     "prerequisite": "",
     "entries": [

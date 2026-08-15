@@ -22,7 +22,10 @@ describe('FumbleHomebrewPage', () => {
     );
 
     expect(
-      screen.getByRole('heading', { name: 'Biblioteka homebrew Fumble', level: 1 }),
+      screen.getByRole('heading', {
+        name: 'Biblioteka własnej zawartości Fumble',
+        level: 1,
+      }),
     ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /^WiedźmaWitch/ })).toHaveAttribute(
       'href',

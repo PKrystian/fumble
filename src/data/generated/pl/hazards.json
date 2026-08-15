@@ -6,7 +6,7 @@
       "Jedna plama wypływu arkanicznego zajmuje kwadrat o boku 5 stóp, a stwory w promieniu 30 stóp od niej mogą wyczuć jej gryzący, nienaturalny odór. Stwór, który zetknie się z wypływem arkanicznym, otrzymuje 3 ({@dice 1d6}) obrażeń Kwasem. Stwór otrzymuje te obrażenia ponownie na początku każdej swojej tury, dopóki wypływ nie zostanie zeskrobany (co wymaga akcji) lub zniszczony.",
       "Zaklęcie {@spell Dispel Magic|XPHB} lub podobny efekt niszczy wypływ arkaniczny."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "avalanche": {
     "name": "Lawina",
@@ -16,7 +16,7 @@
       "Kiedy lawina ustanie, śnieg i inne śmieci osiadają i grzebią stworzenia.Istota pochowana w ten sposób to {@condition blinded} i {@condition restrained} oraz posiada {@quickref Cover||3||total cover}.Stworzenie zyskuje 1 poziom {@condition exhaustion} za każde 5 minut spędzonych w zakopaniu.Może spróbować wydostać się na wolność w ramach akcji, wynurzając się na powierzchnię i kończąc ciążące na sobie warunki {@condition blinded} i {@condition restrained} udanym testem Siły {@dc 15} ({@skill Athletics}).Stworzenie, któremu trzykrotnie nie powiedzie się ten test, nie może ponownie próbować się wykopać.",
       "Stworzenie inne niż {@condition restrained} lub {@condition incapacitated} może spędzić 1 minutę na uwalnianiu zakopanego stworzenia.Po uwolnieniu ta istota nie jest już {@condition blinded} ani {@condition restrained} przez lawinę."
     ],
-    "hazardType": "Zagrożenie dzikiej przyrody"
+    "hazardType": "Zagrożenie dziczy"
   },
   "balance-and-ruin": {
     "name": "Równowaga i Zguba",
@@ -57,7 +57,7 @@
         ]
       }
     ],
-    "hazardType": "Mechaniczna pułapka"
+    "hazardType": "Pułapka mechaniczna"
   },
   "bear-trap": {
     "name": "Wnyki na Niedźwiedzia",
@@ -72,7 +72,7 @@
       "Żółciowy porost to toksyczna, zielono-żółta substancja przypominająca wymiociny. Rozwija się tam, gdzie mieszają się skrajne upały i mrozy, na przykład przy otworach kominów parowych w Dolina Lodowego Wichru w Podmroku. Jedna plama żółciowego porostu zajmuje kwadrat o boku 5 stóp.",
       "Jeśli plama żółciowego porostu zostanie dotknięta, uwalnia chmurę zarodników, która wypełnia dziesięciostopowy {@variantrule Cube [Area of Effect]|XPHB|Sześcian} i rozprasza się po {@dice 1d4} godzinach. Gdy stwór wchodzi do tej chmury po raz pierwszy w danej turze lub zaczyna w niej swoją turę, wykonuje rzut obronny Kondycji ({@dc 14}), otrzymując 11 ({@dice 2d10}) obrażeń Trucizną i zarażając się {@disease Lichen Plague|FRAiF} przy nieudanym rzucie (patrz „{@book Magical Contagions|FRAiF|3|Magiczne Zarazy}” dalej w tym rozdziale). Przy udanym rzucie stwór otrzymuje jedynie połowę tych obrażeń."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "brown-mold": {
     "name": "Brązowa Pleśń",
@@ -81,7 +81,7 @@
       "Gdy stwór wejdzie w przestrzeń w promieniu 5 stóp od pleśni po raz pierwszy w danej turze lub zaczyna w niej swoją turę, wykonuje rzut obronny Kondycji ({@dc 12}), otrzymując 22 ({@damage 4d10}) obrażeń Zimnem przy nieudanym rzucie lub połowę tych obrażeń przy udanym.",
       "Brązowa pleśń ma {@variantrule Immunity|XPHB} na obrażenia Ogniem, a każde źródło ognia przyniesione w promieniu 5 stóp od niej powoduje, że pleśń natychmiast rozprzestrzenia się po powierzchni w kierunku ognia, tworząc nową plamę zajmującą kwadrat o boku 10 stóp. Plama brązowej pleśni wystawiona na działanie efektu zadającego jakiekolwiek obrażenia Zimnem jest natychmiast niszczona."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "brown-mold-dmg": {
     "name": "Brązowa Pleśń",
@@ -90,14 +90,14 @@
       "Gdy stwór przesunie się w promień 5 stóp od pleśni po raz pierwszy w danej turze lub zaczyna w nim swoją turę, musi zdać rzut obronny Kondycji ({@dc 12}), otrzymując 22 ({@damage 4d10}) obrażeń zimnem przy nieudanym rzucie lub połowę tych obrażeń przy udanym.",
       "Brązowa pleśń jest odporna na ogień, a każde źródło ognia przyniesione w promieniu 5 stóp od plamy powoduje, że natychmiast rozrasta się ona w kierunku ognia, obejmując obszar kwadratu o boku 10 stóp (ze źródłem ognia w centrum tego obszaru). Plama brązowej pleśni wystawiona na działanie efektu zadającego obrażenia zimnem zostaje natychmiast zniszczona."
     ],
-    "hazardType": "Niebezpieczeństwo"
+    "hazardType": "Zagrożenie"
   },
   "burning": {
     "name": "Płonięcie",
     "entries": [
       "Płonący stwór lub przedmiot otrzymuje {@damage 1d4} obrażeń Ogniem na początku każdej swojej tury. Jako akcję możesz zgasić ogień na sobie, przyjmując stan {@condition Prone|XPHB} i tocząc się po ziemi. Ogień gaśnie również, gdy zostanie polany wodą, zanurzony lub uduszony."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "calim-sandstorm": {
     "name": "Burza Piaskowa Calim",
@@ -105,7 +105,7 @@
       "Burze piaskowe powstają szybko na pustyni Calim, raniąc ciała tych, którzy zostają w nich uwięzieni. Burza piaskowa Calim ma zwykle co najmniej 300 stóp średnicy i trwa {@b {@dice 1d6}} godzin.",
       "Obszar burzy piaskowej Calim jest {@variantrule Heavily Obscured|XPHB}, a otwarte płomienie w tym obszarze gasną. Stwór wykonuje rzut obronny Kondycji ({@dc 10}) po każdej godzinie spędzonej w obszarze burzy. Przy nieudanym rzucie stwór zyskuje 1 poziom {@condition Exhaustion|XPHB}."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "collapsing-roof": {
     "name": "Zawalający się Sufit",
@@ -168,7 +168,7 @@
       "Sufit nad drutem potykaczem jest w złym stanie, a każdy, kto go widzi, może stwierdzić, że grozi zawaleniem.",
       "Gdy pułapka zostaje uruchomiona, niestabilny sufit zawala się. Każdy stwór w obszarze pod niestabilnym fragmentem musi zdać rzut obronny Zręczności ({@dc 15}), otrzymując 22 ({@damage 4d10}) obrażeń obuchowych przy nieudanym rzucie lub połowę tych obrażeń przy udanym. Po uruchomieniu pułapki podłoga obszaru pokrywa się gruzem i staje się {@quickref difficult terrain||3}."
     ],
-    "hazardType": "Pułapka Mechaniczna"
+    "hazardType": "Pułapka mechaniczna"
   },
   "crossbow-trap": {
     "name": "Pułapka Kusznicza",
@@ -190,14 +190,14 @@
     "entries": [
       "Strefa martwej magii to obszar, w którym tkanka magii jest rozdarta. Efekt jest taki sam jak w przypadku zaklęcia {@spell Antimagic Field|XPHB}, z tą różnicą, że jest on trwały i zwykle obejmuje obszar o średnicy nie większej niż 300 stóp."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "deep-water": {
     "name": "Głęboka Woda",
     "entries": [
       "Pływanie w głębokiej wodzie (ponad 100 stóp głębokości) stwarza dodatkowe trudności ze względu na ciśnienie wody i niską temperaturę. Po każdej godzinie pływania w głębokiej wodzie stwór, który nie ma Prędkości Pływania, musi zdać rzut obronny Kondycji ({@dc 10}) lub zyskać 1 poziom {@condition Exhaustion|XPHB}."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "dehydration": {
     "name": "Odwodnienie",
@@ -242,7 +242,7 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "desecrated-ground": {
     "name": "Zbezczeszczona Ziemia",
@@ -251,14 +251,14 @@
       "Nieumarli stojący na zbezczeszczonej ziemi mają przewagę we wszystkich rzutach obronnych.",
       "Fiolka {@item holy water (flask)|phb|Święconej Wody} oczyszcza obszar zbezczeszczonej ziemi o boku 10 stóp, gdy zostanie na niego pokropiona, a zaklęcie {@spell hallow} oczyszcza zbezczeszczoną ziemię w swoim obszarze."
     ],
-    "hazardType": "Zagrożenie dzikiej przyrody"
+    "hazardType": "Zagrożenie dziczy"
   },
   "extreme-cold": {
     "name": "Skrajny Mróz",
     "entries": [
       "Gdy temperatura wynosi 0 stopni Fahrenheita lub mniej, stwór wystawiony na skrajny mróz musi zdać rzut obronny Kondycji ({@dc 10}) pod koniec każdej godziny lub zyskać 1 poziom {@condition Exhaustion|XPHB}. Stwory posiadające {@variantrule Resistance|XPHB} lub {@variantrule Immunity|XPHB} na obrażenia Zimnem automatycznie zdają ten rzut."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "extreme-cold-dmg": {
     "name": "Skrajny Mróz",
@@ -272,7 +272,7 @@
     "entries": [
       "Gdy temperatura wynosi 100 stopni Fahrenheita lub więcej, stwór wystawiony na skrajny upał i niemający dostępu do wody pitnej musi zdać rzut obronny Kondycji pod koniec każdej godziny lub zyskać 1 poziom {@condition Exhaustion|XPHB}. CT wynosi 5 dla pierwszej godziny i wzrasta o 1 za każdą kolejną godzinę. Stwory noszące Średnią lub Ciężką zbroję mają {@variantrule Disadvantage|XPHB} w tym rzucie. Stwory posiadające {@variantrule Resistance|XPHB} lub {@variantrule Immunity|XPHB} na obrażenia Ogniem automatycznie zdają ten rzut."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "extreme-heat-dmg": {
     "name": "Skrajny Upał",
@@ -295,14 +295,14 @@
       "Stwór, który spada, otrzymuje {@damage 1d6} obrażeń Obuchowych pod koniec upadku za każde 10 stóp, które przeleciał, maksymalnie {@damage 20d6}. Gdy stwór ląduje, uzyskuje stan {@condition Prone|XPHB}, chyba że uniknie otrzymania jakichkolwiek obrażeń z upadku.",
       "Stwór, który wpada do wody lub innej cieczy, może użyć swojej {@variantrule Reaction|XPHB}, by wykonać test Siły ({@skill Athletics|XPHB}) lub Zręczności ({@skill Athletics|XPHB}) ({@dc 15}), by uderzyć w powierzchnię głową lub stopami do przodu. Przy udanym teście wszelkie obrażenia wynikające z upadku zostają zmniejszone o połowę."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "falling-into-water": {
     "name": "Wpadnięcie do Wody",
     "entries": [
       "Stwór, który wpada do wody lub innej cieczy, może użyć swojej reakcji, by wykonać test Siły ({@skill Athletics}) lub Zręczności ({@skill Athletics}) ({@dc 15}), by uderzyć w powierzchnię głową lub stopami do przodu. Przy udanym teście wszelkie obrażenia wynikające z upadku zostają zmniejszone o połowę."
     ],
-    "hazardType": "Zagrożenie dzikiej przyrody"
+    "hazardType": "Zagrożenie dziczy"
   },
   "falling-net": {
     "name": "Opadająca Sieć",
@@ -347,16 +347,16 @@
       "Drut potykacz znajduje się 3 cale nad ziemią i rozciąga się między dwiema kolumnami lub drzewami. Sieć jest ukryta pod pajęczynami lub liśćmi. CT wykrycia drutu potykacza i sieci wynosi 10. Udany test Zręczności ({@dc 15}) z użyciem złodziejskich narzędzi nieszkodliwie zrywa drut potykacz. Postać bez złodziejskich narzędzi może wykonać ten test z utrudnieniem, używając dowolnej broni lub narzędzia z ostrzem. Przy nieudanym teście pułapka zostaje uruchomiona.",
       "Gdy pułapka zostaje uruchomiona, sieć opada, pokrywając obszar o boku 10 stóp. Ci, którzy znajdą się w tym obszarze, zostają uwięzieni pod siecią i {@condition restrained}, a ci, którzy nie zdadzą rzutu obronnego Siły ({@dc 10}), zostają również powaleni na ziemię ({@condition prone}).",
       "Stwór może użyć akcji, by wykonać test Siły ({@dc 10}), uwalniając siebie lub inny stwór w swoim zasięgu przy sukcesie. Sieć ma KP 10 i 20 punktów wytrzymałości.",
-      "Zadanie sieci 5 obrażeń tnących (KP 10) niszczy jej pięciostopowy fragment, uwalniając każdego stwora w nim uwięzionego."
+      "Zadanie sieci 5 obrażeń siecznych (KP 10) niszczy jej pięciostopowy fragment, uwalniając każdego stwora w nim uwięzionego."
     ],
-    "hazardType": "Pułapka Mechaniczna"
+    "hazardType": "Pułapka mechaniczna"
   },
   "falling-onto-a-creature": {
     "name": "Upadek na Stwora",
     "entries": [
       "Jeśli stworzenie wpadnie na przestrzeń drugiego stworzenia, a żadne z nich nie jest Malutkie, drugie stworzenie musi wykonać udany rzut obronny na Zręczność {@dc 15}, w przeciwnym razie zostanie uderzone przez spadające stworzenie, a wszelkie obrażenia powstałe w wyniku upadku zostaną równo podzielone pomiędzy nie.Uderzona istota również zostaje powalona na {@condition prone}, chyba że jest o dwa lub więcej rozmiarów większa od spadającej istoty."
     ],
-    "hazardType": "Zagrożenie dzikiej przyrody"
+    "hazardType": "Zagrożenie dziczy"
   },
   "falling-portcullis": {
     "name": "Opadająca Krata",
@@ -380,7 +380,7 @@
       "Pułapka aktywuje się, gdy na płytce naciskowej umieszczony zostanie ciężar przekraczający 20 funtów, powodując uwolnienie przez posąg trzydziestostopowego stożka ognia. Każdy stwór w ogniu musi wykonać rzut obronny Zręczności ({@dc 13}), otrzymując 22 ({@damage 4d10}) obrażeń ognia przy nieudanym rzucie lub połowę tych obrażeń przy udanym.",
       "Zaklinowanie żelaznego kolca lub innego przedmiotu pod płytką naciskową uniemożliwia aktywację pułapki. Udane rzucenie zaklęcia {@spell dispel magic} ({@dc 13}) na posąg niszczy pułapkę."
     ],
-    "hazardType": "Magiczna pułapka"
+    "hazardType": "Pułapka magiczna"
   },
   "fire-casting-statue": {
     "name": "Rzucający Ogniem Posąg",
@@ -447,7 +447,7 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "flame-storm": {
     "name": "Ognista Burza",
@@ -455,39 +455,39 @@
       "Zakopcone chmury burzowe przeszyte czerwonymi i pomarańczowymi błyskawicami uwalniają potok ognistych kropli. Każdy stwór schwytany w płonącym deszczu otrzymuje {@damage 2d6} obrażeń ognia na początku każdej swojej tury. Krople podpalają wszelkie łatwopalne przedmioty, które nie są noszone ani trzymane; w przeciwnym razie krople natychmiast gasną. Dym, sadza, trzaskanie i niski ryk burzy nakładają utrudnienie na testy Mądrości ({@skill Perception}) i rzuty na atak dystansowy.",
       "Ognista burza trwa zwykle {@dice 2d4} minuty, choć chmury burzowe, z których się wywodzi, mogą utrzymywać się przez wiele dni, tworząc wiele ognistych burz."
     ],
-    "hazardType": "Niesamowita Burza"
+    "hazardType": "Burza nadnaturalna"
   },
   "flaywind": {
     "name": "Wiatr Obdzierający",
     "entries": [
-      "Nadnaturalnie potężne wiatry - takie jak te z planów takich jak Pandemonium czy Minethys, trzecia warstwa Carceri - mogą powodować powstanie wiatrów obdzierających. Wiatr obdzierający to intensywna burza piaskowa, zbierająca duże kamienie i inne szczątki oprócz piasku i żwiru. Obszar wewnątrz burzy jest silnie przesłonięty, a stwór wystawiony na jej działanie otrzymuje {@damage 1d4} obrażeń tnących na początku każdej swojej tury. Jedynie solidna osłona lub schronienie zapewnia ochronę przed obdzierającym żwirem.",
+      "Nadnaturalnie potężne wiatry - takie jak te z planów takich jak Pandemonium czy Minethys, trzecia warstwa Carceri - mogą powodować powstanie wiatrów obdzierających. Wiatr obdzierający to intensywna burza piaskowa, zbierająca duże kamienie i inne szczątki oprócz piasku i żwiru. Obszar wewnątrz burzy jest silnie przesłonięty, a stwór wystawiony na jej działanie otrzymuje {@damage 1d4} obrażeń siecznych na początku każdej swojej tury. Jedynie solidna osłona lub schronienie zapewnia ochronę przed obdzierającym żwirem.",
       "Wiatr obdzierający pozostawia po sobie {@dice 4d6} stóp piasku lub szczątków. Udany test Inteligencji ({@skill Arcana}) lub ({@skill Arcana}) lub Mądrości ({@skill Nature}) ({@dc 15}) pozwala postaci rozpoznać wiatr obdzierający 1 minutę przed jego uderzeniem, dając czas na znalezienie schronienia. Wiatr obdzierający trwa zwykle {@dice 1d4 × 10} godzin."
     ],
-    "hazardType": "Niesamowita Burza"
+    "hazardType": "Burza nadnaturalna"
   },
   "frigid-water": {
     "name": "Lodowata Woda",
     "entries": [
       "Stwór może być zanurzony w lodowatej wodzie przez liczbę minut równą jego wartości Kondycji, zanim dotkną go jakiekolwiek negatywne efekty. Każda dodatkowa minuta spędzona w lodowatej wodzie wymaga od stwora zdania rzutu obronnego Kondycji ({@dc 10}) lub zyskania 1 poziomu {@condition Exhaustion|XPHB}. Stwory posiadające {@variantrule Resistance|XPHB} lub {@variantrule Immunity|XPHB} na obrażenia Zimnem automatycznie zdają ten rzut, podobnie jak stwory naturalnie przystosowane do życia w lodowatej wodzie."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "frigid-water-dmg": {
     "name": "Lodowata Woda",
     "entries": [
       "Stwór może być zanurzony w lodowatej wodzie przez liczbę minut równą jego wartości Kondycji, zanim dotkną go jakiekolwiek negatywne efekty. Każda dodatkowa minuta spędzona w lodowatej wodzie wymaga od stwora zdania rzutu obronnego Kondycji ({@dc 10}) lub zyskania jednego poziomu {@condition exhaustion}. Stwory odporne lub uodpornione na obrażenia zimnem automatycznie zdają ten rzut, podobnie jak stwory naturalnie przystosowane do życia w lodowatej wodzie."
     ],
-    "hazardType": "Niebezpieczeństwo Dziczy"
+    "hazardType": "Zagrożenie dziczy"
   },
   "glittermoss": {
     "name": "Blaskomech",
     "entries": [
       "Intensywne pola niestabilnej magii mogą wytwarzać skrzący się, wielobarwny mech zwany blaskomchem. Jedna plama blaskomchu zajmuje kwadrat o boku 5 stóp. Blaskomech często można znaleźć w pobliżu {@book communal telepathy zones|NF|2|Strefy Wspólnej Telepatii} (patrz wcześniej w tym rozdziale), choć nie rośnie w bezpośrednim świetle słonecznym.",
-      "Stwór, który zetknie się z blaskomchem, wykonuje rzut obronny Kondycji ({@dc 12}). Przy nieudanym rzucie stwór otrzymuje 11 ({@dice 2d10}) obrażeń Blaskiem i uzyskuje stan {@condition Blinded|XPHB}. Będąc Oślepiony w ten sposób, stwór jest oświetlany przez skrzące się zarodniki i rzuca {@variantrule Bright Light|XPHB} w promieniu 10 stóp oraz {@variantrule Dim Light|XPHB} w dodatkowym promieniu 10 stóp. Stwór powtarza rzut obronny pod koniec każdej swojej tury, kończąc na sobie efekt przy sukcesie.",
-      "Zarodniki blaskomchu mogą przeskakiwać na pobliskie stwory. Podczas gdy dotknięty stwór jest Oślepiony przez blaskomech, każdy stwór, który zaczyna swoją turę w Jasnym Świetle rzucanym przez dotkniętego stwora, wykonuje rzut obronny Kondycji ({@dc 12}), otrzymując 11 ({@dice 2d10}) obrażeń Blaskiem przy nieudanym rzucie lub połowę tych obrażeń przy udanym.",
+      "Stwór, który zetknie się z blaskomchem, wykonuje rzut obronny Kondycji ({@dc 12}). Przy nieudanym rzucie stwór otrzymuje 11 ({@dice 2d10}) obrażeń promienistych i uzyskuje stan {@condition Blinded|XPHB}. Będąc Oślepiony w ten sposób, stwór jest oświetlany przez skrzące się zarodniki i rzuca {@variantrule Bright Light|XPHB} w promieniu 10 stóp oraz {@variantrule Dim Light|XPHB} w dodatkowym promieniu 10 stóp. Stwór powtarza rzut obronny pod koniec każdej swojej tury, kończąc na sobie efekt przy sukcesie.",
+      "Zarodniki blaskomchu mogą przeskakiwać na pobliskie stwory. Podczas gdy dotknięty stwór jest Oślepiony przez blaskomech, każdy stwór, który zaczyna swoją turę w Jasnym Świetle rzucanym przez dotkniętego stwora, wykonuje rzut obronny Kondycji ({@dc 12}), otrzymując 11 ({@dice 2d10}) obrażeń promienistych przy nieudanym rzucie lub połowę tych obrażeń przy udanym.",
       "Jakakolwiek ilość obrażeń Ogniem lub Nekrotycznych natychmiast niszczy plamę blaskomchu."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "green-slime": {
     "name": "Zielony Śluz",
@@ -497,7 +497,7 @@
       "Stwór, który zetknie się z zielonym śluzem, otrzymuje 5 ({@damage 1d10}) obrażeń Kwasem. Stwór otrzymuje te obrażenia ponownie na początku każdej swojej tury, dopóki śluz nie zostanie zeskrobany (co wymaga akcji) lub zniszczony. Wobec drewna lub metalu zielony śluz zadaje 11 ({@damage 2d10}) obrażeń Kwasem na rundę, a każdy niemagiczny drewniany lub metalowy przedmiot użyty do zeskrobania zielonego śluzu ulega zniszczeniu.",
       "Bezpośrednie światło słoneczne lub jakakolwiek ilość obrażeń Zimnem, Ogniem lub Blaskiem niszczy plamę zielonego śluzu."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "green-slime-dmg": {
     "name": "Zielony Śluz",
@@ -505,23 +505,23 @@
       "Ten kwaśny śluz pożera ciało, materię organiczną i metal przy kontakcie. Jasnozielony, mokry i lepki, przywiera do ścian, podłóg i sufitów w postaci plam.",
       "Plama zielonego szlamu pokrywa obszar o powierzchni 5 stóp, ma zasięg {@sense blindsight} do 30 stóp i spada ze ścian i sufitów, gdy wykryje ruch pod sobą. Poza tym nie ma możliwości poruszania się. Istota świadoma obecności śluzu może uniknąć uderzenia, wykonując udany rzut obronny na Zręczność {@dc 10}. W przeciwnym razie nie da się uniknąć spadającego śluzu.",
       "Stwór, który zetknie się z zielonym śluzem, otrzymuje 5 ({@damage 1d10}) obrażeń kwasem. Stwór otrzymuje te obrażenia ponownie na początku każdej swojej tury, dopóki śluz nie zostanie zeskrobany lub zniszczony. Wobec drewna lub metalu zielony śluz zadaje 11 ({@damage 2d10}) obrażeń kwasem na rundę, a każda niemagiczna drewniana lub metalowa broń lub narzędzie użyte do zeskrobania śluzu ulega zniszczeniu.",
-      "Światło słoneczne, każdy efekt leczący choroby oraz każdy efekt zadający obrażenia zimnem, ogniem lub blaskiem niszczy plamę zielonego śluzu."
+      "Światło słoneczne, każdy efekt leczący choroby oraz każdy efekt zadający obrażenia zimnem, ogniem lub promieniste niszczy plamę zielonego śluzu."
     ],
-    "hazardType": "Niebezpieczeństwo"
+    "hazardType": "Zagrożenie"
   },
   "hailstorm": {
     "name": "Grad",
     "entries": [
       "Burze gradowe zasypują podróżników opadającym lodem. Stwory wystawione na takie warunki muszą zdać rzut obronny Kondycji pod koniec każdej godziny lub zyskać 1 poziom Wyczerpania. CT wynosi 5 dla pierwszej godziny i wzrasta o 1 za każdą kolejną godzinę. Stwory noszące Średnią lub Ciężką zbroję mają Przewagę w tym rzucie."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "heavy-precipitation": {
     "name": "Ulewne Opady",
     "entries": [
       "Wszystko w obszarze ulewnego deszczu lub obfitych opadów śniegu jest {@variantrule Lightly Obscured|XPHB}, a stwory w tym obszarze mają {@variantrule Disadvantage|XPHB} we wszystkich testach Mądrości ({@skill Perception|XPHB}). Ulewny deszcz gasi także otwarte płomienie."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "heavy-precipitation-dmg": {
     "name": "Ulewne Opady",
@@ -595,7 +595,7 @@
       "Podróżowanie na wysokościach 10 000 stóp lub więcej nad poziomem morza jest wyczerpujące dla większości stworów ze względu na obniżoną ilość tlenu w powietrzu. Każda godzina spędzona przez takiego stwora na podróżowaniu na dużej wysokości liczy się jako 2 godziny dla celów ustalenia, jak długo taki stwór może podróżować (patrz „{@book Travel Pace|XDMG|1|Tempo Podróży}” w {@book chapter 2|XDMG|1}).",
       "Stwory mogą przystosować się do dużej wysokości, spędzając na niej 30 dni lub więcej. Stwory nie mogą przystosować się do wysokości powyżej 20 000 stóp, chyba że są rdzennymi mieszkańcami takich środowisk."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "high-altitude-dmg": {
     "name": "Duża Wysokość",
@@ -603,19 +603,19 @@
       "Podróżowanie na wysokościach 10 000 stóp lub więcej nad poziomem morza jest wyczerpujące dla stwora, który potrzebuje oddychać, ze względu na obniżoną ilość tlenu w powietrzu. Każda godzina spędzona przez takiego stwora na podróżowaniu na dużej wysokości liczy się jako 2 godziny dla celów ustalenia, jak długo taki stwór może podróżować.",
       "Oddychające stwory mogą przystosować się do dużej wysokości, spędzając na niej 30 dni lub więcej. Oddychające stwory nie mogą przystosować się do wysokości powyżej 20 000 stóp, chyba że są rdzennymi mieszkańcami takich środowisk."
     ],
-    "hazardType": "Niebezpieczeństwo Środowiskowe"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "howling-wind": {
     "name": "Wyjący Wiatr",
     "entries": [
       "Wiatry Dolina Lodowego Wichru mogą osiągać niewiarygodną siłę i głośność, uniemożliwiając słyszenie. Stwory przebywające na zewnątrz w wyjącym wietrze mają stan {@condition Deafened|XPHB}."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "icon-of-the-lower-aerial-kingdoms": {
     "name": "Ikona Niższych Powietrznych Królestw",
     "entries": [
-      "Ten {@variantrule haunted traps|VRGR|nawiedzona pułapka} jest przywiązany do kuli o promieniu 3 metrów otaczającej złowieszczy posąg o wysokości 1 stopy przedstawiający groźną, czteroskrzydłą postać przypominającą ptaka.Raz dziennie, gdy stworzenie wejdzie na ten obszar, emanacja pułapki objawia się dźwiękiem odległych trzepoczących skrzydeł i podmuchem ciepłego powietrza.Jeśli na początku swojej następnej tury to stworzenie nadal znajduje się na tym obszarze, musi wykonać udany rzut obronny na Mądrość {@dc 16} lub być {@condition charmed} i {@condition incapacitated} przez 1 minutę.Warunki te trwają do czasu, aż stwór otrzyma obrażenia lub ktoś inny wykona akcję, aby nim wstrząsnąć.Jeśli dotknięta istota pozostaje {@condition charmed} przez pełną minutę, zostaje następnie dotknięta zaklęciem {@spell magic jar} , a jej dusza wchodzi do posągu i zostaje zastąpiona przez ducha bezcielesnego diabła.Efekt ten kończy się, gdy na dotkniętą istotę zostanie rzucony {@spell dispel evil and good} lub podobny czar, lub gdy posąg zostanie zniszczony.Posąg ma KP 17, 15 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
+      "Ten {@variantrule haunted traps|VRGR|nawiedzona pułapka} jest przywiązany do kuli o promieniu 3 metrów otaczającej złowieszczy posąg o wysokości 1 stopy przedstawiający groźną, czteroskrzydłą postać przypominającą ptaka.Raz dziennie, gdy stworzenie wejdzie na ten obszar, emanacja pułapki objawia się dźwiękiem odległych trzepoczących skrzydeł i podmuchem ciepłego powietrza.Jeśli na początku swojej następnej tury to stworzenie nadal znajduje się na tym obszarze, musi wykonać udany rzut obronny na Mądrość {@dc 16} lub być {@condition charmed} i {@condition incapacitated} przez 1 minutę.Warunki te trwają do czasu, aż stwór otrzyma obrażenia lub ktoś inny wykona akcję, aby nim wstrząsnąć.Jeśli dotknięta istota pozostaje {@condition charmed} przez pełną minutę, zostaje następnie dotknięta zaklęciem {@spell magic jar} , a jej dusza wchodzi do posągu i zostaje zastąpiona przez ducha bezcielesnego czarta.Efekt ten kończy się, gdy na dotkniętą istotę zostanie rzucony {@spell dispel evil and good} lub podobny czar, lub gdy posąg zostanie zniszczony.Posąg ma KP 17, 15 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne.",
       "Ta nawiedzona pułapka przejawia się w wyniku diabelskiego wpływu. Rzucenie {@spell dispel evil and good} na posąg trwale rozbraja nawiedzoną pułapkę."
     ],
     "hazardType": "Pułapka"
@@ -793,7 +793,7 @@
       "Z kolei {@b niebezpieczne} wartości obrażeń stanowią poważne zagrożenie dla słabszych postaci i mogą potencjalnie zabić postać wskazanego poziomu, jeśli brakuje jej wielu punktów wytrzymałości.",
       "Jak sama nazwa wskazuje, {@b śmiertelne} obrażenia wystarczają, by sprowadzić postać wskazanego poziomu do 0 punktów wytrzymałości. Taki poziom obrażeń może zabić nawet potężne postacie od razu, jeśli są już ranne."
     ],
-    "hazardType": "Zwykłe Niebezpieczeństwo"
+    "hazardType": "Ogólne zagrożenie"
   },
   "inferno": {
     "name": "Piekło",
@@ -802,13 +802,13 @@
       "Inferno składa się z co najmniej czterech przylegających do siebie dziesięciostopowych {@variantrule Cube [Area of Effect]|XPHB|Sześcianów} ognia. Każdy z dziesięciostopowych Sześcianów inferna można zalać 10 galonami wody. Wystawienie na silny wiatr przez 1 minutę powoduje rozrost inferna, dodając {@dice 1d4} nowych dziesięciostopowych Sześcianów do jego objętości. Inferno pozbawione paliwa wypala się po {@dice 1d10} minutach.",
       "Inferno uszkadza każdą roślinność lub przedmiot, który nie jest noszony ani trzymany, a którego dotyka, zadając natychmiast 22 ({@damage 4d10}) obrażeń Ogniem i ponownie pod koniec każdej minuty. Każdy stwór, który wchodzi do inferna po raz pierwszy w danej turze lub zaczyna w nim swoją turę, otrzymuje 22 ({@damage 4d10}) obrażeń Ogniem i zaczyna płonąć."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "lightning-strikes": {
     "name": "Uderzenia Piorunów",
     "entries": [
       "Za każdym razem, gdy obszar Pustyni Calim zostaje poddany zarówno silnemu wiatrowi, jak i ulewnym opadom (patrz {@book Calim Desert Weather table|FRAiF|4|Pogoda Pustyni Calim}), istnieje 25-procentowa szansa na powstanie burzy z piorunami. Stwory w obszarze takiej burzy są narażone na uderzenia piorunów.",
-      "Burza z piorunami trwa 1 godzinę. Po każdej minucie spędzonej w obszarze burzy z piorunami stwór rzuca {@b {@dice 1d6}}; przy wyniku 1 piorun uderza w stwora. Stwór wykonuje rzut obronny Zręczności ({@dc 15}), otrzymując {@b {@dice 3d10}} obrażeń Piorunem przy nieudanym rzucie lub połowę tych obrażeń przy udanym.",
+      "Burza z piorunami trwa 1 godzinę. Po każdej minucie spędzonej w obszarze burzy z piorunami stwór rzuca {@b {@dice 1d6}}; przy wyniku 1 piorun uderza w stwora. Stwór wykonuje rzut obronny Zręczności ({@dc 15}), otrzymując {@b {@dice 3d10}} obrażeń od pioruna przy nieudanym rzucie lub połowę tych obrażeń przy udanym.",
       {
         "type": "entries",
         "name": "Wykrywanie Burz z Piorunami",
@@ -817,7 +817,7 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "magical-mirage": {
     "name": "Magiczny Miraż",
@@ -833,7 +833,7 @@
         ]
       }
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "malnutrition": {
     "name": "Niedożywienie",
@@ -879,7 +879,7 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "morbid-memory": {
     "name": "Ponure Wspomnienie",
@@ -895,7 +895,7 @@
       "Stwór, który umiera w nekrotycznej tempest, powstaje jako {@creature skeleton} lub {@creature zombie} (wybór DM-a) {@dice 1d10} minut później.",
       "Nekrotyczna tempest trwa {@dice 1d4} godzin i pozostawia po sobie zwiędłe uprawy oraz niezdatne do picia studnie na {@dice 1d4} dni po jej przejściu."
     ],
-    "hazardType": "Niesamowita Burza"
+    "hazardType": "Burza nadnaturalna"
   },
   "net-trap": {
     "name": "Pułapka Sieciowa",
@@ -910,7 +910,7 @@
       "Niemagiczne miraże obejmują od prostych iluzji - takich jak tworzenie wrażenia migoczącej wody kilka mil dalej - po złożone iluzje naśladujące ogromne potwory kroczące po horyzoncie. Niemagiczne miraże nie wydają żadnego dźwięku i oddalają się, gdy się do nich zbliżyć.",
       "Przykłady niemagicznych mirażów obejmują odległą migoczącą wodę, dalekie smoki lub unoszące się światła."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "path-of-blades": {
     "name": "Ścieżka Ostrzy",
@@ -959,11 +959,11 @@
         "type": "entries",
         "name": "Nabijany Dół",
         "entries": [
-          "Ta pułapka z dołem to prosty, ukryty lub zamykający się dół z zaostrzonymi drewnianymi lub żelaznymi kolcami na dnie. Stwór wpadający do dołu otrzymuje 11 ({@damage 2d10}) obrażeń kłujących od kolców, oprócz wszelkich obrażeń z upadku. Jeszcze bardziej nieprzyjemne wersje mają kolce posmarowane trucizną. W takim przypadku każdy, kto otrzymuje obrażenia kłujące od kolców, musi także zdać rzut obronny Kondycji ({@dc 13}), otrzymując 22 ({@damage 4d10}) obrażeń trucizną przy nieudanym rzucie, lub połowę tych obrażeń przy udanym."
+          "Ta pułapka z dołem to prosty, ukryty lub zamykający się dół z zaostrzonymi drewnianymi lub żelaznymi kolcami na dnie. Stwór wpadający do dołu otrzymuje 11 ({@damage 2d10}) obrażeń kłutych od kolców, oprócz wszelkich obrażeń z upadku. Jeszcze bardziej nieprzyjemne wersje mają kolce posmarowane trucizną. W takim przypadku każdy, kto otrzymuje obrażenia kłute od kolców, musi także zdać rzut obronny Kondycji ({@dc 13}), otrzymując 22 ({@damage 4d10}) obrażeń trucizną przy nieudanym rzucie, lub połowę tych obrażeń przy udanym."
         ]
       }
     ],
-    "hazardType": "Mechaniczna pułapka"
+    "hazardType": "Pułapka mechaniczna"
   },
   "planar-effects": {
     "name": "Efekty Planarne",
@@ -987,7 +987,7 @@
         "type": "entries",
         "name": "Błogosławiona Życzliwość",
         "entries": [
-          "Na planie {@book Mount Celestia|XDMG|5|Góry Celestii} i w regionach odczuwających jej wpływ stwory są błogosławione wszechobecną życzliwością planu. Stwory inne niż Diabelstwa i Nieumarli zyskują korzyść zaklęcia {@spell Bless|XPHB}, dopóki pozostają w obszarze błogosławionej życzliwości. Dodatkowo taki stwór, który zakończy Długi Odpoczynek w tym obszarze, zyskuje korzyść zaklęcia {@spell Lesser Restoration|XPHB}."
+          "Na planie {@book Mount Celestia|XDMG|5|Góry Celestii} i w regionach odczuwających jej wpływ stwory są błogosławione wszechobecną życzliwością planu. Stwory inne niż Czarty i Nieumarli zyskują korzyść zaklęcia {@spell Bless|XPHB}, dopóki pozostają w obszarze błogosławionej życzliwości. Dodatkowo taki stwór, który zakończy Długi Odpoczynek w tym obszarze, zyskuje korzyść zaklęcia {@spell Lesser Restoration|XPHB}."
         ]
       },
       {
@@ -1005,26 +1005,26 @@
         ]
       }
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "poison-darts": {
     "name": "Zatrute Strzałki",
     "entries": [
       "Gdy stwór nadepnie na ukrytą płytkę naciskową, zatrute strzałki wystrzeliwują ze sprężynowych lub ciśnieniowych rurek zręcznie osadzonych w otaczających ścianach. Obszar może zawierać wiele płytek naciskowych, z których każda jest połączona z własnym zestawem strzałek.",
       "Drobne otwory w ścianach są zamaskowane kurzem i pajęczynami, lub przebiegle ukryte wśród płaskorzeźb, murali lub fresków zdobiących ściany. CT wykrycia wynosi 15. Udany test Inteligencji ({@skill Investigation}) ({@dc 15}) pozwala postaci wywnioskować obecność płytki naciskowej na podstawie różnic w zaprawie i kamieniu użytym do jej stworzenia w porównaniu z otaczającą podłogą. Zaklinowanie żelaznego kolca lub innego przedmiotu pod płytką naciskową uniemożliwia aktywację pułapki. Zatkanie otworów szmatami lub woskiem uniemożliwia wystrzelenie znajdujących się w nich strzałek.",
-      "Pułapka aktywuje się, gdy na płytce naciskowej umieszczony zostanie ciężar przekraczający 20 funtów, uwalniając cztery strzałki. Każda strzałka wykonuje atak dystansowy z premią +8 przeciwko losowemu celowi w promieniu 10 stóp od płytki naciskowej (wzrok jest nieistotny dla tego rzutu na atak). (Jeśli w obszarze nie ma celów, strzałki w nic nie trafiają.) Trafiony cel otrzymuje 2 ({@damage 1d4}) obrażenia kłujące i musi zdać rzut obronny Kondycji ({@dc 15}), otrzymując 11 ({@damage 2d10}) obrażeń trucizną przy nieudanym rzucie, lub połowę tych obrażeń przy udanym."
+      "Pułapka aktywuje się, gdy na płytce naciskowej umieszczony zostanie ciężar przekraczający 20 funtów, uwalniając cztery strzałki. Każda strzałka wykonuje atak dystansowy z premią +8 przeciwko losowemu celowi w promieniu 10 stóp od płytki naciskowej (wzrok jest nieistotny dla tego rzutu na atak). (Jeśli w obszarze nie ma celów, strzałki w nic nie trafiają.) Trafiony cel otrzymuje 2 ({@damage 1d4}) obrażenia kłute i musi zdać rzut obronny Kondycji ({@dc 15}), otrzymując 11 ({@damage 2d10}) obrażeń trucizną przy nieudanym rzucie, lub połowę tych obrażeń przy udanym."
     ],
-    "hazardType": "Mechaniczna pułapka"
+    "hazardType": "Pułapka mechaniczna"
   },
   "poison-needle": {
     "name": "Zatruta Igła",
     "entries": [
       "Zatruta igła jest ukryta w zamku skrzyni ze skarbem, lub innym przedmiocie, który stwór może otworzyć. Otwarcie skrzyni bez właściwego klucza powoduje wysunięcie się igły, dostarczając dawkę trucizny.",
-      "Gdy pułapka zostaje uruchomiona, igła wysuwa się 3 cale prosto z zamka. Stwór w zasięgu otrzymuje 1 obrażenie kłujące i 11 ({@damage 2d10}) obrażeń trucizną, i musi zdać rzut obronny Kondycji ({@dc 15}) lub zostać {@condition poisoned} na 1 godzinę.",
+      "Gdy pułapka zostaje uruchomiona, igła wysuwa się 3 cale prosto z zamka. Stwór w zasięgu otrzymuje 1 obrażenie kłute i 11 ({@damage 2d10}) obrażeń trucizną, i musi zdać rzut obronny Kondycji ({@dc 15}) lub zostać {@condition poisoned} na 1 godzinę.",
       "Udany test Inteligencji ({@skill Investigation}) ({@dc 20}) pozwala postaci wywnioskować obecność pułapki na podstawie zmian dokonanych w zamku, by pomieścić igłę.",
       "Udany test Zręczności ({@dc 15}) z użyciem {@item thieves' tools|phb} rozbraja pułapkę, usuwając igłę z zamka. Nieudana próba otwarcia zamka wytrychem uruchamia pułapkę."
     ],
-    "hazardType": "Mechaniczna pułapka"
+    "hazardType": "Pułapka mechaniczna"
   },
   "poison-needle-trap": {
     "name": "Pułapka z Zatrutą Igłą",
@@ -1164,7 +1164,7 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "psionic-field": {
     "name": "Pole Psioniczne",
@@ -1172,7 +1172,7 @@
       "Rezonanse z Podmroku dotykają tych, którzy zapuszczają się zbyt głęboko pod ziemię. Każdy stwór w polu psionicznym musi zdać rzut obronny Inteligencji pod koniec każdej godziny lub zyskać 1 poziom Wyczerpania. CT wynosi 5 dla pierwszej godziny i wzrasta o 1 za każdą kolejną godzinę.",
       "Stwór, który zaczyna i kończy Długi Odpoczynek w polu psionicznym, doświadcza niepokojących snów i wyraźnych halucynacji. Stwór ma stan {@condition Frightened|XPHB} przez {@dice 1d10} minut po Długim Odpoczynku, przy czym źródłem jego strachu jest pierwszy stwór, którego zobaczył po zakończeniu Długiego Odpoczynku."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "quicksand": {
     "name": "Ruchome Piaski",
@@ -1180,7 +1180,7 @@
       "Dół z ruchomymi piaskami pokrywa ziemię na obszarze mniej więcej dziesięciostopowego kwadratu i ma zwykle 10 stóp głębokości. Gdy stwór wchodzi do tego obszaru, zapada się na {@dice 1d4+1} stóp w ruchome piaski i staje się {@condition restrained}. Na początku każdej swojej tury stwór zapada się o kolejne {@dice 1d4} stóp. Dopóki stwór nie jest całkowicie zanurzony w ruchomych piaskach, może się uwolnić, używając akcji i zdając test Siły. CT wynosi 10 plus liczba stóp, o które stwór zapadł się w ruchome piaski. Stwór całkowicie zanurzony w ruchomych piaskach nie może oddychać (patrz zasady {@book suffocation|phb|8|duszenia się} w {@i Podręczniku Gracza}).",
       "Stwór może wyciągnąć inny stwór w swoim zasięgu z dołu z ruchomymi piaskami, używając akcji i zdając test Siły. CT wynosi 5 plus liczba stóp, o które docelowy stwór zapadł się w ruchome piaski."
     ],
-    "hazardType": "Zagrożenie dzikiej przyrody"
+    "hazardType": "Zagrożenie dziczy"
   },
   "quicksand-pit": {
     "name": "Dół z Ruchomymi Piaskami",
@@ -1225,33 +1225,33 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "razorvine": {
     "name": "Brzytwolist",
     "entries": [
       "Brzytwolist to roślina, która rośnie w dzikich zaroślach i żywopłotach. Przywiera także do boków budynków i innych powierzchni jak bluszcz. Dziesięciostopowej wysokości, dziesięciostopowej szerokości, pięciostopowej grubości ściana lub żywopłot brzytwolistu ma KP 11, 25 pw oraz {@variantrule Immunity|XPHB} na obrażenia Obuchowe, Kłujące i Psychiczne.",
-      "Gdy stwór zetknie się z brzytwolistem po raz pierwszy w danej turze, musi zdać rzut obronny Zręczności ({@dc 10}) lub otrzymać 5 ({@damage 1d10}) obrażeń Tnących od ostrych jak brzytwa cierni."
+      "Gdy stwór zetknie się z brzytwolistem po raz pierwszy w danej turze, musi zdać rzut obronny Zręczności ({@dc 10}) lub otrzymać 5 ({@damage 1d10}) obrażeń siecznych od ostrych jak brzytwa cierni."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "razorvine-dmg": {
     "name": "Brzytwolist",
     "entries": [
       "Brzytwolist to roślina, która rośnie w dzikich zaroślach i żywopłotach. Przywiera także do boków budynków i innych powierzchni jak bluszcz. Dziesięciostopowej wysokości, dziesięciostopowej szerokości, pięciostopowej grubości ściana lub żywopłot brzytwolistu ma KP 11, 25 punktów wytrzymałości oraz immunitet na obrażenia obuchowe, kłujące i psychiczne.",
-      "Gdy stwór zetknie się bezpośrednio z brzytwolistem po raz pierwszy w danej turze, musi zdać rzut obronny Zręczności ({@dc 10}) lub otrzymać 5 ({@damage 1d10}) obrażeń tnących od ostrych jak brzytwa cierni brzytwolistu."
+      "Gdy stwór zetknie się bezpośrednio z brzytwolistem po raz pierwszy w danej turze, musi zdać rzut obronny Zręczności ({@dc 10}) lub otrzymać 5 ({@damage 1d10}) obrażeń siecznych od ostrych jak brzytwa cierni brzytwolistu."
     ],
-    "hazardType": "Niebezpieczeństwo Dziczy"
+    "hazardType": "Zagrożenie dziczy"
   },
   "river-styx": {
     "name": "Rzeka Styks",
     "entries": [
-      "{@book River Styx|XDMG|5|Rzeka Styks} przepływa przez Niższe Plany. Skosztowanie lub dotknięcie jej wód może roztrzaskać intelekt i osobowość stwora, a także wymazać jego wspomnienia. Niektóre Diabelstwa są odporne na efekty rzeki}",
+      "{@book River Styx|XDMG|5|Rzeka Styks} przepływa przez Niższe Plany. Skosztowanie lub dotknięcie jej wód może roztrzaskać intelekt i osobowość stwora, a także wymazać jego wspomnienia. Niektóre Czarty są odporne na efekty rzeki",
       "O ile nie są odporne na efekty rzeki, stwory, które piją ze Styksu, wchodzą do rzeki lub zaczynają w niej swoją turę, wykonują rzut obronny Inteligencji ({@dc 20}). Przy nieudanym rzucie stwór otrzymuje 19 ({@damage 3d12}) obrażeń Psychicznych i nie może rzucać zaklęć ani podejmować akcji {@action Magic|XPHB} przez 30 dni. Dotknięty stwór może pić ze Styksu i pływać w jego wodach, nie doznając żadnych dodatkowych efektów.",
       "Efekt można zakończyć jedynie zaklęciem {@spell Greater Restoration|XPHB}, {@spell Heal|XPHB} lub {@spell Wish|XPHB}. Jeśli efekt nie zostanie zakończony po 30 dniach, staje się trwały, a stwór traci wszystkie swoje wspomnienia. W tym momencie nic poza zaklęciem {@spell Wish|XPHB} lub boską interwencją nie może cofnąć tego efektu.",
       "Woda pobrana z Rzeki Styks traci swoją moc po 24 godzinach, stając się nieszkodliwym, cuchnącym płynem. Arkanaloty, nocne wiedźmy i inne złowrogie stwory mogą znać rytuały zdolne przedłużyć moc wody, według uznania DM-a."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "rockslide": {
     "name": "Obsuwisko Skalne",
@@ -1267,7 +1267,7 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "rolling-sphere": {
     "name": "Tocząca się Kula",
@@ -1280,7 +1280,7 @@
       "Kula zatrzymuje się, gdy uderzy w ścianę lub podobną przeszkodę. Nie może skręcać za rogi, ale sprytni budowniczowie lochów wbudowują łagodne, zakrzywione zakręty w pobliskie korytarze, umożliwiające kuli dalsze toczenie się.",
       "Jako akcję stwór w promieniu 5 stóp od kuli może spróbować ją spowolnić testem Siły ({@dc 20}). Przy udanym teście prędkość kuli zmniejsza się o 15 stóp. Jeśli prędkość kuli spadnie do 0, przestaje się poruszać i nie stanowi już zagrożenia."
     ],
-    "hazardType": "Mechaniczna pułapka"
+    "hazardType": "Pułapka mechaniczna"
   },
   "rolling-stone": {
     "name": "Toczący się Kamień",
@@ -1327,7 +1327,7 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "russet-mold": {
     "name": "Rdzawa Pleśń",
@@ -1338,18 +1338,18 @@
         "type": "entries",
         "name": "Efekty Pleśni",
         "entries": [
-          "Każde stworzenie, które zbliży się na odległość mniejszą niż 1,5 metra od rdzawej pleśni, musi wykonać rzut obronny na Kondycję {@dc 13}, ponieważ pleśń wydziela kłęby zarodników.W przypadku nieudanego zapisu stworzeniem jest {@condition poisoned} .Podczas {@condition poisoned} w ten sposób stworzenie otrzymuje 7 ( {@damage 2d6} ) obrażeń od trucizny na początku każdej swojej tury.Stworzenie może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie w przypadku sukcesu.Każda magia neutralizująca truciznę lub lecząca choroby zabija plagę.Istota zredukowana do 0 punktów wytrzymałości przez pleśń umiera.Jeśli martwe stworzenie jest Bestią, Gigantem lub Humanoidem, 24 godziny później z jego ciała wyłania się jeden lub więcej wegepygmów: jeden z małych zwłok, dwa z średnich, cztery z dużych zwłok, osiem z ogromnych zwłok lub szesnaście z gigantycznych zwłok."
+          "Każde stworzenie, które zbliży się na odległość mniejszą niż 1,5 metra od rdzawej pleśni, musi wykonać rzut obronny na Kondycję {@dc 13}, ponieważ pleśń wydziela kłęby zarodników.W przypadku nieudanego zapisu stworzeniem jest {@condition poisoned} .Podczas {@condition poisoned} w ten sposób stworzenie otrzymuje 7 ( {@damage 2d6} ) obrażeń od trucizny na początku każdej swojej tury.Stworzenie może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie w przypadku sukcesu.Każda magia neutralizująca truciznę lub lecząca choroby zabija plagę.Istota zredukowana do 0 punktów wytrzymałości przez pleśń umiera.Jeśli martwe stworzenie jest Bestią, Gigantem lub humanoidalną istotą, 24 godziny później z jego ciała wyłania się jeden lub więcej wegepygmów: jeden z małych zwłok, dwa z średnich, cztery z dużych zwłok, osiem z ogromnych zwłok lub szesnaście z gigantycznych zwłok."
         ]
       },
       {
         "type": "entries",
         "name": "Niszczenie Pleśni",
         "entries": [
-          "Rdzawą pleśń trudno zabić, ponieważ broń i większość rodzajów obrażeń jej nie szkodzi. Efekty zadające obrażenia kwasem, nekrotyczne lub blaskiem zabijają 1 stopę kwadratową rdzawej pleśni za każdy 1 punkt obrażeń. Funt soli, galon alkoholu lub magia leczenia chorób zabija rdzawą pleśń na kwadratowym obszarze o boku 10 stóp. Światło słoneczne zabija każdą rdzawą pleśń w obszarze światła."
+          "Rdzawą pleśń trudno zabić, ponieważ broń i większość rodzajów obrażeń jej nie szkodzi. Efekty zadające obrażenia kwasem, nekrotyczne lub promieniste zabijają 1 stopę kwadratową rdzawej pleśni za każdy 1 punkt obrażeń. Funt soli, galon alkoholu lub magia leczenia chorób zabija rdzawą pleśń na kwadratowym obszarze o boku 10 stóp. Światło słoneczne zabija każdą rdzawą pleśń w obszarze światła."
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "scything-blade-trap": {
     "name": "Pułapka z Kosiastym Ostrzem",
@@ -1363,7 +1363,7 @@
     "entries": [
       "Latające miasta Netherilu rzucają ogromne cienie na ziemię poniżej, czasami odcinając drzewa od światła słonecznego na tygodnie lub miesiące. Ze względu na magię emanującą z tych latających miast, drzewa poniżej czasami wytwarzają cienistą korę: fioletowo-czarną, przypominającą mech powłokę, wyglądającą jak plamista siniaczyzna.",
       "Każdy stwór, który wejdzie w przestrzeń w promieniu 5 stóp od cienistej kory po raz pierwszy w danej turze lub zaczyna w niej swoją turę, wykonuje rzut obronny Kondycji ({@dc 12}). Przy nieudanym rzucie stwór otrzymuje 5 ({@dice 1d10}) obrażeń Nekrotycznych i nie może odzyskiwać punktów wytrzymałości do początku swojej następnej tury. Przy udanym rzucie stwór otrzymuje jedynie połowę tych obrażeń.",
-      "Jakakolwiek ilość obrażeń Blaskiem natychmiast niszczy cienistą korę.",
+      "Jakakolwiek ilość obrażeń promienistych natychmiast niszczy cienistą korę.",
       {
         "type": "entries",
         "name": "Na Wyższych Poziomach",
@@ -1402,7 +1402,7 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "sinkhole": {
     "name": "Zapadlisko",
@@ -1443,7 +1443,7 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "sleep-of-ages-trap": {
     "name": "Pułapka Snu Wieków",
@@ -1457,14 +1457,14 @@
     "entries": [
       "Śliski lód to {@variantrule Difficult Terrain|XPHB}. Stwór, który wejdzie na śliski lód po raz pierwszy w danej turze lub zaczyna na nim swoją turę, musi zdać rzut obronny Zręczności ({@dc 10}) lub uzyskać stan {@condition Prone|XPHB}."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "slippery-ice-dmg": {
     "name": "Śliski Lód",
     "entries": [
       "Śliski lód to {@quickref difficult terrain||3}. Gdy stwór wejdzie na śliski lód po raz pierwszy w danej turze, musi zdać test Zręczności ({@dc 10}) ({@skill Acrobatics}) lub upaść na ziemię ({@condition prone})."
     ],
-    "hazardType": "Niebezpieczeństwo Dziczy"
+    "hazardType": "Zagrożenie dziczy"
   },
   "sphere-of-annihilation": {
     "name": "Sfera Unicestwienia",
@@ -1473,7 +1473,7 @@
       "Udany test Inteligencji ({@skill Arcana}) ({@dc 20}) ujawnia, że paszcza zawiera sferę unicestwienia, której nie można kontrolować ani przenieść. Jest poza tym identyczna ze zwykłą {@item sphere of annihilation}, jak opisano w rozdziale 7, „Skarby”. Niektóre wersje pułapki zawierają zaklęcie nałożone na kamienną twarz, tak że określone stwory czują przemożną potrzebę zbliżenia się do niej i wczołgania się do jej paszczy. Ten efekt jest w innych aspektach podobny do aspektu sympatii zaklęcia {@spell antipathy/sympathy}.",
       "Udane rzucenie zaklęcia {@spell dispel magic} ({@dc 18}) usuwa to zaklęcie."
     ],
-    "hazardType": "Magiczna pułapka"
+    "hazardType": "Pułapka magiczna"
   },
   "sphere-of-crushing-doom": {
     "name": "Sfera Miażdżącej Zguby",
@@ -1486,7 +1486,7 @@
     "name": "Nabijany Dół",
     "entries": [
       "Dziesięciostopowy dół ma zawiaskową pokrywę wykonaną z materiału identycznego z otaczającą podłogą. Gdy stwór wejdzie na pokrywę, otwiera się ona jak klapa, powodując wpadnięcie stwora do dołu, na którego dnie znajdują się zaostrzone drewniane lub metalowe kolce. Pokrywa pozostaje potem otwarta.",
-      "Stwór, który wpadnie do dołu, ląduje na dnie i otrzymuje 3 ({@damage 1d6}) obrażeń Obuchowych z upadku plus 9 ({@damage 2d8}) obrażeń Kłujących od kolców.",
+      "Stwór, który wpadnie do dołu, ląduje na dnie i otrzymuje 3 ({@damage 1d6}) obrażeń Obuchowych z upadku plus 9 ({@damage 2d8}) obrażeń kłutych od kolców.",
       {
         "type": "entries",
         "name": "Wykrycie i Rozbrojenie",
@@ -1547,7 +1547,7 @@
       "Silny wiatr nakłada {@variantrule Disadvantage|XPHB} na rzuty na atak bronią dystansową. Gasi także otwarte płomienie i rozprasza mgłę. Latający stwór w silnym wietrze musi wylądować pod koniec swojej tury lub spaść.",
       "Silny wiatr na pustyni może wywołać burzę piaskową, nakładającą Utrudnienie na testy Mądrości ({@skill Perception|XPHB})."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "strong-wind-dmg": {
     "name": "Silny Wiatr",
@@ -1562,7 +1562,7 @@
     "entries": [
       "Stwór może wstrzymać oddech przez liczbę minut równą 1 plus jego modyfikator Kondycji (minimum 30 sekund), zanim zacznie się dusić. Gdy stworowi zabraknie tchu lub zaczyna się dusić, zyskuje 1 poziom {@condition Exhaustion|XPHB} pod koniec każdej swojej tury. Gdy stwór może znów oddychać, usuwa wszystkie poziomy {@condition Exhaustion|XPHB} zyskane w wyniku duszenia się."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "surface-of-the-sun": {
     "name": "Powierzchnia Słońca",
@@ -1580,14 +1580,14 @@
         "type": "entries",
         "name": "Obrażenia Słoneczne",
         "entries": [
-          "Płonące światło wypełniające tę pułapkę zadaje obrażenia każdemu stworowi w tym obszarze. Przy liczbie inicjatywy 20 (przegrywając remisy), każdy stwór w obszarze otrzymuje 5 ({@damage 1d10}) obrażeń blaskiem."
+          "Płonące światło wypełniające tę pułapkę zadaje obrażenia każdemu stworowi w tym obszarze. Przy liczbie inicjatywy 20 (przegrywając remisy), każdy stwór w obszarze otrzymuje 5 ({@damage 1d10}) obrażeń promienistych."
         ]
       },
       {
         "type": "entries",
         "name": "Piedestał ze Szponami",
         "entries": [
-          "Srebrnej kuli, mającej 1 stopę średnicy, nie można usunąć, dopóki szpony ją ściskają. Piedestał jest zapułapkowany. Dotknięcie srebrnej kuli powoduje, że szpony się zaciskają. Stwór, który próbuje zabrać kulę, otrzymuje 11 ({@damage 2d10}) obrażeń tnących i uzyskuje stan {@condition grappled} (ucieczka {@dc 15}), gdy szpony go chwytają, uwalniając kulę. Szpony mają KP 19, 10 punktów wytrzymałości oraz immunitet na obrażenia trucizną i psychiczne.",
+          "Srebrnej kuli, mającej 1 stopę średnicy, nie można usunąć, dopóki szpony ją ściskają. Piedestał jest zapułapkowany. Dotknięcie srebrnej kuli powoduje, że szpony się zaciskają. Stwór, który próbuje zabrać kulę, otrzymuje 11 ({@damage 2d10}) obrażeń siecznych i uzyskuje stan {@condition grappled} (ucieczka {@dc 15}), gdy szpony go chwytają, uwalniając kulę. Szpony mają KP 19, 10 punktów wytrzymałości oraz immunitet na obrażenia trucizną i psychiczne.",
           "Po udanym teście Mądrości {@dc 12} ({@skill Perception}) postać może dostrzec płytę dociskową aktywującą szpony przez wąską szczelinę po wschodniej stronie piedestału.Postać może wyłączyć płytę dociskową, wykonując udany test Zręczności {@dc 13} przy użyciu narzędzi złodziei, co powoduje otwarcie szponów.Średnie lub małe stworzenie {@condition grappled} za szpony nie może dosięgnąć tej płyty dociskowej.",
           "Nieuszkodzona srebrna kula to cenny przedmiot artystyczny wart 500 sz."
         ]
@@ -1614,7 +1614,7 @@
         ]
       }
     ],
-    "hazardType": "Magiczna pułapka"
+    "hazardType": "Pułapka magiczna"
   },
   "test-of-the-empty-moon": {
     "name": "Próba Pustego Księżyca",
@@ -1664,21 +1664,21 @@
         ]
       }
     ],
-    "hazardType": "Mechaniczna pułapka"
+    "hazardType": "Pułapka mechaniczna"
   },
   "thin-ice": {
     "name": "Cienki Lód",
     "entries": [
       "Cienki lód ma tolerancję wagową {@dice 3d10 × 10} funtów na obszar dziesięciostopowego kwadratu. Gdy całkowity ciężar na obszarze cienkiego lodu przekroczy jego tolerancję, lód w tym obszarze pęka. Wszystkie stwory na pękniętym lodzie wpadają pod niego. Pod lodem znajduje się {@hazard frigid water|XDMG|lodowata woda}."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "thin-ice-dmg": {
     "name": "Cienki Lód",
     "entries": [
       "Cienki lód ma tolerancję wagową 3d10 × 10 funtów na obszar dziesięciostopowego kwadratu. Gdy całkowity ciężar na obszarze cienkiego lodu przekroczy jego tolerancję, lód w tym obszarze pęka. Wszystkie stwory na pękniętym lodzie wpadają pod niego."
     ],
-    "hazardType": "Niebezpieczeństwo Dziczy"
+    "hazardType": "Zagrożenie dziczy"
   },
   "thrym-s-howl": {
     "name": "Wycie Thryma",
@@ -1687,7 +1687,7 @@
       "Każdy stwór wystawiony na burzę na początku swojej tury otrzymuje {@damage 2d6} obrażeń zimna i nie może odzyskiwać punktów wytrzymałości, dopóki nie spędzi co najmniej 1 godziny w ciepłym środowisku. Stwór, który umiera w burzy, zamarza na kamień. Stwory odporne na obrażenia zimna są odporne na efekty burzy i mogą w niej normalnie widzieć.",
       "Wycie Thryma trwa zwykle {@dice 2d10} godzin."
     ],
-    "hazardType": "Niesamowita Burza"
+    "hazardType": "Burza nadnaturalna"
   },
   "vicious-vine": {
     "name": "Zjadliwe Pnącze",
@@ -1733,16 +1733,16 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "webs": {
     "name": "Pajęczyny",
     "entries": [
       "Wielkie pająki tkają grube, lepkie pajęczyny w poprzek przejść oraz na dnie dołów, by chwytać zdobycz. Te wypełnione pajęczynami obszary to {@variantrule Difficult Terrain|XPHB}.",
       "Stwór, który wejdzie do obszaru wypełnionego pajęczynami po raz pierwszy w danej turze lub zaczyna w nim swoją turę, musi zdać rzut obronny Zręczności ({@dc 12}) lub uzyskać stan {@condition Restrained|XPHB}. Jako akcję stwór Unieruchomiony przez pajęczyny może spróbować się z nich uwolnić, czyniąc to poprzez udany test Siły ({@skill Athletics|XPHB}) lub Zręczności ({@skill Athletics|XPHB}) ({@dc 12}).",
-      "Każdy dziesięciostopowy {@variantrule Cube [Area of Effect]|XPHB|Sześcian} pajęczyn ma KP 10, 15 pw, Podatność na obrażenia Ogniem oraz Immunitet na obrażenia Kłujące, Trucizną i Psychiczne."
+      "Każdy dziesięciostopowy {@variantrule Cube [Area of Effect]|XPHB|Sześcian} pajęczyn ma KP 10, 15 pw, Podatność na obrażenia Ogniem oraz Immunitet na obrażenia kłute, Trucizną i Psychiczne."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "webs-dmg": {
     "name": "Pajęczyny",
@@ -1750,7 +1750,7 @@
       "Gigantyczne pająki tkają grube, lepkie sieci w przejściach i na dnie dołów, aby złapać ofiarę w sidła. Te obszary wypełnione siecią to {@quickref difficult terrain||3}. Co więcej, istota wchodząca do obszaru sieci po raz pierwszy w swojej turze lub rozpoczynająca tam swoją turę musi wykonać rzut obronny na Zręczność {@dc 12}, w przeciwnym razie zostanie {@condition restrained} przez sieci. Stworzenie {@condition restrained} może wykorzystać swoją akcję, aby spróbować uciec, po udanym teście {@dc 12} Siły ({@skill Athletics}) lub Zręczności ({@skill Acrobatics}).",
       "Każdy dziesięciostopowy sześcian wielkich pajęczyn ma KP 10, 15 punktów wytrzymałości, podatność na ogień oraz immunitet na obrażenia obuchowe, kłujące i psychiczne."
     ],
-    "hazardType": "Niebezpieczeństwo"
+    "hazardType": "Zagrożenie"
   },
   "wild-magic-zone": {
     "name": "Strefa Dzikiej Magii",
@@ -1758,7 +1758,7 @@
       "Dawna magiczna katastrofa lub niekontrolowany wybuch mocy w danym miejscu może spowodować rozerwanie tkanki magii, tworząc strefę dzikiej magii. W takim obszarze, zwykle nie większym niż 300 stóp średnicy, magia zachowuje się nieprzewidywalnie.",
       "Za każdym razem, gdy stwór wydaje miejsce zaklęcia, by rzucić zaklęcie w strefie dzikiej magii, rzuć {@dice 1d20}. Jeśli wyrzucisz 20 na kości, rzuć na tabeli {@table Wild Magic Surge|XPHB} w {@book Player's Handbook|XPHB|Podręczniku Gracza}, by stworzyć magiczny efekt."
     ],
-    "hazardType": "Zagrożenie dla środowiska"
+    "hazardType": "Zagrożenie środowiskowe"
   },
   "wildstorm": {
     "name": "Dzika Burza",
@@ -1783,7 +1783,7 @@
           ],
           [
             "3-6",
-            "Odłamki magicznej siły wirują obok stwora. Stwór wykonuje rzut obronny Zręczności ({@dc 12}), otrzymując 5 ({@dice 1d10}) obrażeń Siłą przy nieudanym rzucie lub połowę tych obrażeń przy udanym."
+            "Odłamki magicznej siły wirują obok stwora. Stwór wykonuje rzut obronny Zręczności ({@dc 12}), otrzymując 5 ({@dice 1d10}) obrażeń od mocy przy nieudanym rzucie lub połowę tych obrażeń przy udanym."
           ],
           [
             "7-10",
@@ -1808,16 +1808,16 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "witchbriars": {
     "name": "Wiedźmiciernie",
     "entries": [
       "Niektóre Niskie Netherilskie wiedźmy mogą zaczarować kępę cierni, by atakowała przechodniów. Te zaczarowane kępy cierni, zwane wiedźmiciernami, są często przeznaczone do usidlania Netherilskich magów, którzy źle traktują swoich pracowników, choć wiedźmiciernie nie robią różnicy, gdy już zostaną ożywione. Wiedźmiciernie przypominają zwykłą kępę lub żywopłot cierniowych pnączy.",
-      "Kępa wiedźmiciernia zajmuje dziesięciostopowy {@variantrule Cube [Area of Effect]|XPHB|Sześcian} i ma KP 11, 30 pw oraz Immunitet na obrażenia Obuchowe, Kłujące i Psychiczne. Gdy stwór rzuca zaklęcie z użyciem miejsca zaklęcia w promieniu 10 stóp od wiedźmiciernia, cierniste pnącza sięgają, by oplatać stwora. Stwór musi zdać rzut obronny Siły ({@dc 14}) lub uzyskać stan {@condition Grappled|XPHB} (ucieczka {@dc 14}). Druidzi automatycznie zdają ten rzut obronny. Podczas gdy cel jest Chwycony w ten sposób, ma stan {@condition Restrained|XPHB} i otrzymuje 11 ({@dice 2d10}) obrażeń Kłujących na początku każdej swojej tury. Jedna kępa wiedźmiciernia może chwycić do czterech stworów naraz.",
+      "Kępa wiedźmiciernia zajmuje dziesięciostopowy {@variantrule Cube [Area of Effect]|XPHB|Sześcian} i ma KP 11, 30 pw oraz Immunitet na obrażenia Obuchowe, Kłujące i Psychiczne. Gdy stwór rzuca zaklęcie z użyciem miejsca zaklęcia w promieniu 10 stóp od wiedźmiciernia, cierniste pnącza sięgają, by oplatać stwora. Stwór musi zdać rzut obronny Siły ({@dc 14}) lub uzyskać stan {@condition Grappled|XPHB} (ucieczka {@dc 14}). Druidzi automatycznie zdają ten rzut obronny. Podczas gdy cel jest Chwycony w ten sposób, ma stan {@condition Restrained|XPHB} i otrzymuje 11 ({@dice 2d10}) obrażeń kłutych na początku każdej swojej tury. Jedna kępa wiedźmiciernia może chwycić do czterech stworów naraz.",
       "Jakakolwiek ilość obrażeń Ogniem natychmiast niszczy kępę wiedźmiciernia."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "yellow-mold": {
     "name": "Żółta Pleśń",
@@ -1825,7 +1825,7 @@
       "Żółta pleśń rośnie w ciemnych miejscach, a jedna plama zajmuje kwadrat o boku 5 stóp. Jeśli zostanie dotknięta, pleśń wyrzuca chmurę zarodników, która wypełnia dziesięciostopowy {@variantrule Cube [Area of Effect]|XPHB|Sześcian}. Każdy stwór w tym obszarze musi zdać rzut obronny Kondycji ({@dc 15}) lub otrzymać 11 ({@damage 2d10}) obrażeń Trucizną i uzyskać stan {@condition Poisoned|XPHB} na 1 minutę. Będąc Zatruty w ten sposób, stwór otrzymuje 5 ({@damage 1d10}) obrażeń Trucizną na początku każdej swojej tury. Stwór powtarza rzut obronny pod koniec każdej swojej tury, kończąc na sobie efekt przy sukcesie.",
       "Bezpośrednie światło słoneczne lub jakakolwiek ilość obrażeń Ogniem niszczy plamę żółtej pleśni."
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "yellow-mold-dmg": {
     "name": "Żółta Pleśń",
@@ -1833,7 +1833,7 @@
       "Żółta pleśń rośnie w ciemnych miejscach, a jedna łata zajmuje kwadrat o powierzchni 5 stóp. Po dotknięciu pleśń wyrzuca chmurę zarodników, która wypełnia 3-metrowy sześcian powstały z pleśni. Każde stworzenie na obszarze musi odnieść sukces w rzucie obronnym na Kondycję {@dc 15} lub otrzymać 11 ({@damage 2d10}) obrażeń od trucizny i stać się {@condition poisoned} na 1 minutę. Podczas {@condition poisoned} w ten sposób stworzenie otrzymuje 5 ({@damage 1d10}) obrażeń od trucizny na początku każdej swojej tury. Stworzenie może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie po udanym rzucie obronnym.",
       "Światło słoneczne lub jakakolwiek ilość obrażeń ogniem natychmiast niszczy plamę żółtej pleśni."
     ],
-    "hazardType": "Niebezpieczeństwo"
+    "hazardType": "Zagrożenie"
   },
   "zlanic-chardalyn": {
     "name": "Zlański Chardalyn",
@@ -1848,18 +1848,18 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "avalanche-idrotf": {
     "name": "Lawina",
     "entries": [
       "Poniższych zasad można używać zarówno dla osuwisk skalnych, jak i lawin.",
       "Lawina to masa śniegu i gruzu spadająca gwałtownie w dół zbocza góry. Typowa lawina ma 300 stóp szerokości, 150 stóp długości i 30 stóp grubości. Stworzenia na drodze lawiny mogą jej uniknąć lub przed nią uciec, jeśli są blisko jej krawędzi, ale prześcignięcie jej jest niemal niemożliwe.",
-      "Gdy dochodzi do lawiny, wszystkie pobliskie stworzenia muszą wykonać rzut na inicjatywę. Dwa razy na rundę, na wynikach inicjatywy 10 i 0, lawina przemieszcza się o 300 stóp, dopóki nie może już się przemieszczać. Gdy lawina się porusza, każde stworzenie w jej przestrzeni porusza się wraz z nią i pada {@condition prone}, a stworzenie musi wykonać rzut obronny Siły o {@dc 15}, otrzymując {@damage 1d10} obrażeń obuchowych przy obleniu lub połowę tych obrażeń przy powodzeniu.",
+      "Gdy dochodzi do lawiny, wszystkie pobliskie stworzenia muszą wykonać rzut na inicjatywę. Dwa razy na rundę, na wynikach inicjatywy 10 i 0, lawina przemieszcza się o 300 stóp, dopóki nie może już się przemieszczać. Gdy lawina się porusza, każde stworzenie w jej przestrzeni porusza się wraz z nią i pada {@condition prone}, a stworzenie musi wykonać rzut obronny Siły o {@dc 15}, otrzymując {@damage 1d10} obrażeń obuchowych przy niepowodzeniu lub połowę tych obrażeń przy powodzeniu.",
       "Gdy lawina się zatrzymuje, śnieg osiada i zasypuje w niej stworzenia. Stworzenie zasypane w ten sposób jest {@condition blinded} i {@condition restrained} oraz ma {@quickref Cover||3||total cover}. Stworzenie zyskuje jeden poziom {@condition exhaustion} za każde 5 minut spędzone zasypane w śniegu. Może próbować się odkopać w ramach akcji, przebijając się na powierzchnię i kończąc na sobie stany oślepienia i unieruchomienia przy udanym teście Siły ({@skill Athletics}) o {@dc 15}. Stworzenie, które obleje ten test trzy razy, nie może już próbować się odkopać.",
       "Stworzenie, które nie jest unieruchomione ani {@condition incapacitated}, może poświęcić 1 minutę, by uwolnić inne stworzenie zasypane w śniegu. Po uwolnieniu tamto stworzenie nie jest już oślepione ani unieruchomione przez lawinę."
     ],
-    "hazardType": "Niebezpieczeństwo Dziczy"
+    "hazardType": "Zagrożenie dziczy"
   },
   "blizzard": {
     "name": "Zamieć",
@@ -1873,7 +1873,7 @@
         "name": "Zejście z Kursu",
         "entries": [
           "Łatwo zejść z kursu podczas podróży przez zamieć, a członkowie drużyny łatwo też mogą się od siebie oddzielić, dlatego najmądrzejszym rozwiązaniem jest pozostać w miejscu i przeczekać zamieć.",
-          "Jeśli postacie podróżują podczas zamieci, poproś graczy o wyznaczenie jednego członka drużyny na nawigatora. Na koniec każdej godziny podróży przez zamieć MP wykonuje w imieniu nawigatora test Roztropności ({@skill Survival}) o {@dc 15}. Przy udanym teście drużyna pozostaje na kursie. Przy obleniu drużyna schodzi z kursu, przez co jej członkowie nie znajdują się bliżej celu niż na początku tej godziny. Jeśli test zostanie oblany o 5 lub więcej, a członkowie drużyny nie są ze sobą związani, jeden losowo wyznaczony członek drużyny gubi się w zamieci i zostaje oddzielony od pozostałych. Jeśli grupa próbuje połączyć się ze swoim zaginionym członkiem, poproś członków drużyny (w tym zaginionego) o wykonanie grupowego testu Roztropności ({@skill Survival}) o {@dc 15} na koniec każdej godziny. Jeśli ten test grupowy się powiedzie, zaginiony członek drużyny zostaje odnaleziony, ale w tej godzinie nie czyni się postępu w kierunku zamierzonego celu grupy. Test grupowy można powtarzać po każdej godzinie spędzonej na poszukiwaniu zaginionego członka drużyny."
+          "Jeśli postacie podróżują podczas zamieci, poproś graczy o wyznaczenie jednego członka drużyny na nawigatora. Na koniec każdej godziny podróży przez zamieć MP wykonuje w imieniu nawigatora test Roztropności ({@skill Survival}) o {@dc 15}. Przy udanym teście drużyna pozostaje na kursie. Przy niepowodzeniu drużyna schodzi z kursu, przez co jej członkowie nie znajdują się bliżej celu niż na początku tej godziny. Jeśli test zostanie oblany o 5 lub więcej, a członkowie drużyny nie są ze sobą związani, jeden losowo wyznaczony członek drużyny gubi się w zamieci i zostaje oddzielony od pozostałych. Jeśli grupa próbuje połączyć się ze swoim zaginionym członkiem, poproś członków drużyny (w tym zaginionego) o wykonanie grupowego testu Roztropności ({@skill Survival}) o {@dc 15} na koniec każdej godziny. Jeśli ten test grupowy się powiedzie, zaginiony członek drużyny zostaje odnaleziony, ale w tej godzinie nie czyni się postępu w kierunku zamierzonego celu grupy. Test grupowy można powtarzać po każdej godzinie spędzonej na poszukiwaniu zaginionego członka drużyny."
         ]
       }
     ],
@@ -1891,7 +1891,7 @@
     "entries": [
       "Demoniczny ichor to to, co pozostaje po śmierci demona. To wywar z demonicznej krwi, wnętrzności i płynów ustrojowych o konsystencji i zapachu żółci.",
       "W Avernusie ginie tyle demonów, że ich ichor tworzy kałuże i małe jeziora. Choć na większości planów egzystencji ichor jest nieszkodliwy, na Niższych Planach potrafi wypaczać stworzenia. Diabły i inne stworzenia znalazły sposoby wykorzystania demonicznego ichoru w rytuałach oraz do poprawy osiągów piekielnych machin wojennych (jak opisano w {@adventure appendix B|BGDIA|11}).",
-      "Gdy stworzenie w Avernusie zetknie się bezpośrednio z demonicznym ichorem, musi wykonać rzut obronny Kondycji o {@dc 10}. Diabelstwa, mazie, rośliny i nieumarli automatycznie zdają ten rzut. Przy obleniu stworzenie zostaje magicznie wypaczone przez ichor, co ustala się rzutem na tabeli Wypaczenia Ciała. Zaklęcie usuwające klątwę kończy wszystkie związane z ichorem efekty wypaczenia na stworzeniu.",
+      "Gdy stworzenie w Avernusie zetknie się bezpośrednio z demonicznym ichorem, musi wykonać rzut obronny Kondycji o {@dc 10}. Czarty, mazie, rośliny i nieumarli automatycznie zdają ten rzut. Przy niepowodzeniu stworzenie zostaje magicznie wypaczone przez ichor, co ustala się rzutem na tabeli Wypaczenia Ciała. Zaklęcie usuwające klątwę kończy wszystkie związane z ichorem efekty wypaczenia na stworzeniu.",
       {
         "type": "entries",
         "name": "Broń Powleczona Ichorem",
@@ -1994,7 +1994,7 @@
         ]
       }
     ],
-    "hazardType": "Zaryzykować"
+    "hazardType": "Zagrożenie"
   },
   "malfunctioning-phase-transference-emitter": {
     "name": "Uszkodzony Emiter Transferu Fazowego",

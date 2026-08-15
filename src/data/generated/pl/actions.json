@@ -164,7 +164,7 @@
               ],
               [
                 "Mądrość ({@skill Animal Handling|XPHB})",
-                "Łagodne nakłanianie Bestii lub Monstrualności"
+                "Łagodne nakłanianie Bestii lub Monstrów"
               ]
             ]
           }
@@ -262,11 +262,11 @@
         "rows": [
           [
             "{@skill Arcana|XPHB}",
-            "Zaklęcia, magiczne przedmioty, mroczne symbole, tradycje magiczne, plany istnienia oraz niektóre stwory (Aberracje, Konstrukty, Żywiołaki, Fej i Monstrualności)"
+            "Zaklęcia, magiczne przedmioty, mroczne symbole, tradycje magiczne, plany istnienia oraz niektóre stwory (Aberracje, Konstrukty, Żywiołaki, Fejowie i Monstra)"
           ],
           [
             "{@skill History|XPHB}",
-            "Wydarzenia i postacie historyczne, starożytne cywilizacje, wojny oraz niektóre stwory (Olbrzymy i Humanoidy)"
+            "Wydarzenia i postacie historyczne, starożytne cywilizacje, wojny oraz niektóre stwory (Olbrzymy i humanoidalne istoty)"
           ],
           [
             "{@skill Investigation|XPHB}",
@@ -278,7 +278,7 @@
           ],
           [
             "{@skill Religion|XPHB}",
-            "Bóstwa, hierarchie i obrzędy religijne, święte symbole, kulty oraz niektóre stwory (Niebianie, Diabelstwa i Nieumarli)"
+            "Bóstwa, hierarchie i obrzędy religijne, święte symbole, kulty oraz niektóre stwory (Niebianie, Czarty i Nieumarli)"
           ]
         ]
       }
@@ -324,7 +324,7 @@
         "entries": [
           "Niektóre magiczne przedmioty pozwalają użytkownikowi rzucić zaklęcie z przedmiotu, często poprzez zużycie jego ładunków. Zaklęcie zostaje rzucone na najniższym możliwym poziomie zaklęcia i poziomie zaklinacza, nie zużywa żadnego miejsca na zaklęcie użytkownika i nie wymaga żadnych komponentów, chyba że opis przedmiotu stanowi inaczej. Zaklęcie korzysta ze swojego normalnego czasu rzucania, zasięgu i czasu trwania, a użytkownik przedmiotu musi utrzymywać {@status concentration}, jeśli zaklęcie tego wymaga. Niektóre przedmioty stanowią wyjątki od tych zasad, zmieniając czas rzucania, czas trwania lub inne elementy zaklęcia.",
           "Wiele przedmiotów, takich jak eliksiry, pomija rzucanie zaklęcia i po prostu nadaje jego efekty. Taki przedmiot nadal korzysta z czasu trwania zaklęcia, chyba że opis przedmiotu stanowi inaczej.",
-          "Magiczny przedmiot, taki jak niektóre laski, może wymagać użycia twojej własnej zdolności rzucania zaklęć podczas rzucania zaklęcia z przedmiotu. Jeśli posiadasz więcej niż jedną zdolność rzucania zaklęć, wybierasz, której użyć w przypadku danego przedmiotu. Jeśli nie posiadasz zdolności rzucania zaklęć - być może jesteś łotrzykiem posiadającym cechę Użycie Magicznego Urządzenia - twój modyfikator zdolności rzucania zaklęć dla tego przedmiotu wynosi +0, a twój bonus biegłości nadal ma zastosowanie."
+          "Magiczny przedmiot, taki jak niektóre laski, może wymagać użycia twojej własnej zdolności rzucania zaklęć podczas rzucania zaklęcia z przedmiotu. Jeśli posiadasz więcej niż jedną zdolność rzucania zaklęć, wybierasz, której użyć w przypadku danego przedmiotu. Jeśli nie posiadasz zdolności rzucania zaklęć - być może jesteś łotrzykiem posiadającym cechę Użycie Magicznego Urządzenia - twój modyfikator zdolności rzucania zaklęć dla tego przedmiotu wynosi +0, a twój premia biegłości nadal ma zastosowanie."
         ]
       },
       {
@@ -540,7 +540,7 @@
     "entries": [
       "Gdy stwór próbuje przemieścić się przez przestrzeń wrogiego stwora, może spróbować przebić się przez niego siłą. Jako akcję lub akcję dodatkową, przemieszczający się stwór wykonuje test Siły ({@skill Athletics}) przeciwstawiony testowi Siły ({@skill Athletics}) wrogiego stwora. Stwór próbujący przebicia ma przewagę przy tym teście, jeśli jest większy od wrogiego stwora, lub utrudnienie, jeśli jest mniejszy. Jeśli przemieszczający się stwór wygra tę rywalizację, może w tej turze raz przemieścić się przez przestrzeń wrogiego stwora."
     ],
-    "time": "1 akcja lub 1 bonus"
+    "time": "1 akcja lub 1 akcja dodatkowa"
   },
   "ready-phb": {
     "name": "Gotowość",
@@ -580,7 +580,7 @@
     "entries": [
       "Stwór może spróbować przetoczyć się przez przestrzeń wrogiego stwora, uchylając się i wymijając przeciwnika. Jako akcję lub akcję dodatkową, przetaczający się stwór wykonuje test Zręczności ({@skill Acrobatics}) przeciwstawiony testowi Zręczności ({@skill Acrobatics}) wrogiego stwora. Jeśli przetaczający się stwór wygra tę rywalizację, może w tej turze raz przemieścić się przez przestrzeń wrogiego stwora."
     ],
-    "time": "1 akcja lub 1 bonus"
+    "time": "1 akcja lub 1 akcja dodatkowa"
   },
   "two-weapon-fighting-phb": {
     "name": "Walka Dwoma Broniami",

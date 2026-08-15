@@ -85,7 +85,7 @@
     "data": {
       "name": "Anielska broń",
       "example": "Deva",
-      "effect": "Ataki broni tego stworzenia są magiczne. Kiedy stworzenie uderza jakąkolwiek bronią, broń ta zadaje dodatkowe obrażenia od promieniowania. Wprowadź dodatkowe obrażenia na rundę.",
+      "effect": "Ataki broni tego stworzenia są magiczne. Kiedy stworzenie uderza jakąkolwiek bronią, broń ta zadaje dodatkowe obrażenia promieniste. Wprowadź dodatkowe obrażenia na rundę.",
       "dpr": "cecha",
       "hasNumberParam": true
     },
@@ -106,7 +106,7 @@
     "name": "Przewaga bojowa",
     "data": {
       "name": "Przewaga bojowa",
-      "example": "Chochlik",
+      "example": "Hobgoblin",
       "effect": "Stworzenie może zadać dodatkowe obrażenia trafionemu stworzeniu, jeśli znajduje się ono w odległości 5 stóp od sojusznika tego stworzenia, które nie jest obezwładnione. Wprowadź dodatkowe obrażenia zadawane w każdej rundzie.",
       "dpr": "cecha",
       "hasNumberParam": true
@@ -117,7 +117,7 @@
     "name": "Zwinna ucieczka",
     "data": {
       "name": "Zwinna ucieczka",
-      "example": "Chochlik",
+      "example": "Goblin",
       "effect": "Stworzenie może wykonać akcję Wycofania się lub Ukrycia jako akcję dodatkową w każdej swojej turze.",
       "ac": "4",
       "attackBonus": "4"
@@ -200,7 +200,7 @@
     "name": "Doskonała niewidzialność",
     "data": {
       "name": "Doskonała niewidzialność",
-      "example": "Pixie",
+      "example": "Piksi",
       "effect": "Stworzenie może stać się niewidzialne w ramach akcji lub akcji dodatkowej.",
       "ac": "2"
     },
@@ -251,8 +251,8 @@
     "name": "Nieumarła siła",
     "data": {
       "name": "Nieumarła siła",
-      "example": "Bałwan",
-      "effect": "Jeśli punkty wytrzymałości stworzenia zostałyby zredukowane do 0, istnieje szansa, że ​​zamiast tego można je zmniejszyć tylko do 1. Ta cecha jest zanegowana, jeśli obrażenia pochodzą od promiennej natury.",
+      "example": "Zombie",
+      "effect": "Jeśli punkty wytrzymałości stworzenia zostałyby zredukowane do 0, istnieje szansa, że ​​zamiast tego można je zmniejszyć tylko do 1. Ta cecha jest zanegowana, jeśli obrażenia pochodzą od promieniste natury.",
       "hp": "((oczekiwaneCr >= 0 && oczekiwaneCr <= 4) ? 7 : ((oczekiwaneCr >= 5 && oczekiwaneCr <= 10) ? 14 : ((oczekiwaneCr >= 11 && oczekiwaneCr <= 16) ? 21 : ((oczekiwaneCr >= 17) ? 28 : 0))))"
     },
     "collection": "cechy potwora"

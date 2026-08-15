@@ -283,7 +283,22 @@
           "1",
           "-"
         ],
-        ["17", "+6", "", "5", "19", "4", "3", "3", "3", "2", "1", "1", "1", "1"],
+        [
+          "17",
+          "+6",
+          "",
+          "5",
+          "19",
+          "4",
+          "3",
+          "3",
+          "3",
+          "2",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
         [
           "18",
           "+6",
@@ -390,7 +405,10 @@
               {
                 "type": "table",
                 "caption": "Zaklęcia klątw",
-                "colLabels": ["Poziom zaklęcia", "Zaklęcia"],
+                "colLabels": [
+                  "Poziom zaklęcia",
+                  "Zaklęcia"
+                ],
                 "rows": [
                   [
                     "1",
@@ -412,8 +430,14 @@
                     "6",
                     "{@spell Otto's Irresistible Dance|XPHB|Nieodparty Taniec}, {@spell Flesh to Stone|XPHB}"
                   ],
-                  ["8", "{@spell Miser's Menace|Fumble|Groźba Skąpca}*"],
-                  ["9", "{@spell Imprisonment|XPHB}"]
+                  [
+                    "8",
+                    "{@spell Miser's Menace|Fumble|Groźba Skąpca}*"
+                  ],
+                  [
+                    "9",
+                    "{@spell Imprisonment|XPHB}"
+                  ]
                 ]
               }
             ]
@@ -566,45 +590,141 @@
               {
                 "type": "table",
                 "caption": "Pospolite i Niepospolite Przedmioty",
-                "colLabels": ["Magiczny przedmiot", "{@variantrule Attunement|XPHB}"],
+                "colLabels": [
+                  "Magiczny przedmiot",
+                  "{@variantrule Attunement|XPHB}"
+                ],
                 "rows": [
-                  ["{@item Amulet of Proof against Detection and Location|XDMG}", "Tak"],
-                  ["{@item Bag of Tricks, Gray|XDMG|Worek Sztuczek}", "Nie"],
-                  ["{@item Bauble Trap|Fumble|Pułapka Błyskotki}*", "Tak"],
-                  ["{@item Boots of the Winterlands|XDMG}", "Tak"],
-                  ["{@item Brooch of Shielding|XDMG}", "Tak"],
-                  ["{@item Broom of Flying|XDMG}", "Nie"],
-                  ["{@item Cloak of the Manta Ray|XDMG}", "Nie"],
-                  ["{@item Eversmoking Bottle|XDMG}", "Nie"],
-                  ["{@item Gem of Brightness|XDMG}", "Nie"],
-                  ["{@item Lantern of Revealing|XDMG}", "Nie"],
-                  ["{@item Necklace of Adaptation|XDMG}", "Tak"],
-                  ["{@item Periapt of Health|XDMG}", "Nie"],
-                  ["{@item Periapt of Wound Closure|XDMG}", "Tak"],
-                  ["{@item Ring of Mind Shielding|XDMG}", "Tak"],
-                  ["{@item Slippers of Spider Climbing|XDMG}", "Tak"],
-                  ["{@item Stone of Good Luck|XDMG}", "Tak"],
-                  ["{@item Worry Stone|Fumble|Kamień Zmartwień}*", "Nie"]
+                  [
+                    "{@item Amulet of Proof against Detection and Location|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Bag of Tricks, Gray|XDMG|Worek Sztuczek}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Bauble Trap|Fumble|Pułapka Błyskotki}*",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Boots of the Winterlands|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Brooch of Shielding|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Broom of Flying|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Cloak of the Manta Ray|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Eversmoking Bottle|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Gem of Brightness|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Lantern of Revealing|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Necklace of Adaptation|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Periapt of Health|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Periapt of Wound Closure|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Ring of Mind Shielding|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Slippers of Spider Climbing|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Stone of Good Luck|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Worry Stone|Fumble|Kamień Zmartwień}*",
+                    "Nie"
+                  ]
                 ]
               },
               {
                 "type": "table",
                 "caption": "Rzadkie Przedmioty",
-                "colLabels": ["Magiczny przedmiot", "{@variantrule Attunement|XPHB}"],
+                "colLabels": [
+                  "Magiczny przedmiot",
+                  "{@variantrule Attunement|XPHB}"
+                ],
                 "rows": [
-                  ["{@item Cape of the Mountebank|XDMG}", "Nie"],
-                  ["{@item Cloak of the Bat|XDMG}", "Tak"],
-                  ["{@item Dagger of Venom|XDMG}", "Nie"],
-                  ["{@item Folding Boat|XDMG}", "Nie"],
-                  ["{@item Gem of Seeing|XDMG}", "Tak"],
-                  ["{@item Heward's Handy Haversack|XDMG|Poręczny Plecak}", "Nie"],
-                  ["{@item Horseshoes of Speed|XDMG}", "Nie"],
-                  ["{@item Mantle of Spell Resistance|XDMG}", "Tak"],
-                  ["{@item Periapt of Proof against Poison|XDMG}", "Nie"],
-                  ["{@item Ring of Feather Falling|XDMG}", "Tak"],
-                  ["{@item Rope of Entanglement|XDMG}", "Nie"],
-                  ["{@item Staff of Withering|XDMG}", "Tak"],
-                  ["{@item Warders Tocsin|Fumble|Dzwon Strażnika}*", "Nie"]
+                  [
+                    "{@item Cape of the Mountebank|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Cloak of the Bat|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Dagger of Venom|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Folding Boat|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Gem of Seeing|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Heward's Handy Haversack|XDMG|Poręczny Plecak}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Horseshoes of Speed|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Mantle of Spell Resistance|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Periapt of Proof against Poison|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Ring of Feather Falling|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Rope of Entanglement|XDMG}",
+                    "Nie"
+                  ],
+                  [
+                    "{@item Staff of Withering|XDMG}",
+                    "Tak"
+                  ],
+                  [
+                    "{@item Warders Tocsin|Fumble|Dzwon Strażnika}*",
+                    "Nie"
+                  ]
                 ]
               },
               "Nowe magiczne przedmioty, które Wiedźmy mogą tworzyć jako talizmany, oznaczono gwiazdką i opisano w sekcji Nowe magiczne przedmioty na końcu tej klasy."
@@ -622,7 +742,9 @@
       {
         "level": 7,
         "name": "Ulepszone Znaki",
-        "entries": ["Możesz tworzyć znaki, używając zaklęć 2. poziomu."]
+        "entries": [
+          "Możesz tworzyć znaki, używając zaklęć 2. poziomu."
+        ]
       },
       {
         "level": 9,
@@ -641,7 +763,9 @@
       {
         "level": 13,
         "name": "Większe Znaki",
-        "entries": ["Możesz tworzyć znaki, używając zaklęć 3. poziomu."]
+        "entries": [
+          "Możesz tworzyć znaki, używając zaklęć 3. poziomu."
+        ]
       },
       {
         "level": 15,
@@ -685,18 +809,27 @@
               {
                 "type": "table",
                 "caption": "Zaklęcia Sabatu Szponu",
-                "colLabels": ["Poziom Wiedźmy", "Przygotowane zaklęcia"],
+                "colLabels": [
+                  "Poziom Wiedźmy",
+                  "Przygotowane zaklęcia"
+                ],
                 "rows": [
                   [
                     "3",
                     "{@spell Animal Friendship|XPHB}, {@spell Animal Messenger|XPHB}, {@spell Poison Spray|XPHB}, {@spell Speak with Animals|XPHB}, {@spell Spider Climb|XPHB}"
                   ],
-                  ["5", "{@spell Haste|XPHB}, {@spell Water Breathing|XPHB}"],
+                  [
+                    "5",
+                    "{@spell Haste|XPHB}, {@spell Water Breathing|XPHB}"
+                  ],
                   [
                     "7",
                     "{@spell Dominate Beast|XPHB}, {@spell Wyrding|Fumble|Przemiana}*"
                   ],
-                  ["9", "{@spell Insect Plague|XPHB}, {@spell Hold Monster|XPHB}"]
+                  [
+                    "9",
+                    "{@spell Insect Plague|XPHB}, {@spell Hold Monster|XPHB}"
+                  ]
                 ]
               },
               "{@spell Wyrding|Fumble|Przemiana} to nowe zaklęcie Wiedźmy opisane na końcu tego opisu klasy."
@@ -774,18 +907,27 @@
               {
                 "type": "table",
                 "caption": "Zaklęcia Sabatu Zieleni",
-                "colLabels": ["Poziom Wiedźmy", "Przygotowane zaklęcia"],
+                "colLabels": [
+                  "Poziom Wiedźmy",
+                  "Przygotowane zaklęcia"
+                ],
                 "rows": [
                   [
                     "3",
                     "{@spell Barkskin|XPHB}, {@spell Druidcraft|XPHB}, {@spell Entangle|XPHB}, {@spell Goodberry|XPHB}, {@spell Poison Spray|XPHB}, {@spell Spike Growth|XPHB}"
                   ],
-                  ["5", "{@spell Plant Growth|XPHB}, {@spell Speak with Plants|XPHB}"],
+                  [
+                    "5",
+                    "{@spell Plant Growth|XPHB}, {@spell Speak with Plants|XPHB}"
+                  ],
                   [
                     "7",
                     "{@spell Grasping Vine|XPHB}, {@spell Hallucinatory Terrain|XPHB}"
                   ],
-                  ["9", "{@spell Commune with Nature|XPHB}, {@spell Tree Stride|XPHB}"]
+                  [
+                    "9",
+                    "{@spell Commune with Nature|XPHB}, {@spell Tree Stride|XPHB}"
+                  ]
                 ]
               }
             ]
@@ -860,18 +1002,27 @@
               {
                 "type": "table",
                 "caption": "Zaklęcia Sabatu Serca",
-                "colLabels": ["Poziom Wiedźmy", "Przygotowane zaklęcia"],
+                "colLabels": [
+                  "Poziom Wiedźmy",
+                  "Przygotowane zaklęcia"
+                ],
                 "rows": [
                   [
                     "3",
                     "{@spell Calm Emotions|XPHB}, {@spell Healing Word|XPHB}, {@spell Prestidigitation|XPHB}, {@spell Sanctuary|XPHB}, {@spell Spare the Dying|XPHB}, {@spell Warding Bond|XPHB}"
                   ],
-                  ["5", "{@spell Mass Healing Word|XPHB}, {@spell Revivify|XPHB}"],
+                  [
+                    "5",
+                    "{@spell Mass Healing Word|XPHB}, {@spell Revivify|XPHB}"
+                  ],
                   [
                     "7",
                     "{@spell Death Ward|XPHB}, {@spell Otiluke's Resilient Sphere|XPHB}"
                   ],
-                  ["9", "{@spell Rary's Telepathic Bond|XPHB}, {@spell Raise Dead|XPHB}"]
+                  [
+                    "9",
+                    "{@spell Rary's Telepathic Bond|XPHB}, {@spell Raise Dead|XPHB}"
+                  ]
                 ]
               }
             ]
@@ -1081,7 +1232,10 @@
           {
             "type": "table",
             "caption": "Zaklęcia Węża",
-            "colLabels": ["Poziom Czarnoksiężnika", "Zaklęcia"],
+            "colLabels": [
+              "Poziom Czarnoksiężnika",
+              "Zaklęcia"
+            ],
             "rows": [
               [
                 "3",
@@ -1159,7 +1313,7 @@
               {
                 "type": "item",
                 "name": "Ręka Węża",
-                "entry": "Twoje dodatkowe obrażenia od trucizny rosną do {@damage 1d8}. Po godzinnym rytuale twoja wężowa ręka może skopiować właściwości magicznej broni do walki wręcz, którą posiadasz, zajmując przy tym jeden slot dostrojenia. Nie działa to na artefakty. Skopiowana w ten sposób broń legendarna zajmuje dwa sloty dostrojenia."
+                "entry": "Twoje dodatkowe obrażenia od trucizny rosną do {@damage 1d8}. Po godzinnym rytuale twoja wężowa ręka może skopiować właściwości magicznej broni do walki wręcz, którą posiadasz, zajmując przy tym jeden komórka dostrojenia. Nie działa to na artefakty. Skopiowana w ten sposób broń legendarna zajmuje dwa komórki dostrojenia."
               }
             ]
           }
@@ -1169,7 +1323,7 @@
         "level": 14,
         "name": "Wężowa Przemiana",
         "entries": [
-          "Możesz raz po ukończeniu {@variantrule Long Rest|XPHB|długiego odpoczynku} rzucić {@spell Shapechange|XPHB|Przemianę kształtu} bez komponentu materialnego, ale jedynymi formami, jakie możesz przyjąć, są {@creature Yuan-ti Abomination|XMM|odrażający yuan-ti} albo dowolny wąż. GM może pozwolić ci przemienić się w inne istoty typu yuan-ti. Jeśli zużyjesz wszystkie swoje komórki czarów Czarnoksiężnika (3 lub 4) i wykorzystasz Magical Cunning podczas 10-minutowego rytuału, możesz rzucić {@spell Shapechange|XPHB|Przemianę kształtu} ponownie. Zużyte w ten sposób komórki czarów odzyskujesz wyłącznie po ukończeniu długiego odpoczynku. Różdżka Strażnika Paktu nadal działa."
+          "Możesz raz po ukończeniu {@variantrule Long Rest|XPHB|długiego odpoczynku} rzucić {@spell Shapechange|XPHB|Przemianę kształtu} bez komponentu materialnego, ale jedynymi formami, jakie możesz przyjąć, są {@creature Yuan-ti Abomination|XMM|odrażający yuan-ti} albo dowolny wąż. GM może pozwolić ci przemienić się w inne istoty typu yuan-ti. Jeśli zużyjesz wszystkie swoje komórki czarów Czarnoksiężnika (3 lub 4) i wykorzystasz Magiczna przebiegłość podczas 10-minutowego rytuału, możesz rzucić {@spell Shapechange|XPHB|Przemianę kształtu} ponownie. Zużyte w ten sposób komórki czarów odzyskujesz wyłącznie po ukończeniu długiego odpoczynku. Różdżka Strażnika Paktu nadal działa."
         ]
       }
     ]
@@ -1196,7 +1350,10 @@
           {
             "type": "table",
             "caption": "Zaklęcia Węża",
-            "colLabels": ["Poziom Zaklinacza", "Zaklęcia"],
+            "colLabels": [
+              "Poziom Zaklinacza",
+              "Zaklęcia"
+            ],
             "rows": [
               [
                 "3",
@@ -1228,20 +1385,22 @@
       {
         "level": 6,
         "name": "Wężowa Odporność",
-        "entries": ["Zyskujesz odporność na obrażenia od trucizny."]
+        "entries": [
+          "Zyskujesz odporność na obrażenia od trucizny."
+        ]
       },
       {
         "level": 6,
         "name": "Wężowa Przemiana",
         "entries": [
-          "Poznajesz zaklęcie {@spell Polymorph|XPHB|Polimorfia} (na tym poziomie nie masz jeszcze komórek czaru, aby rzucać je w zwykły sposób). Możesz rzucić je bez zużywania komórki czaru wyłącznie na siebie, bez koncentracji, zachowując swoje cechy umysłowe: Inteligencję, Mądrość i Charyzmę. Możesz przemienić się wyłącznie w {@creature Giant Venomous Snake|XMM|wielkiego jadowitego węża}, {@creature Constrictor Snake|XMM|duszącego węża}, {@creature Venomous Snake|XMM|jadowitego węża} albo {@creature Giant Constrictor Snake|XMM|wielkiego duszącego węża}. Ostatnia forma trwa tylko 1 minutę. Po użyciu tej zdolności nie możesz użyć jej ponownie do ukończenia {@variantrule Long Rest|XPHB|długiego odpoczynku}, chyba że wydasz jedno użycie Innate Sorcery, aby ją odzyskać."
+          "Poznajesz zaklęcie {@spell Polymorph|XPHB|Polimorfia} (na tym poziomie nie masz jeszcze komórek czaru, aby rzucać je w zwykły sposób). Możesz rzucić je bez zużywania komórki czaru wyłącznie na siebie, bez koncentracji, zachowując swoje cechy umysłowe: Inteligencję, Mądrość i Charyzmę. Możesz przemienić się wyłącznie w {@creature Giant Venomous Snake|XMM|wielkiego jadowitego węża}, {@creature Constrictor Snake|XMM|duszącego węża}, {@creature Venomous Snake|XMM|jadowitego węża} albo {@creature Giant Constrictor Snake|XMM|wielkiego duszącego węża}. Ostatnia forma trwa tylko 1 minutę. Po użyciu tej zdolności nie możesz użyć jej ponownie do ukończenia {@variantrule Long Rest|XPHB|długiego odpoczynku}, chyba że wydasz jedno użycie Wrodzone czarowanie, aby ją odzyskać."
         ]
       },
       {
         "level": 14,
         "name": "Kwasowa Trucizna",
         "entries": [
-          "Gdy korzystasz z Innate Sorcery, zyskujesz niewrażliwość na obrażenia od trucizny, również podczas korzystania z Wężowej Przemiany. Poznajesz metamagiczną opcję Transmute Spell, a jeśli już ją znasz, poznajesz w zamian inną wybraną opcję metamagii. Możesz bez wydawania zasobów zastosować Transmute Spell do zaklęć zadających obrażenia od trucizny, zmieniając ten typ obrażeń na kwas."
+          "Gdy korzystasz z Wrodzone czarowanie, zyskujesz niewrażliwość na obrażenia od trucizny, również podczas korzystania z Wężowej Przemiany. Poznajesz metamagiczną opcję Transmutacja zaklęcia, a jeśli już ją znasz, poznajesz w zamian inną wybraną opcję metamagii. Możesz bez wydawania zasobów zastosować Transmutacja zaklęcia do zaklęć zadających obrażenia od trucizny, zmieniając ten typ obrażeń na kwas."
         ]
       },
       {
@@ -1275,14 +1434,42 @@
           {
             "type": "table",
             "caption": "Kości Energii Zertha",
-            "colLabels": ["Poziom Mnicha", "Kość", "Liczba Kości"],
+            "colLabels": [
+              "Poziom Mnicha",
+              "Kość",
+              "Liczba Kości"
+            ],
             "rows": [
-              ["3", "{@dice d6}", "4"],
-              ["5", "{@dice d8}", "6"],
-              ["9", "{@dice d8}", "8"],
-              ["11", "{@dice d10}", "8"],
-              ["13", "{@dice d10}", "10"],
-              ["17", "{@dice d12}", "12"]
+              [
+                "3",
+                "{@dice d6}",
+                "4"
+              ],
+              [
+                "5",
+                "{@dice d8}",
+                "6"
+              ],
+              [
+                "9",
+                "{@dice d8}",
+                "8"
+              ],
+              [
+                "11",
+                "{@dice d10}",
+                "8"
+              ],
+              [
+                "13",
+                "{@dice d10}",
+                "10"
+              ],
+              [
+                "17",
+                "{@dice d12}",
+                "12"
+              ]
             ]
           },
           "Każda cecha tej podklasy, która wykorzystuje Kość Energii Psionicznej, korzysta wyłącznie z kości zapewnianych przez tę podklasę. Nie możesz używać takich zdolności, jeśli nie masz już żadnej Kości Energii Psionicznej. Odzyskujesz połowę wydanych kości po ukończeniu {@variantrule Short Rest|XPHB|krótkiego odpoczynku} oraz wszystkie po ukończeniu {@variantrule Long Rest|XPHB|długiego odpoczynku}."
@@ -1303,7 +1490,10 @@
           {
             "type": "table",
             "caption": "Zaklęcia Psychiczne",
-            "colLabels": ["Zaklęcie", "Koszt w Kościach Energii Psionicznej"],
+            "colLabels": [
+              "Zaklęcie",
+              "Koszt w Kościach Energii Psionicznej"
+            ],
             "rows": [
               [
                 "{@spell Comprehend Languages|XPHB|Rozumienie języków}, {@spell Jump|XPHB|Skok}",
@@ -1313,8 +1503,14 @@
                 "{@spell Detect Thoughts|XPHB|Wykrycie myśli}, {@spell See Invisibility|XPHB|Widzenie niewidzialnego}, {@spell Blur|XPHB|Rozmycie}",
                 "2"
               ],
-              ["{@spell Sending|XPHB|Posłanie}, {@spell Tongues|XPHB|Języki}", "3"],
-              ["{@spell Arcane Eye|XPHB|Tajemne oko}", "4"],
+              [
+                "{@spell Sending|XPHB|Posłanie}, {@spell Tongues|XPHB|Języki}",
+                "3"
+              ],
+              [
+                "{@spell Arcane Eye|XPHB|Tajemne oko}",
+                "4"
+              ],
               [
                 "{@spell Rary's Telepathic Bond|XPHB|Telepatyczna więź Rary'ego}, {@spell Telekinesis|XPHB|Telekineza}",
                 "5"
@@ -1409,7 +1605,7 @@
         "name": "Przywołanie Nieumarłych",
         "entries": [
           "Jako {@variantrule Bonus Action|XPHB|akcję dodatkową} możesz wydać jedno użycie swojego {@classFeature Channel Divinity|Paladin|Boskiego Kanału|3|XPHB}, aby przywołać liczbę nieumarłych równą połowie swojego modyfikatora Charyzmy (zaokrąglając w górę; minimum jeden przywołany nieumarły).",
-          "Każdy nieumarły pojawia się w wolnym miejscu, które widzisz, w odległości do 30 stóp od ciebie, i jest wybranego przez ciebie typu: {@creature Skeleton|XMM|Szkielet} albo {@creature Zombie|XMM|Zombi} (zobacz dodatek B w {@book Player's Handbook|XPHB|Podręczniku Gracza}).",
+          "Każdy nieumarły pojawia się w wolnym miejscu, które widzisz, w odległości do 30 stóp od ciebie, i jest wybranego przez ciebie typu: {@creature Skeleton|XMM|Szkielet} albo {@creature Zombie|XMM|Zombie} (zobacz dodatek B w {@book Player's Handbook|XPHB|Podręczniku Gracza}).",
           "Nieumarli pozostają pod twoją kontrolą przez 1 minutę, po czym rozpływają się w popiół.",
           "Każdy nieumarły jest sojusznikiem twoim i twoich sojuszników.",
           "W walce nieumarły ma tę samą inicjatywę co ty, ale wykonuje swoją turę bezpośrednio po twojej. Wykonuje twoje werbalne rozkazy (nie wymaga to od ciebie akcji). Jeśli nie wydasz rozkazu, wykonuje akcję {@action Dodge|XPHB|Unik} i wykorzystuje swój ruch, aby uniknąć niebezpieczeństwa."
@@ -1430,7 +1626,10 @@
           {
             "type": "table",
             "caption": "Zaklęcia Wiarołomcy",
-            "colLabels": ["Poziom Paladyna", "Zaklęcia"],
+            "colLabels": [
+              "Poziom Paladyna",
+              "Zaklęcia"
+            ],
             "rows": [
               [
                 "3",
@@ -1467,7 +1666,7 @@
         "level": 15,
         "name": "Nadnaturalna Odporność",
         "entries": [
-          "Zyskujesz {@variantrule Resistance|XPHB|odporność} na obrażenia obuchowe, kłute i cięte."
+          "Zyskujesz {@variantrule Resistance|XPHB|odporność} na obrażenia obuchowe, kłute i sieczne."
         ]
       },
       {
@@ -1536,8 +1735,8 @@
                 "type": "entries",
                 "name": "Niewiele istnieje",
                 "entries": [
-                  "Większość światów fantasy posiada znacznie mniej talentów niż czarodzieje i duchowni. Większość ludzi nawet nie ma pojęcia o talentach, a ci, którzy je mają, często śmieją się z opowieści o tajemniczych magach umysłu jako fanaberii. Potencjał psioniczny wśród humanoidów jest rzadki.",
-                  "W różnych kulturach i środowiskach ludzie będą różnie reagować na istnienie psionicznych humanoidów. W niektórych miejscach moc i intelekt wynikający z talentów mogą uczynić z nich szanowanych doradców, przywódców, szpiegów i taktyków. W innych opinia publiczna może zachować ostrożność w stosunku do tych, którzy potrafią czytać w myślach bez słowa i bez rozkwitu. W wielu obszarach talenty mogą być przez jednych szanowane, a przez innych w równym stopniu nieufne.",
+                  "Większość światów fantasy posiada znacznie mniej talentów niż czarodzieje i duchowni. Większość ludzi nawet nie ma pojęcia o talentach, a ci, którzy je mają, często śmieją się z opowieści o tajemniczych magach umysłu jako fanaberii. Potencjał psioniczny wśród humanoidalnych istot jest rzadki.",
+                  "W różnych kulturach i środowiskach ludzie będą różnie reagować na istnienie psionicznych humanoidalnych istot. W niektórych miejscach moc i intelekt wynikający z talentów mogą uczynić z nich szanowanych doradców, przywódców, szpiegów i taktyków. W innych opinia publiczna może zachować ostrożność w stosunku do tych, którzy potrafią czytać w myślach bez słowa i bez rozkwitu. W wielu obszarach talenty mogą być przez jednych szanowane, a przez innych w równym stopniu nieufne.",
                   {
                     "type": "inset",
                     "name": "Pojawia się dziki talent!",
@@ -1606,12 +1805,16 @@
               {
                 "type": "abilityDc",
                 "name": "Moc",
-                "attributes": ["wew"]
+                "attributes": [
+                  "wew"
+                ]
               },
               {
                 "type": "abilityAttackMod",
                 "name": "Moc",
-                "attributes": ["wew"]
+                "attributes": [
+                  "wew"
+                ]
               }
             ]
           },
@@ -1628,7 +1831,7 @@
             "name": "Wynik manifestacji",
             "page": 13,
             "entries": [
-              "Każda potęga {@filter 2nd order or higher|psionics|order=2nd-order;3rd-order;4th-order;5th-order;6th-order|source=talpsi==extend} ma wynik manifestacji równy jej porządkowi. Wynik manifestacji mocy zwiększa się o 1 za każdą inną moc, na której się koncentrujesz, kiedy ją manifestujesz. Na przykład, jeśli spróbujesz zamanifestować moc {@i {@psionic Again|TalPsi|again}} drugiego rzędu, koncentrując się na {@i {@psionic Apparition|TalPsi|apparition}} i {@i {@psionic Caress of Fire|TalPsi|caress of fire}}, wynik manifestacji {@i again} wynosi 4."
+              "Każda potęga {@filter 2nd order or higher|psionics|order=2nd-order;3rd-order;4th-order;5th-order;6th-order|source=talpsi==extend} ma wynik manifestacji równy jej kręgowi. Wynik manifestacji mocy zwiększa się o 1 za każdą inną moc, na której się koncentrujesz, kiedy ją manifestujesz. Na przykład, jeśli spróbujesz zamanifestować moc {@i {@psionic Again|TalPsi|again}} 2. kręgu, koncentrując się na {@i {@psionic Apparition|TalPsi|apparition}} i {@i {@psionic Caress of Fire|TalPsi|Pieszczota Ognia}}, wynik manifestacji {@i again} wynosi 4."
             ]
           },
           {
@@ -1642,7 +1845,7 @@
                 "items": [
                   "Jeśli wynik rzutu jest wyższy niż wynik manifestacji mocy, manifestujesz moc.",
                   "Jeśli wynik jest równy wynikowi manifestacji mocy, manifestujesz moc, a następnie zyskujesz 1 obciążenie.",
-                  "Jeśli wynik rzutu jest niższy niż wynik manifestacji mocy, manifestujesz moc, a następnie zyskujesz napięcie równe kolejności mocy."
+                  "Jeśli wynik rzutu jest niższy niż wynik manifestacji mocy, manifestujesz moc, a następnie zyskujesz napięcie równe kręgowi mocy."
                 ]
               },
               "Jeśli poziom wysiłku, jaki uzyskasz w wyniku manifestacji mocy, spowoduje przekroczenie maksymalnego wysiłku (patrz „Wysiłek” poniżej), możesz wybrać albo zamanifestowanie mocy, a następnie natychmiastową śmierć; lub nie manifestować mocy, nie zyskiwać napięcia i spadać do 0 punktów wytrzymałości."
@@ -1706,28 +1909,48 @@
                         "Nie można wykonać działań {@action Dash}, {@action Disengage} lub {@action Dodge}",
                         "Wada w testach Mądrości i Charyzmy"
                       ],
-                      ["2", "Brak efektu", "Brak efektu", "Brak efektu"],
+                      [
+                        "2",
+                        "Brak efektu",
+                        "Brak efektu",
+                        "Brak efektu"
+                      ],
                       [
                         "3",
                         "Prędkość zmniejszona o połowę",
                         "Stracić biegłość we wszystkich umiejętnościach",
                         "Wadą rzutów obronnych na śmierć"
                       ],
-                      ["4", "Brak efektu", "Brak efektu", "Brak efektu"],
+                      [
+                        "4",
+                        "Brak efektu",
+                        "Brak efektu",
+                        "Brak efektu"
+                      ],
                       [
                         "5",
                         "Wada rzutów obronnych na Siłę i Zręczność",
                         "-5 kary dla AC",
                         "Wada rzutów obronnych na Mądrość i Charyzmę"
                       ],
-                      ["6", "Brak efektu", "Brak efektu", "Brak efektu"],
+                      [
+                        "6",
+                        "Brak efektu",
+                        "Brak efektu",
+                        "Brak efektu"
+                      ],
                       [
                         "7",
                         "Maksymalna liczba punktów życia zmniejszona o połowę",
                         "Stracisz biegłość we wszystkich rzutach obronnych",
                         "Kiedy nadprzyrodzony efekt powoduje, że odzyskujesz punkty wytrzymałości, odzyskujesz tylko połowę ich normalnej wartości"
                       ],
-                      ["8", "Brak efektu", "Brak efektu", "Brak efektu"]
+                      [
+                        "8",
+                        "Brak efektu",
+                        "Brak efektu",
+                        "Brak efektu"
+                      ]
                     ]
                   },
                   {
@@ -1748,20 +1971,47 @@
                         "type": "table",
                         "caption": "Opcjonalne efekty napięcia",
                         "page": 13,
-                        "colLabels": ["{@dice d8}", "Efekt"],
+                        "colLabels": [
+                          "{@dice d8}",
+                          "Efekt"
+                        ],
                         "colStyles": [
                           "col-1 centrum tekstowe",
                           "tekst w kolumnie 9 po lewej stronie"
                         ],
                         "rows": [
-                          ["1", "Twój nos krwawi."],
-                          ["2", "Twoje oczy stają się przekrwione."],
-                          ["3", "Twój oddech jest ciężki."],
-                          ["4", "Obficie się pocisz."],
-                          ["5", "Bolą Cię mięśnie."],
-                          ["6", "Stajesz się nieznośnie głodny lub spragniony."],
-                          ["7", "Stajesz się bardziej drażliwy."],
-                          ["8", "Masz ciągły ból głowy."]
+                          [
+                            "1",
+                            "Twój nos krwawi."
+                          ],
+                          [
+                            "2",
+                            "Twoje oczy stają się przekrwione."
+                          ],
+                          [
+                            "3",
+                            "Twój oddech jest ciężki."
+                          ],
+                          [
+                            "4",
+                            "Obficie się pocisz."
+                          ],
+                          [
+                            "5",
+                            "Bolą Cię mięśnie."
+                          ],
+                          [
+                            "6",
+                            "Stajesz się nieznośnie głodny lub spragniony."
+                          ],
+                          [
+                            "7",
+                            "Stajesz się bardziej drażliwy."
+                          ],
+                          [
+                            "8",
+                            "Masz ciągły ból głowy."
+                          ]
                         ]
                       }
                     ]
@@ -1786,10 +2036,10 @@
               },
               {
                 "type": "entries",
-                "name": "Moce pierwszego rzędu",
+                "name": "Moce 1. kręgu",
                 "page": 14,
                 "entries": [
-                  "Na pierwszym poziomie znasz cztery {@filter 1st-order powers|psionics|order=1st-order}. Na wyższych poziomach uczysz się dodatkowego wybranego {@filter 1st-order powers|psionics|order=1st-order|source=talpsi==extend}, jak pokazano w kolumnie Mocy pierwszego rzędu w tabeli Talentów. Manifestowanie mocy pierwszego rzędu nie wymaga testu manifestacji."
+                  "Na pierwszym poziomie znasz cztery {@filter 1st-order powers|psionics|order=1st-order}. Na wyższych poziomach uczysz się dodatkowego wybranego {@filter 1st-order powers|psionics|order=1st-order|source=talpsi==extend}, jak pokazano w kolumnie Mocy 1. kręgu w tabeli Talentów. Manifestowanie mocy 1. kręgu nie wymaga testu manifestacji."
                 ]
               },
               {
@@ -1797,7 +2047,7 @@
                 "name": "Znane moce",
                 "page": 14,
                 "entries": [
-                  "Na pierwszym poziomie znasz dwie moce drugiego rzędu, które są mocami najwyższego rzędu, jakie możesz zamanifestować. Kiedy osiągniesz określone poziomy tej klasy, możesz manifestować moce wyższego rzędu: {@filter 3rd-order powers|psionics|order=3rd-order|source=talpsi==extend} na 5. poziomie, {@filter 4th-order powers|psionics|order=4th-order} na 9. poziomie, {@filter 5th-order powers|psionics|order=5th-order|source=talpsi==extend} na 13. poziomie i {@filter 6th-order powers|psionics|order=6th-order|source=talpsi==extend} na 17. poziomie."
+                  "Na pierwszym poziomie znasz dwie moce 2. kręgu, które są mocami najwyższego kręgu, jakie możesz zamanifestować. Kiedy osiągniesz określone poziomy tej klasy, możesz manifestować moce wyższego kręgu: {@filter 3rd-order powers|psionics|order=3rd-order|source=talpsi==extend} na 5. poziomie, {@filter 4th-order powers|psionics|order=4th-order} na 9. poziomie, {@filter 5th-order powers|psionics|order=5th-order|source=talpsi==extend} na 13. poziomie i {@filter 6th-order powers|psionics|order=6th-order|source=talpsi==extend} na 17. poziomie."
                 ]
               },
               {
@@ -1805,22 +2055,22 @@
                 "name": "Nauka nowych mocy",
                 "page": 14,
                 "entries": [
-                  "Na pierwszym poziomie możesz nauczyć się tylko {@filter 2nd-order powers|psionics|order=2nd-order|source=talpsi==extend} i możesz manifestować {@filter 1st-order and 2nd-order powers|psionics|order=2nd-order;1st-order|source=talpsi==extend}. Jednak wraz ze wzrostem poziomu nie ma ograniczeń co do liczby mocy {@filter 2nd order or higher|psionics|order=2nd-order;3rd-order;4th-order;5th-order;6th-order|source=talpsi==extend}, których możesz się nauczyć. Ilekroć jesteś w stanie zamanifestować moce określonego rzędu, możesz nauczyć się mocy tego rzędu.",
-                  "Za każdym razem, gdy zdobędziesz poziom w tej klasie, możesz nauczyć się jednej nowej mocy dowolnego rzędu od 2. do najwyższego stopnia mocy, jaki możesz zamanifestować. Dodatkowo, gdy zdobędziesz poziom w tej klasie, możesz wybrać jedną ze znanych Ci mocy i zastąpić ją inną mocą tego samego lub niższego rzędu (minimum 2. rzędu).",
+                  "Na pierwszym poziomie możesz nauczyć się tylko {@filter 2nd-order powers|psionics|order=2nd-order|source=talpsi==extend} i możesz manifestować {@filter 1st-order and 2nd-order powers|psionics|order=2nd-order;1st-order|source=talpsi==extend}. Jednak wraz ze wzrostem poziomu nie ma ograniczeń co do liczby mocy {@filter 2nd order or higher|psionics|order=2nd-order;3rd-order;4th-order;5th-order;6th-order|source=talpsi==extend}, których możesz się nauczyć. Ilekroć jesteś w stanie zamanifestować moce określonego kręgu, możesz nauczyć się mocy tego kręgu.",
+                  "Za każdym razem, gdy zdobędziesz poziom w tej klasie, możesz nauczyć się jednej nowej mocy dowolnego kręgu od 2. do najwyższego kręgu mocy, jaki możesz zamanifestować. Dodatkowo, gdy zdobędziesz poziom w tej klasie, możesz wybrać jedną ze znanych Ci mocy i zastąpić ją inną mocą tego samego lub niższego kręgu (minimum 2. kręgu).",
                   {
                     "type": "entries",
                     "name": "Uczenie się od innych",
                     "entries": [
-                      "Ilekroć inna istota, którą widzisz w promieniu 30 stóp od ciebie, manifestuje psioniczną moc {@filter 2nd order or higher|psionics|order=2nd-order;3rd-order;4th-order;5th-order;6th-order|source=talpsi==extend}, a tej mocy możesz się nauczyć, a której jeszcze nie znasz, możesz użyć reakcji, aby rzucić kością manifestacji. Jeśli wyrzucisz wynik wyższy niż podstawowa kolejność mocy (ignorując wszelkie zwiększenie kolejności, gdy moc się manifestuje), zaczynasz uczyć się tej mocy. Jeśli wyrzucisz niżej niż podstawowa kolejność mocy, nie nauczysz się mocy i nie będziesz mógł próbować zrobić tego ponownie, dopóki nie zakończysz długiego odpoczynku.",
+                      "Ilekroć inna istota, którą widzisz w promieniu 30 stóp od ciebie, manifestuje psioniczną moc {@filter 2nd order or higher|psionics|order=2nd-order;3rd-order;4th-order;5th-order;6th-order|source=talpsi==extend}, a tej mocy możesz się nauczyć, a której jeszcze nie znasz, możesz użyć reakcji, aby rzucić kością manifestacji. Jeśli wyrzucisz wynik wyższy niż podstawowy krąg mocy (ignorując wszelkie zwiększenie kręgu, gdy moc się manifestuje), zaczynasz uczyć się tej mocy. Jeśli wyrzucisz niżej niż podstawowy krąg mocy, nie nauczysz się mocy i nie będziesz mógł próbować zrobić tego ponownie, dopóki nie zakończysz długiego odpoczynku.",
                       "Tabela Uczenie się nowych mocy pokazuje, ile czasu zajmuje nauczenie się nowej mocy, którą pomyślnie zaobserwowałeś. Musisz spędzić 1 godzinę na niczym innym, jak tylko ćwicząc daną moc każdego dnia okresu nauki i nie możesz w tym czasie próbować uczyć się żadnych innych nowych mocy. Ten 1-godzinny okres ćwiczeń można potraktować jako krótki odpoczynek. Jeśli nie poświęcisz 1 godziny każdego dnia okresu nauki na studiowanie mocy lub jeśli zaczniesz uczyć się innej mocy przed zakończeniem okresu nauki, musisz pomyślnie obserwować tę moc jeszcze raz, zanim ponownie spróbujesz nauczyć się jej w ten sposób.",
                       {
                         "type": "table",
                         "caption": "Nauka nowych mocy",
                         "page": 14,
                         "colLabels": [
-                          "Zamówienie",
+                          "Krąg",
                           "Okres uczenia się",
-                          "Zamówienie",
+                          "Krąg",
                           "Okres uczenia się"
                         ],
                         "colStyles": [
@@ -1830,9 +2080,24 @@
                           "tekst w kolumnie 3 po lewej stronie"
                         ],
                         "rows": [
-                          ["2", "1 dzień", "5", "12 dni"],
-                          ["3", "4 dni", "6", "16 dni"],
-                          ["4", "8 dni", "", ""]
+                          [
+                            "2",
+                            "1 dzień",
+                            "5",
+                            "12 dni"
+                          ],
+                          [
+                            "3",
+                            "4 dni",
+                            "6",
+                            "16 dni"
+                          ],
+                          [
+                            "4",
+                            "8 dni",
+                            "",
+                            ""
+                          ]
                         ]
                       }
                     ]
@@ -1856,7 +2121,7 @@
         "level": 1,
         "name": "Szczep do utrzymania",
         "entries": [
-          "Za każdym razem, gdy nie uda ci się wykonać rzutu obronnego na Kondycję, aby utrzymać koncentrację na jednej lub większej liczbie mocy uzyskanych od tej klasy, możesz zwiększyć napięcie, aby utrzymać wszystkie moce, na których się koncentrujesz, aktywne. Odkształcenie to jest równe sumie rzędu tych potęg."
+          "Za każdym razem, gdy nie uda ci się wykonać rzutu obronnego na Kondycję, aby utrzymać koncentrację na jednej lub większej liczbie mocy uzyskanych od tej klasy, możesz zwiększyć napięcie, aby utrzymać wszystkie moce, na których się koncentrujesz, aktywne. Odkształcenie to jest równe sumie kręgów tych mocy."
         ]
       },
       {
@@ -1921,7 +2186,7 @@
       },
       {
         "level": 5,
-        "name": "Moce trzeciego rzędu",
+        "name": "Moce 3. kręgu",
         "entries": [
           "Kiedy osiągniesz 5 poziom, możesz nauczyć się i zamanifestować {@filter 3rd-order powers|psionics|order=3rd-order|source=talpsi==extend}."
         ]
@@ -1958,7 +2223,7 @@
       },
       {
         "level": 9,
-        "name": "Moce czwartego rzędu",
+        "name": "Moce 4. kręgu",
         "entries": [
           "Kiedy osiągniesz 9 poziom, będziesz mógł nauczyć się i zamanifestować {@filter 4th-order powers|psionics|order=4th-order|source=talpsi==extend}."
         ]
@@ -2001,7 +2266,7 @@
       },
       {
         "level": 13,
-        "name": "Moce piątego rzędu",
+        "name": "Moce 5. kręgu",
         "entries": [
           "Kiedy osiągniesz 13 poziom, będziesz mógł nauczyć się i zamanifestować {@filter 5th-order powers|psionics|order=5th-order|source=talpsi==extend}."
         ]
@@ -2030,7 +2295,7 @@
       },
       {
         "level": 17,
-        "name": "Moce szóstego rzędu",
+        "name": "Moce 6. kręgu",
         "entries": [
           "Kiedy osiągniesz 17 poziom, możesz uczyć się i manifestować {@filter 6th-order powers|psionics|order=6th-order|source=talpsi==extend}."
         ]
@@ -2091,7 +2356,7 @@
                   {
                     "type": "list",
                     "items": [
-                      "Ty {@action Manifest a Power|TalPsi|manifest a power}, który normalnie wymaga dodatkowej akcji lub reakcji (nie jest wymagana żadna akcja). Nie możesz rzucić zaklęcia ani zamanifestować innej mocy w tej samej turze, z wyjątkiem sztuczki z czasem rzucania 1 akcji lub mocy pierwszego rzędu z czasem manifestacji 1 akcji.",
+                      "Ty {@action Manifest a Power|TalPsi|manifest a power}, który normalnie wymaga dodatkowej akcji lub reakcji (nie jest wymagana żadna akcja). Nie możesz rzucić zaklęcia ani zamanifestować innej mocy w tej samej turze, z wyjątkiem sztuczki z czasem rzucania 1 akcji lub mocy 1. kręgu z czasem manifestacji 1 akcji.",
                       "Używasz akcji dodatkowej do {@action Manifest a Power|TalPsi|manifest a power}, która normalnie wymaga akcji.",
                       "Używasz akcji do {@action Manifest a Power|TalPsi|manifest a power}, która zwykle zajmuje 1 minutę.",
                       "Jeśli moc ma czas manifestacji dłuższy niż 1 minuta, możesz ją manifestować w połowie normalnego czasu."
@@ -2140,7 +2405,7 @@
                 "type": "entries",
                 "name": "Surowa moc",
                 "entries": [
-                  "Twoja surowa siła mentalna uderza mocniej w wrogów. Możesz dodać swój modyfikator Inteligencji do jednego rzutu na obrażenia dowolnej mocy pierwszego rzędu, którą manifestujesz."
+                  "Twoja surowa siła mentalna uderza mocniej w wrogów. Możesz dodać swój modyfikator Inteligencji do jednego rzutu na obrażenia dowolnej mocy 1. kręgu, którą manifestujesz."
                 ]
               },
               {
@@ -2161,7 +2426,7 @@
                 "type": "inset",
                 "name": "Kolejność operacji związanych z odkształceniem",
                 "entries": [
-                  "Ilekroć cecha, cecha lub inna opcja pozwala na utworzenie efektu w oparciu o stopień zdobytego wysiłku, najpierw zastosuj wszelkie cechy, cechy lub inne opcje, które zmniejszają lub zwiększają obciążenie, zanim stworzysz efekt. Na przykład, jeśli niezależny talent przejawia moc czwartego rzędu, wyrzuci 1 w teście manifestacji i w rezultacie zyskuje 4 szczepy, może wykorzystać wszystkie 4 szczepy, aby napędzać swoją funkcję Wyzwolenia energii; lub mogą użyć funkcji Redukcji Stresu, aby przyjąć tylko 2 obciążenia, a następnie użyć tych 2, aby zasilić Uwolnioną Energię. Nie mogą najpierw użyć Uwolnionej Energii, aby zadać pełne obrażenia w oparciu o uzyskane napięcie, a następnie użyć Zmniejszenia Stresu, aby wyeliminować część tego napięcia."
+                  "Ilekroć cecha, cecha lub inna opcja pozwala na utworzenie efektu w oparciu o stopień zdobytego wysiłku, najpierw zastosuj wszelkie cechy, cechy lub inne opcje, które zmniejszają lub zwiększają obciążenie, zanim stworzysz efekt. Na przykład, jeśli niezależny talent przejawia moc 4. kręgu, wyrzuci 1 w teście manifestacji i w rezultacie zyskuje 4 szczepy, może wykorzystać wszystkie 4 szczepy, aby napędzać swoją funkcję Wyzwolenia energii; lub mogą użyć funkcji Redukcji Stresu, aby przyjąć tylko 2 obciążenia, a następnie użyć tych 2, aby zasilić Uwolnioną Energię. Nie mogą najpierw użyć Uwolnionej Energii, aby zadać pełne obrażenia w oparciu o uzyskane napięcie, a następnie użyć Zmniejszenia Stresu, aby wyeliminować część tego napięcia."
                 ]
               }
             ]
@@ -2294,7 +2559,7 @@
                 "type": "list",
                 "items": [
                   "Możesz zmienić obrażenia od ognia zadawane przez moc na obrażenia wymuszone.",
-                  "Wybierz liczbę stworzeń objętych mocą równą kolejności tej mocy. Wybrane istoty automatycznie odnoszą sukces w rzutach obronnych przeciwko mocy i nie odnoszą żadnych obrażeń, jeśli normalnie przy udanym rzucie otrzymałyby połowę obrażeń."
+                  "Wybierz liczbę stworzeń objętych mocą równą kręgowi tej mocy. Wybrane istoty automatycznie odnoszą sukces w rzutach obronnych przeciwko mocy i nie odnoszą żadnych obrażeń, jeśli normalnie przy udanym rzucie otrzymałyby połowę obrażeń."
                 ]
               }
             ]
@@ -2364,7 +2629,7 @@
             "level": 14,
             "name": "Teren Koszmaru",
             "entries": [
-              "Teren, który kształtujesz umysłem, jest w stanie wyrządzić krzywdę twoim wrogom. Na początku każdej swojej tury, gdy funkcja Manipulacji Terenem jest aktywna, możesz wybrać maksymalnie trzy stworzenia, które widzisz na obszarze objętym tą funkcją, i ukształtować ziemię wokół nich w broń atakującą (nie jest wymagana żadna akcja). Każde stworzenie musi odnieść sukces w rzucie obronnym na Zręczność przeciwko ST rzutu obronnego na moc twojego talentu lub otrzymać obrażenia od tłuczenia, kłucia lub cięcia (twój wybór) równe twojemu poziomowi talentu."
+              "Teren, który kształtujesz umysłem, jest w stanie wyrządzić krzywdę twoim wrogom. Na początku każdej swojej tury, gdy funkcja Manipulacji Terenem jest aktywna, możesz wybrać maksymalnie trzy stworzenia, które widzisz na obszarze objętym tą funkcją, i ukształtować ziemię wokół nich w broń atakującą (nie jest wymagana żadna akcja). Każde stworzenie musi odnieść sukces w rzucie obronnym na Zręczność przeciwko ST rzutu obronnego na moc twojego talentu lub otrzymać obrażenia obuchowe, kłucia lub sieczne (twój wybór) równe twojemu poziomowi talentu."
             ]
           }
         ]
@@ -2522,7 +2787,7 @@
               {
                 "type": "list",
                 "items": [
-                  "Ty {@action Manifest a Power|TalPsi|manifest a power}, który normalnie wymaga dodatkowej akcji lub reakcji (nie jest wymagana żadna akcja). Nie możesz rzucić zaklęcia ani zamanifestować innej mocy w tej samej turze, z wyjątkiem sztuczki z czasem rzucania 1 akcji lub mocy pierwszego rzędu z czasem manifestacji 1 akcji.",
+                  "Ty {@action Manifest a Power|TalPsi|manifest a power}, który normalnie wymaga dodatkowej akcji lub reakcji (nie jest wymagana żadna akcja). Nie możesz rzucić zaklęcia ani zamanifestować innej mocy w tej samej turze, z wyjątkiem sztuczki z czasem rzucania 1 akcji lub mocy 1. kręgu z czasem manifestacji 1 akcji.",
                   "Używasz akcji dodatkowej do {@action Manifest a Power|TalPsi|manifest a power}, która normalnie wymaga akcji.",
                   "Używasz akcji do {@action Manifest a Power|TalPsi|manifest a power}, która zwykle zajmuje 1 minutę.",
                   "Jeśli moc ma czas manifestacji dłuższy niż 1 minuta, możesz ją manifestować w połowie normalnego czasu."
@@ -2573,7 +2838,7 @@
             "type": "entries",
             "name": "Surowa moc",
             "entries": [
-              "Twoja surowa siła mentalna uderza mocniej w wrogów. Możesz dodać swój modyfikator Inteligencji do jednego rzutu na obrażenia dowolnej mocy pierwszego rzędu, którą manifestujesz."
+              "Twoja surowa siła mentalna uderza mocniej w wrogów. Możesz dodać swój modyfikator Inteligencji do jednego rzutu na obrażenia dowolnej mocy 1. kręgu, którą manifestujesz."
             ]
           },
           {
@@ -2594,7 +2859,7 @@
             "type": "inset",
             "name": "Kolejność operacji związanych z odkształceniem",
             "entries": [
-              "Ilekroć cecha, cecha lub inna opcja pozwala na utworzenie efektu w oparciu o stopień zdobytego wysiłku, najpierw zastosuj wszelkie cechy, cechy lub inne opcje, które zmniejszają lub zwiększają obciążenie, zanim stworzysz efekt. Na przykład, jeśli niezależny talent przejawia moc czwartego rzędu, wyrzuci 1 w teście manifestacji i w rezultacie zyskuje 4 szczepy, może wykorzystać wszystkie 4 szczepy, aby napędzać swoją funkcję Wyzwolenia energii; lub mogą użyć funkcji Redukcji Stresu, aby przyjąć tylko 2 obciążenia, a następnie użyć tych 2, aby zasilić Uwolnioną Energię. Nie mogą najpierw użyć Uwolnionej Energii, aby zadać pełne obrażenia w oparciu o uzyskane napięcie, a następnie użyć Zmniejszenia Stresu, aby wyeliminować część tego napięcia."
+              "Ilekroć cecha, cecha lub inna opcja pozwala na utworzenie efektu w oparciu o stopień zdobytego wysiłku, najpierw zastosuj wszelkie cechy, cechy lub inne opcje, które zmniejszają lub zwiększają obciążenie, zanim stworzysz efekt. Na przykład, jeśli niezależny talent przejawia moc 4. kręgu, wyrzuci 1 w teście manifestacji i w rezultacie zyskuje 4 szczepy, może wykorzystać wszystkie 4 szczepy, aby napędzać swoją funkcję Wyzwolenia energii; lub mogą użyć funkcji Redukcji Stresu, aby przyjąć tylko 2 obciążenia, a następnie użyć tych 2, aby zasilić Uwolnioną Energię. Nie mogą najpierw użyć Uwolnionej Energii, aby zadać pełne obrażenia w oparciu o uzyskane napięcie, a następnie użyć Zmniejszenia Stresu, aby wyeliminować część tego napięcia."
             ]
           }
         ]
@@ -2731,7 +2996,7 @@
             "type": "list",
             "items": [
               "Możesz zmienić obrażenia od ognia zadawane przez moc na obrażenia wymuszone.",
-              "Wybierz liczbę stworzeń objętych mocą równą kolejności tej mocy. Wybrane istoty automatycznie odnoszą sukces w rzutach obronnych przeciwko mocy i nie odnoszą żadnych obrażeń, jeśli normalnie przy udanym rzucie otrzymałyby połowę obrażeń."
+              "Wybierz liczbę stworzeń objętych mocą równą kręgowi tej mocy. Wybrane istoty automatycznie odnoszą sukces w rzutach obronnych przeciwko mocy i nie odnoszą żadnych obrażeń, jeśli normalnie przy udanym rzucie otrzymałyby połowę obrażeń."
             ]
           }
         ]
@@ -2803,7 +3068,7 @@
         "level": 14,
         "name": "Teren Koszmaru",
         "entries": [
-          "Teren, który kształtujesz umysłem, jest w stanie wyrządzić krzywdę twoim wrogom. Na początku każdej swojej tury, gdy funkcja Manipulacji Terenem jest aktywna, możesz wybrać maksymalnie trzy stworzenia, które widzisz na obszarze objętym tą funkcją, i ukształtować ziemię wokół nich w broń atakującą (nie jest wymagana żadna akcja). Każde stworzenie musi odnieść sukces w rzucie obronnym na Zręczność przeciwko ST rzutu obronnego na moc twojego talentu lub otrzymać obrażenia od tłuczenia, kłucia lub cięcia (twój wybór) równe twojemu poziomowi talentu."
+          "Teren, który kształtujesz umysłem, jest w stanie wyrządzić krzywdę twoim wrogom. Na początku każdej swojej tury, gdy funkcja Manipulacji Terenem jest aktywna, możesz wybrać maksymalnie trzy stworzenia, które widzisz na obszarze objętym tą funkcją, i ukształtować ziemię wokół nich w broń atakującą (nie jest wymagana żadna akcja). Każde stworzenie musi odnieść sukces w rzucie obronnym na Zręczność przeciwko ST rzutu obronnego na moc twojego talentu lub otrzymać obrażenia obuchowe, kłucia lub sieczne (twój wybór) równe twojemu poziomowi talentu."
         ]
       }
     ]
@@ -3061,8 +3326,8 @@
             "type": "entries",
             "name": "Przygotowanie i rzucanie zaklęć",
             "entries": [
-              "Tabela Aptekarza pokazuje, ile miejsc na zaklęcia potrzebujesz, aby rzucić zaklęcia aptekarskie od 1 do 5 poziomu. Tabela pokazuje również, jaki jest poziom tych slotów; wszystkie twoje miejsca na zaklęcia są na tym samym poziomie. Aby rzucić jedno ze swoich zaklęć aptekarskich pierwszego poziomu lub wyższego, musisz wydać miejsce na zaklęcie. Odzyskujesz wszystkie wydane miejsca na zaklęcia po zakończeniu krótkiego lub długiego odpoczynku.",
-              "Przygotowujesz listę zaklęć aptekarskich, które możesz rzucić, wybierając je z listy zaklęć aptekarskich. Gdy to zrobisz, wybierz tyle zaklęć aptekarskich, ile wynosi twój modyfikator Inteligencji + poziom aptekarza (minimum jedno zaklęcie). Zaklęcie, które przygotowujesz, nie może być wyższego poziomu niż ten pokazany w kolumnie Poziom Slotu tabeli Aptekarz dla Twojego poziomu.",
+              "Tabela Aptekarza pokazuje, ile miejsc na zaklęcia potrzebujesz, aby rzucić zaklęcia aptekarskie od 1 do 5 poziomu. Tabela pokazuje również, jaki jest poziom tych komórek; wszystkie twoje miejsca na zaklęcia są na tym samym poziomie. Aby rzucić jedno ze swoich zaklęć aptekarskich pierwszego poziomu lub wyższego, musisz wydać miejsce na zaklęcie. Odzyskujesz wszystkie wydane miejsca na zaklęcia po zakończeniu krótkiego lub długiego odpoczynku.",
+              "Przygotowujesz listę zaklęć aptekarskich, które możesz rzucić, wybierając je z listy zaklęć aptekarskich. Gdy to zrobisz, wybierz tyle zaklęć aptekarskich, ile wynosi twój modyfikator Inteligencji + poziom aptekarza (minimum jedno zaklęcie). Zaklęcie, które przygotowujesz, nie może być wyższego poziomu niż ten pokazany w kolumnie Poziom komórki tabeli Aptekarz dla Twojego poziomu.",
               "Na przykład, jeśli jesteś aptekarzem 5. poziomu, masz trzy miejsca na zaklęcia 3. poziomu. Przy Inteligencji wynoszącej 16, lista przygotowanych zaklęć może zawierać osiem zaklęć 1., 2. lub 3. poziomu, w dowolnej kombinacji. Aby rzucić zaklęcie leczące rany pierwszego poziomu, musisz wydać jedno z tych miejsc i rzucić je jako zaklęcie trzeciego poziomu. Rzucenie zaklęcia nie usuwa go z listy przygotowanych zaklęć.",
               "Listę przygotowanych zaklęć możesz zmienić po zakończeniu długiego odpoczynku. Przygotowanie nowej listy zaklęć aptekarskich wymaga co najmniej 1 minuty na każdy poziom zaklęcia dla każdego zaklęcia na twojej liście."
             ]
@@ -3075,18 +3340,22 @@
               {
                 "type": "abilityDc",
                 "name": "Zaklęcie",
-                "attributes": ["wew"]
+                "attributes": [
+                  "wew"
+                ]
               },
               {
                 "type": "abilityAttackMod",
                 "name": "Zaklęcie",
-                "attributes": ["wew"]
+                "attributes": [
+                  "wew"
+                ]
               }
             ]
           },
           {
             "type": "entries",
-            "name": "Casting rytualny",
+            "name": "Rzucanie rytualne",
             "entries": [
               "Możesz rzucić zaklęcie aptekarskie jako rytuał, jeśli zaklęcie to ma etykietę rytualną i masz je przygotowane."
             ]
@@ -3119,7 +3388,9 @@
       {
         "level": 3,
         "name": "Funkcja praktyki okultystycznej",
-        "entries": ["Na 3. poziomie zyskujesz cechę zapewnianą przez wybraną dyscyplinę."]
+        "entries": [
+          "Na 3. poziomie zyskujesz cechę zapewnianą przez wybraną dyscyplinę."
+        ]
       },
       {
         "level": 4,
@@ -3132,7 +3403,9 @@
       {
         "level": 6,
         "name": "Funkcja praktyki okultystycznej",
-        "entries": ["Na 6. poziomie zyskujesz cechę zapewnianą przez wybraną dyscyplinę."]
+        "entries": [
+          "Na 6. poziomie zyskujesz cechę zapewnianą przez wybraną dyscyplinę."
+        ]
       },
       {
         "level": 8,
@@ -3279,17 +3552,35 @@
                   {
                     "type": "table",
                     "caption": "Zaklęcia Alienistów",
-                    "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                    "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                    "colLabels": [
+                      "Poziom aptekarza",
+                      "Zaklęcie"
+                    ],
+                    "colStyles": [
+                      "col-2 centrum tekstowe",
+                      "kol-10"
+                    ],
                     "rows": [
                       [
                         "1",
                         "{@spell charm person}, {@spell tasha's hideous laughter||hideous laughter}"
                       ],
-                      ["3", "{@spell detect thoughts}, {@spell suggestion}"],
-                      ["5", "{@spell hypnotic pattern}, {@spell major image}"],
-                      ["7", "{@spell arcane eye}, {@spell dimension door}"],
-                      ["9", "{@spell animate objects}, {@spell modify memory}"]
+                      [
+                        "3",
+                        "{@spell detect thoughts}, {@spell suggestion}"
+                      ],
+                      [
+                        "5",
+                        "{@spell hypnotic pattern}, {@spell major image}"
+                      ],
+                      [
+                        "7",
+                        "{@spell arcane eye}, {@spell dimension door}"
+                      ],
+                      [
+                        "9",
+                        "{@spell animate objects}, {@spell modify memory}"
+                      ]
                     ]
                   }
                 ]
@@ -3315,7 +3606,7 @@
             "level": 3,
             "name": "Metafizyczna więź",
             "entries": [
-              "W ramach akcji możesz dotknąć chętnego stworzenia, aby utworzyć z nim psychiczne połączenie, które trwa przez liczbę godzin równą Twojemu poziomowi Aptekarza lub do momentu zakończenia połączenia (nie jest wymagane żadne działanie). Maksymalna liczba linków, jakie możesz mieć w dowolnym momencie, jest równa Twojemu bonusowi za biegłość. Wszystkie istoty spętane w ten sposób mogą komunikować się ze sobą telepatycznie, o ile znajdują się w odległości nie większej niż 30 metrów od siebie."
+              "W ramach akcji możesz dotknąć chętnego stworzenia, aby utworzyć z nim psychiczne połączenie, które trwa przez liczbę godzin równą Twojemu poziomowi Aptekarza lub do momentu zakończenia połączenia (nie jest wymagane żadne działanie). Maksymalna liczba linków, jakie możesz mieć w dowolnym momencie, jest równa Twojemu premii za biegłość. Wszystkie istoty spętane w ten sposób mogą komunikować się ze sobą telepatycznie, o ile znajdują się w odległości nie większej niż 30 metrów od siebie."
             ]
           },
           {
@@ -3400,17 +3691,35 @@
                   {
                     "type": "table",
                     "caption": "Zaklęcia chemika",
-                    "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                    "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                    "colLabels": [
+                      "Poziom aptekarza",
+                      "Zaklęcie"
+                    ],
+                    "colStyles": [
+                      "col-2 centrum tekstowe",
+                      "kol-10"
+                    ],
                     "rows": [
-                      ["1", "{@spell burning hands}, {@spell grease}"],
+                      [
+                        "1",
+                        "{@spell burning hands}, {@spell grease}"
+                      ],
                       [
                         "3",
-                        "{@spell melf's acid arrow||acid arrow}, {@spell flaming sphere}"
+                        "{@spell melf's acid arrow||Kwaśna Strzała}, {@spell flaming sphere}"
                       ],
-                      ["5", "{@spell fireball}, {@spell stinking cloud}"],
-                      ["7", "{@spell ice storm}, {@spell wall of fire}"],
-                      ["9", "{@spell cloudkill}, {@spell cone of cold}"]
+                      [
+                        "5",
+                        "{@spell fireball}, {@spell stinking cloud}"
+                      ],
+                      [
+                        "7",
+                        "{@spell ice storm}, {@spell wall of fire}"
+                      ],
+                      [
+                        "9",
+                        "{@spell cloudkill}, {@spell cone of cold}"
+                      ]
                     ]
                   }
                 ]
@@ -3421,21 +3730,21 @@
             "level": 3,
             "name": "Precyzyjna aplikacja",
             "entries": [
-              "Kiedy rzucasz zaklęcie, które zadaje obrażenia od kwasu, zimna, ognia, błyskawic lub trucizny innym istotom, które widzisz, możesz wybrać ich liczbę równą twojemu modyfikatorowi Inteligencji. Wybrane istoty automatycznie wykonują rzuty obronne na zaklęcie i nie odnoszą żadnych obrażeń, jeśli normalnie przy udanym rzucie otrzymałyby połowę obrażeń."
+              "Kiedy rzucasz zaklęcie, które zadaje obrażenia od kwasu, zimna, ognia, pioruna lub trucizny innym istotom, które widzisz, możesz wybrać ich liczbę równą twojemu modyfikatorowi Inteligencji. Wybrane istoty automatycznie wykonują rzuty obronne na zaklęcie i nie odnoszą żadnych obrażeń, jeśli normalnie przy udanym rzucie otrzymałyby połowę obrażeń."
             ]
           },
           {
             "level": 6,
             "name": "Reakcja łańcuchowa",
             "entries": [
-              "Kiedy rzucisz sztuczkę aptekarską, która zwykle celuje tylko w jedno stworzenie i zadaje obrażenia od kwasu, zimna, ognia, błyskawicy lub trucizny, zaklęcie może zamiast tego obrać za cel dwa stworzenia, które znajdują się w zasięgu czaru."
+              "Kiedy rzucisz sztuczkę aptekarską, która zwykle celuje tylko w jedno stworzenie i zadaje obrażenia od kwasu, zimna, ognia, pioruna lub trucizny, zaklęcie może zamiast tego obrać za cel dwa stworzenia, które znajdują się w zasięgu czaru."
             ]
           },
           {
             "level": 6,
             "name": "Kondycjonowanie chemiczne",
             "entries": [
-              "W ramach akcji dajesz jednej istocie, której dotkniesz (w tym także tobie), odporność na obrażenia od kwasu, zimna, ognia, błyskawic lub trucizny na 1 godzinę. Ta korzyść wygasa natychmiast, jeśli ponownie skorzystasz z tej funkcji."
+              "W ramach akcji dajesz jednej istocie, której dotkniesz (w tym także tobie), odporność na obrażenia od kwasu, zimna, ognia, pioruna lub trucizny na 1 godzinę. Ta korzyść wygasa natychmiast, jeśli ponownie skorzystasz z tej funkcji."
             ]
           },
           {
@@ -3449,14 +3758,14 @@
             "level": 14,
             "name": "Dopasowanie elementarne",
             "entries": [
-              "Kiedy rzucasz zaklęcie, korzystając z miejsca na zaklęcie aptekarza, które zadaje rodzaj obrażeń z poniższej listy, możesz zmienić ten typ obrażeń na jeden z pozostałych wymienionych typów: kwas, zimno, ogień, błyskawica lub trucizna."
+              "Kiedy rzucasz zaklęcie, korzystając z miejsca na zaklęcie aptekarza, które zadaje rodzaj obrażeń z poniższej listy, możesz zmienić ten typ obrażeń na jeden z pozostałych wymienionych typów: kwas, zimno, ogień, piorun lub trucizna."
             ]
           },
           {
             "level": 18,
             "name": "Kataklizm chemiczny",
             "entries": [
-              "Kiedy rzucasz zaklęcie, które zadaje obrażenia od kwasu, zimna, ognia, błyskawic lub trucizny, korzystając z miejsca na zaklęcie aptekarza, jest ono traktowane tak, jakby zostało rzucone przy użyciu miejsca na zaklęcie 7. poziomu."
+              "Kiedy rzucasz zaklęcie, które zadaje obrażenia od kwasu, zimna, ognia, pioruna lub trucizny, korzystając z miejsca na zaklęcie aptekarza, jest ono traktowane tak, jakby zostało rzucone przy użyciu miejsca na zaklęcie 7. poziomu."
             ]
           }
         ]
@@ -3485,14 +3794,35 @@
                   {
                     "type": "table",
                     "caption": "Zaklęcia egzorcysty",
-                    "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                    "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                    "colLabels": [
+                      "Poziom aptekarza",
+                      "Zaklęcie"
+                    ],
+                    "colStyles": [
+                      "col-2 centrum tekstowe",
+                      "kol-10"
+                    ],
                     "rows": [
-                      ["1", "{@spell bless}, {@spell protection from evil and good}"],
-                      ["3", "{@spell spiritual weapon}, {@spell zone of truth}"],
-                      ["5", "{@spell counterspell}, {@spell spirit guardians}"],
-                      ["7", "{@spell banishment}, {@spell last rites|GuideDrakkenheim}"],
-                      ["9", "{@spell dispel evil and good}, {@spell flame strike}"]
+                      [
+                        "1",
+                        "{@spell bless}, {@spell protection from evil and good}"
+                      ],
+                      [
+                        "3",
+                        "{@spell spiritual weapon}, {@spell zone of truth}"
+                      ],
+                      [
+                        "5",
+                        "{@spell counterspell}, {@spell spirit guardians}"
+                      ],
+                      [
+                        "7",
+                        "{@spell banishment}, {@spell last rites|GuideDrakkenheim}"
+                      ],
+                      [
+                        "9",
+                        "{@spell dispel evil and good}, {@spell flame strike}"
+                      ]
                     ]
                   }
                 ]
@@ -3506,7 +3836,7 @@
               "Na 3. poziomie zyskujesz zdolność nasycania boskiej energii poprzez swój święty symbol, aby wypędzić złe istoty z okolicy lub usunąć ich szkodliwe skutki ze swoich sojuszników.",
               "Korzystając z tej funkcji, możesz wybrać, jaki efekt chcesz utworzyć. Możesz użyć tej funkcji tyle razy, ile wynosi połowa twojej premii za biegłość, zaokrąglając w dół, a wszystkie wykorzystane użycia regenerujesz podczas krótkiego lub długiego odpoczynku.",
               "Jeśli efekt Egzorcyzmu wymaga rzutu obronnego, ST jest równy Twojemu ST rzutu obronnego na zaklęcia Aptekarza.",
-              "Począwszy od 5 poziomu, gdy nieumarłemu lub biesowi nie powiedzie się rzut obronny na twoją funkcję Wygnania Zła, istota ta otrzymuje obrażenia od blasku {@damage 4d8}.",
+              "Począwszy od 5 poziomu, gdy nieumarłemu lub biesowi nie powiedzie się rzut obronny na twoją funkcję Wygnania Zła, istota ta otrzymuje obrażenia promieniste {@damage 4d8}.",
               {
                 "type": "entries",
                 "name": "Wypędź zło",
@@ -3554,7 +3884,7 @@
               {
                 "type": "list",
                 "items": [
-                  "Stworzenia, którym nie uda się wykonać rzutu obronnego na Twój Egzorcyzm: Funkcja Wypędzenia Zła, otrzymują dodatkowe obrażenia od blasku {@damage 4d8}.",
+                  "Stworzenia, którym nie uda się wykonać rzutu obronnego na Twój Egzorcyzm: Funkcja Wypędzenia Zła, otrzymują dodatkowe obrażenia promieniste {@damage 4d8}.",
                   "Stworzenia, którym pomaga funkcja Egzorcyzm: Oczyszczenie Zepsucia, zyskują tymczasowe punkty wytrzymałości {@dice 4d8}."
                 ]
               }
@@ -3586,13 +3916,31 @@
                   {
                     "type": "table",
                     "caption": "Zaklęcia mutagenne",
-                    "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                    "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                    "colLabels": [
+                      "Poziom aptekarza",
+                      "Zaklęcie"
+                    ],
+                    "colStyles": [
+                      "col-2 centrum tekstowe",
+                      "kol-10"
+                    ],
                     "rows": [
-                      ["1", "{@spell jump}, {@spell toxic shield|GuideDrakkenheim}"],
-                      ["3", "{@spell alter self}, {@spell enhance ability}"],
-                      ["5", "{@spell haste}, {@spell water breathing}"],
-                      ["7", "{@spell polymorph}, {@spell stoneskin}"],
+                      [
+                        "1",
+                        "{@spell jump}, {@spell toxic shield|GuideDrakkenheim}"
+                      ],
+                      [
+                        "3",
+                        "{@spell alter self}, {@spell enhance ability}"
+                      ],
+                      [
+                        "5",
+                        "{@spell haste}, {@spell water breathing}"
+                      ],
+                      [
+                        "7",
+                        "{@spell polymorph}, {@spell stoneskin}"
+                      ],
                       [
                         "9",
                         "{@spell reincarnate}, {@spell septic shock|GuideDrakkenheim}"
@@ -3613,7 +3961,7 @@
                 "items": [
                   "Twoje wyniki w zakresie Siły i Inteligencji zostają zamienione miejscami.",
                   "Twój rozmiar stanie się Duży, Twoja odległość skoku zostanie podwojona, a przy określaniu udźwigu i ciężaru, który możesz pchać, przeciągać lub podnosić, liczysz się jako jeden rozmiar większy.",
-                  "Każda z twoich dłoni zmienia się w wielką, mięsistą pięść, której możesz używać do wykonywania ataków bronią białą. Dla ciebie liczy się jako prosta broń. Twoje wielkie, mięsiste pięści zadają przy trafieniu {@damage 1d10} + twój modyfikator Siły + obrażenia tłuczące na poziomie Aptekarza.",
+                  "Każda z twoich dłoni zmienia się w wielką, mięsistą pięść, której możesz używać do wykonywania ataków bronią białą. Dla ciebie liczy się jako prosta broń. Twoje wielkie, mięsiste pięści zadają przy trafieniu {@damage 1d10} + twój modyfikator Siły + obrażenia obuchowe na poziomie Aptekarza.",
                   "Nie możesz rzucać zaklęć ani koncentrować się na nich.",
                   "Masz {@sense darkvision} o zasięgu 30 metrów.",
                   "Otrzymujesz tymczasowe punkty wytrzymałości równe pięciokrotnemu poziomowi aptekarza."
@@ -3642,7 +3990,7 @@
             "name": "Potężna biologia",
             "entries": [
               "Kiedy jesteś w swojej przemienionej formie, masz potężniejsze ataki, które są w stanie ominąć największą obronę twojego wroga. Twoje ataki wielką, mięsistą pięścią liczą się jako magiczne przy pokonywaniu oporu i odporności na niemagiczne ataki i obrażenia.",
-              "Kiedy uderzasz atakiem swoimi dużymi, mięsistymi pięściami, możesz wykorzystać miejsce na zaklęcie, aby wzmocnić siłę swojego ciosu za pomocą łamania nienaturalnej energii. Kiedy w ten sposób zużywasz miejsce na zaklęcie, zadajesz dodatkowe obrażenia od siły {@damage 1d8} na każdy poziom użytego miejsca na zaklęcie."
+              "Kiedy uderzasz atakiem swoimi dużymi, mięsistymi pięściami, możesz wykorzystać miejsce na zaklęcie, aby wzmocnić siłę swojego ciosu za pomocą łamania nienaturalnej energii. Kiedy w ten sposób zużywasz miejsce na zaklęcie, zadajesz dodatkowe obrażenia od mocy {@damage 1d8} na każdy poziom użytego miejsca na zaklęcie."
             ]
           },
           {
@@ -3668,7 +4016,7 @@
                 "type": "list",
                 "items": [
                   "{@i {@b Draconic Genome.}} Z pleców wyrastają ci mięsiste skrzydła, a twoja skóra nabiera łuszczącego się wyglądu. Zyskujesz prędkość lotu równą szybkości chodzenia, a podczas akcji możesz wypluć żółć w kształcie stożka o długości 30 stóp. Wszystkie stworzenia na obszarze muszą wykonać pomyślny rzut obronny na Kondycję przeciwko twojemu ST obronności na zaklęcie lub otrzymać 8k6 obrażeń od kwasu lub o połowę mniej w przypadku udanego rzutu obronnego. Gdy skorzystasz z tej funkcji, nie możesz tego zrobić ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku.",
-                  "{@i {@b Giant Genome.}} Stajesz się potężną masą ciała i mięśni, zamieniając się w żywą broń oblężniczą. Twój rozmiar staje się ogromny, a wszystkie obrażenia zadawane obiektom i budowlom są teraz podwojone. W ramach akcji możesz w swojej turze wydać miejsce na zaklęcie, aby walnąć pięściami w ziemię, wywołując wokół ciebie fale uderzeniowe i gruz. Wszystkie stworzenia w promieniu 30 stóp od ciebie muszą zakończyć się sukcesem w rzucie obronnym na Zręczność przeciwko twojemu ST rzutu obronnego na zaklęcia, w przeciwnym razie otrzymają {@damage 8d6} obrażenia tłuczące i zostaną powalone. Jeśli uda im się wykonać rzut obronny, otrzymują połowę obrażeń i nie są przewracani.",
+                  "{@i {@b Giant Genome.}} Stajesz się potężną masą ciała i mięśni, zamieniając się w żywą broń oblężniczą. Twój rozmiar staje się ogromny, a wszystkie obrażenia zadawane obiektom i budowlom są teraz podwojone. W ramach akcji możesz w swojej turze wydać miejsce na zaklęcie, aby walnąć pięściami w ziemię, wywołując wokół ciebie fale uderzeniowe i gruz. Wszystkie stworzenia w promieniu 30 stóp od ciebie muszą zakończyć się sukcesem w rzucie obronnym na Zręczność przeciwko twojemu ST rzutu obronnego na zaklęcia, w przeciwnym razie otrzymają {@damage 8d6} obrażenia obuchowe i zostaną powalone. Jeśli uda im się wykonać rzut obronny, otrzymują połowę obrażeń i nie są przewracani.",
                   "{@i {@b Cerebellum Genome.}} Podczas transformacji zachowujesz część swojego umysłu, pozwalając pozostałościom swoich badań pozostać w twoim potwornym mózgu. Masz teraz możliwość utrzymania koncentracji na zaklęciach, będąc w transmogryfikowanej formie. Podczas transmogryfikacji twoja koncentracja nie może zostać przerwana w wyniku otrzymania obrażeń."
                 ]
               }
@@ -3715,10 +4063,19 @@
                   {
                     "type": "table",
                     "caption": "Zaklęcia patogenetyczne",
-                    "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                    "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                    "colLabels": [
+                      "Poziom aptekarza",
+                      "Zaklęcie"
+                    ],
+                    "colStyles": [
+                      "col-2 centrum tekstowe",
+                      "kol-10"
+                    ],
                     "rows": [
-                      ["1", "{@spell infect|GuideDrakkenheim}, {@spell inflict wounds}"],
+                      [
+                        "1",
+                        "{@spell infect|GuideDrakkenheim}, {@spell inflict wounds}"
+                      ],
                       [
                         "3",
                         "{@spell blindness/deafness}, {@spell biohazard|GuideDrakkenheim}"
@@ -3727,8 +4084,14 @@
                         "5",
                         "{@spell pestilence|GuideDrakkenheim}, {@spell venomous aura|GuideDrakkenheim}"
                       ],
-                      ["7", "{@spell blight}, {@spell blood worm|GuideDrakkenheim}"],
-                      ["9", "{@spell contagion}, {@spell insect plague}"]
+                      [
+                        "7",
+                        "{@spell blight}, {@spell blood worm|GuideDrakkenheim}"
+                      ],
+                      [
+                        "9",
+                        "{@spell contagion}, {@spell insect plague}"
+                      ]
                     ]
                   }
                 ]
@@ -3751,12 +4114,27 @@
               {
                 "type": "table",
                 "caption": "Znane zmutowane szczepy",
-                "colLabels": ["Poziom aptekarza", "Liczba szczepów"],
-                "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                "colLabels": [
+                  "Poziom aptekarza",
+                  "Liczba szczepów"
+                ],
+                "colStyles": [
+                  "col-2 centrum tekstowe",
+                  "kol-10"
+                ],
                 "rows": [
-                  ["3", "2"],
-                  ["9", "3"],
-                  ["15", "4"]
+                  [
+                    "3",
+                    "2"
+                  ],
+                  [
+                    "9",
+                    "3"
+                  ],
+                  [
+                    "15",
+                    "4"
+                  ]
                 ]
               },
               "Ilekroć rzucisz zaklęcie wywołujące chorobę (takie jak {@spell infect|GuideDrakkenheim} lub {@spell contagion}), możesz zastosować dodatkowy efekt ze swojego zmutowanego szczepu na jeden z celów czaru, który trwa przez czas trwania tego zaklęcia.",
@@ -3767,7 +4145,9 @@
                   {
                     "type": "entries",
                     "name": "Zawrót głowy",
-                    "entries": ["Cel nie może reagować."]
+                    "entries": [
+                      "Cel nie może reagować."
+                    ]
                   },
                   {
                     "type": "entries",
@@ -3793,7 +4173,9 @@
                   {
                     "type": "entries",
                     "name": "Słabość (poziom 9)",
-                    "entries": ["Cel zadaje połowę obrażeń atakami bronią białą."]
+                    "entries": [
+                      "Cel zadaje połowę obrażeń atakami bronią białą."
+                    ]
                   },
                   {
                     "type": "entries",
@@ -3805,12 +4187,16 @@
                   {
                     "type": "entries",
                     "name": "Intensywna gorączka (9 poziom)",
-                    "entries": ["Cel nie może odzyskać punktów wytrzymałości."]
+                    "entries": [
+                      "Cel nie może odzyskać punktów wytrzymałości."
+                    ]
                   },
                   {
                     "type": "entries",
                     "name": "Uszkodzenia (poziom 9)",
-                    "entries": ["Cel traci odporność na obrażenia."]
+                    "entries": [
+                      "Cel traci odporność na obrażenia."
+                    ]
                   },
                   {
                     "type": "entries",
@@ -3891,20 +4277,35 @@
                   {
                     "type": "table",
                     "caption": "Zaklęcia Reanimatora",
-                    "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                    "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                    "colLabels": [
+                      "Poziom aptekarza",
+                      "Zaklęcie"
+                    ],
+                    "colStyles": [
+                      "col-2 centrum tekstowe",
+                      "kol-10"
+                    ],
                     "rows": [
-                      ["1", "{@spell false life}, {@spell inflict wounds}"],
+                      [
+                        "1",
+                        "{@spell false life}, {@spell inflict wounds}"
+                      ],
                       [
                         "3",
                         "{@spell gentle repose}, {@spell invigorate|GuideDrakkenheim}"
                       ],
-                      ["5", "{@spell lightning bolt}, {@spell revivify}"],
+                      [
+                        "5",
+                        "{@spell lightning bolt}, {@spell revivify}"
+                      ],
                       [
                         "7",
                         "{@spell death ward}, {@spell corpse explosion|GuideDrakkenheim}"
                       ],
-                      ["9", "{@spell raise dead}, {@spell nerve gas|GuideDrakkenheim}"]
+                      [
+                        "9",
+                        "{@spell raise dead}, {@spell nerve gas|GuideDrakkenheim}"
+                      ]
                     ]
                   }
                 ]
@@ -3942,7 +4343,7 @@
             "level": 10,
             "name": "Oto Moje Stworzenie",
             "entries": [
-              "Rozmiar twojego trupiego stworzenia wzrasta do Large, a jego prędkość wzrasta do 40 stóp.",
+              "Rozmiar twojego trupiego stworzenia wzrasta do Dużego, a jego prędkość wzrasta do 40 stóp.",
               "Kiedy twoje trupie stworzenie trafi istotę atakiem wręcz, może natychmiast podjąć próbę chwytu przeciwko celowi. ST potrzebny do ucieczki z tego chwytania wynosi 8 + modyfikator siły trupiego stworzenia (+4) + twoje PB."
             ]
           },
@@ -3957,7 +4358,7 @@
             "level": 18,
             "name": "Nie mogę powstrzymać potwora, którego stworzyłem",
             "entries": [
-              "Twoje trupie stworzenie zwiększa swój rozmiar do Ogromnego, zyskuje zasięg 3 metrów, a jego prędkość wzrasta do 50 stóp. Jego atak uderzający zadaje dodatkowe obrażenia tłuczące {@damage 1d8}.",
+              "Twoje trupie stworzenie zwiększa swój rozmiar do Ogromnego, zyskuje zasięg 3 metrów, a jego prędkość wzrasta do 50 stóp. Jego atak uderzający zadaje dodatkowe obrażenia obuchowe {@damage 1d8}.",
               "Dodatkowo ciężar, który twoje trupie stworzenie może pchać lub podnosić, jest podwojony."
             ]
           }
@@ -3991,17 +4392,35 @@
               {
                 "type": "table",
                 "caption": "Zaklęcia Alienistów",
-                "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                "colLabels": [
+                  "Poziom aptekarza",
+                  "Zaklęcie"
+                ],
+                "colStyles": [
+                  "col-2 centrum tekstowe",
+                  "kol-10"
+                ],
                 "rows": [
                   [
                     "1",
                     "{@spell charm person}, {@spell tasha's hideous laughter||hideous laughter}"
                   ],
-                  ["3", "{@spell detect thoughts}, {@spell suggestion}"],
-                  ["5", "{@spell hypnotic pattern}, {@spell major image}"],
-                  ["7", "{@spell arcane eye}, {@spell dimension door}"],
-                  ["9", "{@spell animate objects}, {@spell modify memory}"]
+                  [
+                    "3",
+                    "{@spell detect thoughts}, {@spell suggestion}"
+                  ],
+                  [
+                    "5",
+                    "{@spell hypnotic pattern}, {@spell major image}"
+                  ],
+                  [
+                    "7",
+                    "{@spell arcane eye}, {@spell dimension door}"
+                  ],
+                  [
+                    "9",
+                    "{@spell animate objects}, {@spell modify memory}"
+                  ]
                 ]
               }
             ]
@@ -4027,7 +4446,7 @@
         "level": 3,
         "name": "Metafizyczna więź",
         "entries": [
-          "W ramach akcji możesz dotknąć chętnego stworzenia, aby utworzyć z nim psychiczne połączenie, które trwa przez liczbę godzin równą Twojemu poziomowi Aptekarza lub do momentu zakończenia połączenia (nie jest wymagane żadne działanie). Maksymalna liczba linków, jakie możesz mieć w dowolnym momencie, jest równa Twojemu bonusowi za biegłość. Wszystkie istoty spętane w ten sposób mogą komunikować się ze sobą telepatycznie, o ile znajdują się w odległości nie większej niż 30 metrów od siebie."
+          "W ramach akcji możesz dotknąć chętnego stworzenia, aby utworzyć z nim psychiczne połączenie, które trwa przez liczbę godzin równą Twojemu poziomowi Aptekarza lub do momentu zakończenia połączenia (nie jest wymagane żadne działanie). Maksymalna liczba linków, jakie możesz mieć w dowolnym momencie, jest równa Twojemu premii za biegłość. Wszystkie istoty spętane w ten sposób mogą komunikować się ze sobą telepatycznie, o ile znajdują się w odległości nie większej niż 30 metrów od siebie."
         ]
       },
       {
@@ -4114,17 +4533,35 @@
               {
                 "type": "table",
                 "caption": "Zaklęcia chemika",
-                "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                "colLabels": [
+                  "Poziom aptekarza",
+                  "Zaklęcie"
+                ],
+                "colStyles": [
+                  "col-2 centrum tekstowe",
+                  "kol-10"
+                ],
                 "rows": [
-                  ["1", "{@spell burning hands}, {@spell grease}"],
+                  [
+                    "1",
+                    "{@spell burning hands}, {@spell grease}"
+                  ],
                   [
                     "3",
-                    "{@spell melf's acid arrow||acid arrow}, {@spell flaming sphere}"
+                    "{@spell melf's acid arrow||Kwaśna Strzała}, {@spell flaming sphere}"
                   ],
-                  ["5", "{@spell fireball}, {@spell stinking cloud}"],
-                  ["7", "{@spell ice storm}, {@spell wall of fire}"],
-                  ["9", "{@spell cloudkill}, {@spell cone of cold}"]
+                  [
+                    "5",
+                    "{@spell fireball}, {@spell stinking cloud}"
+                  ],
+                  [
+                    "7",
+                    "{@spell ice storm}, {@spell wall of fire}"
+                  ],
+                  [
+                    "9",
+                    "{@spell cloudkill}, {@spell cone of cold}"
+                  ]
                 ]
               }
             ]
@@ -4135,21 +4572,21 @@
         "level": 3,
         "name": "Precyzyjna aplikacja",
         "entries": [
-          "Kiedy rzucasz zaklęcie, które zadaje obrażenia od kwasu, zimna, ognia, błyskawic lub trucizny innym istotom, które widzisz, możesz wybrać ich liczbę równą twojemu modyfikatorowi Inteligencji. Wybrane istoty automatycznie wykonują rzuty obronne na zaklęcie i nie odnoszą żadnych obrażeń, jeśli normalnie przy udanym rzucie otrzymałyby połowę obrażeń."
+          "Kiedy rzucasz zaklęcie, które zadaje obrażenia od kwasu, zimna, ognia, pioruna lub trucizny innym istotom, które widzisz, możesz wybrać ich liczbę równą twojemu modyfikatorowi Inteligencji. Wybrane istoty automatycznie wykonują rzuty obronne na zaklęcie i nie odnoszą żadnych obrażeń, jeśli normalnie przy udanym rzucie otrzymałyby połowę obrażeń."
         ]
       },
       {
         "level": 6,
         "name": "Reakcja łańcuchowa",
         "entries": [
-          "Kiedy rzucisz sztuczkę aptekarską, która zwykle celuje tylko w jedno stworzenie i zadaje obrażenia od kwasu, zimna, ognia, błyskawicy lub trucizny, zaklęcie może zamiast tego obrać za cel dwa stworzenia, które znajdują się w zasięgu czaru."
+          "Kiedy rzucisz sztuczkę aptekarską, która zwykle celuje tylko w jedno stworzenie i zadaje obrażenia od kwasu, zimna, ognia, pioruna lub trucizny, zaklęcie może zamiast tego obrać za cel dwa stworzenia, które znajdują się w zasięgu czaru."
         ]
       },
       {
         "level": 6,
         "name": "Kondycjonowanie chemiczne",
         "entries": [
-          "W ramach akcji dajesz jednej istocie, której dotkniesz (w tym także tobie), odporność na obrażenia od kwasu, zimna, ognia, błyskawic lub trucizny na 1 godzinę. Ta korzyść wygasa natychmiast, jeśli ponownie skorzystasz z tej funkcji."
+          "W ramach akcji dajesz jednej istocie, której dotkniesz (w tym także tobie), odporność na obrażenia od kwasu, zimna, ognia, pioruna lub trucizny na 1 godzinę. Ta korzyść wygasa natychmiast, jeśli ponownie skorzystasz z tej funkcji."
         ]
       },
       {
@@ -4163,14 +4600,14 @@
         "level": 14,
         "name": "Dopasowanie elementarne",
         "entries": [
-          "Kiedy rzucasz zaklęcie, korzystając z miejsca na zaklęcie aptekarza, które zadaje rodzaj obrażeń z poniższej listy, możesz zmienić ten typ obrażeń na jeden z pozostałych wymienionych typów: kwas, zimno, ogień, błyskawica lub trucizna."
+          "Kiedy rzucasz zaklęcie, korzystając z miejsca na zaklęcie aptekarza, które zadaje rodzaj obrażeń z poniższej listy, możesz zmienić ten typ obrażeń na jeden z pozostałych wymienionych typów: kwas, zimno, ogień, piorun lub trucizna."
         ]
       },
       {
         "level": 18,
         "name": "Kataklizm chemiczny",
         "entries": [
-          "Kiedy rzucasz zaklęcie, które zadaje obrażenia od kwasu, zimna, ognia, błyskawic lub trucizny, korzystając z miejsca na zaklęcie aptekarza, jest ono traktowane tak, jakby zostało rzucone przy użyciu miejsca na zaklęcie 7. poziomu."
+          "Kiedy rzucasz zaklęcie, które zadaje obrażenia od kwasu, zimna, ognia, pioruna lub trucizny, korzystając z miejsca na zaklęcie aptekarza, jest ono traktowane tak, jakby zostało rzucone przy użyciu miejsca na zaklęcie 7. poziomu."
         ]
       }
     ]
@@ -4201,14 +4638,35 @@
               {
                 "type": "table",
                 "caption": "Zaklęcia egzorcysty",
-                "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                "colLabels": [
+                  "Poziom aptekarza",
+                  "Zaklęcie"
+                ],
+                "colStyles": [
+                  "col-2 centrum tekstowe",
+                  "kol-10"
+                ],
                 "rows": [
-                  ["1", "{@spell bless}, {@spell protection from evil and good}"],
-                  ["3", "{@spell spiritual weapon}, {@spell zone of truth}"],
-                  ["5", "{@spell counterspell}, {@spell spirit guardians}"],
-                  ["7", "{@spell banishment}, {@spell last rites|GuideDrakkenheim}"],
-                  ["9", "{@spell dispel evil and good}, {@spell flame strike}"]
+                  [
+                    "1",
+                    "{@spell bless}, {@spell protection from evil and good}"
+                  ],
+                  [
+                    "3",
+                    "{@spell spiritual weapon}, {@spell zone of truth}"
+                  ],
+                  [
+                    "5",
+                    "{@spell counterspell}, {@spell spirit guardians}"
+                  ],
+                  [
+                    "7",
+                    "{@spell banishment}, {@spell last rites|GuideDrakkenheim}"
+                  ],
+                  [
+                    "9",
+                    "{@spell dispel evil and good}, {@spell flame strike}"
+                  ]
                 ]
               }
             ]
@@ -4222,7 +4680,7 @@
           "Na 3. poziomie zyskujesz zdolność nasycania boskiej energii poprzez swój święty symbol, aby wypędzić złe istoty z okolicy lub usunąć ich szkodliwe skutki ze swoich sojuszników.",
           "Korzystając z tej funkcji, możesz wybrać, jaki efekt chcesz utworzyć. Możesz użyć tej funkcji tyle razy, ile wynosi połowa twojej premii za biegłość, zaokrąglając w dół, a wszystkie wykorzystane użycia regenerujesz podczas krótkiego lub długiego odpoczynku.",
           "Jeśli efekt Egzorcyzmu wymaga rzutu obronnego, ST jest równy Twojemu ST rzutu obronnego na zaklęcia Aptekarza.",
-          "Począwszy od 5 poziomu, gdy nieumarłemu lub biesowi nie powiedzie się rzut obronny na twoją funkcję Wygnania Zła, istota ta otrzymuje obrażenia od blasku {@damage 4d8}.",
+          "Począwszy od 5 poziomu, gdy nieumarłemu lub biesowi nie powiedzie się rzut obronny na twoją funkcję Wygnania Zła, istota ta otrzymuje obrażenia promieniste {@damage 4d8}.",
           {
             "type": "entries",
             "name": "Wypędź zło",
@@ -4270,7 +4728,7 @@
           {
             "type": "list",
             "items": [
-              "Stworzenia, którym nie uda się wykonać rzutu obronnego na Twój Egzorcyzm: Funkcja Wypędzenia Zła, otrzymują dodatkowe obrażenia od blasku {@damage 4d8}.",
+              "Stworzenia, którym nie uda się wykonać rzutu obronnego na Twój Egzorcyzm: Funkcja Wypędzenia Zła, otrzymują dodatkowe obrażenia promieniste {@damage 4d8}.",
               "Stworzenia, którym pomaga funkcja Egzorcyzm: Oczyszczenie Zepsucia, zyskują tymczasowe punkty wytrzymałości {@dice 4d8}."
             ]
           }
@@ -4304,14 +4762,35 @@
               {
                 "type": "table",
                 "caption": "Zaklęcia mutagenne",
-                "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                "colLabels": [
+                  "Poziom aptekarza",
+                  "Zaklęcie"
+                ],
+                "colStyles": [
+                  "col-2 centrum tekstowe",
+                  "kol-10"
+                ],
                 "rows": [
-                  ["1", "{@spell jump}, {@spell toxic shield|GuideDrakkenheim}"],
-                  ["3", "{@spell alter self}, {@spell enhance ability}"],
-                  ["5", "{@spell haste}, {@spell water breathing}"],
-                  ["7", "{@spell polymorph}, {@spell stoneskin}"],
-                  ["9", "{@spell reincarnate}, {@spell septic shock|GuideDrakkenheim}"]
+                  [
+                    "1",
+                    "{@spell jump}, {@spell toxic shield|GuideDrakkenheim}"
+                  ],
+                  [
+                    "3",
+                    "{@spell alter self}, {@spell enhance ability}"
+                  ],
+                  [
+                    "5",
+                    "{@spell haste}, {@spell water breathing}"
+                  ],
+                  [
+                    "7",
+                    "{@spell polymorph}, {@spell stoneskin}"
+                  ],
+                  [
+                    "9",
+                    "{@spell reincarnate}, {@spell septic shock|GuideDrakkenheim}"
+                  ]
                 ]
               }
             ]
@@ -4328,7 +4807,7 @@
             "items": [
               "Twoje wyniki w zakresie Siły i Inteligencji zostają zamienione miejscami.",
               "Twój rozmiar stanie się Duży, Twoja odległość skoku zostanie podwojona, a przy określaniu udźwigu i ciężaru, który możesz pchać, przeciągać lub podnosić, liczysz się jako jeden rozmiar większy.",
-              "Każda z twoich dłoni zmienia się w wielką, mięsistą pięść, której możesz używać do wykonywania ataków bronią białą. Dla ciebie liczy się jako prosta broń. Twoje wielkie, mięsiste pięści zadają przy trafieniu {@damage 1d10} + twój modyfikator Siły + obrażenia tłuczące na poziomie Aptekarza.",
+              "Każda z twoich dłoni zmienia się w wielką, mięsistą pięść, której możesz używać do wykonywania ataków bronią białą. Dla ciebie liczy się jako prosta broń. Twoje wielkie, mięsiste pięści zadają przy trafieniu {@damage 1d10} + twój modyfikator Siły + obrażenia obuchowe na poziomie Aptekarza.",
               "Nie możesz rzucać zaklęć ani koncentrować się na nich.",
               "Masz {@sense darkvision} o zasięgu 30 metrów.",
               "Otrzymujesz tymczasowe punkty wytrzymałości równe pięciokrotnemu poziomowi aptekarza."
@@ -4357,7 +4836,7 @@
         "name": "Potężna biologia",
         "entries": [
           "Kiedy jesteś w swojej przemienionej formie, masz potężniejsze ataki, które są w stanie ominąć największą obronę twojego wroga. Twoje ataki wielką, mięsistą pięścią liczą się jako magiczne przy pokonywaniu oporu i odporności na niemagiczne ataki i obrażenia.",
-          "Kiedy uderzasz atakiem swoimi dużymi, mięsistymi pięściami, możesz wykorzystać miejsce na zaklęcie, aby wzmocnić siłę swojego ciosu za pomocą łamania nienaturalnej energii. Kiedy w ten sposób zużywasz miejsce na zaklęcie, zadajesz dodatkowe obrażenia od siły {@damage 1d8} na każdy poziom użytego miejsca na zaklęcie."
+          "Kiedy uderzasz atakiem swoimi dużymi, mięsistymi pięściami, możesz wykorzystać miejsce na zaklęcie, aby wzmocnić siłę swojego ciosu za pomocą łamania nienaturalnej energii. Kiedy w ten sposób zużywasz miejsce na zaklęcie, zadajesz dodatkowe obrażenia od mocy {@damage 1d8} na każdy poziom użytego miejsca na zaklęcie."
         ]
       },
       {
@@ -4383,7 +4862,7 @@
             "type": "list",
             "items": [
               "{@i {@b Draconic Genome.}} Z pleców wyrastają ci mięsiste skrzydła, a twoja skóra nabiera łuszczącego się wyglądu. Zyskujesz prędkość lotu równą szybkości chodzenia, a podczas akcji możesz wypluć żółć w kształcie stożka o długości 30 stóp. Wszystkie stworzenia na obszarze muszą wykonać pomyślny rzut obronny na Kondycję przeciwko twojemu ST obronności na zaklęcie lub otrzymać 8k6 obrażeń od kwasu lub o połowę mniej w przypadku udanego rzutu obronnego. Gdy skorzystasz z tej funkcji, nie możesz tego zrobić ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku.",
-              "{@i {@b Giant Genome.}} Stajesz się potężną masą ciała i mięśni, zamieniając się w żywą broń oblężniczą. Twój rozmiar staje się ogromny, a wszystkie obrażenia zadawane obiektom i budowlom są teraz podwojone. W ramach akcji możesz w swojej turze wydać miejsce na zaklęcie, aby walnąć pięściami w ziemię, wywołując wokół ciebie fale uderzeniowe i gruz. Wszystkie stworzenia w promieniu 30 stóp od ciebie muszą zakończyć się sukcesem w rzucie obronnym na Zręczność przeciwko twojemu ST rzutu obronnego na zaklęcia, w przeciwnym razie otrzymają {@damage 8d6} obrażenia tłuczące i zostaną powalone. Jeśli uda im się wykonać rzut obronny, otrzymują połowę obrażeń i nie są przewracani.",
+              "{@i {@b Giant Genome.}} Stajesz się potężną masą ciała i mięśni, zamieniając się w żywą broń oblężniczą. Twój rozmiar staje się ogromny, a wszystkie obrażenia zadawane obiektom i budowlom są teraz podwojone. W ramach akcji możesz w swojej turze wydać miejsce na zaklęcie, aby walnąć pięściami w ziemię, wywołując wokół ciebie fale uderzeniowe i gruz. Wszystkie stworzenia w promieniu 30 stóp od ciebie muszą zakończyć się sukcesem w rzucie obronnym na Zręczność przeciwko twojemu ST rzutu obronnego na zaklęcia, w przeciwnym razie otrzymają {@damage 8d6} obrażenia obuchowe i zostaną powalone. Jeśli uda im się wykonać rzut obronny, otrzymują połowę obrażeń i nie są przewracani.",
               "{@i {@b Cerebellum Genome.}} Podczas transformacji zachowujesz część swojego umysłu, pozwalając pozostałościom swoich badań pozostać w twoim potwornym mózgu. Masz teraz możliwość utrzymania koncentracji na zaklęciach, będąc w transmogryfikowanej formie. Podczas transmogryfikacji twoja koncentracja nie może zostać przerwana w wyniku otrzymania obrażeń."
             ]
           }
@@ -4432,10 +4911,19 @@
               {
                 "type": "table",
                 "caption": "Zaklęcia patogenetyczne",
-                "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                "colLabels": [
+                  "Poziom aptekarza",
+                  "Zaklęcie"
+                ],
+                "colStyles": [
+                  "col-2 centrum tekstowe",
+                  "kol-10"
+                ],
                 "rows": [
-                  ["1", "{@spell infect|GuideDrakkenheim}, {@spell inflict wounds}"],
+                  [
+                    "1",
+                    "{@spell infect|GuideDrakkenheim}, {@spell inflict wounds}"
+                  ],
                   [
                     "3",
                     "{@spell blindness/deafness}, {@spell biohazard|GuideDrakkenheim}"
@@ -4444,8 +4932,14 @@
                     "5",
                     "{@spell pestilence|GuideDrakkenheim}, {@spell venomous aura|GuideDrakkenheim}"
                   ],
-                  ["7", "{@spell blight}, {@spell blood worm|GuideDrakkenheim}"],
-                  ["9", "{@spell contagion}, {@spell insect plague}"]
+                  [
+                    "7",
+                    "{@spell blight}, {@spell blood worm|GuideDrakkenheim}"
+                  ],
+                  [
+                    "9",
+                    "{@spell contagion}, {@spell insect plague}"
+                  ]
                 ]
               }
             ]
@@ -4468,12 +4962,27 @@
           {
             "type": "table",
             "caption": "Znane zmutowane szczepy",
-            "colLabels": ["Poziom aptekarza", "Liczba szczepów"],
-            "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+            "colLabels": [
+              "Poziom aptekarza",
+              "Liczba szczepów"
+            ],
+            "colStyles": [
+              "col-2 centrum tekstowe",
+              "kol-10"
+            ],
             "rows": [
-              ["3", "2"],
-              ["9", "3"],
-              ["15", "4"]
+              [
+                "3",
+                "2"
+              ],
+              [
+                "9",
+                "3"
+              ],
+              [
+                "15",
+                "4"
+              ]
             ]
           },
           "Ilekroć rzucisz zaklęcie wywołujące chorobę (takie jak {@spell infect|GuideDrakkenheim} lub {@spell contagion}), możesz zastosować dodatkowy efekt ze swojego zmutowanego szczepu na jeden z celów czaru, który trwa przez czas trwania tego zaklęcia.",
@@ -4484,7 +4993,9 @@
               {
                 "type": "entries",
                 "name": "Zawrót głowy",
-                "entries": ["Cel nie może reagować."]
+                "entries": [
+                  "Cel nie może reagować."
+                ]
               },
               {
                 "type": "entries",
@@ -4510,7 +5021,9 @@
               {
                 "type": "entries",
                 "name": "Słabość (poziom 9)",
-                "entries": ["Cel zadaje połowę obrażeń atakami bronią białą."]
+                "entries": [
+                  "Cel zadaje połowę obrażeń atakami bronią białą."
+                ]
               },
               {
                 "type": "entries",
@@ -4522,12 +5035,16 @@
               {
                 "type": "entries",
                 "name": "Intensywna gorączka (9 poziom)",
-                "entries": ["Cel nie może odzyskać punktów wytrzymałości."]
+                "entries": [
+                  "Cel nie może odzyskać punktów wytrzymałości."
+                ]
               },
               {
                 "type": "entries",
                 "name": "Uszkodzenia (poziom 9)",
-                "entries": ["Cel traci odporność na obrażenia."]
+                "entries": [
+                  "Cel traci odporność na obrażenia."
+                ]
               },
               {
                 "type": "entries",
@@ -4610,17 +5127,35 @@
               {
                 "type": "table",
                 "caption": "Zaklęcia Reanimatora",
-                "colLabels": ["Poziom aptekarza", "Zaklęcie"],
-                "colStyles": ["col-2 centrum tekstowe", "kol-10"],
+                "colLabels": [
+                  "Poziom aptekarza",
+                  "Zaklęcie"
+                ],
+                "colStyles": [
+                  "col-2 centrum tekstowe",
+                  "kol-10"
+                ],
                 "rows": [
-                  ["1", "{@spell false life}, {@spell inflict wounds}"],
-                  ["3", "{@spell gentle repose}, {@spell invigorate|GuideDrakkenheim}"],
-                  ["5", "{@spell lightning bolt}, {@spell revivify}"],
+                  [
+                    "1",
+                    "{@spell false life}, {@spell inflict wounds}"
+                  ],
+                  [
+                    "3",
+                    "{@spell gentle repose}, {@spell invigorate|GuideDrakkenheim}"
+                  ],
+                  [
+                    "5",
+                    "{@spell lightning bolt}, {@spell revivify}"
+                  ],
                   [
                     "7",
                     "{@spell death ward}, {@spell corpse explosion|GuideDrakkenheim}"
                   ],
-                  ["9", "{@spell raise dead}, {@spell nerve gas|GuideDrakkenheim}"]
+                  [
+                    "9",
+                    "{@spell raise dead}, {@spell nerve gas|GuideDrakkenheim}"
+                  ]
                 ]
               }
             ]
@@ -4658,7 +5193,7 @@
         "level": 10,
         "name": "Oto Moje Stworzenie",
         "entries": [
-          "Rozmiar twojego trupiego stworzenia wzrasta do Large, a jego prędkość wzrasta do 40 stóp.",
+          "Rozmiar twojego trupiego stworzenia wzrasta do Dużego, a jego prędkość wzrasta do 40 stóp.",
           "Kiedy twoje trupie stworzenie trafi istotę atakiem wręcz, może natychmiast podjąć próbę chwytu przeciwko celowi. ST potrzebny do ucieczki z tego chwytania wynosi 8 + modyfikator siły trupiego stworzenia (+4) + twoje PB."
         ]
       },
@@ -4673,7 +5208,7 @@
         "level": 18,
         "name": "Nie mogę powstrzymać potwora, którego stworzyłem",
         "entries": [
-          "Twoje trupie stworzenie zwiększa swój rozmiar do Ogromnego, zyskuje zasięg 3 metrów, a jego prędkość wzrasta do 50 stóp. Jego atak uderzający zadaje dodatkowe obrażenia tłuczące {@damage 1d8}.",
+          "Twoje trupie stworzenie zwiększa swój rozmiar do Ogromnego, zyskuje zasięg 3 metrów, a jego prędkość wzrasta do 50 stóp. Jego atak uderzający zadaje dodatkowe obrażenia obuchowe {@damage 1d8}.",
           "Dodatkowo ciężar, który twoje trupie stworzenie może pchać lub podnosić, jest podwojony."
         ]
       }

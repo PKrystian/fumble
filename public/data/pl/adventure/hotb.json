@@ -2305,7 +2305,7 @@
                       "page": 9,
                       "id": "054",
                       "entries": [
-                        "W rogach tej komnaty, która ma naturalny sufit, ułożone są sterty zrujnowanych łóżek. Dwa oślizłe humanoidy z rybimi głowami używają włóczni do rzeźbienia dziwnych symboli na ścianach jaskini."
+                        "W rogach tej komnaty, która ma naturalny sufit, ułożone są sterty zrujnowanych łóżek. Dwa oślizłe humanoidalne istoty z rybimi głowami używają włóczni do rzeźbienia dziwnych symboli na ścianach jaskini."
                       ]
                     },
                     "Dwa {@creature Kuo-Toa Marauder|HotB|Maruderzy Kuo-Toa} bazgrolą rupestowski bełkot na ścianach tego zaniedbanego baraku. {@variantrule Hostile [Attitude]|XPHB|Wrogi} kuo-toa walczą z postaciami na widoku, mając nadzieję, że schwytają je żywcem i przetrzymają w celach więziennych ({@area area B3|04f|x}). Poza tym pokój jest pusty."
@@ -3512,7 +3512,7 @@
                       "page": 13,
                       "id": "086",
                       "entries": [
-                        "Sieci są {@variantrule Difficult Terrain|XPHB}, ale nie są na tyle silne, aby kogokolwiek powstrzymać. Każdy 3-metrowy sześcian sieci ma KP 10; HP 5; Podatność na obrażenia od ognia; oraz odporność na tłuczenie, kłucie, truciznę i obrażenia psychiczne."
+                        "Sieci są {@variantrule Difficult Terrain|XPHB}, ale nie są na tyle silne, aby kogokolwiek powstrzymać. Każdy 3-metrowy sześcian sieci ma KP 10; HP 5; Podatność na obrażenia od ognia; oraz odporność na obuchowe, kłucie, truciznę i obrażenia psychiczne."
                       ]
                     }
                   ]
@@ -4452,7 +4452,7 @@
                               "name": "Trudny teren",
                               "id": "0a0",
                               "entries": [
-                                "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} Uszkodzenia przeszywające."
+                                "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} obrażenia kłute."
                               ]
                             },
                             {
@@ -5335,11 +5335,11 @@
         },
         {
           "type": "section",
-          "name": "H: Legowisko Niedźwiedzia Bugbear",
+          "name": "H: Legowisko Bugbeara",
           "page": 20,
           "id": "0bf",
           "entries": [
-            "Ta jaskinia niedawno znalazła się pod kontrolą trzech wojowniczych niedźwiedzi pluskwiaków i goblińskich marionetek, których zastraszyli do służby. Niedźwiedzie robale planują atak na Twierdzę na Pograniczach. Marzą o zniszczeniu twierdzy i splądrowaniu jej bogactw.",
+            "Ta jaskinia niedawno znalazła się pod kontrolą trzech wojowniczych bugbearów i goblińskich marionetek, których zastraszyli do służby. Bugbeary planują atak na Twierdzę na Pograniczach. Marzą o zniszczeniu twierdzy i splądrowaniu jej bogactw.",
             "Możesz dodać kolejny {@creature Bugbear Warrior|XMM} do jaskini, aby wydłużyć i utrudnić ten scenariusz, lub możesz usunąć jeden lub więcej z nich, aby ułatwić i skrócić.",
             {
               "type": "entries",
@@ -5356,7 +5356,7 @@
                     "Za kilkoma krzakami ukryty jest tunel z nieobrobionego kamienia. Wewnątrz słychać dwa głębokie głosy w gorącej kłótni. W tym zakresie rozmowa jest niezrozumiała."
                   ]
                 },
-                "Głosy należą do pary niedźwiedzi robali kłócących się w pokoju narad ({@area area H2|0c5|x})."
+                "Głosy należą do pary bugbearów kłócących się w pokoju narad ({@area area H2|0c5|x})."
               ]
             },
             {
@@ -5643,7 +5643,7 @@
                         "W tym pokoju znajduje się stary stół i cztery pionowe kłody. Stół pokrywa słabo narysowana mapa Pogranicza. Dwa wysokie, włochate goblinoidy pochylają się nad mapą i kłócą się ze sobą."
                       ]
                     },
-                    "Dwaj {@creature Bugbear Warrior|XMM|Wojownicy Bugbearów} kłócą się o to, jak najlepiej przedostać się do twierdzy. Jeden twierdzi, że najlepsze byłoby podejście z ukrycia, podczas gdy drugi nalega na bezpośredni atak wspomagany przez {@area local ogre mercenary|08f|x} (patrz {@area cave E|087|x}). Niedźwiedzie-robaki {@variantrule Hostile [Attitude]|XPHB|Wrogi} walczą z postaciami od razu, gdy je zobaczą i nie można się z nimi targować.",
+                    "Dwaj {@creature Bugbear Warrior|XMM|Wojownicy Bugbearów} kłócą się o to, jak najlepiej przedostać się do twierdzy. Jeden twierdzi, że najlepsze byłoby podejście z ukrycia, podczas gdy drugi nalega na bezpośredni atak wspomagany przez {@area local ogre mercenary|08f|x} (patrz {@area cave E|087|x}). Bugbeary {@variantrule Hostile [Attitude]|XPHB|Wrogi} walczą z postaciami od razu, gdy je zobaczą i nie można się z nimi targować.",
                     {
                       "type": "image",
                       "href": {
@@ -5679,7 +5679,7 @@
                       "id": "0c9",
                       "entries": [
                         "Ta kłoda o długości 3 metrów stacza się po pochyłości, spłaszczając stworzenia na swojej drodze.",
-                        "W ramach akcji istota znajdująca się w promieniu 1,5 metra od nieruchomej kłody może zepchnąć ją ze schodów. Kłoda spada po pochyłości w linii prostej. Każde stworzenie na ścieżce kłody musi wykonać {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego rzutu obronnego, stworzenie bierze {@damage 2d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Po udanym rzucie obronnym stworzenie otrzymuje tylko o połowę mniejsze obrażenia."
+                        "W ramach akcji istota znajdująca się w promieniu 1,5 metra od nieruchomej kłody może zepchnąć ją ze schodów. Kłoda spada po pochyłości w linii prostej. Każde stworzenie na ścieżce kłody musi wykonać {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego rzutu obronnego, stworzenie bierze {@damage 2d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Po udanym rzucie obronnym stworzenie otrzymuje tylko o połowę mniejsze obrażenia."
                       ]
                     }
                   ]
@@ -5724,7 +5724,7 @@
                         "Zatęchłe futra zwierząt służą za łóżka w tej surowej sali, gdzie futrzany brutal krytykuje dwóch mniejszych podwładnych goblinów o piskliwym głosie."
                       ]
                     },
-                    "A {@creature Bugbear Warrior|XMM}-samozwańczy szef jaskini - beszta dwóch {@creature Goblin Warrior|XMM|Goblińscy Wojownicy} do spania w pracy. Kiedy zauważą postacie, niedźwiedź-robak rozkazuje goblinom walczyć i dołącza do nich w bitwie. Niedźwiedź jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} w kierunku drużyny, podczas gdy gobliny są {@variantrule Indifferent [Attitude]|XPHB|Obojętny}.",
+                    "A {@creature Bugbear Warrior|XMM}-samozwańczy szef jaskini - beszta dwóch {@creature Goblin Warrior|XMM|Goblińscy Wojownicy} do spania w pracy. Kiedy zauważą postacie, bugbear rozkazuje goblinom walczyć i dołącza do nich w bitwie. Bugbear jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} w kierunku drużyny, podczas gdy gobliny są {@variantrule Indifferent [Attitude]|XPHB|Obojętny}.",
                     {
                       "type": "entries",
                       "name": "Kołysanie Goblinów",
@@ -5732,11 +5732,11 @@
                       "id": "0cf",
                       "entries": [
                         "Te kapryśne gobliny, Gargle i Yams, zostały niedawno zrekrutowane i nie lubią, jak się na nie krzyczy.",
-                        "jako {@action Influence|XPHB} akcji, postać może spróbować zachwiać lojalnością goblinów i wykonać jeden z poniższych testów (za pomocą {@variantrule Advantage|XPHB} jeśli drużyna pokonała już niedźwiedzia owada). Rozważ te przykłady:",
+                        "jako {@action Influence|XPHB} akcji, postać może spróbować zachwiać lojalnością goblinów i wykonać jeden z poniższych testów (za pomocą {@variantrule Advantage|XPHB} jeśli drużyna pokonała już bugbeara). Rozważ te przykłady:",
                         "{@b {@dc 10} Charyzma ({@skill Deception|XPHB}).} Postać oszukuje gobliny, aby uwierzyły, że drużyna teraz dowodzi jaskinią.",
                         "{@b {@dc 11} Charyzma ({@skill Intimidation|XPHB}).} Postać straszy gobliny tak, że boją się o swoje życie.",
                         "{@b {@dc 10} Charyzma ({@skill Persuasion|XPHB}).} Postać przekonuje gobliny, że impreza nie chce im zrobić krzywdy.",
-                        "Po pomyślnym teście nastawienie goblinów poprawia się {@variantrule Friendly [Attitude]|XPHB|Przyjazny}. W zamian za łapówkę w wysokości co najmniej 2 JZ, gobliny pomagają także postaciom pokonać pozostałe w jaskini niedźwiedzie-robaki i opowiadają im o sekretnych drzwiach w tym obszarze, chociaż gobliny nie wiedzą, co kryje się po drugiej stronie."
+                        "Po pomyślnym teście nastawienie goblinów poprawia się {@variantrule Friendly [Attitude]|XPHB|Przyjazny}. W zamian za łapówkę w wysokości co najmniej 2 JZ, gobliny pomagają także postaciom pokonać pozostałe w jaskini bugbeary i opowiadają im o sekretnych drzwiach w tym obszarze, chociaż gobliny nie wiedzą, co kryje się po drugiej stronie."
                       ]
                     },
                     {
@@ -5756,7 +5756,7 @@
                   "page": 21,
                   "id": "0d1",
                   "entries": [
-                    "Stos grubych zwierzęcych futer tworzy w tym pokoju miękkie łóżko, w którym śpi szef niedźwiedzia-robaka z obszaru H5.",
+                    "Stos grubych zwierzęcych futer tworzy w tym pokoju miękkie łóżko, w którym śpi szef bugbeara z obszaru H5.",
                     {
                       "type": "entries",
                       "name": "Skarb",
@@ -6658,7 +6658,7 @@
           "page": 24,
           "id": "0e5",
           "entries": [
-            "Złe gnolle - wysokie, kudłate potwory z hienoidalnymi głowami - zamieniły tę opuszczoną świątynię w swoje legowisko. Gnolle usłyszały plotki, że gdzieś w tej jaskini ukryty jest skarb, ale nie mogły go znaleźć z powodu iluzji rzuconej przez dawno zmarłego maga. Wściekłe i porywcze gnolle nie mają cierpliwości do tych, którzy przeszkadzają im w poszukiwaniach.",
+            "Złe gnolle - wysokie, kudłate czarty z hienoidalnymi głowami - zamieniły tę opuszczoną świątynię w swoje legowisko. Gnolle usłyszały plotki, że gdzieś w tej jaskini ukryty jest skarb, ale nie mogły go znaleźć z powodu iluzji rzuconej przez dawno zmarłego maga. Wściekłe i porywcze gnolle nie mają cierpliwości do tych, którzy przeszkadzają im w poszukiwaniach.",
             "Możesz dodać potwory do jaskini, aby wydłużyć ten scenariusz i uczynić go trudniejszym. Jeden lub więcej {@creature Bugbear Warrior|XMM|Wojownicy Bugbearów} mogli stworzyć słaby sojusz z gnollami. I odwrotnie, możesz zmniejszyć liczbę {@creature Gnoll Warrior|XMM|Wojownicy Gnolli} aby scenariusz był łatwiejszy i krótszy.",
             {
               "type": "entries",
@@ -7091,7 +7091,7 @@
                       ]
                     },
                     "Dwa {@creature Gnoll Warrior|XMM|Wojownicy Gnolli} przeszukują tę komnatę w poszukiwaniu sekretnych drzwi. Gnolle {@variantrule Hostile [Attitude]|XPHB|Wrogi} w szale rzucają się na intruzów. Walka w tej komnacie przyciąga uwagę gnolli z obszaru J4, które szybko przyłączają się do walki.",
-                    "Jeśli postacie pokonają wszystkich oprócz jednego gnolla, ostatni z nich poddaje się. jako {@action Influence|XPHB} akcji, postać może spróbować zastraszyć gnolla i zmusić go do poddania się {@dc 13} Charyzma ({@skill Intimidation|XPHB}) sprawdzać. Po udanym teście nastawienie gnolla poprawia się {@variantrule Indifferent [Attitude]|XPHB|Obojętny}, a gnoll ujawnia, że ​​jego wataha szukała „nagrody ukrytej w ustach śmiejącego się diabła”. W przypadku nieudanego testu gnoll ucieka, nie ujawniając żadnych informacji.",
+                    "Jeśli postacie pokonają wszystkich oprócz jednego gnolla, ostatni z nich poddaje się. jako {@action Influence|XPHB} akcji, postać może spróbować zastraszyć gnolla i zmusić go do poddania się {@dc 13} Charyzma ({@skill Intimidation|XPHB}) sprawdzać. Po udanym teście nastawienie gnolla poprawia się {@variantrule Indifferent [Attitude]|XPHB|Obojętny}, a gnoll ujawnia, że ​​jego wataha szukała „nagrody ukrytej w ustach śmiejącego się czarta”. W przypadku nieudanego testu gnoll ucieka, nie ujawniając żadnych informacji.",
                     {
                       "type": "image",
                       "href": {
@@ -11159,7 +11159,7 @@
                   "page": 9,
                   "id": "054",
                   "entries": [
-                    "W rogach tej komnaty, która ma naturalny sufit, ułożone są sterty zrujnowanych łóżek. Dwa oślizłe humanoidy z rybimi głowami używają włóczni do rzeźbienia dziwnych symboli na ścianach jaskini."
+                    "W rogach tej komnaty, która ma naturalny sufit, ułożone są sterty zrujnowanych łóżek. Dwa oślizłe humanoidalne istoty z rybimi głowami używają włóczni do rzeźbienia dziwnych symboli na ścianach jaskini."
                   ]
                 },
                 "Dwa {@creature Kuo-Toa Marauder|HotB|Maruderzy Kuo-Toa} bazgrolą rupestowski bełkot na ścianach tego zaniedbanego baraku. {@variantrule Hostile [Attitude]|XPHB|Wrogi} kuo-toa walczą z postaciami na widoku, mając nadzieję, że schwytają je żywcem i przetrzymają w celach więziennych ({@area area B3|04f|x}). Poza tym pokój jest pusty."
@@ -11738,7 +11738,7 @@
               "page": 9,
               "id": "054",
               "entries": [
-                "W rogach tej komnaty, która ma naturalny sufit, ułożone są sterty zrujnowanych łóżek. Dwa oślizłe humanoidy z rybimi głowami używają włóczni do rzeźbienia dziwnych symboli na ścianach jaskini."
+                "W rogach tej komnaty, która ma naturalny sufit, ułożone są sterty zrujnowanych łóżek. Dwa oślizłe humanoidalne istoty z rybimi głowami używają włóczni do rzeźbienia dziwnych symboli na ścianach jaskini."
               ]
             },
             "Dwa {@creature Kuo-Toa Marauder|HotB|Maruderzy Kuo-Toa} bazgrolą rupestowski bełkot na ścianach tego zaniedbanego baraku. {@variantrule Hostile [Attitude]|XPHB|Wrogi} kuo-toa walczą z postaciami na widoku, mając nadzieję, że schwytają je żywcem i przetrzymają w celach więziennych ({@area area B3|04f|x}). Poza tym pokój jest pusty."
@@ -11903,7 +11903,7 @@
           "page": 9,
           "id": "054",
           "entries": [
-            "W rogach tej komnaty, która ma naturalny sufit, ułożone są sterty zrujnowanych łóżek. Dwa oślizłe humanoidy z rybimi głowami używają włóczni do rzeźbienia dziwnych symboli na ścianach jaskini."
+            "W rogach tej komnaty, która ma naturalny sufit, ułożone są sterty zrujnowanych łóżek. Dwa oślizłe humanoidalne istoty z rybimi głowami używają włóczni do rzeźbienia dziwnych symboli na ścianach jaskini."
           ]
         },
         "Dwa {@creature Kuo-Toa Marauder|HotB|Maruderzy Kuo-Toa} bazgrolą rupestowski bełkot na ścianach tego zaniedbanego baraku. {@variantrule Hostile [Attitude]|XPHB|Wrogi} kuo-toa walczą z postaciami na widoku, mając nadzieję, że schwytają je żywcem i przetrzymają w celach więziennych ({@area area B3|04f|x}). Poza tym pokój jest pusty."
@@ -13974,7 +13974,7 @@
                   "page": 13,
                   "id": "086",
                   "entries": [
-                    "Sieci są {@variantrule Difficult Terrain|XPHB}, ale nie są na tyle silne, aby kogokolwiek powstrzymać. Każdy 3-metrowy sześcian sieci ma KP 10; HP 5; Podatność na obrażenia od ognia; oraz odporność na tłuczenie, kłucie, truciznę i obrażenia psychiczne."
+                    "Sieci są {@variantrule Difficult Terrain|XPHB}, ale nie są na tyle silne, aby kogokolwiek powstrzymać. Każdy 3-metrowy sześcian sieci ma KP 10; HP 5; Podatność na obrażenia od ognia; oraz odporność na obuchowe, kłucie, truciznę i obrażenia psychiczne."
                   ]
                 }
               ]
@@ -14497,7 +14497,7 @@
               "page": 13,
               "id": "086",
               "entries": [
-                "Sieci są {@variantrule Difficult Terrain|XPHB}, ale nie są na tyle silne, aby kogokolwiek powstrzymać. Każdy 3-metrowy sześcian sieci ma KP 10; HP 5; Podatność na obrażenia od ognia; oraz odporność na tłuczenie, kłucie, truciznę i obrażenia psychiczne."
+                "Sieci są {@variantrule Difficult Terrain|XPHB}, ale nie są na tyle silne, aby kogokolwiek powstrzymać. Każdy 3-metrowy sześcian sieci ma KP 10; HP 5; Podatność na obrażenia od ognia; oraz odporność na obuchowe, kłucie, truciznę i obrażenia psychiczne."
               ]
             }
           ]
@@ -14693,7 +14693,7 @@
           "page": 13,
           "id": "086",
           "entries": [
-            "Sieci są {@variantrule Difficult Terrain|XPHB}, ale nie są na tyle silne, aby kogokolwiek powstrzymać. Każdy 3-metrowy sześcian sieci ma KP 10; HP 5; Podatność na obrażenia od ognia; oraz odporność na tłuczenie, kłucie, truciznę i obrażenia psychiczne."
+            "Sieci są {@variantrule Difficult Terrain|XPHB}, ale nie są na tyle silne, aby kogokolwiek powstrzymać. Każdy 3-metrowy sześcian sieci ma KP 10; HP 5; Podatność na obrażenia od ognia; oraz odporność na obuchowe, kłucie, truciznę i obrażenia psychiczne."
           ]
         }
       ]
@@ -14704,7 +14704,7 @@
       "page": 13,
       "id": "086",
       "entries": [
-        "Sieci są {@variantrule Difficult Terrain|XPHB}, ale nie są na tyle silne, aby kogokolwiek powstrzymać. Każdy 3-metrowy sześcian sieci ma KP 10; HP 5; Podatność na obrażenia od ognia; oraz odporność na tłuczenie, kłucie, truciznę i obrażenia psychiczne."
+        "Sieci są {@variantrule Difficult Terrain|XPHB}, ale nie są na tyle silne, aby kogokolwiek powstrzymać. Każdy 3-metrowy sześcian sieci ma KP 10; HP 5; Podatność na obrażenia od ognia; oraz odporność na obuchowe, kłucie, truciznę i obrażenia psychiczne."
       ]
     },
     "1:087": {
@@ -16407,7 +16407,7 @@
                           "name": "Trudny teren",
                           "id": "0a0",
                           "entries": [
-                            "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} Uszkodzenia przeszywające."
+                            "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} obrażenia kłute."
                           ]
                         },
                         {
@@ -16882,7 +16882,7 @@
                       "name": "Trudny teren",
                       "id": "0a0",
                       "entries": [
-                        "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} Uszkodzenia przeszywające."
+                        "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} obrażenia kłute."
                       ]
                     },
                     {
@@ -17037,7 +17037,7 @@
                   "name": "Trudny teren",
                   "id": "0a0",
                   "entries": [
-                    "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} Uszkodzenia przeszywające."
+                    "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} obrażenia kłute."
                   ]
                 },
                 {
@@ -17091,7 +17091,7 @@
               "name": "Trudny teren",
               "id": "0a0",
               "entries": [
-                "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} Uszkodzenia przeszywające."
+                "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} obrażenia kłute."
               ]
             },
             {
@@ -17119,7 +17119,7 @@
       "name": "Trudny teren",
       "id": "0a0",
       "entries": [
-        "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} Uszkodzenia przeszywające."
+        "Barykada jest {@variantrule Difficult Terrain|XPHB}. Istota, która przejdzie przez barykadę, bierze {@damage 1d6} obrażenia kłute."
       ]
     },
     "1:0a1": {
@@ -18962,11 +18962,11 @@
     },
     "1:0bf": {
       "type": "section",
-      "name": "H: Legowisko Niedźwiedzia Bugbear",
+      "name": "H: Legowisko Bugbeara",
       "page": 20,
       "id": "0bf",
       "entries": [
-        "Ta jaskinia niedawno znalazła się pod kontrolą trzech wojowniczych niedźwiedzi pluskwiaków i goblińskich marionetek, których zastraszyli do służby. Niedźwiedzie robale planują atak na Twierdzę na Pograniczach. Marzą o zniszczeniu twierdzy i splądrowaniu jej bogactw.",
+        "Ta jaskinia niedawno znalazła się pod kontrolą trzech wojowniczych bugbearów i goblińskich marionetek, których zastraszyli do służby. Bugbeary planują atak na Twierdzę na Pograniczach. Marzą o zniszczeniu twierdzy i splądrowaniu jej bogactw.",
         "Możesz dodać kolejny {@creature Bugbear Warrior|XMM} do jaskini, aby wydłużyć i utrudnić ten scenariusz, lub możesz usunąć jeden lub więcej z nich, aby ułatwić i skrócić.",
         {
           "type": "entries",
@@ -18983,7 +18983,7 @@
                 "Za kilkoma krzakami ukryty jest tunel z nieobrobionego kamienia. Wewnątrz słychać dwa głębokie głosy w gorącej kłótni. W tym zakresie rozmowa jest niezrozumiała."
               ]
             },
-            "Głosy należą do pary niedźwiedzi robali kłócących się w pokoju narad ({@area area H2|0c5|x})."
+            "Głosy należą do pary bugbearów kłócących się w pokoju narad ({@area area H2|0c5|x})."
           ]
         },
         {
@@ -19270,7 +19270,7 @@
                     "W tym pokoju znajduje się stary stół i cztery pionowe kłody. Stół pokrywa słabo narysowana mapa Pogranicza. Dwa wysokie, włochate goblinoidy pochylają się nad mapą i kłócą się ze sobą."
                   ]
                 },
-                "Dwaj {@creature Bugbear Warrior|XMM|Wojownicy Bugbearów} kłócą się o to, jak najlepiej przedostać się do twierdzy. Jeden twierdzi, że najlepsze byłoby podejście z ukrycia, podczas gdy drugi nalega na bezpośredni atak wspomagany przez {@area local ogre mercenary|08f|x} (patrz {@area cave E|087|x}). Niedźwiedzie-robaki {@variantrule Hostile [Attitude]|XPHB|Wrogi} walczą z postaciami od razu, gdy je zobaczą i nie można się z nimi targować.",
+                "Dwaj {@creature Bugbear Warrior|XMM|Wojownicy Bugbearów} kłócą się o to, jak najlepiej przedostać się do twierdzy. Jeden twierdzi, że najlepsze byłoby podejście z ukrycia, podczas gdy drugi nalega na bezpośredni atak wspomagany przez {@area local ogre mercenary|08f|x} (patrz {@area cave E|087|x}). Bugbeary {@variantrule Hostile [Attitude]|XPHB|Wrogi} walczą z postaciami od razu, gdy je zobaczą i nie można się z nimi targować.",
                 {
                   "type": "image",
                   "href": {
@@ -19306,7 +19306,7 @@
                   "id": "0c9",
                   "entries": [
                     "Ta kłoda o długości 3 metrów stacza się po pochyłości, spłaszczając stworzenia na swojej drodze.",
-                    "W ramach akcji istota znajdująca się w promieniu 1,5 metra od nieruchomej kłody może zepchnąć ją ze schodów. Kłoda spada po pochyłości w linii prostej. Każde stworzenie na ścieżce kłody musi wykonać {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego rzutu obronnego, stworzenie bierze {@damage 2d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Po udanym rzucie obronnym stworzenie otrzymuje tylko o połowę mniejsze obrażenia."
+                    "W ramach akcji istota znajdująca się w promieniu 1,5 metra od nieruchomej kłody może zepchnąć ją ze schodów. Kłoda spada po pochyłości w linii prostej. Każde stworzenie na ścieżce kłody musi wykonać {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego rzutu obronnego, stworzenie bierze {@damage 2d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Po udanym rzucie obronnym stworzenie otrzymuje tylko o połowę mniejsze obrażenia."
                   ]
                 }
               ]
@@ -19351,7 +19351,7 @@
                     "Zatęchłe futra zwierząt służą za łóżka w tej surowej sali, gdzie futrzany brutal krytykuje dwóch mniejszych podwładnych goblinów o piskliwym głosie."
                   ]
                 },
-                "A {@creature Bugbear Warrior|XMM}-samozwańczy szef jaskini - beszta dwóch {@creature Goblin Warrior|XMM|Goblińscy Wojownicy} do spania w pracy. Kiedy zauważą postacie, niedźwiedź-robak rozkazuje goblinom walczyć i dołącza do nich w bitwie. Niedźwiedź jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} w kierunku drużyny, podczas gdy gobliny są {@variantrule Indifferent [Attitude]|XPHB|Obojętny}.",
+                "A {@creature Bugbear Warrior|XMM}-samozwańczy szef jaskini - beszta dwóch {@creature Goblin Warrior|XMM|Goblińscy Wojownicy} do spania w pracy. Kiedy zauważą postacie, bugbear rozkazuje goblinom walczyć i dołącza do nich w bitwie. Bugbear jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} w kierunku drużyny, podczas gdy gobliny są {@variantrule Indifferent [Attitude]|XPHB|Obojętny}.",
                 {
                   "type": "entries",
                   "name": "Kołysanie Goblinów",
@@ -19359,11 +19359,11 @@
                   "id": "0cf",
                   "entries": [
                     "Te kapryśne gobliny, Gargle i Yams, zostały niedawno zrekrutowane i nie lubią, jak się na nie krzyczy.",
-                    "jako {@action Influence|XPHB} akcji, postać może spróbować zachwiać lojalnością goblinów i wykonać jeden z poniższych testów (za pomocą {@variantrule Advantage|XPHB} jeśli drużyna pokonała już niedźwiedzia owada). Rozważ te przykłady:",
+                    "jako {@action Influence|XPHB} akcji, postać może spróbować zachwiać lojalnością goblinów i wykonać jeden z poniższych testów (za pomocą {@variantrule Advantage|XPHB} jeśli drużyna pokonała już bugbeara). Rozważ te przykłady:",
                     "{@b {@dc 10} Charyzma ({@skill Deception|XPHB}).} Postać oszukuje gobliny, aby uwierzyły, że drużyna teraz dowodzi jaskinią.",
                     "{@b {@dc 11} Charyzma ({@skill Intimidation|XPHB}).} Postać straszy gobliny tak, że boją się o swoje życie.",
                     "{@b {@dc 10} Charyzma ({@skill Persuasion|XPHB}).} Postać przekonuje gobliny, że impreza nie chce im zrobić krzywdy.",
-                    "Po pomyślnym teście nastawienie goblinów poprawia się {@variantrule Friendly [Attitude]|XPHB|Przyjazny}. W zamian za łapówkę w wysokości co najmniej 2 JZ, gobliny pomagają także postaciom pokonać pozostałe w jaskini niedźwiedzie-robaki i opowiadają im o sekretnych drzwiach w tym obszarze, chociaż gobliny nie wiedzą, co kryje się po drugiej stronie."
+                    "Po pomyślnym teście nastawienie goblinów poprawia się {@variantrule Friendly [Attitude]|XPHB|Przyjazny}. W zamian za łapówkę w wysokości co najmniej 2 JZ, gobliny pomagają także postaciom pokonać pozostałe w jaskini bugbeary i opowiadają im o sekretnych drzwiach w tym obszarze, chociaż gobliny nie wiedzą, co kryje się po drugiej stronie."
                   ]
                 },
                 {
@@ -19383,7 +19383,7 @@
               "page": 21,
               "id": "0d1",
               "entries": [
-                "Stos grubych zwierzęcych futer tworzy w tym pokoju miękkie łóżko, w którym śpi szef niedźwiedzia-robaka z obszaru H5.",
+                "Stos grubych zwierzęcych futer tworzy w tym pokoju miękkie łóżko, w którym śpi szef bugbeara z obszaru H5.",
                 {
                   "type": "entries",
                   "name": "Skarb",
@@ -19414,7 +19414,7 @@
             "Za kilkoma krzakami ukryty jest tunel z nieobrobionego kamienia. Wewnątrz słychać dwa głębokie głosy w gorącej kłótni. W tym zakresie rozmowa jest niezrozumiała."
           ]
         },
-        "Głosy należą do pary niedźwiedzi robali kłócących się w pokoju narad ({@area area H2|0c5|x})."
+        "Głosy należą do pary bugbearów kłócących się w pokoju narad ({@area area H2|0c5|x})."
       ]
     },
     "1:0c2": {
@@ -19701,7 +19701,7 @@
                 "W tym pokoju znajduje się stary stół i cztery pionowe kłody. Stół pokrywa słabo narysowana mapa Pogranicza. Dwa wysokie, włochate goblinoidy pochylają się nad mapą i kłócą się ze sobą."
               ]
             },
-            "Dwaj {@creature Bugbear Warrior|XMM|Wojownicy Bugbearów} kłócą się o to, jak najlepiej przedostać się do twierdzy. Jeden twierdzi, że najlepsze byłoby podejście z ukrycia, podczas gdy drugi nalega na bezpośredni atak wspomagany przez {@area local ogre mercenary|08f|x} (patrz {@area cave E|087|x}). Niedźwiedzie-robaki {@variantrule Hostile [Attitude]|XPHB|Wrogi} walczą z postaciami od razu, gdy je zobaczą i nie można się z nimi targować.",
+            "Dwaj {@creature Bugbear Warrior|XMM|Wojownicy Bugbearów} kłócą się o to, jak najlepiej przedostać się do twierdzy. Jeden twierdzi, że najlepsze byłoby podejście z ukrycia, podczas gdy drugi nalega na bezpośredni atak wspomagany przez {@area local ogre mercenary|08f|x} (patrz {@area cave E|087|x}). Bugbeary {@variantrule Hostile [Attitude]|XPHB|Wrogi} walczą z postaciami od razu, gdy je zobaczą i nie można się z nimi targować.",
             {
               "type": "image",
               "href": {
@@ -19737,7 +19737,7 @@
               "id": "0c9",
               "entries": [
                 "Ta kłoda o długości 3 metrów stacza się po pochyłości, spłaszczając stworzenia na swojej drodze.",
-                "W ramach akcji istota znajdująca się w promieniu 1,5 metra od nieruchomej kłody może zepchnąć ją ze schodów. Kłoda spada po pochyłości w linii prostej. Każde stworzenie na ścieżce kłody musi wykonać {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego rzutu obronnego, stworzenie bierze {@damage 2d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Po udanym rzucie obronnym stworzenie otrzymuje tylko o połowę mniejsze obrażenia."
+                "W ramach akcji istota znajdująca się w promieniu 1,5 metra od nieruchomej kłody może zepchnąć ją ze schodów. Kłoda spada po pochyłości w linii prostej. Każde stworzenie na ścieżce kłody musi wykonać {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego rzutu obronnego, stworzenie bierze {@damage 2d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Po udanym rzucie obronnym stworzenie otrzymuje tylko o połowę mniejsze obrażenia."
               ]
             }
           ]
@@ -19782,7 +19782,7 @@
                 "Zatęchłe futra zwierząt służą za łóżka w tej surowej sali, gdzie futrzany brutal krytykuje dwóch mniejszych podwładnych goblinów o piskliwym głosie."
               ]
             },
-            "A {@creature Bugbear Warrior|XMM}-samozwańczy szef jaskini - beszta dwóch {@creature Goblin Warrior|XMM|Goblińscy Wojownicy} do spania w pracy. Kiedy zauważą postacie, niedźwiedź-robak rozkazuje goblinom walczyć i dołącza do nich w bitwie. Niedźwiedź jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} w kierunku drużyny, podczas gdy gobliny są {@variantrule Indifferent [Attitude]|XPHB|Obojętny}.",
+            "A {@creature Bugbear Warrior|XMM}-samozwańczy szef jaskini - beszta dwóch {@creature Goblin Warrior|XMM|Goblińscy Wojownicy} do spania w pracy. Kiedy zauważą postacie, bugbear rozkazuje goblinom walczyć i dołącza do nich w bitwie. Bugbear jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} w kierunku drużyny, podczas gdy gobliny są {@variantrule Indifferent [Attitude]|XPHB|Obojętny}.",
             {
               "type": "entries",
               "name": "Kołysanie Goblinów",
@@ -19790,11 +19790,11 @@
               "id": "0cf",
               "entries": [
                 "Te kapryśne gobliny, Gargle i Yams, zostały niedawno zrekrutowane i nie lubią, jak się na nie krzyczy.",
-                "jako {@action Influence|XPHB} akcji, postać może spróbować zachwiać lojalnością goblinów i wykonać jeden z poniższych testów (za pomocą {@variantrule Advantage|XPHB} jeśli drużyna pokonała już niedźwiedzia owada). Rozważ te przykłady:",
+                "jako {@action Influence|XPHB} akcji, postać może spróbować zachwiać lojalnością goblinów i wykonać jeden z poniższych testów (za pomocą {@variantrule Advantage|XPHB} jeśli drużyna pokonała już bugbeara). Rozważ te przykłady:",
                 "{@b {@dc 10} Charyzma ({@skill Deception|XPHB}).} Postać oszukuje gobliny, aby uwierzyły, że drużyna teraz dowodzi jaskinią.",
                 "{@b {@dc 11} Charyzma ({@skill Intimidation|XPHB}).} Postać straszy gobliny tak, że boją się o swoje życie.",
                 "{@b {@dc 10} Charyzma ({@skill Persuasion|XPHB}).} Postać przekonuje gobliny, że impreza nie chce im zrobić krzywdy.",
-                "Po pomyślnym teście nastawienie goblinów poprawia się {@variantrule Friendly [Attitude]|XPHB|Przyjazny}. W zamian za łapówkę w wysokości co najmniej 2 JZ, gobliny pomagają także postaciom pokonać pozostałe w jaskini niedźwiedzie-robaki i opowiadają im o sekretnych drzwiach w tym obszarze, chociaż gobliny nie wiedzą, co kryje się po drugiej stronie."
+                "Po pomyślnym teście nastawienie goblinów poprawia się {@variantrule Friendly [Attitude]|XPHB|Przyjazny}. W zamian za łapówkę w wysokości co najmniej 2 JZ, gobliny pomagają także postaciom pokonać pozostałe w jaskini bugbeary i opowiadają im o sekretnych drzwiach w tym obszarze, chociaż gobliny nie wiedzą, co kryje się po drugiej stronie."
               ]
             },
             {
@@ -19814,7 +19814,7 @@
           "page": 21,
           "id": "0d1",
           "entries": [
-            "Stos grubych zwierzęcych futer tworzy w tym pokoju miękkie łóżko, w którym śpi szef niedźwiedzia-robaka z obszaru H5.",
+            "Stos grubych zwierzęcych futer tworzy w tym pokoju miękkie łóżko, w którym śpi szef bugbeara z obszaru H5.",
             {
               "type": "entries",
               "name": "Skarb",
@@ -19852,7 +19852,7 @@
             "W tym pokoju znajduje się stary stół i cztery pionowe kłody. Stół pokrywa słabo narysowana mapa Pogranicza. Dwa wysokie, włochate goblinoidy pochylają się nad mapą i kłócą się ze sobą."
           ]
         },
-        "Dwaj {@creature Bugbear Warrior|XMM|Wojownicy Bugbearów} kłócą się o to, jak najlepiej przedostać się do twierdzy. Jeden twierdzi, że najlepsze byłoby podejście z ukrycia, podczas gdy drugi nalega na bezpośredni atak wspomagany przez {@area local ogre mercenary|08f|x} (patrz {@area cave E|087|x}). Niedźwiedzie-robaki {@variantrule Hostile [Attitude]|XPHB|Wrogi} walczą z postaciami od razu, gdy je zobaczą i nie można się z nimi targować.",
+        "Dwaj {@creature Bugbear Warrior|XMM|Wojownicy Bugbearów} kłócą się o to, jak najlepiej przedostać się do twierdzy. Jeden twierdzi, że najlepsze byłoby podejście z ukrycia, podczas gdy drugi nalega na bezpośredni atak wspomagany przez {@area local ogre mercenary|08f|x} (patrz {@area cave E|087|x}). Bugbeary {@variantrule Hostile [Attitude]|XPHB|Wrogi} walczą z postaciami od razu, gdy je zobaczą i nie można się z nimi targować.",
         {
           "type": "image",
           "href": {
@@ -19888,7 +19888,7 @@
           "id": "0c9",
           "entries": [
             "Ta kłoda o długości 3 metrów stacza się po pochyłości, spłaszczając stworzenia na swojej drodze.",
-            "W ramach akcji istota znajdująca się w promieniu 1,5 metra od nieruchomej kłody może zepchnąć ją ze schodów. Kłoda spada po pochyłości w linii prostej. Każde stworzenie na ścieżce kłody musi wykonać {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego rzutu obronnego, stworzenie bierze {@damage 2d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Po udanym rzucie obronnym stworzenie otrzymuje tylko o połowę mniejsze obrażenia."
+            "W ramach akcji istota znajdująca się w promieniu 1,5 metra od nieruchomej kłody może zepchnąć ją ze schodów. Kłoda spada po pochyłości w linii prostej. Każde stworzenie na ścieżce kłody musi wykonać {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego rzutu obronnego, stworzenie bierze {@damage 2d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Po udanym rzucie obronnym stworzenie otrzymuje tylko o połowę mniejsze obrażenia."
           ]
         }
       ]
@@ -19900,7 +19900,7 @@
       "id": "0c9",
       "entries": [
         "Ta kłoda o długości 3 metrów stacza się po pochyłości, spłaszczając stworzenia na swojej drodze.",
-        "W ramach akcji istota znajdująca się w promieniu 1,5 metra od nieruchomej kłody może zepchnąć ją ze schodów. Kłoda spada po pochyłości w linii prostej. Każde stworzenie na ścieżce kłody musi wykonać {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego rzutu obronnego, stworzenie bierze {@damage 2d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Po udanym rzucie obronnym stworzenie otrzymuje tylko o połowę mniejsze obrażenia."
+        "W ramach akcji istota znajdująca się w promieniu 1,5 metra od nieruchomej kłody może zepchnąć ją ze schodów. Kłoda spada po pochyłości w linii prostej. Każde stworzenie na ścieżce kłody musi wykonać {@dc 13} Rzut obronny na zręczność. W przypadku nieudanego rzutu obronnego, stworzenie bierze {@damage 2d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Po udanym rzucie obronnym stworzenie otrzymuje tylko o połowę mniejsze obrażenia."
       ]
     },
     "1:0ca": {
@@ -19952,7 +19952,7 @@
             "Zatęchłe futra zwierząt służą za łóżka w tej surowej sali, gdzie futrzany brutal krytykuje dwóch mniejszych podwładnych goblinów o piskliwym głosie."
           ]
         },
-        "A {@creature Bugbear Warrior|XMM}-samozwańczy szef jaskini - beszta dwóch {@creature Goblin Warrior|XMM|Goblińscy Wojownicy} do spania w pracy. Kiedy zauważą postacie, niedźwiedź-robak rozkazuje goblinom walczyć i dołącza do nich w bitwie. Niedźwiedź jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} w kierunku drużyny, podczas gdy gobliny są {@variantrule Indifferent [Attitude]|XPHB|Obojętny}.",
+        "A {@creature Bugbear Warrior|XMM}-samozwańczy szef jaskini - beszta dwóch {@creature Goblin Warrior|XMM|Goblińscy Wojownicy} do spania w pracy. Kiedy zauważą postacie, bugbear rozkazuje goblinom walczyć i dołącza do nich w bitwie. Bugbear jest {@variantrule Hostile [Attitude]|XPHB|Wrogi} w kierunku drużyny, podczas gdy gobliny są {@variantrule Indifferent [Attitude]|XPHB|Obojętny}.",
         {
           "type": "entries",
           "name": "Kołysanie Goblinów",
@@ -19960,11 +19960,11 @@
           "id": "0cf",
           "entries": [
             "Te kapryśne gobliny, Gargle i Yams, zostały niedawno zrekrutowane i nie lubią, jak się na nie krzyczy.",
-            "jako {@action Influence|XPHB} akcji, postać może spróbować zachwiać lojalnością goblinów i wykonać jeden z poniższych testów (za pomocą {@variantrule Advantage|XPHB} jeśli drużyna pokonała już niedźwiedzia owada). Rozważ te przykłady:",
+            "jako {@action Influence|XPHB} akcji, postać może spróbować zachwiać lojalnością goblinów i wykonać jeden z poniższych testów (za pomocą {@variantrule Advantage|XPHB} jeśli drużyna pokonała już bugbeara). Rozważ te przykłady:",
             "{@b {@dc 10} Charyzma ({@skill Deception|XPHB}).} Postać oszukuje gobliny, aby uwierzyły, że drużyna teraz dowodzi jaskinią.",
             "{@b {@dc 11} Charyzma ({@skill Intimidation|XPHB}).} Postać straszy gobliny tak, że boją się o swoje życie.",
             "{@b {@dc 10} Charyzma ({@skill Persuasion|XPHB}).} Postać przekonuje gobliny, że impreza nie chce im zrobić krzywdy.",
-            "Po pomyślnym teście nastawienie goblinów poprawia się {@variantrule Friendly [Attitude]|XPHB|Przyjazny}. W zamian za łapówkę w wysokości co najmniej 2 JZ, gobliny pomagają także postaciom pokonać pozostałe w jaskini niedźwiedzie-robaki i opowiadają im o sekretnych drzwiach w tym obszarze, chociaż gobliny nie wiedzą, co kryje się po drugiej stronie."
+            "Po pomyślnym teście nastawienie goblinów poprawia się {@variantrule Friendly [Attitude]|XPHB|Przyjazny}. W zamian za łapówkę w wysokości co najmniej 2 JZ, gobliny pomagają także postaciom pokonać pozostałe w jaskini bugbeary i opowiadają im o sekretnych drzwiach w tym obszarze, chociaż gobliny nie wiedzą, co kryje się po drugiej stronie."
           ]
         },
         {
@@ -19985,11 +19985,11 @@
       "id": "0cf",
       "entries": [
         "Te kapryśne gobliny, Gargle i Yams, zostały niedawno zrekrutowane i nie lubią, jak się na nie krzyczy.",
-        "jako {@action Influence|XPHB} akcji, postać może spróbować zachwiać lojalnością goblinów i wykonać jeden z poniższych testów (za pomocą {@variantrule Advantage|XPHB} jeśli drużyna pokonała już niedźwiedzia owada). Rozważ te przykłady:",
+        "jako {@action Influence|XPHB} akcji, postać może spróbować zachwiać lojalnością goblinów i wykonać jeden z poniższych testów (za pomocą {@variantrule Advantage|XPHB} jeśli drużyna pokonała już bugbeara). Rozważ te przykłady:",
         "{@b {@dc 10} Charyzma ({@skill Deception|XPHB}).} Postać oszukuje gobliny, aby uwierzyły, że drużyna teraz dowodzi jaskinią.",
         "{@b {@dc 11} Charyzma ({@skill Intimidation|XPHB}).} Postać straszy gobliny tak, że boją się o swoje życie.",
         "{@b {@dc 10} Charyzma ({@skill Persuasion|XPHB}).} Postać przekonuje gobliny, że impreza nie chce im zrobić krzywdy.",
-        "Po pomyślnym teście nastawienie goblinów poprawia się {@variantrule Friendly [Attitude]|XPHB|Przyjazny}. W zamian za łapówkę w wysokości co najmniej 2 JZ, gobliny pomagają także postaciom pokonać pozostałe w jaskini niedźwiedzie-robaki i opowiadają im o sekretnych drzwiach w tym obszarze, chociaż gobliny nie wiedzą, co kryje się po drugiej stronie."
+        "Po pomyślnym teście nastawienie goblinów poprawia się {@variantrule Friendly [Attitude]|XPHB|Przyjazny}. W zamian za łapówkę w wysokości co najmniej 2 JZ, gobliny pomagają także postaciom pokonać pozostałe w jaskini bugbeary i opowiadają im o sekretnych drzwiach w tym obszarze, chociaż gobliny nie wiedzą, co kryje się po drugiej stronie."
       ]
     },
     "1:0d0": {
@@ -20007,7 +20007,7 @@
       "page": 21,
       "id": "0d1",
       "entries": [
-        "Stos grubych zwierzęcych futer tworzy w tym pokoju miękkie łóżko, w którym śpi szef niedźwiedzia-robaka z obszaru H5.",
+        "Stos grubych zwierzęcych futer tworzy w tym pokoju miękkie łóżko, w którym śpi szef bugbeara z obszaru H5.",
         {
           "type": "entries",
           "name": "Skarb",
@@ -28235,7 +28235,7 @@
                   "id": "182",
                   "entries": [
                     "Kiedy bohaterowie otwierają skrzynię, z niej wyskakują zwoje w powodzi wirującego pergaminu i połyskującego atramentu. Rzut inicjatywy.",
-                    "W każdej rundzie Inicjatywy o liczbie 10 (przegrywając remisy w Inicjatywie) zwoje składają się w broń i powodują brutalne cięcia papieru. Każda postać musi odnieść sukces na a {@dc 10} Rzut lub przyjęcie obronne na zręczność {@damage 1d4} Cięcie obrażeń. Postać, której punkty życia zostały zredukowane do 0 w wyniku zwoju, posiada {@condition Unconscious|XPHB} stan, ale jest {@variantrule Stable|XPHB}.",
+                    "W każdej rundzie Inicjatywy o liczbie 10 (przegrywając remisy w Inicjatywie) zwoje składają się w broń i powodują brutalne cięcia papieru. Każda postać musi odnieść sukces na a {@dc 10} Rzut lub przyjęcie obronne na zręczność {@damage 1d4} obrażenia sieczne. Postać, której punkty życia zostały zredukowane do 0 w wyniku zwoju, posiada {@condition Unconscious|XPHB} stan, ale jest {@variantrule Stable|XPHB}.",
                     "Dla każdej postaci gracza w drużynie przypadają dwa zwoje. W ramach akcji postać może spróbować schować zwój w etui, pomyślnie wykonując jeden z poniższych testów zdolności:",
                     "{@b {@dc 12} Zręczność ({@skill Sleight of Hand|XPHB}).} Postać zręcznie wyrywa z powietrza zwój i wkłada go do etui na zwoje.",
                     "{@b {@dc 12} Inteligencja ({@skill Arcana|XPHB}).} Postać uspokaja zwój tajemnym gestem, umożliwiając jego podniesienie i spokojne przechowywanie.",
@@ -29160,7 +29160,7 @@
                 },
                 {
                   "type": "entries",
-                  "name": "Winvarle kasztelan",
+                  "name": "Obuchowe",
                   "page": 18,
                   "id": "1af",
                   "entries": [
@@ -29220,7 +29220,8 @@
                         "Z wdzięcznością,",
                         "{@b Winvarle}",
                         "Kasztelan Twierdzy"
-                      ]
+                      ],
+                      "name": "Moc"
                     }
                   ]
                 }
@@ -29228,7 +29229,7 @@
             },
             {
               "type": "entries",
-              "name": "Zakończenie przygody",
+              "name": "Piorun",
               "page": 19,
               "id": "1b3",
               "entries": [
@@ -34795,7 +34796,7 @@
               "id": "182",
               "entries": [
                 "Kiedy bohaterowie otwierają skrzynię, z niej wyskakują zwoje w powodzi wirującego pergaminu i połyskującego atramentu. Rzut inicjatywy.",
-                "W każdej rundzie Inicjatywy o liczbie 10 (przegrywając remisy w Inicjatywie) zwoje składają się w broń i powodują brutalne cięcia papieru. Każda postać musi odnieść sukces na a {@dc 10} Rzut lub przyjęcie obronne na zręczność {@damage 1d4} Cięcie obrażeń. Postać, której punkty życia zostały zredukowane do 0 w wyniku zwoju, posiada {@condition Unconscious|XPHB} stan, ale jest {@variantrule Stable|XPHB}.",
+                "W każdej rundzie Inicjatywy o liczbie 10 (przegrywając remisy w Inicjatywie) zwoje składają się w broń i powodują brutalne cięcia papieru. Każda postać musi odnieść sukces na a {@dc 10} Rzut lub przyjęcie obronne na zręczność {@damage 1d4} obrażenia sieczne. Postać, której punkty życia zostały zredukowane do 0 w wyniku zwoju, posiada {@condition Unconscious|XPHB} stan, ale jest {@variantrule Stable|XPHB}.",
                 "Dla każdej postaci gracza w drużynie przypadają dwa zwoje. W ramach akcji postać może spróbować schować zwój w etui, pomyślnie wykonując jeden z poniższych testów zdolności:",
                 "{@b {@dc 12} Zręczność ({@skill Sleight of Hand|XPHB}).} Postać zręcznie wyrywa z powietrza zwój i wkłada go do etui na zwoje.",
                 "{@b {@dc 12} Inteligencja ({@skill Arcana|XPHB}).} Postać uspokaja zwój tajemnym gestem, umożliwiając jego podniesienie i spokojne przechowywanie.",
@@ -34904,7 +34905,7 @@
           "id": "182",
           "entries": [
             "Kiedy bohaterowie otwierają skrzynię, z niej wyskakują zwoje w powodzi wirującego pergaminu i połyskującego atramentu. Rzut inicjatywy.",
-            "W każdej rundzie Inicjatywy o liczbie 10 (przegrywając remisy w Inicjatywie) zwoje składają się w broń i powodują brutalne cięcia papieru. Każda postać musi odnieść sukces na a {@dc 10} Rzut lub przyjęcie obronne na zręczność {@damage 1d4} Cięcie obrażeń. Postać, której punkty życia zostały zredukowane do 0 w wyniku zwoju, posiada {@condition Unconscious|XPHB} stan, ale jest {@variantrule Stable|XPHB}.",
+            "W każdej rundzie Inicjatywy o liczbie 10 (przegrywając remisy w Inicjatywie) zwoje składają się w broń i powodują brutalne cięcia papieru. Każda postać musi odnieść sukces na a {@dc 10} Rzut lub przyjęcie obronne na zręczność {@damage 1d4} obrażenia sieczne. Postać, której punkty życia zostały zredukowane do 0 w wyniku zwoju, posiada {@condition Unconscious|XPHB} stan, ale jest {@variantrule Stable|XPHB}.",
             "Dla każdej postaci gracza w drużynie przypadają dwa zwoje. W ramach akcji postać może spróbować schować zwój w etui, pomyślnie wykonując jeden z poniższych testów zdolności:",
             "{@b {@dc 12} Zręczność ({@skill Sleight of Hand|XPHB}).} Postać zręcznie wyrywa z powietrza zwój i wkłada go do etui na zwoje.",
             "{@b {@dc 12} Inteligencja ({@skill Arcana|XPHB}).} Postać uspokaja zwój tajemnym gestem, umożliwiając jego podniesienie i spokojne przechowywanie.",
@@ -34929,7 +34930,7 @@
       "id": "182",
       "entries": [
         "Kiedy bohaterowie otwierają skrzynię, z niej wyskakują zwoje w powodzi wirującego pergaminu i połyskującego atramentu. Rzut inicjatywy.",
-        "W każdej rundzie Inicjatywy o liczbie 10 (przegrywając remisy w Inicjatywie) zwoje składają się w broń i powodują brutalne cięcia papieru. Każda postać musi odnieść sukces na a {@dc 10} Rzut lub przyjęcie obronne na zręczność {@damage 1d4} Cięcie obrażeń. Postać, której punkty życia zostały zredukowane do 0 w wyniku zwoju, posiada {@condition Unconscious|XPHB} stan, ale jest {@variantrule Stable|XPHB}.",
+        "W każdej rundzie Inicjatywy o liczbie 10 (przegrywając remisy w Inicjatywie) zwoje składają się w broń i powodują brutalne cięcia papieru. Każda postać musi odnieść sukces na a {@dc 10} Rzut lub przyjęcie obronne na zręczność {@damage 1d4} obrażenia sieczne. Postać, której punkty życia zostały zredukowane do 0 w wyniku zwoju, posiada {@condition Unconscious|XPHB} stan, ale jest {@variantrule Stable|XPHB}.",
         "Dla każdej postaci gracza w drużynie przypadają dwa zwoje. W ramach akcji postać może spróbować schować zwój w etui, pomyślnie wykonując jeden z poniższych testów zdolności:",
         "{@b {@dc 12} Zręczność ({@skill Sleight of Hand|XPHB}).} Postać zręcznie wyrywa z powietrza zwój i wkłada go do etui na zwoje.",
         "{@b {@dc 12} Inteligencja ({@skill Arcana|XPHB}).} Postać uspokaja zwój tajemnym gestem, umożliwiając jego podniesienie i spokojne przechowywanie.",
@@ -36336,7 +36337,7 @@
             },
             {
               "type": "entries",
-              "name": "Winvarle kasztelan",
+              "name": "Obuchowe",
               "page": 18,
               "id": "1af",
               "entries": [
@@ -36396,7 +36397,8 @@
                     "Z wdzięcznością,",
                     "{@b Winvarle}",
                     "Kasztelan Twierdzy"
-                  ]
+                  ],
+                  "name": "Moc"
                 }
               ]
             }
@@ -36404,7 +36406,7 @@
         },
         {
           "type": "entries",
-          "name": "Zakończenie przygody",
+          "name": "Piorun",
           "page": 19,
           "id": "1b3",
           "entries": [
@@ -36716,7 +36718,7 @@
         },
         {
           "type": "entries",
-          "name": "Winvarle kasztelan",
+          "name": "Obuchowe",
           "page": 18,
           "id": "1af",
           "entries": [
@@ -36776,7 +36778,8 @@
                 "Z wdzięcznością,",
                 "{@b Winvarle}",
                 "Kasztelan Twierdzy"
-              ]
+              ],
+              "name": "Moc"
             }
           ]
         }
@@ -36997,7 +37000,7 @@
     },
     "2:1af": {
       "type": "entries",
-      "name": "Winvarle kasztelan",
+      "name": "Obuchowe",
       "page": 18,
       "id": "1af",
       "entries": [
@@ -37057,13 +37060,14 @@
             "Z wdzięcznością,",
             "{@b Winvarle}",
             "Kasztelan Twierdzy"
-          ]
+          ],
+          "name": "Moc"
         }
       ]
     },
     "2:1b3": {
       "type": "entries",
-      "name": "Zakończenie przygody",
+      "name": "Piorun",
       "page": 19,
       "id": "1b3",
       "entries": [
@@ -37083,7 +37087,7 @@
     },
     "3:1b4": {
       "type": "section",
-      "name": "Pustynia",
+      "name": "Nekrotyczne",
       "page": 2,
       "id": "1b4",
       "entries": [
@@ -37098,7 +37102,7 @@
               "entries": [
                 {
                   "type": "entries",
-                  "name": "Sekret DM",
+                  "name": "Psychiczne",
                   "page": 2,
                   "id": "1b7",
                   "entries": [
@@ -37115,13 +37119,15 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "name": "Trucizna"
             }
-          ]
+          ],
+          "name": "Kłute"
         },
         {
           "type": "section",
-          "name": "Pierwsze kroki",
+          "name": "Promieniste",
           "page": 2,
           "id": "1b8",
           "entries": [
@@ -37133,7 +37139,8 @@
               "id": "1b9",
               "entries": [
                 "Twoja grupa poszukiwaczy przygód wkracza na pustynię. Tajemnice czekają na Ciebie w tej nieokiełznanej krainie. Gdzie chcesz iść?"
-              ]
+              ],
+              "name": "Sieczne"
             },
             "Tabela Regiony dzikiej przyrody podsumowuje regiony w kolejności, w jakiej pojawiają się w tej sekcji. Po pełnym zbadaniu każdy region zapewnia około 60-90 minut rozgrywki.",
             "Każdy region ma mniej więcej ten sam poziom trudności, ale region Szlaku pełni funkcję samouczka z przydatnymi paskami bocznymi. Jeśli jest to Twój pierwszy raz w roli DM, zachęć graczy, aby od tego zaczęli. W przeciwnym razie poproś ich, aby wybrali region pokazany na mapie.",
@@ -37173,7 +37180,7 @@
         },
         {
           "type": "section",
-          "name": "Odkrywanie dzikiej przyrody",
+          "name": "Gromu",
           "page": 2,
           "id": "1ba",
           "entries": [
@@ -37853,7 +37860,7 @@
                     "Postać może bezpiecznie przedostać się przez gęstwinę do źródła hałasu, pomyślnie przechodząc jeden z poniższych testów zdolności. Rozważ te przykłady:",
                     "{@b {@dc 12} Mądrość ({@skill Survival|XPHB}).} Postać podąża wąskim szlakiem zwierzyny, którym podąża łoś.",
                     "{@b {@dc 12} Inteligencja ({@skill Nature|XPHB}).} Postać wie, jak unikać cierni jeżyn.",
-                    "W przypadku nieudanego testu postać przedziera się, ale bierze {@damage 1d4} Przeszywające obrażenia od cierni.",
+                    "W przypadku nieudanego testu postać przedziera się, ale bierze {@damage 1d4} obrażenia kłute od cierni.",
                     {
                       "type": "entries",
                       "name": "Ukryty Glen",
@@ -39156,7 +39163,7 @@
                 ],
                 [
                   "8",
-                  "Nagła ulewa powoduje powódź błyskawiczną. Każda postać musi odnieść sukces na a {@dc 15} Rzut obronny siły, aby dopłynąć do suchego lądu lub wziąć {@damage 2d8} Tłuczące obrażenia od potoku pełnego gruzu."
+                  "Nagła ulewa powoduje powódź błyskawiczną. Każda postać musi odnieść sukces na a {@dc 15} Rzut obronny siły, aby dopłynąć do suchego lądu lub wziąć {@damage 2d8} obrażenia obuchowe od potoku pełnego gruzu."
                 ]
               ]
             },
@@ -39257,7 +39264,7 @@
                 ],
                 [
                   "7",
-                  "Shannik (patrz {@adventure appendix B|HotB|5|Shannik}) prowadzi szarżę kawalerii z twierdzy w ramach ćwiczeń szkoleniowych, a postacie zostają złapane na jej drodze. Każda postać musi odnieść sukces w rzucie obronnym na Zręczność {@dc 15} lub otrzymać {@damage 2d8} obrażenia tłuczące od szarży."
+                  "Shannik (patrz {@adventure appendix B|HotB|5|Shannik}) prowadzi szarżę kawalerii z twierdzy w ramach ćwiczeń szkoleniowych, a postacie zostają złapane na jej drodze. Każda postać musi odnieść sukces w rzucie obronnym na Zręczność {@dc 15} lub otrzymać {@damage 2d8} obrażenia obuchowe od szarży."
                 ],
                 [
                   "8",
@@ -39336,7 +39343,7 @@
           "entries": [
             {
               "type": "entries",
-              "name": "Sekret DM",
+              "name": "Psychiczne",
               "page": 2,
               "id": "1b7",
               "entries": [
@@ -39353,9 +39360,11 @@
                 }
               ]
             }
-          ]
+          ],
+          "name": "Trucizna"
         }
-      ]
+      ],
+      "name": "Kłute"
     },
     "3:1b6": {
       "type": "entries",
@@ -39363,7 +39372,7 @@
       "entries": [
         {
           "type": "entries",
-          "name": "Sekret DM",
+          "name": "Psychiczne",
           "page": 2,
           "id": "1b7",
           "entries": [
@@ -39380,11 +39389,12 @@
             }
           ]
         }
-      ]
+      ],
+      "name": "Trucizna"
     },
     "3:1b7": {
       "type": "entries",
-      "name": "Sekret DM",
+      "name": "Psychiczne",
       "page": 2,
       "id": "1b7",
       "entries": [
@@ -39403,7 +39413,7 @@
     },
     "3:1b8": {
       "type": "section",
-      "name": "Pierwsze kroki",
+      "name": "Promieniste",
       "page": 2,
       "id": "1b8",
       "entries": [
@@ -39415,7 +39425,8 @@
           "id": "1b9",
           "entries": [
             "Twoja grupa poszukiwaczy przygód wkracza na pustynię. Tajemnice czekają na Ciebie w tej nieokiełznanej krainie. Gdzie chcesz iść?"
-          ]
+          ],
+          "name": "Sieczne"
         },
         "Tabela Regiony dzikiej przyrody podsumowuje regiony w kolejności, w jakiej pojawiają się w tej sekcji. Po pełnym zbadaniu każdy region zapewnia około 60-90 minut rozgrywki.",
         "Każdy region ma mniej więcej ten sam poziom trudności, ale region Szlaku pełni funkcję samouczka z przydatnymi paskami bocznymi. Jeśli jest to Twój pierwszy raz w roli DM, zachęć graczy, aby od tego zaczęli. W przeciwnym razie poproś ich, aby wybrali region pokazany na mapie.",
@@ -39455,7 +39466,7 @@
     },
     "3:1ba": {
       "type": "section",
-      "name": "Odkrywanie dzikiej przyrody",
+      "name": "Gromu",
       "page": 2,
       "id": "1ba",
       "entries": [
@@ -40235,7 +40246,7 @@
                 "Postać może bezpiecznie przedostać się przez gęstwinę do źródła hałasu, pomyślnie przechodząc jeden z poniższych testów zdolności. Rozważ te przykłady:",
                 "{@b {@dc 12} Mądrość ({@skill Survival|XPHB}).} Postać podąża wąskim szlakiem zwierzyny, którym podąża łoś.",
                 "{@b {@dc 12} Inteligencja ({@skill Nature|XPHB}).} Postać wie, jak unikać cierni jeżyn.",
-                "W przypadku nieudanego testu postać przedziera się, ale bierze {@damage 1d4} Przeszywające obrażenia od cierni.",
+                "W przypadku nieudanego testu postać przedziera się, ale bierze {@damage 1d4} obrażenia kłute od cierni.",
                 {
                   "type": "entries",
                   "name": "Ukryty Glen",
@@ -40903,7 +40914,7 @@
             "Postać może bezpiecznie przedostać się przez gęstwinę do źródła hałasu, pomyślnie przechodząc jeden z poniższych testów zdolności. Rozważ te przykłady:",
             "{@b {@dc 12} Mądrość ({@skill Survival|XPHB}).} Postać podąża wąskim szlakiem zwierzyny, którym podąża łoś.",
             "{@b {@dc 12} Inteligencja ({@skill Nature|XPHB}).} Postać wie, jak unikać cierni jeżyn.",
-            "W przypadku nieudanego testu postać przedziera się, ale bierze {@damage 1d4} Przeszywające obrażenia od cierni.",
+            "W przypadku nieudanego testu postać przedziera się, ale bierze {@damage 1d4} obrażenia kłute od cierni.",
             {
               "type": "entries",
               "name": "Ukryty Glen",
@@ -41517,7 +41528,7 @@
         "Postać może bezpiecznie przedostać się przez gęstwinę do źródła hałasu, pomyślnie przechodząc jeden z poniższych testów zdolności. Rozważ te przykłady:",
         "{@b {@dc 12} Mądrość ({@skill Survival|XPHB}).} Postać podąża wąskim szlakiem zwierzyny, którym podąża łoś.",
         "{@b {@dc 12} Inteligencja ({@skill Nature|XPHB}).} Postać wie, jak unikać cierni jeżyn.",
-        "W przypadku nieudanego testu postać przedziera się, ale bierze {@damage 1d4} Przeszywające obrażenia od cierni.",
+        "W przypadku nieudanego testu postać przedziera się, ale bierze {@damage 1d4} obrażenia kłute od cierni.",
         {
           "type": "entries",
           "name": "Ukryty Glen",
@@ -44898,7 +44909,7 @@
             ],
             [
               "8",
-              "Nagła ulewa powoduje powódź błyskawiczną. Każda postać musi odnieść sukces na a {@dc 15} Rzut obronny siły, aby dopłynąć do suchego lądu lub wziąć {@damage 2d8} Tłuczące obrażenia od potoku pełnego gruzu."
+              "Nagła ulewa powoduje powódź błyskawiczną. Każda postać musi odnieść sukces na a {@dc 15} Rzut obronny siły, aby dopłynąć do suchego lądu lub wziąć {@damage 2d8} obrażenia obuchowe od potoku pełnego gruzu."
             ]
           ]
         },
@@ -44999,7 +45010,7 @@
             ],
             [
               "7",
-              "Shannik (patrz {@adventure appendix B|HotB|5|Shannik}) prowadzi szarżę kawalerii z twierdzy w ramach ćwiczeń szkoleniowych, a postacie zostają złapane na jej drodze. Każda postać musi odnieść sukces w rzucie obronnym na Zręczność {@dc 15} lub otrzymać {@damage 2d8} obrażenia tłuczące od szarży."
+              "Shannik (patrz {@adventure appendix B|HotB|5|Shannik}) prowadzi szarżę kawalerii z twierdzy w ramach ćwiczeń szkoleniowych, a postacie zostają złapane na jej drodze. Każda postać musi odnieść sukces w rzucie obronnym na Zręczność {@dc 15} lub otrzymać {@damage 2d8} obrażenia obuchowe od szarży."
             ],
             [
               "8",
@@ -46837,7 +46848,7 @@
         },
         {
           "type": "statblock",
-          "name": "Bałwan",
+          "name": "Zombie",
           "tag": "creature",
           "source": "XMM",
           "style": "narrow"

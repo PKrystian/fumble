@@ -5,7 +5,7 @@
     "featureType": "Teoria Ezoteryczna",
     "prerequisite": "",
     "entries": [
-      "Kiedy rzucasz obrażeniami dla mocy, możesz zyskać odkształcenie równe połowie kolejności mocy (minimum 1 odkształcenie), aby połowa rzuconych kości obrażeń zadała maksymalną wartość kości, a nie wyrzuconą liczbę."
+      "Kiedy rzucasz obrażeniami dla mocy, możesz zyskać odkształcenie równe połowie kręgu mocy (minimum 1 odkształcenie), aby połowa rzuconych kości obrażeń zadała maksymalną wartość kości, a nie wyrzuconą liczbę."
     ]
   },
   "dynamic-power": {
@@ -142,14 +142,18 @@
     "subtitle": "Teoria Ezoteryczna",
     "featureType": "Teoria Ezoteryczna",
     "prerequisite": "Poziom 6+",
-    "entries": ["Zyskujesz biegłość w rzutach obronnych na Kondycję."]
+    "entries": [
+      "Zyskujesz biegłość w rzutach obronnych na Kondycję."
+    ]
   },
   "combat-medic": {
     "name": "Medyk bojowy",
     "subtitle": "Teoria Ezoteryczna",
     "featureType": "Teoria Ezoteryczna",
     "prerequisite": "",
-    "entries": ["Zyskujesz biegłość w posługiwaniu się bronią bojową i tarczami."]
+    "entries": [
+      "Zyskujesz biegłość w posługiwaniu się bronią bojową i tarczami."
+    ]
   },
   "corrosive-compound": {
     "name": "Związek żrący",
@@ -175,7 +179,7 @@
     "featureType": "Teoria Ezoteryczna",
     "prerequisite": "Poziom 6+",
     "entries": [
-      "Kiedy istota wyrzuci naturalną 1 w rzucie obronnym wykonanym przeciwko jednemu z twoich {@filter apothecary spells that deals damage|spells|source=|class=apothecary (scgtd)|damage type=acid;bludgeoning;cold;fire;force;lightning;necrotic;piercing;poison;psychic;radiant;slashing;thunder|saving throw=strength;dexterity;constitution;intelligence;wisdom;charisma}, rzuć dwukrotnie wszystkimi kośćmi obrażeń czaru i dodaj je do siebie. Następnie dodaj odpowiednie modyfikatory w normalny sposób, aby określić obrażenia, jakie otrzyma stworzenie od zaklęcia."
+      "Kiedy istota wyrzuci naturalną 1 w rzucie obronnym wykonanym przeciwko jednemu z twoich {@filter zaklęć aptekarza zadających obrażenia|spells|source=|class=apothecary (scgtd)|damage type=acid;bludgeoning;cold;fire;force;lightning;necrotic;piercing;poison;psychic;radiant;slashing;thunder|saving throw=strength;dexterity;constitution;intelligence;wisdom;charisma}, rzuć dwukrotnie wszystkimi kośćmi obrażeń czaru i dodaj je do siebie. Następnie dodaj odpowiednie modyfikatory w normalny sposób, aby określić obrażenia, jakie otrzyma stworzenie od zaklęcia."
     ]
   },
   "diagnosis": {
@@ -202,7 +206,7 @@
     "featureType": "Teoria Ezoteryczna",
     "prerequisite": "Poziom 10+",
     "entries": [
-      "Kiedy rzucisz na to stworzenie zaklęcie aptekarskie za pomocą {@filter apothecary spell slot that targets a single creature and restores hit points|spells|source=|class=apothecary (scgtd)|components & miscellaneous=hl;!reprinted|area style=st}, możesz obrać za cel dodatkowe stworzenie w zasięgu."
+      "Kiedy rzucisz na to stworzenie zaklęcie aptekarskie za pomocą {@filter miejsca na zaklęcie aptekarza obierającego za cel pojedyncze stworzenie i przywracającego punkty wytrzymałości|spells|source=|class=apothecary (scgtd)|components & miscellaneous=hl;!reprinted|area style=st}, możesz obrać za cel dodatkowe stworzenie w zasięgu."
     ]
   },
   "extracurricular-research": {
@@ -375,7 +379,9 @@
     "subtitle": "Teoria Ezoteryczna",
     "featureType": "Teoria Ezoteryczna",
     "prerequisite": "",
-    "entries": ["Masz {@sense blindsight} w zasięgu 3 stóp."]
+    "entries": [
+      "Masz {@sense blindsight} w zasięgu 3 stóp."
+    ]
   },
   "surgical-strikes": {
     "name": "Uderzenia chirurgiczne",
@@ -445,6 +451,8 @@
     "subtitle": "Teoria Ezoteryczna",
     "featureType": "Teoria Ezoteryczna",
     "prerequisite": "Poziom 6+",
-    "entries": ["Twoje ataki bronią powodują trafienie krytyczne na poziomie 19 lub 20."]
+    "entries": [
+      "Twoje ataki bronią powodują trafienie krytyczne na poziomie 19 lub 20."
+    ]
   }
 }

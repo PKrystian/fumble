@@ -107,6 +107,250 @@ describe('compendium detail renderers', () => {
     }
   });
 
+  it('renders sparse detail metadata without optional values', () => {
+    const sparse = { ...base, entries: [] };
+    const nodes = [
+      <SpellDetail
+        spell={
+          {
+            ...sparse,
+            level: 1,
+            school: 'A',
+            castingTime: undefined,
+            range: undefined,
+            components: undefined,
+            duration: undefined,
+            ritual: false,
+            classes: [],
+            subclasses: [],
+          } as never
+        }
+      />,
+      <SpeciesDetail
+        species={
+          {
+            ...sparse,
+            size: undefined,
+            speed: undefined,
+            creatureType: undefined,
+            parentRace: undefined,
+          } as never
+        }
+      />,
+      <FeatDetail
+        feat={{ ...sparse, category: undefined, prerequisite: undefined } as never}
+      />,
+      <BackgroundDetail
+        background={
+          {
+            ...sparse,
+            abilityScores: undefined,
+            skills: undefined,
+            tools: undefined,
+            feat: 'Alert',
+          } as never
+        }
+      />,
+      <RuleDetail rule={{ ...sparse, ruleType: undefined } as never} />,
+      <ActionDetail action={{ ...sparse, time: undefined } as never} />,
+      <OptionalFeatureDetail
+        feature={
+          { ...sparse, featureType: undefined, prerequisite: 'General feat' } as never
+        }
+      />,
+      <DeityDetail
+        deity={
+          {
+            ...sparse,
+            pantheon: undefined,
+            alignment: undefined,
+            domains: undefined,
+            symbol: undefined,
+          } as never
+        }
+      />,
+      <HazardDetail hazard={{ ...sparse, hazardType: undefined } as never} />,
+      <BoonDetail boon={{ ...sparse, boonType: undefined } as never} />,
+      <ItemDetail
+        item={
+          {
+            ...sparse,
+            type: undefined,
+            rarity: undefined,
+            attunement: undefined,
+            weight: undefined,
+            value: undefined,
+            damage: undefined,
+            ac: undefined,
+            properties: undefined,
+          } as never
+        }
+      />,
+      <MonsterDetail
+        monster={
+          {
+            ...sparse,
+            size: undefined,
+            creatureType: undefined,
+            alignment: undefined,
+            ac: undefined,
+            initiative: undefined,
+            hp: '',
+            speed: undefined,
+            str: 10,
+            dex: 10,
+            con: 10,
+            int: 10,
+            wis: 10,
+            cha: 10,
+            saves: undefined,
+            skills: undefined,
+            vulnerabilities: undefined,
+            resistances: undefined,
+            immunities: undefined,
+            conditionImmunities: undefined,
+            senses: undefined,
+            languages: undefined,
+            cr: '',
+            crDisplay: '',
+            habitat: undefined,
+            treasure: undefined,
+            traits: [],
+            spellcasting: [],
+            actions: [],
+            bonusActions: [],
+            reactions: [],
+            legendaryActions: [],
+            legendaryIntro: undefined,
+            lairActions: [],
+            regionalEffects: [],
+          } as never
+        }
+      />,
+      <ConditionDetail condition={{ ...sparse, kind: undefined } as never} />,
+      <SkillDetail skill={{ ...sparse, ability: undefined } as never} />,
+      <SenseDetail sense={sparse as never} />,
+      <LanguageDetail
+        language={
+          {
+            ...sparse,
+            languageType: undefined,
+            script: undefined,
+            typicalSpeakers: undefined,
+          } as never
+        }
+      />,
+      <CultBoonDetail
+        cultBoon={{ ...sparse, category: undefined, kind: undefined } as never}
+      />,
+      <FacilityDetail
+        facility={
+          {
+            ...sparse,
+            facilityType: undefined,
+            level: undefined,
+            prerequisite: undefined,
+            space: undefined,
+            orders: undefined,
+          } as never
+        }
+      />,
+      <RecipeDetail
+        recipe={
+          {
+            ...sparse,
+            recipeType: undefined,
+            serves: undefined,
+            diet: undefined,
+          } as never
+        }
+      />,
+      <ObjectDetail
+        object={
+          {
+            ...sparse,
+            size: undefined,
+            objectType: undefined,
+            ac: undefined,
+            hp: undefined,
+            str: 10,
+            dex: 10,
+            con: 10,
+            int: 10,
+            wis: 10,
+            cha: 10,
+            immune: undefined,
+            senses: undefined,
+            actions: [],
+          } as never
+        }
+      />,
+      <VehicleDetail
+        vehicle={
+          {
+            ...sparse,
+            vehicleType: undefined,
+            size: undefined,
+            dimensions: undefined,
+            terrain: undefined,
+            capacity: undefined,
+            pace: undefined,
+            speed: undefined,
+            cost: undefined,
+            ac: undefined,
+            hp: undefined,
+            immune: undefined,
+            weapons: [],
+          } as never
+        }
+      />,
+      <CharOptionDetail
+        option={
+          { ...sparse, optionType: undefined, prerequisite: 'General feat' } as never
+        }
+      />,
+    ];
+
+    for (const node of nodes) {
+      const view = show(node);
+      expect(view.getByRole('heading', { name: 'Test Entry' })).toBeVisible();
+      view.unmount();
+    }
+
+    const classView = show(
+      <ClassDetail
+        cls={{
+          id: 'wizard',
+          name: 'Wizard',
+          source: 'XPHB',
+          srd: true,
+          hitDie: 'd6',
+          primaryAbility: 'Intelligence',
+          savingThrows: 'Intelligence, Wisdom',
+          proficiencies: '',
+          armorProficiencies: '',
+          weaponProficiencies: '',
+          toolProficiencies: '',
+          subclassTitle: 'Arcane Tradition',
+          table: { headers: ['Level'], rows: [['1']] },
+          features: [],
+          subclasses: [
+            {
+              id: 'lore',
+              name: 'Lore',
+              source: 'XPHB',
+              features: [],
+              lore: ['Lore text.'],
+            },
+          ],
+        }}
+        selectedSubclassId="lore"
+      />,
+    );
+    expect(classView.container).toHaveTextContent('Lore text.');
+    classView.unmount();
+  });
+
   it('renders nested source loot tables as rollable tables', () => {
     const view = show(
       <SourceDataDetail

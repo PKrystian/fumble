@@ -1,11 +1,11 @@
 {
   "adapt": {
     "name": "Dostosować",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 15 stóp",
-      "{@b Duration:} 24 ​​godziny"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 15 stóp",
+      "{@b Czas trwania:} 24 ​​godziny"
     ],
     "data": {
       "name": "Dostosować",
@@ -14,21 +14,21 @@
       "type": "MM",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 15 stóp",
-        "{@b Duration:} 24 ​​godziny"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 15 stóp",
+        "{@b Czas trwania:} 24 ​​godziny"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Wybierz maksymalnie cztery chętne stworzenia, które widzisz w zasięgu. Przez ten czas każdy cel może przetrwać bez jedzenia i wody i jest odporny na {@condition exhaustion} powodowany przez zwyczajne skutki środowiskowe lub pogodowe."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
           ]
         }
       ]
@@ -36,11 +36,11 @@
   },
   "again": {
     "name": "Ponownie",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 reakcja, którą podejmujesz, gdy ty lub istota w promieniu 30 stóp od ciebie spudłuje atakiem",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 reakcja, którą podejmujesz, gdy ty lub istota w promieniu 30 stóp od ciebie spudłuje atakiem",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Ponownie",
@@ -49,13 +49,13 @@
       "type": "CP",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 reakcja, którą podejmujesz, gdy ty lub istota w promieniu 30 stóp od ciebie spudłuje atakiem",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 reakcja, którą podejmujesz, gdy ty lub istota w promieniu 30 stóp od ciebie spudłuje atakiem",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Na chwilę cofasz czas, dając stworzeniu, które wykonało atak aktywujący, drugą szansę. To stworzenie może przerzucić atak i musi wykonać nowy rzut."
           ]
@@ -65,10 +65,10 @@
   },
   "ally-of-time": {
     "name": "Sojusznik czasu",
-    "subtitle": "6. Zakon",
+    "subtitle": "6. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 120 stóp (sześcian 40 stóp)",
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp (sześcian 40 stóp)",
       "Zmieniasz czas w sześcianie o długości 40 stóp w zasięgu na czas trwania. Ilekroć stworzenie rozpoczyna swoją turę w obrębie kostki, możesz wybrać jeden z następujących efektów (nie jest wymagana żadna akcja):"
     ],
     "data": {
@@ -78,8 +78,8 @@
       "type": "CP",
       "order": "6. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 120 stóp (sześcian 40 stóp)",
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp (sześcian 40 stóp)",
         "Zmieniasz czas w sześcianie o długości 40 stóp w zasięgu na czas trwania. Ilekroć stworzenie rozpoczyna swoją turę w obrębie kostki, możesz wybrać jeden z następujących efektów (nie jest wymagana żadna akcja):"
       ],
       "modes": [
@@ -90,7 +90,7 @@
             "unit": "min"
           },
           "entries": [
-            "Do początku następnej tury celu, jego prędkość jest podwojona, ma premię +2 do KP i ma przewagę w rzutach obronnych na Zręczność. Cel zyskuje dodatkową akcję, której może użyć wyłącznie do wykonania akcji {@action Attack} (tylko jeden atak bronią), akcji {@action Cast a Spell} (tylko cantrip), akcji {@action Manifest a Power|TalPsi} (tylko moc pierwszego rzędu) lub {@action Dash}, {@action Disengage}, {@action Hide}, lub {@action Use an Object}."
+            "Do początku następnej tury celu, jego prędkość jest podwojona, ma premię +2 do KP i ma przewagę w rzutach obronnych na Zręczność. Cel zyskuje dodatkową akcję, której może użyć wyłącznie do wykonania akcji {@action Attack} (tylko jeden atak bronią), akcji {@action Cast a Spell} (tylko sztuczkę), akcji {@action Manifest a Power|TalPsi} (tylko moc 1. kręgu) lub {@action Dash}, {@action Disengage}, {@action Hide}, lub {@action Use an Object}."
           ]
         },
         {
@@ -108,11 +108,11 @@
   },
   "amplify": {
     "name": "Wzmacniać",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja dodatkowa",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} 1 minuta"
+      "{@b Czas manifestacji:} 1 akcja dodatkowa",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} 1 minuta"
     ],
     "data": {
       "name": "Wzmacniać",
@@ -121,21 +121,21 @@
       "type": "MM",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja dodatkowa",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} 1 minuta"
+        "{@b Czas manifestacji:} 1 akcja dodatkowa",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} 1 minuta"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
             "Kierujesz moc psioniczną w furię bojową stworzenia, które widzisz w zasięgu. Następnym razem, gdy cel trafi istotę atakiem bronią w czasie trwania mocy, atak zadaje dodatkowe obrażenia psychiczne {@damage 2d8}."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 dodatkowe obrażenia zwiększają się o {@damage 1d8}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 dodatkowe obrażenia zwiększają się o {@damage 1d8}."
           ]
         }
       ]
@@ -143,18 +143,24 @@
   },
   "apparition": {
     "name": "Zjawa",
-    "subtitle": "Pierwsze zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+    "subtitle": "1. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp"
+    ],
     "data": {
       "name": "Zjawa",
       "source": "TalPsi",
       "page": 33,
       "type": "RP",
       "order": "1. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp"
+      ],
       "modes": [
         {
-          "name": "Pierwsze zamówienie",
+          "name": "1. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -168,10 +174,10 @@
   },
   "aura-projection": {
     "name": "Projekcja aury",
-    "subtitle": "Czwarty porządek",
+    "subtitle": "4. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Self (promień 30 stóp)",
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny (promień 30 stóp)",
       "Otaczasz się aurą psionicznej energii emocjonalnej, która pozwala ci na pewien czas wpływać na pobliskie stworzenia. Kiedy manifestujesz tę moc, na początku swojej tury na czas trwania (nie jest wymagana żadna akcja), możesz wybrać jedno stworzenie w promieniu 30 stóp od ciebie i wybrać jeden z następujących efektów dla tego celu:"
     ],
     "data": {
@@ -181,8 +187,8 @@
       "type": "TP",
       "order": "4. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Self (promień 30 stóp)",
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny (promień 30 stóp)",
         "Otaczasz się aurą psionicznej energii emocjonalnej, która pozwala ci na pewien czas wpływać na pobliskie stworzenia. Kiedy manifestujesz tę moc, na początku swojej tury na czas trwania (nie jest wymagana żadna akcja), możesz wybrać jedno stworzenie w promieniu 30 stóp od ciebie i wybrać jeden z następujących efektów dla tego celu:"
       ],
       "modes": [
@@ -217,9 +223,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Musisz wybrać ten sam efekt dla wszystkich celów."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Musisz wybrać ten sam efekt dla wszystkich celów."
           ]
         }
       ]
@@ -227,15 +233,21 @@
   },
   "awe": {
     "name": "Groza",
-    "subtitle": "Drugie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+    "subtitle": "2. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp"
+    ],
     "data": {
       "name": "Groza",
       "source": "TalPsi",
       "page": 36,
       "type": "TP",
       "order": "2. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp"
+      ],
       "modes": [
         {
           "name": "Inspirujące",
@@ -258,9 +270,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy celujesz w nie, wiele stworzeń musi znajdować się w odległości nie większej niż 30 stóp od siebie, a wszystkie cele mają to samo oblicze."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy celujesz w nie, wiele stworzeń musi znajdować się w odległości nie większej niż 30 stóp od siebie, a wszystkie cele mają to samo oblicze."
           ]
         }
       ]
@@ -268,11 +280,11 @@
   },
   "beam-gaze": {
     "name": "Promienne spojrzenie",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 120 stóp",
-      "{@b Duration:} 1 minuta"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp",
+      "{@b Czas trwania:} 1 minuta"
     ],
     "data": {
       "name": "Promienne spojrzenie",
@@ -281,15 +293,15 @@
       "type": "MM",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 120 stóp",
-        "{@b Duration:} 1 minuta"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp",
+        "{@b Czas trwania:} 1 minuta"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
-            "Wystrzeliwujesz obrzydliwy promień mocy w kierunku stworzenia, które widzisz w zasięgu. Cel musi wykonać rzut obronny na Kondycję, zadając obrażenia od siły {@damage 3d10} w przypadku nieudanego rzutu lub o połowę mniej w przypadku udanego rzutu. W przypadku nieudanego rzutu obronnego, cel także doświadcza przez pewien czas jednego z poniższych efektów (obrona kończy się na końcu tury):",
+            "Wystrzeliwujesz obrzydliwy promień mocy w kierunku stworzenia, które widzisz w zasięgu. Cel musi wykonać rzut obronny na Kondycję, zadając obrażenia od mocy {@damage 3d10} w przypadku nieudanego rzutu lub o połowę mniej w przypadku udanego rzutu. W przypadku nieudanego rzutu obronnego, cel także doświadcza przez pewien czas jednego z poniższych efektów (obrona kończy się na końcu tury):",
             {
               "type": "list",
               "items": [
@@ -301,9 +313,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d10}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d10}."
           ]
         }
       ]
@@ -311,11 +323,11 @@
   },
   "believe": {
     "name": "Uważać",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 60 stóp",
-      "{@b Duration:} 1 runda",
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp",
+      "{@b Czas trwania:} 1 runda",
       "Wybierz jedno stworzenie, które widzisz w zasięgu, które musi wykonać udany rzut obronny na Mądrość lub zyskać nową wiarę do końca swojej następnej tury. Ta nowa wiara określa sposób, w jaki stworzenie zachowuje się w swojej turze i jest wybierana spośród następujących opcji:"
     ],
     "data": {
@@ -325,9 +337,9 @@
       "type": "TP",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 60 stóp",
-        "{@b Duration:} 1 runda",
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp",
+        "{@b Czas trwania:} 1 runda",
         "Wybierz jedno stworzenie, które widzisz w zasięgu, które musi wykonać udany rzut obronny na Mądrość lub zyskać nową wiarę do końca swojej następnej tury. Ta nowa wiara określa sposób, w jaki stworzenie zachowuje się w swojej turze i jest wybierana spośród następujących opcji:"
       ],
       "modes": [
@@ -356,9 +368,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każdy wzrost o 1 obierasz za cel jedno dodatkowe stworzenie, przy czym wszystkie cele doświadczają tego samego przekonania."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każdy wzrost o 1 obierasz za cel jedno dodatkowe stworzenie, przy czym wszystkie cele doświadczają tego samego przekonania."
           ]
         }
       ]
@@ -366,11 +378,11 @@
   },
   "bolster-ego": {
     "name": "Wzmocnij ego",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 reakcja, którą wykonujesz, gdy ty lub istota w promieniu 30 stóp od ciebie wykona rzut obronny",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 reakcja, którą wykonujesz, gdy ty lub istota w promieniu 30 stóp od ciebie wykona rzut obronny",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Wzmocnij ego",
@@ -379,21 +391,21 @@
       "type": "TP",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 reakcja, którą wykonujesz, gdy ty lub istota w promieniu 30 stóp od ciebie wykona rzut obronny",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 reakcja, którą wykonujesz, gdy ty lub istota w promieniu 30 stóp od ciebie wykona rzut obronny",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Psionicznie wzmacniasz ciało i umysł istoty wykonującej rzut obronny, dając jej przewagę w obronie."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 30 stóp od siebie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 30 stóp od siebie."
           ]
         }
       ]
@@ -401,30 +413,36 @@
   },
   "bones-of-glass": {
     "name": "Kości ze szkła",
-    "subtitle": "Piąty porządek",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 90 stóp"],
+    "subtitle": "5. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 90 stóp"
+    ],
     "data": {
       "name": "Kości ze szkła",
       "source": "TalPsi",
       "page": 48,
       "type": "MM",
       "order": "5. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 90 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 90 stóp"
+      ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
           },
           "entries": [
-            "Próbujesz osłabić psionicznie istotę, którą widzisz w zasięgu, co musi wykonać rzut obronny na Kondycję. W przypadku powodzenia cel otrzymuje {@damage 3d10} obrażenia psychiczne. W przypadku niepowodzenia cel jest przez pewien czas podatny na obrażenia obuchowe, siłowe, kłute i tnące."
+            "Próbujesz osłabić psionicznie istotę, którą widzisz w zasięgu, co musi wykonać rzut obronny na Kondycję. W przypadku powodzenia cel otrzymuje {@damage 3d10} obrażenia psychiczne. W przypadku niepowodzenia cel jest przez pewien czas podatny na obrażenia obuchowe, od mocy, kłute i sieczne."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby obrać za cel jedno dodatkowe stworzenie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby obrać za cel jedno dodatkowe stworzenie."
           ]
         }
       ]
@@ -432,11 +450,11 @@
   },
   "brain-overload": {
     "name": "Przeciążenie mózgu",
-    "subtitle": "6. Zakon",
+    "subtitle": "6. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 120 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Przeciążenie mózgu",
@@ -445,13 +463,13 @@
       "type": "MM",
       "order": "6. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 120 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "6. Zakon",
+          "name": "6. krąg",
           "entries": [
             "Wyzwalasz nagły przypływ energii w umyśle istoty, którą widzisz w zasięgu. Cel musi wykonać rzut obronny na Kondycję, zadając obrażenia psychiczne {@damage 14d10} przy nieudanym rzucie lub połowę mniej przy udanym rzucie. Jeśli cel ma mózg i obrażenia te redukują go do 0 punktów wytrzymałości, jego mózg eksploduje. (W przypadku celu z wieloma mózgami wszystkie jego mózgi eksplodują.) Cel, który nie może przetrwać bez mózgu lub mózgów (wg uznania MG) umiera natychmiast."
           ]
@@ -461,11 +479,11 @@
   },
   "broadcast": {
     "name": "Audycja",
-    "subtitle": "Piąty porządek",
+    "subtitle": "5. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 minuta",
-      "{@b Range:} 1 mila",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 minuta",
+      "{@b Zasięg:} 1 mila",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Audycja",
@@ -474,23 +492,23 @@
       "type": "TP",
       "order": "5. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 minuta",
-        "{@b Range:} 1 mila",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 minuta",
+        "{@b Zasięg:} 1 mila",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "entries": [
             "Wysyłasz wiadomość telepatyczną do każdego wybranego przez ciebie stworzenia, które rozumie język i znajduje się w określonej odległości, którą wybierasz w zasięgu. Wiadomość trwa 1 minutę i może zawierać obrazy wydarzeń, których osobiście byłeś świadkiem. Istota, która otrzymuje wiadomość, słyszy twoje słowa i widzi obrazy w swoim umyśle, chociaż nadal zachowuje własne zmysły.",
-            "Możesz dodatkowo udoskonalić parametry odbiorców w oparciu o rodzaj stworzeń (na przykład wiadomość może zostać wysłana tylko do Humanoidów lub gnolle mogą zostać wykluczone z otrzymania wiadomości) lub stworzeń o określonym charakterze (na przykład wiadomość może zostać wysłana tylko do stworzeń o dobrym charakterze lub istoty o charakterze praworządnym mogą zostać wykluczone z otrzymania wiadomości).",
+            "Możesz dodatkowo udoskonalić parametry odbiorców w oparciu o rodzaj stworzeń (na przykład wiadomość może zostać wysłana tylko do humanoidalnych istot lub gnolle mogą zostać wykluczone z otrzymania wiadomości) lub stworzeń o określonym charakterze (na przykład wiadomość może zostać wysłana tylko do stworzeń o dobrym charakterze lub istoty o charakterze praworządnym mogą zostać wykluczone z otrzymania wiadomości).",
             "Istota znajdująca się na innym poziomie istnienia nie otrzymuje przesłania."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby zwiększyć zasięg do 5 mil."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby zwiększyć zasięg do 5 mil."
           ]
         }
       ]
@@ -498,11 +516,11 @@
   },
   "capture-energy": {
     "name": "Przechwytuj energię",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 reakcja, którą podejmujesz, gdy otrzymasz obrażenia od kwasu, zimna, ognia, siły, błyskawicy lub pioruna",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 reakcja, którą podejmujesz, gdy otrzymasz obrażenia od kwasu, zimna, ognia, mocy, pioruna lub gromu",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Przechwytuj energię",
@@ -511,13 +529,13 @@
       "type": "TK",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 reakcja, którą podejmujesz, gdy otrzymasz obrażenia od kwasu, zimna, ognia, siły, błyskawicy lub pioruna",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 reakcja, którą podejmujesz, gdy otrzymasz obrażenia od kwasu, zimna, ognia, mocy, pioruna lub gromu",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
             "Przechwytujesz część przeznaczonej dla ciebie szkodliwej energii w uścisku telekinetycznym, ponosząc jedynie połowę obrażeń od efektu wyzwalającego. Następnie możesz rzucić przechwyconą energię w istotę lub obiekt w zasięgu, wykonując mocny atak dystansowy. Jeśli atak trafi, cel otrzymuje resztę obrażeń aktywujących."
           ]
@@ -527,18 +545,24 @@
   },
   "caress-of-fire": {
     "name": "Pieszczota Ognia",
-    "subtitle": "Pierwsze zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Dotyk"],
+    "subtitle": "1. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk"
+    ],
     "data": {
       "name": "Pieszczota Ognia",
       "source": "TalPsi",
       "page": 33,
       "type": "PK",
       "order": "1. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Dotyk"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk"
+      ],
       "modes": [
         {
-          "name": "Pierwsze zamówienie",
+          "name": "1. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -552,10 +576,10 @@
   },
   "chariot-of-thought": {
     "name": "Rydwan Myśli",
-    "subtitle": "Piąty porządek",
+    "subtitle": "5. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Self (dysk o promieniu 10 stóp)"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny (dysk o promieniu 10 stóp)"
     ],
     "data": {
       "name": "Rydwan Myśli",
@@ -564,12 +588,12 @@
       "type": "TK",
       "order": "5. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Self (dysk o promieniu 10 stóp)"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny (dysk o promieniu 10 stóp)"
       ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "concentration": {
             "duration": 10,
             "unit": "min"
@@ -581,10 +605,10 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby zwiększyć promień dysku o 5 stóp.",
-            "Dodatkowo możesz zwiększyć kolejność mocy o 1, aby zwiększyć prędkość lotu o 5 stóp."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby zwiększyć promień dysku o 5 stóp.",
+            "Dodatkowo możesz zwiększyć krąg mocy o 1, aby zwiększyć prędkość lotu o 5 stóp."
           ]
         }
       ]
@@ -592,31 +616,37 @@
   },
   "choke": {
     "name": "Dusić",
-    "subtitle": "Drugie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+    "subtitle": "2. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp"
+    ],
     "data": {
       "name": "Dusić",
       "source": "TalPsi",
       "page": 36,
       "type": "TK",
       "order": "2. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp"
+      ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
           },
           "entries": [
-            "Próbujesz zmiażdżyć wroga w swoim telekinetycznym uścisku. Jedno wybrane przez ciebie duże lub mniejsze stworzenie, które widzisz w zasięgu, musi wykonać rzut obronny na Zręczność. W przypadku powodzenia cel otrzymuje obrażenia od siły {@damage 1d6}. W przypadku niepowodzenia celem jest {@condition restrained} na czas trwania (obrona kończy się na końcu tury). Stworzenie {@condition restrained} w ten sposób otrzymuje obrażenia od mocy {@damage 1d6} na początku każdej swojej tury. Moc kończy się, jeśli cel kiedykolwiek znajdzie się poza zasięgiem mocy lub jeśli będzie miał od ciebie całkowitą osłonę."
+            "Próbujesz zmiażdżyć wroga w swoim telekinetycznym uścisku. Jedno wybrane przez ciebie duże lub mniejsze stworzenie, które widzisz w zasięgu, musi wykonać rzut obronny na Zręczność. W przypadku powodzenia cel otrzymuje obrażenia od mocy {@damage 1d6}. W przypadku niepowodzenia celem jest {@condition restrained} na czas trwania (obrona kończy się na końcu tury). Stworzenie {@condition restrained} w ten sposób otrzymuje obrażenia od mocy {@damage 1d6} na początku każdej swojej tury. Moc kończy się, jeśli cel kiedykolwiek znajdzie się poza zasięgiem mocy lub jeśli będzie miał od ciebie całkowitą osłonę."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 1d6}.",
-            "Dodatkowo możesz zwiększyć kolejność mocy o 2, aby obrać za cel ogromne stworzenie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 1d6}.",
+            "Dodatkowo możesz zwiększyć krąg mocy o 2, aby obrać za cel ogromne stworzenie."
           ]
         }
       ]
@@ -624,18 +654,24 @@
   },
   "clarity": {
     "name": "Przejrzystość",
-    "subtitle": "Trzecie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Dotyk"],
+    "subtitle": "3. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk"
+    ],
     "data": {
       "name": "Przejrzystość",
       "source": "TalPsi",
       "page": 41,
       "type": "TP",
       "order": "3. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Dotyk"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk"
+      ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -649,11 +685,11 @@
   },
   "concussive-slam": {
     "name": "Wstrząsający trzask",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Wstrząsający trzask",
@@ -662,33 +698,33 @@
       "type": "TK",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
           "name": "Poziom 1-4",
           "entries": [
-            "Uderzasz polem niewidzialnej siły w istotę, którą widzisz w zasięgu, która musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 1d4} obrażenia od siły i zostaje powalony {@condition prone}."
+            "Uderzasz polem niewidzialnej siły w istotę, którą widzisz w zasięgu, która musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 1d4} obrażenia od mocy i zostaje powalony {@condition prone}."
           ]
         },
         {
           "name": "Poziom 5-10",
           "entries": [
-            "Uderzasz polem niewidzialnej siły w istotę, którą widzisz w zasięgu, która musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 2d4} obrażenia od siły i zostaje powalony {@condition prone}."
+            "Uderzasz polem niewidzialnej siły w istotę, którą widzisz w zasięgu, która musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 2d4} obrażenia od mocy i zostaje powalony {@condition prone}."
           ]
         },
         {
           "name": "Poziom 11-16",
           "entries": [
-            "Uderzasz polem niewidzialnej siły w istotę, którą widzisz w zasięgu, która musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 3d4} obrażenia od siły i zostaje powalony {@condition prone}."
+            "Uderzasz polem niewidzialnej siły w istotę, którą widzisz w zasięgu, która musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 3d4} obrażenia od mocy i zostaje powalony {@condition prone}."
           ]
         },
         {
           "name": "Poziom 17+",
           "entries": [
-            "Uderzasz polem niewidzialnej siły w istotę, którą widzisz w zasięgu, która musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 4d4} obrażenia od siły i zostaje powalony {@condition prone}."
+            "Uderzasz polem niewidzialnej siły w istotę, którą widzisz w zasięgu, która musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 4d4} obrażenia od mocy i zostaje powalony {@condition prone}."
           ]
         }
       ]
@@ -696,11 +732,11 @@
   },
   "concussive-wave": {
     "name": "Fala wstrząsowa",
-    "subtitle": "6. Zakon",
+    "subtitle": "6. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Fala wstrząsowa",
@@ -709,15 +745,15 @@
       "type": "TK",
       "order": "6. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "6. Zakon",
+          "name": "6. krąg",
           "entries": [
-            "Wysyłasz rosnącą falę uderzeniową mocy telekinetycznej. Każde wybrane przez ciebie stworzenie w zasięgu musi wykonać rzut obronny na Siłę lub zostać rzucone na odległość do 30 metrów w pionie i do 30 stóp od ciebie. Każde stworzenie zostaje następnie uderzone w ziemię, otrzymując {@damage 1d6} obrażenia tłuczące przy upadku z wysokości 3 metrów i lądujące {@condition prone}."
+            "Wysyłasz rosnącą falę uderzeniową mocy telekinetycznej. Każde wybrane przez ciebie stworzenie w zasięgu musi wykonać rzut obronny na Siłę lub zostać rzucone na odległość do 30 metrów w pionie i do 30 stóp od ciebie. Każde stworzenie zostaje następnie uderzone w ziemię, otrzymując {@damage 1d6} obrażenia obuchowe przy upadku z wysokości 3 metrów i lądujące {@condition prone}."
           ]
         }
       ]
@@ -725,10 +761,10 @@
   },
   "crucible": {
     "name": "Tygiel",
-    "subtitle": "6. Zakon",
+    "subtitle": "6. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 150 stóp (50 stóp kwadratowych)"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 150 stóp (50 stóp kwadratowych)"
     ],
     "data": {
       "name": "Tygiel",
@@ -737,12 +773,12 @@
       "type": "PK",
       "order": "6. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 150 stóp (50 stóp kwadratowych)"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 150 stóp (50 stóp kwadratowych)"
       ],
       "modes": [
         {
-          "name": "6. Zakon",
+          "name": "6. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -758,11 +794,11 @@
   },
   "cure-ailment": {
     "name": "Wyleczyć dolegliwość",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Wyleczyć dolegliwość",
@@ -771,13 +807,13 @@
       "type": "MM",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
             "Dotykasz stworzenia i możesz zakończyć jedną chorobę lub jeden stan, który na nie wpływa. Warunek może mieć postać {@condition blinded}, {@condition charmed}, Dazed, {@condition deafened}, {@condition frightened} lub {@condition poisoned}."
           ]
@@ -787,11 +823,11 @@
   },
   "dagger-of-the-mind": {
     "name": "Sztylet Umysłu",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 60 stóp",
-      "{@b Duration:} 1 runda"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp",
+      "{@b Czas trwania:} 1 runda"
     ],
     "data": {
       "name": "Sztylet Umysłu",
@@ -800,21 +836,21 @@
       "type": "TP",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 60 stóp",
-        "{@b Duration:} 1 runda"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp",
+        "{@b Czas trwania:} 1 runda"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
             "Atakujesz umysłem, aby zadać psychiczne obrażenia stworzeniu, które widzisz w zasięgu. Cel musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego cel otrzymuje obrażenia psychiczne {@damage 4d10} i w swojej następnej turze może wykonać tylko akcje {@action Dash}, {@action Disengage} lub {@action Dodge}. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i może normalnie rozegrać swoją turę."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d10}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d10}."
           ]
         }
       ]
@@ -822,18 +858,24 @@
   },
   "detonate": {
     "name": "Detonować",
-    "subtitle": "Piąty porządek",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 120 stóp"],
+    "subtitle": "5. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp"
+    ],
     "data": {
       "name": "Detonować",
       "source": "TalPsi",
       "page": 48,
       "type": "PK",
       "order": "5. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 120 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp"
+      ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "concentration": {
             "duration": 1,
             "unit": "godz"
@@ -844,9 +886,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby zwiększyć obrażenia detonującej iskry do {@damage 10d10}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby zwiększyć obrażenia detonującej iskry do {@damage 10d10}."
           ]
         }
       ]
@@ -854,18 +896,24 @@
   },
   "disappear": {
     "name": "Zniknąć",
-    "subtitle": "Drugie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Dotyk"],
+    "subtitle": "2. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk"
+    ],
     "data": {
       "name": "Zniknąć",
       "source": "TalPsi",
       "page": 36,
       "type": "MM",
       "order": "2. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Dotyk"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk"
+      ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "concentration": {
             "duration": 1,
             "unit": "koniec"
@@ -875,9 +923,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 2, aby zwiększyć maksymalny czas trwania koncentracji do 1 minuty.",
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 2, aby zwiększyć maksymalny czas trwania koncentracji do 1 minuty.",
             "Dodatkowo, jeśli atak cię trafi lub chybi, możesz zwiększyć rozkaz tej mocy o 1, aby zamanifestować to jako reakcję na ciebie jako cel."
           ]
         }
@@ -886,11 +934,11 @@
   },
   "distant-voice": {
     "name": "Odległy Głos",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Nieograniczona",
-      "{@b Duration:} 1 runda"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Nieograniczona",
+      "{@b Czas trwania:} 1 runda"
     ],
     "data": {
       "name": "Odległy Głos",
@@ -899,21 +947,21 @@
       "type": "TP",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Nieograniczona",
-        "{@b Duration:} 1 runda"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Nieograniczona",
+        "{@b Czas trwania:} 1 runda"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
             "Wysyłasz krótką wiadomość składającą się z dwudziestu pięciu słów lub mniej do istoty, którą znasz. Stworzenie słyszy wiadomość w swoim umyśle, rozpoznaje Cię jako nadawcę, jeśli Cię zna, i może natychmiast odpowiedzieć w podobny sposób. Ta moc umożliwia istotom z Inteligencją co najmniej 1 zrozumienie znaczenia twojej wiadomości. Możesz wysłać wiadomość na dowolną odległość, a nawet na inne płaszczyzny istnienia."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 możesz dodać kolejne 25 słów do swojej wiadomości."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 możesz dodać kolejne 25 słów do swojej wiadomości."
           ]
         }
       ]
@@ -921,11 +969,11 @@
   },
   "elsewhere": {
     "name": "Gdzie indziej",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Gdzie indziej",
@@ -934,21 +982,21 @@
       "type": "RP",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
             "Wybierasz trzy stworzenia, które widzisz w zasięgu, a następnie próbujesz brutalnie je teleportować. Każde stworzenie musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego cel zostaje teleportowany na odległość do 30 stóp do niezajętego miejsca, które widzisz, a jego prędkość wynosi 0 aż do początku twojej następnej tury."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
           ]
         }
       ]
@@ -956,11 +1004,11 @@
   },
   "embrace-the-deep": {
     "name": "Obejmij Głębię",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} 24 ​​godziny",
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} 24 ​​godziny",
       "Wybierasz maksymalnie pięć chętnych stworzeń, które widzisz w zasięgu, a następnie psionicznie nasycasz te stworzenia mocą poruszania się pod ziemią lub wodą. Na ten czas każde stworzenie nie musi oddychać i zyskuje jedną z wybranych przez ciebie adaptacji, które należy zastosować do wszystkich celów:"
     ],
     "data": {
@@ -970,24 +1018,28 @@
       "type": "MM",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} 24 ​​godziny",
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} 24 ​​godziny",
         "Wybierasz maksymalnie pięć chętnych stworzeń, które widzisz w zasięgu, a następnie psionicznie nasycasz te stworzenia mocą poruszania się pod ziemią lub wodą. Na ten czas każde stworzenie nie musi oddychać i zyskuje jedną z wybranych przez ciebie adaptacji, które należy zastosować do wszystkich celów:"
       ],
       "modes": [
         {
           "name": "Mistrzostwo Ziemi",
-          "entries": ["Cel ma prędkość kopania równą prędkości chodzenia."]
+          "entries": [
+            "Cel ma prędkość kopania równą prędkości chodzenia."
+          ]
         },
         {
           "name": "Mistrzostwo wody",
-          "entries": ["Cel ma prędkość pływania równą prędkości chodzenia."]
+          "entries": [
+            "Cel ma prędkość pływania równą prędkości chodzenia."
+          ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
           ]
         }
       ]
@@ -995,11 +1047,11 @@
   },
   "extinguish": {
     "name": "Gasić",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 120 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Gasić",
@@ -1008,21 +1060,21 @@
       "type": "RP",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 120 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
             "Wybierz jedno stworzenie, obiekt lub efekt psioniczny w zasięgu. Dowolna moc {@filter 3rd order or lower|psionics|order=1st-order;2nd-order;3rd-order|source=talpsi==extend} na celu kończy się."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby zakończyć moce {@filter 4th order or lower|psionics|order=1st-order;2nd-order;3rd-order;4th-order|source=talpsi==extend}, o 2, aby zakończyć moce {@filter 5th order or lower|psionics|order=1st-order;2nd-order;3rd-order;4th-order;5th-order|source=talpsi==extend} lub o 3, aby zakończyć dowolną moc."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby zakończyć moce {@filter 4th order or lower|psionics|order=1st-order;2nd-order;3rd-order;4th-order|source=talpsi==extend}, o 2, aby zakończyć moce {@filter 5th order or lower|psionics|order=1st-order;2nd-order;3rd-order;4th-order;5th-order|source=talpsi==extend} lub o 3, aby zakończyć dowolną moc."
           ]
         }
       ]
@@ -1030,18 +1082,24 @@
   },
   "fire-form": {
     "name": "Forma Ognia",
-    "subtitle": "Czwarty porządek",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Self"],
+    "subtitle": "4. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny"
+    ],
     "data": {
       "name": "Forma Ognia",
       "source": "TalPsi",
       "page": 45,
       "type": "PK",
       "order": "4. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Self"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny"
+      ],
       "modes": [
         {
-          "name": "Czwarty porządek",
+          "name": "4. krąg",
           "concentration": {
             "duration": 10,
             "unit": "min"
@@ -1060,9 +1118,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby zwiększyć maksymalny czas trwania koncentracji do 1 godziny."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby zwiększyć maksymalny czas trwania koncentracji do 1 godziny."
           ]
         }
       ]
@@ -1070,11 +1128,11 @@
   },
   "flame-s-master": {
     "name": "Mistrz Płomienia",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Mistrz Płomienia",
@@ -1083,13 +1141,13 @@
       "type": "PK",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Pierwsze zamówienie",
+          "name": "1. krąg",
           "entries": [
             "Emitujesz wybuch energii psionicznej, który oddziałuje na każde średnie lub mniejsze ogniste źródło światła w zasięgu, umożliwiając podpalenie docelowego źródła światła lub zgaszenie go, wybierając indywidualnie dla każdego źródła. Takie źródła światła obejmują ogniska, świece, kominki, latarnie, lampy oliwne, pochodnie i tym podobne, ale nie obejmują źródeł nadprzyrodzonych, takich jak {@item sun blade} lub obiektów dotkniętych zaklęciem {@spell light}."
           ]
@@ -1098,36 +1156,36 @@
     }
   },
   "flay": {
-    "name": "Łupić",
-    "subtitle": "Drugie zamówienie",
+    "name": "Rozszarpanie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Self (stożek 15 stóp)",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny (stożek 15 stóp)",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
-      "name": "Łupić",
+      "name": "Rozszarpanie",
       "source": "TalPsi",
       "page": 37,
       "type": "MM",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Self (stożek 15 stóp)",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny (stożek 15 stóp)",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Wystrzeliwujesz 5-metrowy stożek czystej energii psionicznej. Każda istota na obszarze musi wykonać rzut obronny na Inteligencję, zadając obrażenia psychiczne {@damage 2d6} w przypadku nieudanego rzutu lub połowę mniej w przypadku udanego rzutu."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d6}.",
-            "Dodatkowo możesz zwiększyć kolejność mocy o 1 lub więcej, aby zwiększyć jej obszar działania. Każde zwiększenie o 1 powoduje zwiększenie rozmiaru stożka o 15 stóp."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d6}.",
+            "Dodatkowo możesz zwiększyć krąg mocy o 1 lub więcej, aby zwiększyć jej obszar działania. Każde zwiększenie o 1 powoduje zwiększenie rozmiaru stożka o 15 stóp."
           ]
         }
       ]
@@ -1135,10 +1193,10 @@
   },
   "fluid-motion": {
     "name": "Płynny ruch",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Self",
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny",
       "Nasycasz swoje ciało wybuchem energii psionicznej, zapewniając sobie na czas jedną z następujących korzyści:"
     ],
     "data": {
@@ -1148,8 +1206,8 @@
       "type": "MM",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Self",
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny",
         "Nasycasz swoje ciało wybuchem energii psionicznej, zapewniając sobie na czas jedną z następujących korzyści:"
       ],
       "modes": [
@@ -1159,7 +1217,9 @@
             "duration": 1,
             "unit": "min"
           },
-          "entries": ["Możesz wykonać akcję Doskoku jako akcję bonusową."]
+          "entries": [
+            "Możesz wykonać akcję Doskoku jako Akcję Dodatkową."
+          ]
         },
         {
           "name": "Skok",
@@ -1167,7 +1227,9 @@
             "duration": 1,
             "unit": "min"
           },
-          "entries": ["Twoja odległość skoku jest trzykrotnie większa."]
+          "entries": [
+            "Twoja odległość skoku jest trzykrotnie większa."
+          ]
         },
         {
           "name": "Borykać się",
@@ -1184,11 +1246,11 @@
   },
   "fold-space": {
     "name": "Złóż przestrzeń",
-    "subtitle": "6. Zakon",
+    "subtitle": "6. krąg",
     "entries": [
-      "{@b Manifestation Time:} 10 minut",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} 1 runda"
+      "{@b Czas manifestacji:} 10 minut",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} 1 runda"
     ],
     "data": {
       "name": "Złóż przestrzeń",
@@ -1197,13 +1259,13 @@
       "type": "RP",
       "order": "6. krąg",
       "entries": [
-        "{@b Manifestation Time:} 10 minut",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} 1 runda"
+        "{@b Czas manifestacji:} 10 minut",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} 1 runda"
       ],
       "modes": [
         {
-          "name": "6. Zakon",
+          "name": "6. krąg",
           "entries": [
             "Zaginasz przestrzeń, aby utworzyć jednokierunkową ścieżkę do wybranego miejsca docelowego, która trwa do końca Twojej następnej tury. Otwór ścieżki to okrąg o średnicy 3 metrów, który pojawia się w niezamieszkanym miejscu w zasięgu. Każde stworzenie, które przejdzie przez otwór, zostaje przetransportowane do miejsca przeznaczenia.",
             "Miejsce docelowe, które wybierzesz, może znajdować się na dowolnej płaszczyźnie istnienia. Musi być Ci znany, choć nie musisz go odwiedzać. Zasilanie przestanie działać, jeśli wybierzesz miejsce docelowe, które nie istnieje, na przykład miejsce, o którym myślisz, że jest w rzeczywistości iluzją lub znajome miejsce, które zostało zniszczone."
@@ -1214,11 +1276,11 @@
   },
   "force-orbs": {
     "name": "Kule Mocy",
-    "subtitle": "Piąty porządek",
+    "subtitle": "5. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Self",
-      "{@b Duration:} 10 minut"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny",
+      "{@b Czas trwania:} 10 minut"
     ],
     "data": {
       "name": "Kule Mocy",
@@ -1227,21 +1289,21 @@
       "type": "TK",
       "order": "5. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Self",
-        "{@b Duration:} 10 minut"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny",
+        "{@b Czas trwania:} 10 minut"
       ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "entries": [
             "Tworzysz trzy kule wirującej energii o średnicy 1 stopy, które krążą wokół ciebie przez czas trwania. Każda kula zapewnia skumulowaną premię +1 do KP. Jako dodatkową akcję, gdy ta moc jest aktywna, możesz wykonać mocny atak dystansowy, aby psionicznie rzucić kulą w istotę lub obiekt w promieniu 60 stóp od ciebie, zadając przy trafieniu obrażenia mocy {@damage 4d10}. Kula znika po użyciu do wykonania ataku."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby stworzyć cztery kule."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby stworzyć cztery kule."
           ]
         }
       ]
@@ -1249,11 +1311,11 @@
   },
   "forget": {
     "name": "Zapominać",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 60 stóp",
-      "{@b Duration:} 1 minuta",
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp",
+      "{@b Czas trwania:} 1 minuta",
       "Docierasz do umysłu istoty znajdującej się w zasięgu i sprawiasz, że zapomina ona o krytycznej wiedzy. Cel musi odnieść sukces w rzucie obronnym na Mądrość lub cierpieć przez określony czas jeden z poniższych efektów (końce rzutu obronnego na koniec tury):"
     ],
     "data": {
@@ -1263,19 +1325,23 @@
       "type": "CP",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 60 stóp",
-        "{@b Duration:} 1 minuta",
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp",
+        "{@b Czas trwania:} 1 minuta",
         "Docierasz do umysłu istoty znajdującej się w zasięgu i sprawiasz, że zapomina ona o krytycznej wiedzy. Cel musi odnieść sukces w rzucie obronnym na Mądrość lub cierpieć przez określony czas jeden z poniższych efektów (końce rzutu obronnego na koniec tury):"
       ],
       "modes": [
         {
           "name": "Psionika",
-          "entries": ["Cel nie może manifestować mocy czwartego lub niższego rzędu."]
+          "entries": [
+            "Cel nie może manifestować mocy czwartego lub niższego kręgu."
+          ]
         },
         {
           "name": "Zaklęcia",
-          "entries": ["Cel nie może rzucać czarów poziomu 3 lub wyższego."]
+          "entries": [
+            "Cel nie może rzucać czarów poziomu 3 lub wyższego."
+          ]
         },
         {
           "name": "Broń",
@@ -1284,9 +1350,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Musisz wybrać ten sam efekt dla wszystkich celów."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Musisz wybrać ten sam efekt dla wszystkich celów."
           ]
         }
       ]
@@ -1294,11 +1360,11 @@
   },
   "fortify": {
     "name": "Ufortyfikować",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 reakcja, którą podejmujesz, gdy ty lub istota, którą widzisz w promieniu 9 metrów od ciebie, otrzymuje obrażenia od kwasu, zimna, ognia, mocy, błyskawicy lub grzmotu",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} 1 runda"
+      "{@b Czas manifestacji:} 1 reakcja, którą podejmujesz, gdy ty lub istota, którą widzisz w promieniu 9 metrów od ciebie, otrzymuje obrażenia od kwasu, zimna, ognia, mocy, pioruna lub gromu",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} 1 runda"
     ],
     "data": {
       "name": "Ufortyfikować",
@@ -1307,22 +1373,22 @@
       "type": "MM",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 reakcja, którą podejmujesz, gdy ty lub istota, którą widzisz w promieniu 9 metrów od ciebie, otrzymuje obrażenia od kwasu, zimna, ognia, mocy, błyskawicy lub grzmotu",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} 1 runda"
+        "{@b Czas manifestacji:} 1 reakcja, którą podejmujesz, gdy ty lub istota, którą widzisz w promieniu 9 metrów od ciebie, otrzymuje obrażenia od kwasu, zimna, ognia, mocy, pioruna lub gromu",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} 1 runda"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Tworzysz niewidzialną barierę, która chroni stworzenie otrzymujące obrażenia aktywujące. Cel ma odporność na obrażenia tego samego rodzaju, w tym na obrażenia aktywujące, aż do końca twojej następnej tury."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby wydłużyć jej czas trwania do 1 minuty.",
-            "Dodatkowo możesz zwiększyć kolejność mocy o 2, aby zamienić odporność na obrażenia, którą zyskuje cel, na odporność na obrażenia."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby wydłużyć jej czas trwania do 1 minuty.",
+            "Dodatkowo możesz zwiększyć krąg mocy o 2, aby zamienić odporność na obrażenia, którą zyskuje cel, na odporność na obrażenia."
           ]
         }
       ]
@@ -1330,11 +1396,11 @@
   },
   "fracture": {
     "name": "Złamanie",
-    "subtitle": "Piąty porządek",
+    "subtitle": "5. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 90 stóp (kula o promieniu 20 stóp)",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 90 stóp (kula o promieniu 20 stóp)",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Złamanie",
@@ -1343,21 +1409,21 @@
       "type": "TP",
       "order": "5. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 90 stóp (kula o promieniu 20 stóp)",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 90 stóp (kula o promieniu 20 stóp)",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "entries": [
             "Uwalniasz wybuch mocy psionicznej w punkcie w zasięgu. Każde stworzenie w sferze o promieniu 20 stóp, której środkiem jest ten punkt, musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego, istota otrzymuje {@damage 6d8} obrażenia psychiczne i zostaje złamana na 1 minutę (obrona kończy się na koniec tury). W przypadku powodzenia, stworzenie otrzymuje o połowę mniejsze obrażenia i nie ulega złamaniu. Po złamaniu prędkość stworzenia zmniejsza się o połowę; mają wadę w testach zdolności, rzutach ataku i rzutach obronnych; i rzuty ataku przeciwko nim mają przewagę."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby zwiększyć obrażenia zadawane przez {@damage 8d8}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby zwiększyć obrażenia zadawane przez {@damage 8d8}."
           ]
         }
       ]
@@ -1365,18 +1431,24 @@
   },
   "fulcrum": {
     "name": "Punkt podparcia",
-    "subtitle": "Czwarty porządek",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+    "subtitle": "4. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp"
+    ],
     "data": {
       "name": "Punkt podparcia",
       "source": "TalPsi",
       "page": 45,
       "type": "TK",
       "order": "4. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp"
+      ],
       "modes": [
         {
-          "name": "Czwarty porządek",
+          "name": "4. krąg",
           "concentration": {
             "duration": 10,
             "unit": "min"
@@ -1390,10 +1462,10 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie lub obiekt.",
-            "Dodatkowo możesz zwiększyć kolejność mocy o 1 lub więcej, aby rozszerzyć jej zasięg. Każde zwiększenie o 1 zwiększa zasięg mocy o 60 stóp."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie lub obiekt.",
+            "Dodatkowo możesz zwiększyć krąg mocy o 1 lub więcej, aby rozszerzyć jej zasięg. Każde zwiększenie o 1 zwiększa zasięg mocy o 60 stóp."
           ]
         }
       ]
@@ -1401,18 +1473,24 @@
   },
   "glimpse": {
     "name": "Dojrzeć",
-    "subtitle": "Pierwsze zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja dodatkowa", "{@b Range:} 5 stóp"],
+    "subtitle": "1. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja dodatkowa",
+      "{@b Zasięg:} 5 stóp"
+    ],
     "data": {
       "name": "Dojrzeć",
       "source": "TalPsi",
       "page": 33,
       "type": "CP",
       "order": "1. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja dodatkowa", "{@b Range:} 5 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja dodatkowa",
+        "{@b Zasięg:} 5 stóp"
+      ],
       "modes": [
         {
-          "name": "Pierwsze zamówienie",
+          "name": "1. krąg",
           "concentration": {
             "duration": 1,
             "unit": "koniec"
@@ -1426,30 +1504,36 @@
   },
   "gravitational-collapse": {
     "name": "Zapadnięcie grawitacyjne",
-    "subtitle": "Czwarty porządek",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 90 stóp"],
+    "subtitle": "4. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 90 stóp"
+    ],
     "data": {
       "name": "Zapadnięcie grawitacyjne",
       "source": "TalPsi",
       "page": 46,
       "type": "TK",
       "order": "4. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 90 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 90 stóp"
+      ],
       "modes": [
         {
-          "name": "Czwarty porządek",
+          "name": "4. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
           },
           "entries": [
-            "Sprowadzasz miażdżącą siłę na stworzenie, które widzisz w zasięgu, które musi wykonać rzut obronny na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 10d6} obrażenia od siły i zostaje powalony {@condition prone} na czas trwania. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie zostaje powalony {@condition prone}. Stworzenie powalone {@condition prone} tą mocą może wykonać akcję, aby wykonać test Siły ({@skill Athletics}) przeciwko ST obronności twojego talentu, kończąc wpływ mocy na nie i kończąc sukces."
+            "Sprowadzasz miażdżącą siłę na stworzenie, które widzisz w zasięgu, które musi wykonać rzut obronny na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 10d6} obrażenia od mocy i zostaje powalony {@condition prone} na czas trwania. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie zostaje powalony {@condition prone}. Stworzenie powalone {@condition prone} tą mocą może wykonać akcję, aby wykonać test Siły ({@skill Athletics}) przeciwko ST obronności twojego talentu, kończąc wpływ mocy na nie i kończąc sukces."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d6}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d6}."
           ]
         }
       ]
@@ -1457,11 +1541,11 @@
   },
   "guise": {
     "name": "Przebranie",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Self",
-      "{@b Duration:} 1 godzina"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny",
+      "{@b Czas trwania:} 1 godzina"
     ],
     "data": {
       "name": "Przebranie",
@@ -1470,13 +1554,13 @@
       "type": "RP",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Self",
-        "{@b Duration:} 1 godzina"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny",
+        "{@b Czas trwania:} 1 godzina"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
             "Projektujesz psioniczny wygląd na swoje własne ciało, przekształcając się w dowolne napotkane stworzenie o twoim rozmiarze, chociaż żadne twoje statystyki się nie zmieniają. Możesz także zmienić wygląd dowolnego sprzętu, który nosisz lub trzymasz, gdy manifestujesz tę moc",
             "Twój zmieniony wygląd nie wytrzymuje fizycznej kontroli. Na przykład, jeśli użyjesz tej mocy, aby stać się mastifem, każdy obiekt przechodzący bezpośrednio nad wizerunkiem mastifa wpadnie na ciebie, pozornie będąc w powietrzu, a każdy, kto pogłaska mastifa, poczuje twoje ciało.",
@@ -1484,16 +1568,16 @@
           ]
         },
         {
-          "name": "Zwiększony porządek, rozwijaj się",
+          "name": "Wyższy krąg, zwiększ",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 możesz przebrać się za istotę o jedną kategorię wielkości większą od ciebie. Kiedy w ten sposób manifestujesz moc, ty i wszystko, co nosisz i nosisz, zmieniasz rozmiar, ale twój fizyczny kształt pozostaje taki sam pod psionicznym wyglądem. Każdy upuszczony przez ciebie przedmiot natychmiast powraca do normalnego rozmiaru.",
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 możesz przebrać się za istotę o jedną kategorię wielkości większą od ciebie. Kiedy w ten sposób manifestujesz moc, ty i wszystko, co nosisz i nosisz, zmieniasz rozmiar, ale twój fizyczny kształt pozostaje taki sam pod psionicznym wyglądem. Każdy upuszczony przez ciebie przedmiot natychmiast powraca do normalnego rozmiaru.",
             "Z każdą większą kategorią rozmiarów, Twój rozmiar podwaja się we wszystkich wymiarach, a Twoja waga jest mnożona przez osiem. Jeśli nie ma wystarczająco dużo miejsca, aby odpowiednio rosnąć, osiągniesz maksymalny możliwy rozmiar w dostępnej przestrzeni. Masz przewagę w testach Siły i rzutach obronnych na Siłę. Każda broń, która rośnie wraz z tobą, zadaje dodatkowe obrażenia {@damage 1d4} w zależności od kategorii rozmiaru, którą rośnie."
           ]
         },
         {
-          "name": "Zwiększony porządek, zmniejsz",
+          "name": "Wyższy krąg, zmniejsz",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 możesz przebrać się za istotę o jedną kategorię wielkości mniejszą od ciebie. Kiedy w ten sposób manifestujesz moc, ty i wszystko, co nosisz i nosisz, zmieniasz rozmiar, ale twój fizyczny kształt pozostaje taki sam pod psionicznym wyglądem. Każdy upuszczony przez ciebie przedmiot natychmiast powraca do normalnego rozmiaru.",
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 możesz przebrać się za istotę o jedną kategorię wielkości mniejszą od ciebie. Kiedy w ten sposób manifestujesz moc, ty i wszystko, co nosisz i nosisz, zmieniasz rozmiar, ale twój fizyczny kształt pozostaje taki sam pod psionicznym wyglądem. Każdy upuszczony przez ciebie przedmiot natychmiast powraca do normalnego rozmiaru.",
             "Dla każdej kategorii rozmiaru, w której się zmniejszasz, twój rozmiar jest zmniejszany o połowę we wszystkich wymiarach, a twoja waga jest dzielona przez 8. Masz niekorzystne wyniki w testach Siły i rzutach obronnych na Siłę. Każda broń, która kurczy się wraz z tobą, zmniejsza swoje obrażenia o {@damage 1d4} na kategorię rozmiaru, którą kurczy się (do minimum 1 obrażeń)."
           ]
         }
@@ -1502,33 +1586,39 @@
   },
   "harlequin": {
     "name": "Arlekin",
-    "subtitle": "Czwarty porządek",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 120 stóp"],
+    "subtitle": "4. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp"
+    ],
     "data": {
       "name": "Arlekin",
       "source": "TalPsi",
       "page": 46,
       "type": "TP",
       "order": "4. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 120 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp"
+      ],
       "modes": [
         {
-          "name": "Czwarty porządek",
+          "name": "4. krąg",
           "concentration": {
             "duration": 1,
             "unit": "godz"
           },
           "entries": [
-            "Psionicznie chwytasz kontrolę nad umysłem jednego Humanoida, którego widzisz w zasięgu. Cel musi wykonać rzut obronny na Mądrość i robi to z korzyścią, jeśli ty lub twoi towarzysze z nim walczycie. Po pomyślnym zapisie możesz zadać celowi obrażenia psychiczne {@damage 3d10}. W przypadku nieudanego zapisu celem jest {@condition charmed} przez Ciebie na czas trwania.",
+            "Psionicznie chwytasz kontrolę nad umysłem jednej humanoidalnej istoty, którego widzisz w zasięgu. Cel musi wykonać rzut obronny na Mądrość i robi to z korzyścią, jeśli ty lub twoi towarzysze z nim walczycie. Po pomyślnym zapisie możesz zadać celowi obrażenia psychiczne {@damage 3d10}. W przypadku nieudanego zapisu celem jest {@condition charmed} przez Ciebie na czas trwania.",
             "Podczas gdy celem jest w ten sposób {@condition charmed}, masz z nim połączenie telepatyczne, o ile oboje jesteście na tym samym poziomie istnienia. Możesz użyć tego połączenia telepatycznego, aby wydawać celowi polecenia (nie wymaga to żadnego działania), których on stara się przestrzegać. Jeśli cel wykona rozkaz i nie otrzyma od ciebie dalszych wskazówek, będzie się bronił i zachowywał najlepiej, jak potrafi.",
             "Możesz użyć akcji, aby przejąć całkowitą i precyzyjną kontrolę nad celem {@condition charmed}. Do końca twojej następnej tury cel wykonuje tylko wybrane przez ciebie akcje i nie robi nic więcej. W tym czasie możesz także sprawić, że cel użyje reakcji, ale wymaga to również użycia twojej reakcji.",
             "Za każdym razem, gdy cel otrzymuje obrażenia, wykonuje nowy rzut obronny na Mądrość. Jeśli rzut obronny się powiedzie, warunek {@condition charmed} kończy się."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 2, aby obrać za cel istotę inną niż Humanoid."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 2, aby obrać za cel istotę inną niż humanoidalna istota."
           ]
         }
       ]
@@ -1536,8 +1626,11 @@
   },
   "heat-shell": {
     "name": "Obudowa grzewcza",
-    "subtitle": "Piąty porządek",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Self (promień 10 stóp)"],
+    "subtitle": "5. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny (promień 10 stóp)"
+    ],
     "data": {
       "name": "Obudowa grzewcza",
       "source": "TalPsi",
@@ -1545,12 +1638,12 @@
       "type": "PK",
       "order": "5. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Self (promień 10 stóp)"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny (promień 10 stóp)"
       ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "concentration": {
             "duration": 1,
             "unit": "godz"
@@ -1562,9 +1655,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby zwiększyć obrażenia zadawane przez {@damage 6d8}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby zwiększyć obrażenia zadawane przez {@damage 6d8}."
           ]
         }
       ]
@@ -1572,18 +1665,24 @@
   },
   "heat-transfer": {
     "name": "Przenikanie ciepła",
-    "subtitle": "6. Zakon",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 120 stóp"],
+    "subtitle": "6. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp"
+    ],
     "data": {
       "name": "Przenikanie ciepła",
       "source": "TalPsi",
       "page": 52,
       "type": "PK",
       "order": "6. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 120 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp"
+      ],
       "modes": [
         {
-          "name": "6. Zakon",
+          "name": "6. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -1597,18 +1696,24 @@
   },
   "icon-of-fear": {
     "name": "Ikona strachu",
-    "subtitle": "Trzecie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 120 stóp"],
+    "subtitle": "3. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp"
+    ],
     "data": {
       "name": "Ikona strachu",
       "source": "TalPsi",
       "page": 43,
       "type": "RP",
       "order": "3. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 120 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp"
+      ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -1622,18 +1727,24 @@
   },
   "ignite": {
     "name": "Zapalać",
-    "subtitle": "Drugie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+    "subtitle": "2. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp"
+    ],
     "data": {
       "name": "Zapalać",
       "source": "TalPsi",
       "page": 37,
       "type": "PK",
       "order": "2. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp"
+      ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -1644,9 +1755,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 początkowe obrażenia zwiększają się o {@damage 2d6}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 początkowe obrażenia zwiększają się o {@damage 2d6}."
           ]
         }
       ]
@@ -1654,11 +1765,11 @@
   },
   "illuminator": {
     "name": "Iluminator",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Self (stożek 30 stóp)",
-      "{@b Duration:} 1 godzina"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny (stożek 30 stóp)",
+      "{@b Czas trwania:} 1 godzina"
     ],
     "data": {
       "name": "Iluminator",
@@ -1667,13 +1778,13 @@
       "type": "RP",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Self (stożek 30 stóp)",
-        "{@b Duration:} 1 godzina"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny (stożek 30 stóp)",
+        "{@b Czas trwania:} 1 godzina"
       ],
       "modes": [
         {
-          "name": "Pierwsze zamówienie",
+          "name": "1. krąg",
           "entries": [
             "Tworzysz skupiony stożek jasnego światła o długości 30 stóp, który ma ostre krawędzie i nie emituje przyćmionego światła. Możesz zmienić kolor światła oraz włączać i wyłączać je według własnego uznania (nie jest wymagane żadne działanie)."
           ]
@@ -1683,18 +1794,24 @@
   },
   "imbue-flame": {
     "name": "Napełnij Płomień",
-    "subtitle": "Trzecie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Dotyk"],
+    "subtitle": "3. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk"
+    ],
     "data": {
       "name": "Napełnij Płomień",
       "source": "TalPsi",
       "page": 43,
       "type": "PK",
       "order": "3. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Dotyk"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk"
+      ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "concentration": {
             "duration": 10,
             "unit": "min"
@@ -1704,9 +1821,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
           ]
         }
       ]
@@ -1714,11 +1831,11 @@
   },
   "incinerate": {
     "name": "Palić",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 60 stóp (sześcian 5 stóp)",
-      "{@b Duration:} 1 runda"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp (sześcian 5 stóp)",
+      "{@b Czas trwania:} 1 runda"
     ],
     "data": {
       "name": "Palić",
@@ -1727,9 +1844,9 @@
       "type": "PK",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 60 stóp (sześcian 5 stóp)",
-        "{@b Duration:} 1 runda"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp (sześcian 5 stóp)",
+        "{@b Czas trwania:} 1 runda"
       ],
       "modes": [
         {
@@ -1761,11 +1878,11 @@
   },
   "influence": {
     "name": "Wpływ",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja dodatkowa",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja dodatkowa",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Wpływ",
@@ -1774,13 +1891,13 @@
       "type": "TP",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja dodatkowa",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja dodatkowa",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Pierwsze zamówienie",
+          "name": "1. krąg",
           "entries": [
             "Wybierz jedną istotę w zasięgu, a następnie wykonaj test Charyzmy, aby wpłynąć na nią lub zabawić ją, korzystając z odpowiednich umiejętności, na ile pozwala MG. Dotknięcie umysłu celu zapewnia przewagę w teście, który nie niesie ze sobą żadnej dodatkowej nadprzyrodzonej mocy.",
             "Jeśli test nie powiedzie się, stworzenie zorientuje się, że próbowałeś użyć psioniki, aby wpłynąć na jego nastrój, i stanie się wobec ciebie wrogi. Stworzenie skłonne do przemocy może cię zaatakować. Inna istota może szukać zemsty w inny sposób, według uznania MG, w zależności od charakteru twojej interakcji z nią.",
@@ -1792,18 +1909,24 @@
   },
   "intuition": {
     "name": "Intuicja",
-    "subtitle": "Drugie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+    "subtitle": "2. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp"
+    ],
     "data": {
       "name": "Intuicja",
       "source": "TalPsi",
       "page": 37,
       "type": "CP",
       "order": "2. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp"
+      ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -1813,9 +1936,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 30 stóp od siebie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 30 stóp od siebie."
           ]
         }
       ]
@@ -1823,11 +1946,11 @@
   },
   "invisible-force": {
     "name": "Niewidzialna siła",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe",
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe",
       "Kiedy manifestujesz tę moc, wybierz jedną z następujących opcji:"
     ],
     "data": {
@@ -1837,9 +1960,9 @@
       "type": "TK",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe",
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe",
         "Kiedy manifestujesz tę moc, wybierz jedną z następujących opcji:"
       ],
       "modes": [
@@ -1866,18 +1989,24 @@
   },
   "iron": {
     "name": "Żelazo",
-    "subtitle": "Trzecie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Self"],
+    "subtitle": "3. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny"
+    ],
     "data": {
       "name": "Żelazo",
       "source": "TalPsi",
       "page": 43,
       "type": "MM",
       "order": "3. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Self"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny"
+      ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "concentration": {
             "duration": 10,
             "unit": "min"
@@ -1899,11 +2028,11 @@
   },
   "jaunt": {
     "name": "Wypad",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Wypad",
@@ -1912,22 +2041,22 @@
       "type": "RP",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Na chwilę zaginasz przestrzeń swojego otoczenia, pozwalając tobie lub jednej chętnej istocie, której dotkniesz, teleportować się do niezajętej przestrzeni, którą widzisz w promieniu 30 stóp od ciebie. Jeśli obierasz za cel inne stworzenie, nie musi ono widzieć celu."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 teleportowana odległość wzrasta o 15 stóp.",
-            "Dodatkowo możesz zwiększyć kolejność tej mocy o 1, aby czas jej manifestacji miał 1 dodatkową akcję."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 teleportowana odległość wzrasta o 15 stóp.",
+            "Dodatkowo możesz zwiększyć krąg tej mocy o 1, aby czas jej manifestacji miał 1 dodatkową akcję."
           ]
         }
       ]
@@ -1935,18 +2064,24 @@
   },
   "kindling": {
     "name": "Podpałka",
-    "subtitle": "Drugie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+    "subtitle": "2. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp"
+    ],
     "data": {
       "name": "Podpałka",
       "source": "TalPsi",
       "page": 38,
       "type": "PK",
       "order": "2. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp"
+      ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -1964,10 +2099,10 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 30 stóp od siebie.",
-            "Dodatkowo możesz zwiększyć kolejność tej mocy o 1, aby obrać za cel duże stworzenia lub obiekty, lub o 2, aby obrać za cel ogromne stworzenia lub obiekty."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 30 stóp od siebie.",
+            "Dodatkowo możesz zwiększyć krąg tej mocy o 1, aby obrać za cel duże stworzenia lub obiekty, lub o 2, aby obrać za cel ogromne stworzenia lub obiekty."
           ]
         }
       ]
@@ -1975,11 +2110,11 @@
   },
   "kinetic-crush": {
     "name": "Zmiażdżenie kinetyczne",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 60 stóp",
-      "{@b Duration:} 1 runda"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp",
+      "{@b Czas trwania:} 1 runda"
     ],
     "data": {
       "name": "Zmiażdżenie kinetyczne",
@@ -1988,21 +2123,21 @@
       "type": "TK",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 60 stóp",
-        "{@b Duration:} 1 runda"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp",
+        "{@b Czas trwania:} 1 runda"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
-            "Jedno stworzenie, które widzisz w zasięgu, jest trzymane w twoim uścisku telekinetycznym i musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego cel otrzymuje obrażenia od siły {@damage 2d8}, a jego prędkość wynosi 0 aż do początku twojej następnej tury. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia, a jego prędkość nie ulega zmniejszeniu."
+            "Jedno stworzenie, które widzisz w zasięgu, jest trzymane w twoim uścisku telekinetycznym i musi wykonać rzut obronny na Siłę. W przypadku nieudanego rzutu obronnego cel otrzymuje obrażenia od mocy {@damage 2d8}, a jego prędkość wynosi 0 aż do początku twojej następnej tury. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia, a jego prędkość nie ulega zmniejszeniu."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d8}.",
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d8}.",
             "Dodatkowo możesz zwiększyć rozkaz tej mocy o 1 lub więcej, aby poruszyć cel, jeśli nie powiedzie mu się rzut obronny. Za każde zwiększenie o 1 przesuwasz stworzenie o 3 metry w wybranym przez siebie kierunku, włączając w to górę, ale nie poza zasięg tej mocy. Stworzenie przesunięte w górę zaczyna spadać natychmiast po zakończeniu tego ruchu."
           ]
         }
@@ -2011,11 +2146,11 @@
   },
   "make-friends": {
     "name": "Zaprzyjaźnij się",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} 1 godzina"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} 1 godzina"
     ],
     "data": {
       "name": "Zaprzyjaźnij się",
@@ -2024,23 +2159,23 @@
       "type": "TP",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} 1 godzina"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} 1 godzina"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
-            "Próbujesz psionicznie oczarować Humanoida, którego widzisz w zasięgu. Cel musi wykonać rzut obronny na Mądrość i robi to z korzyścią, jeśli ty lub twoi towarzysze z nim walczycie. Jeśli nie powiedzie im się rzut obronny, celem będzie dla ciebie {@condition charmed} na czas trwania lub do czasu, gdy ty lub twoi towarzysze zrobicie im coś szkodliwego. Stworzenie {@condition charmed} uważa Cię za przyjaznego znajomego, ale to nie znaczy, że zrobi wszystko, o co go poprosisz. Kiedy moc się skończy, istota będzie wiedziała, że ​​była przez ciebie {@condition charmed}."
+            "Próbujesz psionicznie oczarować humanoidalną istotę, którą widzisz w zasięgu. Cel musi wykonać rzut obronny na Mądrość i robi to z korzyścią, jeśli ty lub twoi towarzysze z nim walczycie. Jeśli nie powiedzie im się rzut obronny, celem będzie dla ciebie {@condition charmed} na czas trwania lub do czasu, gdy ty lub twoi towarzysze zrobicie im coś szkodliwego. Stworzenie {@condition charmed} uważa Cię za przyjaznego znajomego, ale to nie znaczy, że zrobi wszystko, o co go poprosisz. Kiedy moc się skończy, istota będzie wiedziała, że ​​była przez ciebie {@condition charmed}."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 30 stóp od siebie.",
-            "Dodatkowo możesz zwiększyć rozkaz mocy o 2 wskazane stworzenia inne niż Humanoidy.",
-            "Możesz także zwiększyć kolejność mocy o 1, tak aby cel {@condition charmed} o tej mocy nie wiedział, że był przez ciebie {@condition charmed}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 30 stóp od siebie.",
+            "Dodatkowo możesz zwiększyć rozkaz mocy o 2 wskazane stworzenia inne niż humanoidalne istoty.",
+            "Możesz także zwiększyć krąg mocy o 1, tak aby cel {@condition charmed} o tej mocy nie wiedział, że był przez ciebie {@condition charmed}."
           ]
         }
       ]
@@ -2048,18 +2183,24 @@
   },
   "mass-choke": {
     "name": "Masowy dławik",
-    "subtitle": "6. Zakon",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+    "subtitle": "6. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp"
+    ],
     "data": {
       "name": "Masowy dławik",
       "source": "TalPsi",
       "page": 52,
       "type": "TK",
       "order": "6. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp"
+      ],
       "modes": [
         {
-          "name": "6. Zakon",
+          "name": "6. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -2073,11 +2214,11 @@
   },
   "melt": {
     "name": "Stopić",
-    "subtitle": "Czwarty porządek",
+    "subtitle": "4. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 60 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Stopić",
@@ -2086,22 +2227,22 @@
       "type": "PK",
       "order": "4. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 60 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Czwarty porządek",
+          "name": "4. krąg",
           "entries": [
             "Wybierz wyprodukowany, zwyczajny metalowy przedmiot nie większy niż Średni, taki jak metalowa broń lub metalowa zbroja, który możesz zobaczyć w zasięgu. Sprawiasz, że obiekt świeci się do czerwoności. Jeśli przedmiot nie jest noszony ani noszony przez jakąś istotę, topi się i zamienia w bezużyteczny żużel.",
             "Jeśli przedmiot jest noszony lub noszony przez jakąś istotę, ta istota musi wykonać rzut obronny na Zręczność. W przypadku nieudanego rzutu obronnego istota otrzymuje {@damage 5d10} obrażenia od ognia, a obiekt topi się w bezużyteczny żużel. W przypadku powodzenia, istota otrzymuje o połowę mniejsze obrażenia, a obiekt nie topi się."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d10}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d10}."
           ]
         }
       ]
@@ -2109,11 +2250,11 @@
   },
   "memory-gap": {
     "name": "Luka w pamięci",
-    "subtitle": "Czwarty porządek",
+    "subtitle": "4. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Luka w pamięci",
@@ -2122,24 +2263,24 @@
       "type": "CP",
       "order": "4. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Czwarty porządek",
+          "name": "4. krąg",
           "entries": [
             "Manipulując czasem, próbujesz wymazać wspomnienia innej istoty. Jedno stworzenie, które widzisz w zasięgu, musi wykonać rzut obronny na Mądrość i robi to z korzyścią, jeśli ty lub twoi towarzysze z nimi walczycie. W przypadku niepowodzenia możesz wymazać pamięć celu o zdarzeniu, którego doświadczył w ciągu ostatnich 24 godzin i które trwało nie dłużej niż 10 minut, trwale eliminując całą pamięć o zdarzeniu. Nie musisz być świadkiem wydarzenia, ale musisz w jakiś sposób być świadomy zdarzenia i jego szczegółów, nawet jako relacja z drugiej ręki. Po wymazaniu pamięci cel nie może sobie przypomnieć, co się z nim działo w tym czasie, ale nie przeszkadza mu luka w pamięci.",
             "Każda istota potrafiąca wyczuć psionikę, np. będąca pod wpływem mocy {@psionic sixth sense|TalPsi}, może stwierdzić, że pamięć celu została zmodyfikowana. Moc {@psionic cure ailment|TalPsi} manifestowana na celu przywraca pamięć stworzenia."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby rozszerzyć pamięć, którą wymazujesz. Każde zwiększenie o 1 powoduje zwiększenie czasu trwania kasowanej pamięci o 10 minut.",
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby rozszerzyć pamięć, którą wymazujesz. Każde zwiększenie o 1 powoduje zwiększenie czasu trwania kasowanej pamięci o 10 minut.",
             "Dodatkowo możesz zwiększyć rozkaz mocy o 1, aby wymazać pamięć celu o zdarzeniu, które miało miejsce w ciągu ostatnich 7 dni, lub o 2, aby wymazać pamięć o zdarzeniu z ostatnich 30 dni.",
-            "Możesz także zwiększyć rząd mocy o 1, aby wszczepić fałszywe wspomnienie w miejsce tego, które usunąłeś. Fałszywa pamięć niekoniecznie wpływa na zachowanie istoty, zwłaszcza jeśli jest sprzeczna z jej naturalnymi skłonnościami, charakterem lub przekonaniami. Nielogiczne fałszywe wspomnienie, takie jak wspomnienie, jak bardzo stworzenie lubił oblewać się kwasem, jest odrzucane, być może jako zły sen. MG może uznać zmodyfikowane wspomnienie za zbyt bezsensowne, aby wpłynąć na istotę w znaczący sposób."
+            "Możesz także zwiększyć krąg mocy o 1, aby wszczepić fałszywe wspomnienie w miejsce tego, które usunąłeś. Fałszywa pamięć niekoniecznie wpływa na zachowanie istoty, zwłaszcza jeśli jest sprzeczna z jej naturalnymi skłonnościami, charakterem lub przekonaniami. Nielogiczne fałszywe wspomnienie, takie jak wspomnienie, jak bardzo stworzenie lubił oblewać się kwasem, jest odrzucane, być może jako zły sen. MG może uznać zmodyfikowane wspomnienie za zbyt bezsensowne, aby wpłynąć na istotę w znaczący sposób."
           ]
         }
       ]
@@ -2147,11 +2288,11 @@
   },
   "mindscape": {
     "name": "Krajobraz umysłu",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} 1 runda"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} 1 runda"
     ],
     "data": {
       "name": "Krajobraz umysłu",
@@ -2160,37 +2301,67 @@
       "type": "RP",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} 1 runda"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} 1 runda"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Próbujesz sprawić, by istota, którą widzisz w zasięgu, postrzegała swoje otoczenie inaczej, a następnie zmuszasz ją do poruszania się w tym fałszywym środowisku. Cel musi wykonać rzut obronny na Mądrość. W przypadku powodzenia cel otrzymuje {@damage 1d6} obrażenia psychiczne. W przypadku niepowodzenia cel wykonuje akcję Doskoku w swojej następnej turze, poruszając się w losowym kierunku wyrzuconym w tabeli Kierunków Mindscape. Cel nie może uniknąć zagrożeń, ale gdy dotknie jakiejkolwiek przeszkody, może spróbować ominąć ją, nad nią lub pod nią.",
             {
               "type": "table",
               "caption": "Wskazówki dotyczące krajobrazu umysłu",
-              "colLabels": ["{@dice d8}", "Kierunek"],
-              "colStyles": ["col-1 centrum tekstowe", "col-4 tekst po lewej stronie"],
+              "colLabels": [
+                "{@dice d8}",
+                "Kierunek"
+              ],
+              "colStyles": [
+                "col-1 centrum tekstowe",
+                "col-4 tekst po lewej stronie"
+              ],
               "rows": [
-                ["1", "Północ"],
-                ["2", "Północny wschód"],
-                ["3", "Wschód"],
-                ["4", "Południowy wschód"],
-                ["5", "Południe"],
-                ["6", "Południowy zachód"],
-                ["7", "Zachód"],
-                ["8", "Północny zachód"]
+                [
+                  "1",
+                  "Północ"
+                ],
+                [
+                  "2",
+                  "Północny wschód"
+                ],
+                [
+                  "3",
+                  "Wschód"
+                ],
+                [
+                  "4",
+                  "Południowy wschód"
+                ],
+                [
+                  "5",
+                  "Południe"
+                ],
+                [
+                  "6",
+                  "Południowy zachód"
+                ],
+                [
+                  "7",
+                  "Zachód"
+                ],
+                [
+                  "8",
+                  "Północny zachód"
+                ]
               ]
             }
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 30 stóp od siebie. Rzucasz w innym losowym kierunku dla każdego stworzenia objętego tą mocą."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 30 stóp od siebie. Rzucasz w innym losowym kierunku dla każdego stworzenia objętego tą mocą."
           ]
         }
       ]
@@ -2198,18 +2369,24 @@
   },
   "mindwipe": {
     "name": "Wymazanie umysłu",
-    "subtitle": "6. Zakon",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+    "subtitle": "6. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp"
+    ],
     "data": {
       "name": "Wymazanie umysłu",
       "source": "TalPsi",
       "page": 52,
       "type": "TP",
       "order": "6. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp"
+      ],
       "modes": [
         {
-          "name": "6. Zakon",
+          "name": "6. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -2223,11 +2400,11 @@
   },
   "minor-acceleration": {
     "name": "Niewielkie przyspieszenie",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja dodatkowa",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} 1 runda"
+      "{@b Czas manifestacji:} 1 akcja dodatkowa",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} 1 runda"
     ],
     "data": {
       "name": "Niewielkie przyspieszenie",
@@ -2236,13 +2413,13 @@
       "type": "MM",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja dodatkowa",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} 1 runda"
+        "{@b Czas manifestacji:} 1 akcja dodatkowa",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} 1 runda"
       ],
       "modes": [
         {
-          "name": "Pierwsze zamówienie",
+          "name": "1. krąg",
           "entries": [
             "Dotykasz chętnego stworzenia, aby zwiększyć jego prędkość o 3 metry do końca twojej następnej tury."
           ]
@@ -2252,11 +2429,11 @@
   },
   "momentary-lapse-of-reason": {
     "name": "Chwilowy brak rozsądku",
-    "subtitle": "Czwarty porządek",
+    "subtitle": "4. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 120 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Chwilowy brak rozsądku",
@@ -2265,13 +2442,13 @@
       "type": "RP",
       "order": "4. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 120 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Czwarty porządek",
+          "name": "4. krąg",
           "entries": [
             "Wybierz jedno stworzenie lub obiekt, które widzisz w zasięgu. Każde wybrane przez ciebie stworzenie w promieniu 30 stóp od celu postrzega cel jako coś, czego bardzo pragnie i musi wykonać rzut obronny na Mądrość. W przypadku nieudanego rzutu obronnego istota upuszcza wszystko, co trzyma i wykorzystuje swoją reakcję, jeśli jest dostępna, aby zwiększyć swoją prędkość w kierunku celu najbardziej bezpośrednią drogą. Jeśli stworzenie zbliży się na mniej niż 5 stóp od celu, przestanie się poruszać i upadnie {@condition prone}.",
             "Stworzenia, które nie mogą być {@condition charmed}, są odporne na tę moc."
@@ -2282,11 +2459,11 @@
   },
   "overheat": {
     "name": "Przegrzać",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Przegrzać",
@@ -2295,21 +2472,21 @@
       "type": "PK",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
             "Próbujesz podnieść temperaturę wewnętrzną istoty, którą widzisz w zasięgu, co musi wykonać rzut obronny na Kondycję. W przypadku powodzenia cel otrzymuje {@damage 2d6} obrażenia od ognia. W przypadku niepowodzenia zyskują jeden poziom {@condition exhaustion}. Stworzenia posiadające odporność lub odporność na obrażenia od ognia automatycznie wykonują rzuty obronne przeciwko tej mocy."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
           ]
         }
       ]
@@ -2317,11 +2494,11 @@
   },
   "paragon": {
     "name": "Wzór doskonałości",
-    "subtitle": "6. Zakon",
+    "subtitle": "6. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} 8 godzin"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} 8 godzin"
     ],
     "data": {
       "name": "Wzór doskonałości",
@@ -2330,13 +2507,13 @@
       "type": "MM",
       "order": "6. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} 8 godzin"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} 8 godzin"
       ],
       "modes": [
         {
-          "name": "6. Zakon",
+          "name": "6. krąg",
           "entries": [
             "Jedno chętne stworzenie, którego dotkniesz, staje się wzorem fizycznej i psychicznej doskonałości. Przez cały czas trwania zdolności każdy cel ma wartość 20, chyba że wynik jest już wyższy."
           ]
@@ -2346,11 +2523,11 @@
   },
   "penetrating-sight": {
     "name": "Przenikliwy wzrok",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Self",
-      "{@b Duration:} 1 minuta"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny",
+      "{@b Czas trwania:} 1 minuta"
     ],
     "data": {
       "name": "Przenikliwy wzrok",
@@ -2359,21 +2536,21 @@
       "type": "MM",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Self",
-        "{@b Duration:} 1 minuta"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny",
+        "{@b Czas trwania:} 1 minuta"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Przez cały czas trwania efektu możesz widzieć materię stałą i jej zawartość w promieniu 30 stóp. Obiekty stałe w tym zakresie wydają się przezroczyste i nie utrudniają przedostawania się przez nie światła. Wizja ta może przeniknąć do 1 stopy kamienia, 1 cala zwykłego metalu lub do 3 stóp drewna lub ziemi. Grubsze substancje blokują widzenie, podobnie jak cienka warstwa ołowiu."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Każde zwiększenie o 1 zwiększa zasięg widzenia o 30 stóp."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Każde zwiększenie o 1 zwiększa zasięg widzenia o 30 stóp."
           ]
         }
       ]
@@ -2381,11 +2558,11 @@
   },
   "precognition": {
     "name": "Prekognicja",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} 8 godzin"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} 8 godzin"
     ],
     "data": {
       "name": "Prekognicja",
@@ -2394,21 +2571,21 @@
       "type": "CP",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} 8 godzin"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} 8 godzin"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Dotykasz chętnego stworzenia i obdarzasz go ograniczoną zdolnością przewidywania niebezpieczeństw. Na czas trwania ataku cel może dodać {@dice 1d6} do swoich testów inicjatywy i nie może być zaskoczony."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
           ]
         }
       ]
@@ -2416,11 +2593,11 @@
   },
   "psionic-bolt": {
     "name": "Psioniczny pocisk",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 120 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Psioniczny pocisk",
@@ -2429,33 +2606,33 @@
       "type": "RP",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 120 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
           "name": "Poziom 1-4",
           "entries": [
-            "Wystrzeliwujesz fioletową wiązkę mocy psychicznej, która uderza w istotę lub obiekt w zasięgu. Wykonaj mocny atak dystansowy przeciwko celowi. Po trafieniu cel otrzymuje obrażenia od siły {@damage 1d6}, a jeśli jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od ciebie."
+            "Wystrzeliwujesz fioletową wiązkę mocy psychicznej, która uderza w istotę lub obiekt w zasięgu. Wykonaj mocny atak dystansowy przeciwko celowi. Po trafieniu cel otrzymuje obrażenia od mocy {@damage 1d6}, a jeśli jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od ciebie."
           ]
         },
         {
           "name": "Poziom 5-10",
           "entries": [
-            "Wystrzeliwujesz fioletową wiązkę mocy psychicznej, która uderza w istotę lub obiekt w zasięgu. Wykonaj mocny atak dystansowy przeciwko celowi. Po trafieniu cel otrzymuje obrażenia od siły {@damage 2d6}, a jeśli jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od ciebie."
+            "Wystrzeliwujesz fioletową wiązkę mocy psychicznej, która uderza w istotę lub obiekt w zasięgu. Wykonaj mocny atak dystansowy przeciwko celowi. Po trafieniu cel otrzymuje obrażenia od mocy {@damage 2d6}, a jeśli jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od ciebie."
           ]
         },
         {
           "name": "Poziom 11-16",
           "entries": [
-            "Wystrzeliwujesz fioletową wiązkę mocy psychicznej, która uderza w istotę lub obiekt w zasięgu. Wykonaj mocny atak dystansowy przeciwko celowi. Po trafieniu cel otrzymuje obrażenia od siły {@damage 3d6}, a jeśli jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od ciebie."
+            "Wystrzeliwujesz fioletową wiązkę mocy psychicznej, która uderza w istotę lub obiekt w zasięgu. Wykonaj mocny atak dystansowy przeciwko celowi. Po trafieniu cel otrzymuje obrażenia od mocy {@damage 3d6}, a jeśli jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od ciebie."
           ]
         },
         {
           "name": "Poziom 17+",
           "entries": [
-            "Wystrzeliwujesz fioletową wiązkę mocy psychicznej, która uderza w istotę lub obiekt w zasięgu. Wykonaj mocny atak dystansowy przeciwko celowi. Po trafieniu cel otrzymuje obrażenia od siły {@damage 4d6}, a jeśli jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od ciebie."
+            "Wystrzeliwujesz fioletową wiązkę mocy psychicznej, która uderza w istotę lub obiekt w zasięgu. Wykonaj mocny atak dystansowy przeciwko celowi. Po trafieniu cel otrzymuje obrażenia od mocy {@damage 4d6}, a jeśli jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od ciebie."
           ]
         }
       ]
@@ -2463,11 +2640,11 @@
   },
   "psionic-resilience": {
     "name": "Odporność psioniczna",
-    "subtitle": "Czwarty porządek",
+    "subtitle": "4. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} 1 godzina"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} 1 godzina"
     ],
     "data": {
       "name": "Odporność psioniczna",
@@ -2476,21 +2653,21 @@
       "type": "MM",
       "order": "4. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} 1 godzina"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} 1 godzina"
       ],
       "modes": [
         {
-          "name": "Czwarty porządek",
+          "name": "4. krąg",
           "entries": [
             "Dotykasz chętnego stworzenia i dajesz mu odporność na jeden z wybranych przez siebie warunków na czas trwania: {@condition blinded}, {@condition charmed}, Dazed, {@condition deafened}, {@condition frightened}, {@condition paralyzed}, {@condition petrified}, {@condition poisoned} lub {@condition stunned}. Dodatkowo, jeśli cel cierpi na wybrany stan, kiedy manifestujesz tę moc, stan ten zostaje stłumiony na czas trwania."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie."
           ]
         }
       ]
@@ -2498,11 +2675,11 @@
   },
   "psionic-shift": {
     "name": "Przesunięcie psioniczne",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja dodatkowa",
-      "{@b Range:} 15 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja dodatkowa",
+      "{@b Zasięg:} 15 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Przesunięcie psioniczne",
@@ -2511,13 +2688,13 @@
       "type": "TK",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja dodatkowa",
-        "{@b Range:} 15 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja dodatkowa",
+        "{@b Zasięg:} 15 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Pierwsze zamówienie",
+          "name": "1. krąg",
           "entries": [
             "Wybierz jedno stworzenie inne niż ty, które widzisz w zasięgu i nie jest to {@condition grappled} ani {@condition restrained}. Cel musi odnieść sukces w rzucie obronnym na Siłę lub zostać przesunięty o 5 stóp w wybranym przez ciebie kierunku. Cel może zdecydować się na niepowodzenie tego rzutu obronnego."
           ]
@@ -2527,32 +2704,38 @@
   },
   "psychic-projection": {
     "name": "Projekcja psychiczna",
-    "subtitle": "Piąty porządek",
-    "entries": ["{@b Manifestation Time:} 10 minut", "{@b Range:} Self"],
+    "subtitle": "5. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 10 minut",
+      "{@b Zasięg:} Własny"
+    ],
     "data": {
       "name": "Projekcja psychiczna",
       "source": "TalPsi",
       "page": 49,
       "type": "TP",
       "order": "5. krąg",
-      "entries": ["{@b Manifestation Time:} 10 minut", "{@b Range:} Self"],
+      "entries": [
+        "{@b Czas manifestacji:} 10 minut",
+        "{@b Zasięg:} Własny"
+      ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "concentration": {
             "duration": 1,
             "unit": "godz"
           },
           "entries": [
             "Natychmiast przenosisz swoją świadomość do określonego miejsca, które znajduje się na tej samej płaszczyźnie istnienia co ty. Wybrane miejsce docelowe musi być takie, które znasz lub masz szczegółowy opis.",
-            "Materialne ciało, które pozostawiasz, to {@condition unconscious} i znajduje się w stanie zawieszonej animacji. Nie potrzebuje jedzenia ani powietrza i nie starzeje się. Twoja projekcyjna świadomość przypomina twoją śmiertelną postać, replikując statystyki gry i wyposażenie. Jednakże nie możesz fizycznie wpływać na otaczający cię świat, wchodzić w interakcję z przedmiotami ani ich trzymać, rzucać zaklęć ani manifestować mocy, a także masz odporność na wszystkie obrażenia z wyjątkiem obrażeń siłowych i psychicznych. Twoja rzutowana świadomość ma prędkość lotu równą szybkości chodzenia i może poruszać się przez inne stworzenia i obiekty tak, jakby były trudnym terenem, ale otrzymujesz obrażenia od siły {@damage 1d10}, jeśli zakończysz swoją turę wewnątrz obiektu. Twoja świadomość jest oddzielną inkarnacją od twojego ciała. Wszelkie uszkodzenia lub inne skutki, które dotyczą twojej świadomości, nie mają wpływu na twoje ciało fizyczne ani nie utrzymują się, kiedy do niego powrócisz.",
+            "Materialne ciało, które pozostawiasz, to {@condition unconscious} i znajduje się w stanie zawieszonej animacji. Nie potrzebuje jedzenia ani powietrza i nie starzeje się. Twoja projekcyjna świadomość przypomina twoją śmiertelną postać, replikując statystyki gry i wyposażenie. Jednakże nie możesz fizycznie wpływać na otaczający cię świat, wchodzić w interakcję z przedmiotami ani ich trzymać, rzucać zaklęć ani manifestować mocy, a także masz odporność na wszystkie obrażenia z wyjątkiem obrażeń od mocy i psychicznych. Twoja rzutowana świadomość ma prędkość lotu równą szybkości chodzenia i może poruszać się przez inne stworzenia i obiekty tak, jakby były trudnym terenem, ale otrzymujesz obrażenia od mocy {@damage 1d10}, jeśli zakończysz swoją turę wewnątrz obiektu. Twoja świadomość jest oddzielną inkarnacją od twojego ciała. Wszelkie uszkodzenia lub inne skutki, które dotyczą twojej świadomości, nie mają wpływu na twoje ciało fizyczne ani nie utrzymują się, kiedy do niego powrócisz.",
             "Kiedy ta moc się skończy, twoja świadomość powraca do ciała. Jeśli twoje ciało zostanie zniszczone, gdy ta moc się skończy, umrzesz."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby zadziałała na ciebie i maksymalnie osiem chętnych stworzeń w promieniu 3 metrów od ciebie. Projektowana świadomość każdej istoty podróżuje do tego samego celu."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby zadziałała na ciebie i maksymalnie osiem chętnych stworzeń w promieniu 3 metrów od ciebie. Projektowana świadomość każdej istoty podróżuje do tego samego celu."
           ]
         }
       ]
@@ -2560,11 +2743,11 @@
   },
   "psychic-stab": {
     "name": "Psychiczne dźgnięcie",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 120 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Psychiczne dźgnięcie",
@@ -2573,9 +2756,9 @@
       "type": "TP",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 120 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
@@ -2607,8 +2790,11 @@
   },
   "pulse": {
     "name": "Puls",
-    "subtitle": "Trzecie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Self (promień 15 stóp)"],
+    "subtitle": "3. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny (promień 15 stóp)"
+    ],
     "data": {
       "name": "Puls",
       "source": "TalPsi",
@@ -2616,12 +2802,12 @@
       "type": "TK",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Self (promień 15 stóp)"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny (promień 15 stóp)"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "concentration": {
             "duration": 10,
             "unit": "min"
@@ -2631,9 +2817,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 promień efektu zwiększa się o 5 stóp."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 promień efektu zwiększa się o 5 stóp."
           ]
         }
       ]
@@ -2641,11 +2827,11 @@
   },
   "ravages-of-time": {
     "name": "Niszczyciele czasu",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 60 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Niszczyciele czasu",
@@ -2654,21 +2840,21 @@
       "type": "CP",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 60 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
             "Próbujesz szybko postarzyć ciało jednej istoty, którą widzisz w zasięgu, co wymaga wykonania rzutu obronnego na Kondycję. W przypadku niepowodzenia cel otrzymuje {@damage 5d8} obrażenia nekrotyczne i starzeje się {@dice 1d10} lat. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie starzeje się. Cel postarzały się pod wpływem tej mocy powraca do normalnego wieku po zakończeniu długiego odpoczynku."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d8}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d8}."
           ]
         }
       ]
@@ -2676,11 +2862,11 @@
   },
   "read-object": {
     "name": "Przeczytaj obiekt",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 minuta",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 minuta",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Przeczytaj obiekt",
@@ -2689,13 +2875,13 @@
       "type": "CP",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 minuta",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 minuta",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Dotykasz obiektu i zyskujesz następujące informacje na jego temat:",
             {
@@ -2708,9 +2894,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1. Kiedy to zrobisz, możesz umieścić na przedmiocie niewidzialny czujnik psioniczny, który działa przez 24 godziny. Przez pewien czas możesz użyć akcji, aby poznać odległość i kierunek obiektu względem ciebie oraz zobaczyć i usłyszeć otoczenie obiektu z jego punktu widzenia, tak jakbyś tam był."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1. Kiedy to zrobisz, możesz umieścić na przedmiocie niewidzialny czujnik psioniczny, który działa przez 24 godziny. Przez pewien czas możesz użyć akcji, aby poznać odległość i kierunek obiektu względem ciebie oraz zobaczyć i usłyszeć otoczenie obiektu z jego punktu widzenia, tak jakbyś tam był."
           ]
         }
       ]
@@ -2718,18 +2904,24 @@
   },
   "read-thoughts": {
     "name": "Przeczytaj Myśli",
-    "subtitle": "Drugie zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+    "subtitle": "2. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp"
+    ],
     "data": {
       "name": "Przeczytaj Myśli",
       "source": "TalPsi",
       "page": 39,
       "type": "TP",
       "order": "2. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp"
+      ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -2740,9 +2932,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1. Kiedy to zrobisz, możesz użyć dodatkowej akcji, gdy moc jest aktywna, aby wniknąć głębiej w umysł celu, zmuszając go do wykonania rzutu obronnego na Inteligencję. Po sukcesie moc się kończy. W przypadku niepowodzenia zyskujesz wgląd w rozumowanie celu (jeśli istnieje), jego stan emocjonalny i jedną rzecz, która pojawia się w jego umyśle (problem, którym się martwi, osoba, którą kocha lub nienawidzi, i tak dalej). Niezależnie od tego, czy rzut obronny się powiedzie, czy nie, cel nie wie, że próbowałeś wniknąć w jego umysł."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1. Kiedy to zrobisz, możesz użyć dodatkowej akcji, gdy moc jest aktywna, aby wniknąć głębiej w umysł celu, zmuszając go do wykonania rzutu obronnego na Inteligencję. Po sukcesie moc się kończy. W przypadku niepowodzenia zyskujesz wgląd w rozumowanie celu (jeśli istnieje), jego stan emocjonalny i jedną rzecz, która pojawia się w jego umyśle (problem, którym się martwi, osoba, którą kocha lub nienawidzi, i tak dalej). Niezależnie od tego, czy rzut obronny się powiedzie, czy nie, cel nie wie, że próbowałeś wniknąć w jego umysł."
           ]
         }
       ]
@@ -2750,18 +2942,24 @@
   },
   "reflection": {
     "name": "Odbicie",
-    "subtitle": "6. Zakon",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+    "subtitle": "6. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp"
+    ],
     "data": {
       "name": "Odbicie",
       "source": "TalPsi",
       "page": 52,
       "type": "RP",
       "order": "6. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp"
+      ],
       "modes": [
         {
-          "name": "6. Zakon",
+          "name": "6. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -2777,11 +2975,11 @@
   },
   "rejuvenate": {
     "name": "Odmładzać",
-    "subtitle": "6. Zakon",
+    "subtitle": "6. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} Natychmiastowe",
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} Natychmiastowe",
       "Dotykasz jednego stworzenia i zmieniasz bieg czasu przez jego ciało, przywracając je do wcześniejszego stanu. Cel zyskuje jedną z następujących korzyści:"
     ],
     "data": {
@@ -2791,15 +2989,17 @@
       "type": "RP",
       "order": "6. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} Natychmiastowe",
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} Natychmiastowe",
         "Dotykasz jednego stworzenia i zmieniasz bieg czasu przez jego ciało, przywracając je do wcześniejszego stanu. Cel zyskuje jedną z następujących korzyści:"
       ],
       "modes": [
         {
           "name": "Zamknięte rany",
-          "entries": ["Cel odzyskuje 50 punktów wytrzymałości."]
+          "entries": [
+            "Cel odzyskuje 50 punktów wytrzymałości."
+          ]
         },
         {
           "name": "Świeży początek",
@@ -2818,18 +3018,24 @@
   },
   "reminisce": {
     "name": "Opowiadać wspomnienia",
-    "subtitle": "Czwarty porządek",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+    "subtitle": "4. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp"
+    ],
     "data": {
       "name": "Opowiadać wspomnienia",
       "source": "TalPsi",
       "page": 47,
       "type": "RP",
       "order": "4. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 30 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp"
+      ],
       "modes": [
         {
-          "name": "Czwarty porządek",
+          "name": "4. krąg",
           "concentration": {
             "duration": 1,
             "unit": "godz"
@@ -2840,9 +3046,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Każde zwiększenie o 1 powoduje zwiększenie czasu trwania o 1 godzinę."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Każde zwiększenie o 1 powoduje zwiększenie czasu trwania o 1 godzinę."
           ]
         }
       ]
@@ -2850,11 +3056,11 @@
   },
   "repel": {
     "name": "Odpychać",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Odpychać",
@@ -2863,22 +3069,22 @@
       "type": "TK",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Wybierasz średnie lub mniejsze stworzenie lub obiekt, które widzisz w zasięgu, a następnie telekinetycznie odpychasz ten cel od siebie. Obiekt, na który celujesz, musi ważyć 300 funtów lub mniej i nie może być noszony ani noszony przez inną istotę.",
             "Wskazana istota musi wykonać rzut obronny na Siłę (przedmioty automatycznie nie przechodzą tego rzutu). W przypadku nieudanego rzutu obronnego przesuwasz cel na odległość do 30 stóp w dowolnym kierunku, włączając w to górę. Po sukcesie przesuwasz cel o 5 stóp w dowolnym kierunku. Cel przesunięty w górę zaczyna spadać natychmiast po zakończeniu tego ruchu. Stworzenie może zdecydować się na niepowodzenie rzutu obronnego."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie lub obiekt."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie lub obiekt."
           ]
         }
       ]
@@ -2886,11 +3092,11 @@
   },
   "restore-the-past": {
     "name": "Przywróć przeszłość",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Przywróć przeszłość",
@@ -2899,22 +3105,22 @@
       "type": "CP",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
             "Dotykasz kawałka dużego lub mniejszego, przyziemnego przedmiotu, który został zniszczony, a następnie przerabiasz ten przedmiot swoim umysłem. Możesz przerobić obiekt, nawet jeśli brakuje niektórych jego połamanych elementów lub jeśli został obrócony w pył zaklęciem {@spell disintegrate}.",
             "Przedmiot może mieć wartość nie większą niż 1000 sz. Gdy obiekt zostanie przerobiony, tej mocy nie można użyć do przerobienia innej wersji obiektu, nawet jeśli pozostały jeszcze inne części oryginału."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 2, aby przerobić Ogromny obiekt."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 2, aby przerobić Ogromny obiekt."
           ]
         }
       ]
@@ -2922,11 +3128,11 @@
   },
   "restructure": {
     "name": "Restrukturyzacja",
-    "subtitle": "Piąty porządek",
+    "subtitle": "5. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Restrukturyzacja",
@@ -2935,21 +3141,21 @@
       "type": "RP",
       "order": "5. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "entries": [
             "Dotykasz dużego lub mniejszego, zwykłego przedmiotu, aby wywołać w nim psioniczne wibracje, zmieniając materiał, z którego jest wykonany (z metalu na kamień, z drewna na szkło i tak dalej). Nie możesz zmienić stanu obiektu - gazowego, ciekłego czy stałego - i nie możesz zwiększyć jego wartości. Na przykład, jeśli zamienisz srebrny posąg na złoty posąg, złoto będzie tak kiepskiej jakości, że wartość posągu pozostanie taka sama."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby obrać za cel ogromny obiekt."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby obrać za cel ogromny obiekt."
           ]
         }
       ]
@@ -2957,11 +3163,11 @@
   },
   "reveal-the-path": {
     "name": "Odkryj ścieżkę",
-    "subtitle": "Piąty porządek",
+    "subtitle": "5. krąg",
     "entries": [
-      "{@b Manifestation Time:} 10 minut",
-      "{@b Range:} Self",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 10 minut",
+      "{@b Zasięg:} Własny",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Odkryj ścieżkę",
@@ -2970,22 +3176,22 @@
       "type": "CP",
       "order": "5. krąg",
       "entries": [
-        "{@b Manifestation Time:} 10 minut",
-        "{@b Range:} Self",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 10 minut",
+        "{@b Zasięg:} Własny",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "entries": [
             "Kiedy manifestujesz tę moc, opisujesz lub nazywasz znane ci stworzenie, które w ciągu ostatnich 24 godzin przeszło w promieniu 300 metrów od ciebie. Natychmiast znasz każde miejsce, które istota odwiedziła w ciągu ostatnich 24 godzin na płaszczyźnie istnienia, gdzie manifestowałeś tę moc. Znasz kierunek i odległość do tych lokalizacji, ale nie wiesz, jak uzyskać do nich dostęp.",
             "Ta moc może obrać za cel konkretną, znaną ci istotę lub istotę, którą widziałeś przynajmniej raz w promieniu 30 stóp od ciebie lub której szczegółowy obraz widziałeś (np. profesjonalny portret). Jeśli opisana lub nazwana istota ma inną formę, na przykład jest pod wpływem zaklęcia {@spell polymorph}, ta moc nie lokalizuje tej istoty."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby poznać każde miejsce, które istota odwiedziła w ciągu ostatnich 7 dni."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby poznać każde miejsce, które istota odwiedziła w ciągu ostatnich 7 dni."
           ]
         }
       ]
@@ -2993,18 +3199,24 @@
   },
   "rewrite": {
     "name": "Przepisać",
-    "subtitle": "Pierwsze zamówienie",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 5 stóp"],
+    "subtitle": "1. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 5 stóp"
+    ],
     "data": {
       "name": "Przepisać",
       "source": "TalPsi",
       "page": 35,
       "type": "RP",
       "order": "1. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 5 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 5 stóp"
+      ],
       "modes": [
         {
-          "name": "Pierwsze zamówienie",
+          "name": "1. krąg",
           "concentration": {
             "duration": 10,
             "unit": "min"
@@ -3018,11 +3230,11 @@
   },
   "scorch": {
     "name": "Przypiekać",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Self (linia 30 stóp)",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny (linia 30 stóp)",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Przypiekać",
@@ -3031,22 +3243,22 @@
       "type": "PK",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Self (linia 30 stóp)",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny (linia 30 stóp)",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Impuls ognia tworzący linię o długości 30 stóp i szerokości 5 stóp wystrzeliwuje od ciebie w wybranym przez ciebie kierunku. Każde stworzenie w linii musi wykonać rzut obronny na Zręczność, który w przypadku nieudanego rzutu otrzyma obrażenia od ognia {@damage 2d6} lub połowę mniej w przypadku udanego rzutu. Ogień powoduje zapalenie łatwopalnych przedmiotów w okolicy, które nie są noszone ani noszone."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d6}.",
-            "Dodatkowo możesz zwiększyć kolejność mocy o 1 lub więcej, aby zwiększyć jej obszar działania. Każde zwiększenie o 1 powoduje zwiększenie długości linii o 30 stóp."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d6}.",
+            "Dodatkowo możesz zwiększyć krąg mocy o 1 lub więcej, aby zwiększyć jej obszar działania. Każde zwiększenie o 1 powoduje zwiększenie długości linii o 30 stóp."
           ]
         }
       ]
@@ -3054,18 +3266,24 @@
   },
   "shadow-form": {
     "name": "Forma Cienia",
-    "subtitle": "Czwarty porządek",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Self"],
+    "subtitle": "4. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny"
+    ],
     "data": {
       "name": "Forma Cienia",
       "source": "TalPsi",
       "page": 47,
       "type": "MM",
       "order": "4. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Self"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny"
+      ],
       "modes": [
         {
-          "name": "Czwarty porządek",
+          "name": "4. krąg",
           "concentration": {
             "duration": 10,
             "unit": "min"
@@ -3085,9 +3303,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby zwiększyć maksymalny czas trwania koncentracji do 1 godziny."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby zwiększyć maksymalny czas trwania koncentracji do 1 godziny."
           ]
         }
       ]
@@ -3095,11 +3313,11 @@
   },
   "share-pain": {
     "name": "Podziel się bólem",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 reakcja, którą podejmujesz w odpowiedzi na obrażenia od istoty znajdującej się w promieniu 60 stóp od ciebie, którą widzisz",
-      "{@b Range:} 60 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 reakcja, którą podejmujesz w odpowiedzi na obrażenia od istoty znajdującej się w promieniu 60 stóp od ciebie, którą widzisz",
+      "{@b Zasięg:} 60 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Podziel się bólem",
@@ -3108,21 +3326,21 @@
       "type": "TP",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 reakcja, którą podejmujesz w odpowiedzi na obrażenia od istoty znajdującej się w promieniu 60 stóp od ciebie, którą widzisz",
-        "{@b Range:} 60 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 reakcja, którą podejmujesz w odpowiedzi na obrażenia od istoty znajdującej się w promieniu 60 stóp od ciebie, którą widzisz",
+        "{@b Zasięg:} 60 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Psionicznie wyciągasz rękę w stronę stworzenia, które cię zraniło, pozwalając im dzielić twój ból. Stworzenie to musi wykonać rzut obronny na Mądrość, zadając obrażenia psychiczne {@damage 1d12} w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 1d12}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 1d12}."
           ]
         }
       ]
@@ -3130,11 +3348,11 @@
   },
   "shared-thoughts": {
     "name": "Wspólne myśli",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} 1 runda"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} 1 runda"
     ],
     "data": {
       "name": "Wspólne myśli",
@@ -3143,13 +3361,13 @@
       "type": "TP",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} 1 runda"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} 1 runda"
       ],
       "modes": [
         {
-          "name": "Pierwsze zamówienie",
+          "name": "1. krąg",
           "entries": [
             "Wybierasz istotę w zasięgu, której jesteś świadomy i wysyłasz jej wiadomość telepatyczną składającą się z maksymalnie dwudziestu pięciu słów lub pojedynczy obraz wizualny, który może zawierać nie więcej niż dwadzieścia pięć słów. Cel może następnie wysłać do ciebie wiadomość składającą się z maksymalnie dwudziestu pięciu słów przed rozpoczęciem twojej następnej tury.",
             "Twój przekaz telepatyczny i jego odpowiedź mogą przechodzić przez stałe przedmioty, ale blokuje je 1 stopa kamienia, 1 cal zwykłego metalu, cienka blacha ołowiu lub 3 stopy drewna. Wiadomości nie muszą przebiegać po linii prostej i mogą swobodnie przemieszczać się po narożnikach lub przez otwory."
@@ -3160,11 +3378,11 @@
   },
   "sharpened-senses": {
     "name": "Wyostrzone zmysły",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja dodatkowa",
-      "{@b Range:} Self",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja dodatkowa",
+      "{@b Zasięg:} Własny",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Wyostrzone zmysły",
@@ -3173,13 +3391,13 @@
       "type": "MM",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja dodatkowa",
-        "{@b Range:} Self",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja dodatkowa",
+        "{@b Zasięg:} Własny",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Pierwsze zamówienie",
+          "name": "1. krąg",
           "entries": [
             "Wykonujesz test Mądrości ({@skill Perception}), aby wykryć ukryte stworzenia, drzwi, przedmioty lub pułapki w swoim bezpośrednim otoczeniu, skupiając psionicznie swoje zmysły, aby zapewnić sobie przewagę w teście."
           ]
@@ -3189,11 +3407,11 @@
   },
   "sixth-sense": {
     "name": "Szósty zmysł",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} 1 godzina",
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} 1 godzina",
       "Dotykasz chętnego stworzenia i nadajesz mu na ten czas jeden z poniższych zmysłów:"
     ],
     "data": {
@@ -3203,19 +3421,23 @@
       "type": "MM",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} 1 godzina",
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} 1 godzina",
         "Dotykasz chętnego stworzenia i nadajesz mu na ten czas jeden z poniższych zmysłów:"
       ],
       "modes": [
         {
           "name": "Widzenie w ciemności",
-          "entries": ["Cel zyskuje {@sense darkvision} na odległość 60 stóp."]
+          "entries": [
+            "Cel zyskuje {@sense darkvision} na odległość 60 stóp."
+          ]
         },
         {
           "name": "Drżenie",
-          "entries": ["Cel zyskuje {@sense tremorsense} w zasięgu 3 stóp."]
+          "entries": [
+            "Cel zyskuje {@sense tremorsense} w zasięgu 3 stóp."
+          ]
         },
         {
           "name": "Zmysł Psi",
@@ -3224,10 +3446,10 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każdy wzrost o 1 obierasz za cel jedno dodatkowe stworzenie, przy czym wszystkie cele zyskują ten sam zmysł.",
-            "Dodatkowo możesz zwiększyć kolejność mocy o 1 lub więcej, aby poszerzyć zasięg zmysłu. Za każde zwiększenie o 1 zasięg ten zwiększa się o 10 stóp."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każdy wzrost o 1 obierasz za cel jedno dodatkowe stworzenie, przy czym wszystkie cele zyskują ten sam zmysł.",
+            "Dodatkowo możesz zwiększyć krąg mocy o 1 lub więcej, aby poszerzyć zasięg zmysłu. Za każde zwiększenie o 1 zasięg ten zwiększa się o 10 stóp."
           ]
         }
       ]
@@ -3235,10 +3457,10 @@
   },
   "smoke-screen": {
     "name": "Zasłona dymna",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 90 stóp (kula o promieniu 20 stóp)"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 90 stóp (kula o promieniu 20 stóp)"
     ],
     "data": {
       "name": "Zasłona dymna",
@@ -3247,12 +3469,12 @@
       "type": "PK",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 90 stóp (kula o promieniu 20 stóp)"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 90 stóp (kula o promieniu 20 stóp)"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "concentration": {
             "duration": 1,
             "unit": "min"
@@ -3264,9 +3486,9 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d6}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d6}."
           ]
         }
       ]
@@ -3274,18 +3496,24 @@
   },
   "souls-intertwined": {
     "name": "Dusze splecione",
-    "subtitle": "6. Zakon",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+    "subtitle": "6. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp"
+    ],
     "data": {
       "name": "Dusze splecione",
       "source": "TalPsi",
       "page": 53,
       "type": "TP",
       "order": "6. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} 60 stóp"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp"
+      ],
       "modes": [
         {
-          "name": "6. Zakon",
+          "name": "6. krąg",
           "concentration": {
             "duration": 1,
             "unit": "godz"
@@ -3308,11 +3536,11 @@
   },
   "stasis-field": {
     "name": "Pole Stazy",
-    "subtitle": "Czwarty porządek",
+    "subtitle": "4. krąg",
     "entries": [
-      "{@b Manifestation Time:} 10 minut",
-      "{@b Range:} Self (sześcian 20 stóp)",
-      "{@b Duration:} 8 godzin"
+      "{@b Czas manifestacji:} 10 minut",
+      "{@b Zasięg:} Własny (sześcian 20 stóp)",
+      "{@b Czas trwania:} 8 godzin"
     ],
     "data": {
       "name": "Pole Stazy",
@@ -3321,22 +3549,22 @@
       "type": "CP",
       "order": "4. krąg",
       "entries": [
-        "{@b Manifestation Time:} 10 minut",
-        "{@b Range:} Self (sześcian 20 stóp)",
-        "{@b Duration:} 8 godzin"
+        "{@b Czas manifestacji:} 10 minut",
+        "{@b Zasięg:} Własny (sześcian 20 stóp)",
+        "{@b Czas trwania:} 8 godzin"
       ],
       "modes": [
         {
-          "name": "Czwarty porządek",
+          "name": "4. krąg",
           "entries": [
             "Kształtujesz półprzezroczysty sześcian o długości 20 stóp, który pochodzi od ciebie, w którym kontrolujesz działanie czasu, aby uczynić obiekty odpornymi na uszkodzenia. Przez ten czas obiekty w kostce, jeśli wydają się nie noszone ani noszone przez stworzenie, nie mogą być przesuwane, uszkadzane ani niszczone. Jeśli część obiektu znajduje się wewnątrz sześcianu, a część na zewnątrz, część znajdująca się na zewnątrz może zostać uszkodzona.",
             "Ty i wszystkie stworzenia w sześcianie, gdy się pojawi, możecie swobodnie się po nim poruszać, a także rzucać zaklęcia i manifestować moce przez sześcian. Wszelkie inne stworzenia, zaklęcia, moce i efekty nadprzyrodzone nie mogą przechodzić przez sześcian."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Każde zwiększenie o 1 powoduje zwiększenie rozmiaru sześcianu o 10 stóp ze wszystkich stron."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Każde zwiększenie o 1 powoduje zwiększenie rozmiaru sześcianu o 10 stóp ze wszystkich stron."
           ]
         }
       ]
@@ -3344,18 +3572,24 @@
   },
   "steel": {
     "name": "Stal",
-    "subtitle": "6. Zakon",
-    "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Self"],
+    "subtitle": "6. krąg",
+    "entries": [
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Własny"
+    ],
     "data": {
       "name": "Stal",
       "source": "TalPsi",
       "page": 53,
       "type": "MM",
       "order": "6. krąg",
-      "entries": ["{@b Manifestation Time:} 1 akcja", "{@b Range:} Self"],
+      "entries": [
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Własny"
+      ],
       "modes": [
         {
-          "name": "6. Zakon",
+          "name": "6. krąg",
           "concentration": {
             "duration": 10,
             "unit": "min"
@@ -3365,7 +3599,7 @@
             {
               "type": "list",
               "items": [
-                "Masz odporność na obrażenia tłuczone, kłute i tnące.",
+                "Masz odporność na obrażenia obuchowe, kłute i sieczne.",
                 "Każde trafienie krytyczne przeciwko tobie staje się normalnym trafieniem.",
                 "Możesz wykonać akcję Ataku, aby wykonać maksymalnie trzy ataki bez broni. Każde uderzenie jest psionicznym atakiem bronią do walki wręcz, który wykorzystuje twoją zdolność manifestacji do testów ataku zamiast Siły i Zręczności. Przy trafieniu cel otrzymuje obrażenia obuchowe równe {@damage 2d10} + twój modyfikator zdolności manifestacji, zamiast normalnych obrażeń obuchowych przy ataku bez broni.",
                 "Jeśli na początku swojej tury masz co najmniej 1 punkt wytrzymałości, odzyskujesz 10 punktów wytrzymałości."
@@ -3378,11 +3612,11 @@
   },
   "target-of-hate": {
     "name": "Cel nienawiści",
-    "subtitle": "Piąty porządek",
+    "subtitle": "5. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 120 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 120 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Cel nienawiści",
@@ -3391,13 +3625,13 @@
       "type": "RP",
       "order": "5. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 120 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 120 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "entries": [
             "Wybierz jedno stworzenie w zasięgu. Każde wrogie ci stworzenie w promieniu 30 stóp od celu postrzega cel jako coś, czym gardzi i musi wykonać rzut obronny na Mądrość. W przypadku nieudanego rzutu obronnego, istota wykorzystuje swoją reakcję, jeśli jest dostępna, aby przesunąć swoją prędkość w stronę celu najbardziej bezpośrednią drogą. Jeśli stworzenie znajdzie się w zasięgu celu, przestaje się poruszać i wykonuje atak wręcz na cel.",
             "Stworzenia, które nie mogą być {@condition charmed}, są odporne na tę moc."
@@ -3408,11 +3642,11 @@
   },
   "telekinetic-burst": {
     "name": "Wybuch telekinetyczny",
-    "subtitle": "Trzecie zamówienie",
+    "subtitle": "3. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 90 stóp (kula o promieniu 20 stóp)",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 90 stóp (kula o promieniu 20 stóp)",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Wybuch telekinetyczny",
@@ -3421,21 +3655,21 @@
       "type": "TK",
       "order": "3. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 90 stóp (kula o promieniu 20 stóp)",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 90 stóp (kula o promieniu 20 stóp)",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
-          "name": "Trzecie zamówienie",
+          "name": "3. krąg",
           "entries": [
-            "Wywołujesz eksplozję siły mentalnej z punktu, który widzisz w zasięgu. Każde stworzenie w sferze o promieniu 20 stóp, której środkiem jest ten punkt, musi wykonać rzut obronny na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje obrażenia od siły {@damage 5d6} i zostaje odepchnięty na 3 metry od środka obszaru. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie jest odpychany."
+            "Wywołujesz eksplozję siły mentalnej z punktu, który widzisz w zasięgu. Każde stworzenie w sferze o promieniu 20 stóp, której środkiem jest ten punkt, musi wykonać rzut obronny na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje obrażenia od mocy {@damage 5d6} i zostaje odepchnięty na 3 metry od środka obszaru. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie jest odpychany."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d6}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obrażenia zwiększają się o {@damage 2d6}."
           ]
         }
       ]
@@ -3443,11 +3677,11 @@
   },
   "the-real": {
     "name": "Prawdziwy",
-    "subtitle": "Piąty porządek",
+    "subtitle": "5. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} Dotyk",
-      "{@b Duration:} 1 godzina"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} Dotyk",
+      "{@b Czas trwania:} 1 godzina"
     ],
     "data": {
       "name": "Prawdziwy",
@@ -3456,21 +3690,21 @@
       "type": "MM",
       "order": "5. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} Dotyk",
-        "{@b Duration:} 1 godzina"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} Dotyk",
+        "{@b Czas trwania:} 1 godzina"
       ],
       "modes": [
         {
-          "name": "Piąty porządek",
+          "name": "5. krąg",
           "entries": [
             "Chętne stworzenie, którego dotkniesz, zyskuje zdolność widzenia rzeczy takimi, jakie są w rzeczywistości. Na pewien czas stworzenie posiada {@sense truesight}, automatycznie zauważa sekretne drzwi ukryte za pomocą magii lub psioniki i może widzieć Plan Eteryczny na odległość 30 metrów."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby obrać za cel jedno dodatkowe stworzenie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby obrać za cel jedno dodatkowe stworzenie."
           ]
         }
       ]
@@ -3478,11 +3712,11 @@
   },
   "time-thief": {
     "name": "Złodziej Czasu",
-    "subtitle": "Pierwsze zamówienie",
+    "subtitle": "1. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} Natychmiastowe"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} Natychmiastowe"
     ],
     "data": {
       "name": "Złodziej Czasu",
@@ -3491,9 +3725,9 @@
       "type": "CP",
       "order": "1. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} Natychmiastowe"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} Natychmiastowe"
       ],
       "modes": [
         {
@@ -3525,11 +3759,11 @@
   },
   "veritas": {
     "name": "Veritas",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 60 stóp",
-      "{@b Duration:} 10 minut"
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 60 stóp",
+      "{@b Czas trwania:} 10 minut"
     ],
     "data": {
       "name": "Veritas",
@@ -3538,21 +3772,21 @@
       "type": "TP",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 60 stóp",
-        "{@b Duration:} 10 minut"
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 60 stóp",
+        "{@b Czas trwania:} 10 minut"
       ],
       "modes": [
         {
-          "name": "Drugie zamówienie",
+          "name": "2. krąg",
           "entries": [
             "Wybierasz za cel maksymalnie trzy stworzenia, które widzisz w zasięgu, a każde z nich musi wykonać rzut obronny na Charyzmę. W przypadku nieudanego rzutu obronnego wiesz, kiedy stworzenie mówi, pisze lub w inny sposób komunikuje kłamstwo przez cały czas trwania rzutu. Wiesz, czy każdemu stworowi uda się, czy nie, w rzucie obronnym."
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 60 stóp od siebie."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie. Kiedy wybierasz na cel, wiele stworzeń musi znajdować się w promieniu 60 stóp od siebie."
           ]
         }
       ]
@@ -3560,10 +3794,10 @@
   },
   "weight": {
     "name": "Waga",
-    "subtitle": "Drugie zamówienie",
+    "subtitle": "2. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
       "Wybierasz istotę w zasięgu i próbujesz zmienić jej stosunek do grawitacji. Cel musi odnieść sukces w rzucie obronnym na Kondycję lub cierpieć przez określony czas jeden z wybranych przez ciebie efektów (obrona kończy się na końcu tury):"
     ],
     "data": {
@@ -3573,8 +3807,8 @@
       "type": "RP",
       "order": "2. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
         "Wybierasz istotę w zasięgu i próbujesz zmienić jej stosunek do grawitacji. Cel musi odnieść sukces w rzucie obronnym na Kondycję lub cierpieć przez określony czas jeden z wybranych przez ciebie efektów (obrona kończy się na końcu tury):"
       ],
       "modes": [
@@ -3584,7 +3818,9 @@
             "duration": 1,
             "unit": "min"
           },
-          "entries": ["Prędkość celu zostaje zmniejszona o 20 stóp (do minimum 0 stóp)."]
+          "entries": [
+            "Prędkość celu zostaje zmniejszona o 20 stóp (do minimum 0 stóp)."
+          ]
         },
         {
           "name": "Levitas",
@@ -3597,10 +3833,10 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie, przy czym wszystkie cele doświadczają tego samego efektu.",
-            "Dodatkowo możesz zwiększyć kolejność mocy o 1 lub więcej, aby dostosować prędkość jej efektów. Za każdy wzrost o 1, redukcja prędkości Gravity lub prędkość pionowego wzrostu Levitas wzrasta o 5 stóp."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1 lub więcej. Za każde zwiększenie o 1 obierasz za cel jedno dodatkowe stworzenie, przy czym wszystkie cele doświadczają tego samego efektu.",
+            "Dodatkowo możesz zwiększyć krąg mocy o 1 lub więcej, aby dostosować prędkość jej efektów. Za każdy wzrost o 1, redukcja prędkości Gravity lub prędkość pionowego wzrostu Levitas wzrasta o 5 stóp."
           ]
         }
       ]
@@ -3608,11 +3844,11 @@
   },
   "witness-demise": {
     "name": "Świadek śmierci",
-    "subtitle": "Piąty porządek",
+    "subtitle": "5. krąg",
     "entries": [
-      "{@b Manifestation Time:} 1 akcja",
-      "{@b Range:} 30 stóp",
-      "{@b Duration:} 1 minuta",
+      "{@b Czas manifestacji:} 1 akcja",
+      "{@b Zasięg:} 30 stóp",
+      "{@b Czas trwania:} 1 minuta",
       "Projektujesz mentalny obraz w umysłach maksymalnie trzech stworzeń, które widzisz w zasięgu. Wybierz jedną z poniższych opcji, która ma wpływ na wszystkie cele:"
     ],
     "data": {
@@ -3622,9 +3858,9 @@
       "type": "CP",
       "order": "5. krąg",
       "entries": [
-        "{@b Manifestation Time:} 1 akcja",
-        "{@b Range:} 30 stóp",
-        "{@b Duration:} 1 minuta",
+        "{@b Czas manifestacji:} 1 akcja",
+        "{@b Zasięg:} 30 stóp",
+        "{@b Czas trwania:} 1 minuta",
         "Projektujesz mentalny obraz w umysłach maksymalnie trzech stworzeń, które widzisz w zasięgu. Wybierz jedną z poniższych opcji, która ma wpływ na wszystkie cele:"
       ],
       "modes": [
@@ -3641,10 +3877,10 @@
           ]
         },
         {
-          "name": "Zwiększony porządek",
+          "name": "Wyższy krąg",
           "entries": [
-            "Kiedy manifestujesz tę moc, możesz zwiększyć jej kolejność o 1, aby obrać za cel jedno dodatkowe stworzenie.",
-            "Dodatkowo możesz zwiększyć kolejność mocy o 1, aby zwiększyć obrażenia opcji Nieuchronny Upadek do {@damage 10d8}."
+            "Kiedy manifestujesz tę moc, możesz zwiększyć jej krąg o 1, aby obrać za cel jedno dodatkowe stworzenie.",
+            "Dodatkowo możesz zwiększyć krąg mocy o 1, aby zwiększyć obrażenia opcji Nieuchronny Upadek do {@damage 10d8}."
           ]
         }
       ]
