@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.106 - 2026-08-15
+
+- Restored optional platform dependency entries required by clean Linux installs.
+
 ## 1.2.105 - 2026-08-15
 
 - Updated lucide-react and eight compatible development dependencies from the requested dependency updates.
