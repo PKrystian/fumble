@@ -2,10 +2,12 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   BACKUP_VERSION,
   MAX_BACKUP_BYTES,
+  MAX_BACKUP_KEYS,
   backupFilename,
   createBackup,
   parseBackup,
   restoreBackup,
+  serializeBackup,
 } from './backup';
 import type { FumbleBackup } from './backup';
 
@@ -37,6 +39,40 @@ describe('data backup', () => {
 
     expect(localStorage.getItem('fumble-old')).toBeNull();
     expect(localStorage.getItem('fumble-new')).toBe('{"state":2}');
+  });
+
+  it('serializes valid backups and enforces the key limit', () => {
+    const backup: FumbleBackup = {
+      app: 'fumble',
+      version: BACKUP_VERSION,
+      exportedAt: '2026-07-29T00:00:00.000Z',
+      data: { 'fumble-state': '{"value":1}' },
+    };
+    expect(JSON.parse(serializeBackup(backup))).toEqual(backup);
+
+    const data = Object.fromEntries(
+      Array.from({ length: MAX_BACKUP_KEYS + 1 }, (_, index) => [
+        `fumble-${index}`,
+        '{}',
+      ]),
+    );
+    expect(() =>
+      parseBackup(
+        JSON.stringify({
+          app: 'fumble',
+          version: BACKUP_VERSION,
+          exportedAt: '2026-07-29T00:00:00.000Z',
+          data,
+        }),
+      ),
+    ).toThrow('backup-too-many-keys');
+
+    expect(() =>
+      serializeBackup({
+        ...backup,
+        data: { 'fumble-state': 'x'.repeat(MAX_BACKUP_BYTES) },
+      }),
+    ).toThrow('backup-too-large');
   });
 
   it('rejects unrelated or malformed data', () => {

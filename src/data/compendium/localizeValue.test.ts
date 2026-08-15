@@ -177,4 +177,36 @@ describe('localizeCompendiumValue', () => {
       localizeCompendiumValue('rozumie Gianta i Common, ale nie mówi', 'pl', 'languages'),
     ).toBe('rozumie Gigantów i Wspólny, ale nie mówi');
   });
+
+  it('covers sparse metadata fields and localization fallbacks', () => {
+    expect(localizeCompendiumValue('', 'pl', 'languageType')).toBe('');
+    expect(localizeCompendiumValue('Unknown (Custom)', 'pl', 'creatureType')).toBe(
+      'Unknown (Custom)',
+    );
+    expect(localizeCompendiumValue(' (Custom)', 'pl', 'creatureType')).toBe(' (Custom)');
+    expect(localizeCompendiumValue(' force ', 'pl', 'damage')).toBe(' moc ');
+    expect(localizeCompendiumValue('Fighting Style, Unknown', 'pl', 'featureType')).toBe(
+      'Styl walki, Unknown',
+    );
+    expect(localizeCompendiumValue('Arcana, Unknown', 'pl', 'typicalSpeakers')).toBe(
+      'Arcana, Unknown',
+    );
+    expect(localizeCompendiumValue('Carnivore, Unknown', 'pl', 'diet')).toBe(
+      'Carnivore, Unknown',
+    );
+    expect(localizeCompendiumValue('Self', 'pl', 'range')).toBe('Siebie');
+    expect(localizeCompendiumValue('Self (point)', 'pl', 'range')).toBe('Siebie (punkt)');
+    expect(localizeCompendiumValue('Touch', 'pl', 'range')).toBe('Dotyk');
+    expect(localizeCompendiumValue('Sight', 'pl', 'range')).toBe('Widoczność');
+    expect(localizeCompendiumValue('Special', 'pl', 'range')).toBe('Specjalny');
+    expect(localizeCompendiumValue('Unlimited', 'pl', 'range')).toBe('Nieograniczony');
+    expect(localizeCompendiumValue('Instantaneous', 'pl', 'duration')).toBe(
+      'Natychmiastowa',
+    );
+    expect(localizeCompendiumValue('Special', 'pl', 'duration')).toBe('Specjalna');
+    expect(localizeCompendiumValue('Until dispelled', 'pl', 'duration')).toBe(
+      'Do rozproszenia',
+    );
+    expect(localizeCompendiumValue('Reaction', 'pl', 'castingTime')).toBe('Reakcja');
+  });
 });

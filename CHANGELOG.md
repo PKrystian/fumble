@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.107 - 2026-08-15
+
+- Raised automated branch coverage to 98% with tests for localization, compendium fallbacks, homebrew visibility, search, storage, and backup flows.
+
 ## 1.2.106 - 2026-08-15
 
 - Restored optional platform dependency entries required by clean Linux installs.

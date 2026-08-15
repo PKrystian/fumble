@@ -109,6 +109,16 @@ describe('SearchPalette', () => {
     expect(mocks.navigate).toHaveBeenCalledWith('/wiki/note');
   });
 
+  it('shows index failures and retries the load', async () => {
+    mocks.load.mockRejectedValueOnce(new Error('index failed')).mockResolvedValueOnce({});
+    render(<SearchPalette />);
+
+    await waitFor(() => expect(screen.getByRole('alert')).toBeInTheDocument());
+    fireEvent.click(screen.getByRole('button', { name: 'common.retry' }));
+    await waitFor(() => expect(mocks.load).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
+  });
+
   it('handles keyboard navigation and closing controls', () => {
     render(<SearchPalette />);
     fireEvent.change(screen.getByRole('searchbox', { name: 'search.title' }), {
@@ -142,5 +152,18 @@ describe('SearchPalette', () => {
     resolveLoad?.({});
     await Promise.resolve();
     expect(mocks.navigate).not.toHaveBeenCalled();
+  });
+
+  it('ignores a rejected index load after unmounting', async () => {
+    let rejectLoad: ((error: Error) => void) | undefined;
+    mocks.load.mockReturnValue(
+      new Promise<object>((_resolve, reject) => {
+        rejectLoad = reject;
+      }),
+    );
+    const view = render(<SearchPalette />);
+    view.unmount();
+    rejectLoad?.(new Error('late failure'));
+    await Promise.resolve();
   });
 });

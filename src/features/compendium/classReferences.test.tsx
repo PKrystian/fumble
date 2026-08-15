@@ -67,4 +67,22 @@ describe('class references', () => {
       '/pl/compendium/classes/cleric/',
     );
   });
+
+  it('keeps unknown classes as text and supports parent-class references', () => {
+    const view = show(
+      <>
+        <ClassReferenceList values={['Unknown Class', 'Wizard']} />
+        <SubclassReferenceList values={['Wizard', 'Unknown Class: Mystery']} />
+        <ClassReferenceText text="{@class Wizard|XPHB|Wizard}" />
+      </>,
+    );
+
+    expect(view.container).toHaveTextContent('Unknown Class');
+    expect(screen.getAllByRole('link', { name: 'Wizard' })).toHaveLength(2);
+    expect(screen.getAllByRole('link', { name: 'Wizard' })[1]).toHaveAttribute(
+      'href',
+      '/pl/compendium/classes/wizard/',
+    );
+    expect(view.container).toHaveTextContent('Unknown Class: Mystery');
+  });
 });

@@ -25,6 +25,9 @@ describe('compendium categories', () => {
 
   it('localizes category subtitles for Polish values', () => {
     expect(
+      getCategory('species')!.subtitle({ size: 'Medium' } as never, (key) => key, 'pl'),
+    ).toBe('Średni');
+    expect(
       getCategory('conditions')!.subtitle(
         { kind: 'status' } as never,
         (key) => key,
@@ -57,6 +60,12 @@ describe('compendium categories', () => {
         'pl',
       ),
     ).toBe('Spelljammer');
+    expect(
+      getCategory('classes')!.renderDetail({
+        hitDie: 'd6',
+        _fumbleSelectedSubclassId: 'lore',
+      } as never),
+    ).toBeTruthy();
   });
 
   it('extracts empty and populated filter values', () => {
@@ -260,5 +269,27 @@ describe('compendium categories', () => {
       'Failed to load compendium data: species',
     );
     vi.restoreAllMocks();
+  });
+
+  it('covers sparse category metadata and unknown filter labels', () => {
+    const t = (key: string) => key;
+
+    for (const category of categories) {
+      expect(category.subtitle({} as never, t)).toEqual(expect.any(String));
+      expect(category.subtitle({} as never, t, 'pl')).toEqual(expect.any(String));
+      for (const filter of category.filters ?? []) {
+        expect(filter.valuesFor({} as never)).toEqual(expect.any(Array));
+        const label = filter.labelFor?.('Unknown value');
+        expect(label === undefined || label === 'Unknown value').toBe(true);
+        const localizedLabel = filter.labelFor?.('Unknown value', 'pl');
+        expect(localizedLabel === undefined || localizedLabel === 'Unknown value').toBe(
+          true,
+        );
+        if (filter.id !== 'class' && filter.id !== 'source') {
+          filter.labelFor?.(undefined as never);
+          filter.labelFor?.(undefined as never, 'pl');
+        }
+      }
+    }
   });
 });

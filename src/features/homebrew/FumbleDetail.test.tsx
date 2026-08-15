@@ -15,6 +15,7 @@ vi.mock('@/features/compendium/ReferenceLink', () => ({
 }));
 
 import { fumbleHomebrewItems } from './fumbleHomebrew';
+import type { FumbleHomebrewItem } from './fumbleHomebrew';
 import { FumbleDetail } from './FumbleDetail';
 
 describe('FumbleDetail', () => {
@@ -231,5 +232,62 @@ describe('FumbleDetail', () => {
     ).toBeInTheDocument();
     expect(screen.getByText(/Sprytny Sprzymierzeniec/)).toBeInTheDocument();
     expect(screen.getByText(/Cios Łowcy/)).toBeInTheDocument();
+  });
+
+  it('renders a feat Fumble detail with and without an explicit feat category', () => {
+    const source = fumbleHomebrewItems('en').find((entry) => entry.category === 'feats')!;
+    const items = [
+      { ...source, featCategory: 'Origin' },
+      { ...source, featCategory: undefined },
+    ];
+
+    for (const item of items) {
+      const view = render(
+        <MemoryRouter>
+          <FumbleDetail item={item} />
+        </MemoryRouter>,
+      );
+      expect(view.container.querySelector('h1')).not.toBeNull();
+      view.unmount();
+    }
+  });
+
+  it('renders sparse generic and subclass records', () => {
+    const generic = {
+      id: 'generic',
+      name: 'Generic',
+      source: 'Fumble',
+      srd: false,
+      category: 'decks',
+      campaigns: [],
+    } as unknown as FumbleHomebrewItem;
+    const subclass = {
+      id: 'sparse-subclass',
+      name: 'Wizard: Sparse',
+      source: 'Fumble',
+      srd: false,
+      category: 'classes',
+      isSubclass: true,
+      className: 'Wizard',
+      subclassTitle: 'Arcane Tradition',
+      features: [],
+      campaigns: [],
+    } as unknown as FumbleHomebrewItem;
+
+    const genericView = render(
+      <MemoryRouter>
+        <FumbleDetail item={generic} />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole('heading', { name: 'Generic' })).toBeInTheDocument();
+    genericView.unmount();
+
+    render(
+      <MemoryRouter>
+        <FumbleDetail item={subclass} />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole('heading', { name: 'Wizard: Sparse' })).toBeInTheDocument();
+    expect(screen.getByText('Wizard - Arcane Tradition')).toBeInTheDocument();
   });
 });

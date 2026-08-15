@@ -53,4 +53,26 @@ describe('LanguageSwitcher', () => {
     fireEvent.click(document.body);
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
+
+  it('supports keyboard navigation and selecting the other locale', () => {
+    renderSwitcher();
+    const trigger = screen.getByRole('button', { name: 'Change language' });
+
+    fireEvent.keyDown(trigger, { key: 'ArrowDown' });
+    const english = screen.getByRole('option', { name: 'English' });
+    const polish = screen.getByRole('option', { name: 'Polski' });
+    fireEvent.keyDown(english, { key: 'ArrowDown' });
+    expect(document.activeElement).toBe(polish);
+    fireEvent.keyDown(polish, { key: 'ArrowUp' });
+    fireEvent.keyDown(english, { key: 'Home' });
+    fireEvent.keyDown(english, { key: 'End' });
+    fireEvent.keyDown(english, { key: 'x' });
+    fireEvent.keyDown(english, { key: 'Escape' });
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+
+    fireEvent.keyDown(trigger, { key: 'Enter' });
+    fireEvent.keyDown(screen.getByRole('option', { name: 'Polski' }), { key: ' ' });
+    expect(useLocaleStore.getState().locale).toBe('pl');
+    expect(screen.getByText('/pl/compendium/?q=spell')).toBeInTheDocument();
+  });
 });

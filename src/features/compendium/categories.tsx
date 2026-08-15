@@ -906,7 +906,7 @@ const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
 for (const category of categories) {
   category.filters = [
     ...(FILTERS_BY_ID[category.id] ??
-      (category.id === 'firearms' ? (FILTERS_BY_ID.items ?? []) : [])),
+      (category.id === 'firearms' ? FILTERS_BY_ID.items! : [])),
     sourceFilter,
   ];
 }

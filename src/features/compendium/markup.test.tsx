@@ -513,4 +513,22 @@ describe('parseMarkup', () => {
       '10. Wylęgarnia Smoków (16) - Rzuty Obronne Dorosły Czarny Smok Właściwości Broni',
     );
   });
+
+  it('covers fallback markup tags and non-reference forms', () => {
+    const { container } = renderMarkup(
+      '{@language Unknown Language|X} {@itemProperty Unknown Property|X|Unknown Display} {@color red} {@style italic} {@d20 d20} {@card Fool} {@link Invalid|not-a-url} {@link https://example.com|source|Example} {@unit 2} {@unit 2|unknown|unknown} {@skillCheck unknown} {@classFeature Feature|Class} {@subclassFeature Subclass Feature|Class} {@damage fire} {@damage 15 fire} {@unknown Label} 10. Unknown Heading',
+      'pl',
+    );
+
+    expect(container).toHaveTextContent(
+      'Unknown Language Unknown Display red italic d20 Fool Invalid Example 2 2 unknown unknown Class Class Ogień 15 fire Label 10. Unknown Heading',
+    );
+    expect(screen.getByRole('link', { name: 'Example' })).toHaveAttribute(
+      'href',
+      'https://example.com',
+    );
+    expect(renderMarkup('{@language Common}', 'en').container).toHaveTextContent(
+      'Common',
+    );
+  });
 });

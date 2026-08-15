@@ -60,4 +60,44 @@ describe('Fumble homebrew visibility store', () => {
       }),
     ).toBe(false);
   });
+
+  it('treats null filters and empty campaign lists as unrestricted only when valid', () => {
+    const item: Pick<FumbleHomebrewItem, 'campaigns' | 'category'> = {
+      campaigns: [],
+      category: 'classes',
+    };
+
+    expect(fumbleItemMatchesVisibility(item, { campaigns: null, categories: null })).toBe(
+      true,
+    );
+    expect(
+      fumbleItemMatchesVisibility(item, { campaigns: null, categories: ['classes'] }),
+    ).toBe(true);
+    expect(
+      fumbleItemMatchesVisibility(item, { campaigns: [], categories: ['classes'] }),
+    ).toBe(false);
+    expect(
+      fumbleItemMatchesVisibility(item, { campaigns: null, categories: ['items'] }),
+    ).toBe(false);
+  });
+
+  it('migrates missing and configured visibility filters', () => {
+    const migrate = useFumbleHomebrewStore.persist.getOptions().migrate!;
+    expect(migrate(undefined, 1)).toMatchObject({
+      compendiumCampaigns: null,
+      compendiumCategories: null,
+    });
+    expect(
+      migrate(
+        {
+          compendiumCampaigns: ['glod-smoka'],
+          compendiumCategories: ['spells'],
+        },
+        1,
+      ),
+    ).toMatchObject({
+      compendiumCampaigns: ['glod-smoka'],
+      compendiumCategories: ['spells'],
+    });
+  });
 });
