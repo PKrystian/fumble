@@ -181,9 +181,10 @@ function RollableRow({ label, value }: { label: string; value: string }) {
 }
 
 function LanguageLinks({ text }: { text: string }) {
-  const { t } = useT();
+  const { t, locale } = useT();
   if (!text) return null;
-  const [langsPart, ...rest] = text.split(';');
+  const localizedText = localizeCompendiumValue(text, locale, 'languages') ?? text;
+  const [langsPart, ...rest] = localizedText.split(';');
   const special = rest.join(';').trim();
   const langs = langsPart!
     .split(',')
@@ -876,17 +877,30 @@ export function OptionalFeatureDetail({ feature }: { feature: OptionalFeatureEnt
 }
 
 export function DeityDetail({ deity }: { deity: DeityEntry }) {
-  const { t } = useT();
+  const { t, locale } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={deity.name}
         original={deity.englishName}
-        subtitle={deity.pantheon}
+        subtitle={
+          localizeCompendiumValue(deity.pantheon, locale, 'pantheon') ?? deity.pantheon
+        }
       />
       <div className="flex flex-col gap-1">
-        <MetaRow label={t('compendium.detail.alignment')} value={deity.alignment} />
-        <MetaRow label={t('compendium.detail.domains')} value={deity.domains} />
+        <MetaRow
+          label={t('compendium.detail.alignment')}
+          value={
+            localizeCompendiumValue(deity.alignment, locale, 'alignment') ??
+            deity.alignment
+          }
+        />
+        <MetaRow
+          label={t('compendium.detail.domains')}
+          value={
+            localizeCompendiumValue(deity.domains, locale, 'domains') ?? deity.domains
+          }
+        />
         <MetaRow label={t('compendium.detail.symbol')} value={deity.symbol} />
       </div>
       <div className="flex flex-col gap-3">
@@ -897,12 +911,16 @@ export function DeityDetail({ deity }: { deity: DeityEntry }) {
 }
 
 export function HazardDetail({ hazard }: { hazard: HazardEntry }) {
+  const { locale } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={hazard.name}
         original={hazard.englishName}
-        subtitle={hazard.hazardType}
+        subtitle={
+          localizeCompendiumValue(hazard.hazardType, locale, 'hazardType') ??
+          hazard.hazardType
+        }
       />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={hazard.entries} />
@@ -912,12 +930,15 @@ export function HazardDetail({ hazard }: { hazard: HazardEntry }) {
 }
 
 export function BoonDetail({ boon }: { boon: BoonEntry }) {
+  const { locale } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={boon.name}
         original={boon.englishName}
-        subtitle={boon.boonType}
+        subtitle={
+          localizeCompendiumValue(boon.boonType, locale, 'boonType') ?? boon.boonType
+        }
       />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={boon.entries} />
@@ -951,7 +972,10 @@ export function ItemDetail({
         subtitle={subtitle ?? itemSubtitle}
       />
       <div className="flex flex-col gap-1">
-        <MetaRow label={t('compendium.detail.damage')} value={item.damage} />
+        <MetaRow
+          label={t('compendium.detail.damage')}
+          value={localizeCompendiumValue(item.damage, locale, 'damage') ?? item.damage}
+        />
         <MetaRow label={t('compendium.detail.armorClass')} value={item.ac} />
         <MetaRow
           label={t('compendium.detail.properties')}
@@ -1587,7 +1611,11 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
           )}
           {monster.alignment && (
             <>
-              , <RulesLink rule="alignment">{monster.alignment}</RulesLink>
+              ,{' '}
+              <RulesLink rule="alignment">
+                {localizeCompendiumValue(monster.alignment, locale, 'alignment') ??
+                  monster.alignment}
+              </RulesLink>
             </>
           )}
         </p>
@@ -1641,18 +1669,44 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
           <RollableRow label={t('compendium.detail.skills')} value={monster.skills} />
           <MetaRow
             label={t('compendium.detail.vulnerabilities')}
-            value={monster.vulnerabilities}
+            value={
+              localizeCompendiumValue(
+                monster.vulnerabilities,
+                locale,
+                'vulnerabilities',
+              ) ?? monster.vulnerabilities
+            }
           />
           <MetaRow
             label={t('compendium.detail.resistances')}
-            value={monster.resistances}
+            value={
+              localizeCompendiumValue(monster.resistances, locale, 'resistances') ??
+              monster.resistances
+            }
           />
-          <MetaRow label={t('compendium.detail.immunities')} value={monster.immunities} />
+          <MetaRow
+            label={t('compendium.detail.immunities')}
+            value={
+              localizeCompendiumValue(monster.immunities, locale, 'immunities') ??
+              monster.immunities
+            }
+          />
           <MetaRow
             label={t('compendium.detail.conditionImmunities')}
-            value={monster.conditionImmunities}
+            value={
+              localizeCompendiumValue(
+                monster.conditionImmunities,
+                locale,
+                'conditionImmunities',
+              ) ?? monster.conditionImmunities
+            }
           />
-          <MetaRow label={t('compendium.detail.senses')} value={monster.senses} />
+          <MetaRow
+            label={t('compendium.detail.senses')}
+            value={
+              localizeCompendiumValue(monster.senses, locale, 'senses') ?? monster.senses
+            }
+          />
           <LanguageLinks text={monster.languages} />
           {crText && (
             <p className="text-sm text-ink-200">
@@ -1668,7 +1722,13 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
               {crMatch?.[2]}
             </p>
           )}
-          <MetaRow label={t('compendium.detail.habitat')} value={monster.habitat} />
+          <MetaRow
+            label={t('compendium.detail.habitat')}
+            value={
+              localizeCompendiumValue(monster.habitat, locale, 'habitat') ??
+              monster.habitat
+            }
+          />
           {monster.treasure && (
             <p className="text-sm text-ink-200">
               <span className="font-semibold text-ink-50">
@@ -1678,7 +1738,8 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
                 to="/dm/loot"
                 className="underline decoration-dotted decoration-ink-500 underline-offset-2 hover:text-arcane-300"
               >
-                {monster.treasure}
+                {localizeCompendiumValue(monster.treasure, locale, 'treasure') ??
+                  monster.treasure}
               </Link>
             </p>
           )}
@@ -1759,7 +1820,7 @@ export function ConditionDetail({ condition }: { condition: ConditionEntry }) {
 }
 
 export function SkillDetail({ skill }: { skill: SkillEntry }) {
-  const { t } = useT();
+  const { t, locale } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
@@ -1767,7 +1828,11 @@ export function SkillDetail({ skill }: { skill: SkillEntry }) {
         original={skill.englishName}
         subtitle={
           skill.ability
-            ? t('compendium.detail.abilitySkill', { ability: skill.ability })
+            ? t('compendium.detail.abilitySkill', {
+                ability:
+                  localizeCompendiumValue(skill.ability, locale, 'ability') ??
+                  skill.ability,
+              })
             : t('compendium.detail.skill')
         }
       />
@@ -1808,10 +1873,22 @@ export function LanguageDetail({ language }: { language: LanguageEntry }) {
         })}
       />
       <div className="flex flex-col gap-1">
-        <MetaRow label={t('compendium.detail.script')} value={language.script} />
+        <MetaRow
+          label={t('compendium.detail.script')}
+          value={
+            localizeCompendiumValue(language.script, locale, 'languageScript') ??
+            language.script
+          }
+        />
         <MetaRow
           label={t('compendium.detail.typicalSpeakers')}
-          value={language.typicalSpeakers}
+          value={
+            localizeCompendiumValue(
+              language.typicalSpeakers,
+              locale,
+              'typicalSpeakers',
+            ) ?? language.typicalSpeakers
+          }
         />
       </div>
       {language.entries.length > 0 && (
@@ -1824,12 +1901,18 @@ export function LanguageDetail({ language }: { language: LanguageEntry }) {
 }
 
 export function CultBoonDetail({ cultBoon }: { cultBoon: CultBoonEntry }) {
+  const { locale } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={cultBoon.name}
         original={cultBoon.englishName}
-        subtitle={[cultBoon.category, cultBoon.kind].filter(Boolean).join(' ')}
+        subtitle={[
+          localizeCompendiumValue(cultBoon.category, locale, 'cultBoonCategory'),
+          localizeCompendiumValue(cultBoon.kind, locale, 'cultBoonKind'),
+        ]
+          .filter(Boolean)
+          .join(' ')}
       />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={cultBoon.entries} />
@@ -1839,14 +1922,16 @@ export function CultBoonDetail({ cultBoon }: { cultBoon: CultBoonEntry }) {
 }
 
 export function FacilityDetail({ facility }: { facility: FacilityEntry }) {
-  const { t } = useT();
+  const { t, locale } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={facility.name}
         original={facility.englishName}
         subtitle={t('compendium.detail.bastionFacility', {
-          type: facility.facilityType,
+          type:
+            localizeCompendiumValue(facility.facilityType, locale, 'facilityType') ??
+            facility.facilityType,
         })}
       />
       <div className="flex flex-col gap-1">
@@ -1855,8 +1940,18 @@ export function FacilityDetail({ facility }: { facility: FacilityEntry }) {
           label={t('compendium.detail.prerequisite')}
           value={facility.prerequisite}
         />
-        <MetaRow label={t('compendium.detail.space')} value={facility.space} />
-        <MetaRow label={t('compendium.detail.orders')} value={facility.orders} />
+        <MetaRow
+          label={t('compendium.detail.space')}
+          value={
+            localizeCompendiumValue(facility.space, locale, 'space') ?? facility.space
+          }
+        />
+        <MetaRow
+          label={t('compendium.detail.orders')}
+          value={
+            localizeCompendiumValue(facility.orders, locale, 'orders') ?? facility.orders
+          }
+        />
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={facility.entries} />
@@ -1866,17 +1961,28 @@ export function FacilityDetail({ facility }: { facility: FacilityEntry }) {
 }
 
 export function RecipeDetail({ recipe }: { recipe: RecipeEntry }) {
-  const { t } = useT();
+  const { t, locale } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={recipe.name}
         original={recipe.englishName}
-        subtitle={recipe.recipeType}
+        subtitle={
+          localizeCompendiumValue(recipe.recipeType, locale, 'recipeType') ??
+          recipe.recipeType
+        }
       />
       <div className="flex flex-col gap-1">
-        <MetaRow label={t('compendium.detail.serves')} value={recipe.serves} />
-        <MetaRow label={t('compendium.detail.diet')} value={recipe.diet} />
+        <MetaRow
+          label={t('compendium.detail.serves')}
+          value={
+            localizeCompendiumValue(recipe.serves, locale, 'serves') ?? recipe.serves
+          }
+        />
+        <MetaRow
+          label={t('compendium.detail.diet')}
+          value={localizeCompendiumValue(recipe.diet, locale, 'diet') ?? recipe.diet}
+        />
       </div>
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={recipe.entries} />
@@ -1903,7 +2009,7 @@ export function ObjectDetail({ object }: { object: ObjectEntry }) {
         original={object.englishName}
         subtitle={[
           localizeCompendiumValue(object.size, locale, 'objectSize'),
-          object.objectType,
+          localizeCompendiumValue(object.objectType, locale, 'objectType'),
         ]
           .filter(Boolean)
           .join(' ')}
@@ -1924,7 +2030,12 @@ export function ObjectDetail({ object }: { object: ObjectEntry }) {
           ))}
         </dl>
         <div className="flex flex-col gap-1">
-          <MetaRow label={t('compendium.detail.immunities')} value={object.immune} />
+          <MetaRow
+            label={t('compendium.detail.immunities')}
+            value={
+              localizeCompendiumValue(object.immune, locale, 'immune') ?? object.immune
+            }
+          />
           <MetaRow label={t('compendium.detail.senses')} value={object.senses} />
         </div>
       </div>
@@ -1949,13 +2060,23 @@ export function VehicleDetail({ vehicle }: { vehicle: VehicleEntry }) {
       />
       <div className="flex flex-col gap-1 rounded-lg border border-ink-700 bg-ink-900 p-4">
         <MetaRow label={t('compendium.detail.dimensions')} value={vehicle.dimensions} />
-        <MetaRow label={t('compendium.detail.terrain')} value={vehicle.terrain} />
+        <MetaRow
+          label={t('compendium.detail.terrain')}
+          value={
+            localizeCompendiumValue(vehicle.terrain, locale, 'terrain') ?? vehicle.terrain
+          }
+        />
         <MetaRow label={t('compendium.detail.capacity')} value={vehicle.capacity} />
         <MetaRow label={t('compendium.detail.travelPace')} value={vehicle.pace} />
         <MetaRow label={t('compendium.detail.speed')} value={vehicle.speed} />
         <MetaRow label={t('compendium.detail.armorClass')} value={vehicle.ac} />
         <MetaRow label={t('compendium.detail.hitPoints')} value={vehicle.hp} />
-        <MetaRow label={t('compendium.detail.immunities')} value={vehicle.immune} />
+        <MetaRow
+          label={t('compendium.detail.immunities')}
+          value={
+            localizeCompendiumValue(vehicle.immune, locale, 'immune') ?? vehicle.immune
+          }
+        />
         <MetaRow label={t('compendium.detail.cost')} value={vehicle.cost} />
       </div>
       {vehicle.entries.length > 0 && (
@@ -1985,13 +2106,16 @@ export function MasteryDetail({ mastery }: { mastery: MasteryEntry }) {
 }
 
 export function CharOptionDetail({ option }: { option: CharOptionEntry }) {
-  const { t } = useT();
+  const { t, locale } = useT();
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
         title={option.name}
         original={option.englishName}
-        subtitle={option.optionType}
+        subtitle={
+          localizeCompendiumValue(option.optionType, locale, 'optionType') ??
+          option.optionType
+        }
       />
       <div className="flex flex-col gap-1">
         {option.prerequisite && (

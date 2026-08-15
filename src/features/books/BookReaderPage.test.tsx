@@ -65,6 +65,16 @@ function renderReader(path = '/books/test-book/0') {
   );
 }
 
+function renderPolishReader(path = '/pl/books/test-book/0') {
+  return render(
+    <MemoryRouter initialEntries={[path]}>
+      <Routes>
+        <Route path="/pl/books/:id/:chapter?" element={<BookReaderPage />} />
+      </Routes>
+    </MemoryRouter>,
+  );
+}
+
 describe('BookReaderPage', () => {
   beforeEach(() => {
     mocks.getBook.mockReset();
@@ -109,6 +119,15 @@ describe('BookReaderPage', () => {
       'aria-pressed',
       'true',
     );
+  });
+
+  it('localizes Polish outline labels', async () => {
+    mocks.buildOutline.mockReset();
+    mocks.buildOutline.mockReturnValue([{ name: 'Adult Black Dragon', children: [] }]);
+    renderPolishReader();
+    expect(
+      await screen.findByRole('link', { name: 'Dorosły Czarny Smok' }),
+    ).toBeInTheDocument();
   });
 
   it('selects a chapter from a target page and supports previous navigation', async () => {

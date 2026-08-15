@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import type { Entry, EntryNode } from '@/data/compendium/entry';
 import { EntryRenderer } from '@/features/compendium/EntryRenderer';
-import { parseMarkup } from '@/features/compendium/markup';
+import { localizePlainText, parseMarkup } from '@/features/compendium/markup';
 import { NotFoundPage } from '@/features/NotFoundPage';
 import { localizedBookName } from '@/data/compendium/sources';
 import { Link } from '@/i18n/path';
@@ -69,6 +69,19 @@ function pageOf(chapter: Entry): number | undefined {
     : undefined;
 }
 
+function displayedChapterTitle(
+  bookId: string,
+  chapter: unknown,
+  index: number,
+  locale: 'en' | 'pl',
+  fallback: string,
+): string {
+  return localizePlainText(
+    bookChapterTitle(bookId, chapter, index, locale, fallback),
+    locale,
+  );
+}
+
 function OutlineList({
   nodes,
   bookId,
@@ -98,7 +111,9 @@ function OutlineList({
             ].join(' ')}
           >
             {depth > 0 && <span aria-hidden="true">-</span>}
-            <span className="truncate">{parseMarkup(node.name, locale)}</span>
+            <span className="truncate">
+              {parseMarkup(localizePlainText(node.name, locale), locale)}
+            </span>
           </Link>
           <OutlineList
             nodes={node.children}
@@ -181,7 +196,7 @@ export function BookReaderPage() {
       if (
         fullBook &&
         scrollToHeading(
-          bookChapterTitle(
+          displayedChapterTitle(
             book?.id ?? '',
             chapters[chapterIndex]!,
             chapterIndex,
@@ -245,7 +260,7 @@ export function BookReaderPage() {
       ? t('notFound.title')
       : book
         ? active
-          ? `${localizedBookName(book, locale)} - ${bookChapterTitle(book.id, active, chapterIndex, locale, t('books.chapterFallback', { n: chapterIndex + 1 }))}`
+          ? `${localizedBookName(book, locale)} - ${displayedChapterTitle(book.id, active, chapterIndex, locale, t('books.chapterFallback', { n: chapterIndex + 1 }))}`
           : localizedBookName(book, locale)
         : '',
     routeNotFound
@@ -253,7 +268,7 @@ export function BookReaderPage() {
       : book
         ? active
           ? t('seo.bookChapterDescription', {
-              chapter: bookChapterTitle(
+              chapter: displayedChapterTitle(
                 book.id,
                 active,
                 chapterIndex,
@@ -291,7 +306,7 @@ export function BookReaderPage() {
           aria-label={t('books.chaptersNav')}
         >
           {(chapters ?? fallbackChapters).map((entry, index) => {
-            const title = bookChapterTitle(
+            const title = displayedChapterTitle(
               book.id,
               entry as Entry,
               index,
@@ -442,7 +457,7 @@ export function BookReaderPage() {
                   className="text-arcane-300 hover:text-arcane-500"
                 >
                   ←{' '}
-                  {bookChapterTitle(
+                  {displayedChapterTitle(
                     book.id,
                     chapters[chapterIndex - 1]!,
                     chapterIndex - 1,
@@ -458,7 +473,7 @@ export function BookReaderPage() {
                   to={`/books/${book.id}/${chapterIndex + 1}`}
                   className="text-arcane-300 hover:text-arcane-500"
                 >
-                  {bookChapterTitle(
+                  {displayedChapterTitle(
                     book.id,
                     chapters[chapterIndex + 1]!,
                     chapterIndex + 1,

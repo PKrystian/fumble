@@ -5,6 +5,66 @@ import en from '@/i18n/dictionaries/en';
 import pl from '@/i18n/dictionaries/pl';
 
 const GEN = join(process.cwd(), 'src/data/generated');
+const DAMAGE_TYPES = [
+  'Kwas',
+  'Obuchowe',
+  'Zimno',
+  'Ogień',
+  'Moc',
+  'Piorun',
+  'Nekrotyczne',
+  'Kłute',
+  'Trucizna',
+  'Psychiczne',
+  'Promieniste',
+  'Sieczne',
+  'Gromu',
+];
+const DAMAGE_FIELDS = new Set([
+  'damage',
+  'immune',
+  'immunities',
+  'resist',
+  'resistances',
+  'vulnerable',
+  'vulnerabilities',
+]);
+const STRUCTURAL_TYPES = new Set([
+  'adventure',
+  'appendix',
+  'attack',
+  'cell',
+  'chapter',
+  'entries',
+  'episode',
+  'gallery',
+  'hr',
+  'image',
+  'inline',
+  'inset',
+  'insetReadaloud',
+  'internal',
+  'item',
+  'itemSpell',
+  'itemSub',
+  'level',
+  'link',
+  'list',
+  'options',
+  'part',
+  'quote',
+  'randomByLevel',
+  'refFeat',
+  'refOptionalfeature',
+  'refSubclassFeature',
+  'section',
+  'statblock',
+  'statblockInline',
+  'table',
+  'tableGroup',
+]);
+const LEGACY_DAMAGE_WORD =
+  /\b(?:tłuczen\p{L}*|tłucz\p{L}*|kłuci\p{L}*|przekłuw\p{L}*|przeszywaj\p{L}*|przebijaj\p{L}*|cię[tci]\p{L}*|tnąc\p{L}*|sił\p{L}*|martwic\p{L}*|promienn(?!iste)\p{L}*|blask\p{L}*|promieniowani\p{L}*|grzmot\p{L}*|dźwięk\p{L}*|błyskawic\p{L}*|zatruć)\b/iu;
 
 function flatten(obj: unknown, prefix = ''): string[] {
   if (obj === null || typeof obj !== 'object' || Array.isArray(obj)) return [prefix];
@@ -13,11 +73,77 @@ function flatten(obj: unknown, prefix = ''): string[] {
   );
 }
 
+function asRecord(value: unknown): Record<string, unknown> | null {
+  return value && typeof value === 'object' && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : null;
+}
+
+function collectStructuralTypeMismatches(
+  source: unknown,
+  overlay: unknown,
+  path: string,
+  mismatches: string[],
+): void {
+  if (Array.isArray(source)) {
+    if (!Array.isArray(overlay)) return;
+    source.forEach((value, index) =>
+      collectStructuralTypeMismatches(
+        value,
+        overlay[index],
+        `${path}[${index}]`,
+        mismatches,
+      ),
+    );
+    return;
+  }
+  const sourceRecord = asRecord(source);
+  const overlayRecord = asRecord(overlay);
+  if (!sourceRecord || !overlayRecord) return;
+  if (
+    typeof sourceRecord.type === 'string' &&
+    STRUCTURAL_TYPES.has(sourceRecord.type) &&
+    overlayRecord.type !== undefined &&
+    overlayRecord.type !== sourceRecord.type
+  )
+    mismatches.push(`${path}: ${sourceRecord.type} -> ${String(overlayRecord.type)}`);
+  for (const [key, value] of Object.entries(sourceRecord))
+    if (Array.isArray(value) || asRecord(value))
+      collectStructuralTypeMismatches(
+        value,
+        overlayRecord[key],
+        `${path}.${key}`,
+        mismatches,
+      );
+}
+
 function slugify(value: string): string {
   return value
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function collectLegacyDamageFields(value: unknown, key = '', path = ''): string[] {
+  if (Array.isArray(value))
+    return value.flatMap((item, index) =>
+      collectLegacyDamageFields(item, key, `${path}[${index}]`),
+    );
+  if (value && typeof value === 'object')
+    return Object.entries(value).flatMap(([childKey, childValue]) =>
+      collectLegacyDamageFields(
+        childValue,
+        childKey,
+        path ? `${path}.${childKey}` : childKey,
+      ),
+    );
+  if (
+    typeof value === 'string' &&
+    DAMAGE_FIELDS.has(key) &&
+    LEGACY_DAMAGE_WORD.test(value)
+  )
+    return [`${path}: ${value}`];
+  return [];
 }
 
 const LINKABLE: Record<string, string> = {
@@ -80,6 +206,47 @@ function countBroken(text: string): number {
   return broken;
 }
 
+function collectControlCharacters(value: unknown, path: string, result: string[]): void {
+  if (typeof value === 'string') {
+    if (
+      [...value].some((character) => {
+        const code = character.charCodeAt(0);
+        return code < 32 && code !== 9 && code !== 10 && code !== 13;
+      })
+    )
+      result.push(path);
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((entry, index) =>
+      collectControlCharacters(entry, `${path}[${index}]`, result),
+    );
+    return;
+  }
+  if (value && typeof value === 'object')
+    Object.entries(value).forEach(([key, entry]) =>
+      collectControlCharacters(entry, `${path}.${key}`, result),
+    );
+}
+
+function collectTableTargets(value: unknown, path: string, result: string[]): void {
+  if (typeof value === 'string') {
+    for (const match of value.matchAll(/\{@table ([^|}]+)/g))
+      if (/[ąćęłńóśźż]/i.test(match[1]!)) result.push(`${path}: ${match[1]}`);
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((entry, index) =>
+      collectTableTargets(entry, `${path}[${index}]`, result),
+    );
+    return;
+  }
+  if (value && typeof value === 'object')
+    Object.entries(value).forEach(([key, entry]) =>
+      collectTableTargets(entry, `${path}.${key}`, result),
+    );
+}
+
 describe('pl translation health', () => {
   it('en and pl dictionaries have identical keys', () => {
     const enKeys = new Set(flatten(en));
@@ -107,6 +274,28 @@ describe('pl translation health', () => {
     expect(missing).toEqual([]);
   });
 
+  it('keeps structural markup types in English for the renderer', () => {
+    const mismatches: string[] = [];
+    for (const file of readdirSync(GEN).filter((name) => name.endsWith('.json'))) {
+      const source = JSON.parse(readFileSync(join(GEN, file), 'utf8')) as {
+        items?: Array<{ id: string }>;
+      };
+      if (!source.items) continue;
+      const overlay = JSON.parse(readFileSync(join(GEN, 'pl', file), 'utf8')) as Record<
+        string,
+        unknown
+      >;
+      for (const item of source.items)
+        collectStructuralTypeMismatches(
+          item,
+          overlay[item.id],
+          `${file}:${item.id}`,
+          mismatches,
+        );
+    }
+    expect(mismatches).toEqual([]);
+  });
+
   it('pl overlays introduce no mass of broken reference links', () => {
     let enBroken = 0;
     for (const f of readdirSync(GEN).filter((f) => f.endsWith('.json'))) {
@@ -125,7 +314,8 @@ describe('pl translation health', () => {
       'Bestia',
       'Czart',
       'Fej',
-      'Humanoid',
+      'Humanoidalny',
+      'Hurda',
       'Konstrukt',
       'Maź',
       'Monstrum',
@@ -135,10 +325,10 @@ describe('pl translation health', () => {
       'Opiekun',
       'Roślina',
       'Smok',
-      'Strażnik Ognia',
-      'Totem',
+      'Strażnik ognia',
       'Zjawa',
       'Żywiołak',
+      'Żywiołak totemu',
     ]);
     const SIZES = new Set([
       'Malutki',
@@ -176,6 +366,38 @@ describe('pl translation health', () => {
     });
   });
 
+  it('uses canonical damage-type names in tables and structured data', () => {
+    const tables = JSON.parse(readFileSync(join(GEN, 'pl', 'tables.json'), 'utf8')) as {
+      'damage-types': { rows: string[][] };
+    };
+    const rules = JSON.parse(readFileSync(join(GEN, 'pl', 'rules.json'), 'utf8')) as {
+      'damage-types': {
+        entries: Array<string | { type?: string; rows?: string[][] }>;
+      };
+    };
+    const ruleTable = rules['damage-types'].entries.find(
+      (entry): entry is { type: string; rows: string[][] } =>
+        typeof entry === 'object' && entry.type === 'table' && Array.isArray(entry.rows),
+    );
+    expect(tables['damage-types'].rows.map(([name]) => name)).toEqual(DAMAGE_TYPES);
+    expect(ruleTable?.rows.map(([name]) => name)).toEqual(DAMAGE_TYPES);
+    expect(tables['damage-types'].rows[4]?.[1]).toContain('obrażenia od mocy');
+
+    const bad: string[] = [];
+    for (const file of readdirSync(join(GEN, 'pl')).filter((name) =>
+      name.endsWith('.json'),
+    )) {
+      bad.push(
+        ...collectLegacyDamageFields(
+          JSON.parse(readFileSync(join(GEN, 'pl', file), 'utf8')),
+          '',
+          file,
+        ),
+      );
+    }
+    expect(bad).toEqual([]);
+  });
+
   it('does not ship known mistranslated vehicle and object values', () => {
     const vehicles = JSON.parse(
       readFileSync(join(GEN, 'pl', 'vehicles.json'), 'utf8'),
@@ -189,5 +411,69 @@ describe('pl translation health', () => {
     expect(Object.values(objects).some((entry) => entry.size === 'Mały lub Mały')).toBe(
       false,
     );
+  });
+
+  it('keeps sorcerer subclass overlays aligned with base identities and structure', () => {
+    type Feature = { entries?: unknown[] };
+    const base = JSON.parse(readFileSync(join(GEN, 'classes.json'), 'utf8')) as {
+      items: Array<{
+        name: string;
+        source: string;
+        subclasses: Array<{ name: string; source: string; features?: Feature[] }>;
+      }>;
+    };
+    const overlay = JSON.parse(
+      readFileSync(join(GEN, 'pl', 'classes.json'), 'utf8'),
+    ) as Record<
+      string,
+      { subclasses: Array<{ englishName?: string; features?: Feature[] }> }
+    >;
+    const mismatches: string[] = [];
+    for (const [root, source] of [
+      ['sorcerer', 'XPHB'],
+      ['sorcerer-phb', 'PHB'],
+    ] as const) {
+      const baseClass = base.items.find(
+        (item) => item.name === 'Sorcerer' && item.source === source,
+      );
+      const localizedClass = overlay[root];
+      if (!baseClass || !localizedClass) {
+        mismatches.push(root);
+        continue;
+      }
+      baseClass.subclasses.forEach((subclass, index) => {
+        const localized = localizedClass.subclasses[index];
+        if (!localized) {
+          mismatches.push(`${root}[${index}] missing`);
+          return;
+        }
+        if (
+          localized.englishName !== undefined &&
+          localized.englishName !== subclass.name
+        )
+          mismatches.push(`${root}[${index}] identity`);
+        const expected = (subclass.features ?? []).map(
+          (feature) => feature.entries?.length ?? null,
+        );
+        const actual = (localized.features ?? []).map(
+          (feature) => feature.entries?.length ?? null,
+        );
+        if (
+          expected.length !== actual.length ||
+          expected.some((length, featureIndex) => length !== actual[featureIndex])
+        )
+          mismatches.push(`${root}[${index}] features`);
+      });
+    }
+    const controls: string[] = [];
+    const tableTargets: string[] = [];
+    collectControlCharacters(overlay, 'classes', controls);
+    collectTableTargets(overlay.sorcerer, 'sorcerer', tableTargets);
+    collectTableTargets(overlay['sorcerer-phb'], 'sorcerer-phb', tableTargets);
+    expect({ mismatches, controls, tableTargets }).toEqual({
+      mismatches: [],
+      controls: [],
+      tableTargets: [],
+    });
   });
 });

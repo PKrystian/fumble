@@ -14,7 +14,7 @@
           "id": "001",
           "entries": [
             "Dungeons & Dragons (D&D) to gra oparta na opowiadaniu historii i odgrywaniu ról. Każdy gracz wciela się w postać poszukiwacza przygód: ​​bohatera posiadającego umiejętności i wiedzę - a czasem magię - która pozwala mu pokonać wyzwania i osiągnąć wielkość!",
-            "Jeden z uczestników zabawy wciela się w rolę Dungeon Master (DM). DM pełni rolę głównego gawędziarza, strażnika tajemnic i sędziego. Ten dokument zawiera wszystko, co musisz wiedzieć, aby rozpocząć pracę jako DM.",
+            "Jeden z uczestników zabawy wciela się w rolę Mistrz Gry (MG). DM pełni rolę głównego gawędziarza, strażnika tajemnic i sędziego. Ten dokument zawiera wszystko, co musisz wiedzieć, aby rozpocząć pracę jako DM.",
             {
               "type": "entries",
               "name": "Zasady",
@@ -93,7 +93,7 @@
         },
         {
           "type": "section",
-          "name": "Dungeon Mastering w tej przygodzie",
+          "name": "Prowadzenie gry w tej przygodzie",
           "id": "009",
           "entries": [
             "Aby rozegrać tę przygodę, będziesz potrzebować: {@link D&D poza podstawowymi zasadami|https://www.dndbeyond.com/sources/dnd/br-2024} lub {@book Player's Handbook|XPHB}, {@book Dungeon Master's Guide|XDMG}, I {@book Monster Manual|XMM}.",
@@ -902,7 +902,7 @@
                 {
                   "type": "list",
                   "items": [
-                    "{@b Przeszukiwanie okolicy}. Nie jest potrzebny test D20, aby dowiedzieć się, że tym wejściem nie podróżowano ostatnio zbyt często. Jeśli postać wykona akcję {@action Search|XPHB} i pomyślnie wykona test {@dc 15} Mądrości ({@skill Perception|XPHB} lub {@skill Survival|XPHB}), zauważy kilka śladów butów wielkości człowieka prowadzących od jaskini wraz ze śladami pazurów. Pomyślne sprawdzenie {@dc 10} Intelligence ({@skill Nature|XPHB}) pozwala zidentyfikować te ślady jako ślady małego smoka. Do jaskini prowadzi jedna para torów wielkości człowieka i jedna para nieco większych, nieuruchomionych torów, chociaż podjęto kroki, aby je ukryć. Te słabsze ślady wskazują, że do jaskini weszły dwie istoty: istota wielkości człowieka około cztery dni temu i niedźwiedź-robak zaledwie kilka godzin temu.",
+                    "{@b Przeszukiwanie okolicy}. Nie jest potrzebny test D20, aby dowiedzieć się, że tym wejściem nie podróżowano ostatnio zbyt często. Jeśli postać wykona akcję {@action Search|XPHB} i pomyślnie wykona test {@dc 15} Mądrości ({@skill Perception|XPHB} lub {@skill Survival|XPHB}), zauważy kilka śladów butów wielkości człowieka prowadzących od jaskini wraz ze śladami pazurów. Pomyślne sprawdzenie {@dc 10} Inteligencja ({@skill Nature|XPHB}) pozwala zidentyfikować te ślady jako ślady małego smoka. Do jaskini prowadzi jedna para torów wielkości człowieka i jedna para nieco większych, nieuruchomionych torów, chociaż podjęto kroki, aby je ukryć. Te słabsze ślady wskazują, że do jaskini weszły dwie istoty: istota wielkości człowieka około cztery dni temu i bugbear zaledwie kilka godzin temu.",
                     "{@b Badanie wejścia do jaskini}. Świecąc światłem lub zaglądając do wejścia do jaskini, postacie mogą lepiej przyjrzeć się wilgotnemu obszarowi. Postać podejmująca akcję {@action Study|XPHB} i pomyślnie przechodząca test inteligencji {@dc 15} ({@skill Investigation|XPHB}) zdaje sobie sprawę, że wilgoć to nie woda: to tłusta substancja, która może spowodować poślizg osoby wskakującej w ten obszar po wylądowaniu."
                   ],
                   "style": "list-hang-notitle"
@@ -929,7 +929,7 @@
                   "name": "Przeprawa przez Pit",
                   "id": "034",
                   "entries": [
-                    "Postać z Siłą 10 lub wyższą może przeskoczyć przepaść, jeśli wystartuje z biegu na odległość co najmniej 3 metrów. Jeśli jednak to zrobią, wylądują na tłustym obszarze (pułapka zastawiona przez nowego pana tych jaskiń) i muszą odnieść sukces {@dc 10} Rzuć lub poślizgnij się na smarze i wsuń się w ścianę na północ od dołu, zabierając 3 ({@dice 1d6}) Zadawanie obrażeń tłuczących i posiadanie {@condition Prone|XPHB} stanie, dopóki nie wstaną.",
+                    "Postać z Siłą 10 lub wyższą może przeskoczyć przepaść, jeśli wystartuje z biegu na odległość co najmniej 3 metrów. Jeśli jednak to zrobią, wylądują na tłustym obszarze (pułapka zastawiona przez nowego pana tych jaskiń) i muszą odnieść sukces {@dc 10} Rzuć lub poślizgnij się na smarze i wsuń się w ścianę na północ od dołu, zabierając 3 ({@dice 1d6}) Zadawanie obrażeń obuchowych i posiadanie {@condition Prone|XPHB} stanie, dopóki nie wstaną.",
                     "Jeśli postać spróbuje przejść przez dół, schodząc do dołu lub wzdłuż ścian tunelu, może to zrobić bez konieczności wykonywania {@variantrule D20 Test|XPHB} jeśli poruszają się z połową prędkości i nie ślizgają się w smarze.",
                     {
                       "type": "inset",
@@ -945,7 +945,7 @@
             },
             {
               "type": "entries",
-              "name": "A2: Ukryty Niedźwiedź Bułgarski",
+              "name": "A2: Ukryty Bugbear",
               "id": "036",
               "entries": [
                 {
@@ -982,7 +982,7 @@
                           "name": "Niespodzianka",
                           "id": "03a",
                           "entries": [
-                            "Jeśli postać(y) przechodzące przez dół nie zauważą ukrywającego się niedźwiedzia-robaka, na początku walki zostają zaskoczone i zaskoczone. Oznacza to, że mają {@variantrule Disadvantage|XPHB} na ich {@variantrule Initiative|XPHB} rolka: rzucają {@dice d20} dwukrotnie i należy użyć dolnej rolki."
+                            "Jeśli postać(y) przechodzące przez dół nie zauważą ukrywającego się bugbeara, na początku walki zostają zaskoczone i zaskoczone. Oznacza to, że mają {@variantrule Disadvantage|XPHB} na ich {@variantrule Initiative|XPHB} rolka: rzucają {@dice d20} dwukrotnie i należy użyć dolnej rolki."
                           ]
                         },
                         {
@@ -990,7 +990,7 @@
                           "name": "Przygotowanie do walki",
                           "id": "03b",
                           "entries": [
-                            "W tej scenie bohaterowie spotykają stworzenie (niedźwiedzia owada Luggę), które wdaje się w walkę. Chociaż walka może zakończyć się wcześniej, nadal musisz być przygotowany na jej prowadzenie! Oto jak to się przedstawia:",
+                            "W tej scenie bohaterowie spotykają stworzenie (bugbeara Luggę), które wdaje się w walkę. Chociaż walka może zakończyć się wcześniej, nadal musisz być przygotowany na jej prowadzenie! Oto jak to się przedstawia:",
                             {
                               "type": "list",
                               "style": "list-hang-notitle",
@@ -1003,7 +1003,7 @@
                                 {
                                   "type": "item",
                                   "name": "Rzut inicjatywy",
-                                  "entry": "Każdy z graczy rzuca a {@dice d20} i dodaj ich modyfikator Inicjatywy. Postać z najwyższym wynikiem idzie pierwsza, a postacie działają w kolejności malejącej. Niedźwiedź Lugga wykonuje swój rzut na Inicjatywę zgodnie z kolejnością Inicjatywy."
+                                  "entry": "Każdy z graczy rzuca a {@dice d20} i dodaj ich modyfikator Inicjatywy. Postać z najwyższym wynikiem idzie pierwsza, a postacie działają w kolejności malejącej. Bugbear Lugga wykonuje swój rzut na Inicjatywę zgodnie z kolejnością Inicjatywy."
                                 },
                                 {
                                   "type": "item",
@@ -1023,7 +1023,7 @@
                   "name": "Radzenie sobie z Luggą",
                   "id": "03c",
                   "entries": [
-                    "Chociaż Lugga początkowo atakuje, nie jest ona nierozsądna i można ją uzasadnić, jak opisano poniżej. Została wyrzucona ze swojego klanu za kłótnię z przywódcą i przybyła tutaj w poszukiwaniu innych niedźwiedzi-robaków.",
+                    "Chociaż Lugga początkowo atakuje, nie jest ona nierozsądna i można ją uzasadnić, jak opisano poniżej. Została wyrzucona ze swojego klanu za kłótnię z przywódcą i przybyła tutaj w poszukiwaniu innych bugbearów.",
                     {
                       "type": "list",
                       "items": [
@@ -1087,7 +1087,7 @@
                           "entries": [
                             "W tej przygodzie może brać udział czterech lub pięciu graczy, a każdy z nich odgrywa postać dołączoną do przygody. Jeśli masz mniej niż czterech lub więcej niż pięciu graczy, ta walka może być zbyt trudna lub zbyt łatwa. W przypadku tego spotkania wprowadź następujące zmiany:",
                             "Jeśli jest mniej niż cztery znaki, usuń jeden {@creature Zombie|XMM}.",
-                            "Jeśli jest więcej niż pięć znaków, dodaj jeden {@b Bałwan}."
+                            "Jeśli jest więcej niż pięć znaków, dodaj jeden {@b Zombie}."
                           ]
                         }
                       ]
@@ -1517,7 +1517,7 @@
     },
     "0:009": {
       "type": "section",
-      "name": "Dungeon Mastering w tej przygodzie",
+      "name": "Prowadzenie gry w tej przygodzie",
       "id": "009",
       "entries": [
         "Aby rozegrać tę przygodę, będziesz potrzebować: {@link D&D poza podstawowymi zasadami|https://www.dndbeyond.com/sources/dnd/br-2024} lub {@book Player's Handbook|XPHB}, {@book Dungeon Master's Guide|XDMG}, I {@book Monster Manual|XMM}.",
@@ -2783,7 +2783,7 @@
             {
               "type": "list",
               "items": [
-                "{@b Przeszukiwanie okolicy}. Nie jest potrzebny test D20, aby dowiedzieć się, że tym wejściem nie podróżowano ostatnio zbyt często. Jeśli postać wykona akcję {@action Search|XPHB} i pomyślnie wykona test {@dc 15} Mądrości ({@skill Perception|XPHB} lub {@skill Survival|XPHB}), zauważy kilka śladów butów wielkości człowieka prowadzących od jaskini wraz ze śladami pazurów. Pomyślne sprawdzenie {@dc 10} Intelligence ({@skill Nature|XPHB}) pozwala zidentyfikować te ślady jako ślady małego smoka. Do jaskini prowadzi jedna para torów wielkości człowieka i jedna para nieco większych, nieuruchomionych torów, chociaż podjęto kroki, aby je ukryć. Te słabsze ślady wskazują, że do jaskini weszły dwie istoty: istota wielkości człowieka około cztery dni temu i niedźwiedź-robak zaledwie kilka godzin temu.",
+                "{@b Przeszukiwanie okolicy}. Nie jest potrzebny test D20, aby dowiedzieć się, że tym wejściem nie podróżowano ostatnio zbyt często. Jeśli postać wykona akcję {@action Search|XPHB} i pomyślnie wykona test {@dc 15} Mądrości ({@skill Perception|XPHB} lub {@skill Survival|XPHB}), zauważy kilka śladów butów wielkości człowieka prowadzących od jaskini wraz ze śladami pazurów. Pomyślne sprawdzenie {@dc 10} Inteligencja ({@skill Nature|XPHB}) pozwala zidentyfikować te ślady jako ślady małego smoka. Do jaskini prowadzi jedna para torów wielkości człowieka i jedna para nieco większych, nieuruchomionych torów, chociaż podjęto kroki, aby je ukryć. Te słabsze ślady wskazują, że do jaskini weszły dwie istoty: istota wielkości człowieka około cztery dni temu i bugbear zaledwie kilka godzin temu.",
                 "{@b Badanie wejścia do jaskini}. Świecąc światłem lub zaglądając do wejścia do jaskini, postacie mogą lepiej przyjrzeć się wilgotnemu obszarowi. Postać podejmująca akcję {@action Study|XPHB} i pomyślnie przechodząca test inteligencji {@dc 15} ({@skill Investigation|XPHB}) zdaje sobie sprawę, że wilgoć to nie woda: to tłusta substancja, która może spowodować poślizg osoby wskakującej w ten obszar po wylądowaniu."
               ],
               "style": "list-hang-notitle"
@@ -2810,7 +2810,7 @@
               "name": "Przeprawa przez Pit",
               "id": "034",
               "entries": [
-                "Postać z Siłą 10 lub wyższą może przeskoczyć przepaść, jeśli wystartuje z biegu na odległość co najmniej 3 metrów. Jeśli jednak to zrobią, wylądują na tłustym obszarze (pułapka zastawiona przez nowego pana tych jaskiń) i muszą odnieść sukces {@dc 10} Rzuć lub poślizgnij się na smarze i wsuń się w ścianę na północ od dołu, zabierając 3 ({@dice 1d6}) Zadawanie obrażeń tłuczących i posiadanie {@condition Prone|XPHB} stanie, dopóki nie wstaną.",
+                "Postać z Siłą 10 lub wyższą może przeskoczyć przepaść, jeśli wystartuje z biegu na odległość co najmniej 3 metrów. Jeśli jednak to zrobią, wylądują na tłustym obszarze (pułapka zastawiona przez nowego pana tych jaskiń) i muszą odnieść sukces {@dc 10} Rzuć lub poślizgnij się na smarze i wsuń się w ścianę na północ od dołu, zabierając 3 ({@dice 1d6}) Zadawanie obrażeń obuchowych i posiadanie {@condition Prone|XPHB} stanie, dopóki nie wstaną.",
                 "Jeśli postać spróbuje przejść przez dół, schodząc do dołu lub wzdłuż ścian tunelu, może to zrobić bez konieczności wykonywania {@variantrule D20 Test|XPHB} jeśli poruszają się z połową prędkości i nie ślizgają się w smarze.",
                 {
                   "type": "inset",
@@ -2826,7 +2826,7 @@
         },
         {
           "type": "entries",
-          "name": "A2: Ukryty Niedźwiedź Bułgarski",
+          "name": "A2: Ukryty Bugbear",
           "id": "036",
           "entries": [
             {
@@ -2863,7 +2863,7 @@
                       "name": "Niespodzianka",
                       "id": "03a",
                       "entries": [
-                        "Jeśli postać(y) przechodzące przez dół nie zauważą ukrywającego się niedźwiedzia-robaka, na początku walki zostają zaskoczone i zaskoczone. Oznacza to, że mają {@variantrule Disadvantage|XPHB} na ich {@variantrule Initiative|XPHB} rolka: rzucają {@dice d20} dwukrotnie i należy użyć dolnej rolki."
+                        "Jeśli postać(y) przechodzące przez dół nie zauważą ukrywającego się bugbeara, na początku walki zostają zaskoczone i zaskoczone. Oznacza to, że mają {@variantrule Disadvantage|XPHB} na ich {@variantrule Initiative|XPHB} rolka: rzucają {@dice d20} dwukrotnie i należy użyć dolnej rolki."
                       ]
                     },
                     {
@@ -2871,7 +2871,7 @@
                       "name": "Przygotowanie do walki",
                       "id": "03b",
                       "entries": [
-                        "W tej scenie bohaterowie spotykają stworzenie (niedźwiedzia owada Luggę), które wdaje się w walkę. Chociaż walka może zakończyć się wcześniej, nadal musisz być przygotowany na jej prowadzenie! Oto jak to się przedstawia:",
+                        "W tej scenie bohaterowie spotykają stworzenie (bugbeara Luggę), które wdaje się w walkę. Chociaż walka może zakończyć się wcześniej, nadal musisz być przygotowany na jej prowadzenie! Oto jak to się przedstawia:",
                         {
                           "type": "list",
                           "style": "list-hang-notitle",
@@ -2884,7 +2884,7 @@
                             {
                               "type": "item",
                               "name": "Rzut inicjatywy",
-                              "entry": "Każdy z graczy rzuca a {@dice d20} i dodaj ich modyfikator Inicjatywy. Postać z najwyższym wynikiem idzie pierwsza, a postacie działają w kolejności malejącej. Niedźwiedź Lugga wykonuje swój rzut na Inicjatywę zgodnie z kolejnością Inicjatywy."
+                              "entry": "Każdy z graczy rzuca a {@dice d20} i dodaj ich modyfikator Inicjatywy. Postać z najwyższym wynikiem idzie pierwsza, a postacie działają w kolejności malejącej. Bugbear Lugga wykonuje swój rzut na Inicjatywę zgodnie z kolejnością Inicjatywy."
                             },
                             {
                               "type": "item",
@@ -2904,7 +2904,7 @@
               "name": "Radzenie sobie z Luggą",
               "id": "03c",
               "entries": [
-                "Chociaż Lugga początkowo atakuje, nie jest ona nierozsądna i można ją uzasadnić, jak opisano poniżej. Została wyrzucona ze swojego klanu za kłótnię z przywódcą i przybyła tutaj w poszukiwaniu innych niedźwiedzi-robaków.",
+                "Chociaż Lugga początkowo atakuje, nie jest ona nierozsądna i można ją uzasadnić, jak opisano poniżej. Została wyrzucona ze swojego klanu za kłótnię z przywódcą i przybyła tutaj w poszukiwaniu innych bugbearów.",
                 {
                   "type": "list",
                   "items": [
@@ -2968,7 +2968,7 @@
                       "entries": [
                         "W tej przygodzie może brać udział czterech lub pięciu graczy, a każdy z nich odgrywa postać dołączoną do przygody. Jeśli masz mniej niż czterech lub więcej niż pięciu graczy, ta walka może być zbyt trudna lub zbyt łatwa. W przypadku tego spotkania wprowadź następujące zmiany:",
                         "Jeśli jest mniej niż cztery znaki, usuń jeden {@creature Zombie|XMM}.",
-                        "Jeśli jest więcej niż pięć znaków, dodaj jeden {@b Bałwan}."
+                        "Jeśli jest więcej niż pięć znaków, dodaj jeden {@b Zombie}."
                       ]
                     }
                   ]
@@ -3164,7 +3164,7 @@
         {
           "type": "list",
           "items": [
-            "{@b Przeszukiwanie okolicy}. Nie jest potrzebny test D20, aby dowiedzieć się, że tym wejściem nie podróżowano ostatnio zbyt często. Jeśli postać wykona akcję {@action Search|XPHB} i pomyślnie wykona test {@dc 15} Mądrości ({@skill Perception|XPHB} lub {@skill Survival|XPHB}), zauważy kilka śladów butów wielkości człowieka prowadzących od jaskini wraz ze śladami pazurów. Pomyślne sprawdzenie {@dc 10} Intelligence ({@skill Nature|XPHB}) pozwala zidentyfikować te ślady jako ślady małego smoka. Do jaskini prowadzi jedna para torów wielkości człowieka i jedna para nieco większych, nieuruchomionych torów, chociaż podjęto kroki, aby je ukryć. Te słabsze ślady wskazują, że do jaskini weszły dwie istoty: istota wielkości człowieka około cztery dni temu i niedźwiedź-robak zaledwie kilka godzin temu.",
+            "{@b Przeszukiwanie okolicy}. Nie jest potrzebny test D20, aby dowiedzieć się, że tym wejściem nie podróżowano ostatnio zbyt często. Jeśli postać wykona akcję {@action Search|XPHB} i pomyślnie wykona test {@dc 15} Mądrości ({@skill Perception|XPHB} lub {@skill Survival|XPHB}), zauważy kilka śladów butów wielkości człowieka prowadzących od jaskini wraz ze śladami pazurów. Pomyślne sprawdzenie {@dc 10} Inteligencja ({@skill Nature|XPHB}) pozwala zidentyfikować te ślady jako ślady małego smoka. Do jaskini prowadzi jedna para torów wielkości człowieka i jedna para nieco większych, nieuruchomionych torów, chociaż podjęto kroki, aby je ukryć. Te słabsze ślady wskazują, że do jaskini weszły dwie istoty: istota wielkości człowieka około cztery dni temu i bugbear zaledwie kilka godzin temu.",
             "{@b Badanie wejścia do jaskini}. Świecąc światłem lub zaglądając do wejścia do jaskini, postacie mogą lepiej przyjrzeć się wilgotnemu obszarowi. Postać podejmująca akcję {@action Study|XPHB} i pomyślnie przechodząca test inteligencji {@dc 15} ({@skill Investigation|XPHB}) zdaje sobie sprawę, że wilgoć to nie woda: to tłusta substancja, która może spowodować poślizg osoby wskakującej w ten obszar po wylądowaniu."
           ],
           "style": "list-hang-notitle"
@@ -3191,7 +3191,7 @@
           "name": "Przeprawa przez Pit",
           "id": "034",
           "entries": [
-            "Postać z Siłą 10 lub wyższą może przeskoczyć przepaść, jeśli wystartuje z biegu na odległość co najmniej 3 metrów. Jeśli jednak to zrobią, wylądują na tłustym obszarze (pułapka zastawiona przez nowego pana tych jaskiń) i muszą odnieść sukces {@dc 10} Rzuć lub poślizgnij się na smarze i wsuń się w ścianę na północ od dołu, zabierając 3 ({@dice 1d6}) Zadawanie obrażeń tłuczących i posiadanie {@condition Prone|XPHB} stanie, dopóki nie wstaną.",
+            "Postać z Siłą 10 lub wyższą może przeskoczyć przepaść, jeśli wystartuje z biegu na odległość co najmniej 3 metrów. Jeśli jednak to zrobią, wylądują na tłustym obszarze (pułapka zastawiona przez nowego pana tych jaskiń) i muszą odnieść sukces {@dc 10} Rzuć lub poślizgnij się na smarze i wsuń się w ścianę na północ od dołu, zabierając 3 ({@dice 1d6}) Zadawanie obrażeń obuchowych i posiadanie {@condition Prone|XPHB} stanie, dopóki nie wstaną.",
             "Jeśli postać spróbuje przejść przez dół, schodząc do dołu lub wzdłuż ścian tunelu, może to zrobić bez konieczności wykonywania {@variantrule D20 Test|XPHB} jeśli poruszają się z połową prędkości i nie ślizgają się w smarze.",
             {
               "type": "inset",
@@ -3210,7 +3210,7 @@
       "name": "Przeprawa przez Pit",
       "id": "034",
       "entries": [
-        "Postać z Siłą 10 lub wyższą może przeskoczyć przepaść, jeśli wystartuje z biegu na odległość co najmniej 3 metrów. Jeśli jednak to zrobią, wylądują na tłustym obszarze (pułapka zastawiona przez nowego pana tych jaskiń) i muszą odnieść sukces {@dc 10} Rzuć lub poślizgnij się na smarze i wsuń się w ścianę na północ od dołu, zabierając 3 ({@dice 1d6}) Zadawanie obrażeń tłuczących i posiadanie {@condition Prone|XPHB} stanie, dopóki nie wstaną.",
+        "Postać z Siłą 10 lub wyższą może przeskoczyć przepaść, jeśli wystartuje z biegu na odległość co najmniej 3 metrów. Jeśli jednak to zrobią, wylądują na tłustym obszarze (pułapka zastawiona przez nowego pana tych jaskiń) i muszą odnieść sukces {@dc 10} Rzuć lub poślizgnij się na smarze i wsuń się w ścianę na północ od dołu, zabierając 3 ({@dice 1d6}) Zadawanie obrażeń obuchowych i posiadanie {@condition Prone|XPHB} stanie, dopóki nie wstaną.",
         "Jeśli postać spróbuje przejść przez dół, schodząc do dołu lub wzdłuż ścian tunelu, może to zrobić bez konieczności wykonywania {@variantrule D20 Test|XPHB} jeśli poruszają się z połową prędkości i nie ślizgają się w smarze.",
         {
           "type": "inset",
@@ -3224,7 +3224,7 @@
     },
     "0:036": {
       "type": "entries",
-      "name": "A2: Ukryty Niedźwiedź Bułgarski",
+      "name": "A2: Ukryty Bugbear",
       "id": "036",
       "entries": [
         {
@@ -3261,7 +3261,7 @@
                   "name": "Niespodzianka",
                   "id": "03a",
                   "entries": [
-                    "Jeśli postać(y) przechodzące przez dół nie zauważą ukrywającego się niedźwiedzia-robaka, na początku walki zostają zaskoczone i zaskoczone. Oznacza to, że mają {@variantrule Disadvantage|XPHB} na ich {@variantrule Initiative|XPHB} rolka: rzucają {@dice d20} dwukrotnie i należy użyć dolnej rolki."
+                    "Jeśli postać(y) przechodzące przez dół nie zauważą ukrywającego się bugbeara, na początku walki zostają zaskoczone i zaskoczone. Oznacza to, że mają {@variantrule Disadvantage|XPHB} na ich {@variantrule Initiative|XPHB} rolka: rzucają {@dice d20} dwukrotnie i należy użyć dolnej rolki."
                   ]
                 },
                 {
@@ -3269,7 +3269,7 @@
                   "name": "Przygotowanie do walki",
                   "id": "03b",
                   "entries": [
-                    "W tej scenie bohaterowie spotykają stworzenie (niedźwiedzia owada Luggę), które wdaje się w walkę. Chociaż walka może zakończyć się wcześniej, nadal musisz być przygotowany na jej prowadzenie! Oto jak to się przedstawia:",
+                    "W tej scenie bohaterowie spotykają stworzenie (bugbeara Luggę), które wdaje się w walkę. Chociaż walka może zakończyć się wcześniej, nadal musisz być przygotowany na jej prowadzenie! Oto jak to się przedstawia:",
                     {
                       "type": "list",
                       "style": "list-hang-notitle",
@@ -3282,7 +3282,7 @@
                         {
                           "type": "item",
                           "name": "Rzut inicjatywy",
-                          "entry": "Każdy z graczy rzuca a {@dice d20} i dodaj ich modyfikator Inicjatywy. Postać z najwyższym wynikiem idzie pierwsza, a postacie działają w kolejności malejącej. Niedźwiedź Lugga wykonuje swój rzut na Inicjatywę zgodnie z kolejnością Inicjatywy."
+                          "entry": "Każdy z graczy rzuca a {@dice d20} i dodaj ich modyfikator Inicjatywy. Postać z najwyższym wynikiem idzie pierwsza, a postacie działają w kolejności malejącej. Bugbear Lugga wykonuje swój rzut na Inicjatywę zgodnie z kolejnością Inicjatywy."
                         },
                         {
                           "type": "item",
@@ -3302,7 +3302,7 @@
           "name": "Radzenie sobie z Luggą",
           "id": "03c",
           "entries": [
-            "Chociaż Lugga początkowo atakuje, nie jest ona nierozsądna i można ją uzasadnić, jak opisano poniżej. Została wyrzucona ze swojego klanu za kłótnię z przywódcą i przybyła tutaj w poszukiwaniu innych niedźwiedzi-robaków.",
+            "Chociaż Lugga początkowo atakuje, nie jest ona nierozsądna i można ją uzasadnić, jak opisano poniżej. Została wyrzucona ze swojego klanu za kłótnię z przywódcą i przybyła tutaj w poszukiwaniu innych bugbearów.",
             {
               "type": "list",
               "items": [
@@ -3350,7 +3350,7 @@
               "name": "Niespodzianka",
               "id": "03a",
               "entries": [
-                "Jeśli postać(y) przechodzące przez dół nie zauważą ukrywającego się niedźwiedzia-robaka, na początku walki zostają zaskoczone i zaskoczone. Oznacza to, że mają {@variantrule Disadvantage|XPHB} na ich {@variantrule Initiative|XPHB} rolka: rzucają {@dice d20} dwukrotnie i należy użyć dolnej rolki."
+                "Jeśli postać(y) przechodzące przez dół nie zauważą ukrywającego się bugbeara, na początku walki zostają zaskoczone i zaskoczone. Oznacza to, że mają {@variantrule Disadvantage|XPHB} na ich {@variantrule Initiative|XPHB} rolka: rzucają {@dice d20} dwukrotnie i należy użyć dolnej rolki."
               ]
             },
             {
@@ -3358,7 +3358,7 @@
               "name": "Przygotowanie do walki",
               "id": "03b",
               "entries": [
-                "W tej scenie bohaterowie spotykają stworzenie (niedźwiedzia owada Luggę), które wdaje się w walkę. Chociaż walka może zakończyć się wcześniej, nadal musisz być przygotowany na jej prowadzenie! Oto jak to się przedstawia:",
+                "W tej scenie bohaterowie spotykają stworzenie (bugbeara Luggę), które wdaje się w walkę. Chociaż walka może zakończyć się wcześniej, nadal musisz być przygotowany na jej prowadzenie! Oto jak to się przedstawia:",
                 {
                   "type": "list",
                   "style": "list-hang-notitle",
@@ -3371,7 +3371,7 @@
                     {
                       "type": "item",
                       "name": "Rzut inicjatywy",
-                      "entry": "Każdy z graczy rzuca a {@dice d20} i dodaj ich modyfikator Inicjatywy. Postać z najwyższym wynikiem idzie pierwsza, a postacie działają w kolejności malejącej. Niedźwiedź Lugga wykonuje swój rzut na Inicjatywę zgodnie z kolejnością Inicjatywy."
+                      "entry": "Każdy z graczy rzuca a {@dice d20} i dodaj ich modyfikator Inicjatywy. Postać z najwyższym wynikiem idzie pierwsza, a postacie działają w kolejności malejącej. Bugbear Lugga wykonuje swój rzut na Inicjatywę zgodnie z kolejnością Inicjatywy."
                     },
                     {
                       "type": "item",
@@ -3397,7 +3397,7 @@
           "name": "Niespodzianka",
           "id": "03a",
           "entries": [
-            "Jeśli postać(y) przechodzące przez dół nie zauważą ukrywającego się niedźwiedzia-robaka, na początku walki zostają zaskoczone i zaskoczone. Oznacza to, że mają {@variantrule Disadvantage|XPHB} na ich {@variantrule Initiative|XPHB} rolka: rzucają {@dice d20} dwukrotnie i należy użyć dolnej rolki."
+            "Jeśli postać(y) przechodzące przez dół nie zauważą ukrywającego się bugbeara, na początku walki zostają zaskoczone i zaskoczone. Oznacza to, że mają {@variantrule Disadvantage|XPHB} na ich {@variantrule Initiative|XPHB} rolka: rzucają {@dice d20} dwukrotnie i należy użyć dolnej rolki."
           ]
         },
         {
@@ -3405,7 +3405,7 @@
           "name": "Przygotowanie do walki",
           "id": "03b",
           "entries": [
-            "W tej scenie bohaterowie spotykają stworzenie (niedźwiedzia owada Luggę), które wdaje się w walkę. Chociaż walka może zakończyć się wcześniej, nadal musisz być przygotowany na jej prowadzenie! Oto jak to się przedstawia:",
+            "W tej scenie bohaterowie spotykają stworzenie (bugbeara Luggę), które wdaje się w walkę. Chociaż walka może zakończyć się wcześniej, nadal musisz być przygotowany na jej prowadzenie! Oto jak to się przedstawia:",
             {
               "type": "list",
               "style": "list-hang-notitle",
@@ -3418,7 +3418,7 @@
                 {
                   "type": "item",
                   "name": "Rzut inicjatywy",
-                  "entry": "Każdy z graczy rzuca a {@dice d20} i dodaj ich modyfikator Inicjatywy. Postać z najwyższym wynikiem idzie pierwsza, a postacie działają w kolejności malejącej. Niedźwiedź Lugga wykonuje swój rzut na Inicjatywę zgodnie z kolejnością Inicjatywy."
+                  "entry": "Każdy z graczy rzuca a {@dice d20} i dodaj ich modyfikator Inicjatywy. Postać z najwyższym wynikiem idzie pierwsza, a postacie działają w kolejności malejącej. Bugbear Lugga wykonuje swój rzut na Inicjatywę zgodnie z kolejnością Inicjatywy."
                 },
                 {
                   "type": "item",
@@ -3436,7 +3436,7 @@
       "name": "Radzenie sobie z Luggą",
       "id": "03c",
       "entries": [
-        "Chociaż Lugga początkowo atakuje, nie jest ona nierozsądna i można ją uzasadnić, jak opisano poniżej. Została wyrzucona ze swojego klanu za kłótnię z przywódcą i przybyła tutaj w poszukiwaniu innych niedźwiedzi-robaków.",
+        "Chociaż Lugga początkowo atakuje, nie jest ona nierozsądna i można ją uzasadnić, jak opisano poniżej. Została wyrzucona ze swojego klanu za kłótnię z przywódcą i przybyła tutaj w poszukiwaniu innych bugbearów.",
         {
           "type": "list",
           "items": [
@@ -3498,7 +3498,7 @@
                   "entries": [
                     "W tej przygodzie może brać udział czterech lub pięciu graczy, a każdy z nich odgrywa postać dołączoną do przygody. Jeśli masz mniej niż czterech lub więcej niż pięciu graczy, ta walka może być zbyt trudna lub zbyt łatwa. W przypadku tego spotkania wprowadź następujące zmiany:",
                     "Jeśli jest mniej niż cztery znaki, usuń jeden {@creature Zombie|XMM}.",
-                    "Jeśli jest więcej niż pięć znaków, dodaj jeden {@b Bałwan}."
+                    "Jeśli jest więcej niż pięć znaków, dodaj jeden {@b Zombie}."
                   ]
                 }
               ]
@@ -3524,7 +3524,7 @@
               "entries": [
                 "W tej przygodzie może brać udział czterech lub pięciu graczy, a każdy z nich odgrywa postać dołączoną do przygody. Jeśli masz mniej niż czterech lub więcej niż pięciu graczy, ta walka może być zbyt trudna lub zbyt łatwa. W przypadku tego spotkania wprowadź następujące zmiany:",
                 "Jeśli jest mniej niż cztery znaki, usuń jeden {@creature Zombie|XMM}.",
-                "Jeśli jest więcej niż pięć znaków, dodaj jeden {@b Bałwan}."
+                "Jeśli jest więcej niż pięć znaków, dodaj jeden {@b Zombie}."
               ]
             }
           ]
@@ -3544,7 +3544,7 @@
           "entries": [
             "W tej przygodzie może brać udział czterech lub pięciu graczy, a każdy z nich odgrywa postać dołączoną do przygody. Jeśli masz mniej niż czterech lub więcej niż pięciu graczy, ta walka może być zbyt trudna lub zbyt łatwa. W przypadku tego spotkania wprowadź następujące zmiany:",
             "Jeśli jest mniej niż cztery znaki, usuń jeden {@creature Zombie|XMM}.",
-            "Jeśli jest więcej niż pięć znaków, dodaj jeden {@b Bałwan}."
+            "Jeśli jest więcej niż pięć znaków, dodaj jeden {@b Zombie}."
           ]
         }
       ]

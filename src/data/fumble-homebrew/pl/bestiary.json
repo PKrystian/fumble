@@ -68,10 +68,10 @@
   },
   "chronopath-expert": {
     "name": "Ekspert Chronopata",
-    "subtitle": "Humanoid (Talent), CR 8",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 8",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +7, Mądrość +4",
     "skills": "Arkana +7, Historia +7",
@@ -105,20 +105,20 @@
     ],
     "actions": [
       {
-        "name": "Psioniczny pocisk (moc pierwszego rzędu)",
+        "name": "Psioniczny pocisk (moc 1. kręgu)",
         "entries": [
-          "{@atk rp} +7 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) powoduje obrażenia siłowe i jeśli cel jest duży lub mniejszy, zostaje odepchnięty na odległość 5 stóp od chronopaty."
+          "{@atk rp} +7 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) powoduje obrażenia od mocy i jeśli cel jest duży lub mniejszy, zostaje odepchnięty na odległość 5 stóp od chronopaty."
         ]
       },
       {
-        "name": "Intuicja (3/dzień; Moc 2. rzędu; Koncentracja)",
+        "name": "Intuicja (3/dzień; Moc 2. kręgu; Koncentracja)",
         "entries": [
           "Chronopata przekazuje wgląd proroczy nawet trzem chętnym stworzeniom w promieniu 30 stóp od nich, które mogą zobaczyć.",
           "Przez 1 minutę za każdym razem, gdy cel otrzymuje obrażenia, obrażenia są zmniejszane o {@dice 1d4} (minimum 0 obrażeń)."
         ]
       },
       {
-        "name": "Śmierć świadka (3/dzień; moc 5. rzędu)",
+        "name": "Śmierć świadka (3/dzień; moc 5. kręgu)",
         "entries": [
           "Chronopata wybiera maksymalnie trzy stworzenia, które widzi w promieniu 30 stóp od siebie, a każde z nich musi wykonać rzut obronny na Mądrość {@dc 15}. W przypadku nieudanego rzutu obronnego cel otrzymuje 36 ({@damage 8d8}) obrażeń psychicznych i na 1 minutę staje się {@condition frightened} chronopaty. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie jest to {@condition frightened}."
         ]
@@ -126,7 +126,7 @@
     ],
     "bonusActions": [
       {
-        "name": "Złodziej czasu (moc pierwszego rzędu)",
+        "name": "Złodziej czasu (moc 1. kręgu)",
         "entries": [
           "Chronopata wybiera stworzenie w promieniu 30 stóp od niego, które musi wykonać udany rzut obronny na Kondycję {@dc 15} lub otrzymać 7 ({@damage 3d4}) obrażeń nekrotycznych. Chronopata zyskuje tymczasowe punkty wytrzymałości równe otrzymanym obrażeniom."
         ]
@@ -134,7 +134,7 @@
     ],
     "reactions": [
       {
-        "name": "Ponownie (3/dzień; moc drugiego rzędu)",
+        "name": "Ponownie (3/dzień; moc 2. kręgu)",
         "entries": [
           "Kiedy chronopata lub istota, którą widzi w promieniu 30 stóp, spudłuje w rzucie ataku, chronopata na chwilę cofa czas. Atakujący może przerzucić atak i musi skorzystać z nowego rzutu."
         ]
@@ -147,10 +147,10 @@
   },
   "chronopath-master": {
     "name": "Mistrz Chronopata",
-    "subtitle": "Humanoid (Talent), CR 12",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 12",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +9, Mądrość +5",
     "skills": "Arkana +9, Historia +9",
@@ -184,26 +184,26 @@
     ],
     "actions": [
       {
-        "name": "Psioniczny pocisk (moc pierwszego rzędu)",
+        "name": "Psioniczny pocisk (moc 1. kręgu)",
         "entries": [
-          "{@atk rp} +9 do trafienia, zasięg 30 metrów, jeden cel. {@h}14 ({@damage 4d6}) powoduje obrażenia siłowe i jeśli cel jest duży lub mniejszy, zostaje odepchnięty na odległość 5 stóp od chronopaty."
+          "{@atk rp} +9 do trafienia, zasięg 30 metrów, jeden cel. {@h}14 ({@damage 4d6}) powoduje obrażenia od mocy i jeśli cel jest duży lub mniejszy, zostaje odepchnięty na odległość 5 stóp od chronopaty."
         ]
       },
       {
-        "name": "Intuicja (3/dzień; Moc 2. rzędu; Koncentracja)",
+        "name": "Intuicja (3/dzień; Moc 2. kręgu; Koncentracja)",
         "entries": [
           "Chronopata przekazuje wgląd proroczy nawet trzem chętnym stworzeniom w promieniu 30 stóp od nich, które mogą zobaczyć.",
           "Przez 1 minutę za każdym razem, gdy cel otrzymuje obrażenia, obrażenia są zmniejszane o {@dice 1d4} (minimum 0 obrażeń)."
         ]
       },
       {
-        "name": "Śmierć świadka (3/dzień; moc 5. rzędu)",
+        "name": "Śmierć świadka (3/dzień; moc 5. kręgu)",
         "entries": [
           "Chronopata wybiera maksymalnie trzy stworzenia, które widzi w promieniu 30 stóp od siebie, a każde z nich musi wykonać rzut obronny na Mądrość {@dc 17}. W przypadku nieudanego rzutu obronnego cel otrzymuje 36 ({@damage 8d8}) obrażeń psychicznych i na 1 minutę staje się {@condition frightened} chronopaty. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie jest to {@condition frightened}."
         ]
       },
       {
-        "name": "Sojusznik Czasu (1/dzień; Moc 6. rzędu; Koncentracja)",
+        "name": "Sojusznik Czasu (1/dzień; Moc 6. kręgu; Koncentracja)",
         "entries": [
           "Chronopata zmienia czas w sześcianie o boku 40 stóp w odległości 30 metrów od nich. Ilekroć stworzenie rozpoczyna swoją turę w kostce, chronopata wybiera jeden z następujących efektów:",
           {
@@ -214,7 +214,7 @@
                 "type": "item",
                 "name": "Przyśpieszyć",
                 "entries": [
-                  "Do początku następnej tury celu, jego prędkość jest podwojona, ma premię +2 do KP i ma przewagę w rzutach obronnych na Zręczność. Cel zyskuje dodatkową akcję, której może użyć wyłącznie do wykonania akcji ataku (tylko jeden atak bronią), akcji rzucenia zaklęcia (tylko cantrip), akcji {@action Manifest a Power|TalPsi} (tylko moc pierwszego rzędu) lub akcji doskoku, wycofania się, ukrycia lub użycia przedmiotu."
+                  "Do początku następnej tury celu, jego prędkość jest podwojona, ma premię +2 do KP i ma przewagę w rzutach obronnych na Zręczność. Cel zyskuje dodatkową akcję, której może użyć wyłącznie do wykonania akcji ataku (tylko jeden atak bronią), akcji rzucenia zaklęcia (tylko sztuczkę), akcji {@action Manifest a Power|TalPsi} (tylko moc 1. kręgu) lub akcji doskoku, wycofania się, ukrycia lub użycia przedmiotu."
                 ]
               },
               {
@@ -231,7 +231,7 @@
     ],
     "bonusActions": [
       {
-        "name": "Złodziej czasu (moc pierwszego rzędu)",
+        "name": "Złodziej czasu (moc 1. kręgu)",
         "entries": [
           "Chronopata wybiera stworzenie w promieniu 30 stóp od niego, które musi wykonać rzut obronny na Kondycję {@dc 17} lub otrzymać 10 ({@damage 4d4}) obrażeń nekrotycznych. Chronopata zyskuje tymczasowe punkty wytrzymałości równe otrzymanym obrażeniom."
         ]
@@ -239,7 +239,7 @@
     ],
     "reactions": [
       {
-        "name": "Ponownie (3/dzień; moc drugiego rzędu)",
+        "name": "Ponownie (3/dzień; moc 2. kręgu)",
         "entries": [
           "Kiedy chronopata lub istota, którą widzi w promieniu 30 stóp, spudłuje w rzucie ataku, chronopata na chwilę cofa czas. Atakujący może przerzucić atak i musi skorzystać z nowego rzutu."
         ]
@@ -252,10 +252,10 @@
   },
   "chronopath-talent": {
     "name": "Talent Chronopaty",
-    "subtitle": "Humanoid (Talent), CR 4",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 4",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +5, Mądrość +3",
     "skills": "Arkana +5, Historia +5",
@@ -282,13 +282,13 @@
     ],
     "actions": [
       {
-        "name": "Psioniczny pocisk (moc pierwszego rzędu)",
+        "name": "Psioniczny pocisk (moc 1. kręgu)",
         "entries": [
-          "{@atk rp} +5 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) powoduje obrażenia siłowe i jeśli cel jest duży lub mniejszy, zostaje odepchnięty na odległość 5 stóp od chronopaty."
+          "{@atk rp} +5 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) powoduje obrażenia od mocy i jeśli cel jest duży lub mniejszy, zostaje odepchnięty na odległość 5 stóp od chronopaty."
         ]
       },
       {
-        "name": "Intuicja (3/dzień; Moc 2. rzędu; Koncentracja)",
+        "name": "Intuicja (3/dzień; Moc 2. kręgu; Koncentracja)",
         "entries": [
           "Chronopata przekazuje wgląd proroczy nawet trzem chętnym stworzeniom w promieniu 30 stóp od nich, które mogą zobaczyć. Przez 1 minutę za każdym razem, gdy cel otrzymuje obrażenia, obrażenia są zmniejszane o {@dice 1d4} (minimum 0 obrażeń)."
         ]
@@ -296,7 +296,7 @@
     ],
     "bonusActions": [
       {
-        "name": "Złodziej czasu (moc pierwszego rzędu)",
+        "name": "Złodziej czasu (moc 1. kręgu)",
         "entries": [
           "Chronopata wybiera stworzenie w promieniu 30 stóp od niego, które musi wykonać udany rzut obronny na Kondycję {@dc 13} lub otrzymać 7 ({@damage 3d4}) obrażeń nekrotycznych. Chronopata zyskuje tymczasowe punkty wytrzymałości równe otrzymanym obrażeniom."
         ]
@@ -304,7 +304,7 @@
     ],
     "reactions": [
       {
-        "name": "Ponownie (3/dzień; moc drugiego rzędu)",
+        "name": "Ponownie (3/dzień; moc 2. kręgu)",
         "entries": [
           "Kiedy chronopata lub istota, którą widzi w promieniu 30 stóp, spudłuje w rzucie ataku, chronopata na chwilę cofa czas. Atakujący może przerzucić atak i musi skorzystać z nowego rzutu."
         ]
@@ -317,10 +317,10 @@
   },
   "maverick-expert": {
     "name": "Ekspert Mavericka",
-    "subtitle": "Humanoid (Talent), CR 8",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 8",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +7, Mądrość +4",
     "skills": "Arkana +7, Wnikliwość +4",
@@ -354,25 +354,25 @@
     ],
     "actions": [
       {
-        "name": "Psychiczne dźgnięcie (moc pierwszego rzędu)",
+        "name": "Psychiczne dźgnięcie (moc 1. kręgu)",
         "entries": [
           "Jedno stworzenie, które indywidualista widzi w promieniu 30 metrów od niego, musi wykonać pomyślny rzut obronny na Inteligencję {@dc 15} lub otrzymać 20 ({@damage 3d10 + 4}) obrażeń psychicznych."
         ]
       },
       {
-        "name": "Flay (3/dzień; moc 4. rzędu)",
+        "name": "Rozszarpanie (3/dzień; moc 4. kręgu)",
         "entries": [
           "Indywidualista wystrzeliwuje 5-metrowy stożek czystej energii psionicznej. Każda istota na obszarze musi wykonać rzut obronny na Inteligencję {@dc 15}, zadając 21 ({@damage 6d6}) obrażeń psychicznych przy nieudanym rzucie lub połowę mniej przy udanym rzucie."
         ]
       },
       {
-        "name": "Ikona Strachu (1/dzień; Moc 3. rzędu; Koncentracja)",
+        "name": "Ikona Strachu (1/dzień; Moc 3. kręgu; Koncentracja)",
         "entries": [
           "Indywidualista wybiera jedno stworzenie, które widzi w promieniu 30 metrów od siebie. Każde wybrane przez indywidualistę stworzenie w promieniu 30 stóp od celu musi odnieść sukces w rzucie obronnym na Mądrość {@dc 15} lub być {@condition frightened} celu przez 1 minutę (końce rzutu obronnego na koniec tury)."
         ]
       },
       {
-        "name": "Stopienie (1/dzień; moc 5. rzędu)",
+        "name": "Stopienie (1/dzień; moc 5. kręgu)",
         "entries": [
           "Indywidualista wybiera wyprodukowany, przyziemny metalowy przedmiot nie większy niż Średni, który może zobaczyć w promieniu 60 stóp od niego. Jeśli przedmiot nie jest noszony ani noszony przez jakąś istotę, topi się i zamienia w bezużyteczny żużel. Jeśli przedmiot jest noszony lub noszony przez istotę, istota ta musi wykonać rzut obronny na Zręczność {@dc 15}. W przypadku nieudanego rzutu obronnego stworzenie otrzymuje 38 ({@damage 7d10}) obrażeń od ognia, a obiekt topi się i zamienia w bezużyteczny żużel. W przypadku powodzenia, istota otrzymuje o połowę mniejsze obrażenia, a obiekt nie topi się."
         ]
@@ -382,7 +382,9 @@
     "reactions": [
       {
         "name": "Amortyzacja (3/dzień)",
-        "entries": ["Kiedy indywidualista otrzymuje obrażenia, zmniejsza je o połowę."]
+        "entries": [
+          "Kiedy indywidualista otrzymuje obrażenia, zmniejsza je o połowę."
+        ]
       }
     ],
     "legendaryActions": [],
@@ -392,10 +394,10 @@
   },
   "maverick-master": {
     "name": "Mistrz Mavericka",
-    "subtitle": "Humanoid (Talent), CR 12",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 12",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +9, Mądrość +5",
     "skills": "Arkana +9, Wnikliwość +5",
@@ -435,25 +437,25 @@
     ],
     "actions": [
       {
-        "name": "Psychiczne dźgnięcie (moc pierwszego rzędu)",
+        "name": "Psychiczne dźgnięcie (moc 1. kręgu)",
         "entries": [
           "Jedno stworzenie, które indywidualista widzi w promieniu 30 metrów od niego, musi wykonać rzut obronny na Inteligencję {@dc 17} lub otrzymać 27 ({@damage 4d10 + 5}) obrażeń psychicznych."
         ]
       },
       {
-        "name": "Flay (3/dzień; moc 5. rzędu)",
+        "name": "Rozszarpanie (3/dzień; moc 5. kręgu)",
         "entries": [
           "Indywidualista wystrzeliwuje 5-metrowy stożek czystej energii psionicznej. Każda istota na obszarze musi wykonać rzut obronny na Inteligencję {@dc 17}, zadając 28 ({@damage 8d6}) obrażeń psychicznych przy nieudanym rzucie lub połowę mniej przy udanym rzucie."
         ]
       },
       {
-        "name": "Stopienie (3/dzień; moc 6. rzędu)",
+        "name": "Stopienie (3/dzień; moc 6. kręgu)",
         "entries": [
           "Indywidualista wybiera wyprodukowany, przyziemny metalowy przedmiot nie większy niż Średni, który może zobaczyć w promieniu 60 stóp od niego. Jeśli przedmiot nie jest noszony ani noszony przez jakąś istotę, topi się i zamienia w bezużyteczny żużel. Jeśli przedmiot jest noszony lub noszony przez istotę, istota ta musi wykonać rzut obronny na Zręczność {@dc 17}. W przypadku nieudanego rzutu obronnego stworzenie otrzymuje 49 ({@damage 9d10}) obrażeń od ognia, a obiekt topi się i zamienia w bezużyteczny żużel. W przypadku powodzenia, istota otrzymuje o połowę mniejsze obrażenia, a obiekt nie topi się."
         ]
       },
       {
-        "name": "Ikona Strachu (1/dzień; Moc 3. rzędu; Koncentracja)",
+        "name": "Ikona Strachu (1/dzień; Moc 3. kręgu; Koncentracja)",
         "entries": [
           "Indywidualista wybiera jedno stworzenie, które widzi w promieniu 30 metrów od siebie. Każde wybrane przez indywidualistę stworzenie w promieniu 30 stóp od celu musi odnieść sukces w rzucie obronnym na Mądrość {@dc 17} lub być {@condition frightened} celu przez 1 minutę (końce rzutu obronnego na koniec tury)."
         ]
@@ -463,7 +465,9 @@
     "reactions": [
       {
         "name": "Amortyzacja",
-        "entries": ["Kiedy indywidualista otrzymuje obrażenia, zmniejsza je o połowę."]
+        "entries": [
+          "Kiedy indywidualista otrzymuje obrażenia, zmniejsza je o połowę."
+        ]
       }
     ],
     "legendaryActions": [],
@@ -473,10 +477,10 @@
   },
   "maverick-talent": {
     "name": "Talent Mavericka",
-    "subtitle": "Humanoid (Talent), CR 4",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 4",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +5, Mądrość +3",
     "skills": "Arkana +5, Wnikliwość +3",
@@ -503,19 +507,19 @@
     ],
     "actions": [
       {
-        "name": "Psychiczne dźgnięcie (moc pierwszego rzędu)",
+        "name": "Psychiczne dźgnięcie (moc 1. kręgu)",
         "entries": [
           "Jedno stworzenie, które indywidualista widzi w promieniu 30 metrów od niego, musi wykonać rzut obronny na Inteligencję {@dc 13} lub otrzymać 19 ({@damage 3d10 + 3}) obrażeń psychicznych."
         ]
       },
       {
-        "name": "Flay (3/dzień; moc 3. rzędu)",
+        "name": "Rozszarpanie (3/dzień; moc 3. kręgu)",
         "entries": [
           "Indywidualista wystrzeliwuje 5-metrowy stożek czystej energii psionicznej. Każda istota na obszarze musi wykonać rzut obronny na Inteligencję {@dc 13}, zadając 14 ({@damage 4d6}) obrażeń psychicznych przy nieudanym rzucie lub połowę mniej przy udanym rzucie."
         ]
       },
       {
-        "name": "Ikona Strachu (1/dzień; Moc 3. rzędu; Koncentracja)",
+        "name": "Ikona Strachu (1/dzień; Moc 3. kręgu; Koncentracja)",
         "entries": [
           "Indywidualista wybiera jedno stworzenie, które widzi w promieniu 30 metrów od siebie. Każde wybrane przez indywidualistę stworzenie w promieniu 30 stóp od celu musi odnieść sukces w rzucie obronnym na Mądrość {@dc 13} lub być {@condition frightened} celu przez 1 minutę (końce rzutu obronnego na koniec tury)."
         ]
@@ -525,7 +529,9 @@
     "reactions": [
       {
         "name": "Amortyzacja (3/dzień)",
-        "entries": ["Kiedy indywidualista otrzymuje obrażenia, zmniejsza je o połowę."]
+        "entries": [
+          "Kiedy indywidualista otrzymuje obrażenia, zmniejsza je o połowę."
+        ]
       }
     ],
     "legendaryActions": [],
@@ -535,10 +541,10 @@
   },
   "metamorph-expert": {
     "name": "Ekspert Metamorfozy",
-    "subtitle": "Humanoid (Talent), CR 8",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 8",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +7, Mądrość +3",
     "skills": "Arkana +7, Percepcja +6",
@@ -566,24 +572,26 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Metamorfa wykonuje dwa ataki Psionicznym Pociskiem."]
+        "entries": [
+          "Metamorfa wykonuje dwa ataki Psionicznym Pociskiem."
+        ]
       },
       {
         "name": "Sztylet",
         "entries": [
-          "{@atk mw,rw} +5 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}4 ({@damage 1d4 + 2}) uszkodzenie przebijające."
+          "{@atk mw,rw} +5 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}4 ({@damage 1d4 + 2}) uszkodzenie kłute."
         ]
       },
       {
-        "name": "Psioniczny pocisk (moc pierwszego rzędu)",
+        "name": "Psioniczny pocisk (moc 1. kręgu)",
         "entries": [
-          "{@atk rp} +7 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) obrażenia siłowe, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od metamorfy."
+          "{@atk rp} +7 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) obrażenia od mocy, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od metamorfy."
         ]
       },
       {
-        "name": "Promienne spojrzenie (3/dzień; moc 4. rzędu)",
+        "name": "Promienne spojrzenie (3/dzień; moc 4. kręgu)",
         "entries": [
-          "Metamorfa uwalnia obrzydliwy promień mocy w stronę istoty, którą widzą w promieniu 30 metrów od siebie. Cel musi wykonać rzut obronny na Kondycję {@dc 15}, zadając 27 ({@damage 5d10}) obrażeń od siły przy nieudanym rzucie lub połowę mniej przy udanym rzucie. W przypadku nieudanego rzutu obronnego, cel podlega także wybranemu przez metamorfę jednemu z poniższych efektów przez 1 minutę (obrona kończy się na koniec tury):",
+          "Metamorfa uwalnia obrzydliwy promień mocy w stronę istoty, którą widzą w promieniu 30 metrów od siebie. Cel musi wykonać rzut obronny na Kondycję {@dc 15}, zadając 27 ({@damage 5d10}) obrażeń od mocy przy nieudanym rzucie lub połowę mniej przy udanym rzucie. W przypadku nieudanego rzutu obronnego, cel podlega także wybranemu przez metamorfę jednemu z poniższych efektów przez 1 minutę (obrona kończy się na koniec tury):",
           {
             "type": "list",
             "items": [
@@ -595,7 +603,7 @@
         ]
       },
       {
-        "name": "Flay (3/dzień; moc 4. rzędu)",
+        "name": "Rozszarpanie (3/dzień; moc 4. kręgu)",
         "entries": [
           "Metamorfa wystrzeliwuje 5-metrowy stożek czystej energii psionicznej. Każda istota na obszarze musi wykonać rzut obronny na Inteligencję {@dc 15}, zadając 21 ({@damage 6d6}) obrażeń psychicznych przy nieudanym rzucie lub połowę mniej przy udanym rzucie."
         ]
@@ -609,7 +617,7 @@
     ],
     "bonusActions": [
       {
-        "name": "Wzmocnij (moc 4. rzędu)",
+        "name": "Wzmocnij (moc 4. kręgu)",
         "entries": [
           "Metamorf wybiera jedno stworzenie, które widzi w promieniu 30 stóp od siebie. Następnym razem, gdy cel trafi istotę atakiem bronią w ciągu następnej minuty, atak zadaje dodatkowe obrażenia psychiczne {@damage 3d8}."
         ]
@@ -623,10 +631,10 @@
   },
   "metamorph-master": {
     "name": "Mistrz Metamorfów",
-    "subtitle": "Humanoid (Talent), CR 12",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 12",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +9, Mądrość +4",
     "skills": "Arkana +9, Percepcja +8",
@@ -654,24 +662,26 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Metamorfa wykonuje dwa ataki Psionicznym Pociskiem."]
+        "entries": [
+          "Metamorfa wykonuje dwa ataki Psionicznym Pociskiem."
+        ]
       },
       {
         "name": "Sztylet",
         "entries": [
-          "{@atk mw,rw} +7 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}5 ({@damage 1d4 + 3}) uszkodzenie przebijające."
+          "{@atk mw,rw} +7 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}5 ({@damage 1d4 + 3}) uszkodzenie kłute."
         ]
       },
       {
-        "name": "Psioniczny pocisk (moc pierwszego rzędu)",
+        "name": "Psioniczny pocisk (moc 1. kręgu)",
         "entries": [
-          "{@atk rp} +9 do trafienia, zasięg 30 metrów, jeden cel. {@h}14 ({@damage 4d6}) obrażenia siłowe, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od metamorfy."
+          "{@atk rp} +9 do trafienia, zasięg 30 metrów, jeden cel. {@h}14 ({@damage 4d6}) obrażenia od mocy, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od metamorfy."
         ]
       },
       {
-        "name": "Promienne spojrzenie (3/dzień; moc 5. rzędu)",
+        "name": "Promienne spojrzenie (3/dzień; moc 5. kręgu)",
         "entries": [
-          "Metamorfa uwalnia obrzydliwy promień mocy w stronę istoty, którą widzą w promieniu 30 metrów od siebie. Cel musi wykonać rzut obronny na Kondycję {@dc 17}, zadając 38 ({@damage 7d10}) obrażeń od siły przy nieudanym rzucie lub połowę mniej przy udanym rzucie. W przypadku nieudanego rzutu obronnego, cel podlega także wybranemu przez metamorfę jednemu z poniższych efektów przez 1 minutę (obrona kończy się na koniec tury):",
+          "Metamorfa uwalnia obrzydliwy promień mocy w stronę istoty, którą widzą w promieniu 30 metrów od siebie. Cel musi wykonać rzut obronny na Kondycję {@dc 17}, zadając 38 ({@damage 7d10}) obrażeń od mocy przy nieudanym rzucie lub połowę mniej przy udanym rzucie. W przypadku nieudanego rzutu obronnego, cel podlega także wybranemu przez metamorfę jednemu z poniższych efektów przez 1 minutę (obrona kończy się na koniec tury):",
           {
             "type": "list",
             "items": [
@@ -683,7 +693,7 @@
         ]
       },
       {
-        "name": "Flay (3/dzień; moc 5. rzędu)",
+        "name": "Rozszarpanie (3/dzień; moc 5. kręgu)",
         "entries": [
           "Metamorfa wystrzeliwuje 5-metrowy stożek czystej energii psionicznej. Każda istota na obszarze musi wykonać rzut obronny na Inteligencję {@dc 17}, zadając 28 ({@damage 8d6}) obrażeń psychicznych przy nieudanym rzucie lub połowę mniej przy udanym rzucie."
         ]
@@ -695,13 +705,13 @@
         ]
       },
       {
-        "name": "Stal (1/dzień; moc 6. rzędu; koncentracja)",
+        "name": "Stal (1/dzień; moc 6. kręgu; koncentracja)",
         "entries": [
           "Skóra metamorfa zamienia się w twardy, błyszczący metal, zapewniając mu następujące korzyści na 10 minut:",
           {
             "type": "list",
             "items": [
-              "Mają odporność na obrażenia tłuczone, kłute i tnące.",
+              "Mają odporność na obrażenia obuchowe, kłute i sieczne.",
               "Każde trafienie krytyczne w ich stronę staje się normalnym trafieniem.",
               "Mogą wykonać akcję ataku, aby wykonać maksymalnie trzy ataki bez broni. Każde uderzenie jest psionicznym atakiem bronią białą, który ma premię +9 do rzutu ataku i zadaje 16 ({@damage 2d10 + 5}) obrażeń obuchowych przy trafieniu.",
               "Na początku tury metamorfy, jeśli mają co najmniej 1 punkt wytrzymałości, odzyskują 10 punktów wytrzymałości."
@@ -712,7 +722,7 @@
     ],
     "bonusActions": [
       {
-        "name": "Wzmocnij (moc 4. rzędu)",
+        "name": "Wzmocnij (moc 4. kręgu)",
         "entries": [
           "Metamorf wybiera jedno stworzenie, które widzi w promieniu 30 stóp od siebie. Następnym razem, gdy cel trafi istotę atakiem bronią w ciągu następnej minuty, atak zadaje dodatkowe obrażenia psychiczne {@damage 3d8}."
         ]
@@ -726,10 +736,10 @@
   },
   "metamorph-talent": {
     "name": "Talent Metamorfozy",
-    "subtitle": "Humanoid (Talent), CR 4",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 4",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +5, Mądrość +2",
     "skills": "Arkana +5, Percepcja +4",
@@ -757,24 +767,26 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Metamorfa wykonuje dwa ataki Psionicznym Pociskiem."]
+        "entries": [
+          "Metamorfa wykonuje dwa ataki Psionicznym Pociskiem."
+        ]
       },
       {
         "name": "Sztylet",
         "entries": [
-          "{@atk mw,rw} +3 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}3 ({@damage 1d4 + 1}) uszkodzenie przebijające."
+          "{@atk mw,rw} +3 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}3 ({@damage 1d4 + 1}) uszkodzenie kłute."
         ]
       },
       {
-        "name": "Psioniczny pocisk (moc pierwszego rzędu)",
+        "name": "Psioniczny pocisk (moc 1. kręgu)",
         "entries": [
-          "{@atk rp} +5 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) obrażenia siłowe, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od metamorfy."
+          "{@atk rp} +5 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) obrażenia od mocy, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od metamorfy."
         ]
       },
       {
-        "name": "Promienne spojrzenie (3/dzień; moc 3. rzędu)",
+        "name": "Promienne spojrzenie (3/dzień; moc 3. kręgu)",
         "entries": [
-          "Metamorfa uwalnia obrzydliwy promień mocy w stronę istoty, którą widzą w promieniu 30 metrów od siebie. Cel musi wykonać rzut obronny na Kondycję {@dc 13}, zadając 16 ({@damage 3d10}) obrażeń od siły przy nieudanym rzucie lub o połowę mniej przy udanym rzucie. W przypadku nieudanego rzutu obronnego, cel podlega także wybranemu przez metamorfę jednemu z poniższych efektów przez 1 minutę (obrona kończy się na koniec tury):",
+          "Metamorfa uwalnia obrzydliwy promień mocy w stronę istoty, którą widzą w promieniu 30 metrów od siebie. Cel musi wykonać rzut obronny na Kondycję {@dc 13}, zadając 16 ({@damage 3d10}) obrażeń od mocy przy nieudanym rzucie lub o połowę mniej przy udanym rzucie. W przypadku nieudanego rzutu obronnego, cel podlega także wybranemu przez metamorfę jednemu z poniższych efektów przez 1 minutę (obrona kończy się na koniec tury):",
           {
             "type": "list",
             "items": [
@@ -794,7 +806,7 @@
     ],
     "bonusActions": [
       {
-        "name": "Wzmocnij (moc trzeciego rzędu)",
+        "name": "Wzmocnij (moc 3. kręgu)",
         "entries": [
           "Metamorf wybiera jedno stworzenie, które widzi w promieniu 30 stóp od siebie. Następnym razem, gdy cel trafi istotę atakiem bronią w ciągu następnej minuty, atak zadaje dodatkowe obrażenia psychiczne {@damage 2d8}."
         ]
@@ -808,10 +820,10 @@
   },
   "pyrokinetic-expert": {
     "name": "Ekspert pirokinetyczny",
-    "subtitle": "Humanoid (Talent), CR 8",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 8",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +7, Mądrość +3",
     "skills": "Arkana +7, Percepcja +3",
@@ -839,7 +851,9 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Pirokinetyka wykonuje trzy ataki Płomienia."]
+        "entries": [
+          "Pirokinetyka wykonuje trzy ataki Płomienia."
+        ]
       },
       {
         "name": "Włącz płomień",
@@ -854,7 +868,7 @@
         ]
       },
       {
-        "name": "Rozpalanie (3/dzień; moc 4. rzędu; koncentracja)",
+        "name": "Rozpalanie (3/dzień; moc 4. kręgu; koncentracja)",
         "entries": [
           "Pirokinetyk wybiera trzy średnie lub mniejsze stworzenia lub obiekty w promieniu 30 stóp od nich. Wskazana istota musi odnieść sukces w rzucie obronnym na Kondycję {@dc 15} lub podlegać odpowiedniemu efektowi przez 1 minutę (wybrany obiekt automatycznie otrzymuje efekt):",
           {
@@ -868,13 +882,13 @@
         ]
       },
       {
-        "name": "Pożoga (3/dzień; moc 4. rzędu)",
+        "name": "Pożoga (3/dzień; moc 4. kręgu)",
         "entries": [
           "Pirokinetyk tworzy impuls ognia w linii o długości 30 stóp i szerokości 5 stóp. Każde stworzenie w linii musi wykonać rzut obronny na Zręczność {@dc 15}, zadając 21 ({@damage 6d6}) obrażeń od ognia przy nieudanym rzucie lub połowę mniej przy udanym rzucie."
         ]
       },
       {
-        "name": "Forma Ognia (1/dzień; Moc 4. rzędu; Koncentracja)",
+        "name": "Forma Ognia (1/dzień; Moc 4. kręgu; Koncentracja)",
         "entries": [
           "Pirokinetyk otacza się psionicznym płomieniem i zyskuje na 10 minut następujące korzyści:",
           {
@@ -898,10 +912,10 @@
   },
   "pyrokinetic-master": {
     "name": "Mistrz pirokinetyczny",
-    "subtitle": "Humanoid (Talent), CR 12",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 12",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +9, Mądrość +4",
     "skills": "Arkana +9, Percepcja +4",
@@ -929,7 +943,9 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Pirokinetyka wykonuje cztery ataki Płomienia."]
+        "entries": [
+          "Pirokinetyka wykonuje cztery ataki Płomienia."
+        ]
       },
       {
         "name": "Włącz płomień",
@@ -944,7 +960,7 @@
         ]
       },
       {
-        "name": "Rozpalanie (3/dzień; moc 5. rzędu; koncentracja)",
+        "name": "Rozpalanie (3/dzień; moc 5. kręgu; koncentracja)",
         "entries": [
           "Pirokinetyk wybiera cztery średnie lub mniejsze stworzenia lub obiekty w promieniu 30 stóp od nich. Wskazana istota musi odnieść sukces w rzucie obronnym na Kondycję {@dc 17} lub podlegać odpowiedniemu efektowi przez 1 minutę (wybrany obiekt automatycznie otrzymuje efekt):",
           {
@@ -958,20 +974,20 @@
         ]
       },
       {
-        "name": "Pożoga (3/dzień; moc 5. rzędu)",
+        "name": "Pożoga (3/dzień; moc 5. kręgu)",
         "entries": [
           "Pirokinetyk tworzy impuls ognia w linii o długości 30 stóp i szerokości 5 stóp. Każde stworzenie w linii musi wykonać rzut obronny na Zręczność {@dc 17}, zadając 28 ({@damage 8d6}) obrażeń od ognia przy nieudanym rzucie lub połowę mniej przy udanym rzucie."
         ]
       },
       {
-        "name": "Tygiel (1/dzień; moc 6. rzędu; koncentracja)",
+        "name": "Tygiel (1/dzień; moc 6. kręgu; koncentracja)",
         "entries": [
           "Pirokinetyk zapala obszar o powierzchni 50 stóp kwadratowych, wysoki na 3 metry i wyśrodkowany w punkcie na ziemi w odległości 50 metrów od nich, widocznym dla ludzi i który pali się przez 1 minutę. Każde stworzenie, które rozpoczyna swoją turę na tym obszarze, musi wykonać {@dc 17} rzut obronny na Zręczność, otrzymując 38 ({@damage 7d10}) obrażeń od ognia w przypadku nieudanego rzutu lub połowę mniej w przypadku udanego rzutu. Na początku każdej tury pirokinetyki mogą spowodować, że ogień rozprzestrzeni się na odległość 5 stóp ze wszystkich stron (nie jest wymagane żadne działanie), rozszerzając obszar na dowolną powierzchnię z wyjątkiem niepalnej cieczy.",
           "Ogień uszkadza obiekty w okolicy i zapala łatwopalne przedmioty, które nie są noszone ani noszone."
         ]
       },
       {
-        "name": "Forma Ognia (1/dzień; Moc 4. rzędu; Koncentracja)",
+        "name": "Forma Ognia (1/dzień; Moc 4. kręgu; Koncentracja)",
         "entries": [
           "Pirokinetyk otacza się psionicznym płomieniem i zyskuje na 10 minut następujące korzyści:",
           {
@@ -995,10 +1011,10 @@
   },
   "pyrokinetic-talent": {
     "name": "Talent pirokinetyczny",
-    "subtitle": "Humanoid (Talent), CR 4",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 4",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +5, Mądrość +2",
     "skills": "Arkana +5, Percepcja +2",
@@ -1026,7 +1042,10 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Pirokinetyka wykonuje trzy ataki Płomienia.", "Płomień"]
+        "entries": [
+          "Pirokinetyka wykonuje trzy ataki Płomienia.",
+          "Płomień"
+        ]
       },
       {
         "name": "NA",
@@ -1041,7 +1060,7 @@
         ]
       },
       {
-        "name": "Rozpalanie (3/dzień; moc 3. rzędu; koncentracja)",
+        "name": "Rozpalanie (3/dzień; moc 3. kręgu; koncentracja)",
         "entries": [
           "Pirokinetyk wybiera dwa średnie lub mniejsze stworzenia lub obiekty w promieniu 30 stóp od nich. Wskazana istota musi odnieść sukces w rzucie obronnym na Kondycję {@dc 13} lub otrzymać odpowiedni efekt przez 1 minutę (cel automatycznie otrzymuje efekt): • Jeśli cel jest odporny na obrażenia od ognia, zamiast tego ma odporność na obrażenia od ognia.",
           {
@@ -1069,10 +1088,10 @@
   },
   "resopath-expert": {
     "name": "Ekspert Resopatii",
-    "subtitle": "Humanoid (Talent), CR 8",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 8",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +7, Mądrość +3",
     "skills": "Arkana +7, Oszustwo +4",
@@ -1107,28 +1126,30 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Rezopata wykonuje dwa ataki Psionicznym Pociskiem."]
+        "entries": [
+          "Rezopata wykonuje dwa ataki Psionicznym Pociskiem."
+        ]
       },
       {
         "name": "Sztylet",
         "entries": [
-          "{@atk mw,rw} +5 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}4 ({@damage 1d4 + 2}) uszkodzenie przebijające."
+          "{@atk mw,rw} +5 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}4 ({@damage 1d4 + 2}) uszkodzenie kłute."
         ]
       },
       {
-        "name": "Psioniczny pocisk (moc pierwszego rzędu)",
+        "name": "Psioniczny pocisk (moc 1. kręgu)",
         "entries": [
-          "{@atk rp} +7 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) obrażenia siłowe, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od rezopaty."
+          "{@atk rp} +7 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) obrażenia od mocy, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od rezopaty."
         ]
       },
       {
-        "name": "Gdzie indziej (3/dzień; moc 4. rzędu)",
+        "name": "Gdzie indziej (3/dzień; moc 4. kręgu)",
         "entries": [
           "Rezopata wybiera cztery stworzenia, które widzi w promieniu 30 stóp od siebie, a każde z nich musi wykonać rzut obronny na Inteligencję {@dc 15}. W przypadku nieudanego rzutu obronnego cel zostaje teleportowany na odległość do 30 stóp do niezajętego miejsca, które rezopata może zobaczyć, a jego prędkość wynosi 0 aż do rozpoczęcia następnej tury rezopaty."
         ]
       },
       {
-        "name": "Chwilowy brak rozsądku (3/dzień; moc 4. rzędu)",
+        "name": "Chwilowy brak rozsądku (3/dzień; moc 4. kręgu)",
         "entries": [
           "Rezopata wybiera jedno stworzenie lub obiekt, które widzi w promieniu 30 metrów od siebie. Każde stworzenie wybrane przez rezopatę w promieniu 30 stóp od celu musi wykonać rzut obronny na Mądrość {@dc 15}. W przypadku nieudanego rzutu obronnego istota upuszcza wszystko, co trzyma i wykorzystuje swoją reakcję, jeśli jest dostępna, aby zwiększyć swoją prędkość w kierunku celu najbardziej bezpośrednią drogą. Jeśli stworzenie zbliży się na mniej niż 5 stóp od celu, przestanie się poruszać i upadnie {@condition prone}. Stworzenia, które nie mogą być {@condition charmed}, są odporne na tę moc."
         ]
@@ -1136,7 +1157,7 @@
     ],
     "bonusActions": [
       {
-        "name": "Wycieczka (3/dzień; moc 3. rzędu)",
+        "name": "Wycieczka (3/dzień; moc 3. kręgu)",
         "entries": [
           "Rezopata lub jedno chętne stworzenie, którego dotknie, teleportuje się do niezajętej przestrzeni, którą rezopata może zobaczyć w promieniu 30 stóp od nich."
         ]
@@ -1150,10 +1171,10 @@
   },
   "resopath-master": {
     "name": "Mistrz Rezopaty",
-    "subtitle": "Humanoid (Talent), CR 12",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 12",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +9, Mądrość +4",
     "skills": "Arkana +9, Oszustwo +5",
@@ -1188,34 +1209,36 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Rezopata wykonuje dwa ataki Psionicznym Pociskiem."]
+        "entries": [
+          "Rezopata wykonuje dwa ataki Psionicznym Pociskiem."
+        ]
       },
       {
         "name": "Sztylet",
         "entries": [
-          "{@atk mw,rw} +7 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}5 ({@damage 1d4 + 3}) uszkodzenie przebijające."
+          "{@atk mw,rw} +7 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}5 ({@damage 1d4 + 3}) uszkodzenie kłute."
         ]
       },
       {
-        "name": "Psioniczny pocisk (moc pierwszego rzędu)",
+        "name": "Psioniczny pocisk (moc 1. kręgu)",
         "entries": [
-          "{@atk rp} +9 do trafienia, zasięg 30 metrów, jeden cel. {@h}14 ({@damage 4d6}) obrażenia siłowe, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od rezopaty."
+          "{@atk rp} +9 do trafienia, zasięg 30 metrów, jeden cel. {@h}14 ({@damage 4d6}) obrażenia od mocy, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od rezopaty."
         ]
       },
       {
-        "name": "Gdzie indziej (3/dzień; moc 5. rzędu)",
+        "name": "Gdzie indziej (3/dzień; moc 5. kręgu)",
         "entries": [
           "Rezopata wybiera pięć stworzeń, które widzi w promieniu 30 stóp od siebie, a każde z nich musi wykonać rzut obronny na Inteligencję {@dc 17}. W przypadku nieudanego rzutu obronnego cel zostaje teleportowany na odległość do 30 stóp do niezajętego miejsca, które rezopata może zobaczyć, a jego prędkość wynosi 0 aż do rozpoczęcia następnej tury rezopaty."
         ]
       },
       {
-        "name": "Chwilowy brak rozsądku (3/dzień; moc 4. rzędu)",
+        "name": "Chwilowy brak rozsądku (3/dzień; moc 4. kręgu)",
         "entries": [
           "Rezopata wybiera jedno stworzenie lub obiekt, które widzi w promieniu 30 metrów od siebie. Każde stworzenie wybrane przez rezopatę w promieniu 30 stóp od celu musi wykonać rzut obronny na Mądrość {@dc 17}. W przypadku nieudanego rzutu obronnego istota upuszcza wszystko, co trzyma i wykorzystuje swoją reakcję, jeśli jest dostępna, aby zwiększyć swoją prędkość w kierunku celu najbardziej bezpośrednią drogą. Jeśli stworzenie zbliży się na mniej niż 5 stóp od celu, przestanie się poruszać i upadnie {@condition prone}. Stworzenia, które nie mogą być {@condition charmed}, są odporne na tę moc."
         ]
       },
       {
-        "name": "Odbicie (1/dzień; moc 6. rzędu; koncentracja)",
+        "name": "Odbicie (1/dzień; moc 6. kręgu; koncentracja)",
         "entries": [
           "Rezopata wybiera jedno stworzenie, które widzi w promieniu 60 stóp od siebie, które ma współczynnik wyzwania 10 lub niższy (lub 10 poziom lub niższy w przypadku stworzeń, które nie mają wskaźnika wyzwania), a następnie psionicznie tworzy doskonałą kopię tego stworzenia. Kopia pojawia się w niezamieszkanej przestrzeni wybranej przez rezopatę, którą może zobaczyć w promieniu 60 stóp od siebie i działa natychmiast po rezopacie. Kopia ma te same statystyki, co oryginalne stworzenie, z tą różnicą, że posiada zwykłe kopie wyposażenia stworzenia i nie posiada żadnych akcji związanych z legowiskiem, akcjami legendarnymi ani akcjami złoczyńców. Kopia odzwierciedla aktualny stan pierwotnego stworzenia, w tym aktualne punkty wytrzymałości i dostępne akcje. Kopia jest lojalna wobec rezopaty i rozumie polecenia, które rezopata daje jej poprzez wspólne połączenie mentalne. Znikają, gdy ich wytrzymałość spadnie do 0."
         ]
@@ -1223,7 +1246,7 @@
     ],
     "bonusActions": [
       {
-        "name": "Wycieczka (3/dzień; moc 3. rzędu)",
+        "name": "Wycieczka (3/dzień; moc 3. kręgu)",
         "entries": [
           "Rezopata lub jedno chętne stworzenie, którego dotknie, teleportuje się do niezajętej przestrzeni, którą rezopata może zobaczyć w promieniu 30 stóp od nich."
         ]
@@ -1237,10 +1260,10 @@
   },
   "resopath-talent": {
     "name": "Talent Resopaty",
-    "subtitle": "Humanoid (Talent), CR 4",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 4",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +5, Mądrość +2",
     "skills": "Arkana +5, Oszustwo +3",
@@ -1275,28 +1298,30 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Rezopata wykonuje dwa ataki Psionicznym Pociskiem."]
+        "entries": [
+          "Rezopata wykonuje dwa ataki Psionicznym Pociskiem."
+        ]
       },
       {
         "name": "Sztylet",
         "entries": [
-          "{@atk mw,rw} +3 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}3 ({@damage 1d4 + 1}) uszkodzenie przebijające."
+          "{@atk mw,rw} +3 do trafienia, osiągnięcia zasięgu 5 stóp lub zasięgu 20/60 stóp, jeden cel. {@h}3 ({@damage 1d4 + 1}) uszkodzenie kłute."
         ]
       },
       {
-        "name": "Psioniczny pocisk (moc pierwszego rzędu)",
+        "name": "Psioniczny pocisk (moc 1. kręgu)",
         "entries": [
-          "{@atk rp} +5 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) obrażenia siłowe, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od rezopaty."
+          "{@atk rp} +5 do trafienia, zasięg 30 metrów, jeden cel. {@h}10 ({@damage 3d6}) obrażenia od mocy, a jeśli cel jest duży lub mniejszy, zostaje odepchnięty na 5 stóp od rezopaty."
         ]
       },
       {
-        "name": "Gdzie indziej (3/dzień; moc trzeciego rzędu)",
+        "name": "Gdzie indziej (3/dzień; moc 3. kręgu)",
         "entries": [
-          "Rezopata wybiera trzy stworzenia, które widzi w promieniu 30 stóp od siebie, a każde z nich musi wykonać rzut obronny na Inteligencję {@dc 13}. W przypadku nieudanego rzutu obronnego cel zostaje teleportowany na odległość do 30 stóp do niezajętego miejsca, które rezopata może zobaczyć, a jego prędkość wynosi 0 aż do rozpoczęcia następnej tury rezopaty. AKCJE BONUSOWE"
+          "Rezopata wybiera trzy stworzenia, które widzi w promieniu 30 stóp od siebie, a każde z nich musi wykonać rzut obronny na Inteligencję {@dc 13}. W przypadku nieudanego rzutu obronnego cel zostaje teleportowany na odległość do 30 stóp do niezajętego miejsca, które rezopata może zobaczyć, a jego prędkość wynosi 0 aż do rozpoczęcia następnej tury rezopaty. Akcje Dodatkowe"
         ]
       },
       {
-        "name": "Wycieczka (3/dzień; moc 3. rzędu)",
+        "name": "Wycieczka (3/dzień; moc 3. kręgu)",
         "entries": [
           "Rezopata lub jedno chętne stworzenie, którego dotknie, teleportuje się do niezajętej przestrzeni, którą rezopata może zobaczyć w promieniu 30 stóp od nich."
         ]
@@ -1311,10 +1336,10 @@
   },
   "telekinetic-expert": {
     "name": "Ekspert telekinetyczny",
-    "subtitle": "Humanoid (Talent), CR 8",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 8",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp, lataj 60 stóp.",
     "saves": "Inteligencja +7, Mądrość +4",
     "skills": "Arkana +7, Śledztwo +7",
@@ -1342,30 +1367,32 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Telekinetyk dwukrotnie używa Wstrząsającego Uderzenia."]
+        "entries": [
+          "Telekinetyk dwukrotnie używa Wstrząsającego Uderzenia."
+        ]
       },
       {
-        "name": "Wstrząsające Uderzenie (Moc pierwszego rzędu)",
+        "name": "Wstrząsające Uderzenie (Moc 1. kręgu)",
         "entries": [
           "Jedna istota w promieniu 30 stóp od telekinetyka musi wykonać {@dc 15} rzut obronny na Siłę, w przeciwnym razie otrzyma 7 ({@damage 3d4}) obrażeń od mocy i upadnie {@condition prone}."
         ]
       },
       {
-        "name": "Miażdżenie Kinetyczne (3/dzień; Moc 4. rzędu)",
+        "name": "Miażdżenie Kinetyczne (3/dzień; Moc 4. kręgu)",
         "entries": [
-          "Telekinetyk celuje w istotę, którą widzą w promieniu 60 stóp od niej, która musi wykonać rzut obronny na Siłę {@dc 15}. W przypadku nieudanego rzutu obronnego cel otrzymuje 27 ({@damage 6d8}) obrażeń od siły, a jego prędkość wynosi 0 aż do rozpoczęcia następnej tury telekinetyka. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia, a jego prędkość nie ulega zmniejszeniu."
+          "Telekinetyk celuje w istotę, którą widzą w promieniu 60 stóp od niej, która musi wykonać rzut obronny na Siłę {@dc 15}. W przypadku nieudanego rzutu obronnego cel otrzymuje 27 ({@damage 6d8}) obrażeń od mocy, a jego prędkość wynosi 0 aż do rozpoczęcia następnej tury telekinetyka. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia, a jego prędkość nie ulega zmniejszeniu."
         ]
       },
       {
-        "name": "Wybuch telekinetyczny (3/dzień; moc 4. rzędu)",
+        "name": "Wybuch telekinetyczny (3/dzień; moc 4. kręgu)",
         "entries": [
-          "Telekinetyk uwalnia kulę mocy o promieniu 20 stóp, skupioną w punkcie widocznym w promieniu 30 stóp od nich. Każde stworzenie na obszarze musi wykonać rzut obronny na {@dc 15} na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje 24 ({@damage 7d6}) obrażeń od siły i zostaje odepchnięty na 3 metry od środka obszaru. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie jest odpychany."
+          "Telekinetyk uwalnia kulę mocy o promieniu 20 stóp, skupioną w punkcie widocznym w promieniu 30 stóp od nich. Każde stworzenie na obszarze musi wykonać rzut obronny na {@dc 15} na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje 24 ({@damage 7d6}) obrażeń od mocy i zostaje odepchnięty na 3 metry od środka obszaru. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie jest odpychany."
         ]
       },
       {
-        "name": "Masowe dławienie (1/dzień; moc 6. rzędu; koncentracja)",
+        "name": "Masowe dławienie (1/dzień; moc 6. kręgu; koncentracja)",
         "entries": [
-          "Każde stworzenie wybrane przez telekinetyka w promieniu 30 stóp od nich musi odnieść sukces w rzucie obronnym na Zręczność {@dc 15} lub stać się {@condition restrained} na 1 minutę (końce rzutu obronnego na koniec tury). Stworzenie {@condition restrained} w ten sposób otrzymuje 22 ({@damage 5d8}) obrażenia od siły na początku każdej swojej tury."
+          "Każde stworzenie wybrane przez telekinetyka w promieniu 30 stóp od nich musi odnieść sukces w rzucie obronnym na Zręczność {@dc 15} lub stać się {@condition restrained} na 1 minutę (końce rzutu obronnego na koniec tury). Stworzenie {@condition restrained} w ten sposób otrzymuje 22 ({@damage 5d8}) obrażenia od mocy na początku każdej swojej tury."
         ]
       }
     ],
@@ -1385,10 +1412,10 @@
   },
   "telekinetic-master": {
     "name": "Mistrz telekinetyczny",
-    "subtitle": "Humanoid (Talent), CR 12",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 12",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp, lataj 60 stóp.",
     "saves": "Inteligencja +9, Mądrość +5",
     "skills": "Arkana +9, Śledztwo +9",
@@ -1416,36 +1443,38 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Telekinetyk dwukrotnie używa Wstrząsającego Uderzenia."]
+        "entries": [
+          "Telekinetyk dwukrotnie używa Wstrząsającego Uderzenia."
+        ]
       },
       {
-        "name": "Wstrząsające Uderzenie (Moc pierwszego rzędu)",
+        "name": "Wstrząsające Uderzenie (Moc 1. kręgu)",
         "entries": [
           "Jedna istota w promieniu 30 stóp od telekinetyka musi wykonać {@dc 17} rzut obronny na Siłę, w przeciwnym razie otrzyma 10 ({@damage 4d4}) obrażeń od mocy i upadnie {@condition prone}."
         ]
       },
       {
-        "name": "Miażdżenie Kinetyczne (3/dzień; moc 5. rzędu)",
+        "name": "Miażdżenie Kinetyczne (3/dzień; moc 5. kręgu)",
         "entries": [
-          "Telekinetyk celuje w istotę, którą widzą w promieniu 60 stóp od niej, która musi wykonać rzut obronny na Siłę {@dc 17}. W przypadku nieudanego rzutu obronnego cel otrzymuje 36 ({@damage 8d8}) obrażeń od siły, a jego prędkość wynosi 0 aż do rozpoczęcia następnej tury telekinetyka. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia, a jego prędkość nie ulega zmniejszeniu."
+          "Telekinetyk celuje w istotę, którą widzą w promieniu 60 stóp od niej, która musi wykonać rzut obronny na Siłę {@dc 17}. W przypadku nieudanego rzutu obronnego cel otrzymuje 36 ({@damage 8d8}) obrażeń od mocy, a jego prędkość wynosi 0 aż do rozpoczęcia następnej tury telekinetyka. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia, a jego prędkość nie ulega zmniejszeniu."
         ]
       },
       {
-        "name": "Wybuch telekinetyczny (3/dzień; moc 5. rzędu)",
+        "name": "Wybuch telekinetyczny (3/dzień; moc 5. kręgu)",
         "entries": [
-          "Telekinetyk uwalnia kulę mocy o promieniu 20 stóp, skupioną w punkcie widocznym w promieniu 30 stóp od nich. Każde stworzenie na obszarze musi wykonać rzut obronny na {@dc 17} na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje 31 ({@damage 9d6}) obrażeń od siły i zostaje odepchnięty na 3 metry od środka obszaru. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie jest odpychany."
+          "Telekinetyk uwalnia kulę mocy o promieniu 20 stóp, skupioną w punkcie widocznym w promieniu 30 stóp od nich. Każde stworzenie na obszarze musi wykonać rzut obronny na {@dc 17} na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje 31 ({@damage 9d6}) obrażeń od mocy i zostaje odepchnięty na 3 metry od środka obszaru. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie jest odpychany."
         ]
       },
       {
-        "name": "Fala Wstrząsowa (1/dzień; moc 6. rzędu)",
+        "name": "Fala Wstrząsowa (1/dzień; moc 6. kręgu)",
         "entries": [
-          "Każde stworzenie wybrane przez telekinetyka w promieniu 30 stóp od nich musi wykonać rzut obronny na Siłę {@dc 17} lub zostać wyrzucone na odległość do 30 metrów w pionie i na odległość do 30 stóp od telekinetyka. Każde stworzenie zostaje następnie uderzone w ziemię, otrzymując {@damage 1d6} obrażenia tłuczące przy upadku z wysokości 3 metrów i lądujące {@condition prone}."
+          "Każde stworzenie wybrane przez telekinetyka w promieniu 30 stóp od nich musi wykonać rzut obronny na Siłę {@dc 17} lub zostać wyrzucone na odległość do 30 metrów w pionie i na odległość do 30 stóp od telekinetyka. Każde stworzenie zostaje następnie uderzone w ziemię, otrzymując {@damage 1d6} obrażenia obuchowe przy upadku z wysokości 3 metrów i lądujące {@condition prone}."
         ]
       },
       {
-        "name": "Masowe dławienie (1/dzień; moc 6. rzędu; koncentracja)",
+        "name": "Masowe dławienie (1/dzień; moc 6. kręgu; koncentracja)",
         "entries": [
-          "Każde stworzenie wybrane przez telekinetyka w promieniu 30 stóp od nich musi odnieść sukces w rzucie obronnym na Zręczność {@dc 17} lub stać się {@condition restrained} na 1 minutę (końce rzutu obronnego na koniec tury). Stworzenie {@condition restrained} w ten sposób otrzymuje 22 ({@damage 5d8}) obrażenia od siły na początku każdej swojej tury."
+          "Każde stworzenie wybrane przez telekinetyka w promieniu 30 stóp od nich musi odnieść sukces w rzucie obronnym na Zręczność {@dc 17} lub stać się {@condition restrained} na 1 minutę (końce rzutu obronnego na koniec tury). Stworzenie {@condition restrained} w ten sposób otrzymuje 22 ({@damage 5d8}) obrażenia od mocy na początku każdej swojej tury."
         ]
       }
     ],
@@ -1465,10 +1494,10 @@
   },
   "telekinetic-talent": {
     "name": "Talent telekinetyczny",
-    "subtitle": "Humanoid (Talent), CR 4",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 4",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +5, Mądrość +3",
     "skills": "Arkana +5, Śledztwo +5",
@@ -1496,10 +1525,12 @@
     "actions": [
       {
         "name": "Multiatak",
-        "entries": ["Telekinetyk dwukrotnie używa Wstrząsającego Uderzenia."]
+        "entries": [
+          "Telekinetyk dwukrotnie używa Wstrząsającego Uderzenia."
+        ]
       },
       {
-        "name": "Wstrząsające Uderzenie (Moc pierwszego rzędu)",
+        "name": "Wstrząsające Uderzenie (Moc 1. kręgu)",
         "entries": [
           "Jedna istota w promieniu 30 stóp od telekinetyka musi wykonać {@dc 13} rzut obronny na Siłę, w przeciwnym razie otrzyma 7 ({@damage 3d4}) obrażeń od mocy i upadnie {@condition prone}."
         ]
@@ -1507,13 +1538,13 @@
       {
         "name": "Miażdżenie Kinetyczne (3/dzień; Moc 3. Zakonu)",
         "entries": [
-          "Telekinetyk celuje w istotę, którą widzą w promieniu 60 stóp od niej, która musi wykonać rzut obronny na Siłę {@dc 13}. W przypadku nieudanego rzutu obronnego cel otrzymuje 18 ({@damage 4d8}) obrażeń od siły, a jego prędkość wynosi 0 aż do rozpoczęcia następnej tury telekinetyka. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia, a jego prędkość nie ulega zmniejszeniu."
+          "Telekinetyk celuje w istotę, którą widzą w promieniu 60 stóp od niej, która musi wykonać rzut obronny na Siłę {@dc 13}. W przypadku nieudanego rzutu obronnego cel otrzymuje 18 ({@damage 4d8}) obrażeń od mocy, a jego prędkość wynosi 0 aż do rozpoczęcia następnej tury telekinetyka. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia, a jego prędkość nie ulega zmniejszeniu."
         ]
       },
       {
-        "name": "Wybuch telekinetyczny (3/dzień; moc 3. rzędu)",
+        "name": "Wybuch telekinetyczny (3/dzień; moc 3. kręgu)",
         "entries": [
-          "Telekinetyk uwalnia kulę mocy o promieniu 20 stóp, skupioną w punkcie widocznym w promieniu 30 stóp od nich. Każde stworzenie na obszarze musi wykonać rzut obronny na {@dc 13} na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje 17 ({@damage 5d6}) obrażeń od siły i zostaje odepchnięty na 3 metry od środka obszaru. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie jest odpychany."
+          "Telekinetyk uwalnia kulę mocy o promieniu 20 stóp, skupioną w punkcie widocznym w promieniu 30 stóp od nich. Każde stworzenie na obszarze musi wykonać rzut obronny na {@dc 13} na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje 17 ({@damage 5d6}) obrażeń od mocy i zostaje odepchnięty na 3 metry od środka obszaru. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i nie jest odpychany."
         ]
       }
     ],
@@ -1533,10 +1564,10 @@
   },
   "telepath-expert": {
     "name": "Ekspert telepaty",
-    "subtitle": "Humanoid (Talent), CR 8",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 8",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +7, Mądrość +3",
     "skills": "Arkana +7, Perswazja +7",
@@ -1563,28 +1594,28 @@
     ],
     "actions": [
       {
-        "name": "Psychiczne dźgnięcie (moc pierwszego rzędu)",
+        "name": "Psychiczne dźgnięcie (moc 1. kręgu)",
         "entries": [
           "Jedna istota, którą telepata widzi w promieniu 30 metrów od niej, musi wykonać rzut obronny na Inteligencję {@dc 15}, w przeciwnym razie otrzyma 16 ({@damage 3d10}) obrażeń psychicznych."
         ]
       },
       {
-        "name": "Sztylet Umysłu (3/dzień; moc 4. rzędu)",
+        "name": "Sztylet Umysłu (3/dzień; moc 4. kręgu)",
         "entries": [
           "Telepata wybiera jedno stworzenie, które widzi w promieniu 60 stóp od siebie i które musi wykonać rzut obronny na Inteligencję {@dc 15}. W przypadku nieudanego rzutu obronnego cel otrzymuje 33 ({@damage 6d10}) obrażeń psychicznych i w swojej następnej turze może wykonać tylko akcje Doskoku, Wycofania się lub Uniku. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i może normalnie rozegrać swoją turę."
         ]
       },
       {
-        "name": "Złamanie (1/dzień; moc 5. rzędu)",
+        "name": "Złamanie (1/dzień; moc 5. kręgu)",
         "entries": [
           "Każda istota w kuli o promieniu 20 stóp, której środek znajduje się w odległości 30 metrów od telepaty, musi wykonać rzut obronny na Inteligencję {@dc 15}. W przypadku nieudanego rzutu obronnego, istota otrzymuje 27 ({@damage 6d8}) obrażeń psychicznych i zostaje złamana na 1 minutę (obrona kończy się na końcu tury). W przypadku powodzenia, stworzenie otrzymuje o połowę mniejsze obrażenia i nie ulega złamaniu.",
           "Po złamaniu prędkość stworzenia zmniejsza się o połowę; mają wadę w testach zdolności, rzutach ataku i rzutach obronnych; i rzuty ataku przeciwko nim mają przewagę."
         ]
       },
       {
-        "name": "Arlekin (1/dzień; moc 4. rzędu; koncentracja)",
+        "name": "Arlekin (1/dzień; moc 4. kręgu; koncentracja)",
         "entries": [
-          "Telepata wybiera jednego Humanoida, którego widzi w promieniu 30 metrów od niego, który musi wykonać udany rzut obronny na Mądrość {@dc 15} lub być {@condition charmed} przez telepatę przez 1 godzinę. Podczas gdy celem jest w ten sposób {@condition charmed}, telepata ma z nimi połączenie telepatyczne, o ile obaj znajdują się na tej samej płaszczyźnie istnienia.",
+          "Telepata wybiera jedną humanoidalną istotę, którego widzi w promieniu 30 metrów od niego, który musi wykonać udany rzut obronny na Mądrość {@dc 15} lub być {@condition charmed} przez telepatę przez 1 godzinę. Podczas gdy celem jest w ten sposób {@condition charmed}, telepata ma z nimi połączenie telepatyczne, o ile obaj znajdują się na tej samej płaszczyźnie istnienia.",
           "Mogą używać tego połączenia telepatycznego do wydawania celowi poleceń (nie wymaga to żadnego działania), których cel stara się przestrzegać. Jeśli cel wykona rozkaz i nie otrzyma dalszych wskazówek od telepaty, broni się i zachowuje najlepiej jak potrafi.",
           "Telepata może użyć akcji, aby przejąć całkowitą i precyzyjną kontrolę nad celem {@condition charmed}. Do końca następnej tury telepaty cel wykonuje tylko te akcje, które telepata wybierze i nie robi nic więcej. W tym czasie telepata może również spowodować, że cel użyje reakcji, ale wymaga to, aby telepata również użył swojej reakcji.",
           "Za każdym razem, gdy cel otrzymuje obrażenia, wykonuje nowy rzut obronny na Mądrość. Jeśli rzut obronny się powiedzie, warunek {@condition charmed} kończy się."
@@ -1594,7 +1625,7 @@
     "bonusActions": [],
     "reactions": [
       {
-        "name": "Podziel się bólem (moc trzeciego rzędu)",
+        "name": "Podziel się bólem (moc 3. kręgu)",
         "entries": [
           "Kiedy telepata zostaje zraniony przez istotę, którą widzi w promieniu 60 stóp, zmusza ją do wykonania rzutu obronnego na Mądrość {@dc 15}.",
           "Cel otrzymuje 13 ({@damage 2d12}) obrażeń psychicznych w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
@@ -1608,10 +1639,10 @@
   },
   "telepath-master": {
     "name": "Mistrz Telepaty",
-    "subtitle": "Humanoid (Talent), CR 12",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 12",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +9, Mądrość +4",
     "skills": "Arkana +9, Perswazja +9",
@@ -1638,34 +1669,34 @@
     ],
     "actions": [
       {
-        "name": "Psychiczne dźgnięcie (moc pierwszego rzędu)",
+        "name": "Psychiczne dźgnięcie (moc 1. kręgu)",
         "entries": [
           "Jedna istota, którą telepata widzi w promieniu 30 metrów od niej, musi wykonać rzut obronny na Inteligencję {@dc 17}, w przeciwnym razie otrzyma 22 ({@damage 4d10}) obrażeń psychicznych."
         ]
       },
       {
-        "name": "Sztylet Umysłu (3/dzień; moc 5. rzędu)",
+        "name": "Sztylet Umysłu (3/dzień; moc 5. kręgu)",
         "entries": [
           "Telepata wybiera jedno stworzenie, które widzi w promieniu 60 stóp od siebie i które musi wykonać rzut obronny na Inteligencję {@dc 17}. W przypadku nieudanego rzutu obronnego cel otrzymuje 44 ({@damage 8d10}) obrażeń psychicznych i w swojej następnej turze może wykonać tylko akcje Doskoku, Wycofania się lub Uniku. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i może normalnie rozegrać swoją turę."
         ]
       },
       {
-        "name": "Złamanie (3/dzień; moc 6. rzędu)",
+        "name": "Złamanie (3/dzień; moc 6. kręgu)",
         "entries": [
           "Każda istota w kuli o promieniu 20 stóp, której środek znajduje się w odległości 30 metrów od telepaty, musi wykonać rzut obronny na Inteligencję {@dc 17}. W przypadku nieudanego rzutu obronnego, istota otrzymuje 36 ({@damage 8d8}) obrażeń psychicznych i zostaje złamana na 1 minutę (obrona kończy się na koniec tury). W przypadku powodzenia, stworzenie otrzymuje o połowę mniejsze obrażenia i nie ulega złamaniu.",
           "Po złamaniu prędkość stworzenia zmniejsza się o połowę; mają wadę w testach zdolności, rzutach ataku i rzutach obronnych; i rzuty ataku przeciwko nim mają przewagę."
         ]
       },
       {
-        "name": "Arlekin (3/dzień; moc 4. rzędu; koncentracja)",
+        "name": "Arlekin (3/dzień; moc 4. kręgu; koncentracja)",
         "entries": [
-          "Telepata wybiera jednego Humanoida, którego widzi w promieniu 30 metrów od niego, który musi wykonać udany rzut obronny na Mądrość {@dc 17} lub być {@condition charmed} przez telepatę przez 1 godzinę. Podczas gdy celem jest w ten sposób {@condition charmed}, telepata ma z nimi połączenie telepatyczne, o ile obaj znajdują się na tej samej płaszczyźnie istnienia. Mogą używać tego połączenia telepatycznego do wydawania celowi poleceń (nie wymaga to żadnego działania), których cel stara się przestrzegać. Jeśli cel wykona rozkaz i nie otrzyma dalszych wskazówek od telepaty, broni się i zachowuje najlepiej jak potrafi.",
+          "Telepata wybiera jedną humanoidalną istotę, którego widzi w promieniu 30 metrów od niego, który musi wykonać udany rzut obronny na Mądrość {@dc 17} lub być {@condition charmed} przez telepatę przez 1 godzinę. Podczas gdy celem jest w ten sposób {@condition charmed}, telepata ma z nimi połączenie telepatyczne, o ile obaj znajdują się na tej samej płaszczyźnie istnienia. Mogą używać tego połączenia telepatycznego do wydawania celowi poleceń (nie wymaga to żadnego działania), których cel stara się przestrzegać. Jeśli cel wykona rozkaz i nie otrzyma dalszych wskazówek od telepaty, broni się i zachowuje najlepiej jak potrafi.",
           "Telepata może użyć akcji, aby przejąć całkowitą i precyzyjną kontrolę nad celem {@condition charmed}. Do końca następnej tury telepaty cel wykonuje tylko te akcje, które telepata wybierze i nie robi nic więcej. W tym czasie telepata może również spowodować, że cel użyje reakcji, ale wymaga to, aby telepata również użył swojej reakcji.",
           "Za każdym razem, gdy cel otrzymuje obrażenia, wykonuje nowy rzut obronny na Mądrość. Jeśli rzut obronny się powiedzie, warunek {@condition charmed} kończy się."
         ]
       },
       {
-        "name": "Wymazanie Umysłu (1/dzień; Moc 6. rzędu; Koncentracja)",
+        "name": "Wymazanie Umysłu (1/dzień; Moc 6. kręgu; Koncentracja)",
         "entries": [
           "Telepata wybiera stworzenie, które widzi w promieniu 60 stóp od niego, które musi wykonać rzut obronny na Mądrość {@dc 17}. W przypadku powodzenia cel otrzymuje 16 ({@damage 3d10}) obrażeń psychicznych. W przypadku niepowodzenia premia za biegłość celu wynosi +0 (zmniejsza premię dodaną do testów umiejętności, rzutów ataku i rzutów obronnych, które wykonuje z biegłością) i nie może on rzucać zaklęć, manifestować mocy, rozumieć języka ani komunikować się w żaden zrozumiały sposób. Wszystkie te efekty utrzymują się przez 1 minutę."
         ]
@@ -1674,7 +1705,7 @@
     "bonusActions": [],
     "reactions": [
       {
-        "name": "Podziel się bólem (moc czwartego rzędu)",
+        "name": "Podziel się bólem (moc 4. kręgu)",
         "entries": [
           "Kiedy telepata zostaje zraniony przez istotę, którą widzi w promieniu 60 stóp, zmusza ją do wykonania rzutu obronnego na Mądrość {@dc 17}.",
           "Cel otrzymuje 19 ({@damage 3d12}) obrażeń psychicznych w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
@@ -1688,10 +1719,10 @@
   },
   "telepath-talent": {
     "name": "Talent telepaty",
-    "subtitle": "Humanoid (Talent), CR 4",
+    "subtitle": "Humanoidalny (Talent), stopień wyzwania 4",
     "size": "Średni",
-    "creatureType": "Humanoid (Talent)",
-    "alignment": "Dowolne wyrównanie",
+    "creatureType": "Humanoidalny (Talent)",
+    "alignment": "Dowolne nastawienie",
     "speed": "30 stóp",
     "saves": "Inteligencja +5, Mądrość +2",
     "skills": "Arkana +5, Perswazja +5",
@@ -1718,21 +1749,21 @@
     ],
     "actions": [
       {
-        "name": "Psychiczne dźgnięcie (moc pierwszego rzędu)",
+        "name": "Psychiczne dźgnięcie (moc 1. kręgu)",
         "entries": [
           "Jedna istota, którą telepata widzi w promieniu 30 metrów od niej, musi wykonać rzut obronny na Inteligencję {@dc 13}, w przeciwnym razie otrzyma 16 ({@damage 3d10}) obrażeń psychicznych."
         ]
       },
       {
-        "name": "Sztylet Umysłu (3/dzień; moc 3. rzędu)",
+        "name": "Sztylet Umysłu (3/dzień; moc 3. kręgu)",
         "entries": [
           "Telepata wybiera jedno stworzenie, które widzi w promieniu 60 stóp od siebie i które musi wykonać rzut obronny na Inteligencję {@dc 13}. W przypadku nieudanego rzutu obronnego cel otrzymuje 22 ({@damage 4d10}) obrażeń psychicznych i w swojej następnej turze może wykonać tylko akcje Doskoku, Wycofania się lub Uniku. W przypadku powodzenia cel otrzymuje o połowę mniejsze obrażenia i może normalnie rozegrać swoją turę."
         ]
       },
       {
-        "name": "Arlekin (1/dzień; moc 4. rzędu; koncentracja)",
+        "name": "Arlekin (1/dzień; moc 4. kręgu; koncentracja)",
         "entries": [
-          "Telepata wybiera jednego Humanoida, którego widzi w promieniu 30 metrów od niego, który musi wykonać udany rzut obronny na Mądrość {@dc 13} lub być {@condition charmed} przez telepatę przez 1 godzinę.",
+          "Telepata wybiera jedną humanoidalną istotę, którego widzi w promieniu 30 metrów od niego, który musi wykonać udany rzut obronny na Mądrość {@dc 13} lub być {@condition charmed} przez telepatę przez 1 godzinę.",
           "Podczas gdy celem jest w ten sposób {@condition charmed}, telepata ma z nimi połączenie telepatyczne, o ile obaj znajdują się na tej samej płaszczyźnie istnienia. Telepata może używać tego łącza telepatycznego do wydawania celowi poleceń (nie wymaga to żadnego działania), których cel stara się przestrzegać. Jeśli cel wykona rozkaz i nie otrzyma dalszych wskazówek od telepaty, broni się i zachowuje najlepiej jak potrafi.",
           "Telepata może użyć akcji, aby przejąć całkowitą i precyzyjną kontrolę nad celem {@condition charmed}. Do końca następnej tury telepaty cel wykonuje tylko te akcje, które telepata wybierze i nie robi nic więcej. W tym czasie telepata może również spowodować, że cel użyje reakcji, ale wymaga to, aby telepata również użył swojej reakcji.",
           "Za każdym razem, gdy cel otrzymuje obrażenia, wykonuje nowy rzut obronny na Mądrość. Jeśli rzut obronny się powiedzie, warunek {@condition charmed} kończy się."
@@ -1742,7 +1773,7 @@
     "bonusActions": [],
     "reactions": [
       {
-        "name": "Podziel się bólem (moc drugiego rzędu)",
+        "name": "Podziel się bólem (moc 2. kręgu)",
         "entries": [
           "Kiedy telepata zostaje zraniony przez istotę, którą widzi w promieniu 60 stóp, zmusza ją do wykonania rzutu obronnego na Mądrość {@dc 13}.",
           "Cel otrzymuje 6 ({@damage 1d12}) obrażeń psychicznych w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
@@ -1756,7 +1787,7 @@
   },
   "corpsewrought-creature": {
     "name": "Trupi konstrukt",
-    "subtitle": "Konstrukt, CR -",
+    "subtitle": "Konstrukt, stopień wyzwania -",
     "size": "Średni",
     "creatureType": "Konstrukt",
     "alignment": "",
@@ -1766,7 +1797,7 @@
     "skills": "Atletyka +4 plus PB",
     "vulnerabilities": "",
     "resistances": "",
-    "immunities": "zatruć; błyskawica",
+    "immunities": "trucizna; piorun",
     "conditionImmunities": "zatruty",
     "senses": "widzenie w ciemnościach na odległość 60 stóp, percepcja pasywna 11",
     "languages": "rozumie języki swego twórcy, lecz nie potrafi mówić",
@@ -1777,7 +1808,7 @@
       {
         "name": "Absorpcja błyskawicy",
         "entries": [
-          "Ilekroć trupi stwór zostanie poddany obrażeniom od błyskawic, nie otrzymuje żadnych obrażeń i odzyskuje liczbę punktów wytrzymałości równą zadanym obrażeniom od błyskawic."
+          "Ilekroć trupi stwór zostanie poddany obrażeniom od pioruna, nie otrzymuje żadnych obrażeń i odzyskuje liczbę punktów wytrzymałości równą zadanym obrażeniom od pioruna."
         ]
       }
     ],

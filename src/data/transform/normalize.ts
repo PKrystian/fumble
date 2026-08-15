@@ -66,6 +66,7 @@ import {
   formatItemProperties,
   formatItemType,
   formatKeyedBonuses,
+  formatLanguageScript,
   formatLanguageType,
   formatLanguages,
   formatMonsterAc,
@@ -240,7 +241,7 @@ export function normalizeSpecies(
     speed: formatSpeed(raw.speed, locale),
     ...extractSpeeds(raw.speed),
     creatureType: (raw.creatureTypes ?? ['Humanoid'])
-      .map((t) => t.charAt(0).toUpperCase() + t.slice(1))
+      .map((t) => formatMonsterType(t, locale))
       .join(', '),
     parentRace: '',
     entries: raw.entries ?? [],
@@ -559,8 +560,8 @@ export function normalizeMonster(
     languages: formatLanguages(raw.languages, locale),
     cr: crStr,
     crDisplay: formatMonsterCrDisplay(raw.cr, locale),
-    habitat: formatStringList(raw.environment),
-    treasure: formatStringList(raw.treasure),
+    habitat: formatStringList(raw.environment, locale, 'habitat'),
+    treasure: formatStringList(raw.treasure, locale, 'treasure'),
     traits: toSections(raw.trait),
     spellcasting: spellcastingSections(raw.spellcasting, locale),
     actions: toSections(raw.action),
@@ -629,7 +630,7 @@ export function normalizeDeity(raw: RawDeity, locale: Locale = 'en'): DeityEntry
     ...baseFields(raw),
     pantheon: raw.pantheon ?? '',
     alignment: formatAlignment(raw.alignment, locale),
-    domains: formatDomains(raw.domains),
+    domains: formatDomains(raw.domains, locale),
     symbol: raw.symbol ?? '',
     entries: raw.entries ?? [],
   };
@@ -716,8 +717,8 @@ export function normalizeLanguage(
   return {
     ...baseFields(raw),
     languageType: formatLanguageType(raw.type, locale),
-    script: raw.script ?? '',
-    typicalSpeakers: formatStringList(raw.typicalSpeakers),
+    script: formatLanguageScript(raw.script, locale),
+    typicalSpeakers: formatStringList(raw.typicalSpeakers, locale),
     entries: raw.entries ?? [],
   };
 }
@@ -762,8 +763,8 @@ export function normalizeFacility(
     facilityType: formatFacilityType(raw.facilityType, locale),
     level: raw.level != null ? `${raw.level}` : '',
     prerequisite: formatFacilityPrereq(raw.prerequisite, locale),
-    space: formatStringList(raw.space),
-    orders: formatStringList(raw.orders),
+    space: formatStringList(raw.space, locale, 'space'),
+    orders: formatStringList(raw.orders, locale, 'orders'),
     entries: raw.entries ?? [],
   };
 }
@@ -816,7 +817,7 @@ export function normalizeRecipe(raw: RawRecipe, locale: Locale = 'en'): RecipeEn
   return {
     ...baseFields(raw),
     recipeType: raw.type ?? 'Recipe',
-    serves: formatServes(raw.serves),
+    serves: formatServes(raw.serves, locale),
     diet: formatDiet(raw.diet, locale),
     entries: recipeEntries(raw, locale),
   };
@@ -869,7 +870,7 @@ export function normalizeObject(raw: RawObject, locale: Locale = 'en'): ObjectEn
     int: raw.int ?? 10,
     wis: raw.wis ?? 10,
     cha: raw.cha ?? 10,
-    immune: formatImmunities(raw.immune),
+    immune: formatImmunities(raw.immune, locale),
     senses: formatSenses(raw.senses, raw.passive, locale),
     actions: toSections(raw.actionEntries),
   };
@@ -1413,14 +1414,14 @@ export function normalizeVehicle(
     vehicleType: formatVehicleType(raw.vehicleType, locale),
     size: size ? formatSize(size, locale) : '',
     dimensions: formatDimensions(raw.dimensions),
-    terrain: formatStringList(raw.terrain),
+    terrain: formatStringList(raw.terrain, locale, 'terrain'),
     capacity: formatVehicleCapacity(raw.capCrew, raw.capPassenger, raw.capCargo, locale),
     pace: formatPace(raw.pace, locale),
     speed: formatSpeed(raw.speed, locale),
     cost: formatCostGp(raw.cost, locale),
     ac: acValue != null ? `${acValue}` : '',
     hp: hpValue != null ? `${hpValue}` : '',
-    immune: formatImmunities(raw.immune),
+    immune: formatImmunities(raw.immune, locale),
     entries: raw.entries ?? [],
     weapons: (raw.weapon ?? []).map((weapon) => weaponSection(weapon, locale)),
   };

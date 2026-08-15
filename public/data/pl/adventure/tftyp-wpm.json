@@ -2232,7 +2232,7 @@
               "page": 96,
               "entries": [
                 "Co 10 minut sprawdzaj losowe spotkania, rzucając a {@dice d12}; spotkanie ma miejsce, przy rzucie 1. Jeśli wskazane jest spotkanie, rzuć a {@dice d6} i zapoznaj się z poniższą tabelą.",
-                "Są to potwory, które Keraptis wypuścił do lochu specjalnie po to, by sprawić trudności intruzom. Wszyscy natychmiast zaatakują. Ogry i niedźwiedzie są kontrolowane magicznie i nie można ich przekonać do zdrady Keraptisa.",
+                "Są to potwory, które Keraptis wypuścił do lochu specjalnie po to, by sprawić trudności intruzom. Wszyscy natychmiast zaatakują. Ogry i bugbeary są kontrolowane magicznie i nie można ich przekonać do zdrady Keraptisa.",
                 {
                   "type": "table",
                   "colLabels": [
@@ -2250,7 +2250,7 @@
                     ],
                     [
                       "2",
-                      "{@dice 1d4 + 1} {@creature Bugbear||niedźwiedzie}"
+                      "{@dice 1d4 + 1} {@creature Bugbear||bugbeary}"
                     ],
                     [
                       "3",
@@ -4147,7 +4147,7 @@
                 "W oryginalnej publikacji {@i Góra Biała Pióropusz}, na wewnętrznej stronie tylnej okładki zaprezentowano „The Legend of Keraptis”. Chociaż te szczegóły poprzedniego życia czarodzieja nie odgrywają bezpośredniej roli w przygodzie, DM, który podzieli się tymi informacjami z graczami, może pogłębić zrozumienie sytuacji przez postacie i wzmocnić ich motywację do zagłębienia się w górę.",
                 "✫ ✫ ✫",
                 "Dobrze ponad tysiąc lat temu czarodziej Keraptis doszedł do władzy w dolinach północnych gór, ściągając w swoje ręce lokalnych watażków za pomocą makabrycznych gróźb - gróźb, które spełniały się wystarczająco często, by utrzymać przywódców w ryzach. Pod zwierzchnictwem Keraptisa napływ drapieżnych potworów i najazdów z dzikich gór znacznie się zmniejszył, a następnie prawie ustał. Widząc to, ludność nie stawiała większego oporu przed płaceniem wysokich podatków i dziesięcin na rzecz czarodzieja, zwłaszcza gdy krążyły historie o tym, co przydarzyło się tym, którzy się sprzeciwili. Wszelka szlachta, która protestowała, znikała w nocy i była zastępowana przez następną w linii sukcesji, która zwykle była bardziej uległa niż poprzedni pan.",
-                "Stopniowo, gdy ucichły spory, podatki i opłaty stawały się jeszcze bardziej uciążliwe, aż w końcu czarodziej zabrał wielką część wszystkiego, co zostało wyhodowane, wyprodukowane lub sprzedane w dolinach, łącznie z nowonarodzonymi młodymi zwierzętami gospodarskimi. Mniej więcej w tym czasie w krainie pojawiły się liczne raporty dotyczące nagłego szaleństwa, opętań demonicznych oraz obserwacji zjaw i nieumarłych. Co więcej, potworne najazdy na zasiedlone ziemie zaczęły się nasilać, gdy najazdy humanoidów atakowały wioski, a złe i fantastyczne potwory pojawiły się nie wiadomo skąd, by polować na udręczonych chłopów. W szczytowym momencie niepokojów poborcy podatkowi Keraptisa wyszli z wieścią o nowym podatku: jedna trzecia wszystkich nowo narodzonych dzieci miała zostać odtąd przekazana czarodziejowi.",
+                "Stopniowo, gdy ucichły spory, podatki i opłaty stawały się jeszcze bardziej uciążliwe, aż w końcu czarodziej zabrał wielką część wszystkiego, co zostało wyhodowane, wyprodukowane lub sprzedane w dolinach, łącznie z nowonarodzonymi młodymi zwierzętami gospodarskimi. Mniej więcej w tym czasie w krainie pojawiły się liczne raporty dotyczące nagłego szaleństwa, opętań demonicznych oraz obserwacji zjaw i nieumarłych. Co więcej, potworne najazdy na zasiedlone ziemie zaczęły się nasilać, gdy najazdy humanoidalnych istot atakowały wioski, a złe i fantastyczne potwory pojawiły się nie wiadomo skąd, by polować na udręczonych chłopów. W szczytowym momencie niepokojów poborcy podatkowi Keraptisa wyszli z wieścią o nowym podatku: jedna trzecia wszystkich nowo narodzonych dzieci miała zostać odtąd przekazana czarodziejowi.",
                 "Ten edykt okazał się punktem zwrotnym. Jako jeden lud powstał, by pokonać lokajów czarodzieja i pomaszerował na jego twierdzę, gdzie prowadzony przez potężnego i dobrego duchownego oraz jego akolitów-strażników, zniszczyli ostatnich strażników Keraptisa. Wielkiemu czarodziejowi ledwo udało się uciec, towarzyszyła mu jedynie kompania jego osobistych ochroniarzy, złożona z obłąkanych i fanatycznych złych gnomów. Keraptis uciekł do miast południa i zachodu, ale gdziekolwiek się udał, wyprzedziła go jego reputacja i nie mógł nigdzie pozostać na dłużej. Kierując się ponownie na północ, dotarł do brzegów Jeziora Nieznanych Głębin, gdzie usłyszał opowieści o nawiedzonej Górze Białego Pióra. Po dalszych badaniach w końcu znalazł schronienie, którego szukał, w splątanym labiryncie wulkanicznych tuneli pod stożkiem. On i jego gnomy zniknęli w cieniu Pióropusza, a ludzkość nie słyszała już o złym czarodzieju.",
                 "To było prawie tysiąc trzysta lat przed dniem dzisiejszym. Teraz najwyraźniej ręka Keraptisa po raz kolejny wtrąca się w ludzkie sprawy. Jeśli rzeczywiście działa tu starożytny czarodziej, czy uda się go powstrzymać, zanim jego moc ponownie wzrośnie? Jaki jest jego cel, stawiając to dziwaczne wyzwanie bohaterom świata? Można się tego dowiedzieć tylko w jeden sposób."
               ],
@@ -4559,7 +4559,7 @@
                               "page": 102,
                               "entries": [
                                 "{@creature Snarla|TftYP} jest czarodziejem szóstego poziomu. Jej zdolność rzucania zaklęć to Inteligencja (ochrona zaklęć {@dc 14}, {@hit 6} uderzać atakami zaklęć). Ma przygotowane następujące zaklęcia czarodzieja:",
-                                "Cantrips (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
+                                "Sztuczki (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
                                 "Poziom 1 (4 miejsca): {@spell magic missile}, {@spell shield}, {@spell thunderwave}",
                                 "2. poziom (3 miejsca): {@spell mirror image}, {@spell web}",
                                 "Poziom 3 (3 miejsca): {@spell dispel magic}, {@spell fear}, {@spell haste}, {@spell stinking cloud}"
@@ -4875,7 +4875,7 @@
               "page": 105,
               "entries": [
                 "Upadły rycerz imieniem Sir Bluto Sans Pite (NE {@creature champion|VGM}; patrz {@adventure appendix B|TftYP-WPM|3}) i jego ośmiu sługusów (NE człowiek {@creature Knight||rycerze}) czeka tutaj, aby zaatakować każdego, kto przejdzie przez tunel. Zostaną zaalarmowani przez zakłócenia w przepływie wody, gdy grupa majstruje przy niej w górę rzeki. Strumień przepływający przez to pomieszczenie jest zawieszony w taki sam sposób, jak w obszarze 23. Płynie z północy na południe poza obszarem 24 i z powrotem do obszaru 23, zamykając obwód.",
-                "Rycerze Sir Bluto pracują w dwóch czteroosobowych zespołach, po dwóch członków drużyny po każdej stronie strumienia. Kiedy kajak wypłynie, zespół zarzuci na niego dużą siatkę i spróbuje wyciągnąć go wraz z pasażerami ze strumienia na podłogę. Kiedy spada, wkraczają, aby wykończyć mieszkańców mieczami. Aby uciec z sieci, istota może wykorzystać swoją akcję do wykonania {@dc 10} Test siły, uwalniający siebie lub inną istotę w jego zasięgu po udanym teście. Zadanie sieci 5 obrażeń tnących (KP 10) również uwalnia stworzenie, nie wyrządzając mu krzywdy; dowolne inne stworzenie w tej samej sieci może następnie użyć swojej akcji, aby uwolnić się przez ten otwór.",
+                "Rycerze Sir Bluto pracują w dwóch czteroosobowych zespołach, po dwóch członków drużyny po każdej stronie strumienia. Kiedy kajak wypłynie, zespół zarzuci na niego dużą siatkę i spróbuje wyciągnąć go wraz z pasażerami ze strumienia na podłogę. Kiedy spada, wkraczają, aby wykończyć mieszkańców mieczami. Aby uciec z sieci, istota może wykorzystać swoją akcję do wykonania {@dc 10} Test siły, uwalniający siebie lub inną istotę w jego zasięgu po udanym teście. Zadanie sieci 5 obrażeń siecznych (KP 10) również uwalnia stworzenie, nie wyrządzając mu krzywdy; dowolne inne stworzenie w tej samej sieci może następnie użyć swojej akcji, aby uwolnić się przez ten otwór.",
                 "Sir Bluto był szanowanym Rycerzem Królestwa, zanim postawiono mu akt oskarżenia w sprawie masowego morderstwa w Rzece Krwi. Jego tajemnicze zniknięcie z więzienia wprawiło w zdumienie nawet Królewskich Magów-Detektywów, a za jego schwytanie wyznaczono nagrodę w wysokości 10 000 sz. Ktoś w drużynie z pewnością rozpozna jego jedyną w swoim rodzaju twarz.",
                 {
                   "type": "entries",
@@ -5048,7 +5048,7 @@
                       "name": "Skarb",
                       "page": 107,
                       "entries": [
-                        "Kosztowności Qesnefa zostały przypadkowo wepchnięte pod kanapę. Skarb zawiera {@item Blackrazor}, świadomy wielki miecz (patrz „{@item Blackrazor||Przykładowe przedmioty świadome}„w rozdziale 7 {@book Dungeon Master's Guide|DMG}), 1000 ep, 200 s., cztery sztuki biżuterii o łącznej wartości 11 000 sz, {@item Potion of Greater Healing||mikstura leczenia (większa)}, a {@item scroll of protection} (diabły) i {@item armor of vulnerability (slashing)}.",
+                        "Kosztowności Qesnefa zostały przypadkowo wepchnięte pod kanapę. Skarb zawiera {@item Blackrazor}, świadomy wielki miecz (patrz „{@item Blackrazor||Przykładowe przedmioty świadome}„w rozdziale 7 {@book Dungeon Master's Guide|DMG}), 1000 ep, 200 s., cztery sztuki biżuterii o łącznej wartości 11 000 sz, {@item Potion of Greater Healing||mikstura leczenia (większa)}, a {@item scroll of protection} (czarty) i {@item armor of vulnerability (slashing)}.",
                         "Ponadto Qesnef nosi {@item ring of protection} na lewej ręce i a {@item ring of spell storing} (z dwoma {@spell mirror image} w nim zaklęcia) po swojej prawej stronie."
                       ],
                       "id": "06a"
@@ -6025,7 +6025,7 @@
           "page": 96,
           "entries": [
             "Co 10 minut sprawdzaj losowe spotkania, rzucając a {@dice d12}; spotkanie ma miejsce, przy rzucie 1. Jeśli wskazane jest spotkanie, rzuć a {@dice d6} i zapoznaj się z poniższą tabelą.",
-            "Są to potwory, które Keraptis wypuścił do lochu specjalnie po to, by sprawić trudności intruzom. Wszyscy natychmiast zaatakują. Ogry i niedźwiedzie są kontrolowane magicznie i nie można ich przekonać do zdrady Keraptisa.",
+            "Są to potwory, które Keraptis wypuścił do lochu specjalnie po to, by sprawić trudności intruzom. Wszyscy natychmiast zaatakują. Ogry i bugbeary są kontrolowane magicznie i nie można ich przekonać do zdrady Keraptisa.",
             {
               "type": "table",
               "colLabels": [
@@ -6043,7 +6043,7 @@
                 ],
                 [
                   "2",
-                  "{@dice 1d4 + 1} {@creature Bugbear||niedźwiedzie}"
+                  "{@dice 1d4 + 1} {@creature Bugbear||bugbeary}"
                 ],
                 [
                   "3",
@@ -6975,7 +6975,7 @@
       "page": 96,
       "entries": [
         "Co 10 minut sprawdzaj losowe spotkania, rzucając a {@dice d12}; spotkanie ma miejsce, przy rzucie 1. Jeśli wskazane jest spotkanie, rzuć a {@dice d6} i zapoznaj się z poniższą tabelą.",
-        "Są to potwory, które Keraptis wypuścił do lochu specjalnie po to, by sprawić trudności intruzom. Wszyscy natychmiast zaatakują. Ogry i niedźwiedzie są kontrolowane magicznie i nie można ich przekonać do zdrady Keraptisa.",
+        "Są to potwory, które Keraptis wypuścił do lochu specjalnie po to, by sprawić trudności intruzom. Wszyscy natychmiast zaatakują. Ogry i bugbeary są kontrolowane magicznie i nie można ich przekonać do zdrady Keraptisa.",
         {
           "type": "table",
           "colLabels": [
@@ -6993,7 +6993,7 @@
             ],
             [
               "2",
-              "{@dice 1d4 + 1} {@creature Bugbear||niedźwiedzie}"
+              "{@dice 1d4 + 1} {@creature Bugbear||bugbeary}"
             ],
             [
               "3",
@@ -8887,7 +8887,7 @@
             "W oryginalnej publikacji {@i Góra Biała Pióropusz}, na wewnętrznej stronie tylnej okładki zaprezentowano „The Legend of Keraptis”. Chociaż te szczegóły poprzedniego życia czarodzieja nie odgrywają bezpośredniej roli w przygodzie, DM, który podzieli się tymi informacjami z graczami, może pogłębić zrozumienie sytuacji przez postacie i wzmocnić ich motywację do zagłębienia się w górę.",
             "✫ ✫ ✫",
             "Dobrze ponad tysiąc lat temu czarodziej Keraptis doszedł do władzy w dolinach północnych gór, ściągając w swoje ręce lokalnych watażków za pomocą makabrycznych gróźb - gróźb, które spełniały się wystarczająco często, by utrzymać przywódców w ryzach. Pod zwierzchnictwem Keraptisa napływ drapieżnych potworów i najazdów z dzikich gór znacznie się zmniejszył, a następnie prawie ustał. Widząc to, ludność nie stawiała większego oporu przed płaceniem wysokich podatków i dziesięcin na rzecz czarodzieja, zwłaszcza gdy krążyły historie o tym, co przydarzyło się tym, którzy się sprzeciwili. Wszelka szlachta, która protestowała, znikała w nocy i była zastępowana przez następną w linii sukcesji, która zwykle była bardziej uległa niż poprzedni pan.",
-            "Stopniowo, gdy ucichły spory, podatki i opłaty stawały się jeszcze bardziej uciążliwe, aż w końcu czarodziej zabrał wielką część wszystkiego, co zostało wyhodowane, wyprodukowane lub sprzedane w dolinach, łącznie z nowonarodzonymi młodymi zwierzętami gospodarskimi. Mniej więcej w tym czasie w krainie pojawiły się liczne raporty dotyczące nagłego szaleństwa, opętań demonicznych oraz obserwacji zjaw i nieumarłych. Co więcej, potworne najazdy na zasiedlone ziemie zaczęły się nasilać, gdy najazdy humanoidów atakowały wioski, a złe i fantastyczne potwory pojawiły się nie wiadomo skąd, by polować na udręczonych chłopów. W szczytowym momencie niepokojów poborcy podatkowi Keraptisa wyszli z wieścią o nowym podatku: jedna trzecia wszystkich nowo narodzonych dzieci miała zostać odtąd przekazana czarodziejowi.",
+            "Stopniowo, gdy ucichły spory, podatki i opłaty stawały się jeszcze bardziej uciążliwe, aż w końcu czarodziej zabrał wielką część wszystkiego, co zostało wyhodowane, wyprodukowane lub sprzedane w dolinach, łącznie z nowonarodzonymi młodymi zwierzętami gospodarskimi. Mniej więcej w tym czasie w krainie pojawiły się liczne raporty dotyczące nagłego szaleństwa, opętań demonicznych oraz obserwacji zjaw i nieumarłych. Co więcej, potworne najazdy na zasiedlone ziemie zaczęły się nasilać, gdy najazdy humanoidalnych istot atakowały wioski, a złe i fantastyczne potwory pojawiły się nie wiadomo skąd, by polować na udręczonych chłopów. W szczytowym momencie niepokojów poborcy podatkowi Keraptisa wyszli z wieścią o nowym podatku: jedna trzecia wszystkich nowo narodzonych dzieci miała zostać odtąd przekazana czarodziejowi.",
             "Ten edykt okazał się punktem zwrotnym. Jako jeden lud powstał, by pokonać lokajów czarodzieja i pomaszerował na jego twierdzę, gdzie prowadzony przez potężnego i dobrego duchownego oraz jego akolitów-strażników, zniszczyli ostatnich strażników Keraptisa. Wielkiemu czarodziejowi ledwo udało się uciec, towarzyszyła mu jedynie kompania jego osobistych ochroniarzy, złożona z obłąkanych i fanatycznych złych gnomów. Keraptis uciekł do miast południa i zachodu, ale gdziekolwiek się udał, wyprzedziła go jego reputacja i nie mógł nigdzie pozostać na dłużej. Kierując się ponownie na północ, dotarł do brzegów Jeziora Nieznanych Głębin, gdzie usłyszał opowieści o nawiedzonej Górze Białego Pióra. Po dalszych badaniach w końcu znalazł schronienie, którego szukał, w splątanym labiryncie wulkanicznych tuneli pod stożkiem. On i jego gnomy zniknęli w cieniu Pióropusza, a ludzkość nie słyszała już o złym czarodzieju.",
             "To było prawie tysiąc trzysta lat przed dniem dzisiejszym. Teraz najwyraźniej ręka Keraptisa po raz kolejny wtrąca się w ludzkie sprawy. Jeśli rzeczywiście działa tu starożytny czarodziej, czy uda się go powstrzymać, zanim jego moc ponownie wzrośnie? Jaki jest jego cel, stawiając to dziwaczne wyzwanie bohaterom świata? Można się tego dowiedzieć tylko w jeden sposób."
           ],
@@ -9299,7 +9299,7 @@
                           "page": 102,
                           "entries": [
                             "{@creature Snarla|TftYP} jest czarodziejem szóstego poziomu. Jej zdolność rzucania zaklęć to Inteligencja (ochrona zaklęć {@dc 14}, {@hit 6} uderzać atakami zaklęć). Ma przygotowane następujące zaklęcia czarodzieja:",
-                            "Cantrips (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
+                            "Sztuczki (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
                             "Poziom 1 (4 miejsca): {@spell magic missile}, {@spell shield}, {@spell thunderwave}",
                             "2. poziom (3 miejsca): {@spell mirror image}, {@spell web}",
                             "Poziom 3 (3 miejsca): {@spell dispel magic}, {@spell fear}, {@spell haste}, {@spell stinking cloud}"
@@ -9615,7 +9615,7 @@
           "page": 105,
           "entries": [
             "Upadły rycerz imieniem Sir Bluto Sans Pite (NE {@creature champion|VGM}; patrz {@adventure appendix B|TftYP-WPM|3}) i jego ośmiu sługusów (NE człowiek {@creature Knight||rycerze}) czeka tutaj, aby zaatakować każdego, kto przejdzie przez tunel. Zostaną zaalarmowani przez zakłócenia w przepływie wody, gdy grupa majstruje przy niej w górę rzeki. Strumień przepływający przez to pomieszczenie jest zawieszony w taki sam sposób, jak w obszarze 23. Płynie z północy na południe poza obszarem 24 i z powrotem do obszaru 23, zamykając obwód.",
-            "Rycerze Sir Bluto pracują w dwóch czteroosobowych zespołach, po dwóch członków drużyny po każdej stronie strumienia. Kiedy kajak wypłynie, zespół zarzuci na niego dużą siatkę i spróbuje wyciągnąć go wraz z pasażerami ze strumienia na podłogę. Kiedy spada, wkraczają, aby wykończyć mieszkańców mieczami. Aby uciec z sieci, istota może wykorzystać swoją akcję do wykonania {@dc 10} Test siły, uwalniający siebie lub inną istotę w jego zasięgu po udanym teście. Zadanie sieci 5 obrażeń tnących (KP 10) również uwalnia stworzenie, nie wyrządzając mu krzywdy; dowolne inne stworzenie w tej samej sieci może następnie użyć swojej akcji, aby uwolnić się przez ten otwór.",
+            "Rycerze Sir Bluto pracują w dwóch czteroosobowych zespołach, po dwóch członków drużyny po każdej stronie strumienia. Kiedy kajak wypłynie, zespół zarzuci na niego dużą siatkę i spróbuje wyciągnąć go wraz z pasażerami ze strumienia na podłogę. Kiedy spada, wkraczają, aby wykończyć mieszkańców mieczami. Aby uciec z sieci, istota może wykorzystać swoją akcję do wykonania {@dc 10} Test siły, uwalniający siebie lub inną istotę w jego zasięgu po udanym teście. Zadanie sieci 5 obrażeń siecznych (KP 10) również uwalnia stworzenie, nie wyrządzając mu krzywdy; dowolne inne stworzenie w tej samej sieci może następnie użyć swojej akcji, aby uwolnić się przez ten otwór.",
             "Sir Bluto był szanowanym Rycerzem Królestwa, zanim postawiono mu akt oskarżenia w sprawie masowego morderstwa w Rzece Krwi. Jego tajemnicze zniknięcie z więzienia wprawiło w zdumienie nawet Królewskich Magów-Detektywów, a za jego schwytanie wyznaczono nagrodę w wysokości 10 000 sz. Ktoś w drużynie z pewnością rozpozna jego jedyną w swoim rodzaju twarz.",
             {
               "type": "entries",
@@ -10256,7 +10256,7 @@
                       "page": 102,
                       "entries": [
                         "{@creature Snarla|TftYP} jest czarodziejem szóstego poziomu. Jej zdolność rzucania zaklęć to Inteligencja (ochrona zaklęć {@dc 14}, {@hit 6} uderzać atakami zaklęć). Ma przygotowane następujące zaklęcia czarodzieja:",
-                        "Cantrips (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
+                        "Sztuczki (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
                         "Poziom 1 (4 miejsca): {@spell magic missile}, {@spell shield}, {@spell thunderwave}",
                         "2. poziom (3 miejsca): {@spell mirror image}, {@spell web}",
                         "Poziom 3 (3 miejsca): {@spell dispel magic}, {@spell fear}, {@spell haste}, {@spell stinking cloud}"
@@ -10305,7 +10305,7 @@
                   "page": 102,
                   "entries": [
                     "{@creature Snarla|TftYP} jest czarodziejem szóstego poziomu. Jej zdolność rzucania zaklęć to Inteligencja (ochrona zaklęć {@dc 14}, {@hit 6} uderzać atakami zaklęć). Ma przygotowane następujące zaklęcia czarodzieja:",
-                    "Cantrips (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
+                    "Sztuczki (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
                     "Poziom 1 (4 miejsca): {@spell magic missile}, {@spell shield}, {@spell thunderwave}",
                     "2. poziom (3 miejsca): {@spell mirror image}, {@spell web}",
                     "Poziom 3 (3 miejsca): {@spell dispel magic}, {@spell fear}, {@spell haste}, {@spell stinking cloud}"
@@ -10348,7 +10348,7 @@
               "page": 102,
               "entries": [
                 "{@creature Snarla|TftYP} jest czarodziejem szóstego poziomu. Jej zdolność rzucania zaklęć to Inteligencja (ochrona zaklęć {@dc 14}, {@hit 6} uderzać atakami zaklęć). Ma przygotowane następujące zaklęcia czarodzieja:",
-                "Cantrips (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
+                "Sztuczki (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
                 "Poziom 1 (4 miejsca): {@spell magic missile}, {@spell shield}, {@spell thunderwave}",
                 "2. poziom (3 miejsca): {@spell mirror image}, {@spell web}",
                 "Poziom 3 (3 miejsca): {@spell dispel magic}, {@spell fear}, {@spell haste}, {@spell stinking cloud}"
@@ -10369,7 +10369,7 @@
       "page": 102,
       "entries": [
         "{@creature Snarla|TftYP} jest czarodziejem szóstego poziomu. Jej zdolność rzucania zaklęć to Inteligencja (ochrona zaklęć {@dc 14}, {@hit 6} uderzać atakami zaklęć). Ma przygotowane następujące zaklęcia czarodzieja:",
-        "Cantrips (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
+        "Sztuczki (do woli): {@spell fire bolt}, {@spell light}, {@spell mage hand}, {@spell shocking grasp}",
         "Poziom 1 (4 miejsca): {@spell magic missile}, {@spell shield}, {@spell thunderwave}",
         "2. poziom (3 miejsca): {@spell mirror image}, {@spell web}",
         "Poziom 3 (3 miejsca): {@spell dispel magic}, {@spell fear}, {@spell haste}, {@spell stinking cloud}"
@@ -10774,7 +10774,7 @@
       "page": 105,
       "entries": [
         "Upadły rycerz imieniem Sir Bluto Sans Pite (NE {@creature champion|VGM}; patrz {@adventure appendix B|TftYP-WPM|3}) i jego ośmiu sługusów (NE człowiek {@creature Knight||rycerze}) czeka tutaj, aby zaatakować każdego, kto przejdzie przez tunel. Zostaną zaalarmowani przez zakłócenia w przepływie wody, gdy grupa majstruje przy niej w górę rzeki. Strumień przepływający przez to pomieszczenie jest zawieszony w taki sam sposób, jak w obszarze 23. Płynie z północy na południe poza obszarem 24 i z powrotem do obszaru 23, zamykając obwód.",
-        "Rycerze Sir Bluto pracują w dwóch czteroosobowych zespołach, po dwóch członków drużyny po każdej stronie strumienia. Kiedy kajak wypłynie, zespół zarzuci na niego dużą siatkę i spróbuje wyciągnąć go wraz z pasażerami ze strumienia na podłogę. Kiedy spada, wkraczają, aby wykończyć mieszkańców mieczami. Aby uciec z sieci, istota może wykorzystać swoją akcję do wykonania {@dc 10} Test siły, uwalniający siebie lub inną istotę w jego zasięgu po udanym teście. Zadanie sieci 5 obrażeń tnących (KP 10) również uwalnia stworzenie, nie wyrządzając mu krzywdy; dowolne inne stworzenie w tej samej sieci może następnie użyć swojej akcji, aby uwolnić się przez ten otwór.",
+        "Rycerze Sir Bluto pracują w dwóch czteroosobowych zespołach, po dwóch członków drużyny po każdej stronie strumienia. Kiedy kajak wypłynie, zespół zarzuci na niego dużą siatkę i spróbuje wyciągnąć go wraz z pasażerami ze strumienia na podłogę. Kiedy spada, wkraczają, aby wykończyć mieszkańców mieczami. Aby uciec z sieci, istota może wykorzystać swoją akcję do wykonania {@dc 10} Test siły, uwalniający siebie lub inną istotę w jego zasięgu po udanym teście. Zadanie sieci 5 obrażeń siecznych (KP 10) również uwalnia stworzenie, nie wyrządzając mu krzywdy; dowolne inne stworzenie w tej samej sieci może następnie użyć swojej akcji, aby uwolnić się przez ten otwór.",
         "Sir Bluto był szanowanym Rycerzem Królestwa, zanim postawiono mu akt oskarżenia w sprawie masowego morderstwa w Rzece Krwi. Jego tajemnicze zniknięcie z więzienia wprawiło w zdumienie nawet Królewskich Magów-Detektywów, a za jego schwytanie wyznaczono nagrodę w wysokości 10 000 sz. Ktoś w drużynie z pewnością rozpozna jego jedyną w swoim rodzaju twarz.",
         {
           "type": "entries",

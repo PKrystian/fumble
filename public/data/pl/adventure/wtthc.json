@@ -1645,7 +1645,7 @@
                             {
                               "type": "item",
                               "name": "Uruchomienie pułapki",
-                              "entry": "Kiedy istota po raz pierwszy w turze poruszy się na płytę dociskową pułapki, ze ścian wystrzelą włócznie. Każde stworzenie na płycie naciskowej musi odnieść sukces {@dc 13} Ochronna Zręczność Rzuć lub zostań uderzony włócznią i weź {@damage 1d6} Uszkodzenia przeszywające. Następnie włócznie cofają się, a pułapka natychmiast się resetuje."
+                              "entry": "Kiedy istota po raz pierwszy w turze poruszy się na płytę dociskową pułapki, ze ścian wystrzelą włócznie. Każde stworzenie na płycie naciskowej musi odnieść sukces {@dc 13} Ochronna Zręczność Rzuć lub zostań uderzony włócznią i weź {@damage 1d6} obrażenia kłute. Następnie włócznie cofają się, a pułapka natychmiast się resetuje."
                             }
                           ]
                         }
@@ -1804,7 +1804,7 @@
                       "name": "Kryształowy Pająk",
                       "id": "036",
                       "entries": [
-                        "Kryształowy pająk jest średnim obiektem z KP 13, HP 50, odpornością na obrażenia kłute i tnące oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie kryształowego pająka uwalnia znajdujący się w nim skarb (szczegóły poniżej)."
+                        "Kryształowy pająk jest średnim obiektem z KP 13, HP 50, odpornością na obrażenia kłute i sieczne oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie kryształowego pająka uwalnia znajdujący się w nim skarb (szczegóły poniżej)."
                       ]
                     },
                     {
@@ -1821,7 +1821,7 @@
                       "id": "038",
                       "entries": [
                         "Posąg przedstawia rycerza w walecznej pozie. jako {@action Study|XPHB} akcji, postać może zbadać posąg i wykonać {@dc 12} Inteligencja ({@skill Investigation|XPHB}) sprawdzać. Po udanym teście postać zdaje sobie sprawę, że podstawa posągu jest niestabilna; znaczące pchnięcie mogłoby przewrócić posąg.",
-                        "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając ukryty w nim skarb (patrz „Skarb” poniżej)."
+                        "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając ukryty w nim skarb (patrz „Skarb” poniżej)."
                       ]
                     },
                     {
@@ -2181,7 +2181,7 @@
                       "id": "055",
                       "entries": [
                         "W tej komnacie, pokrytej grubą, czarną siecią, stoi posąg wysokiego na dwa metry rycerza z rogowym, szkarłatnym hełmem. Na szczycie ołtarza pośrodku pokoju ogromny pająk z ociekającymi kłami owija martwego elfa sieciami.",
-                        "Kokony w kształcie humanoidów - upiorna spiżarnia pajęczaka - wiszą w całej komnacie."
+                        "Kokony w kształcie humanoidalnych istot - upiorna spiżarnia pajęczaka - wiszą w całej komnacie."
                       ]
                     },
                     "Ten pokój jest lustrzanym odbiciem jaskini Ity ({@adventure area D5|WttHC|1|D5: Den of Itsy}). Należy do Bitsy, równie terytorialnego {@creature Giant Spider|WttHC}. Bitsy walczy z postaciami, gdy tylko je zobaczy.",
@@ -2199,7 +2199,7 @@
                       "id": "057",
                       "entries": [
                         "Posąg przedstawia rycerza w groźnym hełmie. jako {@action Study|XPHB} akcji, postać może zbadać posąg i wykonać {@dc 12} Inteligencja ({@skill Investigation|XPHB}) sprawdzać. Po udanym teście postać zdaje sobie sprawę, że podstawa posągu jest niestabilna; znaczące pchnięcie mogłoby przewrócić posąg.",
-                        "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając znajdujący się w nim skarb (patrz „Skarb” poniżej), ale jego hełm pozostaje nienaruszony."
+                        "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając znajdujący się w nim skarb (patrz „Skarb” poniżej), ale jego hełm pozostaje nienaruszony."
                       ]
                     },
                     {
@@ -3400,7 +3400,7 @@
                         {
                           "type": "item",
                           "name": "Uruchomienie pułapki",
-                          "entry": "Kiedy istota po raz pierwszy w turze poruszy się na płytę dociskową pułapki, ze ścian wystrzelą włócznie. Każde stworzenie na płycie naciskowej musi odnieść sukces {@dc 13} Ochronna Zręczność Rzuć lub zostań uderzony włócznią i weź {@damage 1d6} Uszkodzenia przeszywające. Następnie włócznie cofają się, a pułapka natychmiast się resetuje."
+                          "entry": "Kiedy istota po raz pierwszy w turze poruszy się na płytę dociskową pułapki, ze ścian wystrzelą włócznie. Każde stworzenie na płycie naciskowej musi odnieść sukces {@dc 13} Ochronna Zręczność Rzuć lub zostań uderzony włócznią i weź {@damage 1d6} obrażenia kłute. Następnie włócznie cofają się, a pułapka natychmiast się resetuje."
                         }
                       ]
                     }
@@ -3559,7 +3559,7 @@
                   "name": "Kryształowy Pająk",
                   "id": "036",
                   "entries": [
-                    "Kryształowy pająk jest średnim obiektem z KP 13, HP 50, odpornością na obrażenia kłute i tnące oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie kryształowego pająka uwalnia znajdujący się w nim skarb (szczegóły poniżej)."
+                    "Kryształowy pająk jest średnim obiektem z KP 13, HP 50, odpornością na obrażenia kłute i sieczne oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie kryształowego pająka uwalnia znajdujący się w nim skarb (szczegóły poniżej)."
                   ]
                 },
                 {
@@ -3576,7 +3576,7 @@
                   "id": "038",
                   "entries": [
                     "Posąg przedstawia rycerza w walecznej pozie. jako {@action Study|XPHB} akcji, postać może zbadać posąg i wykonać {@dc 12} Inteligencja ({@skill Investigation|XPHB}) sprawdzać. Po udanym teście postać zdaje sobie sprawę, że podstawa posągu jest niestabilna; znaczące pchnięcie mogłoby przewrócić posąg.",
-                    "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając ukryty w nim skarb (patrz „Skarb” poniżej)."
+                    "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając ukryty w nim skarb (patrz „Skarb” poniżej)."
                   ]
                 },
                 {
@@ -3936,7 +3936,7 @@
                   "id": "055",
                   "entries": [
                     "W tej komnacie, pokrytej grubą, czarną siecią, stoi posąg wysokiego na dwa metry rycerza z rogowym, szkarłatnym hełmem. Na szczycie ołtarza pośrodku pokoju ogromny pająk z ociekającymi kłami owija martwego elfa sieciami.",
-                    "Kokony w kształcie humanoidów - upiorna spiżarnia pajęczaka - wiszą w całej komnacie."
+                    "Kokony w kształcie humanoidalnych istot - upiorna spiżarnia pajęczaka - wiszą w całej komnacie."
                   ]
                 },
                 "Ten pokój jest lustrzanym odbiciem jaskini Ity ({@adventure area D5|WttHC|1|D5: Den of Itsy}). Należy do Bitsy, równie terytorialnego {@creature Giant Spider|WttHC}. Bitsy walczy z postaciami, gdy tylko je zobaczy.",
@@ -3954,7 +3954,7 @@
                   "id": "057",
                   "entries": [
                     "Posąg przedstawia rycerza w groźnym hełmie. jako {@action Study|XPHB} akcji, postać może zbadać posąg i wykonać {@dc 12} Inteligencja ({@skill Investigation|XPHB}) sprawdzać. Po udanym teście postać zdaje sobie sprawę, że podstawa posągu jest niestabilna; znaczące pchnięcie mogłoby przewrócić posąg.",
-                    "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając znajdujący się w nim skarb (patrz „Skarb” poniżej), ale jego hełm pozostaje nienaruszony."
+                    "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając znajdujący się w nim skarb (patrz „Skarb” poniżej), ale jego hełm pozostaje nienaruszony."
                   ]
                 },
                 {
@@ -4800,7 +4800,7 @@
                     {
                       "type": "item",
                       "name": "Uruchomienie pułapki",
-                      "entry": "Kiedy istota po raz pierwszy w turze poruszy się na płytę dociskową pułapki, ze ścian wystrzelą włócznie. Każde stworzenie na płycie naciskowej musi odnieść sukces {@dc 13} Ochronna Zręczność Rzuć lub zostań uderzony włócznią i weź {@damage 1d6} Uszkodzenia przeszywające. Następnie włócznie cofają się, a pułapka natychmiast się resetuje."
+                      "entry": "Kiedy istota po raz pierwszy w turze poruszy się na płytę dociskową pułapki, ze ścian wystrzelą włócznie. Każde stworzenie na płycie naciskowej musi odnieść sukces {@dc 13} Ochronna Zręczność Rzuć lub zostań uderzony włócznią i weź {@damage 1d6} obrażenia kłute. Następnie włócznie cofają się, a pułapka natychmiast się resetuje."
                     }
                   ]
                 }
@@ -4959,7 +4959,7 @@
               "name": "Kryształowy Pająk",
               "id": "036",
               "entries": [
-                "Kryształowy pająk jest średnim obiektem z KP 13, HP 50, odpornością na obrażenia kłute i tnące oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie kryształowego pająka uwalnia znajdujący się w nim skarb (szczegóły poniżej)."
+                "Kryształowy pająk jest średnim obiektem z KP 13, HP 50, odpornością na obrażenia kłute i sieczne oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie kryształowego pająka uwalnia znajdujący się w nim skarb (szczegóły poniżej)."
               ]
             },
             {
@@ -4976,7 +4976,7 @@
               "id": "038",
               "entries": [
                 "Posąg przedstawia rycerza w walecznej pozie. jako {@action Study|XPHB} akcji, postać może zbadać posąg i wykonać {@dc 12} Inteligencja ({@skill Investigation|XPHB}) sprawdzać. Po udanym teście postać zdaje sobie sprawę, że podstawa posągu jest niestabilna; znaczące pchnięcie mogłoby przewrócić posąg.",
-                "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając ukryty w nim skarb (patrz „Skarb” poniżej)."
+                "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając ukryty w nim skarb (patrz „Skarb” poniżej)."
               ]
             },
             {
@@ -5182,7 +5182,7 @@
                 {
                   "type": "item",
                   "name": "Uruchomienie pułapki",
-                  "entry": "Kiedy istota po raz pierwszy w turze poruszy się na płytę dociskową pułapki, ze ścian wystrzelą włócznie. Każde stworzenie na płycie naciskowej musi odnieść sukces {@dc 13} Ochronna Zręczność Rzuć lub zostań uderzony włócznią i weź {@damage 1d6} Uszkodzenia przeszywające. Następnie włócznie cofają się, a pułapka natychmiast się resetuje."
+                  "entry": "Kiedy istota po raz pierwszy w turze poruszy się na płytę dociskową pułapki, ze ścian wystrzelą włócznie. Każde stworzenie na płycie naciskowej musi odnieść sukces {@dc 13} Ochronna Zręczność Rzuć lub zostań uderzony włócznią i weź {@damage 1d6} obrażenia kłute. Następnie włócznie cofają się, a pułapka natychmiast się resetuje."
                 }
               ]
             }
@@ -5270,7 +5270,7 @@
             {
               "type": "item",
               "name": "Uruchomienie pułapki",
-              "entry": "Kiedy istota po raz pierwszy w turze poruszy się na płytę dociskową pułapki, ze ścian wystrzelą włócznie. Każde stworzenie na płycie naciskowej musi odnieść sukces {@dc 13} Ochronna Zręczność Rzuć lub zostań uderzony włócznią i weź {@damage 1d6} Uszkodzenia przeszywające. Następnie włócznie cofają się, a pułapka natychmiast się resetuje."
+              "entry": "Kiedy istota po raz pierwszy w turze poruszy się na płytę dociskową pułapki, ze ścian wystrzelą włócznie. Każde stworzenie na płycie naciskowej musi odnieść sukces {@dc 13} Ochronna Zręczność Rzuć lub zostań uderzony włócznią i weź {@damage 1d6} obrażenia kłute. Następnie włócznie cofają się, a pułapka natychmiast się resetuje."
             }
           ]
         }
@@ -5455,7 +5455,7 @@
           "name": "Kryształowy Pająk",
           "id": "036",
           "entries": [
-            "Kryształowy pająk jest średnim obiektem z KP 13, HP 50, odpornością na obrażenia kłute i tnące oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie kryształowego pająka uwalnia znajdujący się w nim skarb (szczegóły poniżej)."
+            "Kryształowy pająk jest średnim obiektem z KP 13, HP 50, odpornością na obrażenia kłute i sieczne oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie kryształowego pająka uwalnia znajdujący się w nim skarb (szczegóły poniżej)."
           ]
         },
         {
@@ -5472,7 +5472,7 @@
           "id": "038",
           "entries": [
             "Posąg przedstawia rycerza w walecznej pozie. jako {@action Study|XPHB} akcji, postać może zbadać posąg i wykonać {@dc 12} Inteligencja ({@skill Investigation|XPHB}) sprawdzać. Po udanym teście postać zdaje sobie sprawę, że podstawa posągu jest niestabilna; znaczące pchnięcie mogłoby przewrócić posąg.",
-            "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając ukryty w nim skarb (patrz „Skarb” poniżej)."
+            "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając ukryty w nim skarb (patrz „Skarb” poniżej)."
           ]
         },
         {
@@ -5511,7 +5511,7 @@
       "name": "Kryształowy Pająk",
       "id": "036",
       "entries": [
-        "Kryształowy pająk jest średnim obiektem z KP 13, HP 50, odpornością na obrażenia kłute i tnące oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie kryształowego pająka uwalnia znajdujący się w nim skarb (szczegóły poniżej)."
+        "Kryształowy pająk jest średnim obiektem z KP 13, HP 50, odpornością na obrażenia kłute i sieczne oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie kryształowego pająka uwalnia znajdujący się w nim skarb (szczegóły poniżej)."
       ]
     },
     "1:037": {
@@ -5528,7 +5528,7 @@
       "id": "038",
       "entries": [
         "Posąg przedstawia rycerza w walecznej pozie. jako {@action Study|XPHB} akcji, postać może zbadać posąg i wykonać {@dc 12} Inteligencja ({@skill Investigation|XPHB}) sprawdzać. Po udanym teście postać zdaje sobie sprawę, że podstawa posągu jest niestabilna; znaczące pchnięcie mogłoby przewrócić posąg.",
-        "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając ukryty w nim skarb (patrz „Skarb” poniżej)."
+        "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając ukryty w nim skarb (patrz „Skarb” poniżej)."
       ]
     },
     "1:039": {
@@ -5929,7 +5929,7 @@
               "id": "055",
               "entries": [
                 "W tej komnacie, pokrytej grubą, czarną siecią, stoi posąg wysokiego na dwa metry rycerza z rogowym, szkarłatnym hełmem. Na szczycie ołtarza pośrodku pokoju ogromny pająk z ociekającymi kłami owija martwego elfa sieciami.",
-                "Kokony w kształcie humanoidów - upiorna spiżarnia pajęczaka - wiszą w całej komnacie."
+                "Kokony w kształcie humanoidalnych istot - upiorna spiżarnia pajęczaka - wiszą w całej komnacie."
               ]
             },
             "Ten pokój jest lustrzanym odbiciem jaskini Ity ({@adventure area D5|WttHC|1|D5: Den of Itsy}). Należy do Bitsy, równie terytorialnego {@creature Giant Spider|WttHC}. Bitsy walczy z postaciami, gdy tylko je zobaczy.",
@@ -5947,7 +5947,7 @@
               "id": "057",
               "entries": [
                 "Posąg przedstawia rycerza w groźnym hełmie. jako {@action Study|XPHB} akcji, postać może zbadać posąg i wykonać {@dc 12} Inteligencja ({@skill Investigation|XPHB}) sprawdzać. Po udanym teście postać zdaje sobie sprawę, że podstawa posągu jest niestabilna; znaczące pchnięcie mogłoby przewrócić posąg.",
-                "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając znajdujący się w nim skarb (patrz „Skarb” poniżej), ale jego hełm pozostaje nienaruszony."
+                "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając znajdujący się w nim skarb (patrz „Skarb” poniżej), ale jego hełm pozostaje nienaruszony."
               ]
             },
             {
@@ -6328,7 +6328,7 @@
           "id": "055",
           "entries": [
             "W tej komnacie, pokrytej grubą, czarną siecią, stoi posąg wysokiego na dwa metry rycerza z rogowym, szkarłatnym hełmem. Na szczycie ołtarza pośrodku pokoju ogromny pająk z ociekającymi kłami owija martwego elfa sieciami.",
-            "Kokony w kształcie humanoidów - upiorna spiżarnia pajęczaka - wiszą w całej komnacie."
+            "Kokony w kształcie humanoidalnych istot - upiorna spiżarnia pajęczaka - wiszą w całej komnacie."
           ]
         },
         "Ten pokój jest lustrzanym odbiciem jaskini Ity ({@adventure area D5|WttHC|1|D5: Den of Itsy}). Należy do Bitsy, równie terytorialnego {@creature Giant Spider|WttHC}. Bitsy walczy z postaciami, gdy tylko je zobaczy.",
@@ -6346,7 +6346,7 @@
           "id": "057",
           "entries": [
             "Posąg przedstawia rycerza w groźnym hełmie. jako {@action Study|XPHB} akcji, postać może zbadać posąg i wykonać {@dc 12} Inteligencja ({@skill Investigation|XPHB}) sprawdzać. Po udanym teście postać zdaje sobie sprawę, że podstawa posągu jest niestabilna; znaczące pchnięcie mogłoby przewrócić posąg.",
-            "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając znajdujący się w nim skarb (patrz „Skarb” poniżej), ale jego hełm pozostaje nienaruszony."
+            "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając znajdujący się w nim skarb (patrz „Skarb” poniżej), ale jego hełm pozostaje nienaruszony."
           ]
         },
         {
@@ -6383,7 +6383,7 @@
       "id": "057",
       "entries": [
         "Posąg przedstawia rycerza w groźnym hełmie. jako {@action Study|XPHB} akcji, postać może zbadać posąg i wykonać {@dc 12} Inteligencja ({@skill Investigation|XPHB}) sprawdzać. Po udanym teście postać zdaje sobie sprawę, że podstawa posągu jest niestabilna; znaczące pchnięcie mogłoby przewrócić posąg.",
-        "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} Tłuczące obrażenia i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając znajdujący się w nim skarb (patrz „Skarb” poniżej), ale jego hełm pozostaje nienaruszony."
+        "W ramach akcji postać znajdująca się w promieniu 5 stóp od posągu może wykonać: {@dc 10} Wytrzymałość ({@skill Athletics|XPHB}) sprawdź przewrócenie posągu na obszar w promieniu 5 stóp od niego, po udanym teście. Kiedy posąg się przewróci, każde stworzenie pod nim zostaje pokonane {@damage 4d6} obrażenia obuchowe i ma {@condition Prone|XPHB} stan : schorzenie. Posąg rozpada się pod wpływem uderzenia, odsłaniając znajdujący się w nim skarb (patrz „Skarb” poniżej), ale jego hełm pozostaje nienaruszony."
       ]
     },
     "1:058": {
@@ -18951,7 +18951,7 @@
                 "type": "internal",
                 "path": "adventure/WttHC/066-04-01.hellfire-dome.webp"
               },
-              "title": "W Kopule Piekielnego Ognia {@area Dardew|0d5|x} wita publiczność złożoną z hałaśliwych potworów biorących udział w Igrzyskach Piekielnego Ognia",
+              "title": "W Kopule Piekielnego Ognia {@area Dardew|0d5|x} wita publiczność złożoną z hałaśliwych czartów biorących udział w Igrzyskach Piekielnego Ognia",
               "credit": "Ralph Horsley",
               "width": 1700,
               "height": 1100
@@ -18963,7 +18963,7 @@
           "name": "Tło przygody",
           "id": "0d4",
           "entries": [
-            "Z ogni Dziewięciu Piekieł powstaje niesławny {@area Hellfire Dome|0e1|x}, diaboliczna arena, na której zawodnicy o złej reputacji walczą o złoto i chwałę. Śmierć, zdrada i bezcenne skarby czekają na tych, którzy przetrwają śmiercionośne gry w kopule, oglądane przez publiczność złożoną z nieporządnych potworów.",
+            "Z ogni Dziewięciu Piekieł powstaje niesławny {@area Hellfire Dome|0e1|x}, diaboliczna arena, na której zawodnicy o złej reputacji walczą o złoto i chwałę. Śmierć, zdrada i bezcenne skarby czekają na tych, którzy przetrwają śmiercionośne gry w kopule, oglądane przez publiczność złożoną z nieporządnych czartów.",
             {
               "type": "image",
               "href": {
@@ -18977,13 +18977,13 @@
             },
             "Uczestnicy muszą polegać na sile i sprytu, aby pokonać diabelską rękawicę, która czeka na nich pod kopułą. Ostatnią i największą z tych prób jest starcie z {@creature Demodragon|WttHC}: nędzny dwugłowy terror stworzony przez Demogorgona, Księcia Demonów. Ci, którzy zabiją Demodragona, opuszczają Dziewięć Piekieł jako bogaci mistrzowie.",
             "Zwycięzcy zostają także przyjęci do Klubu Piekielnego Ognia, ekskluzywnego stowarzyszenia piekielnego pochodzenia, szanowanego przez diabły każdej rangi. Członkowie Hellfire Club mają reputację twardych, nieustraszonych, a przede wszystkim całkowicie metalowych.",
-            "Co sześć lat Kopuła Piekielnego Ognia otwiera swoje podwoje dla osób niebędących Diabłami, umożliwiając im rywalizację w serii piekielnych wyzwań. Dardew the Banished, kambion z aspiracjami wielkości, zaprasza bohaterów do rywalizacji na arenie. Jeśli zwyciężą, postacie zostaną koronowanymi członkami legendarnego Klubu Hellfire, a {@creature Dardew|WttHC} awansuje w ognistych szeregach. Jeśli jednak bohaterowie przegrają, mogą stracić swoje dusze.",
+            "Co sześć lat Kopuła Piekielnego Ognia otwiera swoje podwoje dla osób niebędących Czartami, umożliwiając im rywalizację w serii piekielnych wyzwań. Dardew the Banished, kambion z aspiracjami wielkości, zaprasza bohaterów do rywalizacji na arenie. Jeśli zwyciężą, postacie zostaną koronowanymi członkami legendarnego Klubu Hellfire, a {@creature Dardew|WttHC} awansuje w ognistych szeregach. Jeśli jednak bohaterowie przegrają, mogą stracić swoje dusze.",
             {
               "type": "entries",
               "name": "Dardew Wygnany",
               "id": "0d5",
               "entries": [
-                "Tegorocznym mistrzem ceremonii Igrzysk Piekielnego Ognia jest kochający muzykę maniak o imieniu Dardew Wygnany. Dardew, skromny kambion, ma nadzieję wspiąć się w szeregi Dziewięciu Piekieł dzięki rozmachowi i występowi, imponując potężnym diabłom na widowni niezapomnianym występem. Wierzy, że bohaterowie są jego przepustką do sławy."
+                "Tegorocznym mistrzem ceremonii Igrzysk Piekielnego Ognia jest kochający muzykę czart o imieniu Dardew Wygnany. Dardew, skromny kambion, ma nadzieję wspiąć się w szeregi Dziewięciu Piekieł dzięki rozmachowi i występowi, imponując potężnym diabłom na widowni niezapomnianym występem. Wierzy, że bohaterowie są jego przepustką do sławy."
               ]
             }
           ]
@@ -18994,7 +18994,7 @@
           "id": "0d6",
           "entries": [
             "Niewielu przetrwa Kopułę Piekielnego Ognia w jednym kawałku, ale ci, którzy zawierają pakty z diabłami, mają większe szanse na przeżycie. Wczesne zgony wśród uczestników mogą być rozczarowującym widowiskiem, a Dardew nie może sobie pozwolić na rozczarowanie tegorocznych Igrzysk Hellfire Games.",
-            "Aby zapewnić bohaterom przewagę na arenie, Dardew zawarł specjalny kontrakt, dzięki któremu będą walczyć nawet o krok od śmierci. Mimo to żaden diabeł nie może oprzeć się zepsuciu śmiertelnej duszy, zwłaszcza tej, która należy do poszukiwacza przygód o dobrym sercu. Rozsądnie byłoby, gdyby bohaterowie rozważyli drobny druk umowy przed jej podpisaniem.",
+            "Aby zapewnić bohaterom przewagę na arenie, Dardew zawarł specjalny kontrakt, dzięki któremu będą walczyć nawet o krok od śmierci. Mimo to żaden czart nie może oprzeć się zepsuciu śmiertelnej duszy, zwłaszcza tej, która należy do poszukiwacza przygód o dobrym sercu. Rozsądnie byłoby, gdyby bohaterowie rozważyli drobny druk umowy przed jej podpisaniem.",
             {
               "type": "inset",
               "id": "0d7",
@@ -19062,7 +19062,7 @@
               "type": "insetReadaloud",
               "id": "0dc",
               "entries": [
-                "Siedzisz w niczym nie wyróżniającej się tawernie gdzieś w Greyhawkins, gdy w wybuchu siarki pojawia się skrzydlaty, czerwonoskóry diabeł z grzywą kręconych włosów i chłopięcym uśmiechem. Ląduje na szczycie jednego ze stołów z przesadnym ukłonem.",
+                "Siedzisz w niczym nie wyróżniającej się tawernie gdzieś w Greyhawkins, gdy w wybuchu siarki pojawia się skrzydlaty, czerwonoskóry czart z grzywą kręconych włosów i chłopięcym uśmiechem. Ląduje na szczycie jednego ze stołów z przesadnym ukłonem.",
                 "„Witajcie, śmiertelni poszukiwacze przygód. Nazywam się Dardew. Mam nadzieję, że nie przeszkadzam wam w posiłku” - mówi nieśmiało.",
                 "„Przyszedłem zaprosić cię do wzięcia udziału w Igrzyskach Piekielnego Ognia. Obserwuję cię od jakiegoś czasu i uważam, że możesz mieć wszystko, czego potrzeba, aby dołączyć do cenionego Klubu Piekielnego Ognia. Chcesz zagrać w diabelską grę?”"
               ]
@@ -19127,7 +19127,7 @@
           "entries": [
             "Diabły cenią rywalizację, zdradę i moc, dlatego stworzyli Kopułę Piekielnego Ognia, rękawicę pełną śmiercionośnych scenariuszy, zaprojektowaną z myślą o wszystkich trzech. Wyzwania te mają miejsce w dole wulkanicznym na Avernus, pierwszej warstwie Dziewięciu Piekieł. Tuż za suchą kopułą leży niekończące się pustkowie zrównane z ziemią podczas Krwawej Wojny, odwiecznego konfliktu pomiędzy diabłami i demonami.",
             "Kopuła Piekielnego Ognia to wielopiętrowa arena wykuta z obsydianu. Masywna kopuła wykuta z piekielnej stali pokrywa arenę, chroniąc ją przed meteorami spadającymi z nieba Avernus. Pod kopułą piekielna stalowa klatka uniemożliwia zawodnikom ucieczkę.",
-            "Tysiące diabłów gromadzi się, aby oglądać Igrzyska Piekielnego Ognia. Ci hałaśliwi widzowie czasami wrzucają monety do dołu, zasypując rywali złotem. Niepopularni zawodnicy czasami otrzymują kulę ognia rzuconą przez niezadowolonego diabła.",
+            "Tysiące diabłów gromadzi się, aby oglądać Igrzyska Piekielnego Ognia. Ci hałaśliwi widzowie czasami wrzucają monety do dołu, zasypując rywali złotem. Niepopularni zawodnicy czasami otrzymują kulę ognia rzuconą przez niezadowolonego czarta.",
             "Zapoznaj się z {@area Hellfire Dome map|0e1|x} i zwróć uwagę, że gracze rozpoczynają w środku {@area area H1|0e4|x}. Nie ujawniaj jeszcze reszty zawartości mapy, gdyż początkowo nie jest ona widoczna dla postaci.",
             {
               "type": "entries",
@@ -19905,7 +19905,7 @@
                             "type": "internal",
                             "path": "adventure/WttHC/073-04-02.dardew-and-cultist.webp"
                           },
-                          "title": "Dardew bawi kultystę Demogorgona podczas rundy ciekawostek w Fiend Feud",
+                          "title": "Dardew bawi kultystę Demogorgona podczas rundy ciekawostek w Czarcia Waśń",
                           "credit": "Ralph Horsley",
                           "width": 1700,
                           "height": 1100
@@ -19916,7 +19916,7 @@
                 },
                 {
                   "type": "entries",
-                  "name": "H2: Diabelska waśń",
+                  "name": "H2: Czarcia Waśń",
                   "id": "0e7",
                   "entries": [
                     {
@@ -19924,10 +19924,10 @@
                       "id": "0e8",
                       "entries": [
                         "{@area Dardew|0d5|x} niecierpliwie unosi się nad tym pomieszczeniem, w którym znajdują się dwa zardzewiałe podium z kutego żelaza, które przypominają skorodowane trumny. Za jednym z podium stoi pięciu zamaskowanych kultystów, drugie jest puste.",
-                        "„To znowu ten czas!” Dardew ogłasza to diabłom w górze. „Czy jesteś gotowy na kolejną grę Fiend Feud?” Publiczność wiwatuje. „Zawodnicy, zajmijcie miejsca”. Dardew odchrząkuje i wskazuje na puste podium."
+                        "„To znowu ten czas!” Dardew ogłasza to diabłom w górze. „Czy jesteś gotowy na kolejną grę Czarcia Waśń?” Publiczność wiwatuje. „Zawodnicy, zajmijcie miejsca”. Dardew odchrząkuje i wskazuje na puste podium."
                       ]
                     },
-                    "Wyzwanie to nazywa się Fiend Feud i jest grą o ciekawostkach, pełną rozumu i rozlewu krwi, w której dwie drużyny rywalizują o sławę, fortunę i życie. Przeciwna drużyna składa się z pięciu osób {@creature Cultist of Demogorgon|WttHC|Kultyści Demogorgona} kim są {@variantrule Hostile [Attitude]|XPHB|Wrogi} w stronę bohaterów. Dardew pełni rolę gospodarza.",
+                    "Wyzwanie to nazywa się Czarcia Waśń i jest grą o ciekawostkach, pełną rozumu i rozlewu krwi, w której dwie drużyny rywalizują o sławę, fortunę i życie. Przeciwna drużyna składa się z pięciu osób {@creature Cultist of Demogorgon|WttHC|Kultyści Demogorgona} kim są {@variantrule Hostile [Attitude]|XPHB|Wrogi} w stronę bohaterów. Dardew pełni rolę gospodarza.",
                     {
                       "type": "image",
                       "href": {
@@ -19946,18 +19946,18 @@
                       "items": [
                         {
                           "type": "item",
-                          "name": "Gram w Fiend Feud",
-                          "entry": "Fiend Feud to gra polegająca na ciekawostkach, składająca się z trzech rund i w większości arbitralnego systemu punktacji. Zasady gry są następujące:"
+                          "name": "Gram w Czarcia Waśń",
+                          "entry": "Czarcia Waśń to gra polegająca na ciekawostkach, składająca się z trzech rund i w większości arbitralnego systemu punktacji. Zasady gry są następujące:"
                         },
                         {
                           "type": "item",
                           "name": "Pytania ciekawostek",
-                          "entry": "W każdej rundzie Dardew zadaje postaciom jedno pytanie z tabeli Pytania Feud Feud, przerzucając duplikaty. Te pytania sprawdzają zarówno wiedzę gracza, jak i wiedzę postaci. Postacie graczy mogą chwilę się zastanowić, zanim udzielą odpowiedzi. Jeśli odpowiedzą poprawnie na pytanie, ich zespół otrzymuje 1 punkt."
+                          "entry": "W każdej rundzie Dardew zadaje postaciom jedno pytanie z tabeli Pytania Czarciej Waśni, przerzucając duplikaty. Te pytania sprawdzają zarówno wiedzę gracza, jak i wiedzę postaci. Postacie graczy mogą chwilę się zastanowić, zanim udzielą odpowiedzi. Jeśli odpowiedzą poprawnie na pytanie, ich zespół otrzymuje 1 punkt."
                         },
                         {
                           "type": "item",
                           "name": "Szansa na kradzież",
-                          "entry": "Jeśli postacie odpowiedzą niepoprawnie na pytanie, przeciwna drużyna ma szansę odpowiedzieć na to pytanie i otrzyma 1 punkt, jeśli odpowie poprawnie. Kultyści są dobrze zorientowani w wiedzy okultystycznej i poprawnie odpowiadają na takie pytania, ale o niczym innym nie wiedzą zbyt wiele i błędnie formułują te pytania. Kultyści znają odpowiedzi na pytania 1, 4 i 6 z tabeli Pytania o waśnie diabłów."
+                          "entry": "Jeśli postacie odpowiedzą niepoprawnie na pytanie, przeciwna drużyna ma szansę odpowiedzieć na to pytanie i otrzyma 1 punkt, jeśli odpowie poprawnie. Kultyści są dobrze zorientowani w wiedzy okultystycznej i poprawnie odpowiadają na takie pytania, ale o niczym innym nie wiedzą zbyt wiele i błędnie formułują te pytania. Kultyści znają odpowiedzi na pytania 1, 4 i 6 z tabeli Pytania o waśnie czartów."
                         },
                         {
                           "type": "item",
@@ -19976,7 +19976,7 @@
                     },
                     {
                       "type": "table",
-                      "caption": "Pytania o diabelski feud",
+                      "caption": "Pytania o czarcia waśń",
                       "colLabels": [
                         "1d6",
                         "Pytanie",
@@ -20044,7 +20044,7 @@
                             {
                               "type": "item",
                               "name": "Zwycięstwo w grze",
-                              "entry": "Jeśli bohaterowie wygrają Fiend Feud, publiczność obsypuje ich 150 GP."
+                              "entry": "Jeśli bohaterowie wygrają Czarcia Waśń, publiczność obsypuje ich 150 GP."
                             }
                           ]
                         }
@@ -20126,7 +20126,7 @@
                       "type": "insetReadaloud",
                       "id": "0f0",
                       "entries": [
-                        "Trzy parszywe, hienoidalne potwory przeprowadzają rytuał w tym niegodziwym sanktuarium. W centrum komnaty gigantyczny, groźnie wyglądający cepnik wiruje i zatrzymuje się w nieprzewidywalnych odstępach czasu, gwałtownie wymachując trzema kolcami.",
+                        "Trzy parszywe, hienoidalne czarty przeprowadzają rytuał w tym niegodziwym sanktuarium. W centrum komnaty gigantyczny, groźnie wyglądający cepnik wiruje i zatrzymuje się w nieprzewidywalnych odstępach czasu, gwałtownie wymachując trzema kolcami.",
                         "Dwa ze stworzeń chichoczą złośliwie, gdy trzecie - całkowicie bezwłose - skanduje: „Yeenoghu! Wybaw nas z tej nędznej gry, abyśmy mogli przelać krew w twoim imieniu!”"
                       ]
                     },
@@ -20156,7 +20156,7 @@
                       "name": "Cep",
                       "id": "0f2",
                       "entries": [
-                        "Obracający się cejak jest osadzony w ziemi pomiędzy gnollami. Każda runda Inicjatywy liczy się 10 (przegrywając remisy w Inicjatywie), trzy głowice cepa uderzają w ziemię. Każde stworzenie w promieniu 10 stóp od cepa musi odnieść sukces {@dc 15} Rzut lub przyjęcie obronne na zręczność {@damage 3d6} Tłuczące obrażenia i mają {@condition Prone|XPHB} stan : schorzenie. Cep nie szkodzi gnollom.",
+                        "Obracający się cejak jest osadzony w ziemi pomiędzy gnollami. Każda runda Inicjatywy liczy się 10 (przegrywając remisy w Inicjatywie), trzy głowice cepa uderzają w ziemię. Każde stworzenie w promieniu 10 stóp od cepa musi odnieść sukces {@dc 15} Rzut lub przyjęcie obronne na zręczność {@damage 3d6} obrażenia obuchowe i mają {@condition Prone|XPHB} stan : schorzenie. Cep nie szkodzi gnollom.",
                         "Ceprz ma KP 18, HP 40 i odporność na trucizny i obrażenia psychiczne. Jeśli cejak zostanie zniszczony, przestaje się obracać, a publiczność ryczy z radości."
                       ]
                     },
@@ -20491,7 +20491,7 @@
               "id": "101",
               "entries": [
                 "Wraz z wstrząsającą ziemią katastrofą Demodragon pada martwy przed tobą. Tłum szaleje.",
-                "Dardew szybuje nad głową. „Wow! Co za przedstawienie!” on wrze. „Przyjaciele i przyjaciele, dołączcie do mnie i powitajcie naszych najnowszych mistrzów Hellfire!”",
+                "Dardew szybuje nad głową. „Wow! Co za przedstawienie!” on wrze. „Przyjaciele i czarty, dołączcie do mnie i powitajcie naszych najnowszych mistrzów Hellfire!”",
                 "Podlatuje do ciebie i mówi cicho: „Poszukiwacze przygód, teraz jest świetny moment, aby się ukłonić. Zasłużyliście na to”."
               ]
             },
@@ -21738,7 +21738,7 @@
                         "type": "internal",
                         "path": "adventure/WttHC/073-04-02.dardew-and-cultist.webp"
                       },
-                      "title": "Dardew bawi kultystę Demogorgona podczas rundy ciekawostek w Fiend Feud",
+                      "title": "Dardew bawi kultystę Demogorgona podczas rundy ciekawostek w Czarcia Waśń",
                       "credit": "Ralph Horsley",
                       "width": 1700,
                       "height": 1100
@@ -21757,10 +21757,10 @@
                   "id": "0e8",
                   "entries": [
                     "{@area Dardew|0d5|x} niecierpliwie unosi się nad tym pomieszczeniem, w którym znajdują się dwa zardzewiałe podium z kutego żelaza, które przypominają skorodowane trumny. Za jednym z podium stoi pięciu zamaskowanych kultystów, drugie jest puste.",
-                    "„To znowu ten czas!” Dardew ogłasza to diabłom w górze. „Czy jesteś gotowy na kolejną grę Fiend Feud?” Publiczność wiwatuje. „Zawodnicy, zajmijcie miejsca”. Dardew odchrząkuje i wskazuje na puste podium."
+                    "„To znowu ten czas!” Dardew ogłasza to diabłom w górze. „Czy jesteś gotowy na kolejną grę Czarcia Waśń?” Publiczność wiwatuje. „Zawodnicy, zajmijcie miejsca”. Dardew odchrząkuje i wskazuje na puste podium."
                   ]
                 },
-                "Wyzwanie to nazywa się Fiend Feud i jest grą o ciekawostkach, pełną rozumu i rozlewu krwi, w której dwie drużyny rywalizują o sławę, fortunę i życie. Przeciwna drużyna składa się z pięciu osób {@creature Cultist of Demogorgon|WttHC|Kultyści Demogorgona} kim są {@variantrule Hostile [Attitude]|XPHB|Wrogi} w stronę bohaterów. Dardew pełni rolę gospodarza.",
+                "Wyzwanie to nazywa się Czarcia Waśń i jest grą o ciekawostkach, pełną rozumu i rozlewu krwi, w której dwie drużyny rywalizują o sławę, fortunę i życie. Przeciwna drużyna składa się z pięciu osób {@creature Cultist of Demogorgon|WttHC|Kultyści Demogorgona} kim są {@variantrule Hostile [Attitude]|XPHB|Wrogi} w stronę bohaterów. Dardew pełni rolę gospodarza.",
                 {
                   "type": "image",
                   "href": {
@@ -21779,8 +21779,8 @@
                   "items": [
                     {
                       "type": "item",
-                      "name": "Gram w Fiend Feud",
-                      "entry": "Fiend Feud to gra polegająca na ciekawostkach, składająca się z trzech rund i w większości arbitralnego systemu punktacji. Zasady gry są następujące:"
+                      "name": "Gram w Czarcia Waśń",
+                      "entry": "Czarcia Waśń to gra polegająca na ciekawostkach, składająca się z trzech rund i w większości arbitralnego systemu punktacji. Zasady gry są następujące:"
                     },
                     {
                       "type": "item",
@@ -21877,7 +21877,7 @@
                         {
                           "type": "item",
                           "name": "Zwycięstwo w grze",
-                          "entry": "Jeśli bohaterowie wygrają Fiend Feud, publiczność obsypuje ich 150 GP."
+                          "entry": "Jeśli bohaterowie wygrają Czarcia Waśń, publiczność obsypuje ich 150 GP."
                         }
                       ]
                     }
@@ -21989,7 +21989,7 @@
                   "name": "Cep",
                   "id": "0f2",
                   "entries": [
-                    "Obracający się cejak jest osadzony w ziemi pomiędzy gnollami. Każda runda Inicjatywy liczy się 10 (przegrywając remisy w Inicjatywie), trzy głowice cepa uderzają w ziemię. Każde stworzenie w promieniu 10 stóp od cepa musi odnieść sukces {@dc 15} Rzut lub przyjęcie obronne na zręczność {@damage 3d6} Tłuczące obrażenia i mają {@condition Prone|XPHB} stan : schorzenie. Cep nie szkodzi gnollom.",
+                    "Obracający się cejak jest osadzony w ziemi pomiędzy gnollami. Każda runda Inicjatywy liczy się 10 (przegrywając remisy w Inicjatywie), trzy głowice cepa uderzają w ziemię. Każde stworzenie w promieniu 10 stóp od cepa musi odnieść sukces {@dc 15} Rzut lub przyjęcie obronne na zręczność {@damage 3d6} obrażenia obuchowe i mają {@condition Prone|XPHB} stan : schorzenie. Cep nie szkodzi gnollom.",
                     "Ceprz ma KP 18, HP 40 i odporność na trucizny i obrażenia psychiczne. Jeśli cejak zostanie zniszczony, przestaje się obracać, a publiczność ryczy z radości."
                   ]
                 },
@@ -23089,7 +23089,7 @@
                     "type": "internal",
                     "path": "adventure/WttHC/073-04-02.dardew-and-cultist.webp"
                   },
-                  "title": "Dardew bawi kultystę Demogorgona podczas rundy ciekawostek w Fiend Feud",
+                  "title": "Dardew bawi kultystę Demogorgona podczas rundy ciekawostek w Czarcia Waśń",
                   "credit": "Ralph Horsley",
                   "width": 1700,
                   "height": 1100
@@ -23108,10 +23108,10 @@
               "id": "0e8",
               "entries": [
                 "{@area Dardew|0d5|x} niecierpliwie unosi się nad tym pomieszczeniem, w którym znajdują się dwa zardzewiałe podium z kutego żelaza, które przypominają skorodowane trumny. Za jednym z podium stoi pięciu zamaskowanych kultystów, drugie jest puste.",
-                "„To znowu ten czas!” Dardew ogłasza to diabłom w górze. „Czy jesteś gotowy na kolejną grę Fiend Feud?” Publiczność wiwatuje. „Zawodnicy, zajmijcie miejsca”. Dardew odchrząkuje i wskazuje na puste podium."
+                "„To znowu ten czas!” Dardew ogłasza to diabłom w górze. „Czy jesteś gotowy na kolejną grę Czarcia Waśń?” Publiczność wiwatuje. „Zawodnicy, zajmijcie miejsca”. Dardew odchrząkuje i wskazuje na puste podium."
               ]
             },
-            "Wyzwanie to nazywa się Fiend Feud i jest grą o ciekawostkach, pełną rozumu i rozlewu krwi, w której dwie drużyny rywalizują o sławę, fortunę i życie. Przeciwna drużyna składa się z pięciu osób {@creature Cultist of Demogorgon|WttHC|Kultyści Demogorgona} kim są {@variantrule Hostile [Attitude]|XPHB|Wrogi} w stronę bohaterów. Dardew pełni rolę gospodarza.",
+            "Wyzwanie to nazywa się Czarcia Waśń i jest grą o ciekawostkach, pełną rozumu i rozlewu krwi, w której dwie drużyny rywalizują o sławę, fortunę i życie. Przeciwna drużyna składa się z pięciu osób {@creature Cultist of Demogorgon|WttHC|Kultyści Demogorgona} kim są {@variantrule Hostile [Attitude]|XPHB|Wrogi} w stronę bohaterów. Dardew pełni rolę gospodarza.",
             {
               "type": "image",
               "href": {
@@ -23130,8 +23130,8 @@
               "items": [
                 {
                   "type": "item",
-                  "name": "Gram w Fiend Feud",
-                  "entry": "Fiend Feud to gra polegająca na ciekawostkach, składająca się z trzech rund i w większości arbitralnego systemu punktacji. Zasady gry są następujące:"
+                  "name": "Gram w Czarcia Waśń",
+                  "entry": "Czarcia Waśń to gra polegająca na ciekawostkach, składająca się z trzech rund i w większości arbitralnego systemu punktacji. Zasady gry są następujące:"
                 },
                 {
                   "type": "item",
@@ -23228,7 +23228,7 @@
                     {
                       "type": "item",
                       "name": "Zwycięstwo w grze",
-                      "entry": "Jeśli bohaterowie wygrają Fiend Feud, publiczność obsypuje ich 150 GP."
+                      "entry": "Jeśli bohaterowie wygrają Czarcia Waśń, publiczność obsypuje ich 150 GP."
                     }
                   ]
                 }
@@ -23340,7 +23340,7 @@
               "name": "Cep",
               "id": "0f2",
               "entries": [
-                "Obracający się cejak jest osadzony w ziemi pomiędzy gnollami. Każda runda Inicjatywy liczy się 10 (przegrywając remisy w Inicjatywie), trzy głowice cepa uderzają w ziemię. Każde stworzenie w promieniu 10 stóp od cepa musi odnieść sukces {@dc 15} Rzut lub przyjęcie obronne na zręczność {@damage 3d6} Tłuczące obrażenia i mają {@condition Prone|XPHB} stan : schorzenie. Cep nie szkodzi gnollom.",
+                "Obracający się cejak jest osadzony w ziemi pomiędzy gnollami. Każda runda Inicjatywy liczy się 10 (przegrywając remisy w Inicjatywie), trzy głowice cepa uderzają w ziemię. Każde stworzenie w promieniu 10 stóp od cepa musi odnieść sukces {@dc 15} Rzut lub przyjęcie obronne na zręczność {@damage 3d6} obrażenia obuchowe i mają {@condition Prone|XPHB} stan : schorzenie. Cep nie szkodzi gnollom.",
                 "Ceprz ma KP 18, HP 40 i odporność na trucizny i obrażenia psychiczne. Jeśli cejak zostanie zniszczony, przestaje się obracać, a publiczność ryczy z radości."
               ]
             },
@@ -23726,7 +23726,7 @@
                 "type": "internal",
                 "path": "adventure/WttHC/073-04-02.dardew-and-cultist.webp"
               },
-              "title": "Dardew bawi kultystę Demogorgona podczas rundy ciekawostek w Fiend Feud",
+              "title": "Dardew bawi kultystę Demogorgona podczas rundy ciekawostek w Czarcia Waśń",
               "credit": "Ralph Horsley",
               "width": 1700,
               "height": 1100
@@ -23747,7 +23747,7 @@
             "type": "internal",
             "path": "adventure/WttHC/073-04-02.dardew-and-cultist.webp"
           },
-          "title": "Dardew bawi kultystę Demogorgona podczas rundy ciekawostek w Fiend Feud",
+          "title": "Dardew bawi kultystę Demogorgona podczas rundy ciekawostek w Czarcia Waśń",
           "credit": "Ralph Horsley",
           "width": 1700,
           "height": 1100
@@ -23764,10 +23764,10 @@
           "id": "0e8",
           "entries": [
             "{@area Dardew|0d5|x} niecierpliwie unosi się nad tym pomieszczeniem, w którym znajdują się dwa zardzewiałe podium z kutego żelaza, które przypominają skorodowane trumny. Za jednym z podium stoi pięciu zamaskowanych kultystów, drugie jest puste.",
-            "„To znowu ten czas!” Dardew ogłasza to diabłom w górze. „Czy jesteś gotowy na kolejną grę Fiend Feud?” Publiczność wiwatuje. „Zawodnicy, zajmijcie miejsca”. Dardew odchrząkuje i wskazuje na puste podium."
+            "„To znowu ten czas!” Dardew ogłasza to diabłom w górze. „Czy jesteś gotowy na kolejną grę Czarcia Waśń?” Publiczność wiwatuje. „Zawodnicy, zajmijcie miejsca”. Dardew odchrząkuje i wskazuje na puste podium."
           ]
         },
-        "Wyzwanie to nazywa się Fiend Feud i jest grą o ciekawostkach, pełną rozumu i rozlewu krwi, w której dwie drużyny rywalizują o sławę, fortunę i życie. Przeciwna drużyna składa się z pięciu osób {@creature Cultist of Demogorgon|WttHC|Kultyści Demogorgona} kim są {@variantrule Hostile [Attitude]|XPHB|Wrogi} w stronę bohaterów. Dardew pełni rolę gospodarza.",
+        "Wyzwanie to nazywa się Czarcia Waśń i jest grą o ciekawostkach, pełną rozumu i rozlewu krwi, w której dwie drużyny rywalizują o sławę, fortunę i życie. Przeciwna drużyna składa się z pięciu osób {@creature Cultist of Demogorgon|WttHC|Kultyści Demogorgona} kim są {@variantrule Hostile [Attitude]|XPHB|Wrogi} w stronę bohaterów. Dardew pełni rolę gospodarza.",
         {
           "type": "image",
           "href": {
@@ -23786,8 +23786,8 @@
           "items": [
             {
               "type": "item",
-              "name": "Gram w Fiend Feud",
-              "entry": "Fiend Feud to gra polegająca na ciekawostkach, składająca się z trzech rund i w większości arbitralnego systemu punktacji. Zasady gry są następujące:"
+              "name": "Gram w Czarcia Waśń",
+              "entry": "Czarcia Waśń to gra polegająca na ciekawostkach, składająca się z trzech rund i w większości arbitralnego systemu punktacji. Zasady gry są następujące:"
             },
             {
               "type": "item",
@@ -23884,7 +23884,7 @@
                 {
                   "type": "item",
                   "name": "Zwycięstwo w grze",
-                  "entry": "Jeśli bohaterowie wygrają Fiend Feud, publiczność obsypuje ich 150 GP."
+                  "entry": "Jeśli bohaterowie wygrają Czarcia Waśń, publiczność obsypuje ich 150 GP."
                 }
               ]
             }
@@ -23915,7 +23915,7 @@
             {
               "type": "item",
               "name": "Zwycięstwo w grze",
-              "entry": "Jeśli bohaterowie wygrają Fiend Feud, publiczność obsypuje ich 150 GP."
+              "entry": "Jeśli bohaterowie wygrają Czarcia Waśń, publiczność obsypuje ich 150 GP."
             }
           ]
         }
@@ -24050,7 +24050,7 @@
           "name": "Cep",
           "id": "0f2",
           "entries": [
-            "Obracający się cejak jest osadzony w ziemi pomiędzy gnollami. Każda runda Inicjatywy liczy się 10 (przegrywając remisy w Inicjatywie), trzy głowice cepa uderzają w ziemię. Każde stworzenie w promieniu 10 stóp od cepa musi odnieść sukces {@dc 15} Rzut lub przyjęcie obronne na zręczność {@damage 3d6} Tłuczące obrażenia i mają {@condition Prone|XPHB} stan : schorzenie. Cep nie szkodzi gnollom.",
+            "Obracający się cejak jest osadzony w ziemi pomiędzy gnollami. Każda runda Inicjatywy liczy się 10 (przegrywając remisy w Inicjatywie), trzy głowice cepa uderzają w ziemię. Każde stworzenie w promieniu 10 stóp od cepa musi odnieść sukces {@dc 15} Rzut lub przyjęcie obronne na zręczność {@damage 3d6} obrażenia obuchowe i mają {@condition Prone|XPHB} stan : schorzenie. Cep nie szkodzi gnollom.",
             "Ceprz ma KP 18, HP 40 i odporność na trucizny i obrażenia psychiczne. Jeśli cejak zostanie zniszczony, przestaje się obracać, a publiczność ryczy z radości."
           ]
         },
@@ -24085,7 +24085,7 @@
       "name": "Cep",
       "id": "0f2",
       "entries": [
-        "Obracający się cejak jest osadzony w ziemi pomiędzy gnollami. Każda runda Inicjatywy liczy się 10 (przegrywając remisy w Inicjatywie), trzy głowice cepa uderzają w ziemię. Każde stworzenie w promieniu 10 stóp od cepa musi odnieść sukces {@dc 15} Rzut lub przyjęcie obronne na zręczność {@damage 3d6} Tłuczące obrażenia i mają {@condition Prone|XPHB} stan : schorzenie. Cep nie szkodzi gnollom.",
+        "Obracający się cejak jest osadzony w ziemi pomiędzy gnollami. Każda runda Inicjatywy liczy się 10 (przegrywając remisy w Inicjatywie), trzy głowice cepa uderzają w ziemię. Każde stworzenie w promieniu 10 stóp od cepa musi odnieść sukces {@dc 15} Rzut lub przyjęcie obronne na zręczność {@damage 3d6} obrażenia obuchowe i mają {@condition Prone|XPHB} stan : schorzenie. Cep nie szkodzi gnollom.",
         "Ceprz ma KP 18, HP 40 i odporność na trucizny i obrażenia psychiczne. Jeśli cejak zostanie zniszczony, przestaje się obracać, a publiczność ryczy z radości."
       ]
     },

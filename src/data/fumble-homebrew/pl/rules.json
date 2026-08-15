@@ -75,7 +75,7 @@
   "shared-initiative-blocks": {
     "name": "Wspólne bloki inicjatywy",
     "entries": [
-      "Sojusznicy z tym samym wynikiem inicjatywy tworzą jeden blok. Mogą dowolnie przeplatać ruch, akcje, Akcje Bonusowe i Reakcje w obrębie bloku, bez przygotowywania akcji. Dzięki temu sojusznik może uleczyć powalonego bohatera przed jego rzutem na śmierć."
+      "Sojusznicy z tym samym wynikiem inicjatywy tworzą jeden blok. Mogą dowolnie przeplatać ruch, akcje, Akcje Dodatkowe i Reakcje w obrębie bloku, bez przygotowywania akcji. Dzięki temu sojusznik może uleczyć powalonego bohatera przed jego rzutem na śmierć."
     ],
     "subtitle": "Zasada Fumble"
   },
@@ -90,7 +90,7 @@
   "scroll-casting": {
     "name": "Zwoje zaklęć",
     "entries": [
-      "Aby skorzystać ze zwoju, musisz umieć rzucać zaklęcia. Spell nie musi znajdować się na liście twojej klasy, w granicach rozsądku ustalonych przez Mistrza Gry."
+      "Aby skorzystać ze zwoju, musisz umieć rzucać zaklęcia. Zaklęcie nie musi znajdować się na liście twojej klasy, w granicach rozsądku ustalonych przez Mistrza Gry."
     ],
     "subtitle": "Zasada Fumble"
   },
@@ -234,16 +234,52 @@
           {
             "type": "table",
             "caption": "Układy kości i mnożniki",
-            "colLabels": ["Układ", "Warunek", "Mnożnik"],
+            "colLabels": [
+              "Układ",
+              "Warunek",
+              "Mnożnik"
+            ],
             "rows": [
-              ["Five of a Kind", "Wszystkie kości takie same", "3"],
-              ["Four of a Kind", "Cztery kości tej samej wartości", "2,5"],
-              ["Full House", "Trzy kości jednej wartości i para", "2"],
-              ["Straight", "Sekwencja pięciu wartości, na przykład 2-6", "2,5"],
-              ["Three of a Kind", "Trzy kości tej samej wartości", "1,4"],
-              ["Two Pair", "Dwie pary różnych wartości", "1,2"],
-              ["One Pair", "Jedna para", "1,1"],
-              ["Brak układu", "Wszystkie wartości różne", "1"]
+              [
+                "Pięć takich samych",
+                "Wszystkie kości takie same",
+                "3"
+              ],
+              [
+                "Cztery takie same",
+                "Cztery kości tej samej wartości",
+                "2,5"
+              ],
+              [
+                "Full",
+                "Trzy kości jednej wartości i para",
+                "2"
+              ],
+              [
+                "Strit",
+                "Sekwencja pięciu wartości, na przykład 2-6",
+                "2,5"
+              ],
+              [
+                "Trzy takie same",
+                "Trzy kości tej samej wartości",
+                "1,4"
+              ],
+              [
+                "Dwie pary",
+                "Dwie pary różnych wartości",
+                "1,2"
+              ],
+              [
+                "Jedna para",
+                "Jedna para",
+                "1,1"
+              ],
+              [
+                "Brak układu",
+                "Wszystkie wartości różne",
+                "1"
+              ]
             ]
           },
           "Pomnóż sumę pięciu kości przez odpowiedni mnożnik i zaokrąglij w dół. Otrzymany wynik określa liczbę zdobytych Punktów Postępu zgodnie z tabelą nagród właściwą dla danego środowiska."
@@ -253,7 +289,7 @@
         "type": "entries",
         "name": "Zużywanie zasobów",
         "entries": [
-          "Podczas zbieractwa postać może zużyć zasoby, takie jak racje żywnościowe lub inne przedmioty, w liczbie odpowiadającej liczbie dostępnych przerzutów. Każdy zużyty zasób dodaje zazwyczaj +1 do końcowego wyniku, choć lepszy zasób może zapewniać większy bonus."
+          "Podczas zbieractwa postać może zużyć zasoby, takie jak racje żywnościowe lub inne przedmioty, w liczbie odpowiadającej liczbie dostępnych przerzutów. Każdy zużyty zasób dodaje zazwyczaj +1 do końcowego wyniku, choć lepszy zasób może zapewniać większy premia."
         ]
       },
       {
@@ -297,9 +333,15 @@
           {
             "type": "table",
             "caption": "Rodzaje wytwarzania",
-            "colLabels": ["Rodzaj", "Atrybut i narzędzia"],
+            "colLabels": [
+              "Rodzaj",
+              "Atrybut i narzędzia"
+            ],
             "rows": [
-              ["Mikstury", "{@item Alchemist's Supplies|XPHB} (Inteligencja)"],
+              [
+                "Mikstury",
+                "{@item Alchemist's Supplies|XPHB} (Inteligencja)"
+              ],
               [
                 "Trucizny",
                 "{@item Poisoner's Kit|XPHB} lub {@item Herbalism Kit|XPHB} (Inteligencja)"
@@ -316,7 +358,10 @@
                 "Broń niestandardowa",
                 "Zestaw kowala, alchemika, majsterkowicza lub rzeźbiarza w drewnie (Siła lub Zręczność)"
               ],
-              ["Zbroje", "Zestaw kowala lub garbarza (Siła, Zręczność albo Mądrość)"],
+              [
+                "Zbroje",
+                "Zestaw kowala lub garbarza (Siła, Zręczność albo Mądrość)"
+              ],
               [
                 "Biżuteria magiczna",
                 "Zestaw jubilera, malarza, kaligrafa lub tkacza (Charyzma, Zręczność, Inteligencja albo Mądrość)"
@@ -365,30 +410,81 @@
           {
             "type": "table",
             "caption": "Warunki środowiskowe",
-            "colLabels": ["Warunek", "Przerzuty"],
+            "colLabels": [
+              "Warunek",
+              "Przerzuty"
+            ],
             "rows": [
-              ["Wytwarzanie w niebezpiecznym miejscu", "-1"],
-              ["Wytwarzanie w podróży", "+0"],
-              ["Wytwarzanie w bezpiecznym schronieniu", "+1"],
-              ["Brak odpowiedniego warsztatu", "+0"],
-              ["Odpowiedni warsztat", "+1"],
-              ["Osoba posiadająca daną biegłość", "+1"],
-              ["Mistrz, ekspertyza lub przewaga fabularna", "+2"]
+              [
+                "Wytwarzanie w niebezpiecznym miejscu",
+                "-1"
+              ],
+              [
+                "Wytwarzanie w podróży",
+                "+0"
+              ],
+              [
+                "Wytwarzanie w bezpiecznym schronieniu",
+                "+1"
+              ],
+              [
+                "Brak odpowiedniego warsztatu",
+                "+0"
+              ],
+              [
+                "Odpowiedni warsztat",
+                "+1"
+              ],
+              [
+                "Osoba posiadająca daną biegłość",
+                "+1"
+              ],
+              [
+                "Mistrz, ekspertyza lub przewaga fabularna",
+                "+2"
+              ]
             ]
           },
           {
             "type": "table",
             "caption": "Układy kości i mnożniki",
-            "colLabels": ["Układ", "Mnożnik"],
+            "colLabels": [
+              "Układ",
+              "Mnożnik"
+            ],
             "rows": [
-              ["Five of a Kind", "3"],
-              ["Four of a Kind", "2,5"],
-              ["Full House", "2"],
-              ["Straight", "2,5"],
-              ["Three of a Kind", "1,4"],
-              ["Two Pair", "1,2"],
-              ["One Pair", "1,1"],
-              ["Brak układu", "1"]
+              [
+                "Pięć takich samych",
+                "3"
+              ],
+              [
+                "Cztery takie same",
+                "2,5"
+              ],
+              [
+                "Full",
+                "2"
+              ],
+              [
+                "Strit",
+                "2,5"
+              ],
+              [
+                "Trzy takie same",
+                "1,4"
+              ],
+              [
+                "Dwie pary",
+                "1,2"
+              ],
+              [
+                "Jedna para",
+                "1,1"
+              ],
+              [
+                "Brak układu",
+                "1"
+              ]
             ]
           }
         ]
@@ -401,18 +497,51 @@
           {
             "type": "table",
             "caption": "Wynik końcowy i PP",
-            "colLabels": ["Wynik końcowy", "PP przed podwojeniem"],
+            "colLabels": [
+              "Wynik końcowy",
+              "PP przed podwojeniem"
+            ],
             "rows": [
-              ["5-14", "1"],
-              ["15-24", "2"],
-              ["25-34", "3"],
-              ["35-44", "4"],
-              ["45-54", "6"],
-              ["55-64", "8"],
-              ["65-74", "10"],
-              ["75-84", "13"],
-              ["85-89", "16"],
-              ["90+", "25"]
+              [
+                "5-14",
+                "1"
+              ],
+              [
+                "15-24",
+                "2"
+              ],
+              [
+                "25-34",
+                "3"
+              ],
+              [
+                "35-44",
+                "4"
+              ],
+              [
+                "45-54",
+                "6"
+              ],
+              [
+                "55-64",
+                "8"
+              ],
+              [
+                "65-74",
+                "10"
+              ],
+              [
+                "75-84",
+                "13"
+              ],
+              [
+                "85-89",
+                "16"
+              ],
+              [
+                "90+",
+                "25"
+              ]
             ]
           }
         ]
@@ -424,15 +553,47 @@
           {
             "type": "table",
             "caption": "Wymagane PP",
-            "colLabels": ["Rodzaj przedmiotu", "Wymagane PP", "Dodatkowe wymagania"],
+            "colLabels": [
+              "Rodzaj przedmiotu",
+              "Wymagane PP",
+              "Dodatkowe wymagania"
+            ],
             "rows": [
-              ["Niemagiczny, cena do 50 sz", "5", "Narzędzia i materiały"],
-              ["Niemagiczny, 51-100 sz", "10", "Narzędzia i materiały"],
-              ["Niemagiczny, 101-250 sz", "20", "Biegłość w narzędziach"],
-              ["Niemagiczny, 251-500 sz", "35", "Biegłość w narzędziach"],
-              ["Niemagiczny, 501-1000 sz", "50", "Warsztat"],
-              ["Niemagiczny, 1001-2000 sz", "75", "Pomocnik"],
-              ["Niemagiczny, ponad 2000 sz", "100", "Mistrzowskie narzędzia"],
+              [
+                "Niemagiczny, cena do 50 sz",
+                "5",
+                "Narzędzia i materiały"
+              ],
+              [
+                "Niemagiczny, 51-100 sz",
+                "10",
+                "Narzędzia i materiały"
+              ],
+              [
+                "Niemagiczny, 101-250 sz",
+                "20",
+                "Biegłość w narzędziach"
+              ],
+              [
+                "Niemagiczny, 251-500 sz",
+                "35",
+                "Biegłość w narzędziach"
+              ],
+              [
+                "Niemagiczny, 501-1000 sz",
+                "50",
+                "Warsztat"
+              ],
+              [
+                "Niemagiczny, 1001-2000 sz",
+                "75",
+                "Pomocnik"
+              ],
+              [
+                "Niemagiczny, ponad 2000 sz",
+                "100",
+                "Mistrzowskie narzędzia"
+              ],
               [
                 "Powszechny magiczny",
                 "30",
@@ -443,14 +604,26 @@
                 "90",
                 "5. poziom i warsztat lub miejsce rytualne"
               ],
-              ["Rzadki magiczny", "180", "9. poziom"],
+              [
+                "Rzadki magiczny",
+                "180",
+                "9. poziom"
+              ],
               [
                 "Bardzo rzadki magiczny",
                 "400",
                 "13. poziom i dostęp do magicznego źródła"
               ],
-              ["Legendarny magiczny", "700", "17. poziom, osobista ofiara i mistrz"],
-              ["Artefakt", "1000+", "Unikalne warunki fabularne i osobna wyprawa"]
+              [
+                "Legendarny magiczny",
+                "700",
+                "17. poziom, osobista ofiara i mistrz"
+              ],
+              [
+                "Artefakt",
+                "1000+",
+                "Unikalne warunki fabularne i osobna wyprawa"
+              ]
             ]
           }
         ]
@@ -490,18 +663,39 @@
           {
             "type": "table",
             "caption": "Atrybut wyszkolenia",
-            "colLabels": ["Rodzaj", "Atrybut"],
+            "colLabels": [
+              "Rodzaj",
+              "Atrybut"
+            ],
             "rows": [
-              ["Umiejętność", "Zgodnie z opisem umiejętności"],
+              [
+                "Umiejętność",
+                "Zgodnie z opisem umiejętności"
+              ],
               [
                 "Język",
                 "Inteligencja, a przy powiązaniu z już znanym językiem +1 przerzut"
               ],
-              ["Narzędzie", "Zgodnie z opisem narzędzia"],
-              ["Tresura", "Opieka nad zwierzętami"],
-              ["Zbieractwo", "Inteligencja lub Mądrość"],
-              ["Pancerz", "Lekki lub średni: Zręczność; ciężki: Siła"],
-              ["Tarcze", "Siła, Zręczność lub Kondycja, wybrane przez gracza"],
+              [
+                "Narzędzie",
+                "Zgodnie z opisem narzędzia"
+              ],
+              [
+                "Tresura",
+                "Opieka nad zwierzętami"
+              ],
+              [
+                "Zbieractwo",
+                "Inteligencja lub Mądrość"
+              ],
+              [
+                "Pancerz",
+                "Lekki lub średni: Zręczność; ciężki: Siła"
+              ],
+              [
+                "Tarcze",
+                "Siła, Zręczność lub Kondycja, wybrane przez gracza"
+              ],
               [
                 "Broń żołnierska",
                 "Siła lub Zręczność, zależnie od dominującego typu obrażeń"
@@ -521,16 +715,43 @@
           {
             "type": "table",
             "caption": "Modyfikatory przerzutów",
-            "colLabels": ["Warunek", "Przerzuty"],
+            "colLabels": [
+              "Warunek",
+              "Przerzuty"
+            ],
             "rows": [
-              ["Nauka w niebezpiecznym miejscu", "-1"],
-              ["Nauka w podróży", "+0"],
-              ["Nauka w bezpiecznym schronieniu", "+1"],
-              ["Brak dodatkowych materiałów", "+0"],
-              ["Dobrze opisana księga lub zwój", "+1"],
-              ["Osoba posiadająca daną biegłość", "+1"],
-              ["Mistrz, ekspertyza lub przewaga fabularna", "+2"],
-              ["Wspólna nauka", "+3 do końcowego wyniku"]
+              [
+                "Nauka w niebezpiecznym miejscu",
+                "-1"
+              ],
+              [
+                "Nauka w podróży",
+                "+0"
+              ],
+              [
+                "Nauka w bezpiecznym schronieniu",
+                "+1"
+              ],
+              [
+                "Brak dodatkowych materiałów",
+                "+0"
+              ],
+              [
+                "Dobrze opisana księga lub zwój",
+                "+1"
+              ],
+              [
+                "Osoba posiadająca daną biegłość",
+                "+1"
+              ],
+              [
+                "Mistrz, ekspertyza lub przewaga fabularna",
+                "+2"
+              ],
+              [
+                "Wspólna nauka",
+                "+3 do końcowego wyniku"
+              ]
             ]
           }
         ]
@@ -542,16 +763,52 @@
           {
             "type": "table",
             "caption": "Układy kości",
-            "colLabels": ["Układ", "Warunek", "Mnożnik"],
+            "colLabels": [
+              "Układ",
+              "Warunek",
+              "Mnożnik"
+            ],
             "rows": [
-              ["Five of a Kind", "Wszystkie kości takie same", "3"],
-              ["Four of a Kind", "Cztery kości tej samej wartości", "2,5"],
-              ["Full House", "Trzy kości jednej wartości i para", "2"],
-              ["Straight", "Sekwencja pięciu wartości", "2,5"],
-              ["Three of a Kind", "Trzy kości tej samej wartości", "1,4"],
-              ["Two Pair", "Dwie pary różnych wartości", "1,2"],
-              ["One Pair", "Jedna para", "1,1"],
-              ["Brak układu", "Wszystkie wartości różne", "1"]
+              [
+                "Pięć takich samych",
+                "Wszystkie kości takie same",
+                "3"
+              ],
+              [
+                "Cztery takie same",
+                "Cztery kości tej samej wartości",
+                "2,5"
+              ],
+              [
+                "Full",
+                "Trzy kości jednej wartości i para",
+                "2"
+              ],
+              [
+                "Strit",
+                "Sekwencja pięciu wartości",
+                "2,5"
+              ],
+              [
+                "Trzy takie same",
+                "Trzy kości tej samej wartości",
+                "1,4"
+              ],
+              [
+                "Dwie pary",
+                "Dwie pary różnych wartości",
+                "1,2"
+              ],
+              [
+                "Jedna para",
+                "Jedna para",
+                "1,1"
+              ],
+              [
+                "Brak układu",
+                "Wszystkie wartości różne",
+                "1"
+              ]
             ]
           },
           "Pomnóż sumę pięciu kości przez odpowiedni mnożnik i zaokrąglij w dół."
@@ -564,35 +821,101 @@
           {
             "type": "table",
             "caption": "Wynik końcowy i PP",
-            "colLabels": ["Wynik", "PP"],
+            "colLabels": [
+              "Wynik",
+              "PP"
+            ],
             "rows": [
-              ["5-14", "1"],
-              ["15-24", "2"],
-              ["25-34", "3"],
-              ["35-44", "4"],
-              ["45-54", "6"],
-              ["55-64", "8"],
-              ["65-74", "10"],
-              ["75-84", "13"],
-              ["85-89", "16"],
-              ["90+", "25"]
+              [
+                "5-14",
+                "1"
+              ],
+              [
+                "15-24",
+                "2"
+              ],
+              [
+                "25-34",
+                "3"
+              ],
+              [
+                "35-44",
+                "4"
+              ],
+              [
+                "45-54",
+                "6"
+              ],
+              [
+                "55-64",
+                "8"
+              ],
+              [
+                "65-74",
+                "10"
+              ],
+              [
+                "75-84",
+                "13"
+              ],
+              [
+                "85-89",
+                "16"
+              ],
+              [
+                "90+",
+                "25"
+              ]
             ]
           },
           {
             "type": "table",
             "caption": "PP wymagane do zdobycia biegłości",
-            "colLabels": ["Rodzaj wyszkolenia", "PP"],
+            "colLabels": [
+              "Rodzaj wyszkolenia",
+              "PP"
+            ],
             "rows": [
-              ["Umiejętność", "70"],
-              ["Język", "50"],
-              ["Narzędzie", "60"],
-              ["Tresura prosta", "10"],
-              ["Tresura złożona", "30"],
-              ["Zbieractwo I-V", "20 / 40 / 60 / 80 / 100"],
-              ["Pancerz", "90"],
-              ["Tarcze", "100"],
-              ["Broń żołnierska", "40"],
-              ["Mistrzostwo w broni", "60"]
+              [
+                "Umiejętność",
+                "70"
+              ],
+              [
+                "Język",
+                "50"
+              ],
+              [
+                "Narzędzie",
+                "60"
+              ],
+              [
+                "Tresura prosta",
+                "10"
+              ],
+              [
+                "Tresura złożona",
+                "30"
+              ],
+              [
+                "Zbieractwo I-V",
+                "20 / 40 / 60 / 80 / 100"
+              ],
+              [
+                "Pancerz",
+                "90"
+              ],
+              [
+                "Tarcze",
+                "100"
+              ],
+              [
+                "Broń żołnierska",
+                "40"
+              ],
+              [
+                "Mistrzostwo w broni",
+                "60"
+              ]
             ]
           }
         ]
@@ -604,10 +927,22 @@
           {
             "type": "table",
             "caption": "Poziomy biegłości w zbieractwie",
-            "colLabels": ["Poziom", "Nazwa", "Efekt"],
+            "colLabels": [
+              "Poziom",
+              "Nazwa",
+              "Efekt"
+            ],
             "rows": [
-              ["I", "Uczeń Zbieracz", "+5 do końcowego wyniku"],
-              ["II", "Doświadczony Zbieracz", "+10 do wyniku i +1 przerzut"],
+              [
+                "I",
+                "Uczeń Zbieracz",
+                "+5 do końcowego wyniku"
+              ],
+              [
+                "II",
+                "Doświadczony Zbieracz",
+                "+10 do wyniku i +1 przerzut"
+              ],
               [
                 "III",
                 "Mistrz Zbieractwa",
@@ -656,7 +991,7 @@
                 "Mała (ręczna)",
                 "{@dice 1d6}",
                 "30/60",
-                "Reload 100",
+                "Przeładowanie 100",
                 "{@itemMastery Vex|XPHB|Zwód}",
                 "600"
               ],
@@ -665,7 +1000,7 @@
                 "Mała (długa)",
                 "{@dice 1d12}",
                 "60/120",
-                "Reload 100, Two-Handed, Heavy",
+                "Przeładowanie 100, Dwuręczna, Ciężka",
                 "{@itemMastery Slow|XPHB|Spowolnienie} lub {@itemMastery Push|XPHB|Odepchnięcie}",
                 "800"
               ],
@@ -674,7 +1009,7 @@
                 "Mała (długa)",
                 "{@dice 1d6}",
                 "60/120",
-                "Reload 100, Automatic, Burst Fire, Two-Handed, Heavy",
+                "Przeładowanie 100, Automatyczna, Ogień seryjny, Dwuręczna, Ciężka",
                 "{@itemMastery Slow|XPHB|Spowolnienie}",
                 "800"
               ],
@@ -683,7 +1018,7 @@
                 "Duża (okrętowa)",
                 "{@dice 8d10}",
                 "400/1200",
-                "Reload 1/4, Loading, Two-Handed",
+                "Przeładowanie 1/4, Ładowanie, Dwuręczna",
                 "{@itemMastery Push|XPHB|Odepchnięcie} 10",
                 "10000"
               ],
@@ -692,7 +1027,7 @@
                 "Duża (okrętowa)",
                 "{@dice 5d10}",
                 "400/1200",
-                "Reload 1000, Burst Fire, Automatic, Two-Handed, Heavy",
+                "Przeładowanie 1000, Ogień seryjny, Automatyczna, Dwuręczna, Ciężka",
                 "{@itemMastery Slow|XPHB|Spowolnienie}",
                 "10000"
               ],
@@ -701,7 +1036,7 @@
                 "Mała (ręczna)",
                 "Efekt granatu",
                 "600",
-                "Reload 1",
+                "Przeładowanie 1",
                 "-",
                 "700"
               ],
@@ -710,7 +1045,7 @@
                 "Mała (ręczna)",
                 "Efekt spreju",
                 "30",
-                "Reload 2",
+                "Przeładowanie 2",
                 "-",
                 "700"
               ]
@@ -734,7 +1069,7 @@
                 "Mała (ręczna)",
                 "{@dice 2d6}",
                 "40/120",
-                "Reload 6",
+                "Przeładowanie 6",
                 "{@itemMastery Vex|XPHB|Zwód}",
                 "400"
               ],
@@ -743,7 +1078,7 @@
                 "Mała (długa)",
                 "{@dice 2d12}",
                 "80/240",
-                "Reload 4, Two-Handed, Heavy",
+                "Przeładowanie 4, Dwuręczna, Ciężka",
                 "{@itemMastery Slow|XPHB|Spowolnienie} lub {@itemMastery Push|XPHB|Odepchnięcie}",
                 "600"
               ],
@@ -752,7 +1087,7 @@
                 "Mała (długa)",
                 "{@dice 2d6}",
                 "80/240",
-                "Reload 30, Burst Fire, Automatic, Two-Handed, Heavy",
+                "Przeładowanie 30, Ogień seryjny, Automatyczna, Dwuręczna, Ciężka",
                 "{@itemMastery Slow|XPHB|Spowolnienie}",
                 "600"
               ],
@@ -761,7 +1096,7 @@
                 "Duża (okrętowa)",
                 "{@dice 9d10}",
                 "500/1000",
-                "Reload 1/4, Loading, Two-Handed",
+                "Przeładowanie 1/4, Ładowanie, Dwuręczna",
                 "{@itemMastery Push|XPHB|Odepchnięcie} 10",
                 "5000"
               ],
@@ -770,7 +1105,7 @@
                 "Duża (okrętowa)",
                 "{@dice 6d10}",
                 "500/1000",
-                "Reload 30, Burst Fire, Automatic, Two-Handed, Heavy",
+                "Przeładowanie 30, Ogień seryjny, Automatyczna, Dwuręczna, Ciężka",
                 "{@itemMastery Slow|XPHB|Spowolnienie}",
                 "10000"
               ],
@@ -779,7 +1114,7 @@
                 "Mała (ręczna)",
                 "{@dice 3d12}",
                 "300/800",
-                "Reload 1",
+                "Przeładowanie 1",
                 "{@itemMastery Slow|XPHB|Spowolnienie}",
                 "1000"
               ],
@@ -788,7 +1123,7 @@
                 "Mała (długa)",
                 "{@dice 1d12}",
                 "80/240",
-                "Loading, Two-Handed",
+                "Ładowanie, Dwuręczna",
                 "{@itemMastery Slow|XPHB|Spowolnienie}",
                 "700"
               ]
@@ -804,7 +1139,12 @@
           {
             "type": "table",
             "caption": "Granaty",
-            "colLabels": ["Granat", "Zaklęcie bazowe", "Modyfikacja", "Cena"],
+            "colLabels": [
+              "Granat",
+              "Zaklęcie bazowe",
+              "Modyfikacja",
+              "Cena"
+            ],
             "rows": [
               [
                 "{@firearm Explosion Grenade|Fumble|Wybuch}",
@@ -847,12 +1187,17 @@
           {
             "type": "table",
             "caption": "Spreje",
-            "colLabels": ["Sprej", "Efekt bazowy", "Modyfikacja", "Cena"],
+            "colLabels": [
+              "Sprej",
+              "Efekt bazowy",
+              "Modyfikacja",
+              "Cena"
+            ],
             "rows": [
               [
                 "{@firearm Bullet Spray|Fumble|Kule}",
-                "Burst Fire",
-                "{@dice 3d8} obrażeń kłujących w sześcianie 15 stóp",
+                "Ogień seryjny",
+                "{@dice 3d8} obrażeń kłutych w sześcianie 15 stóp",
                 "1 sz"
               ],
               [
@@ -883,21 +1228,21 @@
         "entries": [
           {
             "type": "entries",
-            "name": "Reload",
+            "name": "Przeładowanie",
             "entries": [
-              "Broń z właściwością Reload pozwala oddać ograniczoną liczbę strzałów, zanim trzeba ją przeładować. Przeładowanie wymaga akcji albo akcji bonusowej. Zapis 1/4 oznacza, że trzeba poświęcić cztery akcje lub akcje bonusowe, aby przeładować broń."
+              "Broń z właściwością Przeładowanie pozwala oddać ograniczoną liczbę strzałów, zanim trzeba ją przeładować. Przeładowanie wymaga akcji albo Akcji Dodatkowej. Zapis 1/4 oznacza, że trzeba poświęcić cztery akcje lub Akcje Dodatkowe, aby przeładować broń."
             ]
           },
           {
             "type": "entries",
-            "name": "Burst Fire",
+            "name": "Ogień seryjny",
             "entries": [
-              "Jako akcję można zużyć 10 sztuk amunicji broni z właściwością Burst Fire, aby ostrzelać obszar w postaci sześcianu o boku 10 stóp w normalnym zasięgu broni. Każde stworzenie w obszarze wykonuje rzut obronny na Zręczność. ST wynosi 8 + modyfikator Zręczności + premia biegłości celującego. Przy porażce stworzenie otrzymuje obrażenia broni."
+              "Jako akcję można zużyć 10 sztuk amunicji broni z właściwością Ogień seryjny, aby ostrzelać obszar w postaci sześcianu o boku 10 stóp w normalnym zasięgu broni. Każde stworzenie w obszarze wykonuje rzut obronny na Zręczność. ST wynosi 8 + modyfikator Zręczności + premia biegłości celującego. Przy porażce stworzenie otrzymuje obrażenia broni."
             ]
           },
           {
             "type": "entries",
-            "name": "Automatic",
+            "name": "Automatyczna",
             "entries": [
               "Wykonując atak tą bronią, możesz zamiast tego wykonać dwa ataki. Wykonujesz je z utrudnieniem i zużywasz dwukrotność normalnej ilości amunicji."
             ]
@@ -918,7 +1263,11 @@
           {
             "type": "table",
             "caption": "Modyfikacje",
-            "colLabels": ["Modyfikacja", "Efekt", "Cena"],
+            "colLabels": [
+              "Modyfikacja",
+              "Efekt",
+              "Cena"
+            ],
             "rows": [
               [
                 "{@firearm Firearm Scope|Fumble|Celownik broni palnej}",
@@ -932,7 +1281,7 @@
               ],
               [
                 "{@firearm Firearm Bayonet|Fumble|Bagnet broni palnej}",
-                "{@dice 1d8} obrażeń kłujących i właściwość mistrzowska broni bazowej. Zasięg 10 stóp dla broni długiej.",
+                "{@dice 1d8} obrażeń kłutych i właściwość mistrzowska broni bazowej. Zasięg 10 stóp dla broni długiej.",
                 "100"
               ],
               [

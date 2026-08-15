@@ -7,7 +7,7 @@ import { useLightbox } from '@/features/ui/lightboxStore';
 import { useLocale } from '@/i18n/pathUtils';
 import type { Locale } from '@/i18n/locales';
 import { translate } from '@/i18n/useT';
-import { markupLabel, parseMarkup } from './markup';
+import { localizePlainText, markupLabel, parseMarkup } from './markup';
 import { ReferenceLink } from './ReferenceLink';
 
 const STATBLOCK_CATEGORY: Record<string, string> = {
@@ -45,7 +45,7 @@ function slug(value: string): string {
 function BookImage({ src, title }: { src: string; title?: string }) {
   const open = useLightbox((s) => s.open);
   const locale = useLocale();
-  const plainTitle = title ? stripMarkup(title) : '';
+  const plainTitle = title ? localizePlainText(stripMarkup(title), locale) : '';
   return (
     <figure className="my-2 flex flex-col items-center gap-1">
       <img
@@ -184,15 +184,16 @@ function renderNode(node: EntryNode, key: number, locale: Locale): ReactNode {
 
     case 'statblock': {
       const tag = typeof node.tag === 'string' ? node.tag : '';
-      const name = typeof node.name === 'string' ? node.name : '';
-      if (!name) return null;
+      const rawName = typeof node.name === 'string' ? node.name : '';
+      if (!rawName) return null;
+      const name = localizePlainText(rawName, locale);
       const category = STATBLOCK_CATEGORY[tag];
       return (
-        <p key={key} className="my-1" data-entry-name={slug(name)}>
+        <p key={key} className="my-1" data-entry-name={slug(rawName)}>
           {category ? (
             <ReferenceLink
               category={category}
-              slug={slug(name)}
+              slug={slug(rawName)}
               label={name}
               {...(typeof node.source === 'string' ? { source: node.source } : {})}
             />

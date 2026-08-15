@@ -37,12 +37,12 @@ describe('compendium categories', () => {
         (key) => key,
         'pl',
       ),
-    ).toBe('standardowy');
+    ).toBe('Standardowy');
     expect(
       categories
         .find((category) => category.id === 'languages')!
         .filters?.[0]?.labelFor?.('Standard', 'pl'),
-    ).toBe('standardowy');
+    ).toBe('Standardowy');
     expect(
       getCategory('objects')!.subtitle(
         { size: 'Mały lub Mały', objectType: 'Obiekt' } as never,

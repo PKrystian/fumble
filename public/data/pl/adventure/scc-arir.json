@@ -5053,11 +5053,11 @@
                                 "Ściana wijącej się ciemności wznosi się na wysokość czterdziestu stóp, tworząc nieprzezroczystą kopułę wokół ruin."
                               ]
                             },
-                            "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia martwicze u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
+                            "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia nekrotyczne u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
                             "Nic nie może fizycznie przejść przez kopułę, jeśli nie zostaną spełnione pewne warunki, jak wyjaśniono poniżej. Kopuła nie blokuje jednak eterycznych stworzeń ani nie uniemożliwia użycia zaklęć takich jak {@spell dimension door} Lub {@spell teleport}.",
-                            "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia od promieniowania, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
-                            "Zadając kopule co najmniej 25 obrażeń od blasku za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
-                            "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, tłuczenie, zimno, ogień, siła, błyskawica, kłute, tnące lub grzmot. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
+                            "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia promieniste, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
+                            "Zadając kopule co najmniej 25 obrażeń promienistych za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
+                            "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, obuchowe, zimno, ogień, moc, piorun, kłute, sieczne lub gromu. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
                           ]
                         }
                       ]
@@ -5243,12 +5243,12 @@
                                 {
                                   "type": "item",
                                   "name": "Wyrwij jego wnętrzności",
-                                  "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia tnące Locusa, ignorując jego próg obrażeń i odporność na obrażenia tnące."
+                                  "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia sieczne Locusa, ignorując jego próg obrażeń i odporność na obrażenia sieczne."
                                 },
                                 {
                                   "type": "item",
                                   "name": "Cofnij to za pomocą magii",
-                                  "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od siły, ignorując próg obrażeń."
+                                  "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od mocy, ignorując próg obrażeń."
                                 }
                               ]
                             },
@@ -5703,7 +5703,7 @@
                           "page": 180,
                           "id": "43e",
                           "entries": [
-                            "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia tłuczone, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
+                            "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia obuchowe, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
                           ]
                         },
                         {
@@ -5734,7 +5734,7 @@
                                 {
                                   "type": "item",
                                   "name": "Ziemna Pięść",
-                                  "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia tłuczące i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
+                                  "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia obuchowe i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
                                 },
                                 {
                                   "type": "item",
@@ -5800,7 +5800,7 @@
               "page": 181,
               "id": "444",
               "entries": [
-                "Jeśli wszystkie postacie upadną {@condition unconscious} lub zginą w ostatnim starciu, nie zatrzymają się {@creature Murgaxor|SCC}rytuał. Niedługo potem rytuał zadaje 70 ({@dice 20d6}) obrażenia martwicze u wszystkich w kampusie {@creature Murgaxor|SCC} wysysa ich siłę życiową. Setki uczonych umiera, a wielu innych zostaje ciężko rannych. {@creature Murgaxor|SCC} staje się nieśmiertelny i jeden z najpotężniejszych czarowników na świecie. Jeśli postacie przeżyją, być może Smoki Założycieli i archaicy będą w stanie poprowadzić ich, gdy będą próbowali się powstrzymać {@creature Murgaxor|SCC} w nowym, dystopijnym świecie."
+                "Jeśli wszystkie postacie upadną {@condition unconscious} lub zginą w ostatnim starciu, nie zatrzymają się {@creature Murgaxor|SCC}rytuał. Niedługo potem rytuał zadaje 70 ({@dice 20d6}) obrażenia nekrotyczne u wszystkich w kampusie {@creature Murgaxor|SCC} wysysa ich siłę życiową. Setki uczonych umiera, a wielu innych zostaje ciężko rannych. {@creature Murgaxor|SCC} staje się nieśmiertelny i jeden z najpotężniejszych czarowników na świecie. Jeśli postacie przeżyją, być może Smoki Założycieli i archaicy będą w stanie poprowadzić ich, gdy będą próbowali się powstrzymać {@creature Murgaxor|SCC} w nowym, dystopijnym świecie."
               ]
             }
           ]
@@ -12191,11 +12191,11 @@
                             "Ściana wijącej się ciemności wznosi się na wysokość czterdziestu stóp, tworząc nieprzezroczystą kopułę wokół ruin."
                           ]
                         },
-                        "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia martwicze u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
+                        "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia nekrotyczne u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
                         "Nic nie może fizycznie przejść przez kopułę, jeśli nie zostaną spełnione pewne warunki, jak wyjaśniono poniżej. Kopuła nie blokuje jednak eterycznych stworzeń ani nie uniemożliwia użycia zaklęć takich jak {@spell dimension door} Lub {@spell teleport}.",
-                        "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia od promieniowania, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
-                        "Zadając kopule co najmniej 25 obrażeń od blasku za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
-                        "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, tłuczenie, zimno, ogień, siła, błyskawica, kłute, tnące lub grzmot. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
+                        "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia promieniste, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
+                        "Zadając kopule co najmniej 25 obrażeń promienistych za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
+                        "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, obuchowe, zimno, ogień, moc, piorun, kłute, sieczne lub gromu. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
                       ]
                     }
                   ]
@@ -12381,12 +12381,12 @@
                             {
                               "type": "item",
                               "name": "Wyrwij jego wnętrzności",
-                              "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia tnące Locusa, ignorując jego próg obrażeń i odporność na obrażenia tnące."
+                              "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia sieczne Locusa, ignorując jego próg obrażeń i odporność na obrażenia sieczne."
                             },
                             {
                               "type": "item",
                               "name": "Cofnij to za pomocą magii",
-                              "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od siły, ignorując próg obrażeń."
+                              "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od mocy, ignorując próg obrażeń."
                             }
                           ]
                         },
@@ -20320,11 +20320,11 @@
                         "Ściana wijącej się ciemności wznosi się na wysokość czterdziestu stóp, tworząc nieprzezroczystą kopułę wokół ruin."
                       ]
                     },
-                    "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia martwicze u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
+                    "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia nekrotyczne u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
                     "Nic nie może fizycznie przejść przez kopułę, jeśli nie zostaną spełnione pewne warunki, jak wyjaśniono poniżej. Kopuła nie blokuje jednak eterycznych stworzeń ani nie uniemożliwia użycia zaklęć takich jak {@spell dimension door} Lub {@spell teleport}.",
-                    "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia od promieniowania, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
-                    "Zadając kopule co najmniej 25 obrażeń od blasku za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
-                    "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, tłuczenie, zimno, ogień, siła, błyskawica, kłute, tnące lub grzmot. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
+                    "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia promieniste, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
+                    "Zadając kopule co najmniej 25 obrażeń promienistych za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
+                    "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, obuchowe, zimno, ogień, moc, piorun, kłute, sieczne lub gromu. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
                   ]
                 }
               ]
@@ -20510,12 +20510,12 @@
                         {
                           "type": "item",
                           "name": "Wyrwij jego wnętrzności",
-                          "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia tnące Locusa, ignorując jego próg obrażeń i odporność na obrażenia tnące."
+                          "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia sieczne Locusa, ignorując jego próg obrażeń i odporność na obrażenia sieczne."
                         },
                         {
                           "type": "item",
                           "name": "Cofnij to za pomocą magii",
-                          "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od siły, ignorując próg obrażeń."
+                          "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od mocy, ignorując próg obrażeń."
                         }
                       ]
                     },
@@ -21447,11 +21447,11 @@
                     "Ściana wijącej się ciemności wznosi się na wysokość czterdziestu stóp, tworząc nieprzezroczystą kopułę wokół ruin."
                   ]
                 },
-                "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia martwicze u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
+                "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia nekrotyczne u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
                 "Nic nie może fizycznie przejść przez kopułę, jeśli nie zostaną spełnione pewne warunki, jak wyjaśniono poniżej. Kopuła nie blokuje jednak eterycznych stworzeń ani nie uniemożliwia użycia zaklęć takich jak {@spell dimension door} Lub {@spell teleport}.",
-                "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia od promieniowania, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
-                "Zadając kopule co najmniej 25 obrażeń od blasku za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
-                "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, tłuczenie, zimno, ogień, siła, błyskawica, kłute, tnące lub grzmot. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
+                "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia promieniste, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
+                "Zadając kopule co najmniej 25 obrażeń promienistych za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
+                "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, obuchowe, zimno, ogień, moc, piorun, kłute, sieczne lub gromu. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
               ]
             }
           ]
@@ -21637,12 +21637,12 @@
                     {
                       "type": "item",
                       "name": "Wyrwij jego wnętrzności",
-                      "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia tnące Locusa, ignorując jego próg obrażeń i odporność na obrażenia tnące."
+                      "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia sieczne Locusa, ignorując jego próg obrażeń i odporność na obrażenia sieczne."
                     },
                     {
                       "type": "item",
                       "name": "Cofnij to za pomocą magii",
-                      "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od siły, ignorując próg obrażeń."
+                      "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od mocy, ignorując próg obrażeń."
                     }
                   ]
                 },
@@ -21692,11 +21692,11 @@
                 "Ściana wijącej się ciemności wznosi się na wysokość czterdziestu stóp, tworząc nieprzezroczystą kopułę wokół ruin."
               ]
             },
-            "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia martwicze u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
+            "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia nekrotyczne u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
             "Nic nie może fizycznie przejść przez kopułę, jeśli nie zostaną spełnione pewne warunki, jak wyjaśniono poniżej. Kopuła nie blokuje jednak eterycznych stworzeń ani nie uniemożliwia użycia zaklęć takich jak {@spell dimension door} Lub {@spell teleport}.",
-            "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia od promieniowania, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
-            "Zadając kopule co najmniej 25 obrażeń od blasku za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
-            "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, tłuczenie, zimno, ogień, siła, błyskawica, kłute, tnące lub grzmot. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
+            "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia promieniste, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
+            "Zadając kopule co najmniej 25 obrażeń promienistych za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
+            "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, obuchowe, zimno, ogień, moc, piorun, kłute, sieczne lub gromu. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
           ]
         }
       ]
@@ -21716,11 +21716,11 @@
             "Ściana wijącej się ciemności wznosi się na wysokość czterdziestu stóp, tworząc nieprzezroczystą kopułę wokół ruin."
           ]
         },
-        "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia martwicze u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
+        "Każde stworzenie znajdujące się w fosie lub nad fosą, gdy pojawi się kopuła, musi wykonać a {@dc 13} Rzut obronny na zręczność, biorąc 22 ({@dice 5d8}) obrażenia nekrotyczne w przypadku nieudanego rzutu obronnego lub o połowę mniejsze w przypadku udanego rzutu. Stworzenie wybiera, czy znajduje się wewnątrz, czy na zewnątrz kopuły. Kopuła zajmuje 22 ({@dice 5d8}) obrażenia nekrotyczne u każdego stworzenia, które go dotknie. Stworzenie otrzymuje te obrażenia tylko raz na turę.",
         "Nic nie może fizycznie przejść przez kopułę, jeśli nie zostaną spełnione pewne warunki, jak wyjaśniono poniżej. Kopuła nie blokuje jednak eterycznych stworzeń ani nie uniemożliwia użycia zaklęć takich jak {@spell dimension door} Lub {@spell teleport}.",
-        "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia od promieniowania, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
-        "Zadając kopule co najmniej 25 obrażeń od blasku za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
-        "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, tłuczenie, zimno, ogień, siła, błyskawica, kłute, tnące lub grzmot. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
+        "Kopuła jest odporna na większość uszkodzeń. Jednakże postać, która zbada kopułę i odniesie sukces, {@dc 15} Inteligencja ({@skill Arcana}) sprawdza, czy można zrobić tymczasową dziurę w kopule, zadając jej obrażenia promieniste, i czy wykwalifikowany arkanista może manipulować magiczną harmonią kopuły, aby uczynić ją podatną również na inne rodzaje obrażeń (jak opisano poniżej).",
+        "Zadając kopule co najmniej 25 obrażeń promienistych za pomocą ataku lub zaklęcia, tworzy się w niej dziura o średnicy 3 metrów. Pojawiająca się w miejscu, w którym atak lub zaklęcie po raz pierwszy zetknęło się z kopułą, dziura ta pozostaje otwarta przez 1 minutę.",
+        "Postać może próbować manipulować tajemnymi harmoniami kopuły, wykonując akcję, aby wykonać: {@dc 15} Inteligencja ({@skill Arcana}) sprawdzać. Jeśli test się powiedzie, postać może zmienić wymagany typ obrażeń z promienistego na inny, wybrany z poniższej listy: kwas, obuchowe, zimno, ogień, moc, piorun, kłute, sieczne lub gromu. Zmiana wymaganego rodzaju obrażeń trwa do końca następnej tury postaci."
       ]
     },
     "0:413": {
@@ -21970,12 +21970,12 @@
                 {
                   "type": "item",
                   "name": "Wyrwij jego wnętrzności",
-                  "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia tnące Locusa, ignorując jego próg obrażeń i odporność na obrażenia tnące."
+                  "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia sieczne Locusa, ignorując jego próg obrażeń i odporność na obrażenia sieczne."
                 },
                 {
                   "type": "item",
                   "name": "Cofnij to za pomocą magii",
-                  "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od siły, ignorując próg obrażeń."
+                  "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od mocy, ignorując próg obrażeń."
                 }
               ]
             },
@@ -22017,12 +22017,12 @@
             {
               "type": "item",
               "name": "Wyrwij jego wnętrzności",
-              "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia tnące Locusa, ignorując jego próg obrażeń i odporność na obrażenia tnące."
+              "entry": "Postać może sięgnąć do Locusa przez jedną z jego paszczy i spróbować wyrwać mu wnętrzności za pomocą {@dc 15} Wytrzymałość ({@skill Athletics}) sprawdzać. Jeżeli test się nie powiedzie, postać kończy się niepowodzeniem i otrzymuje 10 obrażeń nekrotycznych. Jeśli test się powiedzie, postać otrzymuje 5 obrażeń nekrotycznych i zadaje 22 ({@dice 4d10}) obrażenia sieczne Locusa, ignorując jego próg obrażeń i odporność na obrażenia sieczne."
             },
             {
               "type": "item",
               "name": "Cofnij to za pomocą magii",
-              "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od siły, ignorując próg obrażeń."
+              "entry": "Postać znajdująca się w promieniu 1,5 metra od Locusa może wykonać akcję, aby spróbować go przeciążyć za pomocą zaklęcia nauczanego w szkole. Postać kończy zaklęcie tworząc Inteligencję ({@skill Arcana}) sprawdzać. Jeśli test się nie powiedzie, postać otrzymuje 5 obrażeń nekrotycznych. Jeśli test się powiedzie, Locus otrzymuje 22 ({@dice 4d10}) obrażenia od mocy, ignorując próg obrażeń."
             }
           ]
         },
@@ -22469,7 +22469,7 @@
                       "page": 180,
                       "id": "43e",
                       "entries": [
-                        "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia tłuczone, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
+                        "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia obuchowe, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
                       ]
                     },
                     {
@@ -22500,7 +22500,7 @@
                             {
                               "type": "item",
                               "name": "Ziemna Pięść",
-                              "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia tłuczące i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
+                              "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia obuchowe i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
                             },
                             {
                               "type": "item",
@@ -22566,7 +22566,7 @@
           "page": 181,
           "id": "444",
           "entries": [
-            "Jeśli wszystkie postacie upadną {@condition unconscious} lub zginą w ostatnim starciu, nie zatrzymają się {@creature Murgaxor|SCC}rytuał. Niedługo potem rytuał zadaje 70 ({@dice 20d6}) obrażenia martwicze u wszystkich w kampusie {@creature Murgaxor|SCC} wysysa ich siłę życiową. Setki uczonych umiera, a wielu innych zostaje ciężko rannych. {@creature Murgaxor|SCC} staje się nieśmiertelny i jeden z najpotężniejszych czarowników na świecie. Jeśli postacie przeżyją, być może Smoki Założycieli i archaicy będą w stanie poprowadzić ich, gdy będą próbowali się powstrzymać {@creature Murgaxor|SCC} w nowym, dystopijnym świecie."
+            "Jeśli wszystkie postacie upadną {@condition unconscious} lub zginą w ostatnim starciu, nie zatrzymają się {@creature Murgaxor|SCC}rytuał. Niedługo potem rytuał zadaje 70 ({@dice 20d6}) obrażenia nekrotyczne u wszystkich w kampusie {@creature Murgaxor|SCC} wysysa ich siłę życiową. Setki uczonych umiera, a wielu innych zostaje ciężko rannych. {@creature Murgaxor|SCC} staje się nieśmiertelny i jeden z najpotężniejszych czarowników na świecie. Jeśli postacie przeżyją, być może Smoki Założycieli i archaicy będą w stanie poprowadzić ich, gdy będą próbowali się powstrzymać {@creature Murgaxor|SCC} w nowym, dystopijnym świecie."
           ]
         }
       ]
@@ -22978,7 +22978,7 @@
                   "page": 180,
                   "id": "43e",
                   "entries": [
-                    "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia tłuczone, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
+                    "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia obuchowe, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
                   ]
                 },
                 {
@@ -23009,7 +23009,7 @@
                         {
                           "type": "item",
                           "name": "Ziemna Pięść",
-                          "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia tłuczące i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
+                          "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia obuchowe i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
                         },
                         {
                           "type": "item",
@@ -23358,7 +23358,7 @@
               "page": 180,
               "id": "43e",
               "entries": [
-                "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia tłuczone, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
+                "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia obuchowe, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
               ]
             },
             {
@@ -23389,7 +23389,7 @@
                     {
                       "type": "item",
                       "name": "Ziemna Pięść",
-                      "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia tłuczące i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
+                      "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia obuchowe i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
                     },
                     {
                       "type": "item",
@@ -23419,7 +23419,7 @@
           "page": 180,
           "id": "43e",
           "entries": [
-            "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia tłuczone, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
+            "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia obuchowe, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
           ]
         },
         {
@@ -23450,7 +23450,7 @@
                 {
                   "type": "item",
                   "name": "Ziemna Pięść",
-                  "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia tłuczące i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
+                  "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia obuchowe i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
                 },
                 {
                   "type": "item",
@@ -23474,7 +23474,7 @@
       "page": 180,
       "id": "43e",
       "entries": [
-        "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia tłuczone, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
+        "{@creature Murgaxor|SCC} jest otoczony barierą tajemnej energii przypominającą kokon wijącego się błota. Będąc otoczonym tą barierą, {@creature Murgaxor|SCC} a otaczające go kamienie nie mogą być celem ataków ani zaklęć. Bariera ma KP 14; 200 punktów wytrzymałości; odporność na obrażenia obuchowe, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Bariery nie można ominąć magią teleportacji, która kończy się fiaskiem, jeśli ktoś spróbuje się przez nią teleportować."
       ]
     },
     "0:43f": {
@@ -23505,7 +23505,7 @@
             {
               "type": "item",
               "name": "Ziemna Pięść",
-              "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia tłuczące i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
+              "entry": "Średnia pięść wykonana z ubitej ziemi unosi się z podłogi w niezamieszkanej przestrzeni {@creature Murgaxor|SCC} widzi go w promieniu 30 stóp. Następnie pięść atakuje wybrane przez siebie stworzenie znajdujące się w promieniu 5 stóp od pięści. Pięść ma {@hit 11} premia do trafienia, a przy trafieniu cel otrzymuje 13 ({@dice 3d8}) obrażenia obuchowe i jest {@condition grappled} (ucieczka {@dc 15}). Pięść znika, jeśli rzut ataku nie powiedzie się lub jeśli chwyt się zakończy. Kiedy pięść zniknie, akcja legowiska odnawia się, pozwalając {@creature Murgaxor|SCC} ponownie go użyć."
             },
             {
               "type": "item",
@@ -23565,7 +23565,7 @@
       "page": 181,
       "id": "444",
       "entries": [
-        "Jeśli wszystkie postacie upadną {@condition unconscious} lub zginą w ostatnim starciu, nie zatrzymają się {@creature Murgaxor|SCC}rytuał. Niedługo potem rytuał zadaje 70 ({@dice 20d6}) obrażenia martwicze u wszystkich w kampusie {@creature Murgaxor|SCC} wysysa ich siłę życiową. Setki uczonych umiera, a wielu innych zostaje ciężko rannych. {@creature Murgaxor|SCC} staje się nieśmiertelny i jeden z najpotężniejszych czarowników na świecie. Jeśli postacie przeżyją, być może Smoki Założycieli i archaicy będą w stanie poprowadzić ich, gdy będą próbowali się powstrzymać {@creature Murgaxor|SCC} w nowym, dystopijnym świecie."
+        "Jeśli wszystkie postacie upadną {@condition unconscious} lub zginą w ostatnim starciu, nie zatrzymają się {@creature Murgaxor|SCC}rytuał. Niedługo potem rytuał zadaje 70 ({@dice 20d6}) obrażenia nekrotyczne u wszystkich w kampusie {@creature Murgaxor|SCC} wysysa ich siłę życiową. Setki uczonych umiera, a wielu innych zostaje ciężko rannych. {@creature Murgaxor|SCC} staje się nieśmiertelny i jeden z najpotężniejszych czarowników na świecie. Jeśli postacie przeżyją, być może Smoki Założycieli i archaicy będą w stanie poprowadzić ich, gdy będą próbowali się powstrzymać {@creature Murgaxor|SCC} w nowym, dystopijnym świecie."
       ]
     },
     "1:005": {

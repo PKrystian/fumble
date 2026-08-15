@@ -569,9 +569,9 @@
                       "type": "list",
                       "style": "list-hang-notitle",
                       "items": [
-                        "{@class Warlock|XPHB|Patron Arcyfey|Archfey|XPHB} do teleportacji i władania magią fey.",
+                        "{@class Warlock|XPHB|Patron Arcyfey|Archfey|XPHB} do teleportacji i władania magią fej.",
                         "{@class Warlock|XPHB|Niebiański Patron|Celestial|XPHB} do leczenia niebiańską magią.",
-                        "{@class Warlock|XPHB|Zły Patron|Fiend|XPHB}, aby przywołać złowrogie moce.",
+                        "{@class Warlock|XPHB|Patron Czarta|Fiend|XPHB}, aby przywołać złowrogie moce.",
                         "{@class Warlock|XPHB|Wielki Stary Patron|Great Old One|XPHB}, aby zagłębić się w zakazaną wiedzę."
                       ]
                     }
@@ -727,7 +727,7 @@
                       "page": 177,
                       "id": "4a0",
                       "entries": [
-                        "Gatunek postaci określa typ istoty postaci, opisany w słowniku zasad. Każdy gatunek w tym rozdziale to Humanoid; grywalne niehumanoidalne gatunki pojawiają się w innych książkach D&D."
+                        "Gatunek postaci określa typ istoty postaci, opisany w słowniku zasad. Każdy gatunek w tym rozdziale to humanoidalna istota; grywalne niehumanoidalne gatunki pojawiają się w innych książkach D&D."
                       ]
                     },
                     {
@@ -918,7 +918,7 @@
                 },
                 {
                   "type": "item",
-                  "name": "Kraina Fey",
+                  "name": "Kraina Fejów",
                   "entry": "Ta tętniąca życiem, wyidealizowana kraina wypełniona jest życiem i emocjami, najintensywniejszymi w Domenach Rozkoszy tej krainy."
                 },
                 {
@@ -4639,7 +4639,7 @@
                           "Demony Otchłani"
                         ],
                         [
-                          "Niebiański",
+                          "Niebianin",
                           "Niebianie"
                         ],
                         [
@@ -4660,7 +4660,7 @@
                         ],
                         [
                           "Sylwan",
-                          "Kraina Fey"
+                          "Kraina Fejów"
                         ],
                         [
                           "Kant złodziei",
@@ -9592,7 +9592,7 @@
                   "page": 226,
                   "id": "6d0",
                   "entries": [
-                    "Kiedy weźmiesz {@action Attack|XPHB}akcji, możesz zastąpić jeden ze swoich ataków rzuceniem butelki z Wodą Święconą. Wybierz jedno stworzenie, które widzisz w promieniu 20 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Zręczność ({@dc 8}plus modyfikator Zręczności i Premia Biegłości) lub weź{@dice 2d8}Obrażenia promieniste, jeśli jest to Diabeł lub Nieumarły."
+                    "Kiedy weźmiesz {@action Attack|XPHB}akcji, możesz zastąpić jeden ze swoich ataków rzuceniem butelki z Wodą Święconą. Wybierz jedno stworzenie, które widzisz w promieniu 20 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Zręczność ({@dc 8}plus modyfikator Zręczności i Premia Biegłości) lub weź{@dice 2d8}Obrażenia promieniste, jeśli jest to Czart lub Nieumarły."
                   ]
                 },
                 {
@@ -9794,7 +9794,7 @@
                   "page": 227,
                   "id": "6e5",
                   "entries": [
-                    "Perfumy znajdują się w fiolce o pojemności 4 uncji. Przez 1 godzinę po nałożeniu na siebie Perfum, tak{@variantrule Advantage|XPHB} na Charyzmę ({@skill Persuasion|XPHB}) kontrole mające na celu wywarcie wpływu na{@variantrule Indifferent [Attitude]|XPHB|Obojętny}Humanoid w promieniu 5 stóp od ciebie."
+                    "Perfumy znajdują się w fiolce o pojemności 4 uncji. Przez 1 godzinę po nałożeniu na siebie Perfum, tak{@variantrule Advantage|XPHB} na Charyzmę ({@skill Persuasion|XPHB}) kontrole mające na celu wywarcie wpływu na{@variantrule Indifferent [Attitude]|XPHB|Obojętny}humanoidalna istota w promieniu 5 stóp od ciebie."
                   ]
                 },
                 {
@@ -9803,7 +9803,7 @@
                   "page": 227,
                   "id": "6e6",
                   "entries": [
-                    "W ramach akcji dodatkowej możesz użyć fiolki z podstawową trucizną do pokrycia jednej broni lub maksymalnie trzech sztuk amunicji. Stworzenie, które otrzymuje obrażenia kłute lub tnące od zatrutej broni lub amunicji, otrzymuje dodatkowe obrażenia{@dice 1d4}Obrażenia od trucizny. Po zastosowaniu trucizna zachowuje moc przez 1 minutę lub do momentu zadania obrażeń, w zależności od tego, co nastąpi wcześniej."
+                    "W ramach akcji dodatkowej możesz użyć fiolki z podstawową trucizną do pokrycia jednej broni lub maksymalnie trzech sztuk amunicji. Stworzenie, które otrzymuje obrażenia kłute lub sieczne od zatrutej broni lub amunicji, otrzymuje dodatkowe obrażenia{@dice 1d4}Obrażenia od trucizny. Po zastosowaniu trucizna zachowuje moc przez 1 minutę lub do momentu zadania obrażeń, w zależności od tego, co nastąpi wcześniej."
                   ]
                 },
                 {
@@ -14019,7 +14019,7 @@
               "page": 28,
               "id": "09d",
               "entries": [
-                "Każde wystąpienie obrażeń ma swój typ, np. Ogień lub Cięcie. Rodzaje uszkodzeń są wymienione w {@book rules glossary|XPHB|10|Rodzaje uszkodzeń} i nie mają własnych zasad, ale inne zasady, takie jak {@variantrule Resistance|XPHB}, opierają się na typach uszkodzeń."
+                "Każde wystąpienie obrażeń ma swój typ, np. Ogień lub Sieczne. Rodzaje uszkodzeń są wymienione w {@book rules glossary|XPHB|10|Rodzaje uszkodzeń} i nie mają własnych zasad, ale inne zasady, takie jak {@variantrule Resistance|XPHB}, opierają się na typach uszkodzeń."
               ]
             },
             {
@@ -14697,7 +14697,7 @@
                     {
                       "type": "item",
                       "name": "Maeve:",
-                      "entry": "Ponieważ użyłam slotu 2 poziomu, to 15 obrażeń Dźwiękowych, i zostają odepchnięte o 10 stóp."
+                      "entry": "Ponieważ użyłam slotu 2 poziomu, to 15 obrażeń od gromu, i zostają odepchnięte o 10 stóp."
                     },
                     {
                       "type": "item",
@@ -14750,7 +14750,7 @@
                     {
                       "type": "item",
                       "name": "Filip:",
-                      "entry": "Każda otrzymuje 18 obrażeń Blasku i-"
+                      "entry": "Każda otrzymuje 18 obrażeń promienistych i-"
                     },
                     {
                       "type": "item",

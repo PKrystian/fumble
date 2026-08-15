@@ -1156,6 +1156,7 @@ const en = {
       usableBy: 'Usable by: {{names}}',
       none: 'none',
       modeNav: 'Loot generator mode',
+      goldUnit: 'gp',
     },
   },
   dice: {

@@ -91,7 +91,9 @@ vi.mock('@/i18n/path', () => ({
 }));
 
 vi.mock('@/i18n/useT', () => ({
-  useT: () => ({ t: (key: string) => key }),
+  useT: () => ({
+    t: (key: string) => (key === 'dm.loot.goldUnit' ? 'sz' : key),
+  }),
 }));
 
 vi.mock('@/seo/useSeo', () => ({
@@ -143,7 +145,7 @@ describe('LootGeneratorPage', () => {
     expect(screen.getByText('Sword')).toBeInTheDocument();
     expect(screen.getByText('Wand')).toBeInTheDocument();
     expect(screen.getAllByText('dm.loot.usableBy')).toHaveLength(2);
-    expect(screen.getByText(/3 × 50 gp/)).toBeInTheDocument();
+    expect(screen.getByText(/3 × 50 sz/)).toBeInTheDocument();
     expect(screen.queryByText('Hidden')).not.toBeInTheDocument();
     expect(screen.queryByText('Money')).not.toBeInTheDocument();
 

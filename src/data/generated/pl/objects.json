@@ -71,7 +71,7 @@
                 "type": "item",
                 "name": "Balista Siłowa",
                 "entries": [
-                  "Wykonaj zasięgowy atak zaklęciem wychodzący z armaty przeciwko jednemu stworowi lub przedmiotowi w promieniu 120 stóp od niej. W przypadku trafienia cel otrzymuje {@damage 2d8} obrażeń Siłowych, a jeśli celem jest stwór, zostaje odepchnięty o maksymalnie 5 stóp od armaty."
+                  "Wykonaj zasięgowy atak zaklęciem wychodzący z armaty przeciwko jednemu stworowi lub przedmiotowi w promieniu 120 stóp od niej. W przypadku trafienia cel otrzymuje {@damage 2d8} obrażeń od mocy, a jeśli celem jest stwór, zostaje odepchnięty o maksymalnie 5 stóp od armaty."
                 ]
               },
               {
@@ -139,7 +139,7 @@
       {
         "name": "Balista Siłowa",
         "entries": [
-          "Wykonaj zasięgowy atak zaklęciem, wychodzący z armaty, przeciwko jednemu stworowi lub przedmiotowi w promieniu 120 stóp od niej. W przypadku trafienia cel otrzymuje {@damage 2d8} obrażeń siłowych, a jeśli celem jest stwór, zostaje odepchnięty o maksymalnie 5 stóp od armaty."
+          "Wykonaj zasięgowy atak zaklęciem, wychodzący z armaty, przeciwko jednemu stworowi lub przedmiotowi w promieniu 120 stóp od niej. W przypadku trafienia cel otrzymuje {@damage 2d8} obrażeń od mocy, a jeśli celem jest stwór, zostaje odepchnięty o maksymalnie 5 stóp od armaty."
         ]
       }
     ],
@@ -204,7 +204,7 @@
       {
         "name": "Miotacz Ognia",
         "entries": [
-          "{@actSave dex} {@dc 15}, każdy stwór w {@variantrule Line [Area of Effect]|XPHB|Linii} o długości 60 stóp i szerokości 5 stóp. {@actSaveFail} 14 ({@damage 4d6}) obrażeń Ognia, a stwór zaczyna płonąć. {@actSaveSuccess} Tylko połowa obrażeń}"
+          "{@actSave dex} {@dc 15}, każdy stwór w {@variantrule Line [Area of Effect]|XPHB|Linii} o długości 60 stóp i szerokości 5 stóp. {@actSaveFail} 14 ({@damage 4d6}) obrażeń Ognia, a stwór zaczyna płonąć. {@actSaveSuccess} Tylko połowa obrażeń"
         ]
       }
     ],
@@ -245,7 +245,7 @@
       {
         "name": "Toksyczna Beczka (wymaga załadowania i wycelowania)",
         "entries": [
-          "{@actSave con} {@dc 15}, każdy stwór w {@variantrule Sphere [Area of Effect]|XPHB|Kuli} o promieniu 20 stóp, wyśrodkowanej w punkcie od 30 do 300 stóp od wyrzutni. {@actSaveFail} 14 ({@damage 4d6}) obrażeń Trucizny. {@actSaveSuccess} Połowa obrażeń}"
+          "{@actSave con} {@dc 15}, każdy stwór w {@variantrule Sphere [Area of Effect]|XPHB|Kuli} o promieniu 20 stóp, wyśrodkowanej w punkcie od 30 do 300 stóp od wyrzutni. {@actSaveFail} 14 ({@damage 4d6}) obrażeń Trucizny. {@actSaveSuccess} Połowa obrażeń"
         ]
       }
     ],
@@ -275,7 +275,7 @@
       {
         "name": "Kula Błyskawic (wymaga wycelowania)",
         "entries": [
-          "{@atkr r} {@hit 6}, zasięg 300/1200 stóp. {@h}22 ({@damage 4d10}) obrażeń Piorunowych."
+          "{@atkr r} {@hit 6}, zasięg 300/1200 stóp. {@h}22 ({@damage 4d10}) obrażeń od pioruna."
         ]
       }
     ],
@@ -359,7 +359,7 @@
     "cha": 10,
     "immune": "",
     "senses": "",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "objectType": "Broń oblężnicza",
     "actions": [],
     "token": "objects/tokens/XDMG/Siege Tower.webp"
@@ -409,7 +409,7 @@
     "cha": 10,
     "immune": "",
     "senses": "",
-    "size": "Ogromny",
+    "size": "Wielki",
     "objectType": "Broń oblężnicza"
   },
   "unborn-palanquin": {
@@ -423,7 +423,7 @@
     "wis": 10,
     "cha": 10,
     "senses": "",
-    "size": "Olbrzymi",
+    "size": "Gigantyczny",
     "objectType": "Obiekt",
     "immune": "trucizna, psychiczna",
     "actions": [],
@@ -442,7 +442,7 @@
         "name": "Bełt",
         "entries": [
           {
-            "type": "atak",
+            "type": "attack",
             "attackType": "RW",
             "attackEntries": [
               "{@hit +6} do trafienia, zasięg 120/480 stóp, jeden cel."
@@ -454,7 +454,7 @@
         ]
       }
     ],
-    "objectType": "Machina Oblężnicza",
+    "objectType": "Broń oblężnicza",
     "size": "Duży",
     "immune": "trucizna, psychiczna"
   },
@@ -465,7 +465,7 @@
         "name": "Kula Armatnia",
         "entries": [
           {
-            "type": "atak",
+            "type": "attack",
             "attackType": "RW",
             "attackEntries": [
               "{@hit +6} do trafienia, zasięg 600/2400 stóp, jeden cel."
@@ -477,7 +477,7 @@
         ]
       }
     ],
-    "objectType": "Machina Oblężnicza",
+    "objectType": "Broń oblężnicza",
     "size": "Duży",
     "immune": "trucizna, psychiczna"
   },
@@ -488,7 +488,7 @@
         "name": "Kamień z Mangonelu",
         "entries": [
           {
-            "type": "atak",
+            "type": "attack",
             "attackType": "RW",
             "attackEntries": [
               "{@hit +5} do trafienia, zasięg 200/800 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel."
@@ -500,7 +500,7 @@
         ]
       }
     ],
-    "objectType": "Machina Oblężnicza",
+    "objectType": "Broń oblężnicza",
     "size": "Duży",
     "immune": "trucizna, psychiczna"
   },
@@ -511,7 +511,7 @@
         "name": "Taran",
         "entries": [
           {
-            "type": "atak",
+            "type": "attack",
             "attackType": "MW",
             "attackEntries": [
               "{@hit +8} do trafienia, zasięg 5 stóp, jeden obiekt."
@@ -523,13 +523,13 @@
         ]
       }
     ],
-    "objectType": "Machina Oblężnicza",
+    "objectType": "Broń oblężnicza",
     "size": "Duży",
     "immune": "trucizna, psychiczna"
   },
   "siege-tower-dmg": {
     "name": "Wieża Oblężnicza",
-    "objectType": "Machina Oblężnicza",
+    "objectType": "Broń oblężnicza",
     "size": "Gigantyczny",
     "immune": "trucizna, psychiczna"
   },
@@ -543,7 +543,7 @@
         ]
       }
     ],
-    "objectType": "Machina Oblężnicza",
+    "objectType": "Broń oblężnicza",
     "size": "Duży",
     "immune": "trucizna, psychiczna"
   },
@@ -554,7 +554,7 @@
         "name": "Kamień z Trebusza",
         "entries": [
           {
-            "type": "atak",
+            "type": "attack",
             "attackType": "RW",
             "attackEntries": [
               "{@hit +5} do trafienia, zasięg 300/1200 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel."
@@ -566,7 +566,7 @@
         ]
       }
     ],
-    "objectType": "Machina Oblężnicza",
+    "objectType": "Broń oblężnicza",
     "size": "Wielki",
     "immune": "trucizna, psychiczna"
   },
@@ -590,7 +590,7 @@
         "name": "Pazur",
         "entries": [
           {
-            "type": "atak",
+            "type": "attack",
             "attackType": "MW",
             "attackEntries": [
               "{@hit +10}, aby trafić, osiągnąć 5 stóp, jeden cel."
@@ -683,7 +683,7 @@
         "name": "Armata",
         "entries": [
           {
-            "type": "atak",
+            "type": "attack",
             "attackType": "RW",
             "attackEntries": [
               "{@hit +5} do trafienia, zasięg 30 stóp, jeden cel."
@@ -715,13 +715,13 @@
     "immune": "",
     "senses": "",
     "objectType": "Broń oblężnicza",
-    "size": "Ogromny",
+    "size": "Wielki",
     "token": "objects/tokens/HBTD/Clockwork Trebuchet.webp",
     "actions": [
       {
         "name": "Kamień Trebusza (wymaga pociągnięcia dźwigni)",
         "entries": [
-          "{@atkr r} {@hit 5}, zasięg 200/800 stóp (nie może trafiać celów w promieniu 30 stóp od siebie). Trafienie: 27 ({@damage 5d10}) Obrażenia tłuczące."
+          "{@atkr r} {@hit 5}, zasięg 200/800 stóp (nie może trafiać celów w promieniu 30 stóp od siebie). Trafienie: 27 ({@damage 5d10}) Obrażenia obuchowe."
         ]
       }
     ]
@@ -793,7 +793,7 @@
       {
         "name": "Ognisty Kanister (wymaga celowania)",
         "entries": [
-          "{@actSave dex} {@dc 15}, każde stworzenie w promieniu 20 stóp {@variantrule Sphere [Area of Effect]|XPHB|Kula} wyśrodkowane w punkcie od 30 do 300 stóp od wyrzutni. {@actSaveFail} 14 ({@damage 4d6}) Obrażenia od ognia. {@actSaveSuccess} Połowa obrażeń}"
+          "{@actSave dex} {@dc 15}, każde stworzenie w promieniu 20 stóp {@variantrule Sphere [Area of Effect]|XPHB|Kula} wyśrodkowane w punkcie od 30 do 300 stóp od wyrzutni. {@actSaveFail} 14 ({@damage 4d6}) Obrażenia od ognia. {@actSaveSuccess} Połowa obrażeń"
         ]
       }
     ]
@@ -824,7 +824,7 @@
         "name": "Rzut personelu",
         "entries": [
           "Gnomeflinger katapultuje średnie lub mniejsze stworzenie w odległości poziomej wynoszącej co najmniej 60 stóp, przy maksymalnej odległości poziomej wynoszącej 60 stóp, 150 stóp lub 300 stóp, w zależności od opcji wybranej podczas celowania katapulty. Podczas tej trajektorii stworzenie zawsze osiąga wysokość 60 stóp w pionie.",
-          "Stworzenie, które na tej trajektorii zderza się z innym stworzeniem lub obiektem, otrzymuje 3 ({@damage 1d6}) obrażenia od tłuczenia za każde 3 metry od gnomeflingera, którym się znajduje."
+          "Stworzenie, które na tej trajektorii zderza się z innym stworzeniem lub obiektem, otrzymuje 3 ({@damage 1d6}) obrażenia obuchowe za każde 3 metry od gnomeflingera, którym się znajduje."
         ]
       }
     ]
@@ -842,8 +842,8 @@
     "senses": "",
     "objectType": "Obiekt",
     "actions": [],
-    "size": "Olbrzymi",
-    "immune": "nekrotyczny, trujący, psychiczny",
+    "size": "Gigantyczny",
+    "immune": "nekrotyczne, trucizna, psychiczne",
     "token": "objects/tokens/TftYP/Gulthias Tree.webp"
   },
   "ice-troll-heart": {
@@ -860,7 +860,7 @@
     "objectType": "Obiekt",
     "actions": [],
     "size": "Malutki",
-    "immune": "kwas, tłuczenie, zimno, siła, błyskawica, martwicze, przeszywające, trucizna, psychiczne, promienne, tnące, grzmot",
+    "immune": "kwas, obuchowe, zimno, moc, piorun, nekrotyczne, kłute, trucizna, psychiczne, promieniste, sieczne, gromu",
     "token": "objects/tokens/IDRotF/Ice Troll Heart.webp"
   },
   "spirit-blister": {
@@ -878,7 +878,7 @@
     "objectType": "Broń oblężnicza",
     "actions": [],
     "token": "objects/tokens/JttRC/Spirit Blister.webp",
-    "immune": "kwaśny, nekrotyczny, psychiczny",
+    "immune": "kwas, nekrotyczne, psychiczne",
     "gallery": [
       {
         "path": "objects/JttRC/Spirit Blister.webp",

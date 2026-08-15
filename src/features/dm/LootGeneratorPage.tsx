@@ -500,7 +500,7 @@ function HoardResult({ hoard }: { hoard: Hoard | null }) {
           <div>
             <p className="text-xs uppercase text-ink-400">{t('dm.loot.coins')}</p>
             <p className="font-display text-2xl font-bold text-ink-50">
-              {hoard.gold.toLocaleString()} gp
+              {hoard.gold.toLocaleString()} {t('dm.loot.goldUnit')}
             </p>
           </div>
         </div>
@@ -510,7 +510,7 @@ function HoardResult({ hoard }: { hoard: Hoard | null }) {
             <div>
               <p className="text-xs uppercase text-ink-400">{t('dm.loot.gemsAndArt')}</p>
               <p className="font-display text-2xl font-bold text-ink-50">
-                {hoard.gemCount} × {hoard.gemValue} gp
+                {hoard.gemCount} × {hoard.gemValue} {t('dm.loot.goldUnit')}
               </p>
             </div>
           </div>

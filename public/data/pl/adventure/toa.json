@@ -423,10 +423,10 @@
                 {
                   "type": "list",
                   "items": [
-                    "Każdy humanoid na planecie, który został wskrzeszony z martwych, zaczyna marnieć. Maksymalny punkt wytrzymałości zostaje zmniejszony o 20 (1 za każdy dzień aktywności Sprzedawcy Dusz) i zmniejsza się o 1 co północ, aż do zniszczenia Sprzedawcy Dusz. Jeśli maksymalny punkt życia humanoida spadnie do 0, humanoid umiera. Podróż do innego świata lub samolotu nie powstrzymuje już rozpoczętego efektu wyniszczania.",
-                    "Humanoid, którego maksymalna liczba punktów wytrzymałości została zmniejszona, nie może jej zwiększyć ani przywrócić. Dzieje się tak niezależnie od tego, czy maksymalny punkt wytrzymałości stworzenia zostanie zmniejszony przez Sprzedawcę Dusz, czy przez inny efekt wysysający życie, taki jak dotyk upiora, upiora lub podobnego stworzenia.",
-                    "Jeśli humanoid umrze gdziekolwiek na planecie, jego dusza zostaje uwięziona we wnętrzu Sprzedawcy Dusz. Tylko zniszczenie Sprzedawcy Dusz może uwolnić uwięzioną duszę.",
-                    "Każde zaklęcie, które tchnie życie w zmarłych (w tym {@spell revivify}, {@spell raise dead}, {@spell resurrection} i {@spell true resurrection}) automatycznie zawodzi, jeśli zostanie rzucone na humanoida, którego dusza jest uwięziona w Soulmongerze lub została pożarta przez atropala (patrz „{@area Soul Devouring|00a|x}” poniżej).",
+                    "Każda humanoidalna istota na planecie, który został wskrzeszony z martwych, zaczyna marnieć. Maksymalny punkt wytrzymałości zostaje zmniejszony o 20 (1 za każdy dzień aktywności Sprzedawcy Dusz) i zmniejsza się o 1 co północ, aż do zniszczenia Sprzedawcy Dusz. Jeśli maksymalny punkt życia humanoidalną istotę spadnie do 0, humanoidalna istota umiera. Podróż do innego świata lub samolotu nie powstrzymuje już rozpoczętego efektu wyniszczania.",
+                    "humanoidalna istota, którego maksymalna liczba punktów wytrzymałości została zmniejszona, nie może jej zwiększyć ani przywrócić. Dzieje się tak niezależnie od tego, czy maksymalny punkt wytrzymałości stworzenia zostanie zmniejszony przez Sprzedawcę Dusz, czy przez inny efekt wysysający życie, taki jak dotyk upiora, upiora lub podobnego stworzenia.",
+                    "Jeśli humanoidalna istota umrze gdziekolwiek na planecie, jego dusza zostaje uwięziona we wnętrzu Sprzedawcy Dusz. Tylko zniszczenie Sprzedawcy Dusz może uwolnić uwięzioną duszę.",
+                    "Każde zaklęcie, które tchnie życie w zmarłych (w tym {@spell revivify}, {@spell raise dead}, {@spell resurrection} i {@spell true resurrection}) automatycznie zawodzi, jeśli zostanie rzucone na humanoidalną istotę, którego dusza jest uwięziona w Soulmongerze lub została pożarta przez atropala (patrz „{@area Soul Devouring|00a|x}” poniżej).",
                     "Soulmonger nie wpływa na działanie zaklęć {@spell speak with dead} i podobnych magii. Klątwa śmierci nie ma wpływu na istniejące wcześniej duchy."
                   ]
                 },
@@ -452,7 +452,7 @@
                   "page": 7,
                   "id": "00a",
                   "entries": [
-                    "Dusza każdego humanoida, który umiera, gdy klątwa śmierci jest aktywna, zostaje uwięziona we wnętrzu Sprzedawcy Dusz. Dusza pozostaje tam do czasu, aż zostanie pochłonięta przez atropala lub do chwili zniszczenia Soulmongera.",
+                    "Dusza każdego humanoidalną istotę, która umiera, gdy klątwa śmierci jest aktywna, zostaje uwięziona we wnętrzu Sprzedawcy Dusz. Dusza pozostaje tam do czasu, aż zostanie pochłonięta przez atropala lub do chwili zniszczenia Soulmongera.",
                     "Kiedy dusza zostanie uwięziona w Sprzedawcy Dusz, pochłonięcie jej przez atropala jest tylko kwestią czasu. Możesz określić status uwięzionej duszy o świcie dowolnego dnia, potajemnie rzucając {@dice d20}. Przy wyniku 2 lub wyższym dusza pozostaje uwięziona w Sprzedawcy Dusz, przynajmniej do następnego świtu. Wynik 1 wskazuje, że dusza została pożarta przez atropala. Stworzenia, którego dusza została pochłonięta w tak potworny sposób, nie można przywrócić do życia w żaden sposób, łącznie z boską interwencją.",
                     "Jeśli Sprzedawca Dusz zostanie zniszczony, a nie śledziłeś statusu konkretnej duszy uwięzionej w środku, weź garść k20 - po jednej kości za każdy dzień, w którym dusza była uwięziona - i rzuć je razem. Jeśli wyrzucisz 1 na dowolnej kostce, dusza zostanie pochłonięta, zanim będzie mogła zostać uwolniona.",
                     "Zaklęć takich jak {@spell commune} i {@spell divination} można użyć do ustalenia, czy dusza została pożarta lub czy nadal jest uwięziona w Sprzedawcy Dusz.",
@@ -859,7 +859,7 @@
                   "page": 13,
                   "id": "022",
                   "entries": [
-                    "Chult jest domem dla wielu niezależnych plemion goblinów zwanych Batiri. Plemieniem Batiri rządzi królowa (użyj statystyk {@creature goblin boss}). Kiedy umiera królowa, dochodzi do walk, dopóki nowa królowa nie wyjdzie zwycięsko i nie ogłosi się władczynią plemienia. Chociaż Batiri mają wiele aspektów kulturowych i mitycznych, które czynią ich wyjątkowymi, zachowują się zasadniczo jak inne gobliny; są przesądni, okrutni, podejrzliwi wobec obcych, kłótliwi między sobą i równie skłonni do torturowania i zjadania innych humanoidów, jak do handlu z nimi. Są nie tylko sadystyczni, ale także niezwykle kreatywni w swoich torturach. Na przykład lubią przywiązywać wrogów do drzew, oblewać ich miodem i zostawiać na kilka dni na pożarcie przez owady, jeśli większy drapieżnik nie wykończy ich wcześniej.",
+                    "Chult jest domem dla wielu niezależnych plemion goblinów zwanych Batiri. Plemieniem Batiri rządzi królowa (użyj statystyk {@creature goblin boss}). Kiedy umiera królowa, dochodzi do walk, dopóki nowa królowa nie wyjdzie zwycięsko i nie ogłosi się władczynią plemienia. Chociaż Batiri mają wiele aspektów kulturowych i mitycznych, które czynią ich wyjątkowymi, zachowują się zasadniczo jak inne gobliny; są przesądni, okrutni, podejrzliwi wobec obcych, kłótliwi między sobą i równie skłonni do torturowania i zjadania innych humanoidalnych istot, jak do handlu z nimi. Są nie tylko sadystyczni, ale także niezwykle kreatywni w swoich torturach. Na przykład lubią przywiązywać wrogów do drzew, oblewać ich miodem i zostawiać na kilka dni na pożarcie przez owady, jeśli większy drapieżnik nie wykończy ich wcześniej.",
                     {
                       "type": "entries",
                       "name": "Maski wojenne",
@@ -927,7 +927,7 @@
                   "page": 14,
                   "id": "028",
                   "entries": [
-                    "Te złowrogie latające gadzie humanoidy atakują niczego niepodejrzewającą ofiarę, kradną, co się da, i wycofują się do swoich wysokich legowisk, aby napawać się skradzionym łupem. Nagłość i gwałtowność ich najazdów sprawiła, że ​​wśród innych ras Chult zyskały przydomek „ludu terroru”. Są naturalnymi wrogami aarakokry. Aby uzyskać szczegółowe informacje, zobacz wpis pterafolk w {@adventure appendix D|ToA|9}."
+                    "Te złowrogie latające gadzie humanoidalne istoty atakują niczego niepodejrzewającą ofiarę, kradną, co się da, i wycofują się do swoich wysokich legowisk, aby napawać się skradzionym łupem. Nagłość i gwałtowność ich najazdów sprawiła, że ​​wśród innych ras Chult zyskały przydomek „ludu terroru”. Są naturalnymi wrogami aarakokry. Aby uzyskać szczegółowe informacje, zobacz wpis pterafolk w {@adventure appendix D|ToA|9}."
                   ]
                 },
                 {
@@ -936,7 +936,7 @@
                   "page": 14,
                   "id": "029",
                   "entries": [
-                    "Tabaxi to kocie humanoidy, pierwotnie występujące na zachodnim kontynencie Maztica. Niektórzy Chultańczycy nazywają ich „ludem kotów” lub „ludźmi lampartami”. Grupy tabaxi wylądowały w Chult po ucieczce przed handlarzami niewolników. Są to ludzie kulturalni i rzadko źli. Kilku pracuje jako przewodnicy po Port Nyanzaru. Inni wkraczają do dżungli w małych grupach, aby do własnych celów polować na grungi i gobliny.",
+                    "Tabaxi to kocie humanoidalne istoty, pierwotnie występujące na zachodnim kontynencie Maztica. Niektórzy Chultańczycy nazywają ich „ludem kotów” lub „ludźmi lampartami”. Grupy tabaxi wylądowały w Chult po ucieczce przed handlarzami niewolników. Są to ludzie kulturalni i rzadko źli. Kilku pracuje jako przewodnicy po Port Nyanzaru. Inni wkraczają do dżungli w małych grupach, aby do własnych celów polować na grungi i gobliny.",
                     "Łowców Tabaxi można spotkać w dowolnym miejscu w Chult. Minstreli Tabaxi rzadko można spotkać poza Portem Nyanzaru. {@adventure Appendix D|ToA|9|Tabaxi} zawiera statystyki dla obu. Tabaxi mogą być także postaciami graczy (patrz {@book Volo's Guide to Monsters|VGM}, aby zapoznać się z cechami rasowymi tabaxi)."
                   ]
                 },
@@ -4849,7 +4849,7 @@
                       "height": 1000
                     },
                     "{@i Oferuje owoce, wino, piwo, tej, olej, perfumy i środki odstraszające owady}",
-                    "{@creature Kwayothé|ToA} (ludzka kobieta Chultan z NE, {@creature priest} nosząca {@item ring of fire resistance}) jest spokojna i zamyślona w sposób nieco groźny. Czci boga ognia Kossutha (wymawiane kaw-SOOTH) i lubi torturować innych, szczególnie jeśli wiąże się to z ogniem i rozżarzonymi węglami. Kwayothé ma dwóch małżonków - {@creature succubus} o nazwie Ixis i {@creature incubus} o nazwie Indar. Te potwory przybierają postać pięknych Chultanów.",
+                    "{@creature Kwayothé|ToA} (ludzka kobieta Chultan z NE, {@creature priest} nosząca {@item ring of fire resistance}) jest spokojna i zamyślona w sposób nieco groźny. Czci boga ognia Kossutha (wymawiane kaw-SOOTH) i lubi torturować innych, szczególnie jeśli wiąże się to z ogniem i rozżarzonymi węglami. Kwayothé ma dwóch małżonków - {@creature succubus} o nazwie Ixis i {@creature incubus} o nazwie Indar. Te czarty przybierają postać pięknych Chultanów.",
                     "Kwayothé dorastał na ulicach Port Nyanzaru, biedny i pozbawiony środków do życia. Gardzi szlachtą i chce zniszczyć wszelkie pozostałości chultańskich rodzin królewskich. Uważa {@creature Zhanthi|ToA} za swojego śmiertelnego wroga i niecierpliwie czeka na śmierć starej szlachcianki. Choć dobrze ukrywa swoją pogardę, Kwayothé wiecznie wtrąca się w sprawy biznesowe i rodzinne {@creature Zhanthi|ToA}. Jeśli {@creature Zhanthi|ToA} jest świadoma wrogości Kwayothé wobec niej i jej rodziny, postanowiła tego nie okazywać.",
                     "Kwayothé zatrudnia handlarzy, którzy wytwarzają własną tę i środki odstraszające owady. Więcej informacji na temat tych specjalnych elementów można znaleźć w artykule „{@area Buying a Special Item|084|x}”."
                   ]
@@ -4952,7 +4952,7 @@
           "id": "065",
           "entries": [
             "Każdy książę kupiecki utrzymuje wystawną willę, w której mieszka i prowadzi prywatne interesy. Te przestronne, bogate rezydencje obejmują kwatery gościnne dla ważnych gości i partnerów handlowych i są patrolowane przez lojalnych, dobrze wyszkolonych strażników przez całą dobę.",
-            "Mapa 1.2 przedstawia przykładowy plan piętra. Każda willa jest zarówno pałacowym tropikalnym domem, jak i fortecą. Zewnętrzne ściany mają od 8 do 12 stóp wysokości, do 2 stóp grubości i są zwieńczone zębami mięsożerców, odłamkami muszelek i potłuczonym szkłem, które kolorowo błyszczy w słońcu, ale także odstrasza intruzów. Każda postać, która wspina się po ścianie, musi wykonać rzut obronny na Zręczność {@dc 10} lub otrzymać 2 ({@dice 1d4}) obrażeń tnących od ostrych przedmiotów.",
+            "Mapa 1.2 przedstawia przykładowy plan piętra. Każda willa jest zarówno pałacowym tropikalnym domem, jak i fortecą. Zewnętrzne ściany mają od 8 do 12 stóp wysokości, do 2 stóp grubości i są zwieńczone zębami mięsożerców, odłamkami muszelek i potłuczonym szkłem, które kolorowo błyszczy w słońcu, ale także odstrasza intruzów. Każda postać, która wspina się po ścianie, musi wykonać rzut obronny na Zręczność {@dc 10} lub otrzymać 2 ({@dice 1d4}) obrażeń siecznych od ostrych przedmiotów.",
             "Możesz spersonalizować willę, przypisując każdemu księciu kupieckiemu następujące motywy dekoracyjne:",
             {
               "type": "list",
@@ -6027,7 +6027,7 @@
                   "page": 32,
                   "id": "089",
                   "entries": [
-                    "Yklwa (wymawiane YICK-ul-wah) to prosta broń do walki wręcz, będąca tradycyjną bronią chultańskich wojowników. Yklwa składa się z drewnianego trzonka o długości 3 stóp ze stalowym lub kamiennym ostrzem o długości do 18 cali. Kosztuje 1 sz i przy trafieniu zadaje obrażenia przebijające {@dice 1d8}. Chociaż ma właściwość broni rzucanej, yklwa nie jest dobrze wyważona do rzucania (zasięg 10/30 stóp).",
+                    "Yklwa (wymawiane YICK-ul-wah) to prosta broń do walki wręcz, będąca tradycyjną bronią chultańskich wojowników. Yklwa składa się z drewnianego trzonka o długości 3 stóp ze stalowym lub kamiennym ostrzem o długości do 18 cali. Kosztuje 1 sz i przy trafieniu zadaje obrażenia kłute {@dice 1d8}. Chociaż ma właściwość broni rzucanej, yklwa nie jest dobrze wyważona do rzucania (zasięg 10/30 stóp).",
                     "Książę kupiecki {@creature Ekene-Afa|ToA} kontroluje sprzedaż yklwas w Port Nyanzaru."
                   ]
                 }
@@ -6341,7 +6341,7 @@
                         "Posiada {@skill Survival} +4.",
                         "Ma odporność na obrażenia od trucizny i przewagę w rzutach obronnych przeciwko byciu {@condition poisoned}.",
                         "Ma {@sense darkvision} o zasięgu 60 stóp.",
-                        "Zamiast wielkiego topora dzierży topór bojowy, który przy trafieniu zadaje 7 ({@dice 1d8 + 3}) obrażeń tnących. Hew nie może dzierżyć broni obiema rękami, ponieważ brakuje mu lewego ramienia."
+                        "Zamiast wielkiego topora dzierży topór bojowy, który przy trafieniu zadaje 7 ({@dice 1d8 + 3}) obrażeń siecznych. Hew nie może dzierżyć broni obiema rękami, ponieważ brakuje mu lewego ramienia."
                       ]
                     }
                   ]
@@ -7844,15 +7844,15 @@
               "page": 40,
               "id": "0a3",
               "entries": [
-                "Następujące choroby mogą zaatakować gigantów i humanoidów eksplorujących dżungle Chult. Pamiętaj, że mniejsze przywrócenie i podobna magia mogą wyleczyć chorobę.",
+                "Następujące choroby mogą zaatakować gigantów i humanoidalnych istot eksplorujących dżungle Chult. Pamiętaj, że mniejsze przywrócenie i podobna magia mogą wyleczyć chorobę.",
                 {
                   "type": "entries",
                   "name": "Gorączka błękitnej mgły",
                   "page": 40,
                   "id": "0a4",
                   "entries": [
-                    "Magiczna mgła pełza przez dżunglę Chult. Kontakt z tą cienką, niebieską, bezwonną mgłą może zarazić gigantów i humanoidów gorączką niebieskiej mgły. Zaklęcie {@spell dispel magic} niszczy mgłę na obszarze 20 stóp, zaczynając od punktu wybranego przez rzucającego w zasięgu czaru. Spotkanie z tą mgłą zazwyczaj obejmuje takie obszary {@dice 1d6} (400-2400 stóp kwadratowych).",
-                    "Gigant lub humanoid, który wejdzie w kontakt z mgłą, musi wykonać rzut obronny na Kondycję {@dc 13}, w przeciwnym razie zostanie zarażony niebieską gorączką mgły. Zarażona istota zaczyna widzieć żywe halucynacje błękitnych małp {@dice 1d6} kilka godzin po nieudanym zapisie, a halucynacje trwają do czasu, aż choroba ustąpi stworzeniu. Stworzenie może powtarzać rzut obronny co 24 godziny, kończąc efekt na sobie w przypadku sukcesu."
+                    "Magiczna mgła pełza przez dżunglę Chult. Kontakt z tą cienką, niebieską, bezwonną mgłą może zarazić gigantów i humanoidalnych istot gorączką niebieskiej mgły. Zaklęcie {@spell dispel magic} niszczy mgłę na obszarze 20 stóp, zaczynając od punktu wybranego przez rzucającego w zasięgu czaru. Spotkanie z tą mgłą zazwyczaj obejmuje takie obszary {@dice 1d6} (400-2400 stóp kwadratowych).",
+                    "Gigant lub humanoidalna istota, który wejdzie w kontakt z mgłą, musi wykonać rzut obronny na Kondycję {@dc 13}, w przeciwnym razie zostanie zarażony niebieską gorączką mgły. Zarażona istota zaczyna widzieć żywe halucynacje błękitnych małp {@dice 1d6} kilka godzin po nieudanym zapisie, a halucynacje trwają do czasu, aż choroba ustąpi stworzeniu. Stworzenie może powtarzać rzut obronny co 24 godziny, kończąc efekt na sobie w przypadku sukcesu."
                   ]
                 },
                 {
@@ -7862,8 +7862,8 @@
                   "id": "0a5",
                   "entries": [
                     "Owady występujące w dżunglach i bagnach Chult przenoszą tę chorobę, wywołującą dreszcze. Najłatwiejszą ochroną przed tym jest nałożenie maści odstraszającej owady na całą odsłoniętą skórę (koszt środka odstraszającego owady można znaleźć w „{@area Buying a Special Item|084|x}”).",
-                    "Olbrzym lub humanoid, który otrzyma obrażenia od rojów owadów, stonogów, gigantycznych skorpionów lub gigantycznych os, pod koniec spotkania jest narażony na chorobę. Ci, którzy nie stosowali środków odstraszających owady od czasu poprzedniego długiego odpoczynku, są narażeni na chorobę po zakończeniu długiego odpoczynku.",
-                    "Gigant lub humanoid narażony na chorobę musi wykonać rzut obronny na Kondycję {@dc 11}, w przeciwnym razie zostanie zarażony. Stworzenie z naturalnym pancerzem ma przewagę w rzucie obronnym. Pojawienie się objawów u zakażonego stworzenia zajmuje {@dice 2d6} wiele godzin. Objawy obejmują niewyraźne widzenie, dezorientację i nagły spadek temperatury ciała, który powoduje niekontrolowane drżenie i szczękanie zębów.",
+                    "Olbrzym lub humanoidalna istota, który otrzyma obrażenia od rojów owadów, stonogów, gigantycznych skorpionów lub gigantycznych os, pod koniec spotkania jest narażony na chorobę. Ci, którzy nie stosowali środków odstraszających owady od czasu poprzedniego długiego odpoczynku, są narażeni na chorobę po zakończeniu długiego odpoczynku.",
+                    "Gigant lub humanoidalna istota narażony na chorobę musi wykonać rzut obronny na Kondycję {@dc 11}, w przeciwnym razie zostanie zarażony. Stworzenie z naturalnym pancerzem ma przewagę w rzucie obronnym. Pojawienie się objawów u zakażonego stworzenia zajmuje {@dice 2d6} wiele godzin. Objawy obejmują niewyraźne widzenie, dezorientację i nagły spadek temperatury ciała, który powoduje niekontrolowane drżenie i szczękanie zębów.",
                     "Gdy objawy się zaczną, zarażona istota odzyskuje tylko połowę normalnej liczby punktów wytrzymałości po wydaniu Kostek Wytrzymałości i żadnych punktów wytrzymałości po długim odpoczynku. Zarażona istota ma także niekorzystne wyniki w testach zdolności i rzutach ataku. Pod koniec długiego odpoczynku zarażona istota powtarza rzut obronny, po udanym rzucie strząsając chorobę."
                   ]
                 },
@@ -7873,7 +7873,7 @@
                   "page": 40,
                   "id": "0a6",
                   "entries": [
-                    "Drobne pasożyty zwane pijawkami gardłowymi infekują wodę w lasach, bagnach i rzekach Chult. Każdy olbrzym lub humanoid, który połyka skażoną wodę, musi wykonać rzut obronny na Konstytucję {@dc 12}, w przeciwnym razie zostanie zaatakowany pijawkami gardłowymi. Natychmiastowe objawy obejmują zapalenie gardła i duszność. Po godzinach {@dice 1d6} zainfekowana postać zyskuje 1 poziom {@condition exhaustion}, którego nie można usunąć (z wyjątkiem przypadków opisanych poniżej) dopóki choroba nie zostanie wyleczona. Na koniec każdego długiego odpoczynku zarażona istota musi powtórzyć rzut obronny. W przypadku nieudanego rzutu obronnego {@condition exhaustion} stworzenia wzrasta o 1 poziom; po udanym rzucie {@condition exhaustion} stworzenia zmniejsza się o 1 poziom. Jeśli udany rzut obronny obniży poziom {@condition exhaustion} zarażonej istoty poniżej 1, istota wyzdrowieje z choroby.",
+                    "Drobne pasożyty zwane pijawkami gardłowymi infekują wodę w lasach, bagnach i rzekach Chult. Każdy olbrzym lub humanoidalna istota, który połyka skażoną wodę, musi wykonać rzut obronny na Konstytucję {@dc 12}, w przeciwnym razie zostanie zaatakowany pijawkami gardłowymi. Natychmiastowe objawy obejmują zapalenie gardła i duszność. Po godzinach {@dice 1d6} zainfekowana postać zyskuje 1 poziom {@condition exhaustion}, którego nie można usunąć (z wyjątkiem przypadków opisanych poniżej) dopóki choroba nie zostanie wyleczona. Na koniec każdego długiego odpoczynku zarażona istota musi powtórzyć rzut obronny. W przypadku nieudanego rzutu obronnego {@condition exhaustion} stworzenia wzrasta o 1 poziom; po udanym rzucie {@condition exhaustion} stworzenia zmniejsza się o 1 poziom. Jeśli udany rzut obronny obniży poziom {@condition exhaustion} zarażonej istoty poniżej 1, istota wyzdrowieje z choroby.",
                     "Odkrywcy mogą uniknąć zarażenia pijawkami gardłowymi, pijąc wyłącznie wodę deszczową lub wodę przegotowaną lub magicznie oczyszczoną.",
                     {
                       "type": "inset",
@@ -9110,7 +9110,7 @@
                   "page": 45,
                   "id": "0c6",
                   "entries": [
-                    "Sufit ma tutaj 23 metry wysokości i jest pokryty pajęczynami. Każda osoba przechodząca przez tę część korytarza ma {@chance 50} szansę na wyzwolenie ostrzy kos, które wylatują z ukrytych wnęk w ścianach. Każda istota w części hali o powierzchni 3 stóp kwadratowych pomiędzy ostrzami musi wykonać rzut {@dc 13} Zręczności, który otrzymuje 18 ({@dice 4d8}) obrażeń tnących przy nieudanym rzucie lub połowę mniej w przypadku udanego rzutu. Po zidentyfikowaniu pułapkę można zablokować, wbijając kolce lub metalowe ostrza we wnęki i przechodząc cztery oddzielne testy wytrzymałości {@dc 10} (aby wbić metal wystarczająco mocno). Każdy udany test blokuje jedną kosę i zmniejsza obrażenia pułapki o {@dice 1d8}."
+                    "Sufit ma tutaj 23 metry wysokości i jest pokryty pajęczynami. Każda osoba przechodząca przez tę część korytarza ma {@chance 50} szansę na wyzwolenie ostrzy kos, które wylatują z ukrytych wnęk w ścianach. Każda istota w części hali o powierzchni 3 stóp kwadratowych pomiędzy ostrzami musi wykonać rzut {@dc 13} Zręczności, który otrzymuje 18 ({@dice 4d8}) obrażeń siecznych przy nieudanym rzucie lub połowę mniej w przypadku udanego rzutu. Po zidentyfikowaniu pułapkę można zablokować, wbijając kolce lub metalowe ostrza we wnęki i przechodząc cztery oddzielne testy wytrzymałości {@dc 10} (aby wbić metal wystarczająco mocno). Każdy udany test blokuje jedną kosę i zmniejsza obrażenia pułapki o {@dice 1d8}."
                   ]
                 },
                 {
@@ -9153,7 +9153,7 @@
                       "page": 46,
                       "id": "0cb",
                       "entries": [
-                        "W sumie jest trzydzieści kroków. Na każdym z kroków 3, 10, 17 i 23 znajduje się zaklęcie {@spell glyph of warding}, które uruchamia się w momencie przejścia po stopniu. Stworzenia emulujące Człowieka i Krokodyla nie aktywują glifów. Każdy aktywowany glif uwalnia kulę błyskawicy o promieniu 20 stóp, skupioną na stopniu. Każde stworzenie na obszarze musi wykonać {@dc 13} rzut obronny na Zręczność, otrzymując 22 ({@dice 5d8}) obrażeń od błyskawic w przypadku nieudanego rzutu lub połowę mniej w przypadku udanego rzutu. Stworzenia naśladujące Człowieka i Krokodyla mają wadę w rzucie obronnym. Aby wykryć glif, należy oczyścić stopień z kurzu, a postać przeszukująca stopień musi pomyślnie przejść test inteligencji {@dc 13} ({@skill Investigation})."
+                        "W sumie jest trzydzieści kroków. Na każdym z kroków 3, 10, 17 i 23 znajduje się zaklęcie {@spell glyph of warding}, które uruchamia się w momencie przejścia po stopniu. Stworzenia emulujące Człowieka i Krokodyla nie aktywują glifów. Każdy aktywowany glif uwalnia kulę błyskawicy o promieniu 20 stóp, skupioną na stopniu. Każde stworzenie na obszarze musi wykonać {@dc 13} rzut obronny na Zręczność, otrzymując 22 ({@dice 5d8}) obrażeń od pioruna w przypadku nieudanego rzutu lub połowę mniej w przypadku udanego rzutu. Stworzenia naśladujące Człowieka i Krokodyla mają wadę w rzucie obronnym. Aby wykryć glif, należy oczyścić stopień z kurzu, a postać przeszukująca stopień musi pomyślnie przejść test inteligencji {@dc 13} ({@skill Investigation})."
                       ]
                     },
                     {
@@ -11968,7 +11968,7 @@
                       "type": "insetReadaloud",
                       "id": "0dc",
                       "entries": [
-                        "Przez otwór w ścianie labiryntu widać małe jezioro otoczone trzcinowymi chatami, paprociami i liliami. Z płaskiej wyspy pośrodku jeziora wznosi się wysoka na 60 stóp świątynia wykonana z malowanych cegieł mułowych, ukształtowana na podobieństwo gigantycznej żaby. Od brzegu jeziora prowadzą schody do otwartych drzwi wyrzeźbionych w grubym brzuchu żaby. Okolice świątyni patroluje kilka małych, przypominających żaby humanoidów o jasnopomarańczowej skórze i krótkich łukach."
+                        "Przez otwór w ścianie labiryntu widać małe jezioro otoczone trzcinowymi chatami, paprociami i liliami. Z płaskiej wyspy pośrodku jeziora wznosi się wysoka na 60 stóp świątynia wykonana z malowanych cegieł mułowych, ukształtowana na podobieństwo gigantycznej żaby. Od brzegu jeziora prowadzą schody do otwartych drzwi wyrzeźbionych w grubym brzuchu żaby. Okolice świątyni patroluje kilka małych, przypominających żaby humanoidalnych istot o jasnopomarańczowej skórze i krótkich łukach."
                       ]
                     },
                     "Czterech zielonoskórych {@creature Grung|VGM|pomruki} (wojowników) wyłania się z pobliskich chat, aby stawić czoła nieznajomym, którzy zbliżają się do świątyni bez eskorty. Atakują, jeśli nikt nie poda prawidłowego hasła w języku Grung („Roook, roooook, erp”). Jeśli wybuchnie walka, posiłki w postaci dwunastu {@creature Grung|VGM|pomruki} przybędą w ciągu 2 rund. Grungi w {@area area 3|0dd|x} zaczynają jednocześnie strzelać strzałami."
@@ -11993,7 +11993,7 @@
                       "type": "insetReadaloud",
                       "id": "0df",
                       "entries": [
-                        "Wnętrze sanktuarium to jedno duże, puste pomieszczenie. Tuż za wejściem znajduje się czysty basen z wodą o głębokości od 2 do 5 stóp. Fosforyzujące grzyby oświetlają basen miękkimi, marzycielskimi barwami. Niskie, przypominające żaby humanoidy w różnych kolorach bawią się z grzybami i wrzucają płatki kwiatów do basenu.",
+                        "Wnętrze sanktuarium to jedno duże, puste pomieszczenie. Tuż za wejściem znajduje się czysty basen z wodą o głębokości od 2 do 5 stóp. Fosforyzujące grzyby oświetlają basen miękkimi, marzycielskimi barwami. Niskie, przypominające żaby humanoidalne istoty w różnych kolorach bawią się z grzybami i wrzucają płatki kwiatów do basenu.",
                         "Z tyłu sanktuarium znajduje się podwyższony półkolisty basen z wodą o wysokości 3 metrów. Tarzanie się w basenie to grung o złotej skórze. Na jego czole spoczywa złoty diadem. Grung o pomarańczowej skórze przysiada w pobliżu, z krótkim łukiem w pogotowiu."
                       ]
                     },
@@ -17638,7 +17638,7 @@
                       ]
                     },
                     "Te połączone jaskinie są siedliskiem dwóch {@creature Smoke Mephit||dymne mefity}. To, co postacie postrzegają jako przyćmioną latarnię, to zaklęcie {@spell dancing lights} rzucone przez jednego z mefitów, aby zwabić postacie głębiej w trujące legowisko.",
-                    "Cały obszar 8 to {@quickref Vision and Light||2||heavily obscured}. Postacie mogą poruszać się 10 stóp na rundę, podążając dłonią po ścianie; poruszanie się szybciej oznacza otrzymanie 1 obrażenia tłuczącego od uderzania głowami i goleniami w kamienne występy. Po 2 rundach z dymem każda postać musi wykonać udany rzut obronny na Kondycję {@dc 10} na początku każdej swojej tury lub zyskać poziom {@condition exhaustion}. Ci, którzy wstrzymują oddech, nie zyskają {@condition exhaustion} tak długo, jak długo wytrzymają; Postacie, które zawiązują mokre szmaty na nosie i ustach lub podejmują podobne środki ostrożności, mają przewagę w rzucie obronnym przez 10 rund, ale potem szmata wysycha w intensywnym upale Hrakhamara.",
+                    "Cały obszar 8 to {@quickref Vision and Light||2||heavily obscured}. Postacie mogą poruszać się 10 stóp na rundę, podążając dłonią po ścianie; poruszanie się szybciej oznacza otrzymanie 1 obrażenia obuchowe od uderzania głowami i goleniami w kamienne występy. Po 2 rundach z dymem każda postać musi wykonać udany rzut obronny na Kondycję {@dc 10} na początku każdej swojej tury lub zyskać poziom {@condition exhaustion}. Ci, którzy wstrzymują oddech, nie zyskają {@condition exhaustion} tak długo, jak długo wytrzymają; Postacie, które zawiązują mokre szmaty na nosie i ustach lub podejmują podobne środki ostrożności, mają przewagę w rzucie obronnym przez 10 rund, ale potem szmata wysycha w intensywnym upale Hrakhamara.",
                     "Mefity nie są zainteresowane bezpośrednim atakowaniem poszukiwaczy przygód, ale z radością splądrują ciała każdego, kto upadnie w dymie. Jeśli zostaną osaczone, błagają o litość. Oferują wymianę informacji na całe życie, jeśli postać wykona udany test {@dc 10} Charyzma ({@skill Intimidation}). Wiedzą, że kuźnia jest opanowana przez traszki ogniste, gdzie trzymane są wierzchowce traszek, i że w celach na zachód od legowiska mefitów przetrzymywanych jest dwóch więźniów krasnoludów."
                   ]
                 },
@@ -17660,7 +17660,7 @@
                   "id": "12a",
                   "entries": [
                     "Krasnoludy parkowały tu swoje wózki z rudą i platformy kolejowe, kiedy nie były używane. Dwa z nich nadal tu są i oba są w minimalnym stanie technicznym.",
-                    "Traszki ogniste wykorzystują ten obszar jako stajnie dla dwunastu {@creature Giant Strider|VGM|gigantyczne stridery} (patrz {@adventure appendix D|ToA|9}). Gigantyczne narty są uwiązane, ale ich zadaniem jest jedynie powstrzymywanie ich przed przekroczeniem najbardziej na zachód wysuniętej linii torów wozów i wędrówką po tunelach. Wściekły lub zaniepokojony wędrowiec może łatwo się uwolnić, a te złośliwe stworzenia stają się zarówno wściekłe, jak i zaniepokojone, gdy widzą humanoidy, które nie są ich panami ognistych traszek.",
+                    "Traszki ogniste wykorzystują ten obszar jako stajnie dla dwunastu {@creature Giant Strider|VGM|gigantyczne stridery} (patrz {@adventure appendix D|ToA|9}). Gigantyczne narty są uwiązane, ale ich zadaniem jest jedynie powstrzymywanie ich przed przekroczeniem najbardziej na zachód wysuniętej linii torów wozów i wędrówką po tunelach. Wściekły lub zaniepokojony wędrowiec może łatwo się uwolnić, a te złośliwe stworzenia stają się zarówno wściekłe, jak i zaniepokojone, gdy widzą humanoidalne istoty, które nie są ich panami ognistych traszek.",
                     "Gdy tylko traszka niebędąca traszką ognistą wejdzie do obszaru 10, gigantyczne biegacze zaczynają tupać, warczeć i napinać swoje pęta. Począwszy od następnej rundy, w każdej rundzie gigantyczni biegacze {@dice 1d3} wyrywają się na wolność i atakują lub przyłączają się do trwającej bitwy. Nie atakują traszki ogniste, a traszka ognista może wskoczyć na gigantycznego nartakarza i dosiąść go jako wierzchowca, stosując standardowe zasady {@book mounted combat|PHB|9|Walka konna}."
                   ]
                 }
@@ -18938,7 +18938,7 @@
                 },
                 "Kir Sabal (mapa 2.11) jest domem dla stada aarakocrów i spokojnym sanktuarium, w którym bohaterowie mogą znaleźć odpoczynek i bezpieczeństwo - jeśli uda im się do nich dotrzeć. Aarakocra udzielają także schronienia ostatnim ludzkim potomkom królewskiego rodu Omu. Jeśli bohaterowie w końcu wyzwolą Omu od opętanego przez niego zła, ród królewski będzie mógł zostać przywrócony.",
                 "Pierwotnie do budowli klasztornych można było dotrzeć wspinając się ścieżką łączącą rampy z kamienia naturalnego, stopnie wycięte w ścianie klifu i drewniane chodniki wbudowane w klif. Rampy i stopnie są nadal w większości nienaruszone, ale w wielu miejscach drewniane chodniki gniją lub w ogóle ich nie ma. Aarakocra ich nie potrzebuje i nie ma powodu ich naprawiać.",
-                "Aby dotrzeć do klasztoru z ziemi, postać musi wykonać trzy testy zdolności. Za każdym razem, gdy test się nie powiedzie, postać musi wybrać pomiędzy przyjęciem 10 ({@dice 3d6}) obrażeń tłuczących w wyniku upadku lub uzyskaniem 1 poziomu {@condition exhaustion} (co oznacza niekorzystne wyniki w dalszych testach umiejętności). Trzy testy zdolności są następujące:",
+                "Aby dotrzeć do klasztoru z ziemi, postać musi wykonać trzy testy zdolności. Za każdym razem, gdy test się nie powiedzie, postać musi wybrać pomiędzy przyjęciem 10 ({@dice 3d6}) obrażeń obuchowych w wyniku upadku lub uzyskaniem 1 poziomu {@condition exhaustion} (co oznacza niekorzystne wyniki w dalszych testach umiejętności). Trzy testy zdolności są następujące:",
                 {
                   "type": "list",
                   "items": [
@@ -18980,7 +18980,7 @@
                               "type": "list",
                               "style": "list-hang-notitle",
                               "items": [
-                                "Cantrips (do woli): {@spell druidcraft}, {@spell mending}, {@spell produce flame}",
+                                "Sztuczki (do woli): {@spell druidcraft}, {@spell mending}, {@spell produce flame}",
                                 "Poziom 1 (4 sloty): {@spell detect magic}, {@spell faerie fire}, {@spell thunderwave}",
                                 "Poziom 2 (3 sloty): {@spell gust of wind}, {@spell hold person}, {@spell lesser restoration}",
                                 "Poziom 3 (2 sloty): {@spell call lightning}, {@spell wind wall}"
@@ -19638,13 +19638,13 @@
                   "page": 73,
                   "id": "15f",
                   "entries": [
-                    "{@creature Nanny Pu'pu|ToA} jest czcicielem Myrkula, Władcy Kości, i zna rytuał transformacji, który może zamienić martwego humanoida w stworzenie podobne do zombie. Postacie, które przyprowadzają swoich zmarłych towarzyszy do Mbala, mogą poprosić {@creature Nanny Pu'pu|ToA} o przekształcenie ich w chodzące trupy. Nie robi jednak nic za darmo. Wybicie gniazda pterafolków to najmniejsza zapłata, jaką rozważy za ten rytuał. Może także poprosić o kosmyk włosów Komandora Breakbone i kilka jego paznokci (patrz „{@area Camp Vengeance|0cd|x}”) lub jedną z opalizujących łusek Saji N'bazy (patrz „{@area Orolunga|18d|x}”). Jedno i drugie z pewnością zostałoby użyte do rzucania złej magii.",
-                    "{@creature Nanny Pu'pu|ToA} jest jedyną istotą w Chult, która może wykonać Rytuał Skradzionego Życia. Rytuał trwa 1 godzinę i wymaga trzech rzeczy: w większości nienaruszonych zwłok humanoida, kamienia szlachetnego o wartości co najmniej 100 sz i, co najbardziej niepokojące, ofiary z innego humanoida. Jeśli postacie nie chcą poświęcić jednego ze swoich, aby ocalić poległego towarzysza, {@creature Nanny Pu'pu|ToA} zaleca schwytanie goblina, grunga lub innego humanoida i przyniesienie go jej. {@creature Nanny Pu'pu|ToA} zabija ofiarę, przechwytuje jej ducha w kamieniu szlachetnym i magicznie osadza kamień w czole martwego humanoida. Po tym, jak {@creature Nanny Pu'pu|ToA} wypowiada modlitwę do Myrkula, duch ofiary zyskuje wiedzę i osobowość humanoida, z którym jest związany, w efekcie naśladując ducha tego humanoida. Po zakończeniu rytuału martwy humanoid budzi się jak z głębokiego snu, choć nie jest żywy.",
+                    "{@creature Nanny Pu'pu|ToA} jest czcicielem Myrkula, Władcy Kości, i zna rytuał transformacji, który może zamienić martwego humanoidalną istotę w stworzenie podobne do zombie. Postacie, które przyprowadzają swoich zmarłych towarzyszy do Mbala, mogą poprosić {@creature Nanny Pu'pu|ToA} o przekształcenie ich w chodzące trupy. Nie robi jednak nic za darmo. Wybicie gniazda pterafolków to najmniejsza zapłata, jaką rozważy za ten rytuał. Może także poprosić o kosmyk włosów Komandora Breakbone i kilka jego paznokci (patrz „{@area Camp Vengeance|0cd|x}”) lub jedną z opalizujących łusek Saji N'bazy (patrz „{@area Orolunga|18d|x}”). Jedno i drugie z pewnością zostałoby użyte do rzucania złej magii.",
+                    "{@creature Nanny Pu'pu|ToA} jest jedyną istotą w Chult, która może wykonać Rytuał Skradzionego Życia. Rytuał trwa 1 godzinę i wymaga trzech rzeczy: w większości nienaruszonych zwłok humanoidalną istotę, kamienia szlachetnego o wartości co najmniej 100 sz i, co najbardziej niepokojące, ofiary z innego humanoidalną istotę. Jeśli postacie nie chcą poświęcić jednego ze swoich, aby ocalić poległego towarzysza, {@creature Nanny Pu'pu|ToA} zaleca schwytanie goblina, grunga lub innego humanoidalną istotę i przyniesienie go jej. {@creature Nanny Pu'pu|ToA} zabija ofiarę, przechwytuje jej ducha w kamieniu szlachetnym i magicznie osadza kamień w czole martwego humanoidalną istotę. Po tym, jak {@creature Nanny Pu'pu|ToA} wypowiada modlitwę do Myrkula, duch ofiary zyskuje wiedzę i osobowość humanoidalną istotę, z którym jest związany, w efekcie naśladując ducha tego humanoidalną istotę. Po zakończeniu rytuału martwy humanoidalna istota budzi się jak z głębokiego snu, choć nie jest żywy.",
                     "Postać przemieniona w wyniku tego rytuału w chodzącego trupa odzyskuje wszystkie swoje punkty wytrzymałości i zachowuje swoje statystyki, z wyjątkiem przypadków opisanych poniżej:",
                     {
                       "type": "list",
                       "items": [
-                        "Postać jest uważana za nieumarłego, a nie humanoida i podlega wszystkim efektom, które są skierowane przeciwko nieumarłym. Postać nie musi jeść, pić, spać ani oddychać.",
+                        "Postać jest uważana za nieumarłego, a nie humanoidalną istotę i podlega wszystkim efektom, które są skierowane przeciwko nieumarłym. Postać nie musi jeść, pić, spać ani oddychać.",
                         "Maksymalny punkt wytrzymałości postaci jest zmniejszany o {@dice 1d4} każdego dnia o świcie, co reprezentuje fizyczny rozkład ciała. Żadne zaklęcie ani efekt nie jest w stanie zatrzymać ani przeciwdziałać temu rozkładowi.",
                         "Jeśli maksymalny punkt życia postaci spadnie do 0, klejnot osadzony w czole postaci rozbije się, a postać ponownie stanie się trupem."
                       ]
@@ -21425,7 +21425,7 @@
                       ]
                     },
                     "Postać może wspiąć się na zewnątrz kopuły z udaną Siłą {@dc 10} ({@skill Athletics}) i zajrzeć do środka przez dowolny z wielu otworów. Szczyt kopuły został osłabiony przez czas i zawalił się pod ciężarem stworzenia ważącego 200 funtów lub więcej. Każde stworzenie stojące na dachu lub przyczepiające się do niego w momencie zawalenia się spada, zadając normalne obrażenia i prawdopodobnie lądując w cysternie.",
-                    "Żelazne drzwi po wschodniej stronie kopuły są zardzewiałe i można je otworzyć siłą tylko po pomyślnym przejściu kontroli wytrzymałości {@dc 17} ({@skill Athletics}), ale uderzenie powoduje zawalenie się części sufitu. Ktokolwiek wyważył drzwi, musi wykonać rzut obronny na Zręczność {@dc 15}, zadając 9 ({@dice 2d8}) obrażeń tłuczących przy nieudanym rzucie lub połowę mniej przy udanym rzucie. Identyczne drzwi po zachodniej stronie kopuły są całkowicie zardzewiałe na zawiasach.",
+                    "Żelazne drzwi po wschodniej stronie kopuły są zardzewiałe i można je otworzyć siłą tylko po pomyślnym przejściu kontroli wytrzymałości {@dc 17} ({@skill Athletics}), ale uderzenie powoduje zawalenie się części sufitu. Ktokolwiek wyważył drzwi, musi wykonać rzut obronny na Zręczność {@dc 15}, zadając 9 ({@dice 2d8}) obrażeń obuchowych przy nieudanym rzucie lub połowę mniej przy udanym rzucie. Identyczne drzwi po zachodniej stronie kopuły są całkowicie zardzewiałe na zawiasach.",
                     "Gdy postacie wejdą do zrujnowanego pałacu, przeczytaj:",
                     {
                       "type": "insetReadaloud",
@@ -21445,7 +21445,7 @@
                       "page": 78,
                       "id": "174",
                       "entries": [
-                        "Wiadomość napisaną po wewnętrznej stronie kopuły można odczytać jedynie wchodząc na antresolę, jednak zły stan schodów i balkonu czyni to przedsięwzięcie ryzykownym. Postać wspinająca się po schodach musi wykonać udany test Zręczności {@dc 10} ({@skill Acrobatics}), aby poruszać się bez wstrząsania podłogą; w przeciwnym razie stopnie się zawalą i postać otrzyma {@dice 1d6} obrażenia tłuczące w wyniku upadku. Mała postać ma przewagę w teście. Bez schodów wspinanie się po zakrzywionej do wewnątrz ścianie wymaga zestawu wspinaczkowego i pomyślnego sprawdzenia wytrzymałości {@dc 15} ({@skill Athletics}).",
+                        "Wiadomość napisaną po wewnętrznej stronie kopuły można odczytać jedynie wchodząc na antresolę, jednak zły stan schodów i balkonu czyni to przedsięwzięcie ryzykownym. Postać wspinająca się po schodach musi wykonać udany test Zręczności {@dc 10} ({@skill Acrobatics}), aby poruszać się bez wstrząsania podłogą; w przeciwnym razie stopnie się zawalą i postać otrzyma {@dice 1d6} obrażenia obuchowe w wyniku upadku. Mała postać ma przewagę w teście. Bez schodów wspinanie się po zakrzywionej do wewnątrz ścianie wymaga zestawu wspinaczkowego i pomyślnego sprawdzenia wytrzymałości {@dc 15} ({@skill Athletics}).",
                         "Wiadomość napisana w starym omuanie brzmi: „Prawdziwa miłość, wierny generale, spoczniesz bezpiecznie w Nangalore na wieki. Nikt nie będzie ci przeszkadzał, dopóki żyję. Taki jest mój ślub pokuty i za moje grzechy nie mogę umrzeć”."
                       ]
                     },
@@ -21485,7 +21485,7 @@
                         "Wiadomość jest głęboko wyryta w ścianie."
                       ]
                     },
-                    "Wokół pałacu rozmieszczone są cztery z tych ogrodów ({@area area 4|171|x}). Każdy humanoid, który spędzi w którymkolwiek z nich 1 minutę lub dłużej, musi wykonać rzut obronny na Kondycję {@dc 10}. W przypadku nieudanego zapisu stworzenie staje się {@condition poisoned}. Podczas gdy {@condition poisoned} w ten sposób, stworzenie to jest również {@condition charmed} przez każde inne stworzenie w Nangalore. Stworzenie może powtórzyć rzut obronny na koniec każdej godziny, kończąc efekt na sobie. Jeśli jakikolwiek rzut obronny po pierwszym nie powiedzie się o 5 lub więcej, stworzenie upada {@condition unconscious} i pozostaje w tym stanie, dopóki nie otrzyma obrażeń lub dopóki nie powiedzie się w rzucie obronnym przeciwko temu efektowi.",
+                    "Wokół pałacu rozmieszczone są cztery z tych ogrodów ({@area area 4|171|x}). Każda humanoidalna istota, który spędzi w którymkolwiek z nich 1 minutę lub dłużej, musi wykonać rzut obronny na Kondycję {@dc 10}. W przypadku nieudanego zapisu stworzenie staje się {@condition poisoned}. Podczas gdy {@condition poisoned} w ten sposób, stworzenie to jest również {@condition charmed} przez każde inne stworzenie w Nangalore. Stworzenie może powtórzyć rzut obronny na koniec każdej godziny, kończąc efekt na sobie. Jeśli jakikolwiek rzut obronny po pierwszym nie powiedzie się o 5 lub więcej, stworzenie upada {@condition unconscious} i pozostaje w tym stanie, dopóki nie otrzyma obrażeń lub dopóki nie powiedzie się w rzucie obronnym przeciwko temu efektowi.",
                     "Postać posiadająca biegłość w {@skill Medicine} i {@skill Nature} rozpoznaje te rośliny jako środki usypiające po 2 rundach badania. Postać posiadająca biegłość w którejkolwiek z umiejętności, ale nie w obu, rozpoznaje rośliny po udanym teście {@dc 15} w wytrenowanej umiejętności.",
                     "Pojedyncza postać, która spędza 30 minut w ogrodzie, może pozbawić go halucynogennych roślin, zbierając przy tym 3 funty liści. {@creature Jessamine|ToA} (patrz {@area chapter 1|05c|x}) jest skłonny zapłacić 20 sz za każdy funt liści.",
                     "Zalkoré i ebli nie przegapią okazji do uderzenia, gdy postacie są pod wpływem narkotyków, lub do zaoferowania im zatrutych owoców i wina, jeśli nie zrobiły nic obraźliwego (patrz {@adventure area 8|ToA|2|8. Zalkoré's Lair}).",
@@ -21620,7 +21620,7 @@
                       "page": 80,
                       "id": "186",
                       "entries": [
-                        "Kiedy Zalkoré zostaje zredukowany do 63 lub mniej punktów wytrzymałości, woła swojego zmarłego kochanka o ochronę. Duch Thiru-Taya odpowiada na wezwanie, pojawiając się jako ledwo widoczna, wysoka na 3 metry zjawa chultańskiego wojownika dzierżącego potężną włócznię mocy. Zjawa jest odporna na obrażenia i zaklęcia, nie można jej odwrócić ani kontrolować. Unosi się nad Zalkoré, dopóki nie umrze lub nie odzyska wszystkich punktów wytrzymałości. Raz na turę, gdy istota w promieniu 5 stóp od Zalkoré zada jej obrażenia, zjawa Thiru-Taya bezbłędnie uderza atakującego włócznią, zadając mu 15 ({@dice 2d8 + 6}) obrażeń od siły."
+                        "Kiedy Zalkoré zostaje zredukowany do 63 lub mniej punktów wytrzymałości, woła swojego zmarłego kochanka o ochronę. Duch Thiru-Taya odpowiada na wezwanie, pojawiając się jako ledwo widoczna, wysoka na 3 metry zjawa chultańskiego wojownika dzierżącego potężną włócznię mocy. Zjawa jest odporna na obrażenia i zaklęcia, nie można jej odwrócić ani kontrolować. Unosi się nad Zalkoré, dopóki nie umrze lub nie odzyska wszystkich punktów wytrzymałości. Raz na turę, gdy istota w promieniu 5 stóp od Zalkoré zada jej obrażenia, zjawa Thiru-Taya bezbłędnie uderza atakującego włócznią, zadając mu 15 ({@dice 2d8 + 6}) obrażeń od mocy."
                       ]
                     },
                     {
@@ -21629,7 +21629,7 @@
                       "page": 80,
                       "id": "187",
                       "entries": [
-                        "Większość tego, co pozostało w legowisku Zalkoré, ma niewielką wartość. Jej pierzasta sukienka jest warta 50 sz, jeśli nie została zbyt zniszczona w walce (suknia ulega zniszczeniu, jeśli ponad połowa obrażeń zadanych Zalkoré to obrażenia od cięcia, kwasu lub ognia, albo jeśli została trafiona {@spell fireball} lub podobnym efektem). Jej legowisko zawiera fiolki {@dice 2d6} z jej śniącą nalewką. Każda fiolka zawiera pojedynczą dawkę i można ją sprzedać za 10 gp w Port Nyanzaru. Każda postać, która wypije dawkę nalewki, musi wykonać udany rzut obronny na Kondycję {@dc 15}. Postacie odporne na warunek {@condition poisoned} odnoszą sukces automatycznie. Po nieudanym zapisie postać zaczyna doświadczać iluzorycznych widoków, dźwięków, zapachów i wrażeń, które wydają się prawdziwe. Rzucenie zaklęcia {@spell lesser restoration} lub podobnej magii na postać kończy efekt, który w innym przypadku trwa przez {@dice 1d4 + 4} godziny."
+                        "Większość tego, co pozostało w legowisku Zalkoré, ma niewielką wartość. Jej pierzasta sukienka jest warta 50 sz, jeśli nie została zbyt zniszczona w walce (suknia ulega zniszczeniu, jeśli ponad połowa obrażeń zadanych Zalkoré to obrażenia od sieczne, kwasu lub ognia, albo jeśli została trafiona {@spell fireball} lub podobnym efektem). Jej legowisko zawiera fiolki {@dice 2d6} z jej śniącą nalewką. Każda fiolka zawiera pojedynczą dawkę i można ją sprzedać za 10 gp w Port Nyanzaru. Każda postać, która wypije dawkę nalewki, musi wykonać udany rzut obronny na Kondycję {@dc 15}. Postacie odporne na warunek {@condition poisoned} odnoszą sukces automatycznie. Po nieudanym zapisie postać zaczyna doświadczać iluzorycznych widoków, dźwięków, zapachów i wrażeń, które wydają się prawdziwe. Rzucenie zaklęcia {@spell lesser restoration} lub podobnej magii na postać kończy efekt, który w innym przypadku trwa przez {@dice 1d4 + 4} godziny."
                       ]
                     }
                   ]
@@ -21705,7 +21705,7 @@
                   "page": 81,
                   "id": "18f",
                   "entries": [
-                    "Schody prowadzące z ziemi na poziom 1 zigguratu mają 50 stóp długości i 30 stóp wysokości. Schody pokrywa plątanina korzeni, pnączy i pnączy. Postacie mogą wspiąć się na pierwsze 3 metry jako {@quickref difficult terrain||3}. Po przebyciu 3 metrów zaczynają drapać je ciernie. Jeśli będą kontynuować, otrzymują 1 obrażenia tnące za każdą stopę, na którą się wspięli. Po 20 stopach zwiększa się to do 2 obrażeń tnących na stopę. Ciernie odrastają tak szybko, jak zostały przecięte, spalone lub zniszczone, i nie można ich rozdzielić magią ani umiejętnościami. Zejście po schodach nie powoduje żadnych uszkodzeń.",
+                    "Schody prowadzące z ziemi na poziom 1 zigguratu mają 50 stóp długości i 30 stóp wysokości. Schody pokrywa plątanina korzeni, pnączy i pnączy. Postacie mogą wspiąć się na pierwsze 3 metry jako {@quickref difficult terrain||3}. Po przebyciu 3 metrów zaczynają drapać je ciernie. Jeśli będą kontynuować, otrzymują 1 obrażenia sieczne za każdą stopę, na którą się wspięli. Po 20 stopach zwiększa się to do 2 obrażeń siecznych na stopę. Ciernie odrastają tak szybko, jak zostały przecięte, spalone lub zniszczone, i nie można ich rozdzielić magią ani umiejętnościami. Zejście po schodach nie powoduje żadnych uszkodzeń.",
                     "Po pierwszych próbach wspinania się po schodach bohaterowie zauważają stojącego wśród nich {@creature chwinga|ToA} (patrz {@adventure appendix D|ToA|9}). Ma około stopy wzrostu, a jego maska ​​przypomina głowę triceratopsa. Trzyma także dużą pomarańczowo-fioletową orchideę. Po chwili ładuje się po schodach; ciernie rozstępują się przed nim i zamykają bezpośrednio za nim.",
                     "Aby wejść po schodach, postacie muszą znaleźć więcej pomarańczowych i fioletowych orchidei. Można je znaleźć w dżungli po 30 minutach, jeśli ktokolwiek w grupie posiada biegłość w umiejętności {@skill Nature}, lub po 60 minutach w innym przypadku. Każda postać wspinająca się po schodach potrzebuje swojej własnej orchidei."
                   ]
@@ -22042,7 +22042,7 @@
             },
             {
               "type": "entries",
-              "name": "Kopalnia Wyrmheart",
+              "name": "Obuchowe",
               "page": 85,
               "id": "1af",
               "entries": [
@@ -22050,7 +22050,7 @@
                 "Tzindelor zgromadziła zwolenników koboldów, którzy nazywają ją Tinder. Czasami wyrusza na polowanie, ale większość czasu spędza śpiąc na dnie kopalni. Koboldy wyposażają swoje wspólne legowisko w liczne pułapki. W wielu częściach kopalni wciąż widać ślady bitwy krasnoludów z Tinderem, w tym rozrzucone i zwęglone kości tych, którzy zginęli.",
                 "Krasnoludy pozostawiły w kopalni trzy wózki z rudą, wszystkie sprawne lub nadające się do naprawy. Tor wózkowy otaczający główny wał jest dość stromy; nie tak strome jak schody, ale bardziej strome niż większość ramp. Wozy do rudy są zbudowane w taki sposób, że koniec w dół (przód) jest wyższy niż koniec w górę (tył). Dzięki temu mogą siedzieć poziomo na pochyłym torze, ale na równym podłożu wyglądają dziwnie. Z tyłu każdego wózka zaczepiona jest ciężka lina do ciągnięcia i uprząż, dzięki czemu wyszkolony dinozaur może ciągnąć ciężki ładunek po torze. Solidny hamulec obsługiwany dźwignią kontroluje jego zjazd.",
                 "Wózki można wjeżdżać na boczne przejścia, jeśli tory zostaną zamienione za pomocą łomu (jeden jest umieszczony w pobliżu każdej bocznicy). Kiedy postacie dotrą na miejsce, tory będą omijać wszystkie bocznice i biegną prosto na sam dół.",
-                "Hamulce niektórych wózków są w lepszym stanie niż inne. Jeśli hamulec zawiedzie, wózek wymyka się spod kontroli w kółko po boksie, aż uderza w barierę na dole toru. Wszyscy w wózku, gdy trafią, otrzymują {@dice 1d6} obrażenia tłuczące na każde 20 stóp w pionie, po którym wózek opadł. Ci, którzy wyskoczą przed uderzeniem wózka, otrzymują połowę obrażeń, w zależności od tego, jak daleko wózek opadł przed skokiem, ale każde stworzenie musi także wykonać pomyślny rzut obronny na Zręczność {@dc 10} lub przewrócić się przez krawędź toru i spaść na dno szybu.",
+                "Hamulce niektórych wózków są w lepszym stanie niż inne. Jeśli hamulec zawiedzie, wózek wymyka się spod kontroli w kółko po boksie, aż uderza w barierę na dole toru. Wszyscy w wózku, gdy trafią, otrzymują {@dice 1d6} obrażenia obuchowe na każde 20 stóp w pionie, po którym wózek opadł. Ci, którzy wyskoczą przed uderzeniem wózka, otrzymują połowę obrażeń, w zależności od tego, jak daleko wózek opadł przed skokiem, ale każde stworzenie musi także wykonać pomyślny rzut obronny na Zręczność {@dc 10} lub przewrócić się przez krawędź toru i spaść na dno szybu.",
                 {
                   "type": "gallery",
                   "images": [
@@ -24769,7 +24769,7 @@
                 },
                 {
                   "type": "entries",
-                  "name": "2. Szopka z zaopatrzeniem",
+                  "name": "Moc",
                   "page": 86,
                   "id": "1b2",
                   "entries": [
@@ -24778,7 +24778,8 @@
                       "id": "1b3",
                       "entries": [
                         "Budynek ten jest wykonany z ściśle dopasowanych kamieni i ma dach z dachówki, ale nie ma okien. Fragmenty muru kruszą się w miejscach, gdzie korzenie drzew rozpychają kamienie. Żłobienia i blizny pokazują miejsca, w których ktoś próbował przebić się siekierą przez ciężkie drzwi, ale poddał się, poczyniwszy niewielkie postępy."
-                      ]
+                      ],
+                      "name": "Piorun"
                     },
                     "Ślady topora znajdują się zaledwie kilka stóp nad ziemią (zostały zrobione przez koboldy). Drzwi można wyważyć po pomyślnym sprawdzeniu wytrzymałości {@dc 10} ({@skill Athletics}).",
                     "Wewnątrz ułożone są dziesiątki skrzyń i beczek. Kilka z nich zostało przewróconych przez rosnące pod nimi korzenie drzew. Przechowywane jedzenie i woda są niejadalne, ale pozostałe zapasy w większości nadal nadają się do użytku, nawet jeśli nie będą szczególnie przydatne dla poszukiwaczy przygód. Składają się z narzędzi górniczych, kamieniarskich i hutniczych, łopat, latarni i świec, hełmów górniczych, ciężkich rękawic, kół zapasowych, osi i hamulców do wozów rudy, smaru, grubej liny, smoły, szczotek, mioteł i tak dalej."
@@ -24786,7 +24787,7 @@
                 },
                 {
                   "type": "entries",
-                  "name": "3. Wózek z rudą",
+                  "name": "Nekrotyczne",
                   "page": 86,
                   "id": "1b4",
                   "entries": [
@@ -24795,14 +24796,15 @@
                       "id": "1b5",
                       "entries": [
                         "Wózek z rudą stoi na torach przy wejściu do kopalni, podtrzymywany przez blok pod kołami."
-                      ]
+                      ],
+                      "name": "Kłute"
                     },
                     "Metalowa skrzynia wózka jest nadal solidna, jednak jedna z osi jest pęknięta, a druga strasznie skrzypi. Szopa zaopatrzeniowa (obszar 3) zawiera części i smar, dzięki którym maszyna ponownie zacznie się toczyć. Stary hamulec wygląda solidnie, ale przy każdym użyciu istnieje ryzyko całkowitej awarii {@chance 10}. Ryzyko to zostaje rozpoznane przez osobę, która sprawdza hamulec i pomyślnie przeprowadza kontrolę inteligencji {@dc 10}. Hamulec można naprawić za pomocą części zamiennych z magazynu zaopatrzenia."
                   ]
                 },
                 {
                   "type": "entries",
-                  "name": "4. Górny wał",
+                  "name": "Trucizna",
                   "page": 86,
                   "id": "1b6",
                   "entries": [
@@ -24812,7 +24814,7 @@
                 },
                 {
                   "type": "entries",
-                  "name": "5. Nawiedzona Kuźnia",
+                  "name": "Psychiczne",
                   "page": 86,
                   "id": "1b7",
                   "entries": [
@@ -24820,7 +24822,7 @@
                     "Sześć {@creature Specter||widma} nawiedza kuźnię, po trzy w każdej komnacie. To wszystko, co pozostało z krasnoludzkich obrońców kopalni. Pierwsza postać, która wejdzie do którejkolwiek komnaty, zostaje zaatakowana przez widma z tej komnaty, a te z sąsiedniej komnaty przybywają 2 rundy później. Widma nie mogą opuścić kuźni.",
                     {
                       "type": "entries",
-                      "name": "Skarb",
+                      "name": "Promieniste",
                       "page": 86,
                       "id": "1b8",
                       "entries": [
@@ -24831,7 +24833,7 @@
                 },
                 {
                   "type": "entries",
-                  "name": "6A. Półka",
+                  "name": "Sieczne",
                   "page": 87,
                   "id": "1b9",
                   "entries": [
@@ -24840,7 +24842,7 @@
                 },
                 {
                   "type": "entries",
-                  "name": "6B. Szkółka Jajeczna",
+                  "name": "Gromu",
                   "page": 87,
                   "id": "1ba",
                   "entries": [
@@ -24848,7 +24850,7 @@
                       "type": "insetReadaloud",
                       "id": "1bb",
                       "entries": [
-                        "Siedem małych gadzich humanoidów strzeże tego pomieszczenia, którego ściany mają wyrzeźbione nisze. Każda nisza jest wyłożona mchem i mieści brązowe jajko wielkości małej pomarańczy."
+                        "Siedem małych gadzich humanoidalnych istot strzeże tego pomieszczenia, którego ściany mają wyrzeźbione nisze. Każda nisza jest wyłożona mchem i mieści brązowe jajko wielkości małej pomarańczy."
                       ]
                     },
                     "Siedmiu {@creature Kobold||koboldy} strzeże tego pomieszczenia, które służy jako wylęgarnia jaj koboldów. Te koboldy chronią swoje jaja z twardą determinacją. W omszałych niszach w ścianach znajduje się w sumie trzydzieści jaj."
@@ -24860,7 +24862,7 @@
                   "page": 87,
                   "id": "1bc",
                   "entries": [
-                    "Potykacz rozciąga się przez wylot tunelu, gdzie dolne przejście łączy się z torem wózka. Można go wykryć po udanym teście {@dc 13} Mądrości ({@skill Perception}). Jeśli linka zostanie pominięta, każda postać, która przejdzie przez wylot tunelu, ma {@chance 50} szansę na potknięcie się o nią i uruchomienie dwóch mechanizmów. Pierwszy mechanizm to drewniane urządzenie ze sprężyną, przypominające pazur, który wychyla się ze ściany szybu kopalnianego w górę z tego tunelu i zatrzaskuje się u wylotu tunelu. Ktokolwiek uruchomił pułapkę, musi odnieść sukces w rzucie Zręczności {@dc 13} lub otrzymać 7 ({@dice 2d6}) obrażeń tłuczących od pazura. Rundę później drugi mechanizm uwalnia kamienną kulę o średnicy 5 stóp, która wpada do jaskini (oznaczonej literą T na mapie) i wtacza się w drewniany pazur w poprzek wylotu tunelu, który zostaje zniszczony przez uderzenie kuli - ale nie wcześniej niż skierowanie kuli na tory wózka. Kula mknie po torach, aż dociera do {@area area 11|1c5|x}, gdzie wykoleja się i uderza w pomieszczenia mieszkalne urdów. (Urdy łatwo to usłyszą i schodzą im z drogi.) Każdy, kto stanie na drodze kuli, musi wykonać rzut obronny na {@dc 13} na Zręczność, w przeciwnym razie otrzyma 22 ({@dice 4d10}) obrażeń obuchowych i zostanie powalony {@condition prone}. Zamiast zostać trafionym kulą, postać, której nie powiedzie się rzut obronny, może zeskoczyć z torów i spaść na dno szybu; udaje się to automatycznie. Kula nie może zostać spowolniona testami Siły ze względu na strome nachylenie torów."
+                    "Potykacz rozciąga się przez wylot tunelu, gdzie dolne przejście łączy się z torem wózka. Można go wykryć po udanym teście {@dc 13} Mądrości ({@skill Perception}). Jeśli linka zostanie pominięta, każda postać, która przejdzie przez wylot tunelu, ma {@chance 50} szansę na potknięcie się o nią i uruchomienie dwóch mechanizmów. Pierwszy mechanizm to drewniane urządzenie ze sprężyną, przypominające pazur, który wychyla się ze ściany szybu kopalnianego w górę z tego tunelu i zatrzaskuje się u wylotu tunelu. Ktokolwiek uruchomił pułapkę, musi odnieść sukces w rzucie Zręczności {@dc 13} lub otrzymać 7 ({@dice 2d6}) obrażeń obuchowych od pazura. Rundę później drugi mechanizm uwalnia kamienną kulę o średnicy 5 stóp, która wpada do jaskini (oznaczonej literą T na mapie) i wtacza się w drewniany pazur w poprzek wylotu tunelu, który zostaje zniszczony przez uderzenie kuli - ale nie wcześniej niż skierowanie kuli na tory wózka. Kula mknie po torach, aż dociera do {@area area 11|1c5|x}, gdzie wykoleja się i uderza w pomieszczenia mieszkalne urdów. (Urdy łatwo to usłyszą i schodzą im z drogi.) Każdy, kto stanie na drodze kuli, musi wykonać rzut obronny na {@dc 13} na Zręczność, w przeciwnym razie otrzyma 22 ({@dice 4d10}) obrażeń obuchowych i zostanie powalony {@condition prone}. Zamiast zostać trafionym kulą, postać, której nie powiedzie się rzut obronny, może zeskoczyć z torów i spaść na dno szybu; udaje się to automatycznie. Kula nie może zostać spowolniona testami Siły ze względu na strome nachylenie torów."
                   ]
                 },
                 {
@@ -24923,7 +24925,7 @@
                   "id": "1c3",
                   "entries": [
                     "W tym momencie głaz jest niepewnie balansowany na półce nad torem wózka. Lina zawiązana wokół głazu przechodzi przez żelazny pierścień na centralnym filarze i przez drugi w pobliżu komnat koboldów. Jeśli koboldy usłyszą wóz z rudą toczący się po torach, cztery z nich wybiegną i przygotują się do szarpania liny, tak aby głaz uderzył w wóz. Wykonują rzut ataku ({@hit 4} na trafienie) przeciwko KP wózka, która zależy od jego prędkości. Wózek toczący się z maksymalną prędkością (bez hamulców) ma AC 16. Jeśli pasażerowie używają hamulców do kontrolowania jego prędkości, wózek ma AC 8. Jeśli pasażerowie wózka zaciągną lub zwolnią hamulec, gdy zobaczą koboldy ciągnące linę, aby zmienić prędkość wózka, ma on AC 12.",
-                    "Jeśli głaz trafi, każde stworzenie w wozie otrzymuje 5 ({@dice 1d10}) obrażeń tłuczących. Rzuć {@dice d6}, aby ustalić, co stanie się z wózkiem i jego pasażerami:",
+                    "Jeśli głaz trafi, każde stworzenie w wozie otrzymuje 5 ({@dice 1d10}) obrażeń obuchowych. Rzuć {@dice d6}, aby ustalić, co stanie się z wózkiem i jego pasażerami:",
                     {
                       "type": "inset",
                       "id": "1c4",
@@ -25031,7 +25033,7 @@
               "page": 89,
               "id": "1ce",
               "entries": [
-                "Yellyark (mapa 2.15) jest domem dla plemienia Batiri, goblinów Gryząca Mrówka. Te gobliny noszą stylizowane drewniane maski mrówek i zaznaczają obwód swojego terytorium głowami i czaszkami swoich wrogów (humanoidów i bestii). W tym kontekście „terytorium” odnosi się do pojedynczego heksu na mapie {@creature Syndra Silvane|ToA}.",
+                "Yellyark (mapa 2.15) jest domem dla plemienia Batiri, goblinów Gryząca Mrówka. Te gobliny noszą stylizowane drewniane maski mrówek i zaznaczają obwód swojego terytorium głowami i czaszkami swoich wrogów (humanoidalnych istot i bestii). W tym kontekście „terytorium” odnosi się do pojedynczego heksu na mapie {@creature Syndra Silvane|ToA}.",
                 "Aby uchronić się przed gigantycznymi mięsożercami, gobliny zbudowały ważne budowle wioski na szczycie „sieci” składającej się z mocnych, giętkich gałęzi drzew połączonych pnączami. Sieć jest przymocowana do ciężkiego drzewa, pochylona jak gigantyczna sprężyna. Kiedy drapieżnik grozi napadem na wioskę, gobliny przecinają winorośl, a cała wioska zostaje zwinięta w kłębek i rzucona na tysiąc metrów nad dżunglą! Wewnątrz chaty amortyzują warstwy liści i mchu; uszkodzenia elastycznych konstrukcji można naprawić, a większość cennych totemów, żywności, wyrobów koszykarskich i zapasowej broni z wioski zostaje ocalona.",
                 {
                   "type": "image",
@@ -30003,7 +30005,7 @@
                       "type": "insetReadaloud",
                       "id": "214",
                       "entries": [
-                        "Schody prowadzą do wysokiego na piętnaście stóp, porośniętego mchem pokoju. Cztery posągi wojowników Omuan stoją we wnękach po obu stronach, z widokiem na zakratowany dół gladiatorów w podłodze. Każdy posąg wygląda, jakby miał trzymać włócznię, ale brakuje mu broni. Po drugiej stronie komnaty kamienny cokół jest wyraźnie nagi. Płaskorzeźba na ścianie za nim przedstawia potwornego jaguara z sześcioma wężami wystającymi z ramion, walczącego z przysadzistym, przypominającym żabę humanoidem uzbrojonym we włócznię. Na lewo od płaskorzeźby znajduje się wąski tunel ze schodami prowadzącymi w dół."
+                        "Schody prowadzą do wysokiego na piętnaście stóp, porośniętego mchem pokoju. Cztery posągi wojowników Omuan stoją we wnękach po obu stronach, z widokiem na zakratowany dół gladiatorów w podłodze. Każdy posąg wygląda, jakby miał trzymać włócznię, ale brakuje mu broni. Po drugiej stronie komnaty kamienny cokół jest wyraźnie nagi. Płaskorzeźba na ścianie za nim przedstawia potwornego jaguara z sześcioma wężami wystającymi z ramion, walczącego z przysadzistym, przypominającym żabę humanoidalną istotą uzbrojonym we włócznię. Na lewo od płaskorzeźby znajduje się wąski tunel ze schodami prowadzącymi w dół."
                       ]
                     },
                     "Posągów nie można przenieść ze swoich wnęk i są one odporne na obrażenia i zaklęcia. Tunel w północnej ścianie schodzi w dół do dna jamy gladiatorów (obszar 4D) i prowadzi do bloku komórkowego dalej (obszar 4C).",
@@ -30082,7 +30084,7 @@
                     "Upadające ruiny przylegają do krawędzi rozpadliny z widokiem na jezioro bulgoczącej lawy."
                   ]
                 },
-                "Stworzenie, które spadnie ze szczytu klifu do lawy, otrzymuje 70 ({@dice 20d6}) obrażeń od tłuczenia od upadku i 55 ({@dice 10d10}) obrażeń od ognia od lawy. Stworzenie, które rozpoczyna swoją turę w lawie, ponownie otrzymuje obrażenia od ognia.",
+                "Stworzenie, które spadnie ze szczytu klifu do lawy, otrzymuje 70 ({@dice 20d6}) obrażeń obuchowych od upadku i 55 ({@dice 10d10}) obrażeń od ognia od lawy. Stworzenie, które rozpoczyna swoją turę w lawie, ponownie otrzymuje obrażenia od ognia.",
                 {
                   "type": "entries",
                   "name": "Ofiara Ognia",
@@ -30169,7 +30171,7 @@
                     },
                     "Mozaika przedstawia Moa ({@creature jaculi|ToA}) walczącego z Wongo ({@creature su-monster|ToA}). Jeśli postać oderwie mech, odkryje następującą wiadomość napisaną w Starym Omuanie: „Śmierć nagradza oszukanego złodzieja. Prawda pochodzi z ust węża”. Inny napis otacza podłogę i opowiada historię o tym, jak Moa wyznał prawdę Ubtao i zdradził zaufanie Wongo (patrz „{@area Legend of the Nine Gods|1e1|x}”).",
                     "Kostka układanki na cokole jest iluzoryczna, choć w dotyku wydaje się realna. Zaklęcie {@spell detect magic} lub podobny efekt ujawnia aurę magii iluzji wokół sześcianu. Po zabraniu ze świątyni znika w kłębie zielonego dymu. Jeśli stwór zdejmie kostkę układanki z cokołu lub spróbuje uszkodzić jeden z posągów, łucznicy ożywiają się i otwierają ogień do wszystkich stworzeń w pomieszczeniu. Łucznicy potrafią wykryć obecność stworzeń, nawet jeśli są to {@condition invisible}. Zanim otworzą ogień, w ich łukach magicznie pojawiają się strzały. Łucznicy pozostają ożywieni przez 1 godzinę, po czym powracają do stanu nieożywionego.",
-                    "Dwunastu łuczników działa z inicjatywą o wartości 20. W swojej turze posąg wystrzeliwuje jedną strzałę ({@hit 6}, aby trafić). Stworzenie trafione strzałą otrzymuje 5 ({@dice 1d8 + 1}) obrażeń kłutych. Każdy posąg jest średnim obiektem o KP 17; 30 punktów wytrzymałości; odporność na obrażenia tłuczone, kłute i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne.",
+                    "Dwunastu łuczników działa z inicjatywą o wartości 20. W swojej turze posąg wystrzeliwuje jedną strzałę ({@hit 6}, aby trafić). Stworzenie trafione strzałą otrzymuje 5 ({@dice 1d8 + 1}) obrażeń kłutych. Każdy posąg jest średnim obiektem o KP 17; 30 punktów wytrzymałości; odporność na obrażenia obuchowe, kłute i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne.",
                     {
                       "type": "entries",
                       "name": "Sekretne Drzwi",
@@ -30283,7 +30285,7 @@
                         }
                       ]
                     },
-                    "Jeśli {@creature Bag of Nails|ToA} spadnie do mniej niż połowy swoich maksymalnych punktów wytrzymałości, poddaje się swoim wrogom, prowadzi ich do swojej kryjówki (zrujnowanej piwnicy) i oferuje im gulasz w ramach pokazu przyjaźni. Rozdając miski gulaszu, wyjaśnia, że ​​przybył do Omu, aby znaleźć legendarny skarb zwany Księżycowym Pępkiem (patrz {@area chapter 5|478|x}). Miał nadzieję, że wykorzysta jego rzekomą moc, aby odnaleźć zaginionego syna, lecz już dawno stracił nadzieję, że kiedykolwiek go odnajdzie. Pomyślne sprawdzenie {@dc 15} Wisdom ({@skill Insight}) ujawnia, że ​​tabaxi nie ma zamiaru pozwolić, aby postacie opuściły swoją domenę żywe. Miesza gulasz {@item midnight tears||łzy północy (połknięte)} (patrz „{@book Poisons|DMG|8|Trucizny}” w rozdziale 8 {@i Przewodnik Mistrza Lochów})."
+                    "Jeśli {@creature Bag of Nails|ToA} spadnie do mniej niż połowy swoich maksymalnych punktów wytrzymałości, poddaje się swoim wrogom, prowadzi ich do swojej kryjówki (zrujnowanej piwnicy) i oferuje im gulasz w ramach pokazu przyjaźni. Rozdając miski gulaszu, wyjaśnia, że ​​przybył do Omu, aby znaleźć legendarny skarb zwany Księżycowym Pępkiem (patrz {@area chapter 5|478|x}). Miał nadzieję, że wykorzysta jego rzekomą moc, aby odnaleźć zaginionego syna, lecz już dawno stracił nadzieję, że kiedykolwiek go odnajdzie. Pomyślne sprawdzenie {@dc 15} Mądrość ({@skill Insight}) ujawnia, że ​​tabaxi nie ma zamiaru pozwolić, aby postacie opuściły swoją domenę żywe. Miesza gulasz {@item midnight tears||łzy północy (połknięte)} (patrz „{@book Poisons|DMG|8|Trucizny}” w rozdziale 8 {@i Przewodnik Mistrza Lochów})."
                   ]
                 },
                 {
@@ -30375,7 +30377,7 @@
                       "page": 103,
                       "id": "23b",
                       "entries": [
-                        "Jeśli postać włoży niewłaściwy klucz do dziurki od klucza u podstawy piedestału lub nie uda mu się otworzyć zamka, skorupa posągu ślimaka cepowego emituje oślepiające promienie światła, które strzelają we wszystkich kierunkach. Gdy tak się stanie, każde stworzenie w kaplicy musi wykonać rzut obronny na Zręczność {@dc 18}. Każde stworzenie, któremu nie powiedzie się rzut obronny, zostaje uderzone promieniem i otrzymuje 33 ({@dice 6d10}) obrażeń od promieniowania. Posąg nie może emitować promieni, gdy jest w całości lub częściowo umieszczony w {@spell antimagic field}."
+                        "Jeśli postać włoży niewłaściwy klucz do dziurki od klucza u podstawy piedestału lub nie uda mu się otworzyć zamka, skorupa posągu ślimaka cepowego emituje oślepiające promienie światła, które strzelają we wszystkich kierunkach. Gdy tak się stanie, każde stworzenie w kaplicy musi wykonać rzut obronny na Zręczność {@dc 18}. Każde stworzenie, któremu nie powiedzie się rzut obronny, zostaje uderzone promieniem i otrzymuje 33 ({@dice 6d10}) obrażeń promienistych. Posąg nie może emitować promieni, gdy jest w całości lub częściowo umieszczony w {@spell antimagic field}."
                       ]
                     }
                   ]
@@ -30482,7 +30484,7 @@
                   "page": 104,
                   "id": "247",
                   "entries": [
-                    "W tym zakurzonym labiryncie pełno jest pułapek. Ukryte płyty dociskowe w podłodze znajdują się w miejscach oznaczonych X na mapie świątyni. Jeśli na płytę dociskową zostanie wywarty nacisk większy niż 20 funtów, zaostrzone ostrze topora wysuwa się z ukrytego schowka w suficie. Ostrze wykonuje atak wręcz ({@hit 6} do trafienia) przeciwko dowolnej istocie stojącej na płycie dociskowej. Po trafieniu cel otrzymuje 8 ({@dice 1d8 + 4}) obrażeń tnących. Postać szukająca pułapek zauważa płytę dociskową i przedział sufitowy po udanym teście {@dc 16} Mądrości ({@skill Perception}). Włożenie żelaznego kolca lub innego przedmiotu pod płytkę zapobiega uruchomieniu pułapki. Używając {@item thieves' tools|PHB}, postać może zdemontować ostrze topora po udanym teście Zręczności {@dc 15}. Jeśli test zakończy się niepowodzeniem o 5 lub więcej, pułapka uruchamia się i wykonuje atak przeciwko postaci z wadą."
+                    "W tym zakurzonym labiryncie pełno jest pułapek. Ukryte płyty dociskowe w podłodze znajdują się w miejscach oznaczonych X na mapie świątyni. Jeśli na płytę dociskową zostanie wywarty nacisk większy niż 20 funtów, zaostrzone ostrze topora wysuwa się z ukrytego schowka w suficie. Ostrze wykonuje atak wręcz ({@hit 6} do trafienia) przeciwko dowolnej istocie stojącej na płycie dociskowej. Po trafieniu cel otrzymuje 8 ({@dice 1d8 + 4}) obrażeń siecznych. Postać szukająca pułapek zauważa płytę dociskową i przedział sufitowy po udanym teście {@dc 16} Mądrości ({@skill Perception}). Włożenie żelaznego kolca lub innego przedmiotu pod płytkę zapobiega uruchomieniu pułapki. Używając {@item thieves' tools|PHB}, postać może zdemontować ostrze topora po udanym teście Zręczności {@dc 15}. Jeśli test zakończy się niepowodzeniem o 5 lub więcej, pułapka uruchamia się i wykonuje atak przeciwko postaci z wadą."
                   ]
                 },
                 {
@@ -30962,7 +30964,7 @@
                       "type": "insetReadaloud",
                       "id": "27c",
                       "entries": [
-                        "Pochodnie rzucają światło na pokoje pełne skarbów: skrzynie wypełnione monetami, wypolerowane amfory, sznury pereł i ozdobne elementy zbroi. W podłodze przed kolejnymi podwójnymi drzwiami znajduje się mozaika przedstawiająca humanoida przypominającego żabę bijącego lamparta, któremu z ramion wyłaniają się węże. Napisy klinowe są tkane nad i pod walczącymi."
+                        "Pochodnie rzucają światło na pokoje pełne skarbów: skrzynie wypełnione monetami, wypolerowane amfory, sznury pereł i ozdobne elementy zbroi. W podłodze przed kolejnymi podwójnymi drzwiami znajduje się mozaika przedstawiająca humanoidalną istotę przypominającego żabę bijącego lamparta, któremu z ramion wyłaniają się węże. Napisy klinowe są tkane nad i pod walczącymi."
                       ]
                     },
                     "Napisy są napisane w Starym Omuanie. Napis nad mozaiką głosi: „Nangnang uczy nas, abyśmy służyli tylko sobie”. Poniższe inskrypcje opowiadają, jak Nangnang (grung) ukradł włócznię należącą do Shagambi (kamadana). Aby uzyskać szczegółowe informacje, zobacz „{@area Legend of the Nine Gods|1e1|x}”.",
@@ -34538,7 +34540,7 @@
                 {
                   "type": "list",
                   "items": [
-                    "Dodaj następujące zaklęcia do listy zaklęć, które yuan-ti może rzucić według własnego uznania: {@spell eldritch blast} (2 promienie; {@hit 5} do trafienia; {@dice 1d10 + 3} obrażenia od siły na promień), {@spell minor illusion} i {@spell poison spray}.",
+                    "Dodaj następujące zaklęcia do listy zaklęć, które yuan-ti może rzucić według własnego uznania: {@spell eldritch blast} (2 promienie; {@hit 5} do trafienia; {@dice 1d10 + 3} obrażenia od mocy na promień), {@spell minor illusion} i {@spell poison spray}.",
                     "Nie noszą długich łuków."
                   ]
                 },
@@ -34726,7 +34728,7 @@
                   "type": "insetReadaloud",
                   "id": "2d6",
                   "entries": [
-                    "Na podłodze przed nami fontanna chłodnej wody. Powietrze wypełnia zapach lilii, a jedwabne zasłony leniwie unoszą się w upale. Łuki prowadzą do zacienionych kabin wypełnionych poduszkami i tacami pełnymi cukrowych słodyczy. W okolicy przechadza się tuzin skąpo ubranych humanoidów z oczami przypominającymi węże i łuskowatymi plamami na ramionach, nogach, szyjach i plecach. Nad nimi czuwa para nieludzkich dwunożnych gadów."
+                    "Na podłodze przed nami fontanna chłodnej wody. Powietrze wypełnia zapach lilii, a jedwabne zasłony leniwie unoszą się w upale. Łuki prowadzą do zacienionych kabin wypełnionych poduszkami i tacami pełnymi cukrowych słodyczy. W okolicy przechadza się tuzin skąpo ubranych humanoidalnych istot z oczami przypominającymi węże i łuskowatymi plamami na ramionach, nogach, szyjach i plecach. Nad nimi czuwa para nieludzkich dwunożnych gadów."
                   ]
                 },
                 "Konkubiny {@creature Ras Nsi|ToA} żyją w luksusie w tych komnatach. Harem składa się z jedenastu {@creature Yuan-ti Pureblood||Yuan-ti czystej krwi} i {@creature doppelganger} przebranego za czystej krwi. Dwóch {@creature Yuan-ti Broodguard|VGM|strażnicy yuan-ti} (patrz {@adventure appendix D|ToA|9}) czuwa nad haremem o każdej porze.",
@@ -35356,7 +35358,7 @@
                       "items": [
                         "{@creature skeleton key|ToA} nie jest wyrównany.",
                         "Jego prędkość wspinania wynosi 30 stóp i może wspinać się po trudnych powierzchniach, w tym do góry nogami po sufitach, bez konieczności wykonywania testu umiejętności.",
-                        "Dzierży parę sztyletów i może wykonać dwa ataki bronią białą ({@hit 4} na trafienie) w ramach akcji. Każdy atak sztyletem zadaje 4 ({@dice 1d4 + 2}) obrażenia przebijające przy trafieniu.",
+                        "Dzierży parę sztyletów i może wykonać dwa ataki bronią białą ({@hit 4} na trafienie) w ramach akcji. Każdy atak sztyletem zadaje 4 ({@dice 1d4 + 2}) obrażenia kłute przy trafieniu.",
                         "Po zmniejszeniu punktów wytrzymałości do 0, {@creature skeleton key|ToA} rozpada się, chociaż jego czaszka i kości pozostają nienaruszone.",
                         "{@creature skeleton key|ToA} nie uruchamia żadnej pułapki umieszczonej w pomieszczeniu lub na drzwiach grobowca."
                       ]
@@ -37174,7 +37176,7 @@
                     },
                     "Daj graczom kopie symboli bogów z ulotki 11 {@area appendix E|537|x}. Poszczególne kwadraty można wyciąć i ułożyć według własnego uznania, lub po prostu robić notatki na papierze.",
                     "Aby otworzyć drzwi, postacie muszą wypełnić puste przestrzenie wszystkimi dziewięcioma kostkami puzzli odzyskanymi ze świątyń Omu (patrz {@area chapter 3|1eb|x}), ale w odpowiedniej konfiguracji. Kostki przedstawiające bogów-oszustów należy ułożyć w taki sposób, aby każdy bóg znajdował się naprzeciw kostki swojego rywala na siatce, z Unkhiem (który jest neutralny i nie ma rywali) pośrodku. Na przykład kostka układanki włożona w róg siatki musi mieć rywala w przeciwległym rogu. Diagram 5.1 pokazuje jedną z możliwych konfiguracji, choć inne będą działać, o ile Unkh będzie położony pomiędzy I'jin (CN) a Obo'laka (LN), pomiędzy Kubazan (CG) a Papazotl (LE), pomiędzy Moa (LG) i Wongo (CE) oraz pomiędzy Nangnang (NE) i Shagambi (NG).",
-                    "Jeśli kostka puzzli zostanie ułożona nieprawidłowo, wszystkie wcześniej umieszczone kostki wyskoczą. Następnie z nieprawidłowo umieszczonej kostki wybucha prąd, zadając 18 ({@dice 4d8}) obrażeń od błyskawic każdemu stworzeniu w promieniu 20 stóp od drzwi. Zaklęcie {@spell mage hand} może zostać użyte do umieszczenia kostek z większej odległości i uniknięcia tych obrażeń.",
+                    "Jeśli kostka puzzli zostanie ułożona nieprawidłowo, wszystkie wcześniej umieszczone kostki wyskoczą. Następnie z nieprawidłowo umieszczonej kostki wybucha prąd, zadając 18 ({@dice 4d8}) obrażeń od pioruna każdemu stworzeniu w promieniu 20 stóp od drzwi. Zaklęcie {@spell mage hand} może zostać użyte do umieszczenia kostek z większej odległości i uniknięcia tych obrażeń.",
                     "Zaklęcie {@spell detect magic} lub podobny efekt ujawnia aurę magii ewokacyjnej wokół każdej z jam. Jeśli postacie prawidłowo ułożyły kostki, przeczytaj:",
                     {
                       "type": "insetReadaloud",
@@ -37227,7 +37229,7 @@
                       "id": "33c",
                       "entries": [
                         "Pociągnięcie dźwigni powoduje rozwarcie podłogi pomiędzy dwojgiem drzwi wzdłuż centralnego szwu. Każde stworzenie stojące na podłodze po pociągnięciu dźwigni wpada do głębokiego na 20 stóp dołu wypełnionego zatrutymi kolcami. Dzięki udanemu rzutowi obronnemu na Zręczność {@dc 15} postać, która pociągnęła za dźwignię, może uniknąć upadku, trzymając się jej. Studzienka pozostaje otwarta do czasu, aż dźwignia zostanie przywrócona do pierwotnego położenia.",
-                        "Każde stworzenie wpadające do dołu otrzymuje 11 ({@damage 2d10}) obrażeń tłuczących i zostaje nabite na kolce {@dice 1d4}, z których każdy zadaje 3 ({@damage 1d6}) obrażenia kłute i 5 ({@damage 1d10}) obrażenia od trucizny. Każde stworzenie, które otrzyma obrażenia od trucizny od jednego lub więcej kolców, zostaje {@condition poisoned} na 24 godziny lub do czasu, aż stan zostanie usunięty zaklęciem {@spell lesser restoration} lub podobną magią.",
+                        "Każde stworzenie wpadające do dołu otrzymuje 11 ({@damage 2d10}) obrażeń obuchowych i zostaje nabite na kolce {@dice 1d4}, z których każdy zadaje 3 ({@damage 1d6}) obrażenia kłute i 5 ({@damage 1d10}) obrażenia od trucizny. Każde stworzenie, które otrzyma obrażenia od trucizny od jednego lub więcej kolców, zostaje {@condition poisoned} na 24 godziny lub do czasu, aż stan zostanie usunięty zaklęciem {@spell lesser restoration} lub podobną magią.",
                         "Wykrycie szwu na podłodze wymaga pomyślnego sprawdzenia {@dc 15} Mądrości ({@skill Perception}). Postacie mogą wbijać kolce w podłogę, aby zapobiec jej upuszczeniu, ale ze względu na rozmiar i wagę podłogi potrzebnych jest co najmniej dziesięć kolców."
                       ]
                     }
@@ -37414,7 +37416,7 @@
                     "Na zachodnim krańcu tej sali stoi rdzewiejący posąg rycerza, trzymającego dużą żelazną tarczę. Odłamki i płatki zardzewiałego metalu pokrywają podłogę wokół stóp posągu."
                   ]
                 },
-                "Magiczne pole wokół posągu przyciąga wszelkiego rodzaju metalowe przedmioty (nie tylko metale żelazne). Każdy metalowy przedmiot, który wejdzie w bezpośredni kontakt z tarczą, rozpada się, zasypując podłogę sproszkowaną rdzą. Artefakty są odporne na tę korozję. Każdy metalowy przedmiot, który nie jest noszony lub noszony, dostanie się do pomieszczenia, jest natychmiast przyciągany do tarczy, jeśli waży 150 funtów lub mniej. Każda istota nosząca lub niosąca metalowe przedmioty, która wejdzie do pomieszczenia lub rozpocznie tam swoją turę, może poczuć przyciąganie posągu i musi wykonać test Siły {@dc 10} ({@skill Athletics}), aby się temu oprzeć. Po nieudanym teście stwór traci równowagę, przelatuje przez komnatę i uderza w posąg, zadając {@dice 1d6} obrażenia tłuczące za każde 3 metry ruchu. Jeśli postać nosi metalową zbroję, sprawdzenie jest przeprowadzane z niekorzyścią. Tarcza rozbija jedynie metalowe przedmioty, które zetkną się z nią bezpośrednio, dzięki czemu metalowy przedmiot przechowywany w plecaku będzie chroniony przed zniszczeniem przez skórę plecaka.",
+                "Magiczne pole wokół posągu przyciąga wszelkiego rodzaju metalowe przedmioty (nie tylko metale żelazne). Każdy metalowy przedmiot, który wejdzie w bezpośredni kontakt z tarczą, rozpada się, zasypując podłogę sproszkowaną rdzą. Artefakty są odporne na tę korozję. Każdy metalowy przedmiot, który nie jest noszony lub noszony, dostanie się do pomieszczenia, jest natychmiast przyciągany do tarczy, jeśli waży 150 funtów lub mniej. Każda istota nosząca lub niosąca metalowe przedmioty, która wejdzie do pomieszczenia lub rozpocznie tam swoją turę, może poczuć przyciąganie posągu i musi wykonać test Siły {@dc 10} ({@skill Athletics}), aby się temu oprzeć. Po nieudanym teście stwór traci równowagę, przelatuje przez komnatę i uderza w posąg, zadając {@dice 1d6} obrażenia obuchowe za każde 3 metry ruchu. Jeśli postać nosi metalową zbroję, sprawdzenie jest przeprowadzane z niekorzyścią. Tarcza rozbija jedynie metalowe przedmioty, które zetkną się z nią bezpośrednio, dzięki czemu metalowy przedmiot przechowywany w plecaku będzie chroniony przed zniszczeniem przez skórę plecaka.",
                 "Zaklęcie {@spell detect magic} lub podobny efekt ujawnia aurę magii transmutacyjnej nad tarczą. Posąg i tarcza są traktowane jako jeden duży obiekt z KP 17; 40 punktów wytrzymałości; odporność na obrażenia kłute, tłuczone i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Jeśli posąg i tarcza zostaną zniszczone, pułapka zostanie wyłączona. Pomyślne nałożenie {@spell dispel magic} ({@dc 17}) na posąg wyłącza atrakcyjne pole na 1 godzinę."
               ]
             },
@@ -37516,8 +37518,8 @@
                   "page": 136,
                   "id": "358",
                   "entries": [
-                    "Każda postać, która przyjrzy się dyskowi, zauważy, że jego oczy się poruszają, a ich brązowe źrenice poruszają się tam i z powrotem, skanując grobowiec w poszukiwaniu intruzów. Te oczy mają {@sense darkvision} w zasięgu 30 stóp. Jeśli oczy zauważą jakiekolwiek humanoidy w grobowcu, upiory budzą się i atakują. Dysk oczu nie może dostrzec żadnego humanoida, który przywdziewa jedną z masek z papieru-mache noszonych przez upiory, ani nie może widzieć w magicznej ciemności lub gdy jest przykryty kocem lub podobnym przedmiotem.",
-                    "Brązowy dysk waży 250 funtów. Posągi niedźwiedzi mocno trzymają dysk w swoich kamiennych łapach, tak że nie można go uwolnić bez rozbicia posągów. Każdy posąg jest dużym obiektem o KP 17; 45 punktów wytrzymałości; odporność na obrażenia tłuczone, kłute i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Zaklęcie {@spell detect magic} lub podobny efekt ujawnia aurę magii wróżbiarskiej wokół dysku."
+                    "Każda postać, która przyjrzy się dyskowi, zauważy, że jego oczy się poruszają, a ich brązowe źrenice poruszają się tam i z powrotem, skanując grobowiec w poszukiwaniu intruzów. Te oczy mają {@sense darkvision} w zasięgu 30 stóp. Jeśli oczy zauważą jakiekolwiek humanoidalne istoty w grobowcu, upiory budzą się i atakują. Dysk oczu nie może dostrzec żadnego humanoidalną istotę, która przywdziewa jedną z masek z papieru-mache noszonych przez upiory, ani nie może widzieć w magicznej ciemności lub gdy jest przykryty kocem lub podobnym przedmiotem.",
+                    "Brązowy dysk waży 250 funtów. Posągi niedźwiedzi mocno trzymają dysk w swoich kamiennych łapach, tak że nie można go uwolnić bez rozbicia posągów. Każdy posąg jest dużym obiektem o KP 17; 45 punktów wytrzymałości; odporność na obrażenia obuchowe, kłute i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Zaklęcie {@spell detect magic} lub podobny efekt ujawnia aurę magii wróżbiarskiej wokół dysku."
                   ]
                 },
                 {
@@ -37617,7 +37619,7 @@
                   ]
                 },
                 "Każda postać, która zajrzy przez czaszkę, może zajrzeć do {@area area 14|364|x} (patrz opis poniżej). Szczęki czaszki są otwarte wystarczająco szeroko, aby umożliwić średniemu lub mniejszemu stworzeniu wspinanie się.",
-                "Za każdym razem, gdy stworzenie wspina się przez szczęki czaszki, jeden z płomieni w jej oczodołach gaśnie. Za trzecim razem, gdy stworzenie się przez nie przebije, szczęki się zaciskają, wykonując atak bronią białą z premią +10. Po trafieniu, docelowe stworzenie otrzymuje 22 ({@dice 4d10}) obrażeń tłuczących i jest {@condition grappled} (ucieczka {@dc 19}). Dopóki pozostaje {@condition grappled}, stworzenie otrzymuje 5 ({@dice 1d10}) obrażeń obuchowych na początku każdej swojej tury. Kiedy stworzenie wyjdzie ze szczęk, płomienie w oczodołach czaszki ponownie się zapalają, szczęki otwierają się i pułapka zostaje zresetowana.",
+                "Za każdym razem, gdy stworzenie wspina się przez szczęki czaszki, jeden z płomieni w jej oczodołach gaśnie. Za trzecim razem, gdy stworzenie się przez nie przebije, szczęki się zaciskają, wykonując atak bronią białą z premią +10. Po trafieniu, docelowe stworzenie otrzymuje 22 ({@dice 4d10}) obrażeń obuchowych i jest {@condition grappled} (ucieczka {@dc 19}). Dopóki pozostaje {@condition grappled}, stworzenie otrzymuje 5 ({@dice 1d10}) obrażeń obuchowych na początku każdej swojej tury. Kiedy stworzenie wyjdzie ze szczęk, płomienie w oczodołach czaszki ponownie się zapalają, szczęki otwierają się i pułapka zostaje zresetowana.",
                 "Płomienie w oczodołach nie wydzielają ciepła ani dymu i nie można ich ugasić inaczej niż w sposób opisany powyżej. Każda postać przeszukująca czaszkę i pomyślnie wykonująca test {@dc 15} Mądrości ({@skill Perception}) zauważa, że ​​dolna szczęka jest odchylona. Gruby przedmiot wciśnięty w szczękę czaszki utrzymuje ją otwartą tak długo, jak długo może wytrzymać uszkodzenie. Zaklęcie {@spell detect magic} lub podobny efekt ujawnia aurę magii transmutacyjnej wokół czaszki."
               ]
             },
@@ -37721,11 +37723,11 @@
                     "Rzeźbione ptaki szybują po ścianach tego korytarza. Przejście blokuje w pobliżu jego północnego krańca duże adamantytowe śmigło z pięcioma ostrymi łopatkami."
                   ]
                 },
-                "Po pomyślnym teście Mądrości {@dc 15} ({@skill Perception}) postać rozpoznaje, że całe piętro korytarza to pojedyncza płyta dociskowa. Adamantowe śmigło ma KP 20, 30 punktów wytrzymałości i odporność na wszystkie obrażenia z wyjątkiem obrażeń od siły. Wprawia się w ruch za każdym razem, gdy na podłogę korytarza zostanie przyłożone ciśnienie większe niż 20 funtów. Po włączeniu śmigło obraca się do pełnej prędkości w ciągu 6 sekund. Po zdjęciu ciężaru z podłogi łopatki zwalniają i zatrzymują się po pełnej minucie.",
-                "Kiedy śmigło kręci się lub zwalnia, istota może przeskoczyć szczelinę pomiędzy dwoma łopatami po udanym teście Zręczności {@dc 20} ({@skill Acrobatics}). W przypadku nieudanego testu postać otrzymuje 33 ({@dice 6d10}) obrażeń tnących, gdy przechodzi przez ostrza.",
-                "Przy pełnej prędkości śmigło zadaje 66 ({@dice 12d10}) obrażeń tnących każdemu stworzeniu, które przez nie przejdzie, a ostrza obracają się zbyt szybko, aby stworzenie mogło przeskoczyć między nimi. Szybko obracające się śmigło tworzy również efekt tunelu aerodynamicznego, w wyniku którego każde stworzenie, które zbliży się do śmigła na odległość mniejszą niż 3 metry lub rozpocznie tam swój obrót, musi wykonać {@dc 15} rzut obronny na Siłę. Stworzenie, któremu nie powiedzie się rzut obronny, zostaje wrzucone na północ do otchłani w {@area area 16|36f|x}. Jeśli ten wymuszony ruch spowoduje, że stworzenie przejdzie przez śmigło, otrzyma obrażenia od wirujących ostrzy.",
+                "Po pomyślnym teście Mądrości {@dc 15} ({@skill Perception}) postać rozpoznaje, że całe piętro korytarza to pojedyncza płyta dociskowa. Adamantowe śmigło ma KP 20, 30 punktów wytrzymałości i odporność na wszystkie obrażenia z wyjątkiem obrażeń od mocy. Wprawia się w ruch za każdym razem, gdy na podłogę korytarza zostanie przyłożone ciśnienie większe niż 20 funtów. Po włączeniu śmigło obraca się do pełnej prędkości w ciągu 6 sekund. Po zdjęciu ciężaru z podłogi łopatki zwalniają i zatrzymują się po pełnej minucie.",
+                "Kiedy śmigło kręci się lub zwalnia, istota może przeskoczyć szczelinę pomiędzy dwoma łopatami po udanym teście Zręczności {@dc 20} ({@skill Acrobatics}). W przypadku nieudanego testu postać otrzymuje 33 ({@dice 6d10}) obrażeń siecznych, gdy przechodzi przez ostrza.",
+                "Przy pełnej prędkości śmigło zadaje 66 ({@dice 12d10}) obrażeń siecznych każdemu stworzeniu, które przez nie przejdzie, a ostrza obracają się zbyt szybko, aby stworzenie mogło przeskoczyć między nimi. Szybko obracające się śmigło tworzy również efekt tunelu aerodynamicznego, w wyniku którego każde stworzenie, które zbliży się do śmigła na odległość mniejszą niż 3 metry lub rozpocznie tam swój obrót, musi wykonać {@dc 15} rzut obronny na Siłę. Stworzenie, któremu nie powiedzie się rzut obronny, zostaje wrzucone na północ do otchłani w {@area area 16|36f|x}. Jeśli ten wymuszony ruch spowoduje, że stworzenie przejdzie przez śmigło, otrzyma obrażenia od wirujących ostrzy.",
                 "Można zablokować śmigło, mocując {@item immovable rod} pomiędzy dwiema łopatami. Inne magiczne przedmioty zaklinowane pomiędzy ostrzami zostają odrzucone na bok, gdy śmigło się obraca. Śmigło niszczy wszystkie niemagiczne obiekty znajdujące się pomiędzy jego wirującymi łopatkami.",
-                "Kiedy śmigło jest nieruchome, istota inna niż {@condition incapacitated} może zablokować mechanizm swoim ciałem. Kiedy śmigło zacznie się obracać, istota musi wykonać test Siły {@dc 20} ({@skill Athletics}). Jeśli test się powiedzie, śmigło zostanie zablokowane do początku następnej tury stworzenia, kiedy to będzie mogło użyć swojej akcji do powtórzenia testu. Stworzenie, które nie przejdzie testu lub zdecyduje się wyplątać, otrzymuje 11 ({@dice 2d10}) obrażeń tnących i zostaje wyrzucone na północ od śmigła.",
+                "Kiedy śmigło jest nieruchome, istota inna niż {@condition incapacitated} może zablokować mechanizm swoim ciałem. Kiedy śmigło zacznie się obracać, istota musi wykonać test Siły {@dc 20} ({@skill Athletics}). Jeśli test się powiedzie, śmigło zostanie zablokowane do początku następnej tury stworzenia, kiedy to będzie mogło użyć swojej akcji do powtórzenia testu. Stworzenie, które nie przejdzie testu lub zdecyduje się wyplątać, otrzymuje 11 ({@dice 2d10}) obrażeń siecznych i zostaje wyrzucone na północ od śmigła.",
                 "Jeśli śmigło zostanie zablokowane przez 3 kolejne rundy, ulegnie uszkodzeniu i przestanie działać. Następnego dnia o świcie {@creature Withers|ToA} wysyła krasnoludy grobowe, aby naprawiły szkody i przywróciły pułapkę do stanu operacyjnego."
               ]
             },
@@ -37765,7 +37767,7 @@
                     {
                       "type": "list",
                       "items": [
-                        "Naciśnięcie onyksowego przycisku zmusza dowolną istotę znajdującą się w onyksowej skrzyni do wykonania rzutu obronnego na Kondycję {@dc 15} lub otrzymania 75 ({@dice 10d6 + 40}) obrażeń od siły. Stworzenie zredukowane do 0 punktów wytrzymałości przez te obrażenia zamienia się w kupę pyłu, pozostawiając sprzęt, który trzymał lub nosił.",
+                        "Naciśnięcie onyksowego przycisku zmusza dowolną istotę znajdującą się w onyksowej skrzyni do wykonania rzutu obronnego na Kondycję {@dc 15} lub otrzymania 75 ({@dice 10d6 + 40}) obrażeń od mocy. Stworzenie zredukowane do 0 punktów wytrzymałości przez te obrażenia zamienia się w kupę pyłu, pozostawiając sprzęt, który trzymał lub nosił.",
                         "Naciśnięcie zardzewiałego żelaznego przycisku powoduje, że wszelkie niemagiczne metalowe przedmioty wewnątrz zardzewiałej żelaznej skrzyni (w tym przedmioty noszone lub noszone przez stworzenie w skrzyni) korodują, tworząc bezwartościowe stosy rdzy. Przedmioty częściowo wykonane z metalu ulegają zniszczeniu w wyniku rozkładu ich metalowych elementów.",
                         "Naciśnięcie srebrnego przycisku powoduje, że każda istota znajdująca się w srebrnej skrzyni wykonuje rzut obronny na Kondycję {@dc 15}, zadając 45 ({@dice 10d8}) obrażeń od zimna w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
                       ]
@@ -38339,7 +38341,7 @@
                   "type": "insetReadaloud",
                   "id": "37c",
                   "entries": [
-                    "Ściany i podłoga tego pokoju o powierzchni piętnastu stóp kwadratowych są popękane i ozdobione wizerunkami spadających przerażonych humanoidów. Na środku podłogi znajduje się kamienna płaskorzeźba przedstawiająca twarz brodatego diabła, pomalowana na zielono. Żałosne krzyki odbijają się echem w czarnej pustce jego rozwartej paszczy."
+                    "Ściany i podłoga tego pokoju o powierzchni piętnastu stóp kwadratowych są popękane i ozdobione wizerunkami spadających przerażonych humanoidalnych istot. Na środku podłogi znajduje się kamienna płaskorzeźba przedstawiająca twarz brodatego diabła, pomalowana na zielono. Żałosne krzyki odbijają się echem w czarnej pustce jego rozwartej paszczy."
                   ]
                 },
                 "Diabelska twarz tworzy wylot cylindrycznego szybu o szerokości 5 stóp, który opada na głębokość 3 stóp, a następnie otwiera się w suficie {@area area 35|3d0|x}. Magiczna ciemność wypełnia usta i trzon. Zaklęcie {@spell detect magic} lub podobny efekt ujawnia aurę magii ewokacji i iluzji w szybie.",
@@ -38408,7 +38410,7 @@
                     "I poziom: {@spell alarm}, {@spell comprehend languages}, {@spell detect magic}, {@spell expeditious retreat}, {@spell identify}, {@spell illusory script}, {@spell sleep}, {@spell Tenser's floating disk}",
                     "II poziom: {@spell arcane lock}, {@spell cloud of daggers}, {@spell flaming sphere}, {@spell knock}",
                     "Poziom 3: {@spell dispel magic}, {@spell fireball}",
-                    "Kostur Devlina to {@item staff of striking}, ale każda postać, która się do niego dostroi, w ciągu 3 dni przekształca się w hybrydę kozy i humanoida. Diabelstwa są odporne na tę klątwę. Przez cały pierwszy dzień na całym ciele przeklętej postaci zaczyna rosnąć kudłate futro. Po 24 godzinach oczy postaci stają się kozie, a z czoła wyrastają kikuty rogów. Ostatniego dnia palce postaci łączą się w dwucyfrowe liczby, a rogi osiągają pełną długość. Transformacja ta nie uniemożliwia postaci posługiwania się bronią ani rzucania zaklęć. {@spell Remove curse}, {@spell greater restoration} lub jakikolwiek inny efekt kończący klątwę przywraca pierwotny wygląd postaci, ale tylko zaklęcie {@spell wish} może uwolnić laskę od jej mocy i przekształcić tych, którzy się do niej dostosują."
+                    "Kostur Devlina to {@item staff of striking}, ale każda postać, która się do niego dostroi, w ciągu 3 dni przekształca się w hybrydę kozy i humanoidalną istotę. Diabelstwa są odporne na tę klątwę. Przez cały pierwszy dzień na całym ciele przeklętej postaci zaczyna rosnąć kudłate futro. Po 24 godzinach oczy postaci stają się kozie, a z czoła wyrastają kikuty rogów. Ostatniego dnia palce postaci łączą się w dwucyfrowe liczby, a rogi osiągają pełną długość. Transformacja ta nie uniemożliwia postaci posługiwania się bronią ani rzucania zaklęć. {@spell Remove curse}, {@spell greater restoration} lub jakikolwiek inny efekt kończący klątwę przywraca pierwotny wygląd postaci, ale tylko zaklęcie {@spell wish} może uwolnić laskę od jej mocy i przekształcić tych, którzy się do niej dostosują."
                   ]
                 }
               ]
@@ -38540,7 +38542,7 @@
                   "id": "38e",
                   "entries": [
                     "Tarcza z brązu wisi na ścianie na skórzanych paskach. Emanuje magią przywołującą, tworząc zaklęcie {@spell detect magic} lub podobny efekt.",
-                    "Jeśli rydwan, sarkofag lub skarb zostanie naruszony lub jeśli tarcza zostanie usunięta ze ściany, wytłoczony na niej myśliwy ożywa. Każda runda inicjatywy ma wartość 20 i rzuca magiczną włócznią mocy w najbliższą postać, którą widzi, ignorując wszelkie stworzenia, które skłoniły się przed posągiem z brązu bez twarzy. Łowca nie widzi żadnego stworzenia za przednią stroną tarczy. Kiedy rzuca włócznią w stworzenie, myśliwy wykonuje atak czarem dystansowym ({@hit 10} do trafienia) i zadaje 18 ({@dice 4d8}) obrażeń od siły przy trafieniu. Cel zredukowany do 0 punktów wytrzymałości w wyniku tego ataku ulega dezintegracji i zamienia się w pył.",
+                    "Jeśli rydwan, sarkofag lub skarb zostanie naruszony lub jeśli tarcza zostanie usunięta ze ściany, wytłoczony na niej myśliwy ożywa. Każda runda inicjatywy ma wartość 20 i rzuca magiczną włócznią mocy w najbliższą postać, którą widzi, ignorując wszelkie stworzenia, które skłoniły się przed posągiem z brązu bez twarzy. Łowca nie widzi żadnego stworzenia za przednią stroną tarczy. Kiedy rzuca włócznią w stworzenie, myśliwy wykonuje atak czarem dystansowym ({@hit 10} do trafienia) i zadaje 18 ({@dice 4d8}) obrażeń od mocy przy trafieniu. Cel zredukowany do 0 punktów wytrzymałości w wyniku tego ataku ulega dezintegracji i zamienia się w pył.",
                     "Aby powstrzymać łowcę tarczy przed atakiem, postać musi go oślepić, zakładając na tarczę coś nieprzezroczystego (np. worek lub płaszcz) lub odwracając tarczę w stronę ściany. Tarczę można również zniszczyć; ma KP 15, 10 punktów wytrzymałości i jest odporny na wszystkie obrażenia z wyjątkiem obrażeń od mocy. Po zabraniu z pomieszczenia tarcza znika i pojawia się ponownie na ścianie pomiędzy posągami."
                   ]
                 },
@@ -38646,7 +38648,7 @@
                   "type": "insetReadaloud",
                   "id": "399",
                   "entries": [
-                    "Powietrze tutaj cuchnie siarką i siarką. Na podłodze tej komnaty pentagram nakreślony solą otacza ozdobny sarkofag, którego wieko pokryte jest figurkami paradujących humanoidów przypominających żaby."
+                    "Powietrze tutaj cuchnie siarką i siarką. Na podłodze tej komnaty pentagram nakreślony solą otacza ozdobny sarkofag, którego wieko pokryte jest figurkami paradujących humanoidalnych istot przypominających żaby."
                   ]
                 },
                 "{@condition invisible} {@creature gray slaad} krąży po solnym pentagramie. Magiczne osłony uniemożliwiają slaadowi zakłócanie spokoju soli lub opuszczanie granic kręgu. Jeśli inna istota zaatakuje slaada, wejdzie na obszar okręgu granicznego lub rozbije jakąkolwiek część okręgu lub pentagramu poprzez zamiatanie lub strzepnięcie soli, slaad zostaje uwolniony. Spragniony rzezi stwór wyładowuje swoją wściekłość na postaciach, po czym opuszcza pomieszczenie w poszukiwaniu klejnotu kontroli, nie wiedząc, że jest on przechowywany w {@area area 28|3aa|x}.",
@@ -38828,7 +38830,7 @@
                   "type": "insetReadaloud",
                   "id": "3ab",
                   "entries": [
-                    "Świece słabo oświetlają zagracone biuro. Szkieletowy ptak śpiewający zgrzyta na ciebie z brudnej klatki w jednym kącie. Pozostałe umeblowanie obejmuje drewniane biurko i krzesło z wysokim oparciem. Rysunki anatomiczne naszkicowane węglem wiszą na ścianie za biurkiem. Na krześle siedzi pomarszczone zwłoki humanoida ubranego w spleśniałe szaty i maskę z brązu wyrzeźbioną tak, by wyglądała jak marszcząca brwi. Na szyi postaci wisi czarny amulet w kształcie czaszki, a kilka odciętych dłoni pełza po biurku i podłodze wokół niego."
+                    "Świece słabo oświetlają zagracone biuro. Szkieletowy ptak śpiewający zgrzyta na ciebie z brudnej klatki w jednym kącie. Pozostałe umeblowanie obejmuje drewniane biurko i krzesło z wysokim oparciem. Rysunki anatomiczne naszkicowane węglem wiszą na ścianie za biurkiem. Na krześle siedzi pomarszczone zwłoki humanoidalną istotę ubranego w spleśniałe szaty i maskę z brązu wyrzeźbioną tak, by wyglądała jak marszcząca brwi. Na szyi postaci wisi czarny amulet w kształcie czaszki, a kilka odciętych dłoni pełza po biurku i podłodze wokół niego."
                   ]
                 },
                 {
@@ -38861,7 +38863,7 @@
                       "id": "3ad",
                       "entries": [
                         "{@creature Withers|ToA} jest czarownikiem 9 poziomu. Jego umiejętnością rzucania zaklęć jest Inteligencja (obrona zaklęć {@dc 13}; {@hit 5} do uderzania atakami zaklęć). Ma przygotowane następujące zaklęcia czarodzieja:",
-                        "Cantrips (do woli): {@spell acid splash}, {@spell mage hand}, {@spell minor illusion}, {@spell prestidigitation}",
+                        "Sztuczki (do woli): {@spell acid splash}, {@spell mage hand}, {@spell minor illusion}, {@spell prestidigitation}",
                         "Poziom 1 (4 sloty): {@spell detect magic}, {@spell expeditious retreat}, {@spell feather fall}, {@spell thunderwave}",
                         "Poziom 2 (3 sloty): {@spell darkness}, {@spell hold person}, {@spell rope trick}",
                         "Poziom 3 (3 sloty): {@spell dispel magic}, {@spell lightning bolt}",
@@ -40112,7 +40114,7 @@
                   "id": "3b2",
                   "entries": [
                     "Niezwykły wpływ obserwatora przenika przez kamieniarkę na tym poziomie grobowca, powodując wyrastanie fioletowej pleśni z podłóg, ścian i sufitów. Pleśń śmierdzi gnijącymi zwłokami i czasami uwalnia chmury nieszkodliwych zarodników. Gdy postacie poruszają się po obszarach porośniętych obcymi roślinami, z formy wyłaniają się maleńkie gałki oczne, które umożliwiają im dokładne przyjrzenie się. Belchorzh widzi tymi oczami i używa ich do śledzenia postępów drużyny.",
-                    "Każdy efekt, który zadaje obrażenia od ognia, nekrozy lub promieniowania, niszczy plamę obcego wzrostu w momencie kontaktu. Jednak patrzącemu nie podoba się zniszczenie formy. Kiedy kępa porostu zostanie zniszczona, w następnej najbliższej łacie wyrasta krótka łodyga oczna, która strzela losowo wybranym promieniem oka w stronę najbliższej postaci. (Rzuć {@dice d10} i sprawdź blok statystyk {@creature beholder}, aby określić, jaki promień wytwarza.) Po wykonaniu tego ataku gałka oczna szybko znika z powrotem w formie."
+                    "Każdy efekt, który zadaje obrażenia od ognia, nekrozy lub promieniste, niszczy plamę obcego wzrostu w momencie kontaktu. Jednak patrzącemu nie podoba się zniszczenie formy. Kiedy kępa porostu zostanie zniszczona, w następnej najbliższej łacie wyrasta krótka łodyga oczna, która strzela losowo wybranym promieniem oka w stronę najbliższej postaci. (Rzuć {@dice d10} i sprawdź blok statystyk {@creature beholder}, aby określić, jaki promień wytwarza.) Po wykonaniu tego ataku gałka oczna szybko znika z powrotem w formie."
                   ]
                 }
               ]
@@ -40172,7 +40174,7 @@
                   ]
                 },
                 "Twarz minotaura jest wyryta po obu stronach żelaznej blachy o grubości 1 cala i ostrych krawędziach, która blokuje przejście. Otwory tworzące oczy mają szerokość 2 cali. Postacie mogą używać zaklęć takich jak {@spell gaseous form} i {@spell misty step}, aby przejść obok żelaznej blachy.",
-                "Każda postać, która zbada barierę, odkrywa, że ​​wsuwa się ona w sufit. Sprężyny zwojowe zapewniają opór, a do podniesienia arkusza konieczna jest pomyślna kontrola wytrzymałości {@dc 17} ({@skill Athletics}). Jeśli test się powiedzie, ukryty zatrzask blokuje prześcieradło na miejscu, umożliwiając stworzeniom czołganie się pod nim. O ile nie zostanie zaklinowana żelaznym kolcem, mocną bronią lub podobnym przedmiotem, bariera pęknie po 1 minucie, ponownie zamykając przejście. Każde stworzenie znajdujące się pod prześcieradłem, gdy się zatrzaskuje, musi wykonać rzut obronny na {@dc 15} na Zręczność lub otrzymać 44 ({@dice 8d10}) obrażeń tnących. Każde stworzenie zredukowane do 0 punktów wytrzymałości w wyniku tych obrażeń zostaje przecięte na dwie części."
+                "Każda postać, która zbada barierę, odkrywa, że ​​wsuwa się ona w sufit. Sprężyny zwojowe zapewniają opór, a do podniesienia arkusza konieczna jest pomyślna kontrola wytrzymałości {@dc 17} ({@skill Athletics}). Jeśli test się powiedzie, ukryty zatrzask blokuje prześcieradło na miejscu, umożliwiając stworzeniom czołganie się pod nim. O ile nie zostanie zaklinowana żelaznym kolcem, mocną bronią lub podobnym przedmiotem, bariera pęknie po 1 minucie, ponownie zamykając przejście. Każde stworzenie znajdujące się pod prześcieradłem, gdy się zatrzaskuje, musi wykonać rzut obronny na {@dc 15} na Zręczność lub otrzymać 44 ({@dice 8d10}) obrażeń siecznych. Każde stworzenie zredukowane do 0 punktów wytrzymałości w wyniku tych obrażeń zostaje przecięte na dwie części."
               ]
             },
             {
@@ -40186,7 +40188,7 @@
                   "type": "insetReadaloud",
                   "id": "3bb",
                   "entries": [
-                    "Kałuże wody wciąż pokrywają podłogę tego szerokiego na piętnaście stóp korytarza. Ściany są śliskie od wilgoci i pokryte freskami przedstawiającymi humanoidy o głowach zwierząt w zbrojach, z których większość wydaje się wymachiwać prawdziwą bronią wiszącą na ścianach. Wysoki na trzy stopy korytarz we wschodniej ścianie zrównał się z podłogą. Na drugim końcu korytarza falująca, przezroczysta kurtyna wody wypełnia kamienne łukowe przejście. Za zasłoną widzisz kolejny korytarz, który wygląda podobnie do tego, w którym stoisz."
+                    "Kałuże wody wciąż pokrywają podłogę tego szerokiego na piętnaście stóp korytarza. Ściany są śliskie od wilgoci i pokryte freskami przedstawiającymi humanoidalne istoty o głowach zwierząt w zbrojach, z których większość wydaje się wymachiwać prawdziwą bronią wiszącą na ścianach. Wysoki na trzy stopy korytarz we wschodniej ścianie zrównał się z podłogą. Na drugim końcu korytarza falująca, przezroczysta kurtyna wody wypełnia kamienne łukowe przejście. Za zasłoną widzisz kolejny korytarz, który wygląda podobnie do tego, w którym stoisz."
                   ]
                 },
                 "Zniszczona broń wisząca na ścianach jest w złym stanie i jest przymocowana haczykami, aby sprawiać wrażenie, jakby trzymali ją pomalowani wojownicy.",
@@ -40264,7 +40266,7 @@
                   "entries": [
                     "Czysta woda tworzy kurtynę o grubości 1 stopy, wysokości 7 stóp i szerokości 3 metrów pomiędzy dwoma korytarzami, promieniując aurą magii przywołującej do zaklęcia {@spell detect magic} lub podobnego efektu. Udane rzucenie {@spell dispel magic} ({@dc 17}) na kurtynę powoduje jej zniknięcie, pozostawiając otwarte przejście. Kurtyna magicznie pojawia się ponownie po 1 godzinie.",
                     "Jeśli jakakolwiek istota przejdzie przez zasłonę wody, niosąc trójząb, nic się nie stanie. Każdy trójząb będzie odpowiedni, nie tylko ten na korytarzach.",
-                    "Jeśli jakiekolwiek stworzenie przejdzie przez zasłonę bez trójzębu, woda wybuchnie w postaci gwałtownej fali płynącej z północy na południe. Każde stworzenie w którejkolwiek sali zostaje uderzone przez wodę i musi wykonać rzut obronny na Siłę {@dc 15}. Po nieudanym rzucie obronnym stworzenie otrzymuje 14 ({@dice 4d6}) obrażeń tłuczących i zostaje przerzucone na koniec korytarza z taką siłą, że spada {@condition prone}. Stworzenie, któremu powiedzie się rzut obronny, otrzymuje połowę obrażeń i upada {@condition prone}, ale nie zostaje zmiecione. Broń zawieszona na ścianach pozostaje na swoim miejscu.",
+                    "Jeśli jakiekolwiek stworzenie przejdzie przez zasłonę bez trójzębu, woda wybuchnie w postaci gwałtownej fali płynącej z północy na południe. Każde stworzenie w którejkolwiek sali zostaje uderzone przez wodę i musi wykonać rzut obronny na Siłę {@dc 15}. Po nieudanym rzucie obronnym stworzenie otrzymuje 14 ({@dice 4d6}) obrażeń obuchowych i zostaje przerzucone na koniec korytarza z taką siłą, że spada {@condition prone}. Stworzenie, któremu powiedzie się rzut obronny, otrzymuje połowę obrażeń i upada {@condition prone}, ale nie zostaje zmiecione. Broń zawieszona na ścianach pozostaje na swoim miejscu.",
                     "Woda wydalana przez kurtynę znika, zanim zdąży wypłynąć poza granice korytarzy. Woda nie wpływa również do żadnej z ukrytych wnęk (obszar 31A), więc żyjące tam stworzenia są bezpieczne przed działaniem fal.",
                     "Woda wyczarowana przez zasłonę wycieka z korytarza przez maleńkie szczeliny w podłodze, pozostawiając po sobie kałuże."
                   ]
@@ -40416,7 +40418,7 @@
                       "type": "insetReadaloud",
                       "id": "3d2",
                       "entries": [
-                        "Korytarz kończy się przy bloku kamienia, na którym namalowany jest wysoki na dwa metry humanoid z głową szakala, z okrągłym złotym medalionem na szyi. Dookoła figury znajdują się rzeźby przedstawiające szarańczę."
+                        "Korytarz kończy się przy bloku kamienia, na którym namalowany jest wysoki na dwa metry humanoidalna istota z głową szakala, z okrągłym złotym medalionem na szyi. Dookoła figury znajdują się rzeźby przedstawiające szarańczę."
                       ]
                     },
                     "Dokładna inspekcja ujawnia, że ​​jedna z wyrzeźbionych szarańczy to przycisk, który można nacisnąć. Kiedy to nastąpi, kamienny blok zapada się w podłogę, tworząc otwarte przejście do grobowca (obszar 35B).",
@@ -40490,7 +40492,7 @@
                   "id": "3d7",
                   "entries": [
                     "Każdy z tych posągów przedstawia gynosfinksa naturalnej wielkości, a wszystkie cztery promieniują aurą wyrzeczenia się i zaklęcia, wywołując zaklęcie {@spell detect magic} lub podobny efekt. Posągi są odporne na obrażenia i zaklęcia.",
-                    "Kiedy jakiekolwiek stworzenie nadepnie na niewłaściwą płytkę podłogową, wszystkie cztery posągi ziewają, a z ich pysków wylatują masy magicznie przywołanej szarańczy. Szarańcza tworzy pojedynczą chmurę, która wypełnia 5-metrowy sześcian, którego środek znajduje się nad szkodliwą płytką podłogową. Każde stworzenie w chmurze w momencie jej powstania, jak również każde stworzenie, które wejdzie do chmury po raz pierwszy w swojej turze lub rozpoczyna w niej swoją turę, otrzymuje 44 ({@dice 8d10}) obrażeń przebijających. Każde stworzenie, którego punkty wytrzymałości zostaną zredukowane do 0 przez tę pułapkę, zostaje zabite i zjedzone do szpiku kości przez pożerającą szarańczę. Chmura utrzymuje się przez 1 minutę lub do momentu utworzenia kolejnej chmury szarańczy."
+                    "Kiedy jakiekolwiek stworzenie nadepnie na niewłaściwą płytkę podłogową, wszystkie cztery posągi ziewają, a z ich pysków wylatują masy magicznie przywołanej szarańczy. Szarańcza tworzy pojedynczą chmurę, która wypełnia 5-metrowy sześcian, którego środek znajduje się nad szkodliwą płytką podłogową. Każde stworzenie w chmurze w momencie jej powstania, jak również każde stworzenie, które wejdzie do chmury po raz pierwszy w swojej turze lub rozpoczyna w niej swoją turę, otrzymuje 44 ({@dice 8d10}) obrażeń kłutych. Każde stworzenie, którego punkty wytrzymałości zostaną zredukowane do 0 przez tę pułapkę, zostaje zabite i zjedzone do szpiku kości przez pożerającą szarańczę. Chmura utrzymuje się przez 1 minutę lub do momentu utworzenia kolejnej chmury szarańczy."
                   ]
                 },
                 {
@@ -40559,7 +40561,7 @@
                   "type": "insetReadaloud",
                   "id": "3df",
                   "entries": [
-                    "Dwa balkony zwrócone są ku sobie nad rozległym wykopem. Pomiędzy balkonami znajduje się pięć drewnianych platform, każda o średnicy dziesięciu stóp. Nad każdym balkonem pali się pojedyncza pochodnia. Na wschodnim balkonie stoi grubo ciosany, wysoki na piętnaście stóp posąg potężnego diabła ze zwiniętymi skrzydłami i zaciśniętymi pięściami. W ścianie zachodniego balkonu znajduje się zardzewiała dźwignia w górnym położeniu."
+                    "Dwa balkony zwrócone są ku sobie nad rozległym wykopem. Pomiędzy balkonami znajduje się pięć drewnianych platform, każda o średnicy dziesięciu stóp. Nad każdym balkonem pali się pojedyncza pochodnia. Na wschodnim balkonie stoi grubo ciosany, wysoki na piętnaście stóp posąg potężnego czarta ze zwiniętymi skrzydłami i zaciśniętymi pięściami. W ścianie zachodniego balkonu znajduje się zardzewiała dźwignia w górnym położeniu."
                   ]
                 },
                 "Wspinaczka po ścianach wymaga pomyślnego sprawdzenia wytrzymałości {@dc 15} ({@skill Athletics}). W północno-zachodnim narożniku, na tej samej wysokości co balkony i pływające platformy, znajduje się przejście. Kolejne przejście rozciąga się od wschodniego balkonu. Z tyłu zachodniego balkonu schody schodzą na głębokość 3 metrów do podestu i sekretnych drzwi.",
@@ -40713,7 +40715,7 @@
                     },
                     "Migoczące płomienie zostały stworzone przez zaklęcia {@spell continual flame}, które wypełniają pomieszczenie {@quickref Vision and Light||2||bright light}.",
                     "Po pociągnięciu dźwigni w obszarze 38A trzy ukryte zamki zamykają południowe drzwi, zaklęcie {@spell wall of stone} blokuje prostokątny otwór w suficie (odcinając ucieczkę do obszaru 38B), a pomieszczenie zaczyna się obracać. Kiedy tak się stanie, wszystkie obecne istoty powinny rzucić inicjatywę.",
-                    "Każde stworzenie, które nie jest mocno przymocowane do ściany, lata lub jest pod wpływem zaklęcia {@spell gaseous form} lub podobnej magii, zostaje przewrócone po obrotowym pomieszczeniu. Stworzenie musi wykonać {@dc 15} rzut obronny na Zręczność na początku każdej swojej tury, zadając 11 ({@dice 2d10}) obrażeń tłuczących w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
+                    "Każde stworzenie, które nie jest mocno przymocowane do ściany, lata lub jest pod wpływem zaklęcia {@spell gaseous form} lub podobnej magii, zostaje przewrócone po obrotowym pomieszczeniu. Stworzenie musi wykonać {@dc 15} rzut obronny na Zręczność na początku każdej swojej tury, zadając 11 ({@dice 2d10}) obrażeń obuchowych w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
                   ]
                 },
                 {
@@ -40752,7 +40754,7 @@
                       ]
                     },
                     "Kiedy pokój się obraca, na koniec licznika inicjatywy 10 aktywowany jest dodatkowy efekt. Rzuć {@dice d20} i zapoznaj się z tabelą Efekty obrotowego pokoju.",
-                    "Pokój przestanie się walić, jeśli dźwignia w obszarze 38A zostanie podniesiona lub jeśli południowe drzwi zostaną otwarte lub zniszczone. Zamki do drzwi są ukryte w ścianach i nie można ich otworzyć za pomocą {@item thieves' tools|PHB}, a do ich odblokowania potrzeba trzech oddzielnych zaklęć {@spell knock}. Drzwi można również otworzyć wyważeniem po udanym teście Siły {@dc 26} ({@skill Athletics}) lub zaatakować. Ma AC 17; 50 punktów wytrzymałości; oraz odporność na ogień, kłucie, truciznę, obrażenia psychiczne, tnące i pioruny."
+                    "Pokój przestanie się walić, jeśli dźwignia w obszarze 38A zostanie podniesiona lub jeśli południowe drzwi zostaną otwarte lub zniszczone. Zamki do drzwi są ukryte w ścianach i nie można ich otworzyć za pomocą {@item thieves' tools|PHB}, a do ich odblokowania potrzeba trzech oddzielnych zaklęć {@spell knock}. Drzwi można również otworzyć wyważeniem po udanym teście Siły {@dc 26} ({@skill Athletics}) lub zaatakować. Ma AC 17; 50 punktów wytrzymałości; oraz odporność na ogień, kłucie, truciznę, obrażenia psychiczne, sieczne i pioruny."
                   ]
                 }
               ]
@@ -40794,7 +40796,7 @@
                   "page": 153,
                   "id": "3f3",
                   "entries": [
-                    "Dwa posągi zwrócone w stronę dołu przedstawiają Azutha (boga magii) i Torma (boga odwagi i poświęcenia). Obydwa można zidentyfikować za pomocą udanego testu {@dc 12} Intelligence ({@skill Religion}). Zaklęcie {@spell detect magic} lub podobny efekt ujawnia aurę magii wyrzeczenia się wokół każdego posągu.",
+                    "Dwa posągi zwrócone w stronę dołu przedstawiają Azutha (boga magii) i Torma (boga odwagi i poświęcenia). Obydwa można zidentyfikować za pomocą udanego testu {@dc 12} Inteligencja ({@skill Religion}). Zaklęcie {@spell detect magic} lub podobny efekt ujawnia aurę magii wyrzeczenia się wokół każdego posągu.",
                     "Każde badanie cokołów ujawnia, że ​​każdy posąg jest osadzony na obrotowym, sprężynowym kole zębatym. Jeśli posąg Azutha zostanie obrócony w prawo, jedna istota znajdująca się w otchłani teleportuje się na trzeci cokół, odpychając na bok wszystkie inne stojące tam istoty. Jeśli w dole znajduje się wiele stworzeń, losowo określ, które stworzenie zostanie teleportowane. Obrócenie posągu Torma w prawo teleportuje wszystko na trzecim cokole lub nad nim do dołu. Nawet jeśli nic tam nie ma, słychać trzaskanie, gdy powietrze napływa, by wypełnić pustą przestrzeń. Kiedy obrócona statua zostanie wypuszczona, wraca do pozycji wyjściowej.",
                     "Gliniany golem ma rozkaz zaatakować każde stworzenie, które widzi i może dosięgnąć. Jeśli golem zostanie zniszczony, {@creature Withers|ToA} używa swojego {@item manual of golems} w {@area area 28|3aa|x}, aby po 30 dniach stworzyć nowy."
                   ]
@@ -40865,7 +40867,7 @@
                   "type": "list",
                   "items": [
                     "Golemy są odziane w zbroję płytową (KP 17).",
-                    "Dzięki kolczastym rękawicom strażnik grobowca zadaje 13 ({@dice 2d8 + 4}) obrażeń tłuczących plus 7 ({@dice 2d6}) obrażeń kłutych przy każdym udanym ataku Uderzenia.",
+                    "Dzięki kolczastym rękawicom strażnik grobowca zadaje 13 ({@dice 2d8 + 4}) obrażeń obuchowych plus 7 ({@dice 2d6}) obrażeń kłutych przy każdym udanym ataku Uderzenia.",
                     "Każdy strażnik grobowca ma poziom wyzwania 6 (2300 XP)."
                   ]
                 },
@@ -41030,7 +41032,7 @@
                   "page": 155,
                   "id": "40a",
                   "entries": [
-                    "Sarkofag zawiera parę {@item bracers of archery} i dwadzieścia kruchych strzał w gnijącym skórzanym kołczanie. Każda strzała rozbija się przy uderzeniu i zadaje tylko 1 obrażenia przebijające przy trafieniu. Rzeźby froghemotów zdobią karwasze, które utrzymują niepokojąco wilgotną skórę dowolnej postaci. Karwasze zamieniają się w pył i ulegają zniszczeniu, jeśli opuszczą Grobowiec Dziewięciu Bogów (ale zobacz „{@area Lost Treasures|525|x}”).",
+                    "Sarkofag zawiera parę {@item bracers of archery} i dwadzieścia kruchych strzał w gnijącym skórzanym kołczanie. Każda strzała rozbija się przy uderzeniu i zadaje tylko 1 obrażenia kłute przy trafieniu. Rzeźby froghemotów zdobią karwasze, które utrzymują niepokojąco wilgotną skórę dowolnej postaci. Karwasze zamieniają się w pył i ulegają zniszczeniu, jeśli opuszczą Grobowiec Dziewięciu Bogów (ale zobacz „{@area Lost Treasures|525|x}”).",
                     {
                       "type": "entries",
                       "name": "Duch Kubazan",
@@ -41097,7 +41099,7 @@
                         "Gnijąca głowa wielkiego dzika jest zamontowana na ścianie za ostatnią kurtyną. Świeża krew i krew tryskają z jego kłów, spływając po ścianie pod nim."
                       ]
                     },
-                    "Każdy humanoid, który widzi odciętą głowę dzika, musi wykonać rzut obronny na Mądrość {@dc 16} lub zostać przez niego {@condition charmed}. W swojej turze istota {@condition charmed} nie robi nic poza podejściem do odciętej głowy i włożeniem własnej głowy do paszczy dzika. Tylko jedna głowa może zmieścić się w ustach na raz. Jeśli paszcza dzika jest już pełna, stworzenie {@condition charmed} czeka cierpliwie, aż paszcza będzie wolna. Każde stworzenie, które zakończy swoją turę z głową w pysku dzika, otrzymuje 22 ({@dice 4d10}) obrażeń tnących, gdy szczęki dzika zaciskają się. Jeśli te obrażenia zmniejszą istotę do 0 punktów wytrzymałości, zostaje ona ścięta. Istota {@condition charmed} może powtórzyć rzut obronny za każdym razem, gdy otrzyma obrażenia, kończąc efekt na sobie. Gdy stworzenie pomyślnie obroni się przed tym efektem, głowa dzika nie może na nie wpłynąć przez 24 godziny.",
+                    "Każda humanoidalna istota, który widzi odciętą głowę dzika, musi wykonać rzut obronny na Mądrość {@dc 16} lub zostać przez niego {@condition charmed}. W swojej turze istota {@condition charmed} nie robi nic poza podejściem do odciętej głowy i włożeniem własnej głowy do paszczy dzika. Tylko jedna głowa może zmieścić się w ustach na raz. Jeśli paszcza dzika jest już pełna, stworzenie {@condition charmed} czeka cierpliwie, aż paszcza będzie wolna. Każde stworzenie, które zakończy swoją turę z głową w pysku dzika, otrzymuje 22 ({@dice 4d10}) obrażeń siecznych, gdy szczęki dzika zaciskają się. Jeśli te obrażenia zmniejszą istotę do 0 punktów wytrzymałości, zostaje ona ścięta. Istota {@condition charmed} może powtórzyć rzut obronny za każdym razem, gdy otrzyma obrażenia, kończąc efekt na sobie. Gdy stworzenie pomyślnie obroni się przed tym efektem, głowa dzika nie może na nie wpłynąć przez 24 godziny.",
                     "Zniszczenie Pana Uczty kończy jego efekt uroku na wszystkich stworzeniach. Głowa dzika to średni obiekt z KP 5 i 22 punktami wytrzymałości."
                   ]
                 },
@@ -41183,7 +41185,7 @@
                     "Żelazna kula jest pusta i nieruchoma i pozostaje obojętna, gdy zakrywa ją zasłona. Belchorzh może w dowolnym momencie użyć swojego telekinetycznego promienia oka, aby zdjąć zasłonę, odsłaniając kulę i powodując wyemitowanie przez nią magicznego pola magnetycznego. Każde stworzenie w pomieszczeniu noszące metalową zbroję jest przyciągane do kuli i przykleja się do niej, podobnie jak każda metalowa broń lub przedmiot, który nie jest zabezpieczony lub trzymany. Każde stworzenie przyklejone do kuli to {@condition restrained}, dopóki pole magnetyczne nie przestanie działać.",
                     "Każdy atak dystansowy wykonany w komorze, w którym wykorzystuje się amunicję wykonaną w całości lub częściowo z metalu, ma wadę w rzucie ataku; jeśli atak nie powiedzie się, amunicja przyklei się do kuli.",
                     "Zarzucenie czarnej zasłony na kulę czyni ją tymczasowo bezwładną, a przyklejone do niej stworzenia i przedmioty spadają na podłogę. Udane rzucenie {@spell dispel magic} ({@dc 16}) na kulę rozprasza zaklęcie {@spell Nystul's magic aura}, trwale dezaktywuje pole magnetyczne i powoduje, że kula rozbija się o podłogę. To powoduje powstanie sieci pęknięć w marmurze, niwelując efekt braku tarcia podłogi i umożliwiając stworzeniom normalne poruszanie się po niej. Kula również dezaktywuje się i opada, jeśli wejdzie w kontakt z {@spell antimagic field} lub zostanie zniszczona.",
-                    "Kula jest dużym obiektem o KP 20; 100 punktów wytrzymałości; odporność na obrażenia tłuczone, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Waży 1000 funtów. Kiedy pole magnetyczne jest aktywne, każdy atak wykonany na kulę za pomocą metalowej broni automatycznie trafia, choć po uderzeniu broń przykleja się do kuli."
+                    "Kula jest dużym obiektem o KP 20; 100 punktów wytrzymałości; odporność na obrażenia obuchowe, kłujące i sieczne od ataków niemagicznych; oraz odporność na trucizny i obrażenia psychiczne. Waży 1000 funtów. Kiedy pole magnetyczne jest aktywne, każdy atak wykonany na kulę za pomocą metalowej broni automatycznie trafia, choć po uderzeniu broń przykleja się do kuli."
                   ]
                 },
                 {
@@ -42030,8 +42032,8 @@
                   "height": 624
                 },
                 "Cztery {@creature Giant Four-Armed Gargoyle|ToA|gigantyczne czteroramienne gargulce} (patrz {@adventure appendix D|ToA|9}) umieszczono na szczycie cokołu, każdy przykucnięty w kwadracie wyłożonym kafelkami ze szlachetnego metalu. Gargulce pozostają w bezruchu, dopóki nie zostaną sprowokowane.",
-                "Szczeliny w każdym cokole znajdują się 4 stopy nad podłogą i mają mniej więcej rozmiar standardowej monety. Wszystkie humanoidy muszą zapłacić dziesięcinę przed opuszczeniem tego pokoju, aby uniknąć sprowokowania gniewu gargulców. Konkretnie, każdy humanoid musi włożyć monetę odpowiedniego rodzaju do każdego cokołu (1 pp na północnym cokole, 1 sp na wschodnim cokole, 1 sz na południowym cokole i 1 pp na zachodnim cokole). Gargulec zawsze przyjmie cenniejszą monetę niż wymagana, więc postać wkładająca platynową monetę do każdego cokołu będzie mogła bezpiecznie opuścić pomieszczenie. Gargulec przyjmie także dziesięcinę składającą się z wielu monet o tej samej lub większej wartości (na przykład 10 cp zamiast 1 sp na wschodnim cokole). Cokoły mają puste wnęki do przechowywania monet (patrz „Skarb” poniżej).",
-                "Gargulce zawsze wiedzą, kiedy są oszukiwane. Jeśli jakikolwiek humanoid opuści pokój, nie oferując wystarczającej ilości monet, oszukane gargulce ożywają i atakują skąpca. Gargulec również ożywa i atakuje, jeśli on sam lub jego cokół zostanie w jakikolwiek sposób uszkodzony. Metalowe płytki na cokołach można poluzować, ale po wyjęciu z tej komory rozsypią się w pył.",
+                "Szczeliny w każdym cokole znajdują się 4 stopy nad podłogą i mają mniej więcej rozmiar standardowej monety. Wszystkie humanoidalne istoty muszą zapłacić dziesięcinę przed opuszczeniem tego pokoju, aby uniknąć sprowokowania gniewu gargulców. Konkretnie, każdy humanoidalna istota musi włożyć monetę odpowiedniego rodzaju do każdego cokołu (1 pp na północnym cokole, 1 sp na wschodnim cokole, 1 sz na południowym cokole i 1 pp na zachodnim cokole). Gargulec zawsze przyjmie cenniejszą monetę niż wymagana, więc postać wkładająca platynową monetę do każdego cokołu będzie mogła bezpiecznie opuścić pomieszczenie. Gargulec przyjmie także dziesięcinę składającą się z wielu monet o tej samej lub większej wartości (na przykład 10 cp zamiast 1 sp na wschodnim cokole). Cokoły mają puste wnęki do przechowywania monet (patrz „Skarb” poniżej).",
+                "Gargulce zawsze wiedzą, kiedy są oszukiwane. Jeśli jakikolwiek humanoidalna istota opuści pokój, nie oferując wystarczającej ilości monet, oszukane gargulce ożywają i atakują skąpca. Gargulec również ożywa i atakuje, jeśli on sam lub jego cokół zostanie w jakikolwiek sposób uszkodzony. Metalowe płytki na cokołach można poluzować, ale po wyjęciu z tej komory rozsypią się w pył.",
                 {
                   "type": "entries",
                   "name": "Wał",
@@ -42227,7 +42229,7 @@
                       "id": "436",
                       "entries": [
                         "Opadający piasek wypełnia pomieszczenie w tempie 6 cali na rundę, zamieniając podłogę w {@quickref difficult terrain||3} po 1 rundzie. Każda postać, która może dosięgnąć sufitu, może użyć akcji, aby wypchać kilka dziur szmatką lub woskiem, spowalniając piasek o 1 cal na rundę. Jeśli piasek osiągnie głębokość 12 cali, podłoga pęknie wzdłuż szwu. Kiedy dół się otwiera, połowa podłogi odchyla się w dół na zachód, a druga połowa opada na wschód, a piasek przestaje opadać. Półka o szerokości 6 cali otacza dół ze wszystkich stron. Każde stworzenie stojące na podłodze po otwarciu musi wykonać {@dc 15} rzut obronny na Zręczność; ci, którzy stoją wzdłuż ścian, mają przewagę w obronie. Po udanym rzucie obronnym istota znajduje oparcie na półce. Stworzenie, któremu nie powiedzie się rzut obronny, upada.",
-                        "W dole o głębokości 3 metrów znajdują się dwa gigantyczne kamienne walce z zazębiającymi się kamiennymi zębami. Wszystko, co jest większe niż ziarenko piasku, zostaje przeżute pomiędzy tymi rolkami, zadając 132 ({@dice 24d10}) obrażeń od siły. Każde stworzenie zredukowane do 0 punktów wytrzymałości w wyniku tych obrażeń zostaje zmielone na miazgę. Stworzenie, które przejdzie przez rolki, mając przynajmniej 1 punkt wytrzymałości, ląduje na żelaznej kratce 5 stóp poniżej młynów. W jedną ze ścian nad kratą osadzony jest kamienny guzik, widoczny jedynie dla istot znajdujących się pod rolkami. Po naciśnięciu przycisku rolki przestają się obracać i cofają w ściany, umożliwiając stworzeniom, które przeżyły straszliwą pułapkę, wydostanie się na zewnątrz po udanym teście Siły {@dc 15} ({@skill Athletics}).",
+                        "W dole o głębokości 3 metrów znajdują się dwa gigantyczne kamienne walce z zazębiającymi się kamiennymi zębami. Wszystko, co jest większe niż ziarenko piasku, zostaje przeżute pomiędzy tymi rolkami, zadając 132 ({@dice 24d10}) obrażeń od mocy. Każde stworzenie zredukowane do 0 punktów wytrzymałości w wyniku tych obrażeń zostaje zmielone na miazgę. Stworzenie, które przejdzie przez rolki, mając przynajmniej 1 punkt wytrzymałości, ląduje na żelaznej kratce 5 stóp poniżej młynów. W jedną ze ścian nad kratą osadzony jest kamienny guzik, widoczny jedynie dla istot znajdujących się pod rolkami. Po naciśnięciu przycisku rolki przestają się obracać i cofają w ściany, umożliwiając stworzeniom, które przeżyły straszliwą pułapkę, wydostanie się na zewnątrz po udanym teście Siły {@dc 15} ({@skill Athletics}).",
                         "Jama znajduje się w obrębie komórki {@spell antimagic field}, więc zaklęcia i efekty magiczne, które w przeciwnym razie mogłyby pozwolić postaci na przetrwanie walców lub wejście do jamy, nie będą działać."
                       ]
                     },
@@ -42282,7 +42284,7 @@
                   "id": "43b",
                   "entries": [
                     "Trzy runy teleportacyjne są wyryte na podłodze wzdłuż północnej, wschodniej i południowej ściany grobowca. Zaklęcie {@spell detect magic} lub podobny efekt ujawnia, że ​​każda runa ma inną aurę - silną, stałą magię przywoływania ze wschodniej runy; migocząca magia przywoływania z północnej runy; oraz połączenie magii przywoływania i transmutacji z południowej runy.",
-                    "Ilekroć stworzenie teleportuje się do grobowca, rzuć {@dice d6}, aby określić, na której runie się pojawi: 1-2, runa północy; 3-4, runa wschodnia; 5-6, runa południowa. Jeśli więcej niż jedno stworzenie zostanie teleportowane do tej samej runy, poprzednie stworzenie zostanie nieszkodliwie zepchnięte z runy, gdy pojawi się nowe stworzenie. Dodatkowo runa północy działa nieprawidłowo i każde stworzenie, które tam dotrze, otrzymuje 18 ({@dice 4d8}) obrażeń od siły.",
+                    "Ilekroć stworzenie teleportuje się do grobowca, rzuć {@dice d6}, aby określić, na której runie się pojawi: 1-2, runa północy; 3-4, runa wschodnia; 5-6, runa południowa. Jeśli więcej niż jedno stworzenie zostanie teleportowane do tej samej runy, poprzednie stworzenie zostanie nieszkodliwie zepchnięte z runy, gdy pojawi się nowe stworzenie. Dodatkowo runa północy działa nieprawidłowo i każde stworzenie, które tam dotrze, otrzymuje 18 ({@dice 4d8}) obrażeń od mocy.",
                     "Każde stworzenie, które poruszy się spoza runy na jej pole, zostaje natychmiast teleportowane do {@area area 50|44c|x}. Stworzenie, które używa runy południowej do teleportacji, również ulega polimorfii w losową bestię, tak jakby nie udało mu się wykonać rzutu obronnego na zaklęcie {@spell polymorph}. Rzuć {@dice d4}, aby określić nową formę: 1, {@creature baboon}; 2, {@creature bat}; 3, {@creature flying snake}; 4, {@creature quipper}."
                   ]
                 },
@@ -42367,7 +42369,7 @@
                       "type": "insetReadaloud",
                       "id": "444",
                       "entries": [
-                        "Kamienna płyta blokuje koniec tego korytarza. Na płycie namalowany jest wizerunek wychudzonego humanoida ubranego w płaszcz z kapturem, a jego twarz przypomina maskę gwiazd. Uschnięta lewa ręka postaci jest uniesiona z wyciągniętą dłonią."
+                        "Kamienna płyta blokuje koniec tego korytarza. Na płycie namalowany jest wizerunek wychudzonego humanoidalną istotę ubranego w płaszcz z kapturem, a jego twarz przypomina maskę gwiazd. Uschnięta lewa ręka postaci jest uniesiona z wyciągniętą dłonią."
                       ]
                     },
                     "Kamienne płyty są odporne na obrażenia i zaklęcia i są tak dobrze dopasowane, że nawet stworzenia w postaci gazowej nie mogą się obok nich prześliznąć. Jeśli jakakolwiek postać stoi przed płytą i podnosi lewą rękę z wyciągniętą dłonią, obie płyty otwierają się w tym samym czasie, niezależnie od wszelkich wysiłków podjętych, aby im to uniemożliwić. Kiedy tak się stanie, przeczytaj:",
@@ -42375,7 +42377,7 @@
                       "type": "insetReadaloud",
                       "id": "445",
                       "entries": [
-                        "Płyta zagłębia się w podłogę, odsłaniając zakurzone przejście. Płaskorzeźby na ścianach przedstawiają tłumy humanoidów uciekających przed czarną gwiazdą na niebie, z której wystają promienie światła, które zamieniają w pył tych, których uderzą."
+                        "Płyta zagłębia się w podłogę, odsłaniając zakurzone przejście. Płaskorzeźby na ścianach przedstawiają tłumy humanoidalnych istot uciekających przed czarną gwiazdą na niebie, z której wystają promienie światła, które zamieniają w pył tych, których uderzą."
                       ]
                     },
                     "Jeśli kamienne płyty zostaną podniesione, aby ponownie zamknąć wyjścia (patrz obszar 49C), postacie w labiryncie zobaczą drugi obraz na wewnętrznej powierzchni każdej płyty:",
@@ -42383,7 +42385,7 @@
                       "type": "insetReadaloud",
                       "id": "446",
                       "entries": [
-                        "Po wewnętrznej stronie płyty namalowany jest humanoid płci męskiej ubrany w płaszcz z kapturem, ponownie z gwiazdami w miejscu, gdzie powinna znajdować się jego twarz. Postać podnosi prawą rękę, która jest starannie odcięta w łokciu."
+                        "Po wewnętrznej stronie płyty namalowany jest humanoidalna istota płci męskiej ubrany w płaszcz z kapturem, ponownie z gwiazdami w miejscu, gdzie powinna znajdować się jego twarz. Postać podnosi prawą rękę, która jest starannie odcięta w łokciu."
                       ]
                     },
                     "Obraz ten jest widoczny tylko wtedy, gdy płyty znajdują się w pozycji uniesionej. Z wnętrza labiryntu postać może sprawić, że obie płyty opadną z powrotem na podłogę, stojąc przed którąkolwiek z nich i trzymając prawą rękę w górze - pod warunkiem, że ta ręka jest odcięta w łokciu. Nie ma znaczenia, w jaki sposób ramię zostanie odcięte, ale jednym ze sposobów jest wbicie go w {@item sphere of annihilation} w obszarze 49B."
@@ -42793,7 +42795,7 @@
                   "id": "463",
                   "entries": [
                     "Kula z litego granitu o średnicy 5 stóp balansuje w sekretnym schowku na szczycie schodów. Znalezienie przedziału wymaga, aby postać przeszukała sufit tunelu i pomyślnie przeszła test {@dc 15} Mądrości ({@skill Perception}). Właz można zablokować żelaznym kolcem lub pomyślnym testem Zręczności {@dc 20} wykonanym przy użyciu {@item thieves' tools|PHB}.",
-                    "Po wypuszczeniu kamienna kula spada z hukiem po schodach i wpada do dołu o temperaturze 54°C. Dowolna postać na schodach lub w tunelu poniżej może wyprzedzić piłkę, biegnąc w stronę dołu. Postać może również przeskoczyć piłkę po udanym teście Zręczności {@dc 15} ({@skill Acrobatics}). Każda postać, która nie przejdzie testu lub nie może usunąć się z drogi piłki, zostaje uderzona zadając 22 ({@dice 4d10}) obrażeń tłuczących i powalona {@condition prone}. Piłka spłaszcza także skrzynię ze skarbami (54A), gdy się przez nią przewraca."
+                    "Po wypuszczeniu kamienna kula spada z hukiem po schodach i wpada do dołu o temperaturze 54°C. Dowolna postać na schodach lub w tunelu poniżej może wyprzedzić piłkę, biegnąc w stronę dołu. Postać może również przeskoczyć piłkę po udanym teście Zręczności {@dc 15} ({@skill Acrobatics}). Każda postać, która nie przejdzie testu lub nie może usunąć się z drogi piłki, zostaje uderzona zadając 22 ({@dice 4d10}) obrażeń obuchowych i powalona {@condition prone}. Piłka spłaszcza także skrzynię ze skarbami (54A), gdy się przez nią przewraca."
                   ]
                 },
                 {
@@ -42864,7 +42866,7 @@
                     },
                     "Postacie stojące w pobliżu rzeźby na ścianie widzą postacie uwięzione w labiryncie, ale ich nie słyszą. Podobnie postacie w labiryncie mogą widzieć gigantyczne, zniekształcone wersje dowolnych stworzeń stojących w promieniu 3 stóp od rzeźby na ścianie, ale nie słyszą niczego poza labiryntem.",
                     "Konfiguracja labiryntu stale się zmienia, aby zapewnić, że postacie w nim pozostają oddzielone i nie mogą się odnaleźć. Widoczność w labiryncie jest ograniczona do 20 stóp z powodu kłębiącej się mgły. Zaklęcia, które są zmieniane w grobowcu, są podobnie zmieniane w labiryncie (patrz „{@area Spell Restrictions|31f|x}”).",
-                    "Po ścianach labiryntu można się wspiąć po pomyślnym teście Siły {@dc 20} ({@skill Athletics}). Każda postać, która wspina się na szczyt ścian lub przelatuje poza nimi, zostaje wydalona z labiryntu, otrzymując 22 ({@dice 5d8}) obrażeń od siły i pojawia się ponownie z głośnym trzaskiem w niezajętym miejscu w pobliżu rzeźby na ścianie.",
+                    "Po ścianach labiryntu można się wspiąć po pomyślnym teście Siły {@dc 20} ({@skill Athletics}). Każda postać, która wspina się na szczyt ścian lub przelatuje poza nimi, zostaje wydalona z labiryntu, otrzymując 22 ({@dice 5d8}) obrażeń od mocy i pojawia się ponownie z głośnym trzaskiem w niezajętym miejscu w pobliżu rzeźby na ścianie.",
                     {
                       "type": "entries",
                       "name": "Znalezienie klucza",
@@ -42992,7 +42994,7 @@
                       "page": 167,
                       "id": "473",
                       "entries": [
-                        "Odbiorca otrzymuje {@reward charm of the crystal heart|ToA}. Amulet ten zapewnia odporność na obrażenia kłute i tnące od ataków niemagicznych, ale zyskujesz podatność na obrażenia obuchowe. Efekty te utrzymują się przez 10 dni, po czym urok znika."
+                        "Odbiorca otrzymuje {@reward charm of the crystal heart|ToA}. Amulet ten zapewnia odporność na obrażenia kłute i sieczne od ataków niemagicznych, ale zyskujesz podatność na obrażenia obuchowe. Efekty te utrzymują się przez 10 dni, po czym urok znika."
                       ]
                     },
                     {
@@ -43028,7 +43030,7 @@
                       "page": 167,
                       "id": "477",
                       "entries": [
-                        "Odbiorca otrzymuje {@reward charm of the ghoul|ToA}. Amulet ten pozwala ci na zjedzenie kęsem mięsa humanoida, który nie żyje dłużej niż 1 dzień. Kiedy to zrobisz, odzyskasz punkty wytrzymałości {@dice 3d8 + 3}. Po trzykrotnym użyciu czar znika."
+                        "Odbiorca otrzymuje {@reward charm of the ghoul|ToA}. Amulet ten pozwala ci na zjedzenie kęsem mięsa humanoidalną istotę, która nie żyje dłużej niż 1 dzień. Kiedy to zrobisz, odzyskasz punkty wytrzymałości {@dice 3d8 + 3}. Po trzykrotnym użyciu czar znika."
                       ]
                     }
                   ]
@@ -43102,7 +43104,7 @@
                     "Docierasz do pokoju w połowie wypełnionego gnijącymi zwłokami. Z jednej ze ścian wystaje wielka, zielona twarz diabła z rozszerzonymi nozdrzami osadzonymi tuż nad gnijącą masą. Kinkiet nad twarzą podtrzymuje migoczącą pochodnię."
                   ]
                 },
-                "Pochodnia płonie zaklęciem {@spell continual flame}, oświetlając zwłoki humanoidów, które wypełniają pomieszczenie na głębokość 6 stóp i tworzą obszar {@quickref difficult terrain||3}. W razie potrzeby magia {@creature Acererak|ToA} przyciąga tu nowe zwłoki z cmentarzy na całym świecie, wszystkie w różnych stanach rozkładu.",
+                "Pochodnia płonie zaklęciem {@spell continual flame}, oświetlając zwłoki humanoidalnych istot, które wypełniają pomieszczenie na głębokość 6 stóp i tworzą obszar {@quickref difficult terrain||3}. W razie potrzeby magia {@creature Acererak|ToA} przyciąga tu nowe zwłoki z cmentarzy na całym świecie, wszystkie w różnych stanach rozkładu.",
                 "{@creature otyugh} żeruje na zwłokach i obecnie jest zakopany pod hałdą w południowo-zachodnim narożniku. Każda postać, która pomyślnie zaliczy test {@dc 14} Mądrości ({@skill Perception}), dostrzega szypułkę oka stworzenia wystającą ponad cuchnącą masę. Otyugh chętnie atakuje samotną postać, ale unika konfrontacji z wieloma wrogami. Po zabiciu otyugh nie jest zastępowany.",
                 {
                   "type": "entries",
@@ -44514,7 +44516,7 @@
                   "page": 168,
                   "id": "482",
                   "entries": [
-                    "W niektórych obszarach podłogę pokrywają kałuże lepkiego, szarego śluzu, jak zaznaczono na mapie 5.5. Obszary te to {@quickref difficult terrain||3} i każde stworzenie, które rozpoczyna swoją turę w kałuży szlamu lub wchodzi z nią w kontakt po raz pierwszy w turze, otrzymuje 5 ({@dice 1d10}) obrażeń psychicznych. Kałuża śluzu zostaje zniszczona, jeśli otrzyma obrażenia od zimna, promieniowania lub nekrozy. Jest odporny na wszystkie inne rodzaje obrażeń."
+                    "W niektórych obszarach podłogę pokrywają kałuże lepkiego, szarego śluzu, jak zaznaczono na mapie 5.5. Obszary te to {@quickref difficult terrain||3} i każde stworzenie, które rozpoczyna swoją turę w kałuży szlamu lub wchodzi z nią w kontakt po raz pierwszy w turze, otrzymuje 5 ({@dice 1d10}) obrażeń psychicznych. Kałuża śluzu zostaje zniszczona, jeśli otrzyma obrażenia od zimna, promieniste lub nekrozy. Jest odporny na wszystkie inne rodzaje obrażeń."
                   ]
                 },
                 {
@@ -44641,7 +44643,7 @@
                       "type": "insetReadaloud",
                       "id": "491",
                       "entries": [
-                        "Gdy drzwi się otwierają, atakują cię fale gorąca, odsłaniając żelazną drogę prowadzącą do bazaltowej cytadeli otoczonej zwęglonymi pozostałościami pokonanych armii. Więźniowie krzyczą z żelaznych szubienic zdobiących ściany cytadeli. Nagle z szafy wylatuje pojedynczy żarzący się żar i przemienia się w skrzydlatego, kościstego potwora z uśmiechniętym obliczem przypominającym czaszkę."
+                        "Gdy drzwi się otwierają, atakują cię fale gorąca, odsłaniając żelazną drogę prowadzącą do bazaltowej cytadeli otoczonej zwęglonymi pozostałościami pokonanych armii. Więźniowie krzyczą z żelaznych szubienic zdobiących ściany cytadeli. Nagle z szafy wylatuje pojedynczy żarzący się żar i przemienia się w skrzydlatego, kościstego czarta z uśmiechniętym obliczem przypominającym czaszkę."
                       ]
                     },
                     "Otwarcie szafy przywołuje {@creature bone devil}. Kiedy umiera, jego ciało zamienia się w kałużę śmierdzącej posoki."
@@ -44712,7 +44714,7 @@
                   "page": 170,
                   "id": "498",
                   "entries": [
-                    "Panel sterowania to średni obiekt z KP 15, progiem obrażeń wynoszącym 10, 15 punktów wytrzymałości oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie panelu wyłącza sterowanie i powoduje, że z żelaznej mównicy na chwilę wybuchają łuki błyskawic. Każde stworzenie w pomieszczeniu musi wykonać pomyślny rzut obronny na Zręczność {@dc 16}, w przeciwnym razie zostanie uderzone piorunem i otrzyma 11 ({@dice 2d10}) obrażeń od błyskawic.",
+                    "Panel sterowania to średni obiekt z KP 15, progiem obrażeń wynoszącym 10, 15 punktów wytrzymałości oraz odpornością na trucizny i obrażenia psychiczne. Zniszczenie panelu wyłącza sterowanie i powoduje, że z żelaznej mównicy na chwilę wybuchają łuki błyskawic. Każde stworzenie w pomieszczeniu musi wykonać pomyślny rzut obronny na Zręczność {@dc 16}, w przeciwnym razie zostanie uderzone piorunem i otrzyma 11 ({@dice 2d10}) obrażeń od pioruna.",
                     "Elementy sterujące na żelaznej mównicy nie mają etykiet, więc ich przeznaczenie należy odkryć w drodze eksperymentów.",
                     {
                       "type": "entries",
@@ -44750,7 +44752,7 @@
                       "page": 171,
                       "id": "49c",
                       "entries": [
-                        "Naciśnięcie czerwonego przycisku powoduje, że z sufitu w drzwiach spada żelazna ściana o grubości 6 cali, zamykając wschodnie wyjście. Każda istota w drzwiach, gdy ściana się zawali, musi wykonać rzut obronny na {@dc 15} na Zręczność. W przypadku udanego rzutu obronnego, istota zostaje zepchnięta na jedną lub drugą stronę bariery (według własnego wyboru). W przypadku nieudanego rzutu obronnego, stworzenie zostaje przygwożdżone pod ścianą, upada {@condition prone} i otrzymuje 44 ({@dice 8d10}) obrażeń tłuczących. Przygwożdżona istota to {@condition restrained}, nie może wstać i otrzymuje 11 ({@dice 2d10}) obrażeń tłuczących na początku każdej swojej tury, dopóki nie wypełznie spod drzwi lub inne stworzenie nie wyciągnie jej na wolność, przy czym obydwie te sytuacje wymagają akcji i udanego testu Siły {@dc 25} ({@skill Athletics}). Żelazna ściana pozostaje zablokowana na miejscu przez 1 godzinę, po czym sama wznosi się z powrotem do sufitu. Nie można go podnieść ani otworzyć, chociaż zaklęcie {@spell knock} powoduje, że wsuwa się w sufit. Gdy żelazna ściana jest opuszczona, naciśnięcie czerwonego przycisku nie daje żadnego efektu."
+                        "Naciśnięcie czerwonego przycisku powoduje, że z sufitu w drzwiach spada żelazna ściana o grubości 6 cali, zamykając wschodnie wyjście. Każda istota w drzwiach, gdy ściana się zawali, musi wykonać rzut obronny na {@dc 15} na Zręczność. W przypadku udanego rzutu obronnego, istota zostaje zepchnięta na jedną lub drugą stronę bariery (według własnego wyboru). W przypadku nieudanego rzutu obronnego, stworzenie zostaje przygwożdżone pod ścianą, upada {@condition prone} i otrzymuje 44 ({@dice 8d10}) obrażeń obuchowych. Przygwożdżona istota to {@condition restrained}, nie może wstać i otrzymuje 11 ({@dice 2d10}) obrażeń obuchowych na początku każdej swojej tury, dopóki nie wypełznie spod drzwi lub inne stworzenie nie wyciągnie jej na wolność, przy czym obydwie te sytuacje wymagają akcji i udanego testu Siły {@dc 25} ({@skill Athletics}). Żelazna ściana pozostaje zablokowana na miejscu przez 1 godzinę, po czym sama wznosi się z powrotem do sufitu. Nie można go podnieść ani otworzyć, chociaż zaklęcie {@spell knock} powoduje, że wsuwa się w sufit. Gdy żelazna ściana jest opuszczona, naciśnięcie czerwonego przycisku nie daje żadnego efektu."
                       ]
                     },
                     {
@@ -44823,7 +44825,7 @@
                       "type": "insetReadaloud",
                       "id": "4a3",
                       "entries": [
-                        "Duże kałuże szarego szlamu rozlewały się po podłodze tego szerokiego na trzy metry, delikatnie nachylonego korytarza. Świece migoczą na nitowanych kinkietach, rzucając {@quickref Vision and Light||2||dim light} na sekwencję rzeźbionych płaskorzeźb przedstawiających humanoidy o zwierzęcych głowach klęczących przed czarną gwiazdą. W dolnym końcu korytarza od ściany do ściany wisi gruba fioletowa zasłona. W górnym końcu korytarz się kończy."
+                        "Duże kałuże szarego szlamu rozlewały się po podłodze tego szerokiego na trzy metry, delikatnie nachylonego korytarza. Świece migoczą na nitowanych kinkietach, rzucając {@quickref Vision and Light||2||dim light} na sekwencję rzeźbionych płaskorzeźb przedstawiających humanoidalne istoty o zwierzęcych głowach klęczących przed czarną gwiazdą. W dolnym końcu korytarza od ściany do ściany wisi gruba fioletowa zasłona. W górnym końcu korytarz się kończy."
                       ]
                     },
                     "Hol opada w dół w kierunku obszaru 62C. Obszar 62D leży na zachodzie, za sekretnymi drzwiami, które rozciągają się na całą ścianę (więcej informacji znajdziesz w tym obszarze).",
@@ -44842,7 +44844,7 @@
                       "page": 172,
                       "id": "4a5",
                       "entries": [
-                        "Korytko, ukryte za płaskorzeźbą przedstawiającą humanoida z głową krokodyla trzymającego trapezoidalną klatkę piersiową, prowadzi do obszaru 62D. Dokładne oględziny płaskorzeźby ujawniają, że dziurka od klucza w skrzyni jest prawdziwa. Jadeitowy klucz znaleziony w {@area area 53|459|x} może zostać użyty do odblokowania reliefu i otwarcia go, odsłaniając przejście. Zamek można również otworzyć po udanym teście Zręczności {@dc 21} wykonanym przez postać korzystającą z {@item thieves' tools|PHB}. Jeśli jednak test zakończy się niepowodzeniem o 5 lub więcej, sekretne drzwi w zachodniej ścianie rozsuną się, uwalniając kamiennego molocha (patrz „Przebudzenie Napaki” w obszarze 62D)."
+                        "Korytko, ukryte za płaskorzeźbą przedstawiającą humanoidalną istotę z głową krokodyla trzymającego trapezoidalną klatkę piersiową, prowadzi do obszaru 62D. Dokładne oględziny płaskorzeźby ujawniają, że dziurka od klucza w skrzyni jest prawdziwa. Jadeitowy klucz znaleziony w {@area area 53|459|x} może zostać użyty do odblokowania reliefu i otwarcia go, odsłaniając przejście. Zamek można również otworzyć po udanym teście Zręczności {@dc 21} wykonanym przez postać korzystającą z {@item thieves' tools|PHB}. Jeśli jednak test zakończy się niepowodzeniem o 5 lub więcej, sekretne drzwi w zachodniej ścianie rozsuną się, uwalniając kamiennego molocha (patrz „Przebudzenie Napaki” w obszarze 62D)."
                       ]
                     }
                   ]
@@ -45235,7 +45237,7 @@
                     },
                     "{@creature pentadrone} prowadzi dziewięcioosobową drużynę {@creature Quadrone||kwadrony} przez górny płaski wir, który umożliwia bezpieczne przejście do szybu, ale nie z niego. Wiedząc, że nie mogą wrócić do Mechanusa, modrony walczą, dopóki nie zostaną zniszczone. Gdy uporamy się z tymi modronami, szyb staje się niebroniony. Żadne inne modrony nie są wysyłane przez wir.",
                     "Pentadron nie może latać samodzielnie, ale zyskuje prędkość lotu 30 stóp i może unosić się w powietrzu, gdy jest zamknięty w kryształowym dziesięciościanie, który zapewnia jego pasażerowi {@quickref Cover||3||total cover} przed atakami mającymi swoje źródło na zewnątrz pojazdu. Pentadron nie może atakować wręcz przez dziesięciościan, ale może skorzystać z akcji dodatkowej, aby otworzyć małą dziurę w dowolnej ściance dziesięciościanu, aby spryskać stworzenia gazem paraliżującym.",
-                    "Dziesięciościan ma KP 16, 50 punktów wytrzymałości, odporność na obrażenia od trucizn, odporność na obrażenia kłute i tnące oraz podatność na obrażenia od obuchów i piorunów. Jeśli spadnie do 0 punktów wytrzymałości, kryształowy dziesięciościan rozpadnie się, a pentadron spadnie.",
+                    "Dziesięciościan ma KP 16, 50 punktów wytrzymałości, odporność na obrażenia od trucizn, odporność na obrażenia kłute i sieczne oraz podatność na obrażenia od obuchów i piorunów. Jeśli spadnie do 0 punktów wytrzymałości, kryształowy dziesięciościan rozpadnie się, a pentadron spadnie.",
                     "Kryształowy dziesięciościan ma wystarczająco dużo miejsca, aby pomieścić jedno małe lub średnie stworzenie oprócz pentadronu, jeśli postać myśli o wejściu do pojazdu za pomocą {@spell misty step}, {@spell dimension door} lub podobnej magii. Wewnątrz pojazdu pentadron może normalnie atakować. Kiedy pentadron umiera, dziesięciościan rozpada się."
                   ]
                 },
@@ -45275,7 +45277,7 @@
                   "type": "insetReadaloud",
                   "id": "4d0",
                   "entries": [
-                    "Komora ta zawiera urządzenie z brązu, którego środek znajduje się na przegubowym ramieniu. W ramieniu powoli obraca się kula ziemska o średnicy 3 metrów, ozdobiona mapą topograficzną form lądowych i oceanów. Koncentryczne pierścienie z mosiądzu utrzymują urządzenie, wszystkie obracają się i mają własne mniejsze kule. Jedna z tych kul ma ostre punkty i wygląda jak słońce. Rzeźby wysokich, bezgłowych humanoidów zdobią ściany pokoju."
+                    "Komora ta zawiera urządzenie z brązu, którego środek znajduje się na przegubowym ramieniu. W ramieniu powoli obraca się kula ziemska o średnicy 3 metrów, ozdobiona mapą topograficzną form lądowych i oceanów. Koncentryczne pierścienie z mosiądzu utrzymują urządzenie, wszystkie obracają się i mają własne mniejsze kule. Jedna z tych kul ma ostre punkty i wygląda jak słońce. Rzeźby wysokich, bezgłowych humanoidalnych istot zdobią ściany pokoju."
                   ]
                 },
                 "Sfera armilarna przedstawia Toril, jego księżyc, słońce i inne ciała planetarne w Przestrzeni Krainy. Każda postać, która oglądała wielkoskalowe mapy Faerunu, rozpozna pewne cechy geograficzne na kuli ziemskiej.",
@@ -45293,7 +45295,7 @@
                         "Urządzenie nagle się obraca, jego pierścienie odsuwają się, gdy powierzchnia globu odsuwa się, odsłaniając ciemne, puste wnętrze. Wewnątrz tej wnęki znajduje się wyściełane krzesło z brązu z dźwigniami wbudowanymi w podłokietniki."
                       ]
                     },
-                    "Kiedy stworzenie siada na fotelu armilarnym, kula ponownie się zamyka. Jakakolwiek próba zapobieżenia temu zamknięciu powoduje przeciążenie mechanizmu; dopóki blokada nie zostanie usunięta, każda istota w promieniu 5 stóp od sfery armilarnej, która nie siedzi na krześle, otrzymuje 18 ({@dice 4d8}) obrażeń od błyskawic.",
+                    "Kiedy stworzenie siada na fotelu armilarnym, kula ponownie się zamyka. Jakakolwiek próba zapobieżenia temu zamknięciu powoduje przeciążenie mechanizmu; dopóki blokada nie zostanie usunięta, każda istota w promieniu 5 stóp od sfery armilarnej, która nie siedzi na krześle, otrzymuje 18 ({@dice 4d8}) obrażeń od pioruna.",
                     "Kiedy istota siedząca na krześle wstanie, właz globusa otwiera się i zamyka ponownie tylko wtedy, gdy na krześle usiądzie inna istota lub gdy w promieniu 5 stóp od sfery armilarnej nie ma żadnych stworzeń.",
                     "Gdy kula jest zapieczętowana, postać siedząca na krześle może widzieć kulę tak, jakby była zrobiona z przezroczystego szkła. Pociągnięcie dźwigni na końcu każdego podłokietnika powoduje, że pierścienie sfery armilarnej obracają reprezentacje słońca, księżyca i innych ciał planetarnych w jednym lub drugim kierunku."
                   ]
@@ -46397,7 +46399,7 @@
                 "Mephit zna trzy słowa poleceń: „bloatbug”, „żaba ślina” i „spindledash”. Będąc w tym pomieszczeniu, może wypowiedzieć jedno słowo rozkazu jako akcję dodatkową w swojej turze, aktywując powiązany z nim efekt magiczny poniżej. Nie może wypowiedzieć tego samego słowa poleceń dwie rundy z rzędu.",
                 "{@b Bloatbug}: Mefit obiera za cel jedno stworzenie w promieniu 30 stóp od niego, które widzi, co natychmiast zwiększa jego wagę o 50 procent. Każde zaklęcie kończące klątwę, takie jak {@spell greater restoration} lub {@spell remove curse}, kończy efekt i przywraca stworzeniu jego normalną wagę.",
                 "{@b Żabi ślina}: Każde stworzenie w pomieszczeniu musi wykonać pomyślny rzut obronny na Kondycję {@dc 10} lub otrzymać 9 ({@dice 2d8}) obrażeń od trucizny. (Mephit jest odporny na obrażenia od trucizn.)",
-                "{@b Wrzeciono}: Efekt obiera za cel losowe stworzenie w pomieszczeniu. Niech gracze rzucą {@dice d20} dla każdej postaci w pokoju i {@dice d20} dla mephita i każdego innego stworzenia w pokoju. Którekolwiek stworzenie wyrzuci najniższy wynik, otrzymuje 21 ({@dice 6d6}) obrażeń od siły.",
+                "{@b Wrzeciono}: Efekt obiera za cel losowe stworzenie w pomieszczeniu. Niech gracze rzucą {@dice d20} dla każdej postaci w pokoju i {@dice d20} dla mephita i każdego innego stworzenia w pokoju. Którekolwiek stworzenie wyrzuci najniższy wynik, otrzymuje 21 ({@dice 6d6}) obrażeń od mocy.",
                 "Kiedy mefit pyłowy umiera, zapada się i przekształca w laskę czarnej kredy.",
                 {
                   "type": "entries",
@@ -46612,7 +46614,7 @@
                         "Życzliwy Moa chce uwolnić dusze uwięzione w Sprzedawcy Dusz.",
                         "Chciwa Nangnang namawia swojego gospodarza, aby przeszukał balkony i wypełnione kością wnęki w poszukiwaniu skarbów.",
                         "Nerwowy Obo'laka obawia się, że kości w północnych wnękach mogą unieść się i zaatakować.",
-                        "Sprytny Papazotl podejrzewa, że ​​atropal może być podatny na obrażenia od promieniowania i zabicie go może przywołać jego złego pana.",
+                        "Sprytny Papazotl podejrzewa, że ​​atropal może być podatny na obrażenia promieniste i zabicie go może przywołać jego złego pana.",
                         "Cnotliwa Shagambi uznaje, że atropal jest bezbożny i nakazuje swemu gospodarzowi natychmiastowe zniszczenie go.",
                         "Kontemplacyjna Unkh namawia swego gospodarza do nawiązania kontaktu z atropalem. Być może stworzenie zostało po prostu źle zrozumiane.",
                         "Obłąkany Wongo chce, aby jego gospodarz zaatakował macki wyrastające ze szczytu Sprzedawcy Dusz."
@@ -46635,7 +46637,7 @@
                       "page": 185,
                       "id": "4fe",
                       "entries": [
-                        "Jednym ze sposobów zniszczenia Soulmongera jest rozbicie dowolnej z trzech adamantytowych podpór, które zawieszają go nad lawą. Każda rozpórka jest dużym obiektem o KP 20; 100 punktów wytrzymałości; odporność na obrażenia tłuczone, kłute i sieczne od ataków niemagicznych; oraz odporność na ogień, truciznę i obrażenia psychiczne. Kiedy rozpórka spadnie do 0 punktów wytrzymałości, pęknie i spowoduje, że pozostałe dwie rozpórki pękną w wyniku upadku Soulmongera.",
+                        "Jednym ze sposobów zniszczenia Soulmongera jest rozbicie dowolnej z trzech adamantytowych podpór, które zawieszają go nad lawą. Każda rozpórka jest dużym obiektem o KP 20; 100 punktów wytrzymałości; odporność na obrażenia obuchowe, kłute i sieczne od ataków niemagicznych; oraz odporność na ogień, truciznę i obrażenia psychiczne. Kiedy rozpórka spadnie do 0 punktów wytrzymałości, pęknie i spowoduje, że pozostałe dwie rozpórki pękną w wyniku upadku Soulmongera.",
                         "Rozpórki są na tyle szerokie, że średnie i małe stworzenia mogą po nich bez problemu chodzić. Jednakże każda istota, która otrzyma obrażenia stojąc na podporze, musi wykonać rzut obronny na {@dc 10} na Zręczność, w przeciwnym razie spadnie z niej i zanurzy się w lawie, chyba że stwór jest w jakiś sposób zabezpieczony.",
                         "Jeśli nie zostanie ono odpowiednio zabezpieczone, każde stworzenie stojące na adamantytowej podporze, gdy podpora pęknie, wpadnie do lawy. Jeśli stworzenie znajduje się w zasięgu balkonu, może wskoczyć na balkon i uniknąć upadku dzięki udanemu rzutowi obronnemu na Zręczność {@dc 10}."
                       ]
@@ -46950,8 +46952,8 @@
                 },
                 "Biblioteka zawiera zgromadzoną mądrość stu mędrców, a także kilka ksiąg zaklęć i zwojów (patrz „Skarb” poniżej).",
                 "Zwłoki wiszące wzdłuż północnej ściany to szczątki trzech arcymagów, którzy próbowali wmieszać się w sprawy {@creature Acererak|ToA}. Pomyślny test {@dc 12} Mądrości ({@skill Medicine}) potwierdza, że ​​wszyscy trzej zmarli w ciągu ostatniego miesiąca, a przyczyną ich śmierci były niszczycielskie zaklęcia.",
-                "Starzec śpiący na krześle to {@creature arcanaloth} będący pod wpływem zaklęcia {@spell alter self}. Diabeł trzyma na kolanach jedną z ksiąg zaklęć biblioteki i udaje, że śpi. Jeśli się do niego zbliży, mężczyzna wydaje się budzić i pyta: „Dlaczego mi przeszkadzasz?” Stworzenie nie ujawni swojego prawdziwego imienia, zamiast tego nazywa się „Pan Lis”. Arcanaloth jest związany z biblioteką magią {@creature Acererak|ToA} i nie może jej opuścić ani pozwolić na usunięcie jakichkolwiek książek lub zwojów z biblioteki.",
-                "Jeśli jakakolwiek postać wypowie prawdziwe imię Arcanalotha („Ygga Raxyg”; patrz {@area area 71|4d8|x}) w zasięgu słuchu diabła, będzie to {@condition stunned} przez 1 minutę. Gdy efekt {@condition stunned} przestanie działać, powtarzanie imienia Arcanalotha nie będzie miało na niego żadnego wpływu przez następne 24 godziny. Jeśli zostanie zabity, Arcanaloth roztapia się w kałużę posoki, pozostawiając po sobie szaty i okulary w rogowych oprawkach (patrz „Skarb” poniżej).",
+                "Starzec śpiący na krześle to {@creature arcanaloth} będący pod wpływem zaklęcia {@spell alter self}. Czart trzyma na kolanach jedną z ksiąg zaklęć biblioteki i udaje, że śpi. Jeśli się do niego zbliży, mężczyzna wydaje się budzić i pyta: „Dlaczego mi przeszkadzasz?” Stworzenie nie ujawni swojego prawdziwego imienia, zamiast tego nazywa się „Pan Lis”. Arcanaloth jest związany z biblioteką magią {@creature Acererak|ToA} i nie może jej opuścić ani pozwolić na usunięcie jakichkolwiek książek lub zwojów z biblioteki.",
+                "Jeśli jakakolwiek postać wypowie prawdziwe imię Arcanalotha („Ygga Raxyg”; patrz {@area area 71|4d8|x}) w zasięgu słuchu czarta, będzie to {@condition stunned} przez 1 minutę. Gdy efekt {@condition stunned} przestanie działać, powtarzanie imienia Arcanalotha nie będzie miało na niego żadnego wpływu przez następne 24 godziny. Jeśli zostanie zabity, Arcanaloth roztapia się w kałużę posoki, pozostawiając po sobie szaty i okulary w rogowych oprawkach (patrz „Skarb” poniżej).",
                 {
                   "type": "entries",
                   "name": "Alkierz",
@@ -48966,7 +48968,7 @@
                         ],
                         [
                           "2",
-                          "Kości nieopancerzonego humanoida, przywiązane pnączami do drzewa. (Odkrywca ten został schwytany przez gobliny Batiri, oblany miodem i pozostawiony na pożarcie przez głodne owady.)"
+                          "Kości nieopancerzonego humanoidalną istotę, przywiązane pnączami do drzewa. (Odkrywca ten został schwytany przez gobliny Batiri, oblany miodem i pozostawiony na pożarcie przez głodne owady.)"
                         ],
                         [
                           "3",
@@ -48974,7 +48976,7 @@
                         ],
                         [
                           "4",
-                          "Obgryzione i zwęglone kości humanoida. (Ten nieszczęśnik został zamordowany i kanibalizowany przez swoich głodujących, oszalałych od gorączki towarzyszy.)"
+                          "Obgryzione i zwęglone kości humanoidalną istotę. (Ten nieszczęśnik został zamordowany i kanibalizowany przez swoich głodujących, oszalałych od gorączki towarzyszy.)"
                         ],
                         [
                           "5",
@@ -48994,7 +48996,7 @@
                         ],
                         [
                           "9",
-                          "Szkielet humanoida siedzącego na składanym stołku obozowym, ściskającego w kościstych dłoniach nóż i widelec."
+                          "Szkielet humanoidalną istotę siedzącego na składanym stołku obozowym, ściskającego w kościstych dłoniach nóż i widelec."
                         ],
                         [
                           "10",
@@ -49026,7 +49028,7 @@
                         ],
                         [
                           "17",
-                          "Bezgłowy humanoid zawieszony do góry nogami na drzewie i z sześcioma goblińskimi włóczniami Batiri wbitymi symetrycznie w ciało. (Był to Czerwony Czarodziej, sądząc po szatach. Nigdzie nie można znaleźć głowy.)"
+                          "Bezgłowy humanoidalna istota zawieszony do góry nogami na drzewie i z sześcioma goblińskimi włóczniami Batiri wbitymi symetrycznie w ciało. (Był to Czerwony Czarodziej, sądząc po szatach. Nigdzie nie można znaleźć głowy.)"
                         ],
                         [
                           "18",
@@ -49127,7 +49129,7 @@
                   "id": "5c6",
                   "entries": [
                     "Dźwięk skrzydeł zwiastuje przybycie {@dice 3d6} {@creature flying monkey|ToA|latające małpy}, który przelatuje przez poszukiwaczy przygód falą chwytających rąk i stóp. Każda postać musi odnieść sukces w rzucie obronnym na Zręczność {@dc 12}, w przeciwnym razie straci przydatny element wyposażenia na rzecz futrzastych złodziei. Jeśli do tego spotkania dojdzie w pobliżu Mbala (patrz rozdział 2), małpy są sługami zielonej wiedźmy {@creature Nanny Pu'pu|ToA}.",
-                    "Te towarzyskie stworzenia są ciekawe humanoidów i nie boją się ich. Latająca małpa, która pomyślnie przeszła {@condition grappled}, została złapana w {@item net|PHB} lub w inny sposób uniemożliwiona jej ucieczka, może zostać wyszkolona do wykonywania prostych sztuczek przez postać znającą {@skill Animal Handling|PHB}, która spędza kilka godzin dziennie pracując z małpą. Pod koniec 1 tygodnia postać wykonuje test {@dc 10} Mądrości ({@skill Animal Handling|PHB}). Po sukcesie latająca małpa uczy się wykonywać na komendę prostą sztuczkę (taką jak aportowanie określonego przedmiotu lub taniec do muzyki). Pojedyncza małpa może nauczyć się maksymalnie {@dice 1d6} sztuczek i można jej uczyć jedną sztuczkę tygodniowo."
+                    "Te towarzyskie stworzenia są ciekawe humanoidalnych istot i nie boją się ich. Latająca małpa, która pomyślnie przeszła {@condition grappled}, została złapana w {@item net|PHB} lub w inny sposób uniemożliwiona jej ucieczka, może zostać wyszkolona do wykonywania prostych sztuczek przez postać znającą {@skill Animal Handling|PHB}, która spędza kilka godzin dziennie pracując z małpą. Pod koniec 1 tygodnia postać wykonuje test {@dc 10} Mądrości ({@skill Animal Handling|PHB}). Po sukcesie latająca małpa uczy się wykonywać na komendę prostą sztuczkę (taką jak aportowanie określonego przedmiotu lub taniec do muzyki). Pojedyncza małpa może nauczyć się maksymalnie {@dice 1d6} sztuczek i można jej uczyć jedną sztuczkę tygodniowo."
                   ]
                 },
                 {
@@ -49981,8 +49983,8 @@
               "page": 205,
               "id": "608",
               "entries": [
-                "Ten rzadki magiczny owoc wytwarza sok w ilości wystarczającej do wypełnienia fiolki. Każdy humanoid, który zjada {@item dancing monkey fruit|ToA} lub wypije jego sok, musi wykonać pomyślny rzut obronny na Kondycję {@dc 14} lub rozpocząć komiczny taniec trwający 1 minutę. Humanoidy, które nie mogą być {@condition poisoned}, są odporne na ten magiczny efekt.",
-                "Tancerz musi wykorzystać cały swój ruch, aby tańczyć, nie opuszczając swojego pola i ma wadę w testach ataku i rzutach obronnych na Zręczność, natomiast inne stworzenia mają przewagę w testach ataku przeciwko niemu. Za każdym razem, gdy otrzyma obrażenia, tancerz może powtórzyć rzut obronny, kończąc efekt na sobie. Kiedy efekt tańca dobiegnie końca, humanoid cierpi na stan {@condition poisoned} na 1 godzinę."
+                "Ten rzadki magiczny owoc wytwarza sok w ilości wystarczającej do wypełnienia fiolki. Każda humanoidalna istota, który zjada {@item dancing monkey fruit|ToA} lub wypije jego sok, musi wykonać pomyślny rzut obronny na Kondycję {@dc 14} lub rozpocząć komiczny taniec trwający 1 minutę. humanoidalne istoty, które nie mogą być {@condition poisoned}, są odporne na ten magiczny efekt.",
+                "Tancerz musi wykorzystać cały swój ruch, aby tańczyć, nie opuszczając swojego pola i ma wadę w testach ataku i rzutach obronnych na Zręczność, natomiast inne stworzenia mają przewagę w testach ataku przeciwko niemu. Za każdym razem, gdy otrzyma obrażenia, tancerz może powtórzyć rzut obronny, kończąc efekt na sobie. Kiedy efekt tańca dobiegnie końca, humanoidalna istota cierpi na stan {@condition poisoned} na 1 godzinę."
               ]
             },
             {
@@ -50768,7 +50770,7 @@
                     "Lowder, James. {@i Pierścień Zimy}. 2012.",
                     "Lowder, James i Jean Rabe. {@i Dżungle Chult}. 1993.",
                     "Novak, Kate i Jeff Grubb. {@i Obligacje Azure}. 1988.",
-                    "TSR, Inc. {@i Folio Diabła}. 1981"
+                    "TSR, Inc. {@i Folio Czarta}. 1981"
                   ]
                 }
               ]

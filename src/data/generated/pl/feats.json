@@ -58,7 +58,7 @@
         "type": "entries",
         "name": "Aberracyjny Wybuch",
         "entries": [
-          "Gdy rzucasz zaklęcie poziomu 1 z tego atutu, możesz zużyć jedną ze swoich {@variantrule Hit Point Dice|XPHB} i ją rzucić. Jeśli wyrzucisz liczbę parzystą, zyskujesz liczbę {@variantrule Temporary Hit Points|XPHB} równą wyrzuconej liczbie. Jeśli wyrzucisz liczbę nieparzystą, jeden stwór w promieniu 30 stóp od ciebie (nie licząc ciebie) otrzymuje obrażenia Siłowe równe wyrzuconej liczbie. Jeśli żadne inne stwory nie znajdują się w zasięgu, ty otrzymujesz te obrażenia."
+          "Gdy rzucasz zaklęcie poziomu 1 z tego atutu, możesz zużyć jedną ze swoich {@variantrule Hit Point Dice|XPHB} i ją rzucić. Jeśli wyrzucisz liczbę parzystą, zyskujesz liczbę {@variantrule Temporary Hit Points|XPHB} równą wyrzuconej liczbie. Jeśli wyrzucisz liczbę nieparzystą, jeden stwór w promieniu 30 stóp od ciebie (nie licząc ciebie) otrzymuje obrażenia od mocy równe wyrzuconej liczbie. Jeśli żadne inne stwory nie znajdują się w zasięgu, ty otrzymujesz te obrażenia."
         ]
       }
     ],
@@ -114,7 +114,7 @@
             "type": "item",
             "name": "Uderzenie Stazy",
             "entries": [
-              "Raz na turę, gdy zadajesz obrażenia widocznemu przez ciebie w promieniu 60 stóp stworowi, możesz zadać dodatkowe {@damage 1d8} obrażeń siłowych celowi, a on musi wykonać rzut obronny Mądrości (KT równa 8 + twoja premia biegłości + modyfikator zdolności czarodziejskiej wybranej dla atutu Latorośl Płaszczyzn Zewnętrznych), gdy widmowe więzy próbują go usidlić. Przy udanym rzucie cel się wyrywa. Przy nieudanym rzucie cel ma stan unieruchomiony do początku twojej następnej tury. Te więzy przejawiają się jako łańcuchy lub inny symbol stazy. Możesz użyć tej korzyści liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie zużyte użycia, gdy ukończysz długi odpoczynek."
+              "Raz na turę, gdy zadajesz obrażenia widocznemu przez ciebie w promieniu 60 stóp stworowi, możesz zadać dodatkowe {@damage 1d8} obrażeń od mocy celowi, a on musi wykonać rzut obronny Mądrości (KT równa 8 + twoja premia biegłości + modyfikator zdolności czarodziejskiej wybranej dla atutu Latorośl Płaszczyzn Zewnętrznych), gdy widmowe więzy próbują go usidlić. Przy udanym rzucie cel się wyrywa. Przy nieudanym rzucie cel ma stan unieruchomiony do początku twojej następnej tury. Te więzy przejawiają się jako łańcuchy lub inny symbol stazy. Możesz użyć tej korzyści liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie zużyte użycia, gdy ukończysz długi odpoczynek."
             ]
           }
         ]
@@ -150,7 +150,7 @@
     "entries": [
       "Zyskujesz premię +2 do rzutów na atak wykonywanych bronią Dystansową."
     ],
-    "category": "Styl Walki",
+    "category": "Styl walki",
     "prerequisite": ""
   },
   "artificer-initiate": {
@@ -232,7 +232,7 @@
     "entries": [
       "Masz {@sense Blindsight|XPHB} o zasięgu 10 stóp."
     ],
-    "category": "Styl Walki",
+    "category": "Styl walki",
     "prerequisite": ""
   },
   "bloodlust": {
@@ -288,26 +288,26 @@
         "type": "entries",
         "name": "Umiłowany Słońca",
         "entries": [
-          "Masz {@variantrule Immunity|XPHB} na obrażenia Blaskiem."
+          "Masz {@variantrule Immunity|XPHB} na obrażenia promieniste."
         ]
       },
       {
         "type": "entries",
         "name": "Płonące Uderzenie",
         "entries": [
-          "Gdy trafisz stwora atakiem bronią, obrażenia mogą być Blaskiem lub normalnym rodzajem obrażeń broni (twój wybór)."
+          "Gdy trafisz stwora atakiem bronią, obrażenia mogą być Promieniste lub normalnym rodzajem obrażeń broni (twój wybór)."
         ]
       },
       {
         "type": "entries",
         "name": "Wybuch Słonecznego Światła",
         "entries": [
-          "Raz na turę, gdy trafisz stwora atakiem zadającym obrażenia Blaskiem, możesz wyemitować {@variantrule Bright Light|XPHB} w promieniu 30 stóp od siebie i {@variantrule Dim Light|XPHB} na dodatkowe 30 stóp do początku swojej następnej tury. To światło jest światłem słonecznym."
+          "Raz na turę, gdy trafisz stwora atakiem zadającym obrażenia promieniste, możesz wyemitować {@variantrule Bright Light|XPHB} w promieniu 30 stóp od siebie i {@variantrule Dim Light|XPHB} na dodatkowe 30 stóp do początku swojej następnej tury. To światło jest światłem słonecznym."
         ]
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-bloodshed": {
     "name": "Dar Rozlewu Krwi",
@@ -329,7 +329,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-bountiful-health": {
     "name": "Dar Obfitego Zdrowia",
@@ -351,7 +351,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-combat-prowess": {
     "name": "Dar Sprawności Bojowej",
@@ -366,7 +366,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-communication": {
     "name": "Dar Komunikacji",
@@ -395,7 +395,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-desperate-resilience": {
     "name": "Dar Rozpaczliwej Odporności",
@@ -405,12 +405,12 @@
         "type": "entries",
         "name": "Obrona Ciała i Umysłu",
         "entries": [
-          "Będąc {@status Bloodied|XPHB}, masz {@variantrule Resistance|XPHB} na każdy rodzaj obrażeń poza Siłowymi."
+          "Będąc {@status Bloodied|XPHB}, masz {@variantrule Resistance|XPHB} na każdy rodzaj obrażeń poza Moc."
         ]
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-dimensional-travel": {
     "name": "Dar Podróży Wymiarowej",
@@ -425,7 +425,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-energy-resistance": {
     "name": "Dar Odporności na Energię",
@@ -435,7 +435,7 @@
         "type": "entries",
         "name": "Odporności na Energię",
         "entries": [
-          "Zyskujesz {@variantrule Resistance|XPHB} na dwa z następujących wybranych przez ciebie rodzajów obrażeń: Kwas, Zimno, Ogień, Piorun, Nekrotyczne, Trucizna, Psychiczne lub Grzmot. Ilekroć ukończysz {@variantrule Long Rest|XPHB}, możesz zmienić swoje wybory."
+          "Zyskujesz {@variantrule Resistance|XPHB} na dwa z następujących wybranych przez ciebie rodzajów obrażeń: Kwas, Zimno, Ogień, Piorun, Nekrotyczne, Trucizna, Psychiczne lub Gromu. Ilekroć ukończysz {@variantrule Long Rest|XPHB}, możesz zmienić swoje wybory."
         ]
       },
       {
@@ -447,7 +447,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-exquisite-radiance": {
     "name": "Dar Wykwintnego Blasku",
@@ -464,12 +464,12 @@
         "type": "entries",
         "name": "Potężny Blask",
         "entries": [
-          "Gdy wykonujesz rzut na obrażenia zadający obrażenia Blaskiem, możesz zamiast tego użyć najwyższej możliwej wartości dla każdej kości obrażeń. Gdy raz użyjesz tej korzyści, nie możesz jej użyć ponownie, dopóki nie ukończysz {@variantrule Long Rest|XPHB}."
+          "Gdy wykonujesz rzut na obrażenia zadający obrażenia promieniste, możesz zamiast tego użyć najwyższej możliwej wartości dla każdej kości obrażeń. Gdy raz użyjesz tej korzyści, nie możesz jej użyć ponownie, dopóki nie ukończysz {@variantrule Long Rest|XPHB}."
         ]
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-fate": {
     "name": "Dar Przeznaczenia",
@@ -484,7 +484,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar",
+    "category": "Epicki dar",
     "gallery": [
       {
         "path": "feats/XPHB/Boon of Fate.webp",
@@ -500,7 +500,7 @@
         "type": "entries",
         "name": "Zmiennokształtny",
         "entries": [
-          "Możesz wykonać akcję {@action Magic|XPHB}, by przekształcić się w Zwierzę, Humanoida lub Monstrum o {@variantrule Challenge Rating|XPHB} nie wyższym niż 10. Gdy się przekształcasz, zyskujesz liczbę {@variantrule Temporary Hit Points|XPHB} równą {@variantrule Hit Points|XPHB} tej formy. Efekt przemiany trwa 1 godzinę i kończy się wcześniej, jeśli nie masz już {@variantrule Temporary Hit Points|XPHB} lub wykonasz akcję {@action Magic|XPHB}, by powrócić do swojej prawdziwej formy.",
+          "Możesz wykonać akcję {@action Magic|XPHB}, by przekształcić się w Zwierzę, humanoidalną istotę lub Monstrum o {@variantrule Challenge Rating|XPHB} nie wyższym niż 10. Gdy się przekształcasz, zyskujesz liczbę {@variantrule Temporary Hit Points|XPHB} równą {@variantrule Hit Points|XPHB} tej formy. Efekt przemiany trwa 1 godzinę i kończy się wcześniej, jeśli nie masz już {@variantrule Temporary Hit Points|XPHB} lub wykonasz akcję {@action Magic|XPHB}, by powrócić do swojej prawdziwej formy.",
           "Twoje statystyki gry zostają zastąpione kartą statystyk wybranej formy, ale zachowujesz swój typ stwora; nastawienie; osobowość; wartości Inteligencji, Mądrości i Charyzmy; {@variantrule Hit Points|XPHB}; {@variantrule Hit Point Dice|XPHB}; biegłości; oraz zdolność komunikowania się. Jeśli masz cechę Rzucanie Zaklęć lub Magię Paktu, zachowujesz ją również. Podczas przekształcania decydujesz, czy twoje wyposażenie spada na ziemię, czy zmienia rozmiar i kształt, by dopasować się do nowej formy, gdy w niej jesteś.",
           "Gdy raz użyjesz tej korzyści, nie możesz jej użyć ponownie, dopóki nie ukończysz {@variantrule Long Rest|XPHB}."
         ]
@@ -514,7 +514,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-fortitude": {
     "name": "Dar Wytrzymałości",
@@ -529,7 +529,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-fortune-s-favor": {
     "name": "Dar Łaski Fortuny",
@@ -544,7 +544,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-irresistible-offense": {
     "name": "Dar Nieodpartego Ataku",
@@ -566,7 +566,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-looming-shadows": {
     "name": "Dar Czających się Cieni",
@@ -588,7 +588,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-misty-escape": {
     "name": "Dar Mglistej Ucieczki",
@@ -604,7 +604,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-poison-mastery": {
     "name": "Dar Mistrzostwa Trucizn",
@@ -626,7 +626,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-recovery": {
     "name": "Dar Regeneracji",
@@ -648,7 +648,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-revelry": {
     "name": "Dar Radosnej Zabawy",
@@ -671,7 +671,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-siberys": {
     "name": "Dar Siberys",
@@ -748,7 +748,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar",
+    "category": "Epicki dar",
     "gallery": [
       {
         "path": "feats/EFA/Siberys Mark of Detection.webp",
@@ -784,7 +784,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar",
+    "category": "Epicki dar",
     "gallery": [
       {
         "path": "feats/XPHB/Boon of Skill.webp",
@@ -812,7 +812,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-spell-recall": {
     "name": "Dar Przypomnienia Zaklęć",
@@ -827,7 +827,7 @@
       }
     ],
     "prerequisite": "Poziom 19+, Cecha Rzucania Zaklęć",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-terror": {
     "name": "Dar Grozy",
@@ -856,7 +856,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-the-bright-sun": {
     "name": "Dar Jasnego Słońca",
@@ -878,7 +878,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-the-furious-storm": {
     "name": "Dar Wściekłej Burzy",
@@ -888,19 +888,19 @@
         "type": "entries",
         "name": "Oko Burzy",
         "entries": [
-          "Masz {@variantrule Resistance|XPHB} na obrażenia Piorunem i Grzmotem. Będąc {@status Bloodied|XPHB}, masz {@variantrule Immunity|XPHB} na obrażenia Piorunem i Grzmotem."
+          "Masz {@variantrule Resistance|XPHB} na obrażenia od pioruna i Gromu. Będąc {@status Bloodied|XPHB}, masz {@variantrule Immunity|XPHB} na obrażenia od pioruna i Gromu."
         ]
       },
       {
         "type": "entries",
         "name": "Siła Burzy",
         "entries": [
-          "Stwory mają {@variantrule Disadvantage|XPHB} na rzutach obronnych przeciwko twoim zaklęciom zadającym obrażenia Piorunem lub Grzmotem."
+          "Stwory mają {@variantrule Disadvantage|XPHB} na rzutach obronnych przeciwko twoim zaklęciom zadającym obrażenia od pioruna lub Gromu."
         ]
       }
     ],
     "prerequisite": "Poziom 19+, Cecha Rzucania Zaklęć",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-the-night-spirit": {
     "name": "Dar Nocnego Ducha",
@@ -917,12 +917,12 @@
         "type": "entries",
         "name": "Cienista Forma",
         "entries": [
-          "Będąc w {@variantrule Dim Light|XPHB} lub {@variantrule Darkness|XPHB}, masz {@variantrule Resistance|XPHB} na wszystkie obrażenia poza Psychicznymi i Blaskiem."
+          "Będąc w {@variantrule Dim Light|XPHB} lub {@variantrule Darkness|XPHB}, masz {@variantrule Resistance|XPHB} na wszystkie obrażenia poza Psychicznymi i Promieniste."
         ]
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-the-soul-drinker": {
     "name": "Dar Pożeracza Dusz",
@@ -944,7 +944,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "boon-of-truesight": {
     "name": "Dar Prawdziwego Widzenia",
@@ -959,7 +959,7 @@
       }
     ],
     "prerequisite": "Poziom 19+",
-    "category": "Epicki Dar"
+    "category": "Epicki dar"
   },
   "bountiful-luck": {
     "name": "Obfite Szczęście",
@@ -1122,19 +1122,19 @@
                 "rows": [
                   [
                     "1",
-                    "{@b Bitewny Szał.} Wybrany przez ciebie widoczny stwór wypełnia się nieopanowaną furią. Ma przewagę na rzutach na atak i utrudnienie na testach zdolności}"
+                    "{@b Bitewny Szał.} Wybrany przez ciebie widoczny stwór wypełnia się nieopanowaną furią. Ma przewagę na rzutach na atak i utrudnienie na testach zdolności"
                   ],
                   [
                     "2",
-                    "{@b Pole Zakłóceń.} Fale energii falują wokół ciebie. Każdy stwór, który rozpocznie swoją turę w promieniu 5 stóp od ciebie lub po raz pierwszy w danej turze wejdzie w ten obszar, otrzymuje {@damage 1d8} obrażeń siłowych}"
+                    "{@b Pole Zakłóceń.} Fale energii falują wokół ciebie. Każdy stwór, który rozpocznie swoją turę w promieniu 5 stóp od ciebie lub po raz pierwszy w danej turze wejdzie w ten obszar, otrzymuje {@damage 1d8} obrażeń od mocy"
                   ],
                   [
                     "3",
-                    "{@b Nieskrępowany.} Gdy się poruszasz, możesz wykorzystać część lub całość swojej prędkości marszu, by teleportować się raz, wraz z całym noszonym lub niesionym wyposażeniem, na odległość wykorzystanego dystansu do widocznej przez ciebie wolnej przestrzeni}"
+                    "{@b Nieskrępowany.} Gdy się poruszasz, możesz wykorzystać część lub całość swojej prędkości marszu, by teleportować się raz, wraz z całym noszonym lub niesionym wyposażeniem, na odległość wykorzystanego dystansu do widocznej przez ciebie wolnej przestrzeni"
                   ],
                   [
                     "4",
-                    "{@b Zawodzące Wichry.} Wichry wirują w 15-stopowej promienia kuli wyśrodkowanej na tobie. Ty i wszelkie inne stwory w tym obszarze macie utrudnienie na rzutach obronnych Mądrości}"
+                    "{@b Zawodzące Wichry.} Wichry wirują w 15-stopowej promienia kuli wyśrodkowanej na tobie. Ty i wszelkie inne stwory w tym obszarze macie utrudnienie na rzutach obronnych Mądrości"
                   ]
                 ]
               }
@@ -1328,7 +1328,7 @@
     "entries": [
       "Będąc odzianym w Lekki, Średni lub Ciężki pancerz, zyskujesz premię +1 do {@variantrule Armor Class|XPHB}."
     ],
-    "category": "Styl Walki",
+    "category": "Styl walki",
     "prerequisite": ""
   },
   "defensive-duelist": {
@@ -1455,7 +1455,7 @@
     "entries": [
       "Gdy trzymasz broń Wręcz w jednej dłoni i żadnej innej broni, zyskujesz premię +2 do rzutów na obrażenia tą bronią."
     ],
-    "category": "Styl Walki",
+    "category": "Styl walki",
     "prerequisite": ""
   },
   "dungeon-delver": {
@@ -1564,7 +1564,7 @@
         "type": "entries",
         "name": "Mistrzostwo Energii",
         "entries": [
-          "Wybierz jeden z następujących rodzajów obrażeń: Kwas, Zimno, Ogień, Piorun lub Grzmot. Rzucane przez ciebie zaklęcia ignorują {@variantrule Resistance|XPHB} na obrażenia wybranego rodzaju. Dodatkowo, gdy rzucasz obrażenia dla rzucanego przez ciebie zaklęcia zadającego obrażenia tego rodzaju, możesz potraktować dowolną 1 na kości obrażeń jako 2."
+          "Wybierz jeden z następujących rodzajów obrażeń: Kwas, Zimno, Ogień, Piorun lub Gromu. Rzucane przez ciebie zaklęcia ignorują {@variantrule Resistance|XPHB} na obrażenia wybranego rodzaju. Dodatkowo, gdy rzucasz obrażenia dla rzucanego przez ciebie zaklęcia zadającego obrażenia tego rodzaju, możesz potraktować dowolną 1 na kości obrażeń jako 2."
         ]
       },
       {
@@ -1895,7 +1895,7 @@
             "type": "item",
             "name": "Telekinetyczny Odwet",
             "entries": [
-              "Gdy otrzymasz obrażenia od stwora w promieniu 10 stóp od ciebie, możesz wykorzystać swoją reakcję, by wyemanować telekinetyczną energię. Stwór, który zadał ci obrażenia, musi wykonać rzut obronny Siły (KT równa 8 + twoja premia biegłości + modyfikator zdolności zwiększonej tym atutem). Przy nieudanym rzucie stwór otrzymuje {@damage 2d8} obrażeń siłowych i zostaje odepchnięty o maksymalnie 10 stóp od ciebie. Przy udanym rzucie stwór otrzymuje połowę obrażeń i nie zostaje odepchnięty. Możesz użyć tej reakcji liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie zużyte użycia, gdy ukończysz długi odpoczynek."
+              "Gdy otrzymasz obrażenia od stwora w promieniu 10 stóp od ciebie, możesz wykorzystać swoją reakcję, by wyemanować telekinetyczną energię. Stwór, który zadał ci obrażenia, musi wykonać rzut obronny Siły (KT równa 8 + twoja premia biegłości + modyfikator zdolności zwiększonej tym atutem). Przy nieudanym rzucie stwór otrzymuje {@damage 2d8} obrażeń od mocy i zostaje odepchnięty o maksymalnie 10 stóp od ciebie. Przy udanym rzucie stwór otrzymuje połowę obrażeń i nie zostaje odepchnięty. Możesz użyć tej reakcji liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie zużyte użycia, gdy ukończysz długi odpoczynek."
             ]
           }
         ]
@@ -1966,7 +1966,7 @@
     "entries": [
       "Gdy rzucasz na obrażenia dla ataku wykonanego bronią Wręcz, którą trzymasz oburącz, możesz potraktować dowolną 1 lub 2 na kości obrażeń jako 3. Broń musi mieć właściwość {@itemProperty 2h|XPHB|Dwuręczna} lub {@itemProperty V|XPHB|Uniwersalna}, by zyskać tę korzyść."
     ],
-    "category": "Styl Walki",
+    "category": "Styl walki",
     "prerequisite": ""
   },
   "great-weapon-master": {
@@ -2006,7 +2006,7 @@
         "type": "entries",
         "name": "Znak Inspiracji",
         "entries": [
-          "Gdy rzucasz sztuczkę, możesz rzucić jedną lub dwiema swoimi niewykorzystanymi {@variantrule Hit Point Dice|XPHB}. Zyskujesz liczbę {@variantrule Temporary Hit Points|XPHB} równą wyrzuconej liczbie plus twój modyfikator Kondycji, a jeden wybrany przez ciebie stwór w promieniu 30 stóp od ciebie (nie licząc ciebie) otrzymuje obrażenia Siłowe równe wyrzuconej liczbie. Te kości zostają wtedy zużyte.",
+          "Gdy rzucasz sztuczkę, możesz rzucić jedną lub dwiema swoimi niewykorzystanymi {@variantrule Hit Point Dice|XPHB}. Zyskujesz liczbę {@variantrule Temporary Hit Points|XPHB} równą wyrzuconej liczbie plus twój modyfikator Kondycji, a jeden wybrany przez ciebie stwór w promieniu 30 stóp od ciebie (nie licząc ciebie) otrzymuje obrażenia od mocy równe wyrzuconej liczbie. Te kości zostają wtedy zużyte.",
           "Możesz użyć tej korzyści liczbę razy równą twojej {@variantrule Proficiency|XPHB|Premii Biegłości}, a odzyskujesz wszystkie zużyte użycia, gdy ukończysz {@variantrule Long Rest|XPHB}."
         ]
       }
@@ -2470,7 +2470,7 @@
   "infernal-constitution": {
     "name": "Infernalna Kondycja",
     "entries": [
-      "W twoich żyłach płynie silna diabelska krew, odblokowująca odporność podobną do tej posiadanej przez niektóre diablęta. Zyskujesz następujące korzyści:",
+      "W twoich żyłach płynie silna diabelska krew, odblokowująca odporność podobną do tej posiadanej przez niektóre czarty. Zyskujesz następujące korzyści:",
       {
         "type": "list",
         "items": [
@@ -2502,7 +2502,7 @@
     "entries": [
       "Gdy widoczny przez ciebie stwór trafi rzutem na atak inny stwór w promieniu 5 stóp od ciebie, możesz wykonać {@variantrule Reaction|XPHB}, by zredukować zadane celowi obrażenia o {@dice 1d10} plus twoja {@variantrule Proficiency|XPHB|Premia Biegłości}. Musisz trzymać {@item Shield|XPHB} lub broń Prostą albo Wojskową, by użyć tej {@variantrule Reaction|XPHB}."
     ],
-    "category": "Styl Walki",
+    "category": "Styl walki",
     "prerequisite": ""
   },
   "keen-mind": {
@@ -2546,7 +2546,7 @@
             "type": "item",
             "name": "Rzut Kamieniem",
             "entries": [
-              "Jako akcję dodatkową, możesz wziąć kamień i wykonać nim magiczny atak. Atak jest atakiem zaklęciem dystansowym o zasięgu 60 stóp, wykorzystującym jako zdolność czarodziejską zdolność zwiększoną tym atutem. W przypadku trafienia kamień zadaje {@damage 1d10} obrażeń siłowych, a cel musi zdać rzut obronny Siły (KT równa 8 + twoja premia biegłości + modyfikator zdolności czarodziejskiej) albo otrzyma stan powalony. Możesz użyć tej akcji dodatkowej liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie zużyte użycia, gdy ukończysz długi odpoczynek."
+              "Jako akcję dodatkową, możesz wziąć kamień i wykonać nim magiczny atak. Atak jest atakiem zaklęciem dystansowym o zasięgu 60 stóp, wykorzystującym jako zdolność czarodziejską zdolność zwiększoną tym atutem. W przypadku trafienia kamień zadaje {@damage 1d10} obrażeń od mocy, a cel musi zdać rzut obronny Siły (KT równa 8 + twoja premia biegłości + modyfikator zdolności czarodziejskiej) albo otrzyma stan powalony. Możesz użyć tej akcji dodatkowej liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie zużyte użycia, gdy ukończysz długi odpoczynek."
             ]
           }
         ]
@@ -3547,7 +3547,7 @@
         "type": "entries",
         "name": "Dar Burzy",
         "entries": [
-          "Masz {@variantrule Resistance|XPHB} na obrażenia Piorunem."
+          "Masz {@variantrule Resistance|XPHB} na obrażenia od pioruna."
         ]
       },
       {
@@ -3873,7 +3873,7 @@
             "rows": [
               [
                 "1-2",
-                "Ty i każdy stwór w promieniu 15 stóp od ciebie wykonujecie rzut obronny Zręczności, otrzymując obrażenia Siłowe równe {@dice 1d8} razy poziom wyzwalającego zaklęcia przy nieudanym rzucie lub połowę obrażeń przy udanym."
+                "Ty i każdy stwór w promieniu 15 stóp od ciebie wykonujecie rzut obronny Zręczności, otrzymując obrażenia od mocy równe {@dice 1d8} razy poziom wyzwalającego zaklęcia przy nieudanym rzucie lub połowę obrażeń przy udanym."
               ],
               [
                 "3-7",
@@ -4046,7 +4046,7 @@
     "gallery": [
       {
         "path": "feats/SatO/Planar Wanderer.webp",
-        "title": "Planarny kartograf na niższym planie pyta diabła otchłani o wskazówki",
+        "title": "Planarny kartograf na niższym planie pyta czarta otchłani o wskazówki",
         "credit": "Michele Giorgi"
       }
     ]
@@ -4143,7 +4143,7 @@
     "entries": [
       "Gdy widoczny przez ciebie stwór atakuje cel inny niż ty, który znajduje się w promieniu 5 stóp od ciebie, możesz wykonać {@variantrule Reaction|XPHB}, by zasłonić się swoją {@item Shield|XPHB}, jeśli ją trzymasz. Nakładasz {@variantrule Disadvantage|XPHB} na wyzwalający rzut na atak i wszystkie inne rzuty na atak przeciwko celowi do początku swojej następnej tury, jeśli pozostaniesz w promieniu 5 stóp od celu."
     ],
-    "category": "Styl Walki",
+    "category": "Styl walki",
     "prerequisite": ""
   },
   "purple-dragon-commandant": {
@@ -4246,7 +4246,7 @@
         "type": "entries",
         "name": "Blaskowe Uderzenie",
         "entries": [
-          "Gdy rzucasz na obrażenia zadające obrażenia Blaskiem, możesz sprawić, że jeden Ogromny lub mniejszy stwór otrzymujący te obrażenia zyska stan {@condition Prone|XPHB}. Gdy raz użyjesz tej korzyści, nie możesz jej użyć ponownie, dopóki nie ukończysz {@variantrule Short Rest|XPHB|Krótkiego} lub {@variantrule Long Rest|XPHB}."
+          "Gdy rzucasz na obrażenia zadające obrażenia promieniste, możesz sprawić, że jeden Ogromny lub mniejszy stwór otrzymujący te obrażenia zyska stan {@condition Prone|XPHB}. Gdy raz użyjesz tej korzyści, nie możesz jej użyć ponownie, dopóki nie ukończysz {@variantrule Short Rest|XPHB|Krótkiego} lub {@variantrule Long Rest|XPHB}."
         ]
       }
     ],
@@ -4269,7 +4269,7 @@
     "category": "Ogólny"
   },
   "revenant-blade": {
-    "name": "Ostrze Revenanta",
+    "name": "Ostrze Zmory",
     "entries": [
       "Jesteś potomkiem mistrza {@item double-bladed scimitar|ERLW}, a część tego mistrzostwa przeszła na ciebie. Zyskujesz następujące korzyści:",
       {
@@ -4464,12 +4464,12 @@
           ],
           [
             "Dobra Płaszczyzna Zewnętrzna",
-            "Blask",
+            "Promieniste",
             "{@spell Sacred flame}"
           ],
           [
             "Praworządna Płaszczyzna Zewnętrzna",
-            "Siłowe",
+            "Moc",
             "{@spell Guidance}"
           ],
           [
@@ -4808,7 +4808,7 @@
             "type": "item",
             "name": "Aura Nawałnicy",
             "entries": [
-              "Jako akcję dodatkową, otaczasz się aurą magicznego wiatru i błyskawic, która rozciąga się na 10 stóp od ciebie we wszystkich kierunkach, ale nie przez {@quickref Cover||total cover||total cover}. Aura utrzymuje się do początku twojej następnej tury lub dopóki nie masz stanu bezradny. Dopóki aura jest aktywna, masz odporność na obrażenia piorunem i grzmotem. Dodatkowo rzuty na atak przeciwko tobie mają utrudnienie, a ilekroć inny stwór rozpocznie swoją turę w aurze, możesz zmusić stwora do wykonania rzutu obronnego Siły (KT równa 8 + twoja premia biegłości + modyfikator zdolności zwiększonej tym atutem). Przy nieudanym rzucie prędkość stwora zostaje zmniejszona o połowę do początku jego następnej tury. Możesz użyć tej akcji dodatkowej liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie zużyte użycia, gdy ukończysz długi odpoczynek."
+              "Jako akcję dodatkową, otaczasz się aurą magicznego wiatru i błyskawic, która rozciąga się na 10 stóp od ciebie we wszystkich kierunkach, ale nie przez {@quickref Cover||total cover||total cover}. Aura utrzymuje się do początku twojej następnej tury lub dopóki nie masz stanu bezradny. Dopóki aura jest aktywna, masz odporność na obrażenia od pioruna i gromu. Dodatkowo rzuty na atak przeciwko tobie mają utrudnienie, a ilekroć inny stwór rozpocznie swoją turę w aurze, możesz zmusić stwora do wykonania rzutu obronnego Siły (KT równa 8 + twoja premia biegłości + modyfikator zdolności zwiększonej tym atutem). Przy nieudanym rzucie prędkość stwora zostaje zmniejszona o połowę do początku jego następnej tury. Możesz użyć tej akcji dodatkowej liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie zużyte użycia, gdy ukończysz długi odpoczynek."
             ]
           }
         ]
@@ -4839,7 +4839,7 @@
         "type": "entries",
         "name": "Zwinny Ruch",
         "entries": [
-          "{@action Opportunity Attack|XPHB|Ataki Okazyjne} mają {@variantrule Disadvantage|XPHB} przeciwko tobie}"
+          "{@action Opportunity Attack|XPHB|Ataki Okazyjne} mają {@variantrule Disadvantage|XPHB} przeciwko tobie"
         ]
       }
     ],
@@ -4883,14 +4883,14 @@
         "type": "entries",
         "name": "Zasilony Ogień Zaklęć",
         "entries": [
-          "Raz na turę, gdy rzucane przez ciebie zaklęcie zadaje obrażenia Blaskiem, możesz zużyć do dwóch {@variantrule Hit Point Dice|XPHB}, rzucić nimi i dodać sumę do jednego rzutu na obrażenia zaklęcia."
+          "Raz na turę, gdy rzucane przez ciebie zaklęcie zadaje obrażenia promieniste, możesz zużyć do dwóch {@variantrule Hit Point Dice|XPHB}, rzucić nimi i dodać sumę do jednego rzutu na obrażenia zaklęcia."
         ]
       },
       {
         "type": "entries",
         "name": "Palący Ogień Zaklęć",
         "entries": [
-          "Gdy rzucasz na obrażenia zadające obrażenia Blaskiem, ignorują one {@variantrule Resistance|XPHB} na obrażenia Blaskiem."
+          "Gdy rzucasz na obrażenia zadające obrażenia promieniste, ignorują one {@variantrule Resistance|XPHB} na obrażenia promieniste."
         ]
       }
     ],
@@ -4957,7 +4957,7 @@
         "type": "entries",
         "name": "Twarda Gadka",
         "entries": [
-          "{@variantrule Hostile [Attitude]|XPHB|Wrogie} nastawienie stwora nie nakłada {@variantrule Disadvantage|XPHB} na twoje testy Charyzmy ({@skill Intimidation|XPHB}) mające wpłynąć na tego stwora}"
+          "{@variantrule Hostile [Attitude]|XPHB|Wrogie} nastawienie stwora nie nakłada {@variantrule Disadvantage|XPHB} na twoje testy Charyzmy ({@skill Intimidation|XPHB}) mające wpłynąć na tego stwora"
         ]
       }
     ],
@@ -4972,7 +4972,7 @@
         "type": "entries",
         "name": "Uderzenie Chmury",
         "entries": [
-          "Cel otrzymuje dodatkowe {@damage 1d4} obrażeń grzmotem. Jeśli cel jest stworem, musi zdać rzut obronny Mądrości, w przeciwnym razie stajesz się dla niego niewidzialny do początku twojej następnej tury lub dopóki nie wykonasz rzutu na atak lub nie rzucisz zaklęcia."
+          "Cel otrzymuje dodatkowe {@damage 1d4} obrażeń od gromu. Jeśli cel jest stworem, musi zdać rzut obronny Mądrości, w przeciwnym razie stajesz się dla niego niewidzialny do początku twojej następnej tury lub dopóki nie wykonasz rzutu na atak lub nie rzucisz zaklęcia."
         ]
       },
       {
@@ -5000,14 +5000,14 @@
         "type": "entries",
         "name": "Uderzenie Kamienia",
         "entries": [
-          "Cel otrzymuje dodatkowe {@damage 1d6} obrażeń siłowych. Jeśli cel jest stworem, musi zdać rzut obronny Siły albo zostanie odepchnięty o 10 stóp od ciebie po linii prostej."
+          "Cel otrzymuje dodatkowe {@damage 1d6} obrażeń od mocy. Jeśli cel jest stworem, musi zdać rzut obronny Siły albo zostanie odepchnięty o 10 stóp od ciebie po linii prostej."
         ]
       },
       {
         "type": "entries",
         "name": "Uderzenie Burzy",
         "entries": [
-          "Cel otrzymuje dodatkowe {@damage 1d6} obrażeń piorunem. Jeśli cel jest stworem, musi zdać rzut obronny Kondycji, w przeciwnym razie ma utrudnienie na rzutach na atak do początku twojej następnej tury.",
+          "Cel otrzymuje dodatkowe {@damage 1d6} obrażeń od pioruna. Jeśli cel jest stworem, musi zdać rzut obronny Kondycji, w przeciwnym razie ma utrudnienie na rzutach na atak do początku twojej następnej tury.",
           "Klasa trudności rzutu obronnego dla tych efektów wynosi 8 + twoja premia biegłości + twój modyfikator Siły lub Kondycji.",
           "Możesz użyć tego atutu liczbę razy równą twojej premii biegłości, a odzyskujesz wszystkie zużyte użycia, gdy ukończysz długi odpoczynek."
         ]
@@ -5239,7 +5239,7 @@
     "entries": [
       "Gdy trafisz rzutem na atak dystansowy bronią z właściwością {@itemProperty T|XPHB|Rzucana}, zyskujesz premię +2 do rzutu na obrażenia."
     ],
-    "category": "Styl Walki",
+    "category": "Styl walki",
     "prerequisite": ""
   },
   "tireless-reveler": {
@@ -5307,7 +5307,7 @@
     "entries": [
       "Gdy wykonujesz dodatkowy atak w wyniku użycia broni z właściwością {@itemProperty L|XPHB|Lekka}, możesz dodać swój modyfikator zdolności do obrażeń tego ataku, jeśli jeszcze go nie dodajesz do obrażeń."
     ],
-    "category": "Styl Walki",
+    "category": "Styl walki",
     "prerequisite": "",
     "gallery": [
       {
@@ -5344,7 +5344,7 @@
       "Gdy trafisz swoim {@variantrule Unarmed Strike|XPHB} i zadasz obrażenia, możesz zadać obrażenia Obuchowe równe {@damage 1d6} plus twój modyfikator Siły zamiast normalnych obrażeń {@variantrule Unarmed Strike|XPHB}. Jeśli nie trzymasz żadnej broni ani {@item Shield|XPHB}, gdy wykonujesz rzut na atak, {@dice d6} staje się {@dice d8}.",
       "Na początku każdej swojej tury możesz zadać {@damage 1d4} obrażeń Obuchowych jednemu stworowi {@condition Grappled|XPHB} przez ciebie."
     ],
-    "category": "Styl Walki",
+    "category": "Styl walki",
     "prerequisite": ""
   },
   "vampire-hunter": {
@@ -5596,7 +5596,7 @@
         "type": "list",
         "items": [
           "Uczysz się jednej {@filter sztuczki wedle wyboru z listy zaklęć czarodzieja wrodzonego|spells|level=0|class=Sorcerer}. Dodatkowo wybierz {@filter zaklęcie 1 poziomu z listy zaklęć czarodzieja wrodzonego|spells|level=1|class=Sorcerer}. Uczysz się tego zaklęcia i możesz rzucić je poprzez swój znak. Gdy raz je rzucisz, musisz ukończyć krótki lub długi odpoczynek, zanim znów rzucisz je w ten sposób poprzez znak. Kondycja jest twoją zdolnością czarodziejską dla tych zaklęć.",
-          "Gdy rzucasz zaklęcie 1 poziomu poprzez swój znak, możesz zużyć jedną ze swoich Kości Wytrzymałości i ją rzucić. Jeśli wyrzucisz liczbę parzystą, zyskujesz liczbę tymczasowych punktów wytrzymałości równą wyrzuconej liczbie. Jeśli wyrzucisz liczbę nieparzystą, jeden losowy stwór w promieniu 30 stóp od ciebie (nie licząc ciebie) otrzymuje obrażenia Siłowe równe wyrzuconej liczbie. Jeśli żaden inny stwór nie znajduje się w zasięgu, ty otrzymujesz te obrażenia."
+          "Gdy rzucasz zaklęcie 1 poziomu poprzez swój znak, możesz zużyć jedną ze swoich Kości Wytrzymałości i ją rzucić. Jeśli wyrzucisz liczbę parzystą, zyskujesz liczbę tymczasowych punktów wytrzymałości równą wyrzuconej liczbie. Jeśli wyrzucisz liczbę nieparzystą, jeden losowy stwór w promieniu 30 stóp od ciebie (nie licząc ciebie) otrzymuje obrażenia od mocy równe wyrzuconej liczbie. Jeśli żaden inny stwór nie znajduje się w zasięgu, ty otrzymujesz te obrażenia."
         ]
       },
       "Rozwijasz też losową wadę z tabeli Wad Aberracyjnego Znaku Smoka.",
@@ -5803,7 +5803,7 @@
   "elemental-adept-phb": {
     "name": "Adept Żywiołów",
     "entries": [
-      "Gdy zdobywasz ten atut, wybierz jeden z następujących rodzajów obrażeń: kwas, zimno, ogień, piorun lub grzmot.",
+      "Gdy zdobywasz ten atut, wybierz jeden z następujących rodzajów obrażeń: kwas, zimno, ogień, piorun lub gromu.",
       "Rzucane przez ciebie zaklęcia ignorują odporność na obrażenia wybranego rodzaju. Dodatkowo, gdy rzucasz obrażenia dla rzucanego przez ciebie zaklęcia zadającego obrażenia tego rodzaju, możesz potraktować dowolną 1 na kości obrażeń jako 2.",
       "Możesz wybrać ten atut wielokrotnie. Za każdym razem musisz wybrać inny rodzaj obrażeń."
     ],
@@ -6301,7 +6301,7 @@
         ]
       }
     ],
-    "category": "Wyczyn",
+    "category": "Atut",
     "prerequisite": "Poziom 4+",
     "gallery": [
       {
@@ -6336,7 +6336,7 @@
         ]
       }
     ],
-    "category": "Wyczyn",
+    "category": "Atut",
     "prerequisite": "Poziom 4+",
     "gallery": [
       {
@@ -6371,7 +6371,7 @@
         ]
       }
     ],
-    "category": "Wyczyn",
+    "category": "Atut",
     "prerequisite": "Poziom 4+",
     "gallery": [
       {
@@ -6416,7 +6416,7 @@
       "Twoim współczynnikiem rzucania zaklęć dla zaklęć z tego atutu jest Inteligencja, Roztropność lub Charyzma (wybierz, gdy wybierasz ten atut).",
       "Ponadto możesz używać świętego symbolu jako ogniskowej do rzucania zaklęć dla dowolnego rzucanego przez siebie zaklęcia, które używa współczynnika rzucania zaklęć wybranego przy wyborze tego atutu."
     ],
-    "category": "Wyczyn",
+    "category": "Atut",
     "prerequisite": "Poziom 4+"
   },
   "initiate-of-high-sorcery": {
@@ -6454,7 +6454,7 @@
       "Twoim współczynnikiem rzucania zaklęć dla zaklęć z tego atutu jest Inteligencja, Roztropność lub Charyzma (wybierz, gdy wybierasz ten atut)."
     ],
     "prerequisite": "",
-    "category": "Wyczyn",
+    "category": "Atut",
     "gallery": [
       {
         "path": "feats/DSotDQ/Mage of High Sorcery.webp",
@@ -6488,7 +6488,7 @@
         ]
       }
     ],
-    "category": "Wyczyn",
+    "category": "Atut",
     "prerequisite": "Poziom 4+"
   },
   "knight-of-the-rose": {
@@ -6516,7 +6516,7 @@
         ]
       }
     ],
-    "category": "Wyczyn",
+    "category": "Atut",
     "prerequisite": "Poziom 4+"
   },
   "knight-of-the-sword": {
@@ -6531,7 +6531,7 @@
             "type": "item",
             "name": "Demoralizujące Uderzenie",
             "entries": [
-              "Raz na turę, gdy trafisz stworzenie rzutem na atak bronią, możesz spróbować przestraszyć ten cel. Cel musi wykonać rzut obronny Roztropności (ST równe 8 + twoja premia biegłości + modyfikator współczynnika zwiększonego tym atutem). Przy obleniu cel jest {@condition frightened} tobą do końca twojej następnej tury. Przy powodzeniu cel ma utrudnienie na następny rzut na atak, który wykona przed końcem swojej następnej tury. Możesz użyć tej korzyści tyle razy, ile wynosi twoja premia biegłości, i odzyskujesz wszystkie wydane użycia, gdy kończysz długi odpoczynek."
+              "Raz na turę, gdy trafisz stworzenie rzutem na atak bronią, możesz spróbować przestraszyć ten cel. Cel musi wykonać rzut obronny Roztropności (ST równe 8 + twoja premia biegłości + modyfikator współczynnika zwiększonego tym atutem). Przy niepowodzeniu cel jest {@condition frightened} tobą do końca twojej następnej tury. Przy powodzeniu cel ma utrudnienie na następny rzut na atak, który wykona przed końcem swojej następnej tury. Możesz użyć tej korzyści tyle razy, ile wynosi twoja premia biegłości, i odzyskujesz wszystkie wydane użycia, gdy kończysz długi odpoczynek."
             ]
           }
         ]
@@ -6544,7 +6544,7 @@
         ]
       }
     ],
-    "category": "Wyczyn",
+    "category": "Atut",
     "prerequisite": "Poziom 4+"
   },
   "squire-of-solamnia": {
@@ -6580,6 +6580,6 @@
       }
     ],
     "prerequisite": "",
-    "category": "Wyczyn"
+    "category": "Atut"
   }
 }

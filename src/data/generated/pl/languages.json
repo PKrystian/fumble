@@ -8,23 +8,26 @@
   },
   "aarakocra-mm": {
     "name": "Aarakocki",
-    "languageType": "Język"
+    "typicalSpeakers": "{@creature Aarakocra||aarakokry}",
+    "languageType": "Język",
+    "script": ""
   },
   "abyssal": {
-    "name": "Otchłanny",
+    "name": "Otchłani",
     "script": "",
     "typicalSpeakers": "",
     "entries": [],
     "languageType": "Rzadki"
   },
   "abyssal-ggr": {
-    "name": "Otchłanny",
-    "languageType": "Standard",
+    "name": "Otchłani",
+    "languageType": "Standardowy",
     "script": "Piekielny",
     "typicalSpeakers": "{@filter Demony|bestiary|source=GGR|tag=demon}, {@filter Diabły|bestiary|source=GGR|tag=devil}"
   },
   "abyssal-phb": {
-    "name": "Otchłanny",
+    "name": "Otchłani",
+    "typicalSpeakers": "{@filter Demony|bestiary|tag=demon}",
     "languageType": "Egzotyczny",
     "script": "Piekielny"
   },
@@ -32,14 +35,14 @@
     "name": "Aglarondański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "alzhedo": {
     "name": "Alzhedański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "alzhedo-scag": {
@@ -55,7 +58,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna kaliszitów"
   },
   "aven": {
@@ -76,7 +79,7 @@
     "name": "Bothiański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "bullywug": {
@@ -88,7 +91,9 @@
   },
   "bullywug-mm": {
     "name": "Bullywugi",
-    "languageType": "Język"
+    "typicalSpeakers": "{@creature Bullywug||bullywugi}",
+    "languageType": "Język",
+    "script": ""
   },
   "celestial": {
     "name": "Niebiański",
@@ -105,16 +110,19 @@
   },
   "celestial-erlw": {
     "name": "Niebiański",
+    "typicalSpeakers": "{@filter Istoty niebiańskie|bestiary|source=ERLW|type=celestial}",
     "languageType": "Egzotyczny",
     "script": "Niebiański"
   },
   "celestial-ggr": {
     "name": "Niebiański",
-    "languageType": "Standard",
+    "typicalSpeakers": "{@filter Anioły|bestiary|source=GGR|tag=angel}",
+    "languageType": "Standardowy",
     "script": "Niebiański"
   },
   "celestial-phb": {
     "name": "Niebiański",
+    "typicalSpeakers": "{@filter Istoty niebiańskie|bestiary|type=celestial}",
     "languageType": "Egzotyczny",
     "script": "Niebiański"
   },
@@ -122,7 +130,7 @@
     "name": "Chessentański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "chessentan-scag": {
@@ -138,14 +146,14 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Mulan"
   },
   "chondathan": {
     "name": "Chondatański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "chondathan-scag": {
@@ -161,7 +169,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Chondathan, Grupa etniczna Tetyryjska"
   },
   "coalition-pidgin": {
@@ -177,7 +185,7 @@
     "name": "Wspólny",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "common-mot": {
@@ -188,30 +196,33 @@
   },
   "common-erlw": {
     "name": "Wspólny",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "script": "Wspólny",
     "typicalSpeakers": "Pięć Narodów, język handlowy Khorvaire"
   },
   "common-ggr": {
     "name": "Wspólny",
-    "languageType": "Standard",
+    "typicalSpeakers": "{@filter Ludzie|bestiary|type=humanoid|tag=any Race;human|source=GGR}",
+    "languageType": "Standardowy",
     "script": "Wspólny"
   },
   "common-psi": {
     "name": "Wspólny",
     "languageType": "Język",
-    "typicalSpeakers": "{@race Human (Innistrad)|PSI|Ludzie}, Członkowie Kościoła, {@creature Vampire Neonate|PSI|Wampiry}, {@creature Werewolf (Krallenhorde)|PSI|Wilkołaki}, {@creature Geist|PSI|Geisty}"
+    "typicalSpeakers": "{@race Human (Innistrad)|PSI|Ludzie}, Członkowie Kościoła, {@creature Vampire Neonate|PSI|Wampiry}, {@creature Werewolf (Krallenhorde)|PSI|Wilkołaki}, {@creature Geist|PSI|Geisty}",
+    "script": ""
   },
   "common-phb": {
     "name": "Wspólny",
-    "languageType": "Standard",
+    "typicalSpeakers": "{@filter Ludzie|bestiary|type=humanoid|tag=any Race;human}",
+    "languageType": "Standardowy",
     "script": "Wspólny"
   },
   "common-sign-language": {
     "name": "Wspólny Język Migowy",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "common-trade-pidgin": {
@@ -227,14 +238,14 @@
     "name": "Daelkyrski",
     "entries": [],
     "languageType": "Egzotyczny",
-    "typicalSpeakers": "{@filter Aberracje|bestiary|type=aberration|source=ERLW}, Mieszkańcy Khyber}",
+    "typicalSpeakers": "{@filter Aberracje|bestiary|type=aberration|source=ERLW}, Mieszkańcy Khyber",
     "script": "Daelkyr"
   },
   "damaran": {
     "name": "Damarański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "damaran-scag": {
@@ -250,7 +261,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Detek",
+    "script": "Dethek",
     "typicalSpeakers": "Grupa etniczna Damaran, Grupa etniczna Nar"
   },
   "dambrathan": {
@@ -286,7 +297,7 @@
   "deep-speech-phb": {
     "name": "Głęboka Mowa",
     "languageType": "Egzotyczny",
-    "script": "nic",
+    "script": "Brak",
     "typicalSpeakers": "{@creature Mind Flayer||pamiętajcie Flayers}, {@creature Beholder||obserwatorzy}"
   },
   "demonic": {
@@ -299,7 +310,7 @@
   "draconic": {
     "name": "Smoczy",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": [],
     "script": "Smoczy"
   },
@@ -317,12 +328,15 @@
   },
   "draconic-ggr": {
     "name": "Smoczy",
-    "languageType": "Standard",
+    "typicalSpeakers": "{@filter Smoki|bestiary|source=GGR|type=dragon}",
+    "languageType": "Standardowy",
     "script": "Smoczy"
   },
   "draconic-psi": {
     "name": "Smoczy",
-    "languageType": "Język"
+    "typicalSpeakers": "{@filter Smoki|bestiary|source=PSI|type=dragon}",
+    "languageType": "Język",
+    "script": ""
   },
   "draconic-phb": {
     "name": "Smoczy",
@@ -334,36 +348,38 @@
     "typicalSpeakers": "{@filter Smoki|bestiary|type=dragon}, {@race Dragonborn}"
   },
   "druidic": {
-    "name": "Druidzki",
+    "name": "Druidyczny",
     "script": "",
     "typicalSpeakers": "",
     "languageType": "Rzadki",
     "entries": []
   },
   "druidic-ggr": {
-    "name": "Druidzki",
-    "languageType": "Sekret",
-    "typicalSpeakers": "Selesnya {@class Druid||druidzi}/{@creature Druid||druidzi}, Golgari {@class Druid||druidzi}/{@creature Druid||druidzi}"
+    "name": "Druidyczny",
+    "languageType": "Sekretny",
+    "typicalSpeakers": "Selesnya {@class Druid||druidzi}/{@creature Druid||druidzi}, Golgari {@class Druid||druidzi}/{@creature Druid||druidzi}",
+    "script": ""
   },
   "druidic-phb": {
-    "name": "Druidzki",
+    "name": "Druidyczny",
     "entries": [
-      "Druidzki to tajny język druidów. Można nim mówić lub pozostawiać za jego pomocą ukryte wiadomości. Stworzenia znające ten język automatycznie dostrzegają taką wiadomość. Inni zauważają jej obecność po udanym teście Mądrości ({@skill Perception}) o {@dc 15}, lecz nie są w stanie jej odczytać bez magii."
+      "Druidyczny to tajny język druidów. Można nim mówić lub pozostawiać za jego pomocą ukryte wiadomości. Stworzenia znające ten język automatycznie dostrzegają taką wiadomość. Inni zauważają jej obecność po udanym teście Mądrości ({@skill Perception}) o {@dc 15}, lecz nie są w stanie jej odczytać bez magii."
     ],
-    "languageType": "Sekret",
-    "typicalSpeakers": "{@class Druid||druidzi}/{@creature Druid||druidzi}, {@creature Treant||drzewka}"
+    "languageType": "Sekretny",
+    "typicalSpeakers": "{@class Druid||druidzi}/{@creature Druid||druidzi}, {@creature Treant||drzewce}",
+    "script": ""
   },
   "dwarvish": {
     "name": "Krasnoludzki",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "dwarvish-erlw": {
     "name": "Krasnoludzki",
-    "languageType": "Standard",
-    "script": "Krasnolud",
+    "languageType": "Standardowy",
+    "script": "Krasnoludzki",
     "typicalSpeakers": "Pan Trzyma"
   },
   "dwarvish-phb": {
@@ -371,64 +387,67 @@
     "entries": [
       "Krasnoludzki jest pełen twardych spółgłosek i gardłowych dźwięków, a te cechy przenikają do każdego innego języka, którym może posługiwać się krasnolud."
     ],
-    "languageType": "Standard",
-    "script": "Krasnolud"
+    "typicalSpeakers": "{@filter Krasnoludy|bestiary|type=humanoid|tag=any Race;dwarf}",
+    "languageType": "Standardowy",
+    "script": "Krasnoludzki"
   },
   "elvish": {
-    "name": "Elfi",
+    "name": "Elficki",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "elvish-erlw": {
-    "name": "Elfi",
-    "languageType": "Standard",
-    "script": "Czarodziejski",
+    "name": "Elficki",
+    "languageType": "Standardowy",
+    "script": "Elficki",
     "typicalSpeakers": "Aerenal, Valenar"
   },
   "elvish-ggr": {
-    "name": "Elfi",
-    "languageType": "Standard",
-    "script": "Czarodziejski"
+    "name": "Elficki",
+    "typicalSpeakers": "{@filter Elfy|bestiary|type=humanoid|tag=any Race;elf|source=GGR}",
+    "languageType": "Standardowy",
+    "script": "Elficki"
   },
   "elvish-phb": {
-    "name": "Elfi",
+    "name": "Elficki",
     "entries": [
-      "Elfi jest płynny, o subtelnych intonacjach i skomplikowanej gramatyce. Elfia literatura jest bogata i różnorodna, a ich pieśni i poematy są znane wśród innych ras. Wielu bardów uczy się tego języka, by dodać elfie ballady do swojego repertuaru."
+      "Elficki jest płynny, o subtelnych intonacjach i skomplikowanej gramatyce. Elficka literatura jest bogata i różnorodna, a jej pieśni i poematy są znane wśród innych ras. Wielu bardów uczy się tego języka, by dodać elfie ballady do swojego repertuaru."
     ],
-    "languageType": "Standard",
-    "script": "Czarodziejski"
+    "typicalSpeakers": "{@filter Elfy|bestiary|type=humanoid|tag=any Race;elf}",
+    "languageType": "Standardowy",
+    "script": "Elficki"
   },
   "giant": {
-    "name": "Olbrzymi",
+    "name": "Gigantów",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "giant-mot": {
-    "name": "Olbrzymi",
+    "name": "Gigantów",
     "languageType": "Język",
     "script": "Minotaur",
     "typicalSpeakers": "Cyklopy, Giganci"
   },
   "giant-erlw": {
-    "name": "Olbrzymi",
-    "languageType": "Standard",
-    "script": "Gigant",
+    "name": "Gigantów",
+    "languageType": "Standardowy",
+    "script": "Olbrzymi",
     "typicalSpeakers": "Mieszkańcy Xen'drik"
   },
   "giant-ggr": {
-    "name": "Olbrzymi",
-    "languageType": "Standard",
+    "name": "Gigantów",
+    "languageType": "Standardowy",
     "script": "Minotaur",
     "typicalSpeakers": "{@creature Ogre||ogry}, {@filter Giganci|bestiary|type=giant|source=ERLW}"
   },
   "giant-phb": {
-    "name": "Olbrzymi",
-    "languageType": "Standard",
-    "script": "Krasnolud",
+    "name": "Gigantów",
+    "languageType": "Standardowy",
+    "script": "Krasnoludzki",
     "typicalSpeakers": "{@creature Ogre||ogry}, {@filter Giganci|bestiary|type=giant}"
   },
   "giant-eagle": {
@@ -485,19 +504,20 @@
   "gnoll-mm": {
     "name": "Gnollski",
     "languageType": "Język",
-    "typicalSpeakers": "{@creature Gnoll||gnolle}, {@creature Gnoll Pack Lord||Władcy Stada gnolli}, {@creature Gnoll Fang Of Yeenoghu||gnolle Kły Yeenoghu}"
+    "typicalSpeakers": "{@creature Gnoll||gnolle}, {@creature Gnoll Pack Lord||Władcy Stada gnolli}, {@creature Gnoll Fang Of Yeenoghu||gnolle Kły Yeenoghu}",
+    "script": ""
   },
   "gnomish": {
     "name": "Gnomi",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "gnomish-erlw": {
     "name": "Gnomi",
-    "languageType": "Standard",
-    "script": "Krasnolud",
+    "languageType": "Standardowy",
+    "script": "Krasnoludzki",
     "typicalSpeakers": "Zilargo"
   },
   "gnomish-phb": {
@@ -505,34 +525,37 @@
     "entries": [
       "Język Gnomi, zapisywany krasnoludzkim pismem, słynie z traktatów technicznych i katalogów wiedzy o świecie natury."
     ],
-    "languageType": "Standard",
-    "script": "Krasnolud"
+    "typicalSpeakers": "{@filter Gnomy|bestiary|type=humanoid|tag=any Race;gnome}",
+    "languageType": "Standardowy",
+    "script": "Krasnoludzki"
   },
   "goblin": {
-    "name": "Goblinowy",
+    "name": "Gobliński",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "goblin-erlw": {
-    "name": "Goblinowy",
-    "languageType": "Standard",
-    "script": "Chochlik",
+    "name": "Gobliński",
+    "languageType": "Standardowy",
+    "script": "Gobliński",
     "typicalSpeakers": "Darguun, Droaam, Marsze Cieni, Potwory z Khorvaire"
   },
   "goblin-ggr": {
-    "name": "Goblinowy",
+    "name": "Gobliński",
     "entries": [
-      "Na Ravnice Goblinowy jest prostym językiem o ograniczonym słownictwie i płynnych regułach gramatycznych, nienadającym się do żadnej wyrafinowanej rozmowy."
+      "Na Ravnice Gobliński jest prostym językiem o ograniczonym słownictwie i płynnych regułach gramatycznych, nienadającym się do żadnej wyrafinowanej rozmowy."
     ],
-    "languageType": "Standard",
+    "typicalSpeakers": "{@filter Gobliny|bestiary|tag=any Race|source=GGR}",
+    "languageType": "Standardowy",
     "script": "Wspólny"
   },
   "goblin-phb": {
-    "name": "Goblinowy",
-    "languageType": "Standard",
-    "script": "Krasnolud"
+    "name": "Gobliński",
+    "typicalSpeakers": "{@filter Goblinoidy|bestiary|tag=goblinoid}",
+    "languageType": "Standardowy",
+    "script": "Krasnoludzki"
   },
   "grell": {
     "name": "Grellski",
@@ -563,18 +586,18 @@
     ],
     "languageType": "Język",
     "typicalSpeakers": "Grupa etniczna Gur",
-    "script": "Klatka piersiowa"
+    "script": "Thorass"
   },
   "halfling": {
     "name": "Niziołczy",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "halfling-erlw": {
     "name": "Niziołczy",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "script": "Wspólny",
     "typicalSpeakers": "Równiny Talenty"
   },
@@ -583,7 +606,8 @@
     "entries": [
       "Niziołczy nie jest językiem tajnym, lecz niziołki niechętnie dzielą się nim z innymi. Piszą bardzo niewiele, więc nie posiadają bogatej literatury pisanej. Ich tradycja ustna jest jednak bardzo silna. Niemal wszystkie niziołki mówią Wspólnym, by porozumiewać się z ludźmi, na których ziemiach mieszkają lub przez które podróżują."
     ],
-    "languageType": "Standard",
+    "typicalSpeakers": "{@filter Niziołki|bestiary|type=humanoid|tag=any Race;halfling}",
+    "languageType": "Standardowy",
     "script": "Wspólny"
   },
   "halruaan": {
@@ -618,13 +642,15 @@
   },
   "hook-horror-mm": {
     "name": "Hakogrozy",
-    "languageType": "Język"
+    "typicalSpeakers": "{@creature Hook Horror||horrory hakowe}",
+    "languageType": "Język",
+    "script": ""
   },
   "illuskan": {
     "name": "Illuskański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "illuskan-scag": {
@@ -640,7 +666,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Illuskan"
   },
   "infernal": {
@@ -652,11 +678,13 @@
   },
   "infernal-erlw": {
     "name": "Piekielny",
+    "typicalSpeakers": "{@filter Czarty|bestiary|type=fiend|source=ERLW}",
     "languageType": "Egzotyczny",
     "script": "Piekielny"
   },
   "infernal-phb": {
     "name": "Piekielny",
+    "typicalSpeakers": "{@filter Diabły|bestiary|tag=devil}",
     "languageType": "Egzotyczny",
     "script": "Piekielny"
   },
@@ -683,10 +711,10 @@
   },
   "kraul": {
     "name": "Kraulski",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": [],
     "typicalSpeakers": "Kraul, {@creature Kraul Warrior|GGR|kraulowi Wojownicy}, {@creature Kraul Death Priest|GGR|kraul Kapłani Śmierci}, {@creature Devkarin Lich|GGR|Devkarin Licze}",
-    "script": "Kraulski"
+    "script": "Kraul"
   },
   "kruthik": {
     "name": "Krutycki",
@@ -699,7 +727,7 @@
     "name": "Lantański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "leonin": {
@@ -712,9 +740,9 @@
   "loxodon": {
     "name": "Loksodoński",
     "typicalSpeakers": "{@filter Loksodonty|bestiary|tag=any Race|source=GGR}",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": [],
-    "script": "Czarodziejski"
+    "script": "Elficki"
   },
   "marquesian": {
     "name": "Markwezjański",
@@ -728,7 +756,7 @@
   "merfolk": {
     "name": "Mermeni",
     "typicalSpeakers": "{@filter Merfolk|bestiary|source=GGR|tag=any Race;merfolk}",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": [],
     "script": "Merfolk"
   },
@@ -742,7 +770,7 @@
     "name": "Midański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "midani-scag": {
@@ -758,7 +786,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Bedine"
   },
   "minotaur": {
@@ -770,7 +798,8 @@
   },
   "minotaur-ggr": {
     "name": "Minotauryjski",
-    "languageType": "Standard",
+    "typicalSpeakers": "{@race Minotaur|ggr|minotaury}",
+    "languageType": "Standardowy",
     "script": "Minotaur"
   },
   "modron": {
@@ -783,13 +812,14 @@
   "modron-mm": {
     "name": "Modroński",
     "languageType": "Język",
-    "typicalSpeakers": "{@creature Monodrone||monodrony}, {@creature Duodrone||duodrony}, {@creature Tridrone||tridrony}, {@creature Quadrone||kwadrony}, {@creature Pentadrone||pentadrony}"
+    "typicalSpeakers": "{@creature Monodrone||monodrony}, {@creature Duodrone||duodrony}, {@creature Tridrone||tridrony}, {@creature Quadrone||kwadrony}, {@creature Pentadrone||pentadrony}",
+    "script": ""
   },
   "mulhorandi": {
     "name": "Mulhorandyjski",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "mulhorandi-scag": {
@@ -805,7 +835,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Mulan"
   },
   "naga": {
@@ -828,20 +858,20 @@
     "name": "Netherański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "orc": {
     "name": "Orkowy",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "orc-erlw": {
     "name": "Orkowy",
     "languageType": "Egzotyczny",
-    "script": "Chochlik",
+    "script": "Gobliński",
     "typicalSpeakers": "Odizolowane plemiona orków"
   },
   "orc-phb": {
@@ -849,8 +879,9 @@
     "entries": [
       "Orkowy jest surowym, zgrzytliwym językiem o twardych spółgłoskach. Nie posiada własnego pisma i zapisywany jest krasnoludzkim alfabetem."
     ],
-    "languageType": "Standard",
-    "script": "Krasnolud"
+    "typicalSpeakers": "{@filter Orkowie|bestiary|tag=orc}",
+    "languageType": "Standardowy",
+    "script": "Krasnoludzki"
   },
   "otyugh": {
     "name": "Otyugi",
@@ -861,7 +892,9 @@
   },
   "otyugh-mm": {
     "name": "Otyugi",
-    "languageType": "Język"
+    "typicalSpeakers": "{@creature Otyugh||otyugi}",
+    "languageType": "Język",
+    "script": ""
   },
   "primordial": {
     "name": "Pierwotny",
@@ -878,31 +911,34 @@
   },
   "primordial-erlw": {
     "name": "Pierwotny",
+    "typicalSpeakers": "{@filter Żywiołaki|bestiary|type=elemental}",
     "languageType": "Egzotyczny",
     "script": "Pierwotny"
   },
   "primordial-psi": {
     "name": "Pierwotny",
     "languageType": "Język",
-    "typicalSpeakers": "Żywiołaki"
+    "typicalSpeakers": "Żywiołaki",
+    "script": ""
   },
   "primordial-phb": {
     "name": "Pierwotny",
     "entries": [
       "Pierwotny jest gardłowym językiem, pełnym surowych sylab i twardych spółgłosek."
     ],
+    "typicalSpeakers": "{@filter Żywiołaki|bestiary|type=elemental}",
     "languageType": "Egzotyczny",
-    "script": "Krasnolud"
+    "script": "Krasnoludzki"
   },
   "qualith": {
-    "name": "Jakość",
+    "name": "Qualith",
     "entries": [
       "„Pismo” pożeraczy umysłów, znane jako Qualith, nie jest tak proste jak zbiór symboli reprezentujących dźwięki czy idee. Inskrypcja w Qualith zapisuje myśli swojego twórcy i psionicznie przekazuje je pożeraczowi umysłów, który później odczytuje inskrypcję, dotykając jej mackami. Pożeracze umysłów piszą w Qualith, psionicznie odciskając swoje wiadomości na niemagicznym, nieożywionym materiale, który chwytają lub głaszczą mackami. Odciskanie powoduje niedostrzegalne zmiany powierzchni przedmiotu, a ścieranie lub degradacja materiału może sprawić, że inskrypcja zblednie i zniknie.",
       "Wypowiedź w Qualith składa się z czterowierszowych strof upakowanych w powiązane ze sobą bloki, tworzących złożone wzory niemożliwe do odczytania przez inne stworzenia. Ktoś, kto dotknie inskrypcji Qualith, może jednak otrzymać fragmentaryczny wgląd w wielowarstwowe myśli w niej zawarte. Istota nie będąca illithidem, chcąca zrozumieć inskrypcję Qualith, może wykonać test Inteligencji (ST zależny od złożoności zawartych myśli), by spróbować odczytać część znaczenia inskrypcji. Wielokrotne udane próby mogą ujawnić różne aspekty dotyczące illithidzkiego autora, jego zamierzonego znaczenia i odbiorców. Nieudana próba skutkuje potężnym bólem głowy, a w skrajnych przypadkach szaleństwem. Zaklęcie {@spell comprehend languages} zapewnia zrozumienie inskrypcji w przybliżeniu równoważne temu, co uzyskałby pożeracz umysłów."
     ],
     "typicalSpeakers": "{@creature Mind Flayer||Łupieżcy Umysłów}",
     "languageType": "Język",
-    "script": "Jakość"
+    "script": "Qualith"
   },
   "quori": {
     "name": "Quorijski",
@@ -915,7 +951,7 @@
     "name": "Raszemi",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "rashemi-scag": {
@@ -931,19 +967,19 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Rashemi"
   },
   "reghedjic": {
     "name": "Reghedżycki",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "riedran": {
     "name": "Riedrański",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "script": "Wspólny",
     "entries": [],
     "typicalSpeakers": "Ludzie z Sarlony"
@@ -961,7 +997,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Imaskari"
   },
   "sahuagin": {
@@ -974,13 +1010,14 @@
   "sahuagin-mm": {
     "name": "Sahuaginów",
     "languageType": "Język",
-    "typicalSpeakers": "{@creature Sahuagin}, {@creature Sahuagin Priestess||Kapłanki sahuagin}, {@creature Sahuagin Baron||sahuagin baronowie}"
+    "typicalSpeakers": "{@creature Sahuagin}, {@creature Sahuagin Priestess||Kapłanki sahuagin}, {@creature Sahuagin Baron||sahuagin baronowie}",
+    "script": ""
   },
   "sespech": {
     "name": "Sespechański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "shaaran": {
@@ -996,7 +1033,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Detek",
+    "script": "Dethek",
     "typicalSpeakers": "Grupa etniczna Shaaran"
   },
   "shou": {
@@ -1012,7 +1049,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Shou"
   },
   "siren": {
@@ -1032,7 +1069,8 @@
   "slaad-mm": {
     "name": "Slaadzki",
     "languageType": "Język",
-    "typicalSpeakers": "{@creature Slaad Tadpole||zabić Kijanki}, {@creature Red Slaad||czerwony Slaadi}, {@creature Blue Slaad||niebieski Slaadi}, {@creature Green Slaad||zielony Slaadi}, {@creature Gray Slaad||szary Slaadi}, {@creature Death Slaad||śmierć Slaadiego}"
+    "typicalSpeakers": "{@creature Slaad Tadpole||zabić Kijanki}, {@creature Red Slaad||czerwony Slaadi}, {@creature Blue Slaad||niebieski Slaadi}, {@creature Green Slaad||zielony Slaadi}, {@creature Gray Slaad||szary Slaadi}, {@creature Death Slaad||śmierć Slaadiego}",
+    "script": ""
   },
   "sphinx": {
     "name": "Sfinksów",
@@ -1043,51 +1081,55 @@
   },
   "sphinx-ggr": {
     "name": "Sfinksów",
-    "languageType": "Standard",
-    "script": "nic"
+    "typicalSpeakers": "{@creature Sphinx Of Judgment|ggr|sfinksy Sądu}",
+    "languageType": "Standardowy",
+    "script": "Brak"
   },
   "sphinx-mm": {
     "name": "Sfinksów",
     "languageType": "Język",
-    "typicalSpeakers": "{@creature Gynosphinx||gynosfinksy}, {@creature Androsphinx||androsfinksy}"
+    "typicalSpeakers": "{@creature Gynosphinx||gynosfinksy}, {@creature Androsphinx||androsfinksy}",
+    "script": ""
   },
   "sylvan": {
-    "name": "Leśny",
+    "name": "Sylvański",
     "script": "",
     "typicalSpeakers": "",
     "languageType": "Rzadki",
     "entries": []
   },
   "sylvan-mot": {
-    "name": "Leśny",
+    "name": "Sylvański",
     "languageType": "Język",
-    "script": "Czarodziejski",
+    "script": "Elficki",
     "typicalSpeakers": "Centaury, {@filter Satyry|bestiary|source=MOT|search=satyr}"
   },
   "sylvan-erlw": {
-    "name": "Leśny",
+    "name": "Sylvański",
+    "typicalSpeakers": "{@filter Istoty fejów|bestiary|type=fey|source=ERLW}",
     "languageType": "Egzotyczny",
-    "script": "Czarodziejski"
+    "script": "Elficki"
   },
   "sylvan-ggr": {
-    "name": "Leśny",
+    "name": "Sylvański",
     "entries": [
-      "Leśny jest szeroko używany w Konklawe Selesnyi, gdyż jest bogaty w słownictwo opisujące zjawiska naturalne i siły duchowe."
+      "Sylvański jest szeroko używany w Konklawe Selesnyi, gdyż jest bogaty w słownictwo opisujące zjawiska naturalne i siły duchowe."
     ],
-    "languageType": "Standard",
-    "script": "Czarodziejski",
+    "languageType": "Standardowy",
+    "script": "Elficki",
     "typicalSpeakers": "{@race Centaur|ggr|centaury}, {@creature Conclave Dryad|ggr|driady}"
   },
   "sylvan-phb": {
-    "name": "Leśny",
+    "name": "Sylvański",
+    "typicalSpeakers": "{@filter Istoty fejów|bestiary|type=fey}",
     "languageType": "Egzotyczny",
-    "script": "Czarodziejski"
+    "script": "Elficki"
   },
   "thayan": {
     "name": "Thayański",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "thayan-scag": {
@@ -1103,7 +1145,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Mulan"
   },
   "thieves-cant": {
@@ -1115,16 +1157,18 @@
   },
   "thieves-cant-ggr": {
     "name": "Złodziejski Żargon",
-    "languageType": "Sekret",
-    "typicalSpeakers": "Gangi uliczne, Dimir {@class Rogue||łotrzykowie}, Golgari {@class Rogue||łotrzykowie}"
+    "languageType": "Sekretny",
+    "typicalSpeakers": "Gangi uliczne, Dimir {@class Rogue||łotrzykowie}, Golgari {@class Rogue||łotrzykowie}",
+    "script": ""
   },
   "thieves-cant-phb": {
     "name": "Złodziejski Żargon",
     "entries": [
       "Złodziejski Żargon to tajna mieszanka dialektu, slangu i szyfru, pozwalająca ukrywać wiadomości w pozornie zwyczajnej rozmowie. Tylko stworzenie znające złodziejski żargon rozumie takie wiadomości. Przekazanie takiej wiadomości zajmuje cztery razy dłużej niż wypowiedzenie tej samej myśli wprost."
     ],
-    "languageType": "Sekret",
-    "typicalSpeakers": "{@creature Assassin||zabójcy}, {@class Rogue||łotrzykowie}"
+    "languageType": "Sekretny",
+    "typicalSpeakers": "{@creature Assassin||zabójcy}, {@class Rogue||łotrzykowie}",
+    "script": ""
   },
   "thri-kreen": {
     "name": "Thri-kreeński",
@@ -1135,7 +1179,9 @@
   },
   "thri-kreen-mm": {
     "name": "Thri-kreeński",
-    "languageType": "Język"
+    "typicalSpeakers": "{@creature Thri-kreen||thri-kreeni}",
+    "languageType": "Język",
+    "script": ""
   },
   "tlincalli": {
     "name": "Tlincallski",
@@ -1153,7 +1199,9 @@
   },
   "troglodyte-mm": {
     "name": "Troglodycki",
-    "languageType": "Język"
+    "typicalSpeakers": "{@creature Troglodyte||troglodyci}",
+    "languageType": "Język",
+    "script": ""
   },
   "tuigan": {
     "name": "Tuigański",
@@ -1168,14 +1216,14 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Tuigan"
   },
   "turmic": {
     "name": "Turmicki",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "turmic-scag": {
@@ -1191,7 +1239,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Turami"
   },
   "uluik": {
@@ -1207,7 +1255,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Ulutiun"
   },
   "umber-hulk": {
@@ -1219,26 +1267,28 @@
   },
   "umber-hulk-mm": {
     "name": "Umbrowego Kolosa",
-    "languageType": "Język"
+    "typicalSpeakers": "{@creature Umber Hulk||umber hulki}",
+    "languageType": "Język",
+    "script": ""
   },
   "undercommon": {
-    "name": "Podmowa",
+    "name": "Wspólny Podmroku",
     "script": "",
     "typicalSpeakers": "",
     "languageType": "Rzadki",
     "entries": []
   },
   "undercommon-phb": {
-    "name": "Podmowa",
+    "name": "Wspólny Podmroku",
     "languageType": "Egzotyczny",
-    "script": "Czarodziejski",
+    "script": "Elficki",
     "typicalSpeakers": "Handlarze Podmroku"
   },
   "untheric": {
     "name": "Unterycki",
     "script": "",
     "typicalSpeakers": "",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "entries": []
   },
   "untheric-scag": {
@@ -1254,7 +1304,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Grupa etniczna Mulan"
   },
   "vampire": {
@@ -1270,7 +1320,7 @@
       "Język Vedalken słynie z traktatów technicznych i katalogów wiedzy o świecie natury oraz eterze, który go przenika."
     ],
     "typicalSpeakers": "{@race Vedalken|ggr}",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "script": "Vedalken"
   },
   "vegepygmy": {
@@ -1293,7 +1343,7 @@
       }
     ],
     "languageType": "Język",
-    "script": "Klatka piersiowa",
+    "script": "Thorass",
     "typicalSpeakers": "Ludowa Grupa Etniczna"
   },
   "winter-wolf": {
@@ -1312,7 +1362,9 @@
   },
   "worg-mm": {
     "name": "Wargów",
-    "languageType": "Język"
+    "typicalSpeakers": "{@creature Worg||worgi}",
+    "languageType": "Język",
+    "script": ""
   },
   "yeti": {
     "name": "Yeti",
@@ -1324,7 +1376,8 @@
   "yeti-mm": {
     "name": "Yeti",
     "languageType": "Język",
-    "typicalSpeakers": "{@creature Yeti||yeti}, {@creature Abominable Yeti||obrzydliwy Yeti}"
+    "typicalSpeakers": "{@creature Yeti||yeti}, {@creature Abominable Yeti||obrzydliwy Yeti}",
+    "script": ""
   },
   "zemnian": {
     "name": "Zemniański",
@@ -1338,18 +1391,19 @@
   "abanasinian": {
     "name": "Abanasiński",
     "entries": [],
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "script": "Wspólny",
     "typicalSpeakers": "Abanasinia"
   },
   "bothii-skt": {
     "name": "Bothii",
     "languageType": "Język",
-    "typicalSpeakers": "{@creature Uthgardt Barbarian Leader|SKT|Barbarzyńcy Uthgardta}, {@creature Uthgardt Shaman|SKT|Szamani Uthgardta}"
+    "typicalSpeakers": "{@creature Uthgardt Barbarian Leader|SKT|Barbarzyńcy Uthgardta}, {@creature Uthgardt Shaman|SKT|Szamani Uthgardta}",
+    "script": ""
   },
   "common-dsotdq": {
     "name": "Wspólny",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "script": "Wspólny",
     "typicalSpeakers": "Język handlowy Ansalonu"
   },
@@ -1361,33 +1415,33 @@
   },
   "dwarvish-dsotdq": {
     "name": "Krasnoludzki",
-    "languageType": "Standard",
-    "script": "Krasnolud",
+    "languageType": "Standardowy",
+    "script": "Krasnoludzki",
     "typicalSpeakers": "Abanasinia, Kayolin, Thoradin, Thorbardin"
   },
   "elvish-dsotdq": {
-    "name": "Elfi",
-    "languageType": "Standard",
-    "script": "Czarodziejski",
+    "name": "Elficki",
+    "languageType": "Standardowy",
+    "script": "Elficki",
     "typicalSpeakers": "Qualinesti, Silvanesti, Południowy Ergoth"
   },
   "ergot": {
     "name": "Ergocki",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "script": "Wspólny",
     "entries": [],
     "typicalSpeakers": "Północny Ergoth"
   },
   "gnomish-dsotdq": {
     "name": "Gnomi",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "script": "Wspólny",
     "typicalSpeakers": "Sankrysta"
   },
   "goblin-dsotdq": {
     "name": "Goblański",
     "languageType": "Rzadki",
-    "script": "Krasnolud",
+    "script": "Krasnoludzki",
     "typicalSpeakers": "Tamana Busuka"
   },
   "ice-toad": {
@@ -1402,7 +1456,7 @@
     "languageType": "Rzadki",
     "entries": [],
     "typicalSpeakers": "Starożytni Istarczycy",
-    "script": "Istarski"
+    "script": "Istarian"
   },
   "ixitxachitl": {
     "name": "Ixitxachitl",
@@ -1413,22 +1467,22 @@
   },
   "kenderspeak": {
     "name": "Kenderski",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "script": "Wspólny",
     "entries": [],
     "typicalSpeakers": "Goodlund, Hylo"
   },
   "kharolian": {
     "name": "Kharoliański",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "script": "Wspólny",
     "entries": [],
     "typicalSpeakers": "Równiny Pyłu, Tarsis"
   },
   "khur": {
     "name": "Khur",
-    "languageType": "Standard",
-    "script": "Istarski",
+    "languageType": "Standardowy",
+    "script": "Istarian",
     "entries": [],
     "typicalSpeakers": "Khur"
   },
@@ -1437,7 +1491,7 @@
     "languageType": "Rzadki",
     "entries": [],
     "typicalSpeakers": "Minotaury",
-    "script": "Kothiana"
+    "script": "Kothian"
   },
   "loross": {
     "name": "Loross",
@@ -1451,7 +1505,7 @@
   "nerakese": {
     "name": "Nerakański",
     "languageType": "Rzadki",
-    "script": "Istarski",
+    "script": "Istarian",
     "entries": [],
     "typicalSpeakers": "Neraka"
   },
@@ -1462,8 +1516,8 @@
   },
   "nordmaarian": {
     "name": "Nordmaarski",
-    "languageType": "Standard",
-    "script": "Istarski",
+    "languageType": "Standardowy",
+    "script": "Istarian",
     "entries": [],
     "typicalSpeakers": "Nordmaar"
   },
@@ -1471,7 +1525,7 @@
     "name": "Ogrów",
     "languageType": "Rzadki",
     "entries": [],
-    "script": "Wilkołak",
+    "script": "Ogrzy",
     "typicalSpeakers": "Blode, Kern"
   },
   "olman": {
@@ -1489,7 +1543,7 @@
   },
   "solamnic": {
     "name": "Solamnicki",
-    "languageType": "Standard",
+    "languageType": "Standardowy",
     "script": "Wspólny",
     "entries": [],
     "typicalSpeakers": "Sankrysta, Solamnia"
@@ -1497,7 +1551,7 @@
   "sylvan-dsotdq": {
     "name": "Sylwański",
     "languageType": "Rzadki",
-    "script": "Sylwan",
+    "script": "Sylvański",
     "typicalSpeakers": "Fejowe stworzenia"
   },
   "yikaria": {

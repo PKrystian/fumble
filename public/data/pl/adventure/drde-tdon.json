@@ -2640,7 +2640,7 @@
                   "page": 86,
                   "id": "1a3",
                   "entries": [
-                    "Niektóre zachodnie pomieszczenia na górnym poziomie klasztoru (obszary {@area M5|1ae|x}-{@area M6|1b0|x} i {@area M8|1b4|x}-{@area M9|1b6|x}) posiadają wąskie witraże, które postać może otworzyć od wewnątrz. Tych okien nie można otworzyć z zewnątrz, ale łatwo je stłuc (KP 11, HP 2, Wrażliwość na obrażenia tłuczące, Odporność na trucizny i obrażenia psychiczne). Postać może z łatwością wspiąć się przez otwarte okno."
+                    "Niektóre zachodnie pomieszczenia na górnym poziomie klasztoru (obszary {@area M5|1ae|x}-{@area M6|1b0|x} i {@area M8|1b4|x}-{@area M9|1b6|x}) posiadają wąskie witraże, które postać może otworzyć od wewnątrz. Tych okien nie można otworzyć z zewnątrz, ale łatwo je stłuc (KP 11, HP 2, Wrażliwość na obrażenia obuchowe, Odporność na trucizny i obrażenia psychiczne). Postać może z łatwością wspiąć się przez otwarte okno."
                   ]
                 }
               ]
@@ -2746,7 +2746,8 @@
                       "id": "1af",
                       "entries": [
                         "Cztery kamienne cokoły, każdy o wysokości trzech stóp, stoją w rzędzie w pobliżu czterech wąskich witraży przedstawiających sceny pasterskie. Na każdym cokole znajduje się duża klatka dla ptaków. Krasnoludzki mnich na drabinie czyści jedną z klatek."
-                      ]
+                      ],
+                      "name": "Obuchowe"
                     },
                     "Każda klatka dla ptaków waży 20 funtów. Kiedy bohaterowie odwiedzają wolierę po raz pierwszy, mnich wyjmuje z klatek resztki martwych sokołów i składa je w koszu na podłodze. Postać, która bierze {@action Search|XPHB} działania i bada, czy sokoły potrafią zrobić {@dc 15} Mądrość ({@skill Medicine|XPHB}) sprawdzać. Po pomyślnym zakończeniu bohater stwierdza, że ​​sokoły zdechły po spożyciu jakiejś trucizny w ciągu ostatnich 12 godzin.",
                     "Mnich może potwierdzić, że wczoraj ptaki miały się dobrze. Uważa, że ​​zmarli w wyniku zjedzenia zatrutego mięsa, ale nie wie, kto im je nakarmił. Wyjaśnia, że ​​te sokoły szkolono do dostarczania wiadomości do i z klasztoru. (Ronnom karmił ptaki zatrutym mięsem, aby powstrzymać mnichów przed ujawnieniem tajemnicy jego tożsamości światu zewnętrznemu.)",
@@ -2773,7 +2774,7 @@
                 },
                 {
                   "type": "entries",
-                  "name": "M7: Szpital",
+                  "name": "Moc",
                   "page": 89,
                   "id": "1b2",
                   "entries": [
@@ -2783,7 +2784,8 @@
                       "id": "1b3",
                       "entries": [
                         "Pokój ten wyposażony jest w drewniany stół operacyjny umieszczony pod dwiema wiszącymi latarniami. Kamienne półki wzdłuż ścian przechowują bandaże, czyste prześcieradła i inne artykuły medyczne."
-                      ]
+                      ],
+                      "name": "Piorun"
                     },
                     "Postacie przeglądające zawartość pomieszczenia znajdują następujące przedmioty:",
                     {
@@ -2800,7 +2802,7 @@
                 },
                 {
                   "type": "entries",
-                  "name": "M8: Pokój pooperacyjny",
+                  "name": "Nekrotyczne",
                   "page": 89,
                   "id": "1b4",
                   "entries": [
@@ -2810,14 +2812,15 @@
                       "id": "1b5",
                       "entries": [
                         "W tym pokoju o powierzchni dziesięciu stóp kwadratowych znajdują się dwa starannie pościelone łóżka. Cztery witraże przedstawiające pasące się kozy wpuszczają przyćmione światło w cętkowanych wzorach zieleni, błękitu i żółci."
-                      ]
+                      ],
+                      "name": "Kłute"
                     },
                     "Przychodzą tu chorzy i ranni, aby odpocząć i odzyskać siły. Pod każdym łóżkiem znajduje się pusty nocnik."
                   ]
                 },
                 {
                   "type": "entries",
-                  "name": "M9: Biblioteka",
+                  "name": "Trucizna",
                   "page": 89,
                   "id": "1b6",
                   "entries": [
@@ -2827,12 +2830,13 @@
                       "id": "1b7",
                       "entries": [
                         "Wolnostojące regały tworzą w tym pomieszczeniu schludne rzędy. Na jednej ścianie znajdują się wąskie witraże przedstawiające sceny pasterskie. Między dwoma oknami stoi dobrze zużyta miotła."
-                      ]
+                      ],
+                      "name": "Psychiczne"
                     },
                     "Miotła nie jest magiczna.",
                     {
                       "type": "entries",
-                      "name": "Książki",
+                      "name": "Promieniste",
                       "page": 89,
                       "id": "1b8",
                       "entries": [
@@ -2841,7 +2845,7 @@
                     },
                     {
                       "type": "entries",
-                      "name": "Księga Zaklęć",
+                      "name": "Sieczne",
                       "page": 90,
                       "id": "1b9",
                       "entries": [
@@ -2852,7 +2856,7 @@
                 },
                 {
                   "type": "entries",
-                  "name": "M10: Kuchnia",
+                  "name": "Gromu",
                   "page": 90,
                   "id": "1ba",
                   "entries": [
@@ -3220,7 +3224,7 @@
                       "page": 93,
                       "id": "1df",
                       "entries": [
-                        "Labirynt zawiera pięć identycznych, magicznych pułapek, każda oznaczona literą T na {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}. Postać niosąca {@item Staff of the Python|XDMG} Hierarchy Anisha lub która dotknęła urny w krypcie (patrz obszar {@area M18|1d0|x}) może bezpiecznie przejść przez te obszary. W przeciwnym razie, ilekroć istota wejdzie na jeden z tych obszarów o powierzchni 5 stóp kwadratowych, wykonuje rzut obronny na Kondycję {@dc 15}, zadając 10 ({@dice 3d6}) obrażeń od błyskawic w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
+                        "Labirynt zawiera pięć identycznych, magicznych pułapek, każda oznaczona literą T na {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}. Postać niosąca {@item Staff of the Python|XDMG} Hierarchy Anisha lub która dotknęła urny w krypcie (patrz obszar {@area M18|1d0|x}) może bezpiecznie przejść przez te obszary. W przeciwnym razie, ilekroć istota wejdzie na jeden z tych obszarów o powierzchni 5 stóp kwadratowych, wykonuje rzut obronny na Kondycję {@dc 15}, zadając 10 ({@dice 3d6}) obrażeń od pioruna w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
                       ]
                     }
                   ]
@@ -4733,7 +4737,7 @@
                       "entries": [
                         "Ronnom zamontował linkę wyzwalającą na szczycie schodów. Jeśli zostanie zmuszony do ucieczki ze swojej kwatery (obszar {@area M26|1e5|x}), przechodzi przez drut, aby go ominąć i bierze latarnię oraz {@item Folding Boat|XDMG}.",
                         "Postać może przyjąć {@action Search|XPHB} akcję polegającą na sprawdzeniu schodów pod kątem pułapek i wykonaniu {@dc 15} Mądrość ({@skill Perception|XPHB}) sprawdzać. W przypadku powodzenia postać znajduje przewód wyzwalający. Po wykryciu drutu można go łatwo ominąć lub przeciąć.",
-                        "Postać korzystająca ze schodów, której nie udało się wykryć zaczepów o drut, ma tzw {@condition Prone|XPHB} warunek i bierze 3 ({@dice 1d6}) Tłuczące obrażenia od upadku."
+                        "Postać korzystająca ze schodów, której nie udało się wykryć zaczepów o drut, ma tzw {@condition Prone|XPHB} warunek i bierze 3 ({@dice 1d6}) obrażenia obuchowe od upadku."
                       ]
                     }
                   ]
@@ -7159,7 +7163,7 @@
               "page": 86,
               "id": "1a3",
               "entries": [
-                "Niektóre zachodnie pomieszczenia na górnym poziomie klasztoru (obszary {@area M5|1ae|x}-{@area M6|1b0|x} i {@area M8|1b4|x}-{@area M9|1b6|x}) posiadają wąskie witraże, które postać może otworzyć od wewnątrz. Tych okien nie można otworzyć z zewnątrz, ale łatwo je stłuc (KP 11, HP 2, Wrażliwość na obrażenia tłuczące, Odporność na trucizny i obrażenia psychiczne). Postać może z łatwością wspiąć się przez otwarte okno."
+                "Niektóre zachodnie pomieszczenia na górnym poziomie klasztoru (obszary {@area M5|1ae|x}-{@area M6|1b0|x} i {@area M8|1b4|x}-{@area M9|1b6|x}) posiadają wąskie witraże, które postać może otworzyć od wewnątrz. Tych okien nie można otworzyć z zewnątrz, ale łatwo je stłuc (KP 11, HP 2, Wrażliwość na obrażenia obuchowe, Odporność na trucizny i obrażenia psychiczne). Postać może z łatwością wspiąć się przez otwarte okno."
               ]
             }
           ]
@@ -7265,7 +7269,8 @@
                   "id": "1af",
                   "entries": [
                     "Cztery kamienne cokoły, każdy o wysokości trzech stóp, stoją w rzędzie w pobliżu czterech wąskich witraży przedstawiających sceny pasterskie. Na każdym cokole znajduje się duża klatka dla ptaków. Krasnoludzki mnich na drabinie czyści jedną z klatek."
-                  ]
+                  ],
+                  "name": "Obuchowe"
                 },
                 "Każda klatka dla ptaków waży 20 funtów. Kiedy bohaterowie odwiedzają wolierę po raz pierwszy, mnich wyjmuje z klatek resztki martwych sokołów i składa je w koszu na podłodze. Postać, która bierze {@action Search|XPHB} działania i bada, czy sokoły potrafią zrobić {@dc 15} Mądrość ({@skill Medicine|XPHB}) sprawdzać. Po pomyślnym zakończeniu bohater stwierdza, że ​​sokoły zdechły po spożyciu jakiejś trucizny w ciągu ostatnich 12 godzin.",
                 "Mnich może potwierdzić, że wczoraj ptaki miały się dobrze. Uważa, że ​​zmarli w wyniku zjedzenia zatrutego mięsa, ale nie wie, kto im je nakarmił. Wyjaśnia, że ​​te sokoły szkolono do dostarczania wiadomości do i z klasztoru. (Ronnom karmił ptaki zatrutym mięsem, aby powstrzymać mnichów przed ujawnieniem tajemnicy jego tożsamości światu zewnętrznemu.)",
@@ -7292,7 +7297,7 @@
             },
             {
               "type": "entries",
-              "name": "M7: Szpital",
+              "name": "Moc",
               "page": 89,
               "id": "1b2",
               "entries": [
@@ -7302,7 +7307,8 @@
                   "id": "1b3",
                   "entries": [
                     "Pokój ten wyposażony jest w drewniany stół operacyjny umieszczony pod dwiema wiszącymi latarniami. Kamienne półki wzdłuż ścian przechowują bandaże, czyste prześcieradła i inne artykuły medyczne."
-                  ]
+                  ],
+                  "name": "Piorun"
                 },
                 "Postacie przeglądające zawartość pomieszczenia znajdują następujące przedmioty:",
                 {
@@ -7319,7 +7325,7 @@
             },
             {
               "type": "entries",
-              "name": "M8: Pokój pooperacyjny",
+              "name": "Nekrotyczne",
               "page": 89,
               "id": "1b4",
               "entries": [
@@ -7329,14 +7335,15 @@
                   "id": "1b5",
                   "entries": [
                     "W tym pokoju o powierzchni dziesięciu stóp kwadratowych znajdują się dwa starannie pościelone łóżka. Cztery witraże przedstawiające pasące się kozy wpuszczają przyćmione światło w cętkowanych wzorach zieleni, błękitu i żółci."
-                  ]
+                  ],
+                  "name": "Kłute"
                 },
                 "Przychodzą tu chorzy i ranni, aby odpocząć i odzyskać siły. Pod każdym łóżkiem znajduje się pusty nocnik."
               ]
             },
             {
               "type": "entries",
-              "name": "M9: Biblioteka",
+              "name": "Trucizna",
               "page": 89,
               "id": "1b6",
               "entries": [
@@ -7346,12 +7353,13 @@
                   "id": "1b7",
                   "entries": [
                     "Wolnostojące regały tworzą w tym pomieszczeniu schludne rzędy. Na jednej ścianie znajdują się wąskie witraże przedstawiające sceny pasterskie. Między dwoma oknami stoi dobrze zużyta miotła."
-                  ]
+                  ],
+                  "name": "Psychiczne"
                 },
                 "Miotła nie jest magiczna.",
                 {
                   "type": "entries",
-                  "name": "Książki",
+                  "name": "Promieniste",
                   "page": 89,
                   "id": "1b8",
                   "entries": [
@@ -7360,7 +7368,7 @@
                 },
                 {
                   "type": "entries",
-                  "name": "Księga Zaklęć",
+                  "name": "Sieczne",
                   "page": 90,
                   "id": "1b9",
                   "entries": [
@@ -7371,7 +7379,7 @@
             },
             {
               "type": "entries",
-              "name": "M10: Kuchnia",
+              "name": "Gromu",
               "page": 90,
               "id": "1ba",
               "entries": [
@@ -7739,7 +7747,7 @@
                   "page": 93,
                   "id": "1df",
                   "entries": [
-                    "Labirynt zawiera pięć identycznych, magicznych pułapek, każda oznaczona literą T na {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}. Postać niosąca {@item Staff of the Python|XDMG} Hierarchy Anisha lub która dotknęła urny w krypcie (patrz obszar {@area M18|1d0|x}) może bezpiecznie przejść przez te obszary. W przeciwnym razie, ilekroć istota wejdzie na jeden z tych obszarów o powierzchni 5 stóp kwadratowych, wykonuje rzut obronny na Kondycję {@dc 15}, zadając 10 ({@dice 3d6}) obrażeń od błyskawic w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
+                    "Labirynt zawiera pięć identycznych, magicznych pułapek, każda oznaczona literą T na {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}. Postać niosąca {@item Staff of the Python|XDMG} Hierarchy Anisha lub która dotknęła urny w krypcie (patrz obszar {@area M18|1d0|x}) może bezpiecznie przejść przez te obszary. W przeciwnym razie, ilekroć istota wejdzie na jeden z tych obszarów o powierzchni 5 stóp kwadratowych, wykonuje rzut obronny na Kondycję {@dc 15}, zadając 10 ({@dice 3d6}) obrażeń od pioruna w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
                   ]
                 }
               ]
@@ -9252,7 +9260,7 @@
                   "entries": [
                     "Ronnom zamontował linkę wyzwalającą na szczycie schodów. Jeśli zostanie zmuszony do ucieczki ze swojej kwatery (obszar {@area M26|1e5|x}), przechodzi przez drut, aby go ominąć i bierze latarnię oraz {@item Folding Boat|XDMG}.",
                     "Postać może przyjąć {@action Search|XPHB} akcję polegającą na sprawdzeniu schodów pod kątem pułapek i wykonaniu {@dc 15} Mądrość ({@skill Perception|XPHB}) sprawdzać. W przypadku powodzenia postać znajduje przewód wyzwalający. Po wykryciu drutu można go łatwo ominąć lub przeciąć.",
-                    "Postać korzystająca ze schodów, której nie udało się wykryć zaczepów o drut, ma tzw {@condition Prone|XPHB} warunek i bierze 3 ({@dice 1d6}) Tłuczące obrażenia od upadku."
+                    "Postać korzystająca ze schodów, której nie udało się wykryć zaczepów o drut, ma tzw {@condition Prone|XPHB} warunek i bierze 3 ({@dice 1d6}) obrażenia obuchowe od upadku."
                   ]
                 }
               ]
@@ -11266,7 +11274,7 @@
           "page": 86,
           "id": "1a3",
           "entries": [
-            "Niektóre zachodnie pomieszczenia na górnym poziomie klasztoru (obszary {@area M5|1ae|x}-{@area M6|1b0|x} i {@area M8|1b4|x}-{@area M9|1b6|x}) posiadają wąskie witraże, które postać może otworzyć od wewnątrz. Tych okien nie można otworzyć z zewnątrz, ale łatwo je stłuc (KP 11, HP 2, Wrażliwość na obrażenia tłuczące, Odporność na trucizny i obrażenia psychiczne). Postać może z łatwością wspiąć się przez otwarte okno."
+            "Niektóre zachodnie pomieszczenia na górnym poziomie klasztoru (obszary {@area M5|1ae|x}-{@area M6|1b0|x} i {@area M8|1b4|x}-{@area M9|1b6|x}) posiadają wąskie witraże, które postać może otworzyć od wewnątrz. Tych okien nie można otworzyć z zewnątrz, ale łatwo je stłuc (KP 11, HP 2, Wrażliwość na obrażenia obuchowe, Odporność na trucizny i obrażenia psychiczne). Postać może z łatwością wspiąć się przez otwarte okno."
           ]
         }
       ]
@@ -11313,7 +11321,7 @@
       "page": 86,
       "id": "1a3",
       "entries": [
-        "Niektóre zachodnie pomieszczenia na górnym poziomie klasztoru (obszary {@area M5|1ae|x}-{@area M6|1b0|x} i {@area M8|1b4|x}-{@area M9|1b6|x}) posiadają wąskie witraże, które postać może otworzyć od wewnątrz. Tych okien nie można otworzyć z zewnątrz, ale łatwo je stłuc (KP 11, HP 2, Wrażliwość na obrażenia tłuczące, Odporność na trucizny i obrażenia psychiczne). Postać może z łatwością wspiąć się przez otwarte okno."
+        "Niektóre zachodnie pomieszczenia na górnym poziomie klasztoru (obszary {@area M5|1ae|x}-{@area M6|1b0|x} i {@area M8|1b4|x}-{@area M9|1b6|x}) posiadają wąskie witraże, które postać może otworzyć od wewnątrz. Tych okien nie można otworzyć z zewnątrz, ale łatwo je stłuc (KP 11, HP 2, Wrażliwość na obrażenia obuchowe, Odporność na trucizny i obrażenia psychiczne). Postać może z łatwością wspiąć się przez otwarte okno."
       ]
     },
     "1:1a4": {
@@ -11417,7 +11425,8 @@
               "id": "1af",
               "entries": [
                 "Cztery kamienne cokoły, każdy o wysokości trzech stóp, stoją w rzędzie w pobliżu czterech wąskich witraży przedstawiających sceny pasterskie. Na każdym cokole znajduje się duża klatka dla ptaków. Krasnoludzki mnich na drabinie czyści jedną z klatek."
-              ]
+              ],
+              "name": "Obuchowe"
             },
             "Każda klatka dla ptaków waży 20 funtów. Kiedy bohaterowie odwiedzają wolierę po raz pierwszy, mnich wyjmuje z klatek resztki martwych sokołów i składa je w koszu na podłodze. Postać, która bierze {@action Search|XPHB} działania i bada, czy sokoły potrafią zrobić {@dc 15} Mądrość ({@skill Medicine|XPHB}) sprawdzać. Po pomyślnym zakończeniu bohater stwierdza, że ​​sokoły zdechły po spożyciu jakiejś trucizny w ciągu ostatnich 12 godzin.",
             "Mnich może potwierdzić, że wczoraj ptaki miały się dobrze. Uważa, że ​​zmarli w wyniku zjedzenia zatrutego mięsa, ale nie wie, kto im je nakarmił. Wyjaśnia, że ​​te sokoły szkolono do dostarczania wiadomości do i z klasztoru. (Ronnom karmił ptaki zatrutym mięsem, aby powstrzymać mnichów przed ujawnieniem tajemnicy jego tożsamości światu zewnętrznemu.)",
@@ -11444,7 +11453,7 @@
         },
         {
           "type": "entries",
-          "name": "M7: Szpital",
+          "name": "Moc",
           "page": 89,
           "id": "1b2",
           "entries": [
@@ -11454,7 +11463,8 @@
               "id": "1b3",
               "entries": [
                 "Pokój ten wyposażony jest w drewniany stół operacyjny umieszczony pod dwiema wiszącymi latarniami. Kamienne półki wzdłuż ścian przechowują bandaże, czyste prześcieradła i inne artykuły medyczne."
-              ]
+              ],
+              "name": "Piorun"
             },
             "Postacie przeglądające zawartość pomieszczenia znajdują następujące przedmioty:",
             {
@@ -11471,7 +11481,7 @@
         },
         {
           "type": "entries",
-          "name": "M8: Pokój pooperacyjny",
+          "name": "Nekrotyczne",
           "page": 89,
           "id": "1b4",
           "entries": [
@@ -11481,14 +11491,15 @@
               "id": "1b5",
               "entries": [
                 "W tym pokoju o powierzchni dziesięciu stóp kwadratowych znajdują się dwa starannie pościelone łóżka. Cztery witraże przedstawiające pasące się kozy wpuszczają przyćmione światło w cętkowanych wzorach zieleni, błękitu i żółci."
-              ]
+              ],
+              "name": "Kłute"
             },
             "Przychodzą tu chorzy i ranni, aby odpocząć i odzyskać siły. Pod każdym łóżkiem znajduje się pusty nocnik."
           ]
         },
         {
           "type": "entries",
-          "name": "M9: Biblioteka",
+          "name": "Trucizna",
           "page": 89,
           "id": "1b6",
           "entries": [
@@ -11498,12 +11509,13 @@
               "id": "1b7",
               "entries": [
                 "Wolnostojące regały tworzą w tym pomieszczeniu schludne rzędy. Na jednej ścianie znajdują się wąskie witraże przedstawiające sceny pasterskie. Między dwoma oknami stoi dobrze zużyta miotła."
-              ]
+              ],
+              "name": "Psychiczne"
             },
             "Miotła nie jest magiczna.",
             {
               "type": "entries",
-              "name": "Książki",
+              "name": "Promieniste",
               "page": 89,
               "id": "1b8",
               "entries": [
@@ -11512,7 +11524,7 @@
             },
             {
               "type": "entries",
-              "name": "Księga Zaklęć",
+              "name": "Sieczne",
               "page": 90,
               "id": "1b9",
               "entries": [
@@ -11523,7 +11535,7 @@
         },
         {
           "type": "entries",
-          "name": "M10: Kuchnia",
+          "name": "Gromu",
           "page": 90,
           "id": "1ba",
           "entries": [
@@ -11891,7 +11903,7 @@
               "page": 93,
               "id": "1df",
               "entries": [
-                "Labirynt zawiera pięć identycznych, magicznych pułapek, każda oznaczona literą T na {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}. Postać niosąca {@item Staff of the Python|XDMG} Hierarchy Anisha lub która dotknęła urny w krypcie (patrz obszar {@area M18|1d0|x}) może bezpiecznie przejść przez te obszary. W przeciwnym razie, ilekroć istota wejdzie na jeden z tych obszarów o powierzchni 5 stóp kwadratowych, wykonuje rzut obronny na Kondycję {@dc 15}, zadając 10 ({@dice 3d6}) obrażeń od błyskawic w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
+                "Labirynt zawiera pięć identycznych, magicznych pułapek, każda oznaczona literą T na {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}. Postać niosąca {@item Staff of the Python|XDMG} Hierarchy Anisha lub która dotknęła urny w krypcie (patrz obszar {@area M18|1d0|x}) może bezpiecznie przejść przez te obszary. W przeciwnym razie, ilekroć istota wejdzie na jeden z tych obszarów o powierzchni 5 stóp kwadratowych, wykonuje rzut obronny na Kondycję {@dc 15}, zadając 10 ({@dice 3d6}) obrażeń od pioruna w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
               ]
             }
           ]
@@ -12019,7 +12031,8 @@
           "id": "1af",
           "entries": [
             "Cztery kamienne cokoły, każdy o wysokości trzech stóp, stoją w rzędzie w pobliżu czterech wąskich witraży przedstawiających sceny pasterskie. Na każdym cokole znajduje się duża klatka dla ptaków. Krasnoludzki mnich na drabinie czyści jedną z klatek."
-          ]
+          ],
+          "name": "Obuchowe"
         },
         "Każda klatka dla ptaków waży 20 funtów. Kiedy bohaterowie odwiedzają wolierę po raz pierwszy, mnich wyjmuje z klatek resztki martwych sokołów i składa je w koszu na podłodze. Postać, która bierze {@action Search|XPHB} działania i bada, czy sokoły potrafią zrobić {@dc 15} Mądrość ({@skill Medicine|XPHB}) sprawdzać. Po pomyślnym zakończeniu bohater stwierdza, że ​​sokoły zdechły po spożyciu jakiejś trucizny w ciągu ostatnich 12 godzin.",
         "Mnich może potwierdzić, że wczoraj ptaki miały się dobrze. Uważa, że ​​zmarli w wyniku zjedzenia zatrutego mięsa, ale nie wie, kto im je nakarmił. Wyjaśnia, że ​​te sokoły szkolono do dostarczania wiadomości do i z klasztoru. (Ronnom karmił ptaki zatrutym mięsem, aby powstrzymać mnichów przed ujawnieniem tajemnicy jego tożsamości światu zewnętrznemu.)",
@@ -12046,7 +12059,7 @@
     },
     "1:1b2": {
       "type": "entries",
-      "name": "M7: Szpital",
+      "name": "Moc",
       "page": 89,
       "id": "1b2",
       "entries": [
@@ -12056,7 +12069,8 @@
           "id": "1b3",
           "entries": [
             "Pokój ten wyposażony jest w drewniany stół operacyjny umieszczony pod dwiema wiszącymi latarniami. Kamienne półki wzdłuż ścian przechowują bandaże, czyste prześcieradła i inne artykuły medyczne."
-          ]
+          ],
+          "name": "Piorun"
         },
         "Postacie przeglądające zawartość pomieszczenia znajdują następujące przedmioty:",
         {
@@ -12073,7 +12087,7 @@
     },
     "1:1b4": {
       "type": "entries",
-      "name": "M8: Pokój pooperacyjny",
+      "name": "Nekrotyczne",
       "page": 89,
       "id": "1b4",
       "entries": [
@@ -12083,14 +12097,15 @@
           "id": "1b5",
           "entries": [
             "W tym pokoju o powierzchni dziesięciu stóp kwadratowych znajdują się dwa starannie pościelone łóżka. Cztery witraże przedstawiające pasące się kozy wpuszczają przyćmione światło w cętkowanych wzorach zieleni, błękitu i żółci."
-          ]
+          ],
+          "name": "Kłute"
         },
         "Przychodzą tu chorzy i ranni, aby odpocząć i odzyskać siły. Pod każdym łóżkiem znajduje się pusty nocnik."
       ]
     },
     "1:1b6": {
       "type": "entries",
-      "name": "M9: Biblioteka",
+      "name": "Trucizna",
       "page": 89,
       "id": "1b6",
       "entries": [
@@ -12100,12 +12115,13 @@
           "id": "1b7",
           "entries": [
             "Wolnostojące regały tworzą w tym pomieszczeniu schludne rzędy. Na jednej ścianie znajdują się wąskie witraże przedstawiające sceny pasterskie. Między dwoma oknami stoi dobrze zużyta miotła."
-          ]
+          ],
+          "name": "Psychiczne"
         },
         "Miotła nie jest magiczna.",
         {
           "type": "entries",
-          "name": "Książki",
+          "name": "Promieniste",
           "page": 89,
           "id": "1b8",
           "entries": [
@@ -12114,7 +12130,7 @@
         },
         {
           "type": "entries",
-          "name": "Księga Zaklęć",
+          "name": "Sieczne",
           "page": 90,
           "id": "1b9",
           "entries": [
@@ -12125,7 +12141,7 @@
     },
     "1:1b8": {
       "type": "entries",
-      "name": "Książki",
+      "name": "Promieniste",
       "page": 89,
       "id": "1b8",
       "entries": [
@@ -12134,7 +12150,7 @@
     },
     "1:1b9": {
       "type": "entries",
-      "name": "Księga Zaklęć",
+      "name": "Sieczne",
       "page": 90,
       "id": "1b9",
       "entries": [
@@ -12143,7 +12159,7 @@
     },
     "1:1ba": {
       "type": "entries",
-      "name": "M10: Kuchnia",
+      "name": "Gromu",
       "page": 90,
       "id": "1ba",
       "entries": [
@@ -12629,7 +12645,7 @@
           "page": 93,
           "id": "1df",
           "entries": [
-            "Labirynt zawiera pięć identycznych, magicznych pułapek, każda oznaczona literą T na {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}. Postać niosąca {@item Staff of the Python|XDMG} Hierarchy Anisha lub która dotknęła urny w krypcie (patrz obszar {@area M18|1d0|x}) może bezpiecznie przejść przez te obszary. W przeciwnym razie, ilekroć istota wejdzie na jeden z tych obszarów o powierzchni 5 stóp kwadratowych, wykonuje rzut obronny na Kondycję {@dc 15}, zadając 10 ({@dice 3d6}) obrażeń od błyskawic w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
+            "Labirynt zawiera pięć identycznych, magicznych pułapek, każda oznaczona literą T na {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}. Postać niosąca {@item Staff of the Python|XDMG} Hierarchy Anisha lub która dotknęła urny w krypcie (patrz obszar {@area M18|1d0|x}) może bezpiecznie przejść przez te obszary. W przeciwnym razie, ilekroć istota wejdzie na jeden z tych obszarów o powierzchni 5 stóp kwadratowych, wykonuje rzut obronny na Kondycję {@dc 15}, zadając 10 ({@dice 3d6}) obrażeń od pioruna w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
           ]
         }
       ]
@@ -12661,7 +12677,7 @@
       "page": 93,
       "id": "1df",
       "entries": [
-        "Labirynt zawiera pięć identycznych, magicznych pułapek, każda oznaczona literą T na {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}. Postać niosąca {@item Staff of the Python|XDMG} Hierarchy Anisha lub która dotknęła urny w krypcie (patrz obszar {@area M18|1d0|x}) może bezpiecznie przejść przez te obszary. W przeciwnym razie, ilekroć istota wejdzie na jeden z tych obszarów o powierzchni 5 stóp kwadratowych, wykonuje rzut obronny na Kondycję {@dc 15}, zadając 10 ({@dice 3d6}) obrażeń od błyskawic w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
+        "Labirynt zawiera pięć identycznych, magicznych pułapek, każda oznaczona literą T na {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}. Postać niosąca {@item Staff of the Python|XDMG} Hierarchy Anisha lub która dotknęła urny w krypcie (patrz obszar {@area M18|1d0|x}) może bezpiecznie przejść przez te obszary. W przeciwnym razie, ilekroć istota wejdzie na jeden z tych obszarów o powierzchni 5 stóp kwadratowych, wykonuje rzut obronny na Kondycję {@dc 15}, zadając 10 ({@dice 3d6}) obrażeń od pioruna w przypadku nieudanego rzutu obronnego lub połowę mniej w przypadku udanego rzutu."
       ]
     },
     "1:1e0": {
@@ -14170,7 +14186,7 @@
               "entries": [
                 "Ronnom zamontował linkę wyzwalającą na szczycie schodów. Jeśli zostanie zmuszony do ucieczki ze swojej kwatery (obszar {@area M26|1e5|x}), przechodzi przez drut, aby go ominąć i bierze latarnię oraz {@item Folding Boat|XDMG}.",
                 "Postać może przyjąć {@action Search|XPHB} akcję polegającą na sprawdzeniu schodów pod kątem pułapek i wykonaniu {@dc 15} Mądrość ({@skill Perception|XPHB}) sprawdzać. W przypadku powodzenia postać znajduje przewód wyzwalający. Po wykryciu drutu można go łatwo ominąć lub przeciąć.",
-                "Postać korzystająca ze schodów, której nie udało się wykryć zaczepów o drut, ma tzw {@condition Prone|XPHB} warunek i bierze 3 ({@dice 1d6}) Tłuczące obrażenia od upadku."
+                "Postać korzystająca ze schodów, której nie udało się wykryć zaczepów o drut, ma tzw {@condition Prone|XPHB} warunek i bierze 3 ({@dice 1d6}) obrażenia obuchowe od upadku."
               ]
             }
           ]
@@ -14579,7 +14595,7 @@
           "entries": [
             "Ronnom zamontował linkę wyzwalającą na szczycie schodów. Jeśli zostanie zmuszony do ucieczki ze swojej kwatery (obszar {@area M26|1e5|x}), przechodzi przez drut, aby go ominąć i bierze latarnię oraz {@item Folding Boat|XDMG}.",
             "Postać może przyjąć {@action Search|XPHB} akcję polegającą na sprawdzeniu schodów pod kątem pułapek i wykonaniu {@dc 15} Mądrość ({@skill Perception|XPHB}) sprawdzać. W przypadku powodzenia postać znajduje przewód wyzwalający. Po wykryciu drutu można go łatwo ominąć lub przeciąć.",
-            "Postać korzystająca ze schodów, której nie udało się wykryć zaczepów o drut, ma tzw {@condition Prone|XPHB} warunek i bierze 3 ({@dice 1d6}) Tłuczące obrażenia od upadku."
+            "Postać korzystająca ze schodów, której nie udało się wykryć zaczepów o drut, ma tzw {@condition Prone|XPHB} warunek i bierze 3 ({@dice 1d6}) obrażenia obuchowe od upadku."
           ]
         }
       ]
@@ -14592,7 +14608,7 @@
       "entries": [
         "Ronnom zamontował linkę wyzwalającą na szczycie schodów. Jeśli zostanie zmuszony do ucieczki ze swojej kwatery (obszar {@area M26|1e5|x}), przechodzi przez drut, aby go ominąć i bierze latarnię oraz {@item Folding Boat|XDMG}.",
         "Postać może przyjąć {@action Search|XPHB} akcję polegającą na sprawdzeniu schodów pod kątem pułapek i wykonaniu {@dc 15} Mądrość ({@skill Perception|XPHB}) sprawdzać. W przypadku powodzenia postać znajduje przewód wyzwalający. Po wykryciu drutu można go łatwo ominąć lub przeciąć.",
-        "Postać korzystająca ze schodów, której nie udało się wykryć zaczepów o drut, ma tzw {@condition Prone|XPHB} warunek i bierze 3 ({@dice 1d6}) Tłuczące obrażenia od upadku."
+        "Postać korzystająca ze schodów, której nie udało się wykryć zaczepów o drut, ma tzw {@condition Prone|XPHB} warunek i bierze 3 ({@dice 1d6}) obrażenia obuchowe od upadku."
       ]
     },
     "1:1fe": {
