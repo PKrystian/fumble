@@ -101,6 +101,11 @@ import {
   sourceRank,
 } from './shared';
 import {
+  interpolateVariantEntries,
+  resolveVariantBaseItems,
+  variantInherits,
+} from '../../src/data/compendium/itemVariants';
+import {
   type RawCharOption,
   type RawClassFile,
   type RawDeck,
@@ -461,6 +466,7 @@ function normalizeItem(raw: RawItem): ItemEntry {
 function buildMagicVariantItems(
   inputDir: string,
   fluff: Map<string, string>,
+  baseItems: RawItem[],
 ): ItemEntry[] {
   const data = readDataFile<{ magicvariant?: RawMagicVariant[] }>(
     inputDir,
@@ -474,14 +480,29 @@ function buildMagicVariantItems(
         sourceRank(b.inherits.source) - sourceRank(a.inherits.source),
     )
     .map((raw) => {
+      const inherits = variantInherits(raw.inherits as unknown as JsonObject);
+      const entries = interpolateVariantEntries(
+        raw.inherits.entries as Entry[] | undefined,
+        inherits,
+      );
       const item: RawItem = {
         name: raw.name,
         ...raw.inherits,
         ...(raw.type ? { type: raw.type } : {}),
+        entries,
       };
+      const variant = {
+        ...(raw as unknown as JsonObject),
+        inherits: { ...raw.inherits, entries },
+        baseItems: resolveVariantBaseItems(
+          raw.requires,
+          raw.excludes,
+          baseItems as Array<RawItem & Record<string, unknown>>,
+        ),
+      } as unknown as JsonObject;
       return {
         ...normalizeItem(item),
-        variant: raw as unknown as JsonObject,
+        variant,
         ...imageField(fluff, item.name, item.source),
       };
     });
@@ -592,11 +613,12 @@ function buildItems(inputDir: string): ItemEntry[] {
     readDataFile<{ item?: RawItem[] }>(inputDir, 'items.json').item ?? [],
   );
   const fluff = loadFluffImages(inputDir, 'fluff-items.json', 'itemFluff');
-  const standardItems = [...base, ...magic]
+  const usableBase = base.filter((raw) => keepEntry(raw));
+  const standardItems = [...usableBase, ...magic]
     .filter((raw) => keepEntry(raw))
     .map((raw) => ({ ...normalizeItem(raw), ...imageField(fluff, raw.name, raw.source) }))
     .sort((a, b) => a.name.localeCompare(b.name));
-  return [...standardItems, ...buildMagicVariantItems(inputDir, fluff)];
+  return [...standardItems, ...buildMagicVariantItems(inputDir, fluff, usableBase)];
 }
 
 function buildItemProperties(inputDir: string): ItemPropertyEntry[] {

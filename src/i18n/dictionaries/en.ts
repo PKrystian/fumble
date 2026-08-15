@@ -694,6 +694,11 @@ const en = {
       deckCardsShort: '{{count}} cards',
       deity: 'Deity',
       variantData: 'Variant data',
+      variantBaseItems: 'Base items',
+      variantBaseItemsIntro:
+        'This item variant can be applied to the following base items:',
+      variantClassFeatures: 'Class Features',
+      variantFoundOn: 'Found On',
     },
     sourceData: {
       range: 'Range',

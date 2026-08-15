@@ -588,6 +588,30 @@ describe('compendium detail renderers', () => {
     expect(sparseItemView.container).toHaveTextContent('Custom value');
     sparseItemView.unmount();
 
+    const variantItemView = show(
+      <ItemDetail
+        item={normalize.normalizeItem({
+          ...base,
+          entries: ['You gain a {=bonusAc} bonus.'],
+          variant: {
+            inherits: {
+              namePrefix: '+1 ',
+              bonusAc: '+1',
+              classFeatures: ['Replicate Magic Item'],
+              lootTables: ['Armaments - Rare|XDMG'],
+            },
+            baseItems: [{ name: 'Breastplate', source: 'XPHB' }],
+          },
+        })}
+      />,
+    );
+    expect(variantItemView.container).toHaveTextContent('You gain a +1 bonus.');
+    expect(variantItemView.container).toHaveTextContent('Base items');
+    expect(variantItemView.container).toHaveTextContent('Breastplate');
+    expect(variantItemView.container).toHaveTextContent('Found On');
+    expect(variantItemView.container).toHaveTextContent('Replicate Magic Item');
+    variantItemView.unmount();
+
     const tableView = show(
       <TableDetail
         table={normalize.normalizeTable({

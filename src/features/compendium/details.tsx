@@ -43,6 +43,13 @@ import { useParams } from 'react-router-dom';
 import { CheckSquare, RotateCcw, Shuffle, Tag } from 'lucide-react';
 import { imageUrl } from '@/data/compendium/images';
 import { localizeCompendiumValue } from '@/data/compendium/localizeValue';
+import {
+  interpolateVariantEntries,
+  variantBaseItems,
+  variantInheritedString,
+  variantInheritedStrings,
+  variantInherits,
+} from '@/data/compendium/itemVariants';
 import { RollableDice } from '@/features/dice/RollableDice';
 import { sourceAbbrev, sourceRank } from '@/data/compendium/sources';
 import { useHomebrewStore } from '@/features/homebrew/store';
@@ -59,6 +66,7 @@ import { parseMarkup } from './markup';
 import { ReferenceLink } from './ReferenceLink';
 import { findSubclassByRouteKey, subclassRouteKey } from './subclassRoute';
 import { itemRarityLabel, itemTypeLabel, spellSchoolLabel } from './filterValues';
+import { slugify } from '@/data/transform/util';
 import {
   ClassReferenceList,
   ClassReferenceText,
@@ -591,6 +599,89 @@ function SourceDataValue({ value, fieldKey }: { value: JsonValue; fieldKey?: str
   );
 }
 
+function referenceParts(value: string): { name: string; source?: string } {
+  const [name, source] = value.split('|');
+  return {
+    name: name?.trim() ?? value,
+    ...(source?.trim() ? { source: source.trim() } : {}),
+  };
+}
+
+function ItemVariantData({ variant }: { variant: JsonObject }) {
+  const { t } = useT();
+  const baseItems = variantBaseItems(variant);
+  const namePrefix = variantInheritedString(variant, 'namePrefix') ?? '';
+  const nameSuffix = variantInheritedString(variant, 'nameSuffix') ?? '';
+  const lootTables = variantInheritedStrings(variant, 'lootTables');
+  const classFeatures = variantInheritedStrings(variant, 'classFeatures');
+
+  return (
+    <div className="flex flex-col gap-4">
+      {baseItems.length > 0 && (
+        <div className="flex flex-col gap-2">
+          <h3 className="font-display text-lg font-semibold text-ink-50">
+            {t('compendium.detail.variantBaseItems')}
+          </h3>
+          <p className="text-sm leading-relaxed text-ink-300">
+            {t('compendium.detail.variantBaseItemsIntro')}
+          </p>
+          <ul className="ml-5 list-disc space-y-1 text-ink-200">
+            {baseItems.map((baseItem) => (
+              <li key={`${baseItem.name}|${baseItem.source}`}>
+                {namePrefix}
+                <ReferenceLink
+                  category="items"
+                  slug={slugify(baseItem.name)}
+                  label={baseItem.name}
+                  source={baseItem.source}
+                />
+                {nameSuffix}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {classFeatures.length > 0 && (
+        <MetaRow
+          label={t('compendium.detail.variantClassFeatures')}
+          value={classFeatures.map((feature) => referenceParts(feature).name).join(', ')}
+        />
+      )}
+      {lootTables.length > 0 && (
+        <MetaRow
+          label={t('compendium.detail.variantFoundOn')}
+          value={
+            <span className="inline-flex flex-wrap gap-x-2 gap-y-1">
+              {lootTables.map((table, index) => {
+                const reference = referenceParts(table);
+                return (
+                  <span key={`${table}-${index}`}>
+                    {index > 0 && ', '}
+                    <ReferenceLink
+                      category="loot"
+                      slug={slugify(reference.name)}
+                      label={reference.name}
+                      {...(reference.source ? { source: reference.source } : {})}
+                    />
+                  </span>
+                );
+              })}
+            </span>
+          }
+        />
+      )}
+    </div>
+  );
+}
+
+function hasItemVariantData(variant: JsonObject): boolean {
+  return (
+    variantBaseItems(variant).length > 0 ||
+    variantInheritedStrings(variant, 'classFeatures').length > 0 ||
+    variantInheritedStrings(variant, 'lootTables').length > 0
+  );
+}
+
 export function SourceDataDetail({ entry }: { entry: SourceDataEntry }) {
   const { t } = useT();
   const data = Object.fromEntries(
@@ -963,7 +1054,11 @@ export function ItemDetail({
     .filter(Boolean)
     .join(', ');
   const rules = itemRuleEntries(item, locale, t('compendium.detail.weaponMastery'));
-  const entries = [...item.entries, ...rules.entries];
+  const variables = variantInherits(item.variant);
+  const entries = [
+    ...interpolateVariantEntries(item.entries, variables),
+    ...interpolateVariantEntries(rules.entries, variables),
+  ];
   return (
     <article className="flex flex-col gap-5">
       <DetailHeader
@@ -1004,7 +1099,11 @@ export function ItemDetail({
           <h2 className="font-display text-lg font-bold text-ember-400">
             {t('compendium.detail.variantData')}
           </h2>
-          <SourceDataValue value={item.variant} />
+          {hasItemVariantData(item.variant) ? (
+            <ItemVariantData variant={item.variant} />
+          ) : (
+            <SourceDataValue value={item.variant} />
+          )}
         </section>
       )}
     </article>

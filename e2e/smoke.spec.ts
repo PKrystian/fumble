@@ -123,6 +123,17 @@ test('compendium exposes magic variants and imported source collections', async 
 
   await page.goto('/compendium/psionics');
   await expect(page.getByRole('link', { name: /^Adaptive Body/ })).toBeVisible();
+
+  await page.goto('/pl/compendium/items/1-armor');
+  await expect(page.getByText(/zyskujesz \+1 premię do AC/)).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Napierśnik' })).toHaveAttribute(
+    'href',
+    '/pl/compendium/items/breastplate/',
+  );
+  await expect(page.getByRole('link', { name: 'Uzbrojenie - rzadkie' })).toHaveAttribute(
+    'href',
+    '/pl/compendium/loot/magicitems-armaments-rare-xdmg/',
+  );
 });
 
 test('keeps Fumble firearms in their own category', async ({ page }) => {
