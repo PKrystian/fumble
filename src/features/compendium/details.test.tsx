@@ -553,6 +553,10 @@ describe('compendium detail renderers', () => {
     const monsterView = show(<MonsterDetail monster={monster} />);
     expect(monsterView.container).toHaveTextContent('Keen Senses');
     expect(monsterView.container).toHaveTextContent('Bite');
+    expect(monsterView.getByRole('link', { name: 'Mountain' })).toHaveAttribute(
+      'href',
+      '/compendium/bestiary/?habitat=Mountain',
+    );
     monsterView.unmount();
 
     const itemView = show(
@@ -724,6 +728,22 @@ describe('compendium detail renderers', () => {
       '/compendium/classes/wizard/',
     );
     itemView.unmount();
+  });
+
+  it('localizes habitat links and keeps their bestiary filter value', () => {
+    const monster = normalize.normalizeMonster({
+      ...base,
+      environment: ['mountain'],
+    });
+    render(
+      <MemoryRouter initialEntries={['/pl/compendium/bestiary/aarakocra']}>
+        <MonsterDetail monster={monster} />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole('link', { name: 'Góry' })).toHaveAttribute(
+      'href',
+      '/pl/compendium/bestiary/?habitat=Mountain',
+    );
   });
 
   it('renders weapon mastery and property rules', () => {

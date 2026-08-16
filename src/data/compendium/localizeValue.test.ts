@@ -126,6 +126,16 @@ describe('localizeCompendiumValue', () => {
     expect(localizeCompendiumValue('Urban, Underdark', 'pl', 'habitat')).toBe(
       'Miejski, Podmrok',
     );
+    expect(
+      localizeCompendiumValue(
+        'Acheron, Any, Astral, Beastlands, Earth, Elemental Chaos, Ethereal, Fire, Gehenna, Mechanus, Water',
+        'pl',
+        'habitat',
+      ),
+    ).toBe(
+      'Acheron, Dowolne, Plan Astralny, Kraina Bestii, Ziemia, Chaos Żywiołów, Plan Eteryczny, Ogień, Gehenna, Mechanus, Woda',
+    );
+    expect(localizeCompendiumValue('Woda', 'pl', 'habitat')).toBe('Woda');
     expect(localizeCompendiumValue('Implements, Individual', 'pl', 'treasure')).toBe(
       'Narzędzia, Indywidualny',
     );

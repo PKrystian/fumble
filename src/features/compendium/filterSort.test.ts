@@ -60,6 +60,33 @@ describe('compendium sorting', () => {
     );
   });
 
+  it('includes Any values when the filter enables the option', () => {
+    const habitatFilter: CategoryFilter = {
+      id: 'habitat',
+      label: 'Habitat',
+      includeAny: true,
+      valuesFor: (item) =>
+        'habitat' in item && typeof item.habitat === 'string' ? [item.habitat] : [],
+    };
+    const anyMonster = { ...entry('Any monster'), habitat: 'Any' };
+    expect(
+      matchesFilters(
+        anyMonster,
+        [habitatFilter],
+        { habitat: ['Urban'] },
+        { habitat: true },
+      ),
+    ).toBe(true);
+    expect(
+      matchesFilters(
+        anyMonster,
+        [habitatFilter],
+        { habitat: ['Urban'] },
+        { habitat: false },
+      ),
+    ).toBe(false);
+  });
+
   it('sorts by name and direction', () => {
     const a = entry('Alpha');
     const b = entry('Beta');

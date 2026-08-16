@@ -328,6 +328,7 @@ export interface MonsterEntry extends CompendiumEntryBase {
 
   crDisplay: string;
   habitat: string;
+  _englishHabitat?: string;
   treasure: string;
   traits: StatBlockSection[];
   spellcasting: StatBlockSection[];

@@ -6,6 +6,11 @@ type TranslateFn = (key: string, vars?: Record<string, string | number>) => stri
 
 export type SortDir = 'asc' | 'desc';
 
+const filterValuesCache = new WeakMap<
+  CategoryFilter,
+  WeakMap<CompendiumEntryBase, string[]>
+>();
+
 export function normalizeFilterValue(filter: CategoryFilter, value: string): string {
   return filter.normalizeValue?.(value) ?? value;
 }
@@ -14,18 +19,30 @@ export function filterValuesFor(
   filter: CategoryFilter,
   item: CompendiumEntryBase,
 ): string[] {
-  return filter.valuesFor(item).map((value) => normalizeFilterValue(filter, value));
+  const cachedItems =
+    filterValuesCache.get(filter) ?? new WeakMap<CompendiumEntryBase, string[]>();
+  filterValuesCache.set(filter, cachedItems);
+  const cached = cachedItems.get(item);
+  if (cached) return cached;
+  const values = filter
+    .valuesFor(item)
+    .map((value) => normalizeFilterValue(filter, value));
+  cachedItems.set(item, values);
+  return values;
 }
 
 export function matchesFilters(
   item: CompendiumEntryBase,
   filters: CategoryFilter[],
   selected: Record<string, string[]>,
+  includeAny: Record<string, boolean> = {},
 ): boolean {
   return filters.every((filter) => {
     const chosen = selected[filter.id];
     if (!chosen || chosen.length === 0) return filter.defaultVisible?.(item) ?? true;
-    return filterValuesFor(filter, item).some((value) => chosen.includes(value));
+    return filterValuesFor(filter, item).some(
+      (value) => chosen.includes(value) || (includeAny[filter.id] && value === 'Any'),
+    );
   });
 }
 

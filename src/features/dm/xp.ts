@@ -87,6 +87,37 @@ export function partyBudget(party: PartyMember[]): EncounterBudget {
   return total;
 }
 
+export interface RandomMonsterCandidate<T> {
+  item: T;
+  xp: number;
+}
+
+export function pickRandomMonster<T>(
+  candidates: RandomMonsterCandidate<T>[],
+  highBudget: number,
+  random = Math.random,
+): T | undefined {
+  if (highBudget <= 0 || candidates.length === 0) return undefined;
+
+  const withinTolerance = candidates.filter(
+    ({ xp }) => xp >= highBudget && xp <= highBudget * 1.1,
+  );
+  const strongerCandidates = candidates.filter(({ xp }) => xp >= highBudget);
+  const pool = withinTolerance.length > 0 ? withinTolerance : strongerCandidates;
+  if (pool.length === 0) return undefined;
+
+  const closestXp = withinTolerance.length
+    ? undefined
+    : pool.reduce((closest, candidate) => Math.min(closest, candidate.xp), Infinity);
+  const preferredPool =
+    closestXp === undefined ? pool : pool.filter(({ xp }) => xp === closestXp);
+  const index = Math.min(
+    preferredPool.length - 1,
+    Math.floor(random() * preferredPool.length),
+  );
+  return preferredPool[index]?.item;
+}
+
 export type DifficultyRating = 'Trivial' | 'Low' | 'Moderate' | 'High' | 'Deadly';
 
 export function rateEncounter(

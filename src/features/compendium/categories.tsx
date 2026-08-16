@@ -81,6 +81,7 @@ import {
 export interface CategoryFilter {
   id: string;
   label: string;
+  includeAny?: boolean;
 
   valuesFor: (item: CompendiumEntryBase) => string[];
 
@@ -141,6 +142,7 @@ function splitField<T>(
   separator: string | RegExp = ',',
   normalizeValue?: (value: string) => string,
   labelFor?: (value: string, locale?: Locale) => string,
+  includeAny?: boolean,
 ): CategoryFilter {
   return {
     id,
@@ -153,6 +155,7 @@ function splitField<T>(
         .filter(Boolean),
     ...(normalizeValue ? { normalizeValue } : {}),
     ...(labelFor ? { labelFor } : {}),
+    ...(includeAny ? { includeAny } : {}),
   };
 }
 
@@ -723,6 +726,16 @@ const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
       undefined,
       (value, locale) =>
         localizeCompendiumValue(value, locale ?? 'en', 'alignment') ?? value,
+    ),
+    splitField<MonsterEntry>(
+      'habitat',
+      filterLabel('habitat'),
+      (i) => i._englishHabitat ?? i.habitat,
+      ',',
+      undefined,
+      (value, locale) =>
+        localizeCompendiumValue(value, locale ?? 'en', 'habitat') ?? value,
+      true,
     ),
 
     splitField<MonsterEntry>(

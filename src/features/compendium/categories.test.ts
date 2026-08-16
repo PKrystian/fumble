@@ -88,6 +88,21 @@ describe('compendium categories', () => {
     expect(properties.valuesFor({ properties: '' } as never)).toEqual([]);
     expect(properties.valuesFor({ properties: undefined } as never)).toEqual([]);
 
+    const habitat = getCategory('bestiary')!.filters!.find(
+      (filter) => filter.id === 'habitat',
+    )!;
+    expect(habitat.valuesFor({ habitat: 'Mountain, Urban' } as never)).toEqual([
+      'Mountain',
+      'Urban',
+    ]);
+    expect(
+      habitat.valuesFor({
+        habitat: '{@filter Góry|bestiary|environment=mountain}',
+        _englishHabitat: 'Mountain',
+      } as never),
+    ).toEqual(['Mountain']);
+    expect(habitat.labelFor?.('Mountain', 'pl')).toBe('Góry');
+
     const subclasses = getCategory('spells')!.filters!.find(
       (filter) => filter.id === 'subclass',
     )!;

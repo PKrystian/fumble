@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { localizeEntry, localizeItems } from './localize';
-import type { ClassEntry, CompendiumEntryBase } from './types';
+import type { ClassEntry, CompendiumEntryBase, MonsterEntry } from './types';
 
 function makeEntry(id: string, name: string): CompendiumEntryBase {
   return { id, name, source: 'XPHB', srd: true };
@@ -23,6 +23,20 @@ describe('localizeEntry', () => {
     expect(result.name).toBe('Oślepiony');
     expect(result.id).toBe('blinded');
     expect(result.source).toBe('XPHB');
+  });
+
+  it('keeps English monster habitats for filters when overlays add markup', () => {
+    const entry = {
+      ...makeEntry('aarakocra', 'Aarakocra'),
+      habitat: 'Mountain',
+    } as MonsterEntry;
+    const result = localizeEntry(entry, {
+      aarakocra: {
+        habitat: '{@filter Góry|bestiary|environment=mountain}',
+      },
+    });
+    expect(result.habitat).toBe('{@filter Góry|bestiary|environment=mountain}');
+    expect(result._englishHabitat).toBe('Mountain');
   });
 
   it('merges localized variant fields without losing resolved base items', () => {

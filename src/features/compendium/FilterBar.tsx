@@ -27,8 +27,10 @@ interface FilterBarProps {
   filters: CategoryFilter[];
   items: CompendiumEntryBase[];
   selected: Record<string, string[]>;
+  includeAny?: Record<string, boolean>;
   onToggle: (filterId: string, value: string) => void;
   onSetFilter: (filterId: string, values: string[]) => void;
+  onToggleIncludeAny?: (filterId: string) => void;
   onClear: () => void;
   onRandom: () => void;
   sortField: string;
@@ -47,6 +49,8 @@ function FacetSection({
   selected,
   onToggle,
   onSet,
+  includeAny,
+  onToggleIncludeAny,
   search,
   hideLabel,
   t,
@@ -56,6 +60,8 @@ function FacetSection({
   selected: string[];
   onToggle: (value: string) => void;
   onSet: (values: string[]) => void;
+  includeAny?: boolean;
+  onToggleIncludeAny?: () => void;
   search: string;
   hideLabel?: boolean;
   t: TranslateFn;
@@ -81,7 +87,7 @@ function FacetSection({
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-2">
         {!hideLabel && (
           <div className="flex items-baseline gap-1.5">
             <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">
@@ -92,7 +98,20 @@ function FacetSection({
             </span>
           </div>
         )}
-        <div className="ml-auto flex gap-2 text-[0.65rem] text-ink-400">
+        <div className="ml-auto flex flex-wrap items-center gap-2 text-[0.65rem] text-ink-400">
+          {filter.includeAny && (
+            <label className="inline-flex cursor-pointer items-center gap-1.5 text-xs text-ink-300">
+              <input
+                type="checkbox"
+                checked={includeAny}
+                disabled={selected.length === 0}
+                onChange={onToggleIncludeAny}
+                aria-label={t('compendium.filters.includeAny')}
+                className="h-4 w-4 rounded border-ink-600 bg-ink-950 text-arcane-500 accent-arcane-500 focus:ring-arcane-400"
+              />
+              {t('compendium.filters.includeAny')}
+            </label>
+          )}
           <Button
             type="button"
             onClick={() => onSet([...new Set([...selected, ...visible])])}
@@ -144,8 +163,10 @@ export function FilterBar({
   filters,
   items,
   selected,
+  includeAny = {},
   onToggle,
   onSetFilter,
+  onToggleIncludeAny,
   onClear,
   onRandom,
   sortField,
@@ -197,7 +218,13 @@ export function FilterBar({
         label: displayValue(filter, value, t, locale),
       })),
   );
-  const activeCount = activeChips.length;
+  const activeAnyFilters = groups.filter(
+    ({ filter }) =>
+      filter.includeAny &&
+      includeAny[filter.id] &&
+      (selected[filter.id]?.length ?? 0) > 0,
+  );
+  const activeCount = activeChips.length + activeAnyFilters.length;
 
   return (
     <div className="border-b border-ink-700">
@@ -286,6 +313,17 @@ export function FilterBar({
               className="gap-1"
             >
               {chip.label}
+              <X size={10} />
+            </ToggleChip>
+          ))}
+          {activeAnyFilters.map(({ filter }) => (
+            <ToggleChip
+              key={`${filter.id}:include-any`}
+              onClick={() => onToggleIncludeAny?.(filter.id)}
+              active
+              className="gap-1"
+            >
+              {t('compendium.filters.includeAny')}
               <X size={10} />
             </ToggleChip>
           ))}
@@ -383,6 +421,17 @@ export function FilterBar({
                   selected={selected[group.filter.id] ?? []}
                   onToggle={(value) => onToggle(group.filter.id, value)}
                   onSet={(values) => onSetFilter(group.filter.id, values)}
+                  {...(group.filter.includeAny
+                    ? {
+                        includeAny: Boolean(includeAny[group.filter.id]),
+                        ...(onToggleIncludeAny
+                          ? {
+                              onToggleIncludeAny: () =>
+                                onToggleIncludeAny(group.filter.id),
+                            }
+                          : {}),
+                      }
+                    : {})}
                   search={search}
                   t={t}
                   locale={locale}
