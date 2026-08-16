@@ -32,6 +32,7 @@ vi.mock('@/features/compendium/categories', () => ({
 
 vi.mock('@/i18n/useT', () => ({
   useT: () => ({
+    locale: 'en',
     t: (key: string, values?: Record<string, string | number>) =>
       values?.name ? `${key}:${values.name}` : key,
   }),
@@ -41,11 +42,12 @@ vi.mock('@/seo/useSeo', () => ({
   useSeo: vi.fn(),
 }));
 
-const monster = (id: string, name: string, hidden = false) => ({
+const monster = (id: string, name: string, hidden = false, habitat = '', cr = '1') => ({
   id,
   name,
-  cr: '1',
+  cr,
   hidden,
+  habitat,
 });
 
 describe('EncounterCalculatorPage', () => {
@@ -103,6 +105,10 @@ describe('EncounterCalculatorPage', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /Goblin 0/ }));
     expect(screen.getByText('Goblin 0')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Goblin 0' })).toHaveAttribute(
+      'href',
+      expect.stringContaining('/compendium/bestiary/goblin-0'),
+    );
     fireEvent.change(search, { target: { value: 'goblin 1' } });
     fireEvent.click(screen.getByRole('button', { name: /Goblin 1/ }));
     fireEvent.change(search, { target: { value: 'goblin 0' } });
@@ -124,6 +130,80 @@ describe('EncounterCalculatorPage', () => {
     expect(screen.getByRole('searchbox')).toHaveValue('dragon');
     expect(screen.getByText('Dragon')).toBeInTheDocument();
     expect(screen.queryByText('Goblin')).not.toBeInTheDocument();
+  });
+
+  it('filters monsters and options by habitat', () => {
+    mocks.items = [
+      monster('urban', 'Urban Goblin', false, 'Urban'),
+      monster('mountain', 'Mountain Goblin', false, 'Mountain'),
+      monster('both', 'Both Goblin', false, 'Mountain, Urban'),
+    ];
+    renderPage('/dm/encounter?habitat=Urban&q=goblin');
+
+    const habitat = screen.getByLabelText('encounter.habitat');
+    expect(habitat).toHaveValue('Urban');
+    expect(screen.getByText('Urban Goblin')).toBeInTheDocument();
+    expect(screen.getByText('Both Goblin')).toBeInTheDocument();
+    expect(screen.queryByText('Mountain Goblin')).not.toBeInTheDocument();
+
+    fireEvent.change(habitat, { target: { value: 'Mountain' } });
+    expect(screen.getByText('Mountain Goblin')).toBeInTheDocument();
+    expect(screen.getByText('Both Goblin')).toBeInTheDocument();
+    expect(screen.queryByText('Urban Goblin')).not.toBeInTheDocument();
+
+    fireEvent.change(habitat, { target: { value: '' } });
+    expect(habitat).toHaveValue('');
+    expect(screen.getByText('Mountain Goblin')).toBeInTheDocument();
+  });
+
+  it('includes monsters with Any habitat when enabled', () => {
+    mocks.items = [
+      monster('urban', 'Urban Goblin', false, 'Urban'),
+      monster('any', 'Any Goblin', false, 'Any'),
+      monster('mountain', 'Mountain Goblin', false, 'Mountain'),
+    ];
+    renderPage('/dm/encounter?habitat=Urban&includeAny=1&q=goblin');
+
+    const includeAny = screen.getByLabelText('encounter.includeAny');
+    expect(includeAny).toBeChecked();
+    expect(screen.getByText('Urban Goblin')).toBeInTheDocument();
+    expect(screen.getByText('Any Goblin')).toBeInTheDocument();
+    expect(screen.queryByText('Mountain Goblin')).not.toBeInTheDocument();
+
+    fireEvent.click(includeAny);
+    expect(screen.getByText('Urban Goblin')).toBeInTheDocument();
+    expect(screen.queryByText('Any Goblin')).not.toBeInTheDocument();
+  });
+
+  it('adds a random monster from the party budget and selected habitat', () => {
+    mocks.items = [
+      monster('weaker', 'Weaker Goblin', false, 'Urban', '3'),
+      monster('matching', 'Matching Goblin', false, 'Urban', '4'),
+      monster('other-habitat', 'Mountain Goblin', false, 'Mountain', '4'),
+      monster('stronger', 'Stronger Goblin', false, 'Urban', '5'),
+    ];
+    renderPage('/dm/encounter?habitat=Urban');
+
+    fireEvent.change(screen.getByLabelText('encounter.count'), {
+      target: { value: '2' },
+    });
+    fireEvent.change(screen.getByLabelText('encounter.level'), {
+      target: { value: '4' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'encounter.addRandomMonster' }));
+
+    expect(screen.getByText('Matching Goblin')).toBeInTheDocument();
+    expect(screen.queryByText('Mountain Goblin')).not.toBeInTheDocument();
+    expect(screen.queryByText('Weaker Goblin')).not.toBeInTheDocument();
+  });
+
+  it('reports when no stronger random monster is available', () => {
+    mocks.items = [monster('weaker', 'Weaker Goblin', false, '', '1')];
+    renderPage();
+
+    fireEvent.click(screen.getByRole('button', { name: 'encounter.addRandomMonster' }));
+
+    expect(screen.getByText('encounter.randomMonsterUnavailable')).toBeInTheDocument();
   });
 
   it('shows the loading placeholder and clears empty searches', () => {

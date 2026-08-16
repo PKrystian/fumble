@@ -55,6 +55,7 @@ import { sourceAbbrev, sourceRank } from '@/data/compendium/sources';
 import { useHomebrewStore } from '@/features/homebrew/store';
 import { useLightbox } from '@/features/ui/lightboxStore';
 import { Link } from '@/i18n/path';
+import type { Locale } from '@/i18n/locales';
 import { useLocale, useNavigate } from '@/i18n/pathUtils';
 import { useT } from '@/i18n/useT';
 import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
@@ -246,6 +247,31 @@ function MetaRow({ label, value }: { label: string; value: ReactNode }) {
       <span className="font-semibold text-ink-50">{label}: </span>
       {typeof value === 'string' ? parseMarkup(value, locale) : value}
     </p>
+  );
+}
+
+function HabitatLinks({ habitat, locale }: { habitat: string; locale: Locale }) {
+  return (
+    <>
+      {habitat
+        .split(',')
+        .map((part) => part.trim())
+        .filter(Boolean)
+        .map((value, index) => (
+          <Fragment key={`${value}-${index}`}>
+            {index > 0 && ', '}
+            <Link
+              to={{
+                pathname: '/compendium/bestiary',
+                search: new URLSearchParams({ habitat: value }).toString(),
+              }}
+              className="underline decoration-dotted decoration-ink-500 underline-offset-2 hover:text-arcane-300"
+            >
+              {localizeCompendiumValue(value, locale, 'habitat') ?? value}
+            </Link>
+          </Fragment>
+        ))}
+    </>
   );
 }
 
@@ -1690,6 +1716,7 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
 
   const crText = monster.crDisplay || monster.cr;
   const crMatch = crText.match(/^([^ (]+)(.*)$/);
+  const habitat = monster._englishHabitat ?? monster.habitat;
 
   return (
     <article className="flex flex-col gap-4">
@@ -1824,8 +1851,7 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
           <MetaRow
             label={t('compendium.detail.habitat')}
             value={
-              localizeCompendiumValue(monster.habitat, locale, 'habitat') ??
-              monster.habitat
+              habitat ? <HabitatLinks habitat={habitat} locale={locale} /> : undefined
             }
           />
           {monster.treasure && (

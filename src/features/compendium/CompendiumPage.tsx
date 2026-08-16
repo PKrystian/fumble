@@ -192,18 +192,35 @@ function CompendiumBrowser({
   const sortFields = new Set(['name', ...filters.map((filter) => filter.id)]);
   const sortField = sortFields.has(requestedSort ?? '') ? requestedSort! : 'name';
   const sortDir: SortDir = params.get('order') === 'desc' ? 'desc' : 'asc';
-  const selectedFilters = Object.fromEntries(
-    filters.map((filter) => [
-      filter.id,
-      [
-        ...new Set(
-          params
-            .getAll(filter.id)
-            .filter(Boolean)
-            .map((value) => normalizeFilterValue(filter, value)),
-        ),
-      ],
-    ]),
+  const selectedFilters = useMemo(
+    () =>
+      Object.fromEntries(
+        filters.map((filter) => [
+          filter.id,
+          [
+            ...new Set(
+              params
+                .getAll(filter.id)
+                .filter(Boolean)
+                .map((value) => normalizeFilterValue(filter, value)),
+            ),
+          ],
+        ]),
+      ),
+    [filters, params],
+  );
+  const includeAny = useMemo(
+    () =>
+      Object.fromEntries(
+        filters
+          .filter((filter) => filter.includeAny)
+          .map((filter) => [
+            filter.id,
+            params.get('includeAny') === '1' &&
+              (selectedFilters[filter.id]?.length ?? 0) > 0,
+          ]),
+      ),
+    [filters, params, selectedFilters],
   );
   const { status, items } = useCategoryItems(
     category,
@@ -237,6 +254,15 @@ function CompendiumBrowser({
     update({ [filterId]: values.length > 0 ? values : null });
   };
 
+  const toggleIncludeAny = (filterId: string) => {
+    if (
+      !filters.find((filter) => filter.id === filterId)?.includeAny ||
+      (selectedFilters[filterId]?.length ?? 0) === 0
+    )
+      return;
+    update({ includeAny: includeAny[filterId] ? null : '1' });
+  };
+
   const contentMode = useContentModeStore((s) => s.mode);
   const showFumbleHomebrew = useFumbleHomebrewStore((s) => s.showInCompendium);
   const visibleItems = useMemo(
@@ -248,19 +274,31 @@ function CompendiumBrowser({
       ),
     [items, contentMode, selected, showFumbleHomebrew],
   );
+  const normalizedNames = useMemo(
+    () =>
+      new Map(
+        visibleItems.map(
+          (item) =>
+            [
+              item,
+              [
+                normalizeSearchText(item.name),
+                item.englishName ? normalizeSearchText(item.englishName) : '',
+              ],
+            ] as const,
+        ),
+      ),
+    [visibleItems],
+  );
 
   const filtered = useMemo(() => {
     const term = normalizeSearchText(query.trim());
     return visibleItems.filter((item) => {
-      if (
-        term &&
-        !normalizeSearchText(item.name).includes(term) &&
-        !(item.englishName && normalizeSearchText(item.englishName).includes(term))
-      )
-        return false;
-      return matchesFilters(item, filters, selectedFilters);
+      const [name, englishName] = normalizedNames.get(item)!;
+      if (term && !name.includes(term) && !englishName.includes(term)) return false;
+      return matchesFilters(item, filters, selectedFilters, includeAny);
     });
-  }, [visibleItems, query, filters, selectedFilters]);
+  }, [visibleItems, normalizedNames, query, filters, selectedFilters, includeAny]);
 
   const sorted = useMemo(() => {
     if (sortField === 'name' && sortDir === 'asc') return filtered;
@@ -276,6 +314,9 @@ function CompendiumBrowser({
     contentMode,
     showFumbleHomebrew,
     ...filters.flatMap((filter) => [filter.id, ...(selectedFilters[filter.id] ?? [])]),
+    ...filters.flatMap((filter) =>
+      filter.includeAny ? [filter.id, String(includeAny[filter.id] ?? false)] : [],
+    ),
   ].join('|');
   const [visibleCount, setVisibleCount] = useState(LIST_PAGE_SIZE);
   useEffect(() => {
@@ -432,10 +473,15 @@ function CompendiumBrowser({
               filters={filters}
               items={visibleItems}
               selected={selectedFilters}
+              includeAny={includeAny}
               onToggle={toggleFilter}
               onSetFilter={setFilter}
+              onToggleIncludeAny={toggleIncludeAny}
               onClear={() =>
-                update(Object.fromEntries(filters.map((filter) => [filter.id, null])))
+                update({
+                  ...Object.fromEntries(filters.map((filter) => [filter.id, null])),
+                  includeAny: null,
+                })
               }
               onRandom={pickRandom}
               sortField={sortField}

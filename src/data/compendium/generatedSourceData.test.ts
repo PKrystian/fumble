@@ -12,6 +12,7 @@ import plNames from '@/data/generated/pl/names.json';
 import psionics from '@/data/generated/psionics.json';
 import plBestiary from '@/data/generated/pl/bestiary.json';
 import plSpecies from '@/data/generated/pl/species.json';
+import { getCategory } from '@/features/compendium/categories';
 import { localizeEntry } from './localize';
 
 describe('generated 5etools source collections', () => {
@@ -84,6 +85,16 @@ describe('generated 5etools source collections', () => {
       speed: '30 stóp (40 stóp w formie tygrysa)',
     });
     expect(localized.traits?.[0]?.name).toBe('Zmieniacz kształtu');
+  });
+
+  it('keeps Polish habitat filters canonical and compact', () => {
+    const habitat = getCategory('bestiary')!.filters!.find(
+      (filter) => filter.id === 'habitat',
+    )!;
+    const localized = bestiary.items.map((item) => localizeEntry(item, plBestiary));
+    const values = new Set(localized.flatMap((item) => habitat.valuesFor(item)));
+    expect(values.size).toBe(32);
+    expect([...values].some((value) => value.includes('{@filter'))).toBe(false);
   });
 
   it('keeps creature identities distinct in Polish overlays', () => {

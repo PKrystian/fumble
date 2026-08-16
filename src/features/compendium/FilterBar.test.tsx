@@ -21,6 +21,14 @@ const sourceFilter: CategoryFilter = {
   labelFor: (value: string) => (value === 'XPHB' ? 'Core Book' : value),
 };
 
+const habitatFilter: CategoryFilter = {
+  id: 'habitat',
+  label: 'Habitat',
+  includeAny: true,
+  valuesFor: (item: CompendiumEntryBase) =>
+    'habitat' in item && typeof item.habitat === 'string' ? [item.habitat] : [],
+};
+
 const items = [
   ...Array.from({ length: 18 }, (_, index) => ({
     id: `item-${index}`,
@@ -34,14 +42,18 @@ const items = [
 function setup(
   selected: Record<string, string[]> = {},
   filters: CategoryFilter[] = [sizeFilter, sourceFilter],
-  availableItems = items,
+  availableItems: CompendiumEntryBase[] = items,
+  includeAny: Record<string, boolean> = {},
+  onToggleIncludeAny = vi.fn(),
 ) {
   const props = {
     filters,
     items: availableItems,
     selected,
+    includeAny,
     onToggle: vi.fn(),
     onSetFilter: vi.fn(),
+    onToggleIncludeAny,
     onClear: vi.fn(),
     onRandom: vi.fn(),
     sortField: 'name',
@@ -139,6 +151,24 @@ describe('FilterBar', () => {
     fireEvent.click(clearButtons.at(-1)!);
     expect(props.onSetFilter).toHaveBeenLastCalledWith('size', []);
     expect(props.onSetFilter).toHaveBeenCalledTimes(2);
+  });
+
+  it('toggles include any for a selected habitat', () => {
+    const habitatItems = [
+      { ...items[0]!, habitat: 'Urban' },
+      { ...items[1]!, habitat: 'Any' },
+    ];
+    const { props } = setup({ habitat: ['Urban'] }, [habitatFilter], habitatItems, {
+      habitat: false,
+    });
+    fireEvent.click(screen.getByRole('button', { name: /^Filters/ }));
+
+    const checkbox = screen.getByRole('checkbox', {
+      name: 'Include any habitat',
+    });
+    expect(checkbox).not.toBeDisabled();
+    fireEvent.click(checkbox);
+    expect(props.onToggleIncludeAny).toHaveBeenCalledWith('habitat');
   });
 
   it('closes the modal with Escape and the backdrop', () => {

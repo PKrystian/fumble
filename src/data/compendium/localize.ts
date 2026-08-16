@@ -1,4 +1,10 @@
-import type { ClassEntry, ClassSubclass, CompendiumEntryBase, SpellEntry } from './types';
+import type {
+  ClassEntry,
+  ClassSubclass,
+  CompendiumEntryBase,
+  MonsterEntry,
+  SpellEntry,
+} from './types';
 
 export type EntryOverlay = Record<string, unknown>;
 export type CategoryOverlay = Record<string, EntryOverlay>;
@@ -118,6 +124,19 @@ function preserveSpellReferences<T extends CompendiumEntryBase>(
   return result;
 }
 
+function preserveMonsterHabitat<T extends CompendiumEntryBase>(entry: T, merged: T): T {
+  const baseMonster = entry as Partial<MonsterEntry>;
+  const localizedMonster = merged as Partial<MonsterEntry>;
+  if (
+    typeof baseMonster.habitat === 'string' &&
+    typeof localizedMonster.habitat === 'string' &&
+    localizedMonster.habitat !== baseMonster.habitat
+  ) {
+    return { ...merged, _englishHabitat: baseMonster.habitat } as T;
+  }
+  return merged;
+}
+
 export function localizeEntry<T extends CompendiumEntryBase>(
   entry: T,
   overlay: CategoryOverlay | undefined,
@@ -128,10 +147,13 @@ export function localizeEntry<T extends CompendiumEntryBase>(
     ...entry,
     ...translation,
   } as T);
-  const localized = preserveSpellReferences(
+  const localized = preserveMonsterHabitat(
     entry,
-    translation,
-    mergeVariantData(entry, translation, merged),
+    preserveSpellReferences(
+      entry,
+      translation,
+      mergeVariantData(entry, translation, merged),
+    ),
   );
   const translatedName = (translation as { name?: unknown }).name;
   if (typeof translatedName === 'string' && translatedName !== entry.name) {

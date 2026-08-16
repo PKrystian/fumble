@@ -4,6 +4,27 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.113 - 2026-08-16
+
+- Linked monsters added to encounters to their full bestiary records.
+
+## 1.2.112 - 2026-08-16
+
+- Added an option to include monsters with Any habitat in the encounter builder and bestiary filters.
+- Completed Polish habitat labels and improved encounter builder layout and responsiveness.
+
+## 1.2.111 - 2026-08-16
+
+- Added a random encounter monster picker based on the party's high budget, with a 10% upward tolerance.
+
+## 1.2.110 - 2026-08-16
+
+- Fixed Polish habitat filters showing raw markup and reduced unnecessary bestiary recalculations.
+
+## 1.2.109 - 2026-08-16
+
+- Added habitat filtering to the encounter builder and bestiary, with linked habitat values on monster entries.
+
 ## 1.2.108 - 2026-08-16
 
 - Fixed magic item variants so their bonuses, applicable base items, class features, and loot tables render correctly in every supported locale.

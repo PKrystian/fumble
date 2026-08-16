@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { crToXp, partyBudget, rateEncounter } from './xp';
+import { crToXp, partyBudget, pickRandomMonster, rateEncounter } from './xp';
 
 describe('encounter math', () => {
   it('maps challenge ratings to XP, including fractional CRs', () => {
@@ -47,5 +47,31 @@ describe('encounter math', () => {
     expect(rateEncounter(3000, budget)).toBe('Moderate');
     expect(rateEncounter(4000, budget)).toBe('High');
     expect(rateEncounter(9000, budget)).toBe('Deadly');
+  });
+
+  it('prefers a random monster within the high budget tolerance', () => {
+    const candidates = [
+      { item: 'weaker', xp: 999 },
+      { item: 'allowed', xp: 1100 },
+      { item: 'tooStrong', xp: 1110 },
+    ];
+
+    expect(pickRandomMonster(candidates, 1000, () => 0)).toBe('allowed');
+  });
+
+  it('uses the closest stronger monster when the tolerance range is empty', () => {
+    const candidates = [
+      { item: 'weaker', xp: 900 },
+      { item: 'closest', xp: 1200 },
+      { item: 'farther', xp: 2000 },
+    ];
+
+    expect(pickRandomMonster(candidates, 1000, () => 0)).toBe('closest');
+  });
+
+  it('returns no monster when the party has no positive budget or only weaker choices', () => {
+    expect(pickRandomMonster([], 1000)).toBeUndefined();
+    expect(pickRandomMonster([{ item: 'weaker', xp: 900 }], 1000)).toBeUndefined();
+    expect(pickRandomMonster([{ item: 'monster', xp: 1000 }], 0)).toBeUndefined();
   });
 });
