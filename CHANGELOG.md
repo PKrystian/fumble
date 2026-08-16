@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.114 - 2026-08-16
+
+- Changed the favicon and app icon die to `#22242a` while preserving transparent backgrounds.
+
 ## 1.2.113 - 2026-08-16
 
 - Linked monsters added to encounters to their full bestiary records.
