@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.115 - 2026-08-16
+
+- Skipped the optional ONNX Runtime CUDA download during CI dependency installation.
+
 ## 1.2.114 - 2026-08-16
 
 - Changed the favicon and app icon die to `#22242a` while preserving transparent backgrounds.
