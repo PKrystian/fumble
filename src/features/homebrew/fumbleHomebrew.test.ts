@@ -74,7 +74,7 @@ describe('Fumble homebrew catalog', () => {
     expect(campaignCounts('grobowiec-zaglady')).toEqual({
       classes: 1,
       items: 3,
-      rules: 9,
+      rules: 12,
     });
     expect(campaignCounts('krysztalowa-sfera')).toEqual({
       classes: 1,
@@ -130,6 +130,40 @@ describe('Fumble homebrew catalog', () => {
     expect(
       items.find((item) => item.id === 'crystal-of-possibilities')?.campaigns,
     ).toEqual(['krysztalowa-sfera']);
+  });
+
+  it('keeps Tomb of Annihilation homebrew additions campaign-scoped', () => {
+    const english = fumbleHomebrewItems('en');
+    const polish = fumbleHomebrewItems('pl');
+    const ids = ['level-up-hit-points', 'long-term-recovery', 'inspiration-types'];
+
+    for (const id of ids) {
+      expect(english.find((item) => item.id === id)?.campaigns).toEqual([
+        'grobowiec-zaglady',
+      ]);
+    }
+
+    expect(JSON.stringify(english.find((item) => item.id === 'crafting'))).toContain(
+      '["90+","50"]',
+    );
+    expect(JSON.stringify(polish.find((item) => item.id === 'crafting'))).toContain(
+      '{@dice 5d6||5k6}',
+    );
+    expect(JSON.stringify(polish.find((item) => item.id === 'chult-travel'))).toContain(
+      '{@dice d4||k4}',
+    );
+    expect(JSON.stringify(polish.find((item) => item.id === 'gathering'))).toContain(
+      'Sztuka Przetrwania',
+    );
+    expect(JSON.stringify(polish.find((item) => item.id === 'gathering'))).toContain(
+      'Leśne ogólne',
+    );
+    expect(JSON.stringify(polish.find((item) => item.id === 'gathering'))).not.toContain(
+      'Sztuka przetrwania nie jest tu używana',
+    );
+    expect(
+      JSON.stringify(polish.find((item) => item.id === 'inspiration-types')),
+    ).toContain('tylko 1 punkt Heroicznej Inspiracji');
   });
 
   it('keeps classes and subclasses in the classes JSON category', () => {

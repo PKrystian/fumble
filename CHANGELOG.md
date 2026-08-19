@@ -4,6 +4,15 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.117 - 2026-08-19
+
+- Restored white favicon and app icons with a black outline.
+
+## 1.2.116 - 2026-08-18
+
+- Added Tomb of Annihilation rules for level-up hit points, safe-shelter recovery, and Heroic and Master Inspiration.
+- Improved Chult gathering, training, and crafting guidance with Polish translations and rollable dice, including doubled crafting progress points.
+
 ## 1.2.115 - 2026-08-16
 
 - Skipped the optional ONNX Runtime CUDA download during CI dependency installation.

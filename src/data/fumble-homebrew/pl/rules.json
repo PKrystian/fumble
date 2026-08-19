@@ -2,14 +2,14 @@
   "critical-rolls": {
     "name": "Krytyczne rzuty",
     "entries": [
-      "Naturalne 1 na k20 zawsze jest automatyczną porażką przy ataku, teście cechy i rzucie obronnym. Naturalne 20 zawsze jest automatycznym sukcesem wszędzie tam, gdzie wymagany jest rzut k20."
+      "Naturalne 1 na {@dice d20||k20} zawsze jest automatyczną porażką przy ataku, teście cechy i rzucie obronnym. Naturalne 20 zawsze jest automatycznym sukcesem wszędzie tam, gdzie wymagany jest rzut {@dice d20||k20}."
     ],
     "subtitle": "Zasada Fumble"
   },
   "healing-potions": {
     "name": "Mikstury leczenia",
     "entries": [
-      "Miksturę można wypić jako {@variantrule Bonus Action|XPHB|akcję dodatkową}. Możesz również użyć {@action Utilize|XPHB|akcji Wykorzystanie}, aby podać miksturę leczniczą istocie znajdującej się w odległości do 5 stóp od ciebie, lecząc ją zamiast siebie. Jeśli użyjesz mikstury leczniczej jako akcji, przywraca maksymalną możliwą liczbę PW zamiast wymagać rzutu, na przykład 2k4 + 2 przywraca 10 PW."
+      "Miksturę można wypić jako {@variantrule Bonus Action|XPHB|akcję dodatkową}. Możesz również użyć {@action Utilize|XPHB|akcji Wykorzystanie}, aby podać miksturę leczniczą istocie znajdującej się w odległości do 5 stóp od ciebie, lecząc ją zamiast siebie. Jeśli użyjesz mikstury leczniczej jako akcji, przywraca maksymalną możliwą liczbę PW zamiast wymagać rzutu, na przykład {@dice 2d4 + 2||2k4 + 2} przywraca 10 PW."
     ],
     "subtitle": "Zasada Fumble"
   },
@@ -17,6 +17,32 @@
     "name": "Flankowanie",
     "entries": [
       "Otrzymujesz premię +2 do rzutu ataku przeciwko stworzeniu w zwarciu, jeśli przytomny i zdolny do walki sojusznik stoi po przeciwnej stronie celu, tworząc linię z tobą i celem."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "level-up-hit-points": {
+    "name": "Punkty Wytrzymałości przy awansie",
+    "entries": [
+      "Za każdym razem, gdy zdobywasz poziom, wybierz jedną z poniższych metod zwiększenia maksymalnej liczby {@variantrule Hit Points|XPHB|Punktów Wytrzymałości}:",
+      {
+        "type": "table",
+        "caption": "Metody zwiększania PW",
+        "colLabels": ["Metoda", "Zasada"],
+        "rows": [
+          [
+            "Rzut z przewagą",
+            "Rzuć swoją {@variantrule Hit Point Dice|XPHB|Kością Wytrzymałości} dwa razy i wybierz wyższy wynik."
+          ],
+          [
+            "Przerzut jedynki",
+            "Rzuć swoją {@variantrule Hit Point Dice|XPHB|Kością Wytrzymałości}. Jeśli wypadnie 1, przerzuć ją. Drugi wynik jest wiążący, nawet jeśli jest niższy."
+          ],
+          [
+            "Stała średnia",
+            "Użyj stałej średniej z Podręcznika Gracza: {@dice d6||k6} = 4, {@dice d8||k8} = 5, {@dice d10||k10} = 6 albo {@dice d12||k12} = 7."
+          ]
+        ]
+      }
     ],
     "subtitle": "Zasada Fumble"
   },
@@ -94,6 +120,35 @@
     ],
     "subtitle": "Zasada Fumble"
   },
+  "long-term-recovery": {
+    "name": "Długoterminowa regeneracja i bezpieczne schronienia",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Warunki powrotu do zdrowia",
+        "entries": [
+          "Uporczywe problemy, takie jak {@condition Exhaustion|XPHB|Wyczerpanie}, przewlekłe choroby i utrzymujące się urazy psychiczne, nie mogą zostać złagodzone zwykłym odpoczynkiem na łonie natury ani forsowną podróżą. Aby usunąć takie trwałe kary, postać musi zakończyć {@variantrule Long Rest|XPHB|Długi Odpoczynek} w bezpiecznym schronieniu spełniającym wszystkie trzy warunki:",
+          {
+            "type": "list",
+            "items": [
+              "Bezpieczeństwo: Obszar jest wolny od bezpośredniego zagrożenia dzięki fizycznym barierom, czujnym strażnikom albo magicznej ochronie.",
+              "Komfort: Dostępne są czysta pościel, ciepłe posiłki i podstawowa pomoc medyczna.",
+              "Odpoczynek psychiczny: Postacie mogą się zrelaksować bez ciągłego lęku przed zasadzką i presją wymuszonej podróży."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Przykłady",
+        "entries": [
+          "Odpowiednim schronieniem może być dobrze prosperująca gospoda w obrębie otoczonego murami miasta, poświęcona świątynia z uzdrowicielami, odpowiednio zabezpieczony posterunek rebeliantów albo statek zakotwiczony w przyjaznym porcie.",
+          "Nie kwalifikują się obóz na otwartym pustkowiu, statek na morzu ani obóz wojskowy znajdujący się pod ciągłą groźbą ataku."
+        ]
+      }
+    ],
+    "subtitle": "Zasada Fumble"
+  },
   "long-distance-teleportation": {
     "name": "Teleportacja dalekodystansowa",
     "entries": [
@@ -111,7 +166,28 @@
   "heroic-inspiration-reroll": {
     "name": "Heroiczna Inspiracja",
     "entries": [
-      "Można mieć maksymalnie 3 punkty Heroicznej Inspiracji, tak jak Mistrzowskiej Inspiracji. Inspirację można wykorzystać do przerzutu dowolnego rzutu k20 po rzucie, ale przed poznaniem wyniku. Po użyciu trzeba przyjąć nowy wynik, zgodnie z zasadą Szczęścia niziołka."
+      "Można mieć maksymalnie 3 punkty Heroicznej Inspiracji, tak jak Mistrzowskiej Inspiracji. Inspirację można wykorzystać do przerzutu dowolnego rzutu {@dice d20||k20} po rzucie, ale przed poznaniem wyniku. Po użyciu trzeba przyjąć nowy wynik, zgodnie z zasadą Szczęścia niziołka."
+    ],
+    "subtitle": "Zasada Fumble"
+  },
+  "inspiration-types": {
+    "name": "Heroiczna i Mistrzowska Inspiracja",
+    "entries": [
+      {
+        "type": "entries",
+        "name": "Heroiczna Inspiracja",
+        "entries": [
+          "W tej kampanii możesz mieć maksymalnie 3 punkty {@variantrule Heroic Inspiration|XPHB|Heroicznej Inspiracji}. Na pojedynczy rzut {@dice d20||k20} można wydać tylko 1 punkt Heroicznej Inspiracji, po rzucie, ale przed poznaniem wyniku. Trzeba przyjąć nowy wynik. Heroiczna Inspiracja jest nagrodą narracyjną i nie może zostać przyznana w odpowiedzi na rzut wyłącznie po to, aby umożliwić natychmiastowy przerzut."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Mistrzowska Inspiracja",
+        "entries": [
+          "Mistrz Gry może przyznać Mistrzowską Inspirację za działania wspierające kampanię, takie jak przygotowywanie podsumowań sesji, przypominanie wcześniejszych wydarzeń, porządkowanie informacji drużynowych lub kroniki kampanii oraz pomoc logistyczną i kreatywną między sesjami.",
+          "Możesz mieć maksymalnie 3 punkty Mistrzowskiej Inspiracji i przekazać punkt innej postaci w dowolnym momencie, nawet jeśli ta postać ma już Heroiczną Inspirację. Punkt Mistrzowskiej Inspiracji pozwala przerzucić własny rzut {@dice d20||k20} po rzucie, ale przed poznaniem wyniku; trzeba przyjąć nowy wynik. Możesz też zmusić przeciwnika do przerzutu {@dice d20||k20} i wybrać niższy wynik albo uzyskać efekt narracyjny lub taktyczny, jeśli Mistrz Gry wyrazi zgodę."
+        ]
+      }
     ],
     "subtitle": "Zasada Fumble"
   },
@@ -122,14 +198,14 @@
         "type": "entries",
         "name": "Kierunek i tempo podróży",
         "entries": [
-          "Każdego dnia drużyna wybiera kierunek oraz tempo: normalne, szybkie albo wolne. Normalne tempo pozwala pokonać standardowy dystans bez kar i premii. Przy szybkim tempie podróżnicy otrzymują karę -5 do pasywnej Mądrości (Percepcji), a nawigator karę -5 do testów nawigacji. Rzuć k4: wynik 3-4 oznacza dodatkowy heks. Przy wolnym tempie nawigator otrzymuje premię +5 do testów nawigacji, a drużyna może poruszać się skrycie, jeśli pozwala na to teren. Rzuć k4: wynik 1-2 oznacza o 1 heks mniej."
+          "Każdego dnia drużyna wybiera kierunek oraz tempo: normalne, szybkie albo wolne. Normalne tempo pozwala pokonać standardowy dystans bez kar i premii. Przy szybkim tempie podróżnicy otrzymują karę -5 do pasywnej Mądrości (Percepcji), a nawigator karę -5 do testów nawigacji. Rzuć {@dice d4||k4}: wynik 3-4 oznacza dodatkowy heks. Przy wolnym tempie nawigator otrzymuje premię +5 do testów nawigacji, a drużyna może poruszać się skrycie, jeśli pozwala na to teren. Rzuć {@dice d4||k4}: wynik 1-2 oznacza o 1 heks mniej."
         ]
       },
       {
         "type": "entries",
         "name": "Dodatkowe działania",
         "entries": [
-          "Drużyna może wykonać do dwóch dodatkowych aktywności, korzystając z jednego rzutu k4. Wynik 1-2 opóźnia marsz o 1 heks, a wynik 3-4 nie wpływa na tempo. Przy wolnym tempie wykonuje się ten rzut dodatkowo do rzutu wynikającego z wyboru wolnego tempa."
+          "Drużyna może wykonać do dwóch dodatkowych aktywności, korzystając z jednego rzutu {@dice d4||k4}. Wynik 1-2 opóźnia marsz o 1 heks, a wynik 3-4 nie wpływa na tempo. Przy wolnym tempie wykonuje się ten rzut dodatkowo do rzutu wynikającego z wyboru wolnego tempa."
         ]
       },
       {
@@ -184,43 +260,49 @@
                 "Wodne",
                 "Jeziora, rzeki, wybrzeża, bagna",
                 "Mądrość",
-                "Zestaw kucharski, zestaw wędkarski, {@skill Athletics|XPHB}, {@skill Perception|XPHB}, {@skill Survival|XPHB}"
+                "{@item Cook's Utensils|XPHB|Zestaw kucharski}, {@item Fishing Tackle|PHB|zestaw wędkarski}, {@skill Athletics|XPHB|Atletyka}, {@skill Perception|XPHB|Percepcja}, {@skill Survival|XPHB|Sztuka Przetrwania}"
               ],
               [
                 "Roślinne",
                 "Łąki, lasy, dżungle, góry",
                 "Inteligencja",
-                "{@item Herbalism Kit|XPHB}, {@skill Nature|XPHB}, Sztuka przetrwania nie jest tu używana"
+                "{@item Herbalism Kit|XPHB|Zestaw zielarski}, {@skill Nature|XPHB|Natura}, {@skill Investigation|XPHB|Śledztwo}"
               ],
               [
                 "Minerały i kamienie",
-                "Góry, klify, kopalnie",
+                "Góry, klify, kopalnie, jaskinie",
                 "Siła lub Inteligencja",
-                "Narzędzia kamieniarza, narzędzia kowala, {@skill History|XPHB}, {@skill Nature|XPHB}"
+                "{@item Mason's Tools|XPHB|Narzędzia kamieniarza}, {@item Smith's Tools|XPHB|narzędzia kowala}, {@skill History|XPHB|Historia}, {@skill Nature|XPHB|Natura}"
               ],
               [
                 "Polowanie",
                 "Równiny, lasy, pustkowia, tundry",
                 "Zręczność lub Mądrość",
-                "{@skill Stealth|XPHB}, {@skill Perception|XPHB}, biegłość w łuku długim, biegłość w kuszach, {@skill Survival|XPHB}"
+                "{@skill Stealth|XPHB|Skradanie się}, {@skill Perception|XPHB|Percepcja}, {@item Longbow|XPHB|łuk długi}, biegłość w kuszach, {@skill Survival|XPHB|Sztuka Przetrwania}"
               ],
               [
                 "Pustynne",
                 "Pustynie, stepy, ruiny",
                 "Mądrość",
-                "{@skill Nature|XPHB}, {@skill Perception|XPHB}, zestaw kucharski, zestaw kartografa, {@skill Survival|XPHB}"
+                "{@skill Nature|XPHB|Natura}, {@skill Perception|XPHB|Percepcja}, {@item Cook's Utensils|XPHB|zestaw kucharski}, {@item Cartographer's Tools|XPHB|zestaw kartografa}, {@skill Survival|XPHB|Sztuka Przetrwania}"
+              ],
+              [
+                "Leśne ogólne",
+                "Lasy mieszane, dzikie puszcze",
+                "Mądrość",
+                "{@skill Nature|XPHB|Natura}, {@skill Perception|XPHB|Percepcja}, {@skill Survival|XPHB|Sztuka Przetrwania}"
               ],
               [
                 "Jaskiniowe",
                 "Jaskinie, ruiny podziemne, tunele",
                 "Inteligencja",
-                "{@skill Investigation|XPHB}, narzędzia kamieniarza, zestaw złodzieja, {@skill Perception|XPHB}"
+                "{@skill Investigation|XPHB|Śledztwo}, {@item Mason's Tools|XPHB|narzędzia kamieniarza}, {@item Thieves' Tools|XPHB|zestaw złodzieja}, {@skill Perception|XPHB|Percepcja}"
               ],
               [
                 "Arktyczne",
                 "Obszary polarne, zmarzliny, lodowe pustkowia",
                 "Kondycja lub Mądrość",
-                "Zestaw kucharski, {@skill Perception|XPHB}, {@skill Nature|XPHB}, zestaw krawiecki, {@skill Survival|XPHB}"
+                "{@item Cook's Utensils|XPHB|zestaw kucharski}, {@skill Perception|XPHB|Percepcja}, {@skill Nature|XPHB|Natura}, {@item Weaver's Tools|XPHB|zestaw tkacki}, {@skill Survival|XPHB|Sztuka Przetrwania}"
               ]
             ]
           }
@@ -230,7 +312,7 @@
         "type": "entries",
         "name": "Procedura",
         "entries": [
-          "Aby wykonać zbieractwo, rzuć 5k6 i zanotuj wyniki. Możesz przerzucić liczbę kości równą modyfikatorowi atrybutu związanego z rodzajem zbieractwa. Jeśli posiadasz biegłość w odpowiednich narzędziach, możesz przerzucić dodatkową liczbę kości równą swojej premii biegłości. Kości można przerzucać pojedynczo lub wszystkie naraz, ale tylko raz na aktywność.",
+          "Aby wykonać zbieractwo, rzuć {@dice 5d6||5k6} i zanotuj wyniki. Możesz przerzucić liczbę kości równą modyfikatorowi atrybutu związanego z rodzajem zbieractwa. Jeśli posiadasz biegłość w odpowiednich narzędziach, możesz przerzucić dodatkową liczbę kości równą swojej premii biegłości. Kości można przerzucać pojedynczo lub wszystkie naraz, ale tylko raz na aktywność.",
           {
             "type": "table",
             "caption": "Układy kości i mnożniki",
@@ -316,14 +398,14 @@
         "type": "entries",
         "name": "Wytwarzanie",
         "entries": [
-          "Wytwarzanie to aktywność downtimeowa, która pozwala postaci stopniowo tworzyć nowe przedmioty z wcześniej uzyskanych materiałów. Postęp zależy od rodzaju wytwarzania, atrybutów postaci, biegłości i warunków nauki."
+          "Wytwarzanie to aktywność downtimeowa, która pozwala postaci stopniowo tworzyć nowe przedmioty z wcześniej uzyskanych materiałów. Postęp zależy od rodzaju wytwarzania, atrybutów postaci, biegłości i warunków wytwarzania."
         ]
       },
       {
         "type": "entries",
         "name": "Czas trwania i wymagania",
         "entries": [
-          "Wytwarzanie trwa 8 godzin i może być wykonywane raz dziennie. Postać musi posiadać materiały do stworzenia przedmiotu. Można je zdobyć podczas eksploracji, zbieractwa lub kupić za połowę ceny przedmiotu. Do stworzenia magicznego przedmiotu potrzebny jest dostęp do odpowiedniego zaklęcia lub wystarczający poziom w klasie czarującej. Mikstury można wytwarzać bez znajomości zaklęcia. Szczególne wymagania przedmiotu określa MG."
+          "Wytwarzanie trwa 8 godzin i może być wykonywane raz dziennie. Postać musi posiadać materiały do stworzenia przedmiotu. Można je zdobyć podczas eksploracji, zbieractwa lub kupić za połowę ceny przedmiotu. Do stworzenia magicznego przedmiotu potrzebny jest dostęp do odpowiedniego zaklęcia lub wystarczający poziom w klasie czarującej. Mikstury można wytwarzać bez znajomości zaklęcia. Szczególne wymagania mogą obejmować narzędzia, biegłość, warsztat, recepturę, nauczyciela, magiczne źródło albo zadanie fabularne; ustala je MG."
         ]
       },
       {
@@ -352,47 +434,47 @@
               ],
               [
                 "Zwoje czarów",
-                "{@item Calligrapher's Supplies|XPHB}, zestaw majsterkowicza i znajomość zaklęcia (Inteligencja)"
+                "{@item Calligrapher's Supplies|XPHB|zestaw kaligrafa}, {@item Tinker's Tools|XPHB|zestaw majsterkowicza} i znajomość zaklęcia (Inteligencja)"
               ],
               [
                 "Broń niestandardowa",
-                "Zestaw kowala, alchemika, majsterkowicza lub rzeźbiarza w drewnie (Siła lub Zręczność)"
+                "{@item Smith's Tools|XPHB|zestaw kowala} (Zręczność/Siła), {@item Alchemist's Supplies|XPHB|zestaw alchemika} (Zręczność/Inteligencja), {@item Tinker's Tools|XPHB|zestaw majsterkowicza} (Zręczność/Inteligencja) lub {@item Woodcarver's Tools|XPHB|zestaw rzeźbiarza w drewnie} (Zręczność/Siła)"
               ],
               [
                 "Zbroje",
-                "Zestaw kowala lub garbarza (Siła, Zręczność albo Mądrość)"
+                "{@item Smith's Tools|XPHB|zestaw kowala} (Siła) lub {@item Leatherworker's Tools|XPHB|zestaw garbarza} (Zręczność/Mądrość)"
               ],
               [
                 "Biżuteria magiczna",
-                "Zestaw jubilera, malarza, kaligrafa lub tkacza (Charyzma, Zręczność, Inteligencja albo Mądrość)"
+                "{@item Jeweler's Tools|XPHB|zestaw jubilera} (Charyzma/Zręczność), {@item Painter's Supplies|XPHB|zestaw malarza} (Charyzma/Zręczność), {@item Calligrapher's Supplies|XPHB|zestaw kaligrafa} (Zręczność/Inteligencja) lub {@item Weaver's Tools|XPHB|zestaw tkacza} (Zręczność/Mądrość)"
               ],
               [
                 "Urządzenia mechaniczne",
-                "Zestaw majsterkowicza, cieśli lub rzeźbiarza w drewnie (Inteligencja lub Zręczność)"
+                "{@item Tinker's Tools|XPHB|zestaw majsterkowicza} (Inteligencja), {@item Carpenter's Tools|XPHB|zestaw cieśli} (Zręczność) lub {@item Woodcarver's Tools|XPHB|zestaw rzeźbiarza w drewnie} (Zręczność)"
               ],
               [
                 "Kusze, łuki i bełty",
-                "Zestaw cieśli, rzeźbiarza w drewnie lub majsterkowicza (Zręczność)"
+                "{@item Carpenter's Tools|XPHB|zestaw cieśli} (Zręczność), {@item Woodcarver's Tools|XPHB|zestaw rzeźbiarza w drewnie} (Zręczność) lub {@item Tinker's Tools|XPHB|zestaw majsterkowicza} (Zręczność/Inteligencja)"
               ],
               [
                 "Ulepszanie broni i zbroi",
-                "Zestaw kowala, alchemika lub kaligrafa (Siła albo Inteligencja)"
+                "{@item Smith's Tools|XPHB|zestaw kowala} (Siła/Inteligencja), {@item Alchemist's Supplies|XPHB|zestaw alchemika} (Inteligencja) lub {@item Calligrapher's Supplies|XPHB|zestaw kaligrafa} (Inteligencja)"
               ],
               [
                 "Ubrania",
-                "Zestaw tkacza, szewca lub malarza (Zręczność, Inteligencja albo Charyzma)"
+                "{@item Weaver's Tools|XPHB|zestaw tkacza} (Zręczność/Inteligencja), {@item Cobbler's Tools|XPHB|zestaw szewca} (Zręczność/Inteligencja) lub {@item Painter's Supplies|XPHB|zestaw malarza} (Charyzma/Zręczność/Inteligencja)"
               ],
               [
                 "Jedzenie o magicznych efektach",
-                "Zestaw kucharski, {@item Herbalism Kit|XPHB} lub {@item Alchemist's Supplies|XPHB}"
+                "{@item Cook's Utensils|XPHB|zestaw kucharski} (Mądrość/Zręczność), {@item Herbalism Kit|XPHB|zestaw zielarski} (Inteligencja/Mądrość) lub {@item Alchemist's Supplies|XPHB|zestaw alchemika} (Inteligencja)"
               ],
               [
                 "Eliksiry transformacji",
-                "{@item Alchemist's Supplies|XPHB} lub {@item Herbalism Kit|XPHB} (Inteligencja)"
+                "{@item Alchemist's Supplies|XPHB|zestaw alchemika} (Inteligencja) lub {@item Herbalism Kit|XPHB|zestaw zielarski} (Inteligencja)"
               ],
               [
                 "Runiczne przedmioty",
-                "{@item Calligrapher's Supplies|XPHB} (Zręczność albo Inteligencja)"
+                "{@item Calligrapher's Supplies|XPHB|zestaw kaligrafa} (Zręczność/Inteligencja)"
               ],
               [
                 "Artefakty",
@@ -406,7 +488,7 @@
         "type": "entries",
         "name": "Procedura",
         "entries": [
-          "Rzuć 5k6 i zanotuj wyniki. Możesz przerzucić liczbę kości równą modyfikatorowi atrybutu związanego z wytwarzaniem. Jeśli danego przedmiotu nie ma na liście, ustal atrybuty i narzędzia z MG. Kości można przerzucać pojedynczo lub wszystkie naraz, ale tylko raz na wytwarzanie.",
+          "Rzuć {@dice 5d6||5k6} i zanotuj wyniki. Możesz przerzucić liczbę kości równą modyfikatorowi atrybutu związanego z wytwarzaniem. Jeśli danego przedmiotu nie ma na liście, ustal atrybuty i narzędzia z MG. Wybierz dwa warunki pasujące do sytuacji wytwarzania. Kości można przerzucać pojedynczo lub wszystkie naraz, ale tylko raz na wytwarzanie.",
           {
             "type": "table",
             "caption": "Warunki środowiskowe",
@@ -493,54 +575,54 @@
         "type": "entries",
         "name": "Punkty Postępu",
         "entries": [
-          "Pomnóż sumę pięciu kości przez odpowiedni mnożnik i zaokrąglij w dół. W tej kampanii liczba Punktów Postępu zdobywanych podczas wytwarzania jest podwajana.",
+          "Pomnóż sumę pięciu kości przez odpowiedni mnożnik i zaokrąglij w dół. Tabela poniżej zawiera już podwojone wartości Punktów Postępu dla tej kampanii, więc przedmioty powstają dwa razy szybciej.",
           {
             "type": "table",
             "caption": "Wynik końcowy i PP",
             "colLabels": [
               "Wynik końcowy",
-              "PP przed podwojeniem"
+              "PP"
             ],
             "rows": [
               [
                 "5-14",
-                "1"
-              ],
-              [
-                "15-24",
                 "2"
               ],
               [
-                "25-34",
-                "3"
-              ],
-              [
-                "35-44",
+                "15-24",
                 "4"
               ],
               [
-                "45-54",
+                "25-34",
                 "6"
               ],
               [
-                "55-64",
+                "35-44",
                 "8"
               ],
               [
-                "65-74",
-                "10"
+                "45-54",
+                "12"
               ],
               [
-                "75-84",
-                "13"
-              ],
-              [
-                "85-89",
+                "55-64",
                 "16"
               ],
               [
+                "65-74",
+                "20"
+              ],
+              [
+                "75-84",
+                "26"
+              ],
+              [
+                "85-89",
+                "32"
+              ],
+              [
                 "90+",
-                "25"
+                "50"
               ]
             ]
           }
@@ -634,7 +716,7 @@
   "gathering-survival-proficiency": {
     "name": "Sztuka Przetrwania w zbieractwie",
     "entries": [
-      "Dodaj Sztukę Przetrwania do przykładowych biegłości dla zbieractwa wodnego, polowania, pustynnego, leśnego ogólnego i arktycznego. nie dodawaj jej do kategorii roślinnej, mineralnej ani jaskiniowej."
+      "Dodaj Sztukę Przetrwania do przykładowych biegłości dla zbieractwa wodnego, polowania, pustynnego, leśnego ogólnego i arktycznego. Nie dodawaj jej do kategorii roślinnej, mineralnej ani jaskiniowej."
     ],
     "subtitle": "Zasada Fumble"
   },
@@ -659,7 +741,7 @@
         "type": "entries",
         "name": "Rzut i przerzuty",
         "entries": [
-          "Rzuć 5k6. Możesz przerzucić liczbę kości równą modyfikatorowi odpowiedniej cechy. Kości można przerzucać pojedynczo lub wszystkie naraz, ale tylko raz na wyszkolenie.",
+          "Rzuć {@dice 5d6||5k6}. Możesz przerzucić liczbę kości równą modyfikatorowi odpowiedniej cechy. Kości można przerzucać pojedynczo lub wszystkie naraz, ale tylko raz na wyszkolenie.",
           {
             "type": "table",
             "caption": "Atrybut wyszkolenia",
@@ -749,7 +831,7 @@
                 "+2"
               ],
               [
-                "Wspólna nauka",
+                "Wspólna nauka tego samego i wzajemna pomoc",
                 "+3 do końcowego wyniku"
               ]
             ]

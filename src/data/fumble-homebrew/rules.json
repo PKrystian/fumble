@@ -1,7 +1,7 @@
 {
   "meta": {
     "category": "rules",
-    "count": 22,
+    "count": 25,
     "source": "Fumble"
   },
   "items": [
@@ -79,6 +79,39 @@
       "subtitle": "Fumble rule",
       "entries": [
         "When you choose a starting flaw during character creation, you gain one additional General feat."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "level-up-hit-points",
+      "campaigns": ["grobowiec-zaglady"],
+      "name": "Hit Point Gains on Level Up",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        "Whenever you gain a level, choose one of the following methods for increasing your maximum {@variantrule Hit Points|XPHB}:",
+        {
+          "type": "table",
+          "caption": "Hit Point Increase Methods",
+          "colLabels": ["Method", "Rule"],
+          "rows": [
+            [
+              "Advantage Roll",
+              "Roll your {@variantrule Hit Point Dice|XPHB} twice and use the higher result."
+            ],
+            [
+              "Reroll a 1",
+              "Roll your {@variantrule Hit Point Dice|XPHB}. If the result is 1, reroll it. You must use the second result, even if it is lower."
+            ],
+            [
+              "Fixed Average",
+              "Use the fixed average from the Player's Handbook: {@dice d6} = 4, {@dice d8} = 5, {@dice d10} = 6, or {@dice d12} = 7."
+            ]
+          ]
+        }
       ],
       "ruleType": "Fumble rule"
     },
@@ -213,6 +246,42 @@
       "ruleType": "Fumble rule"
     },
     {
+      "id": "long-term-recovery",
+      "campaigns": ["grobowiec-zaglady"],
+      "name": "Long-Term Recovery and Safe Shelters",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Recovery Conditions",
+          "entries": [
+            "Persistent problems such as {@condition Exhaustion|XPHB}, chronic diseases, and lingering mental injuries cannot be eased by an ordinary rest in the wilderness or by forced travel. To remove these lasting penalties, a character must finish a {@variantrule Long Rest|XPHB} in a safe shelter with all three conditions below:",
+            {
+              "type": "list",
+              "items": [
+                "Safety: The area is free from immediate danger because of physical barriers, vigilant guards, or magical protection.",
+                "Comfort: Clean bedding, warm meals, and basic medical care are available.",
+                "Mental rest: The characters can relax without constant fear of ambush or the pressure of forced travel."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Examples",
+          "entries": [
+            "A prosperous inn in a walled city, a consecrated temple with healers, a properly secured rebel outpost, or a ship anchored in a friendly port can qualify.",
+            "An open wilderness camp, a ship at sea, or a military camp under constant threat does not qualify."
+          ]
+        }
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
       "id": "long-distance-teleportation",
       "campaigns": ["siedmiu-zbiegow", "wedrowcy-granic"],
       "name": "Long-Distance Teleportation",
@@ -257,6 +326,34 @@
       "subtitle": "Fumble rule",
       "entries": [
         "{@variantrule Heroic Inspiration|XPHB} can be held up to 3 times, like Master {@variantrule Inspiration|DMG}. You can use it to reroll any {@dice d20} roll after rolling but before the result is known. After using it, you must use the new result, following the same principle as the Halfling's {@feat Lucky|XPHB} feature."
+      ],
+      "ruleType": "Fumble rule"
+    },
+    {
+      "id": "inspiration-types",
+      "campaigns": ["grobowiec-zaglady"],
+      "name": "Heroic and Master Inspiration",
+      "source": "Fumble",
+      "srd": false,
+      "_fumble": true,
+      "category": "rules",
+      "subtitle": "Fumble rule",
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Heroic Inspiration",
+          "entries": [
+            "In this campaign, you can hold up to 3 points of {@variantrule Heroic Inspiration|XPHB}. You can spend only one Heroic Inspiration point on a single {@dice d20} roll, after rolling but before the result is known. You must use the new result. Heroic Inspiration is a narrative reward and cannot be granted in response to a roll just to enable an immediate reroll."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Master Inspiration",
+          "entries": [
+            "The GM can award Master Inspiration for work that supports the campaign, such as preparing session summaries, recalling previous events, organizing party information or campaign records, and providing logistical or creative support between sessions.",
+            "You can hold up to 3 points of Master Inspiration and transfer a point to another character at any time, even if that character already has Heroic Inspiration. A Master Inspiration point can reroll your {@dice d20} roll after rolling but before the result is known; you must use the new result. Alternatively, you can make an enemy reroll a {@dice d20} roll and choose the lower result, or create a narrative or tactical effect when the GM agrees."
+          ]
+        }
       ],
       "ruleType": "Fumble rule"
     },
@@ -315,7 +412,7 @@
           "type": "entries",
           "name": "Gathering",
           "entries": [
-            "Gathering is an 8-hour downtime activity that can be performed once {@variantrule Per Day|XPHB} in a natural environment. Depending on the environment and the character’s skills, it can provide food, raw materials, alchemical ingredients, magic components, or treasure. A significant interruption ends the activity without a result."
+            "Gathering is an 8-hour downtime activity that can be performed once {@variantrule Per Day|XPHB} in a natural environment. Depending on the environment and the character's skills, it can provide food, raw materials, alchemical ingredients, magic components, or treasure. During the activity, the character can take only actions allowed during a {@variantrule Long Rest|XPHB}. Combat, strenuous exertion, {@variantrule Spellcasting|XGE}, or another significant interruption ends the activity without a result."
           ]
         },
         {
@@ -473,41 +570,44 @@
                 ],
                 [
                   "Custom Weapons",
-                  "{@item Smith's Tools|XPHB}, {@item Alchemist's Supplies|XPHB}, {@item Tinker's Tools|XPHB}, or {@item Woodcarver's Tools|XPHB}"
+                  "{@item Smith's Tools|XPHB}, {@item Alchemist's Supplies|XPHB}, {@item Tinker's Tools|XPHB}, or {@item Woodcarver's Tools|XPHB} (Strength or Dexterity)"
                 ],
                 [
                   "Armor",
-                  "{@item Smith's Tools|XPHB} or {@item Leatherworker's Tools|XPHB}"
+                  "{@item Smith's Tools|XPHB} (Strength) or {@item Leatherworker's Tools|XPHB} (Dexterity or Wisdom)"
                 ],
                 [
                   "Magic Jewelry",
-                  "{@item Jeweler's Tools|XPHB}, {@item Painter's Supplies|XPHB}, {@item Calligrapher's Supplies|XPHB}, or {@item Weaver's Tools|XPHB}"
+                  "{@item Jeweler's Tools|XPHB}, {@item Painter's Supplies|XPHB}, {@item Calligrapher's Supplies|XPHB}, or {@item Weaver's Tools|XPHB} (Charisma, Dexterity, Intelligence, or Wisdom)"
                 ],
                 [
                   "Mechanical Devices",
-                  "{@item Tinker's Tools|XPHB}, {@item Carpenter's Tools|XPHB}, or {@item Woodcarver's Tools|XPHB}"
+                  "{@item Tinker's Tools|XPHB}, {@item Carpenter's Tools|XPHB}, or {@item Woodcarver's Tools|XPHB} (Intelligence or Dexterity)"
                 ],
                 [
                   "Crossbows, Bows, and Bolts",
-                  "{@item Carpenter's Tools|XPHB}, {@item Woodcarver's Tools|XPHB}, or {@item Tinker's Tools|XPHB}"
+                  "{@item Carpenter's Tools|XPHB}, {@item Woodcarver's Tools|XPHB}, or {@item Tinker's Tools|XPHB} (Dexterity or Intelligence)"
                 ],
                 [
                   "Weapon or Armor Enhancement",
-                  "{@item Smith's Tools|XPHB}, {@item Alchemist's Supplies|XPHB}, or {@item Calligrapher's Supplies|XPHB}"
+                  "{@item Smith's Tools|XPHB}, {@item Alchemist's Supplies|XPHB}, or {@item Calligrapher's Supplies|XPHB} (Strength or Intelligence)"
                 ],
                 [
                   "Clothing",
-                  "{@item Weaver's Tools|XPHB}, {@item Cobbler's Tools|XPHB}, or {@item Painter's Supplies|XPHB}"
+                  "{@item Weaver's Tools|XPHB}, {@item Cobbler's Tools|XPHB}, or {@item Painter's Supplies|XPHB} (Dexterity, Intelligence, or Charisma)"
                 ],
                 [
                   "Magic Food",
-                  "{@item Cook's Utensils|XPHB}, {@item Herbalism Kit|XPHB}, or {@item Alchemist's Supplies|XPHB}"
+                  "{@item Cook's Utensils|XPHB}, {@item Herbalism Kit|XPHB}, or {@item Alchemist's Supplies|XPHB} (Wisdom, Dexterity, or Intelligence)"
                 ],
                 [
                   "Transformation Elixirs",
-                  "{@item Alchemist's Supplies|XPHB} or {@item Herbalism Kit|XPHB}"
+                  "{@item Alchemist's Supplies|XPHB} or {@item Herbalism Kit|XPHB} (Intelligence)"
                 ],
-                ["Runic Items", "{@item Calligrapher's Supplies|XPHB}"],
+                [
+                  "Runic Items",
+                  "{@item Calligrapher's Supplies|XPHB} (Dexterity or Intelligence)"
+                ],
                 ["Artifacts", "Determined by the item, often a combination of tools"]
               ]
             }
@@ -517,23 +617,23 @@
           "type": "entries",
           "name": "Procedure",
           "entries": [
-            "Roll {@dice 5d6}. You can reroll dice equal to the modifier of the relevant ability, with additional rerolls from tool proficiency and the following conditions: dangerous place -1, travel +0, safe shelter +1, no appropriate workshop +0, appropriate workshop +1, a proficient assistant +1, and a master with {@variantrule Expertise|XPHB} or a narrative {@variantrule Advantage|XPHB} +2. You can reroll dice separately or together, but only once per crafting activity.",
-            "Apply the final dice pattern: Five of a Kind x3, Four of a Kind x2.5, Full House x2, Straight x2.5, Three of a Kind x1.4, Two Pair x1.2, One Pair x1.1, and no pattern x1. Multiply the sum and {@variantrule Round Down|XPHB}. Crafting Progress Points are doubled by this {@variantrule Campaign|XPHB} rule. Studying together adds +3 to the final result.",
+            "Roll {@dice 5d6}. You can reroll dice equal to the modifier of the relevant ability, with additional rerolls from tool proficiency. Choose two conditions that fit the crafting situation: dangerous place -1, travel +0, safe shelter +1, no appropriate workshop +0, appropriate workshop +1, a proficient assistant +1, or a master with {@variantrule Expertise|XPHB} or a narrative {@variantrule Advantage|XPHB} +2. You can reroll dice separately or together, but only once per crafting activity.",
+            "Apply the final dice pattern: Five of a Kind x3, Four of a Kind x2.5, Full House x2, Straight x2.5, Three of a Kind x1.4, Two Pair x1.2, One Pair x1.1, and no pattern x1. Multiply the sum and {@variantrule Round Down|XPHB}. The Progress Points table below already includes this campaign's x2 crafting multiplier, so crafting is completed twice as quickly.",
             {
               "type": "table",
               "caption": "Crafting Progress Points",
               "colLabels": ["Final Result", "Progress Points"],
               "rows": [
-                ["5-14", "1"],
-                ["15-24", "2"],
-                ["25-34", "3"],
-                ["35-44", "4"],
-                ["45-54", "6"],
-                ["55-64", "8"],
-                ["65-74", "10"],
-                ["75-84", "13"],
-                ["85-89", "16"],
-                ["90+", "25"]
+                ["5-14", "2"],
+                ["15-24", "4"],
+                ["25-34", "6"],
+                ["35-44", "8"],
+                ["45-54", "12"],
+                ["55-64", "16"],
+                ["65-74", "20"],
+                ["75-84", "26"],
+                ["85-89", "32"],
+                ["90+", "50"]
               ]
             }
           ]
@@ -654,7 +754,7 @@
                   "A master with {@variantrule Expertise|XPHB} or a narrative {@variantrule Advantage|XPHB}",
                   "+2"
                 ],
-                ["Studying together", "+3 to the final result"]
+                ["Studying the same thing together", "+3 to the final result"]
               ]
             }
           ]
