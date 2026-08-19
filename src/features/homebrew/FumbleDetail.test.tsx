@@ -117,6 +117,18 @@ describe('FumbleDetail', () => {
     ).toBe(true);
   });
 
+  it('renders Polish homebrew dice as rollable controls', () => {
+    const item = fumbleHomebrewItems('pl').find((entry) => entry.id === 'crafting')!;
+
+    render(
+      <MemoryRouter>
+        <FumbleDetail item={item} />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole('button', { name: '5k6' })).toBeInTheDocument();
+  });
+
   it('renders a class record without optional progression sections', () => {
     const source = fumbleHomebrewItems('en').find((entry) => entry.id === 'witch')!;
     const item = {
