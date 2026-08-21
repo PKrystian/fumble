@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '@/i18n/locales';
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '@/i18n/locales';
 import { localizePath, stripLocale } from '@/i18n/pathUtils';
 import {
   removeCanonical,
@@ -12,8 +12,12 @@ import {
 } from './head';
 
 export const SITE_URL = 'https://fumble.krystianpinczak.com';
+const DEFAULT_ALTERNATE_LOCALES = SUPPORTED_LOCALES.map(({ code }) => code);
 
-export function useHreflangTags(enabled = true): void {
+export function useHreflangTags(
+  enabled = true,
+  alternateLocales: readonly Locale[] = DEFAULT_ALTERNATE_LOCALES,
+): void {
   const location = useLocation();
 
   useEffect(() => {
@@ -29,11 +33,18 @@ export function useHreflangTags(enabled = true): void {
     setCanonical(canonical);
     setMetaContent('meta[property="og:url"]', 'property', 'og:url', canonical);
     setHreflangAlternates([
-      ...SUPPORTED_LOCALES.map((l) => ({
-        hreflang: l.code,
-        href: `${SITE_URL}${localizePath(rest, l.code)}`,
+      ...alternateLocales.map((locale) => ({
+        hreflang: locale,
+        href: `${SITE_URL}${localizePath(rest, locale)}`,
       })),
-      { hreflang: 'x-default', href: `${SITE_URL}${localizePath(rest, DEFAULT_LOCALE)}` },
+      ...(alternateLocales.includes(DEFAULT_LOCALE)
+        ? [
+            {
+              hreflang: 'x-default',
+              href: `${SITE_URL}${localizePath(rest, DEFAULT_LOCALE)}`,
+            },
+          ]
+        : []),
     ]);
-  }, [enabled, location.pathname]);
+  }, [alternateLocales, enabled, location.pathname]);
 }

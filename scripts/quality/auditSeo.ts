@@ -76,7 +76,7 @@ for (const file of files) {
   const description = attribute(firstTag(source, '<meta name="description"'), 'content');
   const canonical = attribute(firstTag(source, '<link rel="canonical"'), 'href');
   const alternateCount = (source.match(/rel="alternate" hreflang=/g) ?? []).length;
-  const hasJsonLd = source.includes('<script type="application/ld+json">');
+  const hasJsonLd = source.includes('<script type="application/ld+json"');
   const hasPrerenderedHeading = source.includes(
     '<main id="prerendered-content" data-prerendered="true">',
   );
@@ -87,10 +87,11 @@ for (const file of files) {
   if (indexable && !canonical)
     addIssue(issues, 'indexable without canonical', relativeFile);
   if (!indexable && canonical) addIssue(issues, 'noindex with canonical', relativeFile);
-  if (indexable && alternateCount !== 3)
+  if (indexable && alternateCount !== 1 && alternateCount !== 3)
     addIssue(issues, 'wrong hreflang count', relativeFile);
   if (indexable && !hasJsonLd)
     addIssue(issues, 'indexable without JSON-LD', relativeFile);
+  if (!indexable && hasJsonLd) addIssue(issues, 'noindex with JSON-LD', relativeFile);
   if (indexable && !hasPrerenderedHeading) {
     addIssue(issues, 'indexable without prerendered h1', relativeFile);
   }
@@ -99,6 +100,9 @@ for (const file of files) {
   }
   if (indexable && !canonical.endsWith('/')) {
     addIssue(issues, 'canonical without trailing slash', relativeFile);
+  }
+  if (indexable && /<p>\s*(Nothing here|Brak treści)\s*<\/p>/i.test(source)) {
+    addIssue(issues, 'empty wiki page is indexable', relativeFile);
   }
 }
 

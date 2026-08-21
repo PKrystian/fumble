@@ -73,3 +73,27 @@ export function removeHreflangAlternates(): void {
     el.remove();
   });
 }
+
+export function setStructuredData(value: unknown): void {
+  let script = document.head.querySelector<HTMLScriptElement>(
+    'script#fumble-seo-structured-data',
+  );
+  if (!script) {
+    script = document.head.querySelector<HTMLScriptElement>(
+      'script[type="application/ld+json"]',
+    );
+  }
+  if (!script) {
+    script = document.createElement('script');
+    script.type = 'application/ld+json';
+    document.head.appendChild(script);
+  }
+  script.id = 'fumble-seo-structured-data';
+  script.textContent = JSON.stringify(value).replaceAll('<', '\\u003c');
+}
+
+export function removeStructuredData(): void {
+  document.head.querySelectorAll('script[type="application/ld+json"]').forEach((el) => {
+    el.remove();
+  });
+}
