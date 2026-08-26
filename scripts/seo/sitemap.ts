@@ -39,6 +39,10 @@ import {
   isBookChapterNameIndexable,
 } from '../../src/features/books/chapterSeo';
 import { normalizeBookChapterTitles } from '../../src/features/books/chapterTitle';
+import {
+  isWikiPageIndexable,
+  WIKI_CONTENT_LOCALE,
+} from '../../src/features/wiki/indexability';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const SITE_URL = 'https://fumble.krystianpinczak.com';
@@ -865,7 +869,10 @@ function collectPages(locale: Locale): PageInfo[] {
           description === keys.description
             ? (fallback?.description ?? page.description)
             : description,
-        ...(keys.indexable === false ? { indexable: false } : {}),
+        ...(keys.indexable === false ||
+        (page.path === '/wiki' && locale !== WIKI_CONTENT_LOCALE)
+          ? { indexable: false }
+          : {}),
       };
     }),
     ...Object.entries(LEGACY_REDIRECTS).map(([path, redirectTo]) => ({
@@ -1183,14 +1190,18 @@ function collectPages(locale: Locale): PageInfo[] {
   };
   for (const campaign of wiki.campaigns ?? []) {
     const localizedCampaignName = campaignName(campaign.id, campaign.title, locale);
+    const campaignPages = campaign.pages ?? [];
+    const hasIndexablePage =
+      locale === WIKI_CONTENT_LOCALE && campaignPages.some(isWikiPageIndexable);
     pages.push({
       path: `/wiki/${campaign.id}`,
       title: `${localizedCampaignName} - ${translate(locale, 'seo.pageTitles.wiki')} - Fumble`,
       description: `${translate(locale, 'seo.pageDescriptions.wiki')} ${localizedCampaignName}.`,
       kind: 'website',
+      ...(hasIndexablePage ? {} : { indexable: false }),
       parent: { path: '/wiki', title: translate(locale, 'seo.pageTitles.wiki') },
     });
-    for (const page of campaign.pages ?? []) {
+    for (const page of campaignPages) {
       const image = firstImageSource(page.html ?? '');
       pages.push({
         path: `/wiki/${campaign.id}/${page.slug}`,
@@ -1205,12 +1216,21 @@ function collectPages(locale: Locale): PageInfo[] {
         ),
         ...(image ? { image } : {}),
         kind: 'article',
+        ...(!isWikiPageIndexable(page) || locale !== WIKI_CONTENT_LOCALE
+          ? { indexable: false }
+          : {}),
         parent: { path: `/wiki/${campaign.id}`, title: localizedCampaignName },
       });
     }
   }
   for (const map of CAMPAIGN_MAPS) {
     const localizedCampaignName = campaignName(map.campaignId, map.campaignTitle, locale);
+    const wikiCampaign = (wiki.campaigns ?? []).find(
+      (campaign) => campaign.id === map.campaignId,
+    );
+    const hasIndexableWikiPage =
+      locale === WIKI_CONTENT_LOCALE &&
+      (wikiCampaign?.pages?.some(isWikiPageIndexable) ?? false);
     const mapTitle = translate(
       locale,
       map.id === 'chult' ? 'seo.pageTitles.map' : 'seo.pageTitles.campaignMap',
@@ -1226,6 +1246,7 @@ function collectPages(locale: Locale): PageInfo[] {
       title: `${localizedCampaignName} - ${translate(locale, 'seo.pageTitles.wiki')} - Fumble`,
       description: `${translate(locale, 'seo.pageDescriptions.wiki')} ${localizedCampaignName}.`,
       kind: 'website',
+      ...(hasIndexableWikiPage ? {} : { indexable: false }),
       parent: { path: '/wiki', title: translate(locale, 'seo.pageTitles.wiki') },
     });
     pages.push({
@@ -1311,19 +1332,26 @@ function buildSitemap(pages: PageInfo[], pagesByLocale: Map<string, PageInfo[]>)
       (entry): entry is { code: Locale; page: PageInfo } =>
         entry.page !== undefined && entry.page.indexable !== false,
     );
-    const alternates = localizedPages
-      .map(
+    const defaultAlternate = pagesByLocale
+      .get(DEFAULT_LOCALE)
+      ?.some((candidate) => candidate.path === page.path && candidate.indexable !== false)
+      ? `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(absolute(page.path, DEFAULT_LOCALE))}"/>`
+      : '';
+    const alternates = [
+      ...localizedPages.map(
         ({ code }) =>
           `    <xhtml:link rel="alternate" hreflang="${escapeXml(code)}" href="${escapeXml(absolute(page.path, code))}"/>`,
-      )
-      .concat(
-        `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(absolute(page.path, DEFAULT_LOCALE))}"/>`,
-      )
+      ),
+      defaultAlternate,
+    ]
+      .filter(Boolean)
       .join('\n');
-    return localizedPages.map(
-      ({ code }) =>
-        `  <url>\n    <loc>${escapeXml(absolute(page.path, code))}</loc>\n${alternates}\n  </url>`,
-    );
+    return localizedPages.map(({ code, page: localizedPage }) => {
+      const lastmod = localizedPage.modified
+        ? `    <lastmod>${escapeXml(localizedPage.modified)}</lastmod>\n`
+        : '';
+      return `  <url>\n    <loc>${escapeXml(absolute(page.path, code))}</loc>\n${lastmod}${alternates}\n  </url>`;
+    });
   });
   return (
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
@@ -1664,7 +1692,11 @@ function buildHtml(
   }
   const additions = [
     alternates,
-    `<script type="application/ld+json">${JSON.stringify(structuredData(page, locale)).replaceAll('<', '\\u003c')}</script>`,
+    ...(page.indexable === false
+      ? []
+      : [
+          `<script type="application/ld+json" id="fumble-seo-structured-data">${JSON.stringify(structuredData(page, locale)).replaceAll('<', '\\u003c')}</script>`,
+        ]),
     ...(GOOGLE_VERIFICATION
       ? [
           `<meta name="google-site-verification" content="${escapeHtml(GOOGLE_VERIFICATION)}" />`,
@@ -1853,8 +1885,21 @@ const sitemapGroups = new Map<string, PageInfo[]>([
   ['sitemap-books.xml', []],
   ['sitemap-wiki.xml', []],
 ]);
-const indexablePages = pages.filter((page) => page.indexable !== false);
-for (const page of indexablePages) {
+const sitemapPages = [
+  ...new Map(
+    [...pagesByLocale.values()].flat().map((page) => [page.path, page] as const),
+  ).values(),
+].filter((page) =>
+  SUPPORTED_LOCALES.some(
+    ({ code }) =>
+      pagesByLocale
+        .get(code)
+        ?.some(
+          (candidate) => candidate.path === page.path && candidate.indexable !== false,
+        ) ?? false,
+  ),
+);
+for (const page of sitemapPages) {
   const file = page.path.startsWith('/compendium')
     ? 'sitemap-compendium.xml'
     : page.path.startsWith('/books')
@@ -1868,10 +1913,26 @@ for (const [file, group] of sitemapGroups) {
   writeFileSync(join(OUT_DIR, file), buildSitemap(group, pagesByLocale));
 }
 writeFileSync(join(OUT_DIR, 'sitemap.xml'), buildSitemapIndex([...sitemapGroups.keys()]));
-writeFileSync(join(OUT_DIR, 'llms-full.txt'), buildLlmsFull(indexablePages));
+writeFileSync(
+  join(OUT_DIR, 'llms-full.txt'),
+  buildLlmsFull(pages.filter((page) => page.indexable !== false)),
+);
 for (const { code } of SUPPORTED_LOCALES) {
   writeFileSync(join(OUT_DIR, `search-index-${code}.json`), buildSearchIndex(code));
 }
 console.log(
-  `Wrote ${pages.length * SUPPORTED_LOCALES.length} static pages and ${indexablePages.length * SUPPORTED_LOCALES.length} indexable URLs.`,
+  `Wrote ${pages.length * SUPPORTED_LOCALES.length} static pages and ${sitemapPages.reduce(
+    (total, page) =>
+      total +
+      SUPPORTED_LOCALES.filter(
+        ({ code }) =>
+          pagesByLocale
+            .get(code)
+            ?.some(
+              (candidate) =>
+                candidate.path === page.path && candidate.indexable !== false,
+            ) ?? false,
+      ).length,
+    0,
+  )} indexable URLs.`,
 );
