@@ -501,35 +501,54 @@
     ]
   },
   "blade-of-dawn": {
-    "name": "Ostrze Świtu",
+    "name": "Ostrze Zenitu",
     "subtitle": "Wielki miecz, artefakt, wymaga dostrojenia",
+    "attunement": "Wymaga dostrojenia",
+    "damage": "2k8 sieczne + 2k6 promieniste",
+    "properties": "Ciężka, Dwuręczna",
+    "mastery": "{@itemMastery Graze|XPHB|Muśnięcie}",
     "entries": [
       {
         "type": "entries",
         "name": "Broń",
         "entries": [
-          "Ostrze Świtu to wielki artefakt Aureliana, przywołany przez królewską krew i powierzony drużynie. Jest wielkim mieczem, który zapewnia premię +3 do rzutów ataku i zadaje {@dice 2d8} obrażeń siecznych oraz {@dice 2d6} obrażeń promienistych."
+          "Masz premię +3 do rzutów na atak i obrażenia wykonywanych tą magiczną bronią.",
+          "Kiedy trafisz czarta tą bronią, cel otrzymuje dodatkowe {@damage 1k6} obrażeń promienistych od tej broni."
         ]
       },
       {
         "type": "entries",
-        "name": "Rozpalone ostrze",
+        "name": "Źródło światła",
         "entries": [
-          "Jako akcję możesz rozpalić ostrze. Do końca tury zadaje ono dodatkowe {@dice 2d8} obrażeń promienistych, a ty otrzymujesz dodatkowe {@dice 2d8} obrażeń. Ostrze zapewnia ci również efekt zaklęcia {@spell Fire Shield|XPHB} i świeci tak, jakby oddziaływało na nie zaklęcie {@spell Daylight|XPHB}."
+          "Ta broń rzuca {@variantrule Bright Light|XPHB|jasne światło} w promieniu 60 stóp."
         ]
       },
       {
         "type": "entries",
-        "name": "Historia",
+        "name": "Ognisko czarodziejskie",
         "entries": [
-          "Król Edward przywołał Ostrze Świtu w rytuale wykorzystującym jego złotą krew. Z kręgu magii i promienia słonecznego uformował się ogromny, lśniący miecz, który następnie powierzono drużynie. Ostrze jest jednym z trzech wielkich artefaktów. Według króla trzeba połączyć je z Klejnotem Świtu oraz Koroną Zmierzchu, aby uwolnić moc Słońca pochłoniętą przez Randalę."
+          "Ta broń może służyć jako ognisko czarodziejskie albo święty symbol podczas rzucania przez ciebie czarów."
         ]
       },
       {
         "type": "entries",
-        "name": "Właściwości ujawnione podczas treningu",
+        "name": "Czarujące ostrze",
         "entries": [
-          "W pałacu udało się rozświetlić ostrze. Wytwarza ono jasne, słoneczne światło i wzmacnia ciosy obrażeniami od światłości. Dokładne granice jego mocy pozostają do sprawdzenia w prawdziwej walce."
+          "Jeśli potrafisz rzucać czary, możesz władać tą bronią, używając swojej zdolności czarodziejskiej do rzutów na atak i obrażenia. Jeśli to zrobisz, możesz zignorować właściwość {@itemProperty H|XPHB|Ciężka}."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Rzucanie czarów",
+        "entries": [
+          "Ta broń pozwala ci rzucać zaklęcia {@spell Light|XPHB|Światło}, {@spell Dancing Lights|XPHB|Tańczące Światła} i {@spell Continual Flame|XPHB|Nieustający Płomień} bez wymogu koncentracji ani komponentów materialnych. Zaklęcia trwają, dopóki nie zostaną rozproszone. Jako akcję możesz rozproszyć dowolną liczbę magicznych źródeł światła stworzonych przez tę broń."
+        ]
+      },
+      {
+        "type": "entries",
+        "name": "Płonący Zenit",
+        "entries": [
+          "Jako akcję możesz rozpalić ostrze świętymi płomieniami, które otaczają ciebie i ostrze. Dopóki nie ugasisz płomieni, pozostajesz pod wpływem zaklęcia {@spell Fire Shield|XPHB|Ognista Tarcza (ciepła)}, a każdy twój atak jest wzmocniony zaklęciem {@spell Blinding Smite|XPHB|Oślepiające Uderzenie}, rzuconym z wykorzystaniem miejsca na zaklęcie 5. poziomu. Gdy rozpalasz ostrze oraz na początku każdej kolejnej tury otrzymujesz {@damage 5k10} obrażeń od ognia i {@damage 5k10} obrażeń promienistych, dopóki nie ugasisz ostrza. Możesz ugasić ostrze jako akcję."
         ]
       }
     ]

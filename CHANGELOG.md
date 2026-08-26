@@ -4,6 +4,15 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.119 - 2026-08-26
+
+- Corrected the Blade of Zenith homebrew item with its complete weapon properties and Polish localization.
+
+## 1.2.118 - 2026-08-21
+
+- Improved SEO metadata during client-side navigation and added sitemap modification dates.
+- Removed empty wiki pages from search indexes and strengthened release checks for indexable content.
+
 ## 1.2.117 - 2026-08-19
 
 - Restored white favicon and app icons with a black outline.
