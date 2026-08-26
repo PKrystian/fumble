@@ -38,6 +38,41 @@ describe('Fumble homebrew catalog', () => {
     );
   });
 
+  it('keeps the Blade of Zenith rules in both locales', () => {
+    const english = fumbleHomebrewItems('en').find((item) => item.id === 'blade-of-dawn');
+    const polish = fumbleHomebrewItems('pl').find((item) => item.id === 'blade-of-dawn');
+
+    expect(english).toMatchObject({
+      name: 'Blade of Zenith',
+      type: 'Weapon',
+      rarity: 'Artifact',
+      attunement: 'Requires attunement',
+      damage: '2d8 Slashing + 2d6 Radiant',
+      properties: 'Heavy, Two-Handed',
+      propertyRefs: ['H', '2H'],
+      masteryRefs: ['graze|XPHB'],
+    });
+    expect(polish).toMatchObject({
+      name: 'Ostrze Zenitu',
+      englishName: 'Blade of Zenith',
+      subtitle: 'Wielki miecz, artefakt, wymaga dostrojenia',
+      attunement: 'Wymaga dostrojenia',
+      damage: '2k8 sieczne + 2k6 promieniste',
+      properties: 'Ciężka, Dwuręczna',
+    });
+
+    const englishEntries = JSON.stringify(english?.entries);
+    const polishEntries = JSON.stringify(polish?.entries);
+    expect(englishEntries).toContain('Burning Zenith');
+    expect(englishEntries).toContain('Continual Flame|XPHB');
+    expect(englishEntries).toContain('5th-level spell slot');
+    expect(englishEntries).not.toContain('Blade of Dawn');
+    expect(polishEntries).toContain('Płonący Zenit');
+    expect(polishEntries).toContain('Nieustający Płomień');
+    expect(polishEntries).toContain('5. poziomu');
+    expect(polishEntries).not.toContain('Ostrze Świtu');
+  });
+
   it('assigns every record to one or more known campaigns', () => {
     const items = fumbleHomebrewItems('en');
     const campaignIds = new Set(FUMBLE_CAMPAIGNS.map((campaign) => campaign.id));

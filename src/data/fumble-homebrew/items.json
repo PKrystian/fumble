@@ -956,7 +956,7 @@
     {
       "id": "blade-of-dawn",
       "campaigns": ["glod-smoka"],
-      "name": "Blade of Dawn",
+      "name": "Blade of Zenith",
       "source": "Fumble",
       "srd": false,
       "_fumble": true,
@@ -967,28 +967,43 @@
           "type": "entries",
           "name": "Weapon",
           "entries": [
-            "Blade of Dawn is a great artifact of Aurelian, summoned by royal blood and entrusted to the party. It is a {@item Greatsword|XPHB} with a +3 bonus to attack rolls that deals {@dice 2d8} Slashing plus {@dice 2d6} Radiant damage."
+            "You have a +3 bonus to attack and damage rolls made with this magic weapon.",
+            "When you hit a Fiend with this weapon, the target takes an extra {@damage 1d6} Radiant damage from the weapon."
           ]
         },
         {
           "type": "entries",
-          "name": "Ignited Blade",
+          "name": "Light Source",
           "entries": [
-            "As an action, you can ignite the blade. For that turn it deals an extra {@dice 2d8} Radiant damage and deals an additional {@dice 2d8} damage to its wielder. It also grants the effect of {@spell Fire Shield|XPHB} and shines as if affected by {@spell Daylight|XPHB}."
+            "This weapon sheds {@variantrule Bright Light|XPHB} in a 60-foot radius."
           ]
         },
         {
           "type": "entries",
-          "name": "Lore",
+          "name": "Spellcasting Focus",
           "entries": [
-            "King Edward summoned Blade of Dawn in a {@variantrule Ritual|XPHB} using his golden blood. A huge, shining sword formed from a {@spell Magic Circle|XPHB} and a ray of sunlight. It is one of three great artifacts. According to the king, it must be joined with the Gem of dawn and the Crown of Dusk to free the Sun absorbed by Randala."
+            "This weapon can serve as an Arcane Focus or Holy Symbol for your spellcasting."
           ]
         },
         {
           "type": "entries",
-          "name": "Revealed Properties",
+          "name": "Spellblade",
           "entries": [
-            "During training in the palace, the blade was made to shine. It produces bright sunlight and strengthens its strikes with Radiant damage. The exact limits of its power remain to be tested in a real battle."
+            "If you are a spellcaster, you can wield this weapon using your spellcasting ability for the attack and damage rolls. If you do so, you can ignore the {@itemProperty H|XPHB|Heavy} property."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Spellcasting",
+          "entries": [
+            "This weapon allows you to cast the {@spell Light|XPHB}, {@spell Dancing Lights|XPHB}, and {@spell Continual Flame|XPHB} spells without requiring Concentration or Material components. The spells last until dispelled. As an action, you can dispel any number of magical light sources created by this weapon."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Burning Zenith",
+          "entries": [
+            "As an action, you can ignite the blade with holy flames that envelop you and the blade. Until you extinguish the flames, you are under the effect of the {@spell Fire Shield|XPHB|Fire Shield (Warm)} spell, and each attack you make is empowered by the {@spell Blinding Smite|XPHB} spell cast using a 5th-level spell slot. When you ignite the blade and at the start of each subsequent turn, you take {@damage 5d10} Fire damage and {@damage 5d10} Radiant damage until you extinguish the blade. You can extinguish the blade as an action."
           ]
         }
       ],
@@ -1000,6 +1015,10 @@
       "damage": "2d8 Slashing + 2d6 Radiant",
       "ac": "",
       "properties": "Heavy, Two-Handed",
+      "weaponCategory": "martial",
+      "propertyRefs": ["H", "2H"],
+      "mastery": "{@itemMastery Graze|XPHB}",
+      "masteryRefs": ["graze|XPHB"],
       "image": "https://res.cloudinary.com/sbgzuael/image/upload/v1786089556/ostrze-zenitu_mrkzjw.png"
     },
     {

@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it } from 'vitest';
+import type { Locale } from '@/i18n/locales';
 import {
   setCanonical,
   setDocumentTitle,
@@ -13,12 +14,14 @@ function SeoHarness({
   title,
   description,
   indexable,
+  alternateLocales,
 }: {
   title: string;
   description?: string;
   indexable?: boolean;
+  alternateLocales?: readonly Locale[];
 }) {
-  useSeo(title, description, indexable);
+  useSeo(title, description, indexable, alternateLocales);
   return null;
 }
 
@@ -27,7 +30,7 @@ describe('SEO head helpers', () => {
     document.title = '';
     document.head
       .querySelectorAll(
-        'meta[name="description"], meta[name="robots"], meta[property^="og:"], meta[name^="twitter:"], link[rel="canonical"], link[rel="alternate"]',
+        'meta[name="description"], meta[name="robots"], meta[property^="og:"], meta[name^="twitter:"], link[rel="canonical"], link[rel="alternate"], script[type="application/ld+json"]',
       )
       .forEach((element) => element.remove());
   });
@@ -96,6 +99,14 @@ describe('SEO head helpers', () => {
       'content',
       'Spells - Fumble',
     );
+    const structuredData = JSON.parse(
+      document.head.querySelector('script[type="application/ld+json"]')!.textContent!,
+    ) as { '@graph': Array<Record<string, string>> };
+    expect(structuredData['@graph'][0]).toMatchObject({
+      '@type': 'WebPage',
+      url: 'https://fumble.krystianpinczak.com/pl/compendium/spells/',
+      inLanguage: 'pl',
+    });
 
     rerender(
       <MemoryRouter initialEntries={['/pl/compendium/spells']}>
@@ -132,6 +143,21 @@ describe('SEO head helpers', () => {
     );
     expect(document.head.querySelector('link[rel="canonical"]')).toBeNull();
     expect(document.head.querySelector('link[rel="alternate"]')).toBeNull();
+    expect(document.head.querySelector('script[type="application/ld+json"]')).toBeNull();
+  });
+
+  it('supports indexable pages with one source locale', () => {
+    render(
+      <MemoryRouter initialEntries={['/pl/wiki/glod-smoka/lore']}>
+        <SeoHarness title="Lore" alternateLocales={['pl']} />
+      </MemoryRouter>,
+    );
+    expect(document.head.querySelector('link[hreflang="pl"]')).toHaveAttribute(
+      'href',
+      'https://fumble.krystianpinczak.com/pl/wiki/glod-smoka/lore/',
+    );
+    expect(document.head.querySelector('link[hreflang="en"]')).toBeNull();
+    expect(document.head.querySelector('link[hreflang="x-default"]')).toBeNull();
   });
 
   it('clips long descriptions to the search snippet limit', () => {
@@ -158,5 +184,6 @@ describe('SEO head helpers', () => {
     );
     expect(document.head.querySelector('link[rel="canonical"]')).toBeNull();
     expect(document.head.querySelector('link[rel="alternate"]')).toBeNull();
+    expect(document.head.querySelector('script[type="application/ld+json"]')).toBeNull();
   });
 });

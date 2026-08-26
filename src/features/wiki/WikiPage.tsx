@@ -12,6 +12,9 @@ import { sanitizeWikiHtml } from './html';
 import { campaignTitle, mergeCampaigns, type WikiCampaignView } from './campaigns';
 import { useWiki } from './useWiki';
 import type { WikiPage as WikiPageData } from './types';
+import { isWikiPageIndexable, WIKI_CONTENT_LOCALE } from './indexability';
+
+const WIKI_ALTERNATE_LOCALES = [WIKI_CONTENT_LOCALE] as const;
 
 function seoExcerpt(page: WikiPageData): string {
   const text = page.html
@@ -23,7 +26,7 @@ function seoExcerpt(page: WikiPageData): string {
 }
 
 export function WikiPage() {
-  const { t } = useT();
+  const { locale, t } = useT();
   const { campaignId: routeCampaignId, slug } = useParams<{
     campaignId?: string;
     slug?: string;
@@ -80,6 +83,12 @@ export function WikiPage() {
     status === 'ready' &&
     ((Boolean(routeCampaignId) && !selectedCampaign && !legacyPage) ||
       Boolean(selectedCampaign && slug && !selected));
+  const hasWikiContent = !routeCampaignId
+    ? true
+    : selected
+      ? isWikiPageIndexable(selected)
+      : Boolean(selectedCampaign?.pages.some(isWikiPageIndexable));
+  const wikiSeoIndexable = locale === WIKI_CONTENT_LOCALE && hasWikiContent;
 
   useSeo(
     selected
@@ -92,7 +101,11 @@ export function WikiPage() {
       : selectedCampaign
         ? t('wiki.campaignNoPages')
         : t('seo.pageDescriptions.wiki'),
-    status === 'ready' && !routeNotFound && Boolean(selectedCampaign || selected),
+    status === 'ready' &&
+      !routeNotFound &&
+      Boolean(selectedCampaign || selected) &&
+      wikiSeoIndexable,
+    wikiSeoIndexable ? WIKI_ALTERNATE_LOCALES : [],
   );
 
   const html = useMemo(() => {
@@ -299,8 +312,14 @@ export function WikiPage() {
 }
 
 function CampaignChooser({ campaigns }: { campaigns: WikiCampaignView[] }) {
-  const { t } = useT();
-  useSeo(t('wiki.chooseCampaign'), t('seo.pageDescriptions.wiki'));
+  const { locale, t } = useT();
+  const indexable = locale === WIKI_CONTENT_LOCALE;
+  useSeo(
+    t('wiki.chooseCampaign'),
+    t('seo.pageDescriptions.wiki'),
+    indexable,
+    indexable ? WIKI_ALTERNATE_LOCALES : [],
+  );
 
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12">

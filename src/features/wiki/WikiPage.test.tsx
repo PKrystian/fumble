@@ -17,6 +17,7 @@ function page(slug: string, title: string, category: string, html: string) {
 const mocks = vi.hoisted(() => ({
   campaignId: undefined as string | undefined,
   slug: undefined as string | undefined,
+  locale: 'pl' as 'en' | 'pl',
   navigate: vi.fn(),
   maps: [] as Array<{ campaignId: string; id: string }>,
   wiki: {
@@ -87,7 +88,7 @@ vi.mock('./html', () => ({
 }));
 
 vi.mock('@/i18n/useT', () => ({
-  useT: () => ({ t: (key: string) => key }),
+  useT: () => ({ locale: mocks.locale, t: (key: string) => key }),
 }));
 
 vi.mock('@/seo/useSeo', () => ({
@@ -98,6 +99,7 @@ describe('WikiPage', () => {
   beforeEach(() => {
     mocks.campaignId = undefined;
     mocks.slug = undefined;
+    mocks.locale = 'pl';
     mocks.maps.length = 0;
     mocks.navigate.mockReset();
     useLightbox.getState().close();
@@ -262,6 +264,7 @@ describe('WikiPage', () => {
       'Lore',
       expect.stringMatching(/\.\.\.$/),
       true,
+      ['pl'],
     );
 
     mocks.wiki.data = {
@@ -274,7 +277,25 @@ describe('WikiPage', () => {
       ],
     };
     view.rerender(<WikiPage />);
-    expect(useSeo).toHaveBeenLastCalledWith('Lore', 'seo.pageDescriptions.wiki', true);
+    expect(useSeo).toHaveBeenLastCalledWith(
+      'Lore',
+      'seo.pageDescriptions.wiki',
+      false,
+      [],
+    );
+  });
+
+  it('does not index wiki content under a non-source locale', () => {
+    mocks.locale = 'en';
+    mocks.campaignId = 'glod-smoka';
+    mocks.slug = 'lore';
+    render(<WikiPage />);
+    expect(useSeo).toHaveBeenLastCalledWith(
+      'Lore',
+      'Main. Empty target Plain text',
+      false,
+      [],
+    );
   });
 
   it('opens wiki images in the lightbox', () => {
