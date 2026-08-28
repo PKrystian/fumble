@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.124 - 2026-08-28
+
+- Added normal and long ranges to weapon data and removed raw 5etools markup from compendium metadata.
+
 ## 1.2.123 - 2026-08-28
 
 - Fixed Whisper transcription by using the compatible int8 model variant, disabling the failing ONNX graph optimization, and serving the ONNX runtime locally.

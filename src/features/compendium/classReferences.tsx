@@ -61,10 +61,12 @@ function classTextNodes(text: string): ReactNode[] {
 
 function textNodes(text: string, locale: ReturnType<typeof useLocale>): ReactNode[] {
   return text
-    .split(/(\{@[^{}]+\})/g)
+    .split(/(\{[@#][^{}]+\})/g)
     .map((part, index) => (
       <Fragment key={`part-${index}`}>
-        {part.startsWith('{@') ? parseMarkup(part, locale) : classTextNodes(part)}
+        {part.startsWith('{@') || part.startsWith('{#')
+          ? parseMarkup(part, locale)
+          : classTextNodes(part)}
       </Fragment>
     ));
 }

@@ -95,6 +95,7 @@ import {
   formatVehicleCapacity,
   formatVehicleType,
   formatWeaponDamage,
+  formatWeaponRange,
   formatWeight,
   hasConcentration,
 } from './format';
@@ -361,6 +362,7 @@ export interface RawItem {
   value?: number;
   dmg1?: string;
   dmgType?: string;
+  range?: string;
   property?: Array<string | { uid?: string }>;
   mastery?: Array<string | { uid?: string }>;
   ac?: number;
@@ -386,6 +388,7 @@ export function normalizeItem(
     damage: formatWeaponDamage(raw.dmg1, raw.dmgType, locale),
     ac: raw.ac != null ? `${raw.ac}` : '',
     properties: formatItemProperties(raw.property, locale),
+    range: formatWeaponRange(raw.range, locale),
     ...(raw.weaponCategory ? { weaponCategory: raw.weaponCategory } : {}),
     ...(raw.property?.length ? { propertyRefs: formatItemReferences(raw.property) } : {}),
     ...(raw.mastery?.length

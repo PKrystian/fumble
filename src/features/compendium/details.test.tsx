@@ -685,6 +685,12 @@ describe('compendium detail renderers', () => {
     expect(monsterView.container).toHaveTextContent('Regional effect.');
     monsterView.unmount();
 
+    monster.languages = "Common, but can't speak (uses {@spell Rary's telepathic bond})";
+    const languageMarkupView = show(<MonsterDetail monster={monster} />);
+    expect(languageMarkupView.container).toHaveTextContent("Rary's telepathic bond");
+    expect(languageMarkupView.container).not.toHaveTextContent('{@spell');
+    languageMarkupView.unmount();
+
     const skill = normalize.normalizeSkill({ ...base, ability: 'Dexterity' });
     const skillView = show(<SkillDetail skill={skill} />);
     expect(skillView.container).toHaveTextContent('Dexterity');
@@ -727,6 +733,36 @@ describe('compendium detail renderers', () => {
       'href',
       '/compendium/classes/wizard/',
     );
+    itemView.unmount();
+  });
+
+  it('renders markup in spell metadata and weapon ranges', () => {
+    const spellView = show(
+      <SpellDetail
+        spell={normalize.normalizeSpell({
+          ...base,
+          level: 1,
+          school: 'A',
+          time: [
+            {
+              number: 1,
+              unit: 'action',
+              condition: '{@variantrule Unarmed Strike|XPHB}',
+            },
+          ],
+        })}
+      />,
+    );
+    expect(spellView.container).toHaveTextContent('Unarmed Strike');
+    expect(spellView.container).not.toHaveTextContent('{@variantrule');
+    spellView.unmount();
+
+    const itemView = render(
+      <MemoryRouter initialEntries={['/pl/compendium/items/javelin']}>
+        <ItemDetail item={normalize.normalizeItem({ ...base, range: '30/120' })} />
+      </MemoryRouter>,
+    );
+    expect(itemView.container).toHaveTextContent('Zasięg: 30/120 stóp');
     itemView.unmount();
   });
 
