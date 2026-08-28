@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useT } from '@/i18n/useT';
+import wasmBinaryUrl from 'onnxruntime-web/ort-wasm-simd-threaded.asyncify.wasm?url';
+import wasmFactoryUrl from 'onnxruntime-web/ort-wasm-simd-threaded.asyncify.mjs?url';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyPipeline = (audio: Float32Array, opts?: Record<string, unknown>) => Promise<any>;
@@ -73,6 +75,11 @@ async function getWhisperPipeline(
       .then(async ({ pipeline, env }) => {
         (env as Record<string, unknown>).useBrowserCache = true;
         (env as Record<string, unknown>).allowLocalModels = false;
+        const onnxBackend = env.backends.onnx as {
+          wasm?: { wasmPaths?: { mjs: string; wasm: string } };
+        };
+        onnxBackend.wasm ??= {};
+        onnxBackend.wasm.wasmPaths = { mjs: wasmFactoryUrl, wasm: wasmBinaryUrl };
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const progressCallback = (p: any) => {
@@ -86,7 +93,8 @@ async function getWhisperPipeline(
         };
 
         return pipeline('automatic-speech-recognition', WHISPER_MODEL, {
-          dtype: { encoder_model: 'q8', decoder_model_merged: 'q8' },
+          dtype: { encoder_model: 'int8', decoder_model_merged: 'int8' },
+          session_options: { graphOptimizationLevel: 'disabled' },
           progress_callback: progressCallback,
         }) as Promise<AnyPipeline>;
       })
