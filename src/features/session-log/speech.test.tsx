@@ -9,7 +9,7 @@ const transformer = vi.hoisted(() => ({
 }));
 
 vi.mock('@huggingface/transformers', () => ({
-  env: {},
+  env: { backends: { onnx: {} } },
   pipeline: vi.fn(async (_task, _model, options) => {
     options.progress_callback({ status: 'downloading', progress: 42 });
     options.progress_callback({ status: 'loading' });

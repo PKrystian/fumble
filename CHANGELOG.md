@@ -4,6 +4,14 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.123 - 2026-08-28
+
+- Fixed Whisper transcription by using the compatible int8 model variant, disabling the failing ONNX graph optimization, and serving the ONNX runtime locally.
+
+## 1.2.122 - 2026-08-28
+
+- Allowed the Hugging Face CDN used by Whisper model downloads in the content security policy.
+
 ## 1.2.121 - 2026-08-28
 
 - Added browser speech recognition as the primary session log transcription path.
