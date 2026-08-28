@@ -1251,6 +1251,10 @@ const pl: Dictionary = {
     speechErrTranscribe: 'Transkrypcja nie powiodła się',
     speechErrMic: 'Odmówiono dostępu do mikrofonu',
     speechErrModel: 'Nie udało się wczytać modelu Whisper',
+    transcriptionUnavailable:
+      'Transkrypcja jest niedostępna. Nagrywanie działa dalej. Możesz wpisywać notatki ręcznie.',
+    speechErrRecorder:
+      'Nie udało się uruchomić nagrywania dźwięku. Nadal możesz korzystać z notatek sesji.',
     recording: 'nagrywanie',
     copied: 'Skopiowano',
     copyTranscript: 'Kopiuj transkrypcję',

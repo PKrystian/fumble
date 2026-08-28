@@ -75,20 +75,42 @@ describe('speech recognition hook', () => {
     });
   });
 
-  it('reports model initialization errors and retries after failure', async () => {
-    transformer.failure = 'model unavailable';
+  it('keeps recording when the model download fails and retries after failure', async () => {
+    transformer.failure = new TypeError('Failed to fetch');
     const first = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
     await act(async () => first.result.current.start());
+    const firstRecorder = MediaRecorderMock.instances[0]!;
+    await act(async () => {
+      firstRecorder.ondataavailable?.({
+        data: new Blob([new Uint8Array(4000)], { type: 'audio/webm' }),
+      });
+      firstRecorder.stop();
+    });
     await waitFor(() =>
-      expect(first.result.current.speechError).toBe('Failed to load Whisper model'),
+      expect(first.result.current.speechError).toBe(
+        'Transcription is unavailable. Recording continues. You can keep taking notes manually.',
+      ),
     );
+    expect(first.result.current.listening).toBe(true);
+    expect(first.result.current.speechError).not.toContain('Failed to fetch');
     first.result.current.stop();
     first.unmount();
 
     transformer.failure = new Error('Model failed');
     const second = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
     await act(async () => second.result.current.start());
-    await waitFor(() => expect(second.result.current.speechError).toBe('Model failed'));
+    const secondRecorder = MediaRecorderMock.instances.at(-1)!;
+    await act(async () => {
+      secondRecorder.ondataavailable?.({
+        data: new Blob([new Uint8Array(4000)], { type: 'audio/webm' }),
+      });
+      secondRecorder.stop();
+    });
+    await waitFor(() =>
+      expect(second.result.current.speechError).toBe(
+        'Transcription is unavailable. Recording continues. You can keep taking notes manually.',
+      ),
+    );
     second.result.current.stop();
     second.unmount();
   });
@@ -166,7 +188,25 @@ describe('speech recognition hook', () => {
     const { result } = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
     await act(async () => result.current.start());
     expect(result.current.listening).toBe(false);
-    expect(result.current.speechError).toBe('Permission denied');
+    expect(result.current.speechError).toBe('Microphone access denied');
+  });
+
+  it('reports recorder startup failures and releases the microphone', async () => {
+    vi.stubGlobal(
+      'MediaRecorder',
+      class {
+        constructor(_stream: MediaStream) {
+          throw new Error('Recorder unavailable');
+        }
+      },
+    );
+    const { result } = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
+    await act(async () => result.current.start());
+    expect(result.current.listening).toBe(false);
+    expect(result.current.speechError).toBe(
+      'Audio recording could not start. You can still use session notes.',
+    );
+    expect(track.stop).toHaveBeenCalled();
   });
 
   it('uses localized microphone errors for non-error rejections', async () => {

@@ -1246,6 +1246,10 @@ const en = {
     speechErrTranscribe: 'Transcription failed',
     speechErrMic: 'Microphone access denied',
     speechErrModel: 'Failed to load Whisper model',
+    transcriptionUnavailable:
+      'Transcription is unavailable. Recording continues. You can keep taking notes manually.',
+    speechErrRecorder:
+      'Audio recording could not start. You can still use session notes.',
     recording: 'recording',
     copied: 'Copied',
     copyTranscript: 'Copy transcript',
