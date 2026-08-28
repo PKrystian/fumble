@@ -56,6 +56,7 @@ cleanup, or a site reset. Export important characters and homebrew data regularl
 
 Some features contact third-party services:
 
+- The browser's built-in speech recognition service may be used for speech-to-text.
 - Hugging Face hosts the optional speech-to-text model.
 - 5e.tools hosts compendium images.
 - YouTube hosts soundboard embeds and thumbnails.
@@ -67,7 +68,7 @@ privacy, external-connections, terms, and licensing pages under `/legal`.
 
 The current desktop versions of Chrome, Edge, and Firefox are the primary targets. Mobile
 layouts are tested in Chromium. Speech transcription requires microphone permission and
-browser APIs for audio recording and processing.
+browser APIs for speech recognition or audio recording and processing.
 
 ## Development
 

@@ -206,7 +206,7 @@ const pl: Dictionary = {
       reportIssue: 'Zgłoś problem',
       copyright: '© {{year}} Fumble',
     },
-    updated: 'Data obowiązywania: 29 lipca 2026 r.',
+    updated: 'Data obowiązywania: 28 sierpnia 2026 r.',
     overview: {
       title: 'Informacje prawne',
       description:
@@ -223,7 +223,7 @@ const pl: Dictionary = {
         'Postacie, obrazy postaci, układy, stan inicjatywy, transkrypcje i notatki z sesji, wpisy własnej zawartości, ustawienia panelu dźwięków, wyglądu, edycji treści i języka są zapisywane w localStorage tej strony. Importowane pliki są przetwarzane w przeglądarce. Fumble nie otrzymuje ich kopii.\n\nDane pozostają w profilu przeglądarki i w obrębie domeny, w której je utworzono. Inni użytkownicy tego samego profilu mogą mieć do nich dostęp. Nie zapisuj sekretów na współdzielonym urządzeniu.',
       permissionsHeading: 'Mikrofon i schowek',
       permissionsBody:
-        'Dostęp do mikrofonu jest wymagany dopiero po uruchomieniu transkrypcji. Dźwięk jest przetwarzany w przeglądarce i nie trafia do serwera Fumble. Przeglądarka może pobrać model transkrypcji z Hugging Face. Schowek jest używany wyłącznie po wybraniu funkcji kopiowania.',
+        'Dostęp do mikrofonu jest wymagany dopiero po uruchomieniu transkrypcji. Gdy jest dostępne, API przeglądarki może użyć własnej usługi rozpoznawania mowy, która może przetwarzać dźwięk przez dostawcę przeglądarki. W przeciwnym razie Fumble może pobrać lokalny model Whisper z Hugging Face. Nagrania nie są wysyłane do serwera Fumble. Schowek jest używany wyłącznie po wybraniu funkcji kopiowania.',
       cookiesHeading: 'Pliki cookie i analityka',
       cookiesBody:
         'Fumble nie ustawia własnych plików cookie i nie zawiera analityki, reklam, pikseli śledzących ani systemu zarządzania zgodami. Dostawcy zewnętrzni mogą przetwarzać dane żądań albo używać własnej pamięci zgodnie ze swoimi zasadami. Szczegóły zawiera strona Połączenia zewnętrzne.',
@@ -253,9 +253,12 @@ const pl: Dictionary = {
       fiveToolsTitle: 'Obrazy z 5e.tools',
       fiveToolsBody:
         'Uruchomienie: otwarcie treści kompendium lub księgi ze zdalnym obrazem. Cel: wyświetlenie grafiki wpisu. Odbiorca: 5e.tools. Serwer może otrzymać adres IP, czas żądania, adres obrazu, nagłówki i stronę odsyłającą w zakresie dozwolonym przez przeglądarkę. Dane postaci i kampanii nie są celowo dołączane.',
+      browserSpeechTitle: 'Rozpoznawanie mowy przeglądarki',
+      browserSpeechBody:
+        'Uruchomienie: rozpoczęcie transkrypcji w przeglądarce udostępniającej własne API rozpoznawania mowy. Cel: zapewnienie zamiany mowy na tekst bez wcześniejszego pobierania lokalnego modelu. Odbiorca: dostawca rozpoznawania mowy przeglądarki, zależny od przeglądarki. Dźwięk może opuścić urządzenie zgodnie z zasadami tego dostawcy. Fumble nie kontroluje tego przetwarzania.',
       huggingFaceTitle: 'Hugging Face',
       huggingFaceBody:
-        'Uruchomienie: rozpoczęcie transkrypcji, gdy modelu nie ma w pamięci podręcznej. Cel: pobranie modelu i plików środowiska. Odbiorca: Hugging Face i jego infrastruktura. Dostawca może otrzymać adres IP, czas żądania, nazwy plików modelu i nagłówki. Dźwięk i tekst transkrypcji są przetwarzane lokalnie i nie są celowo wysyłane.',
+        'Uruchomienie: użycie lokalnej transkrypcji Whisper, gdy modelu nie ma w pamięci podręcznej. Cel: pobranie modelu i plików środowiska. Odbiorca: Hugging Face i jego infrastruktura. Dostawca może otrzymać adres IP, czas żądania, nazwy plików modelu i nagłówki. Dźwięk i tekst transkrypcji są przetwarzane lokalnie i nie są celowo wysyłane.',
       youtubeTitle: 'YouTube',
       youtubeBody:
         'Uruchomienie: dodanie lub odtworzenie elementu YouTube w panelu dźwięków oraz wczytanie miniatury lub odtwarzacza. Cel: pokazanie i odtworzenie mediów. Odbiorca: Google/YouTube. Dostawca może otrzymać adres IP, czas żądania, identyfikator filmu lub playlisty, nagłówki i interakcje z odtwarzaczem. YouTube może używać własnych plików cookie lub pamięci lokalnej.',
@@ -1255,6 +1258,8 @@ const pl: Dictionary = {
       'Transkrypcja jest niedostępna. Nagrywanie działa dalej. Możesz wpisywać notatki ręcznie.',
     speechErrRecorder:
       'Nie udało się uruchomić nagrywania dźwięku. Nadal możesz korzystać z notatek sesji.',
+    speechErrFallback:
+      'Nie udało się uruchomić awaryjnej transkrypcji. Nadal możesz korzystać z notatek sesji.',
     recording: 'nagrywanie',
     copied: 'Skopiowano',
     copyTranscript: 'Kopiuj transkrypcję',

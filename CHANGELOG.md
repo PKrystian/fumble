@@ -4,6 +4,12 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.121 - 2026-08-28
+
+- Added browser speech recognition as the primary session log transcription path.
+- Added automatic fallback to local Whisper when browser speech recognition fails.
+- Documented the browser speech provider as an external connection.
+
 ## 1.2.120 - 2026-08-28
 
 - Kept session log recording and notes available when the optional Whisper model cannot be downloaded.
