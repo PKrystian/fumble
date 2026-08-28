@@ -6,6 +6,10 @@ type AnyPipeline = (audio: Float32Array, opts?: Record<string, unknown>) => Prom
 
 let pipelinePromise: Promise<AnyPipeline> | null = null;
 
+const WHISPER_MODEL = 'onnx-community/whisper-tiny';
+
+class WhisperModelError extends Error {}
+
 async function getWhisperPipeline(
   onStatus: (s: string) => void,
   downloadLabel: string,
@@ -27,14 +31,14 @@ async function getWhisperPipeline(
           }
         };
 
-        return pipeline('automatic-speech-recognition', 'onnx-community/whisper-base', {
-          dtype: { encoder_model: 'q8', decoder_model_merged: 'fp32' },
+        return pipeline('automatic-speech-recognition', WHISPER_MODEL, {
+          dtype: { encoder_model: 'q8', decoder_model_merged: 'q8' },
           progress_callback: progressCallback,
         }) as Promise<AnyPipeline>;
       })
-      .catch((error: unknown) => {
+      .catch(() => {
         pipelinePromise = null;
-        throw error;
+        throw new WhisperModelError();
       });
   }
   return pipelinePromise;
@@ -94,10 +98,10 @@ async function transcribeBlob(
   onStatus: (s: string) => void,
   downloadLabel: string,
 ): Promise<string> {
-  const pipe = await getWhisperPipeline(onStatus, downloadLabel);
   const audio = await blobToFloat32(blob);
   if (!hasSpeech(audio)) return '';
 
+  const pipe = await getWhisperPipeline(onStatus, downloadLabel);
   const result = (await pipe(audio, {
     language,
     task: 'transcribe',
@@ -131,7 +135,7 @@ export function useSpeechRecognition(
     () =>
       typeof window !== 'undefined' &&
       'MediaRecorder' in window &&
-      'AudioContext' in window,
+      typeof navigator.mediaDevices?.getUserMedia === 'function',
   );
   const { t } = useT();
   const [listening, setListening] = useState(false);
@@ -144,6 +148,7 @@ export function useSpeechRecognition(
   const queueRef = useRef<Blob[]>([]);
   const processingRef = useRef(false);
   const shouldListenRef = useRef(false);
+  const transcriptionUnavailableRef = useRef(false);
   const onFinalRef = useRef(onFinal);
   const languageRef = useRef(language);
   onFinalRef.current = onFinal;
@@ -159,10 +164,10 @@ export function useSpeechRecognition(
   }, []);
 
   const processQueue = async (): Promise<void> => {
-    if (processingRef.current) return;
+    if (processingRef.current || transcriptionUnavailableRef.current) return;
     processingRef.current = true;
     try {
-      while (queueRef.current.length > 0) {
+      while (queueRef.current.length > 0 && !transcriptionUnavailableRef.current) {
         const blob = queueRef.current.shift()!;
         setInterim(t('sessionLog.transcribing'));
         try {
@@ -173,10 +178,14 @@ export function useSpeechRecognition(
             t('sessionLog.downloadingModel'),
           );
           if (text) onFinalRef.current(text);
-        } catch (e) {
-          setSpeechError(
-            e instanceof Error ? e.message : t('sessionLog.speechErrTranscribe'),
-          );
+        } catch (error) {
+          if (error instanceof WhisperModelError) {
+            transcriptionUnavailableRef.current = true;
+            queueRef.current = [];
+            setSpeechError(t('sessionLog.transcriptionUnavailable'));
+          } else {
+            setSpeechError(t('sessionLog.speechErrTranscribe'));
+          }
         }
       }
     } finally {
@@ -185,56 +194,61 @@ export function useSpeechRecognition(
     }
   };
 
-  const startChunk = (stream: MediaStream): void => {
-    const localChunks: Blob[] = [];
-    const rec = new MediaRecorder(stream);
-    recorderRef.current = rec;
+  const startChunk = (stream: MediaStream): boolean => {
+    try {
+      const localChunks: Blob[] = [];
+      const rec = new MediaRecorder(stream);
+      recorderRef.current = rec;
 
-    rec.ondataavailable = (e) => {
-      if (e.data.size > 0) localChunks.push(e.data);
-    };
+      rec.ondataavailable = (e) => {
+        if (e.data.size > 0) localChunks.push(e.data);
+      };
 
-    rec.onstop = () => {
-      const blob = new Blob(localChunks, { type: rec.mimeType });
-      if (blob.size >= MIN_BLOB_BYTES) {
-        queueRef.current.push(blob);
-        void processQueue();
-      }
+      rec.onstop = () => {
+        const blob = new Blob(localChunks, { type: rec.mimeType });
+        if (blob.size >= MIN_BLOB_BYTES && !transcriptionUnavailableRef.current) {
+          queueRef.current.push(blob);
+          void processQueue();
+        }
 
-      if (shouldListenRef.current && streamRef.current) {
-        startChunk(streamRef.current);
-      }
-    };
+        if (shouldListenRef.current && streamRef.current) {
+          startChunk(streamRef.current);
+        }
+      };
 
-    rec.start();
+      rec.start();
 
-    chunkTimerRef.current = setTimeout(() => {
-      if (rec.state === 'recording') rec.stop();
-    }, CHUNK_DURATION_MS);
+      chunkTimerRef.current = setTimeout(() => {
+        if (rec.state === 'recording') rec.stop();
+      }, CHUNK_DURATION_MS);
+      return true;
+    } catch {
+      shouldListenRef.current = false;
+      stream.getTracks().forEach((track) => track.stop());
+      streamRef.current = null;
+      recorderRef.current = null;
+      setListening(false);
+      setSpeechError(t('sessionLog.speechErrRecorder'));
+      return false;
+    }
   };
 
   const start = async (): Promise<void> => {
     setSpeechError('');
+    transcriptionUnavailableRef.current = false;
     shouldListenRef.current = true;
 
     let stream: MediaStream;
     try {
       stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
-    } catch (e) {
+    } catch {
       shouldListenRef.current = false;
-      setSpeechError(e instanceof Error ? e.message : t('sessionLog.speechErrMic'));
+      setSpeechError(t('sessionLog.speechErrMic'));
       return;
     }
     streamRef.current = stream;
 
-    getWhisperPipeline(setInterim, t('sessionLog.downloadingModel')).catch(
-      (e: unknown) => {
-        setSpeechError(e instanceof Error ? e.message : t('sessionLog.speechErrModel'));
-      },
-    );
-
-    startChunk(stream);
-    setListening(true);
+    if (startChunk(stream)) setListening(true);
   };
 
   const stop = (): void => {
