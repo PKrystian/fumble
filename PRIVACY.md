@@ -20,13 +20,16 @@ local data.
 ## Microphone
 
 Speech transcription requests microphone access only after the user starts recording.
-Recorded chunks are processed in the browser. The speech model is downloaded from Hugging
-Face and cached by the browser. Fumble does not upload recordings to a Fumble server.
+When available, the browser's built-in speech recognition service is used first. Depending
+on the browser, that service may process audio through its own provider. If it is unavailable,
+recorded chunks are processed in the browser with a local Whisper model downloaded from
+Hugging Face and cached by the browser. Fumble does not upload recordings to a Fumble server.
 
 ## Third-party requests
 
 The application may contact:
 
+- the browser's speech recognition provider when built-in speech recognition is available
 - `huggingface.co` and its subdomains to download the speech model
 - `5e.tools` to display compendium images
 - `youtube.com`, `youtube-nocookie.com`, and `img.youtube.com` for the soundboard

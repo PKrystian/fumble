@@ -202,7 +202,7 @@ const en = {
       reportIssue: 'Report issue',
       copyright: '© {{year}} Fumble',
     },
-    updated: 'Effective date: July 29, 2026',
+    updated: 'Effective date: August 28, 2026',
     overview: {
       title: 'Legal and information',
       description:
@@ -220,7 +220,7 @@ const en = {
         'Characters, character images, layouts, initiative state, session transcripts and notes, homebrew entries, soundboard settings, display settings, content edition, and language preference are stored in localStorage for this site. Imported files are processed in the browser. Fumble does not receive a copy.\n\nData remains in the browser profile and site origin where it was created. Other users of the same browser profile may be able to access it. Do not store secrets on a shared device.',
       permissionsHeading: 'Microphone and clipboard',
       permissionsBody:
-        'Microphone access is requested only after you start transcription. Audio is processed in the browser and is not uploaded to a Fumble server. The browser may download a transcription model from Hugging Face. Clipboard access is used only when you choose a copy action.',
+        'Microphone access is requested only after you start transcription. When available, the browser can use its built-in speech recognition service, which may process audio through the browser provider. Otherwise, Fumble can download a local Whisper model from Hugging Face. Fumble does not upload recordings to a Fumble server. Clipboard access is used only when you choose a copy action.',
       cookiesHeading: 'Cookies and analytics',
       cookiesBody:
         'Fumble does not set its own cookies and does not include analytics, advertising, tracking pixels, or consent-management software. External providers may process request data or use their own storage under their policies. External connections lists the exact services and triggers.',
@@ -250,9 +250,12 @@ const en = {
       fiveToolsTitle: '5e.tools images',
       fiveToolsBody:
         'Trigger: opening compendium or book content that references a remote image. Purpose: display entry artwork. Recipient: 5e.tools. The host can normally receive the IP address, request time, image URL, browser headers, and referring site subject to browser policy. Local character or campaign data is not intentionally included.',
+      browserSpeechTitle: 'Browser speech recognition',
+      browserSpeechBody:
+        "Trigger: starting transcription in a browser that exposes its built-in speech recognition API. Purpose: provide speech-to-text without downloading the local model first. Recipient: the browser speech provider, which depends on the browser. Audio may leave the device under that provider's policy. Fumble does not control that processing.",
       huggingFaceTitle: 'Hugging Face',
       huggingFaceBody:
-        'Trigger: starting browser transcription when the model is not cached. Purpose: download model and runtime files. Recipient: Hugging Face and its delivery infrastructure. It can normally receive the IP address, request time, requested model files, and browser headers. Microphone audio and transcript text are processed locally and are not intentionally sent.',
+        'Trigger: using local Whisper transcription when the model is not cached. Purpose: download model and runtime files. Recipient: Hugging Face and its delivery infrastructure. It can normally receive the IP address, request time, requested model files, and browser headers. Microphone audio and transcript text are processed locally and are not intentionally sent.',
       youtubeTitle: 'YouTube',
       youtubeBody:
         'Trigger: adding or playing a YouTube soundboard item and loading its thumbnail or player. Purpose: show and play selected media. Recipient: Google/YouTube. It can normally receive the IP address, request time, video or playlist identifier, browser headers, and player interactions. YouTube may use its own cookies or local storage.',
@@ -1250,6 +1253,8 @@ const en = {
       'Transcription is unavailable. Recording continues. You can keep taking notes manually.',
     speechErrRecorder:
       'Audio recording could not start. You can still use session notes.',
+    speechErrFallback:
+      'The backup transcription could not start. You can still use session notes.',
     recording: 'recording',
     copied: 'Copied',
     copyTranscript: 'Copy transcript',
