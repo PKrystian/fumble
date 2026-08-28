@@ -142,6 +142,7 @@ export function ConnectionsPage() {
   const services = [
     'hosting',
     'fiveTools',
+    'browserSpeech',
     'huggingFace',
     'youtube',
     'remoteMedia',

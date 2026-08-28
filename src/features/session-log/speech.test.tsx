@@ -40,6 +40,34 @@ class MediaRecorderMock {
   }
 }
 
+class NativeSpeechRecognitionMock {
+  static instances: NativeSpeechRecognitionMock[] = [];
+  continuous = false;
+  interimResults = false;
+  lang = '';
+  maxAlternatives = 0;
+  onresult:
+    | ((event: {
+        resultIndex: number;
+        results: Array<{ isFinal: boolean; 0?: { transcript: string } }>;
+      }) => void)
+    | null = null;
+  onerror: (() => void) | null = null;
+  onend: (() => void) | null = null;
+  start = vi.fn();
+  stop = vi.fn();
+
+  constructor() {
+    NativeSpeechRecognitionMock.instances.push(this);
+  }
+}
+
+class ThrowingNativeSpeechRecognitionMock extends NativeSpeechRecognitionMock {
+  start = vi.fn(() => {
+    throw new Error('Speech recognition unavailable');
+  });
+}
+
 const track = { stop: vi.fn() };
 const stream = { getTracks: () => [track] } as unknown as MediaStream;
 
@@ -49,7 +77,9 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 
 describe('speech recognition hook', () => {
   beforeEach(() => {
+    vi.unstubAllGlobals();
     MediaRecorderMock.instances = [];
+    NativeSpeechRecognitionMock.instances = [];
     track.stop.mockClear();
     pipeline.mockReset();
     transformer.failure = null;
@@ -113,6 +143,111 @@ describe('speech recognition hook', () => {
     );
     second.result.current.stop();
     second.unmount();
+  });
+
+  it('uses browser speech recognition and emits final results', async () => {
+    vi.stubGlobal('SpeechRecognition', NativeSpeechRecognitionMock);
+    const onFinal = vi.fn();
+    const { result } = renderHook(() => useSpeechRecognition(onFinal, 'polish'), {
+      wrapper,
+    });
+
+    expect(result.current.supported).toBe(true);
+    await act(async () => result.current.start());
+
+    const recognition = NativeSpeechRecognitionMock.instances[0]!;
+    expect(recognition.start).toHaveBeenCalledTimes(1);
+    expect(recognition.continuous).toBe(true);
+    expect(recognition.interimResults).toBe(true);
+    expect(recognition.maxAlternatives).toBe(1);
+    expect(recognition.lang).toBe('pl-PL');
+
+    act(() => {
+      recognition.onresult?.({
+        resultIndex: 0,
+        results: [
+          { isFinal: false, 0: { transcript: 'partial words' } },
+          { isFinal: true, 0: { transcript: 'final words' } },
+        ],
+      });
+      recognition.onend?.();
+    });
+
+    expect(result.current.interim).toBe('partial words');
+    expect(onFinal).toHaveBeenCalledWith('final words');
+    expect(recognition.start).toHaveBeenCalledTimes(2);
+
+    act(() => result.current.stop());
+    expect(recognition.stop).toHaveBeenCalledTimes(1);
+    expect(result.current.listening).toBe(false);
+  });
+
+  it('falls back to the local recorder when browser speech recognition fails', async () => {
+    vi.stubGlobal('SpeechRecognition', NativeSpeechRecognitionMock);
+    pipeline.mockResolvedValue({ text: 'Local fallback transcript' });
+    const onFinal = vi.fn();
+    const { result } = renderHook(() => useSpeechRecognition(onFinal), { wrapper });
+
+    await act(async () => result.current.start());
+    const recognition = NativeSpeechRecognitionMock.instances[0]!;
+    expect(MediaRecorderMock.instances).toHaveLength(0);
+
+    await act(async () => {
+      recognition.onerror?.();
+      await Promise.resolve();
+    });
+    await waitFor(() => expect(MediaRecorderMock.instances).toHaveLength(1));
+    expect(result.current.listening).toBe(true);
+
+    const recorder = MediaRecorderMock.instances[0]!;
+    await act(async () => {
+      recorder.ondataavailable?.({
+        data: new Blob([new Uint8Array(4000)], { type: 'audio/webm' }),
+      });
+      recorder.stop();
+    });
+    await waitFor(() =>
+      expect(onFinal).toHaveBeenCalledWith('Local fallback transcript'),
+    );
+    result.current.stop();
+  });
+
+  it('uses the local recorder when browser speech recognition cannot start', async () => {
+    vi.stubGlobal('SpeechRecognition', ThrowingNativeSpeechRecognitionMock);
+    const { result } = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
+
+    await act(async () => result.current.start());
+
+    expect(MediaRecorderMock.instances).toHaveLength(1);
+    expect(result.current.listening).toBe(true);
+    result.current.stop();
+  });
+
+  it('reports when the local fallback cannot start', async () => {
+    vi.stubGlobal('SpeechRecognition', NativeSpeechRecognitionMock);
+    Object.defineProperty(navigator, 'mediaDevices', {
+      configurable: true,
+      value: {
+        getUserMedia: vi.fn(async () => {
+          throw new Error('Permission denied');
+        }),
+      },
+    });
+    const { result } = renderHook(() => useSpeechRecognition(vi.fn()), { wrapper });
+
+    await act(async () => result.current.start());
+    const recognition = NativeSpeechRecognitionMock.instances[0]!;
+    await act(async () => {
+      recognition.onerror?.();
+      await Promise.resolve();
+    });
+
+    await waitFor(() =>
+      expect(result.current.speechError).toBe(
+        'The backup transcription could not start. You can still use session notes.',
+      ),
+    );
+    expect(result.current.listening).toBe(false);
   });
 
   it('starts, transcribes chunks and stops media resources', async () => {

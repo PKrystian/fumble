@@ -10,6 +10,60 @@ const WHISPER_MODEL = 'onnx-community/whisper-tiny';
 
 class WhisperModelError extends Error {}
 
+type NativeSpeechResult = {
+  isFinal: boolean;
+  [index: number]: { transcript: string } | undefined;
+};
+
+type NativeSpeechEvent = {
+  resultIndex: number;
+  results: {
+    length: number;
+    [index: number]: NativeSpeechResult | undefined;
+  };
+};
+
+type NativeSpeechRecognition = {
+  continuous: boolean;
+  interimResults: boolean;
+  lang: string;
+  maxAlternatives: number;
+  onresult: ((event: NativeSpeechEvent) => void) | null;
+  onerror: (() => void) | null;
+  onend: (() => void) | null;
+  start: () => void;
+  stop: () => void;
+};
+
+type NativeSpeechRecognitionConstructor = new () => NativeSpeechRecognition;
+
+type SpeechWindow = Window & {
+  SpeechRecognition?: NativeSpeechRecognitionConstructor;
+  webkitSpeechRecognition?: NativeSpeechRecognitionConstructor;
+};
+
+function getNativeSpeechRecognition(): NativeSpeechRecognitionConstructor | null {
+  if (typeof window === 'undefined') return null;
+  const speechWindow = window as SpeechWindow;
+  return speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition ?? null;
+}
+
+function hasLocalSpeechCapture(): boolean {
+  return (
+    typeof window !== 'undefined' &&
+    'MediaRecorder' in window &&
+    typeof navigator.mediaDevices?.getUserMedia === 'function'
+  );
+}
+
+function stopNativeSpeechRecognition(recognition: NativeSpeechRecognition): void {
+  try {
+    recognition.stop();
+  } catch {
+    return;
+  }
+}
+
 async function getWhisperPipeline(
   onStatus: (s: string) => void,
   downloadLabel: string,
@@ -132,10 +186,7 @@ export function useSpeechRecognition(
   language = 'english',
 ): SpeechHook {
   const [supported] = useState(
-    () =>
-      typeof window !== 'undefined' &&
-      'MediaRecorder' in window &&
-      typeof navigator.mediaDevices?.getUserMedia === 'function',
+    () => Boolean(getNativeSpeechRecognition()) || hasLocalSpeechCapture(),
   );
   const { t } = useT();
   const [listening, setListening] = useState(false);
@@ -144,6 +195,7 @@ export function useSpeechRecognition(
 
   const streamRef = useRef<MediaStream | null>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
+  const nativeRef = useRef<NativeSpeechRecognition | null>(null);
   const chunkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const queueRef = useRef<Blob[]>([]);
   const processingRef = useRef(false);
@@ -158,6 +210,7 @@ export function useSpeechRecognition(
     return () => {
       shouldListenRef.current = false;
       if (chunkTimerRef.current !== null) clearTimeout(chunkTimerRef.current);
+      if (nativeRef.current) stopNativeSpeechRecognition(nativeRef.current);
       if (recorderRef.current?.state === 'recording') recorderRef.current.stop();
       streamRef.current?.getTracks().forEach((track) => track.stop());
     };
@@ -233,22 +286,94 @@ export function useSpeechRecognition(
     }
   };
 
-  const start = async (): Promise<void> => {
-    setSpeechError('');
-    transcriptionUnavailableRef.current = false;
-    shouldListenRef.current = true;
-
+  const startLocalCapture = async (preserveListening = false): Promise<boolean> => {
     let stream: MediaStream;
     try {
       stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
     } catch {
-      shouldListenRef.current = false;
-      setSpeechError(t('sessionLog.speechErrMic'));
-      return;
+      shouldListenRef.current = preserveListening;
+      setSpeechError(
+        t(preserveListening ? 'sessionLog.speechErrFallback' : 'sessionLog.speechErrMic'),
+      );
+      return false;
+    }
+    if (!shouldListenRef.current) {
+      stream.getTracks().forEach((track) => track.stop());
+      return false;
     }
     streamRef.current = stream;
+    return startChunk(stream);
+  };
 
-    if (startChunk(stream)) setListening(true);
+  const fallbackToLocalCapture = async (): Promise<void> => {
+    const native = nativeRef.current;
+    nativeRef.current = null;
+    if (native) stopNativeSpeechRecognition(native);
+    setInterim('');
+    await startLocalCapture(true);
+    if (!recorderRef.current) {
+      shouldListenRef.current = false;
+      setListening(false);
+    }
+  };
+
+  const startNativeCapture = (): boolean => {
+    const Recognition = getNativeSpeechRecognition();
+    if (!Recognition) return false;
+
+    let recognition: NativeSpeechRecognition;
+    try {
+      recognition = new Recognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.maxAlternatives = 1;
+      recognition.lang = languageRef.current === 'polish' ? 'pl-PL' : 'en-US';
+      recognition.onresult = (event) => {
+        let interimText = '';
+        for (let index = event.resultIndex; index < event.results.length; index++) {
+          const result = event.results[index];
+          const transcript = result?.[0]?.transcript.trim() ?? '';
+          if (result?.isFinal) {
+            if (transcript) onFinalRef.current(transcript);
+          } else if (transcript) {
+            interimText = `${interimText} ${transcript}`.trim();
+          }
+        }
+        setInterim(interimText);
+      };
+      recognition.onerror = () => {
+        if (nativeRef.current !== recognition || !shouldListenRef.current) return;
+        void fallbackToLocalCapture();
+      };
+      recognition.onend = () => {
+        if (nativeRef.current !== recognition || !shouldListenRef.current) return;
+        try {
+          recognition.start();
+        } catch {
+          void fallbackToLocalCapture();
+        }
+      };
+      nativeRef.current = recognition;
+      recognition.start();
+      return true;
+    } catch {
+      nativeRef.current = null;
+      return false;
+    }
+  };
+
+  const start = async (): Promise<void> => {
+    if (shouldListenRef.current) return;
+    setSpeechError('');
+    transcriptionUnavailableRef.current = false;
+    shouldListenRef.current = true;
+
+    if (startNativeCapture()) {
+      setListening(true);
+      return;
+    }
+
+    if (await startLocalCapture()) setListening(true);
   };
 
   const stop = (): void => {
@@ -258,6 +383,9 @@ export function useSpeechRecognition(
       chunkTimerRef.current = null;
     }
 
+    const native = nativeRef.current;
+    nativeRef.current = null;
+    if (native) stopNativeSpeechRecognition(native);
     if (recorderRef.current?.state === 'recording') recorderRef.current.stop();
     streamRef.current?.getTracks().forEach((track) => track.stop());
     recorderRef.current = null;
