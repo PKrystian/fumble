@@ -67,6 +67,18 @@ describe('generated item additions', () => {
     expect(itemPropertiesData.items).toHaveLength(26);
   });
 
+  it('preserves ranged and thrown weapon distances from 5etools', () => {
+    const javelin = itemsData.items.find((entry) => entry.id === 'javelin');
+    const rangedItems = itemsData.items.filter((entry) => entry.range);
+
+    expect(javelin).toMatchObject({
+      properties: 'Thrown',
+      range: '30/120 ft.',
+    });
+    expect(rangedItems).toHaveLength(114);
+    expect(rangedItems.some((entry) => entry.id === 'longbow')).toBe(true);
+  });
+
   it('provides Polish rules for the weapon properties used by the item data', () => {
     const heavy = itemPropertiesData.items.find((entry) => entry.id === 'heavy-h-xphb');
     const translated = localizeEntry(heavy!, itemPropertyOverlay);

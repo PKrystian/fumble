@@ -647,7 +647,7 @@ function plainText(value: unknown, locale: Locale = DEFAULT_LOCALE): string {
       .replace(/\{@(\w+)\s+([^}]+)}/g, (_, tag, content) =>
         localizePolishReference(tag, content, locale),
       )
-      .replace(/\{#\w+\s+([^}|]+)(?:\|[^}]*)?}/g, '$1')
+      .replace(/\{#(?:itemEntry|item|[^\s}]+)\s+([^}|]+)(?:\|[^}]*)?\}/gu, '$1')
       .replace(/\{(?:@|#)[^}]+}/g, ' ')
       .replace(/<[^>]+>/g, ' ')
       .replace(/\s+/g, ' ')

@@ -132,7 +132,9 @@ export async function loadReferenceName(
 
 function stripMarkup(value: string): string {
   return value
-    .replace(/\{@\w+\s*([^|}]*)[^}]*\}/g, (_, text: string) => text.trim())
+    .replace(/\{[@#](?:itemEntry|item|[^\s}]+)\s*([^|}]*)[^}]*\}/g, (_, text: string) =>
+      text.trim(),
+    )
     .replace(/\s+/g, ' ')
     .trim();
 }

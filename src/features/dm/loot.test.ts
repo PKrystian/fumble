@@ -30,6 +30,7 @@ function makeItem(overrides: Partial<ItemEntry> = {}): ItemEntry {
     damage: '',
     ac: '',
     properties: '',
+    range: '',
     entries: [],
     ...overrides,
   };

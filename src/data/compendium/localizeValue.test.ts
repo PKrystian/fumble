@@ -51,6 +51,7 @@ describe('localizeCompendiumValue', () => {
     expect(localizeCompendiumValue('120 feet (120-foot cone)', 'pl', 'range')).toBe(
       '120 stóp (stożek 120 stóp)',
     );
+    expect(localizeCompendiumValue('30/120 ft.', 'pl', 'range')).toBe('30/120 stóp');
     expect(localizeCompendiumValue('1 bonus', 'pl', 'castingTime')).toBe(
       '1 akcja dodatkowa',
     );

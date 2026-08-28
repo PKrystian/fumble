@@ -179,6 +179,18 @@ describe('parseMarkup', () => {
     expect(emphasis).toHaveTextContent('deals 1d6 cold');
   });
 
+  it('renders 5etools hash item references without exposing the marker', () => {
+    const { container } = renderMarkup(
+      'The item is described in {#itemEntry Absorbing Tattoo|TCE}.',
+    );
+    expect(container).toHaveTextContent('The item is described in Absorbing Tattoo.');
+    expect(container).not.toHaveTextContent('{#itemEntry');
+
+    const polish = renderMarkup('{#itemTatuaż pochłaniający wejście|TCE}', 'pl');
+    expect(polish.container).toHaveTextContent('Tatuaż pochłaniający wejście');
+    expect(polish.container).not.toHaveTextContent('{#');
+  });
+
   it('renders bold, italic and note formatting aliases', () => {
     const { container } = renderMarkup(
       '{@b Bold} {@bold Strong} {@italic Italic} {@note Note}',

@@ -207,10 +207,14 @@ function LanguageLinks({ text }: { text: string }) {
       {langs.map((lang, index) => (
         <Fragment key={index}>
           {index > 0 && ', '}
-          <ReferenceLink category="languages" slug={lang.toLowerCase()} label={lang} />
+          {lang.includes('{@') || lang.includes('{#') ? (
+            parseMarkup(lang, locale)
+          ) : (
+            <ReferenceLink category="languages" slug={lang.toLowerCase()} label={lang} />
+          )}
         </Fragment>
       ))}
-      {special && <span className="text-ink-300">; {special}</span>}
+      {special && <span className="text-ink-300">; {parseMarkup(special, locale)}</span>}
     </p>
   );
 }
@@ -276,12 +280,14 @@ function HabitatLinks({ habitat, locale }: { habitat: string; locale: Locale }) 
 }
 
 function MetaCell({ label, value }: { label: string; value: string }) {
+  const locale = useLocale();
+  if (!value) return null;
   return (
     <div>
       <dt className="text-xs font-semibold uppercase tracking-wide text-ink-400">
         {label}
       </dt>
-      <dd className="text-ink-50">{value}</dd>
+      <dd className="text-ink-50">{parseMarkup(value, locale)}</dd>
     </div>
   );
 }
@@ -1105,6 +1111,10 @@ export function ItemDetail({
             item.properties
           }
         />
+        <MetaRow
+          label={t('compendium.detail.range')}
+          value={localizeCompendiumValue(item.range, locale, 'range') ?? item.range}
+        />
         <MetaRow label={t('compendium.detail.mastery')} value={rules.masteryNames} />
         {item.attunement && (
           <MetaRow
@@ -1143,7 +1153,7 @@ function ProgressionTable({
   table: ClassTable;
   featuresByLevel: Map<number, string[]>;
 }) {
-  const { t } = useT();
+  const { t, locale } = useT();
   const featureCol = table.headers.indexOf('Features');
   return (
     <section className="flex flex-col gap-3">
@@ -1159,7 +1169,7 @@ function ProgressionTable({
                   key={header}
                   className="whitespace-nowrap border-b border-ink-700 px-2 py-1 font-semibold text-ink-50"
                 >
-                  {header}
+                  {parseMarkup(header, locale)}
                 </th>
               ))}
             </tr>
@@ -1177,7 +1187,10 @@ function ProgressionTable({
                       key={cellIndex}
                       className="border-b border-ink-800 px-2 py-1 text-ink-200"
                     >
-                      {cellIndex === featureCol && merged ? merged : cell}
+                      {parseMarkup(
+                        cellIndex === featureCol && merged ? merged : cell,
+                        locale,
+                      )}
                     </td>
                   ))}
                 </tr>

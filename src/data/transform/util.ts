@@ -19,7 +19,10 @@ export function slugify(value: string): string {
 }
 
 export function stripMarkup(value: string): string {
-  return value.replace(/\{@\w+\s*([^|}]*)[^}]*\}/g, (_, text: string) => text.trim());
+  return value.replace(
+    /\{[@#](?:itemEntry|item|[^\s}]+)\s*([^|}]*)[^}]*\}/g,
+    (_, text: string) => text.trim(),
+  );
 }
 
 export function proficiencyBonus(level: number): string {

@@ -179,6 +179,14 @@ function shapeSuffix(prefix: string, range: Range, locale: Locale): string {
     : `${prefix} (${amount}-foot ${type})`;
 }
 
+export function formatWeaponRange(
+  range: string | undefined,
+  locale: Locale = 'en',
+): string {
+  if (!range) return '';
+  return locale === 'pl' ? `${range} stóp` : `${range} ft.`;
+}
+
 function formatDistance(
   type: string,
   amount: number | undefined,
