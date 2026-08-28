@@ -4,6 +4,11 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.120 - 2026-08-28
+
+- Kept session log recording and notes available when the optional Whisper model cannot be downloaded.
+- Reduced the browser speech model download and replaced raw model fetch errors with a localized fallback.
+
 ## 1.2.119 - 2026-08-26
 
 - Corrected the Blade of Zenith homebrew item with its complete weapon properties and Polish localization.
