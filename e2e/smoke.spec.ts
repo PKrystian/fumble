@@ -162,6 +162,11 @@ test('weapon details include mastery and property rules in Polish', async ({ pag
   await expect(article.getByText('Dwuręczna', { exact: true })).toBeVisible();
   await expect(article.getByText(/Masz Utrudnienie.*ciężką bronią/)).toBeVisible();
   await expect(article.getByText(/Broń Dwuręczna wymaga użycia obu rąk/)).toBeVisible();
+
+  await page.goto('/pl/compendium/items/javelin');
+  await expect(
+    page.locator('article').getByText('Zasięg: 30/120 stóp', { exact: true }),
+  ).toBeVisible();
 });
 
 test('names render as readable rollable tables', async ({ page }) => {

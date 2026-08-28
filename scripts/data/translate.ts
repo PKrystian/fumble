@@ -89,7 +89,8 @@ Rules - follow exactly, this output feeds a running app and must not break it:
    array lengths) - only translate the human-readable text.
 2. Inline tags like {@condition Incapacitated|XPHB}, {@variantrule Speed|XPHB},
    {@action Attack|XPHB}, {@skill Athletics|XPHB}, {@item Rope|XPHB}, {@dice 1d6},
-   {@spell Fireball|XPHB} etc. are cross-references - the first segment (before
+   {@spell Fireball|XPHB}, and template markers like {#itemEntry Ring of Resistance|XDMG}
+   are cross-references - the first segment (before
    the first "|") and the source code (second segment) are lookup keys and MUST
    stay in English exactly as given, character for character. To show translated
    text to the reader, ADD a third pipe segment with your ${localeLabel} translation,
@@ -141,7 +142,7 @@ const GOOGLE_IGNORED_KEYS = new Set([
 
 function protectGoogleTags(text: string): { protectedText: string; tags: string[] } {
   const tags: string[] = [];
-  const protectedText = text.replace(/\{@[^}]+\}/g, (tag) => {
+  const protectedText = text.replace(/\{[@#][^}]+\}/gu, (tag) => {
     const token = `ZXQTAG${String(tags.length).padStart(4, '0')}QXZ`;
     tags.push(tag);
     return token;

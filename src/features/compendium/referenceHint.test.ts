@@ -41,7 +41,7 @@ describe('reference hints', () => {
                 {
                   type: 'entries',
                   entries: [
-                    '  {@spell Fireball|XPHB} zadaje dużo obrażeń w szerokim obszarze.  ',
+                    '  {@spell Fireball|XPHB} zadaje dużo obrażeń w szerokim obszarze. {#itemEntry Poczta Smoczej Łuski|XDMG}  ',
                   ],
                 },
               ],
@@ -93,7 +93,8 @@ describe('reference hints', () => {
       name: 'Kula Ognia',
       englishName: 'Fireball',
       subtitle: 'XPHB pl:subtitle',
-      description: 'Fireball zadaje dużo obrażeń w szerokim obszarze.',
+      description:
+        'Fireball zadaje dużo obrażeń w szerokim obszarze. Poczta Smoczej Łuski',
     });
 
     await loadReferenceHint('spells-hint', 'fireball', 'pl');

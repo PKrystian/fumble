@@ -46,6 +46,7 @@ import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 import { SearchField } from '@/features/ui/primitives';
 import { toggleChipClass } from '@/features/ui/styles';
 import { normalizeSearchText } from '@/data/compendium/searchText';
+import { stripMarkup } from '@/data/transform/util';
 import {
   isCompendiumEntryIndexable,
   isCompendiumSubclassIndexable,
@@ -53,6 +54,7 @@ import {
 import { getCompendiumCategorySeo, getCompendiumEntrySeo } from '@/data/compendium/seo';
 import type { ClassEntry } from '@/data/compendium/types';
 import { findSubclassByRouteKey, subclassRouteKey } from './subclassRoute';
+import { localizePlainText, parseMarkup } from './markup';
 import { revealApp } from '@/seo/prerendered';
 import packageInfo from '../../../package.json';
 
@@ -667,33 +669,34 @@ function CompendiumBrowser({
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       {selected.gallery
                         .filter((g) => g.path !== selected.image)
-                        .map((img) => (
-                          <figure key={img.path} className="flex flex-col gap-1">
-                            <img
-                              src={imageUrl(img.path)}
-                              alt={img.title ?? selected.name}
-                              loading="lazy"
-                              onClick={() =>
-                                openLightbox(
-                                  imageUrl(img.path),
-                                  img.title ?? selected.name,
-                                )
-                              }
-                              onError={(e) => {
-                                e.currentTarget.closest('figure')!.style.display = 'none';
-                              }}
-                              className="h-auto cursor-zoom-in rounded-lg border border-ink-700 object-contain"
-                            />
-                            {(img.title || img.credit) && (
-                              <figcaption className="text-xs text-ink-400">
-                                {img.title}
-                                {img.credit && (
-                                  <span className="italic"> - {img.credit}</span>
-                                )}
-                              </figcaption>
-                            )}
-                          </figure>
-                        ))}
+                        .map((img) => {
+                          const title = img.title
+                            ? localizePlainText(stripMarkup(img.title), locale)
+                            : selected.name;
+                          return (
+                            <figure key={img.path} className="flex flex-col gap-1">
+                              <img
+                                src={imageUrl(img.path)}
+                                alt={title}
+                                loading="lazy"
+                                onClick={() => openLightbox(imageUrl(img.path), title)}
+                                onError={(e) => {
+                                  e.currentTarget.closest('figure')!.style.display =
+                                    'none';
+                                }}
+                                className="h-auto cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+                              />
+                              {(img.title || img.credit) && (
+                                <figcaption className="text-xs text-ink-400">
+                                  {img.title && parseMarkup(img.title, locale)}
+                                  {img.credit && (
+                                    <span className="italic"> - {img.credit}</span>
+                                  )}
+                                </figcaption>
+                              )}
+                            </figure>
+                          );
+                        })}
                     </div>
                   </section>
                 )}

@@ -429,6 +429,24 @@ describe('CompendiumPage', () => {
     ).toBeInTheDocument();
   });
 
+  it('renders markup in gallery captions without exposing the source marker', () => {
+    mocks.result = {
+      status: 'ready',
+      items: [
+        {
+          ...official,
+          gallery: [
+            { path: 'other.webp', title: '{#itemEntry Poczta Smoczej Łuski|XDMG}' },
+          ],
+        },
+      ],
+    };
+    renderPage('/compendium/species/dragon');
+    expect(screen.getByText('Poczta Smoczej Łuski')).toBeInTheDocument();
+    expect(screen.queryByText('{#itemEntry Poczta Smoczej Łuski|XDMG}')).toBeNull();
+    expect(screen.getByAltText('Poczta Smoczej Łuski')).toBeInTheDocument();
+  });
+
   it('keeps constrained artwork sized by its CSS bounds', () => {
     mocks.result = {
       status: 'ready',

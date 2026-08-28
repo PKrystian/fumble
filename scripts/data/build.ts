@@ -78,6 +78,7 @@ import {
   formatSpeed,
   formatValue,
   formatWeaponDamage,
+  formatWeaponRange,
   formatWeight,
   hasConcentration,
 } from '../../src/data/transform/format';
@@ -403,6 +404,7 @@ interface RawItem {
   value?: number;
   dmg1?: string;
   dmgType?: string;
+  range?: string;
   property?: Array<string | { uid?: string }>;
   mastery?: Array<string | { uid?: string }>;
   ac?: number;
@@ -451,6 +453,7 @@ function normalizeItem(raw: RawItem): ItemEntry {
     damage: formatWeaponDamage(raw.dmg1, raw.dmgType),
     ac: raw.ac != null ? `${raw.ac}` : '',
     properties: formatItemProperties(raw.property),
+    range: formatWeaponRange(raw.range),
     ...(raw.weaponCategory ? { weaponCategory: raw.weaponCategory } : {}),
     ...(raw.property?.length ? { propertyRefs: formatItemReferences(raw.property) } : {}),
     ...(raw.mastery?.length

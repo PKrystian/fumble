@@ -1881,6 +1881,15 @@ function renderTag(content: string, key: number, locale: Locale): ReactNode {
   }
 }
 
+function renderHashTag(content: string, key: number, locale: Locale): ReactNode {
+  const [rawLabel] = content.split('|');
+  const label = rawLabel!
+    .replace(/^itemEntry\s*/u, '')
+    .replace(/^item(?=\S)/u, '')
+    .trim();
+  return <Fragment key={key}>{localizePolishLabel(label || rawLabel!, locale)}</Fragment>;
+}
+
 export function parseMarkup(text: string, locale: Locale = DEFAULT_LOCALE): ReactNode[] {
   text = localizePolishGenericLabels(text, locale);
   const nodes: ReactNode[] = [];
@@ -1888,7 +1897,14 @@ export function parseMarkup(text: string, locale: Locale = DEFAULT_LOCALE): Reac
   let key = 0;
 
   while (cursor < text.length) {
-    const start = text.indexOf('{@', cursor);
+    const atStart = text.indexOf('{@', cursor);
+    const hashStart = text.indexOf('{#', cursor);
+    const start =
+      atStart === -1
+        ? hashStart
+        : hashStart === -1
+          ? atStart
+          : Math.min(atStart, hashStart);
     if (start === -1) {
       nodes.push(text.slice(cursor));
       break;
@@ -1904,7 +1920,12 @@ export function parseMarkup(text: string, locale: Locale = DEFAULT_LOCALE): Reac
         if (depth === 0) break;
       }
     }
-    nodes.push(renderTag(text.slice(start + 2, end), key++, locale));
+    const content = text.slice(start + 2, end);
+    nodes.push(
+      text[start + 1] === '#'
+        ? renderHashTag(content, key++, locale)
+        : renderTag(content, key++, locale),
+    );
     cursor = end + 1;
   }
 

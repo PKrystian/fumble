@@ -249,7 +249,7 @@ function renderListItem(item: Entry, locale: Locale): ReactNode {
 function diceHeader(label: string | undefined): string | null {
   if (typeof label !== 'string') return null;
   const cleaned = label
-    .replace(/\{@\w+\s*([^|}]*)[^}]*\}/g, '$1')
+    .replace(/\{[@#](?:itemEntry|item|[^\s}]+)\s*([^|}]*)[^}]*\}/g, '$1')
     .trim()
     .replace(/(\d*)[kK](?=\d)/g, '$1d');
   return /^\d*d\d+$/i.test(cleaned) ? cleaned.replace(/^d/, '1d') : null;
@@ -257,7 +257,7 @@ function diceHeader(label: string | undefined): string | null {
 
 function rowMatches(cell: Entry, value: number): boolean {
   const text = (typeof cell === 'string' ? cell : '')
-    .replace(/\{@\w+\s*([^|}]*)[^}]*\}/g, '$1')
+    .replace(/\{[@#](?:itemEntry|item|[^\s}]+)\s*([^|}]*)[^}]*\}/g, '$1')
     .trim();
   const range = text.match(/^(\d+)\s*[-\u2013]\s*(\d+)$/);
   if (range) return value >= Number(range[1]) && value <= Number(range[2]);
@@ -306,7 +306,7 @@ function RollableTable({ node }: { node: EntryNode }) {
                     key={index}
                     className="border-b border-ink-700 px-2 py-1 font-semibold text-ink-50"
                   >
-                    {index === 0 && dice && !label.includes('{@') ? (
+                    {index === 0 && dice && !/\{[@#]/u.test(label) ? (
                       <button
                         type="button"
                         onClick={doRoll}

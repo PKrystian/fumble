@@ -1025,8 +1025,10 @@ function localizeOutsideMarkup(
   localize: (part: string) => string,
 ): string {
   return value
-    .split(/(\{@[^}]*\})/gu)
-    .map((part) => (part.startsWith('{@') ? part : localize(part)))
+    .split(/(\{@[^}]*\}|\{#[^}]*\})/gu)
+    .map((part) =>
+      part.startsWith('{@') || part.startsWith('{#') ? part : localize(part),
+    )
     .join('');
 }
 

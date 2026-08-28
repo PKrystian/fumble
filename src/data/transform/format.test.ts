@@ -9,6 +9,7 @@ describe('data formatters', () => {
     expect(
       format.formatRange({ type: 'cone', distance: { type: 'feet', amount: 15 } }, 'pl'),
     ).toBe('15 stóp (stożek, 15 stóp)');
+    expect(format.formatWeaponRange('30/120', 'pl')).toBe('30/120 stóp');
     expect(format.formatSize(['S', 'M'], 'pl')).toBe('Mały lub Średni');
     expect(format.formatSpeed({ walk: 30, fly: 60 }, 'pl')).toBe('30 stóp, lot 60 stóp');
     expect(format.formatItemType('HA', 'rare', 'pl')).toBe('Ciężki pancerz');
@@ -190,6 +191,8 @@ describe('data formatters', () => {
     expect(format.formatWeight(2.5)).toBe('2.5 lb.');
     expect(format.formatValue(100)).toBe('1 gp');
     expect(format.formatValue(50)).toBe('50 cp');
+    expect(format.formatWeaponRange('30/120')).toBe('30/120 ft.');
+    expect(format.formatWeaponRange(undefined)).toBe('');
     expect(format.formatWeaponDamage('1d8', 'S')).toBe('1d8 slashing');
     expect(format.formatItemProperties(['F', { uid: '2H|XPHB' }, {}])).toBe(
       'Finesse, Two-Handed',

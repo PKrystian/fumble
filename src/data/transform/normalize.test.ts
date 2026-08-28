@@ -157,6 +157,7 @@ describe('data normalizers', () => {
         value: 150,
         dmg1: '1d8',
         dmgType: 'S',
+        range: '30/120',
         property: ['F'],
       }),
     ).toMatchObject({
@@ -164,6 +165,7 @@ describe('data normalizers', () => {
       rarity: 'Rare',
       attunement: 'Requires attunement',
       damage: '1d8 slashing',
+      range: '30/120 ft.',
     });
     expect(
       normalize.normalizeDeck({
@@ -776,11 +778,21 @@ describe('data normalizers', () => {
   it('normalizes Polish labels and alternate optional shapes', () => {
     expect(
       normalize.normalizeItem(
-        { ...base, property: ['F'], mastery: ['Graze'], weaponCategory: 'martial' },
+        {
+          ...base,
+          property: ['F'],
+          mastery: ['Graze'],
+          weaponCategory: 'martial',
+          range: '30/120',
+        },
         new Map(),
         'pl',
       ),
-    ).toMatchObject({ weaponCategory: 'martial', mastery: 'Graze' });
+    ).toMatchObject({
+      weaponCategory: 'martial',
+      mastery: 'Graze',
+      range: '30/120 stóp',
+    });
 
     const monster = normalize.normalizeMonster(
       {
