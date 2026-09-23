@@ -5648,14 +5648,14 @@
         "type": "entries",
         "name": "Strzał Mrozu",
         "entries": [
-          "Armata wystrzeliwuje kulę mrozu w widoczny przez ciebie punkt w promieniu 1200 stóp od armaty. Kula następnie rozszerza się, tworząc 30-stopową promienia kulę wyśrodkowaną w tym punkcie. Każdy stwór w tym obszarze musi wykonać rzut obronny Kondycji o {@dc 15}. Przy nieudanym rzucie stwór otrzymuje 22 ({@damage 4d10}) obrażeń zimna, a jego prędkość zostaje zmniejszona o 10 stóp na 1 minutę. Przy udanym rzucie stwór otrzymuje połowę obrażeń, a jego prędkość nie zostaje zmniejszona. Stwór, którego prędkość została zmniejszona tym efektem, może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie w przypadku sukcesu."
+          "Armata wystrzeliwuje kulę mrozu w widoczny przez ciebie punkt w promieniu 1,200 stóp od armaty. Kula następnie rozszerza się, tworząc 30-stopową promienia kulę wyśrodkowaną w tym punkcie. Każdy stwór w tym obszarze musi wykonać rzut obronny Kondycji o {@dc 15}. Przy nieudanym rzucie stwór otrzymuje 22 ({@damage 4d10}) obrażeń zimna, a jego prędkość zostaje zmniejszona o 10 stóp na 1 minutę. Przy udanym rzucie stwór otrzymuje połowę obrażeń, a jego prędkość nie zostaje zmniejszona. Stwór, którego prędkość została zmniejszona tym efektem, może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie w przypadku sukcesu."
         ]
       },
       {
         "type": "entries",
         "name": "Strzał Pioruna",
         "entries": [
-          "Armata wystrzeliwuje kulę pioruna w widoczny przez ciebie punkt w promieniu 1200 stóp od armaty. Piorun następnie rozszerza się, tworząc 20-stopową promienia kulę wyśrodkowaną w tym punkcie. Każdy stwór w tym obszarze musi wykonać rzut obronny Zręczności o {@dc 15}, otrzymując 33 ({@damage 6d10}) obrażeń od pioruna przy nieudanym rzucie lub połowę obrażeń przy udanym. Stwory noszące metalowy pancerz mają utrudnienie na rzucie."
+          "Armata wystrzeliwuje kulę pioruna w widoczny przez ciebie punkt w promieniu 1,200 stóp od armaty. Piorun następnie rozszerza się, tworząc 20-stopową promienia kulę wyśrodkowaną w tym punkcie. Każdy stwór w tym obszarze musi wykonać rzut obronny Zręczności o {@dc 15}, otrzymując 33 ({@damage 6d10}) obrażeń od pioruna przy nieudanym rzucie lub połowę obrażeń przy udanym. Stwory noszące metalowy pancerz mają utrudnienie na rzucie."
         ]
       },
       {
@@ -5803,13 +5803,13 @@
         ]
       }
     ],
-    "weight": "65 funtów",
+    "weight": "",
     "attunement": "Wymaga zestrojenia",
     "type": "Wariant ogólny",
     "rarity": "Rzadka",
     "value": "",
     "damage": "",
-    "ac": "18",
+    "ac": "",
     "properties": "",
     "variant": {
       "name": "Pancerz Wrażliwości (Tłuczenie)",
@@ -5866,13 +5866,13 @@
         ]
       }
     ],
-    "weight": "65 funtów",
+    "weight": "",
     "attunement": "Wymaga zestrojenia",
     "type": "Wariant ogólny",
     "rarity": "Rzadka",
     "value": "",
     "damage": "",
-    "ac": "18",
+    "ac": "",
     "properties": "",
     "variant": {
       "name": "Pancerz Wrażliwości (Przebicie)",
@@ -5929,13 +5929,13 @@
         ]
       }
     ],
-    "weight": "65 funtów",
+    "weight": "",
     "attunement": "Wymaga zestrojenia",
     "type": "Wariant ogólny",
     "rarity": "Rzadka",
     "value": "",
     "damage": "",
-    "ac": "18",
+    "ac": "",
     "properties": "",
     "variant": {
       "name": "Pancerz Wrażliwości (Cięcie)",
@@ -6385,7 +6385,7 @@
         "name": "Przemierz Noc",
         "entries": [
           "Jeśli trzymasz tłuczek, będąc wewnątrz moździerza, możesz wykorzystać swoją akcję, by ustnie rozkazać moździerzowi przemieścić się do konkretnego miejsca lub stwora.",
-          "Nie musisz wiedzieć, gdzie znajduje się twój cel, ale musi to być konkretny cel - nie tylko najbliższa rzeka czy legowisko czerwonego smoka. Jeśli podany cel znajduje się w promieniu 1000 mil od ciebie, moździerz unosi się w powietrze i znika. Ty i wszelkie stwory w moździerzu podróżujecie przez sennopodobne niebo, z mglistymi odbiciami świata przesuwającymi się poniżej. Inni mogą zobaczyć obrazy ciebie przemykającego przez niebo między twoim punktem początkowym a celem. Docierasz do lokalizacji godzinę później, lub, jeśli jest noc, minutę później."
+          "Nie musisz wiedzieć, gdzie znajduje się twój cel, ale musi to być konkretny cel - nie tylko najbliższa rzeka czy legowisko czerwonego smoka. Jeśli podany cel znajduje się w promieniu 1,000 mil od ciebie, moździerz unosi się w powietrze i znika. Ty i wszelkie stwory w moździerzu podróżujecie przez sennopodobne niebo, z mglistymi odbiciami świata przesuwającymi się poniżej. Inni mogą zobaczyć obrazy ciebie przemykającego przez niebo między twoim punktem początkowym a celem. Docierasz do lokalizacji godzinę później, lub, jeśli jest noc, minutę później."
         ]
       },
       {
@@ -7095,7 +7095,7 @@
     "name": "Tarcza Taranująca",
     "entries": [
       "Trzymając tę żelazną tarczę wieżową, zyskujesz premię +1 do KP. Ta premia jest dodatkowa względem normalnej premii tarczy do KP.",
-      "Dodatkowo tarcza posiada 3 ładunki i codziennie o świcie odzyskuje {@dice 1d3} zużyte ładunki.Jeśli trzymasz tarczę i odpychasz istotę w swoim zasięgu na co najmniej 5 stóp, możesz wydać 1 ładunek, aby odepchnąć tę istotę o dodatkowe 3 metry, powalić ją {@condition prone} lub jedno i drugie."
+      "Dodatkowo tarcza posiada 3 ładunki i codziennie o świcie odzyskuje {@dice 1d3} zużyte ładunki.Jeśli trzymasz tarczę i odpychasz istotę w swoim zasięgu na co najmniej 5 stóp, możesz wydać 1 ładunek, aby odepchnąć tę istotę o dodatkowe 10 stóp, powalić ją {@condition prone} lub jedno i drugie."
     ],
     "weight": "6 funtów",
     "attunement": "Wymaga zestrojenia",
@@ -11346,13 +11346,13 @@
         ]
       }
     ],
-    "weight": "65 funtów",
+    "weight": "",
     "attunement": "Wymaga zestrojenia",
     "type": "Wariant ogólny",
     "rarity": "Bardzo rzadka",
     "value": "",
     "damage": "",
-    "ac": "18",
+    "ac": "",
     "properties": "",
     "gallery": [
       {
@@ -14057,15 +14057,15 @@
   "dwarven-plate": {
     "name": "Krasnoludzka Płyta",
     "entries": [
-      "Nosząc tę ​​zbroję, zyskujesz premię {=bonusAc} do {@variantrule Armor Class|XPHB}. Ponadto, jeśli efekt przesunie Cię wbrew Twojej woli po ziemi, możesz użyć {@variantrule Reaction|XPHB}, aby zmniejszyć odległość, na którą jesteś przenoszony nawet o 3 metry."
+      "Nosząc tę ​​zbroję, zyskujesz premię {=bonusAc} do {@variantrule Armor Class|XPHB}. Ponadto, jeśli efekt przesunie Cię wbrew Twojej woli po ziemi, możesz użyć {@variantrule Reaction|XPHB}, aby zmniejszyć odległość, na którą jesteś przenoszony nawet o 10 stóp."
     ],
-    "weight": "65 funtów",
+    "weight": "",
     "type": "Wariant ogólny",
     "rarity": "Bardzo rzadka",
     "attunement": "",
     "value": "",
     "damage": "",
-    "ac": "18",
+    "ac": "",
     "properties": "",
     "gallery": [
       {
@@ -14094,7 +14094,7 @@
         "rarity": "bardzo rzadkie",
         "bonusAc": "+2",
         "entries": [
-          "Nosząc tę ​​zbroję, zyskujesz premię {=bonusAc} do {@variantrule Armor Class|XPHB}. Ponadto, jeśli efekt przesunie Cię wbrew Twojej woli po ziemi, możesz użyć {@variantrule Reaction|XPHB}, aby zmniejszyć odległość, na którą jesteś przenoszony nawet o 3 metry."
+          "Nosząc tę ​​zbroję, zyskujesz premię {=bonusAc} do {@variantrule Armor Class|XPHB}. Ponadto, jeśli efekt przesunie Cię wbrew Twojej woli po ziemi, możesz użyć {@variantrule Reaction|XPHB}, aby zmniejszyć odległość, na którą jesteś przenoszony nawet o 10 stóp."
         ],
         "lootTables": [
           "Uzbrojenie - bardzo rzadkie|XDMG"
@@ -14350,13 +14350,13 @@
     "entries": [
       "Nosząc tę ​​zbroję, zyskujesz premię {=bonusAc} do {@variantrule Armor Class|XPHB}, masz {@variantrule Immunity|XPHB} do obrażeń od Ognia i znasz Pierwotność. Ponadto możesz stać i poruszać się po stopionej skale, jakby była to stały grunt."
     ],
-    "weight": "55 funtów",
+    "weight": "",
     "attunement": "Wymaga zestrojenia",
     "type": "Wariant ogólny",
     "rarity": "Legendarna",
     "value": "",
     "damage": "",
-    "ac": "16",
+    "ac": "",
     "properties": "",
     "gallery": [
       {
@@ -14707,13 +14707,13 @@
     "entries": [
       "Nosząc tę ​​zbroję, zyskujesz premię {=bonusAc} do {@variantrule Armor Class|XPHB}. Uważa się, że jesteś wyszkolony w tej zbroi, nawet jeśli nie masz przeszkolenia w średnim lub ciężkim zbroi."
     ],
-    "weight": "20 funtów",
+    "weight": "",
     "type": "Wariant ogólny",
     "rarity": "Rzadka",
     "attunement": "",
     "value": "",
     "damage": "",
-    "ac": "13",
+    "ac": "",
     "properties": "",
     "gallery": [
       {
@@ -17729,9 +17729,9 @@
         ]
       }
     ],
-    "weight": "10 funtów",
+    "weight": "",
     "properties": "",
-    "damage": "2k6 obuchowe",
+    "damage": "",
     "type": "Wariant ogólny",
     "rarity": "Legendarna",
     "attunement": "",
@@ -22731,7 +22731,7 @@
         "entries": [
           "Wprowadzając konkretną sekwencję pociągnięć dźwigni i naciśnięć przycisków, dwaj członkowie załogi sługi mogą sprawić, że eksploduje. Kod samozniszczenia nie jest ujawniany członkom załogi, gdy dostrajają się do artefaktu. Jeśli kod zostanie odkryty (MG określa jak), wymaga to, by dwóch dostrojonych członków załogi znajdowało się wewnątrz sługi i poświęciło swoje akcje przez 3 kolejne rundy na wykonywanie rozkazu. Jeśli jednak członkowie załogi zaczną proces wprowadzania kodu, sługa używa swojej właściwości Duch w Maszynie i zwraca członków załogi przeciwko sobie.",
           "Jeśli członkowie załogi pomyślnie wprowadzą kod, na koniec trzeciej rundy sługa eksploduje. Każdy stwór w 100-stopowej promieniowej kuli wyśrodkowanej na słudze musi wykonać rzut obronny Zręczności o {@dc 25}. Przy nieudanym rzucie stwór otrzymuje 87 ({@damage 25d6}) obrażeń od mocy, 87 ({@damage 25d6}) obrażeń od pioruna i 87 ({@damage 25d6}) obrażeń od gromu. Przy udanym rzucie stwór otrzymuje połowę obrażeń. Przedmioty i konstrukcje w tym obszarze otrzymują potrójne obrażenia. Stwory wewnątrz sługi giną natychmiast, nie pozostawiając żadnych szczątków.",
-          "Nie niszczy to sługi na stałe. Zamiast tego, {@dice 2d6} dni później, jego części - lewe ramię, lewa noga, prawe ramię, prawa noga, dolny tors i górny tors - spadają z nieba w losowych miejscach w promieniu 1000 mil od eksplozji. Jeśli zostaną przyniesione w promieniu 5 stóp od siebie, kawałki ponownie się łączą i odtwarzają sługę."
+          "Nie niszczy to sługi na stałe. Zamiast tego, {@dice 2d6} dni później, jego części - lewe ramię, lewa noga, prawe ramię, prawa noga, dolny tors i górny tors - spadają z nieba w losowych miejscach w promieniu 1,000 mil od eksplozji. Jeśli zostaną przyniesione w promieniu 5 stóp od siebie, kawałki ponownie się łączą i odtwarzają sługę."
         ]
       },
       {
@@ -23279,7 +23279,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Księżycowe Ostrze to świadoma broń o Inteligencji 12, Mądrości 10 i Charyzmie 12. Ma słuch i zasięg {@sense Darkvision|XPHB} do 30 metrów. Jego charakter odpowiada charakterowi jego twórcy.",
+          "Księżycowe Ostrze to świadoma broń o Inteligencji 12, Mądrości 10 i Charyzmie 12. Ma słuch i zasięg {@sense Darkvision|XPHB} do 120 stóp. Jego charakter odpowiada charakterowi jego twórcy.",
           "Broń komunikuje się poprzez przekazywanie emocji, wywołując mrowienie w dłoni posiadacza, gdy chce przekazać coś, co wyczuła. Może komunikować się poprzez wizje lub sny, gdy posiadacz jest w transie lub śpi."
         ]
       },
@@ -23328,15 +23328,15 @@
           ],
           [
             "100",
-            "Możesz wykonać akcję {@action Magic|XPHB}, aby wyczarować widmową istotę przypominającą mrocznego elfa, jeśli jeszcze jej nie masz. Istota pojawia się w niezamieszkanym miejscu w promieniu 30 metrów od ciebie. Używa bloku statystyk {@creature Shadow|XMM} z tymi zmianami: jest Fej, ma neutralny charakter i nie tworzy nowych cieni. Kontrolujesz tę istotę, decydując o tym, jak działa i porusza się. Pozostaje dopóki nie spadnie do 0 {@variantrule Hit Points|XPHB} lub odrzucisz go jako akcję {@action Magic|XPHB}."
+            "Możesz wykonać akcję {@action Magic|XPHB}, aby wyczarować widmową istotę przypominającą mrocznego elfa, jeśli jeszcze jej nie masz. Istota pojawia się w niezamieszkanym miejscu w promieniu 120 stóp od ciebie. Używa bloku statystyk {@creature Shadow|XMM} z tymi zmianami: jest Fej, ma neutralny charakter i nie tworzy nowych cieni. Kontrolujesz tę istotę, decydując o tym, jak działa i porusza się. Pozostaje dopóki nie spadnie do 0 {@variantrule Hit Points|XPHB} lub odrzucisz go jako akcję {@action Magic|XPHB}."
           ]
         ]
       }
     ],
-    "weight": "3 funty",
+    "weight": "",
     "attunement": "Wymaga zestrojenia przez elfa lub półelfa nastawienia neutralnie dobrego",
     "properties": "",
-    "damage": "1k8 sieczne",
+    "damage": "",
     "type": "Wariant ogólny",
     "rarity": "Legendarna",
     "value": "",
@@ -23395,7 +23395,7 @@
             "type": "entries",
             "name": "Wrażliwość",
             "entries": [
-              "Księżycowe Ostrze to świadoma broń o Inteligencji 12, Mądrości 10 i Charyzmie 12. Ma słuch i zasięg {@sense Darkvision|XPHB} do 30 metrów. Jego charakter odpowiada charakterowi jego twórcy.",
+              "Księżycowe Ostrze to świadoma broń o Inteligencji 12, Mądrości 10 i Charyzmie 12. Ma słuch i zasięg {@sense Darkvision|XPHB} do 120 stóp. Jego charakter odpowiada charakterowi jego twórcy.",
               "Broń komunikuje się poprzez przekazywanie emocji, wywołując mrowienie w dłoni posiadacza, gdy chce przekazać coś, co wyczuła. Może komunikować się poprzez wizje lub sny, gdy posiadacz jest w transie lub śpi."
             ]
           },
@@ -23444,7 +23444,7 @@
               ],
               [
                 "100",
-                "Możesz wykonać akcję {@action Magic|XPHB}, aby wyczarować widmową istotę przypominającą mrocznego elfa, jeśli jeszcze jej nie masz. Istota pojawia się w niezamieszkanym miejscu w promieniu 30 metrów od ciebie. Używa bloku statystyk {@creature Shadow|XMM} z tymi zmianami: jest Fej, ma neutralny charakter i nie tworzy nowych cieni. Kontrolujesz tę istotę, decydując o tym, jak działa i porusza się. Pozostaje dopóki nie spadnie do 0 {@variantrule Hit Points|XPHB} lub odrzucisz go jako akcję {@action Magic|XPHB}."
+                "Możesz wykonać akcję {@action Magic|XPHB}, aby wyczarować widmową istotę przypominającą mrocznego elfa, jeśli jeszcze jej nie masz. Istota pojawia się w niezamieszkanym miejscu w promieniu 120 stóp od ciebie. Używa bloku statystyk {@creature Shadow|XMM} z tymi zmianami: jest Fej, ma neutralny charakter i nie tworzy nowych cieni. Kontrolujesz tę istotę, decydując o tym, jak działa i porusza się. Pozostaje dopóki nie spadnie do 0 {@variantrule Hit Points|XPHB} lub odrzucisz go jako akcję {@action Magic|XPHB}."
               ]
             ]
           }
@@ -24033,10 +24033,10 @@
       "Kiedy wykonujesz rzut ataku dystansowego tą bronią przeciwko swojemu zaprzysiężonemu wrogowi, w rzucie masz {@variantrule Advantage|XPHB}. Dodatkowo, twój cel nie zyskuje żadnych korzyści z {@variantrule Cover|XPHB|Pół okładka} lub {@variantrule Cover|XPHB|Okładka Trzy czwarte}, a ty nie otrzymujesz {@variantrule Disadvantage|XPHB} z powodu dużego zasięgu. Jeśli atak trafi, twój zaprzysiężony wróg otrzyma dodatkowe obrażenia kłute {@damage 3d6}.",
       "Dopóki twój zaprzysiężony wróg żyje, masz {@variantrule Disadvantage|XPHB} w testach ataku z każdą inną bronią."
     ],
-    "weight": "2 funty",
+    "weight": "",
     "attunement": "Wymaga zestrojenia",
     "properties": "",
-    "damage": "1k8 kłute",
+    "damage": "",
     "type": "Wariant ogólny",
     "rarity": "Bardzo rzadka",
     "value": "",
@@ -26806,7 +26806,7 @@
     "rarity": "Pospolita",
     "attunement": "",
     "weight": "",
-    "value": "",
+    "value": "0 gp",
     "damage": "",
     "ac": "",
     "properties": "",
@@ -29721,7 +29721,7 @@
           ],
           [
             "6",
-              "Oprawiony w skórę zbiór poezji kalashtarskiej zwany {@i Odłamkami Światła}"
+            "Oprawiony w skórę zbiór poezji kalashtarskiej zwany {@i Odłamkami Światła}"
           ],
           [
             "7",
@@ -40126,7 +40126,7 @@
     "name": "Kula Kryształowa Prawdziwego Widzenia",
     "entries": [
       "Ta {@item crystal ball} ma około 6 cali średnicy. Dotykając jej, możesz rzucić nią zaklęcie {@spell scrying} (rzut obronny {@dc 17}).",
-      "Podczas gdy {@spell scrying} z {@item crystal ball}, masz {@sense truesight} o promieniu 30 metrów wyśrodkowanym na czujniku zaklęcia."
+      "Podczas gdy {@spell scrying} z {@item crystal ball}, masz {@sense truesight} o promieniu 120 stóp wyśrodkowanym na czujniku zaklęcia."
     ],
     "weight": "3 funty",
     "attunement": "Wymaga zestrojenia",
@@ -41057,7 +41057,7 @@
         "type": "entries",
         "name": "Czaszka",
         "entries": [
-          "Przywołujesz {@creature avatar of death|DMG} - upiorny humanoidalny szkielet ubrany w podartą czarną szatę i niosący widmową kosę. Pojawia się na wybranym przez DM obszarze w promieniu 3 metrów od ciebie i atakuje cię, ostrzegając wszystkich innych, że musisz wygrać bitwę sam. Awatar walczy aż do twojej śmierci lub gdy jego punkty wytrzymałości spadną do 0, po czym znikają. Jeśli ktoś spróbuje Ci pomóc, pomocnik przyzywa własnego {@creature avatar of death|DMG}. Stworzenia zabitego przez {@creature avatar of death|DMG} nie można przywrócić do życia."
+          "Przywołujesz {@creature avatar of death|DMG} - upiorny humanoidalny szkielet ubrany w podartą czarną szatę i niosący widmową kosę. Pojawia się na wybranym przez DM obszarze w promieniu 10 stóp od ciebie i atakuje cię, ostrzegając wszystkich innych, że musisz wygrać bitwę sam. Awatar walczy aż do twojej śmierci lub gdy jego punkty wytrzymałości spadną do 0, po czym znikają. Jeśli ktoś spróbuje Ci pomóc, pomocnik przyzywa własnego {@creature avatar of death|DMG}. Stworzenia zabitego przez {@creature avatar of death|DMG} nie można przywrócić do życia."
         ]
       },
       {
@@ -44872,7 +44872,7 @@
     "entries": [
       "Musisz mieć biegłość w instrumentach dętych, by ich używać. Dopóki jesteś ze strojony z tymi fujarkami, zwykłe szczury i olbrzymie szczury są ci obojętne i nie zaatakują cię, chyba że im zagrozisz lub je skrzywdzisz.",
       "Fujarki mają 3 ładunki. Jeśli zagrasz na fujarkach jako akcję, możesz użyć akcji dodatkowej, by wydać od 1 do 3 ładunków, przyzywając jedno {@creature swarm of rats} za każdy wydany ładunek, o ile wystarczająco dużo szczurów znajduje się w promieniu pół mili od ciebie, by mogły zostać w ten sposób przyzwane (określone przez MG). Jeśli nie ma wystarczająco szczurów, by utworzyć stado, ładunek zostaje zmarnowany. Przyzwane stada poruszają się w stronę muzyki najkrótszą dostępną drogą, ale poza tym nie są pod twoją kontrolą. Fujarki odzyskują {@dice 1d3} zużytych ładunków każdego dnia o świcie.",
-      "Ilekroć {@creature swarm of rats}, który nie jest pod kontrolą innego stworzenia, zbliży się do ciebie na odległość mniejszą niż 9 metrów podczas gry na fajkach, możesz wykonać test Charyzmy, który zostaje zakwestionowany przez test Mądrości roju. Jeśli przegrasz konkurs, rój będzie zachowywał się normalnie i przez następne 24 godziny nie będzie mógł wpłynąć na muzykę dud. Jeśli wygrasz konkurs, rój ulegnie wpływowi muzyki na fajkach i stanie się przyjazny dla Ciebie i Twoich towarzyszy tak długo, jak będziesz grać na piszczałkach w każdej rundzie w ramach akcji. Przyjazny rój wykonuje Twoje polecenia. Jeśli nie wydasz żadnych poleceń przyjaznemu rojowi, będzie się on bronił, ale poza tym nie podejmie żadnych działań. Jeśli przyjazny rój rozpocznie swoją turę i nie będzie słyszał muzyki z rur, twoja kontrola nad tym rojem wygaśnie, a rój będzie zachowywał się normalnie i nie będzie mógł wpływać na muzykę piszczałek przez następne 24 godziny."
+      "Ilekroć {@creature swarm of rats}, który nie jest pod kontrolą innego stworzenia, zbliży się do ciebie na odległość mniejszą niż 30 stóp podczas gry na fajkach, możesz wykonać test Charyzmy, który zostaje zakwestionowany przez test Mądrości roju. Jeśli przegrasz konkurs, rój będzie zachowywał się normalnie i przez następne 24 godziny nie będzie mógł wpłynąć na muzykę dud. Jeśli wygrasz konkurs, rój ulegnie wpływowi muzyki na fajkach i stanie się przyjazny dla Ciebie i Twoich towarzyszy tak długo, jak będziesz grać na piszczałkach w każdej rundzie w ramach akcji. Przyjazny rój wykonuje Twoje polecenia. Jeśli nie wydasz żadnych poleceń przyjaznemu rojowi, będzie się on bronił, ale poza tym nie podejmie żadnych działań. Jeśli przyjazny rój rozpocznie swoją turę i nie będzie słyszał muzyki z rur, twoja kontrola nad tym rojem wygaśnie, a rój będzie zachowywał się normalnie i nie będzie mógł wpływać na muzykę piszczałek przez następne 24 godziny."
     ],
     "weight": "2 funty",
     "attunement": "Wymaga zestrojenia",
@@ -45460,7 +45460,7 @@
         "type": "entries",
         "entries": [
           "Możesz wykonać akcję, by rzucić żetonem w punkt w promieniu 10 stóp od siebie. Żeton znika, a na jego miejscu pojawia się unoszący się bicz. Możesz następnie wykonać akcję dodatkową, by przeprowadzić atak zaklęciem w zwarciu przeciwko stworowi w promieniu 10 stóp od bicza, z premią do ataku {@hit 9}. Przy trafieniu cel otrzymuje {@damage 1d6 + 5} obrażeń od mocy.",
-          "Jako dodatkową akcję w swojej turze możesz skierować bicz tak, aby poleciał na odległość do 20 stóp i powtórzyć atak przeciwko stworzeniu w promieniu 3 metrów od niego. Bicz znika po 1 godzinie, gdy użyjesz akcji, aby go odrzucić, gdy osiągniesz poziom {@condition incapacitated} lub zginiesz."
+          "Jako dodatkową akcję w swojej turze możesz skierować bicz tak, aby poleciał na odległość do 20 stóp i powtórzyć atak przeciwko stworzeniu w promieniu 10 stóp od niego. Bicz znika po 1 godzinie, gdy użyjesz akcji, aby go odrzucić, gdy osiągniesz poziom {@condition incapacitated} lub zginiesz."
         ]
       }
     ],
@@ -45579,7 +45579,7 @@
   "ring-of-djinni-summoning-dmg": {
     "name": "Pierścień Przywołania Dżina",
     "entries": [
-      "Nosząc ten pierścień, możesz wypowiedzieć jego słowo rozkazowe w ramach akcji przywołującej konkretnego {@creature djinni} z Planu Żywiołu Powietrza. {@creature djinni} pojawia się w wybranej przez Ciebie wolnej przestrzeni w promieniu 30 metrów od Ciebie. Pozostaje tak długo, jak się skoncentrujesz (jakbyś {@status concentration||koncentrując się} na zaklęciu) maksymalnie do 1 godziny lub do momentu, gdy spadnie do 0 punktów wytrzymałości. Następnie wraca do swojej płaszczyzny macierzystej.",
+      "Nosząc ten pierścień, możesz wypowiedzieć jego słowo rozkazowe w ramach akcji przywołującej konkretnego {@creature djinni} z Planu Żywiołu Powietrza. {@creature djinni} pojawia się w wybranej przez Ciebie wolnej przestrzeni w promieniu 120 stóp od Ciebie. Pozostaje tak długo, jak się skoncentrujesz (jakbyś {@status concentration||koncentrując się} na zaklęciu) maksymalnie do 1 godziny lub do momentu, gdy spadnie do 0 punktów wytrzymałości. Następnie wraca do swojej płaszczyzny macierzystej.",
       "Przyzwany {@creature djinni} jest przyjazny dla Ciebie i Twoich towarzyszy. Jest posłuszny każdemu poleceniu, jakie mu wydasz, bez względu na to, jakiego języka użyjesz. Jeśli nie wydasz tego polecenia, {@creature djinni} broni się przed atakującymi, ale nie podejmuje żadnych innych działań.",
       "Po odejściu {@creature djinni} nie można go ponownie przywołać przez 24 godziny, a pierścień staje się niemagiczny, jeśli {@creature djinni} umrze."
     ],
@@ -45889,8 +45889,8 @@
         "type": "list",
         "items": [
           "Szata pozwala ci widzieć we wszystkich kierunkach, i masz przewagę na testach Mądrości ({@skill Perception}) polegających na wzroku.",
-          "Masz {@sense darkvision} o zasięgu 30 metrów.",
-          "Możesz zobaczyć stworzenia i przedmioty {@condition invisible}, a także zajrzeć do Planu Eterycznego na odległość 30 metrów."
+          "Masz {@sense darkvision} o zasięgu 120 stóp.",
+          "Możesz zobaczyć stworzenia i przedmioty {@condition invisible}, a także zajrzeć do Planu Eterycznego na odległość 120 stóp."
         ]
       },
       "Oczu na szacie nie da się zamknąć ani odwrócić. Choć możesz zamknąć lub odwrócić własne oczy, nigdy nie jest uznawane, że to robisz, nosząc tę szatę.",
@@ -47026,7 +47026,7 @@
         "name": "Świadomość",
         "type": "entries",
         "entries": [
-          "Miecz Kasa jest świadomą, chaotyczną, złą bronią o Inteligencji 15, Mądrości 13 i Charyzmie 16. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Miecz Kasa jest świadomą, chaotyczną, złą bronią o Inteligencji 15, Mądrości 13 i Charyzmie 16. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim władającym i potrafi mówić, czytać i rozumieć Wspólną Mowę."
         ]
       },
@@ -47070,7 +47070,7 @@
   "talisman-of-the-sphere-dmg": {
     "name": "Talizman Sfery",
     "entries": [
-      "Kiedy wykonujesz test Inteligencji ({@skill Arcana}), aby kontrolować {@item sphere of annihilation}, trzymając ten talizman, podwajasz swoją premię za biegłość wynikającą z testu. Dodatkowo, gdy zaczynasz swoją turę przejmując kontrolę nad {@item sphere of annihilation}, możesz użyć akcji, aby unieść go na odległość 3 metrów plus liczba dodatkowych stóp równa 10 × twój modyfikator Inteligencji."
+      "Kiedy wykonujesz test Inteligencji ({@skill Arcana}), aby kontrolować {@item sphere of annihilation}, trzymając ten talizman, podwajasz swoją premię za biegłość wynikającą z testu. Dodatkowo, gdy zaczynasz swoją turę przejmując kontrolę nad {@item sphere of annihilation}, możesz użyć akcji, aby unieść go na odległość 10 stóp plus liczba dodatkowych stóp równa 10 × twój modyfikator Inteligencji."
     ],
     "weight": "1 funt",
     "attunement": "Wymaga zestrojenia",
@@ -48340,7 +48340,7 @@
         "name": "Świadomość",
         "type": "entries",
         "entries": [
-          "Różdżka Orkusa to świadomy, chaotyczny, zły przedmiot o Inteligencji 16, Mądrości 12 i Charyzmie 16. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Różdżka Orkusa to świadomy, chaotyczny, zły przedmiot o Inteligencji 16, Mądrości 12 i Charyzmie 16. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Różdżka komunikuje się telepatycznie ze swoim władającym i potrafi mówić, czytać i rozumieć Otchłanny i Wspólną Mowę."
         ]
       },
@@ -48570,7 +48570,7 @@
         "name": "Świadomość",
         "type": "entries",
         "entries": [
-          "Fala jest świadomą bronią o neutralnym charakterze, z Inteligencją 14, Mądrością 10 i Charyzmą 18. Ma słuch i {@sense darkvision} w zasięgu 30 metrów.",
+          "Fala jest świadomą bronią o neutralnym charakterze, z Inteligencją 14, Mądrością 10 i Charyzmą 18. Ma słuch i {@sense darkvision} w zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim władającym i potrafi mówić, czytać i rozumieć Wodny. Potrafi też rozmawiać ze zwierzętami wodnymi, tak jakby korzystała z zaklęcia {@spell speak with animals}, wykorzystując telepatię, by włączyć swojego władającego w rozmowę."
         ]
       },
@@ -48632,7 +48632,7 @@
         "name": "Świadomość",
         "type": "entries",
         "entries": [
-          "Whelm jest świadomą, legalną bronią neutralną o Inteligencji 15, Mądrości 12 i Charyzmy 15. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Whelm jest świadomą, legalną bronią neutralną o Inteligencji 15, Mądrości 12 i Charyzmy 15. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim władającym i potrafi mówić, czytać i rozumieć Krasnoludzki, Olbrzymi i Goblinoidzki. Wykrzykuje okrzyki bojowe po krasnoludzku, gdy jest używana w walce."
         ]
       },
@@ -51478,7 +51478,7 @@
         "type": "entries",
         "name": "Czaszka",
         "entries": [
-          "Przywołujesz awatara śmierci - mechaniczny szkielet (użyj statystyk kościanych nag) ubrany w podartą czarną szatę. Pojawia się na wybranym przez DM obszarze w promieniu 3 metrów od ciebie i atakuje cię, ostrzegając wszystkich innych, że musisz wygrać bitwę sam. Awatar walczy aż do twojej śmierci lub gdy jego punkty wytrzymałości spadną do 0, po czym znikają. Jeśli ktoś spróbuje ci pomóc, pomocnik przywołuje własnego awatara śmierci. Stworzenia zabitego przez awatara śmierci nie można przywrócić do życia."
+          "Przywołujesz awatara śmierci - mechaniczny szkielet (użyj statystyk kościanych nag) ubrany w podartą czarną szatę. Pojawia się na wybranym przez DM obszarze w promieniu 10 stóp od ciebie i atakuje cię, ostrzegając wszystkich innych, że musisz wygrać bitwę sam. Awatar walczy aż do twojej śmierci lub gdy jego punkty wytrzymałości spadną do 0, po czym znikają. Jeśli ktoś spróbuje ci pomóc, pomocnik przywołuje własnego awatara śmierci. Stworzenia zabitego przez awatara śmierci nie można przywrócić do życia."
         ]
       },
       {
@@ -51633,7 +51633,7 @@
     "name": "Dwunastościan zagłady",
     "entries": [
       "Ta dwunastościenna metalowa kostka ma średnicę 12 cali i ma wygrawerowane cyfry od 1 do 12 na jej pięciokątnych bokach. Dwunastościan zawiera tajemnicze mechanizmy zegarowe, które wirują i klikają za każdym razem, gdy rzucona zostanie kostka.",
-      "W ramach akcji dwunastościan można rzucić na odległość do 60 stóp. Losowy efekt magiczny pojawia się, gdy kość zatrzymuje się po przetoczeniu się po ziemi na odległość co najmniej 3 metrów. Jeśli efekt wymaga celu, a w jego zasięgu nie ma żadnego kwalifikującego się celu, nic się nie dzieje. Zaklęcia rzucane przez dwunastościan nie wymagają żadnych komponentów. Rzuć {@dice d12} i zapoznaj się z poniższą tabelą, aby określić efekt:",
+      "W ramach akcji dwunastościan można rzucić na odległość do 60 stóp. Losowy efekt magiczny pojawia się, gdy kość zatrzymuje się po przetoczeniu się po ziemi na odległość co najmniej 10 stóp. Jeśli efekt wymaga celu, a w jego zasięgu nie ma żadnego kwalifikującego się celu, nic się nie dzieje. Zaklęcia rzucane przez dwunastościan nie wymagają żadnych komponentów. Rzuć {@dice d12} i zapoznaj się z poniższą tabelą, aby określić efekt:",
       {
         "type": "table",
         "colLabels": [
@@ -51647,7 +51647,7 @@
         "rows": [
           [
             "1-2",
-            "Dwunastościan eksploduje i ulega zniszczeniu. Każda istota w promieniu 6 metrów od eksplodującej kości musi wykonać rzut obronny na Zręczność {@dc 13}, otrzymując 40 ({@damage 9d8}) obrażeń od mocy przy nieudanym rzucie lub połowę obrażeń przy udanym."
+            "Dwunastościan eksploduje i ulega zniszczeniu. Każda istota w promieniu 20 stóp od eksplodującej kości musi wykonać rzut obronny na Zręczność {@dc 13}, otrzymując 40 ({@damage 9d8}) obrażeń od mocy przy nieudanym rzucie lub połowę obrażeń przy udanym."
           ],
           [
             "3-4",
@@ -51791,7 +51791,7 @@
     "weaponCategory": "wojenny",
     "name": "Długi miecz wyczuwający smoka",
     "entries": [
-      "Ten długi miecz +1 jest wykonany ze smoczej kości i ma rękojeść ze smoczej skóry. Ma rubiny na głowicy i rękojeści. Miecz nagrzewa się, a rubiny lekko świecą, gdy miecz znajduje się w odległości mniejszej niż 30 metrów od smoka."
+      "Ten długi miecz +1 jest wykonany ze smoczej kości i ma rękojeść ze smoczej skóry. Ma rubiny na głowicy i rękojeści. Miecz nagrzewa się, a rubiny lekko świecą, gdy miecz znajduje się w odległości mniejszej niż 120 stóp od smoka."
     ]
   },
   "dragon-thighbone-club": {
@@ -52215,7 +52215,7 @@
     ],
     "name": "Fargab",
     "entries": [
-      "Te urządzenia wielkości plecaka są tworzone parami i mają wygrawerowane pasujące numery. Umożliwiają komunikację na duże odległości za pomocą częstotliwości radiowych. Nosząc fargab, możesz wykonać akcję, aby mówić do ustnika urządzenia i wysłać krótką wiadomość składającą się z maksymalnie dwudziestu pięciu słów do innego stworzenia noszącego pasującą fargab, gdy znajduje się ono w promieniu 28 mil od ciebie. Komunikat jest emitowany przez głośniki urządzenia i można go usłyszeć w odległości do 3 metrów od urządzenia. Jeśli żadne stworzenie nie nosi fargaba, zamiast tego głośniki wydają statyczne dźwięki."
+      "Te urządzenia wielkości plecaka są tworzone parami i mają wygrawerowane pasujące numery. Umożliwiają komunikację na duże odległości za pomocą częstotliwości radiowych. Nosząc fargab, możesz wykonać akcję, aby mówić do ustnika urządzenia i wysłać krótką wiadomość składającą się z maksymalnie dwudziestu pięciu słów do innego stworzenia noszącego pasującą fargab, gdy znajduje się ono w promieniu 18 mil od ciebie. Komunikat jest emitowany przez głośniki urządzenia i można go usłyszeć w odległości do 10 stóp od urządzenia. Jeśli żadne stworzenie nie nosi fargaba, zamiast tego głośniki wydają statyczne dźwięki."
     ]
   },
   "feather-of-diatryma-summoning": {
@@ -52361,7 +52361,7 @@
           ],
           [
             "24",
-             "Czaszka Chochlika pokryta atramentowymi odciskami palców"
+            "Czaszka Chochlika pokryta atramentowymi odciskami palców"
           ],
           [
             "25",
@@ -52401,7 +52401,7 @@
           ],
           [
             "34",
-          "Fałszywa karta Three-Dragon Ante przedstawiająca wróżkowego smoka"
+            "Fałszywa karta Three-Dragon Ante przedstawiająca wróżkowego smoka"
           ],
           [
             "35",
@@ -52755,7 +52755,7 @@
         "type": "entries",
         "name": "Rozbić się",
         "entries": [
-          "Jeśli hełm latającej cytadeli zostanie zniszczony, cytadela, na której jest zainstalowany, traci moc i zaczyna się rozpadać. Jeśli rozpadająca się cytadela znajduje się w powietrzu, opada z prędkością 30 stóp na rundę, czyli 300 stóp na minutę. Każda istota znajdująca się na cytadeli lub na ziemi w promieniu 30 metrów od cytadeli po wylądowaniu musi wykonać rzut obronny na Zręczność {@dc 20}, otrzymując 39 ({@damage 6d12}) obrażeń obuchowych przy nieudanym rzucie lub połowę obrażeń przy udanym."
+          "Jeśli hełm latającej cytadeli zostanie zniszczony, cytadela, na której jest zainstalowany, traci moc i zaczyna się rozpadać. Jeśli rozpadająca się cytadela znajduje się w powietrzu, opada z prędkością 30 stóp na rundę, czyli 300 stóp na minutę. Każda istota znajdująca się na cytadeli lub na ziemi w promieniu 120 stóp od cytadeli po wylądowaniu musi wykonać rzut obronny na Zręczność {@dc 20}, otrzymując 39 ({@damage 6d12}) obrażeń obuchowych przy nieudanym rzucie lub połowę obrażeń przy udanym."
         ]
       }
     ]
@@ -52885,7 +52885,7 @@
     "entries": [
       "Wewnątrz tej latarni uwięziony jest niespokojny duch. Trzymając latarnię, możesz nakazać duchowi jako akcję dodatkową, aby rzucił jasne światło w promieniu 30 stóp i przyćmione światło na dodatkowe 30 stóp.",
       "Trzymając latarnię, możesz wykonać akcję, aby nakazać duchowi opuścić latarnię i powielić efekt zaklęcia {@spell mage hand}. Po zakończeniu zaklęcia duch powraca do latarni.",
-      "Jeśli upadniesz {@condition unconscious} w promieniu 3 metrów od latarni, duch wynurzy się z niej, magicznie ustabilizuje cię dotykiem, a następnie szybko wróci do latarni.",
+      "Jeśli upadniesz {@condition unconscious} w promieniu 10 stóp od latarni, duch wynurzy się z niej, magicznie ustabilizuje cię dotykiem, a następnie szybko wróci do latarni.",
       "Duch jest przywiązany do latarni i nie można go skrzywdzić, zamienić ani wskrzesić z martwych.",
       "Rzucenie zaklęcia {@spell dispel evil and good} na latarnię uwalnia ducha do zaświatów i sprawia, że ​​latarnia staje się niemagiczna."
     ]
@@ -52924,7 +52924,7 @@
     "name": "Granat Gnomengarde",
     "entries": [
       "Ten mały metalowy przedmiot składa się z części pokrytych runami, wykonanych z różnych metali, połączonych ze sobą różnymi zębatkami, opaskami, kawałkami i bobami. Metale mają różne kolory, dzięki czemu granat błyszczy tęczą kolorów, gdy trzymany jest w świetle.",
-      "Jako akcja dodatkowa, istota może obrócić specjalny klucz, aby uzbroić granat. Po uzbrojeniu granat eksploduje w ciągu kilku sekund. W ramach akcji posiadacz może rzucić granat na odległość do 30 metrów. Na koniec ich tury granat eksploduje. Wszystkie istoty znajdujące się w promieniu 60 stóp od granatu w momencie jego eksplozji podlegają następującym efektom:",
+      "Jako akcja dodatkowa, istota może obrócić specjalny klucz, aby uzbroić granat. Po uzbrojeniu granat eksploduje w ciągu kilku sekund. W ramach akcji posiadacz może rzucić granat na odległość do 120 stóp. Na koniec ich tury granat eksploduje. Wszystkie istoty znajdujące się w promieniu 60 stóp od granatu w momencie jego eksplozji podlegają następującym efektom:",
       {
         "type": "list",
         "items": [
@@ -53080,7 +53080,7 @@
     ],
     "entries": [
       "Wykonana z gałęzi drzewa Gulthias (patrz wpis {@creature twig blight||zarazy} w Księdze Potworów), laska Gulthiasa jest gąbczastym, czarnym kawałkiem drewna. Jego zło sprawia, że ​​zwierzęta w promieniu 30 stóp od niego wyraźnie czują się nieswojo. Kostur ma 10 ładunków i codziennie o zmierzchu odzyskuje {@dice 1d6 + 4} z wydanych ładunków.",
-      "Jeśli laska zostanie złamana lub spalona na popiół, jej drewno wydaje straszny, nieludzki krzyk, który można usłyszeć w promieniu 90 metrów. Wszystkie zarazy, które słyszą krzyk, natychmiast więdną i umierają.",
+      "Jeśli laska zostanie złamana lub spalona na popiół, jej drewno wydaje straszny, nieludzki krzyk, który można usłyszeć w promieniu 300 stóp. Wszystkie zarazy, które słyszą krzyk, natychmiast więdną i umierają.",
       {
         "name": "Wampiryczne Uderzenie",
         "type": "entries",
@@ -53251,7 +53251,7 @@
     ],
     "entries": [
       "Ten nieporęczny hełm bez oczu jest przeznaczony dla {@creature pit fiend}, ale w magiczny sposób zmienia rozmiar, aby dopasować się do głów innych użytkowników.",
-      "Nosząc hełm, możesz przez niego widzieć tak, jakbyś go nie nosił. Ponadto znasz dokładną lokalizację i rodzaj wszystkich diabłów w promieniu 300 metrów od ciebie. Możesz telepatycznie komunikować się z diabłem w zasięgu lub możesz przesyłać swoje myśli do wszystkich diabłów w zasięgu. Diabły otrzymujące twoje transmitowane myśli nie mają specjalnych możliwości, aby na nie odpowiedzieć.",
+      "Nosząc hełm, możesz przez niego widzieć tak, jakbyś go nie nosił. Ponadto znasz dokładną lokalizację i rodzaj wszystkich diabłów w promieniu 1,000 stóp od ciebie. Możesz telepatycznie komunikować się z diabłem w zasięgu lub możesz przesyłać swoje myśli do wszystkich diabłów w zasięgu. Diabły otrzymujące twoje transmitowane myśli nie mają specjalnych możliwości, aby na nie odpowiedzieć.",
       "Hełm posiada 3 ładunki. W ramach akcji możesz wydać 1 ładunek, aby rzucić {@spell dominate monster} (zapisz {@dc 21}), co działa tylko na diabły. (Zaklęcie zawiedzie, a ładunek zostanie zmarnowany, jeśli obierzesz za cel jakiekolwiek stworzenie, które nie jest diabłem.) Jeśli diabeł widzi cię, gdy rzucisz na nie to zaklęcie, diabeł wie, że próbowałeś go oczarować. Hełm odzyskuje wszystkie ładunki po 24 godzinach od wyczerpania ostatniego ładunku.",
       "Jeśli nie jesteś diabłem, użycie właściwości {@spell dominate monster} hełmu w Dziewięciu Piekłach ma szansę {@chance 20} na przyciągnięcie {@creature narzugon|MTF}, który pojawia się z tyłu wierzchowca {@creature nightmare} w ciągu godzin {@dice 1d4}. Narzugon próbuje odzyskać hełm, zabijając cię, jeśli to konieczne, aby go zdobyć. Jeśli zdobędzie hełm, narzugon spróbuje dostarczyć go swemu piekielnemu panu."
     ]
@@ -53411,7 +53411,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Heretic to świadoma, chaotyczna zła broń o inteligencji 17, mądrości 17 i charyzmie 15. Posiada słuch i {@sense darkvision} w zasięgu 30 metrów.",
+          "Heretic to świadoma, chaotyczna zła broń o inteligencji 17, mądrości 17 i charyzmie 15. Posiada słuch i {@sense darkvision} w zasięgu 120 stóp.",
           "Broń potrafi mówić, czytać i rozumieć zwyczajne i gigantyczne, a także może komunikować się telepatycznie ze swoim posiadaczem. Jego głos jest miękki i głęboki, ale wzmaga się w dzikiej furii, gdy jest świadomy obecności Niebiańskich lub czcicieli bóstw o ​​dobrym charakterze. Gdy się do tego dostroisz, Heretic rozumie także każdy język, który znasz."
         ]
       },
@@ -53467,7 +53467,7 @@
     "entries": [
       "Szereg eksperymentów Kwalisha było próbą zbadania dzieł legendarnego maga Hewarda, który jako pierwszy stworzył coś, co nazwał zbroją najemnika. Nosząc tę ​​zbroję, zyskujesz premię +1 do KP. Ponadto animowane paski zbroi mogą pomóc w dobyciu i schowaniu broni, dzięki czemu możesz wyciągnąć lub schować dwie bronie jednoręczne, podczas gdy normalnie możesz wyciągnąć lub schować tylko jedną.",
       "Ta zbroja ma również sześć kieszeni, z których każda jest przestrzenią pozawymiarową. Każda kieszeń może pomieścić do 20 funtów materiału, nie przekraczając objętości 2 stóp sześciennych. Pancerz zawsze waży 10 funtów, niezależnie od zawartości kieszeni. Umieszczenie przedmiotu w jednej z kieszeni pancerza podlega normalnym zasadom interakcji z obiektami. Wydobycie przedmiotu z kieszeni zbroi wymaga wykonania akcji. Kiedy sięgniesz do kieszeni po konkretny przedmiot, w magiczny sposób będzie on zawsze na wierzchu.",
-      "Umieszczenie zbroi w pozawymiarowej przestrzeni utworzonej przez {@item bag of holding}, {@item Heward's handy haversack} lub podobny przedmiot natychmiast niszczy oba przedmioty i otwiera bramę do Planu Astralnego. Brama powstaje tam, gdzie jeden przedmiot został umieszczony w drugim. Każde stworzenie znajdujące się w promieniu 3 metrów od bramy jest przez nią zasysane i umieszczane w losowym miejscu na Planie Astralnym. Następnie brama się zamyka. Brama jest jednokierunkowa i nie można jej ponownie otworzyć."
+      "Umieszczenie zbroi w pozawymiarowej przestrzeni utworzonej przez {@item bag of holding}, {@item Heward's handy haversack} lub podobny przedmiot natychmiast niszczy oba przedmioty i otwiera bramę do Planu Astralnego. Brama powstaje tam, gdzie jeden przedmiot został umieszczony w drugim. Każde stworzenie znajdujące się w promieniu 10 stóp od bramy jest przez nią zasysane i umieszczane w losowym miejscu na Planie Astralnym. Następnie brama się zamyka. Brama jest jednokierunkowa i nie można jej ponownie otworzyć."
     ]
   },
   "hither-thither-staff": {
@@ -53492,7 +53492,7 @@
     ],
     "entries": [
       "Ta laska ma na górze wspaniały kamień szlachetny. Ta laska ma 4 ładunki i codziennie o świcie odzyskuje wydane ładunki {@dice 1d4}.",
-      "W ramach akcji możesz wydać 1 ładunek laski, aby utworzyć dwa połączone portale teleportacyjne, każdy z nich pojawia się na wybranej przez ciebie płaskiej powierzchni, którą możesz zobaczyć w promieniu 450 metrów od ciebie. Alternatywnie możesz wydać 1 ładunek jako akcję przeniesienia jednego lub obu portali, z zastrzeżeniem tych samych ograniczeń. Powierzchnia, na której pojawia się portal, musi być na tyle duża, aby go pomieścić. Każdy portal to dwuwymiarowy, świecący owalny pierścień, który razem tworzy otwarte drzwi o wysokości do 6 stóp i szerokości 4 stóp. Każde stworzenie lub obiekt wchodzący do jednego portalu wychodzi z drugiego, tak jakby oba portale były pojedynczym otworem łączącym ich lokalizacje.",
+      "W ramach akcji możesz wydać 1 ładunek laski, aby utworzyć dwa połączone portale teleportacyjne, każdy z nich pojawia się na wybranej przez ciebie płaskiej powierzchni, którą możesz zobaczyć w promieniu 1,500 stóp od ciebie. Alternatywnie możesz wydać 1 ładunek jako akcję przeniesienia jednego lub obu portali, z zastrzeżeniem tych samych ograniczeń. Powierzchnia, na której pojawia się portal, musi być na tyle duża, aby go pomieścić. Każdy portal to dwuwymiarowy, świecący owalny pierścień, który razem tworzy otwarte drzwi o wysokości do 6 stóp i szerokości 4 stóp. Każde stworzenie lub obiekt wchodzący do jednego portalu wychodzi z drugiego, tak jakby oba portale były pojedynczym otworem łączącym ich lokalizacje.",
       "Portal może pojawić się na ruchomej powierzchni, ale efekt kończy się, gdy dwa portale odsuną się od siebie na więcej niż 1 milę. Jako dodatkową akcję, trzymając laskę, możesz zamknąć oba portale (kończąc efekt) lub zablokować jeden portal, powodując jego zniknięcie do czasu jego przeniesienia (patrz wyżej), w którym to czasie nie można korzystać z pozostałego portalu. W przeciwnym razie portale działają przez 24 godziny."
     ]
   },
@@ -53515,7 +53515,7 @@
       "Wydobycie przedmiotu z plecaka wymaga akcji {@action Utilize|XPHB} lub {@variantrule Bonus Action|XPHB} (twój wybór). Kiedy sięgniesz do chlebaka po konkretny przedmiot, w magiczny sposób przedmiot ten zawsze będzie na wierzchu.",
       "Jeśli którakolwiek z kieszeni zostanie przeciążona, przebita lub podarta, chleb pęknie i ulegnie zniszczeniu. Jeśli chleb zostanie zniszczony, jego zawartość przepadnie na zawsze, chociaż Artefakt zawsze gdzieś się ponownie pojawi. Jeśli chleb zostanie przewrócony na lewą stronę, jego zawartość wysypie się bez szwanku, a chleb należy odłożyć na miejsce, zanim będzie można go ponownie użyć.",
       "Każda kieszeń chlebaka mieści wystarczającą ilość powietrza na 10 minut oddychania, podzieloną przez liczbę oddychających stworzeń w środku.",
-      "Umieszczenie chlebaka w pozawymiarowej przestrzeni stworzonej przez {@item Bag of Holding|XDMG}, {@item Portable Hole|XDMG} lub podobny przedmiot natychmiast niszczy oba przedmioty i otwiera bramę do Planu Astralnego. Brama powstaje tam, gdzie jeden przedmiot został umieszczony w drugim. Każde stworzenie w promieniu 3 stóp od bramy i nie za {@variantrule Cover|XPHB|Całkowita osłona} zostaje przez nią wessane i umieszczone w losowym miejscu na Planie Astralnym. Następnie brama się zamyka. Brama jest jednokierunkowa i nie można jej ponownie otworzyć."
+      "Umieszczenie chlebaka w pozawymiarowej przestrzeni stworzonej przez {@item Bag of Holding|XDMG}, {@item Portable Hole|XDMG} lub podobny przedmiot natychmiast niszczy oba przedmioty i otwiera bramę do Planu Astralnego. Brama powstaje tam, gdzie jeden przedmiot został umieszczony w drugim. Każde stworzenie w promieniu 10 stóp od bramy i nie za {@variantrule Cover|XPHB|Całkowita osłona} zostaje przez nią wessane i umieszczone w losowym miejscu na Planie Astralnym. Następnie brama się zamyka. Brama jest jednokierunkowa i nie można jej ponownie otworzyć."
     ],
     "gallery": [
       {
@@ -53608,7 +53608,7 @@
           [
             "11-14",
             "Żółta w czarne paski",
-            "Po zdjęciu z haczyka tę okropnie smakującą rybę można rzucić na odległość do 30 metrów, celując w stworzenie widoczne dla rzucającego. Cel musi odnieść sukces w {@dc 15} rzucie obronnym na siłę lub zostać powalony {@condition prone}. Następnie ryba znika."
+            "Po zdjęciu z haczyka tę okropnie smakującą rybę można rzucić na odległość do 120 stóp, celując w stworzenie widoczne dla rzucającego. Cel musi odnieść sukces w {@dc 15} rzucie obronnym na siłę lub zostać powalony {@condition prone}. Następnie ryba znika."
           ],
           [
             "15-18",
@@ -53969,7 +53969,7 @@
               "Możesz użyć akcji, aby krzyknąć do pustego kotła, co magicznie przywołuje {@creature swarm of bats}, który wylatuje z kotła i działa natychmiast po tobie zgodnie z kolejnością inicjatywy. Rój wykonuje Twoje polecenia i znika po 1 minucie, jeśli do tego czasu nie zostanie zniszczony. Raz wykorzystanej właściwości kotła nie można użyć ponownie aż do następnego świtu.",
               "Jeśli do kotła wleje się co najmniej 1 galon krwi i miesza przez 1 minutę, zamienia się ona w chmurę nieszkodliwego czarnego dymu, który wydobywa się z kotła i szybko się rozprasza. W tym samym czasie wszystkie istoty humanoidalne w określonym promieniu kotła popadają w {@condition unconscious} na 1 godzinę, z wyjątkiem tych, które są dostrojone do kotła lub są odporne na bycie {@condition charmed}. Promień efektu wynosi 100 stóp na galon użytej krwi. Stworzenie {@condition unconscious} budzi się, jeśli otrzyma obrażenia lub ktoś wykona akcję, aby nim potrząsnąć lub uderzyć. Raz wykorzystanej właściwości kotła nie można użyć ponownie aż do następnego świtu.",
               "Przywiązanie martwej żaby lub ropuchy do końca zwykłej gałęzi i zanurzenie jej w napełnionym wodą kotle zamienia gałąź w {@item wand of polymorph} z 3 ładunkami. Różdżka ta nie może się ponownie naładować i rozpada się na popiół, gdy wyczerpie się jej ostatni ładunek. Raz wykorzystanej właściwości kotła nie można użyć ponownie przez 8 dni.",
-              "Jeśli spędzisz 1 minutę na dotykaniu kociołka rogiem jednorożca podczas recytowania wiersza zatytułowanego „Kocioł Królowej Czarownic” (patrz dołączony pasek boczny), wszystkie stworzenia w promieniu 300 metrów od kotła, z wyjątkiem tych, które są do niego dostrojone, zamrożą się w czasie. Stworzenie zatrzymane w czasie to {@condition incapacitated}, nie może się poruszać ani mówić, nie starzeje się i nie jest świadome swojego otoczenia ani upływu czasu. Co więcej, nie można go poruszyć, zranić w żaden sposób ani wpłynąć na niego żadna inna magia. Wszystkie inne warunki i efekty wywierane na stworzenie zostają stłumione, dopóki nie przestanie ono być zamrożone w czasie. Zniszczenie kotła, wysłanie go na inny poziom istnienia lub dotknięcie go rogiem jednorożca na 1 minutę podczas recytacji „Kocioł Królowej Czarownic” kończy efekt zamrażania czasu na wszystkich stworzeniach. Efekt kończy się także na każdym stworzeniu, które wejdzie w kontakt z polem antymagicznym lub zostanie dotknięte rogiem jednorożca."
+              "Jeśli spędzisz 1 minutę na dotykaniu kociołka rogiem jednorożca podczas recytowania wiersza zatytułowanego „Kocioł Królowej Czarownic” (patrz dołączony pasek boczny), wszystkie stworzenia w promieniu 1,000 stóp od kotła, z wyjątkiem tych, które są do niego dostrojone, zamrożą się w czasie. Stworzenie zatrzymane w czasie to {@condition incapacitated}, nie może się poruszać ani mówić, nie starzeje się i nie jest świadome swojego otoczenia ani upływu czasu. Co więcej, nie można go poruszyć, zranić w żaden sposób ani wpłynąć na niego żadna inna magia. Wszystkie inne warunki i efekty wywierane na stworzenie zostają stłumione, dopóki nie przestanie ono być zamrożone w czasie. Zniszczenie kotła, wysłanie go na inny poziom istnienia lub dotknięcie go rogiem jednorożca na 1 minutę podczas recytacji „Kocioł Królowej Czarownic” kończy efekt zamrażania czasu na wszystkich stworzeniach. Efekt kończy się także na każdym stworzeniu, które wejdzie w kontakt z polem antymagicznym lub zostanie dotknięte rogiem jednorożca."
             ]
           }
         ]
@@ -54824,7 +54824,7 @@
     "rarity": "Pospolita",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Kiedy latarnia znajduje się w promieniu 90 metrów od typu Aberracji, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Kiedy latarnia znajduje się w promieniu 300 stóp od typu Aberracji, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ],
     "name": "Latarnia śledzenia (Aberracje)"
   },
@@ -54843,7 +54843,7 @@
     "rarity": "Pospolita",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Gdy latarnia znajduje się w promieniu 90 metrów od obiektów typu Niebiańskis, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Gdy latarnia znajduje się w promieniu 300 stóp od obiektów typu Niebiańskis, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ],
     "name": "Latarnia Tropienia (Niebianie)"
   },
@@ -54862,7 +54862,7 @@
     "rarity": "Pospolita",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Gdy latarnia znajduje się w promieniu 90 metrów od Konstruktów, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Gdy latarnia znajduje się w promieniu 300 stóp od Konstruktów, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ],
     "name": "Latarnia tropienia (konstrukty)"
   },
@@ -54881,7 +54881,7 @@
     "rarity": "Pospolita",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Kiedy latarnia znajduje się w promieniu 90 metrów od smoków, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Kiedy latarnia znajduje się w promieniu 300 stóp od smoków, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ],
     "name": "Latarnia Tropienia (Smoki)"
   },
@@ -54900,7 +54900,7 @@
     "rarity": "Pospolita",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Kiedy latarnia znajduje się w promieniu 90 metrów od żywiołaków, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Kiedy latarnia znajduje się w promieniu 300 stóp od żywiołaków, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ],
     "name": "Latarnia Tropienia (Żywiołaki)"
   },
@@ -54920,7 +54920,7 @@
     "name": "Latarnia Tropienia (Fej)",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Gdy latarnia znajduje się w promieniu 90 metrów od typu Fej, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Gdy latarnia znajduje się w promieniu 300 stóp od typu Fej, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ]
   },
   "lantern-of-tracking-fiends": {
@@ -54938,7 +54938,7 @@
     "rarity": "Pospolita",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Kiedy latarnia znajduje się w promieniu 90 metrów od czartów typu Czart, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Kiedy latarnia znajduje się w promieniu 300 stóp od czartów typu Czart, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ],
     "name": "Latarnia Tropienia (Czarty)"
   },
@@ -54957,7 +54957,7 @@
     "rarity": "Pospolita",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Kiedy latarnia znajduje się w promieniu 90 metrów od gigantów, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Kiedy latarnia znajduje się w promieniu 300 stóp od gigantów, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ],
     "name": "Latarnia Tropienia (Giganci)"
   },
@@ -54976,7 +54976,7 @@
     "rarity": "Pospolita",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Gdy latarnia znajduje się w promieniu 90 metrów od potworów, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Gdy latarnia znajduje się w promieniu 300 stóp od potworów, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ],
     "name": "Latarnia tropienia (potwory)"
   },
@@ -54996,7 +54996,7 @@
     "name": "Latarnia Tropienia (Nieumarli)",
     "entries": [
       "Ta latarnia z kapturem pali się przez 6 godzin na 1 litrze oliwy, rzucając jasne światło w promieniu 30 stóp i słabe światło w promieniu dodatkowych 30 stóp.",
-      "Gdy latarnia znajduje się w promieniu 90 metrów od typu Nieumarłego, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
+      "Gdy latarnia znajduje się w promieniu 300 stóp od typu Nieumarłego, jej płomień zmienia kolor na jasnozielony. Latarnia nie wskazuje jednak dokładnej lokalizacji stworzenia."
     ]
   },
   "leather-golem-armor": {
@@ -55597,7 +55597,7 @@
         "type": "entries",
         "name": "Modyfikuj zaklęcie",
         "entries": [
-          "Jeśli czar ma zasięg 5 stóp lub większy i nie ma zasięgu własnego, zasięg czaru zwiększa się o 30 metrów. Jeśli zaklęcie ma zasięg dotyku, jego zasięg wynosi 30 stóp."
+          "Jeśli czar ma zasięg 5 stóp lub większy i nie ma zasięgu własnego, zasięg czaru zwiększa się o 100 stóp. Jeśli zaklęcie ma zasięg dotyku, jego zasięg wynosi 30 stóp."
         ]
       }
     ]
@@ -55931,7 +55931,7 @@
     ],
     "name": "Narycrash",
     "entries": [
-      "To urządzenie wielkości plecaka mieści spadochron na bazie balonu. Jeśli upadniesz podczas noszenia tego urządzenia, możesz wykorzystać swoją reakcję do otwarcia spadochronu. Po otwarciu spadochron szybko się napełnia, a ty opadasz na głębokość 60 stóp na rundę i nie odnosisz żadnych obrażeń w wyniku upadku. Gdy znajdziesz się 3 metry nad ziemią, rzuć {@dice d20}. Jeśli wyrzucisz 5 lub mniej, spadochron się podda i zaczniesz normalnie spadać."
+      "To urządzenie wielkości plecaka mieści spadochron na bazie balonu. Jeśli upadniesz podczas noszenia tego urządzenia, możesz wykorzystać swoją reakcję do otwarcia spadochronu. Po otwarciu spadochron szybko się napełnia, a ty opadasz na głębokość 60 stóp na rundę i nie odnosisz żadnych obrażeń w wyniku upadku. Gdy znajdziesz się 10 stóp nad ziemią, rzuć {@dice d20}. Jeśli wyrzucisz 5 lub mniej, spadochron się podda i zaczniesz normalnie spadać."
     ]
   },
   "navigation-orb": {
@@ -56071,7 +56071,7 @@
     "name": "Nocny rozmówca",
     "entries": [
       "Ten gwizdek jest wyrzeźbiony z przezroczystego kryształu i przypomina małego smoka zwiniętego jak ślimak. Imię Nocnego Zaklinacza jest wyryte na gwizdku krasnoludzkimi runami. Jeśli postać pomyślnie przejdzie test inteligencji {@dc 20} ({@skill Arcana} lub {@skill History}), postać przypomina sobie legendę, która mówi, że {@creature duergar} wykonał kilka takich gwizdków dla różnych grup w przeszłości.",
-      "Jeśli zabrzmisz w gwizdek w ciemności lub pod nocnym niebem, umożliwi to rzucenie zaklęcia {@spell animate dead}. Cel może zostać dotknięty przez miękką ziemię lub podobny materiał na głębokość do 3 metrów, a jeśli tak się stanie, wydostanie się na powierzchnię i służąc tobie zajmie 1 minutę. Gdy gwizdek ożywi nieumarłą istotę, nie może tego zrobić ponownie przed upływem 7 dni.",
+      "Jeśli zabrzmisz w gwizdek w ciemności lub pod nocnym niebem, umożliwi to rzucenie zaklęcia {@spell animate dead}. Cel może zostać dotknięty przez miękką ziemię lub podobny materiał na głębokość do 10 stóp, a jeśli tak się stanie, wydostanie się na powierzchnię i służąc tobie zajmie 1 minutę. Gdy gwizdek ożywi nieumarłą istotę, nie może tego zrobić ponownie przed upływem 7 dni.",
       "Raz na 24 godziny możesz dmuchnąć w gwizdek, aby ponownie przejąć kontrolę nad jednym lub dwoma animowanymi za jego pomocą stworzeniami."
     ]
   },
@@ -56154,7 +56154,7 @@
     "properties": "",
     "name": "Detektor Nimblewrighta",
     "entries": [
-      "Aby aktywować detektor zwinny, postać musi przytrzymać jego spust. Kiedy aktywowane urządzenie znajdzie się w odległości mniejszej niż 150 metrów od zwinnego prawka innego niż Nim, parasol zaczyna się kręcić, wirować i klikać. Wirowanie, warczenie i klikanie przyspiesza wraz ze zmniejszaniem się odległości od celu, osiągając maksymalną prędkość i głośność, gdy zwinny inny niż Nim znajdzie się w promieniu 30 stóp od urządzenia."
+      "Aby aktywować detektor zwinny, postać musi przytrzymać jego spust. Kiedy aktywowane urządzenie znajdzie się w odległości mniejszej niż 500 stóp od zwinnego prawka innego niż Nim, parasol zaczyna się kręcić, wirować i klikać. Wirowanie, warczenie i klikanie przyspiesza wraz ze zmniejszaniem się odległości od celu, osiągając maksymalną prędkość i głośność, gdy zwinny inny niż Nim znajdzie się w promieniu 30 stóp od urządzenia."
     ]
   },
   "obsidian-flint-dragon-plate": {
@@ -56209,7 +56209,7 @@
         "name": "Pogromca Ognia",
         "type": "entries",
         "entries": [
-          "W ramach akcji możesz zgasić dowolny otwarty ogień w promieniu 3 stóp od ciebie. Ty wybierasz, ile ognia chcesz ugasić w tym promieniu."
+          "W ramach akcji możesz zgasić dowolny otwarty ogień w promieniu 10 stóp od ciebie. Ty wybierasz, ile ognia chcesz ugasić w tym promieniu."
         ]
       },
       {
@@ -56275,7 +56275,7 @@
         "type": "entries",
         "name": "Niezłomna postawa",
         "entries": [
-          "W ramach akcji możesz skierować magię kuli, aby utrzymać swoją pozycję. Przez następną minutę lub do momentu, gdy poruszysz się na jakąkolwiek odległość, masz przewagę we wszystkich testach i rzutach obronnych, aby oprzeć się efektom zmuszającym cię do ruchu. Ponadto każdy wróg, który poruszy się na obszar w promieniu 3 stóp od ciebie, musi wykonać pomyślny rzut obronny na Siłę {@dc 12}, w przeciwnym razie nie będzie mógł ruszyć się dalej w tej turze."
+          "W ramach akcji możesz skierować magię kuli, aby utrzymać swoją pozycję. Przez następną minutę lub do momentu, gdy poruszysz się na jakąkolwiek odległość, masz przewagę we wszystkich testach i rzutach obronnych, aby oprzeć się efektom zmuszającym cię do ruchu. Ponadto każdy wróg, który poruszy się na obszar w promieniu 10 stóp od ciebie, musi wykonać pomyślny rzut obronny na Siłę {@dc 12}, w przeciwnym razie nie będzie mógł ruszyć się dalej w tej turze."
         ]
       },
       {
@@ -56360,7 +56360,7 @@
         "items": [
           "Otrzymujesz premię +2 do wykonanych za jego pomocą testów ataku i obrażeń.",
           "Kiedy wyrzucisz 20 w rzucie ataku tą bronią przeciwko {@creature orc}, ten {@creature orc} musi odnieść sukces w rzucie obronnym na Kondycję {@dc 17} lub spaść do 0 punktów wytrzymałości.",
-          "Nie możesz być {@status surprised} przez {@creature orc||orki}, jeśli nie jesteś {@condition incapacitated}. Jesteś również świadomy, kiedy {@creature orc||orki} znajduje się w promieniu 30 metrów od Ciebie i nie znajduje się za {@quickref Cover||3||total cover}, chociaż nie znasz ich lokalizacji.",
+          "Nie możesz być {@status surprised} przez {@creature orc||orki}, jeśli nie jesteś {@condition incapacitated}. Jesteś również świadomy, kiedy {@creature orc||orki} znajduje się w promieniu 120 stóp od Ciebie i nie znajduje się za {@quickref Cover||3||total cover}, chociaż nie znasz ich lokalizacji.",
           "Ty i Twoi znajomi w promieniu 30 stóp od Ciebie nie możecie zostać {@condition frightened}, jeśli nie jesteście {@condition incapacitated}."
         ]
       },
@@ -56368,7 +56368,7 @@
         "name": "Wrażliwość",
         "type": "entries",
         "entries": [
-          "Orcsplitter to świadoma, legalna, dobra broń o inteligencji 6, mądrości 15 i charyzmie 10. Widzi i słyszy na odległość 30 metrów i posiada {@sense darkvision}. Komunikuje się poprzez przesyłanie emocji swojemu posiadaczowi, chociaż w rzadkich przypadkach używa ograniczonej formy telepatii, aby przywołać na myśl posiadacza dwuwiersz lub zwrotkę starożytnego krasnoludzkiego wersetu."
+          "Orcsplitter to świadoma, legalna, dobra broń o inteligencji 6, mądrości 15 i charyzmie 10. Widzi i słyszy na odległość 120 stóp i posiada {@sense darkvision}. Komunikuje się poprzez przesyłanie emocji swojemu posiadaczowi, chociaż w rzadkich przypadkach używa ograniczonej formy telepatii, aby przywołać na myśl posiadacza dwuwiersz lub zwrotkę starożytnego krasnoludzkiego wersetu."
         ]
       },
       {
@@ -56396,7 +56396,7 @@
     "rarity": "Nieznana (magiczna)",
     "name": "Figurka Orka",
     "entries": [
-      "Wyrzeźbiona z serca {@condition petrified} ogra, szara figurka przedstawia Demonicznego Księcia Nieumarłych z upiornymi szczegółami, trzymającego w jednej ręce różdżkę z czaszką, a w drugiej trzy odcięte głowy. Figurka pachnie gnijącym ciałem, a zapach ten jest wyczuwalny z odległości 1,5 metra.",
+      "Wyrzeźbiona z serca {@condition petrified} ogra, szara figurka przedstawia Demonicznego Księcia Nieumarłych z upiornymi szczegółami, trzymającego w jednej ręce różdżkę z czaszką, a w drugiej trzy odcięte głowy. Figurka pachnie gnijącym ciałem, a zapach ten jest wyczuwalny z odległości 5 stóp.",
       "Figurka to Mały obiekt z KP 17, 3 punktami wytrzymałości i odpornością na wszystkie rodzaje obrażeń z wyjątkiem obrażeń promienistych. Zaklęcie {@spell detect evil and good} lub podobna magia ujawnia, że ​​figurka została zbezczeszczona. Figurka posiada co najmniej 1 punkt wytrzymałości i posiada następujące magiczne właściwości:",
       {
         "type": "list",
@@ -56554,7 +56554,7 @@
     "rarity": "Nieznana (magiczna)",
     "name": "Perła Wykrywania Nieumarłych",
     "entries": [
-      "Ta czarna perła świeci słabo, gdy nieumarli znajdują się w promieniu 30 metrów od niej."
+      "Ta czarna perła świeci słabo, gdy nieumarli znajdują się w promieniu 120 stóp od niej."
     ]
   },
   "pennant-of-the-vind-rune": {
@@ -56763,7 +56763,7 @@
     "properties": "",
     "rarity": "Niepospolita",
     "entries": [
-      "W ramach akcji możesz posypać tym pyłem siebie lub inne stworzenie, które widzisz w promieniu 1,5 metra od ciebie. Odbiorca zyskuje prędkość lotu wynoszącą 30 stóp i zdolność unoszenia się w powietrzu przez 1 minutę. Jeśli stworzenie znajdzie się w powietrzu, gdy ten efekt się skończy, bezpiecznie spadnie na ziemię, nie odnosząc żadnych obrażeń i lądując na nogach.",
+      "W ramach akcji możesz posypać tym pyłem siebie lub inne stworzenie, które widzisz w promieniu 5 stóp od ciebie. Odbiorca zyskuje prędkość lotu wynoszącą 30 stóp i zdolność unoszenia się w powietrzu przez 1 minutę. Jeśli stworzenie znajdzie się w powietrzu, gdy ten efekt się skończy, bezpiecznie spadnie na ziemię, nie odnosząc żadnych obrażeń i lądując na nogach.",
       "Małe opakowanie mieści wystarczającą ilość pyłu wróżkowego na jedno użycie."
     ],
     "name": "Wróżkowy pył"
@@ -57062,7 +57062,7 @@
     "rarity": "Pospolita",
     "name": "Kapsuła ciśnieniowa",
     "entries": [
-      "Ta mała kapsułka wykonana jest z wosku pszczelego zmieszanego z piaskiem i różnymi zaczarowanymi roślinami wodnymi. Istota, która zjada kapsułę ciśnieniową, ignoruje skutki pływania na głębokości większej niż 30 metrów (patrz „{@book Unusual Environments|dmg|5|Niezwykłe środowiska}” w rozdziale 5 Przewodnika Mistrza Podziemi)."
+      "Ta mała kapsułka wykonana jest z wosku pszczelego zmieszanego z piaskiem i różnymi zaczarowanymi roślinami wodnymi. Istota, która zjada kapsułę ciśnieniową, ignoruje skutki pływania na głębokości większej niż 100 stóp (patrz „{@book Unusual Environments|dmg|5|Niezwykłe środowiska}” w rozdziale 5 Przewodnika Mistrza Podziemi)."
     ]
   },
   "primal-amulet": {
@@ -57925,7 +57925,7 @@
     "name": "Laska Vonindoda",
     "entries": [
       "{@creature fire giant} Książę Zalto zatrudnił czarodzieja, aby stworzył kilka takich adamantytowych prętów. Każdy z nich ma 4 stopy długości, waży 100 funtów i ma wymiary umożliwiające wygodne trzymanie w dłoni {@creature fire giant||ognisty gigant}. Wędka ma dwa zęby na jednym końcu i formowany uchwyt na przeciwległym końcu",
-      "Wędka ma 10 ładunków i codziennie o świcie odzyskuje {@dice 1d6 + 4} zużytych ładunków. W ramach akcji możesz chwycić go za uchwyt i wydać 1 ładunek, aby rzucić z niego zaklęcie {@spell locate object}. Kiedy pręt służy do wykrywania obiektów wykonanych z adamantyny, takich jak fragmenty konstruktu Vonindod, jego zasięg zwiększa się do 16 mil."
+      "Wędka ma 10 ładunków i codziennie o świcie odzyskuje {@dice 1d6 + 4} zużytych ładunków. W ramach akcji możesz chwycić go za uchwyt i wydać 1 ładunek, aby rzucić z niego zaklęcie {@spell locate object}. Kiedy pręt służy do wykrywania obiektów wykonanych z adamantyny, takich jak fragmenty konstruktu Vonindod, jego zasięg zwiększa się do 10 mil."
     ]
   },
   "ruby-rod-of-asmodeus": {
@@ -58108,7 +58108,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Ostrze Zniszczenia to świadoma, legalna zła broń o Inteligencji 15, Mądrości 8 i Charyzmie 16. Ma słuch i {@sense darkvision} w zasięgu 30 metrów.",
+          "Ostrze Zniszczenia to świadoma, legalna zła broń o Inteligencji 15, Mądrości 8 i Charyzmie 16. Ma słuch i {@sense darkvision} w zasięgu 120 stóp.",
           "Broń potrafi mówić, czytać i rozumieć język wspólny oraz może komunikować się telepatycznie z posiadaczem. Jego głos jest szorstkim, zniszczonym echem. Gdy się do tego dostroisz, Ruinblade rozumie także każdy język, który znasz."
         ]
       },
@@ -58231,12 +58231,12 @@
     "name": "Nożyce Tnące Cienie",
     "attunement": "Wymaga dostrojenia przez istotę magiczną lub osobę rzucającą zaklęcia",
     "entries": [
-      "W ramach akcji wykonujesz kilka cięć tymi żelaznymi nożycami i powodujesz, że cień humanoidalnej istoty, którą widzisz w promieniu 1,5 metra od ciebie, odłącza się od źródła. Jeśli stworzenie nie chce porzucić swojego cienia, może wykonać rzut obronny na Charyzmę {@dc 15}, zatrzymując swój cień, jeśli się powiedzie. Niezależnie od tego, czy cień zostanie odcięty, czy nie, tej właściwości nożyczek nie można wykorzystać ponownie aż do następnego świtu.",
+      "W ramach akcji wykonujesz kilka cięć tymi żelaznymi nożycami i powodujesz, że cień humanoidalnej istoty, którą widzisz w promieniu 5 stóp od ciebie, odłącza się od źródła. Jeśli stworzenie nie chce porzucić swojego cienia, może wykonać rzut obronny na Charyzmę {@dc 15}, zatrzymując swój cień, jeśli się powiedzie. Niezależnie od tego, czy cień zostanie odcięty, czy nie, tej właściwości nożyczek nie można wykorzystać ponownie aż do następnego świtu.",
       "Odłączony cień jest zakotwiczony w miejscu, w którym został wycięty, dopóki nie użyjesz akcji dodatkowej, która sprawi, że zachowa się w jeden z poniższych sposobów, z których każdy jest możliwy tylko wtedy, gdy widzisz cień:",
       {
         "type": "list",
         "items": [
-          "Kontrolujesz ruchy cienia i możesz sprawić, że cień przesunie się na odległość do 9 metrów po stałej lub płynnej powierzchni, w dowolnym kierunku (w tym wzdłuż powierzchni pionowych), pod warunkiem, że będzie on cały czas w zasięgu Twojego wzroku. Cień jest nieszkodliwy i nie można go skrzywdzić, a w ciemności jest {@condition invisible}. Nie potrafi mówić, nie potrzebuje powietrza, snu ani pożywienia.",
+          "Kontrolujesz ruchy cienia i możesz sprawić, że cień przesunie się na odległość do 30 stóp po stałej lub płynnej powierzchni, w dowolnym kierunku (w tym wzdłuż powierzchni pionowych), pod warunkiem, że będzie on cały czas w zasięgu Twojego wzroku. Cień jest nieszkodliwy i nie można go skrzywdzić, a w ciemności jest {@condition invisible}. Nie potrafi mówić, nie potrzebuje powietrza, snu ani pożywienia.",
           "Możesz zrezygnować z kontroli nad cieniem, w którym to momencie staje się on autonomiczny i zachowuje się zgodnie z życzeniem DM. Używa bloku statystyk {@creature shadow} z Księgi Potworów, ale jego typem stworzenia jest Fej, a nie Nieumarły. Istota, której Siła zostaje zmniejszona do 0 w wyniku ataku Wyssania Siły tego cienia, nie umiera, lecz zamiast tego upada {@condition unconscious}. Stworzenie odzyskuje przytomność i całą swoją Siłę po zakończeniu krótkiego lub długiego odpoczynku."
         ]
       },
@@ -58403,7 +58403,7 @@
     "name": "Poszukiwacz Darta",
     "entries": [
       "Ta mała strzałka jest ozdobiona wzorami przypominającymi wietrzne spirale rozciągające się na całej długości jej trzonka.",
-      "Kiedy szepniesz słowo „szukaj” i rzucisz tę strzałkę, wyszuka ona wybrany przez ciebie cel w promieniu 30 metrów od ciebie. Musiałeś widzieć cel wcześniej, ale nie musisz go widzieć teraz. Jeśli cel nie znajduje się w zasięgu czaru lub nie ma do niego jasnej ścieżki, strzałka spada na ziemię, a jej magia zostaje wyczerpana i zmarnowana. W przeciwnym razie wiatr żywiołów natychmiast poprowadzi strzałkę w powietrzu do celu. Strzałka może przechodzić przez otwory o szerokości zaledwie 1 cala i może zmieniać kierunek, aby latać po zakrętach.",
+      "Kiedy szepniesz słowo „szukaj” i rzucisz tę strzałkę, wyszuka ona wybrany przez ciebie cel w promieniu 120 stóp od ciebie. Musiałeś widzieć cel wcześniej, ale nie musisz go widzieć teraz. Jeśli cel nie znajduje się w zasięgu czaru lub nie ma do niego jasnej ścieżki, strzałka spada na ziemię, a jej magia zostaje wyczerpana i zmarnowana. W przeciwnym razie wiatr żywiołów natychmiast poprowadzi strzałkę w powietrzu do celu. Strzałka może przechodzić przez otwory o szerokości zaledwie 1 cala i może zmieniać kierunek, aby latać po zakrętach.",
       "Kiedy strzałka dotrze do celu, cel musi wykonać rzut obronny na Zręczność {@dc 16} lub otrzymać obrażenia kłute {@damage 1d4} i obrażenia od pioruna {@damage 3d4}. Magia strzałki zostaje wtedy wyczerpana i staje się ona zwykłą strzałką."
     ]
   },
@@ -58609,7 +58609,7 @@
           ],
           [
             "3",
-            "Przez kilka sekund ziemia się pod tobą trzęsie. Ty i każda istota w promieniu 3 stóp od ciebie musicie wykonać pomyślny rzut obronny na Zręczność {@dc 16}, w przeciwnym razie zostaniecie powaleni {@condition prone}."
+            "Przez kilka sekund ziemia się pod tobą trzęsie. Ty i każda istota w promieniu 10 stóp od ciebie musicie wykonać pomyślny rzut obronny na Zręczność {@dc 16}, w przeciwnym razie zostaniecie powaleni {@condition prone}."
           ],
           [
             "4",
@@ -58895,7 +58895,7 @@
       "Każdy {@creature shield guardian} ma magicznie powiązany amulet.Strażnik tarczy może mieć tylko jeden odpowiadający mu amulet, a jeśli ten amulet zostanie zniszczony, strażnikiem tarczy będzie {@condition incapacitated} do czasu utworzenia nowego amuletu.",
       "Amulet strażnika tarczy podlega bezpośredniemu atakowi, jeśli nie jest noszony ani noszony. Posiada KP 10, 10 punktów wytrzymałości oraz odporność na trucizny i obrażenia psychiczne. Wytworzenie amuletu zajmuje 1 tydzień i kosztuje 1000 sz w komponentach.",
       "Strażnik tarczy skupia się wyłącznie na ochronie osoby noszącej amulet. Osoba nosząca amulet może rozkazać strażnikowi zaatakować jego wrogów lub chronić posiadacza przed atakiem. Jeśli atak grozi zranieniem noszącego, konstrukt może magicznie wchłonąć cios we własne ciało, nawet na odległość.",
-      "humanoidalna istota dostrojona do tego amuletu zna odległość i kierunek strażnika tarczy, pod warunkiem, że amulet i strażnik znajdują się na tej samej płaszczyźnie istnienia. W ramach akcji dostrojony użytkownik amuletu może spróbować reaktywować strażnika tarczy, wykonując udany test inteligencji {@dc 20} ({@skill Arcana}). Próbę reaktywacji można podjąć tylko wtedy, gdy amulet i strażnik znajdują się w odległości nie większej niż 3 metry od siebie."
+      "humanoidalna istota dostrojona do tego amuletu zna odległość i kierunek strażnika tarczy, pod warunkiem, że amulet i strażnik znajdują się na tej samej płaszczyźnie istnienia. W ramach akcji dostrojony użytkownik amuletu może spróbować reaktywować strażnika tarczy, wykonując udany test inteligencji {@dc 20} ({@skill Arcana}). Próbę reaktywacji można podjąć tylko wtedy, gdy amulet i strażnik znajdują się w odległości nie większej niż 10 stóp od siebie."
     ]
   },
   "shield-of-shouting": {
@@ -58947,8 +58947,8 @@
           {
             "type": "list",
             "items": [
-              "Tarcza ma Inteligencję 22, Mądrość 18 i Charyzmę 24, a także słuch i {@sense truesight} w zasięgu 30 metrów.",
-              "Tarcza potrafi mówić, czytać i rozumieć zwyczajny i piekielny, a także może komunikować się telepatycznie z każdą istotą, którą wyczuje w promieniu 30 metrów od niej. Jego głos to głęboki, pusty szept.",
+              "Tarcza ma Inteligencję 22, Mądrość 18 i Charyzmę 24, a także słuch i {@sense truesight} w zasięgu 120 stóp.",
+              "Tarcza potrafi mówić, czytać i rozumieć zwyczajny i piekielny, a także może komunikować się telepatycznie z każdą istotą, którą wyczuje w promieniu 120 stóp od niej. Jego głos to głęboki, pusty szept.",
               "Tarcza ma 3 ładunki. Możesz użyć akcji, aby wydać 1 ładunek, aby rzucić {@spell fireball} lub 2 ładunki, aby rzucić {@spell wall of fire} z tarczy (zachowaj {@dc 21} dla każdego). Zaklęcie {@spell wall of fire} trwa 1 minutę (nie jest wymagane {@status concentration}). Tarcza odzyskuje wszystkie zużyte ładunki codziennie o świcie.",
               "W dowolnym momencie twojej tury tarcza może emanować aurą grozy przez 1 minutę. (To nie jest moc tarczy, którą kontrolujesz.) Każde wrogie ci stworzenie, które rozpoczyna swoją turę w promieniu 20 stóp od tarczy, musi wykonać rzut obronny na Mądrość {@dc 18}. W przypadku nieudanego rzutu obronnego, stworzenie otrzymuje {@condition frightened} do początku swojej następnej tury. Po udanym rzucie obronnym stworzenie jest odporne na tę moc tarczy przez następne 24 godziny. Gdy tarcza wykorzysta tę moc, nie będzie mogła jej użyć ponownie aż do następnego świtu."
             ]
@@ -59153,7 +59153,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Snicker-Snack to świadomy, chaotyczny dobry miecz mieczowy o inteligencji 9, mądrości 14 i charyzmie 18. Ma słuch i {@sense darkvision} w zasięgu 30 metrów. Potrafi mówić, czytać i rozumieć język wspólny, a jego głos brzmi srebrzysto i melodyjnie. Snicker-Snack pragnie zniszczenia złych smoków i namawia cię, abyś odnalazł te stworzenia i zabił je.",
+          "Snicker-Snack to świadomy, chaotyczny dobry miecz mieczowy o inteligencji 9, mądrości 14 i charyzmie 18. Ma słuch i {@sense darkvision} w zasięgu 120 stóp. Potrafi mówić, czytać i rozumieć język wspólny, a jego głos brzmi srebrzysto i melodyjnie. Snicker-Snack pragnie zniszczenia złych smoków i namawia cię, abyś odnalazł te stworzenia i zabił je.",
           "Snicker-Snack ma kapryśną osobowość. Kończy swoje dostrojenie do ciebie, jeśli trzy razy z rzędu nie wykonasz rzutów ataku tą bronią. Za każdym razem, gdy skończysz długi odpoczynek, możesz spróbować odzyskać zaufanie miecza, wykonując kwestionowany test Charyzmy przeciwko Snicker-Snack. Jeśli wygrasz konkurs, twoje dostrojenie do broni zostanie natychmiast przywrócone. Twoje dostrojenie do broni nie może zostać przywrócone w żaden inny sposób."
         ]
       }
@@ -59384,7 +59384,7 @@
           ],
           [
             "45-46",
-            "Kieszonkowy instrument, który szybko klika w promieniu 3 stóp od promieniowania (zobacz sekcję „{@adventure Spaceship Features|QftIS|7|Spaceship Features}” w dalszej części tej przygody)"
+            "Kieszonkowy instrument, który szybko klika w promieniu 10 stóp od promieniowania (zobacz sekcję „{@adventure Spaceship Features|QftIS|7|Spaceship Features}” w dalszej części tej przygody)"
           ],
           [
             "47-48",
@@ -59392,7 +59392,7 @@
           ],
           [
             "49-50",
-            "Blaszany kapelusz, który telepatycznie transmituje powierzchniowe myśli noszącego do stworzeń w promieniu 3 stóp od niego"
+            "Blaszany kapelusz, który telepatycznie transmituje powierzchniowe myśli noszącego do stworzeń w promieniu 10 stóp od niego"
           ],
           [
             "51-52",
@@ -59946,7 +59946,7 @@
         "type": "entries",
         "name": "Laska do Snake’a",
         "entries": [
-          "Rzucasz laskę na niezajęte miejsce w promieniu 3 metrów od ciebie, a laska staje się {@creature giant poisonous snake}EM. Wąż jest pod twoją kontrolą i dzieli się z tobą liczbą inicjatywy, ale swoją turę rozpoczyna zaraz po twojej.",
+          "Rzucasz laskę na niezajęte miejsce w promieniu 10 stóp od ciebie, a laska staje się {@creature giant poisonous snake}EM. Wąż jest pod twoją kontrolą i dzieli się z tobą liczbą inicjatywy, ale swoją turę rozpoczyna zaraz po twojej.",
           "W swojej turze możesz mentalnie wydać wężowi rozkaz, jeśli znajduje się on w promieniu 60 stóp od ciebie i nie masz warunku {@condition incapacitated}. Ty decydujesz, jaką akcję wykona wąż i gdzie się poruszy podczas swojej tury, lub możesz wydać mu ogólny rozkaz, na przykład zaatakować wrogów lub strzec lokalizacji.",
           "Jeśli użyjesz akcji dodatkowej, aby ponownie wypowiedzieć słowo rozkazu, lub jeśli punkty wytrzymałości węża zostaną zredukowane do 0, wąż powróci do formy laski na swoim obecnym obszarze."
         ]
@@ -60213,7 +60213,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Kamień Golorra to świadomy, zgodny z prawem, zły przedmiot magiczny o Inteligencji 18, Mądrości 15 i Charyzmie 18. Ma słuch i {@sense darkvision} w zasięgu 30 metrów. Może komunikować się telepatycznie ze istotą, która jest do niej dostrojona, o ile ta istota rozumie co najmniej jeden język. Ponadto {@creature aboleth} poznaje największe pragnienia każdej istoty, która komunikuje się telepatycznie z kamieniem.",
+          "Kamień Golorra to świadomy, zgodny z prawem, zły przedmiot magiczny o Inteligencji 18, Mądrości 15 i Charyzmie 18. Ma słuch i {@sense darkvision} w zasięgu 120 stóp. Może komunikować się telepatycznie ze istotą, która jest do niej dostrojona, o ile ta istota rozumie co najmniej jeden język. Ponadto {@creature aboleth} poznaje największe pragnienia każdej istoty, która komunikuje się telepatycznie z kamieniem.",
           "Kamień Golorra łaknie informacji i woli nie pozostać zbyt długo w szponach żadnego stworzenia. Ilekroć kamień pragnie nowego właściciela, domaga się jak najszybszego oddania go innemu inteligentnemu stworzeniu. Jeśli jego żądania zostaną zignorowane, spróbuje przejąć kontrolę nad swoim właścicielem (patrz „Magiczne przedmioty Świadomych” w rozdziale 7 Przewodnika Mistrza Lochów)."
         ]
       },
@@ -60440,7 +60440,7 @@
               {
                 "type": "item",
                 "name": "Pierzaste Skrzydła",
-                "entry": "Wyrasta ci piękna para pierzastych skrzydeł, które zapewniają ci prędkość lotu 30 stóp i zdolność unoszenia się w powietrzu. Jeśli masz już inny rodzaj skrzydeł, te nowe skrzydła zastępują stare, które odpadają."
+                "entry": "Wyrasta ci piękna para pierzastych skrzydeł, które zapewniają ci prędkość lotu 90 stóp i zdolność unoszenia się w powietrzu. Jeśli masz już inny rodzaj skrzydeł, te nowe skrzydła zastępują stare, które odpadają."
               },
               {
                 "type": "item",
@@ -60703,7 +60703,7 @@
     "properties": "",
     "name": "Granat splątujący",
     "entries": [
-      "Granat splątujący to alchemiczny, niemagiczny przedmiot z owalną żywiczną skorupą, która rozpada się przy uderzeniu. Jako akcja, stworzenie może rzucić granat splątujący w odległość do 60 stóp. Każde stworzenie w promieniu 3 stóp od rozbitego granatu splątującego musi wykonać pomyślny rzut obronny na Zręczność {@dc 15} lub zostać {@condition restrained} przez lepkie białe pajęczyny. W ramach akcji stworzenie może spróbować uwolnić siebie lub inne stworzenie w jego zasięgu z sieci, wykonując udany test Siły {@dc 20} ({@skill Athletics}). Galon alkoholu rozpuszcza sieci utworzone przez pojedynczy granat splątujący. W przeciwnym razie sieci rozpuszczą się same po 1 godzinie, uwalniając przez nie wszelkie stworzenia {@condition restrained}."
+      "Granat splątujący to alchemiczny, niemagiczny przedmiot z owalną żywiczną skorupą, która rozpada się przy uderzeniu. Jako akcja, stworzenie może rzucić granat splątujący w odległość do 60 stóp. Każde stworzenie w promieniu 10 stóp od rozbitego granatu splątującego musi wykonać pomyślny rzut obronny na Zręczność {@dc 15} lub zostać {@condition restrained} przez lepkie białe pajęczyny. W ramach akcji stworzenie może spróbować uwolnić siebie lub inne stworzenie w jego zasięgu z sieci, wykonując udany test Siły {@dc 20} ({@skill Athletics}). Galon alkoholu rozpuszcza sieci utworzone przez pojedynczy granat splątujący. W przeciwnym razie sieci rozpuszczą się same po 1 godzinie, uwalniając przez nie wszelkie stworzenia {@condition restrained}."
     ]
   },
   "tankard-of-plenty": {
@@ -60797,7 +60797,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Miecz ma Inteligencję 17, Mądrość 12 i Charyzmę 20. Ma słuch i {@sense truesight} na odległość 30 metrów. Komunikuje się telepatycznie ze swoim dostrojonym posiadaczem i potrafi mówić, czytać i rozumieć język wspólny, smoczy, elficki i leśny. Ponadto miecz może ustalić prawdziwą wartość każdego kamienia szlachetnego przyniesionego w promieniu 5 stóp od niego."
+          "Miecz ma Inteligencję 17, Mądrość 12 i Charyzmę 20. Ma słuch i {@sense truesight} na odległość 120 stóp. Komunikuje się telepatycznie ze swoim dostrojonym posiadaczem i potrafi mówić, czytać i rozumieć język wspólny, smoczy, elficki i leśny. Ponadto miecz może ustalić prawdziwą wartość każdego kamienia szlachetnego przyniesionego w promieniu 5 stóp od niego."
         ]
       },
       {
@@ -61017,7 +61017,7 @@
         "rows": [
           [
             "01",
-            "Masz prędkość lotu 50 stóp, ale tracisz wszystkie inne możliwości ruchu.",
+            "Masz prędkość lotu 150 stóp, ale tracisz wszystkie inne możliwości ruchu.",
             "Jesteś {@condition blinded}."
           ],
           [
@@ -61147,7 +61147,7 @@
           ],
           [
             "27",
-            "Wszystko, co trujące w promieniu 15 metrów od Ciebie, jest automatycznie wykrywane i oznaczane obrazem małej żaby widocznej tylko dla Ciebie.",
+            "Wszystko, co trujące w promieniu 50 stóp od Ciebie, jest automatycznie wykrywane i oznaczane obrazem małej żaby widocznej tylko dla Ciebie.",
             "Tuzin małych żab nieustannie podąża za tobą, głośno ćwierkając."
           ],
           [
@@ -61172,7 +61172,7 @@
           ],
           [
             "32",
-            "Wiesz, czy istoty w promieniu 5 stóp od ciebie kłamią, tak jakbyś był w centrum zaklęcia {@spell zone of truth}.",
+            "Wiesz, czy istoty w promieniu 15 stóp od ciebie kłamią, tak jakbyś był w centrum zaklęcia {@spell zone of truth}.",
             "Kiedykolwiek mówisz fałszywie, nie możesz w ogóle mówić."
           ],
           [
@@ -61252,7 +61252,7 @@
           ],
           [
             "48",
-            "Zwiększyłeś pojemność płuc, zwiększając prędkość chodzenia o 3 metry i pozwalając ci wstrzymywać oddech na dwa razy dłużej niż normalnie.",
+            "Zwiększyłeś pojemność płuc, zwiększając prędkość chodzenia o 10 stóp i pozwalając ci wstrzymywać oddech na dwa razy dłużej niż normalnie.",
             "Ilekroć wytężasz siły, walcząc, biegając i tak dalej, ziejesz przerywanymi płomieniami, które zadają ci obrażenia od ognia {@damage 1d4}."
           ],
           [
@@ -61282,12 +61282,12 @@
           ],
           [
             "54",
-            "Podczas krótkiego odpoczynku obszar w promieniu 15 metrów od Ciebie przybiera iluzoryczny wygląd pięknej leśnej polany.",
+            "Podczas krótkiego odpoczynku obszar w promieniu 50 stóp od Ciebie przybiera iluzoryczny wygląd pięknej leśnej polany.",
             "Za pierwszym razem, gdy sojusznik, którego widzisz, otrzymuje obrażenia w wyniku nieudanego rzutu obronnego, ty otrzymujesz obrażenia zamiast niego."
           ],
           [
             "55",
-            "Jako akcję dodatkową możesz wybrać jedno stworzenie w promieniu 3 metrów od ciebie i poznać jeden sekret na jego temat, zgodnie z ustaleniami DM.",
+            "Jako akcję dodatkową możesz wybrać jedno stworzenie w promieniu 10 stóp od ciebie i poznać jeden sekret na jego temat, zgodnie z ustaleniami DM.",
             "Czary {@spell remove curse}, {@spell lesser restoration} i {@spell greater restoration} nie mają na ciebie żadnego wpływu."
           ],
           [
@@ -61297,7 +61297,7 @@
           ],
           [
             "57",
-            "Masz telepatię na odległość 30 metrów.",
+            "Masz telepatię na odległość 120 stóp.",
             "Słyszysz głosy stworzeń, które od czasu do czasu widzisz w swojej głowie (określone przez DM), ale nie masz pojęcia, czy to, co słyszysz, jest prawdą, czy nie."
           ],
           [
@@ -61317,7 +61317,7 @@
           ],
           [
             "61",
-            "Ty i każda istota w promieniu 3 metrów od ciebie macie odporność na obrażenia nekrotyczne.",
+            "Ty i każda istota w promieniu 10 stóp od ciebie macie odporność na obrażenia nekrotyczne.",
             "Każdy test Mądrości ({@skill Medicine}), który wykonujesz lub który ma ci pomóc, jest wykonywany z niekorzyścią."
           ],
           [
@@ -61338,7 +61338,7 @@
           [
             "65",
             "W ramach akcji sprawiasz, że {@quickref difficult terrain||3} w promieniu 50 stóp od ciebie staje się normalnym terenem. Możesz skorzystać z tej właściwości trzy razy.",
-            "Za każdym razem, gdy przejdziesz przez {@quickref difficult terrain||3}, twoja prędkość zostanie zmniejszona o 3 metry aż do końca twojej następnej tury."
+            "Za każdym razem, gdy przejdziesz przez {@quickref difficult terrain||3}, twoja prędkość zostanie zmniejszona o 10 stóp aż do końca twojej następnej tury."
           ],
           [
             "66",
@@ -61403,7 +61403,7 @@
           [
             "78",
             "Możesz rzucić zaklęcie {@spell teleport}, zawsze trafiając w cel. Z tej właściwości możesz skorzystać raz.",
-            "Za każdym razem, gdy przechodzisz przez drzwi lub podobny portal, musisz pomyślnie przejść test inteligencji {@dc 10} lub wkroczyć na wypaczoną linię czasu. W przypadku niepowodzenia ty i wszyscy sojusznicy w promieniu 3 metrów od was przeskakujecie do przodu {@dice 1d4} minut. Innym stworzeniom wydaje się, że ty i inne dotknięte stworzenia znikacie na określony czas, a następnie pojawiacie się ponownie w drzwiach."
+            "Za każdym razem, gdy przechodzisz przez drzwi lub podobny portal, musisz pomyślnie przejść test inteligencji {@dc 10} lub wkroczyć na wypaczoną linię czasu. W przypadku niepowodzenia ty i wszyscy sojusznicy w promieniu 10 stóp od was przeskakujecie do przodu {@dice 1d4} minut. Innym stworzeniom wydaje się, że ty i inne dotknięte stworzenia znikacie na określony czas, a następnie pojawiacie się ponownie w drzwiach."
           ],
           [
             "79",
@@ -61422,7 +61422,7 @@
           ],
           [
             "82",
-            "Rosną ci skrzela i możesz oddychać powietrzem i wodą. Z twoich ramion wyrasta również para macek, które mają zasięg 3 metrów i mogą być używane do wykonywania wszelkich czynności, które możesz wykonać rękami. Macki nie mogą atakować ani chwytać się.",
+            "Rosną ci skrzela i możesz oddychać powietrzem i wodą. Z twoich ramion wyrasta również para macek, które mają zasięg 10 stóp i mogą być używane do wykonywania wszelkich czynności, które możesz wykonać rękami. Macki nie mogą atakować ani chwytać się.",
             "Stale podążają za tobą {@dice 1d4} {@creature octopus||ośmiornice}, który może oddychać powietrzem i wodą i który może chodzić z prędkością 30 stóp. Za każdym razem, gdy wybucha walka, musisz odnieść sukces w teście {@dc 13} Mądrości ({@skill Animal Handling}), w przeciwnym razie ośmiornice spanikują i cię zaatakują."
           ],
           [
@@ -61534,7 +61534,7 @@
     "rarity": "Pospolita",
     "name": "Kostka Termiczna",
     "entries": [
-      "Ten 3-calowy sześcian z litej siarki wytwarza wystarczającą ilość suchego ciepła, aby utrzymać temperaturę w promieniu 5 stóp od niej na poziomie 95 stopni Fahrenheita (35 stopni Celsjusza)."
+      "Ten 3-calowy sześcian z litej siarki wytwarza wystarczającą ilość suchego ciepła, aby utrzymać temperaturę w promieniu 15 stóp od niej na poziomie 95 stopni Fahrenheita (35 stopni Celsjusza)."
     ]
   },
   "thessaltoxin": {
@@ -61929,7 +61929,7 @@
     "rarity": "Nieznana (magiczna)",
     "name": "Fiolka przechwytywania myśli",
     "entries": [
-      "Ta ciemnoniebieska fiolka pozwala odczytać powierzchowne myśli innej osoby i uchwycić je jako pasma myślowe, przechowując je w fiolce. W ramach akcji możesz aktywować fiolkę, aby obrać za cel istotę, którą widzisz w promieniu 3 metrów od ciebie, aby poznać jej powierzchniowe myśli i wyciągnąć wyuczone myśli z głowy istoty w postaci namacalnego świecącego sznura energii znanego jako nić myśli. Nici można przechowywać w fiolce do 24 godzin lub do momentu, gdy fiolka osiągnie pojemność, w którym to przypadku najstarsze pasma ulegną rozproszeniu. Istota dotknięta fiolką wie, że jej myśli są badane.",
+      "Ta ciemnoniebieska fiolka pozwala odczytać powierzchowne myśli innej osoby i uchwycić je jako pasma myślowe, przechowując je w fiolce. W ramach akcji możesz aktywować fiolkę, aby obrać za cel istotę, którą widzisz w promieniu 10 stóp od ciebie, aby poznać jej powierzchniowe myśli i wyciągnąć wyuczone myśli z głowy istoty w postaci namacalnego świecącego sznura energii znanego jako nić myśli. Nici można przechowywać w fiolce do 24 godzin lub do momentu, gdy fiolka osiągnie pojemność, w którym to przypadku najstarsze pasma ulegną rozproszeniu. Istota dotknięta fiolką wie, że jej myśli są badane.",
       "Fiolka może również przechowywać nici myślowe utworzone przez sztuczkę {@spell encode thoughts|ggr}. Nie wydłuża to czasu trwania tych nici powyżej 8 godzin, ale przechowywane pasma nie znikają, jeśli ponownie rzucisz {@spell encode thoughts|ggr} podczas trwania sztuczki.",
       "Fiolka ma 3 ładunki i może przechowywać do 3 nici myślowych. Odzyskuje wszystkie swoje ładunki codziennie o zmierzchu."
     ]
@@ -62041,7 +62041,7 @@
         "name": "Wrażliwość",
         "type": "entries",
         "entries": [
-          "Waythe to świadoma broń o neutralnym charakterze, z Inteligencją 12, Mądrością 2 i Charyzmą 14. Posiada słuch i {@sense darkvision} w zasięgu 30 metrów.",
+          "Waythe to świadoma broń o neutralnym charakterze, z Inteligencją 12, Mądrością 2 i Charyzmą 14. Posiada słuch i {@sense darkvision} w zasięgu 120 stóp.",
           "Broń potrafi mówić i rozumieć gigantyczność i pospolitość, a także może komunikować się telepatycznie ze swoim posiadaczem."
         ]
       },
@@ -62586,7 +62586,7 @@
     "properties": "",
     "name": "Yacha",
     "entries": [
-      "Yahcha (wymawiane YAH-chah) to nieszkodliwy, mięsisty chrząszcz wielkości ludzkiej dłoni, żywiący się robakami i robakami. Porusza się powoli (prędkość chodzenia 3 metry) i łatwo go złapać. Stworzenie z gorączką niebieskiej mgły, które zjada surową lub gotowaną yahchę, może natychmiast wykonać rzut obronny z przewagą przeciwko tej chorobie (patrz {@adventure \"Diseases,\"|ToA|2|Diseases} strona 40)."
+      "Yahcha (wymawiane YAH-chah) to nieszkodliwy, mięsisty chrząszcz wielkości ludzkiej dłoni, żywiący się robakami i robakami. Porusza się powoli (prędkość chodzenia 10 stóp) i łatwo go złapać. Stworzenie z gorączką niebieskiej mgły, które zjada surową lub gotowaną yahchę, może natychmiast wykonać rzut obronny z przewagą przeciwko tej chorobie (patrz {@adventure \"Diseases,\"|ToA|2|Diseases} strona 40)."
     ]
   },
   "yester-hill-axe": {
@@ -62643,12 +62643,12 @@
     "name": "Ythryn Mythallar",
     "entries": [
       "Mitallar wygląda jak ogromna kryształowa kula trzymana w ozdobnej kołysce. Kula rzuca jasne światło w promieniu 300 stóp i słabe światło na dodatkowe 300 stóp. Kula czerpie magię ze Splotu, którą można wykorzystać do różnych celów. Na przykład magowie z Netheru używali mitallarów, aby utrzymać swoje miasta w górze i wzmocnić swoje magiczne przedmioty. Im większy mitallar, tym więcej magii może pomieścić. Największe mitalary mają średnicę 50 metrów.",
-      "Mitallar Ythryn jest stosunkowo małym urządzeniem - ma zaledwie 15 metrów średnicy. Aby dostroić się do tego mitallaru, istota musi zakończyć krótki odpoczynek w promieniu 30 stóp od niego, medytując nad mitallarem. Jednocześnie można dostroić się do niego maksymalnie osiem stworzeń; w przeciwnym razie mitallar Ythryn postępuje zgodnie z zasadami dostrojenia opisanymi w Przewodniku Mistrza Podziemi. Jeśli dziewiąte stworzenie spróbuje dostroić się do mitallaru, nic się nie stanie.",
+      "Mitallar Ythryn jest stosunkowo małym urządzeniem - ma zaledwie 50 stóp średnicy. Aby dostroić się do tego mitallaru, istota musi zakończyć krótki odpoczynek w promieniu 30 stóp od niego, medytując nad mitallarem. Jednocześnie można dostroić się do niego maksymalnie osiem stworzeń; w przeciwnym razie mitallar Ythryn postępuje zgodnie z zasadami dostrojenia opisanymi w Przewodniku Mistrza Podziemi. Jeśli dziewiąte stworzenie spróbuje dostroić się do mitallaru, nic się nie stanie.",
       "Wszystkie stworzenia dostrojone do mitallaru Ythryn potrafią wyczuć, kiedy urządzenie jest używane. Istota dostrojona do urządzenia może używać dowolnych jego właściwości, ale tylko wtedy, gdy wszystkie inne istoty dostrojone do urządzenia zgodzą się na to. Właściwości mitallaru Ythryn są następujące:",
       {
         "type": "list",
         "items": [
-          "Kiedy znajdujesz się na tej samej płaszczyźnie istnienia, co mitallar Ythryn, możesz wykonać akcję, aby sprawić, że poleci w dowolnym kierunku z prędkością 30 stóp. Cała materia w promieniu 150 metrów od urządzenia porusza się wraz z nim. Mitallar Ythryn i wszystkie utrzymywane przez niego konstrukcje unoszą się w miejscu, gdy nie są w ruchu.",
+          "Kiedy znajdujesz się na tej samej płaszczyźnie istnienia, co mitallar Ythryn, możesz wykonać akcję, aby sprawić, że poleci w dowolnym kierunku z prędkością 30 stóp. Cała materia w promieniu 500 stóp od urządzenia porusza się wraz z nim. Mitallar Ythryn i wszystkie utrzymywane przez niego konstrukcje unoszą się w miejscu, gdy nie są w ruchu.",
           "W ramach akcji możesz sprawić, że jeden magiczny przedmiot, który trzymasz w promieniu 30 stóp od mitallaru Ythryn, natychmiast odzyska wszystkie wykorzystane ładunki i zastosowania. Magiczny przedmiot ładowany w ten sposób nie może zostać ponownie naładowany przez Ythryn Mytallar, dopóki przedmiot nie zregeneruje zużytych ładunków lub sam się nie zużyje.",
           "Możesz użyć mitallaru Ythryn do rzucenia zaklęcia {@spell control weather} bez konieczności stosowania jakichkolwiek komponentów i bez konieczności przebywania na zewnątrz. To rzucenie zaklęcia ma promień 50 mil. Na czas rzucania zaklęcia musisz znajdować się w promieniu 30 stóp od mitallaru Ythryn, w przeciwnym razie zaklęcie zakończy się niepowodzeniem."
         ]
@@ -67753,7 +67753,7 @@
     "rarity": "Bardzo rzadka",
     "weight": "65 funtów",
     "entries": [
-      "Nosząc tę ​​zbroję, zyskujesz premię +2 do KP. Dodatkowo, jeśli jakiś efekt przesunie cię wbrew twojej woli po ziemi, możesz użyć swojej reakcji, aby zmniejszyć odległość, na którą jesteś przenoszony, nawet o 3 metry."
+      "Nosząc tę ​​zbroję, zyskujesz premię +2 do KP. Dodatkowo, jeśli jakiś efekt przesunie cię wbrew twojej woli po ziemi, możesz użyć swojej reakcji, aby zmniejszyć odległość, na którą jesteś przenoszony, nawet o 10 stóp."
     ],
     "properties": ""
   },
@@ -68554,7 +68554,7 @@
         "type": "entries",
         "name": "Strzałka transportu",
         "entries": [
-          "Jako akcja {@action Magic|XPHB} możesz wystrzelić jedną strzałę energetyczną z tej broni w cel widoczny w promieniu 60 stóp od ciebie. Celem może być chętne średnie lub mniejsze stworzenie albo obiekt, który nie jest noszony ani noszony, pod warunkiem, że obiekt jest wystarczająco mały, aby zmieścić się w 1,5-metrowym {@variantrule Cube [Area of Effect]|XPHB|Sześcian}. Strzałka teleportuje cel do niezajętego miejsca, które widzisz w promieniu 3 stóp od ciebie."
+          "Jako akcja {@action Magic|XPHB} możesz wystrzelić jedną strzałę energetyczną z tej broni w cel widoczny w promieniu 60 stóp od ciebie. Celem może być chętne średnie lub mniejsze stworzenie albo obiekt, który nie jest noszony ani noszony, pod warunkiem, że obiekt jest wystarczająco mały, aby zmieścić się w 1,5-metrowym {@variantrule Cube [Area of Effect]|XPHB|Sześcian}. Strzałka teleportuje cel do niezajętego miejsca, które widzisz w promieniu 10 stóp od ciebie."
         ]
       },
       {
@@ -68606,7 +68606,7 @@
             "type": "entries",
             "name": "Strzałka transportu",
             "entries": [
-              "Jako akcja {@action Magic|XPHB} możesz wystrzelić jedną strzałę energetyczną z tej broni w cel widoczny w promieniu 60 stóp od ciebie. Celem może być chętne średnie lub mniejsze stworzenie albo obiekt, który nie jest noszony ani noszony, pod warunkiem, że obiekt jest wystarczająco mały, aby zmieścić się w 1,5-metrowym {@variantrule Cube [Area of Effect]|XPHB|Sześcian}. Strzałka teleportuje cel do niezajętego miejsca, które widzisz w promieniu 3 stóp od ciebie."
+              "Jako akcja {@action Magic|XPHB} możesz wystrzelić jedną strzałę energetyczną z tej broni w cel widoczny w promieniu 60 stóp od ciebie. Celem może być chętne średnie lub mniejsze stworzenie albo obiekt, który nie jest noszony ani noszony, pod warunkiem, że obiekt jest wystarczająco mały, aby zmieścić się w 1,5-metrowym {@variantrule Cube [Area of Effect]|XPHB|Sześcian}. Strzałka teleportuje cel do niezajętego miejsca, które widzisz w promieniu 10 stóp od ciebie."
             ]
           },
           {
@@ -71935,7 +71935,7 @@
           ],
           [
             "99",
-            "Możesz użyć akcji, aby przywołać cień elfa, pod warunkiem, że jeszcze go nie masz. Cień elfów pojawia się na niezajętym obszarze w promieniu 30 metrów od ciebie. Używa statystyk {@creature shadow}, z tą różnicą, że jest neutralny, odporny na efekty zamieniające nieumarłych i nie tworzy nowych cieni. Kontrolujesz to stworzenie, decydując o tym, jak się zachowuje i porusza. Pozostaje dopóki nie spadnie do 0 punktów wytrzymałości lub odrzucisz ją jako akcję."
+            "Możesz użyć akcji, aby przywołać cień elfa, pod warunkiem, że jeszcze go nie masz. Cień elfów pojawia się na niezajętym obszarze w promieniu 120 stóp od ciebie. Używa statystyk {@creature shadow}, z tą różnicą, że jest neutralny, odporny na efekty zamieniające nieumarłych i nie tworzy nowych cieni. Kontrolujesz to stworzenie, decydując o tym, jak się zachowuje i porusza. Pozostaje dopóki nie spadnie do 0 punktów wytrzymałości lub odrzucisz ją jako akcję."
           ],
           [
             "00",
@@ -71947,7 +71947,7 @@
         "name": "Wrażliwość",
         "type": "entries",
         "entries": [
-          "Księżycowe ostrze to świadoma, neutralna, dobra broń z Inteligencją 12, Mądrością 10 i Charyzmą 12. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Księżycowe ostrze to świadoma, neutralna, dobra broń z Inteligencją 12, Mądrością 10 i Charyzmą 12. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się poprzez przekazywanie emocji, wywołując mrowienie w dłoni posiadacza, gdy chce przekazać coś, co wyczuła. Może komunikować się bardziej wyraźnie, poprzez wizje lub sny, gdy posiadacz jest w transie lub śpi."
         ]
       },
@@ -72423,7 +72423,7 @@
     "attunement": "Wymaga dostrojenia",
     "entries": [
       "Punkty wytrzymałości utracone w wyniku obrażeń zadawanych tą bronią można odzyskać jedynie poprzez krótki lub długi odpoczynek, a nie poprzez regenerację, magię lub w jakikolwiek inny sposób.",
-      "Raz na turę, gdy trafisz istotę atakiem przy użyciu tej magicznej broni, możesz zranić cel. Na początku każdej tury ranna istota otrzymuje {@damage 1d4} obrażenia nekrotyczne za każdym razem, gdy ją zranisz, a następnie może wykonać rzut obronny na Kondycję {@dc 15}, kończący efekt wszystkich takich ran na sobie z sukcesem. Alternatywnie, zraniona istota lub istota znajdująca się w promieniu 1,5 metra od niej może wykonać akcję, aby wykonać test {@dc 15} Mądrości ({@skill Medicine}), kończący działanie takich ran i kończący się sukcesem."
+      "Raz na turę, gdy trafisz istotę atakiem przy użyciu tej magicznej broni, możesz zranić cel. Na początku każdej tury ranna istota otrzymuje {@damage 1d4} obrażenia nekrotyczne za każdym razem, gdy ją zranisz, a następnie może wykonać rzut obronny na Kondycję {@dc 15}, kończący efekt wszystkich takich ran na sobie z sukcesem. Alternatywnie, zraniona istota lub istota znajdująca się w promieniu 5 stóp od niej może wykonać akcję, aby wykonać test {@dc 15} Mądrości ({@skill Medicine}), kończący działanie takich ran i kończący się sukcesem."
     ],
     "variant": {
       "name": "Miecz Zadawania Ran",
@@ -72447,7 +72447,7 @@
         "reqAttune": true,
         "entries": [
           "Punkty wytrzymałości utracone w wyniku obrażeń zadawanych tą bronią można odzyskać jedynie poprzez krótki lub długi odpoczynek, a nie poprzez regenerację, magię lub w jakikolwiek inny sposób.",
-          "Raz na turę, gdy trafisz istotę atakiem przy użyciu tej magicznej broni, możesz zranić cel. Na początku każdej tury ranna istota otrzymuje {@damage 1d4} obrażenia nekrotyczne za każdym razem, gdy ją zranisz, a następnie może wykonać rzut obronny na Kondycję {@dc 15}, kończący efekt wszystkich takich ran na sobie z sukcesem. Alternatywnie, zraniona istota lub istota znajdująca się w promieniu 1,5 metra od niej może wykonać akcję, aby wykonać test {@dc 15} Mądrości ({@skill Medicine}), kończący działanie takich ran i kończący się sukcesem."
+          "Raz na turę, gdy trafisz istotę atakiem przy użyciu tej magicznej broni, możesz zranić cel. Na początku każdej tury ranna istota otrzymuje {@damage 1d4} obrażenia nekrotyczne za każdym razem, gdy ją zranisz, a następnie może wykonać rzut obronny na Kondycję {@dc 15}, kończący efekt wszystkich takich ran na sobie z sukcesem. Alternatywnie, zraniona istota lub istota znajdująca się w promieniu 5 stóp od niej może wykonać akcję, aby wykonać test {@dc 15} Mądrości ({@skill Medicine}), kończący działanie takich ran i kończący się sukcesem."
         ],
         "lootTables": [
           "Tabela magicznych przedmiotów G"
@@ -72777,7 +72777,7 @@
     "attunement": "Wymaga dostrojenia",
     "entries": [
       "Otrzymujesz premię {=bonusWeapon} do testów ataku i obrażeń wykonanych tym magicznym mieczem.",
-      "Miecz ten może rozerwać tkaninę rzeczywistości, tworząc tymczasową szczelinę pomiędzy płaszczyznami. Możesz użyć swojej akcji, aby wybrać inną płaszczyznę istnienia niż ta, na której się znajdujesz, i przeciąć niezajętą ​​przestrzeń w promieniu 1,5 metra od ciebie, tworząc szczelinę prowadzącą do tej innej płaszczyzny. Szczelina może mieć do 3 metrów wysokości i 10 stóp szerokości i trwa 1 minutę. Gdy ta właściwość zostanie wykorzystana, nie można jej ponownie użyć aż do następnego świtu.",
+      "Miecz ten może rozerwać tkaninę rzeczywistości, tworząc tymczasową szczelinę pomiędzy płaszczyznami. Możesz użyć swojej akcji, aby wybrać inną płaszczyznę istnienia niż ta, na której się znajdujesz, i przeciąć niezajętą ​​przestrzeń w promieniu 5 stóp od ciebie, tworząc szczelinę prowadzącą do tej innej płaszczyzny. Szczelina może mieć do 10 stóp wysokości i 10 stóp szerokości i trwa 1 minutę. Gdy ta właściwość zostanie wykorzystana, nie można jej ponownie użyć aż do następnego świtu.",
       "Możesz określić miejsce docelowe, takie jak Miasto Mosiężne na Planie Żywiołu Ognia lub pałac Dispatera na drugiej warstwie Dziewięciu Piekieł, a szczelina otworzy się w tym miejscu docelowym lub w jego pobliżu (według uznania DM). Jeśli na przykład próbujesz dotrzeć do Miasta Mosiężnego, szczelina może pojawić się na Ulicy Stali, przed Bramą Popiołów lub naprzeciwko miasta zza Morza Ognia, według uznania DM.",
       "Wszystko, co wejdzie do szczeliny, jest natychmiast przenoszone na inny plan i pojawia się na niezajętym obszarze najbliżej szczeliny."
     ],
@@ -72798,7 +72798,7 @@
         "bonusWeapon": "+3",
         "entries": [
           "Otrzymujesz premię {=bonusWeapon} do testów ataku i obrażeń wykonanych tym magicznym mieczem.",
-          "Miecz ten może rozerwać tkaninę rzeczywistości, tworząc tymczasową szczelinę pomiędzy płaszczyznami. Możesz użyć swojej akcji, aby wybrać inną płaszczyznę istnienia niż ta, na której się znajdujesz, i przeciąć niezajętą ​​przestrzeń w promieniu 1,5 metra od ciebie, tworząc szczelinę prowadzącą do tej innej płaszczyzny. Szczelina może mieć do 3 metrów wysokości i 10 stóp szerokości i trwa 1 minutę. Gdy ta właściwość zostanie wykorzystana, nie można jej ponownie użyć aż do następnego świtu.",
+          "Miecz ten może rozerwać tkaninę rzeczywistości, tworząc tymczasową szczelinę pomiędzy płaszczyznami. Możesz użyć swojej akcji, aby wybrać inną płaszczyznę istnienia niż ta, na której się znajdujesz, i przeciąć niezajętą ​​przestrzeń w promieniu 5 stóp od ciebie, tworząc szczelinę prowadzącą do tej innej płaszczyzny. Szczelina może mieć do 10 stóp wysokości i 10 stóp szerokości i trwa 1 minutę. Gdy ta właściwość zostanie wykorzystana, nie można jej ponownie użyć aż do następnego świtu.",
           "Możesz określić miejsce docelowe, takie jak Miasto Mosiężne na Planie Żywiołu Ognia lub pałac Dispatera na drugiej warstwie Dziewięciu Piekieł, a szczelina otworzy się w tym miejscu docelowym lub w jego pobliżu (według uznania DM). Jeśli na przykład próbujesz dotrzeć do Miasta Mosiężnego, szczelina może pojawić się na Ulicy Stali, przed Bramą Popiołów lub naprzeciwko miasta zza Morza Ognia, według uznania DM.",
           "Wszystko, co wejdzie do szczeliny, jest natychmiast przenoszone na inny plan i pojawia się na niezajętym obszarze najbliżej szczeliny."
         ]
@@ -73385,7 +73385,7 @@
             "type": "item",
             "name": "Klejnot",
             "entries": [
-              "Ilekroć używasz miejsca na zaklęcie do rzucenia zaklęcia, możesz natychmiast teleportować się do niezajętego miejsca, które widzisz w promieniu 5 stóp od ciebie."
+              "Ilekroć używasz miejsca na zaklęcie do rzucenia zaklęcia, możesz natychmiast teleportować się do niezajętego miejsca, które widzisz w promieniu 15 stóp od ciebie."
             ]
           },
           {
@@ -73457,7 +73457,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Ostrze Rozbitych Luster jest świadomą, chaotyczną, złą bronią o Inteligencji 21, Mądrości 24 i Charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Ostrze Rozbitych Luster jest świadomą, chaotyczną, złą bronią o Inteligencji 21, Mądrości 24 i Charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań i Wspólność."
         ]
       },
@@ -73542,7 +73542,7 @@
         "type": "entries",
         "name": "Uśpiony",
         "entries": [
-          "Nosząc gogle w stanie uśpienia, możesz normalnie widzieć w ciemności, zarówno magicznej, jak i niemagicznej, na odległość 20 metrów. Dodatkowo masz przewagę w testach Inteligencji ({@skill Investigation}) i Mądrości ({@skill Perception}), które opierają się na wzroku."
+          "Nosząc gogle w stanie uśpienia, możesz normalnie widzieć w ciemności, zarówno magicznej, jak i niemagicznej, na odległość 60 stóp. Dodatkowo masz przewagę w testach Inteligencji ({@skill Investigation}) i Mądrości ({@skill Perception}), które opierają się na wzroku."
         ]
       }
     ],
@@ -73588,7 +73588,7 @@
         "type": "entries",
         "name": "Uśpiony",
         "entries": [
-          "Nosząc gogle w stanie uśpienia, możesz normalnie widzieć w ciemności, zarówno magicznej, jak i niemagicznej, na odległość 20 metrów. Dodatkowo masz przewagę w testach Inteligencji ({@skill Investigation}) i Mądrości ({@skill Perception}), które opierają się na wzroku."
+          "Nosząc gogle w stanie uśpienia, możesz normalnie widzieć w ciemności, zarówno magicznej, jak i niemagicznej, na odległość 60 stóp. Dodatkowo masz przewagę w testach Inteligencji ({@skill Investigation}) i Mądrości ({@skill Perception}), które opierają się na wzroku."
         ]
       }
     ],
@@ -73667,7 +73667,7 @@
         "name": "Mroczna mowa",
         "type": "entries",
         "entries": [
-          "Kiedy nosisz Księgę Plugawej Ciemności i jesteś do niej dostrojony, możesz wykonać akcję, aby wyrecytować słowa z jej stron w wulgarnym języku znanym jako Mroczna Mowa. Za każdym razem, gdy to zrobisz, otrzymujesz obrażenia psychiczne {@damage 1d12}, a każda nie-zła istota w promieniu 5 stóp od ciebie otrzymuje obrażenia psychiczne {@damage 3d6}."
+          "Kiedy nosisz Księgę Plugawej Ciemności i jesteś do niej dostrojony, możesz wykonać akcję, aby wyrecytować słowa z jej stron w wulgarnym języku znanym jako Mroczna Mowa. Za każdym razem, gdy to zrobisz, otrzymujesz obrażenia psychiczne {@damage 1d12}, a każda nie-zła istota w promieniu 15 stóp od ciebie otrzymuje obrażenia psychiczne {@damage 3d6}."
         ]
       },
       {
@@ -73749,7 +73749,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Ostrze Rozbitych Luster jest świadomą, chaotyczną, złą bronią o Inteligencji 21, Mądrości 24 i Charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Ostrze Rozbitych Luster jest świadomą, chaotyczną, złą bronią o Inteligencji 21, Mądrości 24 i Charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań i Wspólność."
         ]
       },
@@ -74005,7 +74005,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Grovelthrash jest świadomą, neutralną, złą bronią o Inteligencji 18, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Grovelthrash jest świadomą, neutralną, złą bronią o Inteligencji 18, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Pospolity i Piekielny."
         ]
       },
@@ -74123,7 +74123,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Grovelthrash jest świadomą, neutralną, złą bronią o Inteligencji 18, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Grovelthrash jest świadomą, neutralną, złą bronią o Inteligencji 18, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Pospolity i Piekielny."
         ]
       },
@@ -74215,7 +74215,7 @@
           {
             "type": "list",
             "items": [
-              "Jako akcję dodatkową możesz dotknąć kluczem podłogi, ściany lub sufitu o grubości nie większej niż 1,5 metra i spowodować pojawienie się na powierzchni magicznego otworu. Tworząc otwór, wybierasz jego długość i szerokość, do 10 stóp dla każdego wymiaru. Otwarcie trwa do momentu, aż klucz przejdzie przez nie na drugą stronę, po czym znika (jeśli w momencie zamykania się drzwi znajduje się w otworze istota, istota zostaje bezpiecznie przerzucona na najbliższe niezajęte miejsce). Klucza nie można użyć do stworzenia kolejnego otwarcia aż do następnego świtu.",
+              "Jako akcję dodatkową możesz dotknąć kluczem podłogi, ściany lub sufitu o grubości nie większej niż 5 stóp i spowodować pojawienie się na powierzchni magicznego otworu. Tworząc otwór, wybierasz jego długość i szerokość, do 10 stóp dla każdego wymiaru. Otwarcie trwa do momentu, aż klucz przejdzie przez nie na drugą stronę, po czym znika (jeśli w momencie zamykania się drzwi znajduje się w otworze istota, istota zostaje bezpiecznie przerzucona na najbliższe niezajęte miejsce). Klucza nie można użyć do stworzenia kolejnego otwarcia aż do następnego świtu.",
               "Trzymając klucz, możesz wykonać akcję, aby rzucić z niego jedno z następujących zaklęć: {@spell dimension door}, {@spell gaseous form} lub {@spell mislead}. Kiedy zaklęcie zostanie rzucone za pomocą klucza, nie można go użyć do rzucenia go ponownie aż do następnego świtu."
             ]
           }
@@ -74341,8 +74341,8 @@
             "type": "list",
             "items": [
               "Zyskujesz zdolność oddychania wodą i zyskujesz prędkość pływania równą prędkości chodzenia.",
-              "Każdy z twoich sojuszników w promieniu 9 metrów od ciebie zyskuje zdolność oddychania wodą i prędkość pływania równą jego szybkości chodzenia.",
-              "Jako akcję dodatkową możesz wydać 1 z ładunków klejnotu, aby obrać za cel siebie lub jedno chętne stworzenie, które widzisz w promieniu 5 stóp od ciebie. Cel teleportuje się do wybranego przez ciebie wolnego miejsca w promieniu 5 stóp od ciebie, wraz z całym wyposażeniem, który cel nosi lub nosi. Cel pojawia się w błysku złotego blasku, a każde wybrane przez ciebie stworzenie w promieniu 5 stóp od nowego miejsca celu musi wykonać rzut obronny na Kondycję {@dc 18}. W przypadku nieudanego rzutu obronnego, istota otrzymuje {@damage 4d10} obrażenia promieniste i pozostaje {@condition blinded} do początku twojej następnej tury. Po udanym rzucie stwór otrzymuje o połowę mniejsze obrażenia i nie jest {@condition blinded}."
+              "Każdy z twoich sojuszników w promieniu 30 stóp od ciebie zyskuje zdolność oddychania wodą i prędkość pływania równą jego szybkości chodzenia.",
+              "Jako akcję dodatkową możesz wydać 1 z ładunków klejnotu, aby obrać za cel siebie lub jedno chętne stworzenie, które widzisz w promieniu 15 stóp od ciebie. Cel teleportuje się do wybranego przez ciebie wolnego miejsca w promieniu 15 stóp od ciebie, wraz z całym wyposażeniem, który cel nosi lub nosi. Cel pojawia się w błysku złotego blasku, a każde wybrane przez ciebie stworzenie w promieniu 5 stóp od nowego miejsca celu musi wykonać rzut obronny na Kondycję {@dc 18}. W przypadku nieudanego rzutu obronnego, istota otrzymuje {@damage 4d10} obrażenia promieniste i pozostaje {@condition blinded} do początku twojej następnej tury. Po udanym rzucie stwór otrzymuje o połowę mniejsze obrażenia i nie jest {@condition blinded}."
             ]
           }
         ]
@@ -74402,7 +74402,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Lash of Shadows to świadoma, chaotyczna zła broń o inteligencji 18, mądrości 16 i charyzmie 20. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Lash of Shadows to świadoma, chaotyczna zła broń o inteligencji 18, mądrości 16 i charyzmie 20. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną i Smoczą."
         ]
       },
@@ -74483,7 +74483,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Buzdygan Czarnej Korony jest świadomą, legalną, złą bronią o Inteligencji 20, Mądrości 12 i Charyzmie 18. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Buzdygan Czarnej Korony jest świadomą, legalną, złą bronią o Inteligencji 20, Mądrości 12 i Charyzmie 18. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny i Piekielny."
         ]
       },
@@ -74564,7 +74564,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Lash of Shadows to świadoma, chaotyczna zła broń o inteligencji 18, mądrości 16 i charyzmie 20. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Lash of Shadows to świadoma, chaotyczna zła broń o inteligencji 18, mądrości 16 i charyzmie 20. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną i Smoczą."
         ]
       },
@@ -74663,7 +74663,7 @@
       },
       "Kiedy wykonujesz test Inteligencji, aby przywołać wiedzę z dowolnego obszaru swojej specjalizacji, kula otrzymuje premię +9 do rzutu (wliczając modyfikator Inteligencji).",
       "Profesor Skant ma postać gładkiej, solidnej, ważącej 5 funtów kuli z przydymionego szarego kwarcu, wielkości mniej więcej grejpfruta. Dokładne badanie ujawnia dwa lub więcej punkcików srebrnego światła głęboko wewnątrz kuli.",
-      "Profesor Skant normalnie widzi i słyszy w promieniu 20 metrów. W przeciwieństwie do większości czujących przedmiotów, kula nie ma własnej woli i nie może zainicjować konfliktu z istotą, która ją posiada.",
+      "Profesor Skant normalnie widzi i słyszy w promieniu 60 stóp. W przeciwieństwie do większości czujących przedmiotów, kula nie ma własnej woli i nie może zainicjować konfliktu z istotą, która ją posiada.",
       "Oprócz posiadanej wiedzy profesor Skant może dowolnie rzucać sztuczkę {@spell mage hand}. Używa zaklęcia tylko do transportu. Jego zdolnością rzucania zaklęć jest Inteligencja."
     ],
     "type": "Cudowny przedmiot",
@@ -74683,7 +74683,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Buzdygan Czarnej Korony jest świadomą, legalną, złą bronią o Inteligencji 20, Mądrości 12 i Charyzmie 18. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Buzdygan Czarnej Korony jest świadomą, legalną, złą bronią o Inteligencji 20, Mądrości 12 i Charyzmie 18. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny i Piekielny."
         ]
       },
@@ -74773,7 +74773,7 @@
             "type": "item",
             "name": "Klejnot",
             "entries": [
-              "Ilekroć używasz miejsca na zaklęcie do rzucenia zaklęcia, możesz natychmiast teleportować się do niezajętego miejsca, które widzisz w promieniu 5 stóp od ciebie."
+              "Ilekroć używasz miejsca na zaklęcie do rzucenia zaklęcia, możesz natychmiast teleportować się do niezajętego miejsca, które widzisz w promieniu 15 stóp od ciebie."
             ]
           },
           {
@@ -74814,7 +74814,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Silken Spite to świadoma, chaotyczna zła broń o inteligencji 13, mądrości 15 i charyzmie 15. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Silken Spite to świadoma, chaotyczna zła broń o inteligencji 13, mądrości 15 i charyzmie 15. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną, Elficką i Podwspólną."
         ]
       },
@@ -74834,7 +74834,7 @@
             "type": "list",
             "items": [
               "Potrafisz mówić, czytać i pisać w języku Otchłani, Elfickim i Podwspólnym.",
-              "Masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, dostrojenie się do rapieru zwiększa zasięg twojego {@sense darkvision} o 20 metrów.",
+              "Masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, dostrojenie się do rapieru zwiększa zasięg twojego {@sense darkvision} o 60 stóp.",
               "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
               "Możesz użyć akcji, która sprawi, że trucizna pokryje ostrze rapieru. Trucizna utrzymuje się przez 1 minutę lub do momentu, gdy atak tą bronią trafi istotę. To stworzenie musi odnieść sukces w rzucie obronnym na Kondycję {@dc 13} lub stać się {@condition poisoned} na 1 godzinę. Jeśli rzut obronny nie powiedzie się o 5 lub więcej, stworzenie jest również {@condition unconscious} podczas {@condition poisoned} w ten sposób. Stworzenie budzi się, jeśli otrzyma obrażenia lub jeśli inne stworzenie użyje swojej akcji, aby go obudzić.",
               "Niosąc rapier, możesz poruszać się w górę, w dół, po pionowych powierzchniach i do góry nogami po sufitach, pozostawiając wolne ręce. Prędkość wspinania jest równa szybkości chodzenia. Dodatkowo nie możesz dać się złapać w żadne sieci i możesz poruszać się po nich tak, jakby były to {@quickref difficult terrain||3}."
@@ -74897,7 +74897,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Silken Spite to świadoma, chaotyczna zła broń o inteligencji 13, mądrości 15 i charyzmie 15. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Silken Spite to świadoma, chaotyczna zła broń o inteligencji 13, mądrości 15 i charyzmie 15. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną, Elficką i Podwspólną."
         ]
       },
@@ -74917,7 +74917,7 @@
             "type": "list",
             "items": [
               "Potrafisz mówić, czytać i pisać w języku Otchłani, Elfickim i Podwspólnym.",
-              "Masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, dostrojenie się do rapieru zwiększa zasięg twojego {@sense darkvision} o 20 metrów.",
+              "Masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, dostrojenie się do rapieru zwiększa zasięg twojego {@sense darkvision} o 60 stóp.",
               "Otrzymujesz premię +1 do testów ataku i obrażeń wykonywanych tą magiczną bronią.",
               "Możesz użyć akcji, która sprawi, że trucizna pokryje ostrze rapieru. Trucizna utrzymuje się przez 1 minutę lub do momentu, gdy atak tą bronią trafi istotę. To stworzenie musi odnieść sukces w rzucie obronnym na Kondycję {@dc 13} lub stać się {@condition poisoned} na 1 godzinę. Jeśli rzut obronny nie powiedzie się o 5 lub więcej, stworzenie jest również {@condition unconscious} podczas {@condition poisoned} w ten sposób. Stworzenie budzi się, jeśli otrzyma obrażenia lub jeśli inne stworzenie użyje swojej akcji, aby go obudzić.",
               "Niosąc rapier, możesz poruszać się w górę, w dół, po pionowych powierzchniach i do góry nogami po sufitach, pozostawiając wolne ręce. Prędkość wspinania jest równa szybkości chodzenia. Dodatkowo nie możesz dać się złapać w żadne sieci i możesz poruszać się po nich tak, jakby były to {@quickref difficult terrain||3}."
@@ -74964,7 +74964,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Ruin's Wake to świadoma, chaotyczna zła broń o inteligencji 20, mądrości 16 i charyzmie 22. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Ruin's Wake to świadoma, chaotyczna zła broń o inteligencji 20, mądrości 16 i charyzmie 22. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną i Orkową."
         ]
       },
@@ -74999,7 +74999,7 @@
             "type": "list",
             "items": [
               "Premia broni do testów ataku i obrażeń wzrasta do +2, a dodatkowe obrażenia kłute zadawane przez broń wzrastają do {@damage 2d8}.",
-              "Kiedy rzucisz włócznią i wypowiesz słowo rozkazu, przekształci się ona w błyskawicę, tworząc linię o szerokości 5 stóp, która rozciąga się od ciebie do stworzenia, które widzisz w promieniu 30 metrów od ciebie. Każde stworzenie w linii, z wyjątkiem ciebie, musi wykonać rzut obronny na Zręczność {@dc 15}, który otrzyma obrażenia od piorunów {@damage 8d6} przy nieudanym rzucie lub połowę mniej przy udanym rzucie. Następnie Ruin's Wake wraca do twojej ręki. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+              "Kiedy rzucisz włócznią i wypowiesz słowo rozkazu, przekształci się ona w błyskawicę, tworząc linię o szerokości 5 stóp, która rozciąga się od ciebie do stworzenia, które widzisz w promieniu 120 stóp od ciebie. Każde stworzenie w linii, z wyjątkiem ciebie, musi wykonać rzut obronny na Zręczność {@dc 15}, który otrzyma obrażenia od piorunów {@damage 8d6} przy nieudanym rzucie lub połowę mniej przy udanym rzucie. Następnie Ruin's Wake wraca do twojej ręki. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
             ]
           }
         ]
@@ -75039,7 +75039,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Ruin's Wake to świadoma, chaotyczna zła broń o inteligencji 20, mądrości 16 i charyzmie 22. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Ruin's Wake to świadoma, chaotyczna zła broń o inteligencji 20, mądrości 16 i charyzmie 22. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Otchłań, Wspólną i Orkową."
         ]
       },
@@ -75074,7 +75074,7 @@
             "type": "list",
             "items": [
               "Premia broni do testów ataku i obrażeń wzrasta do +2, a dodatkowe obrażenia kłute zadawane przez broń wzrastają do {@damage 2d8}.",
-              "Kiedy rzucisz włócznią i wypowiesz słowo rozkazu, przekształci się ona w błyskawicę, tworząc linię o szerokości 5 stóp, która rozciąga się od ciebie do stworzenia, które widzisz w promieniu 30 metrów od ciebie. Każde stworzenie w linii, z wyjątkiem ciebie, musi wykonać rzut obronny na Zręczność {@dc 15}, który otrzyma obrażenia od piorunów {@damage 8d6} przy nieudanym rzucie lub połowę mniej przy udanym rzucie. Następnie Ruin's Wake wraca do twojej ręki. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
+              "Kiedy rzucisz włócznią i wypowiesz słowo rozkazu, przekształci się ona w błyskawicę, tworząc linię o szerokości 5 stóp, która rozciąga się od ciebie do stworzenia, które widzisz w promieniu 120 stóp od ciebie. Każde stworzenie w linii, z wyjątkiem ciebie, musi wykonać rzut obronny na Zręczność {@dc 15}, który otrzyma obrażenia od piorunów {@damage 8d6} przy nieudanym rzucie lub połowę mniej przy udanym rzucie. Następnie Ruin's Wake wraca do twojej ręki. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu."
             ]
           }
         ]
@@ -75215,7 +75215,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Krwawy Koniec to świadoma, legalna zła broń o inteligencji 22, mądrości 18 i charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Krwawy Koniec to świadoma, legalna zła broń o inteligencji 22, mądrości 18 i charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny i Piekielny."
         ]
       },
@@ -75252,7 +75252,7 @@
             "items": [
               "Premia broni do testów ataku i obrażeń wzrasta do +2.",
               "ST rzutu obronnego na zaklęcia rzucane przez Gwiazdę Poranną wzrasta do 15.",
-              "Kiedy zmniejszysz istotę do 0 punktów wytrzymałości atakiem Krwawego Końca, możesz wywołać następujący efekt: każda wybrana przez ciebie istota w promieniu 5 stóp od ciebie musi odnieść sukces w rzucie obronnym na Mądrość {@dc 15} lub być {@condition frightened} tobą do końca twojej następnej tury. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
+              "Kiedy zmniejszysz istotę do 0 punktów wytrzymałości atakiem Krwawego Końca, możesz wywołać następujący efekt: każda wybrana przez ciebie istota w promieniu 15 stóp od ciebie musi odnieść sukces w rzucie obronnym na Mądrość {@dc 15} lub być {@condition frightened} tobą do końca twojej następnej tury. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
               "Kiedy stwór uderza cię atakiem wręcz, możesz wykorzystać swoją reakcję, aby zadać atakującemu obrażenia psychiczne {@damage 1d6}."
             ]
           }
@@ -75342,7 +75342,7 @@
             "type": "item",
             "name": "Klejnot",
             "entries": [
-              "Ilekroć używasz miejsca na zaklęcie do rzucenia zaklęcia, możesz natychmiast teleportować się do niezajętego miejsca, które widzisz w promieniu 5 stóp od ciebie."
+              "Ilekroć używasz miejsca na zaklęcie do rzucenia zaklęcia, możesz natychmiast teleportować się do niezajętego miejsca, które widzisz w promieniu 15 stóp od ciebie."
             ]
           },
           {
@@ -75400,7 +75400,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Krwawy Koniec to świadoma, legalna zła broń o inteligencji 22, mądrości 18 i charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Krwawy Koniec to świadoma, legalna zła broń o inteligencji 22, mądrości 18 i charyzmie 24. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny i Piekielny."
         ]
       },
@@ -75437,7 +75437,7 @@
             "items": [
               "Premia broni do testów ataku i obrażeń wzrasta do +2.",
               "ST rzutu obronnego na zaklęcia rzucane przez Gwiazdę Poranną wzrasta do 15.",
-              "Kiedy zmniejszysz istotę do 0 punktów wytrzymałości atakiem Krwawego Końca, możesz wywołać następujący efekt: każda wybrana przez ciebie istota w promieniu 5 stóp od ciebie musi odnieść sukces w rzucie obronnym na Mądrość {@dc 15} lub być {@condition frightened} tobą do końca twojej następnej tury. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
+              "Kiedy zmniejszysz istotę do 0 punktów wytrzymałości atakiem Krwawego Końca, możesz wywołać następujący efekt: każda wybrana przez ciebie istota w promieniu 15 stóp od ciebie musi odnieść sukces w rzucie obronnym na Mądrość {@dc 15} lub być {@condition frightened} tobą do końca twojej następnej tury. Z tej właściwości nie można ponownie skorzystać aż do następnego świtu.",
               "Kiedy stwór uderza cię atakiem wręcz, możesz wykorzystać swoją reakcję, aby zadać atakującemu obrażenia psychiczne {@damage 1d6}."
             ]
           }
@@ -75559,7 +75559,7 @@
         "type": "entries",
         "name": "Uśpiony",
         "entries": [
-          "Nosząc wieniec w stanie uśpienia, masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, noszenie wieńca zwiększa zasięg twojego {@sense darkvision} o 20 metrów.",
+          "Nosząc wieniec w stanie uśpienia, masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, noszenie wieńca zwiększa zasięg twojego {@sense darkvision} o 60 stóp.",
           "Kiedy trafisz atakiem bestię, smoka lub potwora o stopniu wyzwania 5 lub niższym, lub kiedy go złapiesz, możesz użyć wieńca, aby rzucić {@spell dominate monster} na stworzenie (z wyjątkiem {@dc 13}). Po pomyślnym rzucie obronnym cel jest odporny na moc wieńca na 24 godziny. W przypadku niepowodzenia, błyszczący, złoty obraz wieńca pojawia się jako obroża na szyi celu lub jako korona na jego głowie (twój wybór), dopóki nie będzie już {@condition charmed} przez zaklęcie. Jeśli użyjesz wieńca do oczarowania drugiego stworzenia, pierwsze zaklęcie natychmiast się zakończy. Kiedy zaklęcie się skończy, cel będzie wiedział, że to {@condition charmed} autorstwa ciebie."
         ]
       }
@@ -75575,7 +75575,7 @@
     "properties": "Wszechstronna",
     "weaponCategory": "prosty",
     "entries": [
-      "Ta drewniana laska ma 10 ładunków. Trzymając go, możesz wykonać akcję, aby wydać 1 ładunek laski i spowodować, że kwiat wyrośnie z kawałka ziemi lub ziemi w promieniu 1,5 metra od ciebie lub z samej laski. Jeśli nie wybierzesz konkretnego rodzaju kwiatu, laska stworzy delikatnie pachnącą stokrotkę. Kwiat jest nieszkodliwy i niemagiczny, rośnie lub więdnie jak normalny kwiat. Personel odzyskuje zużyte opłaty {@dice 1d6 + 4} codziennie o świcie. Jeśli zużyjesz ostatni ładunek, rzuć {@dice d20}. Na 1 laska zamienia się w płatki kwiatów i przepada na zawsze.",
+      "Ta drewniana laska ma 10 ładunków. Trzymając go, możesz wykonać akcję, aby wydać 1 ładunek laski i spowodować, że kwiat wyrośnie z kawałka ziemi lub ziemi w promieniu 5 stóp od ciebie lub z samej laski. Jeśli nie wybierzesz konkretnego rodzaju kwiatu, laska stworzy delikatnie pachnącą stokrotkę. Kwiat jest nieszkodliwy i niemagiczny, rośnie lub więdnie jak normalny kwiat. Personel odzyskuje zużyte opłaty {@dice 1d6 + 4} codziennie o świcie. Jeśli zużyjesz ostatni ładunek, rzuć {@dice d20}. Na 1 laska zamienia się w płatki kwiatów i przepada na zawsze.",
       "Laska Wyllowa wyróżnia się tym, że nie potrafi tworzyć róż, czego arcydruid nie lubi. Jeśli wybierzesz różę, zamiast niej wyrośnie stokrotka."
     ],
     "type": "Cudowny przedmiot"
@@ -75619,7 +75619,7 @@
         "type": "entries",
         "name": "Uśpiony",
         "entries": [
-          "Nosząc wieniec w stanie uśpienia, masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, noszenie wieńca zwiększa zasięg twojego {@sense darkvision} o 20 metrów.",
+          "Nosząc wieniec w stanie uśpienia, masz {@sense darkvision} w zasięgu 60 stóp. Jeśli posiadasz już {@sense darkvision}, noszenie wieńca zwiększa zasięg twojego {@sense darkvision} o 60 stóp.",
           "Kiedy trafisz atakiem bestię, smoka lub potwora o stopniu wyzwania 5 lub niższym, lub kiedy go złapiesz, możesz użyć wieńca, aby rzucić {@spell dominate monster} na stworzenie (z wyjątkiem {@dc 13}). Po pomyślnym rzucie obronnym cel jest odporny na moc wieńca na 24 godziny. W przypadku niepowodzenia, błyszczący, złoty obraz wieńca pojawia się jako obroża na szyi celu lub jako korona na jego głowie (twój wybór), dopóki nie będzie już {@condition charmed} przez zaklęcie. Jeśli użyjesz wieńca do oczarowania drugiego stworzenia, pierwsze zaklęcie natychmiast się zakończy. Kiedy zaklęcie się skończy, cel będzie wiedział, że to {@condition charmed} autorstwa ciebie."
         ]
       }
@@ -75640,7 +75640,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Wola Szponu to świadoma, legalna zła broń o Inteligencji 14, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Wola Szponu to świadoma, legalna zła broń o Inteligencji 14, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny, Smoczy i Piekielny."
         ]
       },
@@ -75749,7 +75749,7 @@
         "type": "entries",
         "name": "Wrażliwość",
         "entries": [
-          "Wola Szponu to świadoma, legalna zła broń o Inteligencji 14, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 30 metrów.",
+          "Wola Szponu to świadoma, legalna zła broń o Inteligencji 14, Mądrości 15 i Charyzmie 19. Ma słuch i {@sense darkvision} o zasięgu 120 stóp.",
           "Broń komunikuje się telepatycznie ze swoim posiadaczem i może mówić, czytać i rozumieć Wspólny, Smoczy i Piekielny."
         ]
       },

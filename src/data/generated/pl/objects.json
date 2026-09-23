@@ -29,7 +29,7 @@
       {
         "name": "Kula armatnia (wymaga załadowania i wycelowania)",
         "entries": [
-          "{@atkr r} {@hit 6}, zasięg 600/2400 stóp. {@h}44 ({@damage 8d10}) obrażeń Obuchowych."
+          "{@atkr r} {@hit 6}, zasięg 600/2,400 stóp. {@h}44 ({@damage 8d10}) obrażeń Obuchowych."
         ]
       }
     ],
@@ -275,7 +275,7 @@
       {
         "name": "Kula Błyskawic (wymaga wycelowania)",
         "entries": [
-          "{@atkr r} {@hit 6}, zasięg 300/1200 stóp. {@h}22 ({@damage 4d10}) obrażeń od pioruna."
+          "{@atkr r} {@hit 6}, zasięg 300/1,200 stóp. {@h}22 ({@damage 4d10}) obrażeń od pioruna."
         ]
       }
     ],
@@ -394,7 +394,7 @@
       {
         "name": "Kamień z trebusza (wymaga załadowania i wycelowania)",
         "entries": [
-          "{@atkr r} {@hit 5}, zasięg 300/1200 stóp (nie może trafić celów w promieniu 60 stóp od siebie). {@h}44 ({@damage 8d10}) obrażeń Obuchowych."
+          "{@atkr r} {@hit 5}, zasięg 300/1,200 stóp (nie może trafić celów w promieniu 60 stóp od siebie). {@h}44 ({@damage 8d10}) obrażeń Obuchowych."
         ]
       }
     ],
@@ -468,7 +468,7 @@
             "type": "attack",
             "attackType": "RW",
             "attackEntries": [
-              "{@hit +6} do trafienia, zasięg 600/2400 stóp, jeden cel."
+              "{@hit +6} do trafienia, zasięg 600/2,400 stóp, jeden cel."
             ],
             "hitEntries": [
               "44 ({@damage 8d10}) obrażeń Obuchowych."
@@ -557,7 +557,7 @@
             "type": "attack",
             "attackType": "RW",
             "attackEntries": [
-              "{@hit +5} do trafienia, zasięg 300/1200 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel."
+              "{@hit +5} do trafienia, zasięg 300/1,200 stóp (nie może trafić celów w promieniu 60 stóp od siebie), jeden cel."
             ],
             "hitEntries": [
               "44 ({@damage 8d10}) obrażeń Obuchowych."
@@ -745,7 +745,7 @@
       {
         "name": "Worek rąk (wymaga obciążenia i celowania)",
         "entries": [
-          "Wystrzelony worek wijących się rąk ląduje w odległości od 30 do 30 stóp od mangonelu. W miejscu wylądowania worka pojawia się {@creature Swarm of Crawling Claws|XMM}."
+          "Wystrzelony worek wijących się rąk ląduje w odległości od 30 do 100 stóp od mangonelu. W miejscu wylądowania worka pojawia się {@creature Swarm of Crawling Claws|XMM}."
         ]
       }
     ]
@@ -824,7 +824,7 @@
         "name": "Rzut personelu",
         "entries": [
           "Gnomeflinger katapultuje średnie lub mniejsze stworzenie w odległości poziomej wynoszącej co najmniej 60 stóp, przy maksymalnej odległości poziomej wynoszącej 60 stóp, 150 stóp lub 300 stóp, w zależności od opcji wybranej podczas celowania katapulty. Podczas tej trajektorii stworzenie zawsze osiąga wysokość 60 stóp w pionie.",
-          "Stworzenie, które na tej trajektorii zderza się z innym stworzeniem lub obiektem, otrzymuje 3 ({@damage 1d6}) obrażenia obuchowe za każde 3 metry od gnomeflingera, którym się znajduje."
+          "Stworzenie, które na tej trajektorii zderza się z innym stworzeniem lub obiektem, otrzymuje 3 ({@damage 1d6}) obrażenia obuchowe za każde 10 stóp od gnomeflingera, którym się znajduje."
         ]
       }
     ]

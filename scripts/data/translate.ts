@@ -3,6 +3,10 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Entry, EntryNode } from '../../src/data/compendium/entry';
 import type { JsonObject, JsonValue } from '../../src/data/compendium/types';
+import {
+  localizeCompendiumValue,
+  repairLocalizedMeasurements,
+} from '../../src/data/compendium/localizeValue';
 import { SUPPORTED_LOCALES } from '../../src/i18n/locales';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
@@ -396,6 +400,35 @@ async function translateGoogleValue(
 
 type GoogleSourceItem = JsonObject & { id: string; name: string };
 
+const METADATA_FIELDS = new Set([
+  'ac',
+  'attackBonus',
+  'capacity',
+  'castingTime',
+  'components',
+  'cost',
+  'cr',
+  'crDisplay',
+  'damage',
+  'duration',
+  'height',
+  'hp',
+  'initiative',
+  'languages',
+  'long',
+  'normal',
+  'pace',
+  'range',
+  'saves',
+  'senses',
+  'skills',
+  'speed',
+  'tools',
+  'value',
+  'weight',
+  'width',
+]);
+
 const POLISH_CREATURE_TYPES: Record<string, string> = {
   Aberration: 'Aberracja',
   Beast: 'Bestia',
@@ -447,6 +480,74 @@ function canonicalSize(source: string): string {
     .join(' lub ');
 }
 
+function numericSignature(value: string): string {
+  return [...value.matchAll(/\d[\d.,]*/gu)]
+    .map(([token]) => token.replace(/[.,]/gu, ''))
+    .join('|');
+}
+
+function hasIncorrectSpeedLabels(source: string, localized: string): boolean {
+  if (!/\b(?:Climb|Fly|Swim|Burrow|hover)\b/iu.test(source)) return false;
+  return (
+    /\b(?:lataj|latać|przepłyń|przepłyn|przelecieć|wspinaj|wznieś|wznieść)\b/iu.test(
+      localized,
+    ) ||
+    (/\bhover\b/iu.test(source) && !/\bzawis/iu.test(localized))
+  );
+}
+
+function normalizeMetadataTranslation(
+  translation: JsonObject,
+  source: GoogleSourceItem,
+): void {
+  for (const field of METADATA_FIELDS) {
+    const localized = translation[field];
+    if (typeof localized !== 'string') continue;
+    const original = source[field];
+    if (typeof original !== 'string') {
+      if (original === undefined) delete translation[field];
+      continue;
+    }
+    if (
+      original === localized ||
+      (original !== '' &&
+        numericSignature(original) === numericSignature(localized) &&
+        !(field === 'speed' && hasIncorrectSpeedLabels(original, localized)))
+    )
+      continue;
+    translation[field] = localizeCompendiumValue(original, 'pl', field) ?? original;
+  }
+}
+
+function repairLocalizedMeasurementsInValue(
+  source: unknown,
+  localized: unknown,
+): unknown {
+  if (typeof source === 'string' && typeof localized === 'string')
+    return repairLocalizedMeasurements(source, localized);
+  if (Array.isArray(source) && Array.isArray(localized))
+    return localized.map((value, index) =>
+      index < source.length
+        ? repairLocalizedMeasurementsInValue(source[index], value)
+        : value,
+    );
+  if (
+    source !== null &&
+    typeof source === 'object' &&
+    !Array.isArray(source) &&
+    localized !== null &&
+    typeof localized === 'object' &&
+    !Array.isArray(localized)
+  ) {
+    const result: JsonObject = { ...(localized as JsonObject) };
+    for (const [key, value] of Object.entries(source))
+      if (Object.prototype.hasOwnProperty.call(result, key))
+        result[key] = repairLocalizedMeasurementsInValue(value, result[key]) as JsonValue;
+    return result;
+  }
+  return localized;
+}
+
 function normalizeGoogleTranslation(
   translation: JsonObject,
   source: GoogleSourceItem,
@@ -470,7 +571,8 @@ function normalizeGoogleTranslation(
   ) {
     normalized.size = canonicalSize(source.size);
   }
-  return normalized;
+  normalizeMetadataTranslation(normalized, source);
+  return repairLocalizedMeasurementsInValue(source, normalized) as JsonObject;
 }
 
 async function translateGoogleItem(

@@ -1,6 +1,6 @@
 import { XP_BY_CR } from '../../features/dm/xp';
 import { stripMarkup } from './util';
-import type { Locale } from '@/i18n/locales';
+import type { Locale } from '../../i18n/locales';
 
 const PLURAL_UNITS: Record<string, [string, string]> = {
   action: ['akcję', 'akcje'],

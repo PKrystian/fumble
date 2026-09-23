@@ -39,12 +39,12 @@
       "page": 27,
       "type": "T",
       "entries": [
-        "W ramach akcji wymazujesz swój obraz z umysłu jednej istoty, którą widzisz w promieniu 30 metrów od ciebie; cel musi odnieść sukces w rzucie obronnym na Mądrość, w przeciwnym razie jesteś wobec niego {@condition invisible} do końca twojej następnej tury."
+        "W ramach akcji wymazujesz swój obraz z umysłu jednej istoty, którą widzisz w promieniu 120 stóp od ciebie; cel musi odnieść sukces w rzucie obronnym na Mądrość, w przeciwnym razie jesteś wobec niego {@condition invisible} do końca twojej następnej tury."
       ]
     },
     "collection": "psioniczny",
     "entries": [
-      "W ramach akcji wymazujesz swój obraz z umysłu jednej istoty, którą widzisz w promieniu 30 metrów od ciebie; cel musi odnieść sukces w rzucie obronnym na Mądrość, w przeciwnym razie jesteś wobec niego {@condition invisible} do końca twojej następnej tury."
+      "W ramach akcji wymazujesz swój obraz z umysłu jednej istoty, którą widzisz w promieniu 120 stóp od ciebie; cel musi odnieść sukces w rzucie obronnym na Mądrość, w przeciwnym razie jesteś wobec niego {@condition invisible} do końca twojej następnej tury."
     ]
   },
   "psionic-adaptive-body-uathemysticclass": {
@@ -145,7 +145,7 @@
           },
           "name": "Odepchnij",
           "entries": [
-            "Kiedy trafisz cel atakiem wręcz, możesz aktywować tę umiejętność w reakcji. Cel musi odnieść sukces w rzucie obronnym na Siłę lub zostać odrzucony na odległość 3 metrów od ciebie za każdy wydany punkt psi. Cel porusza się po linii prostej. Jeśli trafi w obiekt, ruch ten natychmiast się kończy, a cel otrzymuje {@scaledamage 1d6|1-7|1d6|psi} obrażenia obuchowe za każdy wydany punkt psi."
+            "Kiedy trafisz cel atakiem wręcz, możesz aktywować tę umiejętność w reakcji. Cel musi odnieść sukces w rzucie obronnym na Siłę lub zostać odrzucony na odległość 10 stóp od ciebie za każdy wydany punkt psi. Cel porusza się po linii prostej. Jeśli trafi w obiekt, ruch ten natychmiast się kończy, a cel otrzymuje {@scaledamage 1d6|1-7|1d6|psi} obrażenia obuchowe za każdy wydany punkt psi."
           ]
         },
         {
@@ -254,7 +254,7 @@
       "entries": [
         "Kierujesz moc psioniczną do swojego ciała, doskonaląc swój refleks i zwinność do niewiarygodnego stopnia. Świat wydaje się zwalniać, podczas gdy ty poruszasz się normalnie."
       ],
-      "focus": "Kiedy koncentrujesz się na tej dyscyplinie, Twoja prędkość chodzenia wzrasta o 3 metry.",
+      "focus": "Kiedy koncentrujesz się na tej dyscyplinie, Twoja prędkość chodzenia wzrasta o 10 stóp.",
       "modes": [
         {
           "cost": {
@@ -263,7 +263,7 @@
           },
           "name": "Szybki krok",
           "entries": [
-            "Jako akcję dodatkową zwiększasz swoją prędkość chodzenia o 3 metry za każdy punkt psi wydany do końca bieżącej tury. Jeśli masz prędkość wspinaczki lub pływania, wzrost ten dotyczy również tej prędkości."
+            "Jako akcję dodatkową zwiększasz swoją prędkość chodzenia o 10 stóp za każdy punkt psi wydany do końca bieżącej tury. Jeśli masz prędkość wspinaczki lub pływania, wzrost ten dotyczy również tej prędkości."
           ]
         },
         {
@@ -409,7 +409,7 @@
               },
               "name": "Doskonałe zmysły",
               "entries": [
-                "Zyskujesz wyostrzony zmysł węchu i instynkt wykrywania ofiary. Możesz zobaczyć stworzenia i przedmioty {@condition invisible} w promieniu 3 stóp od ciebie, nawet jeśli jesteś {@condition blinded}."
+                "Zyskujesz wyostrzony zmysł węchu i instynkt wykrywania ofiary. Możesz zobaczyć stworzenia i przedmioty {@condition invisible} w promieniu 10 stóp od ciebie, nawet jeśli jesteś {@condition blinded}."
               ]
             },
             {
@@ -587,13 +587,13 @@
       "page": 27,
       "type": "T",
       "entries": [
-        "W ramach akcji obierasz za cel jedno stworzenie, które widzisz w promieniu 30 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Zręczność lub otrzymać {@damage 1d8} obrażenia od kwasu, zimna, ognia, pioruna lub gromu (twój wybór).",
+        "W ramach akcji obierasz za cel jedno stworzenie, które widzisz w promieniu 90 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Zręczność lub otrzymać {@damage 1d8} obrażenia od kwasu, zimna, ognia, pioruna lub gromu (twój wybór).",
         "Obrażenia talentu zwiększają się o {@damage 1d8} po osiągnięciu 5. poziomu ({@damage 2d8}), 11. poziomu ({@damage 3d8}) i 17. poziomu ({@damage 4d8})."
       ]
     },
     "collection": "psioniczny",
     "entries": [
-      "W ramach akcji obierasz za cel jedno stworzenie, które widzisz w promieniu 30 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Zręczność lub otrzymać {@damage 1d8} obrażenia od kwasu, zimna, ognia, pioruna lub gromu (twój wybór).",
+      "W ramach akcji obierasz za cel jedno stworzenie, które widzisz w promieniu 90 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Zręczność lub otrzymać {@damage 1d8} obrażenia od kwasu, zimna, ognia, pioruna lub gromu (twój wybór).",
       "Obrażenia talentu zwiększają się o {@damage 1d8} po osiągnięciu 5. poziomu ({@damage 2d8}), 11. poziomu ({@damage 3d8}) i 17. poziomu ({@damage 4d8})."
     ]
   },
@@ -709,7 +709,7 @@
           },
           "name": "Nagła zmiana",
           "entries": [
-            "W reakcji na atak zmniejszasz rozmiar do rozmiaru minutowego, aby uniknąć ataku. Atak chybia, a ty poruszasz się na odległość do 1,5 metra bez prowokowania ataków okazyjnych, zanim powrócisz do normalnego rozmiaru."
+            "W reakcji na atak zmniejszasz rozmiar do rozmiaru minutowego, aby uniknąć ataku. Atak chybia, a ty poruszasz się na odległość do 5 stóp bez prowokowania ataków okazyjnych, zanim powrócisz do normalnego rozmiaru."
           ]
         },
         {
@@ -767,7 +767,7 @@
           },
           "name": "Ściana Odpychania",
           "entries": [
-            "W ramach akcji tworzysz niewidzialną, nieistotną ścianę energii w promieniu 60 stóp od ciebie, która ma do 30 stóp długości, 3 stóp wysokości i 1 stopę grubości. Ściana będzie trwała aż do końca Twojego {@status concentration}. Każde stworzenie próbujące przez nie przejść musi wykonać rzut obronny na Mądrość. W przypadku nieudanego rzutu obronnego, istota nie może przejść przez ścianę aż do rozpoczęcia swojej następnej tury. Po udanym rzucie, istota może przez nią przejść. Istota musi wykonać ten rzut obronny za każdym razem, gdy próbuje przejść przez ścianę, czy tego chce, czy nie."
+            "W ramach akcji tworzysz niewidzialną, nieistotną ścianę energii w promieniu 60 stóp od ciebie, która ma do 30 stóp długości, 10 stóp wysokości i 1 stopę grubości. Ściana będzie trwała aż do końca Twojego {@status concentration}. Każde stworzenie próbujące przez nie przejść musi wykonać rzut obronny na Mądrość. W przypadku nieudanego rzutu obronnego, istota nie może przejść przez ścianę aż do rozpoczęcia swojej następnej tury. Po udanym rzucie, istota może przez nią przejść. Istota musi wykonać ten rzut obronny za każdym razem, gdy próbuje przejść przez ścianę, czy tego chce, czy nie."
           ]
         },
         {
@@ -843,7 +843,7 @@
           },
           "name": "Gigantyczna forma",
           "entries": [
-            "Jako Akcja Dodatkowa zyskujesz 30 tymczasowych punktów wytrzymałości. Dodatkowo, dopóki twój {@status concentration} się nie skończy, twoje ataki bronią białą zadają dodatkowe obrażenia obuchowe {@damage 2d6} przy trafieniu, a twój zasięg wzrasta o 3 metry. Jeśli jesteś mniejszy od Ogromnego, na pewien czas także stajesz się Wielkim."
+            "Jako Akcja Dodatkowa zyskujesz 30 tymczasowych punktów wytrzymałości. Dodatkowo, dopóki twój {@status concentration} się nie skończy, twoje ataki bronią białą zadają dodatkowe obrażenia obuchowe {@damage 2d6} przy trafieniu, a twój zasięg wzrasta o 10 stóp. Jeśli jesteś mniejszy od Ogromnego, na pewien czas także stajesz się Wielkim."
           ]
         }
       ]
@@ -861,12 +861,12 @@
       "page": 27,
       "type": "T",
       "entries": [
-        "Jako akcja dodatkowa zmieniasz swoją gęstość i wagę, aby poprawić swoją mobilność. Przez resztę twojej tury twoja prędkość chodzenia wzrasta o 3 metry, a kiedy po raz pierwszy wstajesz w tej turze, robisz to bez wydawania żadnego ruchu, jeśli twoja prędkość jest większa niż 0."
+        "Jako akcja dodatkowa zmieniasz swoją gęstość i wagę, aby poprawić swoją mobilność. Przez resztę twojej tury twoja prędkość chodzenia wzrasta o 10 stóp, a kiedy po raz pierwszy wstajesz w tej turze, robisz to bez wydawania żadnego ruchu, jeśli twoja prędkość jest większa niż 0."
       ]
     },
     "collection": "psioniczny",
     "entries": [
-      "Jako akcja dodatkowa zmieniasz swoją gęstość i wagę, aby poprawić swoją mobilność. Przez resztę twojej tury twoja prędkość chodzenia wzrasta o 3 metry, a kiedy po raz pierwszy wstajesz w tej turze, robisz to bez wydawania żadnego ruchu, jeśli twoja prędkość jest większa niż 0."
+      "Jako akcja dodatkowa zmieniasz swoją gęstość i wagę, aby poprawić swoją mobilność. Przez resztę twojej tury twoja prędkość chodzenia wzrasta o 10 stóp, a kiedy po raz pierwszy wstajesz w tej turze, robisz to bez wydawania żadnego ruchu, jeśli twoja prędkość jest większa niż 0."
     ]
   },
   "psionic-iron-durability-uathemysticclass": {
@@ -1029,7 +1029,7 @@
           },
           "name": "Wzniecać panikę",
           "entries": [
-            "Jako akcję wybierz maksymalnie osiem stworzeń, które widzisz w promieniu 30 stóp od ciebie i które mogą cię widzieć. Na początku każdej tury celu, przed zakończeniem {@status concentration}, cel musi wykonać rzut obronny na Mądrość. W przypadku nieudanego zapisu celem jest {@condition frightened} aż do rozpoczęcia następnej tury, a ty rzucasz kostką. Jeśli wyrzucisz nieparzystą liczbę, cel {@condition frightened} porusza się o połowę swojej prędkości w losowym kierunku i nie wykonuje w tej turze żadnej akcji poza krzykiem z przerażenia. Jeśli wyrzucisz parzystą liczbę, cel {@condition frightened} wykonuje jeden atak wręcz przeciwko losowemu celowi w jego zasięgu. Jeśli nie ma takiego celu, porusza się o połowę swojej prędkości w losowym kierunku i nie wykonuje w tej turze żadnej akcji. Efekt ten kończy się na celu, jeśli uda mu się wykonać przeciwko niemu trzy rzuty obronne."
+            "Jako akcję wybierz maksymalnie osiem stworzeń, które widzisz w promieniu 90 stóp od ciebie i które mogą cię widzieć. Na początku każdej tury celu, przed zakończeniem {@status concentration}, cel musi wykonać rzut obronny na Mądrość. W przypadku nieudanego zapisu celem jest {@condition frightened} aż do rozpoczęcia następnej tury, a ty rzucasz kostką. Jeśli wyrzucisz nieparzystą liczbę, cel {@condition frightened} porusza się o połowę swojej prędkości w losowym kierunku i nie wykonuje w tej turze żadnej akcji poza krzykiem z przerażenia. Jeśli wyrzucisz parzystą liczbę, cel {@condition frightened} wykonuje jeden atak wręcz przeciwko losowemu celowi w jego zasięgu. Jeśli nie ma takiego celu, porusza się o połowę swojej prędkości w losowym kierunku i nie wykonuje w tej turze żadnej akcji. Efekt ten kończy się na celu, jeśli uda mu się wykonać przeciwko niemu trzy rzuty obronne."
           ]
         }
       ]
@@ -1109,7 +1109,7 @@
       "entries": [
         "Skupiasz swój umysł na odwadze, promieniując pewnością siebie i brawurą na swoich sojuszników."
       ],
-      "focus": "Koncentrując się na tej dyscyplinie, ty i sojusznicy w promieniu 3 metrów od ciebie, którzy widzą, że masz przewagę w rzutach obronnych przeciwko byciu {@condition frightened}.",
+      "focus": "Koncentrując się na tej dyscyplinie, ty i sojusznicy w promieniu 10 stóp od ciebie, którzy widzą, że masz przewagę w rzutach obronnych przeciwko byciu {@condition frightened}.",
       "modes": [
         {
           "cost": {
@@ -1239,7 +1239,7 @@
       "entries": [
         "Wywołujesz aurę zaufania i autorytetu, poprawiając koordynację wśród sojuszników."
       ],
-      "focus": "Koncentrując się na tej dyscyplinie, kiedy zakończysz swoją turę i nie poruszysz się w jej trakcie, możesz wykorzystać swoją reakcję, aby pozwolić jednemu sojusznikowi, którego widzisz w promieniu 9 metrów od ciebie, na poruszanie się z prędkością o połowę mniejszą, podążając wybraną przez ciebie ścieżką. Aby poruszać się w ten sposób, sojusznikiem nie może być {@condition incapacitated}.",
+      "focus": "Koncentrując się na tej dyscyplinie, kiedy zakończysz swoją turę i nie poruszysz się w jej trakcie, możesz wykorzystać swoją reakcję, aby pozwolić jednemu sojusznikowi, którego widzisz w promieniu 30 stóp od ciebie, na poruszanie się z prędkością o połowę mniejszą, podążając wybraną przez ciebie ścieżką. Aby poruszać się w ten sposób, sojusznikiem nie może być {@condition incapacitated}.",
       "modes": [
         {
           "cost": {
@@ -1330,7 +1330,7 @@
           },
           "name": "Spalanie",
           "entries": [
-            "Jako akcję wybierz jedno stworzenie lub obiekt, który widzisz w promieniu 30 metrów od ciebie. Cel musi wykonać rzut obronny na Kondycję. W przypadku nieudanego rzutu obronnego cel otrzymuje {@scaledamage 1d10|1-7|1d10|psi} obrażenia od ognia za każdy wydany punkt psi i zapala się, otrzymując obrażenia od ognia {@damage 1d6} na koniec każdej swojej tury, aż do zakończenia twojego {@status concentration} lub do czasu, gdy on lub sąsiadujące z nim stworzenie zgaśnie płomienie jakąś akcją. Po udanym rzucie cel otrzymuje o połowę mniejsze obrażenia i nie zapala się."
+            "Jako akcję wybierz jedno stworzenie lub obiekt, który widzisz w promieniu 120 stóp od ciebie. Cel musi wykonać rzut obronny na Kondycję. W przypadku nieudanego rzutu obronnego cel otrzymuje {@scaledamage 1d10|1-7|1d10|psi} obrażenia od ognia za każdy wydany punkt psi i zapala się, otrzymując obrażenia od ognia {@damage 1d6} na koniec każdej swojej tury, aż do zakończenia twojego {@status concentration} lub do czasu, gdy on lub sąsiadujące z nim stworzenie zgaśnie płomienie jakąś akcją. Po udanym rzucie cel otrzymuje o połowę mniejsze obrażenia i nie zapala się."
           ]
         },
         {
@@ -1382,7 +1382,7 @@
           },
           "name": "Animuj ogień",
           "entries": [
-            "W ramach akcji powodujesz pojawienie się {@creature fire elemental} w niezajętym miejscu, które widzisz w promieniu 30 metrów od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
+            "W ramach akcji powodujesz pojawienie się {@creature fire elemental} w niezajętym miejscu, które widzisz w promieniu 120 stóp od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
           ]
         }
       ]
@@ -1478,7 +1478,7 @@
           },
           "name": "Animuj powietrze",
           "entries": [
-            "W ramach akcji powodujesz pojawienie się {@creature air elemental} w niezajętym miejscu, które widzisz w promieniu 30 metrów od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
+            "W ramach akcji powodujesz pojawienie się {@creature air elemental} w niezajętym miejscu, które widzisz w promieniu 120 stóp od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
           ]
         }
       ]
@@ -1649,7 +1649,7 @@
           },
           "name": "Lodowy Kolec",
           "entries": [
-            "W ramach akcji rzucasz cząstką lodu w jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie. Cel musi wykonać rzut obronny na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje {@scaledamage 1d8|1-7|1d8|psi} obrażenia od zimna za każdy wydany punkt psi, a jego prędkość zostaje zmniejszona o połowę do początku twojej następnej tury. Po udanym rzucie obronnym cel otrzymuje o połowę mniejsze obrażenia."
+            "W ramach akcji rzucasz cząstką lodu w jedno stworzenie, które widzisz w promieniu 120 stóp od ciebie. Cel musi wykonać rzut obronny na Zręczność. W przypadku nieudanego rzutu obronnego cel otrzymuje {@scaledamage 1d8|1-7|1d8|psi} obrażenia od zimna za każdy wydany punkt psi, a jego prędkość zostaje zmniejszona o połowę do początku twojej następnej tury. Po udanym rzucie obronnym cel otrzymuje o połowę mniejsze obrażenia."
           ]
         },
         {
@@ -1791,7 +1791,7 @@
           },
           "name": "Animuj Ziemię",
           "entries": [
-            "W ramach akcji powodujesz pojawienie się {@creature earth elemental} w niezajętym miejscu, które widzisz w promieniu 30 metrów od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
+            "W ramach akcji powodujesz pojawienie się {@creature earth elemental} w niezajętym miejscu, które widzisz w promieniu 120 stóp od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
           ]
         }
       ]
@@ -1950,13 +1950,13 @@
       "page": 27,
       "type": "T",
       "entries": [
-        "Jako akcja dodatkowa możesz porozumieć się telepatycznie z jedną ochotną istotą, którą widzisz w promieniu 30 metrów od ciebie. Cel musi mieć Inteligencję co najmniej 2, w przeciwnym razie talent ten zawiedzie i akcja zostanie zmarnowana.",
+        "Jako akcja dodatkowa możesz porozumieć się telepatycznie z jedną ochotną istotą, którą widzisz w promieniu 120 stóp od ciebie. Cel musi mieć Inteligencję co najmniej 2, w przeciwnym razie talent ten zawiedzie i akcja zostanie zmarnowana.",
         "Ta komunikacja może nastąpić do końca bieżącej tury. Nie musisz dzielić języka z celem, aby zrozumiał twoje wypowiedzi telepatyczne, a on cię rozumie, nawet jeśli nie ma języka. Uzyskujesz także dostęp do jednego wspomnienia wybranego przez cel, uzyskując doskonałe przypomnienie jednej rzeczy, którą widział lub zrobił."
       ]
     },
     "collection": "psioniczny",
     "entries": [
-      "Jako akcja dodatkowa możesz porozumieć się telepatycznie z jedną ochotną istotą, którą widzisz w promieniu 30 metrów od ciebie. Cel musi mieć Inteligencję co najmniej 2, w przeciwnym razie talent ten zawiedzie i akcja zostanie zmarnowana.",
+      "Jako akcja dodatkowa możesz porozumieć się telepatycznie z jedną ochotną istotą, którą widzisz w promieniu 120 stóp od ciebie. Cel musi mieć Inteligencję co najmniej 2, w przeciwnym razie talent ten zawiedzie i akcja zostanie zmarnowana.",
       "Ta komunikacja może nastąpić do końca bieżącej tury. Nie musisz dzielić języka z celem, aby zrozumiał twoje wypowiedzi telepatyczne, a on cię rozumie, nawet jeśli nie ma języka. Uzyskujesz także dostęp do jednego wspomnienia wybranego przez cel, uzyskując doskonałe przypomnienie jednej rzeczy, którą widział lub zrobił."
     ]
   },
@@ -2024,7 +2024,7 @@
           },
           "name": "Kula Wodna",
           "entries": [
-            "W ramach akcji powodujesz, że wokół stworzenia tworzy się kula wody. Wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od siebie. Cel musi wykonać rzut obronny na Zręczność. W przypadku nieudanego zapisu zostaje uwięziony w kuli wodnej, aż do zakończenia {@status concentration}. Kiedy cel jest uwięziony, jego prędkość zmniejsza się o połowę, ma niekorzystne skutki w testach ataku i nie widzi niczego dalej niż 3 metry od niego. Jednak rzuty ataku przeciwko niemu również są niekorzystne. Cel może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie w przypadku udanego rzutu."
+            "W ramach akcji powodujesz, że wokół stworzenia tworzy się kula wody. Wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od siebie. Cel musi wykonać rzut obronny na Zręczność. W przypadku nieudanego zapisu zostaje uwięziony w kuli wodnej, aż do zakończenia {@status concentration}. Kiedy cel jest uwięziony, jego prędkość zmniejsza się o połowę, ma niekorzystne skutki w testach ataku i nie widzi niczego dalej niż 10 stóp od niego. Jednak rzuty ataku przeciwko niemu również są niekorzystne. Cel może powtórzyć rzut obronny na koniec każdej swojej tury, kończąc efekt na sobie w przypadku udanego rzutu."
           ]
         },
         {
@@ -2038,7 +2038,7 @@
           },
           "name": "Animuj wodę",
           "entries": [
-            "W ramach akcji powodujesz pojawienie się {@creature water elemental} w niezajętym miejscu, które widzisz w promieniu 30 metrów od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
+            "W ramach akcji powodujesz pojawienie się {@creature water elemental} w niezajętym miejscu, które widzisz w promieniu 120 stóp od ciebie. Żywiołak trwa do końca twojego {@status concentration} i słucha twoich ustnych poleceń. W walce rzuć na jego inicjatywę i wybierz jego zachowanie w swoich turach. Kiedy ten efekt się skończy, żywiołak znika. Zobacz Księgę Potworów, aby zapoznać się z blokiem statystyk."
           ]
         }
       ]
@@ -2074,12 +2074,12 @@
       "page": 28,
       "type": "T",
       "entries": [
-        "W ramach akcji zwodzisz jednego humanoidalną istotę, którego widzisz w promieniu 30 metrów od ciebie. Cel musi odnieść sukces w rzucie obronnym na Charyzmę lub być przez ciebie {@condition charmed} do końca twojej następnej tury."
+        "W ramach akcji zwodzisz jednego humanoidalną istotę, którego widzisz w promieniu 120 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Charyzmę lub być przez ciebie {@condition charmed} do końca twojej następnej tury."
       ]
     },
     "collection": "psioniczny",
     "entries": [
-      "W ramach akcji zwodzisz jednego humanoidalną istotę, którego widzisz w promieniu 30 metrów od ciebie. Cel musi odnieść sukces w rzucie obronnym na Charyzmę lub być przez ciebie {@condition charmed} do końca twojej następnej tury."
+      "W ramach akcji zwodzisz jednego humanoidalną istotę, którego widzisz w promieniu 120 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Charyzmę lub być przez ciebie {@condition charmed} do końca twojej następnej tury."
     ]
   },
   "psionic-mind-thrust-uathemysticclass": {
@@ -2090,13 +2090,13 @@
       "page": 28,
       "type": "T",
       "entries": [
-        "W ramach akcji obierasz za cel jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie. Cel musi odnieść sukces w rzucie obronnym na Inteligencję, w przeciwnym razie otrzyma obrażenia psychiczne {@damage 1d10}.",
+        "W ramach akcji obierasz za cel jedno stworzenie, które widzisz w promieniu 120 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Inteligencję, w przeciwnym razie otrzyma obrażenia psychiczne {@damage 1d10}.",
         "Obrażenia talentu zwiększają się o {@damage 1d10} po osiągnięciu 5. poziomu ({@damage 2d10}), 11. poziomu ({@damage 3d10}) i 17. poziomu ({@damage 4d10})."
       ]
     },
     "collection": "psioniczny",
     "entries": [
-      "W ramach akcji obierasz za cel jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie. Cel musi odnieść sukces w rzucie obronnym na Inteligencję, w przeciwnym razie otrzyma obrażenia psychiczne {@damage 1d10}.",
+      "W ramach akcji obierasz za cel jedno stworzenie, które widzisz w promieniu 120 stóp od ciebie. Cel musi odnieść sukces w rzucie obronnym na Inteligencję, w przeciwnym razie otrzyma obrażenia psychiczne {@damage 1d10}.",
       "Obrażenia talentu zwiększają się o {@damage 1d10} po osiągnięciu 5. poziomu ({@damage 2d10}), 11. poziomu ({@damage 3d10}) i 17. poziomu ({@damage 4d10})."
     ]
   },
@@ -2506,7 +2506,7 @@
       "entries": [
         "Wytężasz umysł na obszarze wokół siebie, skręcając postrzegane przez siebie ścieżki wewnątrzplanarne, aby umożliwić natychmiastową podróż."
       ],
-      "focus": "Po teleportacji w swojej turze, będąc skupionym na tej dyscyplinie, twoja prędkość chodzenia wzrasta o 3 metry aż do końca tury, ponieważ napędza cię magia twojej teleportacji. Możesz otrzymać to zwiększenie tylko raz na turę.",
+      "focus": "Po teleportacji w swojej turze, będąc skupionym na tej dyscyplinie, twoja prędkość chodzenia wzrasta o 10 stóp aż do końca tury, ponieważ napędza cię magia twojej teleportacji. Możesz otrzymać to zwiększenie tylko raz na turę.",
       "modes": [
         {
           "cost": {
@@ -2535,7 +2535,7 @@
           },
           "name": "Krok obronny",
           "entries": [
-            "Kiedy zostaniesz trafiony atakiem, możesz wykorzystać swoją reakcję, aby zyskać premię +4 do KP przeciwko temu atakowi, prawdopodobnie zamieniając go w pudło. Następnie teleportujesz się na odległość do 3 metrów do niezajętego miejsca, które widzisz."
+            "Kiedy zostaniesz trafiony atakiem, możesz wykorzystać swoją reakcję, aby zyskać premię +4 do KP przeciwko temu atakowi, prawdopodobnie zamieniając go w pudło. Następnie teleportujesz się na odległość do 10 stóp do niezajętego miejsca, które widzisz."
           ]
         },
         {
@@ -2565,7 +2565,7 @@
           },
           "name": "Zgubna transpozycja",
           "entries": [
-            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie. To stworzenie musi wykonać rzut obronny na Mądrość. W przypadku nieudanego rzutu obronnego ty i to stworzenie teleportujecie się, zamieniając się miejscami. Ta umiejętność zawodzi i zostaje zmarnowana, jeśli któryś z was nie zmieści się na docelowym obszarze."
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 120 stóp od ciebie. To stworzenie musi wykonać rzut obronny na Mądrość. W przypadku nieudanego rzutu obronnego ty i to stworzenie teleportujecie się, zamieniając się miejscami. Ta umiejętność zawodzi i zostaje zmarnowana, jeśli któryś z was nie zmieści się na docelowym obszarze."
           ]
         },
         {
@@ -2589,7 +2589,7 @@
           },
           "name": "Brama Nomada",
           "entries": [
-            "W ramach akcji tworzysz 1,5-metrowy sześcian przyćmionego, szarego światła w odległości 1,5 metra od ciebie. Tworzysz identyczną kostkę w dowolnym miejscu w promieniu 1 mili, którą oglądałeś w ciągu ostatnich 24 godzin. Dopóki Twoje {@status concentration} się nie skończy, każdy, kto wejdzie do jednej z kostek, natychmiast teleportuje się do drugiej, pojawiając się na niezajętym miejscu obok. Teleportacja nie powiedzie się, jeśli nie ma miejsca, w którym stworzenie mogłoby się pojawić."
+            "W ramach akcji tworzysz 1,5-metrowy sześcian przyćmionego, szarego światła w odległości 5 stóp od ciebie. Tworzysz identyczną kostkę w dowolnym miejscu w promieniu 1 mili, którą oglądałeś w ciągu ostatnich 24 godzin. Dopóki Twoje {@status concentration} się nie skończy, każdy, kto wejdzie do jednej z kostek, natychmiast teleportuje się do drugiej, pojawiając się na niezajętym miejscu obok. Teleportacja nie powiedzie się, jeśli nie ma miejsca, w którym stworzenie mogłoby się pojawić."
           ]
         }
       ]
@@ -2607,13 +2607,13 @@
       "page": 28,
       "type": "T",
       "entries": [
-        "W ramach akcji próbujesz chwycić jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie, ręką wykonaną z energii telekinetycznej. Cel musi odnieść sukces w rzucie obronnym na Siłę, w przeciwnym razie otrzyma obrażenia od mocy {@damage 1d6}. Jeśli otrzyma którekolwiek z tych obrażeń i jest Duży lub mniejszy, możesz go przesunąć o maksymalnie 3 metry w linii prostej w wybranym przez siebie kierunku. Nie możesz podnieść celu z ziemi, chyba że jest już w powietrzu lub pod wodą.",
+        "W ramach akcji próbujesz chwycić jedno stworzenie, które widzisz w promieniu 120 stóp od ciebie, ręką wykonaną z energii telekinetycznej. Cel musi odnieść sukces w rzucie obronnym na Siłę, w przeciwnym razie otrzyma obrażenia od mocy {@damage 1d6}. Jeśli otrzyma którekolwiek z tych obrażeń i jest Duży lub mniejszy, możesz go przesunąć o maksymalnie 10 stóp w linii prostej w wybranym przez siebie kierunku. Nie możesz podnieść celu z ziemi, chyba że jest już w powietrzu lub pod wodą.",
         "Obrażenia talentu zwiększają się o {@damage 1d6} po osiągnięciu 5. poziomu ({@damage 2d6}), 11. poziomu ({@damage 3d6}) i 17. poziomu ({@damage 4d6})."
       ]
     },
     "collection": "psioniczny",
     "entries": [
-      "W ramach akcji próbujesz chwycić jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie, ręką wykonaną z energii telekinetycznej. Cel musi odnieść sukces w rzucie obronnym na Siłę, w przeciwnym razie otrzyma obrażenia od mocy {@damage 1d6}. Jeśli otrzyma którekolwiek z tych obrażeń i jest Duży lub mniejszy, możesz go przesunąć o maksymalnie 3 metry w linii prostej w wybranym przez siebie kierunku. Nie możesz podnieść celu z ziemi, chyba że jest już w powietrzu lub pod wodą.",
+      "W ramach akcji próbujesz chwycić jedno stworzenie, które widzisz w promieniu 120 stóp od ciebie, ręką wykonaną z energii telekinetycznej. Cel musi odnieść sukces w rzucie obronnym na Siłę, w przeciwnym razie otrzyma obrażenia od mocy {@damage 1d6}. Jeśli otrzyma którekolwiek z tych obrażeń i jest Duży lub mniejszy, możesz go przesunąć o maksymalnie 10 stóp w linii prostej w wybranym przez siebie kierunku. Nie możesz podnieść celu z ziemi, chyba że jest już w powietrzu lub pod wodą.",
       "Obrażenia talentu zwiększają się o {@damage 1d6} po osiągnięciu 5. poziomu ({@damage 2d6}), 11. poziomu ({@damage 3d6}) i 17. poziomu ({@damage 4d6})."
     ]
   },
@@ -2745,7 +2745,7 @@
           },
           "name": "Psychiczne zauroczenie",
           "entries": [
-            "W ramach akcji tworzysz 6-metrowy sześcian energii psychicznej w odległości 30 metrów od ciebie. Każde stworzenie na tym obszarze musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 8d8} obrażenia psychiczne i pozostaje {@condition stunned} do końca twojej następnej tury. Po udanym rzucie obronnym cel otrzymuje o połowę mniejsze obrażenia."
+            "W ramach akcji tworzysz 6-metrowy sześcian energii psychicznej w odległości 120 stóp od ciebie. Każde stworzenie na tym obszarze musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego rzutu obronnego cel otrzymuje {@damage 8d8} obrażenia psychiczne i pozostaje {@condition stunned} do końca twojej następnej tury. Po udanym rzucie obronnym cel otrzymuje o połowę mniejsze obrażenia."
           ]
         }
       ]
@@ -2779,7 +2779,7 @@
           },
           "name": "Rozpraszająca mgła",
           "entries": [
-            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. To stworzenie musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego zapisu otrzymuje obrażenia psychiczne {@scaledamage 1d10|1-7|1d10|psi} na każdy wydany punkt psi i nie widzi niczego dalej niż 3 metry od niego, dopóki {@status concentration} się nie skończy. Przy udanym rzucie zadaje o połowę mniejsze obrażenia."
+            "Jako akcję wybierz jedno stworzenie, które widzisz w promieniu 60 stóp od ciebie. To stworzenie musi wykonać rzut obronny na Inteligencję. W przypadku nieudanego zapisu otrzymuje obrażenia psychiczne {@scaledamage 1d10|1-7|1d10|psi} na każdy wydany punkt psi i nie widzi niczego dalej niż 10 stóp od niego, dopóki {@status concentration} się nie skończy. Przy udanym rzucie zadaje o połowę mniejsze obrażenia."
           ]
         },
         {
@@ -3092,7 +3092,7 @@
       "entries": [
         "Tworzysz w swoim umyśle trzecie, psychiczne oko, które rzucasz na świat. Kieruje myśli i wiedzę z powrotem do Ciebie, znacznie wzmacniając Twoje zmysły."
       ],
-      "focus": "Koncentrując się na tej dyscyplinie, możesz widzieć w ciemnościach na odległość 60 stóp. Jeśli masz już widzenie w ciemności o takim lub większym zasięgu, zwiększ jego zasięg o 3 metry.",
+      "focus": "Koncentrując się na tej dyscyplinie, możesz widzieć w ciemnościach na odległość 60 stóp. Jeśli masz już widzenie w ciemności o takim lub większym zasięgu, zwiększ jego zasięg o 10 stóp.",
       "modes": [
         {
           "cost": {

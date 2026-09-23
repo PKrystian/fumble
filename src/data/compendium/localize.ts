@@ -5,9 +5,104 @@ import type {
   MonsterEntry,
   SpellEntry,
 } from './types';
+import { localizeCompendiumValue, repairLocalizedMeasurements } from './localizeValue';
+import type { Locale } from '../../i18n/locales';
 
 export type EntryOverlay = Record<string, unknown>;
 export type CategoryOverlay = Record<string, EntryOverlay>;
+
+const METADATA_FIELDS = new Set([
+  'ac',
+  'attackBonus',
+  'capacity',
+  'castingTime',
+  'components',
+  'cost',
+  'cr',
+  'crDisplay',
+  'damage',
+  'duration',
+  'height',
+  'hp',
+  'initiative',
+  'languages',
+  'long',
+  'normal',
+  'pace',
+  'range',
+  'saves',
+  'senses',
+  'skills',
+  'speed',
+  'value',
+  'weight',
+  'width',
+]);
+
+function numericSignature(value: string): string {
+  return [...value.matchAll(/\d[\d.,]*/gu)]
+    .map(([token]) => token.replace(/[.,]/gu, ''))
+    .join('|');
+}
+
+function hasIncorrectSpeedLabels(source: string, localized: string): boolean {
+  if (!/\b(?:Climb|Fly|Swim|Burrow|hover)\b/iu.test(source)) return false;
+  return (
+    /\b(?:lataj|latać|przepłyń|przepłyn|przelecieć|wspinaj|wznieś|wznieść)\b/iu.test(
+      localized,
+    ) ||
+    (/\bhover\b/iu.test(source) && !/\bzawis/iu.test(localized))
+  );
+}
+
+function repairLocalizedMetadata<T extends CompendiumEntryBase>(
+  entry: T,
+  translation: EntryOverlay,
+  localized: T,
+  locale: Locale,
+): T {
+  if (locale !== 'pl') return localized;
+  const sourceRecord = entry as unknown as Record<string, unknown>;
+  const translationRecord = translation as Record<string, unknown>;
+  const result = { ...localized } as unknown as Record<string, unknown>;
+
+  for (const field of METADATA_FIELDS) {
+    if (!Object.prototype.hasOwnProperty.call(translationRecord, field)) continue;
+    const translatedValue = translationRecord[field];
+    if (typeof translatedValue !== 'string') continue;
+    const sourceValue = sourceRecord[field];
+    if (typeof sourceValue !== 'string') {
+      if (sourceValue === undefined) delete result[field];
+      continue;
+    }
+    const invalidNumbers =
+      numericSignature(sourceValue) !== numericSignature(translatedValue);
+    const inventedValue = sourceValue === '' && translatedValue !== '';
+    const invalidSpeed =
+      field === 'speed' && hasIncorrectSpeedLabels(sourceValue, translatedValue);
+    if (!invalidNumbers && !inventedValue && !invalidSpeed) continue;
+    result[field] = localizeCompendiumValue(sourceValue, locale, field) ?? sourceValue;
+  }
+
+  return result as T;
+}
+
+function repairLocalizedText(source: unknown, localized: unknown): unknown {
+  if (typeof source === 'string' && typeof localized === 'string')
+    return repairLocalizedMeasurements(source, localized);
+  if (Array.isArray(source) && Array.isArray(localized))
+    return localized.map((value, index) =>
+      index < source.length ? repairLocalizedText(source[index], value) : value,
+    );
+  if (isRecord(source) && isRecord(localized)) {
+    const result = { ...localized };
+    for (const [key, value] of Object.entries(source))
+      if (Object.prototype.hasOwnProperty.call(result, key))
+        result[key] = repairLocalizedText(value, result[key]);
+    return result;
+  }
+  return localized;
+}
 
 function isSubclassRecord(value: unknown): value is ClassSubclass {
   if (!value || typeof value !== 'object') return false;
@@ -140,6 +235,7 @@ function preserveMonsterHabitat<T extends CompendiumEntryBase>(entry: T, merged:
 export function localizeEntry<T extends CompendiumEntryBase>(
   entry: T,
   overlay: CategoryOverlay | undefined,
+  locale: Locale = 'pl',
 ): T {
   const translation = overlay?.[entry.id];
   if (!translation) return entry;
@@ -147,14 +243,22 @@ export function localizeEntry<T extends CompendiumEntryBase>(
     ...entry,
     ...translation,
   } as T);
-  const localized = preserveMonsterHabitat(
+  const localized = repairLocalizedText(
     entry,
-    preserveSpellReferences(
+    repairLocalizedMetadata(
       entry,
       translation,
-      mergeVariantData(entry, translation, merged),
+      preserveMonsterHabitat(
+        entry,
+        preserveSpellReferences(
+          entry,
+          translation,
+          mergeVariantData(entry, translation, merged),
+        ),
+      ),
+      locale,
     ),
-  );
+  ) as T;
   const translatedName = (translation as { name?: unknown }).name;
   if (typeof translatedName === 'string' && translatedName !== entry.name) {
     localized.englishName = entry.name;
@@ -165,7 +269,8 @@ export function localizeEntry<T extends CompendiumEntryBase>(
 export function localizeItems<T extends CompendiumEntryBase>(
   items: T[],
   overlay: CategoryOverlay | undefined,
+  locale: Locale = 'pl',
 ): T[] {
   if (!overlay) return items;
-  return items.map((item) => localizeEntry(item, overlay));
+  return items.map((item) => localizeEntry(item, overlay, locale));
 }

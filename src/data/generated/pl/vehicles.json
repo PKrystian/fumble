@@ -75,7 +75,7 @@
     ],
     "dimensions": "",
     "pace": "",
-    "speed": "30 stóp",
+    "speed": "30 stóp, pływanie 30 stóp (or 0 stóp for both if the legs aren't extended)",
     "cost": "",
     "ac": "20",
     "hp": "200",
@@ -172,7 +172,7 @@
     "capacity": "Załoga 1, pasażerowie 1",
     "ac": "20",
     "hp": "200",
-    "speed": "30 stóp",
+    "speed": "30 stóp, pływanie 30 stóp (or 0 stóp for both if the legs aren't extended)",
     "immune": "trucizna, psychiczna",
     "size": "Duży",
     "gallery": [
@@ -204,7 +204,7 @@
     "terrain": "Powietrze",
     "token": "vehicles/tokens/MTF/Astral Brig.webp",
     "lore": [
-      "Bryg astralny jest standardowym statkiem wojskowym githyanki. Wymaga pięcioosobowej załogi i może przewieźć do sześćdziesięciu pasażerów. Bryg ma 90 stóp długości i 30 stóp szerokości oraz dwa poziomy pod pokładem na kwatery i miejsce do przechowywania. Jest wyposażony w dwie balisty, z których każda jest obsługiwana przez parę członków załogi, i rozwija prędkość maksymalną 20 mil na godzinę."
+      "Bryg astralny jest standardowym statkiem wojskowym githyanki. Wymaga pięcioosobowej załogi i może przewieźć do sześćdziesięciu pasażerów. Bryg ma 90 stóp długości i 30 stóp szerokości oraz dwa poziomy pod pokładem na kwatery i miejsce do przechowywania. Jest wyposażony w dwie balisty, z których każda jest obsługiwana przez parę członków załogi, i rozwija prędkość maksymalną 12 mil na godzinę."
     ],
     "capacity": "Załoga 5, pasażerowie 60",
     "pace": "12 mil na godzinę"
@@ -226,7 +226,7 @@
     "capacity": "Załoga 3, pasażerowie 12",
     "token": "vehicles/tokens/MTF/Astral Skiff.webp",
     "lore": [
-      "Łódź astralna obsługiwana jest przez trzyosobową załogę i przewozi do kilkunastu pasażerów. Githyanki używają tego małego statku o długości 30 stóp i szerokości 3 stóp do patroli na Planie Astralnym i do szybkich wypraw w pogoni za określonymi obiektami na Planie Materialnym. Maksymalna prędkość łodzi wynosi 15 mil na godzinę. Brakuje mu broni poza tą przewożoną przez pasażerów i ma ograniczoną ilość miejsca do przechowywania."
+      "Łódź astralna obsługiwana jest przez trzyosobową załogę i przewozi do kilkunastu pasażerów. Githyanki używają tego małego statku o długości 30 stóp i szerokości 10 stóp do patroli na Planie Astralnym i do szybkich wypraw w pogoni za określonymi obiektami na Planie Materialnym. Maksymalna prędkość łodzi wynosi 15 mil na godzinę. Brakuje mu broni poza tą przewożoną przez pasażerów i ma ograniczoną ilość miejsca do przechowywania."
     ]
   },
   "battle-balloon": {
@@ -243,7 +243,7 @@
         "name": "Wyrzutnia Harpunów (×3)",
         "entries": [
           "KP 15, PW 50",
-          "{@atk rw} {@hit 8} do trafienia, zasięg 30/480 stóp, jeden cel.{@h} 11 ( {@damage 2d10} ) obrażenia kłute, a celem jest {@condition grappled} (ucieczka {@dc 16}).Dopóki chwytanie się nie zakończy, prędkość celu zmniejsza się o połowę i nie może on oddalić się od balonu bojowego.Każdy z dział harpunowych balonu bojowego może chwycić jeden cel.Chociaż ma jeden lub więcej celów {@condition grappled} za pomocą ataku harpunowego, prędkość balonu bojowego nie zmniejsza się o połowę."
+          "{@atk rw} {@hit 8} do trafienia, zasięg 120/480 stóp, jeden cel.{@h} 11 ( {@damage 2d10} ) obrażenia kłute, a celem jest {@condition grappled} (ucieczka {@dc 16}).Dopóki chwytanie się nie zakończy, prędkość celu zmniejsza się o połowę i nie może on oddalić się od balonu bojowego.Każdy z dział harpunowych balonu bojowego może chwycić jeden cel.Chociaż ma jeden lub więcej celów {@condition grappled} za pomocą ataku harpunowego, prędkość balonu bojowego nie zmniejsza się o połowę."
         ]
       }
     ],
@@ -350,7 +350,7 @@
             "type": "entries",
             "name": "Kula Armatnia",
             "entries": [
-              "{@atk rw} {@hit 6} trafienia, zasięg 600/2400 stóp, jeden cel. {@h}88 ({@damage 16d10}) obrażeń obuchowych."
+              "{@atk rw} {@hit 6} trafienia, zasięg 600/2,400 stóp, jeden cel. {@h}88 ({@damage 16d10}) obrażeń obuchowych."
             ]
           }
         ]
@@ -744,7 +744,7 @@
     ],
     "size": "",
     "dimensions": "",
-    "speed": "-",
+    "speed": "lot 100 stóp [zawis]",
     "cost": "5,000,000 sz",
     "ac": "16",
     "hp": "600",
@@ -792,7 +792,7 @@
     ],
     "size": "",
     "dimensions": "",
-    "speed": "-",
+    "speed": "lot 70 stóp [zawis]",
     "cost": "2,000,000 sz",
     "ac": "18",
     "hp": "150",
@@ -814,7 +814,7 @@
         "name": "Macki z Promieniami Oczu (×6)",
         "entries": [
           "KP 14, PW 50",
-          "{@atk g} Mechaniczny obserwator strzela następującymi magicznymi promieniami oczu do maksymalnie trzech celów, które będą widoczne dla załogi i znajdują się w promieniu 30 metrów od niego.",
+          "{@atk g} Mechaniczny obserwator strzela następującymi magicznymi promieniami oczu do maksymalnie trzech celów, które będą widoczne dla załogi i znajdują się w promieniu 120 stóp od niego.",
           {
             "type": "list",
             "style": "list-hang-notitle",
@@ -1120,7 +1120,7 @@
     "immune": "",
     "vehicleType": "Spelljammer",
     "entries": [],
-    "speed": "30 stóp, lataj 30 stóp.",
+    "speed": "30 stóp, lot 30 stóp",
     "capacity": "Załoga 12, ładunek 12 ton",
     "pace": "3½ mph, lataj 3½ mph",
     "terrain": "Przestrzeń, ziemia",
@@ -1440,7 +1440,7 @@
     ],
     "size": "",
     "dimensions": "",
-    "speed": "-",
+    "speed": "lot 80 stóp [zawis]",
     "cost": "4,000,000 sz",
     "ac": "16",
     "hp": "350",
@@ -1508,7 +1508,7 @@
     "vehicleType": "Spelljammer",
     "terrain": "Przestrzeń, morze",
     "entries": [],
-    "speed": "przelecieć 25 stóp, przepłynąć 25 stóp.",
+    "speed": "lot 25 stóp, pływanie 25 stóp",
     "capacity": "Załoga 16, ładunek 30 ton",
     "pace": "latać z prędkością 3 mil na godzinę, pływać z prędkością 3 mil na godzinę",
     "token": "vehicles/tokens/AAG/Turtle Ship.webp",
@@ -1728,7 +1728,7 @@
         "name": "Balisty (×4)",
         "entries": [
           "KP 15, PŻ 50",
-          "{@atk rw} {@hit 6} do trafienia, zasięg 30/480 stóp, jeden cel. {@h}16 ({@damage 3d10}) obrażenia kłute."
+          "{@atk rw} {@hit 6} do trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3d10}) obrażenia kłute."
         ]
       },
       {
@@ -1901,7 +1901,7 @@
         "name": "Balista",
         "entries": [
           "KP 15, PŻ 50",
-          "{@atk rw} {@hit 6} do trafienia, zasięg 30/480 stóp, jeden cel. {@h}16 ({@damage 3d10}) obrażenia kłute.",
+          "{@atk rw} {@hit 6} do trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3d10}) obrażenia kłute.",
           "Łodzie kilowe zazwyczaj zawierają balistę tylko wtedy, gdy są wyposażone do walki."
         ]
       }
@@ -2148,7 +2148,7 @@
         "name": "Balista",
         "entries": [
           "KP 15, PŻ 50",
-          "{@atk rw} {@hit 6} do trafienia, zasięg 30/480 stóp, jeden cel. {@h}16 ({@damage 3d10}) obrażenia kłute."
+          "{@atk rw} {@hit 6} do trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3d10}) obrażenia kłute."
         ]
       },
       {
@@ -2438,7 +2438,7 @@
     ],
     "dimensions": "30 stóp × 10 stóp",
     "pace": "",
-    "speed": "20 stóp",
+    "speed": "20 stóp, pływanie 20 stóp (can't travel underwater)",
     "cost": "",
     "ac": "",
     "hp": "",
@@ -2521,7 +2521,7 @@
         "name": "Balisty (×2)",
         "entries": [
           "KP 15, PŻ 50",
-          "{@atk rw} {@hit 6} do trafienia, zasięg 30/480 stóp, jeden cel. {@h}16 ({@damage 3d10}) obrażenia kłute."
+          "{@atk rw} {@hit 6} do trafienia, zasięg 120/480 stóp, jeden cel. {@h}16 ({@damage 3d10}) obrażenia kłute."
         ]
       },
       {

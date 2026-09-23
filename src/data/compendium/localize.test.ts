@@ -25,6 +25,33 @@ describe('localizeEntry', () => {
     expect(result.source).toBe('XPHB');
   });
 
+  it('repairs translated mechanical metadata against the English source', () => {
+    const entry = {
+      ...makeEntry('ghost', 'Ghost'),
+      speed: '5 ft., fly 40 ft. (hover)',
+      hp: '45 (10d8)',
+      saves: 'Str +2, Con +3',
+      skills: 'Insight +4',
+      weight: '',
+    };
+    const result = localizeEntry(entry, {
+      ghost: {
+        speed: '5 stóp',
+        hp: '32 (5d8 + 10)',
+        saves: 'Sił +2, Kon +4',
+        skills: 'Wnikliwość +3',
+        weight: '65 funtów',
+      },
+    });
+    expect(result).toMatchObject({
+      speed: '5 stóp, lot 40 stóp (zawis)',
+      hp: '45 (10d8)',
+      saves: 'Sił +2, Kon +3',
+      skills: 'Wnikliwość +4',
+      weight: '',
+    });
+  });
+
   it('keeps English monster habitats for filters when overlays add markup', () => {
     const entry = {
       ...makeEntry('aarakocra', 'Aarakocra'),
