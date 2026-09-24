@@ -10,6 +10,7 @@ This project follows Semantic Versioning.
 - Restored missing creature and vehicle movement modes, senses, languages, hit points, saving throws, skills, and item values.
 - Added metadata integrity checks and safe dependency updates.
 - Updated sharp to the patched version required by the dependency audit.
+- Kept optional WASM dependencies complete for clean CI installs.
 
 ## 1.2.124 - 2026-08-28
 
