@@ -24073,7 +24073,7 @@
                 "type": "entries",
                 "name": "Oczy Ciemności",
                 "entries": [
-                  "Zaczynając od pierwszego poziomu, masz {@sense darkvision} o zasięgu 30 metrów.",
+                  "Zaczynając od pierwszego poziomu, masz {@sense darkvision} o zasięgu 120 stóp.",
                   "Kiedy osiągniesz 3. poziom w tej klasie, nauczysz się zaklęcia {@spell darkness}, które nie wlicza się do liczby znanych zaklęć czarownika. Dodatkowo możesz go rzucić wydając 2 punkty magii lub zużywając miejsce na zaklęcie. Jeśli rzucisz go za punkty magii, możesz przejrzeć {@spell darkness} stworzony przez zaklęcie."
                 ]
               },
@@ -24091,7 +24091,7 @@
             "level": 6,
             "name": "Ogar Złej Wróżby",
             "entries": [
-              "Na 6 poziomie zyskujesz zdolność przywoływania wyjącego stworzenia ciemności, aby nękać twoich wrogów. Jako akcję dodatkową możesz wydać 3 punkty magii, aby magicznie przywołać:{@creature hound of ill omen|XGE}aby obrać za cel jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie. Pies używa{@creature dire wolf}statystyki (patrz Księga Potworów lub dodatek C do Podręcznika Gracza), z następującymi zmianami:",
+              "Na 6 poziomie zyskujesz zdolność przywoływania wyjącego stworzenia ciemności, aby nękać twoich wrogów. Jako akcję dodatkową możesz wydać 3 punkty magii, aby magicznie przywołać:{@creature hound of ill omen|XGE}aby obrać za cel jedno stworzenie, które widzisz w promieniu 120 stóp od ciebie. Pies używa{@creature dire wolf}statystyki (patrz Księga Potworów lub dodatek C do Podręcznika Gracza), z następującymi zmianami:",
               {
                 "type": "list",
                 "items": [
@@ -24373,7 +24373,7 @@
                 "type": "entries",
                 "name": "Burzliwa Magia",
                 "entries": [
-                  "Począwszy od 1. poziomu, możesz w swojej turze skorzystać z dodatkowej akcji, która sprawi, że wirujące podmuchy żywiołowego powietrza otoczą cię na krótko, bezpośrednio przed lub po rzuceniu zaklęcia z 1. poziomu lub wyższego. Dzięki temu możesz latać na odległość do 3 metrów bez prowokowania okazyjnych ataków."
+                  "Począwszy od 1. poziomu, możesz w swojej turze skorzystać z dodatkowej akcji, która sprawi, że wirujące podmuchy żywiołowego powietrza otoczą cię na krótko, bezpośrednio przed lub po rzuceniu zaklęcia z 1. poziomu lub wyższego. Dzięki temu możesz latać na odległość do 10 stóp bez prowokowania okazyjnych ataków."
                 ]
               }
             ]
@@ -24597,7 +24597,7 @@
                       ],
                       [
                         "79-80",
-                        "Iluzoryczne motyle i płatki kwiatów trzepoczą w powietrzu w odległości 3 metrów od ciebie przez następną minutę."
+                        "Iluzoryczne motyle i płatki kwiatów trzepoczą w powietrzu w odległości 10 stóp od ciebie przez następną minutę."
                       ],
                       [
                         "81-82",
@@ -24731,7 +24731,7 @@
                       ],
                       [
                         "17-20",
-                        "Podlegasz efektowi, który trwa 1 minutę, chyba że jego opis mówi inaczej. Rzuć {@dice 1d8}, aby określić efekt: przy wyniku 1 jesteś otoczony słabą, eteryczną muzyką, którą słyszysz tylko ty i stworzenia w promieniu 5 stóp od ciebie; na 2, Twój rozmiar zwiększa się o jedną kategorię rozmiaru; na 3 zapuszczasz długą brodę z piór, która pozostaje, dopóki nie kichniesz, kiedy to pióra eksplodują z twojej twarzy i znikają; na 4 musisz krzyczeć, kiedy mówisz; na 5 iluzoryczne motyle fruwają w powietrzu w promieniu 3 metrów od ciebie; na 6, na twoim czole pojawia się oko, dając ci testy {@variantrule Advantage|XPHB} na Mądrość ({@skill Perception|XPHB}); na 7 różowe bąbelki unoszą się z twoich ust, gdy mówisz; na 8, Twoja skóra zmienia kolor na żywy odcień niebieskiego na 24 godziny lub do momentu zakończenia efektu przez zaklęcie {@spell Remove Curse|XPHB}."
+                        "Podlegasz efektowi, który trwa 1 minutę, chyba że jego opis mówi inaczej. Rzuć {@dice 1d8}, aby określić efekt: przy wyniku 1 jesteś otoczony słabą, eteryczną muzyką, którą słyszysz tylko ty i stworzenia w promieniu 5 stóp od ciebie; na 2, Twój rozmiar zwiększa się o jedną kategorię rozmiaru; na 3 zapuszczasz długą brodę z piór, która pozostaje, dopóki nie kichniesz, kiedy to pióra eksplodują z twojej twarzy i znikają; na 4 musisz krzyczeć, kiedy mówisz; na 5 iluzoryczne motyle fruwają w powietrzu w promieniu 10 stóp od ciebie; na 6, na twoim czole pojawia się oko, dając ci testy {@variantrule Advantage|XPHB} na Mądrość ({@skill Perception|XPHB}); na 7 różowe bąbelki unoszą się z twoich ust, gdy mówisz; na 8, Twoja skóra zmienia kolor na żywy odcień niebieskiego na 24 godziny lub do momentu zakończenia efektu przez zaklęcie {@spell Remove Curse|XPHB}."
                       ],
                       [
                         "21-24",
@@ -33677,7 +33677,7 @@
                 "name": "Balsam letniego dworu",
                 "entries": [
                   "Na drugim poziomie zostajesz przesiąknięty błogosławieństwami Letniego Dworu. Jesteś źródłem energii, która daje wytchnienie od kontuzji. Masz pulę energii magicznej reprezentowanej przez liczbę {@dice d6} równą Twojemu poziomowi druida.",
-                  "Jako akcję dodatkową możesz wybrać jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie i wydać liczbę tych kości równą połowie twojego poziomu druida lub mniej. Rzuć zużytymi kostkami i dodaj je do siebie. Cel odzyskuje liczbę punktów wytrzymałości równą sumie. Cel zyskuje także 1 tymczasowy punkt wytrzymałości za każdą wydaną kość.",
+                  "Jako akcję dodatkową możesz wybrać jedno stworzenie, które widzisz w promieniu 120 stóp od ciebie i wydać liczbę tych kości równą połowie twojego poziomu druida lub mniej. Rzuć zużytymi kostkami i dodaj je do siebie. Cel odzyskuje liczbę punktów wytrzymałości równą sumie. Cel zyskuje także 1 tymczasowy punkt wytrzymałości za każdą wydaną kość.",
                   "Odzyskujesz wszystkie wydane kości po zakończeniu długiego odpoczynku."
                 ]
               }
@@ -33696,7 +33696,7 @@
             "level": 10,
             "name": "Ukryte ścieżki",
             "entries": [
-              "Począwszy od 10. poziomu możesz korzystać z ukrytych, magicznych ścieżek, których używają niektóre istoty magiczne, aby w mgnieniu oka przemierzać przestrzeń. Jako dodatkową akcję w swojej turze możesz teleportować się na odległość do 60 stóp na niezajęte miejsce, które widzisz. Alternatywnie możesz użyć swojej akcji, aby teleportować jedno chętne stworzenie, którego dotkniesz, na odległość do 9 metrów na niezajęte miejsce, które widzisz.",
+              "Począwszy od 10. poziomu możesz korzystać z ukrytych, magicznych ścieżek, których używają niektóre istoty magiczne, aby w mgnieniu oka przemierzać przestrzeń. Jako dodatkową akcję w swojej turze możesz teleportować się na odległość do 60 stóp na niezajęte miejsce, które widzisz. Alternatywnie możesz użyć swojej akcji, aby teleportować jedno chętne stworzenie, którego dotkniesz, na odległość do 30 stóp na niezajęte miejsce, które widzisz.",
               "Możesz skorzystać z tej funkcji tyle razy, ile wynosi twój modyfikator Mądrości (minimum raz), a wszystkie wykorzystane jej użycia odzyskujesz po zakończeniu długiego odpoczynku."
             ]
           },
@@ -33765,7 +33765,7 @@
                 "type": "entries",
                 "name": "Aureola Zarodników",
                 "entries": [
-                  "Począwszy od 2. poziomu jesteś otoczony przez niewidzialne, nekrotyczne zarodniki, które są nieszkodliwe, dopóki nie uwolnisz ich na pobliskim stworzeniu. Kiedy istota, którą widzisz, poruszy się na obszar w promieniu 3 stóp od ciebie lub rozpocznie tam swoją turę, możesz użyć swojej reakcji, aby zadać temu stworzeniu {@damage 1d4} obrażenia nekrotyczne, chyba że uda mu się wykonać rzut obronny na Kondycję przeciwko twojemu ST rzutu obronnego na zaklęcia. Obrażenia nekrotyczne wzrastają do {@damage 1d6} na 6. poziomie, {@damage 1d8} na 10. poziomie i {@damage 1d10} na 14. poziomie."
+                  "Począwszy od 2. poziomu jesteś otoczony przez niewidzialne, nekrotyczne zarodniki, które są nieszkodliwe, dopóki nie uwolnisz ich na pobliskim stworzeniu. Kiedy istota, którą widzisz, poruszy się na obszar w promieniu 10 stóp od ciebie lub rozpocznie tam swoją turę, możesz użyć swojej reakcji, aby zadać temu stworzeniu {@damage 1d4} obrażenia nekrotyczne, chyba że uda mu się wykonać rzut obronny na Kondycję przeciwko twojemu ST rzutu obronnego na zaklęcia. Obrażenia nekrotyczne wzrastają do {@damage 1d6} na 6. poziomie, {@damage 1d8} na 10. poziomie i {@damage 1d10} na 14. poziomie."
                 ]
               },
               {
@@ -33789,7 +33789,7 @@
             "level": 6,
             "name": "Inwazja grzybicza",
             "entries": [
-              "Na 6 poziomie twoje zarodniki zyskują zdolność infekowania zwłok i ożywiania ich. Jeśli mała lub średnia bestia lub humanoidalna istota zginie w promieniu 3 metrów od ciebie, możesz użyć swojej reakcji, aby ją ożywić, powodując, że natychmiast wstanie z 1 punktem wytrzymałości. Stworzenie używa bloku statystyk {@creature zombie} w {@book Monster Manual|MM}. Pozostaje ożywiony przez 1 godzinę, po czym zapada się i umiera.",
+              "Na 6 poziomie twoje zarodniki zyskują zdolność infekowania zwłok i ożywiania ich. Jeśli mała lub średnia bestia lub humanoidalna istota zginie w promieniu 10 stóp od ciebie, możesz użyć swojej reakcji, aby ją ożywić, powodując, że natychmiast wstanie z 1 punktem wytrzymałości. Stworzenie używa bloku statystyk {@creature zombie} w {@book Monster Manual|MM}. Pozostaje ożywiony przez 1 godzinę, po czym zapada się i umiera.",
               "W walce tura zombie następuje bezpośrednio po twojej. Wykonuje Twoje mentalne polecenia, a jedyną akcją, jaką może podjąć, jest akcja {@action Attack}, polegająca na wykonaniu jednego ataku wręcz.",
               "Możesz skorzystać z tej funkcji tyle razy, ile wynosi twój modyfikator Mądrości (minimum raz), a wszystkie wykorzystane jej użycia odzyskujesz po zakończeniu długiego odpoczynku."
             ]
@@ -33798,7 +33798,7 @@
             "level": 10,
             "name": "Rozprzestrzenianie się zarodników",
             "entries": [
-              "Na 10. poziomie zyskujesz możliwość zasiania obszaru śmiercionośnymi zarodnikami. Jako dodatkowa akcja, gdy aktywna jest funkcja Symbiotycznej Istoty, możesz rzucić zarodniki na odległość do 9 metrów, gdzie wirują w 3-metrowej kostce przez 1 minutę. Zarodniki znikają wcześniej, jeśli użyjesz tej funkcji ponownie, jeśli odrzucisz je jako akcję dodatkową lub jeśli funkcja Symbiotycznej Istoty nie będzie już aktywna.",
+              "Na 10. poziomie zyskujesz możliwość zasiania obszaru śmiercionośnymi zarodnikami. Jako dodatkowa akcja, gdy aktywna jest funkcja Symbiotycznej Istoty, możesz rzucić zarodniki na odległość do 30 stóp, gdzie wirują w 3-metrowej kostce przez 1 minutę. Zarodniki znikają wcześniej, jeśli użyjesz tej funkcji ponownie, jeśli odrzucisz je jako akcję dodatkową lub jeśli funkcja Symbiotycznej Istoty nie będzie już aktywna.",
               "Ilekroć stwór wejdzie do sześcianu lub rozpocznie tam swoją turę, otrzyma obrażenia od Aureoli Zarodników, chyba że uda mu się wykonać rzut obronny na Kondycję przeciwko Twojemu ST obronnemu na zaklęcia. Stworzenie może otrzymać te obrażenia nie więcej niż raz na turę.",
               "Dopóki sześcian zarodników trwa, nie możesz użyć reakcji Halo Zarodników."
             ]
@@ -34455,8 +34455,8 @@
             "level": 14,
             "name": "Sanktuarium Natury",
             "entries": [
-              "Jako akcja {@action Magic|XPHB} możesz wykorzystać swój Dziki Kształt i spowodować pojawienie się widmowych drzew i winorośli w 15-metrowym {@variantrule Cube [Area of Effect]|XPHB|Sześcian} na ziemi w odległości 30 metrów od ciebie. Trwają tam przez 1 minutę lub do momentu wystąpienia stanu {@condition Incapacitated|XPHB} lub śmierci. Ty i twoi sojusznicy posiadacie {@variantrule Cover|XPHB|Pół okładka}, będąc na tym obszarze, a wasi sojusznicy otrzymują tam aktualne {@variantrule Resistance|XPHB} waszego Totemu Natury.",
-              "Jako {@variantrule Bonus Action|XPHB} możesz przenieść {@variantrule Cube [Area of Effect]|XPHB|Sześcian} do 60 stóp na ziemię w promieniu 30 stóp od siebie."
+              "Jako akcja {@action Magic|XPHB} możesz wykorzystać swój Dziki Kształt i spowodować pojawienie się widmowych drzew i winorośli w 15-metrowym {@variantrule Cube [Area of Effect]|XPHB|Sześcian} na ziemi w odległości 120 stóp od ciebie. Trwają tam przez 1 minutę lub do momentu wystąpienia stanu {@condition Incapacitated|XPHB} lub śmierci. Ty i twoi sojusznicy posiadacie {@variantrule Cover|XPHB|Pół okładka}, będąc na tym obszarze, a wasi sojusznicy otrzymują tam aktualne {@variantrule Resistance|XPHB} waszego Totemu Natury.",
+              "Jako {@variantrule Bonus Action|XPHB} możesz przenieść {@variantrule Cube [Area of Effect]|XPHB|Sześcian} do 60 stóp na ziemię w promieniu 120 stóp od siebie."
             ]
           }
         ]
@@ -34705,7 +34705,7 @@
                     "type": "entries",
                     "name": "Wspólny blask księżyca",
                     "entries": [
-                      "Za każdym razem, gdy użyjesz Kroku Księżycowego Światła, możesz także teleportować jedno chętne stworzenie. To stworzenie musi znajdować się w promieniu 3 stóp od ciebie, a ty teleportujesz je na niezajęte miejsce, które widzisz w promieniu 3 stóp od miejsca docelowego."
+                      "Za każdym razem, gdy użyjesz Kroku Księżycowego Światła, możesz także teleportować jedno chętne stworzenie. To stworzenie musi znajdować się w promieniu 10 stóp od ciebie, a ty teleportujesz je na niezajęte miejsce, które widzisz w promieniu 10 stóp od miejsca docelowego."
                     ]
                   }
                 ]
@@ -34766,7 +34766,7 @@
                 "name": "Gniew Morza",
                 "entries": [
                   "Jako {@variantrule Bonus Action|XPHB} możesz wykorzystać swój Dziki Kształt, aby zamanifestować 5-metrowy {@variantrule Emanation [Area of Effect]|XPHB|Emanacja}, który przybiera formę oceanicznej mgły, która otacza cię przez 10 minut. Kończy się wcześniej, jeśli go odrzucisz (nie jest wymagane żadne działanie), zamanifestujesz go ponownie lub wystąpi warunek {@condition Incapacitated|XPHB}.",
-                  "Kiedy manifestujesz {@variantrule Emanation [Area of Effect]|XPHB|Emanacja} i jako {@variantrule Bonus Action|XPHB} w swoich kolejnych turach, możesz wybrać inne stworzenie, które widzisz w {@variantrule Emanation [Area of Effect]|XPHB|Emanacja}. Cel musi odnieść sukces w rzucie obronnym na Kondycję przeciwko twojemu ST rzutu obronnego na zaklęcie lub otrzymać obrażenia od zimna i, jeśli stworzenie jest duże lub mniejsze, zostać odepchniętym na odległość do 5 metrów od ciebie. Aby określić te obrażenia, rzuć tyle k6, ile wynosi twój modyfikator Mądrości (minimum jedna kość)."
+                  "Kiedy manifestujesz {@variantrule Emanation [Area of Effect]|XPHB|Emanacja} i jako {@variantrule Bonus Action|XPHB} w swoich kolejnych turach, możesz wybrać inne stworzenie, które widzisz w {@variantrule Emanation [Area of Effect]|XPHB|Emanacja}. Cel musi odnieść sukces w rzucie obronnym na Kondycję przeciwko twojemu ST rzutu obronnego na zaklęcie lub otrzymać obrażenia od zimna i, jeśli stworzenie jest duże lub mniejsze, zostać odepchniętym na odległość do 15 stóp od ciebie. Aby określić te obrażenia, rzuć tyle k6, ile wynosi twój modyfikator Mądrości (minimum jedna kość)."
                 ]
               }
             ]
@@ -34775,7 +34775,7 @@
             "level": 6,
             "name": "Powinowactwo wodne",
             "entries": [
-              "Rozmiar {@variantrule Emanation [Area of Effect]|XPHB|Emanacja} stworzonego przez Twój Gniew Morza wzrasta do 3 stóp.",
+              "Rozmiar {@variantrule Emanation [Area of Effect]|XPHB|Emanacja} stworzonego przez Twój Gniew Morza wzrasta do 10 stóp.",
               "Dodatkowo zyskujesz {@variantrule Swim Speed|XPHB} równy Twojemu {@variantrule Speed|XPHB}."
             ]
           },
@@ -35084,7 +35084,7 @@
                 "entries": [
                   "{@i Funkcja Kręgu Dzikiego Ognia drugiego poziomu}",
                   "Możesz przywołać pierwotnego ducha związanego z twoją duszą. W ramach akcji możesz wydać jedno użycie funkcji Dzikiego Kształtu, aby przywołać ducha dzikiego ognia, zamiast przybierać formę bestii.",
-                  "Duch pojawia się w wybranym przez ciebie niezamieszkanym miejscu, które widzisz w promieniu 30 stóp od ciebie. Każde stworzenie w promieniu 3 stóp od ducha (inne niż ty), gdy się pojawi, musi wykonać rzut obronny na Zręczność przeciwko Twojemu ST obronnemu na zaklęcia lub otrzymać {@damage 2d6} obrażenia od ognia.",
+                  "Duch pojawia się w wybranym przez ciebie niezamieszkanym miejscu, które widzisz w promieniu 30 stóp od ciebie. Każde stworzenie w promieniu 10 stóp od ducha (inne niż ty), gdy się pojawi, musi wykonać rzut obronny na Zręczność przeciwko Twojemu ST obronnemu na zaklęcia lub otrzymać {@damage 2d6} obrażenia od ognia.",
                   "Duch jest przyjazny tobie i twoim towarzyszom i słucha twoich poleceń. Zobacz statystyki gry tego stworzenia w bloku statystyk {@creature Wildfire Spirit|TCE}, który wykorzystuje twoją premię za biegłość (PB) w kilku miejscach. Ty decydujesz o wyglądzie ducha. Niektóre duchy przybierają postać humanoidalnej postaci zbudowanej z sękatych gałęzi pokrytych płomieniem, podczas gdy inne wyglądają jak bestie spowite ogniem.",
                   "Podczas walki duch dzieli się z twoją inicjatywą, ale swoją turę wykonuje zaraz po twojej. Jedyną akcją, jaką wykonuje w swojej turze, jest akcja {@action Dodge}, chyba że wykonasz w swojej turze dodatkową akcję, aby nakazać mu wykonanie kolejnej akcji. Może to być akcja w bloku statystyk lub inna akcja. Jeśli jesteś {@condition incapacitated}, duch może wykonać dowolną wybraną przez siebie akcję, a nie tylko {@action Dodge}.",
                   "Duch manifestuje się przez 1 godzinę, dopóki jego punkty wytrzymałości nie zostaną zredukowane do 0, dopóki nie użyjesz tej funkcji do ponownego przywołania ducha lub do chwili śmierci."
@@ -35115,7 +35115,7 @@
             "name": "Płonące odrodzenie",
             "entries": [
               "{@i Funkcja Kręgu Dzikiego Ognia na 14. poziomie}",
-              "Więź z duchem dzikiego ognia może ocalić cię od śmierci. Jeśli duch znajdzie się w promieniu 30 metrów od ciebie, gdy twoje punkty wytrzymałości zostaną zredukowane do 0 i tym samym upadniesz {@condition unconscious}, możesz spowodować, że duch spadnie do 0 punktów wytrzymałości. Następnie odzyskujesz połowę swoich punktów wytrzymałości i natychmiast wstajesz na nogi.",
+              "Więź z duchem dzikiego ognia może ocalić cię od śmierci. Jeśli duch znajdzie się w promieniu 120 stóp od ciebie, gdy twoje punkty wytrzymałości zostaną zredukowane do 0 i tym samym upadniesz {@condition unconscious}, możesz spowodować, że duch spadnie do 0 punktów wytrzymałości. Następnie odzyskujesz połowę swoich punktów wytrzymałości i natychmiast wstajesz na nogi.",
               "Po skorzystaniu z tej funkcji nie można jej ponownie użyć, dopóki nie zakończy się długi odpoczynek."
             ]
           }
@@ -37832,7 +37832,7 @@
             "name": "Awatar Echa",
             "entries": [
               "{@i Cecha Rycerza Echa 7. poziomu}",
-              "Możesz tymczasowo przenieść swoją świadomość do swojego echa. Jako akcję możesz widzieć oczami swojego echa i słyszeć jego uszami. W tym czasie jesteś {@condition deafened} i {@condition blinded}. Możesz podtrzymywać ten efekt do 10 minut i możesz go zakończyć w dowolnym momencie (nie wymaga akcji). Gdy twoje echo jest wykorzystywane w ten sposób, może znajdować się do 1000 stóp od ciebie, nie ulegając zniszczeniu."
+              "Możesz tymczasowo przenieść swoją świadomość do swojego echa. Jako akcję możesz widzieć oczami swojego echa i słyszeć jego uszami. W tym czasie jesteś {@condition deafened} i {@condition blinded}. Możesz podtrzymywać ten efekt do 10 minut i możesz go zakończyć w dowolnym momencie (nie wymaga akcji). Gdy twoje echo jest wykorzystywane w ten sposób, może znajdować się do 1,000 stóp od ciebie, nie ulegając zniszczeniu."
             ]
           },
           {
@@ -40494,7 +40494,7 @@
                 "type": "entries",
                 "name": "Oczy Ciemności",
                 "entries": [
-                  "Zaczynając od pierwszego poziomu, masz {@sense darkvision} o zasięgu 30 metrów.",
+                  "Zaczynając od pierwszego poziomu, masz {@sense darkvision} o zasięgu 120 stóp.",
                   "Kiedy osiągniesz 3. poziom w tej klasie, nauczysz się zaklęcia {@spell darkness}, które nie wlicza się do liczby znanych zaklęć czarownika. Dodatkowo możesz go rzucić wydając 2 punkty magii lub zużywając miejsce na zaklęcie. Jeśli rzucisz go za punkty magii, możesz przejrzeć {@spell darkness} stworzony przez zaklęcie."
                 ]
               },
@@ -40512,7 +40512,7 @@
             "level": 6,
             "name": "Ogar Złej Wróżby",
             "entries": [
-              "Na 6 poziomie zyskujesz zdolność przywoływania wyjącego stworzenia ciemności, aby nękać twoich wrogów. Jako akcję dodatkową możesz wydać 3 punkty magii, aby magicznie przywołać:{@creature hound of ill omen|XGE}aby obrać za cel jedno stworzenie, które widzisz w promieniu 30 metrów od ciebie. Pies używa{@creature dire wolf}statystyki (patrz Księga Potworów lub dodatek C do Podręcznika Gracza), z następującymi zmianami:",
+              "Na 6 poziomie zyskujesz zdolność przywoływania wyjącego stworzenia ciemności, aby nękać twoich wrogów. Jako akcję dodatkową możesz wydać 3 punkty magii, aby magicznie przywołać:{@creature hound of ill omen|XGE}aby obrać za cel jedno stworzenie, które widzisz w promieniu 120 stóp od ciebie. Pies używa{@creature dire wolf}statystyki (patrz Księga Potworów lub dodatek C do Podręcznika Gracza), z następującymi zmianami:",
               {
                 "type": "list",
                 "items": [
@@ -40794,7 +40794,7 @@
                 "type": "entries",
                 "name": "Burzliwa Magia",
                 "entries": [
-                  "Począwszy od 1. poziomu, możesz w swojej turze skorzystać z dodatkowej akcji, która sprawi, że wirujące podmuchy żywiołowego powietrza otoczą cię na krótko, bezpośrednio przed lub po rzuceniu zaklęcia z 1. poziomu lub wyższego. Dzięki temu możesz latać na odległość do 3 metrów bez prowokowania okazyjnych ataków."
+                  "Począwszy od 1. poziomu, możesz w swojej turze skorzystać z dodatkowej akcji, która sprawi, że wirujące podmuchy żywiołowego powietrza otoczą cię na krótko, bezpośrednio przed lub po rzuceniu zaklęcia z 1. poziomu lub wyższego. Dzięki temu możesz latać na odległość do 10 stóp bez prowokowania okazyjnych ataków."
                 ]
               }
             ]
@@ -41018,7 +41018,7 @@
                       ],
                       [
                         "79-80",
-                        "Iluzoryczne motyle i płatki kwiatów trzepoczą w powietrzu w odległości 3 metrów od ciebie przez następną minutę."
+                        "Iluzoryczne motyle i płatki kwiatów trzepoczą w powietrzu w odległości 10 stóp od ciebie przez następną minutę."
                       ],
                       [
                         "81-82",
@@ -41152,7 +41152,7 @@
                       ],
                       [
                         "17-20",
-                        "Podlegasz efektowi, który trwa 1 minutę, chyba że jego opis mówi inaczej. Rzuć {@dice 1d8}, aby określić efekt: przy wyniku 1 jesteś otoczony słabą, eteryczną muzyką, którą słyszysz tylko ty i stworzenia w promieniu 5 stóp od ciebie; na 2, Twój rozmiar zwiększa się o jedną kategorię rozmiaru; na 3 zapuszczasz długą brodę z piór, która pozostaje, dopóki nie kichniesz, kiedy to pióra eksplodują z twojej twarzy i znikają; na 4 musisz krzyczeć, kiedy mówisz; na 5 iluzoryczne motyle fruwają w powietrzu w promieniu 3 metrów od ciebie; na 6, na twoim czole pojawia się oko, dając ci testy {@variantrule Advantage|XPHB} na Mądrość ({@skill Perception|XPHB}); na 7 różowe bąbelki unoszą się z twoich ust, gdy mówisz; na 8, Twoja skóra zmienia kolor na żywy odcień niebieskiego na 24 godziny lub do momentu zakończenia efektu przez zaklęcie {@spell Remove Curse|XPHB}."
+                        "Podlegasz efektowi, który trwa 1 minutę, chyba że jego opis mówi inaczej. Rzuć {@dice 1d8}, aby określić efekt: przy wyniku 1 jesteś otoczony słabą, eteryczną muzyką, którą słyszysz tylko ty i stworzenia w promieniu 5 stóp od ciebie; na 2, Twój rozmiar zwiększa się o jedną kategorię rozmiaru; na 3 zapuszczasz długą brodę z piór, która pozostaje, dopóki nie kichniesz, kiedy to pióra eksplodują z twojej twarzy i znikają; na 4 musisz krzyczeć, kiedy mówisz; na 5 iluzoryczne motyle fruwają w powietrzu w promieniu 10 stóp od ciebie; na 6, na twoim czole pojawia się oko, dając ci testy {@variantrule Advantage|XPHB} na Mądrość ({@skill Perception|XPHB}); na 7 różowe bąbelki unoszą się z twoich ust, gdy mówisz; na 8, Twoja skóra zmienia kolor na żywy odcień niebieskiego na 24 godziny lub do momentu zakończenia efektu przez zaklęcie {@spell Remove Curse|XPHB}."
                       ],
                       [
                         "21-24",
@@ -47370,7 +47370,7 @@
             "name": "Awatar Echa",
             "entries": [
               "{@i Cecha Rycerza Echa 7. poziomu}",
-              "Możesz tymczasowo przenieść swoją świadomość do swojego echa. Jako akcję możesz widzieć oczami swojego echa i słyszeć jego uszami. W tym czasie jesteś {@condition deafened} i {@condition blinded}. Możesz podtrzymywać ten efekt do 10 minut i możesz go zakończyć w dowolnym momencie (nie wymaga akcji). Gdy twoje echo jest wykorzystywane w ten sposób, może znajdować się do 1000 stóp od ciebie, nie ulegając zniszczeniu."
+              "Możesz tymczasowo przenieść swoją świadomość do swojego echa. Jako akcję możesz widzieć oczami swojego echa i słyszeć jego uszami. W tym czasie jesteś {@condition deafened} i {@condition blinded}. Możesz podtrzymywać ten efekt do 10 minut i możesz go zakończyć w dowolnym momencie (nie wymaga akcji). Gdy twoje echo jest wykorzystywane w ten sposób, może znajdować się do 1,000 stóp od ciebie, nie ulegając zniszczeniu."
             ]
           },
           {
@@ -52764,7 +52764,7 @@
         "level": 5,
         "name": "Szybki ruch",
         "entries": [
-          "Począwszy od 5 poziomu, twoja prędkość wzrasta o 3 metry, jeśli nie nosisz ciężkiej zbroi."
+          "Począwszy od 5 poziomu, twoja prędkość wzrasta o 10 stóp, jeśli nie nosisz ciężkiej zbroi."
         ]
       },
       {
@@ -57061,7 +57061,7 @@
                 "entries": [
                   "{@i Cecha Domeny Zmierzchu 1. poziomu}",
                   "Widzisz przez najgłębszy mrok. Masz {@sense darkvision} w zasięgu 300 stóp. W tym promieniu widzisz w przyćmionym świetle jak w jasnym świetle, a w ciemności jak w przyćmionym świetle.",
-                  "W ramach akcji możesz magicznie udostępnić {@sense darkvision} tej funkcji chętnym stworzeniom, które widzisz w promieniu 3 stóp od ciebie, do liczby stworzeń równej twojemu modyfikatorowi Mądrości (minimum jedno stworzenie).Wspólny {@sense darkvision} trwa 1 godzinę.Kiedy już go udostępnisz, nie możesz tego zrobić ponownie, dopóki nie zakończysz długiego odpoczynku, chyba że wydasz miejsce na zaklęcie dowolnego poziomu, aby udostępnić je ponownie."
+                  "W ramach akcji możesz magicznie udostępnić {@sense darkvision} tej funkcji chętnym stworzeniom, które widzisz w promieniu 10 stóp od ciebie, do liczby stworzeń równej twojemu modyfikatorowi Mądrości (minimum jedno stworzenie).Wspólny {@sense darkvision} trwa 1 godzinę.Kiedy już go udostępnisz, nie możesz tego zrobić ponownie, dopóki nie zakończysz długiego odpoczynku, chyba że wydasz miejsce na zaklęcie dowolnego poziomu, aby udostępnić je ponownie."
                 ]
               },
               {
@@ -60463,7 +60463,7 @@
                 "entries": [
                   "{@i Cecha Domeny Zmierzchu 1. poziomu}",
                   "Widzisz przez najgłębszy mrok. Masz {@sense darkvision} w zasięgu 300 stóp. W tym promieniu widzisz w przyćmionym świetle jak w jasnym świetle, a w ciemności jak w przyćmionym świetle.",
-                  "W ramach akcji możesz magicznie udostępnić {@sense darkvision} tej funkcji chętnym stworzeniom, które widzisz w promieniu 3 stóp od ciebie, do liczby stworzeń równej twojemu modyfikatorowi Mądrości (minimum jedno stworzenie). Udostępniony {@sense darkvision} trwa 1 godzinę. Kiedy już go udostępnisz, nie możesz tego zrobić ponownie, dopóki nie zakończysz długiego odpoczynku, chyba że wydasz miejsce na zaklęcie dowolnego poziomu, aby udostępnić je ponownie."
+                  "W ramach akcji możesz magicznie udostępnić {@sense darkvision} tej funkcji chętnym stworzeniom, które widzisz w promieniu 10 stóp od ciebie, do liczby stworzeń równej twojemu modyfikatorowi Mądrości (minimum jedno stworzenie). Udostępniony {@sense darkvision} trwa 1 godzinę. Kiedy już go udostępnisz, nie możesz tego zrobić ponownie, dopóki nie zakończysz długiego odpoczynku, chyba że wydasz miejsce na zaklęcie dowolnego poziomu, aby udostępnić je ponownie."
                 ]
               },
               {

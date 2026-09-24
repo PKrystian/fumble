@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { localizeCompendiumValue } from './localizeValue';
+import { localizeCompendiumValue, repairLocalizedMeasurements } from './localizeValue';
 
 describe('localizeCompendiumValue', () => {
   it('localizes known untranslated Polish overlay values', () => {
@@ -29,6 +29,24 @@ describe('localizeCompendiumValue', () => {
     expect(localizeCompendiumValue(undefined, 'pl', 'languageType')).toBeUndefined();
   });
 
+  it('repairs translated measurement values without changing the unit language', () => {
+    expect(
+      repairLocalizedMeasurements(
+        'The target is within 90 feet.',
+        'Cel jest w odległości 30 metrów.',
+      ),
+    ).toBe('Cel jest w odległości 90 stóp.');
+    expect(
+      repairLocalizedMeasurements(
+        'Range 10 feet or 1 mile.',
+        'Zasięg 3 stóp lub 1 mila.',
+      ),
+    ).toBe('Zasięg 10 stóp lub 1 mila.');
+    expect(repairLocalizedMeasurements('No distance.', 'Brak odległości.')).toBe(
+      'Brak odległości.',
+    );
+  });
+
   it('localizes shared Fumble metadata', () => {
     expect(localizeCompendiumValue('Medium or Small', 'pl', 'size')).toBe(
       'Średni lub Mały',
@@ -47,6 +65,9 @@ describe('localizeCompendiumValue', () => {
       ),
     ).toBe(
       '30 stóp; wspinaczka 30 stóp (tylko ląd); lot 40 stóp (tylko powietrze); pływanie 30 stóp (tylko woda); kopanie 20 stóp',
+    );
+    expect(localizeCompendiumValue('5 ft., fly 40 ft. (hover)', 'pl', 'speed')).toBe(
+      '5 stóp, lot 40 stóp (zawis)',
     );
     expect(localizeCompendiumValue('120 feet (120-foot cone)', 'pl', 'range')).toBe(
       '120 stóp (stożek 120 stóp)',
@@ -187,6 +208,22 @@ describe('localizeCompendiumValue', () => {
     expect(
       localizeCompendiumValue('rozumie Gianta i Common, ale nie mówi', 'pl', 'languages'),
     ).toBe('rozumie Gigantów i Wspólny, ale nie mówi');
+    expect(localizeCompendiumValue('telepathy 120 ft.', 'pl', 'languages')).toBe(
+      'telepatia 120 stóp',
+    );
+    expect(
+      localizeCompendiumValue('Str +17, Con +15, Int +13, Cha +16', 'pl', 'saves'),
+    ).toBe('Sił +17, Kon +15, Int +13, Cha +16');
+    expect(
+      localizeCompendiumValue(
+        'Insight +14, Perception +22, Persuasion +18',
+        'pl',
+        'skills',
+      ),
+    ).toBe('Wnikliwość +14, Spostrzegawczość +22, Perswazja +18');
+    expect(localizeCompendiumValue('4 (XP 1,100; PB +2)', 'pl', 'crDisplay')).toBe(
+      '4 (PD 1,100; Premia biegłości +2)',
+    );
   });
 
   it('covers sparse metadata fields and localization fallbacks', () => {

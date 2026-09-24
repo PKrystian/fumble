@@ -6049,7 +6049,7 @@
   "locate-object": {
     "name": "Zlokalizuj Przedmiot",
     "entries": [
-      "Opisz lub nazwij przedmiot, który jest ci znany. Wyczuwasz kierunek do lokalizacji tego przedmiotu, jeśli znajduje się on w promieniu 1000 stóp od ciebie. Jeśli przedmiot jest w ruchu, znasz kierunek jego ruchu.",
+      "Opisz lub nazwij przedmiot, który jest ci znany. Wyczuwasz kierunek do lokalizacji tego przedmiotu, jeśli znajduje się on w promieniu 1,000 stóp od ciebie. Jeśli przedmiot jest w ruchu, znasz kierunek jego ruchu.",
       "Zaklęcie może zlokalizować konkretny znany ci przedmiot, jeśli widziałeś go z bliska - w promieniu 30 stóp - przynajmniej raz. Alternatywnie zaklęcie może zlokalizować najbliższy przedmiot konkretnego rodzaju, taki jak pewien rodzaj odzieży, biżuterii, mebli, narzędzi lub broni.",
       "To zaklęcie nie może zlokalizować przedmiotu, jeśli jakakolwiek grubość ołowiu blokuje bezpośrednią drogę między tobą a przedmiotem."
     ],
@@ -11130,7 +11130,7 @@
   "locate-creature": {
     "name": "Zlokalizuj Stwora",
     "entries": [
-      "Opisz lub nazwij stwora, który jest ci znany. Wyczuwasz kierunek do lokalizacji stwora, jeśli znajduje się on w promieniu 1000 stóp od ciebie. Jeśli stwór jest w ruchu, znasz kierunek jego ruchu.",
+      "Opisz lub nazwij stwora, który jest ci znany. Wyczuwasz kierunek do lokalizacji stwora, jeśli znajduje się on w promieniu 1,000 stóp od ciebie. Jeśli stwór jest w ruchu, znasz kierunek jego ruchu.",
       "Zaklęcie może zlokalizować konkretnego znanego ci stwora lub najbliższego stwora określonego rodzaju (takiego jak człowiek lub jednorożec), jeśli widziałeś takiego stwora z bliska - w promieniu 30 stóp - przynajmniej raz. Jeśli opisany lub nazwany przez ciebie stwór znajduje się w innej formie, na przykład pod wpływem zaklęcia {@spell Flesh to Stone|XPHB} lub {@spell Polymorph|XPHB}, to zaklęcie nie lokalizuje tego stwora.",
       "To zaklęcie nie może zlokalizować stwora, jeśli jakakolwiek grubość ołowiu blokuje bezpośrednią drogę między tobą a stworem."
     ],
@@ -13912,7 +13912,7 @@
         "type": "entries",
         "name": "Przemień Błoto w Skałę",
         "entries": [
-          "Niemagiczne błoto lub ruchome piaski na obszarze o głębokości nie większej niż 3 metry zamieniają się w miękki kamień na czas działania zaklęcia.Każde stworzenie znajdujące się w błocie podczas transformacji musi wykonać rzut obronny na Zręczność.Po udanym rzucie, istota zostaje bezpiecznie przerzucona na powierzchnię w niezajętym miejscu.W przypadku nieudanego rzutu obronnego, stworzenie staje się {@condition restrained} przy skale.Istota {@condition restrained} lub inna istota w zasięgu może wykonać akcję, aby spróbować rozbić skałę, wykonując udany test Siły {@dc 20} lub zadając jej obrażenia.Skała ma 15 i 25 punktów wytrzymałości i jest odporna na trucizny i obrażenia psychiczne."
+          "Niemagiczne błoto lub ruchome piaski na obszarze o głębokości nie większej niż 10 stóp zamieniają się w miękki kamień na czas działania zaklęcia.Każde stworzenie znajdujące się w błocie podczas transformacji musi wykonać rzut obronny na Zręczność.Po udanym rzucie, istota zostaje bezpiecznie przerzucona na powierzchnię w niezajętym miejscu.W przypadku nieudanego rzutu obronnego, stworzenie staje się {@condition restrained} przy skale.Istota {@condition restrained} lub inna istota w zasięgu może wykonać akcję, aby spróbować rozbić skałę, wykonując udany test Siły {@dc 20} lub zadając jej obrażenia.Skała ma 15 i 25 punktów wytrzymałości i jest odporna na trucizny i obrażenia psychiczne."
         ]
       }
     ],
@@ -17923,7 +17923,7 @@
     "name": "Zatrzymanie Czasu",
     "entries": [
       "Na chwilę zatrzymujesz upływ czasu dla wszystkich poza sobą. Żaden czas nie mija dla innych stworów, podczas gdy ty wykonujesz {@dice 1d4 + 1} tur pod rząd, podczas których możesz wykorzystywać akcje i poruszać się normalnie.",
-      "To zaklęcie kończy się, jeśli jedna z akcji, których użyjesz w tym okresie, lub jakiekolwiek efekty, które stworzysz podczas niego, wpłyną na stwora innego niż ty lub na przedmiot noszony lub niesiony przez kogoś innego niż ty. Dodatkowo zaklęcie kończy się, jeśli przemieścisz się w miejsce oddalone o więcej niż 1000 stóp od lokalizacji, w której je rzuciłeś."
+      "To zaklęcie kończy się, jeśli jedna z akcji, których użyjesz w tym okresie, lub jakiekolwiek efekty, które stworzysz podczas niego, wpłyną na stwora innego niż ty lub na przedmiot noszony lub niesiony przez kogoś innego niż ty. Dodatkowo zaklęcie kończy się, jeśli przemieścisz się w miejsce oddalone o więcej niż 1,000 stóp od lokalizacji, w której je rzuciłeś."
     ],
     "castingTime": "1 akcja",
     "range": "Ja",
@@ -18000,7 +18000,7 @@
     "range": "Dotyk",
     "duration": "Natychmiastowy",
     "school": "Nekromancja",
-    "components": "W, S, M (diamenty o wartości 25 000+ sz, które zaklęcie zużywa)",
+    "components": "V, S, M (diamonds worth 25,000+ GP, which the spell consumes)",
     "level": 9,
     "concentration": false,
     "ritual": false,
@@ -22228,10 +22228,10 @@
       "Zyskujesz służbę znajomego, ducha przyjmującego wybraną przez ciebie formę zwierzęcia: {@creature bat}, {@creature cat}, {@creature crab}, {@creature frog} (ropucha), {@creature hawk}, {@creature lizard}, {@creature octopus}, {@creature owl}, {@creature poisonous snake}, ryba ({@creature quipper}), {@creature rat}, {@creature raven}, {@creature sea horse}, {@creature spider} lub {@creature weasel}. Pojawiając się w wolnej przestrzeni w zasięgu, znajomy posiada statystyki wybranej formy, choć jest niebianinem, wróżką lub czartem (twój wybór) zamiast zwierzęciem.",
       "{@note Additional {@filter wybór formy zwierzęcej|bestiary|Miscellaneous=Familiar} może być dostępny według uznania DM.}",
       "Gdy znajomy spadnie do 0 punktów wytrzymałości, znika, nie pozostawiając żadnej fizycznej postaci. Pojawia się ponownie, gdy ponownie rzucisz to zaklęcie. Jako akcję możesz tymczasowo odesłać znajomego do kieszonkowego wymiaru. Alternatywnie możesz odesłać go na zawsze. Jako akcję, gdy jest tymczasowo odesłany, możesz sprawić, że pojawi się ponownie w dowolnej wolnej przestrzeni w promieniu 30 stóp od ciebie. Ilekroć znajomy spadnie do 0 punktów wytrzymałości lub zniknie do kieszonkowego wymiaru, pozostawia w swojej przestrzeni wszystko, co nosił lub niósł.",
-      "Dopóki twój znajomy znajduje się w promieniu 100 stóp od ciebie, możesz komunikować się z nim telepatycznie. Dodatkowo jako akcję możesz widzieć oczami swojego znajomego i słyszeć to, co on słyszy, aż do początku twojej następnej tury, zyskując korzyści z wszelkich specjalnych zmysłów, które posiada znajomy. W tym czasie jesteś {@condition deafened|głuchy} i {@condition blinded|ślepy} w odniesieniu do własnych zmysłów.",
-      "Kiedy twój chowańc znajduje się w promieniu 30 metrów od ciebie, możesz komunikować się z nim telepatycznie. Dodatkowo, w ramach akcji, możesz patrzeć oczami chowańca i słyszeć to, co on słyszy aż do początku twojej następnej tury, zyskując korzyści wynikające ze specjalnych zmysłów chowańca. W tym czasie jesteś {@condition deafened||głuchy} i {@condition blinded||ślepy} w odniesieniu do własnych zmysłów.",
+      "Dopóki twój znajomy znajduje się w promieniu 30 stóp od ciebie, możesz komunikować się z nim telepatycznie. Dodatkowo jako akcję możesz widzieć oczami swojego znajomego i słyszeć to, co on słyszy, aż do początku twojej następnej tury, zyskując korzyści z wszelkich specjalnych zmysłów, które posiada znajomy. W tym czasie jesteś {@condition deafened|głuchy} i {@condition blinded|ślepy} w odniesieniu do własnych zmysłów.",
+      "Kiedy twój chowańc znajduje się w promieniu 100 stóp od ciebie, możesz komunikować się z nim telepatycznie. Dodatkowo, w ramach akcji, możesz patrzeć oczami chowańca i słyszeć to, co on słyszy aż do początku twojej następnej tury, zyskując korzyści wynikające ze specjalnych zmysłów chowańca. W tym czasie jesteś {@condition deafened||głuchy} i {@condition blinded||ślepy} w odniesieniu do własnych zmysłów.",
       "Wreszcie, gdy rzucasz zaklęcie o zasięgu dotyku, twój znajomy może dostarczyć zaklęcie, tak jakby sam je rzucił. Twój znajomy musi znajdować się w promieniu 100 stóp od ciebie i musi wykorzystać swoją reakcję, by dostarczyć zaklęcie, gdy je rzucasz. Jeśli zaklęcie wymaga rzutu na atak, używasz swojego modyfikatora ataku dla tego rzutu.",
-      "Wreszcie, gdy rzucisz zaklęcie o zasięgu dotyku, twój chowańc może rzucić zaklęcie tak, jakby je rzucił. Twój chowańc musi znajdować się w promieniu 30 metrów od ciebie i musi wykorzystać swoją reakcję, aby rzucić zaklęcie, gdy je rzucisz. Jeżeli zaklęcie wymaga rzutu ataku, do tego rzutu wykorzystujesz swój modyfikator ataku."
+      "Wreszcie, gdy rzucisz zaklęcie o zasięgu dotyku, twój chowańc może rzucić zaklęcie tak, jakby je rzucił. Twój chowańc musi znajdować się w promieniu 100 stóp od ciebie i musi wykorzystać swoją reakcję, aby rzucić zaklęcie, gdy je rzucisz. Jeżeli zaklęcie wymaga rzutu ataku, do tego rzutu wykorzystujesz swój modyfikator ataku."
     ],
     "castingTime": "1 godzina",
     "range": "10 stóp",
@@ -24364,7 +24364,7 @@
   "locate-creature-phb": {
     "name": "Zlokalizuj Stwora",
     "entries": [
-      "Opisz lub nazwij znanego ci stwora. Wyczuwasz kierunek do lokalizacji stwora, o ile znajduje się on w promieniu 1000 stóp od ciebie. Jeśli stwór się porusza, wiesz, w jakim kierunku się przemieszcza.",
+      "Opisz lub nazwij znanego ci stwora. Wyczuwasz kierunek do lokalizacji stwora, o ile znajduje się on w promieniu 1,000 stóp od ciebie. Jeśli stwór się porusza, wiesz, w jakim kierunku się przemieszcza.",
       "Zaklęcie może zlokalizować konkretnego znanego ci stwora, lub najbliższego stwora określonego rodzaju (takiego jak człowiek czy {@creature unicorn}), o ile widziałeś takiego stwora z bliska - w odległości do 30 stóp - przynajmniej raz. Jeśli opisany lub nazwany przez ciebie stwór znajduje się w innej formie, na przykład pod wpływem zaklęcia {@spell polymorph}, to zaklęcie go nie lokalizuje.",
       "To zaklęcie nie może zlokalizować stwora, jeśli bieżąca woda o szerokości co najmniej 10 stóp blokuje bezpośrednią drogę między tobą a stworem."
     ],
@@ -24393,7 +24393,7 @@
   "locate-object-phb": {
     "name": "Zlokalizuj Przedmiot",
     "entries": [
-      "Opisz lub nazwij znany ci przedmiot. Wyczuwasz kierunek do lokalizacji przedmiotu, o ile znajduje się on w promieniu 1000 stóp od ciebie. Jeśli przedmiot jest w ruchu, wiesz, w jakim kierunku się przemieszcza.",
+      "Opisz lub nazwij znany ci przedmiot. Wyczuwasz kierunek do lokalizacji przedmiotu, o ile znajduje się on w promieniu 1,000 stóp od ciebie. Jeśli przedmiot jest w ruchu, wiesz, w jakim kierunku się przemieszcza.",
       "Zaklęcie może zlokalizować konkretny znany ci przedmiot, o ile widziałeś go z bliska - w odległości do 30 stóp - przynajmniej raz. Alternatywnie zaklęcie może zlokalizować najbliższy przedmiot określonego rodzaju, taki jak konkretny rodzaj odzieży, biżuterii, mebli, narzędzia lub broni.",
       "To zaklęcie nie może zlokalizować przedmiotu, jeśli jakakolwiek grubość ołowiu, nawet cienka płyta, blokuje bezpośrednią drogę między tobą a przedmiotem."
     ],
@@ -27590,7 +27590,7 @@
   "storm-of-vengeance-phb": {
     "name": "Burza Zemsty",
     "entries": [
-      "Wirująca burzowa chmura formuje się, wyśrodkowana w widocznym przez ciebie punkcie, i rozprzestrzenia się w promieniu 360 stóp. Błyskawice rozświetlają ten obszar, grzmi grom, a silne wiatry huczą. Każdy stwór pod chmurą (nie dalej niż 5000 stóp pod chmurą), gdy się ona pojawia, musi wykonać rzut obronny Kondycji. Przy nieudanym rzucie stwór otrzymuje {@damage 2d6} obrażeń od gromu i staje się {@condition deafened} na 5 minut.",
+      "Wirująca burzowa chmura formuje się, wyśrodkowana w widocznym przez ciebie punkcie, i rozprzestrzenia się w promieniu 360 stóp. Błyskawice rozświetlają ten obszar, grzmi grom, a silne wiatry huczą. Każdy stwór pod chmurą (nie dalej niż 5,000 stóp pod chmurą), gdy się ona pojawia, musi wykonać rzut obronny Kondycji. Przy nieudanym rzucie stwór otrzymuje {@damage 2d6} obrażeń od gromu i staje się {@condition deafened} na 5 minut.",
       "Każdej rundy, w której utrzymujesz {@status concentration} na tym zaklęciu, burza wywołuje w twojej turze różne efekty.",
       {
         "type": "entries",
@@ -28394,7 +28394,7 @@
   "thunderous-smite-phb": {
     "name": "Grzmiące Uderzenie",
     "entries": [
-      "Kiedy po raz pierwszy trafisz bronią białą w czasie trwania tego zaklęcia, twoja broń rozlegnie się grzmotem słyszalnym w promieniu 300 stóp od ciebie, a atak zadaje celowi dodatkowe obrażenia od pioruna {@damage 2d6}. Dodatkowo, jeśli celem jest stworzenie, musi ono wykonać rzut obronny na Siłę lub zostać odepchnięte na odległość 3 metrów od ciebie i powalone {@condition prone}."
+      "Kiedy po raz pierwszy trafisz bronią białą w czasie trwania tego zaklęcia, twoja broń rozlegnie się grzmotem słyszalnym w promieniu 300 stóp od ciebie, a atak zadaje celowi dodatkowe obrażenia od pioruna {@damage 2d6}. Dodatkowo, jeśli celem jest stworzenie, musi ono wykonać rzut obronny na Siłę lub zostać odepchnięte na odległość 10 stóp od ciebie i powalone {@condition prone}."
     ],
     "castingTime": "1 akcja dodatkowa",
     "range": "Ja",
@@ -28450,7 +28450,7 @@
     "name": "Zatrzymanie Czasu",
     "entries": [
       "Na chwilę zatrzymujesz upływ czasu dla wszystkich poza sobą. Dla innych stworów nie upływa żaden czas, podczas gdy ty wykonujesz {@dice 1d4 + 1} tur z rzędu, w trakcie których możesz normalnie wykonywać akcje i się poruszać.",
-      "To zaklęcie kończy się, jeśli jedna z akcji, których użyjesz w tym czasie, lub jakiekolwiek efekty, które stworzysz w tym czasie, wpłyną na stwora innego niż ty, lub na przedmiot noszony bądź niesiony przez kogoś innego niż ty. Dodatkowo zaklęcie kończy się, jeśli przemieścisz się do miejsca oddalonego o więcej niż 1000 stóp od lokalizacji, w której je rzuciłeś."
+      "To zaklęcie kończy się, jeśli jedna z akcji, których użyjesz w tym czasie, lub jakiekolwiek efekty, które stworzysz w tym czasie, wpłyną na stwora innego niż ty, lub na przedmiot noszony bądź niesiony przez kogoś innego niż ty. Dodatkowo zaklęcie kończy się, jeśli przemieścisz się do miejsca oddalonego o więcej niż 1,000 stóp od lokalizacji, w której je rzuciłeś."
     ],
     "castingTime": "1 akcja",
     "range": "Ja",
@@ -28606,7 +28606,7 @@
     "range": "Dotyk",
     "duration": "Natychmiastowy",
     "school": "Nekromancja",
-    "components": "W, S, M (odrobina wody święconej i diamenty o wartości co najmniej 25 000 sz, które zaklęcie zużywa)",
+    "components": "V, S, M (a sprinkle of holy water and diamonds worth at least 25,000 gp, which the spell consumes)",
     "classes": [
       "Duchowny",
       "druid"

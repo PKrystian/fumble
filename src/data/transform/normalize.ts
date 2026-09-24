@@ -1,4 +1,4 @@
-import type { Entry, EntryNode } from '@/data/compendium/entry';
+import type { Entry, EntryNode } from '../compendium/entry';
 import type {
   ActionEntry,
   BackgroundEntry,
@@ -33,13 +33,10 @@ import type {
   SpellEntry,
   StatBlockSection,
   VehicleEntry,
-} from '@/data/compendium/types';
+} from '../compendium/types';
 import { SPELL_SCHOOLS, proficiencyBonus, slugify, stripMarkup } from './util';
-import type { Locale } from '@/i18n/locales';
-import {
-  interpolateVariantEntries,
-  variantInherits,
-} from '@/data/compendium/itemVariants';
+import type { Locale } from '../../i18n/locales';
+import { interpolateVariantEntries, variantInherits } from '../compendium/itemVariants';
 import {
   crToProficiency,
   formatAbilityChoices,

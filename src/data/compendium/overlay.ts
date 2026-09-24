@@ -41,5 +41,5 @@ export async function loadLocalizedItems<T extends CompendiumEntryBase>(
     load(),
     loadCategoryOverlay(categoryId, locale),
   ]);
-  return localizeItems(items, overlay);
+  return localizeItems(items, overlay, locale === 'pl' ? 'pl' : 'en');
 }
