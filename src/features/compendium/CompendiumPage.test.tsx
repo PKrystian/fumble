@@ -224,7 +224,7 @@ describe('CompendiumPage', () => {
     view.unmount();
   });
 
-  it('renders a hidden older printing when opened directly', () => {
+  it('renders a hidden older printing without indexing it', () => {
     mocks.result = {
       status: 'ready',
       items: [
@@ -247,7 +247,7 @@ describe('CompendiumPage', () => {
     ).toBeInTheDocument();
     expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute(
       'content',
-      'index, follow',
+      'noindex, nofollow',
     );
   });
 

@@ -236,6 +236,16 @@ describe('BookReaderPage', () => {
     );
   });
 
+  it('keeps duplicate chapters readable but out of search indexes', async () => {
+    mocks.getBook.mockReturnValue({ ...book, id: 'drde-bd' });
+    renderReader('/books/drde-bd/0');
+    await screen.findByRole('heading', { name: 'First Chapter' });
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      'noindex, nofollow',
+    );
+  });
+
   it('shows a loading failure', async () => {
     mocks.loadBookData.mockRejectedValue(new Error('failed'));
     renderReader();

@@ -16,14 +16,14 @@ describe('compendium entry indexability', () => {
     );
   });
 
-  it('indexes hidden entries with another printing', () => {
+  it('keeps hidden entries with another printing out of search indexes', () => {
     expect(
       isCompendiumEntryIndexable({
         ...entry('acid-splash-phb', { hidden: true }),
         hidden: true,
         otherVersions: [{ id: 'acid-splash-xphb', source: 'XPHB' }],
       }),
-    ).toBe(true);
+    ).toBe(false);
   });
 
   it('keeps hidden entries without another printing out of search indexes', () => {
@@ -32,7 +32,7 @@ describe('compendium entry indexability', () => {
     );
   });
 
-  it('keeps same-source aliases out while indexing one canonical printing', () => {
+  it('keeps same-source aliases out of search indexes', () => {
     const first = entry('oghma-phb', {
       hidden: true,
       name: 'Oghma',
@@ -49,7 +49,7 @@ describe('compendium entry indexability', () => {
         { id: 'oghma', source: 'FRHoF' },
       ],
     });
-    expect(isCompendiumEntryIndexable(first, [first, second])).toBe(true);
+    expect(isCompendiumEntryIndexable(first, [first, second])).toBe(false);
     expect(isCompendiumEntryIndexable(second, [first, second])).toBe(false);
     expect(
       isCompendiumEntryIndexable(second, [

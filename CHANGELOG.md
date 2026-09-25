@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.126 - 2026-09-25
+
+- Kept duplicate compendium printings and repeated book chapters available while marking non-canonical routes noindex and removing them from sitemaps.
+
 ## 1.2.125 - 2026-09-23
 
 - Corrected Polish compendium metadata without allowing translated values to change game mechanics.
