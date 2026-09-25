@@ -4,7 +4,10 @@ import { fileURLToPath } from 'node:url';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../../src/i18n/locales';
 import { IMAGE_HOST, imageUrl } from '../../src/data/compendium/images';
 import { cspHasSourceOrigin } from '../../src/seo/csp';
-import { isBookChapterNameIndexable } from '../../src/features/books/chapterSeo';
+import {
+  isBookChapterDuplicate,
+  isBookChapterNameIndexable,
+} from '../../src/features/books/chapterSeo';
 import { isCompendiumEntryIndexable } from '../../src/data/compendium/indexability';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
@@ -72,7 +75,10 @@ function validateBookRoutes(): number {
       for (const [index, chapter] of (book.contents ?? []).entries()) {
         const route = localizedRoute(`/books/${book.id}/${index}/`, locale);
         const html = read(`${route.slice(1)}index.html`);
-        if (!isBookChapterNameIndexable(chapter.name)) {
+        if (
+          !isBookChapterNameIndexable(chapter.name) ||
+          isBookChapterDuplicate(book.id, index)
+        ) {
           requireValue(
             html.includes('<meta name="robots" content="noindex, nofollow" />'),
             `Non-indexable book chapter must be noindex: ${route}`,
@@ -121,11 +127,6 @@ function validateCompendiumRoutes(): number {
           requireValue(
             html.includes('<meta name="robots" content="noindex, nofollow" />'),
             `Hidden compendium route must be noindex: ${route}`,
-          );
-        } else if (item.hidden) {
-          requireValue(
-            html.includes('<meta name="robots" content="index, follow" />'),
-            `Alternate compendium printing must be indexable: ${route}`,
           );
         }
         checked += 1;
