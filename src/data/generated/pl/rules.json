@@ -4720,7 +4720,7 @@
                 "Długi zasięg dla długich łuków i mangonel; poza zasięgiem balist i kusz"
               ],
               [
-                "1000 stóp",
+                "1,000 stóp",
                 "Poza zasięgiem większości broni dystansowej"
               ]
             ]
@@ -5050,7 +5050,7 @@
           ],
           [
             "4",
-            "{@bold Kulawizna.} Twoja prędkość poruszania się pieszo zostaje zmniejszona o 1,5 metra. Po użyciu akcji {@action Dash} musisz wykonać rzut obronny Zręczności o ST {@dc 10}. Przy nieudanym rzucie padasz {@condition prone}. Magiczne leczenie usuwa kulawiznę."
+            "{@bold Kulawizna.} Twoja prędkość poruszania się pieszo zostaje zmniejszona o 5 stóp. Po użyciu akcji {@action Dash} musisz wykonać rzut obronny Zręczności o ST {@dc 10}. Przy nieudanym rzucie padasz {@condition prone}. Magiczne leczenie usuwa kulawiznę."
           ],
           [
             "5-7",
@@ -5270,7 +5270,7 @@
                   {
                     "type": "item",
                     "name": "Prędkość",
-                    "entry": "Twoja bazowa prędkość marszu wynosi 9 metrów."
+                    "entry": "Twoja bazowa prędkość marszu wynosi 30 stóp."
                   },
                   {
                     "type": "item",
@@ -5285,7 +5285,7 @@
                   {
                     "type": "item",
                     "name": "Cecha Zmienna",
-                    "entry": "Zyskujesz jedną z poniższych opcji do wyboru: (a) {@sense darkvision} o zasięgu 18 metrów lub (b) biegłość w jednej wybranej przez siebie umiejętności."
+                    "entry": "Zyskujesz jedną z poniższych opcji do wyboru: (a) {@sense darkvision} o zasięgu 60 stóp lub (b) biegłość w jednej wybranej przez siebie umiejętności."
                   },
                   {
                     "type": "item",
@@ -5541,7 +5541,7 @@
               ],
               [
                 "46-55",
-                "Postać przywiązuje się do \"amuletu na szczęście\", takiego jak osoba lub przedmiot, i ma utrudnienie do ataków, testów cech i rzutów obronnych, gdy znajduje się dalej niż 9 metrów od niego."
+                "Postać przywiązuje się do \"amuletu na szczęście\", takiego jak osoba lub przedmiot, i ma utrudnienie do ataków, testów cech i rzutów obronnych, gdy znajduje się dalej niż 30 stóp od niego."
               ],
               [
                 "56-65",
@@ -12956,7 +12956,7 @@
                   ],
                   [
                     "6",
-                    "Wszystkie bestie na wyspie mają {@sense truesight} w zasięgu 30 metrów."
+                    "Wszystkie bestie na wyspie mają {@sense truesight} w zasięgu 120 stóp."
                   ]
                 ]
               },
@@ -13165,7 +13165,7 @@
         "type": "entries",
         "name": "Rafy Koralowe",
         "entries": [
-          "Rafy koralowe rosną na całym dnie oceanu, chociaż większość z nich znajduje się na głębokościach mniejszych niż 50 stóp w pobliżu linii brzegowej. Rafy mają długość i szerokość od kilku stóp do ponad 1000 mil. W tych kolorowych ekosystemach żyją małe ryby, skorupiaki i mięczaki. W rezultacie drapieżniki przybywają na rafy w poszukiwaniu ofiary.",
+          "Rafy koralowe rosną na całym dnie oceanu, chociaż większość z nich znajduje się na głębokościach mniejszych niż 150 stóp w pobliżu linii brzegowej. Rafy mają długość i szerokość od kilku stóp do ponad 1,000 mil. W tych kolorowych ekosystemach żyją małe ryby, skorupiaki i mięczaki. W rezultacie drapieżniki przybywają na rafy w poszukiwaniu ofiary.",
           "Nierówne i ostre rafy koralowe mogą zaszkodzić osobom zmuszonym do nich. Stworzenie siłą przesunięte na rafę - bez korzystania z jego akcji, akcji dodatkowej lub reakcji - otrzymuje 3 ({@damage 1d6}) obrażenia sieczne za każde 5 stóp rafy, na które zostaje przepchnięte."
         ]
       },
@@ -13211,16 +13211,16 @@
             "name": "Oświetlenie",
             "entries": [
               "Jeśli chodzi o światło, morze dzieli się na trzy warstwy:",
-              "{@b Strefa Słońca}. Strefa światła słonecznego rozciąga się od powierzchni wody do głębokości 200 metrów. Ten obszar morza ma takie same naturalne warunki oświetleniowe jak nad wodą",
-              "{@b Strefa Mroku}. Strefa zmierzchu znajduje się na głębokości od 650 do 300 metrów. Kiedy górna strefa światła słonecznego jest skąpana w naturalnym, jasnym świetle, strefa zmierzchu jest wypełniona przyćmionym światłem. Jeśli strefa światła słonecznego jest wypełniona słabym światłem lub ciemnością, strefa zmierzchu jest ciemna",
-              "{@b Strefa Północy}. Każda głębokość poniżej 300 metrów jest uważana za strefę północy, ponieważ żadne naturalne światło z powierzchni nie dociera na tę głębokość"
+              "{@b Strefa Słońca}. Strefa światła słonecznego rozciąga się od powierzchni wody do głębokości 650 stóp. Ten obszar morza ma takie same naturalne warunki oświetleniowe jak nad wodą",
+              "{@b Strefa Mroku}. Strefa zmierzchu znajduje się na głębokości od 650 do 1,000 stóp. Kiedy górna strefa światła słonecznego jest skąpana w naturalnym, jasnym świetle, strefa zmierzchu jest wypełniona przyćmionym światłem. Jeśli strefa światła słonecznego jest wypełniona słabym światłem lub ciemnością, strefa zmierzchu jest ciemna",
+              "{@b Strefa Północy}. Każda głębokość poniżej 1,000 stóp jest uważana za strefę północy, ponieważ żadne naturalne światło z powierzchni nie dociera na tę głębokość"
             ]
           },
           {
             "type": "entries",
             "name": "Ciśnienie i temperatura",
             "entries": [
-              "Ciśnienie wody, czyli ciężar wody na stworzeniu lub przedmiocie, wzrasta wraz z głębokością. I odwrotnie, temperatura maleje wraz ze wzrostem głębokości. Wpływ ciśnienia i temperatury na stworzenia nieposiadające prędkości pływania na głębokościach poniżej 30 metrów można znaleźć w sekcji „{@book Unusual Environments|DMG|5|Niezwykłe środowiska}” w rozdziale 5 {@book Dungeon Master's Guide|DMG}."
+              "Ciśnienie wody, czyli ciężar wody na stworzeniu lub przedmiocie, wzrasta wraz z głębokością. I odwrotnie, temperatura maleje wraz ze wzrostem głębokości. Wpływ ciśnienia i temperatury na stworzenia nieposiadające prędkości pływania na głębokościach poniżej 100 stóp można znaleźć w sekcji „{@book Unusual Environments|DMG|5|Niezwykłe środowiska}” w rozdziale 5 {@book Dungeon Master's Guide|DMG}."
             ]
           },
           {
@@ -13250,19 +13250,19 @@
                   ],
                   [
                     "Kamień",
-                    "1000 stóp"
+                    "1,000 stóp"
                   ],
                   [
                     "Żelazo, stal",
-                    "1500 stóp"
+                    "1,500 stóp"
                   ],
                   [
                     "Mithral",
-                    "2000 stóp"
+                    "2,000 stóp"
                   ],
                   [
                     "Adamantyn",
-                    "2500 stóp"
+                    "2,500 stóp"
                   ]
                 ]
               }
@@ -13401,7 +13401,7 @@
         "name": "Lasy wodorostów",
         "entries": [
           "Kelp rośnie w gęstych lasach na dnie oceanu. Większość lasów znajduje się na głębokościach mniejszych niż 30 metrów w pobliżu linii brzegowej, a ich długość i szerokość waha się od 10 stóp do ponad 160 km. Wodorosty rosną na pnączach o długości do 50 metrów.",
-          "Korzenie wodorostów są płytkie, a silna burza może wykorzenić cały las. Rośnie jednak w szybkim tempie, czasami nawet 50 cm dziennie, co oznacza, że ​​las wodorostów może szybko wyrosnąć. W takich lasach można ukryć tysiące małych ryb i innych zwierząt drapieżnych, które przyciągają drapieżniki. Las jest tak gęsty, że wszystko w nim jest mocno zasłonięte dla obserwatora znajdującego się w odległości większej niż 3 metry, a cały obszar to {@quickref difficult terrain||3}."
+          "Korzenie wodorostów są płytkie, a silna burza może wykorzenić cały las. Rośnie jednak w szybkim tempie, czasami nawet 50 cm dziennie, co oznacza, że ​​las wodorostów może szybko wyrosnąć. W takich lasach można ukryć tysiące małych ryb i innych zwierząt drapieżnych, które przyciągają drapieżniki. Las jest tak gęsty, że wszystko w nim jest mocno zasłonięte dla obserwatora znajdującego się w odległości większej niż 10 stóp, a cały obszar to {@quickref difficult terrain||3}."
         ]
       },
       {

@@ -4,6 +4,14 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.125 - 2026-09-23
+
+- Corrected Polish compendium metadata without allowing translated values to change game mechanics.
+- Restored missing creature and vehicle movement modes, senses, languages, hit points, saving throws, skills, and item values.
+- Added metadata integrity checks and safe dependency updates.
+- Updated sharp to the patched version required by the dependency audit.
+- Kept optional WASM dependencies complete for clean CI installs.
+
 ## 1.2.124 - 2026-08-28
 
 - Added normal and long ranges to weapon data and removed raw 5etools markup from compendium metadata.

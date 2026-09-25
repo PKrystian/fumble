@@ -1,4 +1,4 @@
-import type { Locale } from '@/i18n/locales';
+import type { Locale } from '../../i18n/locales';
 
 const POLISH_VALUES: Record<string, Record<string, string>> = {
   conditionKind: {
@@ -534,6 +534,37 @@ const POLISH_LANGUAGE_NAMES: Record<string, string> = {
   Infernalny: 'Piekielny',
   Druidzki: 'Druidyczny',
   Druidyzm: 'Druidyczny',
+  telepathy: 'telepatia',
+};
+
+const POLISH_ABILITY_ABBREVIATIONS: Record<string, string> = {
+  Str: 'Sił',
+  Dex: 'Zrc',
+  Con: 'Kon',
+  Int: 'Int',
+  Wis: 'Mdr',
+  Cha: 'Cha',
+};
+
+const POLISH_SKILL_NAMES: Record<string, string> = {
+  Acrobatics: 'Akrobatyka',
+  'Animal Handling': 'Obchodzenie się ze zwierzętami',
+  Arcana: 'Wiedza Tajemna',
+  Athletics: 'Atletyka',
+  Deception: 'Oszustwo',
+  History: 'Historia',
+  Insight: 'Wnikliwość',
+  Intimidation: 'Zastraszanie',
+  Investigation: 'Dochodzenie',
+  Medicine: 'Medycyna',
+  Nature: 'Przyroda',
+  Perception: 'Spostrzegawczość',
+  Performance: 'Występy',
+  Persuasion: 'Perswazja',
+  Religion: 'Religia',
+  'Sleight of Hand': 'Zręczne Palce',
+  Stealth: 'Skradanie się',
+  Survival: 'Przetrwanie',
 };
 
 const POLISH_HABITATS: Record<string, string> = {
@@ -979,7 +1010,54 @@ function localizeSpeed(value: string): string {
     .replace(/\bLand only\b/gi, 'tylko ląd')
     .replace(/\bAir only\b/gi, 'tylko powietrze')
     .replace(/\bWater only\b/gi, 'tylko woda')
+    .replace(/\bhover\b/gi, 'zawis')
     .replace(/(\d+)\s+(?:feet?|ft\.?)(?=\s|[;,.()]|$)/gi, '$1 stóp');
+}
+
+type MeasurementKind = 'feet' | 'miles' | 'meters';
+
+function sourceMeasurementKind(value: string): MeasurementKind {
+  return /^miles?/iu.test(value) ? 'miles' : 'feet';
+}
+
+function localizedMeasurementKind(value: string): MeasurementKind {
+  if (/^metr/iu.test(value)) return 'meters';
+  return /^(?:mili|mil|mila|milami|milach)$/iu.test(value) ? 'miles' : 'feet';
+}
+
+export function repairLocalizedMeasurements(source: string, localized: string): string {
+  const sourceMatches = [
+    ...source.matchAll(
+      /(\d[\d,]*(?:\s*[-/]\s*\d[\d,]*)?)\s*(feet?|ft\.?|miles?)(?=\s|[;,.()!?]|$)/giu,
+    ),
+  ];
+  const localizedMatches = [
+    ...localized.matchAll(
+      /(\d[\d\s,.]*(?:\s*[-/]\s*\d[\d\s,.]*)?)\s*(stóp|stopy|stopa|stopie|stopami|metr(?:ów|y|a|ze|ach|ami)?|mili|mil|mila|milami|milach)(?=\s|[;,.()!?]|$)/giu,
+    ),
+  ];
+  if (!sourceMatches.length || sourceMatches.length !== localizedMatches.length)
+    return localized;
+  let result = localized;
+  for (let index = sourceMatches.length - 1; index >= 0; index -= 1) {
+    const sourceMatch = sourceMatches[index]!;
+    const localizedMatch = localizedMatches[index]!;
+    const sourceKind = sourceMeasurementKind(sourceMatch[2]!);
+    const localizedKind = localizedMeasurementKind(localizedMatch[2]!);
+    const unit =
+      sourceKind === localizedKind
+        ? localizedMatch[2]
+        : sourceKind === 'miles'
+          ? 'mil'
+          : 'stóp';
+    const start = localizedMatch.index!;
+    const replacement = sourceMatch[1] + ' ' + unit;
+    result =
+      result.slice(0, start) +
+      replacement +
+      result.slice(start + localizedMatch[0].length);
+  }
+  return result;
 }
 
 function normalizedValue(value: string): string {
@@ -1067,7 +1145,17 @@ function localizeSenses(value: string): string {
 function localizeLanguages(value: string): string {
   const withLabels = localizeFilterLabels(value, POLISH_LANGUAGE_NAMES);
   return localizeOutsideMarkup(withLabels, (part) =>
-    localizeKnownWords(part, POLISH_LANGUAGE_NAMES),
+    localizeSpeed(localizeKnownWords(part, POLISH_LANGUAGE_NAMES)),
+  );
+}
+
+function localizeBonusList(value: string, values: Record<string, string>): string {
+  return value.replace(
+    /(^|,\s*)([^,]+?)(\s+[+-]\d+)(?=,|$)/gu,
+    (_match, prefix, label, bonus) => {
+      const localized = lookupValue(values, label.trim());
+      return `${prefix}${localized ?? label.trim()}${bonus}`;
+    },
   );
 }
 
@@ -1130,6 +1218,11 @@ function localizeFieldValue(value: string, field: string): string {
       .replace(/\bpeople\b/gi, 'osób')
       .replace(/\bcreatures\b/gi, 'stworzeń');
   if (field === 'speed') return localizeSpeed(value);
+  if (field === 'saves') return localizeBonusList(value, POLISH_ABILITY_ABBREVIATIONS);
+  if (field === 'skills') return localizeBonusList(value, POLISH_SKILL_NAMES);
+  if (field === 'crDisplay') {
+    return value.replace(/\bXP\b/g, 'PD').replace(/\bPB\b/g, 'Premia biegłości');
+  }
   if (field === 'size') field = 'objectSize';
   if (field === 'castingTime') {
     if (POLISH_CASTING_TIMES[value]) return POLISH_CASTING_TIMES[value];

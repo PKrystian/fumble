@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import en from '@/i18n/dictionaries/en';
 import pl from '@/i18n/dictionaries/pl';
+import { repairLocalizedMeasurements } from './localizeValue';
 
 const GEN = join(process.cwd(), 'src/data/generated');
 const DAMAGE_TYPES = [
@@ -247,6 +248,56 @@ function collectTableTargets(value: unknown, path: string, result: string[]): vo
     );
 }
 
+const MECHANICAL_FIELDS = [
+  'ac',
+  'damage',
+  'crDisplay',
+  'hp',
+  'languages',
+  'saves',
+  'senses',
+  'skills',
+  'speed',
+  'tools',
+  'value',
+  'weight',
+] as const;
+
+function numericSignature(value: string): string {
+  return [...value.matchAll(/\d[\d.,]*/gu)]
+    .map(([token]) => token.replace(/[.,]/gu, ''))
+    .join('|');
+}
+
+function collectMeasurementRepairs(
+  source: unknown,
+  localized: unknown,
+  path: string,
+  errors: string[],
+): void {
+  if (typeof source === 'string' && typeof localized === 'string') {
+    if (repairLocalizedMeasurements(source, localized) !== localized) errors.push(path);
+    return;
+  }
+  if (Array.isArray(source) && Array.isArray(localized)) {
+    source.forEach((value, index) =>
+      collectMeasurementRepairs(
+        value,
+        localized[index],
+        path + '[' + index + ']',
+        errors,
+      ),
+    );
+    return;
+  }
+  const sourceRecord = asRecord(source);
+  const localizedRecord = asRecord(localized);
+  if (!sourceRecord || !localizedRecord) return;
+  for (const [key, value] of Object.entries(sourceRecord))
+    if (Object.prototype.hasOwnProperty.call(localizedRecord, key))
+      collectMeasurementRepairs(value, localizedRecord[key], path + '.' + key, errors);
+}
+
 describe('pl translation health', () => {
   it('en and pl dictionaries have identical keys', () => {
     const enKeys = new Set(flatten(en));
@@ -411,6 +462,64 @@ describe('pl translation health', () => {
     expect(Object.values(objects).some((entry) => entry.size === 'Mały lub Mały')).toBe(
       false,
     );
+  });
+
+  it('preserves mechanical metadata in Polish overlays', () => {
+    const errors: string[] = [];
+    for (const category of ['bestiary', 'items', 'species', 'vehicles', 'backgrounds']) {
+      const source = JSON.parse(readFileSync(join(GEN, `${category}.json`), 'utf8')) as {
+        items: Array<Record<string, unknown>>;
+      };
+      const overlay = JSON.parse(
+        readFileSync(join(GEN, 'pl', `${category}.json`), 'utf8'),
+      ) as Record<string, Record<string, unknown>>;
+      const sourceById = new Map(source.items.map((item) => [String(item.id), item]));
+      for (const [id, localized] of Object.entries(overlay)) {
+        const original = sourceById.get(id);
+        if (!original) continue;
+        for (const field of MECHANICAL_FIELDS) {
+          const translated = localized[field];
+          if (typeof translated !== 'string') continue;
+          const value = original[field];
+          if (typeof value !== 'string') {
+            if (value === undefined) errors.push(`${category}:${id}:${field}`);
+            continue;
+          }
+          if (
+            (value === '' && translated !== '') ||
+            numericSignature(value) !== numericSignature(translated) ||
+            (field === 'speed' &&
+              /\b(?:lataj|latać|przepłyń|przepłyn|przelecieć|wspinaj|wznieś|wznieść)\b/iu.test(
+                translated,
+              ))
+          )
+            errors.push(`${category}:${id}:${field}`);
+        }
+        for (const field of ['skills', 'tools'])
+          if (/\bsource\s*=\s*phb\b/iu.test(String(localized[field] ?? '')))
+            errors.push(`${category}:${id}:${field}`);
+      }
+    }
+    expect(errors).toEqual([]);
+  });
+
+  it('keeps translated measurements aligned with English source values', () => {
+    const errors: string[] = [];
+    for (const file of readdirSync(GEN).filter((name) => name.endsWith('.json'))) {
+      const source = JSON.parse(readFileSync(join(GEN, file), 'utf8')) as {
+        items?: Array<Record<string, unknown>>;
+      };
+      if (!source.items) continue;
+      const overlay = JSON.parse(readFileSync(join(GEN, 'pl', file), 'utf8')) as Record<
+        string,
+        unknown
+      >;
+      for (const item of source.items) {
+        const id = String(item.id);
+        collectMeasurementRepairs(item, overlay[id], file + ':' + id, errors);
+      }
+    }
+    expect(errors).toEqual([]);
   });
 
   it('keeps sorcerer subclass overlays aligned with base identities and structure', () => {

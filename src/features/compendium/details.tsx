@@ -1727,7 +1727,9 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
     [t('compendium.detail.abbrCha'), monster.cha],
   ] as const;
 
-  const crText = monster.crDisplay || monster.cr;
+  const crText =
+    localizeCompendiumValue(monster.crDisplay || monster.cr, locale, 'crDisplay') ??
+    (monster.crDisplay || monster.cr);
   const crMatch = crText.match(/^([^ (]+)(.*)$/);
   const habitat = monster._englishHabitat ?? monster.habitat;
 
@@ -1803,9 +1805,16 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
         <div className="flex flex-col gap-1">
           <RollableRow
             label={t('compendium.detail.savingThrows')}
-            value={monster.saves}
+            value={
+              localizeCompendiumValue(monster.saves, locale, 'saves') ?? monster.saves
+            }
           />
-          <RollableRow label={t('compendium.detail.skills')} value={monster.skills} />
+          <RollableRow
+            label={t('compendium.detail.skills')}
+            value={
+              localizeCompendiumValue(monster.skills, locale, 'skills') ?? monster.skills
+            }
+          />
           <MetaRow
             label={t('compendium.detail.vulnerabilities')}
             value={
