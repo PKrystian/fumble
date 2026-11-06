@@ -17,7 +17,7 @@ import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { type OutlineNode, buildOutline, getBook, loadBookData } from './data';
-import { isBookChapterIndexable } from './chapterSeo';
+import { isBookChapterDuplicate, isBookChapterIndexable } from './chapterSeo';
 import { bookChapterTitle } from './chapterTitle';
 import { bookAnchorHash, readBookAnchor } from './readerAnchor';
 
@@ -281,7 +281,9 @@ export function BookReaderPage() {
         : undefined,
     !routeNotFound &&
       !error &&
-      (chapter == null || active == null || isBookChapterIndexable(active)),
+      (chapter == null ||
+        (!isBookChapterDuplicate(book?.id ?? '', chapterIndex) &&
+          (active == null || isBookChapterIndexable(active)))),
   );
 
   if (routeNotFound) return <NotFoundPage />;

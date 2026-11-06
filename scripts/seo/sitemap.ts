@@ -35,6 +35,7 @@ import {
 } from '../../src/features/homebrew/fumbleHomebrew';
 import { slugify } from '../../src/data/transform/util';
 import {
+  isBookChapterDuplicate,
   isBookChapterIndexable,
   isBookChapterNameIndexable,
 } from '../../src/features/books/chapterSeo';
@@ -705,9 +706,12 @@ function bookChapterContext(
 }
 
 function isBookChapterIndexableForLocale(
+  bookId: string,
+  chapterIndex: number,
   baseChapter: BookChapter,
   chapter: BookChapter,
 ): boolean {
+  if (isBookChapterDuplicate(bookId, chapterIndex)) return false;
   if (!isBookChapterNameIndexable(baseChapter.name)) return false;
   return isBookChapterIndexable(chapter);
 }
@@ -1176,7 +1180,8 @@ function collectPages(locale: Locale): PageInfo[] {
           }),
         ),
         kind: 'book',
-        ...(indexableBook && isBookChapterIndexableForLocale(baseChapter, chapter)
+        ...(indexableBook &&
+        isBookChapterIndexableForLocale(book.id, index, baseChapter, chapter)
           ? {}
           : { indexable: false }),
         parent: { path: bookPath, title: book.name },
