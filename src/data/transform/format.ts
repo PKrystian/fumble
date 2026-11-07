@@ -673,7 +673,7 @@ export function formatStartingProficiencies(
     parts.push(
       `${locale === 'pl' ? 'Umiejętności' : 'Skills'}: ${formatProficiencies(sp.skills, locale)}`,
     );
-  return parts.join(' · ');
+  return parts.join(' - ');
 }
 
 const ITEM_TYPES: Record<string, string> = {

@@ -67,10 +67,8 @@ export function DiceRollerPage() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-8">
-      <h1 className="mb-6 font-display text-3xl font-bold text-ink-50">
-        {t('dice.title')}
-      </h1>
+    <div className="page-shell">
+      <h1 className="mb-6 text-ink-50 page-title">{t('dice.title')}</h1>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <div className="flex flex-col gap-4">
@@ -124,7 +122,7 @@ export function DiceRollerPage() {
             </Button>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {MODES.map((m) => (
               <ToggleChip
                 key={m}
@@ -163,9 +161,7 @@ export function DiceRollerPage() {
           </div>
 
           <section className="mt-2 border-t border-ink-800 pt-4">
-            <h2 className="font-display text-sm font-bold uppercase tracking-wide text-ink-400">
-              {t('dice.savedRolls')}
-            </h2>
+            <h2 className="text-ink-400 panel-title">{t('dice.savedRolls')}</h2>
             <p className="mt-1 text-sm text-ink-500">{t('dice.savedRollsHelp')}</p>
 
             {customRolls.length > 0 && (
@@ -237,9 +233,7 @@ export function DiceRollerPage() {
 
         <div className="flex flex-col gap-4">
           <div className="flex items-center justify-between">
-            <h2 className="font-display text-sm font-bold uppercase tracking-wide text-ink-400">
-              {t('dice.history')}
-            </h2>
+            <h2 className="text-ink-400 panel-title">{t('dice.history')}</h2>
             {log.length > 0 && (
               <Button onClick={clearLog} variant="ghost" size="sm">
                 {t('dice.clear')}
@@ -251,19 +245,14 @@ export function DiceRollerPage() {
           ) : (
             <ul className="flex flex-col gap-1">
               {log.map((entry) => (
-                <li
-                  key={entry.id}
-                  className="flex items-center justify-between rounded-md bg-ink-900 px-3 py-1.5 text-sm"
-                >
+                <li key={entry.id} className="roll-history-row">
                   <span className="min-w-0 truncate text-ink-300">
                     {entry.label ? `${entry.label}: ` : ''}
                     {entry.outcome.expression}
                     {entry.outcome.mode !== 'normal' &&
                       ` (${MODE_LABELS[entry.outcome.mode][0]})`}
                   </span>
-                  <span className="ml-2 font-display font-bold text-ink-50">
-                    {entry.outcome.total}
-                  </span>
+                  <span className="roll-value">{entry.outcome.total}</span>
                 </li>
               ))}
             </ul>

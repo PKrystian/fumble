@@ -33,5 +33,5 @@ export function referencePreview(item: CompendiumEntryBase & WithEntries): strin
         (section) => section.entries ?? [],
       );
   const text = firstText(entries);
-  return text.length <= 180 ? text : `${text.slice(0, 180).replace(/\s+\S*$/, '')}…`;
+  return text.length <= 180 ? text : `${text.slice(0, 177).replace(/\s+\S*$/, '')}...`;
 }

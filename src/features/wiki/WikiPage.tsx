@@ -1,3 +1,4 @@
+import { Button } from '@/features/ui/primitives';
 import { ArrowLeft, ChevronRight, Map as MapIcon } from 'lucide-react';
 import { useMemo, useRef, useState, type MouseEvent } from 'react';
 import { useParams } from 'react-router-dom';
@@ -112,6 +113,7 @@ export function WikiPage() {
     if (!selected) return '';
     const sanitized = sanitizeWikiHtml(
       selected.html.replaceAll('%BASE%', import.meta.env.BASE_URL),
+      t('common.imageViewer'),
     );
     return sanitized
       .replace(
@@ -123,7 +125,9 @@ export function WikiPage() {
 
   const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     const eventTarget = event.target as HTMLElement;
-    const image = eventTarget.closest('img');
+    const image =
+      eventTarget.closest('img') ??
+      eventTarget.closest('[data-image-viewer]')?.querySelector('img');
     if (image) {
       event.preventDefault();
       openLightbox(image.currentSrc || image.src, image.alt);
@@ -142,10 +146,8 @@ export function WikiPage() {
   }
   if (status === 'error') {
     return (
-      <div className="mx-auto max-w-2xl px-4 py-16 text-center text-ink-300 sm:px-6">
-        <h1 className="mb-3 font-display text-2xl font-bold text-ink-50">
-          {t('wiki.campaignWiki')}
-        </h1>
+      <div className="text-center text-ink-300 page-shell">
+        <h1 className="mb-3 text-ink-50 page-title">{t('wiki.campaignWiki')}</h1>
         <p>
           {t('wiki.noContentYet')}{' '}
           <code className="rounded bg-ink-800 px-1">
@@ -153,13 +155,14 @@ export function WikiPage() {
           </code>
           .
         </p>
-        <button
+        <Button
           type="button"
           onClick={() => setRetryKey((value) => value + 1)}
-          className="mt-6 rounded-md border border-ink-600 px-4 py-2 text-sm text-ink-100 hover:bg-ink-800"
+          variant="secondary"
+          className="mt-6"
         >
           {t('common.retry')}
-        </button>
+        </Button>
       </div>
     );
   }
@@ -169,10 +172,8 @@ export function WikiPage() {
   }
   if (!selectedCampaign) {
     return (
-      <div className="mx-auto max-w-2xl px-4 py-16 text-center text-ink-300 sm:px-6">
-        <h1 className="mb-3 font-display text-2xl font-bold text-ink-50">
-          {t('wiki.campaignWiki')}
-        </h1>
+      <div className="text-center text-ink-300 page-shell">
+        <h1 className="mb-3 text-ink-50 page-title">{t('wiki.campaignWiki')}</h1>
         <p>{t('wiki.noCampaigns')}</p>
       </div>
     );
@@ -208,7 +209,7 @@ export function WikiPage() {
                   {t('nav.wiki')}
                 </Link>
               </li>
-              <li aria-hidden="true" className="text-ink-600">
+              <li aria-hidden="true" className="text-ink-500">
                 <ChevronRight size={13} />
               </li>
               <li className="min-w-0">
@@ -221,7 +222,7 @@ export function WikiPage() {
               </li>
               {explicitPage && (
                 <>
-                  <li aria-hidden="true" className="text-ink-600">
+                  <li aria-hidden="true" className="text-ink-500">
                     <ChevronRight size={13} />
                   </li>
                   <li aria-current="page" className="min-w-0 truncate text-ink-500">
@@ -250,7 +251,7 @@ export function WikiPage() {
           {[...grouped.entries()].map(([category, categoryPages]) => (
             <div key={category} className="px-3 pb-2 pt-2">
               <div className="flex items-center justify-between px-2">
-                <h2 className="font-display text-sm font-bold uppercase tracking-[0.12em] text-ember-400">
+                <h2 className="tracking-[0.12em] text-ember-400 panel-title">
                   {category}
                 </h2>
                 <span className="rounded-full bg-ink-800 px-2 py-0.5 text-xs text-ink-400">
@@ -283,24 +284,16 @@ export function WikiPage() {
             explicitPage ? 'block' : 'hidden md:block',
           ].join(' ')}
         >
-          <article
-            ref={articleRef}
-            className="mx-auto max-w-4xl px-4 py-6 sm:px-8 sm:py-8"
-          >
+          <article ref={articleRef} className="page-shell page-shell-reading">
             {explicitPage && (
-              <Link
-                to={`/wiki/${selectedCampaign.id}`}
-                className="mb-4 inline-flex items-center gap-2 text-sm text-ink-300 hover:text-ink-50 md:hidden"
-              >
+              <Link to={`/wiki/${selectedCampaign.id}`} className="back-link md:hidden">
                 <ArrowLeft size={16} aria-hidden="true" />
                 {t('wiki.allPages')}
               </Link>
             )}
-            <h1 className="mb-4 font-display text-3xl font-bold text-ink-50">
-              {selected.title}
-            </h1>
+            <h1 className="mb-4 text-ink-50 page-title">{selected.title}</h1>
             <div
-              className="wiki-content"
+              className="wiki-content reading-content"
               onClick={handleClick}
               dangerouslySetInnerHTML={{ __html: html }}
             />
@@ -322,13 +315,11 @@ function CampaignChooser({ campaigns }: { campaigns: WikiCampaignView[] }) {
   );
 
   return (
-    <div className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
+    <div className="page-shell">
       <p className="text-xs font-bold uppercase tracking-[0.16em] text-ember-400">
         {t('nav.wiki')}
       </p>
-      <h1 className="mt-2 font-display text-3xl font-bold text-ink-50">
-        {t('wiki.chooseCampaign')}
-      </h1>
+      <h1 className="mt-2 text-ink-50 page-title">{t('wiki.chooseCampaign')}</h1>
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         {campaigns.map((campaign) => {
           const map = getCampaignMap(campaign.id);
@@ -336,11 +327,11 @@ function CampaignChooser({ campaigns }: { campaigns: WikiCampaignView[] }) {
             <Link
               key={campaign.id}
               to={`/wiki/${campaign.id}`}
-              className="group rounded-xl border border-ink-700 bg-ink-900/70 p-5 transition-colors hover:border-arcane-500 hover:bg-ink-800"
+              className="catalog-card group"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="font-display text-xl font-bold text-ink-50 group-hover:text-arcane-300">
+                  <h2 className="text-ink-50 group-hover:text-arcane-300 section-title">
                     {campaignTitle(campaign, t)}
                   </h2>
                   <p className="mt-2 text-sm text-ink-300">
@@ -370,11 +361,11 @@ function CampaignLanding({ campaign }: { campaign: WikiCampaignView }) {
   const title = campaignTitle(campaign, t);
 
   return (
-    <div className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
+    <div className="page-shell">
       <p className="text-xs font-bold uppercase tracking-[0.16em] text-ember-400">
         {t('nav.wiki')}
       </p>
-      <h1 className="mt-2 font-display text-3xl font-bold text-ink-50">{title}</h1>
+      <h1 className="mt-2 text-ink-50 page-title">{title}</h1>
       <p className="mt-2 max-w-2xl text-sm leading-6 text-ink-300">
         {t('wiki.campaignNoPages')}
       </p>

@@ -1,3 +1,5 @@
+import { DetailPresentation } from '@/features/ui/detailPresentationContext';
+import { DetailArtwork } from '@/features/ui/detailPresentation';
 import type {
   ActionEntry,
   ClassEntry,
@@ -26,7 +28,7 @@ import {
 } from '@/features/compendium/details';
 import { OriginalName } from '@/features/ui/OriginalName';
 import type { Entry } from '@/data/compendium/entry';
-import type { ReactNode } from 'react';
+import { useContext, type ReactNode } from 'react';
 import { useT } from '@/i18n/useT';
 import type { FumbleHomebrewItem } from './fumbleHomebrew';
 import { FumbleBadge } from './FumbleBadge';
@@ -36,13 +38,14 @@ function GenericFumbleDetail({ item }: { item: FumbleHomebrewItem }) {
     <article className="flex flex-col gap-5">
       <header>
         <div className="flex flex-wrap items-center gap-2">
-          <h1 className="font-display text-2xl font-bold text-ink-50">
+          <h1 className="text-ink-50 detail-title">
             {item.name} <OriginalName name={item.englishName} className="ml-2 text-lg" />
           </h1>
           <FumbleBadge />
         </div>
         {item.subtitle && <p className="text-sm italic text-ink-300">{item.subtitle}</p>}
       </header>
+      <DetailArtwork />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={(item.entries ?? []) as Entry[]} />
       </div>
@@ -58,7 +61,7 @@ function SubclassDetail({ item }: { item: FumbleHomebrewItem }) {
     <article className="flex flex-col gap-5">
       <header>
         <div className="flex flex-wrap items-center gap-2">
-          <h1 className="font-display text-2xl font-bold text-ink-50">
+          <h1 className="text-ink-50 detail-title">
             {item.name} <OriginalName name={item.englishName} className="ml-2 text-lg" />
           </h1>
           <FumbleBadge />
@@ -67,9 +70,10 @@ function SubclassDetail({ item }: { item: FumbleHomebrewItem }) {
           {item.subtitle || `${item.className} - ${item.subclassTitle}`}
         </p>
       </header>
+      <DetailArtwork />
       {lore.length > 0 && <EntryRenderer entries={lore} />}
       <section className="flex flex-col gap-4">
-        <h2 className="font-display text-xl font-bold text-ember-400">
+        <h2 className="text-ember-400 section-title">
           {t('compendium.classDetail.features')}
         </h2>
         {features.map((feature, index) => (
@@ -92,13 +96,11 @@ function SubclassDetail({ item }: { item: FumbleHomebrewItem }) {
 }
 
 function TaggedDetail({ children }: { children: ReactNode }) {
+  const presentation = useContext(DetailPresentation);
   return (
-    <div className="flex flex-col gap-3">
-      <div>
-        <FumbleBadge />
-      </div>
+    <DetailPresentation value={{ ...presentation, badge: <FumbleBadge /> }}>
       {children}
-    </div>
+    </DetailPresentation>
   );
 }
 

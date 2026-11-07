@@ -39,7 +39,7 @@
         "type": "entries",
         "name": "Belka Równoważna",
         "entries": [
-          "Belka równoważna to {@book difficult terrain|PHB|8|Trudny Teren}. Stwór, który kończy swoją turę na belce lub znajduje się na niej, gdy się ona przechyla, musi wykonać rzut obronny Zręczności ({@dc 12}), by utrzymać równowagę. Jeśli ściany są namagnesowane (patrz niżej), a stwór nosi metalową zbroję lub trzyma metalowy sprzęt, ma utrudnienie w tym rzucie. Stwór, który nie zda rzutu o 4 lub mniej, ślizga się, lądując na belce i uzyskuje stan {@condition prone}. Stwór, który nie zda tego rzutu o 5 lub więcej, wpada do dołu z trybami (patrz „Dół z Trybami” poniżej)."
+          "Belka równoważna to {@book difficult terrain|PHB|8|Trudny Teren}. Stwór, który kończy swoją turę na belce lub znajduje się na niej, gdy się ona przechyla, musi wykonać rzut obronny Zręczności ({@dc 12}), by utrzymać równowagę. Jeśli ściany są namagnesowane (patrz niżej), a stwór nosi metalową zbroję lub trzyma metalowy sprzęt, ma utrudnienie w tym rzucie. Stwór, który nie zda rzutu o 4 lub mniej, ślizga się, lądując na belce i uzyskuje stan {@condition prone}. Stwór, który nie zda tego rzutu o 5 lub więcej, wpada do dołu z trybami (patrz \"Dół z Trybami\" poniżej)."
         ]
       },
       {
@@ -70,7 +70,7 @@
     "name": "Żółciowy Porost",
     "entries": [
       "Żółciowy porost to toksyczna, zielono-żółta substancja przypominająca wymiociny. Rozwija się tam, gdzie mieszają się skrajne upały i mrozy, na przykład przy otworach kominów parowych w Dolina Lodowego Wichru w Podmroku. Jedna plama żółciowego porostu zajmuje kwadrat o boku 5 stóp.",
-      "Jeśli plama żółciowego porostu zostanie dotknięta, uwalnia chmurę zarodników, która wypełnia dziesięciostopowy {@variantrule Cube [Area of Effect]|XPHB|Sześcian} i rozprasza się po {@dice 1d4} godzinach. Gdy stwór wchodzi do tej chmury po raz pierwszy w danej turze lub zaczyna w niej swoją turę, wykonuje rzut obronny Kondycji ({@dc 14}), otrzymując 11 ({@dice 2d10}) obrażeń Trucizną i zarażając się {@disease Lichen Plague|FRAiF} przy nieudanym rzucie (patrz „{@book Magical Contagions|FRAiF|3|Magiczne Zarazy}” dalej w tym rozdziale). Przy udanym rzucie stwór otrzymuje jedynie połowę tych obrażeń."
+      "Jeśli plama żółciowego porostu zostanie dotknięta, uwalnia chmurę zarodników, która wypełnia dziesięciostopowy {@variantrule Cube [Area of Effect]|XPHB|Sześcian} i rozprasza się po {@dice 1d4} godzinach. Gdy stwór wchodzi do tej chmury po raz pierwszy w danej turze lub zaczyna w niej swoją turę, wykonuje rzut obronny Kondycji ({@dc 14}), otrzymując 11 ({@dice 2d10}) obrażeń Trucizną i zarażając się {@disease Lichen Plague|FRAiF} przy nieudanym rzucie (patrz \"{@book Magical Contagions|FRAiF|3|Magiczne Zarazy}\" dalej w tym rozdziale). Przy udanym rzucie stwór otrzymuje jedynie połowę tych obrażeń."
     ],
     "hazardType": "Zagrożenie"
   },
@@ -390,7 +390,7 @@
         "type": "entries",
         "name": "Wykrycie i Rozbrojenie",
         "entries": [
-          "Zaklęcie {@spell Detect Magic|XPHB} ujawnia aurę magii Ewokacji wokół posągu. Jako akcję {@action Search|XPHB}, stwór w promieniu 5 stóp od posągu może go zbadać i wykonać test Mądrości ({@skill Perception|XPHB}) ({@dc 10}), wykrywając przy udanym teście drobny glif na posągu. Po znalezieniu glifu postać może podjąć akcję {@action Study|XPHB}, by go zbadać i wykonać test Inteligencji ({@skill Arcana|XPHB}) ({@dc 15}), stwierdzając przy udanym teście, że glif oznacza „ogień”. Jako akcję postać może użyć ostrego narzędzia, by zniszczyć glif, co rozbraja pułapkę.",
+          "Zaklęcie {@spell Detect Magic|XPHB} ujawnia aurę magii Ewokacji wokół posągu. Jako akcję {@action Search|XPHB}, stwór w promieniu 5 stóp od posągu może go zbadać i wykonać test Mądrości ({@skill Perception|XPHB}) ({@dc 10}), wykrywając przy udanym teście drobny glif na posągu. Po znalezieniu glifu postać może podjąć akcję {@action Study|XPHB}, by go zbadać i wykonać test Inteligencji ({@skill Arcana|XPHB}) ({@dc 15}), stwierdzając przy udanym teście, że glif oznacza \"ogień\". Jako akcję postać może użyć ostrego narzędzia, by zniszczyć glif, co rozbraja pułapkę.",
           "Jako akcję {@action Search|XPHB}, stwór może zbadać fragment podłogi tworzący płytkę naciskową i wykonać test Mądrości ({@skill Perception|XPHB}) ({@dc 15}), wykrywając przy udanym teście płytkę naciskową. Zaklinowanie {@item Iron Spikes|XPHB|Żelaznego Kolca} lub podobnego przedmiotu pod płytką naciskową uniemożliwia uruchomienie pułapki."
         ]
       },
@@ -592,7 +592,7 @@
   "high-altitude": {
     "name": "Duża Wysokość",
     "entries": [
-      "Podróżowanie na wysokościach 10,000 stóp lub więcej nad poziomem morza jest wyczerpujące dla większości stworów ze względu na obniżoną ilość tlenu w powietrzu. Każda godzina spędzona przez takiego stwora na podróżowaniu na dużej wysokości liczy się jako 2 godziny dla celów ustalenia, jak długo taki stwór może podróżować (patrz „{@book Travel Pace|XDMG|1|Tempo Podróży}” w {@book chapter 2|XDMG|1}).",
+      "Podróżowanie na wysokościach 10,000 stóp lub więcej nad poziomem morza jest wyczerpujące dla większości stworów ze względu na obniżoną ilość tlenu w powietrzu. Każda godzina spędzona przez takiego stwora na podróżowaniu na dużej wysokości liczy się jako 2 godziny dla celów ustalenia, jak długo taki stwór może podróżować (patrz \"{@book Travel Pace|XDMG|1|Tempo Podróży}\" w {@book chapter 2|XDMG|1}).",
       "Stwory mogą przystosować się do dużej wysokości, spędzając na niej 30 dni lub więcej. Stwory nie mogą przystosować się do wysokości powyżej 20,000 stóp, chyba że są rdzennymi mieszkańcami takich środowisk."
     ],
     "hazardType": "Zagrożenie środowiskowe"
@@ -1470,7 +1470,7 @@
     "name": "Sfera Unicestwienia",
     "entries": [
       "Magiczna, nieprzenikniona ciemność wypełnia rozdziawioną paszczę kamiennej twarzy wyrzeźbionej w ścianie. Paszcza ma 2 stopy średnicy i jest w przybliżeniu okrągła. Nie dochodzi z niej żaden dźwięk, żadne światło nie może oświetlić jej wnętrza, a wszelka materia, która do niej wejdzie, zostaje natychmiast unicestwiona.",
-      "Udany test Inteligencji ({@skill Arcana}) ({@dc 20}) ujawnia, że paszcza zawiera sferę unicestwienia, której nie można kontrolować ani przenieść. Jest poza tym identyczna ze zwykłą {@item sphere of annihilation}, jak opisano w rozdziale 7, „Skarby”. Niektóre wersje pułapki zawierają zaklęcie nałożone na kamienną twarz, tak że określone stwory czują przemożną potrzebę zbliżenia się do niej i wczołgania się do jej paszczy. Ten efekt jest w innych aspektach podobny do aspektu sympatii zaklęcia {@spell antipathy/sympathy}.",
+      "Udany test Inteligencji ({@skill Arcana}) ({@dc 20}) ujawnia, że paszcza zawiera sferę unicestwienia, której nie można kontrolować ani przenieść. Jest poza tym identyczna ze zwykłą {@item sphere of annihilation}, jak opisano w rozdziale 7, \"Skarby\". Niektóre wersje pułapki zawierają zaklęcie nałożone na kamienną twarz, tak że określone stwory czują przemożną potrzebę zbliżenia się do niej i wczołgania się do jej paszczy. Ten efekt jest w innych aspektach podobny do aspektu sympatii zaklęcia {@spell antipathy/sympathy}.",
       "Udane rzucenie zaklęcia {@spell dispel magic} ({@dc 18}) usuwa to zaklęcie."
     ],
     "hazardType": "Pułapka magiczna"
@@ -1638,7 +1638,7 @@
         "type": "entries",
         "name": "Waga i Glif Księżyca",
         "entries": [
-          "Ukryty pod misą jest {@item Immovable Rod}, który oddziela misę od dużej wagi znajdującej się tuż pod nią. Pręt można wykryć zaklęciem {@spell Detect Magic}. Dezaktywacja pręta (patrz „Dźwignia” poniżej) powoduje jego odpadnięcie, upuszczając misę na wagę. Pręta nie można odzyskać z tego pomieszczenia.",
+          "Ukryty pod misą jest {@item Immovable Rod}, który oddziela misę od dużej wagi znajdującej się tuż pod nią. Pręt można wykryć zaklęciem {@spell Detect Magic}. Dezaktywacja pręta (patrz \"Dźwignia\" poniżej) powoduje jego odpadnięcie, upuszczając misę na wagę. Pręta nie można odzyskać z tego pomieszczenia.",
           "Magia transmutacji łączy wagę z glifem księżyca nad kratą. Gdy na wadze umieszcza się więcej ciężaru, glif księżyca nad kratą staje się pełniejszy i jaśniej świeci. Gdy na wagę zostanie przyłożonych łącznie 4000 funtów nacisku, glif jest w pełni oświetlony, jak pełnia księżyca, a krata się otwiera. Krata pozostaje otwarta, dopóki glif księżyca pozostaje pełny.",
           {
             "type": "inset",
@@ -1653,7 +1653,7 @@
         "type": "entries",
         "name": "Dźwignia",
         "entries": [
-          "Gdy dźwignia zostanie pociągnięta, mechanizm w podłodze naciska przycisk dezaktywujący {@item Immovable Rod}. Ciężar misy powoduje, że glif księżyca zaczyna świecić jak połowa księżyca. Jednocześnie zawory w rurach kanalizacyjnych otwierają się, uwalniając cztery ślizgi (patrz „Potwory” poniżej) oraz powódź wody, która wylewa się z każdej rury, spływając rynnami po podłodze i do misy. Rury uwalniają 1000 funtów wody co minutę. Po 2 minutach misa jest pełna. Po 4 minutach kilka cali wody pokrywa podłogę, a do pomieszczenia napłynęło wystarczająco dużo wody, by oświetlić glif księżyca; w tym momencie zalewanie się zatrzymuje, a krata się otwiera."
+          "Gdy dźwignia zostanie pociągnięta, mechanizm w podłodze naciska przycisk dezaktywujący {@item Immovable Rod}. Ciężar misy powoduje, że glif księżyca zaczyna świecić jak połowa księżyca. Jednocześnie zawory w rurach kanalizacyjnych otwierają się, uwalniając cztery ślizgi (patrz \"Potwory\" poniżej) oraz powódź wody, która wylewa się z każdej rury, spływając rynnami po podłodze i do misy. Rury uwalniają 1000 funtów wody co minutę. Po 2 minutach misa jest pełna. Po 4 minutach kilka cali wody pokrywa podłogę, a do pomieszczenia napłynęło wystarczająco dużo wody, by oświetlić glif księżyca; w tym momencie zalewanie się zatrzymuje, a krata się otwiera."
         ]
       },
       {

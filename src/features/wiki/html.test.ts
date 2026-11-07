@@ -2,6 +2,18 @@ import { describe, expect, it } from 'vitest';
 import { sanitizeWikiHtml } from './html';
 
 describe('sanitizeWikiHtml', () => {
+  it('keeps existing image links and names keyboard-accessible image viewers', () => {
+    const html = sanitizeWikiHtml(
+      '<a href="/portrait"><img src="/portrait.png" alt="Portrait"></a><img alt=""><img src="/map.png" alt="Map">',
+      'Otwórz obraz',
+    );
+    const root = document.createElement('div');
+    root.innerHTML = html;
+    expect(root.querySelectorAll('a')).toHaveLength(3);
+    expect(root.querySelector('a[href="/portrait"] img')).not.toBeNull();
+    expect(root.querySelector('[aria-label="Otwórz obraz"]')).not.toBeNull();
+    expect(root.querySelector('[aria-label="Map"]')).not.toBeNull();
+  });
   it('removes executable markup and unsafe URLs', () => {
     const html = sanitizeWikiHtml(
       '<img src=x onerror="localStorage.clear()"><script>alert(1)</script><a href="javascript:alert(1)">Bad</a>',

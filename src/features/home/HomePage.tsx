@@ -37,11 +37,9 @@ export function HomePage() {
   useSeo(t('seo.homeTitle'), t('seo.homeDescription'));
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-10">
-      <h1 className="sr-only">Fumble</h1>
-      <p className="mb-8 text-lg leading-7 text-ink-200 sm:text-xl">
-        {t('home.summary')}
-      </p>
+    <div className="page-shell page-shell-wide">
+      <h1 className="page-title">Fumble</h1>
+      <p className="page-description mb-8">{t('home.summary')}</p>
       <div className="space-y-10">
         {navSections.map((section) => {
           const styles = accentStyles[section.accent];
@@ -50,12 +48,12 @@ export function HomePage() {
               <h2 className={`mb-4 font-display text-xl font-bold ${styles.heading}`}>
                 {t(section.titleKey)}
               </h2>
-              <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+              <ul className="grid grid-cols-1 gap-4 min-[380px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {section.items.map((item) => (
                   <li key={item.to}>
                     <Link
                       to={item.to}
-                      className={`flex min-h-28 items-center gap-4 rounded-lg border border-ink-700 bg-ink-900 p-4 transition-colors hover:bg-ink-800 ${styles.border}`}
+                      className={`catalog-card flex min-h-28 items-center gap-4 ${styles.border}`}
                     >
                       <item.icon
                         size={28}

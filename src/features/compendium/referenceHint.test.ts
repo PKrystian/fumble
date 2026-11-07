@@ -129,7 +129,8 @@ describe('reference hints', () => {
       },
     ]);
     const hint = await loadReferenceHint('monsters-hint', 'dragon', 'en');
-    expect(hint?.description.length).toBeLessThanOrEqual(181);
+    expect(hint?.description.length).toBeLessThanOrEqual(180);
+    expect(hint?.description).toMatch(/\.\.\.$/);
     expect(hint?.description).not.toBe('A '.repeat(120).trim());
   });
 

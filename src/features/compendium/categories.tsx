@@ -278,7 +278,7 @@ export const categories: CompendiumCategory[] = [
       const spell = item as SpellEntry;
       const school =
         localizeCompendiumValue(spell.school, locale, 'school') ?? spell.school;
-      return `${spellLevel(spell.level, t)} · ${school}`;
+      return `${spellLevel(spell.level, t)} - ${school}`;
     },
     renderDetail: (item) => <SpellDetail spell={item as SpellEntry} />,
   },
@@ -290,7 +290,7 @@ export const categories: CompendiumCategory[] = [
       const it = item as ItemEntry;
       return [itemTypeLabel(it.type, locale), itemRarityLabel(it.rarity, locale)]
         .filter(Boolean)
-        .join(' · ');
+        .join(' - ');
     },
     renderDetail: (item) => <ItemDetail item={item as ItemEntry} />,
   },
@@ -302,7 +302,7 @@ export const categories: CompendiumCategory[] = [
       const it = item as ItemEntry;
       return [itemTypeLabel(it.type, locale), itemRarityLabel(it.rarity, locale)]
         .filter(Boolean)
-        .join(' · ');
+        .join(' - ');
     },
     renderDetail: (item) => <ItemDetail item={item as ItemEntry} />,
   },
@@ -318,7 +318,7 @@ export const categories: CompendiumCategory[] = [
       const size = localizedSize
         ? agreeSize(localizedSize, localizedCreatureType)
         : localizedSize;
-      return `${t('compendium.detail.crValue', { cr: m.cr })} · ${[size, localizedCreatureType].filter(Boolean).join(' ')}`;
+      return `${t('compendium.detail.crValue', { cr: m.cr })} - ${[size, localizedCreatureType].filter(Boolean).join(' ')}`;
     },
     renderDetail: (item) => <MonsterDetail monster={item as MonsterEntry} />,
   },
@@ -430,7 +430,7 @@ export const categories: CompendiumCategory[] = [
         f.level && t('compendium.detail.levelValue', { level: f.level }),
       ]
         .filter(Boolean)
-        .join(' · ');
+        .join(' - ');
     },
     renderDetail: (item) => <FacilityDetail facility={item as FacilityEntry} />,
   },

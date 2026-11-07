@@ -1,4 +1,5 @@
 import { ExternalLink } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
@@ -7,6 +8,36 @@ type LegalSection = {
   heading: string;
   body: string;
 };
+
+function LegalDocument({
+  title,
+  description,
+  children,
+  overview = false,
+}: {
+  title: string;
+  description: string;
+  children: ReactNode;
+  overview?: boolean;
+}) {
+  const { t } = useT();
+  useSeo(title, description);
+  return (
+    <article className="page-shell page-shell-reading">
+      {!overview && (
+        <Link to="/legal" className="back-link">
+          {t('legal.overview.title')}
+        </Link>
+      )}
+      <header>
+        <h1 className="page-title">{title}</h1>
+        <p className="page-description">{description}</p>
+        <p className="mt-2 text-xs text-ink-400">{t('legal.updated')}</p>
+      </header>
+      <div className="reading-content mt-8 space-y-8">{children}</div>
+    </article>
+  );
+}
 
 function Page({
   title,
@@ -19,25 +50,12 @@ function Page({
   updated: string;
   sections: LegalSection[];
 }) {
-  const { t } = useT();
-  useSeo(title, description);
-
   return (
-    <article className="mx-auto max-w-3xl px-6 py-10 sm:py-14">
-      <Link to="/legal" className="text-sm text-arcane-300 hover:text-arcane-200">
-        {t('legal.overview.title')}
-      </Link>
-      <h1 className="mt-3 font-display text-3xl font-black text-ink-50 sm:text-4xl">
-        {title}
-      </h1>
-      <p className="mt-3 text-ink-300">{description}</p>
-      <p className="mt-2 text-xs text-ink-500">{updated}</p>
-      <div className="mt-10 space-y-9">
+    <LegalDocument title={title} description={description}>
+      <div className="space-y-8" data-updated={updated}>
         {sections.map((section) => (
           <section key={section.heading}>
-            <h2 className="font-display text-xl font-bold text-ink-100">
-              {section.heading}
-            </h2>
+            <h2 className="text-ink-100 section-title">{section.heading}</h2>
             <div className="mt-3 space-y-3 leading-7 text-ink-300">
               {section.body.split('\n\n').map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -46,13 +64,12 @@ function Page({
           </section>
         ))}
       </div>
-    </article>
+    </LegalDocument>
   );
 }
 
 export function LegalOverviewPage() {
   const { t } = useT();
-  useSeo(t('legal.overview.title'), t('legal.overview.description'));
 
   const pages = [
     ['privacy', '/legal/privacy'],
@@ -64,29 +81,24 @@ export function LegalOverviewPage() {
   ] as const;
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-10 sm:py-14">
-      <h1 className="font-display text-3xl font-black text-ink-50 sm:text-4xl">
-        {t('legal.overview.title')}
-      </h1>
-      <p className="mt-4 max-w-2xl leading-7 text-ink-300">
-        {t('legal.overview.description')}
-      </p>
-      <p className="mt-2 text-xs text-ink-500">{t('legal.updated')}</p>
-      <ul className="mt-10 divide-y divide-ink-800 border-y border-ink-800">
+    <LegalDocument
+      title={t('legal.overview.title')}
+      description={t('legal.overview.description')}
+      overview
+    >
+      <ul className="space-y-4">
         {pages.map(([key, to]) => (
           <li key={key}>
-            <Link to={to} className="block py-5 hover:text-arcane-200">
-              <h2 className="font-display text-lg font-bold text-inherit">
-                {t(`legal.${key}.title`)}
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-ink-300">
+            <Link to={to} className="catalog-card">
+              <h2 className="section-title">{t(`legal.${key}.title`)}</h2>
+              <p className="mt-2 leading-7 text-ink-300">
                 {t(`legal.${key}.description`)}
               </p>
             </Link>
           </li>
         ))}
       </ul>
-    </article>
+    </LegalDocument>
   );
 }
 
@@ -138,7 +150,6 @@ export function PrivacyPage() {
 
 export function ConnectionsPage() {
   const { t } = useT();
-  useSeo(t('legal.connections.title'), t('legal.connections.description'));
   const services = [
     'hosting',
     'fiveTools',
@@ -149,19 +160,14 @@ export function ConnectionsPage() {
   ] as const;
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-10 sm:py-14">
-      <Link to="/legal" className="text-sm text-arcane-300 hover:text-arcane-200">
-        {t('legal.overview.title')}
-      </Link>
-      <h1 className="mt-3 font-display text-3xl font-black text-ink-50 sm:text-4xl">
-        {t('legal.connections.title')}
-      </h1>
-      <p className="mt-3 leading-7 text-ink-300">{t('legal.connections.description')}</p>
-      <p className="mt-2 text-xs text-ink-500">{t('legal.updated')}</p>
-      <div className="mt-10 space-y-9">
+    <LegalDocument
+      title={t('legal.connections.title')}
+      description={t('legal.connections.description')}
+    >
+      <div className="space-y-8">
         {services.map((service) => (
           <section key={service}>
-            <h2 className="font-display text-xl font-bold text-ink-100">
+            <h2 className="text-ink-100 section-title">
               {t(`legal.connections.${service}Title`)}
             </h2>
             <p className="mt-3 leading-7 text-ink-300">
@@ -171,7 +177,7 @@ export function ConnectionsPage() {
         ))}
       </div>
       <section className="mt-10">
-        <h2 className="font-display text-xl font-bold text-ink-100">
+        <h2 className="text-ink-100 section-title">
           {t('legal.connections.controlHeading')}
         </h2>
         <p className="mt-3 leading-7 text-ink-300">
@@ -207,7 +213,7 @@ export function ConnectionsPage() {
           </a>
         </div>
       </section>
-    </article>
+    </LegalDocument>
   );
 }
 
@@ -286,7 +292,6 @@ export function AccessibilityPage() {
 
 export function ContactPage() {
   const { t } = useT();
-  useSeo(t('legal.contact.title'), t('legal.contact.description'));
   const links = [
     ['https://github.com/PKrystian', t('legal.contact.profileLabel')],
     ['https://github.com/PKrystian/Fumble', t('legal.contact.repositoryLabel')],
@@ -298,19 +303,12 @@ export function ContactPage() {
   ] as const;
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-10 sm:py-14">
-      <Link to="/legal" className="text-sm text-arcane-300 hover:text-arcane-200">
-        {t('legal.overview.title')}
-      </Link>
-      <h1 className="mt-3 font-display text-3xl font-black text-ink-50 sm:text-4xl">
-        {t('legal.contact.title')}
-      </h1>
-      <p className="mt-3 leading-7 text-ink-300">{t('legal.contact.description')}</p>
-      <p className="mt-2 text-xs text-ink-500">{t('legal.updated')}</p>
-      <section className="mt-10">
-        <h2 className="font-display text-xl font-bold text-ink-100">
-          {t('legal.contact.ownerHeading')}
-        </h2>
+    <LegalDocument
+      title={t('legal.contact.title')}
+      description={t('legal.contact.description')}
+    >
+      <section>
+        <h2 className="text-ink-100 section-title">{t('legal.contact.ownerHeading')}</h2>
         <p className="mt-3 leading-7 text-ink-300">{t('legal.contact.ownerBody')}</p>
         <ul className="mt-5 space-y-3">
           {links.map(([href, label]) => (
@@ -329,11 +327,9 @@ export function ContactPage() {
         </ul>
       </section>
       <section className="mt-10">
-        <h2 className="font-display text-xl font-bold text-ink-100">
-          {t('legal.contact.safetyHeading')}
-        </h2>
+        <h2 className="text-ink-100 section-title">{t('legal.contact.safetyHeading')}</h2>
         <p className="mt-3 leading-7 text-ink-300">{t('legal.contact.safetyBody')}</p>
       </section>
-    </article>
+    </LegalDocument>
   );
 }

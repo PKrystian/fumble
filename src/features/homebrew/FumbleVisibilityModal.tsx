@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { X } from 'lucide-react';
 import type { CompendiumCategoryId } from '@/data/compendium/types';
 import { Button, IconButton } from '@/features/ui/primitives';
 import { useT } from '@/i18n/useT';
+import { useDialogFocus } from '@/features/ui/useDialogFocus';
 import {
   FUMBLE_CAMPAIGNS,
   type FumbleCampaignId,
@@ -19,6 +20,7 @@ interface FumbleVisibilityModalProps {
 }
 
 export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalProps) {
+  const dialogRef = useDialogFocus(true, onClose);
   const { t } = useT();
   const compendiumCampaigns = useFumbleHomebrewStore((s) => s.compendiumCampaigns);
   const compendiumCategories = useFumbleHomebrewStore((s) => s.compendiumCategories);
@@ -37,14 +39,6 @@ export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalP
   const [draftCategories, setDraftCategories] = useState<CompendiumCategoryId[]>(
     () => compendiumCategories ?? categoryOptions,
   );
-
-  useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [onClose]);
 
   const selectedCount = items.filter((item) =>
     fumbleItemMatchesVisibility(item, {
@@ -83,18 +77,14 @@ export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalP
       role="dialog"
       aria-modal="true"
       aria-labelledby="fumble-visibility-title"
+      ref={dialogRef}
+      tabIndex={-1}
       onClick={onClose}
-      className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-black/70 p-4 pt-12"
+      className="dialog-overlay"
     >
-      <div
-        onClick={(event) => event.stopPropagation()}
-        className="flex max-h-[85vh] w-full max-w-2xl flex-col rounded-xl border border-ink-700 bg-ink-900 shadow-xl"
-      >
+      <div onClick={(event) => event.stopPropagation()} className="dialog-panel">
         <div className="flex items-center justify-between border-b border-ink-700 p-3">
-          <h2
-            id="fumble-visibility-title"
-            className="font-display text-lg font-bold text-ink-50"
-          >
+          <h2 id="fumble-visibility-title" className="text-ink-50 section-title">
             {t('homebrew.fumbleVisibilityDialog')}
           </h2>
           <IconButton
@@ -116,11 +106,11 @@ export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalP
             <legend className="font-display text-sm font-bold uppercase tracking-wide text-ember-400">
               {t('homebrew.fumbleVisibilityCampaigns')}
             </legend>
-            <div className="flex justify-end gap-2 text-[0.65rem]">
+            <div className="flex justify-end gap-2 text-xs">
               <Button
                 variant="ghost"
                 size="sm"
-                className="min-h-0 px-1 py-0 text-[0.65rem]"
+                className=""
                 onClick={() => setDraftCampaigns(campaignOptions)}
               >
                 {t('homebrew.fumbleVisibilitySelectAllCampaigns')}
@@ -128,7 +118,7 @@ export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalP
               <Button
                 variant="ghost"
                 size="sm"
-                className="min-h-0 px-1 py-0 text-[0.65rem]"
+                className=""
                 onClick={() => setDraftCampaigns([])}
               >
                 {t('homebrew.fumbleVisibilityClearCampaigns')}
@@ -159,11 +149,11 @@ export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalP
             <legend className="font-display text-sm font-bold uppercase tracking-wide text-ember-400">
               {t('homebrew.fumbleVisibilityCategories')}
             </legend>
-            <div className="flex justify-end gap-2 text-[0.65rem]">
+            <div className="flex justify-end gap-2 text-xs">
               <Button
                 variant="ghost"
                 size="sm"
-                className="min-h-0 px-1 py-0 text-[0.65rem]"
+                className=""
                 onClick={() => setDraftCategories(categoryOptions)}
               >
                 {t('homebrew.fumbleVisibilitySelectAllCategories')}
@@ -171,7 +161,7 @@ export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalP
               <Button
                 variant="ghost"
                 size="sm"
-                className="min-h-0 px-1 py-0 text-[0.65rem]"
+                className=""
                 onClick={() => setDraftCategories([])}
               >
                 {t('homebrew.fumbleVisibilityClearCategories')}

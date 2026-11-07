@@ -31,7 +31,7 @@ describe('FumbleHomebrewPage', () => {
       'href',
       '/pl/compendium/classes/witch/',
     );
-    expect(screen.getByRole('textbox', { name: 'Szukaj' })).toBeInTheDocument();
+    expect(screen.getByRole('searchbox', { name: 'Szukaj' })).toBeInTheDocument();
     expect(
       screen.queryByText(
         'Zasady kampanii, opcje, klasy, linie krwi, podklasy i przedmioty utrzymywane przez twórców Fumble.',

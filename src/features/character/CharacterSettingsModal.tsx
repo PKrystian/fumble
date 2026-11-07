@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Button } from '@/features/ui/primitives';
 import { X } from 'lucide-react';
 import { useT } from '@/i18n/useT';
 import {
@@ -27,13 +27,7 @@ export function CharacterSettingsModal({
 }: CharacterSettingsModalProps) {
   const { t } = useT();
   const resetLayout = useLayoutStore((s) => s.reset);
-  const dialogRef = useDialogFocus(true);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [onClose]);
+  const dialogRef = useDialogFocus(true, onClose);
 
   const levels = Array.from({ length: MAX_SPELL_LEVEL }, (_, i) => i + 1);
 
@@ -45,24 +39,23 @@ export function CharacterSettingsModal({
       ref={dialogRef}
       tabIndex={-1}
       onClick={onClose}
-      className="fixed inset-0 z-[60] flex items-start justify-center bg-black/70 p-4 pt-12"
+      className="dialog-overlay"
     >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="flex max-h-[85vh] w-full max-w-2xl flex-col rounded-xl border border-ink-700 bg-ink-900 shadow-xl"
-      >
+      <div onClick={(e) => e.stopPropagation()} className="dialog-panel">
         <div className="flex items-center justify-between border-b border-ink-700 p-3">
-          <h2 className="font-display text-lg font-bold text-ink-50">
+          <h2 className="text-ink-50 section-title">
             {t('character.sheet.settingsModal.title')}
           </h2>
-          <button
+          <Button
             type="button"
             onClick={onClose}
             aria-label={t('character.sheet.settingsModal.close')}
-            className="rounded p-1 text-ink-400 hover:bg-ink-800 hover:text-ink-50"
+            variant="ghost"
+            size="sm"
+            iconOnly
           >
             <X size={16} />
-          </button>
+          </Button>
         </div>
 
         <div className="flex flex-col gap-6 overflow-y-auto p-4">
@@ -83,7 +76,7 @@ export function CharacterSettingsModal({
                       null) as AbilityKey | null,
                   })
                 }
-                className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
+                className="ui-field"
               >
                 <option value="">{t('character.sheet.settingsModal.none')}</option>
                 {ABILITY_KEYS.map((key) => (
@@ -122,7 +115,7 @@ export function CharacterSettingsModal({
                           }),
                         })
                       }
-                      className="w-full rounded-md border border-ink-700 bg-ink-950 px-2 py-1 text-center text-ink-50 focus:border-arcane-500 focus:outline-none"
+                      className="ui-field w-full text-center"
                     />
                     <input
                       type="number"
@@ -135,7 +128,7 @@ export function CharacterSettingsModal({
                           }),
                         })
                       }
-                      className="w-full rounded-md border border-ink-700 bg-ink-950 px-2 py-1 text-center text-ink-50 focus:border-arcane-500 focus:outline-none"
+                      className="ui-field w-full text-center"
                     />
                   </div>
                 );
@@ -167,13 +160,15 @@ export function CharacterSettingsModal({
               />
               {t('character.sheet.settingsModal.dmCharacter')}
             </label>
-            <button
+            <Button
               type="button"
               onClick={resetLayout}
-              className="w-fit rounded-md border border-ink-700 px-3 py-1.5 text-sm text-ink-200 hover:bg-ink-800"
+              variant="secondary"
+              size="sm"
+              className="w-fit"
             >
               {t('character.sheet.settingsModal.resetLayout')}
-            </button>
+            </Button>
           </section>
         </div>
       </div>

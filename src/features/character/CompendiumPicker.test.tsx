@@ -58,6 +58,9 @@ describe('CompendiumPicker', () => {
     );
     const input = screen.getByRole('searchbox', { name: 'Find species' });
     fireEvent.change(input, { target: { value: 'other' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Clear search' }));
+    expect(input).toHaveValue('');
+    fireEvent.change(input, { target: { value: 'other' } });
     expect(screen.getAllByRole('button', { name: /Other/ })).toHaveLength(8);
 
     fireEvent.click(screen.getByRole('button', { name: 'Filter by source' }));
@@ -84,7 +87,7 @@ describe('CompendiumPicker', () => {
     );
     expect(screen.getByRole('searchbox')).toHaveAttribute(
       'placeholder',
-      'Loading compendium…',
+      'Loading compendium...',
     );
     expect(
       screen.queryByRole('button', { name: 'Filter by source' }),
@@ -114,6 +117,9 @@ describe('CompendiumSelectModalField', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Species: Elf' }));
     expect(screen.queryByRole('button', { name: 'Hidden' })).not.toBeInTheDocument();
     const search = screen.getByRole('searchbox', { name: 'Search species' });
+    fireEvent.change(search, { target: { value: 'dwa' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Clear search' }));
+    expect(search).toHaveValue('');
     fireEvent.change(search, { target: { value: 'dwa' } });
     fireEvent.click(screen.getByRole('button', { name: 'Dwarf' }));
     expect(onChange).toHaveBeenCalledWith('dwarf');
@@ -157,7 +163,7 @@ describe('CompendiumSelectModalField', () => {
       ),
     );
     fireEvent.click(screen.getByRole('button', { name: 'Species: None selected' }));
-    expect(screen.getByRole('searchbox')).toHaveAttribute('placeholder', 'Loading…');
+    expect(screen.getByRole('searchbox')).toHaveAttribute('placeholder', 'Loading...');
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'missing' } });
     expect(screen.getByText('No matches.')).toBeInTheDocument();
   });

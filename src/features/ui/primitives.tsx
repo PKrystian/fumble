@@ -58,13 +58,17 @@ export function IconButton({ label, title = label, ...props }: IconButtonProps) 
 
 export const TextInput = forwardRef<
   HTMLInputElement,
-  InputHTMLAttributes<HTMLInputElement>
->(function TextInput({ className, ...props }, ref) {
-  return <input ref={ref} className={inputClass(className)} {...props} />;
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & { size?: ControlSize }
+>(function TextInput({ className, size, ...props }, ref) {
+  return <input ref={ref} className={inputClass(className, size)} {...props} />;
 });
 
-export function Select({ className, ...props }: SelectHTMLAttributes<HTMLSelectElement>) {
-  return <select className={inputClass(className)} {...props} />;
+export function Select({
+  className,
+  size,
+  ...props
+}: Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'> & { size?: ControlSize }) {
+  return <select className={inputClass(className, size)} {...props} />;
 }
 
 type SearchFieldProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> & {
@@ -81,18 +85,18 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
     const hasValue = typeof value === 'string' && value.length > 0;
 
     return (
-      <label
+      <div
         className={classes(
-          'flex min-h-10 w-full items-center gap-2 rounded-lg border border-ink-700 bg-ink-950 px-3',
+          'ui-search flex min-h-10 w-full self-start items-center gap-2 rounded-lg border border-ink-600 bg-ink-950 px-3',
           'text-ink-500 transition-colors hover:border-ink-600 focus-within:border-arcane-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-arcane-400 focus-within:ring-offset-2 focus-within:ring-offset-ink-950',
           className,
         )}
       >
-        <span className="sr-only">{label}</span>
         <Search size={16} aria-hidden="true" className="shrink-0" />
         <input
           ref={ref}
           type="search"
+          aria-label={label}
           value={value}
           className="min-w-0 flex-1 bg-transparent py-2 text-sm text-ink-50 outline-none placeholder:text-ink-500 focus:outline-none focus-visible:outline-none"
           {...props}
@@ -101,13 +105,13 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(
           <button
             type="button"
             onClick={onClear}
-            className="rounded p-1 text-ink-500 transition-colors hover:bg-ink-800 hover:text-ink-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arcane-400"
+            className="ui-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50"
             aria-label={clearLabel}
           >
             <X size={14} aria-hidden="true" />
           </button>
         ) : null}
-      </label>
+      </div>
     );
   },
 );

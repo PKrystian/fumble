@@ -1,3 +1,6 @@
+import { DetailPresentation } from '@/features/ui/detailPresentationContext';
+import { DetailArtwork, DetailBadges } from '@/features/ui/detailPresentation';
+import { Button, ToggleChip } from '@/features/ui/primitives';
 import type {
   ActionEntry,
   BackgroundEntry,
@@ -38,7 +41,14 @@ import itemPropertyOverlay from '@/data/generated/pl/item-properties.json';
 import masteriesData from '@/data/generated/masteries.json';
 import masteryOverlay from '@/data/generated/pl/masteries.json';
 import type { Entry, EntryNode } from '@/data/compendium/entry';
-import { Fragment, type ReactNode, useEffect, useMemo, useState } from 'react';
+import {
+  Fragment,
+  type ReactNode,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { useParams } from 'react-router-dom';
 import { CheckSquare, RotateCcw, Shuffle, Tag } from 'lucide-react';
 import { imageUrl } from '@/data/compendium/images';
@@ -182,7 +192,7 @@ function RollableBonuses({ text, label }: { text: string; label: string }) {
 function RollableRow({ label, value }: { label: string; value: string }) {
   if (!value) return null;
   return (
-    <p className="text-sm text-ink-200">
+    <p className="metadata-row">
       <span className="font-semibold text-ink-50">{label}: </span>
       <RollableBonuses text={value} label={label} />
     </p>
@@ -200,7 +210,7 @@ function LanguageLinks({ text }: { text: string }) {
     .map((s) => s.trim())
     .filter(Boolean);
   return (
-    <p className="text-sm text-ink-200">
+    <p className="metadata-row">
       <span className="font-semibold text-ink-50">
         {t('compendium.detail.languages')}:{' '}
       </span>
@@ -230,15 +240,17 @@ function DetailHeader({
   subtitle?: ReactNode;
   badge?: ReactNode;
 }) {
+  const presentation = useContext(DetailPresentation);
   return (
     <header>
       <div className="flex flex-wrap items-center gap-2">
-        <h1 className="font-display text-2xl font-bold text-ink-50">
+        <h1 className="text-ink-50 detail-title">
           {title} <OriginalName name={original} className="ml-2 text-lg" />
         </h1>
-        {badge}
+        {badge ?? presentation.badge}
       </div>
       {subtitle && <p className="text-sm italic text-ink-300">{subtitle}</p>}
+      <DetailArtwork />
     </header>
   );
 }
@@ -247,7 +259,7 @@ function MetaRow({ label, value }: { label: string; value: ReactNode }) {
   const locale = useLocale();
   if (!value) return null;
   return (
-    <p className="text-sm text-ink-200">
+    <p className="metadata-row">
       <span className="font-semibold text-ink-50">{label}: </span>
       {typeof value === 'string' ? parseMarkup(value, locale) : value}
     </p>
@@ -761,14 +773,19 @@ export function SpellDetail({ spell }: { spell: SpellEntry }) {
   return (
     <article className="flex flex-col gap-5">
       <header>
-        <h1 className="font-display text-2xl font-bold text-ink-50">
-          {spell.name} <OriginalName name={spell.englishName} className="ml-2 text-lg" />
-        </h1>
+        <div className="flex flex-wrap items-center gap-2">
+          <h1 className="text-ink-50 detail-title">
+            {spell.name}{' '}
+            <OriginalName name={spell.englishName} className="ml-2 text-lg" />
+          </h1>
+          <DetailBadges />
+        </div>
         <p className="text-sm italic text-ink-300">
           {levelLabel}
           {spell.ritual && t('compendium.detail.ritualSuffix')}
         </p>
       </header>
+      <DetailArtwork />
 
       <dl className="grid grid-cols-2 gap-3 rounded-lg border border-ink-700 bg-ink-900 p-4 sm:grid-cols-4">
         <MetaCell
@@ -849,7 +866,7 @@ export function SpeciesDetail({
         original={species.englishName}
         subtitle={subtitle ?? defaultSubtitle}
       />
-      <div className="flex flex-col gap-1">
+      <div className="metadata-list">
         <MetaRow
           label={t('compendium.detail.size')}
           value={localizeCompendiumValue(species.size, locale, 'objectSize')}
@@ -882,7 +899,7 @@ export function FeatDetail({ feat, subtitle }: { feat: FeatEntry; subtitle?: str
           })
         }
       />
-      <div className="flex flex-col gap-1">
+      <div className="metadata-list">
         {feat.prerequisite && (
           <MetaRow
             label={t('compendium.detail.prerequisite')}
@@ -906,7 +923,7 @@ export function BackgroundDetail({ background }: { background: BackgroundEntry }
         original={background.englishName}
         subtitle={t('compendium.detail.background')}
       />
-      <div className="flex flex-col gap-1">
+      <div className="metadata-list">
         <MetaRow
           label={t('compendium.detail.abilityScores')}
           value={background.abilityScores}
@@ -984,7 +1001,7 @@ export function OptionalFeatureDetail({ feature }: { feature: OptionalFeatureEnt
           feature.featureType
         }
       />
-      <div className="flex flex-col gap-1">
+      <div className="metadata-list">
         {feature.prerequisite && (
           <MetaRow
             label={t('compendium.detail.prerequisite')}
@@ -1010,7 +1027,7 @@ export function DeityDetail({ deity }: { deity: DeityEntry }) {
           localizeCompendiumValue(deity.pantheon, locale, 'pantheon') ?? deity.pantheon
         }
       />
-      <div className="flex flex-col gap-1">
+      <div className="metadata-list">
         <MetaRow
           label={t('compendium.detail.alignment')}
           value={
@@ -1098,7 +1115,7 @@ export function ItemDetail({
         original={item.englishName}
         subtitle={subtitle ?? itemSubtitle}
       />
-      <div className="flex flex-col gap-1">
+      <div className="metadata-list">
         <MetaRow
           label={t('compendium.detail.damage')}
           value={localizeCompendiumValue(item.damage, locale, 'damage') ?? item.damage}
@@ -1132,7 +1149,7 @@ export function ItemDetail({
       )}
       {item.variant && (
         <section className="flex flex-col gap-3 border-t border-ink-800 pt-4">
-          <h2 className="font-display text-lg font-bold text-ember-400">
+          <h2 className="text-ember-400 section-title">
             {t('compendium.detail.variantData')}
           </h2>
           {hasItemVariantData(item.variant) ? (
@@ -1157,18 +1174,20 @@ function ProgressionTable({
   const featureCol = table.headers.indexOf('Features');
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="font-display text-xl font-bold text-ember-400">
+      <h2 className="text-ember-400 section-title">
         {t('compendium.detail.progression')}
       </h2>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-left text-sm">
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label={t('common.tableScroll')}
+        className="table-scroll"
+      >
+        <table className="data-table">
           <thead>
             <tr className="bg-ink-950/60">
               {table.headers.map((header) => (
-                <th
-                  key={header}
-                  className="whitespace-nowrap border-b border-ink-700 px-2 py-1 font-semibold text-ink-50"
-                >
+                <th scope="col" key={header} className="whitespace-nowrap font-semibold">
                   {parseMarkup(header, locale)}
                 </th>
               ))}
@@ -1183,10 +1202,7 @@ function ProgressionTable({
                   className="align-top odd:bg-ink-950 even:bg-ink-800/60"
                 >
                   {row.map((cell, cellIndex) => (
-                    <td
-                      key={cellIndex}
-                      className="border-b border-ink-800 px-2 py-1 text-ink-200"
-                    >
+                    <td key={cellIndex} className="">
                       {parseMarkup(
                         cellIndex === featureCol && merged ? merged : cell,
                         locale,
@@ -1248,23 +1264,25 @@ function ArtificerSubclassComparison({ cls }: { cls: ClassEntry }) {
       className="flex flex-col gap-3"
       aria-labelledby="artificer-subclass-comparison"
     >
-      <h2
-        id="artificer-subclass-comparison"
-        className="font-display text-xl font-bold text-ember-400"
-      >
+      <h2 id="artificer-subclass-comparison" className="text-ember-400 section-title">
         {t('compendium.classDetail.subclassComparison')}
       </h2>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-left text-sm">
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label={t('common.tableScroll')}
+        className="table-scroll"
+      >
+        <table className="data-table">
           <thead>
             <tr className="bg-ink-950/60">
-              <th className="border-b border-ink-700 px-2 py-2 font-semibold text-ink-50">
+              <th scope="col" className="font-semibold">
                 {t('compendium.classDetail.subclass')}
               </th>
-              <th className="border-b border-ink-700 px-2 py-2 font-semibold text-ink-50">
+              <th scope="col" className="font-semibold">
                 {t('compendium.classDetail.subclassRole')}
               </th>
-              <th className="border-b border-ink-700 px-2 py-2 font-semibold text-ink-50">
+              <th scope="col" className="font-semibold">
                 {t('compendium.classDetail.subclassPlaystyle')}
               </th>
             </tr>
@@ -1275,16 +1293,13 @@ function ArtificerSubclassComparison({ cls }: { cls: ClassEntry }) {
                 key={subclass.key}
                 className="align-top odd:bg-ink-950 even:bg-ink-800/60"
               >
-                <th
-                  scope="row"
-                  className="whitespace-nowrap px-2 py-2 font-semibold text-ink-50"
-                >
+                <th scope="row" className="whitespace-nowrap font-semibold">
                   {subclass.name}
                 </th>
-                <td className="px-2 py-2 text-ink-200">
+                <td className="">
                   {t(`compendium.classDetail.subclasses.${subclass.key}.role`)}
                 </td>
-                <td className="px-2 py-2 text-ink-200">
+                <td className="">
                   {t(`compendium.classDetail.subclasses.${subclass.key}.playstyle`)}
                 </td>
               </tr>
@@ -1300,16 +1315,26 @@ function SubclassImage({ subclass }: { subclass: ClassSubclass }) {
   const openLightbox = useLightbox((state) => state.open);
   if (!subclass.image) return null;
   return (
-    <img
-      src={imageUrl(subclass.image)}
-      alt={subclass.name}
-      loading="lazy"
-      onClick={() => openLightbox(imageUrl(subclass.image!), subclass.name)}
-      onError={(event) => {
-        event.currentTarget.style.display = 'none';
+    <a
+      href={imageUrl(subclass.image)}
+      className="artwork-trigger"
+      aria-label={subclass.name}
+      onClick={(event) => {
+        event.preventDefault();
+        openLightbox(imageUrl(subclass.image!), subclass.name);
       }}
-      className="h-auto max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
-    />
+    >
+      <img
+        src={imageUrl(subclass.image)}
+        alt={subclass.name}
+        loading="lazy"
+
+        onError={(event) => {
+          event.currentTarget.style.display = 'none';
+        }}
+        className="h-auto max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+      />
+    </a>
   );
 }
 
@@ -1513,10 +1538,7 @@ export function ClassDetail({
       )}
       {cls.id === 'artificer' && (
         <section className="flex flex-col gap-2" aria-labelledby="class-overview">
-          <h2
-            id="class-overview"
-            className="font-display text-xl font-bold text-ember-400"
-          >
+          <h2 id="class-overview" className="text-ember-400 section-title">
             {t('compendium.classDetail.overview')}
           </h2>
           <p className="leading-relaxed text-ink-200">
@@ -1557,7 +1579,7 @@ export function ClassDetail({
                 value={viewMode}
                 onChange={(e) => setViewMode(e.target.value as ViewMode)}
                 aria-label={t('compendium.classDetail.viewLabel')}
-                className="rounded-md border border-ink-700 bg-ink-900 px-2 py-1 text-xs text-ink-200 focus:border-arcane-500 focus:outline-none"
+                className="ui-field"
               >
                 <option value="default">{t('compendium.classDetail.viewDefault')}</option>
                 <option value="recent">{t('compendium.classDetail.viewRecent')}</option>
@@ -1568,50 +1590,48 @@ export function ClassDetail({
                   </option>
                 )}
               </select>
-              <button
+              <Button
                 type="button"
                 onClick={toggleSelectAll}
                 aria-label={t('compendium.classDetail.selectAllLabel')}
                 aria-pressed={allSelected}
-                className={[
-                  'rounded p-1.5 transition-colors',
-                  allSelected
-                    ? 'bg-arcane-700 text-ink-50'
-                    : 'text-ink-400 hover:bg-ink-800 hover:text-ink-50',
-                ].join(' ')}
+                size="sm"
+                iconOnly
+                variant={allSelected ? 'primary' : 'secondary'}
               >
                 <CheckSquare size={15} />
-              </button>
-              <button
+              </Button>
+              <Button
                 type="button"
                 onClick={pickRandom}
                 aria-label={t('compendium.classDetail.pickRandomLabel')}
-                className="rounded p-1.5 text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50"
+                variant="ghost"
+                size="sm"
+                iconOnly
               >
                 <Shuffle size={15} />
-              </button>
-              <button
+              </Button>
+              <Button
                 type="button"
                 onClick={() => syncSelection([])}
                 aria-label={t('compendium.classDetail.resetSelectionLabel')}
-                className="rounded p-1.5 text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50"
+                variant="ghost"
+                size="sm"
+                iconOnly
               >
                 <RotateCcw size={15} />
-              </button>
-              <button
+              </Button>
+              <Button
                 type="button"
                 onClick={() => setShowSourceLabels((v) => !v)}
                 aria-label={t('compendium.classDetail.toggleSourceLabelsLabel')}
                 aria-pressed={showSourceLabels}
-                className={[
-                  'rounded p-1.5 transition-colors',
-                  showSourceLabels
-                    ? 'bg-arcane-700 text-ink-50'
-                    : 'text-ink-400 hover:bg-ink-800 hover:text-ink-50',
-                ].join(' ')}
+                size="sm"
+                iconOnly
+                variant={showSourceLabels ? 'primary' : 'secondary'}
               >
                 <Tag size={15} />
-              </button>
+              </Button>
             </div>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -1619,22 +1639,16 @@ export function ClassDetail({
               const key = subKey(sub);
               const active = selected.includes(key);
               return (
-                <button
+                <ToggleChip
                   key={key}
                   type="button"
                   onClick={() => toggle(key)}
-                  aria-pressed={active}
-                  className={[
-                    'rounded-full border px-3 py-1 text-sm transition-colors',
-                    active
-                      ? 'border-arcane-500 bg-arcane-700 text-ink-50'
-                      : 'border-ink-700 bg-ink-900 text-ink-200 hover:bg-ink-800',
-                  ].join(' ')}
+                  active={active}
                 >
                   {showSourceLabels
                     ? `${sub.name} (${sourceAbbrev(sub.source)})`
                     : sub.name}
-                </button>
+                </ToggleChip>
               );
             })}
           </div>
@@ -1642,7 +1656,7 @@ export function ClassDetail({
       )}
 
       <section className="flex flex-col gap-4">
-        <h2 className="font-display text-xl font-bold text-ember-400">
+        <h2 className="text-ember-400 section-title">
           {t('compendium.classDetail.features')}
         </h2>
         {merged.map((feature, index) => (
@@ -1694,7 +1708,7 @@ function SectionGroup({
   return (
     <section className="flex flex-col gap-3">
       {title && (
-        <h2 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
+        <h2 className="border-b border-ember-500/40 pb-1 text-ember-400 section-title">
           {title}
         </h2>
       )}
@@ -1736,10 +1750,13 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
   return (
     <article className="flex flex-col gap-4">
       <header>
-        <h1 className="font-display text-2xl font-bold text-ink-50">
-          {monster.name}{' '}
-          <OriginalName name={monster.englishName} className="ml-2 text-lg" />
-        </h1>
+        <div className="flex flex-wrap items-center gap-2">
+          <h1 className="text-ink-50 detail-title">
+            {monster.name}{' '}
+            <OriginalName name={monster.englishName} className="ml-2 text-lg" />
+          </h1>
+          <DetailBadges />
+        </div>
         <p className="text-sm italic text-ink-300">
           {localizedSize && (
             <RulesLink rule="size">
@@ -1761,9 +1778,10 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
           )}
         </p>
       </header>
+      <DetailArtwork />
 
-      <div className="flex flex-col gap-3 rounded-lg border border-ink-700 bg-ink-900 p-4">
-        <div className="flex flex-col gap-1">
+      <div className="statblock flex flex-col gap-3 rounded-lg border border-ink-700 bg-ink-900 p-4">
+        <div className="metadata-list">
           <MetaRow label={t('compendium.detail.ac')} value={monster.ac} />
           <RollableRow
             label={t('compendium.detail.initiative')}
@@ -1802,7 +1820,7 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
           })}
         </dl>
 
-        <div className="flex flex-col gap-1">
+        <div className="metadata-list">
           <RollableRow
             label={t('compendium.detail.savingThrows')}
             value={
@@ -1906,7 +1924,7 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
       />
       {monster.legendaryActions.length > 0 && (
         <section className="flex flex-col gap-3">
-          <h2 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
+          <h2 className="border-b border-ember-500/40 pb-1 text-ember-400 section-title">
             {t('compendium.detail.legendaryActions')}
           </h2>
           {monster.legendaryIntro && (
@@ -1928,7 +1946,7 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
       )}
       {monster.lairActions.length > 0 && (
         <section className="flex flex-col gap-2">
-          <h2 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
+          <h2 className="border-b border-ember-500/40 pb-1 text-ember-400 section-title">
             {t('compendium.detail.lairActions')}
           </h2>
           <EntryRenderer entries={monster.lairActions} />
@@ -1936,7 +1954,7 @@ export function MonsterDetail({ monster }: { monster: MonsterEntry }) {
       )}
       {monster.regionalEffects.length > 0 && (
         <section className="flex flex-col gap-2">
-          <h2 className="border-b border-ember-500/40 pb-1 font-display text-lg font-bold text-ember-400">
+          <h2 className="border-b border-ember-500/40 pb-1 text-ember-400 section-title">
             {t('compendium.detail.regionalEffects')}
           </h2>
           <EntryRenderer entries={monster.regionalEffects} />
@@ -1950,15 +1968,19 @@ export function ConditionDetail({ condition }: { condition: ConditionEntry }) {
   const { locale } = useT();
   return (
     <article className="flex flex-col gap-5">
-      <header className="flex items-center gap-3">
-        <h1 className="font-display text-2xl font-bold text-ink-50">
-          {condition.name}{' '}
-          <OriginalName name={condition.englishName} className="ml-2 text-lg" />
-        </h1>
-        <span className="rounded-full border border-ink-600 px-2 py-0.5 text-xs uppercase tracking-wide text-ink-300">
+      <header className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2">
+          <h1 className="text-ink-50 detail-title">
+            {condition.name}{' '}
+            <OriginalName name={condition.englishName} className="ml-2 text-lg" />
+          </h1>
+          <DetailBadges />
+        </div>
+        <span className="badge ">
           {localizeCompendiumValue(condition.kind, locale, 'conditionKind')}
         </span>
       </header>
+      <DetailArtwork />
       <div className="flex flex-col gap-3">
         <EntryRenderer entries={condition.entries} />
       </div>
@@ -2019,7 +2041,7 @@ export function LanguageDetail({ language }: { language: LanguageEntry }) {
             language.languageType,
         })}
       />
-      <div className="flex flex-col gap-1">
+      <div className="metadata-list">
         <MetaRow
           label={t('compendium.detail.script')}
           value={
@@ -2081,7 +2103,7 @@ export function FacilityDetail({ facility }: { facility: FacilityEntry }) {
             facility.facilityType,
         })}
       />
-      <div className="flex flex-col gap-1">
+      <div className="metadata-list">
         <MetaRow label={t('compendium.detail.level')} value={facility.level} />
         <MetaRow
           label={t('compendium.detail.prerequisite')}
@@ -2119,7 +2141,7 @@ export function RecipeDetail({ recipe }: { recipe: RecipeEntry }) {
           recipe.recipeType
         }
       />
-      <div className="flex flex-col gap-1">
+      <div className="metadata-list">
         <MetaRow
           label={t('compendium.detail.serves')}
           value={
@@ -2161,8 +2183,8 @@ export function ObjectDetail({ object }: { object: ObjectEntry }) {
           .filter(Boolean)
           .join(' ')}
       />
-      <div className="flex flex-col gap-3 rounded-lg border border-ink-700 bg-ink-900 p-4">
-        <div className="flex flex-col gap-1">
+      <div className="statblock flex flex-col gap-3 rounded-lg border border-ink-700 bg-ink-900 p-4">
+        <div className="metadata-list">
           <MetaRow label={t('compendium.detail.ac')} value={object.ac} />
           <MetaRow label={t('compendium.detail.hp')} value={object.hp} />
         </div>
@@ -2176,7 +2198,7 @@ export function ObjectDetail({ object }: { object: ObjectEntry }) {
             </div>
           ))}
         </dl>
-        <div className="flex flex-col gap-1">
+        <div className="metadata-list">
           <MetaRow
             label={t('compendium.detail.immunities')}
             value={
@@ -2264,7 +2286,7 @@ export function CharOptionDetail({ option }: { option: CharOptionEntry }) {
           option.optionType
         }
       />
-      <div className="flex flex-col gap-1">
+      <div className="metadata-list">
         {option.prerequisite && (
           <MetaRow
             label={t('compendium.detail.prerequisite')}
@@ -2288,16 +2310,18 @@ export function TableDetail({ table }: { table: TableEntry }) {
         original={table.englishName}
         subtitle={t('compendium.detail.table')}
       />
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-left text-sm text-ink-200">
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label={t('common.tableScroll')}
+        className="table-scroll"
+      >
+        <table className="data-table">
           {table.colLabels.length > 0 && (
             <thead>
               <tr className="bg-ink-950/60">
                 {table.colLabels.map((label, index) => (
-                  <th
-                    key={index}
-                    className="border-b border-ink-700 px-2 py-1 font-semibold text-ink-50"
-                  >
+                  <th scope="col" key={index} className="font-semibold">
                     {parseMarkup(label, locale)}
                   </th>
                 ))}
@@ -2308,7 +2332,7 @@ export function TableDetail({ table }: { table: TableEntry }) {
             {table.rows.map((row, rowIndex) => (
               <tr key={rowIndex} className="odd:bg-ink-950 even:bg-ink-800/60">
                 {row.map((cell, cellIndex) => (
-                  <td key={cellIndex} className="border-b border-ink-800 px-2 py-1">
+                  <td key={cellIndex} className="">
                     {typeof cell === 'string' ? parseMarkup(cell, locale) : ''}
                   </td>
                 ))}

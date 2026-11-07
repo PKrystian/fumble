@@ -107,7 +107,7 @@ describe('BooksPage', () => {
     expect(screen.getByText('books.edition2024')).toBeInTheDocument();
     expect(screen.getByText('books.edition2014')).toBeInTheDocument();
     expect(screen.getByRole('presentation')).toHaveAttribute('src', '/images/cover.webp');
-    expect(screen.getByText('Saga · books.chapterOne')).toBeInTheDocument();
+    expect(screen.getByText('Saga - books.chapterOne')).toBeInTheDocument();
     expect(screen.getByText('books.chapterOther')).toBeInTheDocument();
     expect(screen.getByText('mystery (1)')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /New Core/ })).toHaveAttribute(

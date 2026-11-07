@@ -50,7 +50,7 @@
         "type": "entries",
         "name": "Amulet Pracowni Arkanów",
         "entries": [
-          "Po spędzeniu {@variantrule Long Rest|XPHB} w swoim Bastionie zyskujesz magiczny {@reward Arcane Study Charm|XDMG|Amulet Pracowni Arkanów} (patrz „{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book chapter 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala rzucić {@spell Identify|XPHB} bez wydawania miejsca czarodziejskiego ani używania komponentów materialnych. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
+          "Po spędzeniu {@variantrule Long Rest|XPHB} w swoim Bastionie zyskujesz magiczny {@reward Arcane Study Charm|XDMG|Amulet Pracowni Arkanów} (patrz \"{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book chapter 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala rzucić {@spell Identify|XPHB} bez wydawania miejsca czarodziejskiego ani używania komponentów materialnych. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
         ]
       },
       {
@@ -75,7 +75,7 @@
               {
                 "type": "item",
                 "name": "Wytwórz:",
-                "entry": "Magiczny Przedmiot (Arkana). Jeśli masz 9. poziom lub wyższy, możesz zlecić najemnikowi pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z {@book Arcana tables|XDMG|6|Tablice Arkanów} w {@book chapter 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnik ma biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja „{@book Crafting Magic Items|XDMG|6|Tworzenie magicznych przedmiotów}\" w {@book chapter 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnik pomieszczenia może pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
+                "entry": "Magiczny Przedmiot (Arkana). Jeśli masz 9. poziom lub wyższy, możesz zlecić najemnikowi pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z {@book Arcana tables|XDMG|6|Tablice Arkanów} w {@book chapter 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnik ma biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja \"{@book Crafting Magic Items|XDMG|6|Tworzenie magicznych przedmiotów}\" w {@book chapter 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnik pomieszczenia może pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
               }
             ]
           }
@@ -160,7 +160,7 @@
         "name": "Handluj: Zaopatrz Zbrojownię",
         "entries": [
           "Gdy wydajesz rozkaz {@book Trade|XDMG|7|Handluj} temu pomieszczeniu, zlecasz najemnikowi pomieszczenia zaopatrzenie Zbrojowni w zbroje, {@item Shield|XPHB|Tarcze}, broń i amunicję. Ten sprzęt kosztuje cię 100 SZ plus dodatkowe 100 SZ za każdego Obrońcę Bastionu w twoim Bastionie. Jeśli twój Bastion posiada {@book Smithy|XDMG|7|Kuźnię}, całkowity koszt jest zmniejszony o połowę.",
-          "Dopóki twoja Zbrojownia jest zaopatrzona, twoi Obrońcy Bastionu są trudniejsi do zabicia. Gdy jakiekolwiek wydarzenie każe ci rzucić kośćmi, by określić, czy twój Bastion traci jednego lub więcej obrońców (patrz „{@book Bastion Events|XDMG|7|Wydarzenia Bastionu}\" na końcu tego rozdziału), rzuć {@dice 1d8} zamiast każdej {@dice d6}, którą normalnie byś rzucił. Gdy wydarzenie się kończy, sprzęt w twojej Zbrojowni zostaje zużyty niezależnie od tego, ilu masz Obrońców Bastionu lub ilu straciłeś, pozostawiając Zbrojownię wyczerpaną, dopóki nie wydasz pomieszczeniu kolejnego rozkazu Handluj i nie zapłacisz za jej ponowne zaopatrzenie."
+          "Dopóki twoja Zbrojownia jest zaopatrzona, twoi Obrońcy Bastionu są trudniejsi do zabicia. Gdy jakiekolwiek wydarzenie każe ci rzucić kośćmi, by określić, czy twój Bastion traci jednego lub więcej obrońców (patrz \"{@book Bastion Events|XDMG|7|Wydarzenia Bastionu}\" na końcu tego rozdziału), rzuć {@dice 1d8} zamiast każdej {@dice d6}, którą normalnie byś rzucił. Gdy wydarzenie się kończy, sprzęt w twojej Zbrojowni zostaje zużyty niezależnie od tego, ilu masz Obrońców Bastionu lub ilu straciłeś, pozostawiając Zbrojownię wyczerpaną, dopóki nie wydasz pomieszczeniu kolejnego rozkazu Handluj i nie zapłacisz za jej ponowne zaopatrzenie."
         ]
       }
     ],
@@ -299,23 +299,23 @@
               ],
               [
                 "1-2",
-                "{@dice 1d2|1–2} (rzuć monetą)",
-                "{@chance 10|01–10|10% Curse Chance}"
+                "{@dice 1d2|1-2} (rzuć monetą)",
+                "{@chance 10|01-10|10% Curse Chance}"
               ],
               [
                 "3-5",
                 "{@dice 1d3}",
-                "{@chance 20|01–20|20% Curse Chance}"
+                "{@chance 20|01-20|20% Curse Chance}"
               ],
               [
                 "6",
                 "{@dice 1d4}",
-                "{@chance 25|01–25|25% Curse Chance}"
+                "{@chance 25|01-25|25% Curse Chance}"
               ]
             ]
           },
           "Aby określić, ile magicznych przedmiotów przynosi twój najemnik, policz Nawiedzone pomieszczenia specjalne w swoim Bastionie, a następnie rzuć kością wskazaną w kolumnie Zdobyte Magiczne Przedmioty w tabeli Zebrane Osobliwości. MG rzuca w kolumnie Szansa na Przeklęty Przedmiot ({@dice 1d100}), by określić, czy jeden z magicznych przedmiotów niesie klątwę. MG wybiera, który przedmiot jest przeklęty, i ustala naturę klątwy.",
-          "Dla każdego zdobytego magicznego przedmiotu rzuć na tabelę w sekcji „{@book Random Magic Items|XDMG|9}\" w {@book Dungeon Master's Guide|XDMG} odpowiadającą tej rzadkości, by określić, czym jest przedmiot. (Motyw skarbu wybierz losowo.)"
+          "Dla każdego zdobytego magicznego przedmiotu rzuć na tabelę w sekcji \"{@book Random Magic Items|XDMG|9}\" w {@book Dungeon Master's Guide|XDMG} odpowiadającą tej rzadkości, by określić, czym jest przedmiot. (Motyw skarbu wybierz losowo.)"
         ]
       }
     ],
@@ -727,7 +727,7 @@
               {
                 "type": "item",
                 "name": "Zbieraj:",
-                "entry": "Truciznę. Zlecasz najemnikowi pomieszczenia wydobycie jednej dawki trucizny z rzadkich roślin lub grzybów. Wybierz rodzaj trucizny spośród: {@item Assassin's Blood|XDMG}, {@item Malice|XDMG}, {@item Pale Tincture|XDMG} lub {@item Truth Serum|XDMG}. Patrz „{@book Poison|XDMG|2|Trucizna}\" w {@book chapter 3|XDMG|2}, by poznać efekt każdej trucizny. Po wydobyciu truciznę można umieścić w fiolce. Praca zajmuje 7 dni i nie kosztuje pieniędzy."
+                "entry": "Truciznę. Zlecasz najemnikowi pomieszczenia wydobycie jednej dawki trucizny z rzadkich roślin lub grzybów. Wybierz rodzaj trucizny spośród: {@item Assassin's Blood|XDMG}, {@item Malice|XDMG}, {@item Pale Tincture|XDMG} lub {@item Truth Serum|XDMG}. Patrz \"{@book Poison|XDMG|2|Trucizna}\" w {@book chapter 3|XDMG|2}, by poznać efekt każdej trucizny. Po wydobyciu truciznę można umieścić w fiolce. Praca zajmuje 7 dni i nie kosztuje pieniędzy."
               }
             ]
           }
@@ -782,7 +782,7 @@
               [
                 "Gildia Murarzy",
                 "Kamienna maska",
-                "Wyznaczasz murarzy do dodania muru obronnego do twojego Bastionu bez kosztów. Alternatywnie, możesz zlecić murarzom wykonanie tej pracy dla Bastionu innej postaci, pod warunkiem że jej Bastion znajduje się w promieniu 1 mili od twojego. Każdy 5-stopowy kwadrat muru obronnego zajmuje 1 dzień budowy zamiast 10 (patrz „{@book Bastion Map|XDMG|7|Mapa Bastionu}\")."
+                "Wyznaczasz murarzy do dodania muru obronnego do twojego Bastionu bez kosztów. Alternatywnie, możesz zlecić murarzom wykonanie tej pracy dla Bastionu innej postaci, pod warunkiem że jej Bastion znajduje się w promieniu 1 mili od twojego. Każdy 5-stopowy kwadrat muru obronnego zajmuje 1 dzień budowy zamiast 10 (patrz \"{@book Bastion Map|XDMG|7|Mapa Bastionu}\")."
               ],
               [
                 "Gildia Budowniczych Statków",
@@ -966,7 +966,7 @@
               {
                 "type": "item",
                 "name": "Wytwórz:",
-                "entry": "Truciznę. Zlecasz najemnikowi pomieszczenia wykonanie fiolki zawierającej jedną dawkę trucizny. Trucizna musi być jedną z następujących: {@item Burnt Othur Fumes|XDMG}, {@item Essence of Ether|XDMG} lub {@item Torpor|XDMG}. Ta praca zajmuje 7 dni, a ty musisz zapłacić połowę kosztu trucizny. Patrz „{@book Poison|XDMG|2|Trucizna}\" w {@book chapter 3|XDMG|2}, by poznać opisy i koszty trucizn."
+                "entry": "Truciznę. Zlecasz najemnikowi pomieszczenia wykonanie fiolki zawierającej jedną dawkę trucizny. Trucizna musi być jedną z następujących: {@item Burnt Othur Fumes|XDMG}, {@item Essence of Ether|XDMG} lub {@item Torpor|XDMG}. Ta praca zajmuje 7 dni, a ty musisz zapłacić połowę kosztu trucizny. Patrz \"{@book Poison|XDMG|2|Trucizna}\" w {@book chapter 3|XDMG|2}, by poznać opisy i koszty trucizn."
               }
             ]
           }
@@ -1103,7 +1103,7 @@
         "type": "entries",
         "name": "Wzmocnij: Amulet Manifestacji",
         "entries": [
-          "Gdy wydajesz rozkaz Wzmocnij temu pomieszczeniu, najemnik pomieszczenia przeprowadza magiczne obrzędy przez kolejne 7 dni. Na koniec tego okresu zyskujesz specjalny {@filter Amulet|rewards|type=charm}, (patrz „{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book Dungeon Master's Guide|XDMG}) zwany Amuletem Manifestacji, który trwa, dopóki go nie użyjesz. Nie musisz przebywać w Bastionie podczas wykonywania obrzędów, by zyskać ich korzyść. Efekty Amuletu zależą od płaszczyzny powiązanej z pomieszczeniem:",
+          "Gdy wydajesz rozkaz Wzmocnij temu pomieszczeniu, najemnik pomieszczenia przeprowadza magiczne obrzędy przez kolejne 7 dni. Na koniec tego okresu zyskujesz specjalny {@filter Amulet|rewards|type=charm}, (patrz \"{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book Dungeon Master's Guide|XDMG}) zwany Amuletem Manifestacji, który trwa, dopóki go nie użyjesz. Nie musisz przebywać w Bastionie podczas wykonywania obrzędów, by zyskać ich korzyść. Efekty Amuletu zależą od płaszczyzny powiązanej z pomieszczeniem:",
           {
             "type": "list",
             "items": [
@@ -1346,7 +1346,7 @@
         "type": "entries",
         "name": "Sekrety Przeszłości",
         "entries": [
-          "Twoje Muzeum zawiera jeden skarb, który daje ci magiczny {@filter Amulet|rewards|type=charm}, (patrz „{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book Dungeon Master's Guide|XDMG}), gdy spędzisz 7 dni na jego badaniu, a następnie zakończysz Długi Odpoczynek w swoim Bastionie. Amulet trwa 7 dni lub dopóki go nie użyjesz. Nie możesz zyskać kolejnego Amuletu z tego pomieszczenia, dopóki wciąż go posiadasz. Efekt Amuletu zależy od pochodzenia skarbu w twoim Muzeum. Możesz wybrać jedną z poniższych opcji (twój MG może udostępnić więcej opcji lub ograniczyć istniejące na podstawie twoich dotychczasowych ekspedycji):",
+          "Twoje Muzeum zawiera jeden skarb, który daje ci magiczny {@filter Amulet|rewards|type=charm}, (patrz \"{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book Dungeon Master's Guide|XDMG}), gdy spędzisz 7 dni na jego badaniu, a następnie zakończysz Długi Odpoczynek w swoim Bastionie. Amulet trwa 7 dni lub dopóki go nie użyjesz. Nie możesz zyskać kolejnego Amuletu z tego pomieszczenia, dopóki wciąż go posiadasz. Efekt Amuletu zależy od pochodzenia skarbu w twoim Muzeum. Możesz wybrać jedną z poniższych opcji (twój MG może udostępnić więcej opcji lub ograniczyć istniejące na podstawie twoich dotychczasowych ekspedycji):",
           {
             "type": "list",
             "items": [
@@ -1400,7 +1400,7 @@
         "type": "entries",
         "name": "Amulet Obserwatorium",
         "entries": [
-          "Możesz użyć swojego Obserwatorium, by zerknąć w odległe zakątki {@book Wildspace|XDMG|5|Dzikiej Przestrzeni} i {@book Astral Plane|XDMG|5|Plan Astralny}. Po spędzeniu {@variantrule Long Rest|XPHB} w swoim Obserwatorium zyskujesz magiczny {@reward Observatory Charm|XDMG|Amulet Obserwatorium} (patrz „{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book chapter 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala rzucić {@spell Contact Other Plane|XPHB} bez wydawania miejsca czarodziejskiego. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
+          "Możesz użyć swojego Obserwatorium, by zerknąć w odległe zakątki {@book Wildspace|XDMG|5|Dzikiej Przestrzeni} i {@book Astral Plane|XDMG|5|Plan Astralny}. Po spędzeniu {@variantrule Long Rest|XPHB} w swoim Obserwatorium zyskujesz magiczny {@reward Observatory Charm|XDMG|Amulet Obserwatorium} (patrz \"{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book chapter 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala rzucić {@spell Contact Other Plane|XPHB} bez wydawania miejsca czarodziejskiego. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
         ]
       },
       {
@@ -1489,7 +1489,7 @@
               {
                 "type": "item",
                 "name": "Brzemię Bigby'ego",
-                "entry": "Wypicie kufla tego trunku daje ci efekt „powiększenia\" z zaklęcia {@spell Enlarge/Reduce|XPHB}, trwający 24 godziny (bez możliwości rzutu obronnego)."
+                "entry": "Wypicie kufla tego trunku daje ci efekt \"powiększenia\" z zaklęcia {@spell Enlarge/Reduce|XPHB}, trwający 24 godziny (bez możliwości rzutu obronnego)."
               },
               {
                 "type": "item",
@@ -1557,7 +1557,7 @@
         "type": "entries",
         "name": "Amulet Relikwiarza",
         "entries": [
-          "Po spędzeniu {@variantrule Long Rest|XPHB} w swoim Bastionie zyskujesz magiczny {@reward Reliquary Charm|XDMG|Amulet Relikwiarza} (patrz „{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book chapter 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala jednokrotnie rzucić {@spell Greater Restoration|XPHB} bez wydawania miejsca czarodziejskiego ani używania komponentów materialnych. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
+          "Po spędzeniu {@variantrule Long Rest|XPHB} w swoim Bastionie zyskujesz magiczny {@reward Reliquary Charm|XDMG|Amulet Relikwiarza} (patrz \"{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book chapter 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala jednokrotnie rzucić {@spell Greater Restoration|XPHB} bez wydawania miejsca czarodziejskiego ani używania komponentów materialnych. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
         ]
       },
       {
@@ -1622,7 +1622,7 @@
               {
                 "type": "item",
                 "name": "Wytwórz:",
-                "entry": "Magiczny Przedmiot (Relikwia). Zlecasz najemnikowi pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z tabel {@book Relics|XDMG|6|Tablice Relikwii} w {@book chapter 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnik ma biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja „{@book Crafting Magic Items|XDMG|6|Tworzenie magicznych przedmiotów}\" w {@book chapter 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnik pomieszczenia może pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
+                "entry": "Magiczny Przedmiot (Relikwia). Zlecasz najemnikowi pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z tabel {@book Relics|XDMG|6|Tablice Relikwii} w {@book chapter 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnik ma biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja \"{@book Crafting Magic Items|XDMG|6|Tworzenie magicznych przedmiotów}\" w {@book chapter 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnik pomieszczenia może pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
               }
             ]
           }
@@ -1650,7 +1650,7 @@
         "type": "entries",
         "name": "Amulet Sanktuarium",
         "entries": [
-          "Po spędzeniu {@variantrule Long Rest|XPHB} w swoim Bastionie zyskujesz magiczny {@reward Sanctuary Charm|XDMG|Amulet Sanktuarium} (patrz „{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book chapter 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala jednokrotnie rzucić {@spell Healing Word|XPHB} bez wydawania miejsca czarodziejskiego. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
+          "Po spędzeniu {@variantrule Long Rest|XPHB} w swoim Bastionie zyskujesz magiczny {@reward Sanctuary Charm|XDMG|Amulet Sanktuarium} (patrz \"{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book chapter 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala jednokrotnie rzucić {@spell Healing Word|XPHB} bez wydawania miejsca czarodziejskiego. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
         ]
       },
       {
@@ -1675,7 +1675,7 @@
         "type": "entries",
         "name": "Amulet Sanktum",
         "entries": [
-          "Po spędzeniu {@variantrule Long Rest|XPHB} w swoim Bastionie zyskujesz magiczny {@reward Sanctum Charm|XDMG|Amulet Sanktum} (patrz „{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book chapter 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala jednokrotnie rzucić {@spell Heal|XPHB} bez wydawania miejsca czarodziejskiego. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
+          "Po spędzeniu {@variantrule Long Rest|XPHB} w swoim Bastionie zyskujesz magiczny {@reward Sanctum Charm|XDMG|Amulet Sanktum} (patrz \"{@book Supernatural Gifts|XDMG|2|Nadprzyrodzone dary}\" w {@book chapter 3|XDMG|2}), który trwa 7 dni lub dopóki go nie użyjesz. Amulet pozwala jednokrotnie rzucić {@spell Heal|XPHB} bez wydawania miejsca czarodziejskiego. Nie możesz ponownie zyskać tego Amuletu, dopóki wciąż go posiadasz."
         ]
       },
       {
@@ -1720,7 +1720,7 @@
               {
                 "type": "item",
                 "name": "Wytwórz:",
-                "entry": "Zwój Zaklęcia. Zlecasz najemnikowi pomieszczenia spisanie {@item Spell Scroll|XDMG} zawierającego jedno zaklęcie Kleryka lub Czarodzieja 3. poziomu lub niższe. Pomieszczenie posiada niezbędny {@item Calligrapher's Supplies|XPHB}, a najemnik spełnia wszystkie wymagania potrzebne do spisania zwoju. Sekcja „{@book Crafting Equipment|XPHB|6|Wytwarzanie Sprzętu}\" w {@book Player's Handbook|XPHB} określa czas potrzebny na spisanie zwoju oraz jego koszt, który musisz zapłacić."
+                "entry": "Zwój Zaklęcia. Zlecasz najemnikowi pomieszczenia spisanie {@item Spell Scroll|XDMG} zawierającego jedno zaklęcie Kleryka lub Czarodzieja 3. poziomu lub niższe. Pomieszczenie posiada niezbędny {@item Calligrapher's Supplies|XPHB}, a najemnik spełnia wszystkie wymagania potrzebne do spisania zwoju. Sekcja \"{@book Crafting Equipment|XPHB|6|Wytwarzanie Sprzętu}\" w {@book Player's Handbook|XPHB} określa czas potrzebny na spisanie zwoju oraz jego koszt, który musisz zapłacić."
               },
               {
                 "type": "item",
@@ -1784,7 +1784,7 @@
               {
                 "type": "item",
                 "name": "Wytwórz:",
-                "entry": "Magiczny Przedmiot (Uzbrojenie). Jeśli masz 9. poziom lub wyższy, możesz zlecić najemnikom pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z tabel {@book Armaments|XDMG|6|Tabele Uzbrojenia} w {@book chapter 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnicy mają biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja „{@book Crafting Magic Items|XDMG|6|Tworzenie magicznych przedmiotów}\" w {@book chapter 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnicy pomieszczenia mogą pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
+                "entry": "Magiczny Przedmiot (Uzbrojenie). Jeśli masz 9. poziom lub wyższy, możesz zlecić najemnikom pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z tabel {@book Armaments|XDMG|6|Tabele Uzbrojenia} w {@book chapter 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnicy mają biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja \"{@book Crafting Magic Items|XDMG|6|Tworzenie magicznych przedmiotów}\" w {@book chapter 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnicy pomieszczenia mogą pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
               }
             ]
           }
@@ -1897,7 +1897,7 @@
         "entries": [
           "Za każdym razem, gdy wydajesz rozkaz {@book Recruit|XDMG|7|Rekrutuj} temu pomieszczeniu, jego najemnik wysyła zaproszenie do {@variantrule Friendly [Attitude]|XPHB|Przyjaznego} NPC-zaklinacza. Rzuć dowolną kością. Jeśli wynik jest nieparzysty, zaproszony odmawia, i nie zyskujesz żadnej korzyści z wydania rozkazu. Jeśli wynik jest parzysty, zaproszony przyjmuje zaproszenie i przybywa do twojego Bastionu przez twój Krąg Teleportacji.",
           "Będąc w swoim Bastionie, możesz poprosić zaklinacza o rzucenie jednego zaklęcia Czarodzieja 4. poziomu lub niższego; jeśli masz 17. poziom lub wyższy, maksymalny poziom zaklęcia wzrasta do 8. Zakłada się, że zaklinacz ma to zaklęcie przygotowane. Jeśli zaklęcie ma komponenty materialne kosztujące pieniądze, musisz za nie zapłacić, zanim zaklęcie zostanie rzucone.",
-          "Zaklinacz zostaje na 14 dni lub dopóki nie rzuci dla ciebie zaklęcia. Zaklinacz nie będzie bronić twojego Bastionu i natychmiast odchodzi, jeśli Bastion zostanie zaatakowany (patrz „{@book Bastion Events|XDMG|7|Wydarzenia Bastionu}\" na końcu rozdziału)."
+          "Zaklinacz zostaje na 14 dni lub dopóki nie rzuci dla ciebie zaklęcia. Zaklinacz nie będzie bronić twojego Bastionu i natychmiast odchodzi, jeśli Bastion zostanie zaatakowany (patrz \"{@book Bastion Events|XDMG|7|Wydarzenia Bastionu}\" na końcu rozdziału)."
         ]
       }
     ],
@@ -2022,7 +2022,7 @@
               {
                 "type": "item",
                 "name": "Badaj:",
-                "entry": "Trofeum-Drobiazg. Zlecasz najemnikowi pomieszczenia poszukiwanie drobiazgu, który mógłby ci się przydać. Praca zajmuje 7 dni. Gdy badania dobiegną końca, rzuć dowolną kością. Jeśli wynik jest nieparzysty, najemnik nie znajduje niczego przydatnego. Jeśli wynik jest parzysty, najemnik znajduje magiczny przedmiot. Rzuć na tabelę {@book Implements—Wspólny|XDMG|6|Narzędzia - powszechne} w {@book chapter 7|XDMG|6}, by określić, czym on jest."
+                "entry": "Trofeum-Drobiazg. Zlecasz najemnikowi pomieszczenia poszukiwanie drobiazgu, który mógłby ci się przydać. Praca zajmuje 7 dni. Gdy badania dobiegną końca, rzuć dowolną kością. Jeśli wynik jest nieparzysty, najemnik nie znajduje niczego przydatnego. Jeśli wynik jest parzysty, najemnik znajduje magiczny przedmiot. Rzuć na tabelę {@book Implements-Wspólny|XDMG|6|Narzędzia - powszechne} w {@book chapter 7|XDMG|6}, by określić, czym on jest."
               }
             ]
           }
@@ -2038,7 +2038,7 @@
   "war-room": {
     "name": "Sala Wojenna",
     "entries": [
-      "Sala Wojenna to miejsce, w którym planujesz działania militarne w konsultacji z wewnętrznym kręgiem lojalnych porucznikóww, z których każdy jest zaprawionym w boju {@b Weteranem Wojownikiem} (patrz {@book Monster Manual|XMM}) o charakterze zgodnym z twoim. Zaczynasz z dwoma porucznikami, lecz możesz dodawać kolejnych, jak opisano poniżej. Jeśli twój Bastion nie ma pomieszczeń, by zakwaterować twoich porucznikóww, zabezpieczają sobie zakwaterowanie w gospodzie lub osadzie najbliższej twojemu Bastionowi. Porucznicy są najemnikami, nie Obrońcami Bastionu; jednak jeśli twój Bastion zostanie zaatakowany (patrz „{@book Bastion Events|XDMG|7|Atak}\" na końcu tego rozdziału), każdy porucznik zakwaterowany w twoim Bastionie zmniejsza o 1 liczbę kości, które rzucasz, by określić, ilu Obrońców Bastionu zostaje utraconych w ataku.",
+      "Sala Wojenna to miejsce, w którym planujesz działania militarne w konsultacji z wewnętrznym kręgiem lojalnych porucznikóww, z których każdy jest zaprawionym w boju {@b Weteranem Wojownikiem} (patrz {@book Monster Manual|XMM}) o charakterze zgodnym z twoim. Zaczynasz z dwoma porucznikami, lecz możesz dodawać kolejnych, jak opisano poniżej. Jeśli twój Bastion nie ma pomieszczeń, by zakwaterować twoich porucznikóww, zabezpieczają sobie zakwaterowanie w gospodzie lub osadzie najbliższej twojemu Bastionowi. Porucznicy są najemnikami, nie Obrońcami Bastionu; jednak jeśli twój Bastion zostanie zaatakowany (patrz \"{@book Bastion Events|XDMG|7|Atak}\" na końcu tego rozdziału), każdy porucznik zakwaterowany w twoim Bastionie zmniejsza o 1 liczbę kości, które rzucasz, by określić, ilu Obrońców Bastionu zostaje utraconych w ataku.",
       "Sala Wojenna zawiera pamiątki wojenne oraz duży stół otoczony wystarczającą liczbą krzeseł dla ciebie i twoich porucznikóww.",
       {
         "type": "entries",
@@ -2115,7 +2115,7 @@
               {
                 "type": "item",
                 "name": "Wytwórz:",
-                "entry": "Magiczny Przedmiot (Implement). Jeśli masz 9. poziom lub wyższy, możesz zlecić najemnikom pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z tabel {@book Implements|XDMG|6|Tabele narzędzi} w {@book chapter 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnicy mają biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja „{@book Crafting Magic Items|XDMG|6|Tworzenie magicznych przedmiotów}\" w {@book chapter 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnicy pomieszczenia mogą pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
+                "entry": "Magiczny Przedmiot (Implement). Jeśli masz 9. poziom lub wyższy, możesz zlecić najemnikom pomieszczenia wykonanie Zwykłego lub Niepospolitego magicznego przedmiotu wybranego przez ciebie z tabel {@book Implements|XDMG|6|Tabele narzędzi} w {@book chapter 7|XDMG|6}. Pomieszczenie posiada narzędzie wymagane do wykonania przedmiotu, a najemnicy mają biegłość w tym narzędziu oraz biegłość w umiejętności {@skill Arcana|XPHB}. Patrz sekcja \"{@book Crafting Magic Items|XDMG|6|Tworzenie magicznych przedmiotów}\" w {@book chapter 7|XDMG|6}, by poznać czas i pieniądze, jakie trzeba poświęcić na wykonanie przedmiotu. Jeśli przedmiot pozwala swojemu użytkownikowi rzucać z niego jakiekolwiek zaklęcia, musisz sam wykonać ten przedmiot (najemnicy pomieszczenia mogą pomagać), a przez każdy dzień poświęcony na wytwarzanie musisz mieć przygotowane wszystkie te zaklęcia."
               }
             ]
           }

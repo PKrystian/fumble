@@ -7,7 +7,7 @@ export function FumbleHomebrewPage() {
   useSeo(t('seo.pageTitles.fumbleHomebrew'), t('seo.pageDescriptions.fumbleHomebrew'));
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
+    <div className="page-shell page-shell-wide">
       <FumbleLibrary page />
     </div>
   );

@@ -266,7 +266,7 @@ export function describeRolls(outcome: RollOutcome): string {
   if (outcome.modifier) {
     parts.push(`mod ${outcome.modifier > 0 ? '+' : ''}${outcome.modifier}`);
   }
-  return parts.join('  ·  ');
+  return parts.join('  -  ');
 }
 
 function precedence(node: Extract<ExpressionNode, { type: 'binary' }>): number {

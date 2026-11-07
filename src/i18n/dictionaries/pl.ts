@@ -2,6 +2,8 @@ import type { Dictionary } from './en';
 
 const pl: Dictionary = {
   common: {
+    exportOptions: 'Opcje eksportu',
+    tableScroll: 'Tabela, w razie potrzeby przewijaj poziomo',
     allBooks: 'Wszystkie księgi',
     cancel: 'Anuluj',
     confirm: 'Potwierdź',
@@ -14,7 +16,7 @@ const pl: Dictionary = {
     storageError:
       'Przeglądarka nie mogła zapisać lokalnych danych. Wykonaj kopię i zwolnij miejsce dla tej witryny.',
     clipboardError: 'Przeglądarka nie mogła skopiować tego tekstu.',
-    loading: 'Wczytywanie…',
+    loading: 'Wczytywanie...',
     openMenu: 'Otwórz menu',
     closeMenu: 'Zamknij menu',
     close: 'Zamknij',
@@ -349,7 +351,7 @@ const pl: Dictionary = {
   },
   compendium: {
     title: 'Kompendium',
-    searchPlaceholder: 'Szukaj: {{category}}…',
+    searchPlaceholder: 'Szukaj: {{category}}...',
     searchLabel: 'Szukaj: {{category}}',
     failedToLoad: 'Nie udało się wczytać danych.',
     noMatches: 'Brak wyników.',
@@ -538,7 +540,7 @@ const pl: Dictionary = {
       randomEntry: 'Losowy wpis',
       jumpRandom: 'Przejdź do losowego wpisu',
       resetFilters: 'Zresetuj filtry',
-      searchPlaceholder: 'Szukaj filtrów…',
+      searchPlaceholder: 'Szukaj filtrów...',
       searchAria: 'Szukaj opcji filtrów',
       close: 'Zamknij filtry',
       dialog: 'Filtry',
@@ -688,7 +690,7 @@ const pl: Dictionary = {
       diet: 'Dieta',
       weaponMastery: 'Mistrzostwo broni',
       table: 'Tabela',
-      deckCards: 'Talia · {{count}} kart',
+      deckCards: 'Talia - {{count}} kart',
       dimensions: 'Wymiary',
       terrain: 'Teren',
       capacity: 'Pojemność',
@@ -891,14 +893,14 @@ const pl: Dictionary = {
         species: 'Gatunek',
         background: 'Pochodzenie',
         noneSelected: 'Nie wybrano',
-        searchSpecies: 'Szukaj gatunku…',
-        searchBackgrounds: 'Szukaj pochodzenia…',
+        searchSpecies: 'Szukaj gatunku...',
+        searchBackgrounds: 'Szukaj pochodzenia...',
       },
       notFound: 'Nie znaleziono tej postaci.',
       backToCharacters: 'Wróć do postaci',
       settings: 'Ustawienia postaci',
       export: 'Eksportuj',
-      filling: 'Wypełnianie…',
+      filling: 'Wypełnianie...',
       sheetEdition: 'Karta ({{edition}})',
       pdfFailedTitle: 'Eksport karty nie powiódł się',
       pdfFailedMessage:
@@ -964,7 +966,7 @@ const pl: Dictionary = {
         spellLevelShort: 'Poz. {{level}}',
       },
       sessionQuick: {
-        placeholder: 'Zapisz szybką notatkę…',
+        placeholder: 'Zapisz szybką notatkę...',
         addNote: 'Dodaj notatkę do dziennika sesji',
         openFull: 'Otwórz pełny dziennik sesji',
       },
@@ -1019,19 +1021,19 @@ const pl: Dictionary = {
       },
       actionsTab: {
         namePlaceholder: 'Nazwa akcji (np. Atak Długim Mieczem)',
-        detailsPlaceholder: 'Szczegóły, trafienie, obrażenia…',
+        detailsPlaceholder: 'Szczegóły, trafienie, obrażenia...',
         remove: 'Usuń akcję',
         add: 'Dodaj akcję',
       },
       inventoryTab: {
-        addFromCompendium: 'Dodaj przedmiot z kompendium…',
+        addFromCompendium: 'Dodaj przedmiot z kompendium...',
         namePlaceholder: 'Nazwa przedmiotu',
         descPlaceholder: 'Krótki opis',
         remove: 'Usuń przedmiot',
         add: 'Dodaj przedmiot',
       },
       featuresTab: {
-        addFromCompendium: 'Dodaj atut z kompendium…',
+        addFromCompendium: 'Dodaj atut z kompendium...',
         namePlaceholder: 'Cecha / zdolność / atut',
         sourcePlaceholder: 'Źródło',
         descPlaceholder: 'Opis',
@@ -1052,7 +1054,7 @@ const pl: Dictionary = {
         spendSlot: 'Zużyj komórkę poziomu {{level}}',
         recoverSlot: 'Odzyskaj komórkę poziomu {{level}}',
         spells: 'Zaklęcia',
-        addFromCompendium: 'Dodaj zaklęcie z kompendium…',
+        addFromCompendium: 'Dodaj zaklęcie z kompendium...',
         prep: 'Przyg.',
         namePlaceholder: 'Nazwa zaklęcia',
         remove: 'Usuń zaklęcie',
@@ -1067,10 +1069,10 @@ const pl: Dictionary = {
         saveLabel: 'Rzut obronny {{ability}}',
       },
       notesTab: {
-        placeholder: 'Historia postaci, notatki z sesji, cokolwiek…',
+        placeholder: 'Historia postaci, notatki z sesji, cokolwiek...',
       },
       picker: {
-        loadingCompendium: 'Wczytywanie kompendium…',
+        loadingCompendium: 'Wczytywanie kompendium...',
         filterBySource: 'Filtruj według źródła',
       },
       settingsModal: {
@@ -1094,7 +1096,7 @@ const pl: Dictionary = {
   books: {
     title: 'Księgi',
     subtitle: 'Czytaj podręczniki i przygody. Tekst i grafiki wczytują się na żądanie.',
-    searchPlaceholder: 'Szukaj ksiąg i przygód…',
+    searchPlaceholder: 'Szukaj ksiąg i przygód...',
     searchLabel: 'Szukaj ksiąg',
     rulebooks: 'Podręczniki',
     adventures: 'Przygody',
@@ -1120,7 +1122,7 @@ const pl: Dictionary = {
     chapterOne: '{{count}} rozdział',
     chapterOther: '{{count}} rozdziałów',
     chapterFallback: 'Rozdział {{n}}',
-    noMatches: 'Brak ksiąg pasujących do „{{query}}”.',
+    noMatches: 'Brak ksiąg pasujących do "{{query}}".',
     couldNotLoad: 'Nie udało się wczytać tego dokumentu.',
     collapseChapter: 'Zwiń {{title}}',
     expandChapter: 'Rozwiń {{title}}',
@@ -1143,7 +1145,7 @@ const pl: Dictionary = {
         'z kompendium zgodnie z rzadkością odpowiednią dla danego poziomu, inspirowane ' +
         'tabelami skarbów z edycji 2024.',
       generateHoard: 'Wygeneruj skarb',
-      loadingItems: 'Wczytywanie przedmiotów…',
+      loadingItems: 'Wczytywanie przedmiotów...',
       rerollItems: 'Przerzuć przedmioty',
       minorReward: 'Mała nagroda',
       majorReward: 'Duża nagroda',
@@ -1162,7 +1164,7 @@ const pl: Dictionary = {
       toGenerateLoot: 'aby wygenerować łupy, które faktycznie mogą wykorzystać.',
       partyCount: 'Drużyna ({{selected}} z {{total}})',
       level: 'Poz. {{level}}',
-      effectiveTier: 'Efektywny {{tier}} · średni poziom {{level}}',
+      effectiveTier: 'Efektywny {{tier}} - średni poziom {{level}}',
       rollWildcardLoot: 'Wylosuj łup',
       wildcardNote:
         'Wszystko może się zdarzyć: dowolny typ, bez filtrów biegłości - na ' +
@@ -1214,7 +1216,7 @@ const pl: Dictionary = {
     rechargeParen: '(Ładowanie {{range}})',
     recharged: 'naładowano',
     rechargeNotYet: 'jeszcze nie',
-    rechargeRolled: 'wyrzucono {{result}} · {{status}}',
+    rechargeRolled: 'wyrzucono {{result}} - {{status}}',
     rollTitle: 'Rzuć {{expression}}',
   },
   initiative: {
@@ -1226,12 +1228,12 @@ const pl: Dictionary = {
     clearAllConfirm: 'Usunąć wszystkich uczestników walki?',
     clearAll: 'Usuń wszystkich',
     addFromRoster: 'Dodaj z listy postaci',
-    chooseCharacter: 'Wybierz postać…',
+    chooseCharacter: 'Wybierz postać...',
     unnamed: 'Bez imienia',
     init: 'Inic.',
     add: 'Dodaj',
     name: 'Nazwa',
-    namePlaceholder: 'Goblin, Aragorn…',
+    namePlaceholder: 'Goblin, Aragorn...',
     rollInitiative: 'Rzuć na inicjatywę',
     hp: 'PW',
     ac: 'KP',
@@ -1241,6 +1243,7 @@ const pl: Dictionary = {
     emptyState: 'Dodaj uczestników walki, aby zacząć śledzić inicjatywę.',
   },
   sessionLog: {
+    sessionTitle: 'Tytuł sesji',
     sessions: 'Sesje',
     newSession: 'Nowa sesja',
     newSessionTitle: 'Sesja - {{date}}',
@@ -1254,7 +1257,7 @@ const pl: Dictionary = {
     english: 'Angielski',
     polish: 'Polski',
     voiceNotSupported: 'Nagrywanie głosu nie jest obsługiwane w tej przeglądarce.',
-    transcribing: 'Transkrypcja…',
+    transcribing: 'Transkrypcja...',
     downloadingModel: 'Pobieranie modelu Whisper',
     speechErrTranscribe: 'Transkrypcja nie powiodła się',
     speechErrMic: 'Odmówiono dostępu do mikrofonu',
@@ -1278,15 +1281,15 @@ const pl: Dictionary = {
       'oraz inne rozmowy poza grą. ' +
       'Podsumuj wyłącznie wydarzenia fabularne w postaci numerowanej listy punktów, po jednym na ' +
       'każde ważne wydarzenie, decyzję lub zwrot akcji, w kolejności chronologicznej ' +
-      '(np. "1. Gracze dotarli na dwór króla. 2. …"). ' +
+      '(np. "1. Gracze dotarli na dwór króla. 2. ..."). ' +
       'Odpowiedz w tym samym języku co transkrypcja, wyłącznie numerowaną listą, bez wstępu.',
     copyWithAiPromptTitle:
       'Kopiuj gotowy do wklejenia prompt AI, proszący o ponumerowane podsumowanie wątków fabularnych',
     copyWithAiPrompt: 'Kopiuj z promptem AI',
     notes: 'Notatki z sesji',
-    notesPlaceholder: 'Imiona, wskazówki, decyzje, przypomnienia…',
+    notesPlaceholder: 'Imiona, wskazówki, decyzje, przypomnienia...',
     transcriptEmptyState:
-      'Transkrypcja twojej sesji pojawi się tutaj, gdy zaczniesz mówić…',
+      'Transkrypcja twojej sesji pojawi się tutaj, gdy zaczniesz mówić...',
   },
   encounter: {
     openForMonster: 'Znajdź tę istotę w kreatorze spotkań',
@@ -1305,14 +1308,14 @@ const pl: Dictionary = {
     habitat: 'Siedlisko',
     allHabitats: 'Wszystkie siedliska',
     includeAny: 'Uwzględnij dowolne siedlisko',
-    loadingBestiary: 'Wczytywanie bestiariusza…',
-    searchMonsters: 'Szukaj potworów…',
+    loadingBestiary: 'Wczytywanie bestiariusza...',
+    searchMonsters: 'Szukaj potworów...',
     addRandomMonster: 'Dodaj losowego potwora',
     addRandomMonsterHint:
       'Wybierz potwora od wysokiego progu do 10% powyżej niego albo najbliższego silniejszego.',
     randomMonsterUnavailable:
       'Nie znaleziono odpowiedniego, silniejszego potwora dla tej drużyny i siedliska.',
-    crXp: 'SW {{cr}} · {{xp}} PD',
+    crXp: 'SW {{cr}} - {{xp}} PD',
     crValue: 'SW {{cr}}',
     xpValue: '{{xp}} PD',
     fewer: 'Mniej: {{name}}',
@@ -1322,6 +1325,7 @@ const pl: Dictionary = {
     difficulty: 'Trudność',
   },
   soundboard: {
+    emptyState: 'Brak utworów w tej kategorii. Dodaj utwór lub wybierz inną kategorię.',
     title: 'Panel dźwięków',
     clearConfirm: 'Usunąć wszystkie utwory i własne kategorie z panelu dźwięków?',
     clear: 'Wyczyść panel',
@@ -1436,7 +1440,7 @@ const pl: Dictionary = {
     higherLevels: 'Na wyższych poziomach',
   },
   wiki: {
-    loading: 'Wczytywanie wiki…',
+    loading: 'Wczytywanie wiki...',
     emptyPage: 'Brak treści',
     campaignWiki: 'Wiki kampanii',
     noContentYet:
@@ -1512,7 +1516,7 @@ const pl: Dictionary = {
     createSubclass: 'Stwórz podklasę',
     yourEntries: 'Twoje wpisy',
     showingEntries: '{{visible}} z {{total}}',
-    searchEntries: 'Szukaj wpisów…',
+    searchEntries: 'Szukaj wpisów...',
     filterCategory: 'Filtruj według kategorii',
     filterTranslation: 'Filtruj według stanu tłumaczenia',
     allCategories: 'Wszystkie kategorie',
@@ -1524,9 +1528,9 @@ const pl: Dictionary = {
       'Brak jeszcze własnej zawartości. Stwórz wpis lub zaimportuj plik własnej zawartości',
     emptyStateFile: 'z 5etools.',
     classLabel: 'Klasa',
-    searchForClass: 'Szukaj klasy…',
+    searchForClass: 'Szukaj klasy...',
     subclassOf: 'Podklasa klasy {{className}}',
-    deleteConfirm: 'Usunąć „{{label}}”?',
+    deleteConfirm: 'Usunąć "{{label}}"?',
     entryUpdated: 'Wpis zaktualizowany.',
     entryCreated: 'Wpis utworzony.',
     subclassCreated: 'Podklasa utworzona.',
@@ -1555,7 +1559,7 @@ const pl: Dictionary = {
     adjustArtwork: 'Dostosuj grafikę',
     subclassNamePlaceholder: 'np. Przysięga Rozłamu',
     sourcePlaceholder: 'np. Własna zawartość',
-    featuresPlaceholder: 'Na 3. poziomie zyskujesz…',
+    featuresPlaceholder: 'Na 3. poziomie zyskujesz...',
     editLabel: 'Edytuj {{name}}',
     fromEtoolsBadge: '5etools',
     sourceLanguage: 'Język źródłowy',

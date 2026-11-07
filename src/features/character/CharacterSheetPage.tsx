@@ -1,3 +1,4 @@
+import { Button } from '@/features/ui/primitives';
 import { type ReactNode, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArrowLeft, Download, FileText, Settings } from 'lucide-react';
@@ -132,11 +133,11 @@ export function CharacterSheetPage() {
 
   if (!character) {
     return (
-      <div className="mx-auto max-w-2xl px-6 py-24 text-center">
+      <div className="text-center page-shell page-shell-wide">
         <p className="mb-4 text-ink-200">{t('character.sheet.notFound')}</p>
         <Link
           to="/character"
-          className="rounded-lg bg-arcane-700 px-4 py-2 font-medium text-ink-50 hover:bg-arcane-500"
+          className="rounded-lg bg-arcane-700 px-4 py-2 font-medium text-ink-50 hover:bg-arcane-600"
         >
           {t('character.sheet.backToCharacters')}
         </Link>
@@ -202,47 +203,55 @@ function CharacterSheetBody({
   };
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-6 2xl:max-w-[min(92vw,120rem)]">
+    <div className="page-shell page-shell-wide">
+      <h1 className="page-title mb-6">{character.name || t('character.unnamed')}</h1>
       <div className="mb-6 flex flex-col gap-4 sm:mb-4 sm:flex-row sm:items-center sm:justify-between">
-        <Link
-          to="/character"
-          className="inline-flex items-center gap-1 text-sm text-ink-300 hover:text-ink-50"
-        >
+        <Link to="/character" className="back-link">
           <ArrowLeft size={16} /> {t('character.list.title')}
         </Link>
-        <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-end">
-          <button
+        <div className="flex w-full flex-wrap items-start gap-2 sm:w-auto sm:justify-end">
+          <Button
             type="button"
             onClick={() => setSettingsOpen(true)}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm text-ink-200 hover:bg-ink-800 sm:w-auto"
+            variant="secondary"
+            className="flex-1 sm:flex-none"
           >
             <Settings size={16} /> {t('character.sheet.settings')}
-          </button>
-          <button
-            type="button"
-            onClick={() => exportCharacter(character)}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm text-ink-200 hover:bg-ink-800 sm:w-auto"
-          >
-            <Download size={16} /> {t('character.sheet.export')}
-          </button>
-          {(['2024', '2014'] as const).map((edition) => (
-            <button
-              key={edition}
-              type="button"
-              disabled={pdfExporting !== null}
-              onClick={async () => {
-                setPdfExporting(edition);
-                await exportCharacterSheetPdf(character, edition, t);
-                setPdfExporting(null);
-              }}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm text-ink-200 hover:bg-ink-800 disabled:cursor-wait disabled:opacity-50 sm:w-auto"
-            >
-              <FileText size={16} />
-              {pdfExporting === edition
-                ? t('character.sheet.filling')
-                : t('character.sheet.sheetEdition', { edition })}
-            </button>
-          ))}
+          </Button>
+          <details className="relative flex-1 sm:flex-none">
+            <summary className="ui-tab min-h-10 cursor-pointer border border-ink-600 bg-ink-900">
+              {t('common.exportOptions')}
+            </summary>
+            <div className="absolute right-0 z-20 mt-2 flex w-52 flex-col gap-2 rounded-xl border border-ink-700 bg-ink-900 p-3 shadow-xl">
+              <Button
+                type="button"
+                onClick={() => exportCharacter(character)}
+                variant="secondary"
+                className="w-full sm:w-auto"
+              >
+                <Download size={16} /> {t('character.sheet.export')}
+              </Button>
+              {(['2024', '2014'] as const).map((edition) => (
+                <Button
+                  key={edition}
+                  type="button"
+                  disabled={pdfExporting !== null}
+                  onClick={async () => {
+                    setPdfExporting(edition);
+                    await exportCharacterSheetPdf(character, edition, t);
+                    setPdfExporting(null);
+                  }}
+                  variant="secondary"
+                  className="w-full sm:w-auto"
+                >
+                  <FileText size={16} />
+                  {pdfExporting === edition
+                    ? t('character.sheet.filling')
+                    : t('character.sheet.sheetEdition', { edition })}
+                </Button>
+              ))}
+            </div>
+          </details>
         </div>
       </div>
 

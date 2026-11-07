@@ -88,6 +88,7 @@ interface PageInfo {
 }
 
 interface StaticEntryRenderer {
+  renderStaticShell: (content: string, path: string) => string;
   renderBookChapter: (entry: Entry, path: string) => string;
   renderMonster: (monster: MonsterEntry, path: string) => string;
 }
@@ -1774,15 +1775,18 @@ function buildHtml(
         source.bookId
           ? `<a href="${escapeHtml(absolute(`/books/${source.bookId}`, locale) + bookAnchorHash(source.page, source.name))}">${sourceTitle}</a>`
           : sourceTitle
-      } · <a href="${absolute('/legal/licenses', locale)}">${escapeHtml(translate(locale, 'legal.licenses.title'))}</a></p>`
+      } - <a href="${absolute('/legal/licenses', locale)}">${escapeHtml(translate(locale, 'legal.licenses.title'))}</a></p>`
     : '';
   const encounter = page.monster
     ? `<p><a href="${escapeHtml(absolute('/dm/encounter', locale) + '?' + new URLSearchParams({ monster: page.monster.id }))}">${escapeHtml(translate(locale, 'encounter.openForMonster'))}</a></p>`
     : '';
   const contentHtml = page.monster
     ? `${body}${encounter}${fallbackImage}`
-    : `<h1>${heading}</h1>${fallbackImage}${body}`;
-  const fallback = `<main id="prerendered-content" data-prerendered="true" data-path="${escapeHtml(pathname)}"><nav aria-label="${escapeHtml(translate(locale, 'seo.breadcrumb'))}">${breadcrumbs}</nav>${retry}${contentHtml}${attribution}${links}</main>`;
+    : `<h1 class="page-title">${heading}</h1>${fallbackImage}${body}`;
+  const staticContent = `<nav class="mb-4 text-sm" aria-label="${escapeHtml(translate(locale, 'seo.breadcrumb'))}">${breadcrumbs}</nav>${retry}${contentHtml}${attribution}${links}`;
+  const fallback = page.staticOnly
+    ? render.renderStaticShell(staticContent, pathname)
+    : `<main id="prerendered-content" data-prerendered="true" data-path="${escapeHtml(pathname)}"><article class="page-shell reading-content">${staticContent}</article></main>`;
   const imagePreload = page.image
     ? `<link rel="preload" as="image" href="${escapeHtml(imagePreloadUrl(page.image))}" fetchpriority="high" />`
     : '';
@@ -1931,7 +1935,9 @@ function buildHtml(
   html = html.replace('</head>', `    ${additions}\n  </head>`);
   return html.replace(
     '<div id="root"><div id="app-root" data-app-ready="false"></div></div>',
-    `<div id="root"><div id="app-root" data-app-ready="false"></div>${fallback}</div>`,
+    page.staticOnly
+      ? `<div id="root">${fallback}</div>`
+      : `<div id="root"><div id="app-root" data-app-ready="false"></div>${fallback}</div>`,
   );
 }
 

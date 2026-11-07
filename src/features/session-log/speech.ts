@@ -88,7 +88,7 @@ async function getWhisperPipeline(
               typeof p.progress === 'number'
                 ? ` ${Math.round(p.progress as number)}%`
                 : '';
-            onStatus(`${downloadLabel}${pct}…`);
+            onStatus(`${downloadLabel}${pct}...`);
           }
         };
 

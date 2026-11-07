@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   ArrowDownWideNarrow,
   ArrowUpNarrowWide,
@@ -10,6 +10,7 @@ import {
 import type { CompendiumEntryBase } from '@/data/compendium/types';
 import { HOMEBREW_SOURCE } from '@/features/homebrew/store';
 import { useT } from '@/i18n/useT';
+import { useDialogFocus } from '@/features/ui/useDialogFocus';
 import type { Locale } from '@/i18n/locales';
 import {
   Button,
@@ -86,19 +87,17 @@ function FacetSection({
   const hasMore = !term && (expanded || shown.length < visible.length);
 
   return (
-    <div className="flex flex-col gap-1">
+    <div role="group" aria-label={t(filter.label)} className="flex flex-col gap-1">
       <div className="flex flex-wrap items-center justify-between gap-2">
         {!hideLabel && (
           <div className="flex items-baseline gap-1.5">
             <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">
               {t(filter.label)}
             </p>
-            <span className="text-[0.65rem] tabular-nums text-ink-500">
-              {visible.length}
-            </span>
+            <span className="text-xs tabular-nums text-ink-500">{visible.length}</span>
           </div>
         )}
-        <div className="ml-auto flex flex-wrap items-center gap-2 text-[0.65rem] text-ink-400">
+        <div className="ml-auto flex flex-wrap items-center gap-2 text-xs text-ink-400">
           {filter.includeAny && (
             <label className="inline-flex cursor-pointer items-center gap-1.5 text-xs text-ink-300">
               <input
@@ -117,7 +116,7 @@ function FacetSection({
             onClick={() => onSet([...new Set([...selected, ...visible])])}
             variant="ghost"
             size="sm"
-            className="min-h-0 px-1 py-0 text-[0.65rem]"
+            className=""
           >
             {t('compendium.filters.all')}
           </Button>
@@ -126,7 +125,7 @@ function FacetSection({
             onClick={() => onSet(selected.filter((value) => !visible.includes(value)))}
             variant="ghost"
             size="sm"
-            className="min-h-0 px-1 py-0 text-[0.65rem]"
+            className=""
           >
             {t('compendium.filters.clear')}
           </Button>
@@ -176,15 +175,9 @@ export function FilterBar({
 }: FilterBarProps) {
   const { t, locale } = useT();
   const [modalOpen, setModalOpen] = useState(false);
-  const [summaryOpen, setSummaryOpen] = useState(false);
+  const [summaryOpen, setSummaryOpen] = useState(true);
   const [search, setSearch] = useState('');
-
-  useEffect(() => {
-    if (!modalOpen) return;
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setModalOpen(false);
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [modalOpen]);
+  const dialogRef = useDialogFocus(modalOpen, () => setModalOpen(false));
 
   const groups = useMemo(
     () =>
@@ -240,11 +233,12 @@ export function FilterBar({
         </Button>
         <div className="flex items-center gap-1">
           <Select
+            size="sm"
             value={sortField}
             onChange={(e) => onSortField(e.target.value)}
             aria-label={t('compendium.sort.label')}
             title={t('compendium.sort.label')}
-            className="min-h-8 max-w-[8rem] truncate px-2 py-1 text-xs"
+            className="max-w-[8rem] truncate"
           >
             <option value="name">{t('compendium.sort.byName')}</option>
             {filters.map((filter) => (
@@ -290,16 +284,17 @@ export function FilterBar({
           >
             <Shuffle size={14} />
           </IconButton>
-          <IconButton
-            onClick={onClear}
-            disabled={activeCount === 0}
-            title={t('compendium.filters.resetFilters')}
-            label={t('compendium.filters.resetFilters')}
-            variant="ghost"
-            size="sm"
-          >
-            <RotateCcw size={14} />
-          </IconButton>
+          {activeCount > 0 && (
+            <IconButton
+              onClick={onClear}
+              title={t('compendium.filters.resetFilters')}
+              label={t('compendium.filters.resetFilters')}
+              variant="ghost"
+              size="sm"
+            >
+              <RotateCcw size={14} />
+            </IconButton>
+          )}
         </div>
       </div>
 
@@ -335,13 +330,12 @@ export function FilterBar({
           role="dialog"
           aria-modal="true"
           aria-label={t('compendium.filters.dialog')}
+          ref={dialogRef}
+          tabIndex={-1}
           onClick={() => setModalOpen(false)}
-          className="fixed inset-0 z-[60] flex items-start justify-center bg-black/70 p-4 pt-16"
+          className="dialog-overlay"
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="flex max-h-[80vh] w-full max-w-2xl flex-col rounded-xl border border-ink-700 bg-ink-900 shadow-xl"
-          >
+          <div onClick={(e) => e.stopPropagation()} className="dialog-panel">
             <div className="flex items-center justify-between gap-3 border-b border-ink-700 p-3">
               <SearchField
                 value={search}
@@ -372,48 +366,6 @@ export function FilterBar({
             </div>
 
             <div className="flex flex-col gap-4 overflow-y-auto p-4">
-              {sourceGroup && (coreValues.length > 0 || homebrewValues.length > 0) && (
-                <div className="flex flex-col gap-3">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">
-                    {t('compendium.filters.sourceHeading')}
-                  </p>
-                  {coreValues.length > 0 && (
-                    <div className="flex flex-col gap-1">
-                      <p className="text-[0.65rem] italic text-ink-400">
-                        {t('compendium.filters.coreSupplements')}
-                      </p>
-                      <FacetSection
-                        group={{ filter: sourceGroup.filter, values: coreValues }}
-                        selected={selected.source ?? []}
-                        onToggle={(value) => onToggle('source', value)}
-                        onSet={(values) => onSetFilter('source', values)}
-                        search={search}
-                        hideLabel
-                        t={t}
-                        locale={locale}
-                      />
-                    </div>
-                  )}
-                  {homebrewValues.length > 0 && (
-                    <div className="flex flex-col gap-1">
-                      <p className="text-[0.65rem] italic text-ink-400">
-                        {t('compendium.homebrewLabel')}
-                      </p>
-                      <FacetSection
-                        group={{ filter: sourceGroup.filter, values: homebrewValues }}
-                        selected={selected.source ?? []}
-                        onToggle={(value) => onToggle('source', value)}
-                        onSet={(values) => onSetFilter('source', values)}
-                        search={search}
-                        hideLabel
-                        t={t}
-                        locale={locale}
-                      />
-                    </div>
-                  )}
-                </div>
-              )}
-
               {otherGroups.map((group) => (
                 <FacetSection
                   key={group.filter.id}
@@ -437,6 +389,47 @@ export function FilterBar({
                   locale={locale}
                 />
               ))}
+              {sourceGroup && (coreValues.length > 0 || homebrewValues.length > 0) && (
+                <div className="flex flex-col gap-3">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">
+                    {t('compendium.filters.sourceHeading')}
+                  </p>
+                  {coreValues.length > 0 && (
+                    <div className="flex flex-col gap-1">
+                      <p className="text-xs italic text-ink-400">
+                        {t('compendium.filters.coreSupplements')}
+                      </p>
+                      <FacetSection
+                        group={{ filter: sourceGroup.filter, values: coreValues }}
+                        selected={selected.source ?? []}
+                        onToggle={(value) => onToggle('source', value)}
+                        onSet={(values) => onSetFilter('source', values)}
+                        search={search}
+                        hideLabel
+                        t={t}
+                        locale={locale}
+                      />
+                    </div>
+                  )}
+                  {homebrewValues.length > 0 && (
+                    <div className="flex flex-col gap-1">
+                      <p className="text-xs italic text-ink-400">
+                        {t('compendium.homebrewLabel')}
+                      </p>
+                      <FacetSection
+                        group={{ filter: sourceGroup.filter, values: homebrewValues }}
+                        selected={selected.source ?? []}
+                        onToggle={(value) => onToggle('source', value)}
+                        onSet={(values) => onSetFilter('source', values)}
+                        search={search}
+                        hideLabel
+                        t={t}
+                        locale={locale}
+                      />
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -1,5 +1,7 @@
 const en = {
   common: {
+    exportOptions: 'Export options',
+    tableScroll: 'Table, scroll horizontally if needed',
     allBooks: 'All books',
     cancel: 'Cancel',
     confirm: 'Confirm',
@@ -12,7 +14,7 @@ const en = {
     storageError:
       'The browser could not save your local data. Export a backup and free some site storage.',
     clipboardError: 'The browser could not copy that text.',
-    loading: 'Loading…',
+    loading: 'Loading...',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     close: 'Close',
@@ -346,7 +348,7 @@ const en = {
   },
   compendium: {
     title: 'Compendium',
-    searchPlaceholder: 'Search {{category}}…',
+    searchPlaceholder: 'Search {{category}}...',
     searchLabel: 'Search {{category}}',
     failedToLoad: 'Failed to load data.',
     noMatches: 'No matches.',
@@ -533,7 +535,7 @@ const en = {
       randomEntry: 'Random entry',
       jumpRandom: 'Jump to a random entry',
       resetFilters: 'Reset filters',
-      searchPlaceholder: 'Search filters…',
+      searchPlaceholder: 'Search filters...',
       searchAria: 'Search filter options',
       close: 'Close filters',
       dialog: 'Filters',
@@ -683,7 +685,7 @@ const en = {
       diet: 'Diet',
       weaponMastery: 'Weapon Mastery',
       table: 'Table',
-      deckCards: 'Deck · {{count}} cards',
+      deckCards: 'Deck - {{count}} cards',
       dimensions: 'Dimensions',
       terrain: 'Terrain',
       capacity: 'Capacity',
@@ -889,14 +891,14 @@ const en = {
         species: 'Species',
         background: 'Background',
         noneSelected: 'None selected',
-        searchSpecies: 'Search species…',
-        searchBackgrounds: 'Search backgrounds…',
+        searchSpecies: 'Search species...',
+        searchBackgrounds: 'Search backgrounds...',
       },
       notFound: 'This character could not be found.',
       backToCharacters: 'Back to characters',
       settings: 'Character Settings',
       export: 'Export',
-      filling: 'Filling…',
+      filling: 'Filling...',
       sheetEdition: 'Sheet ({{edition}})',
       pdfFailedTitle: 'Sheet export failed',
       pdfFailedMessage:
@@ -962,7 +964,7 @@ const en = {
         spellLevelShort: 'Lvl {{level}}',
       },
       sessionQuick: {
-        placeholder: 'Write a quick note…',
+        placeholder: 'Write a quick note...',
         addNote: 'Add note to session log',
         openFull: 'Open full session log',
       },
@@ -1017,19 +1019,19 @@ const en = {
       },
       actionsTab: {
         namePlaceholder: 'Action name (e.g. Longsword Attack)',
-        detailsPlaceholder: 'Details, to-hit, damage…',
+        detailsPlaceholder: 'Details, to-hit, damage...',
         remove: 'Remove action',
         add: 'Add action',
       },
       inventoryTab: {
-        addFromCompendium: 'Add an item from the compendium…',
+        addFromCompendium: 'Add an item from the compendium...',
         namePlaceholder: 'Item name',
         descPlaceholder: 'Short description',
         remove: 'Remove item',
         add: 'Add item',
       },
       featuresTab: {
-        addFromCompendium: 'Add a feat from the compendium…',
+        addFromCompendium: 'Add a feat from the compendium...',
         namePlaceholder: 'Feature / trait / feat',
         sourcePlaceholder: 'Source',
         descPlaceholder: 'Description',
@@ -1049,7 +1051,7 @@ const en = {
         spendSlot: 'Spend a level {{level}} slot',
         recoverSlot: 'Recover a level {{level}} slot',
         spells: 'Spells',
-        addFromCompendium: 'Add a spell from the compendium…',
+        addFromCompendium: 'Add a spell from the compendium...',
         prep: 'Prep',
         namePlaceholder: 'Spell name',
         remove: 'Remove spell',
@@ -1064,10 +1066,10 @@ const en = {
         saveLabel: '{{ability}} save',
       },
       notesTab: {
-        placeholder: 'Backstory, session notes, anything…',
+        placeholder: 'Backstory, session notes, anything...',
       },
       picker: {
-        loadingCompendium: 'Loading compendium…',
+        loadingCompendium: 'Loading compendium...',
         filterBySource: 'Filter by source',
       },
       settingsModal: {
@@ -1091,7 +1093,7 @@ const en = {
   books: {
     title: 'Books',
     subtitle: 'Read rulebooks and adventures. Text and art load on demand.',
-    searchPlaceholder: 'Search books and adventures…',
+    searchPlaceholder: 'Search books and adventures...',
     searchLabel: 'Search books',
     rulebooks: 'Rulebooks',
     adventures: 'Adventures',
@@ -1139,7 +1141,7 @@ const en = {
         'Coins scale by tier and magic items are drawn from the compendium at ' +
         'tier-appropriate rarities, inspired by the 2024 treasure tables.',
       generateHoard: 'Generate Hoard',
-      loadingItems: 'Loading items…',
+      loadingItems: 'Loading items...',
       rerollItems: 'Reroll items',
       minorReward: 'Minor Reward',
       majorReward: 'Major Reward',
@@ -1157,7 +1159,7 @@ const en = {
       toGenerateLoot: 'to generate loot they can actually use.',
       partyCount: 'Party ({{selected}} of {{total}})',
       level: 'Lvl {{level}}',
-      effectiveTier: 'Effective {{tier}} · average level {{level}}',
+      effectiveTier: 'Effective {{tier}} - average level {{level}}',
       rollWildcardLoot: 'Roll Wildcard Loot',
       wildcardNote:
         "Anything goes: any type, no proficiency filters - for a surprise that doesn't " +
@@ -1209,7 +1211,7 @@ const en = {
     rechargeParen: '(Recharge {{range}})',
     recharged: 'recharged',
     rechargeNotYet: 'not yet',
-    rechargeRolled: 'rolled {{result}} · {{status}}',
+    rechargeRolled: 'rolled {{result}} - {{status}}',
     rollTitle: 'Roll {{expression}}',
   },
   initiative: {
@@ -1221,12 +1223,12 @@ const en = {
     clearAllConfirm: 'Clear all combatants?',
     clearAll: 'Clear all',
     addFromRoster: 'Add from roster',
-    chooseCharacter: 'Choose a character…',
+    chooseCharacter: 'Choose a character...',
     unnamed: 'Unnamed',
     init: 'Init',
     add: 'Add',
     name: 'Name',
-    namePlaceholder: 'Goblin, Aragorn…',
+    namePlaceholder: 'Goblin, Aragorn...',
     rollInitiative: 'Roll initiative',
     hp: 'HP',
     ac: 'AC',
@@ -1236,6 +1238,7 @@ const en = {
     emptyState: 'Add combatants to begin tracking initiative.',
   },
   sessionLog: {
+    sessionTitle: 'Session title',
     sessions: 'Sessions',
     newSession: 'New session',
     newSessionTitle: 'Session - {{date}}',
@@ -1249,7 +1252,7 @@ const en = {
     english: 'English',
     polish: 'Polish',
     voiceNotSupported: "Voice capture isn't supported in this browser.",
-    transcribing: 'Transcribing…',
+    transcribing: 'Transcribing...',
     downloadingModel: 'Downloading Whisper model',
     speechErrTranscribe: 'Transcription failed',
     speechErrMic: 'Microphone access denied',
@@ -1280,7 +1283,7 @@ const en = {
     copyWithAiPrompt: 'Copy with AI prompt',
     notes: 'Session notes',
     notesPlaceholder: 'Names, clues, decisions, reminders...',
-    transcriptEmptyState: 'Your session transcript will appear here as you speak…',
+    transcriptEmptyState: 'Your session transcript will appear here as you speak...',
   },
   encounter: {
     openForMonster: 'Find this creature in the encounter builder',
@@ -1299,14 +1302,14 @@ const en = {
     habitat: 'Habitat',
     allHabitats: 'All habitats',
     includeAny: 'Include any habitat',
-    loadingBestiary: 'Loading bestiary…',
-    searchMonsters: 'Search monsters…',
+    loadingBestiary: 'Loading bestiary...',
+    searchMonsters: 'Search monsters...',
     addRandomMonster: 'Add random monster',
     addRandomMonsterHint:
       'Choose a monster from the high budget up to 10% above it, or the closest stronger option.',
     randomMonsterUnavailable:
       'No suitable stronger monster was found for this party and habitat.',
-    crXp: 'CR {{cr}} · {{xp}} XP',
+    crXp: 'CR {{cr}} - {{xp}} XP',
     crValue: 'CR {{cr}}',
     xpValue: '{{xp}} XP',
     fewer: 'Fewer {{name}}',
@@ -1316,6 +1319,7 @@ const en = {
     difficulty: 'Difficulty',
   },
   soundboard: {
+    emptyState: 'No tracks in this category. Add a track or choose another category.',
     title: 'Soundboard',
     clearConfirm: 'Clear every track and custom category from the soundboard?',
     clear: 'Clear soundboard',
@@ -1403,7 +1407,7 @@ const en = {
       homebrew:
         'Create, import, translate, and manage D&D homebrew entries stored locally in your browser.',
       fumbleHomebrew:
-        'Browse the Fumble creators’ campaign rules, options, classes, lineages, and items.',
+        'Browse the Fumble creators campaign rules, options, classes, lineages, and items.',
       books:
         'Browse and read indexed D&D rulebooks and adventures by edition, category, and chapter.',
       dice: 'Roll D&D dice, expressions, advantage checks, and reusable dice pools in your browser.',
@@ -1430,7 +1434,7 @@ const en = {
     higherLevels: 'At Higher Levels',
   },
   wiki: {
-    loading: 'Loading wiki…',
+    loading: 'Loading wiki...',
     emptyPage: 'Nothing here',
     campaignWiki: 'Campaign Wiki',
     noContentYet: 'No wiki content yet. Build it from your Obsidian vault with',
@@ -1513,7 +1517,7 @@ const en = {
     emptyState: 'No homebrew yet. Create an entry, or import a 5etools homebrew',
     emptyStateFile: 'file.',
     classLabel: 'Class',
-    searchForClass: 'Search for a class…',
+    searchForClass: 'Search for a class...',
     subclassOf: 'Subclass of {{className}}',
     deleteConfirm: 'Delete "{{label}}"?',
     entryUpdated: 'Entry updated.',

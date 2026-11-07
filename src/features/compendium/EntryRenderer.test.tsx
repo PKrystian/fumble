@@ -5,7 +5,11 @@ import type { Entry } from '@/data/compendium/entry';
 import { useLightbox } from '@/features/ui/lightboxStore';
 import { useRollStore } from '@/features/dice/rollStore';
 import { EntryRenderer } from './EntryRenderer';
-import { renderBookChapter, renderMonster } from '@/seo/staticEntryRenderer';
+import {
+  renderBookChapter,
+  renderMonster,
+  renderStaticShell,
+} from '@/seo/staticEntryRenderer';
 import type { MonsterEntry } from '@/data/compendium/types';
 
 const show = (entries: Entry[]) =>
@@ -17,6 +21,35 @@ const show = (entries: Entry[]) =>
 const roll = useRollStore.getState().roll;
 
 describe('entry renderer', () => {
+  it('preserves a nested heading hierarchy and caps deeply nested sections at h6', () => {
+    let entry: Entry = 'Body';
+    for (let index = 6; index >= 0; index -= 1)
+      entry = { type: 'section', name: `Section ${index}`, entries: [entry] };
+    show([entry]);
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'Section 0' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 3, name: 'Section 1' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 6, name: 'Section 6' }),
+    ).toBeInTheDocument();
+  });
+
+  it('keeps static catalogs navigable and localized without JavaScript', () => {
+    const html = renderStaticShell(
+      '<h1 class="page-title">Catalog</h1><a href="/pl/compendium/spells/alarm/">Alarm</a>',
+      '/pl/compendium/spells/browse/1/',
+    );
+    expect(html).toContain('static-sidebar');
+    expect(html).toContain('id="static-main" data-prerendered="true"');
+    expect(html).toContain('<footer');
+    expect(html).toContain('href="/pl/legal/privacy/"');
+    expect(html).toContain('Polityka prywatności');
+    expect(html).toContain('<details');
+    expect(html).not.toContain('<button');
+  });
   beforeEach(() => {
     useLightbox.setState({ src: null, caption: '' });
     useRollStore.setState({ log: [], dockOpen: false, roll });

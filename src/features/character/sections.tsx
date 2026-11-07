@@ -1,3 +1,4 @@
+import { Button } from '@/features/ui/primitives';
 import { useRef, useState } from 'react';
 import { Send, UserRound, X } from 'lucide-react';
 import { useSessionStore } from '@/features/session-log/store';
@@ -52,7 +53,7 @@ function ClassField({ character, update }: SectionProps) {
       <select
         value={cls?.id ?? ''}
         onChange={(event) => update({ className: event.target.value, subclass: '' })}
-        className="rounded-md border border-ink-700 bg-ink-900 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
+        className="ui-field"
       >
         <option value="">{t('character.sheet.fields.noneSelected')}</option>
         {options.map((item) => (
@@ -87,7 +88,7 @@ function SubclassField({ character, update }: SectionProps) {
         value={selected ? subclassKey(selected) : ''}
         onChange={(event) => update({ subclass: event.target.value })}
         disabled={options.length === 0}
-        className="rounded-md border border-ink-700 bg-ink-900 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none disabled:opacity-50"
+        className="ui-field"
       >
         <option value="">{t('character.sheet.fields.noneSelected')}</option>
         {options.map((item) => (
@@ -115,7 +116,7 @@ function PortraitField({ character, update }: SectionProps) {
             ? t('character.sheet.changePortrait')
             : t('character.sheet.addPortrait')
         }
-        className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-lg border border-ink-700 bg-ink-950 hover:border-arcane-500"
+        className="portrait-button"
       >
         {character.portrait ? (
           <img
@@ -126,7 +127,7 @@ function PortraitField({ character, update }: SectionProps) {
             className="h-full w-full object-cover"
           />
         ) : (
-          <UserRound className="text-ink-600" size={32} aria-hidden="true" />
+          <UserRound className="text-ink-500" size={32} aria-hidden="true" />
         )}
       </button>
       <input
@@ -141,14 +142,17 @@ function PortraitField({ character, update }: SectionProps) {
         }}
       />
       {character.portrait && (
-        <button
+        <Button
           type="button"
           aria-label={t('character.sheet.removePortrait')}
           onClick={() => update({ portrait: '' })}
-          className="absolute -right-1.5 -top-1.5 rounded-full bg-ink-800 p-0.5 text-ink-300 hover:text-red-400"
+          variant="ghost"
+          size="sm"
+          iconOnly
+          className="absolute -right-1.5 -top-1.5"
         >
           <X size={12} />
-        </button>
+        </Button>
       )}
       {pendingFile && (
         <ImageCropperModal
@@ -170,10 +174,10 @@ function PortraitField({ character, update }: SectionProps) {
 export function IdentityHeader({ character, update }: SectionProps) {
   const { t } = useT();
   return (
-    <div className="flex gap-4 rounded-xl border border-ink-700 bg-ink-900 p-4">
+    <div className="flex flex-col gap-4 rounded-xl border border-ink-700 bg-ink-900 p-4 sm:flex-row">
       <PortraitField character={character} update={update} />
-      <div className="grid flex-1 grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-        <div className="col-span-2 sm:col-span-3 lg:col-span-2">
+      <div className="grid min-w-0 flex-1 grid-cols-1 gap-3 min-[380px]:grid-cols-2 sm:grid-cols-3 xl:grid-cols-6">
+        <div className="min-[380px]:col-span-2 sm:col-span-3 xl:col-span-2">
           <TextField
             label={t('character.sheet.fields.name')}
             value={character.name}
@@ -217,10 +221,8 @@ function ArmorClassField({ character, update }: SectionProps) {
 
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-center text-[10px] font-semibold uppercase text-ink-400">
-        {t('character.sheet.fields.armorClass')}
-      </span>
       <NumberField
+        label={t('character.sheet.fields.armorClass')}
         value={breakdown.total}
         onChange={(value) => update({ acOverride: value })}
       />
@@ -232,7 +234,7 @@ function ArmorClassField({ character, update }: SectionProps) {
             ? t('character.sheet.fields.acAuto')
             : breakdown.parts.join(' + ')
         }
-        className="text-center text-[10px] text-ink-400 hover:text-arcane-300"
+        className="text-center text-xs text-ink-400 hover:text-arcane-300"
       >
         {breakdown.manual
           ? t('character.sheet.fields.acManual')
@@ -263,7 +265,7 @@ export function AbilityScoresPanel({ character, update }: SectionProps) {
               <input
                 type="number"
                 aria-label={t(`character.sheet.abilities.${key}`)}
-                className="w-14 rounded-md border border-ink-700 bg-ink-900 px-1 py-0.5 text-center text-sm text-ink-50 focus:border-arcane-500 focus:outline-none"
+                className="ui-field w-14 text-center"
                 value={character.abilities[key]}
                 onChange={(event) =>
                   update({
@@ -361,7 +363,7 @@ export function SkillsPanel({ character, update }: SectionProps) {
                 onClick={() => cycleSkill(skill.id)}
                 title={t('character.sheet.skillsPanel.cycleTitle')}
                 className={[
-                  'flex h-4 w-4 items-center justify-center rounded-full border text-[8px]',
+                  'ui-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs',
                   isExp
                     ? 'border-ember-400 bg-ember-400 text-ink-950'
                     : isProf
@@ -389,7 +391,9 @@ export function SkillsPanel({ character, update }: SectionProps) {
 function StatBox({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col items-center rounded-lg border border-ink-700 bg-ink-800 px-2 py-1">
-      <span className="text-[10px] font-semibold uppercase text-ink-400">{label}</span>
+      <span className="break-words text-center text-xs font-semibold uppercase text-ink-400">
+        {label}
+      </span>
       <span className="font-display text-lg font-bold text-ink-50">{value}</span>
     </div>
   );
@@ -492,20 +496,12 @@ export function HitPointsPanel({ character, update }: SectionProps) {
           onChange={setAmount}
           min={0}
         />
-        <button
-          type="button"
-          onClick={heal}
-          className="rounded-md bg-green-700 px-3 py-1 text-sm font-medium text-ink-50 hover:bg-green-600"
-        >
+        <Button type="button" onClick={heal} variant="success" size="sm">
           {t('character.sheet.hpFields.heal')}
-        </button>
-        <button
-          type="button"
-          onClick={damage}
-          className="rounded-md bg-red-700 px-3 py-1 text-sm font-medium text-ink-50 hover:bg-red-600"
-        >
+        </Button>
+        <Button type="button" onClick={damage} variant="danger" size="sm">
           {t('character.sheet.hpFields.damage')}
-        </button>
+        </Button>
       </div>
     </Panel>
   );
@@ -682,16 +678,18 @@ export function SessionLogQuickPanel() {
           onChange={(event) => setText(event.target.value)}
           onKeyDown={(event) => event.key === 'Enter' && send()}
           placeholder={t('character.sheet.sessionQuick.placeholder')}
-          className="flex-1 rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-sm text-ink-50 placeholder:text-ink-400 focus:border-arcane-500 focus:outline-none"
+          className="ui-field flex-1"
         />
-        <button
+        <Button
           type="button"
           onClick={send}
           aria-label={t('character.sheet.sessionQuick.addNote')}
-          className="rounded-md bg-arcane-700 p-1.5 text-ink-50 hover:bg-arcane-500"
+          variant="primary"
+          size="sm"
+          iconOnly
         >
           <Send size={16} />
-        </button>
+        </Button>
       </div>
       <Link to="/session-log" className="text-xs text-arcane-300 hover:underline">
         {t('character.sheet.sessionQuick.openFull')}

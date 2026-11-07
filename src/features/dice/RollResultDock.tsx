@@ -1,3 +1,4 @@
+import { Button } from '@/features/ui/primitives';
 import { RotateCw, X } from 'lucide-react';
 import { useT } from '@/i18n/useT';
 import { type RollMode, describeRolls } from './engine';
@@ -30,14 +31,16 @@ export function RollResultDock() {
           <span className="text-xs font-semibold uppercase tracking-wider text-ink-400">
             {t('dice.diceResult')}
           </span>
-          <button
+          <Button
             type="button"
             onClick={closeDock}
             aria-label={t('dice.closeDiceResult')}
-            className="rounded p-1 text-ink-400 hover:bg-ink-800 hover:text-ink-50"
+            variant="ghost"
+            size="sm"
+            iconOnly
           >
             <X size={16} />
-          </button>
+          </Button>
         </div>
 
         <div className="px-4 py-3 text-center">
@@ -56,31 +59,34 @@ export function RollResultDock() {
           <p className="text-xs text-ink-400">{describeRolls(outcome)}</p>
 
           <div className="mt-3 flex items-center justify-center gap-2">
-            <button
+            <Button
               type="button"
               onClick={() => reroll('normal')}
-              className="inline-flex items-center gap-1 rounded-md bg-arcane-700 px-3 py-1.5 text-sm font-medium text-ink-50 hover:bg-arcane-500"
+              variant="primary"
+              size="sm"
             >
               <RotateCw size={14} /> {t('dice.reroll')}
-            </button>
+            </Button>
             {hasD20 && (
               <>
-                <button
+                <Button
                   type="button"
                   onClick={() => reroll('advantage')}
-                  className="rounded-md border border-ink-700 px-2.5 py-1.5 text-sm text-ink-200 hover:bg-ink-800"
+                  variant="secondary"
+                  size="sm"
                   title={t('dice.rollWithAdvantage')}
                 >
                   {t('dice.adv')}
-                </button>
-                <button
+                </Button>
+                <Button
                   type="button"
                   onClick={() => reroll('disadvantage')}
-                  className="rounded-md border border-ink-700 px-2.5 py-1.5 text-sm text-ink-200 hover:bg-ink-800"
+                  variant="secondary"
+                  size="sm"
                   title={t('dice.rollWithDisadvantage')}
                 >
                   {t('dice.dis')}
-                </button>
+                </Button>
               </>
             )}
           </div>
@@ -102,19 +108,14 @@ export function RollResultDock() {
             </div>
             <ul className="flex flex-col gap-0.5">
               {log.slice(1, 12).map((entry) => (
-                <li
-                  key={entry.id}
-                  className="flex items-center justify-between text-sm text-ink-300"
-                >
+                <li key={entry.id} className="roll-history-row">
                   <span className="min-w-0 truncate">
                     {entry.label ? `${entry.label}: ` : ''}
                     {entry.outcome.expression}
                     {entry.outcome.mode !== 'normal' &&
                       ` (${MODE_LABELS[entry.outcome.mode][0]})`}
                   </span>
-                  <span className="ml-2 font-display font-bold text-ink-50">
-                    {entry.outcome.total}
-                  </span>
+                  <span className="roll-value">{entry.outcome.total}</span>
                 </li>
               ))}
             </ul>

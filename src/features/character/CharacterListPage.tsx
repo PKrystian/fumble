@@ -50,11 +50,9 @@ export function CharacterListPage() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 sm:py-10">
+    <div className="page-shell">
       <header className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
-        <h1 className="font-display text-2xl font-bold text-ink-50 sm:text-3xl">
-          {t('character.list.title')}
-        </h1>
+        <h1 className="text-ink-50 page-title">{t('character.list.title')}</h1>
         <div className="flex flex-col gap-2 sm:flex-row">
           <Button className="w-full sm:w-auto" onClick={() => fileInput.current?.click()}>
             <Upload size={16} /> {t('character.list.import')}
@@ -77,9 +75,7 @@ export function CharacterListPage() {
       </header>
 
       {characters.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-ink-700 p-12 text-center text-ink-300">
-          {t('character.list.emptyState')}
-        </div>
+        <div className="empty-state">{t('character.list.emptyState')}</div>
       ) : (
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {characters.map((character) => (
@@ -117,7 +113,7 @@ export function CharacterListPage() {
                         {character.name || t('character.unnamed')}
                       </span>
                       {isDmCharacter(character) && (
-                        <span className="rounded-full border border-ember-500/50 px-1.5 text-[0.65rem] uppercase tracking-wide text-ember-400">
+                        <span className="badge border-ember-500/50 text-ember-400">
                           {t('character.dmBadge')}
                         </span>
                       )}
@@ -125,7 +121,7 @@ export function CharacterListPage() {
                     <p className="break-words text-sm text-ink-400">
                       {t('character.list.level', { level: character.level })}
                       {character.className && ` ${character.className}`}
-                      {character.species && ` · ${character.species}`}
+                      {character.species && ` - ${character.species}`}
                     </p>
                   </div>
                 </button>

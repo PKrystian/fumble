@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useSearchStore } from '@/features/search/searchStore';
@@ -94,6 +94,12 @@ describe('AppLayout', () => {
         .find((button) => button.hasAttribute('aria-expanded')),
     ).toHaveAttribute('aria-expanded', 'true');
     fireEvent.click(screen.getAllByRole('button', { name: 'Close menu' })[0]!);
+    expect(screen.getByRole('button', { name: 'Open menu' })).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Open menu' }));
+    fireEvent.click(
+      within(screen.getByRole('dialog')).getByRole('button', { name: 'Close menu' }),
+    );
     expect(screen.getByRole('button', { name: 'Open menu' })).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: 'Open menu' }));

@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import { useT } from '@/i18n/useT';
 import { useDialogStore } from './confirmStore';
 import { Button } from './primitives';
-import { panelClass } from './styles';
 import { useDialogFocus } from './useDialogFocus';
 
 export function ConfirmDialog() {
@@ -10,14 +9,11 @@ export function ConfirmDialog() {
   const request = useDialogStore((s) => s.request);
   const respond = useDialogStore((s) => s.respond);
   const confirmRef = useRef<HTMLButtonElement>(null);
-  const dialogRef = useDialogFocus(Boolean(request));
+  const dialogRef = useDialogFocus(Boolean(request), () => respond(false));
 
   useEffect(() => {
     if (!request) return;
     confirmRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && respond(false);
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
   }, [request, respond]);
 
   if (!request) return null;
@@ -34,15 +30,15 @@ export function ConfirmDialog() {
       aria-modal="true"
       aria-label={title}
       onClick={() => respond(false)}
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/70 p-4"
+      className="dialog-overlay z-[80]"
     >
       <div
         ref={dialogRef}
         tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
-        className={panelClass('w-full max-w-sm border-ink-700 p-5 shadow-xl')}
+        className="dialog-panel max-w-sm p-5"
       >
-        <h2 className="font-display text-lg font-bold text-ink-50">{title}</h2>
+        <h2 className="text-ink-50 section-title">{title}</h2>
         <p className="mt-2 whitespace-pre-line text-sm text-ink-300">{request.message}</p>
         <div className="mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
           {!isAlert && <Button onClick={() => respond(false)}>{cancelLabel}</Button>}
