@@ -9,7 +9,10 @@ const loadLocalizedItems = vi.fn();
 const localeMock = vi.hoisted(() => ({ value: 'en' }));
 
 vi.mock('@/data/compendium/overlay', () => ({
-  loadLocalizedItems: (...args: unknown[]) => loadLocalizedItems(...args),
+  loadLocalizedCategory: async (...args: unknown[]) => {
+    const items = await loadLocalizedItems(...args);
+    return { baseItems: items, items };
+  },
 }));
 
 vi.mock('@/i18n/pathUtils', () => ({

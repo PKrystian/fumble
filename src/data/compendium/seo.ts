@@ -1,6 +1,7 @@
 import { translate } from '../../i18n/translate';
 import type { Locale } from '../../i18n/locales';
 import { localizeCompendiumValue } from './localizeValue';
+import { sourceEdition, sourceRank } from './sources';
 import type { CompendiumEntryBase } from './types';
 
 export interface CompendiumSeo {
@@ -200,6 +201,7 @@ export function getCompendiumEntrySeo({
     translated(locale, `compendium.seo.categoryTypes.${categoryId}`) ||
     categoryLabel.toLocaleLowerCase(locale);
   const source = sourceLabel || item.source;
+  const edition = sourceRank(item.source) ? `D&D ${sourceEdition(item.source)}` : 'D&D';
   const details =
     entryDetails(categoryId, item, locale) ||
     translate(locale, 'compendium.seo.entryDetailsFallback');
@@ -207,12 +209,14 @@ export function getCompendiumEntrySeo({
     title: translate(locale, 'compendium.seo.entryTitle', {
       name,
       type,
+      edition,
       source: item.source,
     }),
     description: clipDescription(
       translate(locale, 'compendium.seo.entryDescription', {
         name,
         type,
+        edition,
         details,
         source,
       }),

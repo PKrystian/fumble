@@ -42,6 +42,30 @@
 - Confirm the previous deployment can be restored.
 - Test a direct route, a Polish route, and a missing route after deployment.
 
+## Canonical redirects
+
+In Cloudflare Single Redirects, use a custom filter for slashless compendium and book routes.
+
+```text
+http.host eq "fumble.krystianpinczak.com"
+and http.request.method in {"GET" "HEAD"}
+and http.request.uri.path.extension eq ""
+and not ends_with(http.request.uri.path, "/")
+and (
+  http.request.uri.path in {"/pl" "/books" "/pl/books" "/compendium" "/pl/compendium"}
+  or starts_with(http.request.uri.path, "/books/")
+  or starts_with(http.request.uri.path, "/pl/books/")
+  or starts_with(http.request.uri.path, "/compendium/")
+  or starts_with(http.request.uri.path, "/pl/compendium/")
+)
+```
+
+Set the dynamic target to `concat("https://fumble.krystianpinczak.com", http.request.uri.path, "/")`.
+Use status `301` and enable Preserve query string. Verify that a request to
+`/compendium/senses/truesight` goes directly to the HTTPS URL ending in `/`, and that
+`/pl/books/mpp/0?name=Planar%20Influences` keeps its query. Check a canonical URL and a
+hashed asset to confirm the rule leaves them alone.
+
 ## GitHub
 
 - Update `CHANGELOG.md` and the package version.

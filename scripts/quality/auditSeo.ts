@@ -77,9 +77,14 @@ for (const file of files) {
   const canonical = attribute(firstTag(source, '<link rel="canonical"'), 'href');
   const alternateCount = (source.match(/rel="alternate" hreflang=/g) ?? []).length;
   const hasJsonLd = source.includes('<script type="application/ld+json"');
-  const hasPrerenderedHeading = source.includes(
-    '<main id="prerendered-content" data-prerendered="true">',
-  );
+  const hasPrerenderedHeading =
+    /<main id="prerendered-content" data-prerendered="true"[^>]*>[\s\S]*?<h1(?:\s|>)/.test(
+      source,
+    );
+  const isCatalog = relativeFile.includes('/browse/');
+  const selfCanonical =
+    canonical ===
+    `https://fumble.krystianpinczak.com/${relativeFile.replace(/index\.html$/, '')}`;
 
   if (language !== expectedLanguage) addIssue(issues, 'wrong language', relativeFile);
   if (!title.trim()) addIssue(issues, 'empty title', relativeFile);
@@ -87,10 +92,18 @@ for (const file of files) {
   if (indexable && !canonical)
     addIssue(issues, 'indexable without canonical', relativeFile);
   if (!indexable && canonical) addIssue(issues, 'noindex with canonical', relativeFile);
-  if (indexable && alternateCount !== 1 && alternateCount !== 3)
+  if (
+    indexable &&
+    selfCanonical &&
+    !isCatalog &&
+    alternateCount !== 1 &&
+    alternateCount !== 3
+  )
     addIssue(issues, 'wrong hreflang count', relativeFile);
-  if (indexable && !hasJsonLd)
+  if (indexable && selfCanonical && !hasJsonLd)
     addIssue(issues, 'indexable without JSON-LD', relativeFile);
+  if (!selfCanonical && (alternateCount || hasJsonLd))
+    addIssue(issues, 'non-canonical page with alternates or JSON-LD', relativeFile);
   if (!indexable && hasJsonLd) addIssue(issues, 'noindex with JSON-LD', relativeFile);
   if (indexable && !hasPrerenderedHeading) {
     addIssue(issues, 'indexable without prerendered h1', relativeFile);

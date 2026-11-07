@@ -12,6 +12,7 @@ import {
 } from './head';
 import { SITE_URL, useHreflangTags } from './useHreflangTags';
 import { localizePath, stripLocale } from '@/i18n/pathUtils';
+import { isSearchVariant } from './queryRobots';
 
 const SITE_NAME = 'Fumble';
 const DEFAULT_ALTERNATE_LOCALES = SUPPORTED_LOCALES.map(({ code }) => code);
@@ -19,19 +20,27 @@ const DEFAULT_ALTERNATE_LOCALES = SUPPORTED_LOCALES.map(({ code }) => code);
 export function useSeo(
   title: string,
   description?: string,
-  indexable = true,
+  indexable: boolean | 'pending' = true,
   alternateLocales: readonly Locale[] = DEFAULT_ALTERNATE_LOCALES,
+  canonicalPath?: string,
 ): void {
   const { locale } = useT();
   const location = useLocation();
-  useHreflangTags(indexable && !location.search, alternateLocales);
+  const searchVariant = isSearchVariant(location.pathname, location.search);
+  const allowIndexing = indexable === true || canonicalPath !== undefined;
+  useHreflangTags(
+    indexable === 'pending' ? 'pending' : allowIndexing && !searchVariant,
+    alternateLocales,
+    canonicalPath,
+  );
   useEffect(() => {
+    if (indexable === 'pending') return;
     const fullTitle = title === SITE_NAME ? SITE_NAME : `${title} - ${SITE_NAME}`;
     const fullDescription = clipMetaDescription(
       description || translate(locale, 'seo.defaultDescription'),
     );
-    const robots = indexable
-      ? location.search
+    const robots = allowIndexing
+      ? searchVariant
         ? 'noindex, follow'
         : 'index, follow'
       : 'noindex, nofollow';
@@ -71,12 +80,17 @@ export function useSeo(
     );
     setMetaContent('meta[name="robots"]', 'name', 'robots', robots);
 
-    if (!indexable || location.search) {
+    if (!indexable || searchVariant || canonicalPath) {
       removeStructuredData();
       return;
     }
 
     const canonical = `${SITE_URL}${localizePath(stripLocale(location.pathname).rest, locale)}`;
+    if (
+      document.getElementById('fumble-seo-structured-data')?.dataset.prerenderedUrl ===
+      canonical
+    )
+      return;
     const webPage = {
       '@type': 'WebPage',
       '@id': canonical,
@@ -106,5 +120,14 @@ export function useSeo(
       });
     }
     setStructuredData({ '@context': 'https://schema.org', '@graph': graph });
-  }, [title, description, indexable, locale, location.pathname, location.search]);
+  }, [
+    title,
+    description,
+    indexable,
+    locale,
+    location.pathname,
+    searchVariant,
+    allowIndexing,
+    canonicalPath,
+  ]);
 }

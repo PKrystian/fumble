@@ -3,6 +3,7 @@ import { Minus, Plus, Shuffle, Trash2 } from 'lucide-react';
 import type { MonsterEntry } from '@/data/compendium/types';
 import { getCategory } from '@/features/compendium/categories';
 import { useCategoryItems } from '@/features/compendium/useCategoryItems';
+import { fumbleHomebrewItems } from '@/features/homebrew/fumbleHomebrew';
 import { useT } from '@/i18n/useT';
 import { Link } from '@/i18n/path';
 import { useSeo } from '@/seo/useSeo';
@@ -76,6 +77,7 @@ export function EncounterCalculatorPage() {
   const [randomMonsterError, setRandomMonsterError] = useState(false);
   const { params, update } = useUrlSearchState();
   const query = params.get('q') ?? '';
+  const monsterId = params.get('monster');
   const selectedHabitat = params.get('habitat') ?? '';
   const includeAny = params.get('includeAny') === '1';
 
@@ -113,6 +115,14 @@ export function EncounterCalculatorPage() {
   );
 
   const results = useMemo(() => {
+    if (monsterId && !query.trim()) {
+      const monster =
+        items.find((item) => item.id === monsterId) ??
+        fumbleHomebrewItems(locale).find(
+          (item) => item.category === 'bestiary' && item.id === monsterId,
+        );
+      return monster ? [monster] : [];
+    }
     const term = query.trim().toLowerCase();
     if (!term) return [];
     return items
@@ -123,7 +133,7 @@ export function EncounterCalculatorPage() {
         return !term || item.name.toLowerCase().includes(term);
       })
       .slice(0, 8);
-  }, [items, query, selectedHabitat, includeAny]);
+  }, [items, query, selectedHabitat, includeAny, monsterId, locale]);
 
   const budget = partyBudget(party);
 
@@ -139,7 +149,7 @@ export function EncounterCalculatorPage() {
         { id: item.id, name: item.name, cr: item.cr, xp: crToXp(item.cr), count: 1 },
       ];
     });
-    update({ q: null }, true);
+    update({ q: null, monster: null }, true);
   };
 
   const setCount = (id: string, count: number) =>
@@ -264,8 +274,8 @@ export function EncounterCalculatorPage() {
           <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_13rem]">
             <SearchField
               value={query}
-              onChange={(e) => update({ q: e.target.value }, true)}
-              onClear={() => update({ q: null }, true)}
+              onChange={(e) => update({ q: e.target.value, monster: null }, true)}
+              onClear={() => update({ q: null, monster: null }, true)}
               placeholder={
                 status === 'loading'
                   ? t('encounter.loadingBestiary')

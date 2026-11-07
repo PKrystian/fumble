@@ -1,8 +1,8 @@
-import data from '@/data/generated/sources.json';
-import booksIndex from '@/data/generated/books.json';
-import plBooks from '@/data/generated/pl/books.json';
-import plSources from '@/data/generated/pl/sources.json';
-import type { Locale } from '@/i18n/locales';
+import data from '../generated/sources.json';
+import booksIndex from '../generated/books.json';
+import plBooks from '../generated/pl/books.json';
+import plSources from '../generated/pl/sources.json';
+import type { Locale } from '../../i18n/locales';
 import type { BookIndexEntry } from './types';
 
 const names = data as Record<string, string>;

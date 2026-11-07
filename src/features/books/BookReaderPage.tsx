@@ -16,6 +16,7 @@ import { localizedBookName } from '@/data/compendium/sources';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
+import { hasPrerenderedPage, revealApp, showPrerenderedRetry } from '@/seo/prerendered';
 import { type OutlineNode, buildOutline, getBook, loadBookData } from './data';
 import { isBookChapterDuplicate, isBookChapterIndexable } from './chapterSeo';
 import { bookChapterTitle } from './chapterTitle';
@@ -148,6 +149,7 @@ export function BookReaderPage() {
   const [chapters, setChapters] = useState<Entry[] | null>(null);
   const [error, setError] = useState(false);
   const [retryKey, setRetryKey] = useState(0);
+  const prerendered = hasPrerenderedPage(location.pathname);
 
   useEffect(() => {
     if (!book) return;
@@ -255,6 +257,11 @@ export function BookReaderPage() {
     invalidChapterParam ||
     (chapters != null && chapter != null && active == null);
 
+  useEffect(() => {
+    if (error && prerendered) showPrerenderedRetry();
+    else if (!prerendered || chapters != null || routeNotFound) revealApp();
+  }, [chapters, error, prerendered, routeNotFound]);
+
   useSeo(
     routeNotFound
       ? t('notFound.title')
@@ -279,11 +286,13 @@ export function BookReaderPage() {
             })
           : t('seo.bookDescription', { name: localizedBookName(book, locale) })
         : undefined,
-    !routeNotFound &&
-      !error &&
-      (chapter == null ||
-        (!isBookChapterDuplicate(book?.id ?? '', chapterIndex) &&
-          (active == null || isBookChapterIndexable(active)))),
+    prerendered && !routeNotFound && chapters == null
+      ? 'pending'
+      : !routeNotFound &&
+          !error &&
+          (chapter == null ||
+            (!isBookChapterDuplicate(book?.id ?? '', chapterIndex) &&
+              (active == null || isBookChapterIndexable(active)))),
   );
 
   if (routeNotFound) return <NotFoundPage />;

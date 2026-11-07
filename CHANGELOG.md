@@ -4,6 +4,20 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.128 - 2026-11-06
+
+- Show full stat blocks without waiting for artwork or downloading the full bestiary.
+- Render complete book chapters with their tables and headings in static HTML.
+- Link published entries to source and attribution information and let DMs add a creature directly to initiative.
+
+## 1.2.127 - 2026-11-06
+
+- Preserve search metadata and readable fallback pages while compendium and book data loads or fails to load.
+- Index distinct core rules printings and consolidate identical printings under their preferred address.
+- Add browsable static catalogs, cleaner internal links, and edition labels based on each entry's source.
+- Make the initiative tracker discoverable and link creatures to the encounter builder.
+- Update locked dependencies to clear the high and critical advisories reported by CI.
+
 ## 1.2.126 - 2026-09-25
 
 - Kept duplicate compendium printings and repeated book chapters available while marking non-canonical routes noindex and removing them from sitemaps.

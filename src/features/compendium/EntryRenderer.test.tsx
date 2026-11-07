@@ -5,6 +5,8 @@ import type { Entry } from '@/data/compendium/entry';
 import { useLightbox } from '@/features/ui/lightboxStore';
 import { useRollStore } from '@/features/dice/rollStore';
 import { EntryRenderer } from './EntryRenderer';
+import { renderBookChapter, renderMonster } from '@/seo/staticEntryRenderer';
+import type { MonsterEntry } from '@/data/compendium/types';
 
 const show = (entries: Entry[]) =>
   render(
@@ -18,6 +20,97 @@ describe('entry renderer', () => {
   beforeEach(() => {
     useLightbox.setState({ src: null, caption: '' });
     useRollStore.setState({ log: [], dockOpen: false, roll });
+  });
+
+  it('renders the chapter as readable HTML with tables and no inert dice buttons', () => {
+    const html = renderBookChapter(
+      {
+        type: 'section',
+        name: 'Chapter',
+        entries: [
+          'Roll {@dice 1d6} {@recharge 5}.',
+          { type: 'table', colLabels: ['d6', 'Treasure'], rows: [['1', 'A gold ring']] },
+        ],
+      },
+      '/books/test/0/',
+    );
+    expect(html).toContain('<table');
+    expect(html).toContain('A gold ring');
+    expect(html).toContain('1d6');
+    expect(html).toContain('Recharge');
+    expect(html).not.toContain('<button');
+  });
+
+  it('renders monster mechanics in static HTML', () => {
+    const monster = {
+      id: 'wight',
+      name: 'Wight',
+      source: 'XMM',
+      size: 'Medium',
+      creatureType: 'Undead',
+      dex: 14,
+      ac: '14',
+      hp: '82 (11d8 + 33)',
+      str: 15,
+      con: 16,
+      int: 10,
+      wis: 13,
+      cha: 15,
+      cr: '3',
+      traits: [],
+      actions: [],
+      spellcasting: [],
+      bonusActions: [],
+      reactions: [],
+      legendaryActions: [],
+      lairActions: [],
+      regionalEffects: [],
+    } as unknown as MonsterEntry;
+    const html = renderMonster(monster, '/compendium/bestiary/wight/');
+    expect(html).toContain('Wight');
+    expect(html).toContain('82');
+    expect(html).not.toContain('<button');
+    const fumbleMonster = { ...monster, _fumble: true, category: 'bestiary' };
+    expect(renderMonster(fumbleMonster, '/compendium/bestiary/wight/')).toContain(
+      'Fumble',
+    );
+  });
+
+  it('preserves grouped tables, dice ranges, flow steps and formula text', () => {
+    const view = show([
+      {
+        type: 'tableGroup',
+        name: 'Tables',
+        tables: [
+          {
+            type: 'table',
+            rows: [
+              [
+                { type: 'cell', roll: { exact: 7 } },
+                { type: 'cell', roll: { min: 8, max: 12 } },
+                { type: 'cell', entry: 'Explicit cell' },
+                { type: 'cell' },
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        type: 'flowchart',
+        blocks: [
+          { type: 'flowBlock', name: 'Next step', entries: ['Resolve the check.'] },
+        ],
+      },
+      { type: 'tableGroup' },
+      { type: 'flowchart' },
+      { type: 'abilityGeneric', text: 'Add the proficiency bonus.' },
+      { type: 'abilityGeneric' },
+      { type: 'hr' },
+    ]);
+    expect(screen.getByRole('table')).toHaveTextContent('78-12Explicit cell');
+    expect(view.container).toHaveTextContent('Next stepResolve the check.');
+    expect(view.container).toHaveTextContent('Add the proficiency bonus.');
+    expect(screen.getByRole('separator')).toBeInTheDocument();
   });
 
   it('renders structured entry variants', () => {

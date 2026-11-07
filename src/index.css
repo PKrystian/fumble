@@ -55,6 +55,26 @@ body,
   padding: 1.25rem;
 }
 
+#prerendered-content a {
+  color: var(--color-arcane-300);
+  text-decoration: underline;
+}
+
+#prerendered-content :is(h1, h2) {
+  margin-block: 0.75rem 0.25rem;
+  font-weight: 700;
+}
+
+#prerendered-content ul {
+  margin-block: 0.75rem;
+}
+
+.prerendered-chapter {
+  max-width: 56rem;
+  margin-inline: auto;
+  margin-block: 1rem;
+}
+
 ul[data-category='bestiary'] > li {
   content-visibility: auto;
   contain-intrinsic-size: 57px;

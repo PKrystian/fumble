@@ -31,4 +31,13 @@ describe('query route robots metadata', () => {
   it('does nothing when the page has no robots metadata', () => {
     expect(() => applyQueryRobots('?q=fireball')).not.toThrow();
   });
+
+  it('preserves the stricter directive on a private page with parameters', () => {
+    const robots = document.createElement('meta');
+    robots.name = 'robots';
+    robots.content = 'noindex, nofollow';
+    document.head.append(robots);
+    applyQueryRobots('?q=fireball');
+    expect(robots).toHaveAttribute('content', 'noindex, nofollow');
+  });
 });

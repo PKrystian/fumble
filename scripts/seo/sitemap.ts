@@ -8,17 +8,26 @@ import {
 } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createServer } from 'vite';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '../../src/i18n/locales';
 import {
   getCompendiumCategorySeo,
   getCompendiumEntrySeo,
 } from '../../src/data/compendium/seo';
 import {
-  isCompendiumEntryIndexable,
+  compendiumPrintingSeo,
   isCompendiumSubclassIndexable,
 } from '../../src/data/compendium/indexability';
-import type { ClassSubclass, CompendiumEntryBase } from '../../src/data/compendium/types';
-import { localizeSubclasses } from '../../src/data/compendium/localize';
+import type {
+  ClassSubclass,
+  CompendiumEntryBase,
+  MonsterEntry,
+} from '../../src/data/compendium/types';
+import type { Entry } from '../../src/data/compendium/entry';
+import type { MonsterSnapshot } from '../../src/data/compendium/monsterSnapshot';
+import { referencePreview } from '../../src/data/compendium/referencePreview';
+import { bookAnchorHash } from '../../src/features/books/readerAnchor';
+import { localizeItems, localizeSubclasses } from '../../src/data/compendium/localize';
 import { localizeCompendiumValue } from '../../src/data/compendium/localizeValue';
 import {
   IMAGE_HOST,
@@ -28,6 +37,7 @@ import {
 } from '../../src/data/compendium/images';
 import { withEnglishName } from '../../src/data/compendium/searchText';
 import { translate } from '../../src/i18n/translate';
+import { removeScriptElements } from '../../src/seo/removeScriptElements';
 import { CAMPAIGN_MAPS } from '../../src/features/campaign-map/maps';
 import {
   fumbleHomebrewItems,
@@ -60,13 +70,26 @@ interface PageInfo {
   description: string;
   content?: string;
   heading?: string;
+  linkTitle?: string;
   breadcrumbTitle?: string;
   modified?: string;
   image?: string;
   kind: 'website' | 'article' | 'book';
   indexable?: boolean;
   redirectTo?: string;
+  canonicalTo?: string;
+  links?: Array<{ path: string; title: string }>;
+  sections?: Array<{ title: string; text: string }>;
+  staticOnly?: boolean;
+  monster?: MonsterEntry;
+  chapter?: Entry;
+  source?: { label: string; bookId?: string; page?: number; name: string };
   parent?: { path: string; title: string };
+}
+
+interface StaticEntryRenderer {
+  renderBookChapter: (entry: Entry, path: string) => string;
+  renderMonster: (monster: MonsterEntry, path: string) => string;
 }
 
 interface CompendiumItem {
@@ -78,7 +101,7 @@ interface CompendiumItem {
   entries?: unknown;
   body?: unknown;
   subtitle?: unknown;
-  source?: unknown;
+  source: string;
   [key: string]: unknown;
 }
 
@@ -351,6 +374,7 @@ const POLISH_SOURCE_NAMES = existsSync(join(GENERATED_DIR, 'pl', 'sources.json')
 const BOOKS = JSON.parse(
   readFileSync(join(GENERATED_DIR, 'books.json'), 'utf8'),
 ) as Array<{ id: string; source: string }>;
+const BOOK_IDS_BY_SOURCE = new Map(BOOKS.map((book) => [book.source, book.id]));
 const POLISH_BOOKS = existsSync(join(GENERATED_DIR, 'pl', 'books.json'))
   ? (JSON.parse(readFileSync(join(GENERATED_DIR, 'pl', 'books.json'), 'utf8')) as Record<
       string,
@@ -508,7 +532,6 @@ const STATIC_SEO_KEYS: Record<
   '/dm/initiative': {
     title: 'seo.pageTitles.initiative',
     description: 'seo.pageDescriptions.initiative',
-    indexable: false,
   },
   '/dm/loot': {
     title: 'seo.pageTitles.loot',
@@ -830,6 +853,28 @@ function compendiumContext(item: CompendiumItem, locale: Locale): string {
     .join(' ');
 }
 
+function compendiumSections(category: string, item: CompendiumItem, locale: Locale) {
+  const fields =
+    category === 'bestiary'
+      ? [
+          ['traits', 'seo.traits'],
+          ['actions', 'compendium.detail.actions'],
+          ['bonusActions', 'compendium.detail.bonusActions'],
+          ['reactions', 'compendium.detail.reactions'],
+          ['legendaryActions', 'compendium.detail.legendaryActions'],
+        ]
+      : category === 'spells'
+        ? [
+            ['entries', ''],
+            ['entriesHigherLevel', 'seo.higherLevels'],
+          ]
+        : [];
+  return fields.flatMap(([field, key]) => {
+    const text = plainText(item[field!], locale);
+    return text ? [{ title: key ? translate(locale, key) : '', text }] : [];
+  });
+}
+
 function subclassRouteKey(subclass: {
   id?: unknown;
   englishName?: unknown;
@@ -943,16 +988,7 @@ function collectPages(locale: Locale): PageInfo[] {
       baseItem,
       item: { ...baseItem, ...(overlay[baseItem.id] ?? {}) },
     }));
-    const rawIndexabilityItems = items.map(({ baseItem }) => ({
-      id: baseItem.id,
-      name: baseItem.name,
-      ...(typeof baseItem.englishName === 'string'
-        ? { englishName: baseItem.englishName }
-        : {}),
-      source: plainText(baseItem.source),
-      ...(baseItem.hidden !== undefined ? { hidden: baseItem.hidden } : {}),
-      ...(baseItem.otherVersions ? { otherVersions: baseItem.otherVersions } : {}),
-    }));
+    const rawIndexabilityItems = raw.items ?? [];
     const visibleSubclassKeys = new Set(
       items
         .filter(({ baseItem }) => !baseItem.hidden)
@@ -968,12 +1004,17 @@ function collectPages(locale: Locale): PageInfo[] {
       localizedIdentityCounts.set(key, (localizedIdentityCounts.get(key) ?? 0) + 1);
     }
     for (const [index, { baseItem, item }] of items.entries()) {
-      const baseIndexable = isCompendiumEntryIndexable(
+      const printing = compendiumPrintingSeo(
         rawIndexabilityItems[index]!,
         rawIndexabilityItems,
+        categoryId,
       );
+      const hasTranslation = locale === DEFAULT_LOCALE || Boolean(overlay[baseItem.id]);
+      const canonicalId = printing.canonicalId;
+      const sections = compendiumSections(categoryId, item, locale);
       const context = compendiumContext(item, locale);
       const source = plainText(item.source);
+      const sourceBookId = BOOK_IDS_BY_SOURCE.get(source);
       const localizedIdentity = `${item.name}|${source}`;
       const translationQualifier =
         locale !== DEFAULT_LOCALE &&
@@ -991,19 +1032,43 @@ function collectPages(locale: Locale): PageInfo[] {
       });
       pages.push({
         path: `${categoryPath}/${item.id}`,
+        ...(categoryId === 'bestiary'
+          ? {
+              monster: localizeItems(
+                [baseItem as unknown as MonsterEntry],
+                overlay,
+                locale,
+              )[0]!,
+            }
+          : {}),
         title: `${seo.title} - Fumble`,
         description: seo.description,
-        content: excerpt(
-          [seo.description, context].filter(Boolean).join(' '),
-          seo.description,
-        ),
+        content:
+          sections.length > 0
+            ? seo.description
+            : excerpt(
+                [seo.description, context].filter(Boolean).join(' '),
+                seo.description,
+              ),
         heading: displayName,
+        source: {
+          label: sourceLabel(source, locale),
+          name: item.name,
+          ...(sourceBookId ? { bookId: sourceBookId } : {}),
+          ...(typeof item.page === 'number' ? { page: item.page } : {}),
+        },
+        ...(item.otherVersions?.length
+          ? { linkTitle: `${displayName} (${sourceLabel(source, locale)})` }
+          : {}),
+        sections,
         breadcrumbTitle: displayName,
-        modified: raw.meta?.generatedAt,
         ...(typeof item.image === 'string' ? { image: item.image } : {}),
         kind: 'article',
-        ...(!baseIndexable || (locale !== DEFAULT_LOCALE && !overlay[baseItem.id])
-          ? { indexable: false }
+        ...(!printing.indexable || !hasTranslation ? { indexable: false } : {}),
+        ...(canonicalId &&
+        hasTranslation &&
+        (locale === DEFAULT_LOCALE || overlay[canonicalId])
+          ? { canonicalTo: `${categoryPath}/${canonicalId}` }
           : {}),
         parent: { path: categoryPath, title: displayCategory },
       });
@@ -1065,12 +1130,9 @@ function collectPages(locale: Locale): PageInfo[] {
             ),
             heading: `${item.name}: ${subclassName}`,
             breadcrumbTitle: `${item.name}: ${subclassName}`,
-            modified: raw.meta?.generatedAt,
             ...(typeof subclass.image === 'string' ? { image: subclass.image } : {}),
             kind: 'article',
-            ...(!baseIndexable ||
-            !subclassIndexable ||
-            (locale !== DEFAULT_LOCALE && !overlay[baseItem.id])
+            ...(!printing.indexable || !subclassIndexable || !hasTranslation
               ? { indexable: false }
               : {}),
             parent: { path: `${categoryPath}/${item.id}`, title: item.name },
@@ -1102,6 +1164,9 @@ function collectPages(locale: Locale): PageInfo[] {
         path: parentClassId
           ? `${categoryPath}/${parentClassId}/${item.id}`
           : `${categoryPath}/${item.id}`,
+        ...(categoryId === 'bestiary'
+          ? { monster: item as unknown as MonsterEntry }
+          : {}),
         title: `${seo.title} - Fumble`,
         description: seo.description,
         content: excerpt(
@@ -1167,6 +1232,9 @@ function collectPages(locale: Locale): PageInfo[] {
       const chapterContext = bookChapterContext(chapter, true, locale);
       pages.push({
         path: `${bookPath}/${index}`,
+        ...(localizedChapters[index]
+          ? { chapter: localizedChapters[index] as unknown as Entry }
+          : {}),
         title: `${chapterName} - ${book.name} - Fumble`,
         description: translate(locale, 'seo.bookChapterDescription', {
           chapter: chapterName,
@@ -1265,7 +1333,82 @@ function collectPages(locale: Locale): PageInfo[] {
     });
   }
 
-  return [...new Map(pages.map((page) => [page.path, page])).values()];
+  return addDiscoveryLinks(
+    [...new Map(pages.map((page) => [page.path, page])).values()],
+    locale,
+  );
+}
+
+const BROWSE_PAGE_SIZE = 200;
+
+function addDiscoveryLinks(pages: PageInfo[], locale: Locale): PageInfo[] {
+  const children = new Map<string, PageInfo[]>();
+  for (const page of pages) {
+    if (page.indexable === false || !page.parent) continue;
+    const siblings = children.get(page.parent.path) ?? [];
+    siblings.push(page);
+    children.set(page.parent.path, siblings);
+  }
+  const link = (page: PageInfo) => ({
+    path: page.path,
+    title: page.linkTitle ?? pageHeading(page),
+  });
+  const catalogs: PageInfo[] = [];
+  for (const page of pages) {
+    if (page.path === '/') {
+      page.links = pages
+        .filter(
+          (candidate) =>
+            candidate.indexable !== false &&
+            /^\/(?:compendium|books|wiki|dice|fumble-homebrew|dm\/(?:initiative|encounter|loot))$/.test(
+              candidate.path,
+            ),
+        )
+        .map(link);
+      continue;
+    }
+    const entries = children.get(page.path) ?? [];
+    if (!/^\/compendium\/[^/]+$/.test(page.path)) {
+      page.links = entries.map(link);
+      continue;
+    }
+    const path = `${page.path}/browse`;
+    const browseTitle = translate(locale, 'compendium.browseAll');
+    page.links = [{ path: `${path}/1`, title: browseTitle }];
+    const sorted = entries
+      .map(link)
+      .sort((a, b) => a.title.localeCompare(b.title, locale));
+    const count = Math.max(1, Math.ceil(sorted.length / BROWSE_PAGE_SIZE));
+    const category = pageHeading(page);
+    for (let number = 1; number <= count; number++) {
+      const heading = translate(locale, 'compendium.browsePage', { category, number });
+      const links = sorted.slice(
+        (number - 1) * BROWSE_PAGE_SIZE,
+        number * BROWSE_PAGE_SIZE,
+      );
+      if (number > 1)
+        links.unshift({
+          path: `${path}/${number - 1}`,
+          title: translate(locale, 'compendium.browsePrevious'),
+        });
+      if (number < count)
+        links.push({
+          path: `${path}/${number + 1}`,
+          title: translate(locale, 'compendium.browseNext'),
+        });
+      catalogs.push({
+        path: `${path}/${number}`,
+        heading,
+        title: `${heading} - Fumble`,
+        description: page.description,
+        parent: { path: page.path, title: category },
+        kind: 'website',
+        staticOnly: true,
+        links,
+      });
+    }
+  }
+  return [...pages, ...catalogs];
 }
 
 function absolute(path: string, locale: string): string {
@@ -1306,7 +1449,7 @@ function compendiumPreloadHints(page: PageInfo): string[] {
   const category = /^\/compendium\/([^/]+)/.exec(page.path)?.[1];
   if (!category) return [];
   const routeAsset = findBuiltAsset('CompendiumPage', 'js');
-  const dataAsset = findGeneratedAsset(category);
+  const dataAsset = page.monster ? undefined : findGeneratedAsset(category);
   return [
     routeAsset
       ? `<link rel="modulepreload" crossorigin href="/assets/${routeAsset}" />`
@@ -1337,20 +1480,23 @@ function buildSitemap(pages: PageInfo[], pagesByLocale: Map<string, PageInfo[]>)
       (entry): entry is { code: Locale; page: PageInfo } =>
         entry.page !== undefined && entry.page.indexable !== false,
     );
-    const defaultAlternate = pagesByLocale
-      .get(DEFAULT_LOCALE)
-      ?.some((candidate) => candidate.path === page.path && candidate.indexable !== false)
-      ? `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(absolute(page.path, DEFAULT_LOCALE))}"/>`
-      : '';
-    const alternates = [
-      ...localizedPages.map(
-        ({ code }) =>
-          `    <xhtml:link rel="alternate" hreflang="${escapeXml(code)}" href="${escapeXml(absolute(page.path, code))}"/>`,
-      ),
-      defaultAlternate,
-    ]
-      .filter(Boolean)
-      .join('\n');
+    const defaultAlternate =
+      !page.staticOnly &&
+      localizedPages.length > 1 &&
+      localizedPages.some(({ code }) => code === DEFAULT_LOCALE)
+        ? `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(absolute(page.path, DEFAULT_LOCALE))}"/>`
+        : '';
+    const alternates = page.staticOnly
+      ? ''
+      : [
+          ...localizedPages.map(
+            ({ code }) =>
+              `    <xhtml:link rel="alternate" hreflang="${escapeXml(code)}" href="${escapeXml(absolute(page.path, code))}"/>`,
+          ),
+          defaultAlternate,
+        ]
+          .filter(Boolean)
+          .join('\n');
     return localizedPages.map(({ code, page: localizedPage }) => {
       const lastmod = localizedPage.modified
         ? `    <lastmod>${escapeXml(localizedPage.modified)}</lastmod>\n`
@@ -1459,11 +1605,6 @@ function structuredData(page: PageInfo, locale: string) {
       inLanguage: locale,
       articleSection: page.parent?.title,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-      author: {
-        '@type': 'Person',
-        name: 'Krystian Pińczak',
-        url: 'https://github.com/PKrystian',
-      },
       publisher: {
         '@type': 'Organization',
         name: 'Fumble',
@@ -1538,7 +1679,10 @@ function buildRedirectHtml(template: string, page: PageInfo, locale: string): st
   const title = escapeHtml(page.title);
   const description = escapeHtml(concise(page.description, page.title));
   const target = absolute(page.redirectTo!, locale);
-  let html = template.replace(/<html lang="[^"]+"/, `<html lang="${locale}"`);
+  let html = removeScriptElements(template).replace(
+    /<html lang="[^"]+"/,
+    `<html lang="${locale}"`,
+  );
   html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
   html = replaceMeta(
     html,
@@ -1566,14 +1710,17 @@ function buildRedirectHtml(template: string, page: PageInfo, locale: string): st
 function buildHtml(
   template: string,
   page: PageInfo,
-  locale: string,
+  locale: Locale,
   indexablePaths: Map<string, Set<string>>,
+  render: StaticEntryRenderer,
 ): string {
   if (page.redirectTo) return buildRedirectHtml(template, page, locale);
   const url = absolute(page.path, locale);
+  const canonical = page.canonicalTo ? absolute(page.canonicalTo, locale) : url;
   const title = escapeHtml(page.title);
   const description = escapeHtml(concise(page.description, page.title));
-  const robots = page.indexable === false ? 'noindex, nofollow' : 'index, follow';
+  const robots =
+    page.indexable === false && !page.canonicalTo ? 'noindex, nofollow' : 'index, follow';
   const content = escapeHtml(page.content ?? page.description);
   const heading = escapeHtml(pageHeading(page));
   const socialImage = page.image ? imagePreloadUrl(page.image) : `${SITE_URL}/og.png`;
@@ -1588,7 +1735,54 @@ function buildHtml(
   const fallbackImage = page.image
     ? `<div class="relative mb-4 inline-block min-h-80 max-w-full"><img src="${escapeHtml(imagePreloadUrl(page.image))}" alt="${heading}" width="${PRIMARY_IMAGE_WIDTH}" height="${PRIMARY_IMAGE_HEIGHT}" loading="eager" fetchpriority="high" decoding="async" class="h-auto max-h-80 max-w-full rounded-lg border border-ink-700 object-contain" /></div>`
     : '';
-  const fallback = `<main id="prerendered-content" data-prerendered="true"><nav aria-label="Breadcrumb">${breadcrumbs}</nav>${fallbackImage}<h1>${heading}</h1><p>${content}</p></main>`;
+  const sections = (page.sections ?? [])
+    .map(
+      ({ title, text }) =>
+        `${title ? `<h2>${escapeHtml(title)}</h2>` : ''}<p>${escapeHtml(text)}</p>`,
+    )
+    .join('');
+  const links = page.links?.length
+    ? `<ul>${page.links
+        .map(
+          ({ path, title }) =>
+            `<li><a href="${escapeHtml(absolute(path, locale))}">${escapeHtml(title)}</a></li>`,
+        )
+        .join('')}</ul>`
+    : '';
+  const retry =
+    (/^\/compendium\//.test(page.path) || /^\/books\//.test(page.path)) &&
+    !page.staticOnly
+      ? `<p data-prerendered-retry hidden>${escapeHtml(translate(locale, 'compendium.failedToLoad'))} <a href="${escapeHtml(url)}">${escapeHtml(translate(locale, 'common.retry'))}</a></p>`
+      : '';
+  const pathname = localizePath(page.path, locale);
+  const body = page.chapter
+    ? render.renderBookChapter(page.chapter, pathname)
+    : page.monster
+      ? render.renderMonster(page.monster, pathname)
+      : `<p>${content}</p>${sections}`;
+  const source = page.source;
+  const sourceTitle = source
+    ? escapeHtml(
+        source.label +
+          (source.page
+            ? `, ${translate(locale, 'seo.sourcePage', { page: source.page })}`
+            : ''),
+      )
+    : '';
+  const attribution = source
+    ? `<p>${escapeHtml(translate(locale, 'compendium.source'))} ${
+        source.bookId
+          ? `<a href="${escapeHtml(absolute(`/books/${source.bookId}`, locale) + bookAnchorHash(source.page, source.name))}">${sourceTitle}</a>`
+          : sourceTitle
+      } · <a href="${absolute('/legal/licenses', locale)}">${escapeHtml(translate(locale, 'legal.licenses.title'))}</a></p>`
+    : '';
+  const encounter = page.monster
+    ? `<p><a href="${escapeHtml(absolute('/dm/encounter', locale) + '?' + new URLSearchParams({ monster: page.monster.id }))}">${escapeHtml(translate(locale, 'encounter.openForMonster'))}</a></p>`
+    : '';
+  const contentHtml = page.monster
+    ? `${body}${encounter}${fallbackImage}`
+    : `<h1>${heading}</h1>${fallbackImage}${body}`;
+  const fallback = `<main id="prerendered-content" data-prerendered="true" data-path="${escapeHtml(pathname)}"><nav aria-label="${escapeHtml(translate(locale, 'seo.breadcrumb'))}">${breadcrumbs}</nav>${retry}${contentHtml}${attribution}${links}</main>`;
   const imagePreload = page.image
     ? `<link rel="preload" as="image" href="${escapeHtml(imagePreloadUrl(page.image))}" fetchpriority="high" />`
     : '';
@@ -1596,8 +1790,16 @@ function buildHtml(
     page.image && usesImageHost(page.image)
       ? '<link rel="preconnect" href="https://5e.tools" crossorigin />'
       : '';
-  let html = template.replace(/<html lang="[^"]+"/, `<html lang="${locale}"`);
-  const headHints = [imagePreconnect, imagePreload, ...compendiumPreloadHints(page)]
+  let html = (
+    page.staticOnly
+      ? removeScriptElements(template).replace(/<link rel="modulepreload"[^>]*>/g, '')
+      : template
+  ).replace(/<html lang="[^"]+"/, `<html lang="${locale}"`);
+  const headHints = [
+    imagePreconnect,
+    imagePreload,
+    ...(page.staticOnly ? [] : compendiumPreloadHints(page)),
+  ]
     .filter(Boolean)
     .join('\n    ');
   if (headHints) html = html.replace('<head>', `<head>\n    ${headHints}`);
@@ -1615,7 +1817,7 @@ function buildHtml(
   html = replaceMeta(
     html,
     /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
-    `<link rel="canonical" href="${url}" />`,
+    `<link rel="canonical" href="${canonical}" />`,
   );
   html = replaceMeta(
     html,
@@ -1630,7 +1832,7 @@ function buildHtml(
   html = replaceMeta(
     html,
     /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/,
-    `<meta property="og:url" content="${url}" />`,
+    `<meta property="og:url" content="${canonical}" />`,
   );
   html = replaceMeta(
     html,
@@ -1677,7 +1879,7 @@ function buildHtml(
     '',
   );
   const alternates =
-    page.indexable === false
+    page.indexable === false || page.staticOnly
       ? ''
       : [
           ...SUPPORTED_LOCALES.filter(({ code }) =>
@@ -1686,21 +1888,36 @@ function buildHtml(
             ({ code }) =>
               `<link rel="alternate" hreflang="${code}" href="${absolute(page.path, code)}" />`,
           ),
-          ...(indexablePaths.get(DEFAULT_LOCALE)?.has(page.path)
+          ...(SUPPORTED_LOCALES.every(({ code }) =>
+            indexablePaths.get(code)?.has(page.path),
+          )
             ? [
                 `<link rel="alternate" hreflang="x-default" href="${absolute(page.path, DEFAULT_LOCALE)}" />`,
               ]
             : []),
         ].join('\n    ');
-  if (page.indexable === false) {
+  if (page.indexable === false && !page.canonicalTo) {
     html = html.replace(/\s*<link\s+rel="canonical"\s+href="[^"]+"\s*\/?>(?:\s*)?/g, '');
   }
   const additions = [
     alternates,
+    ...(page.monster
+      ? [
+          `<script type="application/json" id="fumble-monster-snapshot">${JSON.stringify({
+            path: pathname,
+            item: page.monster,
+            indexable: page.indexable !== false,
+            locales: SUPPORTED_LOCALES.map(({ code }) => code).filter((code) =>
+              indexablePaths.get(code)?.has(page.path),
+            ),
+            ...(page.canonicalTo ? { canonicalPath: page.canonicalTo } : {}),
+          } satisfies MonsterSnapshot).replaceAll('<', '\\u003c')}</script>`,
+        ]
+      : []),
     ...(page.indexable === false
       ? []
       : [
-          `<script type="application/ld+json" id="fumble-seo-structured-data">${JSON.stringify(structuredData(page, locale)).replaceAll('<', '\\u003c')}</script>`,
+          `<script type="application/ld+json" id="fumble-seo-structured-data" data-prerendered-url="${escapeHtml(url)}">${JSON.stringify(structuredData(page, locale)).replaceAll('<', '\\u003c')}</script>`,
         ]),
     ...(GOOGLE_VERIFICATION
       ? [
@@ -1876,13 +2093,26 @@ const pagesByLocale = new Map(
 const indexablePaths = indexablePathMap(pagesByLocale);
 const pages = pagesByLocale.get(DEFAULT_LOCALE)!;
 const template = readFileSync(join(OUT_DIR, 'index.html'), 'utf8');
-for (const { code } of SUPPORTED_LOCALES) {
-  for (const page of pagesByLocale.get(code) ?? []) {
-    writeRoute(
-      localizePath(page.path, code),
-      buildHtml(template, page, code, indexablePaths),
-    );
+const renderer = await createServer({
+  root: ROOT,
+  server: { middlewareMode: true, watch: null, hmr: false },
+  optimizeDeps: { noDiscovery: true, include: [] },
+  appType: 'custom',
+});
+try {
+  const render = (await renderer.ssrLoadModule(
+    '/src/seo/staticEntryRenderer.tsx',
+  )) as StaticEntryRenderer;
+  for (const { code } of SUPPORTED_LOCALES) {
+    for (const page of pagesByLocale.get(code) ?? []) {
+      writeRoute(
+        localizePath(page.path, code),
+        buildHtml(template, page, code, indexablePaths, render),
+      );
+    }
   }
+} finally {
+  await renderer.close();
 }
 const sitemapGroups = new Map<string, PageInfo[]>([
   ['sitemap-pages.xml', []],
@@ -1924,6 +2154,27 @@ writeFileSync(
 );
 for (const { code } of SUPPORTED_LOCALES) {
   writeFileSync(join(OUT_DIR, `search-index-${code}.json`), buildSearchIndex(code));
+  const bestiaryReferences = (pagesByLocale.get(code) ?? []).flatMap(({ monster }) => {
+    if (!monster) return [];
+    const { id, name, englishName, source, srd, size, creatureType, cr } = monster;
+    return [
+      {
+        id,
+        name,
+        englishName,
+        source,
+        srd,
+        size,
+        creatureType,
+        cr,
+        entries: [referencePreview(monster)],
+      },
+    ];
+  });
+  writeFileSync(
+    join(OUT_DIR, `bestiary-references-${code}.json`),
+    JSON.stringify(bestiaryReferences),
+  );
 }
 console.log(
   `Wrote ${pages.length * SUPPORTED_LOCALES.length} static pages and ${sitemapPages.reduce(
