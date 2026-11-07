@@ -4,6 +4,10 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.129 - 2026-11-07
+
+- Update React, Transformers, development tooling, and GitHub Actions dependencies.
+
 ## 1.2.128 - 2026-11-06
 
 - Show full stat blocks without waiting for artwork or downloading the full bestiary.
