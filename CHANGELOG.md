@@ -4,6 +4,24 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.132 - 2026-11-07
+
+- Let dice roll modes wrap on narrow screens with wider system fonts.
+- Check English and Polish mode controls at 320 pixels with wider text.
+
+## 1.2.131 - 2026-11-07
+
+- Fix Polish data loading and book navigation after punctuation replacements.
+- Keep reference previews within their length limit when using three plain dots.
+- Check all shipped JSON assets for syntax errors in the test suite.
+
+## 1.2.130 - 2026-11-07
+
+- Unify page layouts, typography, controls, filters, tables, badges, and legal documents.
+- Improve mobile navigation, character editing, keyboard focus, and failed artwork layouts.
+- Give static catalogs the application navigation and footer while keeping their readable HTML.
+- Document interface rules and check theme tokens, control sizing, and contrast in CI.
+
 ## 1.2.129 - 2026-11-07
 
 - Update React, Transformers, development tooling, and GitHub Actions dependencies.

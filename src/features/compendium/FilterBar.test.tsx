@@ -128,11 +128,12 @@ describe('FilterBar', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Reset filters' }));
     expect(props.onClear).toHaveBeenCalled();
 
-    fireEvent.click(screen.getByRole('button', { name: 'Toggle filter summary' }));
     fireEvent.click(screen.getByRole('button', { name: 'Size 1' }));
     fireEvent.click(screen.getByRole('button', { name: 'Core Book' }));
     expect(props.onToggle).toHaveBeenCalledWith('size', 'Size 1');
     expect(props.onToggle).toHaveBeenCalledWith('source', 'XPHB');
+    fireEvent.click(screen.getByRole('button', { name: 'Toggle filter summary' }));
+    expect(screen.queryByRole('button', { name: 'Size 1' })).not.toBeInTheDocument();
   });
 
   it('updates all visible values in one operation', () => {
@@ -140,7 +141,7 @@ describe('FilterBar', () => {
     fireEvent.click(screen.getByRole('button', { name: /^Filters/ }));
 
     const allButtons = screen.getAllByRole('button', { name: 'All' });
-    fireEvent.click(allButtons.at(-1)!);
+    fireEvent.click(allButtons[0]!);
     expect(props.onSetFilter).toHaveBeenCalledWith(
       'size',
       expect.arrayContaining(['Size 1', 'Size 18']),
@@ -148,7 +149,7 @@ describe('FilterBar', () => {
     expect(props.onSetFilter).toHaveBeenCalledTimes(1);
 
     const clearButtons = screen.getAllByRole('button', { name: 'Clear' });
-    fireEvent.click(clearButtons.at(-1)!);
+    fireEvent.click(clearButtons[0]!);
     expect(props.onSetFilter).toHaveBeenLastCalledWith('size', []);
     expect(props.onSetFilter).toHaveBeenCalledTimes(2);
   });
@@ -182,7 +183,7 @@ describe('FilterBar', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  it('renders descending sort state and disables reset without selections', () => {
+  it('renders descending sort state and omits reset without selections', () => {
     const initial = setup();
     const props = {
       ...initial.props,
@@ -194,7 +195,9 @@ describe('FilterBar', () => {
       </MemoryRouter>,
     );
     expect(screen.getByRole('button', { name: 'Sorted descending' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Reset filters' })).toBeDisabled();
+    expect(
+      screen.queryByRole('button', { name: 'Reset filters' }),
+    ).not.toBeInTheDocument();
   });
 
   it('keeps filter options in place when a value becomes selected', () => {

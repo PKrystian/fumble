@@ -50,6 +50,17 @@ const renderPage = (path = '/homebrew') =>
   );
 
 describe('HomebrewPage', () => {
+  it('resets facets without clearing the query and clears search independently', () => {
+    renderPage('/homebrew?q=missing&category=feats&translation=untranslated');
+    const search = screen.getByRole('searchbox', { name: 'Search entries...' });
+    fireEvent.click(screen.getByRole('button', { name: 'Reset filters' }));
+    expect(search).toHaveValue('missing');
+    expect(
+      screen.queryByRole('button', { name: 'Reset filters' }),
+    ).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Clear search' }));
+    expect(search).toHaveValue('');
+  });
   beforeEach(() => {
     localStorage.clear();
     useHomebrewStore.setState({ entries: [] });

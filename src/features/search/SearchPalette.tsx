@@ -7,7 +7,7 @@ import { OriginalName } from '@/features/ui/OriginalName';
 import { useContentModeStore } from '@/features/ui/contentModeStore';
 import { useLocale, useNavigate } from '@/i18n/pathUtils';
 import { useT } from '@/i18n/useT';
-import { IconButton, SearchField } from '@/features/ui/primitives';
+import { Button, IconButton, SearchField } from '@/features/ui/primitives';
 import { useDialogFocus } from '@/features/ui/useDialogFocus';
 import { useSearchStore } from './searchStore';
 import {
@@ -48,7 +48,7 @@ export function SearchPalette() {
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
-  const dialogRef = useDialogFocus(open);
+  const dialogRef = useDialogFocus(open, () => setOpen(false));
 
   useEffect(() => {
     if (!open) return;
@@ -93,9 +93,7 @@ export function SearchPalette() {
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setOpen(false);
-      } else if (event.key === 'ArrowDown') {
+      if (event.key === 'ArrowDown') {
         event.preventDefault();
         setActive((i) => Math.min(i + 1, results.length - 1));
       } else if (event.key === 'ArrowUp') {
@@ -139,7 +137,7 @@ export function SearchPalette() {
         aria-label={t('search.title')}
         ref={dialogRef}
         tabIndex={-1}
-        className="relative flex max-h-[70vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-ink-700 bg-ink-900 shadow-2xl"
+        className="dialog-panel"
       >
         <div className="flex items-center gap-2 border-b border-ink-700 p-3">
           <SearchField
@@ -167,13 +165,15 @@ export function SearchPalette() {
               role="alert"
             >
               <span>{t('search.couldNotLoad')}</span>
-              <button
+              <Button
                 type="button"
                 onClick={() => setRetry((value) => value + 1)}
-                className="shrink-0 rounded-md border border-red-400/50 px-3 py-1.5 text-red-200 hover:bg-red-400/10"
+                variant="danger"
+                size="sm"
+                className="shrink-0"
               >
                 {t('common.retry')}
-              </button>
+              </Button>
             </li>
           )}
           {query.trim() === '' && (
@@ -209,7 +209,7 @@ export function SearchPalette() {
                     </span>
                   )}
                 </span>
-                <span className="shrink-0 rounded-full bg-ink-800 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-ink-300">
+                <span className="shrink-0 rounded-full bg-ink-800 px-2 py-0.5 text-xs uppercase tracking-wide text-ink-300">
                   {result.categoryLabel}
                 </span>
               </button>

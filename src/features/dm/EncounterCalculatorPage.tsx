@@ -172,21 +172,14 @@ export function EncounterCalculatorPage() {
   const rating = rateEncounter(totalXp, budget);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-      <h1 className="mb-6 font-display text-3xl font-bold text-ink-50 sm:text-4xl">
-        {t('encounter.title')}
-      </h1>
+    <div className="page-shell">
+      <h1 className="mb-6 text-ink-50 page-title">{t('encounter.title')}</h1>
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
         <section className={panelClass('flex h-full flex-col gap-4 border-ink-700 p-5')}>
-          <h2 className="font-display text-base font-bold uppercase tracking-wide text-ember-400">
-            {t('encounter.party')}
-          </h2>
+          <h2 className="text-ember-400 panel-title">{t('encounter.party')}</h2>
           {party.map((member, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-[minmax(0,1fr)_6rem_auto] items-end gap-3 rounded-lg border border-ink-800 bg-ink-950/40 p-3"
-            >
+            <div key={index} className="party-row">
               <label className="flex flex-col gap-1 text-sm">
                 <span className="text-xs text-ink-400">{t('encounter.count')}</span>
                 <TextInput
@@ -250,9 +243,7 @@ export function EncounterCalculatorPage() {
 
         <section className={panelClass('flex h-full flex-col gap-4 border-ink-700 p-5')}>
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 className="font-display text-base font-bold uppercase tracking-wide text-ember-400">
-              {t('encounter.monsters')}
-            </h2>
+            <h2 className="text-ember-400 panel-title">{t('encounter.monsters')}</h2>
             <Button
               onClick={addRandomMonster}
               size="md"
@@ -283,6 +274,7 @@ export function EncounterCalculatorPage() {
               }
               label={t('encounter.searchMonsters')}
               clearLabel={t('common.clearSearch')}
+              className="sm:mt-5"
             />
             <div className="flex flex-col gap-2">
               <label className="flex flex-col gap-1 text-sm">
@@ -383,9 +375,7 @@ export function EncounterCalculatorPage() {
               </li>
             ))}
             {monsters.length === 0 && (
-              <li className="flex flex-1 items-center justify-center rounded-lg border border-dashed border-ink-800 p-6 text-center text-sm text-ink-400">
-                {t('encounter.noMonstersYet')}
-              </li>
+              <li className="empty-state">{t('encounter.noMonstersYet')}</li>
             )}
           </ul>
         </section>

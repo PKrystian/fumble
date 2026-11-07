@@ -63,7 +63,7 @@ describe('FumbleLibrary', { timeout: 30_000 }, () => {
     fireEvent.click(toggle);
     expect(toggle).toBeChecked();
 
-    fireEvent.change(screen.getByRole('textbox', { name: 'Search' }), {
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Search' }), {
       target: { value: 'no such entry' },
     });
     expect(screen.getByText('No Fumble entries match this search.')).toBeInTheDocument();
@@ -149,17 +149,22 @@ describe('FumbleLibrary', { timeout: 30_000 }, () => {
       </MemoryRouter>,
     );
 
-    fireEvent.change(screen.getByRole('textbox', { name: 'Search' }), {
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Search' }), {
       target: { value: 'witch' },
     });
     expect(screen.getByTestId('location')).toHaveTextContent('?q=witch');
+    fireEvent.click(screen.getByRole('button', { name: 'Clear search' }));
+    expect(screen.getByRole('searchbox', { name: 'Search' })).toHaveValue('');
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Search' }), {
+      target: { value: 'witch' },
+    });
 
     fireEvent.click(screen.getByRole('button', { name: 'Classes' }));
     expect(screen.getByTestId('location')).toHaveTextContent('?category=classes&q=witch');
 
     fireEvent.click(screen.getByRole('button', { name: 'Back' }));
     expect(screen.getByTestId('location')).toHaveTextContent('?q=witch');
-    expect(screen.getByRole('textbox', { name: 'Search' })).toHaveValue('witch');
+    expect(screen.getByRole('searchbox', { name: 'Search' })).toHaveValue('witch');
     expect(screen.getByRole('button', { name: 'Classes' })).toHaveAttribute(
       'aria-pressed',
       'false',
@@ -200,6 +205,10 @@ describe('FumbleLibrary', { timeout: 30_000 }, () => {
     fireEvent.click(screen.getByRole('button', { name: 'Border Wanderers' }));
     expect(screen.getByTestId('location')).toHaveTextContent('?campaign=wedrowcy-granic');
     expect(screen.getByRole('link', { name: /Armed Gloves/ })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Reset filters' }));
+    expect(
+      screen.queryByRole('button', { name: 'Reset filters' }),
+    ).not.toBeInTheDocument();
   });
 
   it('shows the English search name in Polish', () => {

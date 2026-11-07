@@ -1,3 +1,4 @@
+import { Button } from '@/features/ui/primitives';
 import { type ReactNode, useState } from 'react';
 import { Minus, Plus, Trash2 } from 'lucide-react';
 import {
@@ -52,18 +53,14 @@ export function SheetTabs({ character, update }: TabProps) {
 
   return (
     <div className="flex flex-col gap-4 rounded-xl border border-ink-700 bg-ink-900 p-4">
-      <nav className="flex flex-wrap gap-2 border-b border-ink-700 pb-3">
+      <nav className="ui-tabs" aria-label={t('character.list.title')}>
         {TABS.map((tab) => (
           <button
             key={tab}
             type="button"
             onClick={() => setActive(tab)}
-            className={[
-              'rounded-md px-3 py-1 text-sm font-medium transition-colors',
-              tab === active
-                ? 'bg-arcane-700 text-ink-50'
-                : 'text-ink-300 hover:bg-ink-800 hover:text-ink-50',
-            ].join(' ')}
+            className="ui-tab"
+            aria-pressed={tab === active}
           >
             {t(TAB_LABEL_KEYS[tab])}
           </button>
@@ -82,26 +79,30 @@ export function SheetTabs({ character, update }: TabProps) {
 
 function AddButton({ label, onClick }: { label: string; onClick: () => void }) {
   return (
-    <button
+    <Button
       type="button"
       onClick={onClick}
-      className="inline-flex items-center gap-1 self-start rounded-md border border-ink-700 px-3 py-1 text-sm text-ink-200 hover:bg-ink-800"
+      variant="secondary"
+      size="sm"
+      className="self-start"
     >
       <Plus size={14} /> {label}
-    </button>
+    </Button>
   );
 }
 
 function RemoveButton({ onClick, label }: { onClick: () => void; label: string }) {
   return (
-    <button
+    <Button
       type="button"
       aria-label={label}
       onClick={onClick}
-      className="rounded p-1 text-ink-400 hover:bg-ink-800 hover:text-red-400"
+      variant="ghost"
+      size="sm"
+      iconOnly
     >
       <Trash2 size={16} />
-    </button>
+    </Button>
   );
 }
 
@@ -171,7 +172,7 @@ function InventoryTab({ character, update }: TabProps) {
           id: uid(),
           name: entry.name,
           quantity: 1,
-          notes: [entry.type, entry.rarity].filter(Boolean).join(' · '),
+          notes: [entry.type, entry.rarity].filter(Boolean).join(' - '),
           itemId: entry.id,
           ...(armorType ? { armorType } : {}),
           ...(Number.isFinite(baseAc) ? { baseAc } : {}),
@@ -382,7 +383,7 @@ function SpellsTab({ character, update }: TabProps) {
             {t('character.sheet.spellsTab.spellcastingAbility')}
           </span>
           <select
-            className="rounded-md border border-ink-700 bg-ink-900 px-2 py-1 text-ink-50 focus:border-arcane-500 focus:outline-none"
+            className="ui-field"
             value={character.spellcastingAbility ?? ''}
             onChange={(event) =>
               update({
@@ -420,20 +421,12 @@ function SpellsTab({ character, update }: TabProps) {
             {t('character.sheet.spellsTab.slots')}
           </h3>
           <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={shortRest}
-              className="rounded-md border border-ink-700 px-2 py-1 text-xs text-ink-200 hover:bg-ink-800"
-            >
+            <Button type="button" onClick={shortRest} variant="secondary" size="sm">
               {t('character.sheet.spellsTab.shortRest')}
-            </button>
-            <button
-              type="button"
-              onClick={longRest}
-              className="rounded-md border border-ink-700 px-2 py-1 text-xs text-ink-200 hover:bg-ink-800"
-            >
+            </Button>
+            <Button type="button" onClick={longRest} variant="secondary" size="sm">
               {t('character.sheet.spellsTab.longRest')}
-            </button>
+            </Button>
           </div>
         </div>
         {configuredLevels.length === 0 && (
@@ -450,27 +443,31 @@ function SpellsTab({ character, update }: TabProps) {
               <span className="w-16 text-ink-300">
                 {t('character.sheet.spellsTab.level', { level })}
               </span>
-              <button
+              <Button
                 type="button"
                 aria-label={t('character.sheet.spellsTab.spendSlot', { level })}
                 onClick={() => spendSlot(level)}
                 disabled={remaining <= 0}
-                className="rounded border border-ink-700 p-1 text-ink-200 hover:bg-ink-800 disabled:opacity-40"
+                variant="secondary"
+                size="sm"
+                iconOnly
               >
                 <Minus size={14} />
-              </button>
+              </Button>
               <span className="w-16 text-center font-mono text-ink-50">
                 {remaining} / {max}
               </span>
-              <button
+              <Button
                 type="button"
                 aria-label={t('character.sheet.spellsTab.recoverSlot', { level })}
                 onClick={() => recoverSlot(level)}
                 disabled={remaining >= max}
-                className="rounded border border-ink-700 p-1 text-ink-200 hover:bg-ink-800 disabled:opacity-40"
+                variant="secondary"
+                size="sm"
+                iconOnly
               >
                 <Plus size={14} />
-              </button>
+              </Button>
             </div>
           );
         })}
@@ -641,9 +638,9 @@ function RollsTab({ character }: { character: Character }) {
           </h3>
           <ul className="flex flex-col gap-0.5 text-sm">
             {history.slice(1).map((entry, index) => (
-              <li key={index} className="flex justify-between text-ink-300">
+              <li key={index} className="roll-history-row">
                 <span>{entry.label}</span>
-                <span className="font-mono text-ink-50">{entry.outcome.total}</span>
+                <span className="roll-value">{entry.outcome.total}</span>
               </li>
             ))}
           </ul>
@@ -674,13 +671,14 @@ function RollButton({
   onRoll: (label: string, bonus: number) => void;
 }) {
   return (
-    <button
+    <Button
       type="button"
       onClick={() => onRoll(label, bonus)}
-      className="rounded-md border border-ink-700 bg-ink-900 px-2.5 py-1 text-sm text-ink-100 hover:border-arcane-500 hover:bg-ink-800"
+      variant="secondary"
+      size="sm"
     >
       {label} <span className="font-mono text-arcane-300">{formatModifier(bonus)}</span>
-    </button>
+    </Button>
   );
 }
 

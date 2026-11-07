@@ -1,3 +1,4 @@
+import { Button } from '@/features/ui/primitives';
 import { ChevronLeft, ChevronRight, Home } from 'lucide-react';
 import { navSections, type NavAccent } from '@/app/navigation';
 import { Link, NavLink } from '@/i18n/path';
@@ -54,16 +55,18 @@ export function Sidebar({ onNavigate, collapsible = true }: SidebarProps) {
           </Link>
         )}
         {collapsible && (
-          <button
+          <Button
             type="button"
             onClick={toggle}
             aria-label={
               collapsed ? t('common.expandSidebar') : t('common.collapseSidebar')
             }
-            className="rounded-md p-1.5 text-ink-400 hover:bg-ink-800 hover:text-ink-100"
+            variant="ghost"
+            size="sm"
+            iconOnly
           >
             {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
-          </button>
+          </Button>
         )}
       </div>
 

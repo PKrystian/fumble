@@ -43,7 +43,7 @@ export function GlobalSearch({ compact = false }: GlobalSearchProps) {
     >
       <Search size={16} aria-hidden="true" />
       <span className="flex-1 text-left">{t('search.placeholder')}</span>
-      <kbd className="rounded border border-ink-600 px-1.5 py-0.5 text-[0.65rem] font-medium text-ink-400">
+      <kbd className="rounded border border-ink-600 px-1.5 py-0.5 text-xs font-medium text-ink-400">
         {t('search.shortcut')}
       </kbd>
     </Button>

@@ -1,5 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Pencil, Search, SlidersHorizontal, X } from 'lucide-react';
+import { Button, SearchField, ToggleChip } from '@/features/ui/primitives';
+import { useMemo, useState } from 'react';
+import { Pencil, SlidersHorizontal, X } from 'lucide-react';
+import { useDialogFocus } from '@/features/ui/useDialogFocus';
 import type { CompendiumCategoryId, CompendiumEntryBase } from '@/data/compendium/types';
 import { getCategory } from '@/features/compendium/categories';
 import { useCategoryItems } from '@/features/compendium/useCategoryItems';
@@ -58,10 +60,8 @@ export function CompendiumPicker({
 
   return (
     <div className="relative">
-      <div className="flex items-center gap-2 rounded-md border border-ink-700 bg-ink-950 px-2 py-1">
-        <Search size={14} className="text-ink-400" aria-hidden="true" />
-        <input
-          type="search"
+      <div className="flex items-center gap-2">
+        <SearchField
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder={
@@ -69,29 +69,26 @@ export function CompendiumPicker({
               ? t('character.sheet.picker.loadingCompendium')
               : placeholder
           }
-          aria-label={placeholder}
-          className="w-full bg-transparent text-sm text-ink-50 placeholder:text-ink-400 focus:outline-none"
+          label={placeholder}
+          onClear={() => setQuery('')}
+          clearLabel={t('common.clearSearch')}
         />
         {availableSources.length > 1 && (
-          <button
+          <Button
             type="button"
             onClick={() => setShowFilters((v) => !v)}
             aria-pressed={showFilters}
             aria-label={t('character.sheet.picker.filterBySource')}
-            className={[
-              'inline-flex items-center rounded p-0.5 transition-colors',
-              showFilters || selectedSources.length > 0
-                ? 'text-arcane-400'
-                : 'text-ink-400 hover:text-ink-100',
-            ].join(' ')}
+            variant="secondary"
+            iconOnly
           >
             <SlidersHorizontal size={14} />
             {selectedSources.length > 0 && (
-              <span className="ml-1 rounded-full bg-arcane-700 px-1 text-[10px] text-ink-50">
+              <span className="ml-1 rounded-full bg-arcane-700 px-1 text-xs text-ink-50">
                 {selectedSources.length}
               </span>
             )}
-          </button>
+          </Button>
         )}
       </div>
       {showFilters && availableSources.length > 1 && (
@@ -99,20 +96,14 @@ export function CompendiumPicker({
           {availableSources.map((source) => {
             const active = selectedSources.includes(source);
             return (
-              <button
+              <ToggleChip
                 key={source}
                 type="button"
                 onClick={() => toggleSource(source)}
-                aria-pressed={active}
-                className={[
-                  'rounded-full px-2 py-0.5 text-xs transition-colors',
-                  active
-                    ? 'bg-arcane-700 text-white ring-1 ring-arcane-300'
-                    : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
-                ].join(' ')}
+                active={active}
               >
                 {sourceName(source, locale)}
-              </button>
+              </ToggleChip>
             );
           })}
         </div>
@@ -157,19 +148,13 @@ export function CompendiumSelectModalField({
   const { t } = useT();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const dialogRef = useDialogFocus(open, () => setOpen(false));
   const { status, items } = useCategoryItems(getCategory(categoryId));
 
   const selected =
     items.find((item) => item.id === value) ??
     items.find((item) => item.name.toLowerCase() === value.trim().toLowerCase());
   const displayName = selected?.name ?? value;
-
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [open]);
 
   const results = useMemo(() => {
     const term = query.trim().toLowerCase();
@@ -183,51 +168,50 @@ export function CompendiumSelectModalField({
   return (
     <div className="flex flex-col gap-1 text-sm">
       <span className="text-xs font-semibold text-ink-400">{label}</span>
-      <button
+      <Button
         type="button"
         onClick={() => setOpen(true)}
         aria-label={`${label}: ${displayName || t('character.sheet.fields.noneSelected')}`}
-        className="flex items-center justify-between gap-2 rounded-md border border-ink-700 bg-ink-900 px-2 py-1 text-left text-ink-50 hover:border-arcane-500"
+        variant="secondary"
+        className="w-full justify-between text-left"
       >
-        <span className={displayName ? '' : 'text-ink-400'}>
+        <span className="min-w-0 truncate">
           {displayName || t('character.sheet.fields.noneSelected')}
         </span>
         <Pencil size={13} className="shrink-0 text-ink-400" />
-      </button>
+      </Button>
 
       {open && (
         <div
           role="dialog"
           aria-modal="true"
           aria-label={label}
+          ref={dialogRef}
+          tabIndex={-1}
           onClick={() => setOpen(false)}
-          className="fixed inset-0 z-[60] flex items-start justify-center bg-black/70 p-4 pt-16"
+          className="dialog-overlay"
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="flex max-h-[75vh] w-full max-w-md flex-col rounded-xl border border-ink-700 bg-ink-900 shadow-xl"
-          >
+          <div onClick={(e) => e.stopPropagation()} className="dialog-panel">
             <div className="flex items-center justify-between gap-2 border-b border-ink-700 p-3">
-              <div className="flex flex-1 items-center gap-2 rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5">
-                <Search size={14} className="text-ink-400" aria-hidden="true" />
-                <input
-                  type="search"
-                  autoFocus
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  placeholder={status === 'loading' ? t('common.loading') : placeholder}
-                  aria-label={placeholder}
-                  className="w-full bg-transparent text-sm text-ink-50 placeholder:text-ink-400 focus:outline-none"
-                />
-              </div>
-              <button
+              <SearchField
+                autoFocus
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder={status === 'loading' ? t('common.loading') : placeholder}
+                label={placeholder}
+                onClear={() => setQuery('')}
+                clearLabel={t('common.clearSearch')}
+              />
+              <Button
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label={t('common.close')}
-                className="rounded p-1 text-ink-400 hover:bg-ink-800 hover:text-ink-50"
+                variant="ghost"
+                size="sm"
+                iconOnly
               >
                 <X size={16} />
-              </button>
+              </Button>
             </div>
             <ul className="flex-1 overflow-y-auto p-1">
               {results.length === 0 && (
@@ -244,12 +228,8 @@ export function CompendiumSelectModalField({
                       setQuery('');
                       setOpen(false);
                     }}
-                    className={[
-                      'block w-full rounded-md px-3 py-1.5 text-left text-sm hover:bg-ink-800',
-                      item.id === selected?.id
-                        ? 'bg-arcane-700 text-white'
-                        : 'text-ink-100',
-                    ].join(' ')}
+                    className="selection-row"
+                    aria-pressed={item.id === selected?.id}
                   >
                     {item.name}
                   </button>

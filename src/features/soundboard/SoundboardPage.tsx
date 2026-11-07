@@ -1,3 +1,4 @@
+import { Button, ToggleChip } from '@/features/ui/primitives';
 import { useState } from 'react';
 import {
   closestCenter,
@@ -124,7 +125,7 @@ function SortableTrack({
               value={track.category}
               onChange={(event) => onCategoryChange(event.target.value)}
               aria-label={t('soundboard.changeTrackCategory', { name: displayName })}
-              className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-sm font-normal text-ink-50 focus:border-arcane-500 focus:outline-none"
+              className="ui-field font-normal"
             >
               {categories.map((category) => (
                 <option key={category.id} value={category.id}>
@@ -133,13 +134,15 @@ function SortableTrack({
               ))}
             </select>
           </label>
-          <button
+          <Button
             type="button"
             onClick={onFinishEditing}
-            className="mt-2 w-full rounded-md bg-arcane-700 px-3 py-1.5 text-xs font-medium text-ink-50 hover:bg-arcane-500"
+            variant="primary"
+            size="sm"
+            className="mt-2 w-full"
           >
             {t('soundboard.done')}
-          </button>
+          </Button>
         </div>
       )}
 
@@ -148,27 +151,31 @@ function SortableTrack({
         {...attributes}
         {...listeners}
         aria-label={t('common.dragToReorder')}
-        className="absolute left-1 top-1 cursor-grab touch-none rounded bg-ink-950/80 p-1.5 text-ink-300 opacity-100 hover:text-ink-50 active:cursor-grabbing sm:opacity-0 sm:group-focus-within:opacity-100 sm:group-hover:opacity-100"
+        className="drag-handle left-1 top-1"
       >
         <GripVertical size={14} />
       </button>
       <div className="absolute right-1 top-1 flex gap-1 opacity-100 sm:opacity-0 sm:group-focus-within:opacity-100 sm:group-hover:opacity-100">
-        <button
+        <Button
           type="button"
           aria-label={t('soundboard.editTrack', { name: displayName })}
           onClick={onEdit}
-          className="rounded bg-ink-950/80 p-1.5 text-ink-300 hover:text-ink-50"
+          variant="ghost"
+          size="sm"
+          iconOnly
         >
           <Pencil size={14} />
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
           aria-label={t('soundboard.removeTrack', { name: displayName })}
           onClick={onRemove}
-          className="rounded bg-ink-950/80 p-1.5 text-ink-300 hover:text-red-400"
+          variant="ghost"
+          size="sm"
+          iconOnly
         >
           <Trash2 size={14} />
-        </button>
+        </Button>
       </div>
     </li>
   );
@@ -259,21 +266,19 @@ export function SoundboardPage() {
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-8">
+    <div className="page-shell">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <h1 className="font-display text-3xl font-bold text-ink-50">
-          {t('soundboard.title')}
-        </h1>
+        <h1 className="text-ink-50 page-title">{t('soundboard.title')}</h1>
         <div className="flex flex-wrap gap-2">
-          <button
+          <Button
             type="button"
             onClick={() => setManagingCategories((open) => !open)}
             aria-expanded={managingCategories}
-            className="inline-flex items-center gap-1 rounded-md border border-ink-700 px-3 py-2 text-sm text-ink-300 hover:bg-ink-800"
+            variant="secondary"
           >
             <Settings2 size={14} /> {t('soundboard.manageCategories')}
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
             onClick={async () => {
               const ok = await confirmDialog(t('soundboard.clearConfirm'), {
@@ -286,11 +291,11 @@ export function SoundboardPage() {
                 setSelectedCategory('custom');
               }
             }}
-            className="inline-flex items-center gap-1 rounded-md border border-ink-700 px-3 py-2 text-sm text-ink-300 hover:bg-ink-800"
+            variant="secondary"
           >
             <Eraser size={14} /> {t('soundboard.clear')}
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
             onClick={async () => {
               const ok = await confirmDialog(t('soundboard.examplesConfirm'), {
@@ -303,10 +308,10 @@ export function SoundboardPage() {
                 setSelectedCategory('custom');
               }
             }}
-            className="inline-flex items-center gap-1 rounded-md border border-ink-700 px-3 py-2 text-sm text-ink-300 hover:bg-ink-800"
+            variant="secondary"
           >
             <RotateCcw size={14} /> {t('soundboard.restoreExamples')}
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -316,14 +321,16 @@ export function SoundboardPage() {
             <span className="font-medium text-ink-50">
               {t('soundboard.nowPlaying', { name: displayTrackName(active, t, locale) })}
             </span>
-            <button
+            <Button
               type="button"
               aria-label={t('soundboard.stop')}
               onClick={() => setActive(null)}
-              className="rounded p-1 text-ink-300 hover:bg-ink-800 hover:text-ink-50"
+              variant="ghost"
+              size="sm"
+              iconOnly
             >
               <X size={18} />
-            </button>
+            </Button>
           </div>
           <iframe
             key={active.id}
@@ -337,7 +344,7 @@ export function SoundboardPage() {
 
       {managingCategories && (
         <section className="mb-6 rounded-xl border border-ink-700 bg-ink-900 p-4">
-          <h2 className="font-display text-lg font-bold text-ink-50">
+          <h2 className="text-ink-50 section-title">
             {t('soundboard.manageCategories')}
           </h2>
           <div className="mt-4 flex gap-2">
@@ -352,19 +359,19 @@ export function SoundboardPage() {
               }}
               aria-label={t('soundboard.newCategory')}
               placeholder={t('soundboard.newCategoryPlaceholder')}
-              className="min-w-0 flex-1 rounded-md border border-ink-700 bg-ink-950 px-3 py-2 text-sm text-ink-50 focus:border-arcane-500 focus:outline-none"
+              className="ui-field min-w-0 flex-1"
             />
-            <button
+            <Button
               type="button"
               disabled={!newCategory.trim()}
               onClick={() => {
                 addCategory(newCategory.trim());
                 setNewCategory('');
               }}
-              className="inline-flex items-center gap-1 rounded-md bg-arcane-700 px-3 py-2 text-sm font-medium text-ink-50 hover:bg-arcane-500 disabled:cursor-not-allowed disabled:opacity-50"
+              variant="primary"
             >
               <Plus size={16} /> {t('soundboard.addCategory')}
-            </button>
+            </Button>
           </div>
           <ul className="mt-4 divide-y divide-ink-800">
             {categories.map((soundboardCategory) => (
@@ -377,10 +384,10 @@ export function SoundboardPage() {
                   aria-label={t('soundboard.renameCategory', {
                     name: categoryLabel(soundboardCategory.id, soundboardCategory.name),
                   })}
-                  className="min-w-0 flex-1 rounded-md border border-ink-700 bg-ink-950 px-3 py-1.5 text-sm text-ink-50 focus:border-arcane-500 focus:outline-none"
+                  className="ui-field min-w-0 flex-1"
                 />
                 {soundboardCategory.id !== 'custom' && (
-                  <button
+                  <Button
                     type="button"
                     onClick={() => {
                       removeCategory(soundboardCategory.id);
@@ -394,10 +401,12 @@ export function SoundboardPage() {
                     aria-label={t('soundboard.removeCategory', {
                       name: categoryLabel(soundboardCategory.id, soundboardCategory.name),
                     })}
-                    className="rounded p-2 text-ink-400 hover:bg-ink-800 hover:text-red-400"
+                    variant="ghost"
+                    size="sm"
+                    iconOnly
                   >
                     <Trash2 size={16} />
-                  </button>
+                  </Button>
                 )}
               </li>
             ))}
@@ -414,7 +423,7 @@ export function SoundboardPage() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder={t('soundboard.namePlaceholder')}
-            className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1 text-ink-50 focus:border-arcane-500 focus:outline-none"
+            className="ui-field"
           />
         </label>
         <label className="flex min-w-40 flex-col gap-1 text-sm">
@@ -424,7 +433,7 @@ export function SoundboardPage() {
           <select
             value={selectedCategory}
             onChange={(event) => setSelectedCategory(event.target.value)}
-            className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1 text-ink-50 focus:border-arcane-500 focus:outline-none"
+            className="ui-field"
           >
             {categories.map((soundboardCategory) => (
               <option key={soundboardCategory.id} value={soundboardCategory.id}>
@@ -441,17 +450,13 @@ export function SoundboardPage() {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && add()}
-            placeholder="https://www.youtube.com/watch?v=…"
-            className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1 text-ink-50 focus:border-arcane-500 focus:outline-none"
+            placeholder="https://www.youtube.com/watch?v=..."
+            className="ui-field"
           />
         </label>
-        <button
-          type="button"
-          onClick={add}
-          className="inline-flex items-center gap-1 rounded-md bg-arcane-700 px-4 py-2 text-sm font-medium text-ink-50 hover:bg-arcane-500"
-        >
+        <Button type="button" onClick={add} variant="primary">
           <Plus size={16} /> {t('soundboard.add')}
-        </button>
+        </Button>
       </div>
       {error && <p className="mb-4 text-sm text-red-400">{error}</p>}
 
@@ -465,23 +470,21 @@ export function SoundboardPage() {
         ].map((item) => {
           const selected = category === item.id;
           return (
-            <button
+            <ToggleChip
               key={item.id}
               type="button"
-              aria-pressed={selected}
+              active={selected}
               onClick={() => update({ category: item.id === 'all' ? null : item.id })}
-              className={[
-                'rounded-full px-3 py-1 text-sm font-medium transition-colors',
-                selected
-                  ? 'bg-arcane-700 text-white ring-1 ring-arcane-300'
-                  : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
-              ].join(' ')}
             >
               {item.name}
-            </button>
+            </ToggleChip>
           );
         })}
       </div>
+
+      {visibleTracks.length === 0 && (
+        <p className="empty-state">{t('soundboard.emptyState')}</p>
+      )}
 
       <DndContext
         sensors={sensors}

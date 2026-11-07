@@ -78,9 +78,7 @@ for (const file of files) {
   const alternateCount = (source.match(/rel="alternate" hreflang=/g) ?? []).length;
   const hasJsonLd = source.includes('<script type="application/ld+json"');
   const hasPrerenderedHeading =
-    /<main id="prerendered-content" data-prerendered="true"[^>]*>[\s\S]*?<h1(?:\s|>)/.test(
-      source,
-    );
+    /<main\b[^>]*data-prerendered="true"[^>]*>[\s\S]*?<h1(?:\s|>)/.test(source);
   const isCatalog = relativeFile.includes('/browse/');
   const selfCanonical =
     canonical ===

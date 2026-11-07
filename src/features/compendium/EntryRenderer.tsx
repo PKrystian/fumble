@@ -49,16 +49,26 @@ function BookImage({ src, title }: { src: string; title?: string }) {
   const plainTitle = title ? localizePlainText(stripMarkup(title), locale) : '';
   return (
     <figure className="my-2 flex flex-col items-center gap-1">
-      <img
-        src={imageUrl(src)}
-        alt={plainTitle}
-        loading="lazy"
-        onClick={() => open(src, plainTitle)}
-        onError={(e) => {
-          e.currentTarget.closest('figure')!.style.display = 'none';
+      <a
+        href={imageUrl(src)}
+        className="artwork-trigger"
+        aria-label={plainTitle || translate(locale, 'common.imageViewer')}
+        onClick={(event) => {
+          event.preventDefault();
+          open(src, plainTitle);
         }}
-        className="h-auto max-h-[32rem] cursor-zoom-in rounded-lg border border-ink-700 object-contain"
-      />
+      >
+        <img
+          src={imageUrl(src)}
+          alt={plainTitle}
+          loading="lazy"
+
+          onError={(e) => {
+            e.currentTarget.closest('figure')!.style.display = 'none';
+          }}
+          className="h-auto max-h-[32rem] cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+        />
+      </a>
       {title && (
         <figcaption className="text-xs text-ink-400">
           {parseMarkup(title, locale)}
@@ -70,25 +80,38 @@ function BookImage({ src, title }: { src: string; title?: string }) {
 
 interface EntryRendererProps {
   entries: Entry[];
+  headingLevel?: number;
 }
 
-export function EntryRenderer({ entries }: EntryRendererProps) {
+export function EntryRenderer({ entries, headingLevel = 2 }: EntryRendererProps) {
   const locale = useLocale();
-  return <>{entries.map((entry, index) => renderEntry(entry, index, locale))}</>;
+  return (
+    <>{entries.map((entry, index) => renderEntry(entry, index, locale, headingLevel))}</>
+  );
 }
 
-function renderEntry(entry: Entry, key: number, locale: Locale): ReactNode {
+function renderEntry(
+  entry: Entry,
+  key: number,
+  locale: Locale,
+  headingLevel = 2,
+): ReactNode {
   if (typeof entry === 'string') {
     return (
-      <p key={key} className="leading-relaxed text-ink-200">
+      <p key={key} className="leading-7 text-ink-200">
         {parseMarkup(entry, locale)}
       </p>
     );
   }
-  return renderNode(entry, key, locale);
+  return renderNode(entry, key, locale, headingLevel);
 }
 
-function renderNode(node: EntryNode, key: number, locale: Locale): ReactNode {
+function renderNode(
+  node: EntryNode,
+  key: number,
+  locale: Locale,
+  headingLevel = 2,
+): ReactNode {
   switch (node.type) {
     case 'tableGroup':
       return renderNode(
@@ -99,6 +122,7 @@ function renderNode(node: EntryNode, key: number, locale: Locale): ReactNode {
         },
         key,
         locale,
+        headingLevel,
       );
 
     case 'flowchart':
@@ -110,6 +134,7 @@ function renderNode(node: EntryNode, key: number, locale: Locale): ReactNode {
         },
         key,
         locale,
+        headingLevel,
       );
 
     case 'hr':
@@ -123,7 +148,8 @@ function renderNode(node: EntryNode, key: number, locale: Locale): ReactNode {
 
     case 'entries':
     case 'section':
-    case 'flowBlock':
+    case 'flowBlock': {
+      const Heading = `h${Math.min(6, headingLevel)}` as 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
       return (
         <div
           key={key}
@@ -136,13 +162,16 @@ function renderNode(node: EntryNode, key: number, locale: Locale): ReactNode {
             : {})}
         >
           {node.name && (
-            <h4 className="font-display text-lg font-semibold text-ink-50">
+            <Heading className="entry-heading font-display font-bold text-ink-50">
               {parseMarkup(node.name, locale)}
-            </h4>
+            </Heading>
           )}
-          {node.entries && <EntryRenderer entries={node.entries} />}
+          {node.entries && (
+            <EntryRenderer entries={node.entries} headingLevel={headingLevel + 1} />
+          )}
         </div>
       );
+    }
 
     case 'list':
       return (
@@ -337,23 +366,25 @@ function RollableTable({ node }: { node: EntryNode }) {
   };
 
   return (
-    <div className="overflow-x-auto">
+    <div
+      tabIndex={0}
+      role="region"
+      aria-label={translate(locale, 'common.tableScroll')}
+      className="table-scroll"
+    >
       {node.caption && (
         <p className="mb-1 font-semibold text-ink-50">
           {parseMarkup(node.caption, locale)}
         </p>
       )}
-      <table className="w-full border-collapse text-left text-sm text-ink-200">
+      <table className="data-table">
         {node.colLabels && (
           <thead>
             <tr className="bg-ink-950/60">
               {node.colLabels.map((label, index) => {
                 const content = parseMarkup(label, locale);
                 return (
-                  <th
-                    key={index}
-                    className="border-b border-ink-700 px-2 py-1 font-semibold text-ink-50"
-                  >
+                  <th scope="col" key={index} className="font-semibold">
                     {!staticReading && index === 0 && dice && !/\{[@#]/u.test(label) ? (
                       <button
                         type="button"
@@ -384,10 +415,9 @@ function RollableTable({ node }: { node: EntryNode }) {
                 {cells.map((cell, cellIndex) => (
                   <td
                     key={cellIndex}
-                    className={[
-                      'border-b border-ink-800 px-2 py-1',
-                      cellIndex === 0 && indentFirst ? 'pl-6' : '',
-                    ].join(' ')}
+                    className={['', cellIndex === 0 && indentFirst ? 'pl-6' : ''].join(
+                      ' ',
+                    )}
                   >
                     {renderListItem(cell, locale)}
                   </td>

@@ -74,10 +74,8 @@ export function LootGeneratorPage() {
   const pool = useMemo(() => lootablePool(items as ItemEntry[]), [items]);
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-8">
-      <h1 className="mb-6 font-display text-3xl font-bold text-ink-50">
-        {t('dm.loot.title')}
-      </h1>
+    <div className="page-shell">
+      <h1 className="mb-6 text-ink-50 page-title">{t('dm.loot.title')}</h1>
 
       <nav className="mb-6 flex flex-wrap gap-2" aria-label={t('dm.loot.modeNav')}>
         {MODES.map((m) => (
@@ -296,7 +294,7 @@ function PartyMode({ status, pool, hoard, setHoard }: ModeProps) {
         {source === 'manual' ? (
           <div className="space-y-3">
             {manualParty.map((member, index) => (
-              <div key={index} className="flex items-end gap-2">
+              <div key={index} className="party-row">
                 <label className="flex flex-col gap-1 text-sm">
                   <span className="text-xs text-ink-400">
                     {t('dm.loot.characterCount')}
@@ -314,7 +312,7 @@ function PartyMode({ status, pool, hoard, setHoard }: ModeProps) {
                         ),
                       )
                     }
-                    className="w-20"
+                    className="w-full"
                   />
                 </label>
                 <label className="flex flex-col gap-1 text-sm">
@@ -335,7 +333,7 @@ function PartyMode({ status, pool, hoard, setHoard }: ModeProps) {
                         ),
                       )
                     }
-                    className="w-20"
+                    className="w-full"
                   />
                 </label>
                 {manualParty.length > 1 && (
@@ -384,7 +382,7 @@ function PartyMode({ status, pool, hoard, setHoard }: ModeProps) {
                     <span className="flex-1 truncate text-ink-50">
                       {character.name || t('character.unnamed')}
                       {isDmCharacter(character) && (
-                        <span className="ml-1.5 rounded-full border border-ember-500/50 px-1.5 text-[0.6rem] uppercase tracking-wide text-ember-400">
+                        <span className="badge ml-1.5 border-ember-500/50 text-ember-400">
                           {t('character.dmBadge')}
                         </span>
                       )}
@@ -525,7 +523,7 @@ function HoardResult({ hoard }: { hoard: Hoard | null }) {
           <ul className="flex flex-col gap-2">
             {hoard.items.map(({ item, usableBy }) => (
               <li key={item.id} className="text-sm">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <Link
                     to={`/compendium/items/${item.id}`}
                     target="_blank"
@@ -536,7 +534,7 @@ function HoardResult({ hoard }: { hoard: Hoard | null }) {
                     <ExternalLink size={12} className="text-ink-500" aria-hidden="true" />
                   </Link>
                   <span className="text-ink-400">
-                    {item.type} · {item.rarity}
+                    {item.type} - {item.rarity}
                   </span>
                 </div>
                 {usableBy && (

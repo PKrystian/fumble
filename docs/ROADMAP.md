@@ -14,7 +14,7 @@ Hard constraints:
 
 - **Zero running cost.** Static hosting on GitHub Pages, no paid backend or servers.
 - **Client-side only.** All state lives in the browser (localStorage / IndexedDB).
-- **Responsive & accessible.** Desktop, tablet, mobile (left toolbar → burger menu).
+- **Responsive & accessible.** Desktop, tablet, mobile (left toolbar -> burger menu).
 - **SEO-friendly**, tested, clean code with minimal comments.
 
 ## Locked decisions
@@ -62,7 +62,7 @@ Hard constraints:
   - Nothing deferred - the 2024 core knowledge base is complete.
 - [x] **Phase 3 - Character sheet.** Roster (create / delete / import / export), full editable
       sheet with live D&D 2024 math: ability scores + modifiers, proficiency bonus, saving throws,
-      all 18 skills (none → proficient → expertise), passive senses, AC/initiative/speed, HP with
+      all 18 skills (none -> proficient -> expertise), passive senses, AC/initiative/speed, HP with
       heal/damage/temp-HP controls, heroic inspiration, and tabs for Actions, Spells (slots + save
       DC / attack), Inventory, Features, and Notes, plus proficiency/defense/tracking panels.
       Persists to localStorage; responsive desktop/tablet/mobile.
@@ -78,7 +78,7 @@ Hard constraints:
       (`features/initiative/`) is a localStorage-persisted combatant list sorted by initiative
       with round/turn advancement, editable HP/AC/conditions, and a d20 initiative roll.
 - [x] **Phase 5 - DM screen:** **Encounter builder** (`features/dm/`) - party XP budgets from the
-      2024 DMG, a bestiary-backed monster picker, CR→XP totals, and a difficulty verdict
+      2024 DMG, a bestiary-backed monster picker, CR->XP totals, and a difficulty verdict
       (tested in `xp.test.ts`). **Loot generator** - tier-based coins (via the dice engine), gems,
       and random magic items drawn from the compendium at tier-appropriate rarities. The initiative
       tracker (Phase 4) and the bestiary (in the compendium) round out the DM toolkit.

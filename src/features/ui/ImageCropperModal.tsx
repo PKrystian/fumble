@@ -1,3 +1,4 @@
+import { Button } from '@/features/ui/primitives';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import DOMPurify from 'dompurify';
 import { Check, X, ZoomIn, ZoomOut } from 'lucide-react';
@@ -63,7 +64,7 @@ export function ImageCropperModal({
   const [saving, setSaving] = useState(false);
   const frameRef = useRef<HTMLDivElement>(null);
   const pointers = useRef(new Map<number, Point>());
-  const dialogRef = useDialogFocus(true);
+  const dialogRef = useDialogFocus(true, onCancel);
 
   useEffect(() => {
     const objectUrl = URL.createObjectURL(file);
@@ -97,12 +98,6 @@ export function ImageCropperModal({
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => el.removeEventListener('wheel', onWheel);
   }, []);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onCancel();
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [onCancel]);
 
   const baseScale =
     natural.width && frame.width
@@ -203,22 +198,24 @@ export function ImageCropperModal({
       ref={dialogRef}
       tabIndex={-1}
       onClick={onCancel}
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/70 p-4"
+      className="dialog-overlay"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="flex w-full max-w-sm flex-col gap-4 rounded-xl border border-ink-700 bg-ink-900 p-5 shadow-xl"
+        className="dialog-panel max-w-sm gap-4 overflow-y-auto p-5"
       >
         <div className="flex items-center justify-between">
-          <h2 className="font-display text-lg font-bold text-ink-50">{dialogTitle}</h2>
-          <button
+          <h2 className="text-ink-50 section-title">{dialogTitle}</h2>
+          <Button
             type="button"
             onClick={onCancel}
             aria-label={t('common.cancel')}
-            className="rounded-full p-1 text-ink-400 hover:text-ink-50"
+            variant="ghost"
+            size="sm"
+            iconOnly
           >
             <X size={18} />
-          </button>
+          </Button>
         </div>
 
         <div
@@ -273,21 +270,17 @@ export function ImageCropperModal({
         <p className="text-center text-xs text-ink-400">{t('common.cropperHint')}</p>
 
         <div className="flex justify-end gap-2">
-          <button
-            type="button"
-            onClick={onCancel}
-            className="rounded-md border border-ink-700 px-4 py-2 text-sm font-medium text-ink-200 hover:bg-ink-800"
-          >
+          <Button type="button" onClick={onCancel} variant="secondary">
             {t('common.cancel')}
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
             onClick={() => void handleSave()}
             disabled={saving || !natural.width}
-            className="inline-flex items-center gap-2 rounded-md bg-arcane-700 px-4 py-2 text-sm font-medium text-ink-50 hover:bg-arcane-500 disabled:opacity-50"
+            variant="primary"
           >
             <Check size={16} /> {t('common.save')}
-          </button>
+          </Button>
         </div>
       </div>
     </div>

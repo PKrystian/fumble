@@ -4574,7 +4574,7 @@
   "animal-messenger": {
     "name": "Zwierzęcy Posłaniec",
     "entries": [
-      "Wybrane przez ciebie {@filter Drobne Zwierzę|bestiary|size=T|type=beast|miscellaneous=!swarm} widoczne w zasięgu musi zdać rzut obronny Charyzmy, w przeciwnym razie próbuje dostarczyć dla ciebie wiadomość (jeśli {@variantrule Challenge Rating|XPHB} celu nie wynosi 0, automatycznie zalicza rzut). Określasz lokalizację, którą odwiedziłeś, oraz odbiorcę pasującego do ogólnego opisu, na przykład „osoba ubrana w mundur straży miejskiej” lub „rudowłosy krasnolud w spiczastym kapeluszu”. Przekazujesz też wiadomość liczącą do dwudziestu pięciu słów. Zwierzę podróżuje przez czas działania zaklęcia w kierunku wskazanej lokalizacji, pokonując około 25 mil na 24 godziny lub 50 mil, jeśli Zwierzę potrafi latać.",
+      "Wybrane przez ciebie {@filter Drobne Zwierzę|bestiary|size=T|type=beast|miscellaneous=!swarm} widoczne w zasięgu musi zdać rzut obronny Charyzmy, w przeciwnym razie próbuje dostarczyć dla ciebie wiadomość (jeśli {@variantrule Challenge Rating|XPHB} celu nie wynosi 0, automatycznie zalicza rzut). Określasz lokalizację, którą odwiedziłeś, oraz odbiorcę pasującego do ogólnego opisu, na przykład \"osoba ubrana w mundur straży miejskiej\" lub \"rudowłosy krasnolud w spiczastym kapeluszu\". Przekazujesz też wiadomość liczącą do dwudziestu pięciu słów. Zwierzę podróżuje przez czas działania zaklęcia w kierunku wskazanej lokalizacji, pokonując około 25 mil na 24 godziny lub 50 mil, jeśli Zwierzę potrafi latać.",
       "Gdy Zwierzę dotrze na miejsce, dostarcza twoją wiadomość opisanemu przez ciebie stworowi, naśladując twój sposób komunikacji. Jeśli Zwierzę nie dotrze do celu przed zakończeniem działania zaklęcia, wiadomość zostaje utracona, a Zwierzę wraca tam, gdzie rzuciłeś zaklęcie."
     ],
     "entriesHigherLevel": [
@@ -7065,7 +7065,7 @@
   "suggestion": {
     "name": "Sugestia",
     "entries": [
-      "Sugerujesz kierunek działania - opisany w nie więcej niż 25 słowach - jednemu widocznemu w zasięgu stworowi, które może cię usłyszeć i zrozumieć. Sugestia musi brzmieć na wykonalną i nie może dotyczyć niczego, co w oczywisty sposób zaszkodziłoby celowi lub jego sojusznikom. Na przykład możesz powiedzieć: „Przynieś klucz do skarbca kultu i oddaj mi go”. Albo możesz powiedzieć: „Przestań walczyć, opuść tę bibliotekę spokojnie i nie wracaj”.",
+      "Sugerujesz kierunek działania - opisany w nie więcej niż 25 słowach - jednemu widocznemu w zasięgu stworowi, które może cię usłyszeć i zrozumieć. Sugestia musi brzmieć na wykonalną i nie może dotyczyć niczego, co w oczywisty sposób zaszkodziłoby celowi lub jego sojusznikom. Na przykład możesz powiedzieć: \"Przynieś klucz do skarbca kultu i oddaj mi go\". Albo możesz powiedzieć: \"Przestań walczyć, opuść tę bibliotekę spokojnie i nie wracaj\".",
       "Cel musi zdać rzut obronny Mądrości albo otrzymuje stan {@condition Charmed|XPHB} na czas działania zaklęcia lub dopóki ty lub twoi sojusznicy nie zadacie celowi obrażeń. Cel {@condition Charmed|XPHB} realizuje sugestię najlepiej, jak potrafi. Sugerowana czynność może trwać przez cały czas działania zaklęcia, ale jeśli można ją wykonać szybciej, zaklęcie kończy się dla celu po jej ukończeniu."
     ],
     "castingTime": "1 akcja",
@@ -10464,7 +10464,7 @@
   "dimension-door": {
     "name": "Drzwi Wymiarowe",
     "entries": [
-      "Teleportujesz się do lokalizacji w zasięgu. Docierasz dokładnie do wybranego miejsca. Może to być miejsce, które widzisz, które potrafisz sobie wyobrazić, lub które możesz opisać, podając odległość i kierunek, na przykład „200 stóp prosto w dół” lub „300 stóp w górę na północny zachód pod kątem 45 stopni”.",
+      "Teleportujesz się do lokalizacji w zasięgu. Docierasz dokładnie do wybranego miejsca. Może to być miejsce, które widzisz, które potrafisz sobie wyobrazić, lub które możesz opisać, podając odległość i kierunek, na przykład \"200 stóp prosto w dół\" lub \"300 stóp w górę na północny zachód pod kątem 45 stopni\".",
       "Możesz też teleportować jednego chętnego stwora. Stwór musi znajdować się w promieniu 5 stóp od ciebie, gdy się teleportujesz, i teleportuje się do przestrzeni w promieniu 5 stóp od twojej docelowej przestrzeni.",
       "Jeśli ty, drugi stwór, albo oboje trafilibyście do przestrzeni zajętej przez stwora lub całkowicie wypełnionej jednym lub więcej przedmiotami, ty i każdy podróżujący z tobą stwór otrzymujecie {@damage 4d6} obrażeń od mocy, a teleportacja zawodzi."
     ],
@@ -10522,7 +10522,7 @@
     "name": "Zniewolenie Bestii",
     "entries": [
       "Jedno widoczne w zasięgu Zwierzę musi zdać rzut obronny Mądrości albo otrzymuje stan {@condition Charmed|XPHB} na czas działania zaklęcia. Cel ma {@variantrule Advantage|XPHB} na tym rzucie, jeśli ty lub twoi sojusznicy z nim walczycie. Ilekroć cel otrzyma obrażenia, powtarza rzut obronny, kończąc zaklęcie na sobie w przypadku sukcesu.",
-      "Masz połączenie telepatyczne z celem {@condition Charmed|XPHB}, podczas gdy oboje jesteście na tym samym poziomie istnienia.W swojej turze możesz użyć tego łącza, aby wydać celowi polecenia (nie wymaga to żadnej akcji), takie jak „{@action Attack|XPHB} tego stworzenia”, „Przesuń się tam” lub „Przynieś ten obiekt”.W swojej turze cel robi wszystko, co w jego mocy, aby być posłusznym.Jeśli wykona rozkaz i nie otrzyma od ciebie dalszych wskazówek, działa i porusza się tak, jak chce, skupiając się na obronie.",
+      "Masz połączenie telepatyczne z celem {@condition Charmed|XPHB}, podczas gdy oboje jesteście na tym samym poziomie istnienia.W swojej turze możesz użyć tego łącza, aby wydać celowi polecenia (nie wymaga to żadnej akcji), takie jak \"{@action Attack|XPHB} tego stworzenia\", \"Przesuń się tam\" lub \"Przynieś ten obiekt\".W swojej turze cel robi wszystko, co w jego mocy, aby być posłusznym.Jeśli wykona rozkaz i nie otrzyma od ciebie dalszych wskazówek, działa i porusza się tak, jak chce, skupiając się na obronie.",
       "Możesz rozkazać celowi wykonać {@variantrule Reaction|XPHB}, ale musisz wykorzystać swoją własną {@variantrule Reaction|XPHB}, by to zrobić."
     ],
     "entriesHigherLevel": [
@@ -10567,7 +10567,7 @@
         "type": "entries",
         "name": "Rzucanie jako Zaklęcie Kręgu",
         "entries": [
-          "Rzucenie tego jako Zaklęcia Kręgu wymaga co najmniej pięciu drugorzędnych rzucających. Oprócz zwykłych składników zaklęcia musisz dostarczyć specjalny składnik (sznur trzech czarnych pereł z Pandemonium), który zaklęcie zużywa. Zasięg zaklęcia zwiększa się do 1 mili, a czas działania zwiększa się do „dopóki nie zostanie rozproszone” (bez wymaganej {@status Concentration|XPHB}). Zaklęcie kończy się wcześniej, jeśli którykolwiek rzucający uczestniczący w tym rzuceniu przyczyni się do innego rzucenia {@spell Doomtide|FRHoF} jako Zaklęcia Kręgu.",
+          "Rzucenie tego jako Zaklęcia Kręgu wymaga co najmniej pięciu drugorzędnych rzucających. Oprócz zwykłych składników zaklęcia musisz dostarczyć specjalny składnik (sznur trzech czarnych pereł z Pandemonium), który zaklęcie zużywa. Zasięg zaklęcia zwiększa się do 1 mili, a czas działania zwiększa się do \"dopóki nie zostanie rozproszone\" (bez wymaganej {@status Concentration|XPHB}). Zaklęcie kończy się wcześniej, jeśli którykolwiek rzucający uczestniczący w tym rzuceniu przyczyni się do innego rzucenia {@spell Doomtide|FRHoF} jako Zaklęcia Kręgu.",
           "Gdy zaklęcie jest rzucane, każdy drugorzędny rzucający musi wydać miejsce zaklęcia poziomu 3+; w przeciwnym razie zaklęcie zawodzi."
         ]
       }
@@ -12149,7 +12149,7 @@
     "name": "Komunia",
     "entries": [
       "Nawiązujesz kontakt z bóstwem lub boskim pełnomocnikiem i zadajesz do trzech pytań, na które można odpowiedzieć tak lub nie. Musisz zadać swoje pytania przed zakończeniem działania zaklęcia. Otrzymujesz poprawną odpowiedź na każde pytanie.",
-      "Istoty boskie niekoniecznie są wszechwiedzące, więc możesz otrzymać odpowiedź „niejasne”, jeśli pytanie dotyczy informacji wykraczających poza wiedzę bóstwa. W przypadku, gdy jednowyrazowa odpowiedź mogłaby wprowadzać w błąd lub być sprzeczna z interesami bóstwa, MG może zamiast tego zaproponować krótkie zdanie jako odpowiedź.",
+      "Istoty boskie niekoniecznie są wszechwiedzące, więc możesz otrzymać odpowiedź \"niejasne\", jeśli pytanie dotyczy informacji wykraczających poza wiedzę bóstwa. W przypadku, gdy jednowyrazowa odpowiedź mogłaby wprowadzać w błąd lub być sprzeczna z interesami bóstwa, MG może zamiast tego zaproponować krótkie zdanie jako odpowiedź.",
       "Jeśli rzucisz to zaklęcie więcej niż raz przed zakończeniem {@variantrule Long Rest|XPHB}, istnieje kumulatywna {@chance 25|||No answer!|Answer} szansa dla każdego rzucenia po pierwszym, że nie otrzymasz odpowiedzi."
     ],
     "castingTime": "1 minuta",
@@ -12295,7 +12295,7 @@
   "contact-other-plane": {
     "name": "Kontakt z Inną Płaszczyzną",
     "entries": [
-      "Nawiązujesz mentalny kontakt z półbogiem, duchem dawno zmarłego mędrca lub inną wiedzącą istotą z innej płaszczyzny. Kontakt z tą nieziemską inteligencją może załamać twój umysł. Gdy rzucasz to zaklęcie, wykonaj rzut obronny Inteligencji o {@dc 15}. Przy udanym rzucie możesz zadać istocie do pięciu pytań. Musisz zadać swoje pytania przed zakończeniem działania zaklęcia. MG odpowiada na każde pytanie jednym słowem, na przykład „tak”, „nie”, „może”, „nigdy”, „nieistotne” lub „niejasne” (jeśli istota nie zna odpowiedzi na pytanie). Jeśli jednowyrazowa odpowiedź byłaby myląca, MG może zamiast tego zaoferować krótkie zdanie jako odpowiedź.",
+      "Nawiązujesz mentalny kontakt z półbogiem, duchem dawno zmarłego mędrca lub inną wiedzącą istotą z innej płaszczyzny. Kontakt z tą nieziemską inteligencją może załamać twój umysł. Gdy rzucasz to zaklęcie, wykonaj rzut obronny Inteligencji o {@dc 15}. Przy udanym rzucie możesz zadać istocie do pięciu pytań. Musisz zadać swoje pytania przed zakończeniem działania zaklęcia. MG odpowiada na każde pytanie jednym słowem, na przykład \"tak\", \"nie\", \"może\", \"nigdy\", \"nieistotne\" lub \"niejasne\" (jeśli istota nie zna odpowiedzi na pytanie). Jeśli jednowyrazowa odpowiedź byłaby myląca, MG może zamiast tego zaoferować krótkie zdanie jako odpowiedź.",
       "Przy nieudanym rzucie otrzymujesz {@damage 6d6} obrażeń Psychicznych i masz stan {@condition Incapacitated|XPHB}, dopóki nie ukończysz {@variantrule Long Rest|XPHB}. Zaklęcie {@spell Greater Restoration|XPHB} rzucone na ciebie kończy ten efekt."
     ],
     "castingTime": "1 minuta",
@@ -12584,7 +12584,7 @@
     "name": "Zniewolenie Człowieka",
     "entries": [
       "Jeden widoczny w zasięgu humanoidalna istota musi zdać rzut obronny Mądrości albo otrzymuje stan {@condition Charmed|XPHB} na czas działania zaklęcia. Cel ma {@variantrule Advantage|XPHB} na tym rzucie, jeśli ty lub twoi sojusznicy z nim walczycie. Ilekroć cel otrzyma obrażenia, powtarza rzut obronny, kończąc zaklęcie na sobie w przypadku sukcesu.",
-      "Masz telepatyczne połączenie z celem {@condition Charmed|XPHB}, dopóki oboje znajdujecie się na tej samej płaszczyźnie egzystencji. W swojej turze możesz użyć tego połączenia, by wydawać celowi polecenia (bez wymaganej akcji), takie jak „{@action Attack|XPHB} tego stwora”, „Przesuń się tam” lub „Przynieś ten przedmiot”. Cel stara się jak najlepiej być posłuszny w swojej turze. Jeśli wykona polecenie i nie otrzyma od ciebie dalszych wskazówek, działa i porusza się według własnego uznania, skupiając się na ochronie samego siebie.",
+      "Masz telepatyczne połączenie z celem {@condition Charmed|XPHB}, dopóki oboje znajdujecie się na tej samej płaszczyźnie egzystencji. W swojej turze możesz użyć tego połączenia, by wydawać celowi polecenia (bez wymaganej akcji), takie jak \"{@action Attack|XPHB} tego stwora\", \"Przesuń się tam\" lub \"Przynieś ten przedmiot\". Cel stara się jak najlepiej być posłuszny w swojej turze. Jeśli wykona polecenie i nie otrzyma od ciebie dalszych wskazówek, działa i porusza się według własnego uznania, skupiając się na ochronie samego siebie.",
       "Możesz rozkazać celowi wykonać {@variantrule Reaction|XPHB}, ale musisz wykorzystać swoją własną {@variantrule Reaction|XPHB}, by to zrobić."
     ],
     "entriesHigherLevel": [
@@ -13011,7 +13011,7 @@
     "entries": [
       "Wypowiadając mroczne zaklęcie, przywołujesz diabła z Dziewięciu Piekieł. Wybierasz typ diabła, który musi być {@filter jednym o poziomie wyzwania 6 lub niższym|bestiary|challenge rating=[&0;&6]|tag=devil|miscellaneous=!swarm}, na przykład {@creature barbed devil} lub {@creature bearded devil}. Diabeł pojawia się w wolnej widocznej przez ciebie przestrzeni w zasięgu. Diabeł znika, gdy spadnie do 0 punktów wytrzymałości lub gdy zaklęcie się kończy.",
       "Diabeł jest nieprzyjazny tobie i twoim towarzyszom. Rzuć inicjatywę dla diabła, który ma własne tury. Jest pod kontrolą Mistrza Gry i działa zgodnie ze swoją naturą w każdej swojej turze, co może skutkować atakiem na ciebie, jeśli sądzi, że może zwyciężyć, lub próbą skuszenia cię do popełnienia złego czynu w zamian za ograniczoną służbę. MG dysponuje statystykami stwora.",
-      "W każdej swojej turze możesz spróbować wydać diabłu werbalne polecenie (bez wymaganej przez ciebie akcji). Jest posłuszny poleceniu, jeśli prawdopodobny wynik jest zgodny z jego pragnieniami, zwłaszcza jeśli rezultat przybliżyłby cię do zła. W przeciwnym razie musisz wykonać test Charyzmy ({@skill Deception}, {@skill Intimidation} lub {@skill Persuasion}) przeciwko jego testowi Mądrości ({@skill Insight}). Wykonujesz test z przewagą, jeśli wypowiesz prawdziwe imię diabła. Jeśli twój test się nie powiedzie, diabeł staje się odporny na twoje werbalne polecenia na czas działania zaklęcia, choć może nadal wykonywać twoje polecenia, jeśli zechce. Jeśli twój test się powiedzie, diabeł wykonuje twoje polecenie - na przykład „zaatakuj moich wrogów”, „zbadaj pomieszczenie przed nami” lub „zanieś tę wiadomość królowej” - dopóki nie ukończy zadania, po czym wraca do ciebie, by zgłosić jego wykonanie.",
+      "W każdej swojej turze możesz spróbować wydać diabłu werbalne polecenie (bez wymaganej przez ciebie akcji). Jest posłuszny poleceniu, jeśli prawdopodobny wynik jest zgodny z jego pragnieniami, zwłaszcza jeśli rezultat przybliżyłby cię do zła. W przeciwnym razie musisz wykonać test Charyzmy ({@skill Deception}, {@skill Intimidation} lub {@skill Persuasion}) przeciwko jego testowi Mądrości ({@skill Insight}). Wykonujesz test z przewagą, jeśli wypowiesz prawdziwe imię diabła. Jeśli twój test się nie powiedzie, diabeł staje się odporny na twoje werbalne polecenia na czas działania zaklęcia, choć może nadal wykonywać twoje polecenia, jeśli zechce. Jeśli twój test się powiedzie, diabeł wykonuje twoje polecenie - na przykład \"zaatakuj moich wrogów\", \"zbadaj pomieszczenie przed nami\" lub \"zanieś tę wiadomość królowej\" - dopóki nie ukończy zadania, po czym wraca do ciebie, by zgłosić jego wykonanie.",
       "Jeśli twoja {@status concentration} zakończy się przed osiągnięciem przez zaklęcie pełnego czasu działania, diabeł nie znika, jeśli stał się odporny na twoje werbalne polecenia. Zamiast tego działa w dowolny wybrany przez siebie sposób przez {@dice 3d6} minut, a następnie znika.",
       "Jeśli posiadasz talizman konkretnego diabła, możesz przywołać tego diabła, jeśli ma on odpowiedni poziom wyzwania plus 1, i jest posłuszny wszystkim twoim poleceniom bez konieczności wykonywania testów Charyzmy."
     ],
@@ -14596,7 +14596,7 @@
   "find-the-path": {
     "name": "Znajdź Ścieżkę",
     "entries": [
-      "Magicznie wyczuwasz najbardziej bezpośrednią fizyczną drogę do lokalizacji, którą nazwiesz. Musisz być zaznajomiony z tą lokalizacją, a zaklęcie zawodzi, jeśli nazwiesz cel na innej płaszczyźnie egzystencji, cel ruchomy (taki jak mobilna forteca) lub cel niesprecyzowany (taki jak „legowisko zielonego smoka”).",
+      "Magicznie wyczuwasz najbardziej bezpośrednią fizyczną drogę do lokalizacji, którą nazwiesz. Musisz być zaznajomiony z tą lokalizacją, a zaklęcie zawodzi, jeśli nazwiesz cel na innej płaszczyźnie egzystencji, cel ruchomy (taki jak mobilna forteca) lub cel niesprecyzowany (taki jak \"legowisko zielonego smoka\").",
       "Przez czas działania zaklęcia, dopóki znajdujesz się na tej samej płaszczyźnie egzystencji co cel, wiesz, jak daleko się znajduje i w jakim kierunku leży. Ilekroć staniesz przed wyborem ścieżek po drodze, wiesz, która ścieżka jest najbardziej bezpośrednia."
     ],
     "castingTime": "1 minuta",
@@ -15062,7 +15062,7 @@
   "mass-suggestion": {
     "name": "Masowa Sugestia",
     "entries": [
-      "Sugerujesz kierunek działania - opisany w nie więcej niż 25 słowach - dwunastu lub mniej widocznym przez ciebie w zasięgu stworom, które mogą cię słyszeć i rozumieć. Sugestia musi brzmieć wykonalnie i nie może obejmować niczego, co w oczywisty sposób zadałoby obrażenia którymkolwiek z celów lub ich sojusznikom. Na przykład możesz powiedzieć: „Idź do wioski przy tej drodze i pomóż tamtejszym mieszkańcom zbierać plony aż do zachodu słońca”. Albo możesz powiedzieć: „Teraz nie czas na przemoc. Odrzućcie broń i tańczcie! Przestańcie za godzinę”.",
+      "Sugerujesz kierunek działania - opisany w nie więcej niż 25 słowach - dwunastu lub mniej widocznym przez ciebie w zasięgu stworom, które mogą cię słyszeć i rozumieć. Sugestia musi brzmieć wykonalnie i nie może obejmować niczego, co w oczywisty sposób zadałoby obrażenia którymkolwiek z celów lub ich sojusznikom. Na przykład możesz powiedzieć: \"Idź do wioski przy tej drodze i pomóż tamtejszym mieszkańcom zbierać plony aż do zachodu słońca\". Albo możesz powiedzieć: \"Teraz nie czas na przemoc. Odrzućcie broń i tańczcie! Przestańcie za godzinę\".",
       "Każdy cel musi zdać rzut obronny Mądrości albo otrzymuje stan {@condition Charmed|XPHB} na czas działania zaklęcia lub dopóki ty lub twoi sojusznicy nie zadacie mu obrażeń. Każdy cel {@condition Charmed|XPHB} realizuje sugestię najlepiej, jak potrafi. Sugerowana czynność może trwać przez cały czas działania zaklęcia, ale jeśli sugerowaną czynność można ukończyć w krótszym czasie, zaklęcie kończy się dla celu po jej ukończeniu."
     ],
     "entriesHigherLevel": [
@@ -16288,7 +16288,7 @@
     "entries": [
       "Dotykiem magicznie odosobniasz przedmiot lub chętnego stwora. Przez czas działania zaklęcia cel ma stan {@condition Invisible|XPHB} i nie może zostać obrany za cel zaklęciami Wróżbiarskimi, wykryty magią ani obserwowany zdalnie za pomocą magii.",
       "Jeśli celem jest stwór, wchodzi w stan zawieszonej animacji; ma stan {@condition Unconscious|XPHB}, nie starzeje się i nie potrzebuje jedzenia, wody ani powietrza.",
-      "Możesz ustalić warunek wcześniejszego zakończenia zaklęcia. Warunek może być dowolny, według twojego wyboru, ale musi zajść lub być widoczny w promieniu 1 mili od celu. Przykłady obejmują „po 1000 latach” lub „gdy tarrasque się przebudzi”. To zaklęcie kończy się również, jeśli cel otrzyma jakiekolwiek obrażenia."
+      "Możesz ustalić warunek wcześniejszego zakończenia zaklęcia. Warunek może być dowolny, według twojego wyboru, ale musi zajść lub być widoczny w promieniu 1 mili od celu. Przykłady obejmują \"po 1000 latach\" lub \"gdy tarrasque się przebudzi\". To zaklęcie kończy się również, jeśli cel otrzyma jakiekolwiek obrażenia."
     ],
     "castingTime": "1 akcja",
     "range": "Dotyk",
@@ -16503,12 +16503,12 @@
           {
             "type": "list",
             "items": [
-              "„Stały krąg” oznacza stały krąg teleportacji, którego sekwencję symboli znasz.",
-              "„Powiązany przedmiot” oznacza, że posiadasz przedmiot pochodzący z pożądanej lokalizacji z ostatnich sześciu miesięcy, na przykład księgę z biblioteki czarodzieja.",
-              "„Bardzo dobrze znane” to miejsce, które często odwiedzałeś, które dokładnie przestudiowałeś, lub które widzisz, rzucając zaklęcie.",
-              "„Widziane od niechcenia” to miejsce, które widziałeś więcej niż raz, ale z którym nie jesteś bardzo zaznajomiony.",
-              "„Widziane raz lub opisane” to miejsce, które widziałeś raz, być może za pomocą magii, lub które znasz z czyjegoś opisu, być może z mapy.",
-              "„Fałszywy cel” to miejsce, które nie istnieje. Być może próbowałeś obserwować sanktuarium wroga, ale zamiast tego zobaczyłeś iluzję, albo próbujesz teleportować się do lokalizacji, która już nie istnieje."
+              "\"Stały krąg\" oznacza stały krąg teleportacji, którego sekwencję symboli znasz.",
+              "\"Powiązany przedmiot\" oznacza, że posiadasz przedmiot pochodzący z pożądanej lokalizacji z ostatnich sześciu miesięcy, na przykład księgę z biblioteki czarodzieja.",
+              "\"Bardzo dobrze znane\" to miejsce, które często odwiedzałeś, które dokładnie przestudiowałeś, lub które widzisz, rzucając zaklęcie.",
+              "\"Widziane od niechcenia\" to miejsce, które widziałeś więcej niż raz, ale z którym nie jesteś bardzo zaznajomiony.",
+              "\"Widziane raz lub opisane\" to miejsce, które widziałeś raz, być może za pomocą magii, lub które znasz z czyjegoś opisu, być może z mapy.",
+              "\"Fałszywy cel\" to miejsce, które nie istnieje. Być może próbowałeś obserwować sanktuarium wroga, ale zamiast tego zobaczyłeś iluzję, albo próbujesz teleportować się do lokalizacji, która już nie istnieje."
             ]
           }
         ]
@@ -16970,7 +16970,7 @@
     "name": "Zniewolenie Potwora",
     "entries": [
       "Jeden widoczny przez ciebie w zasięgu stwór musi zdać rzut obronny Mądrości albo otrzymuje stan {@condition Charmed|XPHB} na czas działania zaklęcia. Cel ma {@variantrule Advantage|XPHB} na tym rzucie, jeśli ty lub twoi sojusznicy z nim walczycie. Ilekroć cel otrzyma obrażenia, powtarza rzut obronny, kończąc zaklęcie na sobie w przypadku sukcesu.",
-      "Masz telepatyczne połączenie z celem {@condition Charmed|XPHB}, dopóki oboje znajdujecie się na tej samej płaszczyźnie egzystencji. W swojej turze możesz użyć tego połączenia, by wydawać celowi polecenia (bez wymaganej akcji), takie jak „{@action Attack|XPHB} tego stwora”, „Przesuń się tam” lub „Przynieś ten przedmiot”. Cel stara się jak najlepiej być posłuszny w swojej turze. Jeśli wykona polecenie i nie otrzyma od ciebie dalszych wskazówek, działa i porusza się według własnego uznania, skupiając się na ochronie samego siebie.",
+      "Masz telepatyczne połączenie z celem {@condition Charmed|XPHB}, dopóki oboje znajdujecie się na tej samej płaszczyźnie egzystencji. W swojej turze możesz użyć tego połączenia, by wydawać celowi polecenia (bez wymaganej akcji), takie jak \"{@action Attack|XPHB} tego stwora\", \"Przesuń się tam\" lub \"Przynieś ten przedmiot\". Cel stara się jak najlepiej być posłuszny w swojej turze. Jeśli wykona polecenie i nie otrzyma od ciebie dalszych wskazówek, działa i porusza się według własnego uznania, skupiając się na ochronie samego siebie.",
       "Możesz rozkazać celowi wykonać {@variantrule Reaction|XPHB}, ale musisz wykorzystać swoją własną {@variantrule Reaction|XPHB}, by to zrobić."
     ],
     "entriesHigherLevel": [
@@ -18274,7 +18274,7 @@
   "animal-messenger-phb": {
     "name": "Zwierzęcy Posłaniec",
     "entries": [
-      "Za pomocą tego zaklęcia wykorzystujesz zwierzę do dostarczenia wiadomości. Wybierz Drobną bestię, którą widzisz w zasięgu, na przykład wiewiórkę, modrosójkę czy nietoperza. Określasz lokalizację, którą musisz wcześniej odwiedzić, oraz odbiorcę pasującego do ogólnego opisu, takiego jak „mężczyzna lub kobieta w mundurze straży miejskiej” czy „rudowłosy krasnolud w spiczastym kapeluszu”. Wypowiadasz też wiadomość liczącą do dwudziestu pięciu słów. Docelowa bestia wyrusza na czas działania zaklęcia w stronę wskazanej lokalizacji, pokonując około 50 mil na 24 godziny w przypadku latającego posłańca lub 25 mil w przypadku innych zwierząt.",
+      "Za pomocą tego zaklęcia wykorzystujesz zwierzę do dostarczenia wiadomości. Wybierz Drobną bestię, którą widzisz w zasięgu, na przykład wiewiórkę, modrosójkę czy nietoperza. Określasz lokalizację, którą musisz wcześniej odwiedzić, oraz odbiorcę pasującego do ogólnego opisu, takiego jak \"mężczyzna lub kobieta w mundurze straży miejskiej\" czy \"rudowłosy krasnolud w spiczastym kapeluszu\". Wypowiadasz też wiadomość liczącą do dwudziestu pięciu słów. Docelowa bestia wyrusza na czas działania zaklęcia w stronę wskazanej lokalizacji, pokonując około 50 mil na 24 godziny w przypadku latającego posłańca lub 25 mil w przypadku innych zwierząt.",
       "Gdy posłaniec dotrze na miejsce, przekazuje twoją wiadomość opisanemu przez ciebie stworowi, odtwarzając brzmienie twojego głosu. Posłaniec przemawia wyłącznie do stwora pasującego do podanego przez ciebie opisu. Jeśli posłaniec nie dotrze do celu przed zakończeniem działania zaklęcia, wiadomość zostaje utracona, a bestia wraca w miejsce, gdzie rzucono to zaklęcie."
     ],
     "entriesHigherLevel": [
@@ -21223,7 +21223,7 @@
   "dimension-door-phb": {
     "name": "Wymiarowe Drzwi",
     "entries": [
-      "Teleportujesz się z obecnej lokalizacji do dowolnego innego miejsca w zasięgu. Docierasz dokładnie do pożądanego miejsca. Może to być miejsce, które widzisz, które potrafisz sobie wyobrazić, lub które możesz opisać, podając odległość i kierunek, na przykład „200 stóp prosto w dół” lub „w górę na północny zachód pod kątem 45 stopni, 300 stóp”.",
+      "Teleportujesz się z obecnej lokalizacji do dowolnego innego miejsca w zasięgu. Docierasz dokładnie do pożądanego miejsca. Może to być miejsce, które widzisz, które potrafisz sobie wyobrazić, lub które możesz opisać, podając odległość i kierunek, na przykład \"200 stóp prosto w dół\" lub \"w górę na północny zachód pod kątem 45 stopni, 300 stóp\".",
       "Możesz zabrać ze sobą przedmioty, o ile ich waga nie przekracza tego, co możesz nieść. Możesz też zabrać jednego chętnego stwora twojego rozmiaru lub mniejszego, niosącego ekwipunek do granic swojej nośności. Stwór musi znajdować się w promieniu 5 stóp od ciebie, gdy rzucasz to zaklęcie.",
       "Jeśli miałbyś dotrzeć do miejsca już zajętego przez przedmiot lub stwora, ty i każdy podróżujący z tobą stwór otrzymujecie {@damage 4d6} obrażeń od mocy, a zaklęciu nie udaje się cię teleportować."
     ],
@@ -21482,7 +21482,7 @@
     "name": "Zniewól Zwierzę",
     "entries": [
       "Próbujesz zwieść widoczne przez ciebie w zasięgu zwierzę. Musi ono zdać rzut obronny Mądrości albo zostaje przez ciebie {@condition charmed} na czas działania zaklęcia. Jeśli ty lub przyjazne tobie stwory z nim walczycie, ma przewagę na tym rzucie obronnym.",
-      "Dopóki zwierzę jest {@condition charmed}, masz z nim telepatyczne połączenie, dopóki oboje znajdujecie się na tej samej płaszczyźnie egzystencji. Możesz użyć tego telepatycznego połączenia, by wydawać stworowi polecenia, gdy jesteś przytomny (bez wymaganej akcji), którym stara się być jak najlepiej posłuszne. Możesz określić prosty i ogólny kierunek działania, na przykład „Zaatakuj tego stwora”, „Biegnij tam” lub „Przynieś ten przedmiot”. Jeśli stwór wykona polecenie i nie otrzyma od ciebie dalszych wskazówek, broni się i chroni samego siebie najlepiej, jak potrafi.",
+      "Dopóki zwierzę jest {@condition charmed}, masz z nim telepatyczne połączenie, dopóki oboje znajdujecie się na tej samej płaszczyźnie egzystencji. Możesz użyć tego telepatycznego połączenia, by wydawać stworowi polecenia, gdy jesteś przytomny (bez wymaganej akcji), którym stara się być jak najlepiej posłuszne. Możesz określić prosty i ogólny kierunek działania, na przykład \"Zaatakuj tego stwora\", \"Biegnij tam\" lub \"Przynieś ten przedmiot\". Jeśli stwór wykona polecenie i nie otrzyma od ciebie dalszych wskazówek, broni się i chroni samego siebie najlepiej, jak potrafi.",
       "Możesz użyć akcji, by przejąć całkowitą i precyzyjną kontrolę nad celem. Do końca twojej następnej tury stwór wykonuje tylko akcje, które wybierzesz, i nie robi niczego, na co mu nie pozwolisz. W tym czasie możesz też sprawić, że stwór wykorzysta reakcję, ale wymaga to również wykorzystania twojej własnej reakcji.",
       "Za każdym razem, gdy cel otrzymuje obrażenia, wykonuje nowy rzut obronny Mądrości przeciwko zaklęciu. Jeśli rzut obronny się powiedzie, zaklęcie się kończy."
     ],
@@ -21517,7 +21517,7 @@
     "name": "Zniewól Potwora",
     "entries": [
       "Próbujesz zwieść widoczny przez ciebie w zasięgu stwór. Musi on zdać rzut obronny Mądrości albo zostaje przez ciebie {@condition charmed} na czas działania zaklęcia. Jeśli ty lub przyjazne tobie stwory z nim walczycie, ma przewagę na tym rzucie obronnym.",
-      "Dopóki stwór jest {@condition charmed}, masz z nim telepatyczne połączenie, dopóki oboje znajdujecie się na tej samej płaszczyźnie egzystencji. Możesz użyć tego telepatycznego połączenia, by wydawać stworowi polecenia, gdy jesteś przytomny (bez wymaganej akcji), którym stara się być jak najlepiej posłuszne. Możesz określić prosty i ogólny kierunek działania, na przykład „Zaatakuj tego stwora”, „Biegnij tam” lub „Przynieś ten przedmiot”. Jeśli stwór wykona polecenie i nie otrzyma od ciebie dalszych wskazówek, broni się i chroni samego siebie najlepiej, jak potrafi.",
+      "Dopóki stwór jest {@condition charmed}, masz z nim telepatyczne połączenie, dopóki oboje znajdujecie się na tej samej płaszczyźnie egzystencji. Możesz użyć tego telepatycznego połączenia, by wydawać stworowi polecenia, gdy jesteś przytomny (bez wymaganej akcji), którym stara się być jak najlepiej posłuszne. Możesz określić prosty i ogólny kierunek działania, na przykład \"Zaatakuj tego stwora\", \"Biegnij tam\" lub \"Przynieś ten przedmiot\". Jeśli stwór wykona polecenie i nie otrzyma od ciebie dalszych wskazówek, broni się i chroni samego siebie najlepiej, jak potrafi.",
       "Możesz użyć akcji, by przejąć całkowitą i precyzyjną kontrolę nad celem. Do końca twojej następnej tury stwór wykonuje tylko akcje, które wybierzesz, i nie robi niczego, na co mu nie pozwolisz. W tym czasie możesz też sprawić, że stwór wykorzysta reakcję, ale wymaga to również wykorzystania twojej własnej reakcji.",
       "Za każdym razem, gdy cel otrzymuje obrażenia, wykonuje nowy rzut obronny Mądrości przeciwko zaklęciu. Jeśli rzut obronny się powiedzie, zaklęcie się kończy."
     ],
@@ -21549,7 +21549,7 @@
     "name": "Zniewól Osobę",
     "entries": [
       "Próbujesz zwieść widocznego przez ciebie w zasięgu humanoidalną istotę. Musi on zdać rzut obronny Mądrości albo zostaje przez ciebie {@condition charmed} na czas działania zaklęcia. Jeśli ty lub przyjazne tobie stwory z nim walczycie, ma przewagę na tym rzucie obronnym.",
-      "Dopóki cel jest {@condition charmed}, masz z nim telepatyczne połączenie, dopóki oboje znajdujecie się na tej samej płaszczyźnie egzystencji. Możesz użyć tego telepatycznego połączenia, by wydawać stworowi polecenia, gdy jesteś przytomny (bez wymaganej akcji), którym stara się być jak najlepiej posłuszne. Możesz określić prosty i ogólny kierunek działania, na przykład „Zaatakuj tego stwora”, „Biegnij tam” lub „Przynieś ten przedmiot”. Jeśli stwór wykona polecenie i nie otrzyma od ciebie dalszych wskazówek, broni się i chroni samego siebie najlepiej, jak potrafi.",
+      "Dopóki cel jest {@condition charmed}, masz z nim telepatyczne połączenie, dopóki oboje znajdujecie się na tej samej płaszczyźnie egzystencji. Możesz użyć tego telepatycznego połączenia, by wydawać stworowi polecenia, gdy jesteś przytomny (bez wymaganej akcji), którym stara się być jak najlepiej posłuszne. Możesz określić prosty i ogólny kierunek działania, na przykład \"Zaatakuj tego stwora\", \"Biegnij tam\" lub \"Przynieś ten przedmiot\". Jeśli stwór wykona polecenie i nie otrzyma od ciebie dalszych wskazówek, broni się i chroni samego siebie najlepiej, jak potrafi.",
       "Możesz użyć akcji, by przejąć całkowitą i precyzyjną kontrolę nad celem. Do końca twojej następnej tury stwór wykonuje tylko akcje, które wybierzesz, i nie robi niczego, na co mu nie pozwolisz. W tym czasie możesz też sprawić, że stwór wykorzysta reakcję, ale wymaga to również wykorzystania twojej własnej reakcji.",
       "Za każdym razem, gdy cel otrzymuje obrażenia, wykonuje nowy rzut obronny Mądrości przeciwko zaklęciu. Jeśli rzut obronny się powiedzie, zaklęcie się kończy."
     ],
@@ -22268,7 +22268,7 @@
   "find-the-path-phb": {
     "name": "Znajdź Drogę",
     "entries": [
-      "To zaklęcie pozwala ci znaleźć najkrótszą, najbardziej bezpośrednią fizyczną drogę do konkretnej, znanej ci stałej lokalizacji na tej samej płaszczyźnie egzystencji. Jeśli nazwiesz cel na innej płaszczyźnie egzystencji, cel, który się porusza (taki jak mobilna forteca), lub cel, który nie jest konkretny (taki jak „legowisko zielonego smoka”), zaklęcie zawodzi.",
+      "To zaklęcie pozwala ci znaleźć najkrótszą, najbardziej bezpośrednią fizyczną drogę do konkretnej, znanej ci stałej lokalizacji na tej samej płaszczyźnie egzystencji. Jeśli nazwiesz cel na innej płaszczyźnie egzystencji, cel, który się porusza (taki jak mobilna forteca), lub cel, który nie jest konkretny (taki jak \"legowisko zielonego smoka\"), zaklęcie zawodzi.",
       "Przez czas działania zaklęcia, dopóki znajdujesz się na tej samej płaszczyźnie egzystencji co cel, wiesz, jak daleko się on znajduje i w jakim kierunku leży. Podczas podróży, gdy staniesz przed wyborem drogi, automatycznie ustalasz, która droga jest najkrótszą i najbardziej bezpośrednią (ale niekoniecznie najbezpieczniejszą) drogą do celu."
     ],
     "castingTime": "1 minuta",
@@ -24137,7 +24137,7 @@
     "name": "Legendarna Wiedza",
     "entries": [
       "Nazwij lub opisz osobę, miejsce lub przedmiot. Zaklęcie przywołuje w twoim umyśle krótkie podsumowanie istotnej wiedzy o rzeczy, którą nazwałeś. Ta wiedza może obejmować współczesne opowieści, zapomniane historie, a nawet tajemną wiedzę, która nigdy nie była powszechnie znana. Jeśli nazwana przez ciebie rzecz nie ma legendarnego znaczenia, nie zdobywasz żadnych informacji. Im więcej informacji już posiadasz o tej rzeczy, tym bardziej precyzyjne i szczegółowe informacje otrzymujesz.",
-      "Informacje, które poznajesz, są dokładne, ale mogą być wyrażone w przenośnym języku. Na przykład, jeśli posiadasz tajemniczy magiczny topór, zaklęcie może dostarczyć taką informację: „Biada złoczyńcy, którego dłoń dotknie topora, bo nawet toporzysko przetnie dłoń niegodziwych. Tylko prawdziwe Dziecko Kamienia, miłujący i miłowany przez Moradina, może przebudzić prawdziwe moce topora, i tylko wymawiając na ustach święte słowo Rudnogg.”"
+      "Informacje, które poznajesz, są dokładne, ale mogą być wyrażone w przenośnym języku. Na przykład, jeśli posiadasz tajemniczy magiczny topór, zaklęcie może dostarczyć taką informację: \"Biada złoczyńcy, którego dłoń dotknie topora, bo nawet toporzysko przetnie dłoń niegodziwych. Tylko prawdziwe Dziecko Kamienia, miłujący i miłowany przez Moradina, może przebudzić prawdziwe moce topora, i tylko wymawiając na ustach święte słowo Rudnogg.\""
     ],
     "castingTime": "10 minut",
     "range": "Ja",
@@ -26953,7 +26953,7 @@
     "entries": [
       "Za pomocą tego zaklęcia chętne stworzenie lub obiekt może zostać ukryte przed wykryciem na czas trwania czaru. Kiedy rzucisz zaklęcie i dotkniesz celu, staje się on {@condition invisible} i nie może być celem {@filter zaklęcia wróżbowe|spells|school=D} ani postrzegany przez czujniki wróżenia tworzone przez zaklęcia wróżenia.",
       "Jeśli celem jest stwór, zapada w stan zawieszonej animacji. Czas przestaje dla niego płynąć i nie starzeje się.",
-      "Możesz ustalić warunek, który wcześniej zakończy zaklęcie. Warunkiem może być cokolwiek, co wybierzesz, ale musi wystąpić lub być widoczne w promieniu 1 mili od celu. Przykłady obejmują „po 1000 latach” lub „gdy {@creature tarrasque} się przebudzi”. To zaklęcie kończy się też, jeśli cel otrzyma jakiekolwiek obrażenia."
+      "Możesz ustalić warunek, który wcześniej zakończy zaklęcie. Warunkiem może być cokolwiek, co wybierzesz, ale musi wystąpić lub być widoczne w promieniu 1 mili od celu. Przykłady obejmują \"po 1000 latach\" lub \"gdy {@creature tarrasque} się przebudzi\". To zaklęcie kończy się też, jeśli cel otrzyma jakiekolwiek obrażenia."
     ],
     "castingTime": "1 akcja",
     "range": "Dotyk",
@@ -28213,11 +28213,11 @@
         "type": "entries",
         "name": "Znajomość",
         "entries": [
-          "„Permanentny krąg” oznacza stały krąg teleportacji, którego sekwencję symboli znasz. „Powiązany przedmiot” oznacza, że posiadasz przedmiot wzięty z pożądanego miejsca docelowego w ciągu ostatnich sześciu miesięcy, taki jak księga z biblioteki maga, pościel z królewskiego apartamentu, czy kawałek marmuru z tajemnego grobowca licza."
+          "\"Permanentny krąg\" oznacza stały krąg teleportacji, którego sekwencję symboli znasz. \"Powiązany przedmiot\" oznacza, że posiadasz przedmiot wzięty z pożądanego miejsca docelowego w ciągu ostatnich sześciu miesięcy, taki jak księga z biblioteki maga, pościel z królewskiego apartamentu, czy kawałek marmuru z tajemnego grobowca licza."
         ]
       },
-      "„Bardzo dobra” to miejsce, w którym byłeś bardzo często, które dokładnie zbadałeś, lub które widzisz, gdy rzucasz zaklęcie. „Widziane od niechcenia” to miejsce, które widziałeś więcej niż raz, ale nie jest ci zbyt dobrze znane. „Widziane raz” to miejsce, które widziałeś raz, być może za pomocą magii. „Opis” to miejsce, którego lokalizację i wygląd znasz z czyjegoś opisu, być może na podstawie mapy.",
-      "„Fałszywy cel” to miejsce, które nie istnieje. Być może próbowałeś podejrzeć jasnowidzeniem sanktuarium wroga, ale zamiast tego zobaczyłeś iluzję, albo próbujesz teleportować się do znanego ci miejsca, które już nie istnieje.",
+      "\"Bardzo dobra\" to miejsce, w którym byłeś bardzo często, które dokładnie zbadałeś, lub które widzisz, gdy rzucasz zaklęcie. \"Widziane od niechcenia\" to miejsce, które widziałeś więcej niż raz, ale nie jest ci zbyt dobrze znane. \"Widziane raz\" to miejsce, które widziałeś raz, być może za pomocą magii. \"Opis\" to miejsce, którego lokalizację i wygląd znasz z czyjegoś opisu, być może na podstawie mapy.",
+      "\"Fałszywy cel\" to miejsce, które nie istnieje. Być może próbowałeś podejrzeć jasnowidzeniem sanktuarium wroga, ale zamiast tego zobaczyłeś iluzję, albo próbujesz teleportować się do znanego ci miejsca, które już nie istnieje.",
       {
         "type": "entries",
         "name": "Trafienie w Cel",

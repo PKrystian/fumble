@@ -1,3 +1,4 @@
+import { Button } from '@/features/ui/primitives';
 import { Component, type ReactNode } from 'react';
 
 interface AppErrorBoundaryProps {
@@ -30,17 +31,16 @@ export class AppErrorBoundary extends Component<
           role="alert"
           className="w-full max-w-lg rounded-xl border border-red-900 bg-ink-900 p-6 text-center"
         >
-          <h1 className="font-display text-2xl font-bold text-ink-50">
-            {this.props.title}
-          </h1>
+          <h1 className="text-ink-50 page-title">{this.props.title}</h1>
           <p className="mt-3 text-ink-200">{this.props.message}</p>
-          <button
+          <Button
             type="button"
             onClick={() => window.location.reload()}
-            className="mt-6 rounded-lg bg-arcane-700 px-4 py-2 font-medium text-ink-50 hover:bg-arcane-500"
+            variant="primary"
+            className="mt-6"
           >
             {this.props.reloadLabel}
-          </button>
+          </Button>
         </div>
       </main>
     );

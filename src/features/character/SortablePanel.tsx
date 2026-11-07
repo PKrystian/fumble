@@ -17,14 +17,14 @@ export function SortablePanel({ id, children }: { id: string; children: ReactNod
     <div
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
-      className={`relative ${isDragging ? 'z-10 opacity-50' : ''}`}
+      className={`group relative ${isDragging ? 'z-10 opacity-50' : ''}`}
     >
       <button
         type="button"
         {...attributes}
         {...listeners}
         aria-label={t('common.dragToReorder')}
-        className="absolute right-2 top-2 z-10 cursor-grab touch-none rounded p-1 text-ink-600 hover:bg-ink-800 hover:text-ink-200 active:cursor-grabbing"
+        className="drag-handle right-2 top-2"
       >
         <GripVertical size={14} />
       </button>

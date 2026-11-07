@@ -1,3 +1,4 @@
+import { Button } from '@/features/ui/primitives';
 import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -38,13 +39,15 @@ function StorageNotice() {
       className="fixed bottom-4 left-4 right-4 z-[90] flex items-center justify-between gap-3 rounded-lg border border-red-400/50 bg-ink-900 p-3 text-sm text-red-200 shadow-xl md:left-auto md:max-w-md"
     >
       <span>{t('common.storageError')}</span>
-      <button
+      <Button
         type="button"
         onClick={() => setVisible(false)}
-        className="shrink-0 rounded-md border border-red-400/50 px-2 py-1 text-red-100 hover:bg-red-400/10"
+        variant="danger"
+        size="sm"
+        className="shrink-0"
       >
         {t('common.close')}
-      </button>
+      </Button>
     </div>
   );
 }
@@ -63,7 +66,7 @@ function classRouteKey(pathname: string): string | undefined {
 
 export function AppLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const mobileDialogRef = useDialogFocus(mobileOpen);
+  const mobileDialogRef = useDialogFocus(mobileOpen, () => setMobileOpen(false));
   const collapsed = useSidebarStore((s) => s.collapsed);
   const searchOpen = useSearchStore((s) => s.open);
   const location = useLocation();
@@ -73,15 +76,6 @@ export function AppLayout() {
   useEffect(() => {
     setMobileOpen(false);
   }, [location.pathname]);
-
-  useEffect(() => {
-    if (!mobileOpen) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMobileOpen(false);
-    };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [mobileOpen]);
 
   useEffect(() => {
     if (
@@ -142,21 +136,33 @@ export function AppLayout() {
             className="absolute inset-y-0 left-0 w-72 max-w-[80vw] border-r border-ink-700 bg-ink-900 shadow-xl"
           >
             <Sidebar onNavigate={() => setMobileOpen(false)} collapsible={false} />
+            <Button
+              aria-label={t('common.closeMenu')}
+              onClick={() => setMobileOpen(false)}
+              variant="ghost"
+              size="sm"
+              iconOnly
+              className="absolute right-3 top-3"
+            >
+              <X size={20} aria-hidden="true" />
+            </Button>
           </div>
         </div>
       )}
 
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="flex items-center gap-3 border-b border-ink-700 bg-ink-900 px-4 py-3 md:hidden">
-          <button
+          <Button
             type="button"
             aria-label={mobileOpen ? t('common.closeMenu') : t('common.openMenu')}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((open) => !open)}
-            className="rounded-md p-1 text-ink-200 hover:bg-ink-800 hover:text-ink-50"
+            variant="ghost"
+            size="sm"
+            iconOnly
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          </Button>
           <span className="flex items-center gap-1.5 font-display text-xl font-black tracking-tight text-ink-50">
             <Logo className="h-7 w-7 text-ink-50" />
             Fumble
