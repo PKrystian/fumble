@@ -1,4 +1,5 @@
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, within } from '@testing-library/react';
+import type { ReactNode } from 'react';
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useFumbleHomebrewStore } from '@/features/homebrew/fumbleHomebrewStore';
@@ -17,7 +18,7 @@ const mocks = vi.hoisted(() => ({
     label: 'Species',
     load: vi.fn(),
     subtitle: (item: { size?: string }) => item.size ?? '',
-    renderDetail: (item: { name: string }) => `Detail ${item.name}`,
+    renderDetail: (item: { name: string }): ReactNode => `Detail ${item.name}`,
     filters: [
       {
         id: 'size',
@@ -36,7 +37,7 @@ const mocks = vi.hoisted(() => ({
     label: 'Classes',
     load: vi.fn(),
     subtitle: (item: { size?: string }) => item.size ?? '',
-    renderDetail: (item: { name: string }) => `Detail ${item.name}`,
+    renderDetail: (item: { name: string }): ReactNode => `Detail ${item.name}`,
     filters: [],
   },
   itemsCategory: {
@@ -44,7 +45,7 @@ const mocks = vi.hoisted(() => ({
     label: 'Items',
     load: vi.fn(),
     subtitle: (item: { size?: string }) => item.size ?? '',
-    renderDetail: (item: { name: string }) => `Detail ${item.name}`,
+    renderDetail: (item: { name: string }): ReactNode => `Detail ${item.name}`,
     filters: [],
   },
   bestiaryCategory: {
@@ -52,24 +53,41 @@ const mocks = vi.hoisted(() => ({
     label: 'Bestiary',
     load: vi.fn(),
     subtitle: (item: { size?: string }) => item.size ?? '',
-    renderDetail: (item: { name: string }) => `Detail ${item.name}`,
+    renderDetail: (item: { name: string }): ReactNode => `Detail ${item.name}`,
     filters: [],
   },
 }));
 
-vi.mock('./categories', () => ({
-  categories: [mocks.category, mocks.classCategory, mocks.itemsCategory],
-  getCategory: (id: string) =>
-    id === 'species'
-      ? mocks.category
-      : id === 'classes'
-        ? mocks.classCategory
-        : id === 'items'
-          ? mocks.itemsCategory
-          : id === 'bestiary'
-            ? mocks.bestiaryCategory
-            : undefined,
-}));
+vi.mock('./categories', async () => {
+  const presentation = await import('@/features/ui/detailPresentation');
+  for (const category of [
+    mocks.category,
+    mocks.classCategory,
+    mocks.itemsCategory,
+    mocks.bestiaryCategory,
+  ]) {
+    category.renderDetail = (item) => (
+      <>
+        <presentation.DetailBadges />
+        <presentation.DetailArtwork />
+        Detail {item.name}
+      </>
+    );
+  }
+  return {
+    categories: [mocks.category, mocks.classCategory, mocks.itemsCategory],
+    getCategory: (id: string) =>
+      id === 'species'
+        ? mocks.category
+        : id === 'classes'
+          ? mocks.classCategory
+          : id === 'items'
+            ? mocks.itemsCategory
+            : id === 'bestiary'
+              ? mocks.bestiaryCategory
+              : undefined,
+  };
+});
 
 vi.mock('./useCategoryItems', () => ({
   useCategoryItems: (category: unknown) => {
@@ -360,7 +378,10 @@ describe('CompendiumPage', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Clear search' }));
     fireEvent.click(screen.getByRole('button', { name: 'Random' }));
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'dragon' } });
-    const dragon = screen.getByRole('link', { name: /Dragon/ });
+    const dragon = within(document.querySelector('ul[data-category]')!).getByRole(
+      'link',
+      { name: /Dragon/ },
+    );
     expect(dragon).toBeInTheDocument();
     expect(dragon).toHaveAttribute('href', '/compendium/species/dragon/');
     fireEvent.click(dragon);
@@ -474,7 +495,7 @@ describe('CompendiumPage', () => {
     const validSource = renderPage('/compendium/species?sort=source');
     validSource.unmount();
     renderPage('/compendium/species?sort=invalid');
-    expect(screen.getByRole('heading', { name: 'Compendium' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Species' })).toBeInTheDocument();
   });
 
   it('renders rich selected entry media, lore, gallery and source links', () => {
@@ -498,7 +519,7 @@ describe('CompendiumPage', () => {
     expect(mocks.openLightbox).toHaveBeenCalledTimes(images.length);
 
     fireEvent.error(images[0]!);
-    expect(images[0]).toHaveStyle({ display: 'none' });
+    expect(images[0]).not.toBeVisible();
     fireEvent.error(screen.getByTitle('Token'));
     const galleryImage = screen.getByAltText('Other');
     fireEvent.error(galleryImage);

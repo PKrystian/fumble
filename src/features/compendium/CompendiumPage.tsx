@@ -1,3 +1,4 @@
+import { DetailPresentation } from '@/features/ui/detailPresentationContext';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -43,7 +44,7 @@ import { useNavigate } from '@/i18n/pathUtils';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
-import { SearchField } from '@/features/ui/primitives';
+import { Button, SearchField } from '@/features/ui/primitives';
 import { toggleChipClass } from '@/features/ui/styles';
 import { normalizeSearchText } from '@/data/compendium/searchText';
 import { stripMarkup } from '@/data/transform/util';
@@ -81,11 +82,9 @@ function CompendiumLandingPage() {
   useSeo(t('seo.pageTitles.compendium'), t('seo.pageDescriptions.compendium'));
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-8">
+    <div className="page-shell">
       <header className="mb-8">
-        <h1 className="font-display text-3xl font-bold text-ink-50">
-          {t('compendium.title')}
-        </h1>
+        <h1 className="text-ink-50 page-title">{t('compendium.title')}</h1>
         <p className="mt-2 max-w-3xl text-ink-300">
           {t('seo.pageDescriptions.compendium')}
         </p>
@@ -94,11 +93,8 @@ function CompendiumLandingPage() {
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((category) => (
             <li key={category.id}>
-              <Link
-                to={`/compendium/${category.id}`}
-                className="block h-full rounded-lg border border-ink-700 bg-ink-900 p-4 transition-colors hover:border-arcane-500 hover:bg-ink-800"
-              >
-                <h2 className="font-display text-lg font-bold text-ink-50">
+              <Link to={`/compendium/${category.id}`} className="catalog-card">
+                <h2 className="text-ink-50 section-title">
                   {categoryLabel(category, t)}
                 </h2>
                 <p className="mt-2 text-sm text-ink-300">
@@ -147,6 +143,12 @@ function CompendiumBrowser({
   selectedSubclassId: string | undefined;
 }) {
   const category = getCategory(categoryId)!;
+  const categoryNavRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    categoryNavRef.current
+      ?.querySelector<HTMLElement>('[aria-current="page"]')
+      ?.scrollIntoView({ block: 'nearest', inline: 'center' });
+  }, [categoryId]);
   const filters = category.filters ?? NO_FILTERS;
   const { params, update } = useUrlSearchState();
   const urlQuery = params.get('q') ?? '';
@@ -469,26 +471,27 @@ function CompendiumBrowser({
     <div className="flex h-full flex-col">
       <div className="border-b border-ink-700 px-4 py-3">
         {selected ? (
-          <p className="font-display text-sm font-semibold uppercase tracking-wide text-ink-400">
-            {t('compendium.title')}
-          </p>
+          <p className="page-title">{categoryTitle}</p>
         ) : (
-          <h1 className="font-display text-2xl font-bold text-ink-50">
-            {t('compendium.title')}
-          </h1>
+          <h1 className="page-title">{categoryTitle}</h1>
         )}
         <p className="mt-1 text-xs text-ink-400">
           {t('compendium.revision', { version: packageInfo.version })}
         </p>
         <nav
-          className="mt-3 flex flex-wrap gap-2"
+          ref={categoryNavRef}
+          className="mt-3 flex gap-2 overflow-x-auto p-1 md:flex-wrap"
           aria-label={t('compendium.categoriesNav')}
         >
           {categories.map((cat) => (
             <Link
               key={cat.id}
               to={`/compendium/${cat.id}`}
-              className={toggleChipClass(cat.id === categoryId, 'text-sm')}
+              className={toggleChipClass(
+                cat.id === categoryId,
+                'shrink-0 whitespace-nowrap',
+              )}
+              aria-current={cat.id === categoryId ? 'page' : undefined}
             >
               {categoryLabel(cat, t)}
             </Link>
@@ -591,13 +594,15 @@ function CompendiumBrowser({
             {status === 'error' && (
               <li className="flex items-center justify-between gap-3 p-4 text-sm text-red-400">
                 <span>{t('compendium.failedToLoad')}</span>
-                <button
+                <Button
                   type="button"
                   onClick={() => setRetryKey((value) => value + 1)}
-                  className="shrink-0 rounded-md border border-red-400/50 px-3 py-1.5 text-red-200 hover:bg-red-400/10"
+                  variant="danger"
+                  size="sm"
+                  className="shrink-0"
                 >
                   {t('common.retry')}
-                </button>
+                </Button>
               </li>
             )}
             {!entrySnapshot && status === 'ready' && sorted.length === 0 && (
@@ -623,24 +628,20 @@ function CompendiumBrowser({
                       search: currentSearch().toString(),
                     });
                   }}
-                  className={[
-                    'block border-b border-ink-800 px-4 py-2 transition-colors hover:bg-ink-800',
-                    item.id === selectedId
-                      ? 'border-l-2 border-l-arcane-300 bg-arcane-700/70'
-                      : '',
-                  ].join(' ')}
+                  className="selection-row rounded-none border-b border-ink-800"
+                  aria-current={item.id === selectedId ? 'page' : undefined}
                 >
                   <span className="flex flex-wrap items-baseline gap-x-2">
                     <span className="font-medium text-ink-50">{item.name}</span>
                     <OriginalName name={item.englishName} className="text-xs" />
                     {isHomebrew(item) && (
-                      <span className="rounded-full border border-ember-500/50 px-1.5 text-[0.65rem] uppercase tracking-wide text-ember-400">
+                      <span className="badge border-ember-500/50 text-ember-400">
                         {t('compendium.homebrewBadge')}
                       </span>
                     )}
                     {isFumbleHomebrew(item) && <FumbleBadge compact />}
                     {(isUaSource(item.source) || item.ua) && (
-                      <span className="rounded-full border border-arcane-500/50 px-1.5 text-[0.65rem] uppercase tracking-wide text-arcane-300">
+                      <span className="badge border-arcane-500/50 text-arcane-300">
                         {t('compendium.uaBadge')}
                       </span>
                     )}
@@ -657,15 +658,16 @@ function CompendiumBrowser({
             ))}
             {status === 'ready' && remainingCount > 0 && (
               <li className="p-3">
-                <button
+                <Button
                   type="button"
                   onClick={() => setVisibleCount((value) => value + LIST_PAGE_SIZE)}
-                  className="w-full rounded-md border border-ink-700 px-3 py-2 text-sm text-ink-200 transition-colors hover:border-arcane-500 hover:bg-ink-800"
+                  variant="secondary"
+                  className="w-full"
                 >
                   {t('compendium.loadMore', {
                     count: Math.min(LIST_PAGE_SIZE, remainingCount),
                   })}
-                </button>
+                </Button>
               </li>
             )}
           </ul>
@@ -682,59 +684,85 @@ function CompendiumBrowser({
               pathname: `/compendium/${categoryId}`,
               search: currentSearch().toString(),
             }}
-            className="mb-4 inline-flex items-center gap-1 text-sm text-ink-300 hover:text-ink-50 md:hidden"
+            className="back-link md:hidden"
           >
             <ArrowLeft size={16} aria-hidden="true" /> {t('compendium.back')}
           </Link>
 
           {selected ? (
-            <>
-              {selected.image && (
-                <div className="relative mb-4 inline-block min-h-80 max-w-full">
-                  <img
-                    src={imageUrl(selected.image)}
-                    alt={selected.name}
-                    width={PRIMARY_IMAGE_WIDTH}
-                    height={PRIMARY_IMAGE_HEIGHT}
-                    loading="eager"
-                    fetchPriority="high"
-                    decoding="async"
-                    onClick={() => openLightbox(imageUrl(selected.image!), selected.name)}
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
-                    className="h-auto max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
-                  />
-                  {selected.token && selected.token !== selected.image && (
-                    <img
-                      src={imageUrl(selected.token)}
-                      alt={`${selected.name} ${t('compendium.token')}`}
-                      title={t('compendium.token')}
-                      loading="lazy"
-                      onClick={() =>
-                        openLightbox(
-                          imageUrl(selected.token!),
-                          `${selected.name} (token)`,
-                        )
-                      }
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
+            <DetailPresentation
+              value={{
+                badge: (
+                  <>
+                    {isHomebrew(selected) && !selected._manual && (
+                      <span className="badge border-ember-500/50 text-ember-400">
+                        {t('compendium.homebrewLabel')}
+                      </span>
+                    )}
+                    {(isUaSource(selected.source) || selected.ua) && (
+                      <span className="badge border-arcane-500/50 text-arcane-300">
+                        {t('compendium.uaLabel')}
+                      </span>
+                    )}
+                  </>
+                ),
+                artwork: selected.image && (
+                  <div className="relative mb-4 inline-block max-w-full">
+                    <a
+                      href={imageUrl(selected.image)}
+                      className="artwork-trigger"
+                      aria-label={selected.name}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        openLightbox(imageUrl(selected.image!), selected.name);
                       }}
-                      className="absolute -bottom-3 -right-3 h-16 w-16 cursor-zoom-in rounded-full border-2 border-ink-900 bg-ink-950 object-cover shadow-lg"
-                    />
-                  )}
-                </div>
-              )}
-              {isHomebrew(selected) && !selected._manual && (
-                <span className="mb-3 inline-block rounded-full border border-ember-500/50 px-2 py-0.5 text-xs uppercase tracking-wide text-ember-400">
-                  {t('compendium.homebrewLabel')}
-                </span>
-              )}
-              {(isUaSource(selected.source) || selected.ua) && (
-                <span className="mb-3 inline-block rounded-full border border-arcane-500/50 px-2 py-0.5 text-xs uppercase tracking-wide text-arcane-300">
-                  {t('compendium.uaLabel')}
-                </span>
-              )}
+                    >
+                      <img
+                        src={imageUrl(selected.image)}
+                        alt={selected.name}
+                        width={PRIMARY_IMAGE_WIDTH}
+                        height={PRIMARY_IMAGE_HEIGHT}
+                        loading="eager"
+                        fetchPriority="high"
+                        decoding="async"
+
+                        onError={(e) => {
+                          e.currentTarget.parentElement!.parentElement!.style.display =
+                            'none';
+                        }}
+                        className="h-auto max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+                      />
+                    </a>
+                    {selected.token && selected.token !== selected.image && (
+                      <a
+                        href={imageUrl(selected.token)}
+                        className="artwork-trigger"
+                        aria-label={`${selected.name} ${t('compendium.token')}`}
+                        onClick={(event) => {
+                          event.preventDefault();
+                          openLightbox(
+                            imageUrl(selected.token!),
+                            `${selected.name} (token)`,
+                          );
+                        }}
+                      >
+                        <img
+                          src={imageUrl(selected.token)}
+                          alt={`${selected.name} ${t('compendium.token')}`}
+                          title={t('compendium.token')}
+                          loading="lazy"
+
+                          onError={(e) => {
+                            e.currentTarget.parentElement!.style.display = 'none';
+                          }}
+                          className="absolute -bottom-3 -right-3 h-16 w-16 cursor-zoom-in rounded-full border-2 border-ink-900 bg-ink-950 object-cover shadow-lg"
+                        />
+                      </a>
+                    )}
+                  </div>
+                ),
+              }}
+            >
               {isFumbleHomebrew(selected) ? (
                 <FumbleDetail item={selected} />
               ) : isHomebrew(selected) && selected._manual ? (
@@ -795,17 +823,27 @@ function CompendiumBrowser({
                             : selected.name;
                           return (
                             <figure key={img.path} className="flex flex-col gap-1">
-                              <img
-                                src={imageUrl(img.path)}
-                                alt={title}
-                                loading="lazy"
-                                onClick={() => openLightbox(imageUrl(img.path), title)}
-                                onError={(e) => {
-                                  e.currentTarget.closest('figure')!.style.display =
-                                    'none';
+                              <a
+                                href={imageUrl(img.path)}
+                                className="artwork-trigger"
+                                aria-label={title}
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  openLightbox(imageUrl(img.path), title);
                                 }}
-                                className="h-auto cursor-zoom-in rounded-lg border border-ink-700 object-contain"
-                              />
+                              >
+                                <img
+                                  src={imageUrl(img.path)}
+                                  alt={title}
+                                  loading="lazy"
+
+                                  onError={(e) => {
+                                    e.currentTarget.closest('figure')!.style.display =
+                                      'none';
+                                  }}
+                                  className="h-auto cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+                                />
+                              </a>
                               {(img.title || img.credit) && (
                                 <figcaption className="text-xs text-ink-400">
                                   {img.title && parseMarkup(img.title, locale)}
@@ -847,7 +885,7 @@ function CompendiumBrowser({
                   )}
                   {!isHomebrew(selected) && (
                     <>
-                      {' · '}
+                      {' - '}
                       <Link to="/legal/licenses" className="text-arcane-300 underline">
                         {t('legal.licenses.title')}
                       </Link>
@@ -869,7 +907,7 @@ function CompendiumBrowser({
                   </div>
                 )}
               </div>
-            </>
+            </DetailPresentation>
           ) : selectedId && status === 'loading' ? (
             <div
               className="min-h-80 animate-pulse rounded-lg border border-ink-800 bg-ink-900/50 p-5"
@@ -880,13 +918,14 @@ function CompendiumBrowser({
           ) : selectedId && status === 'error' ? (
             <div className="flex flex-wrap items-center gap-3 text-red-400" role="alert">
               <span>{t('compendium.failedToLoad')}</span>
-              <button
+              <Button
                 type="button"
                 onClick={() => setRetryKey((value) => value + 1)}
-                className="rounded-md border border-red-400/50 px-3 py-1.5 text-red-200 hover:bg-red-400/10"
+                variant="danger"
+                size="sm"
               >
                 {t('common.retry')}
-              </button>
+              </Button>
             </div>
           ) : (
             <p className="text-ink-400">{t('compendium.selectPrompt')}</p>

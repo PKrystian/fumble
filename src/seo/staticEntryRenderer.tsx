@@ -1,3 +1,4 @@
+import { StaticShell } from './StaticShell';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
 import type { Entry } from '@/data/compendium/entry';
@@ -8,6 +9,10 @@ import { FumbleDetail } from '@/features/homebrew/FumbleDetail';
 import { isFumbleHomebrew } from '@/features/homebrew/fumbleHomebrew';
 import { StaticReading } from '@/features/ui/staticReading';
 import type { ReactNode } from 'react';
+
+export function renderStaticShell(content: string, path: string): string {
+  return renderReading(<StaticShell content={content} />, path);
+}
 
 function renderReading(content: ReactNode, path: string): string {
   return renderToStaticMarkup(

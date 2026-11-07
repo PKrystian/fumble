@@ -344,37 +344,33 @@ test('Polish filters normalize values and bulk actions', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'druid', exact: true })).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Druid', exact: true })).toHaveCount(1);
 
-  const spellAll = page.getByRole('button', { name: 'Wszystkie', exact: true });
-  await spellAll.nth(1).click();
-  await expect(page.getByRole('button', { name: 'Kleryk', exact: true })).toHaveAttribute(
-    'aria-pressed',
-    'true',
-  );
-  const spellClear = page.getByRole('button', { name: 'Wyczyść', exact: true });
-  await spellClear.nth(1).click();
-  await expect(page.getByRole('button', { name: 'Kleryk', exact: true })).toHaveAttribute(
-    'aria-pressed',
-    'false',
-  );
+  const spellClass = page.getByRole('group', { name: 'Klasa', exact: true });
+  await spellClass.getByRole('button', { name: 'Wszystkie', exact: true }).click();
+  await expect(
+    spellClass.getByRole('button', { name: 'Kleryk', exact: true }),
+  ).toHaveAttribute('aria-pressed', 'true');
+  await spellClass.getByRole('button', { name: 'Wyczyść', exact: true }).click();
+  await expect(
+    spellClass.getByRole('button', { name: 'Kleryk', exact: true }),
+  ).toHaveAttribute('aria-pressed', 'false');
 
   await page.getByRole('button', { name: 'Zamknij filtry' }).click();
   await page.goto('/pl/compendium/items');
   await page.getByRole('button', { name: /Filtry/ }).click();
+  const itemType = page.getByRole('group', { name: 'Typ', exact: true });
   await expect(
-    page.getByRole('button', { name: 'Broń do Walki Wręcz', exact: true }),
+    itemType.getByRole('button', { name: 'Broń do Walki Wręcz', exact: true }),
   ).toBeVisible();
   await expect(page.getByRole('button', { name: 'Broń biała', exact: true })).toHaveCount(
     0,
   );
-  const itemAll = page.getByRole('button', { name: 'Wszystkie', exact: true });
-  await itemAll.nth(1).click();
+  await itemType.getByRole('button', { name: 'Wszystkie', exact: true }).click();
   await expect(
-    page.getByRole('button', { name: 'Broń do Walki Wręcz', exact: true }),
+    itemType.getByRole('button', { name: 'Broń do Walki Wręcz', exact: true }),
   ).toHaveAttribute('aria-pressed', 'true');
-  const itemClear = page.getByRole('button', { name: 'Wyczyść', exact: true });
-  await itemClear.nth(1).click();
+  await itemType.getByRole('button', { name: 'Wyczyść', exact: true }).click();
   await expect(
-    page.getByRole('button', { name: 'Broń do Walki Wręcz', exact: true }),
+    itemType.getByRole('button', { name: 'Broń do Walki Wręcz', exact: true }),
   ).toHaveAttribute('aria-pressed', 'false');
 });
 
@@ -383,7 +379,7 @@ test('Fumble homebrew keeps class headers and hover previews usable', async ({
 }) => {
   await page.goto('/pl/fumble-homebrew');
 
-  await expect(page.getByRole('textbox', { name: 'Szukaj' })).toBeVisible();
+  await expect(page.getByRole('searchbox', { name: 'Szukaj' })).toBeVisible();
   await expect(
     page.getByText(
       'Zasady kampanii, opcje, klasy, linie krwi, podklasy i przedmioty utrzymywane przez twórców Fumble.',
@@ -391,7 +387,7 @@ test('Fumble homebrew keeps class headers and hover previews usable', async ({
   ).toHaveCount(0);
   await expect(page.getByText('Linki otwierają zwykłe wpisy Kompendium.')).toHaveCount(0);
 
-  await page.getByRole('textbox', { name: 'Szukaj' }).fill('Witch');
+  await page.getByRole('searchbox', { name: 'Szukaj' }).fill('Witch');
   await expect(page).toHaveURL(/\/pl\/fumble-homebrew\/?\?q=Witch/);
   await page.getByRole('button', { name: 'Klasy', exact: true }).click();
   await expect(page).toHaveURL(/\/pl\/fumble-homebrew\/?\?category=classes&q=Witch/);
@@ -399,7 +395,7 @@ test('Fumble homebrew keeps class headers and hover previews usable', async ({
   await expect(page).toHaveURL(/\/pl\/compendium\/classes\/witch\//);
   await page.goBack();
   await expect(page).toHaveURL(/\/pl\/fumble-homebrew\/?\?category=classes&q=Witch/);
-  await expect(page.getByRole('textbox', { name: 'Szukaj' })).toHaveValue('Witch');
+  await expect(page.getByRole('searchbox', { name: 'Szukaj' })).toHaveValue('Witch');
   await expect(page.getByRole('button', { name: 'Klasy', exact: true })).toHaveAttribute(
     'aria-pressed',
     'true',
@@ -508,7 +504,7 @@ test('character sheet adds a spell from the compendium', async ({ page }) => {
   await page.getByRole('button', { name: 'Spells', exact: true }).click();
 
   await page
-    .getByRole('searchbox', { name: 'Add a spell from the compendium…' })
+    .getByRole('searchbox', { name: 'Add a spell from the compendium...' })
     .fill('fireball');
   await page.getByRole('button', { name: 'Fireball', exact: true }).click();
 
@@ -529,7 +525,7 @@ test('character settings configure spell slots and preferences', async ({ page }
   await page.getByRole('button', { name: 'New Character' }).click();
   const settingsButton = page.getByRole('button', { name: 'Settings' });
   await expect(settingsButton).toBeVisible();
-  await expect(settingsButton).toHaveClass(/w-full/);
+  await expect(settingsButton).toHaveClass(/ui-button/);
   await settingsButton.click();
 
   const dialog = page.getByRole('dialog', { name: 'Character Settings' });
@@ -605,7 +601,7 @@ test('dice roller builds and rolls a pool in different modes', async ({ page }) 
 
 test('initiative tracker adds a combatant and advances the round', async ({ page }) => {
   await page.goto('/dm/initiative');
-  await page.getByPlaceholder('Goblin, Aragorn…').fill('Goblin');
+  await page.getByPlaceholder('Goblin, Aragorn...').fill('Goblin');
   await page.getByRole('button', { name: 'Add', exact: true }).click();
   await expect(page.getByText('Goblin')).toBeVisible();
   await page.getByRole('button', { name: /Next turn/ }).click();
@@ -748,7 +744,7 @@ test('soundboard adds a track and plays one', async ({ page }) => {
   await expect(page.getByText('Enter a valid YouTube link.')).toBeVisible();
   await page.getByPlaceholder('Tavern brawl music').fill('My Ambience');
   await page
-    .getByPlaceholder('https://www.youtube.com/watch?v=…')
+    .getByPlaceholder('https://www.youtube.com/watch?v=...')
     .fill('https://www.youtube.com/watch?v=jNQXAC9IVRw');
   await page.getByRole('button', { name: 'Add', exact: true }).click();
   await expect(page.getByText('My Ambience')).toBeVisible();

@@ -1,3 +1,4 @@
+import { Button } from '@/features/ui/primitives';
 import {
   ArrowLeft,
   Grid3X3,
@@ -283,13 +284,10 @@ export function CampaignMapPage() {
   const zoomPercent = Math.round(zoom * 100);
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
+    <div className="page-shell page-shell-wide">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <Link
-            to={`/wiki/${map.campaignId}`}
-            className="mb-3 inline-flex items-center gap-2 text-sm text-ink-300 hover:text-ink-50"
-          >
+          <Link to={`/wiki/${map.campaignId}`} className="back-link">
             <ArrowLeft size={16} aria-hidden="true" />
             {t('wiki.backToCampaign')}
           </Link>
@@ -298,78 +296,83 @@ export function CampaignMapPage() {
               <MapIcon size={22} aria-hidden="true" />
             </span>
             <div>
-              <h1 className="font-display text-3xl font-bold text-ink-50">
-                {t('wiki.chultMap')}
-              </h1>
+              <h1 className="text-ink-50 page-title">{t('wiki.chultMap')}</h1>
             </div>
           </div>
         </div>
         <div className="flex flex-wrap items-center justify-end gap-2">
-          <button
+          <Button
             type="button"
             aria-label={showHexGrid ? t('wiki.mapGridHide') : t('wiki.mapGridShow')}
             aria-pressed={showHexGrid}
             title={showHexGrid ? t('wiki.mapGridHide') : t('wiki.mapGridShow')}
             onClick={() => setShowHexGrid((current) => !current)}
-            className="inline-flex items-center gap-2 rounded-lg border border-ink-600 bg-ink-900 px-3 py-2 text-sm text-ink-200 transition-colors hover:bg-ink-800 hover:text-ink-50"
+            variant="secondary"
           >
             <Grid3X3 size={16} aria-hidden="true" />
             {showHexGrid ? t('wiki.mapGridHide') : t('wiki.mapGridShow')}
-          </button>
+          </Button>
           {isMapEditorEnabled && (
-            <button
+            <Button
               type="button"
               aria-label={
                 isEditorOpen ? t('wiki.mapEditorClose') : t('wiki.mapEditorOpen')
               }
               title={isEditorOpen ? t('wiki.mapEditorClose') : t('wiki.mapEditorOpen')}
               onClick={() => setIsEditorOpen((current) => !current)}
-              className="inline-flex items-center gap-2 rounded-lg border border-ember-500/40 bg-ember-500/10 px-3 py-2 text-sm text-ember-300 transition-colors hover:bg-ember-500/20 hover:text-ember-200"
+              variant="secondary"
+              className="text-ember-300 hover:text-ember-200"
             >
               <Pencil size={16} aria-hidden="true" />
               {isEditorOpen ? t('wiki.mapEditorClose') : t('wiki.mapEditorOpen')}
-            </button>
+            </Button>
           )}
           <div
             role="group"
             aria-label={t('wiki.mapControls')}
             className="flex items-center gap-1 rounded-lg border border-ink-700 bg-ink-900 p-1 shadow-lg shadow-black/20"
           >
-            <button
+            <Button
               type="button"
               aria-label={t('wiki.mapZoomOut')}
               title={t('wiki.mapZoomOut')}
               onClick={() => updateZoom(zoom - ZOOM_STEP)}
               disabled={zoom <= MIN_ZOOM}
-              className="rounded-md p-2 text-ink-200 transition-colors hover:bg-ink-800 hover:text-ink-50 disabled:cursor-not-allowed disabled:opacity-40"
+              variant="ghost"
+              size="sm"
+              iconOnly
             >
               <ZoomOut size={17} aria-hidden="true" />
-            </button>
+            </Button>
             <span
               aria-live="polite"
               className="min-w-12 px-1 text-center text-xs tabular-nums text-ink-300"
             >
               {t('wiki.mapZoomLevel', { percent: zoomPercent })}
             </span>
-            <button
+            <Button
               type="button"
               aria-label={t('wiki.mapResetView')}
               title={t('wiki.mapResetView')}
               onClick={resetView}
-              className="rounded-md p-2 text-ink-200 transition-colors hover:bg-ink-800 hover:text-ink-50"
+              variant="ghost"
+              size="sm"
+              iconOnly
             >
               <RotateCcw size={16} aria-hidden="true" />
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
               aria-label={t('wiki.mapZoomIn')}
               title={t('wiki.mapZoomIn')}
               onClick={() => updateZoom(zoom + ZOOM_STEP)}
               disabled={zoom >= MAX_ZOOM}
-              className="rounded-md p-2 text-ink-200 transition-colors hover:bg-ink-800 hover:text-ink-50 disabled:cursor-not-allowed disabled:opacity-40"
+              variant="ghost"
+              size="sm"
+              iconOnly
             >
               <ZoomIn size={17} aria-hidden="true" />
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -384,7 +387,7 @@ export function CampaignMapPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ember-300">
                 {t('wiki.mapEditorLocalOnly')}
               </p>
-              <h2 className="mt-1 font-display text-lg font-semibold text-ink-50">
+              <h2 className="mt-1 text-ink-50 section-title">
                 {t('wiki.mapEditorTitle')}
               </h2>
               <p className="mt-1 text-sm leading-6 text-ink-300">
@@ -398,28 +401,24 @@ export function CampaignMapPage() {
                   total: totalHexes,
                 })}
               </span>
-              <button
-                type="button"
-                onClick={copyEditorRanges}
-                className="rounded-md border border-ink-600 bg-ink-900 px-3 py-2 text-sm text-ink-100 transition-colors hover:bg-ink-800"
-              >
+              <Button type="button" onClick={copyEditorRanges} variant="secondary">
                 {isRangesCopied
                   ? t('wiki.mapEditorCopied')
                   : t('wiki.mapEditorCopyRanges')}
-              </button>
+              </Button>
               {copyError && (
                 <span role="alert" className="text-xs text-red-300">
                   {t('common.clipboardError')}
                 </span>
               )}
-              <button
+              <Button
                 type="button"
                 onClick={resetEditor}
                 disabled={localRevealed === null}
-                className="rounded-md border border-ink-700 px-3 py-2 text-sm text-ink-300 transition-colors hover:bg-ink-800 hover:text-ink-50 disabled:cursor-not-allowed disabled:opacity-40"
+                variant="secondary"
               >
                 {t('wiki.mapEditorReset')}
-              </button>
+              </Button>
             </div>
           </div>
           <label className="mt-4 block text-xs font-medium text-ink-300">
@@ -428,13 +427,13 @@ export function CampaignMapPage() {
               readOnly
               rows={5}
               value={editorExport}
-              className="mt-2 block w-full resize-y rounded-lg border border-ink-700 bg-ink-950 p-3 font-mono text-xs leading-5 text-ink-200 outline-none focus:border-arcane-400"
+              className="ui-field mt-2 block w-full resize-y font-mono leading-5"
             />
           </label>
         </aside>
       )}
 
-      <section className="overflow-hidden rounded-xl border border-ink-700 bg-ink-900/70 shadow-2xl shadow-black/20">
+      <section className="overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
         <p id="chult-map-help" className="sr-only">
           {t('wiki.chultMapInteractionHint')}
         </p>

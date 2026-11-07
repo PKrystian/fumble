@@ -65,11 +65,9 @@ export function InitiativeTrackerPage() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-8">
+    <div className="page-shell">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <h1 className="font-display text-3xl font-bold text-ink-50">
-          {t('initiative.title')}
-        </h1>
+        <h1 className="text-ink-50 page-title">{t('initiative.title')}</h1>
         <div className="flex items-center gap-2">
           <span className="rounded-lg bg-ink-800 px-3 py-2 text-sm text-ink-200">
             {t('initiative.round')}{' '}
@@ -132,7 +130,7 @@ export function InitiativeTrackerPage() {
       <div
         className={panelClass('mb-6 flex flex-wrap items-end gap-2 border-ink-700 p-4')}
       >
-        <label className="flex flex-1 flex-col gap-1 text-sm">
+        <label className="flex min-w-0 basis-full flex-col gap-1 text-sm sm:basis-auto sm:flex-1">
           <span className="text-xs font-semibold text-ink-400">
             {t('initiative.name')}
           </span>
@@ -172,9 +170,7 @@ export function InitiativeTrackerPage() {
       </div>
 
       {sorted.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-ink-700 p-12 text-center text-ink-400">
-          {t('initiative.emptyState')}
-        </p>
+        <p className="empty-state">{t('initiative.emptyState')}</p>
       ) : (
         <ul className="flex flex-col gap-2">
           {sorted.map((c) => (
@@ -193,7 +189,7 @@ export function InitiativeTrackerPage() {
               <span className="flex-1 font-medium text-ink-50">
                 {c.name}
                 {c.isPlayer && (
-                  <span className="ml-2 rounded bg-arcane-700 px-1.5 py-0.5 text-[10px] uppercase text-ink-50">
+                  <span className="ml-2 rounded bg-arcane-700 px-1.5 py-0.5 text-xs uppercase text-ink-50">
                     {t('initiative.pc')}
                   </span>
                 )}
@@ -206,7 +202,8 @@ export function InitiativeTrackerPage() {
                   onChange={(e) =>
                     updateCombatant(c.id, { hpCurrent: e.target.valueAsNumber || 0 })
                   }
-                  className="min-h-8 w-14 px-1 py-0.5 text-center"
+                  size="sm"
+                  className="w-16 text-center"
                 />
                 {c.hpMax > 0 && <span className="text-ink-500">/ {c.hpMax}</span>}
               </label>
@@ -219,7 +216,9 @@ export function InitiativeTrackerPage() {
                 value={c.conditions}
                 onChange={(e) => updateCombatant(c.id, { conditions: e.target.value })}
                 placeholder={t('initiative.conditionsPlaceholder')}
-                className="min-h-8 w-32 py-0.5"
+                aria-label={t('initiative.conditionsPlaceholder')}
+                size="sm"
+                className="w-40"
               />
               <IconButton
                 label={t('initiative.removeCombatant', { name: c.name })}

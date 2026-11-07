@@ -1,3 +1,4 @@
+import { Button, SearchField } from '@/features/ui/primitives';
 import { useMemo, useRef, useState } from 'react';
 import {
   ClipboardPaste,
@@ -5,7 +6,6 @@ import {
   ImagePlus,
   Pencil,
   Plus,
-  Search,
   Trash2,
   Upload,
   X,
@@ -130,7 +130,12 @@ export function HomebrewPage() {
       : 'all';
   const [subclassForm, setSubclassForm] =
     useState<SubclassFormState>(EMPTY_SUBCLASS_FORM);
-  const [notice, setNotice] = useState('');
+  const [notice, updateNotice] = useState('');
+  const [noticeTone, setNoticeTone] = useState<'success' | 'error'>('success');
+  const setNotice = (message: string, tone: 'success' | 'error' = 'success') => {
+    updateNotice(message);
+    setNoticeTone(tone);
+  };
   const [pasteOpen, setPasteOpen] = useState(false);
   const [pasteText, setPasteText] = useState('');
   const [pendingImageFile, setPendingImageFile] = useState<File | null>(null);
@@ -271,7 +276,7 @@ export function HomebrewPage() {
     try {
       const data = JSON.parse(imported.documents.base) as Record<string, unknown>;
       if (typeof data.name !== 'string' || !data.name.trim()) {
-        setNotice(t('homebrew.importedJsonNeedsName'));
+        setNotice(t('homebrew.importedJsonNeedsName'), 'error');
         return;
       }
       const translations: HomebrewImportedEntry['translations'] = {};
@@ -282,7 +287,7 @@ export function HomebrewPage() {
           unknown
         >;
         if (typeof translation.name !== 'string' || !translation.name.trim()) {
-          setNotice(t('homebrew.importedJsonNeedsName'));
+          setNotice(t('homebrew.importedJsonNeedsName'), 'error');
           return;
         }
         translations[locale] = translation as HomebrewImportedEntry['data'];
@@ -297,7 +302,7 @@ export function HomebrewPage() {
       resetForm();
       setNotice(t('homebrew.entryUpdated'));
     } catch {
-      setNotice(t('homebrew.importedJsonInvalid'));
+      setNotice(t('homebrew.importedJsonInvalid'), 'error');
     }
   };
 
@@ -352,9 +357,9 @@ export function HomebrewPage() {
         );
         return;
       }
-      setNotice(t('homebrew.unrecognizedData'));
+      setNotice(t('homebrew.unrecognizedData'), 'error');
     } catch {
-      setNotice(t('homebrew.couldNotRead', { source: sourceLabel }));
+      setNotice(t('homebrew.couldNotRead', { source: sourceLabel }), 'error');
     }
   };
 
@@ -367,13 +372,11 @@ export function HomebrewPage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
+    <div className="page-shell page-shell-wide">
       <header className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="font-display text-3xl font-bold text-ink-50">
-            {t('nav.homebrew')}
-          </h1>
-          <p className="mt-1 max-w-xl text-sm text-ink-300">
+          <h1 className="text-ink-50 page-title">{t('nav.homebrew')}</h1>
+          <p className="page-description">
             {t('homebrew.description')}{' '}
             <span className="text-ink-100">{t('homebrew.fiveToolsHomebrew')}</span>{' '}
             {t('homebrew.descriptionSuffix')} <span className="text-ember-400">HB</span>.
@@ -385,7 +388,7 @@ export function HomebrewPage() {
             <select
               value={importLocale}
               onChange={(event) => setImportLocale(event.target.value as Locale)}
-              className="bg-ink-950 text-ink-50 focus:outline-none"
+              className="ui-field"
             >
               {SUPPORTED_LOCALES.map((locale) => (
                 <option key={locale.code} value={locale.code}>
@@ -394,21 +397,23 @@ export function HomebrewPage() {
               ))}
             </select>
           </label>
-          <button
+          <Button
             type="button"
             onClick={exportJson}
             disabled={entries.length === 0}
-            className="inline-flex items-center gap-2 rounded-lg border border-ink-700 px-3 py-1.5 text-sm text-ink-100 hover:bg-ink-800 disabled:opacity-50"
+            variant="secondary"
+            size="sm"
           >
             <Download size={16} /> {t('homebrew.export')}
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
             onClick={() => fileRef.current!.click()}
-            className="inline-flex items-center gap-2 rounded-lg border border-ink-700 px-3 py-1.5 text-sm text-ink-100 hover:bg-ink-800"
+            variant="secondary"
+            size="sm"
           >
             <Upload size={16} /> {t('homebrew.importFile')}
-          </button>
+          </Button>
           <button
             type="button"
             onClick={() => setPasteOpen((v) => !v)}
@@ -447,34 +452,40 @@ export function HomebrewPage() {
               onChange={(e) => setPasteText(e.target.value)}
               rows={6}
               placeholder='{"subclass": [...], "subclassFeature": [...]}'
-              className="resize-y rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 font-mono text-xs text-ink-100 focus:border-arcane-500 focus:outline-none"
+              className="ui-field resize-y font-mono"
             />
           </label>
           <div className="flex justify-end gap-2">
-            <button
+            <Button
               type="button"
               onClick={() => {
                 setPasteOpen(false);
                 setPasteText('');
               }}
-              className="rounded-lg px-3 py-1.5 text-sm text-ink-400 hover:text-ink-50"
+              variant="ghost"
+              size="sm"
             >
               {t('common.cancel')}
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
               onClick={importPasted}
               disabled={!pasteText.trim()}
-              className="inline-flex items-center gap-2 rounded-lg bg-arcane-700 px-3 py-1.5 text-sm font-medium text-ink-50 hover:bg-arcane-500 disabled:opacity-50"
+              variant="primary"
+              size="sm"
             >
               <ClipboardPaste size={16} /> {t('homebrew.import')}
-            </button>
+            </Button>
           </div>
         </div>
       )}
 
       {notice && (
-        <p className="mb-4 rounded-md border border-ink-700 bg-ink-900 px-3 py-2 text-sm text-ink-200">
+        <p
+          role={noticeTone === 'error' ? 'alert' : 'status'}
+          data-tone={noticeTone}
+          className="notice mb-4"
+        >
           {notice}
         </p>
       )}
@@ -482,7 +493,7 @@ export function HomebrewPage() {
       <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(24rem,7fr)]">
         <section className="flex flex-col gap-3 rounded-xl border border-ink-700 bg-ink-900 p-4">
           <div className="flex items-center justify-between">
-            <h2 className="font-display text-lg font-bold text-ink-50">
+            <h2 className="text-ink-50 section-title">
               {editing ? t('homebrew.editEntry') : t('homebrew.newEntry')}
             </h2>
             {editing && (
@@ -501,24 +512,16 @@ export function HomebrewPage() {
               <button
                 type="button"
                 onClick={() => setEntryType('entry')}
-                className={[
-                  'flex-1 rounded-md px-2 py-1 transition-colors',
-                  entryType === 'entry'
-                    ? 'bg-arcane-700 text-ink-50'
-                    : 'text-ink-300 hover:bg-ink-800',
-                ].join(' ')}
+                className="ui-tab flex-1"
+                aria-pressed={entryType === 'entry'}
               >
                 {t('homebrew.compendiumEntry')}
               </button>
               <button
                 type="button"
                 onClick={() => setEntryType('subclass')}
-                className={[
-                  'flex-1 rounded-md px-2 py-1 transition-colors',
-                  entryType === 'subclass'
-                    ? 'bg-arcane-700 text-ink-50'
-                    : 'text-ink-300 hover:bg-ink-800',
-                ].join(' ')}
+                className="ui-tab flex-1"
+                aria-pressed={entryType === 'subclass'}
               >
                 {t('homebrew.subclass')}
               </button>
@@ -533,12 +536,8 @@ export function HomebrewPage() {
                   onClick={() =>
                     setImportedForm((current) => ({ ...current!, lang: 'base' }))
                   }
-                  className={[
-                    'rounded-md px-2 py-1 transition-colors',
-                    importedForm.lang === 'base'
-                      ? 'bg-arcane-700 text-ink-50'
-                      : 'text-ink-300 hover:bg-ink-800',
-                  ].join(' ')}
+                  className="ui-tab"
+                  aria-pressed={importedForm.lang === 'base'}
                 >
                   {t('homebrew.baseLanguage')} ({importedForm.baseLocale.toUpperCase()})
                 </button>
@@ -556,12 +555,8 @@ export function HomebrewPage() {
                           lang: locale.code,
                         }))
                       }
-                      className={[
-                        'inline-flex items-center gap-1 rounded-md px-2 py-1 transition-colors',
-                        importedForm.lang === locale.code
-                          ? 'bg-arcane-700 text-ink-50'
-                          : 'text-ink-300 hover:bg-ink-800',
-                      ].join(' ')}
+                      className="ui-tab"
+                      aria-pressed={importedForm.lang === locale.code}
                     >
                       {locale.nativeLabel}
                       {translated && (
@@ -586,7 +581,7 @@ export function HomebrewPage() {
                         lang: 'base',
                       }))
                     }
-                    className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
+                    className="ui-field"
                   >
                     {SUPPORTED_LOCALES.map((locale) => (
                       <option key={locale.code} value={locale.code}>
@@ -607,7 +602,7 @@ export function HomebrewPage() {
                         category: event.target.value as CompendiumCategoryId,
                       }))
                     }
-                    className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
+                    className="ui-field"
                   >
                     {categories.map((category) => (
                       <option key={category.id} value={category.id}>
@@ -664,17 +659,13 @@ export function HomebrewPage() {
                   }}
                   rows={18}
                   spellCheck={false}
-                  className="resize-y rounded-md border border-ink-700 bg-ink-950 px-3 py-2 font-mono text-xs leading-relaxed text-ink-100 focus:border-arcane-500 focus:outline-none"
+                  className="ui-field resize-y font-mono leading-relaxed"
                 />
               </label>
               <p className="text-xs text-ink-400">{t('homebrew.importedEditorHint')}</p>
-              <button
-                type="button"
-                onClick={saveImported}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-arcane-700 px-4 py-2 font-medium text-ink-50 hover:bg-arcane-500"
-              >
+              <Button type="button" onClick={saveImported} variant="primary">
                 <Pencil size={16} /> {t('homebrew.saveChanges')}
-              </button>
+              </Button>
             </>
           ) : entryType === 'entry' || editing ? (
             <>
@@ -682,12 +673,8 @@ export function HomebrewPage() {
                 <button
                   type="button"
                   onClick={() => setFormLang('base')}
-                  className={[
-                    'rounded-md px-2 py-1 transition-colors',
-                    formLang === 'base'
-                      ? 'bg-arcane-700 text-ink-50'
-                      : 'text-ink-300 hover:bg-ink-800',
-                  ].join(' ')}
+                  className="ui-tab"
+                  aria-pressed={formLang === 'base'}
                 >
                   {t('homebrew.baseLanguage')}
                 </button>
@@ -701,12 +688,8 @@ export function HomebrewPage() {
                       key={loc.code}
                       type="button"
                       onClick={() => setFormLang(loc.code)}
-                      className={[
-                        'inline-flex items-center gap-1 rounded-md px-2 py-1 transition-colors',
-                        formLang === loc.code
-                          ? 'bg-arcane-700 text-ink-50'
-                          : 'text-ink-300 hover:bg-ink-800',
-                      ].join(' ')}
+                      className="ui-tab"
+                      aria-pressed={formLang === loc.code}
                     >
                       {loc.nativeLabel}
                       {hasContent && (
@@ -732,14 +715,14 @@ export function HomebrewPage() {
                       ? t('homebrew.namePlaceholder')
                       : form.name || t('homebrew.namePlaceholder')
                   }
-                  className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
+                  className="ui-field"
                 />
               </label>
 
               {formLang === 'base' && (
                 <>
                   <div className="flex items-center gap-3">
-                    <button
+                    <Button
                       type="button"
                       onClick={() => imageFileRef.current!.click()}
                       aria-label={
@@ -747,7 +730,10 @@ export function HomebrewPage() {
                           ? t('homebrew.changeArtwork')
                           : t('homebrew.addArtwork')
                       }
-                      className="flex h-20 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-ink-700 bg-ink-950 hover:border-arcane-500"
+                      variant="secondary"
+                      size="sm"
+                      iconOnly
+                      className="flex h-20 w-16 shrink-0 overflow-hidden"
                     >
                       {form.image ? (
                         <img
@@ -759,12 +745,12 @@ export function HomebrewPage() {
                         />
                       ) : (
                         <ImagePlus
-                          className="text-ink-600"
+                          className="text-ink-500"
                           size={22}
                           aria-hidden="true"
                         />
                       )}
-                    </button>
+                    </Button>
                     <div className="flex flex-col gap-1 text-xs text-ink-400">
                       <span className="font-semibold text-ink-300">
                         {t('homebrew.artworkOptional')}
@@ -805,7 +791,7 @@ export function HomebrewPage() {
                           category: e.target.value as CompendiumCategoryId,
                         }))
                       }
-                      className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
+                      className="ui-field"
                     >
                       {categories.map((c) => (
                         <option key={c.id} value={c.id}>
@@ -829,7 +815,7 @@ export function HomebrewPage() {
                       ? t('homebrew.subtitlePlaceholder')
                       : form.subtitle || t('homebrew.subtitlePlaceholder')
                   }
-                  className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
+                  className="ui-field"
                 />
               </label>
 
@@ -846,19 +832,19 @@ export function HomebrewPage() {
                       ? t('homebrew.descriptionPlaceholder')
                       : form.body || t('homebrew.descriptionPlaceholder')
                   }
-                  className="resize-y rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-100 focus:border-arcane-500 focus:outline-none"
+                  className="ui-field resize-y"
                 />
               </label>
 
-              <button
+              <Button
                 type="button"
                 onClick={submit}
                 disabled={!form.name.trim()}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-arcane-700 px-4 py-2 font-medium text-ink-50 hover:bg-arcane-500 disabled:opacity-50"
+                variant="primary"
               >
                 <Plus size={16} />{' '}
                 {editing ? t('homebrew.saveChanges') : t('homebrew.createEntry')}
-              </button>
+              </Button>
 
               {pendingImageFile && (
                 <ImageCropperModal
@@ -908,7 +894,7 @@ export function HomebrewPage() {
                     setSubclassForm((f) => ({ ...f, name: e.target.value }))
                   }
                   placeholder={t('homebrew.subclassNamePlaceholder')}
-                  className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
+                  className="ui-field"
                 />
               </label>
 
@@ -922,7 +908,7 @@ export function HomebrewPage() {
                     setSubclassForm((f) => ({ ...f, source: e.target.value }))
                   }
                   placeholder={t('homebrew.sourcePlaceholder')}
-                  className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-50 focus:border-arcane-500 focus:outline-none"
+                  className="ui-field"
                 />
               </label>
 
@@ -937,27 +923,25 @@ export function HomebrewPage() {
                   }
                   rows={8}
                   placeholder={t('homebrew.featuresPlaceholder')}
-                  className="resize-y rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-ink-100 focus:border-arcane-500 focus:outline-none"
+                  className="ui-field resize-y"
                 />
               </label>
 
-              <button
+              <Button
                 type="button"
                 onClick={submitSubclass}
                 disabled={!subclassForm.className.trim() || !subclassForm.name.trim()}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-arcane-700 px-4 py-2 font-medium text-ink-50 hover:bg-arcane-500 disabled:opacity-50"
+                variant="primary"
               >
                 <Plus size={16} /> {t('homebrew.createSubclass')}
-              </button>
+              </Button>
             </>
           )}
         </section>
 
         <section className="flex min-w-0 flex-col gap-3 lg:sticky lg:top-4">
           <div className="flex items-baseline justify-between gap-3">
-            <h2 className="font-display text-lg font-bold text-ink-50">
-              {t('homebrew.yourEntries')}
-            </h2>
+            <h2 className="text-ink-50 section-title">{t('homebrew.yourEntries')}</h2>
             <span className="text-xs tabular-nums text-ink-400">
               {t('homebrew.showingEntries', {
                 visible: visibleEntries.length,
@@ -965,22 +949,16 @@ export function HomebrewPage() {
               })}
             </span>
           </div>
-          <div className="flex flex-col gap-2 rounded-xl border border-ink-700 bg-ink-900 p-3">
-            <label className="relative">
-              <Search
-                size={16}
-                aria-hidden="true"
-                className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-ink-500"
-              />
-              <input
-                type="search"
-                value={entrySearch}
-                onChange={(event) => update({ q: event.target.value }, true)}
-                placeholder={t('homebrew.searchEntries')}
-                className="w-full rounded-md border border-ink-700 bg-ink-950 py-2 pl-8 pr-3 text-sm text-ink-50 placeholder:text-ink-500 focus:border-arcane-500 focus:outline-none"
-              />
-            </label>
-            <div className="grid grid-cols-2 gap-2">
+          <div className="catalog-toolbar">
+            <SearchField
+              value={entrySearch}
+              onChange={(event) => update({ q: event.target.value }, true)}
+              placeholder={t('homebrew.searchEntries')}
+              label={t('homebrew.searchEntries')}
+              onClear={() => update({ q: null }, true)}
+              clearLabel={t('common.clearSearch')}
+            />
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               <select
                 value={entryFilter}
                 onChange={(event) =>
@@ -989,7 +967,7 @@ export function HomebrewPage() {
                   })
                 }
                 aria-label={t('homebrew.filterCategory')}
-                className="min-w-0 rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-sm text-ink-200 focus:border-arcane-500 focus:outline-none"
+                className="ui-field min-w-0"
               >
                 <option value="all">{t('homebrew.allCategories')}</option>
                 <option value="subclass">{t('homebrew.subclass')}</option>
@@ -1007,13 +985,23 @@ export function HomebrewPage() {
                   })
                 }
                 aria-label={t('homebrew.filterTranslation')}
-                className="min-w-0 rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 text-sm text-ink-200 focus:border-arcane-500 focus:outline-none"
+                className="ui-field min-w-0"
               >
                 <option value="all">{t('homebrew.allTranslations')}</option>
                 <option value="untranslated">{t('homebrew.untranslated')}</option>
                 <option value="translated">{t('homebrew.translated')}</option>
               </select>
             </div>
+            {(entryFilter !== 'all' || translationFilter !== 'all') && (
+              <Button
+                variant="ghost"
+                size="sm"
+                className="self-start"
+                onClick={() => update({ category: null, translation: null })}
+              >
+                {t('compendium.filters.resetFilters')}
+              </Button>
+            )}
           </div>
           {entries.length === 0 ? (
             <p className="text-sm text-ink-400">
@@ -1021,9 +1009,7 @@ export function HomebrewPage() {
               {t('homebrew.emptyStateFile')}
             </p>
           ) : visibleEntries.length === 0 ? (
-            <div className="rounded-xl border border-dashed border-ink-700 px-4 py-10 text-center text-sm text-ink-400">
-              {t('homebrew.noMatchingEntries')}
-            </div>
+            <div className="empty-state">{t('homebrew.noMatchingEntries')}</div>
           ) : (
             <ul className="flex max-h-[70vh] flex-col gap-1.5 overflow-y-auto overscroll-contain pr-1 lg:max-h-[calc(100vh-15rem)]">
               {visibleEntries.map((entry) => (
@@ -1068,10 +1054,10 @@ export function HomebrewPage() {
                           <span className="truncate">{entry.name}</span>
                           {entry.kind === 'imported' && (
                             <>
-                              <span className="shrink-0 rounded-full border border-ink-600 px-1.5 text-[0.6rem] uppercase text-ink-400">
+                              <span className="badge ">
                                 {t('homebrew.fromEtoolsBadge')}
                               </span>
-                              <span className="shrink-0 rounded-full border border-arcane-700 px-1.5 text-[0.6rem] uppercase text-arcane-300">
+                              <span className="badge border-arcane-700 text-arcane-300">
                                 {entry.baseLocale}
                               </span>
                             </>
@@ -1086,28 +1072,30 @@ export function HomebrewPage() {
                         {categoryLabel(entry.category, t)}
                         {entry.kind === 'imported' &&
                           Object.keys(entry.translations ?? {}).length > 0 &&
-                          ` · ${t('homebrew.translationsBadge', {
+                          ` - ${t('homebrew.translationsBadge', {
                             languages: Object.keys(entry.translations!)
                               .map((locale) => locale.toUpperCase())
                               .join(', '),
                           })}`}
                         {entry.kind === 'manual' &&
                           entry.subtitle &&
-                          ` · ${entry.subtitle}`}
+                          ` - ${entry.subtitle}`}
                       </span>
                     </div>
                   )}
                   {entry.kind !== 'subclass' && (
-                    <button
+                    <Button
                       type="button"
                       aria-label={t('homebrew.editLabel', { name: entry.name })}
                       onClick={() => startEdit(entry)}
-                      className="rounded p-1.5 text-ink-400 hover:bg-ink-800 hover:text-ink-50"
+                      variant="ghost"
+                      size="sm"
+                      iconOnly
                     >
                       <Pencil size={16} />
-                    </button>
+                    </Button>
                   )}
-                  <button
+                  <Button
                     type="button"
                     aria-label={t('character.list.deleteLabel', {
                       name: entry.kind === 'subclass' ? entry.subclass.name : entry.name,
@@ -1124,10 +1112,12 @@ export function HomebrewPage() {
                       );
                       if (ok) deleteEntry(entry.id);
                     }}
-                    className="rounded p-1.5 text-ink-400 hover:bg-ink-800 hover:text-red-400"
+                    variant="ghost"
+                    size="sm"
+                    iconOnly
                   >
                     <Trash2 size={16} />
-                  </button>
+                  </Button>
                 </li>
               ))}
             </ul>

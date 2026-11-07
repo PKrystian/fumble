@@ -1,8 +1,10 @@
+import { Button } from '@/features/ui/primitives';
 import { useEffect, useRef, useState } from 'react';
 import { Check, Copy, List, Mic, Plus, Sparkles, Square, Trash2, X } from 'lucide-react';
 import { confirmDialog } from '@/features/ui/confirmStore';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
+import { useDialogFocus } from '@/features/ui/useDialogFocus';
 import { useSpeechRecognition } from './speech';
 import {
   formatClockTime,
@@ -29,6 +31,9 @@ export function SessionLogPage() {
   const [promptCopied, setPromptCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
   const [mobileSessionsOpen, setMobileSessionsOpen] = useState(false);
+  const sessionsDialogRef = useDialogFocus(mobileSessionsOpen, () =>
+    setMobileSessionsOpen(false),
+  );
   const recordStart = useRef<number | null>(null);
 
   const session = sessions.find((s) => s.id === selectedId) ?? null;
@@ -114,32 +119,42 @@ export function SessionLogPage() {
       )}
 
       <aside
+        ref={sessionsDialogRef}
+        tabIndex={-1}
+        role={mobileSessionsOpen ? 'dialog' : undefined}
+        aria-modal={mobileSessionsOpen || undefined}
+        aria-label={t('sessionLog.sessions')}
         className={[
           'absolute inset-y-0 left-0 z-30 flex w-[min(20rem,85vw)] shrink-0 flex-col border-r border-ink-700 bg-ink-950 shadow-xl transition-transform md:static md:w-64 md:translate-x-0 md:shadow-none',
-          mobileSessionsOpen ? 'translate-x-0' : '-translate-x-full',
+          mobileSessionsOpen
+            ? 'translate-x-0 visible'
+            : '-translate-x-full invisible md:visible',
         ].join(' ')}
       >
         <div className="flex items-center justify-between border-b border-ink-700 p-3">
-          <h1 className="font-display text-lg font-bold text-ink-50">
-            {t('sessionLog.sessions')}
-          </h1>
+          <h2 className="section-title">{t('sessionLog.sessions')}</h2>
           <div className="flex items-center gap-1">
-            <button
+            <Button
               type="button"
               onClick={createSession}
               aria-label={t('sessionLog.newSession')}
-              className="rounded-md bg-arcane-700 p-2 text-ink-50 hover:bg-arcane-500"
+              variant="primary"
+              size="sm"
+              iconOnly
             >
               <Plus size={18} />
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
               onClick={() => setMobileSessionsOpen(false)}
               aria-label={t('common.closeMenu')}
-              className="rounded-md p-2 text-ink-300 hover:bg-ink-800 hover:text-ink-50 md:hidden"
+              variant="ghost"
+              size="sm"
+              iconOnly
+              className="md:hidden"
             >
               <X size={20} />
-            </button>
+            </Button>
           </div>
         </div>
         <ul className="flex-1 overflow-y-auto">
@@ -151,10 +166,8 @@ export function SessionLogPage() {
                   setSelectedId(s.id);
                   setMobileSessionsOpen(false);
                 }}
-                className={[
-                  'block w-full border-b border-ink-800 px-3 py-2 text-left',
-                  s.id === selectedId ? 'bg-arcane-700 text-white' : 'hover:bg-ink-900',
-                ].join(' ')}
+                aria-pressed={s.id === selectedId}
+                className="selection-row rounded-none border-b border-ink-800"
               >
                 <span className="block truncate text-sm font-medium text-ink-50">
                   {s.title}
@@ -168,35 +181,36 @@ export function SessionLogPage() {
         </ul>
       </aside>
 
-      <section className="min-w-0 flex-1 overflow-y-auto p-3 sm:p-5">
+      <section className="min-w-0 flex-1 overflow-y-auto px-4 py-8 sm:px-6">
+        <h1 className="page-title mb-6">{t('nav.sessionLog')}</h1>
         {!session ? (
           <div className="flex h-full flex-col items-center justify-center gap-3 text-center text-ink-300">
             <p>{t('sessionLog.noSessionSelected')}</p>
-            <button
-              type="button"
-              onClick={createSession}
-              className="rounded-lg bg-arcane-700 px-4 py-2 font-medium text-ink-50 hover:bg-arcane-500"
-            >
+            <Button type="button" onClick={createSession} variant="primary">
               {t('sessionLog.startNewSession')}
-            </button>
+            </Button>
           </div>
         ) : (
-          <div className="mx-auto flex max-w-3xl flex-col gap-4 pb-4">
+          <div className="flex flex-col gap-4 pb-4 page-shell">
             <div className="flex items-center gap-2 sm:gap-3">
-              <button
+              <Button
                 type="button"
                 onClick={() => setMobileSessionsOpen(true)}
                 aria-label={t('sessionLog.sessions')}
-                className="shrink-0 rounded-md border border-ink-700 p-2.5 text-ink-200 hover:bg-ink-800 hover:text-ink-50 md:hidden"
+                variant="secondary"
+                size="sm"
+                iconOnly
+                className="shrink-0 md:hidden"
               >
                 <List size={20} />
-              </button>
+              </Button>
               <input
                 value={session.title}
+                aria-label={t('sessionLog.sessionTitle')}
                 onChange={(e) => updateSession(session.id, { title: e.target.value })}
-                className="min-w-0 flex-1 rounded-md border border-ink-700 bg-ink-900 px-3 py-2 font-display text-lg font-bold text-ink-50 focus:border-arcane-500 focus:outline-none sm:text-xl"
+                className="ui-field min-w-0 flex-1 font-display text-lg font-bold sm:text-xl"
               />
-              <button
+              <Button
                 type="button"
                 aria-label={t('sessionLog.deleteSession')}
                 onClick={async () => {
@@ -209,34 +223,31 @@ export function SessionLogPage() {
                     setSelectedId(null);
                   }
                 }}
-                className="rounded p-2 text-ink-400 hover:bg-ink-800 hover:text-red-400"
+                variant="ghost"
+                size="sm"
+                iconOnly
               >
                 <Trash2 size={18} />
-              </button>
+              </Button>
             </div>
 
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               {supported ? (
                 <>
-                  <button
+                  <Button
                     type="button"
                     onClick={listening ? stopRecording : startRecording}
-                    className={[
-                      'inline-flex items-center gap-2 rounded-lg px-4 py-2 font-medium text-ink-50',
-                      listening
-                        ? 'bg-red-700 hover:bg-red-600'
-                        : 'bg-arcane-700 hover:bg-arcane-500',
-                    ].join(' ')}
+                    variant={listening ? 'danger' : 'primary'}
                   >
                     {listening ? <Square size={16} /> : <Mic size={16} />}
                     {listening ? t('sessionLog.stop') : t('sessionLog.record')}
-                  </button>
+                  </Button>
                   <select
                     value={transcriptionLang}
                     onChange={(e) => setTranscriptionLang(e.target.value)}
                     disabled={listening}
                     aria-label={t('sessionLog.transcriptionLanguage')}
-                    className="min-w-0 flex-1 rounded-md border border-ink-700 bg-ink-900 px-2 py-2 text-sm text-ink-200 focus:border-arcane-500 focus:outline-none disabled:opacity-50 sm:flex-none"
+                    className="ui-field min-w-0 flex-1 sm:flex-none"
                   >
                     <option value="english">{t('sessionLog.english')}</option>
                     <option value="polish">{t('sessionLog.polish')}</option>
@@ -257,27 +268,31 @@ export function SessionLogPage() {
                 </span>
               )}
               <div className="flex w-full items-stretch gap-2 sm:ml-auto sm:w-auto sm:items-center">
-                <button
+                <Button
                   type="button"
                   onClick={copyTranscript}
                   disabled={session.entries.length === 0}
-                  className="inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-lg border border-ink-700 px-3 py-2 text-sm font-medium text-ink-100 hover:bg-ink-800 disabled:opacity-50 sm:flex-none sm:py-1.5"
+                  variant="secondary"
+                  size="sm"
+                  className="min-w-0 flex-1 sm:flex-none"
                 >
                   {copied ? <Check size={16} /> : <Copy size={16} />}
                   {copied ? t('sessionLog.copied') : t('sessionLog.copyTranscript')}
-                </button>
-                <button
+                </Button>
+                <Button
                   type="button"
                   onClick={copyWithPrompt}
                   disabled={session.entries.length === 0}
                   title={t('sessionLog.copyWithAiPromptTitle')}
-                  className="inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-lg bg-arcane-700 px-3 py-2 text-sm font-medium text-ink-50 hover:bg-arcane-500 disabled:opacity-50 sm:flex-none sm:py-1.5"
+                  variant="primary"
+                  size="sm"
+                  className="min-w-0 flex-1 sm:flex-none"
                 >
                   {promptCopied ? <Check size={16} /> : <Sparkles size={16} />}
                   {promptCopied
                     ? t('sessionLog.copied')
                     : t('sessionLog.copyWithAiPrompt')}
-                </button>
+                </Button>
               </div>
               {copyError && (
                 <span role="alert" className="w-full text-xs text-red-300 sm:w-auto">
@@ -308,7 +323,7 @@ export function SessionLogPage() {
                 }
                 rows={4}
                 placeholder={t('sessionLog.notesPlaceholder')}
-                className="w-full resize-y rounded-lg border border-ink-700 bg-ink-900 px-3 py-2 text-ink-100 placeholder:text-ink-500 focus:border-arcane-500 focus:outline-none"
+                className="ui-field w-full resize-y"
               />
             </div>
 

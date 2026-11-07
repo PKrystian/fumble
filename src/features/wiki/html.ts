@@ -1,4 +1,5 @@
 import DOMPurify from 'dompurify';
+import { translate } from '@/i18n/translate';
 
 function prepareWikiImages(html: string): string {
   let first = true;
@@ -14,8 +15,23 @@ function prepareWikiImages(html: string): string {
   });
 }
 
-export function sanitizeWikiHtml(html: string): string {
-  return DOMPurify.sanitize(prepareWikiImages(html), {
+export function sanitizeWikiHtml(
+  html: string,
+  imageLabel = translate('en', 'common.imageViewer'),
+): string {
+  const root = document.createElement('div');
+  root.innerHTML = DOMPurify.sanitize(prepareWikiImages(html), {
     ADD_ATTR: ['target', 'loading', 'fetchpriority', 'decoding'],
   });
+  for (const image of root.querySelectorAll('img')) {
+    if (image.closest('a')) continue;
+    const link = document.createElement('a');
+    link.href = image.getAttribute('src') ?? '';
+    link.className = 'artwork-trigger';
+    link.dataset.imageViewer = '';
+    link.setAttribute('aria-label', image.alt || imageLabel);
+    image.replaceWith(link);
+    link.append(image);
+  }
+  return root.innerHTML;
 }

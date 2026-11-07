@@ -119,7 +119,7 @@ describe('BookReaderPage', () => {
 
   it('loads a chapter, renders its outline and toggles reader controls', async () => {
     renderReader();
-    expect(screen.getByText('Loading…')).toBeInTheDocument();
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
     await screen.findByRole('heading', { name: 'First Chapter' });
 
     expect(screen.getByText('Author')).toBeInTheDocument();
@@ -153,7 +153,7 @@ describe('BookReaderPage', () => {
   it('selects a chapter from a target page and supports previous navigation', async () => {
     renderReader('/books/test-book?chapter=ignored&page=21');
     await screen.findByRole('heading', { name: 'Second Chapter' });
-    expect(screen.getByRole('link', { name: /^← First Chapter$/ })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: '<- First Chapter' })).toHaveAttribute(
       'href',
       '/books/test-book/0/',
     );

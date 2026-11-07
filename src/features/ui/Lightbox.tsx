@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Button } from '@/features/ui/primitives';
 import { X } from 'lucide-react';
 import { useT } from '@/i18n/useT';
 import { useLightbox } from './lightboxStore';
@@ -9,14 +9,7 @@ export function Lightbox() {
   const src = useLightbox((s) => s.src);
   const caption = useLightbox((s) => s.caption);
   const close = useLightbox((s) => s.close);
-  const dialogRef = useDialogFocus(Boolean(src));
-
-  useEffect(() => {
-    if (!src) return;
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close();
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [src, close]);
+  const dialogRef = useDialogFocus(Boolean(src), close);
 
   if (!src) return null;
 
@@ -30,14 +23,17 @@ export function Lightbox() {
       onClick={close}
       className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-black/85 p-4"
     >
-      <button
+      <Button
         type="button"
         onClick={close}
         aria-label={t('common.closeImage')}
-        className="absolute right-4 top-4 rounded-full bg-ink-900/80 p-2 text-ink-100 hover:bg-ink-800"
+        variant="ghost"
+        size="sm"
+        iconOnly
+        className="absolute right-4 top-4"
       >
         <X size={22} />
-      </button>
+      </Button>
       <img
         src={src}
         alt={caption}

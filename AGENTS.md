@@ -12,7 +12,7 @@ This repo is public and must not read as machine-written. These are hard rules f
 file that ships to GitHub (anything not gitignored):
 
 1. **No emoji.** Not in code, docs, README, UI strings, or commit messages.
-2. **No em-dash (`—`) or en-dash (`–`). Use a plain hyphen `-`.** Applies to UI strings in
+2. **No em-dash (`-`) or en-dash (`-`). Use a plain hyphen `-`.** Applies to UI strings in
    `src/i18n/dictionaries/*.ts` too.
 3. **No comments, except functional ones.** Keep only: `eslint-disable*`, `@ts-ignore` /
    `@ts-expect-error` / `@ts-nocheck`, `/// <reference />`, `prettier-ignore`,
@@ -23,7 +23,7 @@ file that ships to GitHub (anything not gitignored):
 4. Avoid other AI tells: over-defensive `try/catch`, triple null guards, `=== true` where
    truthiness works, debug `console.log`, unused imports, catch blocks that only log.
 
-**Exception:** `src/data/generated/**` is generated D&D data. Its `—` cells are meaningful
+**Exception:** `src/data/generated/**` is generated D&D data. Its `-` cells are meaningful
 table content ("none"). Never hand-edit or de-dash those files.
 
 ## Quality gates - all must pass before opening or updating a PR
@@ -33,6 +33,7 @@ GitHub Actions runs these checks before a PR can merge:
 - Dependency audit: `npm run security:audit`
 - Lint: `npm run lint`
 - Formatting: `npm run format:check`
+- Interface consistency: `npm run ui:check`
 - SBOM generation: `npm sbom --sbom-format cyclonedx > fumble-sbom.cdx.json`
 - Typecheck: `npm run typecheck`
 - Unit tests with coverage: `npm run test:coverage`
@@ -74,6 +75,15 @@ version from `package.json`, so never hardcode it in a component.
 ## Git
 
 Never run git. The user commits and publishes themselves. Leave work in the working tree.
+
+## Interface changes
+
+Before changing any frontend, read `docs/UI_GUIDELINES.md`. It is the source of truth
+for layout, typography, colors, controls, tables, dialogs, motion, accessibility, and
+static page rendering. Use the shared UI components and semantic classes defined there.
+Extend the shared pattern and update that document before introducing a new recurring
+pattern. Do not copy local control styles or override a control's size with conflicting
+Tailwind classes. Check both locales, mobile reflow, keyboard focus, and static HTML.
 
 ## Layout
 

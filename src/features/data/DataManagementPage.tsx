@@ -61,16 +61,14 @@ export function DataManagementPage() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
-      <h1 className="font-display text-3xl font-bold text-ink-50">{t('data.title')}</h1>
-      <p className="mt-3 text-ink-200">{t('data.description')}</p>
+    <div className="page-shell page-shell-reading">
+      <h1 className="text-ink-50 page-title">{t('data.title')}</h1>
+      <p className="page-description">{t('data.description')}</p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         <section className={panelClass('border-ink-700 p-5')}>
           <Download size={24} className="text-arcane-300" aria-hidden="true" />
-          <h2 className="mt-3 font-display text-xl font-bold text-ink-50">
-            {t('data.exportTitle')}
-          </h2>
+          <h2 className="mt-3 text-ink-50 section-title">{t('data.exportTitle')}</h2>
           <p className="mt-2 text-sm leading-6 text-ink-300">{t('data.exportBody')}</p>
           <Button onClick={exportData} variant="primary" className="mt-5">
             {t('data.exportAction')}
@@ -79,9 +77,7 @@ export function DataManagementPage() {
 
         <section className={panelClass('border-ink-700 p-5')}>
           <Upload size={24} className="text-ember-400" aria-hidden="true" />
-          <h2 className="mt-3 font-display text-xl font-bold text-ink-50">
-            {t('data.importTitle')}
-          </h2>
+          <h2 className="mt-3 text-ink-50 section-title">{t('data.importTitle')}</h2>
           <p className="mt-2 text-sm leading-6 text-ink-300">{t('data.importBody')}</p>
           <input
             ref={inputRef}

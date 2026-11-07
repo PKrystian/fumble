@@ -114,8 +114,7 @@ describe('CharacterListPage', () => {
     expect(screen.getByText('character.unnamed')).toBeInTheDocument();
     expect(screen.getByText('character.dmBadge')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'character.list.title' })).toHaveClass(
-      'text-2xl',
-      'sm:text-3xl',
+      'page-title',
     );
     expect(screen.getByRole('button', { name: 'character.list.import' })).toHaveClass(
       'w-full',

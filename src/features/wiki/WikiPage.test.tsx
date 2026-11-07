@@ -83,10 +83,6 @@ vi.mock('./useWiki', () => ({
   useWiki: () => mocks.wiki,
 }));
 
-vi.mock('./html', () => ({
-  sanitizeWikiHtml: (html: string) => html,
-}));
-
 vi.mock('@/i18n/useT', () => ({
   useT: () => ({ locale: mocks.locale, t: (key: string) => key }),
 }));
@@ -320,6 +316,8 @@ describe('WikiPage', () => {
 
     render(<WikiPage />);
     fireEvent.click(screen.getByRole('img', { name: 'NPC portrait' }));
+    useLightbox.getState().close();
+    fireEvent.click(screen.getByRole('link', { name: 'NPC portrait' }));
 
     expect(useLightbox.getState()).toMatchObject({
       src: expect.stringContaining('/wiki-assets/glod-smoka/npc.png'),

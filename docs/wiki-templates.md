@@ -84,7 +84,7 @@ facts: # nested map -> infobox facts table
 ---
 ```
 
-- **`visibility: dm`** or **`publish: false`** → the page is **never built**. DM-only notes
+- **`visibility: dm`** or **`publish: false`** -> the page is **never built**. DM-only notes
   simply stay in your vault.
 - `type`, `tags`, `image`, `summary`, and `facts` are all optional - a page with none of them
   renders exactly like before, with no infobox.
@@ -145,8 +145,8 @@ the explicit `:::secret` / `:::locked` blocks above.
 Standard Obsidian wikilinks work and become in-app navigation:
 
 ```markdown
-[[Silverhaven]] → links to the Silverhaven page
-[[Silverhaven|the port city]] → custom link text
+[[Silverhaven]] -> links to the Silverhaven page
+[[Silverhaven|the port city]] -> custom link text
 ```
 
 Links to DM-only or non-existent pages automatically degrade to plain text, so hidden pages
@@ -228,7 +228,7 @@ Intro paragraph visible to players.
 
 ## Section
 
-Details…
+Details...
 
 :::locked
 Hint that there's more to discover here.

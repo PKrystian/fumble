@@ -38,6 +38,9 @@ jobs:
       - name: Format check
         run: npm run format:check
 
+      - name: Interface consistency
+        run: npm run ui:check
+
       - name: Generate SBOM
         run: npm sbom --sbom-format cyclonedx > fumble-sbom.cdx.json
 

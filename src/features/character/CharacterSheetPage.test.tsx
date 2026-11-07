@@ -222,8 +222,7 @@ describe('CharacterSheetPage', () => {
     expect(mocks.syncClassFeatures).toHaveBeenCalled();
     expect(mocks.updateCharacter).toHaveBeenCalledWith('test', { hitDice: '1d8' });
     expect(screen.getByRole('button', { name: 'Character Settings' })).toHaveClass(
-      'w-full',
-      'sm:w-auto',
+      'ui-button',
     );
     expect(screen.getByRole('button', { name: 'Export' })).toHaveClass(
       'w-full',

@@ -1,3 +1,4 @@
+import { Button } from '@/features/ui/primitives';
 import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import {
@@ -301,15 +302,10 @@ export function BookReaderPage() {
     <div className="flex h-full min-h-0">
       <aside className="hidden w-72 shrink-0 flex-col border-r border-ink-700 md:flex">
         <div className="border-b border-ink-700 p-3">
-          <Link
-            to="/books"
-            className="mb-2 inline-flex items-center gap-1 text-sm text-ink-300 hover:text-ink-50"
-          >
+          <Link to="/books" className="back-link">
             <ArrowLeft size={16} aria-hidden="true" /> {t('common.allBooks')}
           </Link>
-          <h1 className="font-display text-lg font-bold text-ink-50">
-            {localizedBookName(book, locale)}
-          </h1>
+          <h2 className="section-title">{localizedBookName(book, locale)}</h2>
           {book.author && <p className="text-xs text-ink-400">{book.author}</p>}
         </div>
         <nav
@@ -330,7 +326,7 @@ export function BookReaderPage() {
               <div key={index}>
                 <div className="flex items-center gap-0.5">
                   {outline.length > 0 ? (
-                    <button
+                    <Button
                       type="button"
                       onClick={() => toggleChapter(index)}
                       aria-label={
@@ -339,14 +335,17 @@ export function BookReaderPage() {
                           : t('books.expandChapter', { title })
                       }
                       aria-expanded={isExpanded}
-                      className="shrink-0 rounded p-1 text-ink-500 hover:bg-ink-800 hover:text-ink-200"
+                      variant="ghost"
+                      size="sm"
+                      iconOnly
+                      className="shrink-0"
                     >
                       {isExpanded ? (
                         <ChevronDown size={14} aria-hidden="true" />
                       ) : (
                         <ChevronRight size={14} aria-hidden="true" />
                       )}
-                    </button>
+                    </Button>
                   ) : (
                     <span className="w-6 shrink-0" aria-hidden="true" />
                   )}
@@ -380,30 +379,22 @@ export function BookReaderPage() {
       <section id="book-content" className="min-w-0 flex-1 overflow-y-auto">
         {chapters != null && (
           <div className="sticky top-0 z-10 flex justify-end gap-2 border-b border-ink-800 bg-ink-950/95 px-4 py-2 backdrop-blur">
-            <button
+            <Button
               type="button"
               onClick={() => setFullBook((v) => !v)}
               aria-pressed={fullBook}
-              className={[
-                'inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors',
-                fullBook
-                  ? 'border-arcane-300 bg-arcane-700 text-white'
-                  : 'border-ink-700 text-ink-300 hover:bg-ink-800 hover:text-ink-50',
-              ].join(' ')}
+              size="sm"
+              variant={fullBook ? 'primary' : 'secondary'}
             >
               <BookOpenText size={14} aria-hidden="true" />
               {fullBook ? t('books.wholeBook') : t('books.thisChapter')}
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
               onClick={() => setWide((v) => !v)}
               aria-pressed={wide}
-              className={[
-                'inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors',
-                wide
-                  ? 'border-arcane-300 bg-arcane-700 text-white'
-                  : 'border-ink-700 text-ink-300 hover:bg-ink-800 hover:text-ink-50',
-              ].join(' ')}
+              size="sm"
+              variant={wide ? 'primary' : 'secondary'}
             >
               {wide ? (
                 <Minimize2 size={14} aria-hidden="true" />
@@ -411,30 +402,29 @@ export function BookReaderPage() {
                 <Maximize2 size={14} aria-hidden="true" />
               )}
               {wide ? t('books.comfortableWidth') : t('books.fullWidth')}
-            </button>
+            </Button>
           </div>
         )}
 
         <div
           className={['mx-auto px-6 py-8', wide ? 'max-w-none' : 'max-w-3xl'].join(' ')}
         >
-          <Link
-            to="/books"
-            className="mb-4 inline-flex items-center gap-1 text-sm text-ink-300 hover:text-ink-50 md:hidden"
-          >
+          <Link to="/books" className="back-link md:hidden">
             <ArrowLeft size={16} aria-hidden="true" /> {t('common.allBooks')}
           </Link>
 
+          <h1 className="page-title mb-6">{localizedBookName(book, locale)}</h1>
           {error && (
             <div className="flex flex-wrap items-center gap-3 text-red-400" role="alert">
               <span>{t('books.couldNotLoad')}</span>
-              <button
+              <Button
                 type="button"
                 onClick={() => setRetryKey((value) => value + 1)}
-                className="rounded-md border border-red-400/50 px-3 py-1.5 text-red-200 hover:bg-red-400/10"
+                variant="danger"
+                size="sm"
               >
                 {t('common.retry')}
-              </button>
+              </Button>
             </div>
           )}
           {!error && chapters == null && (
@@ -442,7 +432,7 @@ export function BookReaderPage() {
           )}
 
           {chapters != null && fullBook && (
-            <article className="flex flex-col gap-3 leading-relaxed">
+            <article className="reading-content flex flex-col gap-3">
               {chapters.map((c, index) => (
                 <div
                   key={index}
@@ -455,7 +445,7 @@ export function BookReaderPage() {
           )}
 
           {!fullBook && active != null && (
-            <article className="flex flex-col gap-3 leading-relaxed">
+            <article className="reading-content flex flex-col gap-3">
               <EntryRenderer entries={[active]} />
             </article>
           )}
@@ -467,7 +457,7 @@ export function BookReaderPage() {
                   to={`/books/${book.id}/${chapterIndex - 1}`}
                   className="text-arcane-300 hover:text-arcane-500"
                 >
-                  ←{' '}
+                  {'<- '}
                   {displayedChapterTitle(
                     book.id,
                     chapters[chapterIndex - 1]!,
@@ -491,7 +481,7 @@ export function BookReaderPage() {
                     locale,
                     t('books.chapterFallback', { n: chapterIndex + 2 }),
                   )}{' '}
-                  →
+                  {'->'}
                 </Link>
               )}
             </nav>

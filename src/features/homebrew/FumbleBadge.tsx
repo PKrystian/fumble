@@ -12,7 +12,7 @@ export function FumbleBadge({ compact = false }: FumbleBadgeProps) {
       title={t('compendium.fumbleTooltip')}
       aria-label={t('compendium.fumbleTooltip')}
       className={[
-        'inline-flex items-center gap-1 rounded-full border border-arcane-500/60 text-[0.65rem] uppercase tracking-wide text-arcane-300',
+        'badge border-arcane-500 text-arcane-300',
         compact ? 'px-1.5 py-0.5' : 'px-2 py-0.5',
       ].join(' ')}
     >

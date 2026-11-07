@@ -1498,7 +1498,7 @@ function localizePolishTitle(text: string): string | undefined {
     return undefined;
   }
   let changes = 0;
-  const localized = trimmed.replace(/[\p{L}][\p{L}'’-]*/gu, (word) => {
+  const localized = trimmed.replace(/[\p{L}][\p{L}''-]*/gu, (word) => {
     const value = POLISH_TITLE_WORDS[word.toLowerCase()];
     if (value === undefined) return word;
     changes += 1;

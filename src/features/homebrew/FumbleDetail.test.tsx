@@ -96,7 +96,7 @@ describe('FumbleDetail', () => {
     ).toBeInTheDocument();
     expect(screen.getAllByRole('table')).toHaveLength(13);
     expect(
-      screen.getByRole('heading', { level: 4, name: 'Tryb tworzenia' }),
+      screen.getByRole('heading', { level: 2, name: 'Tryb tworzenia' }),
     ).toBeInTheDocument();
     expect(
       screen

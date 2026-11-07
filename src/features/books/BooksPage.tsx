@@ -12,7 +12,6 @@ import { adventures, books, localizedBookStoryline } from './data';
 import { sortDocs, typeLabel } from './filters';
 import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
 import { Button, SearchField, ToggleChip } from '@/features/ui/primitives';
-import { panelClass } from '@/features/ui/styles';
 
 type TranslateFn = (key: string, vars?: Record<string, string | number>) => string;
 
@@ -89,7 +88,7 @@ function BookTile({
     <li>
       <Link
         to={`/books/${doc.id}`}
-        className="group flex h-full flex-col gap-2 rounded-lg border border-ink-700 bg-ink-900 p-3 transition-all hover:-translate-y-0.5 hover:border-arcane-500 hover:bg-ink-800"
+        className="catalog-card group flex h-full flex-col gap-2"
       >
         {doc.cover ? (
           <img
@@ -99,7 +98,7 @@ function BookTile({
             className="aspect-[2/3] w-full rounded object-cover"
           />
         ) : (
-          <span className="flex aspect-[2/3] w-full items-center justify-center rounded bg-ink-800 text-ink-600">
+          <span className="flex aspect-[2/3] w-full items-center justify-center rounded bg-ink-800 text-ink-500">
             {doc.type === 'adventure' ? <Scroll size={28} /> : <BookOpen size={28} />}
           </span>
         )}
@@ -107,7 +106,7 @@ function BookTile({
           {localizedBookName(doc, locale)}
         </span>
         <span className="text-xs text-ink-400">
-          {storyline ? `${storyline} · ` : ''}
+          {storyline ? `${storyline} - ` : ''}
           {t(doc.contents.length === 1 ? 'books.chapterOne' : 'books.chapterOther', {
             count: doc.contents.length,
           })}
@@ -186,25 +185,21 @@ export function BooksPage() {
   const hasFilters = types.length > 0 || formats.length > 0;
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-8">
+    <div className="page-shell">
       <header className="mb-6">
-        <h1 className="font-display text-3xl font-bold text-ink-50">
-          {t('books.title')}
-        </h1>
-        <p className="mt-1 text-sm text-ink-300">{t('books.subtitle')}</p>
+        <h1 className="text-ink-50 page-title">{t('books.title')}</h1>
+        <p className="page-description">{t('books.subtitle')}</p>
       </header>
 
-      <SearchField
-        value={query}
-        onChange={(e) => update({ q: e.target.value }, true)}
-        onClear={() => update({ q: null }, true)}
-        placeholder={t('books.searchPlaceholder')}
-        label={t('books.searchLabel')}
-        clearLabel={t('common.clearSearch')}
-        className="mb-4 max-w-md"
-      />
-
-      <div className={panelClass('mb-8 flex flex-col gap-2 p-3')}>
+      <div className="catalog-toolbar">
+        <SearchField
+          value={query}
+          onChange={(e) => update({ q: e.target.value }, true)}
+          onClear={() => update({ q: null }, true)}
+          placeholder={t('books.searchPlaceholder')}
+          label={t('books.searchLabel')}
+          clearLabel={t('common.clearSearch')}
+        />
         <FilterRow
           label={t('books.filterFormat')}
           options={formatOptions}
@@ -238,7 +233,7 @@ export function BooksPage() {
       ) : (
         grouped.map(({ edition, sections }) => (
           <section key={edition} className="mb-10">
-            <h2 className="mb-4 border-b border-ink-800 pb-2 font-display text-2xl font-bold text-ink-50">
+            <h2 className="mb-4 border-b border-ink-800 pb-2 text-ink-50 section-title">
               {t(`books.edition${edition}`)}
             </h2>
             <div className="flex flex-col gap-8">

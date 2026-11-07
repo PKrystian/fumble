@@ -16,6 +16,10 @@ describe('UI primitives', () => {
     render(
       <SearchField label="Clear search" value="dragon" onClear={onClear} readOnly />,
     );
+    expect(screen.getByRole('searchbox', { name: 'Clear search' })).toHaveValue('dragon');
+    expect(
+      screen.getByRole('button', { name: 'Clear search' }).closest('label'),
+    ).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: 'Clear search' }));
     expect(onClear).toHaveBeenCalledOnce();
   });

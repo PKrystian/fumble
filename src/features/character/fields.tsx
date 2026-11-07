@@ -97,9 +97,7 @@ export function Panel({ title, children, action }: PanelProps) {
   return (
     <section className={panelClass('flex flex-col gap-3 border-ink-700 p-4')}>
       <header className="flex items-center justify-between">
-        <h2 className="font-display text-sm font-bold uppercase tracking-wide text-ember-400">
-          {title}
-        </h2>
+        <h2 className="text-ember-400 panel-title">{title}</h2>
         {action}
       </header>
       {children}

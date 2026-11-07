@@ -205,7 +205,7 @@ describe('SessionLogPage', () => {
     fireEvent.click(screen.getByRole('button', { name: /Session Two/ }));
     expect(await screen.findByDisplayValue('Session Two')).toBeInTheDocument();
     expect(
-      screen.getByText('Your session transcript will appear here as you speak…'),
+      screen.getByText('Your session transcript will appear here as you speak...'),
     ).toBeInTheDocument();
   });
 

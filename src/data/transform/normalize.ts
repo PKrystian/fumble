@@ -516,7 +516,7 @@ export function normalizeMonster(
           'wykorzystanie, aby wykonać jedną z poniższych akcji; odzyskuje wszystkie ' +
           'wykorzystania na początku każdej swojej tury.'
         : `Legendary Action Uses: ${uses}${lair != null ? ` (${lair} in Lair)` : ''}. ` +
-          'Immediately after another creature’s turn, this creature can expend a use ' +
+          "Immediately after another creature's turn, this creature can expend a use " +
           'to take one of the following actions; it regains all expended uses at the start ' +
           'of each of its turns.';
   }
