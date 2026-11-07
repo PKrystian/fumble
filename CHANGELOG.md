@@ -4,6 +4,11 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.2.132 - 2026-11-07
+
+- Let dice roll modes wrap on narrow screens with wider system fonts.
+- Check English and Polish mode controls at 320 pixels with wider text.
+
 ## 1.2.131 - 2026-11-07
 
 - Fix Polish data loading and book navigation after punctuation replacements.

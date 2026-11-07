@@ -20,6 +20,26 @@ test('tools and catalogs reflow at 320 pixels', async ({ page }) => {
 });
 
 for (const locale of ['', '/pl']) {
+  test(`dice modes reflow with wider text: ${locale || '/en'}`, async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 800 });
+    await page.goto(`${locale}/dice/`);
+    await page.addStyleTag({ content: '.ui-chip { letter-spacing: 1px; }' });
+    const labels = locale
+      ? ['Normalny', 'Przewaga', 'Utrudnienie']
+      : ['Normal', 'Advantage', 'Disadvantage'];
+    for (const label of labels) {
+      const mode = page.getByRole('button', { name: label, exact: true });
+      await mode.click();
+      await expect(mode).toHaveAttribute('aria-pressed', 'true');
+      await mode.focus();
+      await expect(mode).toBeFocused();
+    }
+    const dimensions = await page
+      .locator('main')
+      .evaluate((main) => ({ width: main.clientWidth, content: main.scrollWidth }));
+    expect(dimensions.content).toBeLessThanOrEqual(dimensions.width + 1);
+  });
+
   for (const route of [
     '/character',
     '/dice',
