@@ -1,5 +1,5 @@
 import { DEFAULT_LOCALE, type Locale } from './locales';
-import { localizePath, stripLocale } from './pathUtils';
+import { localizePath } from './pathUtils';
 
 export function rememberedLocaleTarget(
   pathname: string,
@@ -7,9 +7,8 @@ export function rememberedLocaleTarget(
   hash: string,
   preferredLocale: Locale,
 ): string | null {
-  const { locale, rest } = stripLocale(pathname);
-  if (locale !== DEFAULT_LOCALE || preferredLocale === DEFAULT_LOCALE) {
+  if (pathname !== '/' || preferredLocale === DEFAULT_LOCALE) {
     return null;
   }
-  return `${localizePath(rest, preferredLocale)}${search}${hash}`;
+  return `${localizePath(pathname, preferredLocale)}${search}${hash}`;
 }

@@ -84,7 +84,10 @@ export function AppLayout() {
   }, [mobileOpen]);
 
   useEffect(() => {
-    if (!location.pathname.includes('/compendium/')) {
+    if (
+      !location.pathname.includes('/compendium/') &&
+      !/^\/(?:pl\/)?books\/[^/]+/.test(location.pathname)
+    ) {
       revealApp();
     }
   }, [location.pathname]);

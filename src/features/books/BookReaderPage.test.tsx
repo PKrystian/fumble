@@ -97,6 +97,26 @@ describe('BookReaderPage', () => {
     HTMLElement.prototype.scrollTo = vi.fn();
   });
 
+  it('keeps the generated chapter and canonical after a failed fetch', async () => {
+    const fallback = document.createElement('main');
+    fallback.id = 'prerendered-content';
+    fallback.dataset.path = '/books/test-book/0/';
+    fallback.innerHTML = '<p data-prerendered-retry hidden>Retry</p>';
+    document.body.append(fallback);
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = 'https://fumble.krystianpinczak.com/books/test-book/0/';
+    document.head.querySelector('link[rel="canonical"]')?.remove();
+    document.head.append(canonical);
+    mocks.loadBookData.mockRejectedValueOnce(new Error('unavailable'));
+    renderReader();
+    await waitFor(() => expect(fallback.firstElementChild).not.toHaveAttribute('hidden'));
+    expect(fallback).toBeInTheDocument();
+    expect(canonical).toBeInTheDocument();
+    fallback.remove();
+    canonical.remove();
+  });
+
   it('loads a chapter, renders its outline and toggles reader controls', async () => {
     renderReader();
     expect(screen.getByText('Loading…')).toBeInTheDocument();

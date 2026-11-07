@@ -8,7 +8,7 @@ import {
   isBookChapterDuplicate,
   isBookChapterNameIndexable,
 } from '../../src/features/books/chapterSeo';
-import { isCompendiumEntryIndexable } from '../../src/data/compendium/indexability';
+import { compendiumPrintingSeo } from '../../src/data/compendium/indexability';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const DIST = join(ROOT, 'dist');
@@ -84,6 +84,12 @@ function validateBookRoutes(): number {
             `Non-indexable book chapter must be noindex: ${route}`,
           );
         }
+        if (html.includes('<meta name="robots" content="index, follow" />')) {
+          requireValue(
+            html.includes('<article class="prerendered-chapter">'),
+            `Indexed chapter is missing its full static body: ${route}`,
+          );
+        }
         checked += 1;
       }
     }
@@ -101,13 +107,6 @@ function validateCompendiumRoutes(): number {
     ) as { items?: ReleaseCompendiumItem[] };
     if (!Array.isArray(source.items)) continue;
     const ids = new Set(source.items.map((item) => item.id));
-    const indexabilityItems = source.items.map((item) => ({
-      id: item.id,
-      name: item.name,
-      source: item.source,
-      ...(item.hidden !== undefined ? { hidden: item.hidden } : {}),
-      ...(item.otherVersions ? { otherVersions: item.otherVersions } : {}),
-    }));
     for (const item of source.items) {
       for (const version of item.otherVersions ?? []) {
         requireValue(
@@ -120,10 +119,33 @@ function validateCompendiumRoutes(): number {
       const locale = localeInfo.code;
       const categoryRoute = localizedRoute(`/compendium/${category}/`, locale);
       if (!existsSync(join(DIST, `${categoryRoute.slice(1)}index.html`))) continue;
+      const overlayPath = join(ROOT, 'src/data/generated', locale, file);
+      const overlay =
+        locale !== DEFAULT_LOCALE && existsSync(overlayPath)
+          ? (JSON.parse(readFileSync(overlayPath, 'utf8')) as Record<string, unknown>)
+          : {};
       for (const item of source.items) {
         const route = localizedRoute(`/compendium/${category}/${item.id}/`, locale);
         const html = read(`${route.slice(1)}index.html`);
-        if (!isCompendiumEntryIndexable(item, indexabilityItems)) {
+        const { indexable, canonicalId } = compendiumPrintingSeo(
+          item,
+          source.items,
+          category,
+        );
+        if (
+          canonicalId &&
+          (locale === DEFAULT_LOCALE || (overlay[item.id] && overlay[canonicalId]))
+        ) {
+          const target = localizedRoute(
+            `/compendium/${category}/${canonicalId}/`,
+            locale,
+          );
+          requireValue(
+            html.includes(`<link rel="canonical" href="${SITE_URL}${target}" />`) &&
+              !html.includes('<meta name="robots" content="noindex'),
+            `Equivalent printing must consolidate to its canonical URL: ${route}`,
+          );
+        } else if (!indexable || (locale !== DEFAULT_LOCALE && !overlay[item.id])) {
           requireValue(
             html.includes('<meta name="robots" content="noindex, nofollow" />'),
             `Hidden compendium route must be noindex: ${route}`,
@@ -227,6 +249,21 @@ requireValue(
   urls.every((url) => existsSync(routeFile(url))),
   'Sitemap contains a route without a generated HTML file',
 );
+const catalogLinks = new Set<string>();
+for (const url of urls) {
+  const html = readFileSync(routeFile(url), 'utf8');
+  requireValue(
+    html.includes(`<link rel="canonical" href="${url}" />`) &&
+      html.includes('<meta name="robots" content="index, follow" />'),
+    `Sitemap URL must be indexable and self-canonical: ${url}`,
+  );
+  if (/\/compendium\/[^/]+\/browse\/\d+\/$/.test(url)) {
+    for (const [, href] of html.matchAll(/<a href="([^"]+)"/g)) catalogLinks.add(href!);
+  }
+}
+for (const url of urls.filter((value) => /\/compendium\/[^/]+\/[^/]+\/$/.test(value))) {
+  requireValue(catalogLinks.has(url), `Missing static catalog link to ${url}`);
+}
 requireValue(
   !urls.some((url) => url.includes('/data/') || url.includes('/session-log/')),
   'Private local-data pages must not appear in the sitemap',
@@ -234,6 +271,11 @@ requireValue(
 
 const home = read('index.html');
 const sample = read(join('compendium', 'spells', 'fireball', 'index.html'));
+const monsterSample = read(join('pl', 'compendium', 'bestiary', 'hawk', 'index.html'));
+const fumbleMonsterSample = read(
+  join('compendium', 'bestiary', 'allied-hunter', 'index.html'),
+);
+const fullChapter = read(join('books', 'xge', '2', 'index.html'));
 const bookSample = read(join('books', 'aatm', 'index.html'));
 const privateSample = read(join('character', 'index.html'));
 const notFound = read('404.html');
@@ -251,11 +293,37 @@ requireValue(
     ),
   'Compendium pages must preload their route and category data',
 );
+for (const html of [monsterSample, fumbleMonsterSample]) {
+  requireValue(
+    html.includes('id="fumble-monster-snapshot"') &&
+      !/as="fetch"[^>]*href="\/assets\/bestiary-/.test(html),
+    'Direct bestiary pages must provide one stat block and skip the full data preload',
+  );
+}
+requireValue(
+  (fullChapter.match(/<table\b/g) ?? []).length >= 46,
+  'The Xanathar chapter must retain every static table',
+);
+for (const { code } of SUPPORTED_LOCALES) read(`bestiary-references-${code}.json`);
 requireValue(
   sample.includes('<div id="app-root" data-app-ready="false"></div>') &&
-    sample.includes('<main id="prerendered-content" data-prerendered="true">'),
+    sample.includes(
+      '<main id="prerendered-content" data-prerendered="true" data-path="/compendium/spells/fireball/">',
+    ),
   'Static pages must preserve the app mount point and prerendered fallback',
 );
+for (const locale of SUPPORTED_LOCALES) {
+  const category = localizedRoute('/compendium/spells/', locale.code);
+  const catalog = read(`${category.slice(1)}browse/1/index.html`);
+  requireValue(
+    read(`${category.slice(1)}index.html`).includes(
+      `href="${SITE_URL}${category}browse/1/"`,
+    ) &&
+      catalog.includes(`href="${SITE_URL}${category}browse/2/"`) &&
+      !/<script[^>]*type="module"/.test(catalog),
+    `Compendium catalog must be reachable without JavaScript: ${category}`,
+  );
+}
 requireValue(
   bookSample.includes('Using This Supplement') &&
     bookSample.includes('Mortuary Creatures'),

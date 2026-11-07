@@ -4,7 +4,8 @@ import type {
   CompendiumEntryBase,
   SpellEntry,
 } from '@/data/compendium/types';
-import { loadLocalizedItems } from '@/data/compendium/overlay';
+import { loadLocalizedCategory } from '@/data/compendium/overlay';
+import type { CategoryOverlay } from '@/data/compendium/localize';
 import type {
   HomebrewImportedEntry,
   HomebrewManualEntry,
@@ -28,6 +29,8 @@ import { canonicalClassFilterValue } from './classNames';
 interface CategoryItemsState {
   status: 'loading' | 'ready' | 'error';
   items: CompendiumEntryBase[];
+  baseItems?: CompendiumEntryBase[];
+  overlay?: CategoryOverlay | undefined;
 }
 
 export function useCategoryItems(
@@ -59,9 +62,9 @@ export function useCategoryItems(
     let cancelled = false;
     setState({ status: 'loading', items: [] });
 
-    loadLocalizedItems(category.id, category.load, locale)
-      .then((items) => {
-        if (!cancelled) setState({ status: 'ready', items });
+    loadLocalizedCategory(category.id, category.load, locale)
+      .then((data) => {
+        if (!cancelled) setState({ status: 'ready', ...data });
       })
       .catch(() => {
         if (!cancelled) setState({ status: 'error', items: [] });
@@ -232,5 +235,5 @@ export function useCategoryItems(
     compendiumCategories,
   ]);
 
-  return { status: state.status, items };
+  return { ...state, items };
 }

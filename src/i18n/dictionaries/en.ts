@@ -448,8 +448,8 @@ const en = {
         monsterfeatures: 'monster feature',
         homecrafts: 'crafting option',
       },
-      entryTitle: '{{name}} D&D 2024 {{type}} ({{source}})',
-      entryDescription: 'D&D 2024 {{type}}: {{name}}. Source: {{source}}. {{details}}',
+      entryTitle: '{{name}} {{edition}} {{type}} ({{source}})',
+      entryDescription: '{{edition}} {{type}}: {{name}}. Source: {{source}}. {{details}}',
       entryDetailsFallback:
         'Explore rules, features, and source references for this entry.',
       details: {
@@ -510,6 +510,10 @@ const en = {
     referenceOpenFull: 'Open to view the full entry.',
     token: 'Token',
     categoriesNav: 'Compendium categories',
+    browseAll: 'Browse all entries',
+    browsePage: '{{category}} - Page {{number}}',
+    browsePrevious: 'Previous page',
+    browseNext: 'Next page',
     sort: {
       label: 'Sort by',
       byName: 'Name',
@@ -1209,6 +1213,7 @@ const en = {
     rollTitle: 'Roll {{expression}}',
   },
   initiative: {
+    addMonster: 'Add this creature to initiative',
     title: 'Initiative',
     round: 'Round',
     previousTurn: 'Previous turn',
@@ -1278,6 +1283,7 @@ const en = {
     transcriptEmptyState: 'Your session transcript will appear here as you speak…',
   },
   encounter: {
+    openForMonster: 'Find this creature in the encounter builder',
     title: 'Encounter Builder',
     party: 'Party',
     count: 'Count',
@@ -1418,6 +1424,10 @@ const en = {
     },
     bookDescription: 'Read {{name}} in Fumble.',
     bookChapterDescription: 'Read {{chapter}} from {{book}} in Fumble.',
+    breadcrumb: 'Breadcrumb',
+    sourcePage: 'p. {{page}}',
+    traits: 'Traits',
+    higherLevels: 'At Higher Levels',
   },
   wiki: {
     loading: 'Loading wiki…',

@@ -28,6 +28,18 @@ const artificer: ClassEntry = {
 };
 
 describe('compendium SEO helpers', () => {
+  it('labels a legacy source by edition and leaves uncataloged sources neutral', () => {
+    const getSeo = (source: string) =>
+      getCompendiumEntrySeo({
+        categoryId: 'spells',
+        categoryLabel: 'Spells',
+        item: { ...entry, source },
+        locale: 'en',
+        sourceLabel: source,
+      });
+    expect(getSeo('PHB').title).toBe('Test Entry D&D 2014 spell (PHB)');
+    expect(getSeo('Fumble').title).toBe('Test Entry D&D spell (Fumble)');
+  });
   it('describes every category through localized templates', () => {
     expect(getCompendiumCategorySeo('classes', 'Classes', 'en')).toEqual({
       title: 'Classes - D&D 2024 Compendium',

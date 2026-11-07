@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { useT } from '@/i18n/useT';
+import { StaticReading } from '@/features/ui/staticReading';
 import { useRollStore } from './rollStore';
 
 interface RollableDiceProps {
@@ -19,6 +21,8 @@ export function RollableDice({
 }: RollableDiceProps) {
   const roll = useRollStore((s) => s.roll);
   const { t } = useT();
+  const staticReading = useContext(StaticReading);
+  if (staticReading) return <span>{display}</span>;
 
   const color =
     variant === 'attack'

@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useT } from '@/i18n/useT';
+import { StaticReading } from '@/features/ui/staticReading';
 import { useRollStore } from './rollStore';
 
 export function RechargeRoll({ min }: { min: number }) {
   const { t } = useT();
   const roll = useRollStore((s) => s.roll);
   const [result, setResult] = useState<number | null>(null);
+  const staticReading = useContext(StaticReading);
 
   const range = min >= 6 ? '6' : `${min}-6`;
+  if (staticReading) return <span>{t('dice.rechargeParen', { range })}</span>;
   const recharged = result != null && result >= min;
 
   const onClick = () => {

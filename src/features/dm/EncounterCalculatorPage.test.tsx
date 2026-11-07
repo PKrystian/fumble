@@ -132,6 +132,21 @@ describe('EncounterCalculatorPage', () => {
     expect(screen.queryByText('Goblin')).not.toBeInTheDocument();
   });
 
+  it.each([
+    ['dragon', 'Dragon'],
+    ['allied-hunter', 'Allied Hunter'],
+    ['missing', null],
+  ])('looks up a creature linked by its exact bestiary ID (%s)', (id, name) => {
+    mocks.items = [monster('dragon', 'Dragon')];
+    renderPage(`/dm/encounter?monster=${id}`);
+    if (name) {
+      expect(screen.getByRole('button', { name: new RegExp(name) })).toBeInTheDocument();
+    } else {
+      expect(screen.queryByText('Dragon')).not.toBeInTheDocument();
+      expect(screen.queryByText('Allied Hunter')).not.toBeInTheDocument();
+    }
+  });
+
   it('filters monsters and options by habitat', () => {
     mocks.items = [
       monster('urban', 'Urban Goblin', false, 'Urban'),

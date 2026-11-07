@@ -15,13 +15,15 @@ function SeoHarness({
   description,
   indexable,
   alternateLocales,
+  canonicalPath,
 }: {
   title: string;
   description?: string;
-  indexable?: boolean;
+  indexable?: boolean | 'pending';
   alternateLocales?: readonly Locale[];
+  canonicalPath?: string;
 }) {
-  useSeo(title, description, indexable, alternateLocales);
+  useSeo(title, description, indexable, alternateLocales, canonicalPath);
   return null;
 }
 
@@ -185,5 +187,61 @@ describe('SEO head helpers', () => {
     expect(document.head.querySelector('link[rel="canonical"]')).toBeNull();
     expect(document.head.querySelector('link[rel="alternate"]')).toBeNull();
     expect(document.head.querySelector('script[type="application/ld+json"]')).toBeNull();
+  });
+
+  it.each([
+    '/pl/books/mpp/0/?name=Planar+Influences',
+    '/pl/books/mpp/0/?page=4&utm_source=guide&fbclid=123',
+  ])('keeps the clean chapter canonical for %s', (path) => {
+    render(
+      <MemoryRouter initialEntries={[path]}>
+        <SeoHarness title="Chapter" />
+      </MemoryRouter>,
+    );
+    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      'index, follow',
+    );
+    expect(document.head.querySelector('link[rel="canonical"]')).toHaveAttribute(
+      'href',
+      'https://fumble.krystianpinczak.com/pl/books/mpp/0/',
+    );
+  });
+
+  it('preserves generated metadata while content is pending and consolidates an equivalent printing when ready', () => {
+    const initial = document.createElement('script');
+    initial.type = 'application/ld+json';
+    initial.id = 'fumble-seo-structured-data';
+    initial.dataset.prerenderedUrl =
+      'https://fumble.krystianpinczak.com/pl/compendium/spells/older/';
+    initial.textContent = '{"@type":"TechArticle"}';
+    document.head.append(initial);
+    const { rerender } = render(
+      <MemoryRouter initialEntries={['/pl/compendium/spells/older/']}>
+        <SeoHarness title="Older" indexable="pending" />
+      </MemoryRouter>,
+    );
+    expect(initial).toBeInTheDocument();
+    rerender(
+      <MemoryRouter>
+        <SeoHarness title="Older" />
+      </MemoryRouter>,
+    );
+    expect(initial.textContent).toBe('{"@type":"TechArticle"}');
+    rerender(
+      <MemoryRouter>
+        <SeoHarness
+          title="Older"
+          indexable={false}
+          canonicalPath="/compendium/spells/current"
+        />
+      </MemoryRouter>,
+    );
+    expect(document.head.querySelector('link[rel="canonical"]')).toHaveAttribute(
+      'href',
+      'https://fumble.krystianpinczak.com/pl/compendium/spells/current/',
+    );
+    expect(document.head.querySelector('link[rel="alternate"]')).toBeNull();
+    expect(initial).not.toBeInTheDocument();
   });
 });

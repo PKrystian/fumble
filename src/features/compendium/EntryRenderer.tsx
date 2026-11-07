@@ -1,9 +1,10 @@
-import { Fragment, type ReactNode, useState } from 'react';
+import { Fragment, type ReactNode, useContext, useState } from 'react';
 import type { Entry, EntryNode } from '@/data/compendium/entry';
 import { imageUrl } from '@/data/compendium/images';
 import { stripMarkup } from '@/data/transform/util';
 import { useRollStore } from '@/features/dice/rollStore';
 import { useLightbox } from '@/features/ui/lightboxStore';
+import { StaticReading } from '@/features/ui/staticReading';
 import { useLocale } from '@/i18n/pathUtils';
 import type { Locale } from '@/i18n/locales';
 import { translate } from '@/i18n/useT';
@@ -89,8 +90,40 @@ function renderEntry(entry: Entry, key: number, locale: Locale): ReactNode {
 
 function renderNode(node: EntryNode, key: number, locale: Locale): ReactNode {
   switch (node.type) {
+    case 'tableGroup':
+      return renderNode(
+        {
+          ...node,
+          type: 'section',
+          entries: Array.isArray(node.tables) ? (node.tables as Entry[]) : [],
+        },
+        key,
+        locale,
+      );
+
+    case 'flowchart':
+      return renderNode(
+        {
+          ...node,
+          type: 'section',
+          entries: Array.isArray(node.blocks) ? (node.blocks as Entry[]) : [],
+        },
+        key,
+        locale,
+      );
+
+    case 'hr':
+      return <hr key={key} />;
+
+    case 'abilityGeneric':
+      return typeof node.text === 'string' ? renderEntry(node.text, key, locale) : null;
+
+    case 'cell':
+      return renderListItem(node.entry ?? cellRollText(node), locale);
+
     case 'entries':
     case 'section':
+    case 'flowBlock':
       return (
         <div
           key={key}
@@ -255,8 +288,22 @@ function diceHeader(label: string | undefined): string | null {
   return /^\d*d\d+$/i.test(cleaned) ? cleaned.replace(/^d/, '1d') : null;
 }
 
+function cellRollText(cell: EntryNode): string {
+  const roll = cell.roll as { exact?: number; min?: number; max?: number } | undefined;
+  if (typeof roll?.exact === 'number') return String(roll.exact);
+  return typeof roll?.min === 'number' && typeof roll.max === 'number'
+    ? `${roll.min}-${roll.max}`
+    : '';
+}
+
 function rowMatches(cell: Entry, value: number): boolean {
-  const text = (typeof cell === 'string' ? cell : '')
+  const text = (
+    typeof cell === 'string'
+      ? cell
+      : typeof cell.entry === 'string'
+        ? cell.entry
+        : cellRollText(cell)
+  )
     .replace(/\{[@#](?:itemEntry|item|[^\s}]+)\s*([^|}]*)[^}]*\}/g, '$1')
     .trim();
   const range = text.match(/^(\d+)\s*[-\u2013]\s*(\d+)$/);
@@ -278,6 +325,7 @@ function RollableTable({ node }: { node: EntryNode }) {
   const [rolled, setRolled] = useState<number | null>(null);
   const rows = node.rows ?? [];
   const dice = diceHeader(node.colLabels?.[0]);
+  const staticReading = useContext(StaticReading);
 
   const doRoll = () => {
     const outcome = roll(
@@ -306,7 +354,7 @@ function RollableTable({ node }: { node: EntryNode }) {
                     key={index}
                     className="border-b border-ink-700 px-2 py-1 font-semibold text-ink-50"
                   >
-                    {index === 0 && dice && !/\{[@#]/u.test(label) ? (
+                    {!staticReading && index === 0 && dice && !/\{[@#]/u.test(label) ? (
                       <button
                         type="button"
                         onClick={doRoll}

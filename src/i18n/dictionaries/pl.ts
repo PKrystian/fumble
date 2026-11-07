@@ -454,8 +454,8 @@ const pl: Dictionary = {
         monsterfeatures: 'cecha potwora',
         homecrafts: 'opcja rzemiosła',
       },
-      entryTitle: '{{name}} - {{type}} D&D 2024 ({{source}})',
-      entryDescription: '{{type}} D&D 2024: {{name}}. Źródło: {{source}}. {{details}}',
+      entryTitle: '{{name}} - {{type}} {{edition}} ({{source}})',
+      entryDescription: '{{type}} {{edition}}: {{name}}. Źródło: {{source}}. {{details}}',
       entryDetailsFallback: 'Sprawdź zasady, cechy i informacje o źródle tego wpisu.',
       details: {
         level: 'poziom {{value}}',
@@ -515,6 +515,10 @@ const pl: Dictionary = {
     referenceOpenFull: 'Otwórz, aby zobaczyć pełny wpis.',
     token: 'Żeton',
     categoriesNav: 'Kategorie kompendium',
+    browseAll: 'Przeglądaj wszystkie wpisy',
+    browsePage: '{{category}} - Strona {{number}}',
+    browsePrevious: 'Poprzednia strona',
+    browseNext: 'Następna strona',
     sort: {
       label: 'Sortuj wg',
       byName: 'Nazwa',
@@ -1214,6 +1218,7 @@ const pl: Dictionary = {
     rollTitle: 'Rzuć {{expression}}',
   },
   initiative: {
+    addMonster: 'Dodaj tę istotę do inicjatywy',
     title: 'Inicjatywa',
     round: 'Runda',
     previousTurn: 'Poprzednia tura',
@@ -1284,6 +1289,7 @@ const pl: Dictionary = {
       'Transkrypcja twojej sesji pojawi się tutaj, gdy zaczniesz mówić…',
   },
   encounter: {
+    openForMonster: 'Znajdź tę istotę w kreatorze spotkań',
     title: 'Kreator Starcia',
     party: 'Drużyna',
     count: 'Liczba',
@@ -1424,6 +1430,10 @@ const pl: Dictionary = {
     },
     bookDescription: 'Czytaj {{name}} w Fumble.',
     bookChapterDescription: 'Czytaj rozdział {{chapter}} z księgi {{book}} w Fumble.',
+    breadcrumb: 'Ścieżka nawigacji',
+    sourcePage: 's. {{page}}',
+    traits: 'Cechy',
+    higherLevels: 'Na wyższych poziomach',
   },
   wiki: {
     loading: 'Wczytywanie wiki…',

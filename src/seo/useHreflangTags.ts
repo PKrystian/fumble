@@ -15,23 +15,28 @@ export const SITE_URL = 'https://fumble.krystianpinczak.com';
 const DEFAULT_ALTERNATE_LOCALES = SUPPORTED_LOCALES.map(({ code }) => code);
 
 export function useHreflangTags(
-  enabled = true,
+  enabled: boolean | 'pending' = true,
   alternateLocales: readonly Locale[] = DEFAULT_ALTERNATE_LOCALES,
+  canonicalPath?: string,
 ): void {
   const location = useLocation();
 
   useEffect(() => {
+    if (enabled === 'pending') return;
     if (!enabled) {
       removeCanonical();
       removeHreflangAlternates();
       removeMeta('meta[property="og:url"]');
       return;
     }
-    const { rest } = stripLocale(location.pathname);
-    const canonicalLocale = stripLocale(location.pathname).locale;
-    const canonical = `${SITE_URL}${localizePath(rest, canonicalLocale)}`;
+    const { rest, locale } = stripLocale(location.pathname);
+    const canonical = `${SITE_URL}${localizePath(canonicalPath ?? rest, locale)}`;
     setCanonical(canonical);
     setMetaContent('meta[property="og:url"]', 'property', 'og:url', canonical);
+    if (canonicalPath) {
+      removeHreflangAlternates();
+      return;
+    }
     setHreflangAlternates([
       ...alternateLocales.map((locale) => ({
         hreflang: locale,
@@ -46,5 +51,5 @@ export function useHreflangTags(
           ]
         : []),
     ]);
-  }, [alternateLocales, enabled, location.pathname]);
+  }, [alternateLocales, enabled, location.pathname, canonicalPath]);
 }

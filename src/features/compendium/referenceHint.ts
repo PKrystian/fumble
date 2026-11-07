@@ -1,5 +1,5 @@
 import type { CompendiumEntryBase } from '@/data/compendium/types';
-import type { Entry } from '@/data/compendium/entry';
+import { referencePreview } from '@/data/compendium/referencePreview';
 import { loadLocalizedItems } from '@/data/compendium/overlay';
 import { translate } from '@/i18n/useT';
 import type { Locale } from '@/i18n/locales';
@@ -30,9 +30,17 @@ function loadItems(categoryId: string, locale: string): Promise<CompendiumEntryB
   const existing = cache.get(cacheKey);
   if (existing) return existing;
   const category = getCategory(categoryId);
-  const promise = category
-    ? loadLocalizedItems(categoryId, category.load, locale)
-    : Promise.resolve([]);
+  const promise =
+    categoryId === 'bestiary' && import.meta.env.PROD
+      ? fetch(`${import.meta.env.BASE_URL}bestiary-references-${locale}.json`).then(
+          async (response) => {
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return (await response.json()) as CompendiumEntryBase[];
+          },
+        )
+      : category
+        ? loadLocalizedItems(categoryId, category.load, locale)
+        : Promise.resolve([]);
   cache.set(cacheKey, promise);
   void promise.catch(() => {
     if (cache.get(cacheKey) === promise) cache.delete(cacheKey);
@@ -130,47 +138,6 @@ export async function loadReferenceName(
   return localizedName && localizedName !== englishItem.name ? localizedName : null;
 }
 
-function stripMarkup(value: string): string {
-  return value
-    .replace(/\{[@#](?:itemEntry|item|[^\s}]+)\s*([^|}]*)[^}]*\}/g, (_, text: string) =>
-      text.trim(),
-    )
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function firstText(entries: Entry[]): string {
-  for (const entry of entries) {
-    if (typeof entry === 'string') {
-      const text = stripMarkup(entry);
-      if (text) return text;
-    } else if (entry && typeof entry === 'object') {
-      const nested = firstText(entry.entries ?? (entry.entry ? [entry.entry] : []));
-      if (nested) return nested;
-    }
-  }
-  return '';
-}
-
-function truncate(text: string, max = 180): string {
-  if (text.length <= max) return text;
-  return `${text.slice(0, max).replace(/\s+\S*$/, '')}…`;
-}
-
-interface WithEntries {
-  entries?: Entry[];
-
-  traits?: Array<{ entries?: Entry[] }>;
-  actions?: Array<{ entries?: Entry[] }>;
-}
-
-function describableEntries(item: CompendiumEntryBase): Entry[] {
-  const it = item as CompendiumEntryBase & WithEntries;
-  if (it.entries?.length) return it.entries;
-  const sections = [...(it.traits ?? []), ...(it.actions ?? [])];
-  return sections.flatMap((section) => section.entries ?? []);
-}
-
 export async function loadReferenceHint(
   categoryId: string,
   slug: string,
@@ -197,7 +164,7 @@ export async function loadReferenceHint(
           (key, vars) => translate(locale as Locale, key, vars),
           locale as Locale,
         );
-  const description = truncate(firstText(describableEntries(item)));
+  const description = referencePreview(item);
   return {
     name: item.name,
     ...(item.englishName ? { englishName: item.englishName } : {}),
