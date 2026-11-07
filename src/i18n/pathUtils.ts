@@ -15,10 +15,11 @@ export function stripLocale(pathname: string): { locale: Locale; rest: string } 
 }
 
 export function localizePath(rest: string, locale: Locale): string {
-  const prefixed = rest.startsWith('/') ? rest : `/${rest}`;
+  const pathname = rest.split(/[?#]/, 1)[0]!;
+  const suffix = rest.slice(pathname.length);
+  const prefixed = pathname.startsWith('/') ? pathname : `/${pathname}`;
   const normalized = prefixed === '/' ? prefixed : `${prefixed.replace(/\/+$/, '')}/`;
-  if (locale === DEFAULT_LOCALE) return normalized;
-  return normalized === '/' ? `/${locale}/` : `/${locale}${normalized}`;
+  return `${locale === DEFAULT_LOCALE ? '' : `/${locale}`}${normalized}${suffix}`;
 }
 
 export function useLocale(): Locale {

@@ -32,6 +32,11 @@ test('remembers the selected language on a later home visit', async ({ page }) =
     'href',
     'https://fumble.krystianpinczak.com/pl/',
   );
+  await page.goto('/compendium/spells/fireball/');
+  await expect(page).toHaveURL(/\/compendium\/spells\/fireball\/$/);
+  await expect(page.getByRole('heading', { name: 'Fireball' })).toBeVisible();
+  await page.goto('/');
+  await expect(page).toHaveURL(/\/pl\/$/);
 });
 
 test('legal pages are available in both languages', async ({ page }) => {
@@ -48,12 +53,8 @@ test('legal pages are available in both languages', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Hugging Face' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'YouTube' })).toBeVisible();
 
-  await page.goto('/legal/accessibility');
-  await expect(page).toHaveURL(/\/pl\/legal\/accessibility\/$/);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dostępność');
-
-  await page.evaluate(() => localStorage.removeItem('fumble-locale'));
-  await page.goto('/legal/accessibility');
+  await page.goto('/legal/accessibility/');
+  await expect(page).toHaveURL(/\/legal\/accessibility\/$/);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Accessibility');
 
   await page.goto('/pl/legal/contact');
@@ -71,6 +72,7 @@ test('compendium loads spells and opens an entry', async ({ page }) => {
     .getByRole('link', { name: 'Spells', exact: true })
     .click();
   await expect(page).toHaveURL(/\/compendium\/spells\/$/);
+  await expect(page.locator('ul[data-category="spells"] a').first()).toBeVisible();
 
   await page.getByRole('searchbox').fill('fireball');
   await expect(page).toHaveURL(/\/compendium\/spells\/\?q=fireball$/, { timeout: 15000 });
@@ -86,6 +88,9 @@ test('compendium loads spells and opens an entry', async ({ page }) => {
 
 test('opens compendium records at the top after scrolling the list', async ({ page }) => {
   await page.goto('/pl/compendium/rules');
+  await expect(page.locator('#app-root[data-app-ready="true"]')).toBeVisible({
+    timeout: 15000,
+  });
   await expect(page.locator('ul[data-category] a').last()).toBeVisible();
 
   const main = page.locator('main');
@@ -111,6 +116,26 @@ test('compendium links to older printings', async ({ page }) => {
   await page.goto('/compendium/spells/fireball-phb');
   await expect(page.getByRole('heading', { name: 'Fireball' })).toBeVisible();
   await expect(page.getByText('Source:')).toContainText("Player's Handbook (2014)");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    'https://fumble.krystianpinczak.com/compendium/spells/fireball-phb/',
+  );
+  await expect(page).toHaveTitle(/Fireball D&D 2014/);
+});
+
+test('finds the exact creature from the bestiary in the encounter builder', async ({
+  page,
+}) => {
+  await page.goto('/compendium/bestiary/wight/');
+  await page
+    .getByRole('link', { name: 'Find this creature in the encounter builder' })
+    .click();
+  await expect(page).toHaveURL(/\/dm\/encounter\/\?monster=wight$/);
+  await page.getByRole('button', { name: /^Wight/ }).click();
+  await expect(page.getByRole('link', { name: 'Wight' })).toHaveAttribute(
+    'href',
+    '/compendium/bestiary/wight/',
+  );
 });
 
 test('compendium exposes magic variants and imported source collections', async ({
@@ -585,6 +610,22 @@ test('initiative tracker adds a combatant and advances the round', async ({ page
   await expect(page.getByText('Goblin')).toBeVisible();
   await page.getByRole('button', { name: /Next turn/ }).click();
   await expect(page.getByText(/^Round 1$/)).toBeVisible();
+});
+
+test('copies a creature from the bestiary into initiative', async ({ page }) => {
+  await page.route('https://5e.tools/**', (route) => route.abort());
+  await page.goto('/compendium/bestiary/wight/');
+  await page.getByRole('button', { name: 'Add this creature to initiative' }).click();
+  await expect(page).toHaveURL(/\/dm\/initiative\/$/, { timeout: 15000 });
+  await expect(
+    page.getByRole('heading', { name: 'Initiative', exact: true }),
+  ).toBeVisible({ timeout: 15000 });
+  await expect(
+    page.getByRole('listitem').getByText('Wight', { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('listitem').locator('input[value="82"]').first(),
+  ).toBeVisible();
 });
 
 test('initiative tracker edits, navigates and removes combatants', async ({ page }) => {

@@ -48,7 +48,7 @@ describe('LocaleEntryLayout', () => {
     expect(screen.getByText('locale:en')).toBeInTheDocument();
   });
 
-  it('redirects an English non-root path to the remembered locale', async () => {
+  it('opens an English non-root path even when Polish is remembered', () => {
     useLocaleStore.setState({ locale: 'pl' });
 
     render(
@@ -63,9 +63,9 @@ describe('LocaleEntryLayout', () => {
       </MemoryRouter>,
     );
 
-    await waitFor(() => expect(screen.getByText('polish route')).toBeInTheDocument());
+    expect(screen.getByText('locale:en')).toBeInTheDocument();
     expect(
-      screen.getByText('/pl/compendium/bestiary/azaka-stormfang/?page=2#actions'),
+      screen.getByText('/compendium/bestiary/azaka-stormfang/?page=2#actions'),
     ).toBeInTheDocument();
   });
 });

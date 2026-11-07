@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import {
   type CategoryFilter,
@@ -48,14 +48,17 @@ import { toggleChipClass } from '@/features/ui/styles';
 import { normalizeSearchText } from '@/data/compendium/searchText';
 import { stripMarkup } from '@/data/transform/util';
 import {
-  isCompendiumEntryIndexable,
+  compendiumPrintingSeo,
   isCompendiumSubclassIndexable,
 } from '@/data/compendium/indexability';
 import { getCompendiumCategorySeo, getCompendiumEntrySeo } from '@/data/compendium/seo';
-import type { ClassEntry } from '@/data/compendium/types';
+import type { ClassEntry, MonsterEntry } from '@/data/compendium/types';
+import { monsterCombatant } from '@/features/initiative/monsterCombatant';
+import { useInitiativeStore } from '@/features/initiative/store';
+import { readMonsterSnapshot } from '@/data/compendium/monsterSnapshot';
 import { findSubclassByRouteKey, subclassRouteKey } from './subclassRoute';
 import { localizePlainText, parseMarkup } from './markup';
-import { revealApp } from '@/seo/prerendered';
+import { hasPrerenderedPage, revealApp, showPrerenderedRetry } from '@/seo/prerendered';
 import packageInfo from '../../../package.json';
 
 function categoryLabel(category: CompendiumCategory, t: (key: string) => string): string {
@@ -176,14 +179,23 @@ function CompendiumBrowser({
     }, 0);
   };
 
-  const currentSearch = (keepSubclass = false) => {
+  const currentSearch = () => {
     const search = new URLSearchParams(params);
+    const allowed = new Set([
+      'q',
+      'sort',
+      'order',
+      'includeAny',
+      ...filters.map((filter) => filter.id),
+    ]);
+    for (const key of new Set(search.keys())) {
+      if (!allowed.has(key)) search.delete(key);
+    }
     if (queryRef.current) {
       search.set('q', queryRef.current);
     } else {
       search.delete('q');
     }
-    if (!keepSubclass) search.delete('subclass');
     return search;
   };
   const requestedSort = params.get('sort');
@@ -224,20 +236,41 @@ function CompendiumBrowser({
       ),
     [filters, params, selectedFilters],
   );
-  const { status, items } = useCategoryItems(
-    category,
+  const { pathname } = useLocation();
+  const snapshot = useMemo(
+    () =>
+      readMonsterSnapshot(
+        document.getElementById('fumble-monster-snapshot')?.textContent,
+        pathname,
+      ),
+    [pathname],
+  );
+  const [browseBestiary, setBrowseBestiary] = useState(false);
+  const result = useCategoryItems(
+    snapshot && !browseBestiary ? undefined : category,
     true,
     selectedId,
     requestedSubclassIds,
     retryKey,
   );
+  const entrySnapshot =
+    !browseBestiary || result.status !== 'ready' ? snapshot : undefined;
+  const items = useMemo(
+    () => (entrySnapshot ? [entrySnapshot.item] : result.items),
+    [entrySnapshot, result.items],
+  );
+  const status = entrySnapshot ? 'ready' : result.status;
+  const { baseItems, overlay } = result;
   const selected = selectedId ? items.find((item) => item.id === selectedId) : undefined;
+  const prerendered = hasPrerenderedPage(pathname);
 
   useEffect(() => {
-    if (status === 'error' || (status === 'ready' && !selected?.image)) {
+    if (status === 'error' && prerendered) {
+      showPrerenderedRetry();
+    } else if (status !== 'loading') {
       revealApp();
     }
-  }, [selected?.image, status]);
+  }, [prerendered, status]);
 
   const openLightbox = useLightbox((s) => s.open);
   const navigate = useNavigate();
@@ -366,17 +399,41 @@ function CompendiumBrowser({
     status === 'ready' &&
     Boolean(selectedId) &&
     (!selected || Boolean(selectedSubclassId && !selectedSubclass));
+  const baseItem = baseItems?.find((item) => item.id === selectedId);
+  const printing =
+    selected &&
+    compendiumPrintingSeo(baseItem ?? selected, baseItems ?? items, categoryId);
+  const hasTranslation = locale !== 'pl' || !baseItem || Boolean(overlay?.[baseItem.id]);
+  const privateEntry = selected && isHomebrew(selected) && !isFumbleHomebrew(selected);
   const indexable =
-    status === 'ready' &&
-    !routeNotFound &&
-    (!selected ||
-      (isCompendiumEntryIndexable(selected, items) &&
-        isCompendiumSubclassIndexable(selected, Boolean(hasVisibleSubclassParent))));
+    status === 'ready'
+      ? !routeNotFound &&
+        hasTranslation &&
+        (!selected ||
+          (!privateEntry &&
+            Boolean(printing?.indexable) &&
+            (!selectedSubclass ||
+              isCompendiumSubclassIndexable(
+                selected,
+                Boolean(hasVisibleSubclassParent),
+              ))))
+      : prerendered
+        ? 'pending'
+        : false;
+  const canonicalId =
+    !privateEntry && !selectedSubclass && hasTranslation
+      ? printing?.canonicalId
+      : undefined;
 
   useSeo(
     routeNotFound ? t('notFound.title') : seo.title,
     routeNotFound ? t('notFound.message') : seo.description,
-    indexable,
+    entrySnapshot?.indexable ?? indexable,
+    entrySnapshot?.locales,
+    entrySnapshot?.canonicalPath ??
+      (canonicalId && (locale !== 'pl' || overlay?.[canonicalId])
+        ? `/compendium/${categoryId}/${canonicalId}`
+        : undefined),
   );
 
   if (routeNotFound) return <NotFoundPage />;
@@ -437,6 +494,15 @@ function CompendiumBrowser({
             </Link>
           ))}
         </nav>
+        {!selectedId && (
+          <Link
+            to={`/compendium/${categoryId}/browse/1`}
+            reloadDocument
+            className="mt-2 inline-block text-sm text-arcane-300 underline"
+          >
+            {t('compendium.browseAll')}
+          </Link>
+        )}
       </div>
 
       <div className="flex min-h-0 flex-1">
@@ -449,6 +515,9 @@ function CompendiumBrowser({
           <div className="border-b border-ink-700 p-3">
             <SearchField
               value={query}
+              onFocus={() => {
+                if (entrySnapshot) setBrowseBestiary(true);
+              }}
               onChange={(event) => {
                 const value = event.target.value;
                 queryRef.current = value;
@@ -470,7 +539,29 @@ function CompendiumBrowser({
             />
           </div>
 
-          {filters.length > 0 && status === 'ready' && (
+          {entrySnapshot && (
+            <div className="space-y-2 p-3">
+              {browseBestiary && result.status === 'loading' && (
+                <p role="status">{t('common.loading')}</p>
+              )}
+              {result.status === 'error' && (
+                <p role="alert">{t('compendium.failedToLoad')}</p>
+              )}
+              {(!browseBestiary || result.status === 'error') && (
+                <button
+                  type="button"
+                  className="text-sm text-arcane-300 underline"
+                  onClick={() => {
+                    setBrowseBestiary(true);
+                    setRetryKey((value) => value + 1);
+                  }}
+                >
+                  {t(result.status === 'error' ? 'common.retry' : 'compendium.browseAll')}
+                </button>
+              )}
+            </div>
+          )}
+          {filters.length > 0 && status === 'ready' && !entrySnapshot && (
             <FilterBar
               filters={filters}
               items={visibleItems}
@@ -509,17 +600,22 @@ function CompendiumBrowser({
                 </button>
               </li>
             )}
-            {status === 'ready' && sorted.length === 0 && (
+            {!entrySnapshot && status === 'ready' && sorted.length === 0 && (
               <li className="p-4 text-sm text-ink-400">{t('compendium.noMatches')}</li>
             )}
             {listItems.map((item) => (
               <li key={item.id}>
                 <Link
-                  to={{
-                    pathname: `/compendium/${categoryId}/${item.id}`,
-                    search: currentSearch().toString(),
-                  }}
+                  to={`/compendium/${categoryId}/${item.id}`}
                   onClick={(event) => {
+                    if (
+                      event.button !== 0 ||
+                      event.metaKey ||
+                      event.ctrlKey ||
+                      event.shiftKey ||
+                      event.altKey
+                    )
+                      return;
                     event.preventDefault();
                     clearQueryUpdate();
                     navigate({
@@ -603,11 +699,9 @@ function CompendiumBrowser({
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"
-                    onLoad={revealApp}
                     onClick={() => openLightbox(imageUrl(selected.image!), selected.name)}
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
-                      revealApp();
                     }}
                     className="h-auto max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
                   />
@@ -647,6 +741,32 @@ function CompendiumBrowser({
                 <HomebrewDetail item={selected} />
               ) : (
                 category.renderDetail(selected)
+              )}
+
+              {categoryId === 'bestiary' && !isHomebrew(selected) && (
+                <div className="mt-4 flex flex-wrap gap-4 text-sm text-arcane-300">
+                  <Link
+                    to={{
+                      pathname: '/dm/encounter',
+                      search: new URLSearchParams({ monster: selected.id }).toString(),
+                    }}
+                    className="underline"
+                  >
+                    {t('encounter.openForMonster')}
+                  </Link>
+                  <button
+                    type="button"
+                    className="underline"
+                    onClick={() => {
+                      useInitiativeStore
+                        .getState()
+                        .addCombatant(monsterCombatant(selected as MonsterEntry));
+                      navigate('/dm/initiative');
+                    }}
+                  >
+                    {t('initiative.addMonster')}
+                  </button>
+                </div>
               )}
 
               {selected.lore && selected.lore.length > 0 && (
@@ -713,13 +833,25 @@ function CompendiumBrowser({
                       className="text-arcane-300 hover:text-arcane-500"
                     >
                       {sourceName(selected.source, locale)}
-                      {selected.page ? `, p. ${selected.page}` : ''}
+                      {selected.page
+                        ? `, ${t('seo.sourcePage', { page: selected.page })}`
+                        : ''}
                     </Link>
                   ) : (
                     <span className="text-ink-200">
                       {sourceName(selected.source, locale)}
-                      {selected.page ? `, p. ${selected.page}` : ''}
+                      {selected.page
+                        ? `, ${t('seo.sourcePage', { page: selected.page })}`
+                        : ''}
                     </span>
+                  )}
+                  {!isHomebrew(selected) && (
+                    <>
+                      {' · '}
+                      <Link to="/legal/licenses" className="text-arcane-300 underline">
+                        {t('legal.licenses.title')}
+                      </Link>
+                    </>
                   )}
                 </p>
                 {selected.otherVersions && selected.otherVersions.length > 0 && (

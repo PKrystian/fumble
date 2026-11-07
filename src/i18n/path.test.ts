@@ -51,6 +51,12 @@ describe('localizePath', () => {
   it('adds a leading slash if missing', () => {
     expect(localizePath('character', 'pl')).toBe('/pl/character/');
   });
+
+  it('puts the trailing slash before search parameters and fragments', () => {
+    expect(localizePath('/books/mpp/0?name=Planar#top', 'pl')).toBe(
+      '/pl/books/mpp/0/?name=Planar#top',
+    );
+  });
 });
 
 describe('rememberedLocaleTarget', () => {
@@ -60,7 +66,7 @@ describe('rememberedLocaleTarget', () => {
     );
   });
 
-  it('localizes every English path while preserving search and hash', () => {
+  it('respects an explicit English content URL', () => {
     expect(
       rememberedLocaleTarget(
         '/compendium/bestiary/azaka-stormfang/',
@@ -68,7 +74,7 @@ describe('rememberedLocaleTarget', () => {
         '#actions',
         'pl',
       ),
-    ).toBe('/pl/compendium/bestiary/azaka-stormfang/?page=2#actions');
+    ).toBeNull();
   });
 
   it('leaves explicit and default locale paths unchanged', () => {

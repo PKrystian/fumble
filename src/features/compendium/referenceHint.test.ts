@@ -205,4 +205,45 @@ describe('reference hints', () => {
       description: '',
     });
   });
+
+  it('resolves production bestiary links from a compact localized index', async () => {
+    vi.stubEnv('PROD', true);
+    const fetchIndex = vi
+      .fn()
+      .mockResolvedValueOnce(new Response('', { status: 503 }))
+      .mockResolvedValueOnce(
+        new Response(
+          JSON.stringify([
+            {
+              id: 'hawk',
+              name: 'Jastrząb',
+              englishName: 'Hawk',
+              source: 'MM',
+              srd: true,
+              entries: ['Preview'],
+            },
+          ]),
+        ),
+      );
+    vi.stubGlobal('fetch', fetchIndex);
+    try {
+      const { resolveReference, loadReferenceHint } = await import('./referenceHint');
+      await expect(
+        resolveReference('bestiary', 'hawk', 'pl', 'Hawk', 'MM'),
+      ).resolves.toBeNull();
+      await expect(
+        resolveReference('bestiary', 'hawk', 'pl', 'Hawk', 'MM'),
+      ).resolves.toMatchObject({ slug: 'hawk' });
+      await expect(loadReferenceHint('bestiary', 'hawk', 'pl')).resolves.toMatchObject({
+        name: 'Jastrząb',
+        description: 'Preview',
+      });
+      expect(fetchIndex).toHaveBeenCalledWith('/bestiary-references-pl.json');
+      expect(fetchIndex).toHaveBeenCalledTimes(2);
+      expect(loadLocalizedItems).not.toHaveBeenCalled();
+    } finally {
+      vi.unstubAllEnvs();
+      vi.unstubAllGlobals();
+    }
+  });
 });

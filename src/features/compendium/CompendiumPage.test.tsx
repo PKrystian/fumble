@@ -5,6 +5,7 @@ import { useFumbleHomebrewStore } from '@/features/homebrew/fumbleHomebrewStore'
 import { CompendiumPage } from './CompendiumPage';
 
 const mocks = vi.hoisted(() => ({
+  loadCategory: vi.fn(),
   result: { status: 'ready', items: [] } as {
     status: 'loading' | 'ready' | 'error';
     items: Array<Record<string, unknown>>;
@@ -71,7 +72,10 @@ vi.mock('./categories', () => ({
 }));
 
 vi.mock('./useCategoryItems', () => ({
-  useCategoryItems: () => mocks.result,
+  useCategoryItems: (category: unknown) => {
+    mocks.loadCategory(category);
+    return mocks.result;
+  },
 }));
 
 vi.mock('./FilterBar', () => ({
@@ -224,7 +228,7 @@ describe('CompendiumPage', () => {
     view.unmount();
   });
 
-  it('renders a hidden older printing without indexing it', () => {
+  it('renders an equivalent older printing with a canonical to the preferred printing', () => {
     mocks.result = {
       status: 'ready',
       items: [
@@ -247,7 +251,11 @@ describe('CompendiumPage', () => {
     ).toBeInTheDocument();
     expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute(
       'content',
-      'noindex, nofollow',
+      'index, follow',
+    );
+    expect(document.head.querySelector('link[rel="canonical"]')).toHaveAttribute(
+      'href',
+      'https://fumble.krystianpinczak.com/compendium/species/dragon/',
     );
   });
 
@@ -299,6 +307,45 @@ describe('CompendiumPage', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('Failed to load data.');
   });
 
+  it.each(['loading', 'ready'] as const)(
+    'shows the direct stat block with %s category data and loads the catalog on demand',
+    (status) => {
+      const fallback = document.createElement('main');
+      fallback.id = 'prerendered-content';
+      fallback.dataset.path = '/compendium/bestiary/wight/';
+      const script = document.createElement('script');
+      script.id = 'fumble-monster-snapshot';
+      script.type = 'application/json';
+      script.textContent = JSON.stringify({
+        path: fallback.dataset.path,
+        item: { ...official, id: 'wight', name: 'Wight', source: 'XMM' },
+        indexable: true,
+        locales: ['en', 'pl'],
+      });
+      document.body.append(fallback, script);
+      mocks.result = { status, items: [official] };
+      const view = renderPage('/compendium/bestiary/wight/');
+      try {
+        expect(mocks.loadCategory).toHaveBeenLastCalledWith(undefined);
+        expect(screen.getByText('Detail Wight')).toBeInTheDocument();
+        expect(fallback).not.toBeInTheDocument();
+        mocks.result.status = 'loading';
+        fireEvent.focus(screen.getByRole('searchbox'));
+        expect(mocks.loadCategory).toHaveBeenLastCalledWith(mocks.bestiaryCategory);
+        expect(screen.getByText('Detail Wight')).toBeInTheDocument();
+        mocks.result.status = 'error';
+        fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'retry' } });
+        expect(screen.getByRole('alert')).toHaveTextContent('Failed to load data.');
+        fireEvent.click(screen.getByRole('button', { name: 'Try again' }));
+        expect(screen.getByText('Detail Wight')).toBeInTheDocument();
+      } finally {
+        view.unmount();
+        script.remove();
+        fallback.remove();
+      }
+    },
+  );
+
   it('searches, filters, sorts and selects a random item', () => {
     mocks.result.items.push({
       ...official,
@@ -315,7 +362,7 @@ describe('CompendiumPage', () => {
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'dragon' } });
     const dragon = screen.getByRole('link', { name: /Dragon/ });
     expect(dragon).toBeInTheDocument();
-    expect(dragon).toHaveAttribute('href', '/compendium/species/dragon/?q=dragon');
+    expect(dragon).toHaveAttribute('href', '/compendium/species/dragon/');
     fireEvent.click(dragon);
     expect(screen.getByRole('status')).toHaveTextContent(
       '/compendium/species/dragon/?q=dragon',
@@ -332,6 +379,40 @@ describe('CompendiumPage', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Sort direction' }));
     fireEvent.click(screen.getByRole('button', { name: 'Random' }));
     expect(screen.getByText('Detail Dragon')).toBeInTheDocument();
+  });
+
+  it('keeps generated SEO metadata and content when a category request fails', () => {
+    const head = document.createElement('link');
+    head.rel = 'canonical';
+    head.href = 'https://fumble.krystianpinczak.com/compendium/species/dragon/';
+    document.head.querySelector('link[rel="canonical"]')?.remove();
+    document.head.append(head);
+    const fallback = document.createElement('main');
+    fallback.id = 'prerendered-content';
+    fallback.dataset.path = '/compendium/species/dragon/';
+    fallback.innerHTML = '<p data-prerendered-retry hidden>Retry</p>';
+    document.body.append(fallback);
+    mocks.result = { status: 'error', items: [] };
+    renderPage('/compendium/species/dragon');
+    expect(head).toBeInTheDocument();
+    expect(fallback).toBeInTheDocument();
+    expect(fallback.firstElementChild).not.toHaveAttribute('hidden');
+    fallback.remove();
+    head.remove();
+  });
+
+  it('keeps only compendium filters when opening a clean entry link', () => {
+    renderPage('/compendium/species?q=dragon&utm_source=test');
+    const entry = screen.getByRole('link', { name: /Dragon/ });
+    fireEvent.click(entry, { ctrlKey: true });
+    expect(screen.getByRole('status')).toHaveTextContent(
+      '/compendium/species?q=dragon&utm_source=test',
+    );
+    fireEvent.click(entry);
+    expect(screen.getByRole('status')).toHaveTextContent(
+      '/compendium/species/dragon/?q=dragon',
+    );
+    expect(screen.getByRole('status')).not.toHaveTextContent('utm_source');
   });
 
   it('restores search, filters and sorting from the URL', () => {

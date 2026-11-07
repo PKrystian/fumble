@@ -37,9 +37,25 @@ export async function loadLocalizedItems<T extends CompendiumEntryBase>(
   load: () => Promise<T[]>,
   locale: string,
 ): Promise<T[]> {
-  const [items, overlay] = await Promise.all([
+  return (await loadLocalizedCategory(categoryId, load, locale)).items;
+}
+
+export async function loadLocalizedCategory<T extends CompendiumEntryBase>(
+  categoryId: string,
+  load: () => Promise<T[]>,
+  locale: string,
+) {
+  const [baseItems, overlay] = await Promise.all([
     load(),
     loadCategoryOverlay(categoryId, locale),
   ]);
-  return localizeItems(items, overlay, locale === 'pl' ? 'pl' : 'en');
+  return {
+    baseItems,
+    overlay,
+    items: localizeItems(
+      baseItems,
+      locale === 'pl' ? overlay : undefined,
+      locale === 'pl' ? 'pl' : 'en',
+    ),
+  };
 }

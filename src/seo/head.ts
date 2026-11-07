@@ -89,6 +89,7 @@ export function setStructuredData(value: unknown): void {
     document.head.appendChild(script);
   }
   script.id = 'fumble-seo-structured-data';
+  script.removeAttribute('data-prerendered-url');
   script.textContent = JSON.stringify(value).replaceAll('<', '\\u003c');
 }
 
