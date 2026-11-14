@@ -353,15 +353,20 @@ export function FilterBar({
   );
   return (
     <div className="border-b border-ink-700">
-      <div className="flex items-center gap-2 px-3 py-2">
+      <div className="flex flex-wrap items-center gap-2 px-3 py-2">
         {groups.length > 0 && (
-          <Button variant="ghost" size="sm" onClick={() => setModalOpen(true)}>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="w-full sm:w-auto"
+            onClick={() => setModalOpen(true)}
+          >
             <SlidersHorizontal size={15} aria-hidden="true" />
             {t('compendium.filters.button')}
             {activeCount > 0 && <span className="badge tabular-nums">{activeCount}</span>}
           </Button>
         )}
-        <div className="flex min-w-0 flex-1 items-center justify-end gap-1">
+        <div className="flex w-full min-w-0 flex-1 flex-wrap items-center justify-end gap-1 sm:w-auto">
           <Select
             size="sm"
             value={sortField}

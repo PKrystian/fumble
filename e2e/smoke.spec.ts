@@ -456,7 +456,7 @@ test('can create a character and edit core stats', async ({ page }) => {
 
   await page.getByRole('textbox', { name: 'Name', exact: true }).fill('Thorin');
   await page.getByRole('main').getByRole('link', { name: 'Characters' }).first().click();
-  await expect(page.getByText('Thorin')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Thorin', exact: true })).toBeVisible();
 });
 
 test('character list imports, validates and deletes character files', async ({
@@ -697,11 +697,13 @@ test('loot generator covers party rewards, rerolls and wildcard mode', async ({
   await page.getByRole('button', { name: 'New Character' }).click();
   await page.getByRole('textbox', { name: 'Name', exact: true }).fill('Loot Tester');
   await page.getByRole('main').getByRole('link', { name: 'Characters' }).first().click();
-  await expect(page.getByText('Loot Tester')).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Loot Tester', exact: true }),
+  ).toBeVisible();
   await page.goto('/dm/loot');
 
   await page.getByRole('button', { name: 'Saved characters' }).click();
-  await expect(page.getByText('Loot Tester')).toBeVisible();
+  await expect(page.getByText('Loot Tester', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Minor Reward' }).click();
   await expect(page.getByText('Coins', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Major Reward' }).click();

@@ -62,13 +62,14 @@ export function compendiumPrintingSeo(
   siblings: readonly IndexabilityItem[],
   category: string,
 ): { indexable: boolean; canonicalId?: string } {
-  if (!item.srd) return { indexable: false };
+  if (!item.srd && !item.hidden) return { indexable: false };
   if (!item.hidden) return { indexable: true };
   const visibleId = item.otherVersions?.find((version) =>
     siblings.some((candidate) => candidate.id === version.id && !candidate.hidden),
   )?.id;
   const visible = siblings.find((candidate) => candidate.id === visibleId);
   if (!visible) return { indexable: false };
+  if (!item.srd) return { indexable: true };
 
   const content = printingContent(item);
   if (content === '[]') return { indexable: false };
