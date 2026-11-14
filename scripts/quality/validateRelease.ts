@@ -5,6 +5,7 @@ import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../../src/i18n/locales';
 import { IMAGE_HOST, imageUrl } from '../../src/data/compendium/images';
 import { cspHasSourceOrigin } from '../../src/seo/csp';
 import { compendiumPrintingSeo } from '../../src/data/compendium/indexability';
+import { fumbleHomebrewItems } from '../../src/features/homebrew/fumbleHomebrew';
 import { LEGAL_DATES, LEGAL_PAGES, legalPath } from '../../src/features/legal/links';
 import { releaseAnchor } from '../../src/features/legal/changelog';
 
@@ -112,7 +113,14 @@ function validateCompendiumRoutes(): number {
         locale !== DEFAULT_LOCALE && existsSync(overlayPath)
           ? (JSON.parse(readFileSync(overlayPath, 'utf8')) as Record<string, unknown>)
           : {};
+      const fumbleOwnedIds = new Set(
+        fumbleHomebrewItems(locale)
+          .filter((entry) => entry.category === category)
+          .map((entry) => entry.id),
+      );
       for (const item of source.items) {
+        // Own Fumble entries replace official ones with the same id and are indexable.
+        if (fumbleOwnedIds.has(item.id)) continue;
         const route = localizedRoute(`/compendium/${category}/${item.id}/`, locale);
         const html = read(`${route.slice(1)}index.html`);
         const { indexable, canonicalId } = compendiumPrintingSeo(
