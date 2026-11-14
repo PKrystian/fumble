@@ -40,4 +40,15 @@ describe('query route robots metadata', () => {
     applyQueryRobots('?q=fireball');
     expect(robots).toHaveAttribute('content', 'noindex, nofollow');
   });
+
+  it('applies query directives from the browser entry point', async () => {
+    const robots = document.createElement('meta');
+    robots.name = 'robots';
+    robots.content = 'index, follow';
+    document.head.append(robots);
+    window.history.replaceState(null, '', '/?q=fireball');
+    await import('./queryRobotsEntry');
+    expect(robots).toHaveAttribute('content', 'noindex, follow');
+    window.history.replaceState(null, '', '/');
+  });
 });

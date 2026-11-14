@@ -3,7 +3,9 @@ import { router } from './router';
 
 describe('router', () => {
   it('loads every lazy route component', async () => {
-    const children = router.routes.flatMap((route) => route.children ?? []);
+    const children = router.routes
+      .flatMap((route) => route.children ?? [])
+      .flatMap((route) => route.children ?? []);
     const loaded = [];
     for (const route of children) {
       if (typeof route.lazy === 'function') loaded.push(await route.lazy());

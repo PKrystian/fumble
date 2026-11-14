@@ -51,6 +51,7 @@ export interface CompendiumEntryBase {
   ua?: boolean;
 
   otherVersions?: Array<{ id: string; source: string }>;
+  _filterData?: Record<string, unknown>;
 }
 
 export interface SpellEntry extends CompendiumEntryBase {

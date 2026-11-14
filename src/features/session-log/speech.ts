@@ -1,405 +1,391 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useT } from '@/i18n/useT';
-import wasmBinaryUrl from 'onnxruntime-web/ort-wasm-simd-threaded.asyncify.wasm?url';
-import wasmFactoryUrl from 'onnxruntime-web/ort-wasm-simd-threaded.asyncify.mjs?url';
+import {
+  getNativeSpeechRecognition,
+  hasLocalSpeechCapture,
+  stopNativeSpeechRecognition,
+  transcribeBlob,
+  WhisperModelError,
+  type NativeSpeechRecognition,
+} from './speechEngine';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AnyPipeline = (audio: Float32Array, opts?: Record<string, unknown>) => Promise<any>;
-
-let pipelinePromise: Promise<AnyPipeline> | null = null;
-
-const WHISPER_MODEL = 'onnx-community/whisper-tiny';
-
-class WhisperModelError extends Error {}
-
-type NativeSpeechResult = {
-  isFinal: boolean;
-  [index: number]: { transcript: string } | undefined;
-};
-
-type NativeSpeechEvent = {
-  resultIndex: number;
-  results: {
-    length: number;
-    [index: number]: NativeSpeechResult | undefined;
-  };
-};
-
-type NativeSpeechRecognition = {
-  continuous: boolean;
-  interimResults: boolean;
-  lang: string;
-  maxAlternatives: number;
-  onresult: ((event: NativeSpeechEvent) => void) | null;
-  onerror: (() => void) | null;
-  onend: (() => void) | null;
-  start: () => void;
-  stop: () => void;
-};
-
-type NativeSpeechRecognitionConstructor = new () => NativeSpeechRecognition;
-
-type SpeechWindow = Window & {
-  SpeechRecognition?: NativeSpeechRecognitionConstructor;
-  webkitSpeechRecognition?: NativeSpeechRecognitionConstructor;
-};
-
-function getNativeSpeechRecognition(): NativeSpeechRecognitionConstructor | null {
-  if (typeof window === 'undefined') return null;
-  const speechWindow = window as SpeechWindow;
-  return speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition ?? null;
+export type SpeechMode = 'auto' | 'browser' | 'local';
+export type SpeechStatus = 'idle' | 'starting' | 'listening' | 'processing' | 'error';
+export interface SpeechStamp {
+  time: number;
+  offsetMs: number;
 }
-
-function hasLocalSpeechCapture(): boolean {
-  return (
-    typeof window !== 'undefined' &&
-    'MediaRecorder' in window &&
-    typeof navigator.mediaDevices?.getUserMedia === 'function'
-  );
+type FinalCallback = (text: string, stamp: SpeechStamp) => void;
+interface Run {
+  onFinal: FinalCallback;
+  onDuration: ((ms: number) => void) | undefined;
+  language: string;
+  mode: SpeechMode;
+  startedAt: number | null;
+  elapsed: number;
+  stopping: boolean;
+  native: NativeSpeechRecognition | null;
+  recorder: MediaRecorder | null;
+  stream: MediaStream | null;
+  timer: ReturnType<typeof setTimeout> | null;
+  stopTimer: ReturnType<typeof setTimeout> | null;
 }
-
-function stopNativeSpeechRecognition(recognition: NativeSpeechRecognition): void {
-  try {
-    recognition.stop();
-  } catch {
-    return;
-  }
+interface Job {
+  blob: Blob;
+  run: Run;
+  stamp: SpeechStamp;
 }
-
-async function getWhisperPipeline(
-  onStatus: (s: string) => void,
-  downloadLabel: string,
-): Promise<AnyPipeline> {
-  if (!pipelinePromise) {
-    pipelinePromise = import('@huggingface/transformers')
-      .then(async ({ pipeline, env }) => {
-        (env as Record<string, unknown>).useBrowserCache = true;
-        (env as Record<string, unknown>).allowLocalModels = false;
-        const onnxBackend = env.backends.onnx as {
-          wasm?: { wasmPaths?: { mjs: string; wasm: string } };
-        };
-        onnxBackend.wasm ??= {};
-        onnxBackend.wasm.wasmPaths = { mjs: wasmFactoryUrl, wasm: wasmBinaryUrl };
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const progressCallback = (p: any) => {
-          if (p.status === 'downloading' || p.status === 'loading') {
-            const pct =
-              typeof p.progress === 'number'
-                ? ` ${Math.round(p.progress as number)}%`
-                : '';
-            onStatus(`${downloadLabel}${pct}...`);
-          }
-        };
-
-        return pipeline('automatic-speech-recognition', WHISPER_MODEL, {
-          dtype: { encoder_model: 'int8', decoder_model_merged: 'int8' },
-          session_options: { graphOptimizationLevel: 'disabled' },
-          progress_callback: progressCallback,
-        }) as Promise<AnyPipeline>;
-      })
-      .catch(() => {
-        pipelinePromise = null;
-        throw new WhisperModelError();
-      });
-  }
-  return pipelinePromise;
-}
-
-async function blobToFloat32(blob: Blob): Promise<Float32Array> {
-  const arrayBuffer = await blob.arrayBuffer();
-
-  const ctx = new AudioContext({ sampleRate: 16000 });
-  try {
-    const buf = await ctx.decodeAudioData(arrayBuffer);
-    const channels = buf.numberOfChannels;
-    const mono = new Float32Array(buf.length);
-    for (let ch = 0; ch < channels; ch++) {
-      const data = buf.getChannelData(ch);
-      for (let i = 0; i < buf.length; i++) mono[i]! += data[i]! / channels;
-    }
-    return mono;
-  } finally {
-    await ctx.close();
-  }
-}
-
-function hasSpeech(audio: Float32Array): boolean {
-  let sumSq = 0;
-  for (let i = 0; i < audio.length; i++) {
-    const v = audio[i]!;
-    sumSq += v * v;
-  }
-  const rms = Math.sqrt(sumSq / audio.length);
-  return rms > 0.01;
-}
-
-function trimRepetitions(text: string): string {
-  const parts = text
-    .split(',')
-    .map((p) => p.trim())
-    .filter(Boolean);
-  const result: string[] = [];
-  for (let i = 0; i < parts.length; i++) {
-    const cur = parts[i]!.toLowerCase();
-
-    let streak = 0;
-    for (let j = i - 1; j >= 0 && j >= i - 4; j--) {
-      if (parts[j]!.toLowerCase() === cur) streak++;
-      else break;
-    }
-    if (streak >= 2) break;
-    result.push(parts[i]!);
-  }
-  return result.join(', ');
-}
-
-async function transcribeBlob(
-  blob: Blob,
-  language: string,
-  onStatus: (s: string) => void,
-  downloadLabel: string,
-): Promise<string> {
-  const audio = await blobToFloat32(blob);
-  if (!hasSpeech(audio)) return '';
-
-  const pipe = await getWhisperPipeline(onStatus, downloadLabel);
-  const result = (await pipe(audio, {
-    language,
-    task: 'transcribe',
-    no_repeat_ngram_size: 5,
-    repetition_penalty: 1.3,
-    max_new_tokens: 256,
-  })) as { text?: unknown };
-  const raw = String(result?.text ?? '').trim();
-  return trimRepetitions(raw);
-}
-
-const CHUNK_DURATION_MS = 10000;
-
-const MIN_BLOB_BYTES = 3000;
-
 export interface SpeechHook {
   supported: boolean;
   listening: boolean;
-
+  busy: boolean;
+  status: SpeechStatus;
   interim: string;
   speechError: string;
-  start: () => void;
+  modelProgress: string;
+  pendingCount: number;
+  elapsedMs: number;
+  backend: 'browser' | 'local' | null;
+  canRetry: boolean;
+  start: () => Promise<void>;
   stop: () => void;
+  retry: () => Promise<void>;
+  discardPending: () => void;
 }
+export const MAX_PENDING_CHUNKS = 30;
 
 export function useSpeechRecognition(
-  onFinal: (text: string) => void,
+  onFinal: FinalCallback,
   language = 'english',
+  options: { mode?: SpeechMode; onDuration?: (ms: number) => void } = {},
 ): SpeechHook {
-  const [supported] = useState(
-    () => Boolean(getNativeSpeechRecognition()) || hasLocalSpeechCapture(),
-  );
   const { t } = useT();
-  const [listening, setListening] = useState(false);
-  const [interim, setInterim] = useState('');
-  const [speechError, setSpeechError] = useState('');
-
-  const streamRef = useRef<MediaStream | null>(null);
-  const recorderRef = useRef<MediaRecorder | null>(null);
-  const nativeRef = useRef<NativeSpeechRecognition | null>(null);
-  const chunkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const queueRef = useRef<Blob[]>([]);
-  const processingRef = useRef(false);
-  const shouldListenRef = useRef(false);
-  const transcriptionUnavailableRef = useRef(false);
-  const onFinalRef = useRef(onFinal);
-  const languageRef = useRef(language);
-  onFinalRef.current = onFinal;
-  languageRef.current = language;
-
-  useEffect(() => {
-    return () => {
-      shouldListenRef.current = false;
-      if (chunkTimerRef.current !== null) clearTimeout(chunkTimerRef.current);
-      if (nativeRef.current) stopNativeSpeechRecognition(nativeRef.current);
-      if (recorderRef.current?.state === 'recording') recorderRef.current.stop();
-      streamRef.current?.getTracks().forEach((track) => track.stop());
-    };
+  const callbacks = useRef({ onFinal, language, options, t });
+  callbacks.current = { onFinal, language, options, t };
+  const mounted = useRef(true);
+  const active = useRef<Run | null>(null);
+  const queue = useRef<Job[]>([]);
+  const processing = useRef(false);
+  const errorKey = useRef('');
+  const finishing = useRef(new Set<Run>());
+  const stopRef = useRef<(() => void) | null>(null);
+  const [state, setState] = useState({
+    status: 'idle' as SpeechStatus,
+    interim: '',
+    modelProgress: '',
+    pendingCount: 0,
+    elapsedMs: 0,
+    backend: null as 'browser' | 'local' | null,
+  });
+  const elapsed = (run: Run) =>
+    run.elapsed + (run.startedAt === null ? 0 : Math.max(0, Date.now() - run.startedAt));
+  const patch = useCallback((value: Partial<typeof state>) => {
+    if (mounted.current) setState((current) => ({ ...current, ...value }));
   }, []);
-
+  const publish = () => {
+    const pendingCount =
+      queue.current.length + Number(processing.current) + finishing.current.size;
+    const run = active.current;
+    patch({
+      pendingCount,
+      status: errorKey.current
+        ? 'error'
+        : run
+          ? run.startedAt === null
+            ? 'starting'
+            : 'listening'
+          : pendingCount
+            ? 'processing'
+            : 'idle',
+    });
+  };
+  const pauseClock = (run: Run) => {
+    run.elapsed = elapsed(run);
+    run.startedAt = null;
+  };
+  const commitClock = (run: Run) => {
+    pauseClock(run);
+    if (run.elapsed > 0) run.onDuration?.(run.elapsed);
+  };
+  const finishNative = (run: Run) => {
+    clearTimeout(run.stopTimer!);
+    run.native = null;
+    finishing.current.delete(run);
+    publish();
+  };
+  const closeCapture = (run: Run) => {
+    if (run.stopping) return;
+    run.stopping = true;
+    active.current = null;
+    if (run.timer) clearTimeout(run.timer);
+    commitClock(run);
+    if (run.native) {
+      finishing.current.add(run);
+      run.stopTimer = setTimeout(() => finishNative(run), 2500);
+      stopNativeSpeechRecognition(run.native);
+    }
+    if (run.recorder?.state === 'recording') {
+      finishing.current.add(run);
+      try {
+        run.recorder.stop();
+      } catch {
+        finishing.current.delete(run);
+        errorKey.current = 'sessionLog.speechErrRecorder';
+      }
+    }
+    run.stream?.getTracks().forEach((track) => track.stop());
+    run.stream = null;
+    patch({ interim: '', elapsedMs: run.elapsed });
+    publish();
+  };
+  const fail = (key: string, run: Run) => {
+    errorKey.current = key;
+    closeCapture(run);
+    publish();
+  };
   const processQueue = async (): Promise<void> => {
-    if (processingRef.current || transcriptionUnavailableRef.current) return;
-    processingRef.current = true;
+    if (processing.current || errorKey.current || !queue.current.length) return;
+    processing.current = true;
+    publish();
     try {
-      while (queueRef.current.length > 0 && !transcriptionUnavailableRef.current) {
-        const blob = queueRef.current.shift()!;
-        setInterim(t('sessionLog.transcribing'));
+      while (queue.current.length && !errorKey.current) {
+        const job = queue.current.shift()!;
+        publish();
         try {
           const text = await transcribeBlob(
-            blob,
-            languageRef.current,
-            setInterim,
-            t('sessionLog.downloadingModel'),
+            job.blob,
+            job.run.language,
+            (modelProgress) => patch({ modelProgress }),
+            callbacks.current.t('sessionLog.downloadingModel'),
           );
-          if (text) onFinalRef.current(text);
+          if (text) job.run.onFinal(text, job.stamp);
         } catch (error) {
-          if (error instanceof WhisperModelError) {
-            transcriptionUnavailableRef.current = true;
-            queueRef.current = [];
-            setSpeechError(t('sessionLog.transcriptionUnavailable'));
-          } else {
-            setSpeechError(t('sessionLog.speechErrTranscribe'));
-          }
+          queue.current.unshift(job);
+          fail(
+            error instanceof WhisperModelError
+              ? 'sessionLog.transcriptionUnavailable'
+              : 'sessionLog.speechErrTranscribe',
+            job.run,
+          );
         }
       }
     } finally {
-      processingRef.current = false;
-      setInterim('');
+      processing.current = false;
+      patch({ modelProgress: '' });
+      publish();
     }
   };
-
-  const startChunk = (stream: MediaStream): boolean => {
+  const startChunk = (run: Run): void => {
     try {
-      const localChunks: Blob[] = [];
-      const rec = new MediaRecorder(stream);
-      recorderRef.current = rec;
-
-      rec.ondataavailable = (e) => {
-        if (e.data.size > 0) localChunks.push(e.data);
+      const chunks: Blob[] = [];
+      const recorder = new MediaRecorder(run.stream!);
+      run.recorder = recorder;
+      recorder.onerror = () => fail('sessionLog.speechErrRecorder', run);
+      const stamp = { time: Date.now(), offsetMs: elapsed(run) };
+      recorder.ondataavailable = (event) => {
+        if (event.data.size) chunks.push(event.data);
       };
-
-      rec.onstop = () => {
-        const blob = new Blob(localChunks, { type: rec.mimeType });
-        if (blob.size >= MIN_BLOB_BYTES && !transcriptionUnavailableRef.current) {
-          queueRef.current.push(blob);
+      recorder.onstop = () => {
+        finishing.current.delete(run);
+        if (run.timer) clearTimeout(run.timer);
+        const blob = new Blob(chunks, { type: recorder.mimeType });
+        if (blob.size) {
+          queue.current.push({ blob, run, stamp });
+          if (queue.current.length >= MAX_PENDING_CHUNKS)
+            fail('sessionLog.queueFull', run);
           void processQueue();
         }
-
-        if (shouldListenRef.current && streamRef.current) {
-          startChunk(streamRef.current);
-        }
+        if (!run.stopping) startChunk(run);
+        publish();
       };
-
-      rec.start();
-
-      chunkTimerRef.current = setTimeout(() => {
-        if (rec.state === 'recording') rec.stop();
-      }, CHUNK_DURATION_MS);
-      return true;
+      recorder.start();
+      if (run.startedAt === null) run.startedAt = Date.now();
+      patch({ backend: 'local' });
+      publish();
+      run.timer = setTimeout(() => {
+        if (recorder.state === 'recording') recorder.stop();
+      }, 10_000);
     } catch {
-      shouldListenRef.current = false;
-      stream.getTracks().forEach((track) => track.stop());
-      streamRef.current = null;
-      recorderRef.current = null;
-      setListening(false);
-      setSpeechError(t('sessionLog.speechErrRecorder'));
-      return false;
+      fail('sessionLog.speechErrRecorder', run);
     }
   };
-
-  const startLocalCapture = async (preserveListening = false): Promise<boolean> => {
-    let stream: MediaStream;
+  const startLocal = async (run: Run): Promise<void> => {
+    if (!hasLocalSpeechCapture()) {
+      fail('sessionLog.voiceNotSupported', run);
+      return;
+    }
     try {
-      stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: true,
+        video: false,
+      });
+      if (run.stopping) {
+        stream.getTracks().forEach((track) => track.stop());
+        return;
+      }
+      run.stream = stream;
+      startChunk(run);
     } catch {
-      shouldListenRef.current = preserveListening;
-      setSpeechError(
-        t(preserveListening ? 'sessionLog.speechErrFallback' : 'sessionLog.speechErrMic'),
-      );
-      return false;
-    }
-    if (!shouldListenRef.current) {
-      stream.getTracks().forEach((track) => track.stop());
-      return false;
-    }
-    streamRef.current = stream;
-    return startChunk(stream);
-  };
-
-  const fallbackToLocalCapture = async (): Promise<void> => {
-    const native = nativeRef.current;
-    nativeRef.current = null;
-    if (native) stopNativeSpeechRecognition(native);
-    setInterim('');
-    await startLocalCapture(true);
-    if (!recorderRef.current) {
-      shouldListenRef.current = false;
-      setListening(false);
+      if (!run.stopping) fail('sessionLog.speechErrMic', run);
     }
   };
-
-  const startNativeCapture = (): boolean => {
+  const fallback = async (run: Run): Promise<void> => {
+    const native = run.native!;
+    run.native = null;
+    stopNativeSpeechRecognition(native);
+    pauseClock(run);
+    patch({ interim: '' });
+    if (run.mode !== 'auto') {
+      fail('sessionLog.speechErrBrowser', run);
+      return;
+    }
+    publish();
+    await startLocal(run);
+  };
+  const startNative = (run: Run): boolean => {
     const Recognition = getNativeSpeechRecognition();
     if (!Recognition) return false;
-
-    let recognition: NativeSpeechRecognition;
     try {
-      recognition = new Recognition();
+      const recognition = new Recognition();
+      run.native = recognition;
       recognition.continuous = true;
       recognition.interimResults = true;
       recognition.maxAlternatives = 1;
-      recognition.lang = languageRef.current === 'polish' ? 'pl-PL' : 'en-US';
+      recognition.lang = run.language === 'polish' ? 'pl-PL' : 'en-US';
+      recognition.onstart = () => {
+        if (run.stopping || run.native !== recognition) return;
+        run.startedAt = Date.now();
+        patch({ backend: 'browser' });
+        publish();
+      };
       recognition.onresult = (event) => {
-        let interimText = '';
+        if (run.native !== recognition) return;
+        const words: string[] = [];
         for (let index = event.resultIndex; index < event.results.length; index++) {
           const result = event.results[index];
-          const transcript = result?.[0]?.transcript.trim() ?? '';
+          const text = result?.[0]?.transcript.trim() ?? '';
           if (result?.isFinal) {
-            if (transcript) onFinalRef.current(transcript);
-          } else if (transcript) {
-            interimText = `${interimText} ${transcript}`.trim();
-          }
+            if (text) run.onFinal(text, { time: Date.now(), offsetMs: elapsed(run) });
+          } else if (text) words.push(text);
         }
-        setInterim(interimText);
+        patch({ interim: words.join(' ') });
       };
-      recognition.onerror = () => {
-        if (nativeRef.current !== recognition || !shouldListenRef.current) return;
-        void fallbackToLocalCapture();
+      recognition.onerror = (event) => {
+        if (run.native !== recognition || run.stopping) return;
+        if (event?.error === 'not-allowed' || event?.error === 'service-not-allowed')
+          fail('sessionLog.speechErrMic', run);
+        else void fallback(run);
       };
       recognition.onend = () => {
-        if (nativeRef.current !== recognition || !shouldListenRef.current) return;
+        if (run.native !== recognition) return;
+        if (run.stopping) {
+          finishNative(run);
+          return;
+        }
+        pauseClock(run);
+        publish();
         try {
           recognition.start();
         } catch {
-          void fallbackToLocalCapture();
+          void fallback(run);
         }
       };
-      nativeRef.current = recognition;
       recognition.start();
       return true;
     } catch {
-      nativeRef.current = null;
+      run.native = null;
       return false;
     }
   };
-
   const start = async (): Promise<void> => {
-    if (shouldListenRef.current) return;
-    setSpeechError('');
-    transcriptionUnavailableRef.current = false;
-    shouldListenRef.current = true;
-
-    if (startNativeCapture()) {
-      setListening(true);
+    if (
+      active.current ||
+      processing.current ||
+      queue.current.length ||
+      finishing.current.size
+    )
+      return;
+    const current = callbacks.current;
+    const run: Run = {
+      onFinal: current.onFinal,
+      onDuration: current.options.onDuration,
+      language: current.language,
+      mode: current.options.mode ?? 'auto',
+      startedAt: null,
+      elapsed: 0,
+      stopping: false,
+      native: null,
+      recorder: null,
+      stream: null,
+      timer: null,
+      stopTimer: null,
+    };
+    errorKey.current = '';
+    active.current = run;
+    patch({ interim: '', modelProgress: '', elapsedMs: 0, backend: null });
+    publish();
+    if (run.mode !== 'local' && startNative(run)) return;
+    if (run.mode === 'browser') {
+      fail('sessionLog.speechErrBrowser', run);
       return;
     }
-
-    if (await startLocalCapture()) setListening(true);
+    await startLocal(run);
   };
-
   const stop = (): void => {
-    shouldListenRef.current = false;
-    if (chunkTimerRef.current !== null) {
-      clearTimeout(chunkTimerRef.current);
-      chunkTimerRef.current = null;
-    }
-
-    const native = nativeRef.current;
-    nativeRef.current = null;
-    if (native) stopNativeSpeechRecognition(native);
-    if (recorderRef.current?.state === 'recording') recorderRef.current.stop();
-    streamRef.current?.getTracks().forEach((track) => track.stop());
-    recorderRef.current = null;
-    streamRef.current = null;
-    setListening(false);
+    if (active.current) closeCapture(active.current);
   };
-
-  return { supported, listening, interim, speechError, start, stop };
+  stopRef.current = stop;
+  useEffect(() => {
+    mounted.current = true;
+    const leave = (event: BeforeUnloadEvent) => {
+      const busy = Boolean(
+        active.current ||
+        processing.current ||
+        queue.current.length ||
+        finishing.current.size,
+      );
+      stopRef.current!();
+      if (busy) {
+        event.preventDefault();
+        event.returnValue = '';
+      }
+    };
+    window.addEventListener('beforeunload', leave);
+    return () => {
+      mounted.current = false;
+      stopRef.current!();
+      window.removeEventListener('beforeunload', leave);
+    };
+  }, []);
+  useEffect(() => {
+    if (state.status !== 'listening') return;
+    const interval = setInterval(() => {
+      if (active.current) patch({ elapsedMs: elapsed(active.current) });
+    }, 500);
+    return () => clearInterval(interval);
+  }, [patch, state.status]);
+  return {
+    ...state,
+    supported: Boolean(getNativeSpeechRecognition()) || hasLocalSpeechCapture(),
+    listening: state.status === 'listening',
+    busy:
+      state.status === 'starting' ||
+      state.status === 'listening' ||
+      state.pendingCount > 0,
+    speechError: errorKey.current ? t(errorKey.current) : '',
+    canRetry: Boolean(errorKey.current && queue.current.length && !processing.current),
+    start,
+    stop,
+    retry: async () => {
+      errorKey.current = '';
+      publish();
+      await processQueue();
+    },
+    discardPending: () => {
+      if (processing.current) return;
+      queue.current = [];
+      errorKey.current = '';
+      publish();
+    },
+  };
 }

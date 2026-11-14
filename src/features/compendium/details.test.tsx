@@ -699,7 +699,7 @@ describe('compendium detail renderers', () => {
     const table = normalize.normalizeTable(base);
     table.rows = [[{ type: 'item', entry: 'Structured cell' }]];
     const tableView = show(<TableDetail table={table} />);
-    expect(tableView.container).not.toHaveTextContent('Structured cell');
+    expect(tableView.container).toHaveTextContent('Structured cell');
     tableView.unmount();
 
     const objectView = show(
@@ -923,6 +923,11 @@ describe('compendium detail renderers', () => {
     );
     fireEvent.change(select, { target: { value: 'homebrew' } });
     expect(screen.getByRole('button', { name: /Chronomancer/ })).toBeVisible();
+    fireEvent.click(screen.getByRole('button', { name: /Chronomancer/ }));
+    expect(view.container).toHaveTextContent('Time Step');
+    fireEvent.change(select, { target: { value: 'all' } });
+    expect(view.container).toHaveTextContent('Time Step');
+    fireEvent.change(select, { target: { value: 'homebrew' } });
     fireEvent.click(screen.getByRole('button', { name: 'Pick a random subclass' }));
     fireEvent.click(screen.getByRole('button', { name: 'Reset selection' }));
     fireEvent.click(screen.getByRole('button', { name: 'Toggle source labels' }));

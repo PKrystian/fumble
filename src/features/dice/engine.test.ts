@@ -134,7 +134,7 @@ describe('rollParsed', () => {
     expect(outcome.total).toBe(-4);
     expect(outcome.expression).toBe('-2d6 + 1d4 - 3');
     expect(formatExpression({ terms: [], modifier: 0 })).toBe('0');
-    expect(formatExpression({ terms: [], modifier: 2 })).toBe(' + 2');
+    expect(formatExpression({ terms: [], modifier: 2 })).toBe('2');
     expect(describeRolls(outcome)).toContain('mod -3');
     expect(
       rollParsed(
@@ -178,7 +178,7 @@ describe('rollExpression', () => {
     expect(rollExpression('-1d6', 'normal', seqRng([0]))?.total).toBe(-1);
     expect(rollExpression('+1d6', 'normal', seqRng([0]))?.total).toBe(1);
     expect(rollExpression('8 - 2', 'normal', seqRng([0]))?.total).toBe(6);
-    expect(rollExpression('8 / 0', 'normal', seqRng([0]))?.total).toBe(0);
+    expect(rollExpression('8 / 0', 'normal', seqRng([0]))).toBeNull();
     expect(rollExpression('2 * (8 / 2)', 'normal', seqRng([0]))?.expression).toBe(
       '2 * (8 / 2)',
     );

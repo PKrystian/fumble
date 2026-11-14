@@ -51,6 +51,12 @@ contained in the dataset.
 Files under `public/character-sheets` are third-party form templates. They are not covered
 by the Fumble MIT License. Their original notices and form structure must be preserved.
 
+## Character sheet font
+
+`public/fonts/fumble-sheet-sans.ttf` is a renamed Latin subset of Liberation Sans 2.1.5,
+used to fill PDF character sheets. It is licensed under the SIL Open Font License 1.1,
+included in `public/fonts/OFL.txt`, and is not covered by the Fumble MIT License.
+
 ## YouTube and Bardify
 
 The soundboard contains links and metadata for videos hosted by YouTube. Video and audio

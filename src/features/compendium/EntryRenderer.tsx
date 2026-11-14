@@ -1,4 +1,4 @@
-import { Fragment, type ReactNode, useContext, useState } from 'react';
+import { Fragment, type ReactNode, useContext, useId, useState } from 'react';
 import type { Entry, EntryNode } from '@/data/compendium/entry';
 import { imageUrl } from '@/data/compendium/images';
 import { stripMarkup } from '@/data/transform/util';
@@ -10,6 +10,10 @@ import type { Locale } from '@/i18n/locales';
 import { translate } from '@/i18n/useT';
 import { localizePlainText, markupLabel, parseMarkup } from './markup';
 import { ReferenceLink } from './ReferenceLink';
+import { bookAnchorName, bookEntryReference } from '@/features/books/readerAnchor';
+import { EntryLanguage } from './entryLanguage';
+import { PrivateArtwork } from '@/features/homebrew/artworkPolicy';
+import { HomebrewArtwork } from '@/features/homebrew/HomebrewImage';
 
 const STATBLOCK_CATEGORY: Record<string, string> = {
   creature: 'bestiary',
@@ -47,19 +51,21 @@ function BookImage({ src, title }: { src: string; title?: string }) {
   const open = useLightbox((s) => s.open);
   const locale = useLocale();
   const plainTitle = title ? localizePlainText(stripMarkup(title), locale) : '';
-  return (
+  const privateArt = useContext(PrivateArtwork);
+  const render = (url: string) => (
     <figure className="my-2 flex flex-col items-center gap-1">
       <a
-        href={imageUrl(src)}
+        href={url}
         className="artwork-trigger"
         aria-label={plainTitle || translate(locale, 'common.imageViewer')}
         onClick={(event) => {
           event.preventDefault();
-          open(src, plainTitle);
+          open(url, plainTitle);
         }}
       >
         <img
-          src={imageUrl(src)}
+          src={url}
+          referrerPolicy={privateArt ? 'no-referrer' : undefined}
           alt={plainTitle}
           loading="lazy"
 
@@ -76,6 +82,11 @@ function BookImage({ src, title }: { src: string; title?: string }) {
       )}
     </figure>
   );
+  return privateArt ? (
+    <HomebrewArtwork src={src}>{render}</HomebrewArtwork>
+  ) : (
+    render(imageUrl(src))
+  );
 }
 
 interface EntryRendererProps {
@@ -84,7 +95,8 @@ interface EntryRendererProps {
 }
 
 export function EntryRenderer({ entries, headingLevel = 2 }: EntryRendererProps) {
-  const locale = useLocale();
+  const routeLocale = useLocale();
+  const locale = useContext(EntryLanguage) ?? routeLocale;
   return (
     <>{entries.map((entry, index) => renderEntry(entry, index, locale, headingLevel))}</>
   );
@@ -148,30 +160,10 @@ function renderNode(
 
     case 'entries':
     case 'section':
-    case 'flowBlock': {
-      const Heading = `h${Math.min(6, headingLevel)}` as 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    case 'flowBlock':
       return (
-        <div
-          key={key}
-          className="flex flex-col gap-2"
-          {...(typeof node.page === 'number'
-            ? { id: `page-${node.page}`, 'data-page': node.page }
-            : {})}
-          {...(typeof node.name === 'string'
-            ? { 'data-entry-name': slug(node.name) }
-            : {})}
-        >
-          {node.name && (
-            <Heading className="entry-heading font-display font-bold text-ink-50">
-              {parseMarkup(node.name, locale)}
-            </Heading>
-          )}
-          {node.entries && (
-            <EntryRenderer entries={node.entries} headingLevel={headingLevel + 1} />
-          )}
-        </div>
+        <EntrySection key={key} node={node} headingLevel={headingLevel} locale={locale} />
       );
-    }
 
     case 'list':
       return (
@@ -180,7 +172,7 @@ function renderNode(
             typeof item !== 'string' && item.type === 'item' ? (
               renderNode(item, index, locale)
             ) : (
-              <li key={index}>{renderListItem(item, locale)}</li>
+              <ListEntry key={index} item={item} locale={locale} />
             ),
           )}
         </ul>
@@ -188,7 +180,7 @@ function renderNode(
 
     case 'item':
       return (
-        <li key={key}>
+        <li key={key} {...bookEntryAttributes(node)}>
           {node.name && (
             <span className="font-semibold text-ink-50">
               {parseMarkup(node.name, locale)}.{' '}
@@ -229,7 +221,7 @@ function renderNode(
     case 'image': {
       const href = node.href as
         { type?: string; path?: string; url?: string } | undefined;
-      const src = href?.path ? imageUrl(href.path) : href?.url;
+      const src = href?.path ?? href?.url;
       if (!src) return null;
       const title = typeof node.title === 'string' ? node.title : undefined;
       return <BookImage key={key} src={src} {...(title ? { title } : {})} />;
@@ -251,7 +243,12 @@ function renderNode(
       const name = localizePlainText(rawName, locale);
       const category = STATBLOCK_CATEGORY[tag];
       return (
-        <p key={key} className="my-1" data-entry-name={slug(rawName)}>
+        <p
+          key={key}
+          className="my-1"
+          data-entry-name={slug(rawName)}
+          {...bookEntryAttributes(node)}
+        >
           {category ? (
             <ReferenceLink
               category={category}
@@ -275,6 +272,7 @@ function renderNode(
       return (
         <aside
           key={key}
+          {...bookEntryAttributes(node)}
           className="rounded-lg border border-ink-700 bg-ink-800/60 p-4 text-ink-200"
         >
           {node.name && (
@@ -288,10 +286,7 @@ function renderNode(
 
     case 'quote':
       return (
-        <blockquote
-          key={key}
-          className="border-l-2 border-arcane-500 pl-4 italic text-ink-200"
-        >
+        <blockquote key={key} className="quote-block">
           {node.entries && <EntryRenderer entries={node.entries} />}
         </blockquote>
       );
@@ -303,9 +298,55 @@ function renderNode(
   }
 }
 
+function ListEntry({ item, locale }: { item: Entry; locale: Locale }) {
+  const reference = bookEntryReference(item);
+  return (
+    <li data-entry-reference={reference ? bookAnchorName(reference) : undefined}>
+      {renderListItem(item, locale)}
+    </li>
+  );
+}
+
+function bookEntryAttributes(node: EntryNode) {
+  return {
+    'data-entry-id': typeof node.id === 'string' ? node.id : undefined,
+    'data-page': typeof node.page === 'number' ? node.page : undefined,
+  };
+}
+
 function renderListItem(item: Entry, locale: Locale): ReactNode {
   if (typeof item === 'string') return parseMarkup(item, locale);
   return renderNode(item, 0, locale);
+}
+
+function EntrySection({
+  node,
+  headingLevel,
+  locale,
+}: {
+  node: EntryNode;
+  headingLevel: number;
+  locale: Locale;
+}) {
+  const id = useId();
+  const Heading = `h${Math.min(6, headingLevel)}` as 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  return (
+    <div
+      className="flex flex-col gap-2"
+      {...bookEntryAttributes(node)}
+      {...(typeof node.page === 'number' ? { id: `page-${node.page}-${id}` } : {})}
+      {...(typeof node.name === 'string' ? { 'data-entry-name': slug(node.name) } : {})}
+    >
+      {node.name && (
+        <Heading className="entry-heading font-display font-bold text-ink-50">
+          {parseMarkup(node.name, locale)}
+        </Heading>
+      )}
+      {node.entries && (
+        <EntryRenderer entries={node.entries} headingLevel={headingLevel + 1} />
+      )}
+    </div>
+  );
 }
 
 function diceHeader(label: string | undefined): string | null {
@@ -319,13 +360,14 @@ function diceHeader(label: string | undefined): string | null {
 
 function cellRollText(cell: EntryNode): string {
   const roll = cell.roll as { exact?: number; min?: number; max?: number } | undefined;
-  if (typeof roll?.exact === 'number') return String(roll.exact);
+  if (typeof roll?.exact === 'number')
+    return roll.exact === 0 ? '00' : String(roll.exact);
   return typeof roll?.min === 'number' && typeof roll.max === 'number'
-    ? `${roll.min}-${roll.max}`
+    ? `${roll.min === 0 ? '00' : roll.min}-${roll.max === 0 ? '00' : roll.max}`
     : '';
 }
 
-function rowMatches(cell: Entry, value: number): boolean {
+function rowMatches(cell: Entry, value: number, percentile: boolean): boolean {
   const text = (
     typeof cell === 'string'
       ? cell
@@ -336,8 +378,10 @@ function rowMatches(cell: Entry, value: number): boolean {
     .replace(/\{[@#](?:itemEntry|item|[^\s}]+)\s*([^|}]*)[^}]*\}/g, '$1')
     .trim();
   const range = text.match(/^(\d+)\s*[-\u2013]\s*(\d+)$/);
-  if (range) return value >= Number(range[1]) && value <= Number(range[2]);
-  return Number(text) === value;
+  const number = (text: string) =>
+    percentile && Number(text) === 0 ? 100 : Number(text);
+  if (range) return value >= number(range[1]!) && value <= number(range[2]!);
+  return /^\d+$/.test(text) && number(text) === value;
 }
 
 function rowCells(row: Entry[] | EntryNode): { cells: Entry[]; indentFirst: boolean } {
@@ -355,6 +399,7 @@ function RollableTable({ node }: { node: EntryNode }) {
   const rows = node.rows ?? [];
   const dice = diceHeader(node.colLabels?.[0]);
   const staticReading = useContext(StaticReading);
+  const captionId = useId();
 
   const doRoll = () => {
     const outcome = roll(
@@ -373,11 +418,20 @@ function RollableTable({ node }: { node: EntryNode }) {
       className="table-scroll"
     >
       {node.caption && (
-        <p className="mb-1 font-semibold text-ink-50">
+        <p id={captionId} data-table-caption className="mb-1 font-semibold text-ink-50">
           {parseMarkup(node.caption, locale)}
         </p>
       )}
-      <table className="data-table">
+      {!staticReading && dice && (
+        <p role="status" aria-atomic="true" className="mb-2 text-sm text-arcane-300">
+          {rolled !== null &&
+            translate(locale, 'compendium.catalog.tableResult', { result: rolled })}
+        </p>
+      )}
+      <table
+        className="data-table"
+        {...(node.caption ? { 'aria-labelledby': captionId } : {})}
+      >
         {node.colLabels && (
           <thead>
             <tr className="bg-ink-950/60">
@@ -385,7 +439,7 @@ function RollableTable({ node }: { node: EntryNode }) {
                 const content = parseMarkup(label, locale);
                 return (
                   <th scope="col" key={index} className="font-semibold">
-                    {!staticReading && index === 0 && dice && !/\{[@#]/u.test(label) ? (
+                    {!staticReading && index === 0 && dice ? (
                       <button
                         type="button"
                         onClick={doRoll}
@@ -394,7 +448,7 @@ function RollableTable({ node }: { node: EntryNode }) {
                         })}
                         className="cursor-pointer text-arcane-300 underline decoration-dotted underline-offset-2 hover:text-arcane-500"
                       >
-                        {content}
+                        {localizePlainText(dice, locale).replace(/^1(?=[dk])/i, '')}
                       </button>
                     ) : (
                       content
@@ -408,7 +462,10 @@ function RollableTable({ node }: { node: EntryNode }) {
         <tbody>
           {rows.map((rawRow, rowIndex) => {
             const { cells, indentFirst } = rowCells(rawRow);
-            const hit = dice && rolled != null && rowMatches(cells[0] ?? '', rolled);
+            const hit =
+              dice &&
+              rolled != null &&
+              rowMatches(cells[0] ?? '', rolled, /d100$/i.test(dice));
             const zebra = rowIndex % 2 === 1 ? 'bg-ink-800/60' : 'bg-ink-950';
             return (
               <tr key={rowIndex} className={hit ? 'bg-arcane-700/30' : zebra}>

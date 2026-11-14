@@ -1,555 +1,377 @@
 import { useMemo, useState } from 'react';
-import {
-  Coins,
-  Dices,
-  ExternalLink,
-  Gem,
-  Plus,
-  RefreshCw,
-  Shuffle,
-  Trash2,
-} from 'lucide-react';
-import type { ItemEntry } from '@/data/compendium/types';
+import { Dices } from 'lucide-react';
 import { getCategory } from '@/features/compendium/categories';
 import { useCategoryItems } from '@/features/compendium/useCategoryItems';
-import { rollExpression } from '@/features/dice/engine';
 import { isDmCharacter } from '@/features/character/model';
 import { useCharacterList } from '@/features/character/store';
+import { Button, ToggleChip } from '@/features/ui/primitives';
+import { panelClass } from '@/features/ui/styles';
+import { useContentModeStore } from '@/features/ui/contentModeStore';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
-import { Button, IconButton, TextInput, ToggleChip } from '@/features/ui/primitives';
-import { panelClass } from '@/features/ui/styles';
+import { TIERS, tierForLevel } from './loot';
 import {
-  TIERS,
-  isExcludedItemType,
-  isUsableByParty,
-  rarityMatches,
-  rarityAtMost,
-  tierForLevel,
-  usableByNames,
-} from './loot';
-import type { PartyMember } from './xp';
-
-type Mode = 'party' | 'tier' | 'wildcard';
-
-const MODES: Array<{ id: Mode; labelKey: string }> = [
-  { id: 'party', labelKey: 'dm.loot.modeParty' },
-  { id: 'tier', labelKey: 'dm.loot.modeTier' },
-  { id: 'wildcard', labelKey: 'dm.loot.modeWildcard' },
-];
-
-interface HoardItem {
-  item: ItemEntry;
-
-  usableBy?: string[];
-}
-
-interface Hoard {
-  gold: number;
-  gemCount: number;
-  gemValue: number;
-  items: HoardItem[];
-}
-
-function pickRandom<T>(pool: T[], count: number): T[] {
-  const shuffled = [...pool];
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex]!, shuffled[index]!];
-  }
-  return shuffled.slice(0, count);
-}
-
-function lootablePool(items: ItemEntry[]): ItemEntry[] {
-  return items.filter((item) => !item.hidden && !isExcludedItemType(item.type));
-}
+  MAX_PARTY_COUNT,
+  validPartyNumber,
+  type LootContext,
+  type LootReward,
+} from './lootData';
+import {
+  generateLoot,
+  lootCandidates,
+  lootCatalog,
+  rollLootItems,
+} from './lootGenerator';
+import { useLootStore } from './lootStore';
+import { LootDataControls } from './LootDataControls';
+import { LootPartyEditor } from './LootPartyEditor';
+import { LootResultPanel } from './LootResultPanel';
+import { LootHistory } from './LootHistory';
 
 export function LootGeneratorPage() {
-  const { t } = useT();
+  const { t, locale } = useT();
   useSeo(t('seo.pageTitles.loot'), t('seo.pageDescriptions.loot'));
-  const [mode, setMode] = useState<Mode>('party');
-  const [hoard, setHoard] = useState<Hoard | null>(null);
-  const { status, items } = useCategoryItems(getCategory('items'));
-  const pool = useMemo(() => lootablePool(items as ItemEntry[]), [items]);
-
-  return (
-    <div className="page-shell">
-      <h1 className="mb-6 text-ink-50 page-title">{t('dm.loot.title')}</h1>
-
-      <nav className="mb-6 flex flex-wrap gap-2" aria-label={t('dm.loot.modeNav')}>
-        {MODES.map((m) => (
-          <ToggleChip
-            key={m.id}
-            onClick={() => {
-              setMode(m.id);
-              setHoard(null);
-            }}
-            active={m.id === mode}
-            className="px-4 text-sm"
-          >
-            {t(m.labelKey)}
-          </ToggleChip>
-        ))}
-      </nav>
-
-      {mode === 'party' && (
-        <PartyMode status={status} pool={pool} hoard={hoard} setHoard={setHoard} />
-      )}
-      {mode === 'tier' && (
-        <TierMode status={status} pool={pool} hoard={hoard} setHoard={setHoard} />
-      )}
-      {mode === 'wildcard' && (
-        <WildcardMode status={status} pool={pool} hoard={hoard} setHoard={setHoard} />
-      )}
-
-      <p className="mt-6 text-xs text-ink-500">{t('dm.loot.footerNote')}</p>
-    </div>
-  );
-}
-
-interface ModeProps {
-  status: 'loading' | 'ready' | 'error';
-  pool: ItemEntry[];
-  hoard: Hoard | null;
-  setHoard: (hoard: Hoard | null) => void;
-}
-
-function TierPicker({
-  tierId,
-  setTierId,
-}: {
-  tierId: number;
-  setTierId: (id: number) => void;
-}) {
-  const { t } = useT();
-  return (
-    <div className="flex flex-wrap gap-2">
-      {TIERS.map((option) => (
-        <Button
-          key={option.id}
-          onClick={() => setTierId(option.id)}
-          variant={option.id === tierId ? 'primary' : 'secondary'}
-          className="h-auto flex-col items-start px-4 text-left"
-          aria-pressed={option.id === tierId}
-          aria-label={`${t('dm.loot.tierLabel', { n: option.id })} ${t('dm.loot.tierLevels', { min: option.minLevel, max: option.maxLevel })}`}
-        >
-          <span className="block font-display font-bold text-ink-50">
-            {t('dm.loot.tierLabel', { n: option.id })}
-          </span>
-          <span className="block text-xs text-ink-400">
-            {t('dm.loot.tierLevels', { min: option.minLevel, max: option.maxLevel })}
-          </span>
-        </Button>
-      ))}
-    </div>
-  );
-}
-
-function TierMode({ status, pool, hoard, setHoard }: ModeProps) {
-  const { t } = useT();
-  const [tierId, setTierId] = useState(1);
-  const tier = TIERS.find((t) => t.id === tierId)!;
-
-  const itemsByRarity = useMemo(() => {
-    return pool.filter((item) => rarityMatches(item.rarity, tier.rarities));
-  }, [pool, tier]);
-
-  const rollItems = (): HoardItem[] => {
-    const itemCount = rollExpression(tier.itemDice)?.total ?? 0;
-    return pickRandom(itemsByRarity, itemCount).map((item) => ({ item }));
-  };
-
-  const generate = () => {
-    const gold = (rollExpression(tier.coinDice)?.total ?? 0) * tier.coinMultiplier;
-    const gemCount = rollExpression('2d4')?.total ?? 0;
-    setHoard({ gold, gemCount, gemValue: tier.gemValue, items: rollItems() });
-  };
-
-  return (
-    <div className="flex flex-col gap-4">
-      <TierPicker tierId={tierId} setTierId={setTierId} />
-
-      <div className="flex flex-wrap gap-2">
-        <Button
-          onClick={generate}
-          disabled={status !== 'ready'}
-          variant="primary"
-          size="lg"
-          className="font-display font-bold"
-        >
-          <Dices size={20} />
-          {status === 'ready' ? t('dm.loot.generateHoard') : t('dm.loot.loadingItems')}
-        </Button>
-        {hoard && (
-          <Button onClick={() => setHoard({ ...hoard, items: rollItems() })} size="lg">
-            <RefreshCw size={16} /> {t('dm.loot.rerollItems')}
-          </Button>
-        )}
-      </div>
-
-      <HoardResult hoard={hoard} />
-    </div>
-  );
-}
-
-function averageLevel(levels: number[]): number {
-  if (levels.length === 0) return 1;
-  return Math.round(levels.reduce((sum, l) => sum + l, 0) / levels.length);
-}
-
-function manualPartyAverage(party: PartyMember[]): number {
-  const count = party.reduce((sum, member) => sum + member.count, 0);
-  if (count === 0) return 1;
-  return Math.round(
-    party.reduce((sum, member) => sum + member.level * member.count, 0) / count,
-  );
-}
-
-function PartyMode({ status, pool, hoard, setHoard }: ModeProps) {
-  const { t } = useT();
+  const { data, blocked, updateSettings, addResult, updateResult } = useLootStore();
+  const settings = data.settings;
   const characters = useCharacterList();
-  const [source, setSource] = useState<'manual' | 'saved'>('manual');
-  const [manualParty, setManualParty] = useState<PartyMember[]>([{ level: 1, count: 4 }]);
-  const [customSelection, setCustomSelection] = useState<Set<string> | null>(null);
-  const selectedIds = customSelection ?? new Set(characters.map((c) => c.id));
-  const selected = characters.filter((c) => selectedIds.has(c.id));
-
-  const toggle = (id: string) => {
-    const next = new Set(selectedIds);
-    if (next.has(id)) next.delete(id);
-    else next.add(id);
-    setCustomSelection(next);
-  };
-
-  const partyLevel =
-    source === 'manual'
-      ? manualPartyAverage(manualParty)
-      : averageLevel(selected.map((character) => character.level));
+  const edition = useContentModeStore((state) => state.mode);
+  const [retryKey, setRetryKey] = useState(0);
+  const { status, items } = useCategoryItems(
+    getCategory('items'),
+    false,
+    undefined,
+    undefined,
+    retryKey,
+  );
+  const catalog = useMemo(() => lootCatalog(items), [items]);
+  const byId = useMemo(() => new Map(items.map((item) => [item.id, item])), [items]);
+  const [message, setMessage] = useState({ text: '', error: false, sequence: 0 });
+  const feedback = (text: string, error = false) =>
+    setMessage((previous) => ({ text, error, sequence: previous.sequence + 1 }));
+  const selectedIds =
+    settings.selectedIds ??
+    characters
+      .filter((character) => !isDmCharacter(character))
+      .map((character) => character.id);
+  const selected = characters.filter((character) => selectedIds.includes(character.id));
+  const groupsValid = settings.groups.every(
+    (group) =>
+      validPartyNumber(group.count, MAX_PARTY_COUNT) && validPartyNumber(group.level, 20),
+  );
+  const savedValid = selected.every(
+    (character) =>
+      Number.isInteger(character.level) && character.level >= 1 && character.level <= 20,
+  );
   const partySize =
-    source === 'manual'
-      ? manualParty.reduce((sum, member) => sum + member.count, 0)
+    settings.source === 'manual'
+      ? settings.groups.reduce(
+          (sum, group) => sum + (groupsValid ? Number(group.count) : 0),
+          0,
+        )
       : selected.length;
-  const tier = tierForLevel(partyLevel);
-
-  const poolFor = (rarities: string[]): ItemEntry[] => {
-    return pool.filter(
-      (item) =>
-        rarityMatches(item.rarity, rarities) &&
-        (source === 'manual' || isUsableByParty(item, selected)),
-    );
-  };
-
-  const rollHoardItems = (candidates: ItemEntry[], count: number): HoardItem[] =>
-    pickRandom(candidates, count).map((item) =>
-      source === 'saved'
-        ? { item, usableBy: usableByNames(item, selected, t('character.unnamed')) }
-        : { item },
-    );
-
-  const generateMinor = () => {
-    const gold =
-      (rollExpression('2d6')?.total ?? 0) * Math.max(1, tier.coinMultiplier / 2);
-    const itemCount = (rollExpression('1d2')?.total ?? 1) - 1;
-    setHoard({
-      gold,
-      gemCount: 0,
-      gemValue: tier.gemValue,
-      items: rollHoardItems(poolFor([tier.rarities[0]!]), itemCount),
-    });
-  };
-
-  const generateMajor = () => {
-    const gold = (rollExpression(tier.coinDice)?.total ?? 0) * tier.coinMultiplier;
-    const gemCount = rollExpression('2d4')?.total ?? 0;
-    const itemCount = Math.max(1, rollExpression(tier.itemDice)?.total ?? 1);
-    setHoard({
-      gold,
-      gemCount,
-      gemValue: tier.gemValue,
-      items: rollHoardItems(poolFor(tier.rarities), itemCount),
-    });
+  const partyLevel =
+    settings.source === 'manual'
+      ? groupsValid
+        ? Math.round(
+            settings.groups.reduce(
+              (sum, group) => sum + Number(group.count) * Number(group.level),
+              0,
+            ) / partySize,
+          )
+        : 1
+      : selected.length && savedValid
+        ? Math.round(
+            selected.reduce((sum, character) => sum + character.level, 0) /
+              selected.length,
+          )
+        : 1;
+  const partyValid =
+    settings.source === 'manual' ? groupsValid : savedValid && partySize > 0;
+  const contextFor = (reward: LootReward): LootContext => ({
+    mode: settings.mode,
+    reward:
+      settings.mode === 'party'
+        ? reward === 'minor'
+          ? 'minor'
+          : 'major'
+        : settings.mode === 'tier'
+          ? 'hoard'
+          : 'wildcard',
+    tierId:
+      settings.mode === 'party'
+        ? tierForLevel(partyLevel).id
+        : settings.mode === 'tier'
+          ? settings.tierId
+          : settings.wildcardTierId,
+    partySize: settings.mode === 'party' ? partySize : 0,
+    partyLevel: settings.mode === 'party' ? partyLevel : 1,
+    party:
+      settings.mode === 'party' && settings.source === 'saved'
+        ? selected.map(
+            ({
+              id,
+              name,
+              level,
+              className,
+              armorProficiencies,
+              weaponProficiencies,
+            }) => ({
+              id,
+              name,
+              level,
+              className,
+              armorProficiencies,
+              weaponProficiencies,
+            }),
+          )
+        : [],
+    edition,
+    includeUnknown: settings.mode === 'wildcard' && settings.includeUnknown,
+  });
+  const context = contextFor('major');
+  const mainPool = lootCandidates(catalog.valid, context);
+  const minorPool = lootCandidates(catalog.valid, contextFor('minor'));
+  const ready =
+    status === 'ready' && !blocked && (settings.mode !== 'party' || partyValid);
+  const result = data.history.find((result) => result.id === data.selectedId);
+  const pending = Boolean(
+    result &&
+    JSON.stringify(result.context) !== JSON.stringify(contextFor(result.context.reward)),
+  );
+  const generate = (reward: LootReward) => {
+    try {
+      const result = generateLoot(catalog.valid, contextFor(reward));
+      addResult(result);
+      feedback(
+        t('dm.loot.resultGenerated', {
+          gold: result.gold.toLocaleString(locale),
+          unit: t('dm.loot.goldUnit'),
+          count: result.items.length,
+        }),
+      );
+    } catch {
+      feedback(t('dm.loot.rollError'), true);
+    }
   };
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className={panelClass('border-ink-700 p-4')}>
-        <div className="mb-4 flex flex-wrap gap-2">
-          <ToggleChip
-            active={source === 'manual'}
-            onClick={() => setSource('manual')}
-            className="text-sm"
-          >
-            {t('dm.loot.manualParty')}
-          </ToggleChip>
-          <ToggleChip
-            active={source === 'saved'}
-            onClick={() => setSource('saved')}
-            className="text-sm"
-          >
-            {t('dm.loot.savedCharacters')}
-          </ToggleChip>
-        </div>
-
-        {source === 'manual' ? (
-          <div className="space-y-3">
-            {manualParty.map((member, index) => (
-              <div key={index} className="party-row">
-                <label className="flex flex-col gap-1 text-sm">
-                  <span className="text-xs text-ink-400">
-                    {t('dm.loot.characterCount')}
-                  </span>
-                  <TextInput
-                    type="number"
-                    min={1}
-                    value={member.count}
-                    onChange={(event) =>
-                      setManualParty((party) =>
-                        party.map((item, itemIndex) =>
-                          itemIndex === index
-                            ? { ...item, count: event.target.valueAsNumber || 0 }
-                            : item,
-                        ),
-                      )
-                    }
-                    className="w-full"
-                  />
-                </label>
-                <label className="flex flex-col gap-1 text-sm">
-                  <span className="text-xs text-ink-400">
-                    {t('dm.loot.characterLevel')}
-                  </span>
-                  <TextInput
-                    type="number"
-                    min={1}
-                    max={20}
-                    value={member.level}
-                    onChange={(event) =>
-                      setManualParty((party) =>
-                        party.map((item, itemIndex) =>
-                          itemIndex === index
-                            ? { ...item, level: event.target.valueAsNumber || 1 }
-                            : item,
-                        ),
-                      )
-                    }
-                    className="w-full"
-                  />
-                </label>
-                {manualParty.length > 1 && (
-                  <IconButton
-                    label={t('dm.loot.removeLevelGroup')}
-                    onClick={() =>
-                      setManualParty((party) =>
-                        party.filter((_, itemIndex) => itemIndex !== index),
-                      )
-                    }
-                    variant="ghost"
-                    className="text-ink-400 hover:text-red-400"
-                  >
-                    <Trash2 size={16} />
-                  </IconButton>
-                )}
-              </div>
-            ))}
-            <Button
-              onClick={() =>
-                setManualParty((party) => [...party, { level: 1, count: 1 }])
-              }
-              size="sm"
+    <div className="page-shell space-y-6">
+      <div>
+        <h1 className="page-title">{t('dm.loot.title')}</h1>
+        <p className="page-description">{t('dm.loot.description')}</p>
+      </div>
+      <LootDataControls feedback={feedback} />
+      <fieldset
+        disabled={blocked}
+        className="min-w-0 space-y-4"
+        aria-label={t('dm.loot.configuration')}
+      >
+        <nav className="flex flex-wrap gap-2" aria-label={t('dm.loot.modeNav')}>
+          {(['party', 'tier', 'wildcard'] as const).map((mode) => (
+            <ToggleChip
+              key={mode}
+              active={mode === settings.mode}
+              onClick={() => updateSettings({ mode })}
             >
-              <Plus size={14} /> {t('dm.loot.addLevelGroup')}
-            </Button>
-          </div>
-        ) : characters.length > 0 ? (
-          <>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-ink-400">
-              {t('dm.loot.partyCount', {
-                selected: selected.length,
-                total: characters.length,
-              })}
-            </p>
-            <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {characters.map((character) => (
-                <li key={character.id}>
-                  <label className="flex items-center gap-2 rounded-md border border-ink-700 bg-ink-950 px-3 py-2 text-sm hover:bg-ink-800">
+              {t(
+                `dm.loot.${({ party: 'modeParty', tier: 'modeTier', wildcard: 'modeWildcard' } as const)[mode]}`,
+              )}
+            </ToggleChip>
+          ))}
+        </nav>
+        <div className={panelClass('space-y-4 p-4')}>
+          <p className="text-sm text-ink-400">
+            {t('dm.loot.edition', { edition: t(`dm.loot.editions.${edition}`) })}
+          </p>
+          {settings.mode === 'party' ? (
+            <>
+              <LootPartyEditor
+                settings={settings}
+                characters={characters}
+                selectedIds={selectedIds}
+                update={updateSettings}
+              />
+              <p className="text-sm text-ink-300">
+                {t('dm.loot.effectiveTier', {
+                  tier: t('dm.loot.tierLabel', { n: context.tierId }),
+                  level: partyLevel,
+                })}
+              </p>
+              {settings.source === 'saved' && selected.length === 0 && (
+                <p className="notice">{t('dm.loot.emptySelection')}</p>
+              )}
+              {settings.source === 'saved' && !savedValid && (
+                <p role="alert" className="notice notice-error">
+                  {t('dm.loot.invalidLevel')}
+                </p>
+              )}
+            </>
+          ) : (
+            <>
+              <div className="flex flex-wrap gap-2">
+                {TIERS.map((tier) => (
+                  <ToggleChip
+                    key={tier.id}
+                    active={tier.id === context.tierId}
+                    className="text-left"
+                    aria-label={`${t('dm.loot.tierLabel', { n: tier.id })} ${t('dm.loot.tierLevels', { min: tier.minLevel, max: tier.maxLevel })}`}
+                    onClick={() =>
+                      updateSettings(
+                        settings.mode === 'tier'
+                          ? { tierId: tier.id }
+                          : { wildcardTierId: tier.id },
+                      )
+                    }
+                  >
+                    <span>
+                      <span className="block font-semibold">
+                        {t('dm.loot.tierLabel', { n: tier.id })}
+                      </span>
+                      <span className="block text-xs">
+                        {t('dm.loot.tierLevels', {
+                          min: tier.minLevel,
+                          max: tier.maxLevel,
+                        })}
+                      </span>
+                    </span>
+                  </ToggleChip>
+                ))}
+              </div>
+              {settings.mode === 'wildcard' && (
+                <>
+                  <label className="flex cursor-pointer items-start gap-3 py-2 text-sm">
                     <input
                       type="checkbox"
-                      checked={selectedIds.has(character.id)}
-                      onChange={() => toggle(character.id)}
-                      className="accent-arcane-500"
+                      className="mt-1 accent-arcane-500"
+                      checked={settings.includeUnknown}
+                      onChange={(event) =>
+                        updateSettings({ includeUnknown: event.target.checked })
+                      }
                     />
-                    <span className="flex-1 truncate text-ink-50">
-                      {character.name || t('character.unnamed')}
-                      {isDmCharacter(character) && (
-                        <span className="badge ml-1.5 border-ember-500/50 text-ember-400">
-                          {t('character.dmBadge')}
-                        </span>
-                      )}
-                    </span>
-                    <span className="shrink-0 text-xs text-ink-400">
-                      {t('dm.loot.level', { level: character.level })}
-                      {character.className && ` ${character.className}`}
-                      {character.subclass && ` (${character.subclass})`}
-                    </span>
+                    {t('dm.loot.includeUnknown')}
                   </label>
-                </li>
-              ))}
-            </ul>
-          </>
-        ) : (
-          <p className="text-sm text-ink-300">
-            {t('dm.loot.noCharactersYet')}{' '}
-            <Link to="/character" className="text-arcane-300 hover:underline">
-              {t('dm.loot.createYourParty')}
-            </Link>
+                  {settings.includeUnknown && (
+                    <p className="notice">{t('dm.loot.unknownHelp')}</p>
+                  )}
+                </>
+              )}
+            </>
+          )}
+        </div>
+        {status === 'loading' && (
+          <p role="status" className="notice">
+            {t('dm.loot.loadingItems')}
           </p>
         )}
-        <p className="mt-3 text-xs text-ink-400">
-          {t('dm.loot.effectiveTier', {
-            tier: t('dm.loot.tierLabel', { n: tier.id }),
-            level: partyLevel,
-          })}
+        {status === 'error' && (
+          <div role="alert" className="notice notice-error">
+            <p>{t('dm.loot.loadingError')}</p>
+            <Button className="mt-3" onClick={() => setRetryKey((key) => key + 1)}>
+              {t('dm.loot.retry')}
+            </Button>
+          </div>
+        )}
+        {status === 'ready' && mainPool.candidates.length === 0 && (
+          <p role="status" className="notice">
+            {t(
+              mainPool.visible.length === 0
+                ? 'dm.loot.emptyPool'
+                : 'dm.loot.noCandidates',
+            )}
+          </p>
+        )}
+        {status === 'ready' &&
+          settings.mode === 'party' &&
+          mainPool.candidates.length > 0 &&
+          minorPool.candidates.length === 0 && (
+            <p className="notice">{t('dm.loot.noMinorCandidates')}</p>
+          )}
+        {catalog.skipped.length > 0 && (
+          <details className={panelClass('p-4 text-sm')}>
+            <summary className="cursor-pointer">
+              {t('dm.loot.skippedItems', { count: catalog.skipped.length })}
+            </summary>
+            <p className="mt-3 text-ink-300">{t('dm.loot.skippedHelp')}</p>
+            <ul className="mt-3 max-h-48 space-y-2 overflow-y-auto [overflow-wrap:anywhere]">
+              {catalog.skipped.map((item) => (
+                <li key={item.id}>{item.name}</li>
+              ))}
+            </ul>
+            <Link to="/homebrew" className="back-link mt-3 inline-flex">
+              {t('nav.homebrew')}
+            </Link>
+          </details>
+        )}
+        <div className="flex flex-wrap gap-2">
+          {settings.mode === 'party' && (
+            <Button
+              size="lg"
+              disabled={!ready || minorPool.candidates.length === 0}
+              onClick={() => generate('minor')}
+            >
+              <Dices size={18} aria-hidden="true" />
+              {t('dm.loot.minorReward')}
+            </Button>
+          )}
+          <Button
+            size="lg"
+            variant="primary"
+            disabled={!ready || mainPool.candidates.length === 0}
+            onClick={() => generate('major')}
+          >
+            <Dices size={20} aria-hidden="true" />
+            {t(
+              settings.mode === 'party'
+                ? 'dm.loot.majorReward'
+                : settings.mode === 'tier'
+                  ? 'dm.loot.generateHoard'
+                  : 'dm.loot.rollWildcardLoot',
+            )}
+          </Button>
+        </div>
+        {settings.mode === 'party' && (
+          <p className="text-sm text-ink-400">{t('dm.loot.minorMajorNote')}</p>
+        )}
+      </fieldset>
+      <div aria-live="polite" aria-atomic="true" className="min-h-6">
+        <p
+          key={message.sequence}
+          role={message.error ? 'alert' : undefined}
+          className={message.error ? 'notice notice-error' : 'text-sm text-ink-300'}
+        >
+          {message.text}
         </p>
       </div>
-
-      <div className="flex flex-wrap gap-2">
-        <Button
-          onClick={generateMinor}
-          disabled={status !== 'ready' || partySize === 0}
-          size="lg"
-          className="font-bold"
-        >
-          <Dices size={18} /> {t('dm.loot.minorReward')}
-        </Button>
-        <Button
-          onClick={generateMajor}
-          disabled={status !== 'ready' || partySize === 0}
-          variant="primary"
-          size="lg"
-          className="font-display font-bold"
-        >
-          <Dices size={20} /> {t('dm.loot.majorReward')}
-        </Button>
-      </div>
-      <p className="text-xs text-ink-500">{t('dm.loot.minorMajorNote')}</p>
-
-      <HoardResult hoard={hoard} />
-    </div>
-  );
-}
-
-function WildcardMode({ status, pool, hoard, setHoard }: ModeProps) {
-  const { t } = useT();
-  const [tierId, setTierId] = useState(1);
-  const tier = TIERS.find((option) => option.id === tierId)!;
-  const ceiling = tier.rarities[tier.rarities.length - 1]!;
-
-  const cappedPool = useMemo(
-    () => pool.filter((item) => rarityAtMost(item.rarity, ceiling)),
-    [pool, ceiling],
-  );
-
-  const generate = () => {
-    const gold = (rollExpression('3d6')?.total ?? 0) * 5;
-    const itemCount = rollExpression('1d2')?.total ?? 1;
-    setHoard({
-      gold,
-      gemCount: 0,
-      gemValue: 0,
-      items: pickRandom(cappedPool, itemCount).map((item) => ({ item })),
-    });
-  };
-
-  return (
-    <div className="flex flex-col gap-4">
-      <TierPicker tierId={tierId} setTierId={setTierId} />
-      <Button
-        onClick={generate}
-        disabled={status !== 'ready'}
-        variant="primary"
-        size="lg"
-        className="self-start font-display font-bold"
-      >
-        <Shuffle size={20} />
-        {status === 'ready' ? t('dm.loot.rollWildcardLoot') : t('dm.loot.loadingItems')}
-      </Button>
-      <p className="text-xs text-ink-500">
-        {t('dm.loot.wildcardNote', {
-          ceiling,
-          tier: t('dm.loot.tierLabel', { n: tier.id }),
-        })}
-      </p>
-
-      <HoardResult hoard={hoard} />
-    </div>
-  );
-}
-
-function HoardResult({ hoard }: { hoard: Hoard | null }) {
-  const { t } = useT();
-  if (!hoard) return null;
-
-  return (
-    <div className="flex flex-col gap-4">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div className={panelClass('flex items-center gap-3 border-ink-700 p-4')}>
-          <Coins className="text-ember-400" size={28} aria-hidden="true" />
-          <div>
-            <p className="text-xs uppercase text-ink-400">{t('dm.loot.coins')}</p>
-            <p className="font-display text-2xl font-bold text-ink-50">
-              {hoard.gold.toLocaleString()} {t('dm.loot.goldUnit')}
-            </p>
-          </div>
-        </div>
-        {hoard.gemCount > 0 && (
-          <div className={panelClass('flex items-center gap-3 border-ink-700 p-4')}>
-            <Gem className="text-arcane-300" size={28} aria-hidden="true" />
-            <div>
-              <p className="text-xs uppercase text-ink-400">{t('dm.loot.gemsAndArt')}</p>
-              <p className="font-display text-2xl font-bold text-ink-50">
-                {hoard.gemCount} × {hoard.gemValue} {t('dm.loot.goldUnit')}
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div className={panelClass('border-ink-700 p-4')}>
-        <p className="mb-2 text-xs uppercase text-ink-400">{t('dm.loot.magicItems')}</p>
-        {hoard.items.length === 0 ? (
-          <p className="text-ink-400">{t('dm.loot.noMagicItems')}</p>
-        ) : (
-          <ul className="flex flex-col gap-2">
-            {hoard.items.map(({ item, usableBy }) => (
-              <li key={item.id} className="text-sm">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <Link
-                    to={`/compendium/items/${item.id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-ink-50 hover:text-arcane-300 hover:underline"
-                  >
-                    {item.name}
-                    <ExternalLink size={12} className="text-ink-500" aria-hidden="true" />
-                  </Link>
-                  <span className="text-ink-400">
-                    {item.type} - {item.rarity}
-                  </span>
-                </div>
-                {usableBy && (
-                  <p className="text-xs text-ink-500">
-                    {t('dm.loot.usableBy', {
-                      names:
-                        usableBy.length > 0 ? usableBy.join(', ') : t('dm.loot.none'),
-                    })}
-                  </p>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      {result ? (
+        <LootResultPanel
+          key={result.id}
+          result={result}
+          catalog={byId}
+          canonical={catalog.valid}
+          pending={pending}
+          canReroll={
+            status === 'ready' &&
+            !blocked &&
+            lootCandidates(catalog.valid, result.context).candidates.length > 0
+          }
+          reroll={() => {
+            try {
+              updateResult(result.id, {
+                items: rollLootItems(catalog.valid, result.context),
+              });
+              feedback(t('dm.loot.itemsRerolled'));
+            } catch {
+              feedback(t('dm.loot.rollError'), true);
+            }
+          }}
+          feedback={feedback}
+        />
+      ) : (
+        <p className="empty-state">{t('dm.loot.initialResult')}</p>
+      )}
+      <LootHistory />
+      <p className="text-xs text-ink-400">{t('dm.loot.footerNote')}</p>
     </div>
   );
 }

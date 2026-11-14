@@ -2,6 +2,14 @@ import { describe, expect, it } from 'vitest';
 import * as format from './format';
 
 describe('data formatters', () => {
+  it('formats source-defined free and variable action times', () => {
+    expect(format.formatCastingTime(['Free', 'Varies'])).toBe('Free or Varies');
+    expect(format.formatCastingTime(['Free', 'Varies', 'Custom'], 'pl')).toBe(
+      'Bez akcji lub Zmienny lub Custom',
+    );
+    expect(format.formatSize(['V'])).toBe('Varies');
+    expect(format.formatSize(['V'], 'pl')).toBe('Zmienny');
+  });
   it('formats generated labels in Polish', () => {
     expect(format.formatCastingTime([{ number: 1, unit: 'action' }], 'pl')).toBe(
       '1 akcję',

@@ -1,7 +1,7 @@
-import { Button } from '@/features/ui/primitives';
-import { ArrowLeft, ChevronRight, Map as MapIcon } from 'lucide-react';
-import { useMemo, useRef, useState, type MouseEvent } from 'react';
-import { useParams } from 'react-router-dom';
+import { Button, IconButton } from '@/features/ui/primitives';
+import { ArrowLeft, Map as MapIcon, X } from 'lucide-react';
+import { useEffect, useMemo, useState, type MouseEvent } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import { Link } from '@/i18n/path';
 import { useNavigate } from '@/i18n/pathUtils';
 import { useT } from '@/i18n/useT';
@@ -9,385 +9,328 @@ import { useSeo } from '@/seo/useSeo';
 import { NotFoundPage } from '@/features/NotFoundPage';
 import { getCampaignMap } from '@/features/campaign-map/maps';
 import { useLightbox } from '@/features/ui/lightboxStore';
+import { useDialogFocus } from '@/features/ui/useDialogFocus';
+import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
+import { buttonClass } from '@/features/ui/styles';
 import { sanitizeWikiHtml } from './html';
 import { campaignTitle, mergeCampaigns, type WikiCampaignView } from './campaigns';
 import { useWiki } from './useWiki';
+import { WikiCatalog } from './WikiCatalog';
+import { wikiPageCount } from './catalog';
+import { wikiText } from './content';
 import type { WikiPage as WikiPageData } from './types';
 import { isWikiPageIndexable, WIKI_CONTENT_LOCALE } from './indexability';
 
-const WIKI_ALTERNATE_LOCALES = [WIKI_CONTENT_LOCALE] as const;
-
-function seoExcerpt(page: WikiPageData): string {
-  const text = page.html
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  const value = [page.category, text].filter(Boolean).join('. ');
-  return value.length <= 155 ? value : `${value.slice(0, 152).trimEnd()}...`;
-}
-
 export function WikiPage() {
   const { locale, t } = useT();
-  const { campaignId: routeCampaignId, slug } = useParams<{
-    campaignId?: string;
-    slug?: string;
-  }>();
-  const navigate = useNavigate();
+  const { campaignId, slug } = useParams<{ campaignId?: string; slug?: string }>();
   const [retryKey, setRetryKey] = useState(0);
-  const articleRef = useRef<HTMLElement>(null);
-  const openLightbox = useLightbox((state) => state.open);
+  const [catalogOpen, setCatalogOpen] = useState(false);
+  const closeCatalog = () => setCatalogOpen(false);
+  const dialogRef = useDialogFocus(catalogOpen, closeCatalog);
   const { status, data } = useWiki(retryKey);
   const campaigns = useMemo(() => mergeCampaigns(data?.campaigns ?? []), [data]);
-  const sortedCampaigns = useMemo(
-    () =>
-      [...campaigns].sort((a, b) =>
-        campaignTitle(a, t).localeCompare(campaignTitle(b, t)),
-      ),
-    [campaigns, t],
+  const sorted = [...campaigns].sort((a, b) =>
+    campaignTitle(a, t).localeCompare(campaignTitle(b, t), locale),
   );
-  const legacyPage = useMemo(() => {
-    if (
-      !routeCampaignId ||
-      slug ||
-      campaigns.some((campaign) => campaign.id === routeCampaignId)
-    ) {
-      return null;
-    }
-    return (
-      campaigns
-        .flatMap((campaign) => campaign.pages)
-        .find((page) => page.slug === routeCampaignId) ?? null
-    );
-  }, [campaigns, routeCampaignId, slug]);
-  const selectedCampaign = useMemo(() => {
-    if (legacyPage) {
-      return campaigns.find((campaign) => campaign.id === legacyPage.campaignId);
-    }
-    if (routeCampaignId) {
-      return campaigns.find((campaign) => campaign.id === routeCampaignId);
-    }
-    return campaigns.length === 1 ? campaigns[0] : undefined;
-  }, [campaigns, legacyPage, routeCampaignId]);
-  const selected = useMemo(() => {
-    if (!selectedCampaign) return undefined;
-    if (legacyPage) return legacyPage;
-    if (!slug) {
-      return (
-        selectedCampaign.pages.find((page) => page.slug === 'home') ??
-        selectedCampaign.pages[0]
-      );
-    }
-    return selectedCampaign.pages.find((page) => page.slug === slug);
-  }, [legacyPage, selectedCampaign, slug]);
-
-  const routeNotFound =
-    status === 'ready' &&
-    ((Boolean(routeCampaignId) && !selectedCampaign && !legacyPage) ||
-      Boolean(selectedCampaign && slug && !selected));
-  const hasWikiContent = !routeCampaignId
-    ? true
-    : selected
-      ? isWikiPageIndexable(selected)
-      : Boolean(selectedCampaign?.pages.some(isWikiPageIndexable));
-  const wikiSeoIndexable = locale === WIKI_CONTENT_LOCALE && hasWikiContent;
-
+  const legacy =
+    campaignId && !slug && !campaigns.some((campaign) => campaign.id === campaignId)
+      ? campaigns
+          .flatMap((campaign) => campaign.pages)
+          .find((page) => page.slug === campaignId)
+      : undefined;
+  const campaign =
+    campaigns.find((entry) => entry.id === (legacy?.campaignId ?? campaignId)) ??
+    (!campaignId && campaigns.length === 1 ? campaigns[0] : undefined);
+  const pages = campaign?.pages.filter(isWikiPageIndexable) ?? [];
+  const requested =
+    legacy ?? (slug ? campaign?.pages.find((page) => page.slug === slug) : undefined);
+  const selected = requested
+    ? isWikiPageIndexable(requested)
+      ? requested
+      : undefined
+    : slug
+      ? undefined
+      : (pages.find((page) => page.slug === 'home') ?? pages[0]);
+  const missing =
+    status === 'ready' && ((campaignId && !campaign) || (slug && !requested));
+  const hasMap = campaign && getCampaignMap(campaign.id);
+  const indexable =
+    locale === WIKI_CONTENT_LOCALE &&
+    !missing &&
+    (!requested || isWikiPageIndexable(requested)) &&
+    (!campaignId || Boolean(pages.length || hasMap));
+  const title =
+    selected?.title ?? (campaign ? campaignTitle(campaign, t) : t('wiki.chooseCampaign'));
+  const excerpt = selected
+    ? [selected.category, wikiText(selected.html)].filter(Boolean).join('. ')
+    : campaign
+      ? t('wiki.campaignNoPages')
+      : t('seo.pageDescriptions.wiki');
   useSeo(
-    selected
-      ? selected.title
-      : selectedCampaign
-        ? campaignTitle(selectedCampaign, t)
-        : t('seo.pageTitles.wiki'),
-    selected
-      ? seoExcerpt(selected) || t('seo.pageDescriptions.wiki')
-      : selectedCampaign
-        ? t('wiki.campaignNoPages')
-        : t('seo.pageDescriptions.wiki'),
-    status === 'ready' &&
-      !routeNotFound &&
-      Boolean(selectedCampaign || selected) &&
-      wikiSeoIndexable,
-    wikiSeoIndexable ? WIKI_ALTERNATE_LOCALES : [],
+    title,
+    excerpt.length > 155 ? `${excerpt.slice(0, 152).trimEnd()}...` : excerpt,
+    status === 'ready' && indexable,
+    indexable ? [WIKI_CONTENT_LOCALE] : [],
   );
 
-  const html = useMemo(() => {
-    if (!selected) return '';
-    const sanitized = sanitizeWikiHtml(
-      selected.html.replaceAll('%BASE%', import.meta.env.BASE_URL),
-      t('common.imageViewer'),
-    );
-    return sanitized
-      .replace(
-        /(<div class="wiki-locked"[^>]*>)[^<]*(<\/div>)/g,
-        `$1${t('wiki.notYetUnlocked')}$2`,
-      )
-      .replace(/<p>Nothing here<\/p>/gi, `<p>${t('wiki.emptyPage')}</p>`);
-  }, [selected, t]);
-
-  const handleClick = (event: MouseEvent<HTMLDivElement>) => {
-    const eventTarget = event.target as HTMLElement;
-    const image =
-      eventTarget.closest('img') ??
-      eventTarget.closest('[data-image-viewer]')?.querySelector('img');
-    if (image) {
-      event.preventDefault();
-      openLightbox(image.currentSrc || image.src, image.alt);
-      return;
-    }
-
-    const anchor = eventTarget.closest('a[data-wiki-link]');
-    if (!anchor) return;
-    event.preventDefault();
-    const target = anchor.getAttribute('data-wiki-link');
-    if (target) navigate(`/wiki/${target}`);
-  };
-
-  if (status === 'loading') {
-    return <p className="p-6 text-ink-400">{t('wiki.loading')}</p>;
-  }
-  if (status === 'error') {
+  if (status !== 'ready')
     return (
-      <div className="text-center text-ink-300 page-shell">
-        <h1 className="mb-3 text-ink-50 page-title">{t('wiki.campaignWiki')}</h1>
-        <p>
-          {t('wiki.noContentYet')}{' '}
-          <code className="rounded bg-ink-800 px-1">
-            npm run wiki:build -- --input &lt;vault&gt;
-          </code>
-          .
-        </p>
-        <Button
-          type="button"
-          onClick={() => setRetryKey((value) => value + 1)}
-          variant="secondary"
-          className="mt-6"
-        >
-          {t('common.retry')}
-        </Button>
+      <div className="page-shell page-shell-reading">
+        <h1 className="page-title">{t('wiki.campaignWiki')}</h1>
+        {status === 'loading' ? (
+          <p role="status" className="notice mt-6">
+            {t('wiki.loading')}
+          </p>
+        ) : (
+          <>
+            <p role="alert" className="notice notice-error mt-6">
+              {t('wiki.loadError')}
+            </p>
+            <Button onClick={() => setRetryKey((value) => value + 1)} className="mt-4">
+              {t('common.retry')}
+            </Button>
+          </>
+        )}
       </div>
     );
-  }
-  if (routeNotFound) return <NotFoundPage />;
-  if (!selectedCampaign && sortedCampaigns.length > 1) {
-    return <CampaignChooser campaigns={sortedCampaigns} />;
-  }
-  if (!selectedCampaign) {
+  if (missing) return <NotFoundPage />;
+  if (!campaign && sorted.length > 1)
     return (
-      <div className="text-center text-ink-300 page-shell">
-        <h1 className="mb-3 text-ink-50 page-title">{t('wiki.campaignWiki')}</h1>
-        <p>{t('wiki.noCampaigns')}</p>
-      </div>
-    );
-  }
-  if (!selected) {
-    return <CampaignLanding campaign={selectedCampaign} />;
-  }
-
-  const grouped = groupByCategory(selectedCampaign.pages);
-  const selectedCampaignTitle = campaignTitle(selectedCampaign, t);
-  const map = getCampaignMap(selectedCampaign.id);
-  const explicitPage = Boolean(slug || legacyPage);
-
-  return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <div className="flex min-h-0 flex-1">
-        <aside
-          className={[
-            'w-full shrink-0 overflow-y-auto border-r border-ink-700 bg-ink-950/40 md:w-80',
-            explicitPage ? 'hidden md:block' : 'block',
-          ].join(' ')}
-        >
-          <nav
-            aria-label={t('wiki.breadcrumbs')}
-            className="border-b border-ink-800 px-4 py-3"
-          >
-            <ol className="flex min-w-0 flex-wrap items-center gap-1 text-xs">
-              <li>
-                <Link
-                  to="/wiki"
-                  className="text-ink-400 transition-colors hover:text-ink-100"
-                >
-                  {t('nav.wiki')}
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-ink-500">
-                <ChevronRight size={13} />
-              </li>
-              <li className="min-w-0">
-                <Link
-                  to={`/wiki/${selectedCampaign.id}`}
-                  className="block truncate font-medium text-ink-200 transition-colors hover:text-ink-50"
-                >
-                  {selectedCampaignTitle}
-                </Link>
-              </li>
-              {explicitPage && (
-                <>
-                  <li aria-hidden="true" className="text-ink-500">
-                    <ChevronRight size={13} />
-                  </li>
-                  <li aria-current="page" className="min-w-0 truncate text-ink-500">
-                    {selected.title}
-                  </li>
-                </>
-              )}
-            </ol>
-          </nav>
-          <div className="p-3">
-            {map && (
-              <Link
-                to={`/wiki/${selectedCampaign.id}/map`}
-                className="group flex items-center gap-3 rounded-lg border border-ember-500/40 bg-ember-500/10 px-3 py-3 text-sm text-ink-50 transition-colors hover:border-ember-400 hover:bg-ember-500/20"
-              >
-                <MapIcon size={19} aria-hidden="true" className="text-ember-400" />
-                <span className="min-w-0">
-                  <span className="block font-semibold">{t('wiki.chultMap')}</span>
-                  <span className="mt-0.5 block text-xs text-ink-300">
-                    {t('wiki.chultMapSidebarDescription')}
-                  </span>
-                </span>
-              </Link>
-            )}
-          </div>
-          {[...grouped.entries()].map(([category, categoryPages]) => (
-            <div key={category} className="px-3 pb-2 pt-2">
-              <div className="flex items-center justify-between px-2">
-                <h2 className="tracking-[0.12em] text-ember-400 panel-title">
-                  {category}
-                </h2>
-                <span className="rounded-full bg-ink-800 px-2 py-0.5 text-xs text-ink-400">
-                  {categoryPages.length}
-                </span>
-              </div>
-              <div className="ml-2 mt-1 border-l border-ink-700 pl-2">
-                {categoryPages.map((page) => (
-                  <Link
-                    key={page.slug}
-                    to={`/wiki/${selectedCampaign.id}/${page.slug}`}
-                    className={[
-                      'block rounded-md px-3 py-2 text-sm transition-colors',
-                      page.slug === selected.slug
-                        ? 'bg-arcane-700 font-medium text-white'
-                        : 'text-ink-200 hover:bg-ink-800 hover:text-ink-50',
-                    ].join(' ')}
-                  >
-                    {page.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </aside>
-
-        <section
-          className={[
-            'min-w-0 flex-1 overflow-y-auto',
-            explicitPage ? 'block' : 'hidden md:block',
-          ].join(' ')}
-        >
-          <article ref={articleRef} className="page-shell page-shell-reading">
-            {explicitPage && (
-              <Link to={`/wiki/${selectedCampaign.id}`} className="back-link md:hidden">
-                <ArrowLeft size={16} aria-hidden="true" />
-                {t('wiki.allPages')}
-              </Link>
-            )}
-            <h1 className="mb-4 text-ink-50 page-title">{selected.title}</h1>
-            <div
-              className="wiki-content reading-content"
-              onClick={handleClick}
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          </article>
-        </section>
-      </div>
-    </div>
-  );
-}
-
-function CampaignChooser({ campaigns }: { campaigns: WikiCampaignView[] }) {
-  const { locale, t } = useT();
-  const indexable = locale === WIKI_CONTENT_LOCALE;
-  useSeo(
-    t('wiki.chooseCampaign'),
-    t('seo.pageDescriptions.wiki'),
-    indexable,
-    indexable ? WIKI_ALTERNATE_LOCALES : [],
-  );
-
-  return (
-    <div className="page-shell">
-      <p className="text-xs font-bold uppercase tracking-[0.16em] text-ember-400">
-        {t('nav.wiki')}
-      </p>
-      <h1 className="mt-2 text-ink-50 page-title">{t('wiki.chooseCampaign')}</h1>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        {campaigns.map((campaign) => {
-          const map = getCampaignMap(campaign.id);
-          return (
-            <Link
-              key={campaign.id}
-              to={`/wiki/${campaign.id}`}
-              className="catalog-card group"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="text-ink-50 group-hover:text-arcane-300 section-title">
-                    {campaignTitle(campaign, t)}
-                  </h2>
-                  <p className="mt-2 text-sm text-ink-300">
-                    {t('wiki.pageCount', { count: campaign.pages.length })}
-                  </p>
-                </div>
-                {map && (
-                  <MapIcon size={22} aria-hidden="true" className="text-ember-400" />
+      <div className="page-shell">
+        <h1 className="page-title">{t('wiki.chooseCampaign')}</h1>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {sorted.map((entry) => (
+            <Link key={entry.id} to={`/wiki/${entry.id}`} className="catalog-card">
+              <h2 className="section-title">{campaignTitle(entry, t)}</h2>
+              <p className="mt-2 text-sm text-ink-300">
+                {t(
+                  wikiPageCount(entry.pages.filter(isWikiPageIndexable).length, locale),
+                  { count: entry.pages.filter(isWikiPageIndexable).length },
                 )}
-              </div>
-              {map && (
-                <p className="mt-5 border-t border-ink-700 pt-3 text-sm text-ember-400">
+              </p>
+              {getCampaignMap(entry.id) && (
+                <p className="mt-4 flex items-center gap-2 text-sm text-arcane-300">
+                  <MapIcon size={18} aria-hidden="true" />
                   {t('wiki.chultMap')}
                 </p>
               )}
             </Link>
-          );
-        })}
+          ))}
+        </div>
       </div>
-    </div>
-  );
-}
-
-function CampaignLanding({ campaign }: { campaign: WikiCampaignView }) {
-  const { t } = useT();
-  const map = getCampaignMap(campaign.id);
-  const title = campaignTitle(campaign, t);
-
+    );
+  if (!campaign)
+    return (
+      <div className="page-shell">
+        <h1 className="page-title">{t('wiki.campaignWiki')}</h1>
+        <p className="empty-state mt-6">{t('wiki.noCampaigns')}</p>
+      </div>
+    );
+  const campaignName = campaignTitle(campaign, t);
+  if (!selected) return <CampaignLanding campaign={campaign} />;
   return (
-    <div className="page-shell">
-      <p className="text-xs font-bold uppercase tracking-[0.16em] text-ember-400">
-        {t('nav.wiki')}
-      </p>
-      <h1 className="mt-2 text-ink-50 page-title">{title}</h1>
-      <p className="mt-2 max-w-2xl text-sm leading-6 text-ink-300">
-        {t('wiki.campaignNoPages')}
-      </p>
-      {map && (
-        <Link
-          to={`/wiki/${campaign.id}/map`}
-          className="mt-8 inline-flex items-center gap-3 rounded-xl border border-ember-500/40 bg-ember-500/10 px-4 py-3 text-sm font-medium text-ink-50 hover:border-ember-400 hover:bg-ember-500/20"
-        >
-          <MapIcon size={19} aria-hidden="true" className="text-ember-400" />
-          {t('wiki.chultMap')}
-        </Link>
+    <div className="flex min-w-0 items-start">
+      {!catalogOpen && (
+        <aside className="sticky top-0 hidden max-h-dvh w-72 shrink-0 overflow-y-auto border-r border-ink-700 p-4 xl:block">
+          <h2 className="mb-4 section-title">{t('wiki.allPages')}</h2>
+          <WikiCatalog key={campaign.id} campaign={campaign} selected={selected.slug} />
+        </aside>
+      )}
+      <div className="min-w-0 flex-1">
+        <div className="sticky top-0 z-10 border-b border-ink-700 bg-ink-950 px-4 py-3 xl:hidden">
+          <Button
+            onClick={() => setCatalogOpen(true)}
+            aria-haspopup="dialog"
+            aria-expanded={catalogOpen}
+          >
+            {t('wiki.allPages')}
+          </Button>
+        </div>
+        <article className="page-shell page-shell-reading">
+          <nav
+            aria-label={t('wiki.breadcrumbs')}
+            className="mb-5 flex flex-wrap gap-x-3 gap-y-1 text-sm text-arcane-300"
+          >
+            <Link to="/wiki" className="back-link mb-0">
+              <ArrowLeft size={16} aria-hidden="true" />
+              {t('wiki.backToCampaigns')}
+            </Link>
+            <Link
+              to={`/wiki/${campaign.id}`}
+              className="back-link mb-0"
+              aria-current={!slug && !legacy ? 'page' : undefined}
+            >
+              {campaignName}
+            </Link>
+            {hasMap && (
+              <Link to={`/wiki/${campaign.id}/map`} className="back-link mb-0">
+                {t('wiki.chultMap')}
+              </Link>
+            )}
+          </nav>
+          <h1 className="page-title mb-4">{selected.title}</h1>
+          {locale !== WIKI_CONTENT_LOCALE && (
+            <p className="notice mb-6">{t('wiki.sourceLanguage')}</p>
+          )}
+          <WikiArticle key={`${campaign.id}/${selected.slug}`} page={selected} />
+        </article>
+      </div>
+      {catalogOpen && (
+        <div className="dialog-overlay" onClick={closeCatalog}>
+          <div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="wiki-catalog-title"
+            tabIndex={-1}
+            className="dialog-panel"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between gap-3 border-b border-ink-700 p-4">
+              <h2 id="wiki-catalog-title" className="section-title">
+                {t('wiki.allPages')}
+              </h2>
+              <IconButton
+                label={t('common.close')}
+                variant="ghost"
+                size="sm"
+                onClick={closeCatalog}
+              >
+                <X size={18} aria-hidden="true" />
+              </IconButton>
+            </div>
+            <div className="overflow-y-auto p-4">
+              <WikiCatalog
+                campaign={campaign}
+                selected={selected.slug}
+                onNavigate={closeCatalog}
+              />
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
 }
 
-function groupByCategory(pages: WikiPageData[]): Map<string, WikiPageData[]> {
-  const grouped = new Map<string, WikiPageData[]>();
-  for (const page of pages) {
-    const list = grouped.get(page.category) ?? [];
-    list.push(page);
-    grouped.set(page.category, list);
-  }
-  return grouped;
+function WikiArticle({ page }: { page: WikiPageData }) {
+  const { locale, t } = useT();
+  const { hash } = useLocation();
+  const navigate = useNavigate();
+  const { params } = useUrlSearchState();
+  const search = params.toString() ? `?${params}` : '';
+  const openLightbox = useLightbox((state) => state.open);
+  const { html, headings } = useMemo(() => {
+    const html = sanitizeWikiHtml(
+      page.html.replaceAll('%BASE%', import.meta.env.BASE_URL),
+      t('common.imageViewer'),
+      locale,
+      search,
+    );
+    const root = document.createElement('div');
+    root.innerHTML = html;
+    const headings = [
+      ...root.querySelectorAll<HTMLElement>('h2[id], h3[id], h4[id]'),
+    ].map((heading) => ({
+      id: heading.id,
+      title: heading.textContent,
+      level: heading.tagName,
+    }));
+    return { html, headings };
+  }, [page.html, locale, search, t]);
+  useEffect(() => {
+    if (!hash) return;
+    const target = document.getElementById(hash.slice(1));
+    if (target) {
+      target.scrollIntoView({ block: 'start' });
+      target.focus({ preventScroll: true });
+    }
+  }, [hash, html]);
+  const handleClick = (event: MouseEvent<HTMLDivElement>) => {
+    if (
+      event.button !== 0 ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.altKey ||
+      event.shiftKey
+    )
+      return;
+    const target = event.target as HTMLElement;
+    const anchor = target.closest('a');
+    if (anchor?.target === '_blank' || anchor?.hasAttribute('download')) return;
+    const image =
+      target.closest('img') ??
+      target.closest('[data-image-viewer]')?.querySelector('img');
+    if (image) {
+      event.preventDefault();
+      openLightbox(image.currentSrc || image.src, image.alt);
+      return;
+    }
+    const link = target.closest('a[data-wiki-link]');
+    const destination = link?.getAttribute('data-wiki-link');
+    if (destination) {
+      event.preventDefault();
+      navigate(`/wiki/${destination}${search}`);
+    }
+  };
+  return (
+    <>
+      {headings.length >= 3 && (
+        <details className="wiki-contents mb-6 rounded-xl border border-ink-700 p-4">
+          <summary className="cursor-pointer font-semibold text-ink-200">
+            {t('wiki.contents')}
+          </summary>
+          <nav aria-label={t('wiki.contents')} className="mt-3 max-h-64 overflow-y-auto">
+            <ul className="space-y-2">
+              {headings.map((heading) => (
+                <li key={heading.id} className={heading.level === 'H2' ? '' : 'pl-4'}>
+                  <a href={`#${heading.id}`} className="back-link mb-0 underline">
+                    {heading.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </details>
+      )}
+      <div
+        className="wiki-content reading-content"
+        lang={WIKI_CONTENT_LOCALE}
+        onClick={handleClick}
+        onErrorCapture={(event) => {
+          if (!(event.target instanceof HTMLImageElement)) return;
+          const image = event.target;
+          const card = image.closest('.wiki-infobox, .wiki-box');
+          (image.closest('[data-image-viewer]') ?? image).remove();
+          if (card && !card.querySelector('table, .wiki-infobox-summary, img'))
+            card.remove();
+        }}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    </>
+  );
+}
+
+function CampaignLanding({ campaign }: { campaign: WikiCampaignView }) {
+  const { t } = useT();
+  return (
+    <div className="page-shell page-shell-reading">
+      <Link to="/wiki" className="back-link">
+        <ArrowLeft size={16} aria-hidden="true" />
+        {t('wiki.backToCampaigns')}
+      </Link>
+      <h1 className="page-title">{campaignTitle(campaign, t)}</h1>
+      <p className="empty-state mt-6">{t('wiki.campaignNoPages')}</p>
+      {getCampaignMap(campaign.id) && (
+        <Link
+          to={`/wiki/${campaign.id}/map`}
+          className={buttonClass({ variant: 'primary', className: 'mt-6' })}
+        >
+          <MapIcon size={18} aria-hidden="true" />
+          {t('wiki.chultMap')}
+        </Link>
+      )}
+    </div>
+  );
 }

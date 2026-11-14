@@ -61,6 +61,33 @@ export function parseArmorType(type: string): ArmorType | undefined {
   return undefined;
 }
 
+export interface Currency {
+  cp: number;
+  sp: number;
+  ep: number;
+  gp: number;
+  pp: number;
+}
+
+export const CURRENCY_KEYS: Array<keyof Currency> = ['pp', 'gp', 'ep', 'sp', 'cp'];
+
+export interface DeathSaves {
+  successes: number;
+  failures: number;
+}
+
+export const SYNCED_FIELDS = [
+  'speed',
+  'savingThrows',
+  'armorProficiencies',
+  'weaponProficiencies',
+  'toolProficiencies',
+] as const;
+
+export type SyncedField = (typeof SYNCED_FIELDS)[number];
+
+export const LEGACY_SYNC = 'legacy';
+
 export interface InventoryItem extends NamedItem {
   quantity: number;
 
@@ -81,6 +108,7 @@ export interface FeatureItem extends NamedItem {
   source: string;
 
   auto?: boolean;
+  featId?: string;
 }
 
 export interface SpellSlotLevel {
@@ -100,6 +128,8 @@ export interface KnownSpell {
   prepared: boolean;
   auto?: boolean;
   source?: string;
+  spellId?: string;
+  concentration?: boolean;
 }
 
 export interface Speeds {
@@ -143,6 +173,8 @@ export interface Character {
   speed: Speeds;
   hp: HitPoints;
   hitDice: string;
+  hitDiceUsed: number;
+  deathSaves: DeathSaves;
   inspiration: boolean;
 
   spellcastingAbility: AbilityKey | null;
@@ -150,7 +182,10 @@ export interface Character {
   spells: KnownSpell[];
 
   autoSyncFeatures: boolean;
+  syncSignature: string;
+  manualFields: SyncedField[];
 
+  currency: Currency;
   actions: NamedItem[];
   inventory: InventoryItem[];
   features: FeatureItem[];
@@ -196,11 +231,16 @@ export function createCharacter(name = 'New Character'): Character {
     speed: { walk: 30, swim: 0, climb: 0, fly: 0 },
     hp: { current: 0, max: 0, temp: 0 },
     hitDice: '',
+    hitDiceUsed: 0,
+    deathSaves: { successes: 0, failures: 0 },
     inspiration: false,
     spellcastingAbility: null,
     spellSlots: [],
     spells: [],
     autoSyncFeatures: true,
+    syncSignature: '',
+    manualFields: [],
+    currency: { cp: 0, sp: 0, ep: 0, gp: 0, pp: 0 },
     actions: [],
     inventory: [],
     features: [],
@@ -384,9 +424,28 @@ export function setSpellSlot(
     : [...slots, next].sort((a, b) => a.level - b.level);
 }
 
+export const LIMITS = {
+  level: { min: 1, max: 20 },
+  ability: { min: 1, max: 30 },
+  hp: { min: 0, max: 9999 },
+  speed: { min: 0, max: 999 },
+  ac: { min: 0, max: 99 },
+  quantity: { min: 0, max: 99999 },
+  currency: { min: 0, max: 9999999 },
+  spellLevel: { min: 0, max: 9 },
+  slots: { min: 0, max: 20 },
+} as const;
+
+export function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
+}
+
+const NO_DEATH_SAVES: DeathSaves = { successes: 0, failures: 0 };
+
 export function applyDamage(hp: HitPoints, amount: number): HitPoints {
-  const fromTemp = Math.min(hp.temp, amount);
-  const remaining = amount - fromTemp;
+  const value = Math.max(0, Math.floor(amount));
+  const fromTemp = Math.min(hp.temp, value);
+  const remaining = value - fromTemp;
   return {
     ...hp,
     temp: hp.temp - fromTemp,
@@ -395,5 +454,86 @@ export function applyDamage(hp: HitPoints, amount: number): HitPoints {
 }
 
 export function applyHealing(hp: HitPoints, amount: number): HitPoints {
-  return { ...hp, current: Math.min(hp.max, hp.current + amount) };
+  const value = Math.max(0, Math.floor(amount));
+  return { ...hp, current: Math.max(hp.current, Math.min(hp.max, hp.current + value)) };
+}
+
+export function damageCharacter(
+  character: Character,
+  amount: number,
+): Partial<Character> {
+  const hp = applyDamage(character.hp, amount);
+  return { hp };
+}
+
+export function healCharacter(character: Character, amount: number): Partial<Character> {
+  const hp = applyHealing(character.hp, amount);
+  return hp.current > 0 ? { hp, deathSaves: NO_DEATH_SAVES } : { hp };
+}
+
+export type DeathSaveResult = 'success' | 'failure' | 'critical' | 'fumble';
+
+export function deathSaveResult(roll: number): DeathSaveResult {
+  if (roll >= 20) return 'critical';
+  if (roll <= 1) return 'fumble';
+  return roll >= 10 ? 'success' : 'failure';
+}
+
+export function applyDeathSave(
+  character: Character,
+  result: DeathSaveResult,
+): Partial<Character> {
+  if (result === 'critical') {
+    return { hp: { ...character.hp, current: 1 }, deathSaves: NO_DEATH_SAVES };
+  }
+  const { successes, failures } = character.deathSaves;
+  if (result === 'success') {
+    return { deathSaves: { failures, successes: Math.min(3, successes + 1) } };
+  }
+  return {
+    deathSaves: {
+      successes,
+      failures: Math.min(3, failures + (result === 'fumble' ? 2 : 1)),
+    },
+  };
+}
+
+export function hitDieSize(character: Character): number | null {
+  const match = /d(\d+)/i.exec(character.hitDice);
+  const size = match ? Number(match[1]) : NaN;
+  return Number.isInteger(size) && size > 0 ? size : null;
+}
+
+export function hitDiceRemaining(character: Character): number {
+  return Math.max(0, character.level - character.hitDiceUsed);
+}
+
+export function spendHitDie(character: Character, rolled: number): Partial<Character> {
+  return {
+    ...healCharacter(character, Math.max(0, rolled)),
+    hitDiceUsed: Math.min(character.level, character.hitDiceUsed + 1),
+  };
+}
+
+export function shortRest(character: Character): Partial<Character> {
+  return {
+    spellSlots: character.spellSlots.map((slot) => ({ ...slot, usedShortRest: 0 })),
+  };
+}
+
+export function longRestHitDice(character: Character): number {
+  return Math.min(character.hitDiceUsed, Math.max(1, Math.floor(character.level / 2)));
+}
+
+export function longRest(character: Character): Partial<Character> {
+  return {
+    hp: { ...character.hp, current: character.hp.max, temp: 0 },
+    deathSaves: NO_DEATH_SAVES,
+    hitDiceUsed: character.hitDiceUsed - longRestHitDice(character),
+    spellSlots: character.spellSlots.map((slot) => ({
+      ...slot,
+      usedShortRest: 0,
+      usedLongRest: 0,
+    })),
+  };
 }

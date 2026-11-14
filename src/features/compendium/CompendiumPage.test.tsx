@@ -166,7 +166,7 @@ function renderPage(path: string) {
 function LocationProbe() {
   const location = useLocation();
   return (
-    <output>
+    <output data-testid="location">
       {location.pathname}
       {location.search}
     </output>
@@ -229,7 +229,7 @@ describe('CompendiumPage', () => {
 
   it('handles legacy missing entries and unknown selected entries', () => {
     const legacy = renderPage('/compendium/items/danoth-s-visor');
-    expect(screen.getByRole('status')).toHaveTextContent(
+    expect(screen.getByTestId('location')).toHaveTextContent(
       '/compendium/items/danoth-s-visor-dormant/',
     );
     legacy.unmount();
@@ -240,7 +240,7 @@ describe('CompendiumPage', () => {
 
   it('redirects renamed compendium entries from the app', () => {
     const view = renderPage('/compendium/bestiary/mwaxanar');
-    expect(screen.getByRole('status')).toHaveTextContent(
+    expect(screen.getByTestId('location')).toHaveTextContent(
       '/compendium/bestiary/mwaxanare/',
     );
     view.unmount();
@@ -250,9 +250,10 @@ describe('CompendiumPage', () => {
     mocks.result = {
       status: 'ready',
       items: [
-        official,
+        { ...official, srd: true },
         {
           ...official,
+          srd: true,
           id: 'dragon-old',
           source: 'PHB',
           hidden: true,
@@ -274,6 +275,15 @@ describe('CompendiumPage', () => {
     expect(document.head.querySelector('link[rel="canonical"]')).toHaveAttribute(
       'href',
       'https://fumble.krystianpinczak.com/compendium/species/dragon/',
+    );
+  });
+
+  it('keeps entries outside the SRD out of search indexes', () => {
+    mocks.result = { status: 'ready', items: [{ ...official, srd: false }] };
+    renderPage(`/compendium/species/${official.id}`);
+    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      'noindex, nofollow',
     );
   });
 
@@ -385,7 +395,7 @@ describe('CompendiumPage', () => {
     expect(dragon).toBeInTheDocument();
     expect(dragon).toHaveAttribute('href', '/compendium/species/dragon/');
     fireEvent.click(dragon);
-    expect(screen.getByRole('status')).toHaveTextContent(
+    expect(screen.getByTestId('location')).toHaveTextContent(
       '/compendium/species/dragon/?q=dragon',
     );
 
@@ -426,14 +436,14 @@ describe('CompendiumPage', () => {
     renderPage('/compendium/species?q=dragon&utm_source=test');
     const entry = screen.getByRole('link', { name: /Dragon/ });
     fireEvent.click(entry, { ctrlKey: true });
-    expect(screen.getByRole('status')).toHaveTextContent(
+    expect(screen.getByTestId('location')).toHaveTextContent(
       '/compendium/species?q=dragon&utm_source=test',
     );
     fireEvent.click(entry);
-    expect(screen.getByRole('status')).toHaveTextContent(
+    expect(screen.getByTestId('location')).toHaveTextContent(
       '/compendium/species/dragon/?q=dragon',
     );
-    expect(screen.getByRole('status')).not.toHaveTextContent('utm_source');
+    expect(screen.getByTestId('location')).not.toHaveTextContent('utm_source');
   });
 
   it('restores search, filters and sorting from the URL', () => {
@@ -453,7 +463,9 @@ describe('CompendiumPage', () => {
   it('opens an item without adding an empty search query', () => {
     renderPage('/compendium/species');
     fireEvent.click(screen.getByRole('link', { name: /Dragon/ }));
-    expect(screen.getByRole('status')).toHaveTextContent('/compendium/species/dragon/');
+    expect(screen.getByTestId('location')).toHaveTextContent(
+      '/compendium/species/dragon/',
+    );
   });
 
   it('keeps a direct Fumble link available while the library is hidden', () => {
@@ -471,10 +483,12 @@ describe('CompendiumPage', () => {
     renderPage('/compendium/species');
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'dragon' } });
     act(() => vi.runAllTimers());
-    expect(screen.getByRole('status')).toHaveTextContent('/compendium/species?q=dragon');
+    expect(screen.getByTestId('location')).toHaveTextContent(
+      '/compendium/species?q=dragon',
+    );
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: '' } });
     act(() => vi.runAllTimers());
-    expect(screen.getByRole('status')).toHaveTextContent('/compendium/species');
+    expect(screen.getByTestId('location')).toHaveTextContent('/compendium/species');
     vi.useRealTimers();
   });
 
@@ -572,6 +586,43 @@ describe('CompendiumPage', () => {
     expect(image).toHaveAttribute('width', '440');
     expect(image).toHaveAttribute('height', '558');
     expect(image).toHaveClass('h-auto', 'max-h-80', 'max-w-full');
+  });
+
+  it('keeps personal artwork, tokens and gallery images behind individual requests', () => {
+    const image = 'https://homebrew.invalid/cover.png';
+    const token = 'https://homebrew.invalid/token.png';
+    const gallery = 'https://homebrew.invalid/gallery.png';
+    mocks.result.items = [
+      {
+        ...official,
+        id: 'local-art',
+        name: 'Local artwork',
+        source: 'Homebrew',
+        _homebrew: true,
+        _manual: false,
+        image,
+        token,
+        gallery: [{ path: gallery, title: 'Gallery image' }],
+      },
+    ];
+    renderPage('/compendium/species/local-art?homebrewLibrary=q%3Dlocal');
+    expect(screen.queryAllByRole('img')).toHaveLength(0);
+    expect(screen.getByRole('link', { name: 'Back to Homebrew' })).toHaveAttribute(
+      'href',
+      '/homebrew/?q=local',
+    );
+    const requests = screen.getAllByRole('button', { name: 'Show external image' });
+    expect(requests).toHaveLength(3);
+    for (const request of requests) fireEvent.click(request);
+    const images = screen.getAllByRole('img');
+    expect(images.map((element) => element.getAttribute('src'))).toEqual([
+      image,
+      token,
+      gallery,
+    ]);
+    expect(
+      images.every((element) => element.getAttribute('referrerPolicy') === 'no-referrer'),
+    ).toBe(true);
   });
 
   it('renders manual and imported homebrew variants', () => {

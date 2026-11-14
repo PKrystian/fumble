@@ -2,7 +2,7 @@ import type { CompendiumEntryBase } from './types';
 
 type IndexabilityItem = Pick<
   CompendiumEntryBase,
-  'id' | 'name' | 'englishName' | 'source' | 'hidden' | 'otherVersions'
+  'id' | 'name' | 'englishName' | 'source' | 'srd' | 'hidden' | 'otherVersions'
 >;
 
 const PRINTING_METADATA = new Set([
@@ -30,6 +30,20 @@ const CORE_EDITION_CATEGORIES = new Set([
   'spells',
 ]);
 const ITEM_REFERENCES = new Set(['variant', 'propertyRefs', 'masteryRefs']);
+const SRD_SUBCLASS_KEYS = new Set([
+  'path-of-the-berserker-xphb',
+  'college-of-lore-xphb',
+  'life-domain-xphb',
+  'circle-of-the-land-xphb',
+  'champion-xphb',
+  'warrior-of-the-open-hand-xphb',
+  'oath-of-devotion-xphb',
+  'hunter-xphb',
+  'thief-xphb',
+  'draconic-sorcery-xphb',
+  'fiend-patron-xphb',
+  'evoker-xphb',
+]);
 
 function printingContent(item: IndexabilityItem, ignoreItemReferences = false): string {
   return JSON.stringify(
@@ -48,6 +62,7 @@ export function compendiumPrintingSeo(
   siblings: readonly IndexabilityItem[],
   category: string,
 ): { indexable: boolean; canonicalId?: string } {
+  if (!item.srd) return { indexable: false };
   if (!item.hidden) return { indexable: true };
   const visibleId = item.otherVersions?.find((version) =>
     siblings.some((candidate) => candidate.id === version.id && !candidate.hidden),
@@ -77,8 +92,13 @@ export function compendiumPrintingSeo(
 }
 
 export function isCompendiumSubclassIndexable(
-  parent: Pick<CompendiumEntryBase, 'hidden'>,
+  parent: Pick<CompendiumEntryBase, 'hidden' | 'srd'>,
   hasVisibleParent: boolean,
+  subclassKey: string,
 ): boolean {
-  return !parent.hidden || !hasVisibleParent;
+  return (
+    parent.srd &&
+    SRD_SUBCLASS_KEYS.has(subclassKey) &&
+    (!parent.hidden || !hasVisibleParent)
+  );
 }

@@ -20,13 +20,18 @@ export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
   const setLocale = useLocaleStore((state) => state.setLocale);
   const containerRef = useRef<HTMLDivElement>(null);
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
     const onClick = (e: MouseEvent) => {
       if (!containerRef.current?.contains(e.target as Node)) setOpen(false);
     };
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      setOpen(false);
+      buttonRef.current?.focus();
+    };
     window.addEventListener('click', onClick);
     window.addEventListener('keydown', onKey);
     return () => {
@@ -44,17 +49,16 @@ export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
 
   const switchTo = (code: (typeof SUPPORTED_LOCALES)[number]['code']) => {
     setOpen(false);
+    buttonRef.current?.focus();
     if (code === locale) return;
     const { rest } = stripLocale(location.pathname);
     setLocale(code);
-    navigate(localizePath(rest, code) + location.search + location.hash);
+    navigate(localizePath(rest, code) + location.search + location.hash, {
+      state: location.state,
+    });
   };
 
   const handleOptionKeyDown = (event: React.KeyboardEvent, index: number) => {
-    if (event.key === 'Escape') {
-      setOpen(false);
-      return;
-    }
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       switchTo(SUPPORTED_LOCALES[index]!.code);
@@ -81,6 +85,7 @@ export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
   return (
     <div ref={containerRef} className="relative">
       <Button
+        ref={buttonRef}
         onClick={() => setOpen((v) => !v)}
         onKeyDown={(event) => {
           if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
@@ -107,7 +112,7 @@ export function LanguageSwitcher({ compact = false }: LanguageSwitcherProps) {
           className="absolute left-0 top-full z-20 mt-1 w-40 overflow-hidden rounded-md border border-ink-700 bg-ink-900 py-1 shadow-xl"
         >
           {SUPPORTED_LOCALES.map((l, i) => (
-            <li key={l.code}>
+            <li key={l.code} role="presentation">
               <button
                 type="button"
                 role="option"

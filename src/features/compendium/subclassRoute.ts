@@ -15,6 +15,8 @@ export function findSubclassByRouteKey(
     (subclass) =>
       subclass.id === routeKey ||
       subclassRouteKey(subclass) === routeKey ||
+      `${slugify(subclass.englishName ?? subclass.name)}-${slugify(subclass.source)}` ===
+        routeKey ||
       slugify(subclass.englishName ?? subclass.name) === routeKey ||
       slugify(subclass.name) === routeKey,
   );

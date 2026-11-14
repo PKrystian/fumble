@@ -1,5 +1,11 @@
 import type { Character } from '@/features/character/model';
 import type { ItemEntry } from '@/data/compendium/types';
+import { classIdForName } from '@/features/compendium/classNames';
+
+export type LootCharacter = Pick<
+  Character,
+  'id' | 'name' | 'level' | 'className' | 'armorProficiencies' | 'weaponProficiencies'
+>;
 
 export interface Tier {
   id: number;
@@ -71,7 +77,7 @@ export const EXCLUDED_ITEM_TYPES = new Set([
   'Treasure (Coinage)',
 ]);
 
-function canonicalItemType(type: string): string {
+function canonicalItemType(type = ''): string {
   const value = type.trim().toLowerCase();
   if (
     value.includes('vehicle (air)') ||
@@ -142,11 +148,11 @@ function canonicalItemType(type: string): string {
   return type;
 }
 
-export function isExcludedItemType(type: string): boolean {
+export function isExcludedItemType(type?: string): boolean {
   return EXCLUDED_ITEM_TYPES.has(canonicalItemType(type));
 }
 
-function canonicalRarity(rarity: string): string {
+export function canonicalRarity(rarity = ''): string {
   const value = rarity.trim().toLowerCase();
   if (!value) return '';
   if (value.includes('artifact') || value.includes('artefakt')) return 'Artifact';
@@ -161,7 +167,12 @@ function canonicalRarity(rarity: string): string {
   ) {
     return 'Uncommon';
   }
-  if (value === 'common' || value.includes('wspóln') || value.includes('wspoln')) {
+  if (
+    value === 'common' ||
+    value.startsWith('pospolit') ||
+    value.includes('wspóln') ||
+    value.includes('wspoln')
+  ) {
     return 'Common';
   }
   return rarity;
@@ -190,7 +201,19 @@ function matchesKeyword(proficiencyText: string, keywords: string[]): boolean {
   return keywords.some((k) => text.includes(k));
 }
 
-export function isUsableBy(item: ItemEntry, character: Character): boolean {
+export function isUsableBy(
+  item: Pick<ItemEntry, 'type' | 'attunement' | 'weaponCategory'>,
+  character: LootCharacter,
+): boolean {
+  const requirement = item.attunement?.match(/^Requires attunement by (.+)$/i)?.[1];
+  if (requirement) {
+    const classes = requirement
+      .split(/,\s*(?:or\s+)?|\s+or\s+/)
+      .map((value) => classIdForName(value.replace(/^(?:a|an)\s+/i, '')));
+    const characterClass = classIdForName(character.className);
+    if (characterClass && classes.every(Boolean) && !classes.includes(characterClass))
+      return false;
+  }
   const armorKeywords = ARMOR_KEYWORDS[canonicalItemType(item.type)];
   if (armorKeywords) return matchesKeyword(character.armorProficiencies, armorKeywords);
 
@@ -214,14 +237,17 @@ export function isUsableBy(item: ItemEntry, character: Character): boolean {
   return true;
 }
 
-export function isUsableByParty(item: ItemEntry, characters: Character[]): boolean {
+export function isUsableByParty(
+  item: Pick<ItemEntry, 'type' | 'attunement' | 'weaponCategory'>,
+  characters: LootCharacter[],
+): boolean {
   if (characters.length === 0) return true;
   return characters.some((c) => isUsableBy(item, c));
 }
 
 export function usableByNames(
-  item: ItemEntry,
-  characters: Character[],
+  item: Pick<ItemEntry, 'type' | 'attunement' | 'weaponCategory'>,
+  characters: LootCharacter[],
   unnamed = 'Unnamed',
 ): string[] {
   return characters.filter((c) => isUsableBy(item, c)).map((c) => c.name || unnamed);
@@ -240,6 +266,6 @@ export const RARITY_ORDER = [
 export function rarityAtMost(rarity: string, ceiling: string): boolean {
   const rank = RARITY_ORDER.indexOf(canonicalRarity(rarity));
   const ceilingRank = RARITY_ORDER.indexOf(canonicalRarity(ceiling));
-  if (rank === -1 || ceilingRank === -1) return true;
+  if (rank === -1 || ceilingRank === -1) return false;
   return rank <= ceilingRank;
 }

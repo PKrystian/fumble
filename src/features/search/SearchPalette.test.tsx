@@ -24,6 +24,13 @@ const mocks = vi.hoisted(() => ({
       to: '/wiki/note',
     },
     {
+      kind: 'tool',
+      name: 'Dice Tool',
+      subtitle: 'Roll expressions',
+      categoryLabel: 'Tool',
+      to: '/dice',
+    },
+    {
       kind: 'compendium',
       name: 'Core Spell',
       categoryLabel: 'Spells',
@@ -39,6 +46,7 @@ vi.mock('./searchStore', () => ({
 vi.mock('./searchIndex', () => ({
   loadSearchIndex: (...args: unknown[]) => mocks.load(...args),
   buildHomebrewResults: () => [],
+  buildToolResults: () => [],
   buildPool: () => [],
   searchResults: (_pool: unknown, query: string) =>
     query === 'none' ? [] : query.trim() ? mocks.results : [],
@@ -89,22 +97,30 @@ describe('SearchPalette', () => {
     expect(screen.getByText('search.hint')).toBeInTheDocument();
     await waitFor(() => expect(mocks.load).toHaveBeenCalledWith('en'));
 
-    const input = screen.getByRole('searchbox', { name: 'search.title' });
+    const input = screen.getByRole('combobox', { name: 'search.title' });
     await waitFor(() => expect(input).toHaveFocus());
     fireEvent.change(input, { target: { value: 'none' } });
     expect(screen.getByText('search.noResults')).toBeInTheDocument();
+    expect(input).toHaveAttribute('aria-expanded', 'false');
+    expect(input).not.toHaveAttribute('aria-activedescendant');
     fireEvent.change(input, { target: { value: 'spell' } });
     expect(screen.getByText('Brew Spell')).toBeInTheDocument();
     expect(screen.getByText('Wiki Note')).toBeInTheDocument();
     expect(screen.getByText('Core Spell')).toBeInTheDocument();
+    expect(screen.getByText('Dice Tool')).toBeInTheDocument();
     expect(screen.getByText('Custom')).toBeInTheDocument();
     expect(screen.getByText('Brew Spell EN')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'common.clearSearch' }));
     expect(input).toHaveValue('');
     fireEvent.change(input, { target: { value: 'spell' } });
 
-    fireEvent.mouseMove(screen.getByRole('button', { name: /Wiki Note/ }));
-    fireEvent.click(screen.getByRole('button', { name: /Wiki Note/ }));
+    expect(screen.getByRole('status')).toHaveTextContent('search.resultCount');
+    expect(input).toHaveAttribute('aria-expanded', 'true');
+    const wiki = screen.getByRole('option', { name: /Wiki Note/ });
+    fireEvent.mouseMove(wiki);
+    expect(wiki).toHaveAttribute('aria-selected', 'true');
+    expect(input).toHaveAttribute('aria-activedescendant', wiki.id);
+    fireEvent.click(wiki);
     expect(mocks.setOpen).toHaveBeenCalledWith(false);
     expect(mocks.navigate).toHaveBeenCalledWith('/wiki/note');
   });
@@ -121,7 +137,7 @@ describe('SearchPalette', () => {
 
   it('handles keyboard navigation and closing controls', () => {
     render(<SearchPalette />);
-    fireEvent.change(screen.getByRole('searchbox', { name: 'search.title' }), {
+    fireEvent.change(screen.getByRole('combobox', { name: 'search.title' }), {
       target: { value: 'spell' },
     });
     fireEvent.keyDown(window, { key: 'ArrowDown' });

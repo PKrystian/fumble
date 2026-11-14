@@ -193,6 +193,15 @@ export function fumbleHomebrewItems(locale: Locale): FumbleHomebrewItem[] {
     const localized = {
       ...item,
       ...overlayFields,
+      _filterData: Object.fromEntries(
+        Object.entries(item).filter(
+          ([, value]) =>
+            typeof value === 'string' ||
+            typeof value === 'number' ||
+            typeof value === 'boolean' ||
+            isStringArray(value),
+        ),
+      ),
       ...(basePrerequisite && !overlay.prerequisite
         ? { prerequisite: POLISH_PREREQUISITES[basePrerequisite] ?? basePrerequisite }
         : {}),
@@ -204,6 +213,13 @@ export function fumbleHomebrewItems(locale: Locale): FumbleHomebrewItem[] {
     };
     if (isStringArray(item.classes) && Array.isArray(overlay.classes)) {
       localized._englishClasses = item.classes;
+    }
+    if (item.data && typeof item.data === 'object' && !Array.isArray(item.data)) {
+      localized._filterData.data = Object.fromEntries(
+        Object.entries(item.data).filter(
+          ([, value]) => typeof value === 'string' || typeof value === 'number',
+        ),
+      );
     }
     if (isStringArray(item.subclasses) && Array.isArray(overlay.subclasses)) {
       localized._englishSubclasses = item.subclasses;

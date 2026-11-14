@@ -131,4 +131,18 @@ describe('5etools homebrew import', () => {
       },
     ]);
   });
+  it('reports malformed known collections while ignoring non-collection metadata', () => {
+    const result = parse5etoolsHomebrew({
+      spell: {},
+      classFeature: 'invalid',
+      subclass: [{ name: 'Missing parent' }],
+      customMetadata: { name: 'Metadata' },
+    });
+    expect(result).toMatchObject({
+      entries: [],
+      subclasses: [],
+      invalid: 3,
+      unsupported: 0,
+    });
+  });
 });

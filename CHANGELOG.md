@@ -4,6 +4,171 @@ All notable user-facing changes will be recorded here.
 
 This project follows Semantic Versioning.
 
+## 1.17.0 - 2026-11-14
+
+- Download or restore the data of a single tool on the Data backup page: characters, session journal, soundboard, initiative, encounters, loot, and personal Homebrew. Tool pages now show only their saved status and recovery actions. Character import and Export all moved there from the Characters page.
+- See the date of the last full backup and how much browser storage is in use, with a warning when it is almost full.
+- Protect the session journal: opening it no longer writes, an unreadable journal is kept until you replace it, and a journal changed in another tab is never overwritten without your choice. Unsaved sessions are included in full backups.
+- Follow changes made in another tab in loot, encounters, the soundboard, saved rolls, and roll history.
+- Recover from a page that fails to load with a localized screen that offers a reload, the home page, and a data backup. Fumble reloads once on its own after an update.
+- Use the search palette with a screen reader: results are announced and Enter always opens the highlighted result.
+- Search from the mobile header, return home from the logo, and open the Compendium from the menu. Page changes are announced and focus moves to the new content.
+- Return focus to the language and edition buttons after closing their lists with Escape.
+- Use one name for each destination in the menu and on its page: Characters, Encounter Builder, and in Polish Postacie, Zaklęcia, Pochodzenia, and Kreator starć.
+- Show quotations in a bordered block instead of an edge strip, and use the shared buttons on the missing page and in storage and search notices.
+- Ask search engines to index only Fumble tools, Fumble's own content, and Compendium entries from the SRD 5.2 in both languages. Books and entries outside the SRD stay available but are marked noindex and left out of the sitemap.
+- Keep Compendium filters, sorting, and the random entry action on one row in every category, center the delete action in loot history, and use the standard label size for menu sections.
+
+## 1.16.0 - 2026-11-13
+
+- Continue from the home page: recently edited characters, the last book, the session journal, a running initiative, and an encounter draft. New browsers get a short Start here section.
+- Search from the home page on any screen, and find Fumble tools and pages in the search palette by name or description in both languages.
+- Use compact home navigation on phones, with descriptions on large screens, a Compendium card, and a separate Backgrounds icon.
+- See a small, dismissible reminder on the home page when local data has had no full backup for 30 days. It never blocks the page.
+- Keep the Skip to content link from shifting the layout, and mark the current menu item without an edge strip.
+
+## 1.15.0 - 2026-11-12
+
+- Search, filter, sort, and page saved characters. Duplicate or export a single character, export all characters, and undo deletions.
+- Preview character imports and full backups before writing. Import duplicates as copies unless replacement is chosen, and apply a panel layout only on request.
+- Keep manual speed, saving throw, and proficiency changes. Class, species, and background data synchronize only after those choices or the level change, with named restore actions.
+- Track hit points with validated amounts, temporary hit points, death saves, hit dice, and short and long rests that summarize their effects.
+- Roll checks, saves, skills, and initiative from the sheet into the shared roll dock and history. Keep armor class, hit points, inspiration, and the roll mode in a sticky status bar.
+- Use keyboard tabs with the selected tab in the URL, a panel layout menu, and collapsible panels on narrow screens.
+- Track coins, group spells by level, filter prepared spells, mark concentration, and open entries in the compendium. Synchronized features are read-only and can be copied.
+- Fill PDF character sheets with Polish characters and localized class, species, and background names, and correct the 2024 sheet field mapping.
+- Protect unreadable character storage and changes from other tabs. Retry failed writes and include unsaved characters in full backups.
+
+## 1.14.0 - 2026-11-10
+
+- Browse personal Homebrew with bilingual search, filters, sorting, and pagination.
+- Edit entries and subclass features in keyboard-accessible dialogs and undo deletions.
+- Preview imports and scoped restores, report skipped entries and duplicates, and preserve artwork and identifiers in backups.
+- Protect unreadable storage and changes from other tabs. Retry failed writes and include pending Homebrew changes in full backups.
+- Validate imported entries and preserve both languages when changing the source language.
+- Open local subclasses directly in either language. Load remote Homebrew artwork on request and adjust local crops with the keyboard.
+
+## 1.13.0 - 2026-11-10
+
+- Browse books and adventures with localized search, sorting, compact filters, and a preserved return to the catalog.
+- Jump through chapters and sections on mobile and desktop, with stable links across languages and clear approximate source jumps.
+- Read large books in chapter batches and recover from unavailable content, translations, or covers.
+- Resume reading with local history and preferences included in Fumble backups.
+
+## 1.12.0 - 2026-11-09
+
+- Keep turn controls visible, announce the active participant, and allow stable tie reordering.
+- Continue in order after removing the active participant. Confirm removals and offer undo.
+- Validate and edit combatant stats, distinguish missing values from zero, and preview additions from characters, the Bestiary, and the encounter builder.
+- Search and filter saved characters, and jump to a participant without changing the queue.
+- Protect unreadable initiative data and changes made in other tabs. Retry failed writes and include changes still in memory in backups.
+- Preview and restore initiative backups without replacing other Fumble data.
+
+## 1.11.0 - 2026-11-09
+
+- Save the encounter draft locally and keep a library of named encounters with duplication.
+- Validate party groups and distinguish missing XP from zero XP. Support lair XP and random creatures within the remaining budget.
+- Browse and sort the creature catalog by localized and original name, habitat, and challenge rating with shared edition and Homebrew settings.
+- Keep totals and controls readable on narrow screens and restore keyboard focus after roster changes.
+- Include encounters in full backups, preview encounter-only restores, and recover drafts after storage failures.
+- Preview and append encounter creatures to Initiative while retaining the current round and turn.
+
+## 1.10.0 - 2026-11-09
+
+- Preserve loot settings and the latest fifty named rewards across navigation, refresh, modes, and languages.
+- Use canonical item metadata, matching Polish and English rarity pools, and the selected content edition.
+- Skip incomplete homebrew without changing it, require opt-in for unranked rarities, and validate party levels and counts.
+- Search, filter, sort, and select saved party members in bounded, paginated lists with wrapping names and default party-only selection.
+- Keep original reward parameters during item rerolls, display sources and attunement requirements, and choose concrete variant bases.
+- Total coins and valuables, optionally divide them with an explicit remainder, and copy or download complete rewards.
+- Report local save failures, retry writes, preserve unreadable storage, and export current in-memory loot data.
+- Include loot in general backups and preview scoped loot restores that preserve all other application data.
+- Add distinct loading, empty, and error states, keyboard focus recovery, and localized result announcements.
+
+## 1.9.0 - 2026-11-08
+
+- Search localized and original soundtrack names, sort independently, browse fifty cards per page, and mark favorites.
+- Edit track names, YouTube videos and playlists, and categories with explicit save and cancel.
+- Confirm named deletions with initial Cancel focus and undo, preserving tracks when removing categories.
+- Report local save failures, retry writing, export current in-memory data, and preserve unreadable original storage.
+- Validate soundboard identifiers and category references, migrate existing libraries, and restore scoped backups without replacing other Fumble data.
+- Keep a compact visible YouTube player with loading, playing, paused, blocked, and error states and stop playback when removing its track.
+- Add keyboard reordering, named move actions, localized announcements, wrapping cards, and usable forms at 320 px.
+
+## 1.8.0 - 2026-11-08
+
+- Search campaign pages by title and content, filter categories, and browse fifty results per page with URL state.
+- Keep campaign introductions visible on mobile and add a keyboard-accessible page catalog and article contents.
+- Preserve localized article links, native new-tab actions, readable facts, and empty campaign states.
+- Publish complete sanitized wiki articles and campaign navigation in static HTML, including the Chult map.
+- Validate private Obsidian blocks before publication, omit local vault paths, and publish only referenced player-visible assets.
+- Show local map draft save failures, retry saving, download the current draft, and protect unsaved navigation and deletion.
+- Add keyboard map panning, single-stop hex navigation, and page scrolling over the map at base zoom.
+- Explain the campaign content language when using the English interface.
+
+## 1.7.1 - 2026-11-08
+
+- Remove decorative left-edge accents from selected list rows and document the shared selection style.
+- Inset dropdown chevrons consistently across the application and reserve space between labels and icons.
+
+## 1.7.0 - 2026-11-08
+
+- Add named campaign context collections that can be shared across sessions, edited, and included in AI prompts and exports.
+- Organize session notes, transcripts, and summaries into separate views with campaign metadata, content search, filtering, sorting, and pagination.
+- Bind transcription callbacks, queued audio, language, and elapsed time to the session where capture started.
+- Add speech mode selection, recoverable transcription failures, pending fragment counts, and safe navigation while finishing capture.
+- Edit, search, add, delete, and restore transcript fragments, with optional follow mode and incremental reading.
+- Preview and copy selected content or download TXT and Markdown files with optional campaign context.
+- Report local save failures, retry saving, and download an emergency backup from current in-memory data.
+- Preserve existing sessions and include campaign context collections in versioned backups.
+- Update privacy information for campaign context, summaries, and local speech recognition choices.
+
+## 1.6.0 - 2026-11-07
+
+- Organize the footer into project, discovery, and help links with accessible touch targets.
+- Add a localized site map linking every Compendium catalog and a local release history generated from this changelog.
+- Render complete legal documents, the site map, and release history in static HTML before JavaScript loads.
+- Clarify local data retention, unencrypted backups, external connection triggers, licensing, and reporting channels.
+- Add named legal references, document-specific revision dates, and SRD 5.2 attribution.
+
+## 1.5.0 - 2026-11-07
+
+- Browse the full Compendium in the application with paginated cards and optional description search.
+- Add searchable, collapsible facets with result counts, stable values across languages, removable unavailable selections, and mobile-safe dialog actions.
+- Add category-specific filters and numeric sorting for prices, weights, distances, durations, levels, speed, and card counts.
+- Remove empty metadata panels and inherit missing subspecies mechanics only from the matching source printing.
+- Repair translated collection identifiers, category codes, selected Polish names, and missing translated source sections.
+- Unify table rolls, percentile 00 handling, structured cells, result announcements, and navigation among multiple tables.
+- Add subclass search and persistent view modes, article contents, unique anchors, proportional artwork, and a return link to the Fumble library.
+
+## 1.4.0 - 2026-11-07
+
+- Sort the Fumble homebrew library by localized names or content types and browse fifty entries per page.
+- Search names, subtitles, campaign labels, prerequisites, and card excerpts, prioritizing name matches.
+- Add card excerpts, subclass labels, compact mobile filters, and accessible result counts and recovery actions.
+- Separate library browsing from Compendium visibility settings and fix clipped dialog actions on narrow screens.
+
+## 1.3.1 - 2026-11-07
+
+- Use the damage type color for the full panel border instead of a left accent.
+- List physical damage types first and sort the remaining labels in the selected language.
+
+## 1.3.0 - 2026-11-07
+
+- Build mixed damage rolls from named sources with all thirteen damage types and target defenses.
+- Show individual dice, kept and discarded results, arithmetic, and damage before and after defenses.
+- Save, edit, and undo removal of roll recipes, preserving existing saved rolls.
+- Keep the last fifty rolls in local storage and backups, with details, copying, and consistent rerolls.
+- Add bounded expression validation, pool quantity controls, examples, and accessible inline results.
+- Keep the result dock compact on other tools and avoid overlaying the dice page.
+
+## 1.2.133 - 2026-11-07
+
+- Preview backup contents and creation dates before replacing local data.
+- Offer a current-data download before restore and require acknowledgement for empty backups.
+- Validate stored data structures and versions, explain import and export errors, and fix keyboard file selection.
+- Show local data counts and explain how to move backups between browsers and devices.
+
 ## 1.2.132 - 2026-11-07
 
 - Let dice roll modes wrap on narrow screens with wider system fonts.

@@ -59,6 +59,32 @@ describe('Sidebar', () => {
     expect(onNavigate).toHaveBeenCalledTimes(2);
   });
 
+  it('marks the current page without an edge strip', () => {
+    const { container } = renderSidebar(<Sidebar />, '/dice/');
+    const current = screen.getByRole('link', { current: 'page' });
+    expect(current).toHaveTextContent('Dice Roller');
+    expect(current.querySelector('.bg-arcane-700')).not.toBeNull();
+    expect(container.querySelector('[class*="w-[3px]"]')).toBeNull();
+  });
+
+  it('marks Compendium for the hub and for categories outside the menu', () => {
+    const hub = renderSidebar(<Sidebar />, '/pl/compendium/');
+    expect(screen.getByRole('link', { current: 'page' })).toHaveTextContent('Kompendium');
+    hub.unmount();
+
+    const other = renderSidebar(<Sidebar />, '/compendium/deities/tyr');
+    expect(screen.getByRole('link', { current: 'page' })).toHaveTextContent('Compendium');
+    other.unmount();
+
+    const listed = renderSidebar(<Sidebar />, '/compendium/spells/fireball');
+    expect(screen.getByRole('link', { current: 'page' })).toHaveTextContent('Spells');
+    listed.unmount();
+
+    useSidebarStore.setState({ collapsed: true });
+    renderSidebar(<Sidebar />, '/dice');
+    expect(screen.getByTitle('Compendium')).not.toHaveAttribute('aria-current');
+  });
+
   it('renders inactive navigation states', () => {
     renderSidebar(<Sidebar />, '/not-a-route');
     expect(screen.queryByRole('link', { current: 'page' })).toBeNull();

@@ -3,6 +3,7 @@ import { create } from 'zustand';
 export type DialogTone = 'default' | 'danger';
 
 interface ConfirmOptions {
+  initialFocus?: 'confirm' | 'cancel';
   title?: string;
   confirmLabel?: string;
   cancelLabel?: string;
@@ -15,6 +16,7 @@ interface AlertOptions {
 }
 
 interface DialogRequest {
+  initialFocus?: 'confirm' | 'cancel';
   kind: 'confirm' | 'alert';
   title: string;
   message: string;
@@ -50,6 +52,7 @@ export function confirmDialog(
         confirmLabel: options.confirmLabel ?? '',
         cancelLabel: options.cancelLabel ?? '',
         tone: options.tone ?? 'default',
+        initialFocus: options.initialFocus ?? 'confirm',
         resolve,
       },
     });

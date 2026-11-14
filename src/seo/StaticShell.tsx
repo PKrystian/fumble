@@ -3,8 +3,15 @@ import { LegalFooter } from '@/features/legal/LegalFooter';
 import { Logo } from '@/features/ui/Logo';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
+import type { ReactNode } from 'react';
 
-export function StaticShell({ content }: { content: string }) {
+export function StaticShell({
+  content,
+  children,
+}: {
+  content?: string;
+  children?: ReactNode;
+}) {
   const { t } = useT();
   return (
     <div className="static-shell">
@@ -38,8 +45,10 @@ export function StaticShell({ content }: { content: string }) {
           id="static-main"
           data-prerendered="true"
           tabIndex={-1}
-          className="page-shell reading-content"
-          dangerouslySetInnerHTML={{ __html: content }}
+          className={content !== undefined ? 'page-shell reading-content' : 'min-w-0'}
+          {...(content !== undefined
+            ? { dangerouslySetInnerHTML: { __html: content } }
+            : { children })}
         />
         <LegalFooter />
       </div>

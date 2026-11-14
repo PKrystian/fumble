@@ -94,40 +94,22 @@ export interface RandomMonsterCandidate<T> {
 
 export function pickRandomMonster<T>(
   candidates: RandomMonsterCandidate<T>[],
-  highBudget: number,
+  remainingXp: number,
   random = Math.random,
 ): T | undefined {
-  if (highBudget <= 0 || candidates.length === 0) return undefined;
-
-  const withinTolerance = candidates.filter(
-    ({ xp }) => xp >= highBudget && xp <= highBudget * 1.1,
-  );
-  const strongerCandidates = candidates.filter(({ xp }) => xp >= highBudget);
-  const pool = withinTolerance.length > 0 ? withinTolerance : strongerCandidates;
+  const pool = candidates.filter(({ xp }) => xp > 0 && xp <= remainingXp);
   if (pool.length === 0) return undefined;
-
-  const closestXp = withinTolerance.length
-    ? undefined
-    : pool.reduce((closest, candidate) => Math.min(closest, candidate.xp), Infinity);
-  const preferredPool =
-    closestXp === undefined ? pool : pool.filter(({ xp }) => xp === closestXp);
-  const index = Math.min(
-    preferredPool.length - 1,
-    Math.floor(random() * preferredPool.length),
-  );
-  return preferredPool[index]?.item;
+  return pool[Math.floor(random() * pool.length)]?.item;
 }
 
-export type DifficultyRating = 'Trivial' | 'Low' | 'Moderate' | 'High' | 'Deadly';
+export type DifficultyRating = Difficulty | 'overBudget';
 
 export function rateEncounter(
   totalXp: number,
   budget: EncounterBudget,
 ): DifficultyRating {
-  if (totalXp === 0) return 'Trivial';
-  if (totalXp < budget.low) return 'Trivial';
-  if (totalXp <= budget.low) return 'Low';
-  if (totalXp <= budget.moderate) return 'Moderate';
-  if (totalXp <= budget.high) return 'High';
-  return 'Deadly';
+  if (totalXp <= budget.low) return 'low';
+  if (totalXp <= budget.moderate) return 'moderate';
+  if (totalXp <= budget.high) return 'high';
+  return 'overBudget';
 }
