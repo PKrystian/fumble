@@ -17,13 +17,18 @@ export function ContentModeSwitcher({ compact = false }: ContentModeSwitcherProp
   const setMode = useContentModeStore((s) => s.setMode);
   const containerRef = useRef<HTMLDivElement>(null);
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
     const onClick = (e: MouseEvent) => {
       if (!containerRef.current?.contains(e.target as Node)) setOpen(false);
     };
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      setOpen(false);
+      buttonRef.current?.focus();
+    };
     window.addEventListener('click', onClick);
     window.addEventListener('keydown', onKey);
     return () => {
@@ -41,14 +46,11 @@ export function ContentModeSwitcher({ compact = false }: ContentModeSwitcherProp
 
   const choose = (m: ContentMode) => {
     setOpen(false);
+    buttonRef.current?.focus();
     setMode(m);
   };
 
   const handleOptionKeyDown = (event: React.KeyboardEvent, index: number) => {
-    if (event.key === 'Escape') {
-      setOpen(false);
-      return;
-    }
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       choose(MODES[index]!);
@@ -74,6 +76,7 @@ export function ContentModeSwitcher({ compact = false }: ContentModeSwitcherProp
   return (
     <div ref={containerRef} className="relative">
       <Button
+        ref={buttonRef}
         onClick={() => setOpen((v) => !v)}
         onKeyDown={(event) => {
           if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
@@ -101,7 +104,7 @@ export function ContentModeSwitcher({ compact = false }: ContentModeSwitcherProp
           className="absolute left-0 top-full z-20 mt-1 w-48 overflow-hidden rounded-md border border-ink-700 bg-ink-900 py-1 shadow-xl"
         >
           {MODES.map((m, i) => (
-            <li key={m}>
+            <li key={m} role="presentation">
               <button
                 type="button"
                 role="option"

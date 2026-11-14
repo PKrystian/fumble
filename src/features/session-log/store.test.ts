@@ -1,13 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import {
-  formatClockTime,
-  formatDuration,
-  formatPromptWithTranscript,
-  formatTranscriptForExport,
-  SUMMARY_PROMPT,
-  useSessionStore,
-  type Session,
-} from './store';
+import { formatClockTime, formatDuration, useSessionStore, type Session } from './store';
 
 const session: Session = {
   id: 'session-1',
@@ -21,7 +13,13 @@ const session: Session = {
 describe('session store', () => {
   beforeEach(() => {
     localStorage.clear();
-    useSessionStore.setState({ sessions: [], transcriptionLang: 'english' });
+    useSessionStore.setState({
+      sessions: [],
+      contexts: [],
+      selectedSessionId: null,
+      transcriptionLang: 'english',
+      transcriptionMode: 'auto',
+    });
     vi.restoreAllMocks();
   });
 
@@ -62,23 +60,10 @@ describe('session store', () => {
     expect(useSessionStore.getState().sessions).toEqual([session]);
   });
 
-  it('formats durations and transcript exports', () => {
+  it('formats durations and clock times', () => {
     expect(formatDuration(65_000)).toBe('1:05');
     expect(formatDuration(3_661_000)).toBe('1:01:01');
     expect(formatClockTime(session.createdAt)).toBe('10:20:30');
-    expect(formatTranscriptForExport(session)).not.toContain('Notes:');
-
-    const populated = {
-      ...session,
-      notes: '  Find the crown.  ',
-      entries: [{ time: session.createdAt, text: 'The gate opened.' }],
-    };
-    const exported = formatTranscriptForExport(populated);
-    expect(exported).toContain('Notes:\nFind the crown.');
-    expect(exported).toContain('[10:20:30] The gate opened.');
-    expect(formatPromptWithTranscript(populated)).toBe(
-      `${SUMMARY_PROMPT}\n\n${exported}`,
-    );
   });
 
   it('migrates missing sessions and legacy notes', async () => {

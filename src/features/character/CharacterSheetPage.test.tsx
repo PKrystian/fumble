@@ -1,288 +1,277 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import type { ReactNode } from 'react';
+import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+import { useRollStore } from '@/features/dice/rollStore';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { createCharacter } from './model';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { CHARACTERS_KEY, serializeCharacters } from './characterData';
 import { CharacterSheetPage } from './CharacterSheetPage';
+import { useLayoutStore } from './layoutStore';
+import { createCharacter, type Character } from './model';
+import { useCharacterStore } from './store';
 
 const mocks = vi.hoisted(() => ({
-  character: undefined as ReturnType<typeof createCharacter> | undefined,
-  saveCharacter: vi.fn(),
-  updateCharacter: vi.fn(),
-  movePanel: vi.fn(),
-  fillPdf: vi.fn(),
-  alertDialog: vi.fn(),
-  syncClassFeatures: vi.fn(() => ({ hitDice: '1d8' })),
-}));
-
-vi.mock('./store', () => ({
-  useCharacter: () => mocks.character,
-  useCharacterStore: (
-    selector: (state: {
-      saveCharacter: typeof mocks.saveCharacter;
-      updateCharacter: typeof mocks.updateCharacter;
-    }) => unknown,
-  ) =>
-    selector({
-      saveCharacter: mocks.saveCharacter,
-      updateCharacter: mocks.updateCharacter,
-    }),
-}));
-
-vi.mock('./compendiumSync', () => ({
-  useClassEntryPair: () => ({
-    localized: { name: 'Wizard' },
-    english: { name: 'Wizard' },
-  }),
-  useSpeciesEntryPair: () => ({ localized: { name: 'Elf' }, english: { name: 'Elf' } }),
-  useBackgroundEntryPair: () => ({
-    localized: { name: 'Sage' },
-    english: { name: 'Sage' },
-  }),
-  useSpellIndex: () => new Map(),
-  findSubclassPair: () => ({
-    localized: { name: 'Evoker' },
-    english: { name: 'Evoker' },
-  }),
-  syncClassFeatures: () => mocks.syncClassFeatures(),
-}));
-
-const zones = {
-  left: ['abilities', 'savingThrows'],
-  center: ['tabs'],
-  right: ['combat'],
-};
-
-vi.mock('./layoutStore', () => {
-  const useLayoutStore = (
-    selector: (state: {
-      zones: typeof zones;
-      movePanel: typeof mocks.movePanel;
-    }) => unknown,
-  ) => selector({ zones, movePanel: mocks.movePanel });
-  useLayoutStore.getState = () => ({ zones });
-  return { useLayoutStore };
-});
-
-vi.mock('./sections', () => {
-  const panel = (name: string) => () => <div>{name}</div>;
-  return {
-    AbilityScoresPanel: panel('Abilities panel'),
-    CombatPanel: panel('Combat panel'),
-    HitPointsPanel: panel('Hit points panel'),
-    IdentityHeader: ({
-      update,
-    }: {
-      update: (patch: Record<string, unknown>) => void;
-    }) => (
-      <button type="button" onClick={() => update({ name: 'Updated' })}>
-        Identity
-      </button>
-    ),
-    PassivesPanel: panel('Passives panel'),
-    ProficienciesPanel: panel('Proficiencies panel'),
-    SavingThrowsPanel: panel('Saving throws panel'),
-    SessionLogQuickPanel: panel('Session log panel'),
-    SkillsPanel: panel('Skills panel'),
-    SpellcastingPanel: panel('Spellcasting panel'),
-    TrackingPanel: panel('Tracking panel'),
-  };
-});
-
-vi.mock('./tabs', () => ({
-  SheetTabs: () => <div>Tabs panel</div>,
-}));
-
-vi.mock('./SortablePanel', () => ({
-  SortablePanel: ({ children }: { children: ReactNode }) => <div>{children}</div>,
-  SortableZone: ({ children }: { children: ReactNode }) => <div>{children}</div>,
-}));
-
-vi.mock('./CharacterSettingsModal', () => ({
-  CharacterSettingsModal: ({
-    onClose,
-    update,
-  }: {
-    onClose: () => void;
-    update: (patch: Record<string, unknown>) => void;
-  }) => (
-    <div>
-      <button type="button" onClick={() => update({ level: 2 })}>
-        Update settings
-      </button>
-      <button type="button" onClick={onClose}>
-        Close settings
-      </button>
-    </div>
-  ),
+  fill: vi.fn(),
+  download: vi.fn(),
+  downloadBlob: vi.fn(),
+  dnd: {} as Record<string, (event: unknown) => void>,
 }));
 
 vi.mock('./pdfExport', () => ({
-  fillCharacterSheetPdf: (...args: unknown[]) => mocks.fillPdf(...args),
+  fillCharacterSheetPdf: (...args: unknown[]) => mocks.fill(...args),
 }));
 
-vi.mock('@/features/ui/confirmStore', () => ({
-  alertDialog: (...args: unknown[]) => mocks.alertDialog(...args),
+vi.mock('@/features/storage/downloadFile', () => ({
+  downloadTextFile: (...args: unknown[]) => mocks.download(...args),
+  downloadBlob: (...args: unknown[]) => mocks.downloadBlob(...args),
 }));
 
-vi.mock('@dnd-kit/core', () => ({
-  PointerSensor: function PointerSensor() {},
-  useSensor: () => ({}),
-  useSensors: () => [],
-  DragOverlay: ({ children }: { children: ReactNode }) => <div>{children}</div>,
-  DndContext: ({
-    children,
-    onDragStart,
-    onDragEnd,
-    onDragCancel,
-  }: {
-    children: ReactNode;
-    onDragStart: (event: { active: { id: string } }) => void;
-    onDragEnd: (event: { active: { id: string }; over: { id: string } | null }) => void;
-    onDragCancel: () => void;
-  }) => (
-    <div>
-      <button type="button" onClick={() => onDragStart({ active: { id: 'abilities' } })}>
-        Start drag
-      </button>
-      <button
-        type="button"
-        onClick={() =>
-          onDragEnd({ active: { id: 'abilities' }, over: { id: 'savingThrows' } })
-        }
-      >
-        End drag
-      </button>
-      <button
-        type="button"
-        onClick={() => onDragEnd({ active: { id: 'abilities' }, over: null })}
-      >
-        Drop nowhere
-      </button>
-      <button
-        type="button"
-        onClick={() =>
-          onDragEnd({ active: { id: 'abilities' }, over: { id: 'unknown' } })
-        }
-      >
-        Drop unknown
-      </button>
-      <button type="button" onClick={onDragCancel}>
-        Cancel drag
-      </button>
-      {children}
-    </div>
-  ),
+vi.mock('@dnd-kit/core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@dnd-kit/core')>();
+  return {
+    ...actual,
+    DndContext: (props: Parameters<typeof actual.DndContext>[0]) => {
+      if (props.onDragEnd) Object.assign(mocks.dnd, props);
+      return <actual.DndContext {...props} />;
+    },
+  };
+});
+
+vi.mock('@/features/compendium/categories', () => ({
+  getCategory: (id: string) => ({ id }),
 }));
 
-function renderPage() {
-  return render(
-    <MemoryRouter initialEntries={['/character/test']}>
+vi.mock('@/features/compendium/useCategoryItems', () => ({
+  useCategoryItems: (category: { id: string }) => ({
+    status: 'ready',
+    items:
+      category.id === 'classes'
+        ? [{ id: 'barbarian', name: 'Barbarian', source: 'XPHB' }]
+        : category.id === 'species'
+          ? [{ id: 'dwarf', name: 'Dwarf', source: 'XPHB' }]
+          : [],
+  }),
+}));
+
+vi.mock('./compendiumSync', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('./compendiumSync')>();
+  const cls = {
+    id: 'barbarian',
+    name: 'Barbarian',
+    hitDie: 'd12',
+    savingThrows: 'Strength, Constitution',
+    armorProficiencies: 'Light, Medium, Shield',
+    weaponProficiencies: 'Simple, Martial',
+    toolProficiencies: '',
+    subclasses: [],
+    features: [{ name: 'Rage', level: 1, entries: ['Fury'] }],
+  };
+  return {
+    ...actual,
+    useClassEntryPair: (value: string) => ({
+      localized: value ? cls : undefined,
+      english: value ? cls : undefined,
+      ready: true,
+    }),
+    useClassEntry: (value: string) => (value ? cls : undefined),
+    useSpeciesEntryPair: () => ({
+      localized: undefined,
+      english: undefined,
+      ready: true,
+    }),
+    useBackgroundEntryPair: () => ({
+      localized: undefined,
+      english: undefined,
+      ready: true,
+    }),
+    useSpellIndex: () => ({ index: new Map(), ready: true }),
+  };
+});
+
+function seed(character: Character) {
+  localStorage.setItem(
+    CHARACTERS_KEY,
+    serializeCharacters({
+      characters: { [character.id]: character },
+      order: [character.id],
+    }),
+  );
+  useCharacterStore.getState().reloadStored();
+}
+
+function mount(id: string, path = `/character/${id}`) {
+  render(
+    <MemoryRouter initialEntries={[path]}>
       <Routes>
         <Route path="/character/:id" element={<CharacterSheetPage />} />
+        <Route path="/pl/character/:id" element={<CharacterSheetPage />} />
       </Routes>
     </MemoryRouter>,
   );
 }
 
+function setWide(wide: boolean) {
+  vi.stubGlobal(
+    'matchMedia',
+    vi.fn(() => ({
+      matches: wide,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    })),
+  );
+}
+
 describe('CharacterSheetPage', () => {
   beforeEach(() => {
-    mocks.character = undefined;
-    mocks.saveCharacter.mockReset();
-    mocks.updateCharacter.mockReset();
-    mocks.movePanel.mockReset();
-    mocks.fillPdf.mockReset();
-    mocks.fillPdf.mockResolvedValue(new Blob(['pdf']));
-    mocks.alertDialog.mockReset();
-    mocks.syncClassFeatures.mockClear();
-    vi.stubGlobal('URL', {
-      createObjectURL: vi.fn(() => 'blob:test'),
-      revokeObjectURL: vi.fn(),
-    });
-    vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => undefined);
+    localStorage.clear();
+    useLayoutStore.getState().reset();
+    mocks.fill.mockReset();
+    mocks.download.mockReset();
+    vi.stubGlobal(
+      'URL',
+      Object.assign(URL, {
+        createObjectURL: vi.fn(() => 'blob:sheet'),
+        revokeObjectURL: vi.fn(),
+      }),
+    );
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
   });
 
-  it('shows a missing character state', () => {
-    renderPage();
-    expect(screen.getByText('This character could not be found.')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Back to characters' })).toBeInTheDocument();
+  it('explains a missing character', () => {
+    seed(createCharacter('Other'));
+    mount('missing');
+    expect(
+      screen.getByRole('heading', { name: 'Character not found' }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Back to characters' })).toHaveAttribute(
+      'href',
+      '/character/',
+    );
   });
 
-  it('auto-syncs, updates fields, settings and panel layout', () => {
-    mocks.character = {
-      ...createCharacter('Hero'),
-      id: 'test',
-      autoSyncFeatures: true,
-      className: 'Wizard',
-      subclass: 'Evoker',
-      species: 'Elf',
-      background: 'Sage',
-    };
-    renderPage();
-    expect(mocks.syncClassFeatures).toHaveBeenCalled();
-    expect(mocks.updateCharacter).toHaveBeenCalledWith('test', { hitDice: '1d8' });
-    expect(screen.getByRole('button', { name: 'Character Settings' })).toHaveClass(
-      'ui-button',
+  it('synchronizes class data and shows the status bar', async () => {
+    const hero = { ...createCharacter('Mira'), className: 'barbarian', species: 'dwarf' };
+    seed(hero);
+    mount(hero.id);
+    expect(screen.getByRole('heading', { level: 1, name: 'Mira' })).toBeInTheDocument();
+    expect(screen.getByText('Level 1 - Barbarian - Dwarf')).toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        useCharacterStore.getState().characters[hero.id]!.savingThrowProficiencies,
+      ).toEqual(['str', 'con']),
     );
-    expect(screen.getByRole('button', { name: 'Export' })).toHaveClass(
-      'w-full',
-      'sm:w-auto',
+    const status = screen.getByRole('region', { name: 'Character status' });
+    expect(status).toHaveTextContent('HP0/0');
+    act(() =>
+      useCharacterStore
+        .getState()
+        .updateCharacter(hero.id, { hp: { current: 3, max: 9, temp: 2 } }),
     );
-    expect(screen.getByRole('button', { name: 'Sheet (2024)' })).toHaveClass(
-      'w-full',
-      'sm:w-auto',
-    );
+    expect(status).toHaveTextContent('HP3/9+2 temp');
+    fireEvent.click(within(status).getByRole('button', { name: 'Roll Initiative +0' }));
+    expect(useRollStore.getState().log[0]!.label).toBe('Mira: Initiative');
+    fireEvent.click(screen.getAllByRole('button', { name: 'Heroic Inspiration' })[0]!);
+    expect(useCharacterStore.getState().characters[hero.id]!.inspiration).toBe(true);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Identity' }));
-    expect(mocks.updateCharacter).toHaveBeenCalledWith('test', { name: 'Updated' });
     fireEvent.click(screen.getByRole('button', { name: 'Character Settings' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Update settings' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Close settings' }));
-
-    fireEvent.click(screen.getByRole('button', { name: 'Start drag' }));
-    expect(screen.getAllByText('Abilities panel').length).toBeGreaterThan(1);
-    fireEvent.click(screen.getByRole('button', { name: 'End drag' }));
-    expect(mocks.movePanel).toHaveBeenCalledWith('abilities', 'left', 1);
-    fireEvent.click(screen.getByRole('button', { name: 'Drop nowhere' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Drop unknown' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Cancel drag' }));
+    expect(
+      screen.getByRole('dialog', { name: 'Character Settings' }),
+    ).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Done' }));
+    expect(screen.queryByRole('dialog')).toBeNull();
   });
 
-  it('exports JSON and both PDF editions', async () => {
-    mocks.character = { ...createCharacter('Hero'), id: 'test' };
-    renderPage();
-    fireEvent.click(screen.getByRole('button', { name: 'Export' }));
-    expect(URL.createObjectURL).toHaveBeenCalled();
-
-    fireEvent.click(screen.getByRole('button', { name: 'Sheet (2024)' }));
-    await waitFor(() =>
-      expect(mocks.fillPdf).toHaveBeenCalledWith(mocks.character, '2024'),
-    );
-    fireEvent.click(screen.getByRole('button', { name: 'Sheet (2014)' }));
-    await waitFor(() =>
-      expect(mocks.fillPdf).toHaveBeenCalledWith(mocks.character, '2014'),
-    );
-  });
-
-  it('reports PDF export failures', async () => {
-    mocks.character = { ...createCharacter(''), id: 'test' };
-    mocks.fillPdf.mockRejectedValue(new Error('failed'));
-    renderPage();
-    fireEvent.click(screen.getByRole('button', { name: 'Export' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Sheet (2024)' }));
-    await waitFor(() => expect(mocks.alertDialog).toHaveBeenCalled());
-    mocks.fillPdf.mockResolvedValue(new Blob());
-    fireEvent.click(screen.getByRole('button', { name: 'Sheet (2014)' }));
-    await waitFor(() => expect(URL.createObjectURL).toHaveBeenCalled());
-  });
-
-  it('does not auto-sync when the setting is disabled', () => {
-    mocks.character = {
-      ...createCharacter('Hero'),
-      id: 'test',
-      autoSyncFeatures: false,
+  it('exports JSON and filled PDFs with clear feedback', async () => {
+    const hero = {
+      ...createCharacter('Mira/Ola'),
+      className: 'barbarian',
+      subclass: 'Berserker|XPHB',
     };
-    renderPage();
-    expect(mocks.syncClassFeatures).not.toHaveBeenCalled();
+    seed(hero);
+    mount(hero.id);
+    fireEvent.click(screen.getByRole('button', { name: 'Export options' }));
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Export JSON' }));
+    expect(mocks.download).toHaveBeenCalledWith(
+      expect.stringContaining('"layout"'),
+      'Mira Ola.json',
+    );
+    expect(screen.getByText('Character download started.')).toBeInTheDocument();
+
+    mocks.download.mockImplementationOnce(() => {
+      throw new Error('blocked');
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Export options' }));
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Export JSON' }));
+    expect(screen.getByRole('alert')).toHaveTextContent('The file could not be created.');
+
+    mocks.fill.mockResolvedValue(new Blob(['pdf']));
+    fireEvent.click(screen.getByRole('button', { name: 'Export options' }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole('menuitem', { name: 'Sheet PDF (2024)' }));
+    });
+    await waitFor(() =>
+      expect(screen.getByText('The 2024 sheet download started.')).toBeInTheDocument(),
+    );
+    expect(mocks.fill).toHaveBeenCalledWith(
+      expect.objectContaining({ id: hero.id }),
+      '2024',
+      { className: 'Barbarian', subclass: 'Berserker', species: '', background: '' },
+    );
+    expect(mocks.downloadBlob).toHaveBeenCalledWith(
+      expect.any(Blob),
+      'Mira Ola-2024.pdf',
+    );
+
+    mocks.fill.mockRejectedValue(new Error('broken'));
+    fireEvent.click(screen.getByRole('button', { name: 'Export options' }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole('menuitem', { name: 'Sheet PDF (2014)' }));
+    });
+    await waitFor(() =>
+      expect(screen.getByRole('alert')).toHaveTextContent(
+        'Could not fill the 2014 character sheet.',
+      ),
+    );
+  });
+
+  it('reorders desktop panels by dragging', () => {
+    const hero = createCharacter('');
+    seed(hero);
+    mount(hero.id);
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Unnamed' }),
+    ).toBeInTheDocument();
+    act(() => mocks.dnd.onDragStart!({ active: { id: 'skills' } }));
+    act(() => mocks.dnd.onDragEnd!({ active: { id: 'skills' }, over: null }));
+    act(() => mocks.dnd.onDragStart!({ active: { id: 'skills' } }));
+    act(() => mocks.dnd.onDragCancel!({}));
+    act(() =>
+      mocks.dnd.onDragEnd!({ active: { id: 'skills' }, over: { id: 'unknown' } }),
+    );
+    expect(useLayoutStore.getState().zones.right[0]).toBe('skills');
+    act(() => mocks.dnd.onDragEnd!({ active: { id: 'skills' }, over: { id: 'combat' } }));
+    expect(useLayoutStore.getState().zones.center[0]).toBe('skills');
+  });
+
+  it('uses the narrow order with collapsible panels', () => {
+    setWide(false);
+    const hero = createCharacter('Mira');
+    seed(hero);
+    mount(hero.id, `/pl/character/${hero.id}`);
+    const panels = [...document.querySelectorAll('[data-panel]')].map(
+      (element) => (element as HTMLElement).dataset.panel,
+    );
+    expect(panels.slice(0, 3)).toEqual(['hitPoints', 'combat', 'tabs']);
+    expect(screen.getByRole('button', { name: 'Umiejętności' })).toHaveAttribute(
+      'aria-expanded',
+      'false',
+    );
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Ułóż panel: Punkty wytrzymałości' }),
+    );
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Przesuń w dół' }));
+    expect(
+      screen.getByText('Panel Punkty wytrzymałości jest teraz na pozycji 2.'),
+    ).toBeInTheDocument();
   });
 });

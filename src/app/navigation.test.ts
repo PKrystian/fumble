@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { Logo } from '@/features/ui/Logo';
-import { allNavItems, navSections } from './navigation';
+import { allNavItems, compendiumNavItem, navAccentText, navSections } from './navigation';
 
 describe('navigation', () => {
   it('exposes direct compendium category routes', () => {
@@ -16,6 +16,15 @@ describe('navigation', () => {
   it('flattens every section item into allNavItems', () => {
     const total = navSections.reduce((sum, section) => sum + section.items.length, 0);
     expect(allNavItems).toHaveLength(total);
+  });
+
+  it('gives every section an accent and every link its own icon and description', () => {
+    for (const section of navSections)
+      expect(navAccentText[section.accent]).toMatch(/^text-/);
+    const items = [compendiumNavItem, ...allNavItems];
+    expect(new Set(items.map((item) => item.icon)).size).toBe(items.length);
+    expect(new Set(items.map((item) => item.descriptionKey)).size).toBe(items.length);
+    expect(allNavItems).not.toContain(compendiumNavItem);
   });
 
   it('places the Fumble homebrew page after the campaign references', () => {

@@ -1,5 +1,7 @@
 import { ExternalLink } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { LEGAL_DATES, LEGAL_PAGES, legalPath, type LegalPageId } from './links';
+import { LegalText, LegalReference } from './LegalText';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
@@ -13,14 +15,23 @@ function LegalDocument({
   title,
   description,
   children,
+  page,
   overview = false,
 }: {
   title: string;
   description: string;
   children: ReactNode;
+  page: LegalPageId;
   overview?: boolean;
 }) {
-  const { t } = useT();
+  const { t, locale } = useT();
+  const updated = LEGAL_DATES[page];
+  const date = new Intl.DateTimeFormat(locale === 'pl' ? 'pl-PL' : 'en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(updated));
   useSeo(title, description);
   return (
     <article className="page-shell page-shell-reading">
@@ -32,7 +43,9 @@ function LegalDocument({
       <header>
         <h1 className="page-title">{title}</h1>
         <p className="page-description">{description}</p>
-        <p className="mt-2 text-xs text-ink-400">{t('legal.updated')}</p>
+        <p className="mt-2 text-xs text-ink-400">
+          {t('legal.updatedLabel')} <time dateTime={updated}>{date}</time>
+        </p>
       </header>
       <div className="reading-content mt-8 space-y-8">{children}</div>
     </article>
@@ -42,23 +55,25 @@ function LegalDocument({
 function Page({
   title,
   description,
-  updated,
+  page,
   sections,
 }: {
   title: string;
   description: string;
-  updated: string;
+  page: LegalPageId;
   sections: LegalSection[];
 }) {
   return (
-    <LegalDocument title={title} description={description}>
-      <div className="space-y-8" data-updated={updated}>
+    <LegalDocument title={title} description={description} page={page}>
+      <div className="space-y-8">
         {sections.map((section) => (
           <section key={section.heading}>
             <h2 className="text-ink-100 section-title">{section.heading}</h2>
             <div className="mt-3 space-y-3 leading-7 text-ink-300">
               {section.body.split('\n\n').map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+                <p key={paragraph}>
+                  <LegalText text={paragraph} />
+                </p>
               ))}
             </div>
           </section>
@@ -71,25 +86,20 @@ function Page({
 export function LegalOverviewPage() {
   const { t } = useT();
 
-  const pages = [
-    ['privacy', '/legal/privacy'],
-    ['connections', '/legal/connections'],
-    ['terms', '/legal/terms'],
-    ['licenses', '/legal/licenses'],
-    ['accessibility', '/legal/accessibility'],
-    ['contact', '/legal/contact'],
-  ] as const;
+  const pages = LEGAL_PAGES.filter((page) => page !== 'overview');
 
   return (
     <LegalDocument
       title={t('legal.overview.title')}
       description={t('legal.overview.description')}
+      page="overview"
       overview
     >
+      <p>{t('legal.overview.summary')}</p>
       <ul className="space-y-4">
-        {pages.map(([key, to]) => (
+        {pages.map((key) => (
           <li key={key}>
-            <Link to={to} className="catalog-card">
+            <Link to={legalPath(key)} className="catalog-card">
               <h2 className="section-title">{t(`legal.${key}.title`)}</h2>
               <p className="mt-2 leading-7 text-ink-300">
                 {t(`legal.${key}.description`)}
@@ -108,7 +118,7 @@ export function PrivacyPage() {
     <Page
       title={t('legal.privacy.title')}
       description={t('legal.privacy.description')}
-      updated={t('legal.updated')}
+      page="privacy"
       sections={[
         {
           heading: t('legal.privacy.controllerHeading'),
@@ -163,16 +173,29 @@ export function ConnectionsPage() {
     <LegalDocument
       title={t('legal.connections.title')}
       description={t('legal.connections.description')}
+      page="connections"
     >
-      <div className="space-y-8">
+      <div className="grid gap-4 sm:grid-cols-2">
         {services.map((service) => (
-          <section key={service}>
-            <h2 className="text-ink-100 section-title">
-              {t(`legal.connections.${service}Title`)}
+          <section
+            key={service}
+            className="rounded-xl border border-ink-700 bg-ink-900 p-4"
+          >
+            <h2 className="section-title text-ink-100">
+              {t('legal.connections.' + service + 'Title')}
             </h2>
-            <p className="mt-3 leading-7 text-ink-300">
-              {t(`legal.connections.${service}Body`)}
-            </p>
+            <dl className="mt-3 space-y-3">
+              {['trigger', 'recipient', 'data', 'control'].map((field) => (
+                <div key={field}>
+                  <dt className="field-label">
+                    {t('legal.connections.fields.' + field)}
+                  </dt>
+                  <dd className="mt-1 text-sm leading-6 text-ink-300">
+                    {t('legal.connections.details.' + service + '.' + field)}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </section>
         ))}
       </div>
@@ -185,7 +208,7 @@ export function ConnectionsPage() {
         </p>
         <div className="mt-4 flex flex-wrap gap-4 text-sm">
           <a
-            className="inline-flex items-center gap-1 text-arcane-300 hover:text-arcane-200"
+            className="document-link"
             href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
             rel="noreferrer"
             target="_blank"
@@ -194,7 +217,7 @@ export function ConnectionsPage() {
             <ExternalLink size={14} aria-hidden="true" />
           </a>
           <a
-            className="inline-flex items-center gap-1 text-arcane-300 hover:text-arcane-200"
+            className="document-link"
             href="https://huggingface.co/privacy"
             rel="noreferrer"
             target="_blank"
@@ -203,7 +226,7 @@ export function ConnectionsPage() {
             <ExternalLink size={14} aria-hidden="true" />
           </a>
           <a
-            className="inline-flex items-center gap-1 text-arcane-300 hover:text-arcane-200"
+            className="document-link"
             href="https://policies.google.com/privacy"
             rel="noreferrer"
             target="_blank"
@@ -223,7 +246,7 @@ export function TermsPage() {
     <Page
       title={t('legal.terms.title')}
       description={t('legal.terms.description')}
-      updated={t('legal.updated')}
+      page="terms"
       sections={[
         { heading: t('legal.terms.serviceHeading'), body: t('legal.terms.serviceBody') },
         { heading: t('legal.terms.contentHeading'), body: t('legal.terms.contentBody') },
@@ -248,10 +271,11 @@ export function LicensesPage() {
     <Page
       title={t('legal.licenses.title')}
       description={t('legal.licenses.description')}
-      updated={t('legal.updated')}
+      page="licenses"
       sections={[
         { heading: t('legal.licenses.codeHeading'), body: t('legal.licenses.codeBody') },
         { heading: t('legal.licenses.dataHeading'), body: t('legal.licenses.dataBody') },
+        { heading: t('legal.licenses.srdHeading'), body: t('legal.licenses.srdBody') },
         {
           heading: t('legal.licenses.trademarksHeading'),
           body: t('legal.licenses.trademarksBody'),
@@ -271,7 +295,7 @@ export function AccessibilityPage() {
     <Page
       title={t('legal.accessibility.title')}
       description={t('legal.accessibility.description')}
-      updated={t('legal.updated')}
+      page="accessibility"
       sections={[
         {
           heading: t('legal.accessibility.commitmentHeading'),
@@ -292,43 +316,31 @@ export function AccessibilityPage() {
 
 export function ContactPage() {
   const { t } = useT();
-  const links = [
-    ['https://github.com/PKrystian', t('legal.contact.profileLabel')],
-    ['https://github.com/PKrystian/Fumble', t('legal.contact.repositoryLabel')],
-    ['https://github.com/PKrystian/Fumble/issues', t('legal.contact.issuesLabel')],
-    [
-      'https://github.com/PKrystian/Fumble/security/advisories/new',
-      t('legal.contact.securityLabel'),
-    ],
-  ] as const;
-
   return (
     <LegalDocument
       title={t('legal.contact.title')}
       description={t('legal.contact.description')}
+      page="contact"
     >
       <section>
         <h2 className="text-ink-100 section-title">{t('legal.contact.ownerHeading')}</h2>
         <p className="mt-3 leading-7 text-ink-300">{t('legal.contact.ownerBody')}</p>
-        <ul className="mt-5 space-y-3">
-          {links.map(([href, label]) => (
-            <li key={href}>
-              <a
-                className="inline-flex items-center gap-2 text-arcane-300 hover:text-arcane-200"
-                href={href}
-                rel="noreferrer"
-                target="_blank"
-              >
-                {label}
-                <ExternalLink size={14} aria-hidden="true" />
-              </a>
-            </li>
-          ))}
+        <p className="mt-3 text-sm text-ink-400">{t('legal.contact.githubSignIn')}</p>
+        <ul className="mt-5 space-y-2">
+          {['bug', 'accessibility', 'content', 'security', 'profile', 'repository'].map(
+            (reference) => (
+              <li key={reference}>
+                <LegalReference reference={reference} action />
+              </li>
+            ),
+          )}
         </ul>
       </section>
       <section className="mt-10">
         <h2 className="text-ink-100 section-title">{t('legal.contact.safetyHeading')}</h2>
-        <p className="mt-3 leading-7 text-ink-300">{t('legal.contact.safetyBody')}</p>
+        <p className="mt-3 leading-7 text-ink-300">
+          <LegalText text={t('legal.contact.safetyBody')} />
+        </p>
       </section>
     </LegalDocument>
   );

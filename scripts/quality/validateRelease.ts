@@ -4,11 +4,10 @@ import { fileURLToPath } from 'node:url';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../../src/i18n/locales';
 import { IMAGE_HOST, imageUrl } from '../../src/data/compendium/images';
 import { cspHasSourceOrigin } from '../../src/seo/csp';
-import {
-  isBookChapterDuplicate,
-  isBookChapterNameIndexable,
-} from '../../src/features/books/chapterSeo';
 import { compendiumPrintingSeo } from '../../src/data/compendium/indexability';
+import { fumbleHomebrewItems } from '../../src/features/homebrew/fumbleHomebrew';
+import { LEGAL_DATES, LEGAL_PAGES, legalPath } from '../../src/features/legal/links';
+import { releaseAnchor } from '../../src/features/legal/changelog';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 const DIST = join(ROOT, 'dist');
@@ -48,6 +47,7 @@ interface ReleaseCompendiumItem {
   id: string;
   name: string;
   source: string;
+  srd: boolean;
   hidden?: boolean;
   image?: unknown;
   otherVersions?: Array<{ id: string; source: string }>;
@@ -72,24 +72,13 @@ function validateBookRoutes(): number {
         existsSync(join(DIST, `${bookRoute.slice(1)}index.html`)),
         `Missing book route: ${bookRoute}`,
       );
-      for (const [index, chapter] of (book.contents ?? []).entries()) {
+      for (const index of (book.contents ?? []).keys()) {
         const route = localizedRoute(`/books/${book.id}/${index}/`, locale);
         const html = read(`${route.slice(1)}index.html`);
-        if (
-          !isBookChapterNameIndexable(chapter.name) ||
-          isBookChapterDuplicate(book.id, index)
-        ) {
-          requireValue(
-            html.includes('<meta name="robots" content="noindex, nofollow" />'),
-            `Non-indexable book chapter must be noindex: ${route}`,
-          );
-        }
-        if (html.includes('<meta name="robots" content="index, follow" />')) {
-          requireValue(
-            html.includes('<article class="prerendered-chapter">'),
-            `Indexed chapter is missing its full static body: ${route}`,
-          );
-        }
+        requireValue(
+          html.includes('<meta name="robots" content="noindex, nofollow" />'),
+          `Book chapter must be noindex: ${route}`,
+        );
         checked += 1;
       }
     }
@@ -124,7 +113,14 @@ function validateCompendiumRoutes(): number {
         locale !== DEFAULT_LOCALE && existsSync(overlayPath)
           ? (JSON.parse(readFileSync(overlayPath, 'utf8')) as Record<string, unknown>)
           : {};
+      const fumbleOwnedIds = new Set(
+        fumbleHomebrewItems(locale)
+          .filter((entry) => entry.category === category)
+          .map((entry) => entry.id),
+      );
       for (const item of source.items) {
+        // Own Fumble entries replace official ones with the same id and are indexable.
+        if (fumbleOwnedIds.has(item.id)) continue;
         const route = localizedRoute(`/compendium/${category}/${item.id}/`, locale);
         const html = read(`${route.slice(1)}index.html`);
         const { indexable, canonicalId } = compendiumPrintingSeo(
@@ -231,7 +227,14 @@ const sitemap = read('sitemap.xml');
 const sitemapFiles = [...sitemap.matchAll(/<loc>[^<]+\/([^/]+\.xml)<\/loc>/g)].map(
   (match) => match[1]!,
 );
-requireValue(sitemapFiles.length === 4, 'Sitemap index must contain four sitemaps');
+requireValue(
+  sitemapFiles.length === 3 && !sitemapFiles.includes('sitemap-books.xml'),
+  'Sitemap index must contain the pages, compendium, and wiki sitemaps only',
+);
+requireValue(
+  !existsSync(join(DIST, 'sitemap-books.xml')),
+  'Books must stay out of the sitemap',
+);
 const urls = sitemapFiles.flatMap((file) =>
   [...read(file).matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]!),
 );
@@ -395,6 +398,38 @@ for (const path of ['data/index.html', 'session-log/index.html']) {
   requireValue(
     read(path).includes('noindex, nofollow'),
     `Private page is missing noindex: ${path}`,
+  );
+}
+
+const releaseVersion = (
+  JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { version: string }
+).version;
+for (const { code } of SUPPORTED_LOCALES) {
+  for (const page of LEGAL_PAGES) {
+    const route = localizedRoute(`${legalPath(page)}/`, code);
+    const html = read(`${route.slice(1)}index.html`);
+    const main =
+      /<main\b[^>]*id="static-main"[^>]*>([\s\S]*?)<\/main>/.exec(html)?.[1] ?? '';
+    requireValue(
+      main.length > 1000 &&
+        main.includes('<h1') &&
+        main.toLowerCase().includes(`datetime="${LEGAL_DATES[page]}"`),
+      `Incomplete static legal document: ${route}`,
+    );
+    requireValue(
+      !main.includes('[[') && !main.includes('<footer') && html.includes('<footer'),
+      `Invalid legal references or footer: ${route}`,
+    );
+  }
+  const map = read(`${localizedRoute('/site-map/', code).slice(1)}index.html`);
+  requireValue(
+    (map.match(/\/browse\/1\//g) ?? []).length === 34,
+    `Site map must link every static catalog: ${code}`,
+  );
+  const changelog = read(`${localizedRoute('/changelog/', code).slice(1)}index.html`);
+  requireValue(
+    changelog.includes(`id="${releaseAnchor(releaseVersion)}"`),
+    `Current release is missing from static history: ${code}`,
   );
 }
 

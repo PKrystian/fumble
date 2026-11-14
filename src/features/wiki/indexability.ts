@@ -8,5 +8,8 @@ export function isWikiPageIndexable(page: { html?: string | null }): boolean {
     .replace(/\s+/g, ' ')
     .trim()
     .toLocaleLowerCase();
-  return Boolean(text) && text !== 'nothing here' && text !== 'brak treści';
+  return (
+    (Boolean(text) && text !== 'nothing here' && text !== 'brak treści') ||
+    /<img\b[^>]*\bsrc\s*=/i.test(page.html ?? '')
+  );
 }

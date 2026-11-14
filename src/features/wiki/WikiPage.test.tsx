@@ -1,8 +1,14 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render as renderView, screen, within } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import type { ReactElement } from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useLightbox } from '@/features/ui/lightboxStore';
 import { useSeo } from '@/seo/useSeo';
 import { WikiPage } from './WikiPage';
+
+function render(element: ReactElement) {
+  return renderView(element, { wrapper: MemoryRouter });
+}
 
 function page(slug: string, title: string, category: string, html: string) {
   return {
@@ -57,7 +63,8 @@ const mocks = vi.hoisted(() => ({
   },
 }));
 
-vi.mock('react-router-dom', () => ({
+vi.mock('react-router-dom', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('react-router-dom')>()),
   useParams: () => ({ campaignId: mocks.campaignId, slug: mocks.slug }),
 }));
 
@@ -75,7 +82,8 @@ vi.mock('@/i18n/path', () => ({
   ),
 }));
 
-vi.mock('@/i18n/pathUtils', () => ({
+vi.mock('@/i18n/pathUtils', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/i18n/pathUtils')>()),
   useNavigate: () => mocks.navigate,
 }));
 
@@ -179,8 +187,8 @@ describe('WikiPage', () => {
   it('groups pages and follows internal wiki links', () => {
     render(<WikiPage />);
     expect(screen.getByRole('heading', { name: 'Campaign Home' })).toBeInTheDocument();
-    expect(screen.getAllByText('Main')).toHaveLength(1);
-    expect(screen.getByText('People')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Main' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'People' })).toBeInTheDocument();
     expect(screen.getByText(/Welcome/)).toHaveTextContent('Welcome /');
 
     fireEvent.click(screen.getByText('Lore link'));
@@ -222,7 +230,7 @@ describe('WikiPage', () => {
     expect(
       screen.getByRole('navigation', { name: 'wiki.breadcrumbs' }),
     ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'nav.wiki' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'wiki.backToCampaigns' })).toHaveAttribute(
       'href',
       '/wiki',
     );
@@ -274,8 +282,8 @@ describe('WikiPage', () => {
     };
     view.rerender(<WikiPage />);
     expect(useSeo).toHaveBeenLastCalledWith(
-      'Lore',
-      'seo.pageDescriptions.wiki',
+      'Głód Smoka',
+      'wiki.campaignNoPages',
       false,
       [],
     );
@@ -351,5 +359,113 @@ describe('WikiPage', () => {
     mocks.slug = 'first';
     view.rerender(<WikiPage />);
     expect(screen.getByRole('heading', { name: 'First' })).toBeInTheDocument();
+  });
+
+  it('opens the catalog with focus containment and restores focus on Escape', () => {
+    render(<WikiPage />);
+    const trigger = screen.getByRole('button', { name: 'wiki.allPages' });
+    trigger.focus();
+    fireEvent.click(trigger);
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toContainElement(document.activeElement as HTMLElement);
+    fireEvent.change(within(dialog).getByRole('searchbox'), {
+      target: { value: 'Person' },
+    });
+    expect(within(dialog).getByRole('link', { name: 'NPC' })).toHaveAttribute(
+      'href',
+      '/wiki/glod-smoka/npc?q=Person',
+    );
+    expect(within(dialog).queryByRole('link', { name: 'Lore' })).toBeNull();
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(screen.queryByRole('dialog')).toBeNull();
+    expect(trigger).toHaveFocus();
+    fireEvent.click(trigger);
+    fireEvent.click(
+      within(screen.getByRole('dialog')).getByRole('link', { name: 'NPC' }),
+    );
+    expect(screen.queryByRole('dialog')).toBeNull();
+  });
+
+  it('preserves modified link clicks, renders contents, and removes failed artwork', () => {
+    mocks.campaignId = 'glod-smoka';
+    mocks.slug = 'npc';
+    mocks.wiki.data!.campaigns[0]!.pages = [
+      page(
+        'npc',
+        'NPC',
+        '',
+        '<aside class="wiki-infobox"><h3>Portrait</h3><img src="x" alt="Failed"></aside><h2>A</h2><h3>B</h3><h2>C</h2><a data-wiki-link="glod-smoka/lore">Lore link</a><a href="https://example.test" target="_blank">External</a><a href="file" download>Download</a>',
+      ),
+    ];
+    render(<WikiPage />);
+    expect(screen.getByText('wiki.contents')).toBeInTheDocument();
+    const link = screen.getByText('Lore link');
+    expect(link).toHaveAttribute('href', '/pl/wiki/glod-smoka/lore/');
+    for (const modifier of [
+      { ctrlKey: true },
+      { metaKey: true },
+      { altKey: true },
+      { shiftKey: true },
+      { button: 1 },
+    ])
+      fireEvent.click(link, modifier);
+    fireEvent.click(screen.getByText('External'));
+    fireEvent.click(screen.getByText('Download'));
+    expect(mocks.navigate).not.toHaveBeenCalled();
+    fireEvent.error(screen.getByRole('img', { name: 'Failed' }));
+    expect(screen.queryByText('Portrait')).toBeNull();
+    fireEvent.error(screen.getByRole('heading', { name: 'A' }));
+  });
+
+  it('uses a named landing for an empty starter page and retries load failures', () => {
+    mocks.campaignId = 'glod-smoka';
+    mocks.slug = 'home';
+    mocks.wiki.data!.campaigns[0]!.pages = [
+      page('home', 'Home', 'General', '<p>Nothing here</p>'),
+    ];
+    const view = render(<WikiPage />);
+    expect(screen.getByRole('heading', { name: 'Głód Smoka' })).toBeInTheDocument();
+    expect(screen.queryByText('Home')).toBeNull();
+    mocks.maps.push({ campaignId: 'glod-smoka', id: 'chult' });
+    view.rerender(<WikiPage />);
+    expect(useSeo).toHaveBeenLastCalledWith(
+      'Głód Smoka',
+      'wiki.campaignNoPages',
+      false,
+      [],
+    );
+    mocks.wiki.status = 'error';
+    view.rerender(<WikiPage />);
+    expect(screen.getByRole('alert')).toHaveTextContent('wiki.loadError');
+    fireEvent.click(screen.getByRole('button', { name: 'common.retry' }));
+  });
+
+  it('restores a section bookmark and keeps metadata when only its artwork fails', () => {
+    mocks.campaignId = 'glod-smoka';
+    mocks.slug = 'npc';
+    mocks.wiki.data!.campaigns[0]!.pages = [
+      page(
+        'npc',
+        'NPC',
+        '',
+        '<aside class="wiki-infobox"><img src="x" alt="Failed"><p class="wiki-infobox-summary">Summary</p></aside><a href="/else"><img src="y" alt="Linked"></a><h2>Bookmark</h2>',
+      ),
+    ];
+    const view = renderView(
+      <MemoryRouter initialEntries={['/#wiki-section-bookmark']}>
+        <WikiPage />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole('heading', { name: 'Bookmark' })).toHaveFocus();
+    fireEvent.error(screen.getByRole('img', { name: 'Failed' }));
+    fireEvent.error(screen.getByRole('img', { name: 'Linked' }));
+    expect(screen.getByText('Summary')).toBeInTheDocument();
+    view.unmount();
+    renderView(
+      <MemoryRouter initialEntries={['/#missing']}>
+        <WikiPage />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole('heading', { name: 'NPC', level: 1 })).toBeInTheDocument();
   });
 });

@@ -3,6 +3,7 @@ import {
   mkdirSync,
   readdirSync,
   readFileSync,
+  rmSync,
   statSync,
   writeFileSync,
 } from 'node:fs';
@@ -38,17 +39,17 @@ import {
 import { withEnglishName } from '../../src/data/compendium/searchText';
 import { translate } from '../../src/i18n/translate';
 import { removeScriptElements } from '../../src/seo/removeScriptElements';
-import { CAMPAIGN_MAPS } from '../../src/features/campaign-map/maps';
+import {
+  CAMPAIGN_MAPS,
+  expandRevealedRanges,
+  getHexGridPath,
+} from '../../src/features/campaign-map/maps';
+import { renderWikiArticle } from '../wiki/render';
 import {
   fumbleHomebrewItems,
   fumbleParentClassId,
 } from '../../src/features/homebrew/fumbleHomebrew';
 import { slugify } from '../../src/data/transform/util';
-import {
-  isBookChapterDuplicate,
-  isBookChapterIndexable,
-  isBookChapterNameIndexable,
-} from '../../src/features/books/chapterSeo';
 import { normalizeBookChapterTitles } from '../../src/features/books/chapterTitle';
 import {
   isWikiPageIndexable,
@@ -69,6 +70,8 @@ interface PageInfo {
   title: string;
   description: string;
   content?: string;
+  wikiHtml?: string;
+  discoverable?: boolean;
   heading?: string;
   linkTitle?: string;
   breadcrumbTitle?: string;
@@ -88,6 +91,7 @@ interface PageInfo {
 }
 
 interface StaticEntryRenderer {
+  renderPublicPage: (path: string) => string | null;
   renderStaticShell: (content: string, path: string) => string;
   renderBookChapter: (entry: Entry, path: string) => string;
   renderMonster: (monster: MonsterEntry, path: string) => string;
@@ -97,6 +101,7 @@ interface CompendiumItem {
   id: string;
   name: string;
   englishName?: string;
+  srd: boolean;
   hidden?: boolean;
   otherVersions?: Array<{ id: string; source: string }>;
   entries?: unknown;
@@ -144,6 +149,18 @@ interface WikiCampaign {
 }
 
 const STATIC_PAGES: PageInfo[] = [
+  {
+    path: '/site-map',
+    title: 'Site map - Fumble',
+    description: 'Browse Fumble pages and complete Compendium catalogs.',
+    kind: 'website',
+  },
+  {
+    path: '/changelog',
+    title: 'Changelog - Fumble',
+    description: 'Release history of the Fumble toolkit.',
+    kind: 'website',
+  },
   {
     path: '/',
     title: 'Fumble',
@@ -493,6 +510,8 @@ const STATIC_SEO_KEYS: Record<
   string,
   { title: string; description: string; indexable?: boolean }
 > = {
+  '/site-map': { title: 'siteMap.title', description: 'siteMap.description' },
+  '/changelog': { title: 'changelog.title', description: 'changelog.description' },
   '/': { title: 'seo.homeTitle', description: 'seo.homeDescription' },
   '/character': {
     title: 'seo.pageTitles.character',
@@ -515,6 +534,7 @@ const STATIC_SEO_KEYS: Record<
   '/books': {
     title: 'seo.pageTitles.books',
     description: 'seo.pageDescriptions.books',
+    indexable: false,
   },
   '/dice': {
     title: 'seo.pageTitles.dice',
@@ -727,17 +747,6 @@ function bookChapterContext(
   ]
     .filter((value): value is string => Boolean(value))
     .join('. ');
-}
-
-function isBookChapterIndexableForLocale(
-  bookId: string,
-  chapterIndex: number,
-  baseChapter: BookChapter,
-  chapter: BookChapter,
-): boolean {
-  if (isBookChapterDuplicate(bookId, chapterIndex)) return false;
-  if (!isBookChapterNameIndexable(baseChapter.name)) return false;
-  return isBookChapterIndexable(chapter);
 }
 
 function bookDataPath(book: Book, locale: Locale): string {
@@ -985,9 +994,14 @@ function collectPages(locale: Locale): PageInfo[] {
             string,
             CompendiumItem
           >);
-    const items = (raw.items ?? []).map((baseItem) => ({
+    const localizedItems = localizeItems(
+      (raw.items ?? []) as unknown as CompendiumEntryBase[],
+      overlay,
+      locale,
+    ) as unknown as CompendiumItem[];
+    const items = (raw.items ?? []).map((baseItem, index) => ({
       baseItem,
-      item: { ...baseItem, ...(overlay[baseItem.id] ?? {}) },
+      item: localizedItems[index]!,
     }));
     const rawIndexabilityItems = raw.items ?? [];
     const visibleSubclassKeys = new Set(
@@ -1114,6 +1128,7 @@ function collectPages(locale: Locale): PageInfo[] {
           const subclassIndexable = isCompendiumSubclassIndexable(
             baseItem,
             visibleSubclassKeys.has(subclassKey),
+            subclassKey,
           );
           pages.push({
             path: `${categoryPath}/${item.id}/${subclassKey}`,
@@ -1202,8 +1217,6 @@ function collectPages(locale: Locale): PageInfo[] {
     const book = { ...baseBook, ...(bookOverlay[baseBook.id] ?? {}) };
     const bookPath = `/books/${book.id}`;
     const localizedChapters = loadBookChapters(book, locale);
-    const indexableBook =
-      locale === DEFAULT_LOCALE || existsSync(bookDataPath(book, locale));
     const bookContextSource =
       locale === DEFAULT_LOCALE ? book.contents : localizedChapters;
     const bookContext = bookContextSource
@@ -1223,7 +1236,7 @@ function collectPages(locale: Locale): PageInfo[] {
       ),
       ...(typeof book.cover === 'string' ? { image: book.cover } : {}),
       kind: 'book',
-      ...(indexableBook ? {} : { indexable: false }),
+      indexable: false,
       parent: { path: '/books', title: translate(locale, 'seo.pageTitles.books') },
     });
     book.contents.forEach((baseChapter, index) => {
@@ -1249,10 +1262,7 @@ function collectPages(locale: Locale): PageInfo[] {
           }),
         ),
         kind: 'book',
-        ...(indexableBook &&
-        isBookChapterIndexableForLocale(book.id, index, baseChapter, chapter)
-          ? {}
-          : { indexable: false }),
+        indexable: false,
         parent: { path: bookPath, title: book.name },
       });
     });
@@ -1263,15 +1273,32 @@ function collectPages(locale: Locale): PageInfo[] {
     pages?: WikiPage[];
   };
   for (const campaign of wiki.campaigns ?? []) {
-    const localizedCampaignName = campaignName(campaign.id, campaign.title, locale);
+    const localizedCampaignName =
+      campaign.title || campaignName(campaign.id, campaign.id, locale);
     const campaignPages = campaign.pages ?? [];
     const hasIndexablePage =
-      locale === WIKI_CONTENT_LOCALE && campaignPages.some(isWikiPageIndexable);
+      locale === WIKI_CONTENT_LOCALE &&
+      (campaignPages.some(isWikiPageIndexable) ||
+        CAMPAIGN_MAPS.some((map) => map.campaignId === campaign.id));
+    const home =
+      campaignPages.find((page) => page.slug === 'home' && isWikiPageIndexable(page)) ??
+      campaignPages.find(isWikiPageIndexable);
     pages.push({
       path: `/wiki/${campaign.id}`,
+      heading: home?.title ?? localizedCampaignName,
       title: `${localizedCampaignName} - ${translate(locale, 'seo.pageTitles.wiki')} - Fumble`,
       description: `${translate(locale, 'seo.pageDescriptions.wiki')} ${localizedCampaignName}.`,
       kind: 'website',
+      discoverable: true,
+      ...(home
+        ? {
+            wikiHtml: renderWikiArticle(
+              home.html ?? '',
+              locale,
+              process.env.BASE_PATH ?? '/',
+            ),
+          }
+        : {}),
       ...(hasIndexablePage ? {} : { indexable: false }),
       parent: { path: '/wiki', title: translate(locale, 'seo.pageTitles.wiki') },
     });
@@ -1279,7 +1306,8 @@ function collectPages(locale: Locale): PageInfo[] {
       const image = firstImageSource(page.html ?? '');
       pages.push({
         path: `/wiki/${campaign.id}/${page.slug}`,
-        title: `${page.title} - ${localizedCampaignName} - Fumble`,
+        heading: isWikiPageIndexable(page) ? page.title : localizedCampaignName,
+        title: `${isWikiPageIndexable(page) ? page.title : localizedCampaignName} - ${localizedCampaignName} - Fumble`,
         description: concise(
           plainText(page.html, locale),
           `${page.title}${page.category ? ` in ${page.category}` : ''} - Fumble campaign wiki.`,
@@ -1290,6 +1318,10 @@ function collectPages(locale: Locale): PageInfo[] {
         ),
         ...(image ? { image } : {}),
         kind: 'article',
+        discoverable: isWikiPageIndexable(page),
+        wikiHtml: isWikiPageIndexable(page)
+          ? renderWikiArticle(page.html ?? '', locale, process.env.BASE_PATH ?? '/')
+          : `<p class="empty-state">${escapeHtml(translate(locale, 'wiki.campaignNoPages'))}</p>`,
         ...(!isWikiPageIndexable(page) || locale !== WIKI_CONTENT_LOCALE
           ? { indexable: false }
           : {}),
@@ -1298,13 +1330,12 @@ function collectPages(locale: Locale): PageInfo[] {
     }
   }
   for (const map of CAMPAIGN_MAPS) {
-    const localizedCampaignName = campaignName(map.campaignId, map.campaignTitle, locale);
     const wikiCampaign = (wiki.campaigns ?? []).find(
       (campaign) => campaign.id === map.campaignId,
     );
-    const hasIndexableWikiPage =
-      locale === WIKI_CONTENT_LOCALE &&
-      (wikiCampaign?.pages?.some(isWikiPageIndexable) ?? false);
+    const localizedCampaignName =
+      wikiCampaign?.title || campaignName(map.campaignId, map.campaignTitle, locale);
+    const hasIndexableWikiPage = locale === WIKI_CONTENT_LOCALE;
     const mapTitle = translate(
       locale,
       map.id === 'chult' ? 'seo.pageTitles.map' : 'seo.pageTitles.campaignMap',
@@ -1315,20 +1346,43 @@ function collectPages(locale: Locale): PageInfo[] {
         ? 'seo.pageDescriptions.map'
         : 'seo.pageDescriptions.campaignMap',
     );
+    const home =
+      wikiCampaign?.pages?.find(
+        (page) => page.slug === 'home' && isWikiPageIndexable(page),
+      ) ?? wikiCampaign?.pages?.find(isWikiPageIndexable);
     pages.push({
       path: `/wiki/${map.campaignId}`,
+      heading: home?.title ?? localizedCampaignName,
       title: `${localizedCampaignName} - ${translate(locale, 'seo.pageTitles.wiki')} - Fumble`,
       description: `${translate(locale, 'seo.pageDescriptions.wiki')} ${localizedCampaignName}.`,
       kind: 'website',
+      discoverable: true,
+      ...(home
+        ? {
+            wikiHtml: renderWikiArticle(
+              home.html ?? '',
+              locale,
+              process.env.BASE_PATH ?? '/',
+            ),
+          }
+        : { content: translate(locale, 'wiki.campaignNoPages') }),
       ...(hasIndexableWikiPage ? {} : { indexable: false }),
       parent: { path: '/wiki', title: translate(locale, 'seo.pageTitles.wiki') },
     });
+    const revealed = expandRevealedRanges(map.revealedRanges, map.columns * map.rows);
+    const hidden = new Set(
+      Array.from({ length: map.columns * map.rows }, (_, index) => index).filter(
+        (index) => !revealed.has(index),
+      ),
+    );
     pages.push({
       path: `/wiki/${map.campaignId}/map`,
       title: `${mapTitle} - ${localizedCampaignName} - Fumble`,
       description: mapDescription,
       content: mapDescription,
       image: `/${map.imagePath}`,
+      discoverable: true,
+      wikiHtml: `<p>${escapeHtml(mapDescription)}</p><div class="wiki-chult-map__viewport"><div class="wiki-chult-map__canvas"><img class="wiki-chult-map__image" src="${escapeHtml((process.env.BASE_PATH ?? '/') + map.imagePath)}" alt="${escapeHtml(translate(locale, 'wiki.chultMapAlt'))}" /><svg class="wiki-chult-map__hidden-grid" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="wiki-chult-map__hidden-hexes" d="${getHexGridPath(map.columns, map.rows, hidden)}" /></svg></div></div>`,
       kind: 'article',
       parent: { path: `/wiki/${map.campaignId}`, title: localizedCampaignName },
     });
@@ -1345,7 +1399,7 @@ const BROWSE_PAGE_SIZE = 200;
 function addDiscoveryLinks(pages: PageInfo[], locale: Locale): PageInfo[] {
   const children = new Map<string, PageInfo[]>();
   for (const page of pages) {
-    if (page.indexable === false || !page.parent) continue;
+    if ((page.indexable === false && !page.discoverable) || !page.parent) continue;
     const siblings = children.get(page.parent.path) ?? [];
     siblings.push(page);
     children.set(page.parent.path, siblings);
@@ -1756,11 +1810,13 @@ function buildHtml(
       ? `<p data-prerendered-retry hidden>${escapeHtml(translate(locale, 'compendium.failedToLoad'))} <a href="${escapeHtml(url)}">${escapeHtml(translate(locale, 'common.retry'))}</a></p>`
       : '';
   const pathname = localizePath(page.path, locale);
-  const body = page.chapter
-    ? render.renderBookChapter(page.chapter, pathname)
-    : page.monster
-      ? render.renderMonster(page.monster, pathname)
-      : `<p>${content}</p>${sections}`;
+  const body =
+    page.wikiHtml ??
+    (page.chapter
+      ? render.renderBookChapter(page.chapter, pathname)
+      : page.monster
+        ? render.renderMonster(page.monster, pathname)
+        : `<p>${content}</p>${sections}`);
   const source = page.source;
   const sourceTitle = source
     ? escapeHtml(
@@ -1782,11 +1838,17 @@ function buildHtml(
     : '';
   const contentHtml = page.monster
     ? `${body}${encounter}${fallbackImage}`
-    : `<h1 class="page-title">${heading}</h1>${fallbackImage}${body}`;
+    : `<h1 class="page-title">${heading}</h1>${page.wikiHtml !== undefined ? '' : fallbackImage}${body}`;
   const staticContent = `<nav class="mb-4 text-sm" aria-label="${escapeHtml(translate(locale, 'seo.breadcrumb'))}">${breadcrumbs}</nav>${retry}${contentHtml}${attribution}${links}`;
-  const fallback = page.staticOnly
-    ? render.renderStaticShell(staticContent, pathname)
-    : `<main id="prerendered-content" data-prerendered="true" data-path="${escapeHtml(pathname)}"><article class="page-shell reading-content">${staticContent}</article></main>`;
+  const publicContent =
+    page.path === '/wiki' || page.path.startsWith('/wiki/')
+      ? render.renderStaticShell(staticContent, pathname)
+      : render.renderPublicPage(pathname);
+  const fallback = publicContent
+    ? `<div id="prerendered-content" data-prerendered="true" data-path="${escapeHtml(pathname)}">${publicContent}</div>`
+    : page.staticOnly
+      ? render.renderStaticShell(staticContent, pathname)
+      : `<main id="prerendered-content" data-prerendered="true" data-path="${escapeHtml(pathname)}"><article class="page-shell reading-content">${staticContent}</article></main>`;
   const imagePreload = page.image
     ? `<link rel="preload" as="image" href="${escapeHtml(imagePreloadUrl(page.image))}" fetchpriority="high" />`
     : '';
@@ -2150,10 +2212,16 @@ for (const page of sitemapPages) {
         : 'sitemap-pages.xml';
   sitemapGroups.get(file)!.push(page);
 }
+const sitemapFiles: string[] = [];
 for (const [file, group] of sitemapGroups) {
+  if (group.length === 0) {
+    rmSync(join(OUT_DIR, file), { force: true });
+    continue;
+  }
   writeFileSync(join(OUT_DIR, file), buildSitemap(group, pagesByLocale));
+  sitemapFiles.push(file);
 }
-writeFileSync(join(OUT_DIR, 'sitemap.xml'), buildSitemapIndex([...sitemapGroups.keys()]));
+writeFileSync(join(OUT_DIR, 'sitemap.xml'), buildSitemapIndex(sitemapFiles));
 writeFileSync(
   join(OUT_DIR, 'llms-full.txt'),
   buildLlmsFull(pages.filter((page) => page.indexable !== false)),

@@ -13,6 +13,29 @@ describe('dice stores', () => {
     );
   });
 
+  it('follows saved rolls and history changed in another tab', () => {
+    localStorage.setItem(
+      'fumble-custom-rolls',
+      JSON.stringify({
+        state: { customRolls: [{ id: 'other', name: 'Bow', expression: '1d8' }] },
+        version: 1,
+      }),
+    );
+    window.dispatchEvent(new StorageEvent('storage', { key: 'fumble-custom-rolls' }));
+    expect(useCustomRollStore.getState().customRolls.map((roll) => roll.name)).toEqual([
+      'Bow',
+    ]);
+
+    useRollStore.getState().roll('1d4');
+    expect(useRollStore.getState().log).toHaveLength(1);
+    localStorage.setItem(
+      'fumble-roll-history',
+      JSON.stringify({ state: { log: [] }, version: 1 }),
+    );
+    window.dispatchEvent(new StorageEvent('storage', { key: 'fumble-roll-history' }));
+    expect(useRollStore.getState().log).toEqual([]);
+  });
+
   it('adds and removes trimmed custom rolls', () => {
     useCustomRollStore.getState().addCustomRoll('  Sword  ', ' 1d8 + 3 ');
     expect(useCustomRollStore.getState().customRolls).toEqual([

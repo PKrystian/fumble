@@ -207,6 +207,7 @@ describe('useCategoryItems', () => {
         level: 0,
         school: 'Wywoływanie',
         classes: ['Czarodziej'],
+        _filterData: { classes: ['Wizard'] },
         entries: [],
       },
     ]);
@@ -216,6 +217,7 @@ describe('useCategoryItems', () => {
 
     expect(result.current.items.find((item) => item.id === 'acid-splash')).toMatchObject({
       classes: ['Czarodziej', 'Wiedźma', 'Aptekarz'],
+      _filterData: { classes: ['Wizard', 'Witch', 'Apothecary'] },
     });
     expect(result.current.items.find((item) => item.id === 'cackle')).toMatchObject({
       classes: ['Wiedźma'],

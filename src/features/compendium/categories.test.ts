@@ -116,8 +116,8 @@ describe('compendium categories', () => {
     expect(
       classes.valuesFor({ classes: ['Duchowny', 'druid', 'Druid', 'Cleric'] } as never),
     ).toEqual(['Cleric', 'Druid']);
-    expect(classes.labelFor?.('Cleric', 'pl')).toBe('Kleryk');
-    expect(classes.labelFor?.('Ranger', 'pl')).toBe('Leśniczy');
+    expect(classes.labelFor?.('Cleric', 'pl')).toBe('Kapłan');
+    expect(classes.labelFor?.('Ranger', 'pl')).toBe('Łowca');
 
     const school = getCategory('spells')!.filters!.find(
       (filter) => filter.id === 'school',
@@ -270,7 +270,9 @@ describe('compendium categories', () => {
       (filter) => filter.id === 'attunement',
     )!;
     expect(attunement.valuesFor({ attunement: '' } as never)).toEqual(['No']);
-    expect(getCategory('firearms')!.filters).toEqual(getCategory('items')!.filters);
+    expect(getCategory('firearms')!.filters!.map((filter) => filter.id)).toEqual(
+      getCategory('items')!.filters!.map((filter) => filter.id),
+    );
 
     for (const filter of categories.flatMap((category) => category.filters ?? [])) {
       filter.valuesFor(empty as never);

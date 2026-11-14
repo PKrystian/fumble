@@ -15,6 +15,7 @@ interface ImageCropperModalProps {
   title?: string;
   onCancel: () => void;
   onSave: (dataUrl: string) => void;
+  onChooseAnother?: () => void;
 }
 
 const MIN_ZOOM = 1;
@@ -53,6 +54,7 @@ export function ImageCropperModal({
   title,
   onCancel,
   onSave,
+  onChooseAnother,
 }: ImageCropperModalProps) {
   const { t } = useT();
   const dialogTitle = title ?? t('common.adjustImage');
@@ -62,13 +64,16 @@ export function ImageCropperModal({
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState<Point>({ x: 0, y: 0 });
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<'load' | 'save' | null>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const pointers = useRef(new Map<number, Point>());
   const dialogRef = useDialogFocus(true, onCancel);
 
   useEffect(() => {
     const objectUrl = URL.createObjectURL(file);
-    setSrc(sanitizeObjectUrl(objectUrl));
+    const safe = sanitizeObjectUrl(objectUrl);
+    setSrc(safe);
+    setError(safe ? null : 'load');
     return () => URL.revokeObjectURL(objectUrl);
   }, [file]);
 
@@ -165,6 +170,7 @@ export function ImageCropperModal({
   const handleSave = async () => {
     if (!natural.width || !frame.width) return;
     setSaving(true);
+    setError(null);
     try {
       const img = await loadImage(src!);
       const outputHeight = Math.round(outputWidth / aspect);
@@ -184,7 +190,7 @@ export function ImageCropperModal({
       ctx.drawImage(img, sx, sy, sWidth, sHeight, 0, 0, outputWidth, outputHeight);
       onSave(canvas.toDataURL('image/jpeg', 0.85));
     } catch {
-      // Keep editor open for retry
+      setError('save');
     } finally {
       setSaving(false);
     }
@@ -220,6 +226,9 @@ export function ImageCropperModal({
 
         <div
           ref={frameRef}
+          role="group"
+          tabIndex={0}
+          aria-label={t('common.cropperFrame')}
           className={[
             'relative mx-auto w-full touch-none select-none overflow-hidden border border-ink-700 bg-ink-950',
             shape === 'circle' ? 'rounded-full' : 'rounded-lg',
@@ -230,6 +239,21 @@ export function ImageCropperModal({
           onPointerUp={handlePointerEnd}
           onPointerCancel={handlePointerEnd}
           onPointerLeave={handlePointerEnd}
+          onKeyDown={(event) => {
+            const steps: Record<string, Point> = {
+              ArrowLeft: { x: -1, y: 0 },
+              ArrowRight: { x: 1, y: 0 },
+              ArrowUp: { x: 0, y: -1 },
+              ArrowDown: { x: 0, y: 1 },
+            };
+            const direction = steps[event.key];
+            if (!direction) return;
+            event.preventDefault();
+            const step = event.shiftKey ? 24 : 6;
+            setOffset((current) =>
+              clampOffset(current.x + direction.x * step, current.y + direction.y * step),
+            );
+          }}
         >
           {src && (
             <img
@@ -242,6 +266,7 @@ export function ImageCropperModal({
                   height: e.currentTarget.naturalHeight,
                 });
               }}
+              onError={() => setError('load')}
               className="pointer-events-none absolute left-1/2 top-1/2 max-w-none"
               style={{
                 width: displayWidth || undefined,
@@ -268,15 +293,24 @@ export function ImageCropperModal({
         </div>
 
         <p className="text-center text-xs text-ink-400">{t('common.cropperHint')}</p>
+        <p className="text-center text-xs text-ink-400">{t('common.cropperKeyboard')}</p>
+        {error && (
+          <p role="alert" className="notice" data-tone="error">
+            {t(error === 'load' ? 'common.cropperLoadError' : 'common.cropperSaveError')}
+          </p>
+        )}
 
-        <div className="flex justify-end gap-2">
+        <div className="flex flex-wrap justify-end gap-2">
+          {error && onChooseAnother && (
+            <Button onClick={onChooseAnother}>{t('common.cropperChooseAnother')}</Button>
+          )}
           <Button type="button" onClick={onCancel} variant="secondary">
             {t('common.cancel')}
           </Button>
           <Button
             type="button"
             onClick={() => void handleSave()}
-            disabled={saving || !natural.width}
+            disabled={saving || !natural.width || error === 'load'}
             variant="primary"
           >
             <Check size={16} /> {t('common.save')}

@@ -1,41 +1,25 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import bardifyVideos from '@/data/generated/bardify.json';
-import { fumbleStorage } from '@/features/storage/safeStorage';
+import { followStoredChanges } from '@/features/storage/safeStorage';
+import {
+  getSoundboardSaveStatus,
+  SOUNDBOARD_KEY,
+  soundboardStorage,
+} from './persistence';
+import {
+  DEFAULT_CATEGORIES,
+  readSoundboardData,
+  SOUNDBOARD_VERSION,
+  type SoundboardData,
+  type Track,
+} from './validation';
+import type { YouTubeSource } from './youtube';
 
-export interface Track {
-  id: string;
-  name: string;
-  videoId: string;
-  playlistId?: string;
-  category: string;
-}
+export { DEFAULT_CATEGORIES } from './validation';
+export type { SoundboardCategory, Track } from './validation';
 
-export interface SoundboardCategory {
-  id: string;
-  name: string | null;
-}
-
-const CATEGORY_IDS = [
-  'places',
-  'planes',
-  'situations',
-  'settlements',
-  'ambience',
-  'travel',
-  'dungeons',
-  'tavern',
-  'combat',
-  'playlists',
-  'custom',
-] as const;
-
-export const DEFAULT_CATEGORIES: SoundboardCategory[] = CATEGORY_IDS.map((id) => ({
-  id,
-  name: null,
-}));
-
-const DEFAULT_TRACKS: Track[] = [
+export const DEFAULT_TRACKS: Track[] = [
   ...(bardifyVideos as Track[]),
   {
     id: 'bardify-playlist-places',
@@ -102,36 +86,37 @@ const DEFAULT_TRACKS: Track[] = [
   },
 ];
 
-const customCategory = (): SoundboardCategory => ({ id: 'custom', name: null });
-
-function categoriesForTracks(tracks: Track[]): SoundboardCategory[] {
-  const known = new Set(DEFAULT_CATEGORIES.map((category) => category.id));
-  const extra = [...new Set(tracks.map((track) => track.category))]
-    .filter((id) => !known.has(id))
-    .map((id) => ({ id, name: id }));
-  return [...DEFAULT_CATEGORIES, ...extra];
-}
-
 export function reorder<T>(list: T[], from: number, to: number): T[] {
-  if (from === to || from < 0 || to < 0 || from >= list.length || to >= list.length) {
+  if (from === to || from < 0 || to < 0 || from >= list.length || to >= list.length)
     return list;
-  }
   const next = [...list];
   const [moved] = next.splice(from, 1);
   next.splice(to, 0, moved!);
   return next;
 }
 
-interface SoundboardState {
-  tracks: Track[];
-  categories: SoundboardCategory[];
-  addTrack: (name: string, videoId: string, category: string) => void;
+interface SoundboardState extends SoundboardData {
+  addTrack: (
+    name: string,
+    videoId: string,
+    category: string,
+    playlistId?: string,
+  ) => string;
+  updateTrack: (
+    id: string,
+    name: string,
+    source: YouTubeSource,
+    category: string,
+    customName?: boolean,
+  ) => void;
+  toggleFavorite: (id: string) => void;
   removeTrack: (id: string) => void;
   moveTrack: (from: number, to: number) => void;
   setTrackCategory: (trackId: string, categoryId: string) => void;
   addCategory: (name: string) => void;
   renameCategory: (id: string, name: string) => void;
   removeCategory: (id: string) => void;
+  replaceData: (data: SoundboardData) => void;
   resetEmpty: () => void;
   resetToExamples: () => void;
 }
@@ -141,31 +126,59 @@ export const useSoundboardStore = create<SoundboardState>()(
     (set) => ({
       tracks: DEFAULT_TRACKS,
       categories: DEFAULT_CATEGORIES,
-      addTrack: (name, videoId, category) =>
+      addTrack: (name, videoId, category, playlistId) => {
+        const id = crypto.randomUUID();
         set((state) => ({
-          tracks: [...state.tracks, { id: crypto.randomUUID(), name, videoId, category }],
+          tracks: [
+            ...state.tracks,
+            {
+              id,
+              name,
+              videoId,
+              category,
+              createdAt: Date.now(),
+              ...(playlistId ? { playlistId } : {}),
+            },
+          ],
+        }));
+        return id;
+      },
+      updateTrack: (id, name, source, category, customName = true) =>
+        set((state) => ({
+          tracks: state.tracks.map((track) => {
+            if (track.id !== id) return track;
+            const updated = { ...track, ...source, name, category, customName };
+            if (!source.playlistId) delete updated.playlistId;
+            return updated;
+          }),
+        })),
+      toggleFavorite: (id) =>
+        set((state) => ({
+          tracks: state.tracks.map((track) =>
+            track.id === id ? { ...track, favorite: !track.favorite } : track,
+          ),
         })),
       removeTrack: (id) =>
         set((state) => ({ tracks: state.tracks.filter((track) => track.id !== id) })),
       moveTrack: (from, to) =>
         set((state) => ({ tracks: reorder(state.tracks, from, to) })),
-      setTrackCategory: (trackId, categoryId) =>
+      setTrackCategory: (id, category) =>
         set((state) => ({
           tracks: state.tracks.map((track) =>
-            track.id === trackId ? { ...track, category: categoryId } : track,
+            track.id === id ? { ...track, category } : track,
           ),
         })),
       addCategory: (name) =>
         set((state) => ({
           categories: [
             ...state.categories,
-            { id: `category-${crypto.randomUUID()}`, name },
+            { id: `category-${crypto.randomUUID()}`, name: name.trim() },
           ],
         })),
       renameCategory: (id, name) =>
         set((state) => ({
           categories: state.categories.map((category) =>
-            category.id === id ? { ...category, name } : category,
+            category.id === id ? { ...category, name: name.trim() } : category,
           ),
         })),
       removeCategory: (id) =>
@@ -175,42 +188,26 @@ export const useSoundboardStore = create<SoundboardState>()(
             track.category === id ? { ...track, category: 'custom' } : track,
           ),
         })),
-      resetEmpty: () => set({ tracks: [], categories: [customCategory()] }),
+      replaceData: (data) => set(data),
+      resetEmpty: () => set({ tracks: [], categories: [{ id: 'custom', name: null }] }),
       resetToExamples: () =>
         set({ tracks: [...DEFAULT_TRACKS], categories: [...DEFAULT_CATEGORIES] }),
     }),
     {
       name: 'fumble-soundboard',
-      version: 5,
-      storage: fumbleStorage,
-      migrate: (persisted, version) => {
-        const state = persisted as Partial<SoundboardState>;
-        const storedTracks = state.tracks ?? [];
-        const tracks =
-          version < 3
-            ? [
-                ...DEFAULT_TRACKS,
-                ...storedTracks
-                  .filter(
-                    (track) =>
-                      !track.id.startsWith('default-') &&
-                      !track.id.startsWith('bardify-'),
-                  )
-                  .map((track) => ({ ...track, category: track.category ?? 'custom' })),
-              ]
-            : storedTracks.map((track) => ({
-                ...track,
-                category: track.category ?? 'custom',
-              }));
-        return {
-          ...state,
-          tracks,
-          categories:
-            version < 4 || !state.categories
-              ? categoriesForTracks(tracks)
-              : state.categories,
-        } as SoundboardState;
-      },
+      version: SOUNDBOARD_VERSION,
+      storage: soundboardStorage,
+      partialize: ({ tracks, categories }) => ({ tracks, categories }),
+      migrate: (persisted, version) => readSoundboardData(persisted, version),
+      merge: (persisted, current) =>
+        persisted === undefined
+          ? current
+          : { ...current, ...readSoundboardData(persisted, SOUNDBOARD_VERSION) },
     },
   ),
 );
+
+followStoredChanges(SOUNDBOARD_KEY, () => {
+  const status = getSoundboardSaveStatus();
+  if (status.saved && !status.blocked) void useSoundboardStore.persist.rehydrate();
+});

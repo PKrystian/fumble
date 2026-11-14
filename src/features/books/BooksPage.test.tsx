@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { BooksPage, FilterRow } from './BooksPage';
@@ -67,14 +67,12 @@ vi.mock('@/data/compendium/images', () => ({
 
 vi.mock('@/data/compendium/sources', () => ({
   localizedBookName: (doc: { name: string }, locale: string) =>
-    locale === 'pl' ? `PL ${doc.name}` : doc.name,
+    locale === 'pl' ? `PŁ ${doc.name}` : doc.name,
 }));
 
 vi.mock('@/i18n/path', () => ({
-  Link: ({ children, to, ...props }: React.ComponentProps<'a'> & { to: string }) => (
-    <a href={to} {...props}>
-      {children}
-    </a>
+  Link: ({ children, to }: React.ComponentProps<'a'> & { to: string }) => (
+    <a href={to}>{children}</a>
   ),
 }));
 
@@ -104,10 +102,15 @@ describe('BooksPage', () => {
 
   it('renders editions, covers and fallback artwork', () => {
     renderPage();
-    expect(screen.getByText('books.edition2024')).toBeInTheDocument();
-    expect(screen.getByText('books.edition2014')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'books.edition2024' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'books.edition2014' }),
+    ).toBeInTheDocument();
     expect(screen.getByRole('presentation')).toHaveAttribute('src', '/images/cover.webp');
-    expect(screen.getByText('Saga - books.chapterOne')).toBeInTheDocument();
+    expect(screen.getByText('Saga')).toBeInTheDocument();
+    expect(screen.getByText('2024 · XPHB')).toBeInTheDocument();
     expect(screen.getByText('books.chapterOther')).toBeInTheDocument();
     expect(screen.getByText('mystery (1)')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /New Core/ })).toHaveAttribute(
@@ -121,11 +124,13 @@ describe('BooksPage', () => {
     renderPage();
     const search = screen.getByLabelText('books.searchLabel');
     fireEvent.change(search, { target: { value: '  pl quest  ' } });
-    expect(screen.getByText('PL Quest')).toBeInTheDocument();
-    expect(screen.queryByText('PL New Core')).not.toBeInTheDocument();
+    expect(screen.getByText('PŁ Quest')).toBeInTheDocument();
+    expect(screen.queryByText('PŁ New Core')).not.toBeInTheDocument();
     fireEvent.change(search, { target: { value: 'missing' } });
     expect(screen.getByText('books.noMatches')).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: 'common.clearSearch' }));
+    fireEvent.click(
+      screen.getAllByRole('button', { name: 'common.clearSearch' }).at(-1)!,
+    );
     expect(search).toHaveValue('');
   });
 
@@ -134,6 +139,7 @@ describe('BooksPage', () => {
     expect(screen.getByLabelText('books.searchLabel')).toHaveValue('quest');
     expect(screen.getByText('Quest')).toBeInTheDocument();
     expect(screen.queryByText('New Core')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'books.filters' }));
     expect(screen.getByRole('button', { name: 'books.adventures' })).toHaveAttribute(
       'aria-pressed',
       'true',
@@ -142,6 +148,7 @@ describe('BooksPage', () => {
 
   it('toggles format and type filters and resets them', () => {
     renderPage();
+    fireEvent.click(screen.getByRole('button', { name: 'books.filters' }));
     fireEvent.click(screen.getByRole('button', { name: 'books.adventures' }));
     expect(screen.getByText('Quest')).toBeInTheDocument();
     expect(screen.queryByText('New Core')).not.toBeInTheDocument();
@@ -150,8 +157,35 @@ describe('BooksPage', () => {
     fireEvent.click(screen.getByRole('button', { name: 'core' }));
     fireEvent.click(screen.getByRole('button', { name: 'setting' }));
     expect(screen.getByText('Quest')).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: 'books.resetFilters' }));
+    fireEvent.click(
+      within(screen.getByRole('dialog')).getByRole('button', {
+        name: 'books.resetFilters',
+      }),
+    );
     expect(screen.getByText('New Core')).toBeInTheDocument();
+  });
+
+  it('ignores unknown facets and sorts the whole catalog with an edition override', () => {
+    mocks.mode = '2024';
+    renderPage('/books?type=unknown&format=unknown&edition=all&sort=oldest');
+    expect(screen.getByLabelText('books.filterEdition')).toHaveValue('all');
+    expect(screen.getByLabelText('books.sort')).toHaveValue('oldest');
+    expect(screen.getAllByRole('link').map((link) => link.getAttribute('href'))).toEqual([
+      '/books/old-core',
+      '/books/new-core',
+      '/books/quest',
+      '/books/mystery',
+    ]);
+    fireEvent.change(screen.getByLabelText('books.sort'), { target: { value: 'title' } });
+    expect(screen.getAllByRole('link')[0]).toHaveAttribute('href', '/books/mystery');
+  });
+
+  it('replaces a failed cover', () => {
+    renderPage();
+    const cover = screen.getByRole('presentation');
+    fireEvent.error(cover);
+    expect(cover).not.toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /New Core/ })).toBeInTheDocument();
   });
 
   it('filters books by content edition', () => {
@@ -159,6 +193,15 @@ describe('BooksPage', () => {
     renderPage();
     expect(screen.getByText('New Core')).toBeInTheDocument();
     expect(screen.queryByText('Old Core')).not.toBeInTheDocument();
+  });
+
+  it('offers both editions when the inherited edition excludes a matching title', () => {
+    mocks.mode = '2024';
+    renderPage('/books?q=old');
+    expect(screen.getByText('books.noMatches')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'books.showBothEditions' }));
+    expect(screen.getByText('Old Core')).toBeInTheDocument();
+    expect(screen.getByLabelText('books.searchLabel')).toHaveValue('old');
   });
 
   it('sorts equal source ranks by date and name', () => {

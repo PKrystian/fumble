@@ -1,4 +1,6 @@
 import type { BookIndexEntry } from '@/data/compendium/types';
+import { localizedBookName } from '@/data/compendium/sources';
+import type { Locale } from '@/i18n/locales';
 
 type TranslateFn = (key: string, vars?: Record<string, string | number>) => string;
 
@@ -24,5 +26,25 @@ export function sortDocs(docs: BookIndexEntry[]): BookIndexEntry[] {
     if (ra !== rb) return ra - rb;
     const dateDiff = (b.published ?? '').localeCompare(a.published ?? '');
     return dateDiff !== 0 ? dateDiff : a.name.localeCompare(b.name);
+  });
+}
+
+export const BOOK_SORTS = ['grouped', 'title', 'newest', 'oldest'] as const;
+export type BookSort = (typeof BOOK_SORTS)[number];
+
+export function sortCatalog(
+  docs: BookIndexEntry[],
+  sort: Exclude<BookSort, 'grouped'>,
+  locale: Locale,
+): BookIndexEntry[] {
+  const byTitle = (a: BookIndexEntry, b: BookIndexEntry) =>
+    localizedBookName(a, locale).localeCompare(localizedBookName(b, locale), locale) ||
+    a.id.localeCompare(b.id);
+  return [...docs].sort((a, b) => {
+    if (sort === 'title') return byTitle(a, b);
+    if (!a.published || !b.published)
+      return Number(!a.published) - Number(!b.published) || byTitle(a, b);
+    const dates = a.published.localeCompare(b.published);
+    return (sort === 'newest' ? -dates : dates) || byTitle(a, b);
   });
 }

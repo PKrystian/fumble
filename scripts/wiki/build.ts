@@ -4,11 +4,13 @@ import {
   mkdirSync,
   readdirSync,
   readFileSync,
+  statSync,
+  unlinkSync,
   watch,
   writeFileSync,
 } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { basename, extname, join, relative, sep } from 'node:path';
+import { basename, extname, join, relative, resolve, sep } from 'node:path';
 import { createInterface } from 'node:readline/promises';
 import { marked } from 'marked';
 import {
@@ -59,7 +61,7 @@ const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.gif', '.webp', '.sv
 const OUTPUT_FILE = 'src/data/generated/wiki.json';
 const ASSET_DIR = 'public/wiki-assets';
 const CACHE_FILE = '.cache/wiki-cache.json';
-const CACHE_SCHEMA_VERSION = 2;
+const CACHE_SCHEMA_VERSION = 3;
 
 interface CacheEntry {
   hash: string;
@@ -233,6 +235,11 @@ function collectCampaignBuild(source: CampaignSource, warnings: string[]): Campa
     allNoteNames.add(title.toLowerCase());
 
     if (!isPlayerVisible(data)) continue;
+    try {
+      processSecrets(body);
+    } catch {
+      throw new Error(`Invalid private blocks on "${name}" in "${source.title}"`);
+    }
 
     const category =
       typeof data.category === 'string' && data.category
@@ -270,7 +277,7 @@ function buildPage(page: RawPage, campaign: CampaignBuild, warnings: string[]): 
     return slug ? `${campaign.source.id}/${slug}` : null;
   };
   const resolveAsset = (file: string) =>
-    `${BASE_TOKEN}wiki-assets/${campaign.source.id}/${basename(file)}`;
+    `${BASE_TOKEN}wiki-assets/${campaign.source.id}/${encodeURIComponent(basename(file))}`;
 
   for (const key of validateFrontmatterKeys(page.data, KNOWN_FRONTMATTER_KEYS)) {
     warnings.push(`Unknown frontmatter key "${key}" on "${page.name}"`);
@@ -324,7 +331,14 @@ function buildPage(page: RawPage, campaign: CampaignBuild, warnings: string[]): 
   body = processBoxes(body, resolveAsset, resolveSlug);
   body = processImages(body, resolveAsset);
   body = processWikiLinks(body, resolveSlug);
-  const html = marked.parse(body, { async: false });
+  const html = marked.parse(body, {
+    async: false,
+    walkTokens(token) {
+      if (token.type === 'image' && campaign.assetPaths.has(basename(token.href))) {
+        token.href = resolveAsset(token.href);
+      }
+    },
+  });
   const infobox = renderInfobox(page.data, page.title, resolveAsset, resolveSlug);
   return {
     campaignId: page.campaignId,
@@ -335,20 +349,51 @@ function buildPage(page: RawPage, campaign: CampaignBuild, warnings: string[]): 
   };
 }
 
-function copyCampaignAssets(campaign: CampaignBuild): void {
-  const outputDir = join(ASSET_DIR, campaign.source.id);
-  mkdirSync(outputDir, { recursive: true });
-  for (const [name, source] of campaign.assetPaths) {
-    copyFileSync(source, join(outputDir, name));
+function copyPublishedAssets(builds: CampaignBuild[], campaigns: WikiCampaign[]): void {
+  const published = new Set<string>();
+  for (const campaign of campaigns) {
+    const build = builds.find((entry) => entry.source.id === campaign.id)!;
+    for (const page of campaign.pages) {
+      for (const match of page.html.matchAll(/%BASE%wiki-assets\/([^"'<>\s)]+)/g)) {
+        const asset = decodeURIComponent(match[1]!);
+        const prefix = `${campaign.id}/`;
+        if (!asset.startsWith(prefix)) throw new Error('Invalid published asset');
+        const name = asset.slice(prefix.length);
+        const source = build.assetPaths.get(name);
+        if (!source) continue;
+        const target = join(ASSET_DIR, campaign.id, name);
+        mkdirSync(join(ASSET_DIR, campaign.id), { recursive: true });
+        copyFileSync(source, target);
+        published.add(resolve(target));
+      }
+    }
+  }
+  if (!existsSync(ASSET_DIR)) return;
+  const root = resolve(ASSET_DIR);
+  for (const file of walk(root, new Set())) {
+    const target = resolve(file);
+    const location = relative(root, target);
+    if (location.startsWith('..') || location === '')
+      throw new Error('Invalid asset output path');
+    if (!published.has(target)) unlinkSync(target);
   }
 }
 
-function buildOnce(inputDir: string, ignoredNames: Set<string>): void {
+function buildOnce(
+  inputDir: string,
+  ignoredNames: Set<string>,
+  selectedCampaigns: string[],
+): void {
   const files = walk(inputDir, ignoredNames);
   const warnings: string[] = [];
-  const campaignsBuild = discoverCampaigns(inputDir, files).map((source) =>
-    collectCampaignBuild(source, warnings),
-  );
+  const sources = discoverCampaigns(inputDir, files);
+  if (selectedCampaigns.some((id) => !sources.some((source) => source.id === id)))
+    throw new Error('Unknown selected campaign');
+  const campaignsBuild = sources
+    .filter(
+      (source) => selectedCampaigns.length === 0 || selectedCampaigns.includes(source.id),
+    )
+    .map((source) => collectCampaignBuild(source, warnings));
   const skipped = files.filter((file) => {
     if (extname(file).toLowerCase() !== '.md') return false;
     const raw = readFileSync(file, 'utf8');
@@ -357,9 +402,14 @@ function buildOnce(inputDir: string, ignoredNames: Set<string>): void {
 
   const force = process.argv.includes('--force');
   const slugSignature = campaignsBuild
-    .flatMap((campaign) =>
-      campaign.pages.map((page) => `${campaign.source.id}:${page.slug}`),
-    )
+    .flatMap((campaign) => [
+      ...campaign.pages.map(
+        (page) => `${campaign.source.id}:${page.slug}:${page.name}:${page.title}`,
+      ),
+      ...[...campaign.assetPaths.entries()].map(
+        ([name, file]) => `${name}:${statSync(file).mtimeMs}:${statSync(file).size}`,
+      ),
+    ])
     .sort()
     .join(',');
   const cache = force ? null : loadCache();
@@ -391,7 +441,6 @@ function buildOnce(inputDir: string, ignoredNames: Set<string>): void {
     pages.sort(
       (a, b) => a.category.localeCompare(b.category) || a.title.localeCompare(b.title),
     );
-    copyCampaignAssets(campaign);
     campaigns.push({ id: campaign.source.id, title: campaign.source.title, pages });
     pageCount += pages.length;
   }
@@ -401,10 +450,10 @@ function buildOnce(inputDir: string, ignoredNames: Set<string>): void {
     meta: {
       pageCount,
       generatedAt: new Date().toISOString(),
-      source: inputDir,
     },
     campaigns,
   };
+  copyPublishedAssets(campaignsBuild, campaigns);
   mkdirSync('src/data/generated', { recursive: true });
   writeFileSync(OUTPUT_FILE, JSON.stringify(data));
 
@@ -453,7 +502,10 @@ async function main(): Promise<void> {
   const argv = process.argv.slice(2);
   const inputDir = await resolveInput(argv);
   const ignoredNames = ignoredDirectoryNames(argv);
-  buildOnce(inputDir, ignoredNames);
+  const selectedCampaigns = argv.flatMap((value, index) =>
+    value === '--campaign' && argv[index + 1] ? [argv[index + 1]!] : [],
+  );
+  buildOnce(inputDir, ignoredNames, selectedCampaigns);
 
   if (!argv.includes('--watch')) return;
 
@@ -465,7 +517,7 @@ async function main(): Promise<void> {
       pending = setTimeout(() => {
         console.log(color.dim('\nChange detected, rebuilding...'));
         try {
-          buildOnce(inputDir, ignoredNames);
+          buildOnce(inputDir, ignoredNames, selectedCampaigns);
         } catch (err) {
           console.error(color.red(String(err)));
         }

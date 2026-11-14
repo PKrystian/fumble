@@ -31,6 +31,7 @@ describe('ContentModeSwitcher', () => {
     fireEvent.keyDown(all, { key: 'x' });
     fireEvent.keyDown(all, { key: 'Escape' });
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(trigger).toHaveFocus();
 
     fireEvent.click(trigger);
     fireEvent.keyDown(screen.getByRole('option', { name: 'D&D 2014 only' }), {

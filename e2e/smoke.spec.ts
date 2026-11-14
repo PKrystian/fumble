@@ -93,7 +93,7 @@ test('opens compendium records at the top after scrolling the list', async ({ pa
   });
   await expect(page.locator('ul[data-category] a').last()).toBeVisible();
 
-  const main = page.locator('main');
+  const main = page.locator('#app-scroll');
   const scrollTop = await main.evaluate((element) => {
     element.scrollTop = element.scrollHeight;
     return element.scrollTop;
@@ -163,17 +163,21 @@ test('compendium exposes magic variants and imported source collections', async 
 
 test('keeps Fumble firearms in their own category', async ({ page }) => {
   await page.goto('/fumble-homebrew?category=firearms');
+  const filters = page.getByRole('button', { name: 'Filters (1)', exact: true });
+  if ((page.viewportSize()?.width ?? 1280) < 768) await filters.click();
   await expect(page.getByRole('button', { name: 'Firearms' })).toHaveAttribute(
     'aria-pressed',
     'true',
   );
   await expect(page.getByRole('link', { name: /^Pneumatic Pistol/ })).toHaveAttribute(
     'href',
-    '/compendium/firearms/pneumatic-pistol/',
+    /^\/compendium\/firearms\/pneumatic-pistol\/\?library=/,
   );
 
-  await page.goto('/compendium/firearms/pneumatic-pistol');
+  await page.getByRole('link', { name: /^Pneumatic Pistol/ }).click();
   await expect(page.getByRole('heading', { name: 'Pneumatic Pistol' })).toBeVisible();
+  await page.getByRole('link', { name: 'Back to Fumble Homebrew', exact: true }).click();
+  await expect(page).toHaveURL(/\/fumble-homebrew\/\?category=firearms/);
 });
 
 test('weapon details include mastery and property rules in Polish', async ({ page }) => {
@@ -337,7 +341,7 @@ test('Polish filters normalize values and bulk actions', async ({ page }) => {
   await page.goto('/pl/compendium/spells');
   await page.getByRole('button', { name: /Filtry/ }).click();
 
-  await expect(page.getByRole('button', { name: 'Kleryk', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Kapłan', exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Duchowny', exact: true })).toHaveCount(
     0,
   );
@@ -347,11 +351,11 @@ test('Polish filters normalize values and bulk actions', async ({ page }) => {
   const spellClass = page.getByRole('group', { name: 'Klasa', exact: true });
   await spellClass.getByRole('button', { name: 'Wszystkie', exact: true }).click();
   await expect(
-    spellClass.getByRole('button', { name: 'Kleryk', exact: true }),
+    spellClass.getByRole('button', { name: 'Kapłan', exact: true }),
   ).toHaveAttribute('aria-pressed', 'true');
   await spellClass.getByRole('button', { name: 'Wyczyść', exact: true }).click();
   await expect(
-    spellClass.getByRole('button', { name: 'Kleryk', exact: true }),
+    spellClass.getByRole('button', { name: 'Kapłan', exact: true }),
   ).toHaveAttribute('aria-pressed', 'false');
 
   await page.getByRole('button', { name: 'Zamknij filtry' }).click();
@@ -389,6 +393,8 @@ test('Fumble homebrew keeps class headers and hover previews usable', async ({
 
   await page.getByRole('searchbox', { name: 'Szukaj' }).fill('Witch');
   await expect(page).toHaveURL(/\/pl\/fumble-homebrew\/?\?q=Witch/);
+  const homebrewFilters = page.getByRole('button', { name: 'Filtry (0)', exact: true });
+  if (await homebrewFilters.isVisible()) await homebrewFilters.click();
   await page.getByRole('button', { name: 'Klasy', exact: true }).click();
   await expect(page).toHaveURL(/\/pl\/fumble-homebrew\/?\?category=classes&q=Witch/);
   await page.getByRole('link', { name: /^Wied/ }).first().click();
@@ -396,6 +402,12 @@ test('Fumble homebrew keeps class headers and hover previews usable', async ({
   await page.goBack();
   await expect(page).toHaveURL(/\/pl\/fumble-homebrew\/?\?category=classes&q=Witch/);
   await expect(page.getByRole('searchbox', { name: 'Szukaj' })).toHaveValue('Witch');
+  const restoredFilters = page.getByRole('button', { name: 'Filtry (1)', exact: true });
+  if (
+    (await restoredFilters.isVisible()) &&
+    (await restoredFilters.getAttribute('aria-expanded')) === 'false'
+  )
+    await restoredFilters.click();
   await expect(page.getByRole('button', { name: 'Klasy', exact: true })).toHaveAttribute(
     'aria-pressed',
     'true',
@@ -421,8 +433,8 @@ test('keeps long pages inside the app scroll containers', async ({ page }) => {
       documentClientHeight: document.documentElement.clientHeight,
       documentScrollHeight: document.documentElement.scrollHeight,
       bodyScrollHeight: document.body.scrollHeight,
-      mainClientHeight: document.querySelector('main')?.clientHeight ?? 0,
-      mainScrollHeight: document.querySelector('main')?.scrollHeight ?? 0,
+      mainClientHeight: document.querySelector('#app-scroll')?.clientHeight ?? 0,
+      mainScrollHeight: document.querySelector('#app-scroll')?.scrollHeight ?? 0,
     }));
 
     expect(metrics.documentScrollHeight).toBe(metrics.documentClientHeight);
@@ -436,34 +448,32 @@ test('can create a character and edit core stats', async ({ page }) => {
   await page.getByRole('button', { name: 'New Character' }).click();
   await expect(page).toHaveURL(/\/character\/[a-f0-9-]+\/$/);
 
-  const strength = page.getByRole('spinbutton', { name: 'Strength' });
-  await expect(async () => {
-    await strength.fill('16');
-    await strength.press('Tab');
-    await expect(page.getByText('+3', { exact: true }).first()).toBeVisible({
-      timeout: 1_000,
-    });
-  }).toPass({
-    timeout: 10_000,
-  });
+  const strength = page.getByRole('textbox', { name: 'Strength score' });
+  await strength.fill('16');
+  await expect(
+    page.getByRole('button', { name: 'Roll Strength check +3' }),
+  ).toBeVisible();
 
-  await page.getByRole('textbox', { name: 'Name' }).fill('Thorin');
-  await page.getByRole('link', { name: 'Characters' }).click();
-  await expect(page.getByText('Thorin')).toBeVisible();
+  await page.getByRole('textbox', { name: 'Name', exact: true }).fill('Thorin');
+  await page.getByRole('main').getByRole('link', { name: 'Characters' }).first().click();
+  await expect(page.getByRole('heading', { name: 'Thorin', exact: true })).toBeVisible();
 });
 
 test('character list imports, validates and deletes character files', async ({
   page,
 }) => {
-  await page.goto('/character');
-  const fileInput = page.locator('input[type="file"]');
+  await page.goto('/data');
+  const fileInput = page
+    .getByLabel('Characters: import from a file', { exact: true })
+    .last();
   await fileInput.setInputFiles({
     name: 'invalid.json',
     mimeType: 'application/json',
     buffer: Buffer.from('{}'),
   });
-  await expect(page.getByRole('alertdialog')).toContainText('Import failed');
-  await page.getByRole('button', { name: 'OK' }).click();
+  await expect(page.getByRole('alert')).toContainText(
+    'invalid.json is not a valid Fumble character or backup file.',
+  );
 
   await fileInput.setInputFiles({
     name: 'character.json',
@@ -481,14 +491,16 @@ test('character list imports, validates and deletes character files', async ({
           portrait: '',
         },
         layout: {
-          left: ['abilities'],
-          center: ['combat'],
-          right: ['skills'],
+          zones: { left: ['abilities'], center: ['combat'], right: ['skills'] },
         },
       }),
     ),
   });
-  await expect(page.getByText('Imported Hero')).toBeVisible();
+  const preview = page.getByRole('dialog', { name: 'Import characters' });
+  await expect(preview.getByText('Imported Hero')).toBeVisible();
+  await preview.getByRole('button', { name: 'Import 1' }).click();
+  await expect(page.getByText('Imported 1 characters.')).toBeVisible();
+  await page.goto('/character');
   const deleteButton = page.getByRole('button', { name: 'Delete Imported Hero' });
   await expect(deleteButton).toBeVisible();
   await deleteButton.click();
@@ -501,86 +513,97 @@ test('character list imports, validates and deletes character files', async ({
 test('character sheet adds a spell from the compendium', async ({ page }) => {
   await page.goto('/character');
   await page.getByRole('button', { name: 'New Character' }).click();
-  await page.getByRole('button', { name: 'Spells', exact: true }).click();
+  await page.getByRole('tab', { name: 'Spells' }).click();
 
+  const picker = page.getByRole('combobox', {
+    name: 'Add a spell from the compendium...',
+  });
+  await picker.fill('fireball');
   await page
-    .getByRole('searchbox', { name: 'Add a spell from the compendium...' })
-    .fill('fireball');
-  await page.getByRole('button', { name: 'Fireball', exact: true }).click();
+    .getByRole('option', { name: /^Fireball/ })
+    .first()
+    .click();
 
-  await expect(page.getByPlaceholder('Spell name')).toHaveValue('Fireball');
+  await expect(page.getByText(/^Fireball added\./)).toBeVisible();
+  await expect(page.getByRole('textbox', { name: 'Spell name' })).toHaveValue('Fireball');
 });
 
 test('character rolls tab rolls a d20 with modifiers', async ({ page }) => {
   await page.goto('/character');
   await page.getByRole('button', { name: 'New Character' }).click();
-  await page.getByRole('button', { name: 'Rolls', exact: true }).click();
-  await page.getByRole('button', { name: 'Initiative +0' }).click();
+  await page.getByRole('tab', { name: 'Rolls' }).click();
+  await page
+    .getByRole('tabpanel')
+    .getByRole('button', { name: /^Initiative/ })
+    .click();
 
-  await expect(page.getByText(/d20 \[/)).toBeVisible();
+  await expect(page.getByRole('complementary', { name: 'Dice result' })).toBeVisible();
 });
 
-test('character settings configure spell slots and preferences', async ({ page }) => {
+test('character settings and spell slots keep their values', async ({ page }) => {
   await page.goto('/character');
   await page.getByRole('button', { name: 'New Character' }).click();
-  const settingsButton = page.getByRole('button', { name: 'Settings' });
-  await expect(settingsButton).toBeVisible();
+  const settingsButton = page.getByRole('button', { name: 'Character Settings' });
   await expect(settingsButton).toHaveClass(/ui-button/);
   await settingsButton.click();
 
   const dialog = page.getByRole('dialog', { name: 'Character Settings' });
-  await expect(dialog).toBeVisible();
-  await dialog.getByLabel('Spellcasting Ability').selectOption('int');
-  const slots = dialog.getByRole('spinbutton');
-  await slots.nth(0).fill('1');
-  await slots.nth(1).fill('2');
-  await dialog
-    .getByText(
-      'Auto-sync features, proficiencies, and speed from class, subclass, species, and background',
-    )
-    .click();
   await dialog.getByText('This is my (DM) character, not a party member').click();
-  await dialog.getByRole('button', { name: 'Reset dashboard layout' }).click();
+  await dialog.getByRole('button', { name: 'Reset panel layout' }).click();
+  await page
+    .getByRole('alertdialog')
+    .getByRole('button', { name: 'Reset panel layout' })
+    .click();
+  await expect(dialog.getByText('Panel layout reset.')).toBeVisible();
   await page.keyboard.press('Escape');
-
   await expect(dialog).toHaveCount(0);
-  await page.getByRole('button', { name: 'Settings' }).click();
-  const reopened = page.getByRole('dialog', { name: 'Character Settings' });
-  await expect(reopened.getByLabel('Spellcasting Ability')).toHaveValue('int');
-  await expect(reopened.getByRole('spinbutton').nth(0)).toHaveValue('1');
-  await expect(reopened.getByRole('spinbutton').nth(1)).toHaveValue('2');
-  await reopened.getByRole('button', { name: 'Close' }).click();
+
+  await page.getByRole('tab', { name: 'Spells' }).click();
+  await page.getByLabel('Spellcasting Ability').selectOption('int');
+  await page.getByRole('button', { name: 'Edit slots' }).click();
+  const slots = page.getByRole('dialog', { name: 'Edit slots' });
+  await slots.getByRole('textbox', { name: 'Level 1 long rest slots' }).fill('2');
+  await slots.getByRole('button', { name: 'Done' }).click();
+  await expect(page.getByText('2 of 2').first()).toBeVisible();
+  await page.reload();
+  await expect(page.getByLabel('Spellcasting Ability')).toHaveValue('int');
 });
 
 test('dice roller evaluates an expression', async ({ page }) => {
   await page.goto('/dice');
+  await page.getByRole('button', { name: 'Expression', exact: true }).click();
   const input = page.getByPlaceholder('e.g. (2d6 + 4) / 2');
   await input.fill('(2k6 + 4) / 2');
   await input.press('Enter');
-
   await expect(
-    page.getByRole('paragraph').filter({ hasText: /^\(2d6 \+ 4\) \/ 2$/ }),
+    page
+      .getByRole('region', { name: 'Latest result' })
+      .getByRole('paragraph')
+      .filter({ hasText: /^\(2d6 \+ 4\) \/ 2$/ }),
   ).toBeVisible();
 });
 
 test('dice roller saves and reuses a named roll', async ({ page }) => {
   await page.goto('/dice');
+  await page.getByRole('button', { name: 'Expression', exact: true }).click();
   await page.getByPlaceholder('Longsword').fill('Flame Blade');
-  await page.getByPlaceholder('e.g. 2d6 + 4').fill('2k6 + 4');
+  await page.getByPlaceholder('e.g. (2d6 + 4) / 2').fill('2k6 + 4');
   await page.getByRole('button', { name: 'Save', exact: true }).click();
-
   await page.reload();
   await page.getByRole('button', { name: /^Flame Blade 2k6/ }).click();
-
-  await expect(page.getByText('Flame Blade', { exact: true }).first()).toBeVisible();
+  const result = page.getByRole('region', { name: 'Latest result' });
+  await expect(result.getByText('Flame Blade', { exact: true })).toBeVisible();
   await expect(
-    page.getByRole('paragraph').filter({ hasText: /^2d6 \+ 4$/ }),
+    result.getByRole('paragraph').filter({ hasText: /^2d6 \+ 4$/ }),
   ).toBeVisible();
-  await page.getByRole('button', { name: 'Close dice result' }).click();
   await page.getByRole('button', { name: 'Remove Flame Blade' }).click();
   await expect(page.getByRole('button', { name: /^Flame Blade 2k6/ })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Clear', exact: true }).click();
-  await expect(page.getByText(/results appear here/)).toBeVisible();
+  await page.getByRole('button', { name: 'Clear history', exact: true }).click();
+  await page
+    .getByRole('alertdialog')
+    .getByRole('button', { name: 'Clear history', exact: true })
+    .click();
+  await expect(result.getByText(/Prepare a roll on the left/)).toBeVisible();
 });
 
 test('dice roller builds and rolls a pool in different modes', async ({ page }) => {
@@ -588,15 +611,18 @@ test('dice roller builds and rolls a pool in different modes', async ({ page }) 
   await page.getByRole('button', { name: 'd20', exact: true }).click();
   await page.getByRole('button', { name: 'd20', exact: true }).click();
   await page.getByRole('button', { name: 'd6', exact: true }).click();
-  await page.getByRole('button', { name: /2d20/ }).click();
+  await page.getByRole('button', { name: 'Remove one d20', exact: true }).click();
   await page.getByLabel('Modifier').fill('3');
   await page.getByRole('button', { name: 'Advantage', exact: true }).click();
-  await page.getByRole('button', { name: 'Roll', exact: true }).first().click();
-  await expect(page.getByText(/1d6 \+ 1d20 \+ 3/).first()).toBeVisible();
-
+  await page.getByRole('button', { name: 'Roll', exact: true }).click();
+  await expect(
+    page
+      .getByRole('region', { name: 'Latest result' })
+      .getByText('1d6 + 1d20 + 3', { exact: true }),
+  ).toBeVisible();
   await page.getByRole('button', { name: 'Clear pool' }).click();
   await page.getByRole('button', { name: 'Disadvantage', exact: true }).click();
-  await expect(page.getByText(/results appear here/)).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Roll', exact: true })).toBeDisabled();
 });
 
 test('initiative tracker adds a combatant and advances the round', async ({ page }) => {
@@ -604,7 +630,7 @@ test('initiative tracker adds a combatant and advances the round', async ({ page
   await page.getByPlaceholder('Goblin, Aragorn...').fill('Goblin');
   await page.getByRole('button', { name: 'Add', exact: true }).click();
   await expect(page.getByText('Goblin')).toBeVisible();
-  await page.getByRole('button', { name: /Next turn/ }).click();
+  await page.getByRole('button', { name: 'Start combat' }).click();
   await expect(page.getByText(/^Round 1$/)).toBeVisible();
 });
 
@@ -612,6 +638,9 @@ test('copies a creature from the bestiary into initiative', async ({ page }) => 
   await page.route('https://5e.tools/**', (route) => route.abort());
   await page.goto('/compendium/bestiary/wight/');
   await page.getByRole('button', { name: 'Add this creature to initiative' }).click();
+  const preview = page.getByRole('dialog', { name: 'Add Wight to initiative' });
+  await expect(preview.getByRole('textbox', { name: 'Current HP' })).toHaveValue('82');
+  await preview.getByRole('button', { name: 'Add', exact: true }).click();
   await expect(page).toHaveURL(/\/dm\/initiative\/$/, { timeout: 15000 });
   await expect(
     page.getByRole('heading', { name: 'Initiative', exact: true }),
@@ -627,17 +656,18 @@ test('copies a creature from the bestiary into initiative', async ({ page }) => 
 test('initiative tracker edits, navigates and removes combatants', async ({ page }) => {
   await page.goto('/dm/initiative');
   await page.getByPlaceholder(/^Goblin, Aragorn/).fill('Orc');
-  await page.getByLabel('HP').fill('15');
-  await page.getByLabel('AC').fill('13');
-  await page.getByText('PC', { exact: true }).click();
+  await page.getByLabel('Current HP').fill('15');
+  await page.getByLabel('AC', { exact: true }).fill('13');
+  await page.getByRole('combobox', { name: 'Role', exact: true }).selectOption('party');
   await page.getByPlaceholder(/^Goblin, Aragorn/).press('Enter');
 
   await expect(page.getByText(/^Orc/)).toBeVisible();
   await expect(page.getByRole('listitem').getByText('PC', { exact: true })).toBeVisible();
   await page.getByPlaceholder('conditions').fill('Prone');
-  await page.getByRole('button', { name: /Next turn/ }).click();
-  await page.getByRole('button', { name: 'Previous turn' }).click();
+  await page.getByRole('button', { name: 'Start combat' }).click();
+  await expect(page.getByRole('button', { name: 'Previous turn' })).toBeDisabled();
   await page.getByRole('button', { name: 'Remove Orc' }).click();
+  await page.getByRole('alertdialog').getByRole('button', { name: 'Delete' }).click();
 
   await expect(
     page.getByText('Add combatants to begin tracking initiative.'),
@@ -665,17 +695,19 @@ test('loot generator covers party rewards, rerolls and wildcard mode', async ({
 }) => {
   await page.goto('/character');
   await page.getByRole('button', { name: 'New Character' }).click();
-  await page.getByRole('textbox', { name: 'Name' }).fill('Loot Tester');
-  await page.getByRole('link', { name: 'Characters' }).click();
-  await expect(page.getByText('Loot Tester')).toBeVisible();
+  await page.getByRole('textbox', { name: 'Name', exact: true }).fill('Loot Tester');
+  await page.getByRole('main').getByRole('link', { name: 'Characters' }).first().click();
+  await expect(
+    page.getByRole('heading', { name: 'Loot Tester', exact: true }),
+  ).toBeVisible();
   await page.goto('/dm/loot');
 
   await page.getByRole('button', { name: 'Saved characters' }).click();
-  await expect(page.getByText('Loot Tester')).toBeVisible();
+  await expect(page.getByText('Loot Tester', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Minor Reward' }).click();
   await expect(page.getByText('Coins', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Major Reward' }).click();
-  await expect(page.getByText('Magic Items', { exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Items', exact: true })).toBeVisible();
 
   await page.getByRole('button', { name: 'Tier' }).click();
   await page.getByRole('button', { name: /Tier 4/ }).click();
@@ -719,17 +751,25 @@ test('session log displays a transcript and saves notes', async ({ page, context
     );
   });
   await page.goto('/session-log');
+  await page
+    .getByRole('navigation', { name: 'Session views' })
+    .getByRole('button', { name: /^Transcript/ })
+    .click();
   await expect(page.getByText(/The party entered the dragon lair/)).toBeVisible();
+  await page.getByLabel('Transcription language').selectOption('polish');
+  await page.getByRole('button', { name: 'Notes', exact: true }).click();
   await page.getByRole('textbox', { name: 'Session notes' }).fill('The dragon is dead.');
   await expect(page.getByRole('textbox', { name: 'Session notes' })).toHaveValue(
     'The dragon is dead.',
   );
-  await page.locator('main input').fill('Dragon Lair Complete');
-  await page.getByLabel('Transcription language').selectOption('polish');
-  await page.getByRole('button', { name: 'Copy transcript' }).click();
+  await page.getByRole('textbox', { name: 'Session title' }).fill('Dragon Lair Complete');
+  await page.getByRole('button', { name: 'Copy and export' }).click();
+  const exportDialog = page.getByRole('dialog', { name: 'Copy and export' });
+  await exportDialog.getByRole('button', { name: 'Copy text' }).click();
   await expect(page.getByRole('button', { name: 'Copied' })).toBeVisible();
   await page.getByRole('button', { name: 'Copy with AI prompt' }).click();
-  await expect(page.getByRole('button', { name: 'Copied' })).toHaveCount(2);
+  await expect(page.getByRole('button', { name: 'Copied' })).toHaveCount(1);
+  await exportDialog.getByRole('button', { name: 'Close', exact: true }).first().click();
   await page.getByRole('button', { name: 'Delete session' }).click();
   await page.getByRole('button', { name: 'Delete', exact: true }).click();
   await expect(page.getByText('No session selected.')).toBeVisible();
@@ -739,6 +779,9 @@ test('soundboard adds a track and plays one', async ({ page }) => {
   await page.goto('/dm/soundboard');
   await expect(page.getByText('Floating Peace | D&D/TTRPG Music | 1 Hour')).toBeVisible();
 
+  await page
+    .getByRole('button', { name: 'Add a track or playlist', exact: true })
+    .click();
   await page.getByPlaceholder(/^https:\/\/www\.youtube\.com/).fill('bad');
   await page.getByRole('button', { name: 'Add', exact: true }).click();
   await expect(page.getByText('Enter a valid YouTube link.')).toBeVisible();
@@ -747,7 +790,11 @@ test('soundboard adds a track and plays one', async ({ page }) => {
     .getByPlaceholder('https://www.youtube.com/watch?v=...')
     .fill('https://www.youtube.com/watch?v=jNQXAC9IVRw');
   await page.getByRole('button', { name: 'Add', exact: true }).click();
-  await expect(page.getByText('My Ambience')).toBeVisible();
+  await page.getByRole('button', { name: 'Show added item', exact: true }).click();
+  await expect(
+    page.getByRole('button', { name: 'My Ambience', exact: true }),
+  ).toBeVisible();
+  await page.getByRole('button', { name: /^All \(/ }).click();
 
   await page
     .getByRole('button', {
@@ -755,11 +802,18 @@ test('soundboard adds a track and plays one', async ({ page }) => {
       exact: true,
     })
     .click();
-  await expect(page.getByText(/Now playing/)).toBeVisible();
+  await expect(page.getByText(/Selected:/)).toBeVisible();
   await page.getByRole('button', { name: 'Stop' }).click();
-  await page.getByRole('button', { name: 'My tracks' }).click();
+  await page.getByRole('button', { name: /^My tracks \(/ }).click();
   await page.getByRole('button', { name: 'Remove My Ambience' }).click();
-  await expect(page.getByText('My Ambience')).toHaveCount(0);
+  await page
+    .getByRole('alertdialog')
+    .getByRole('button', { name: 'Delete', exact: true })
+    .click();
+  await expect(
+    page.getByRole('button', { name: 'My Ambience', exact: true }),
+  ).toHaveCount(0);
+  await page.getByText('Library cleanup', { exact: true }).click();
   await page.getByRole('button', { name: 'Restore example', exact: true }).click();
   await page
     .getByRole('alertdialog')
@@ -870,6 +924,10 @@ test('wiki chooses campaigns and configures the local Chult map editor', async (
     initialRevealedCount + 1,
   );
   await page.getByRole('button', { name: 'Reset local changes' }).click();
+  await page
+    .getByRole('alertdialog')
+    .getByRole('button', { name: 'Reset local changes' })
+    .click();
   await expect(page.locator('.wiki-chult-map__hex--revealed')).toHaveCount(
     initialRevealedCount,
   );
@@ -888,10 +946,16 @@ test('books can be searched, filtered and opened', async ({ page }) => {
   await handbook.click();
   await expect(page).toHaveURL(/\/books\//);
   await expect(page.getByRole('article')).toContainText("Player's Handbook");
-  await page.getByRole('button', { name: 'This chapter' }).click();
-  await expect(page.getByRole('button', { name: 'Whole book' })).toBeVisible();
+  await page.getByRole('button', { name: 'Whole book' }).click();
+  await expect(page.getByRole('button', { name: 'Whole book' })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
   await page.getByRole('button', { name: 'Full width' }).click();
-  await expect(page.getByRole('button', { name: 'Comfortable width' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Full width' })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
 
   if ((page.viewportSize()?.width ?? 0) >= 768) {
     const chapters = page.getByRole('navigation', { name: 'Chapters' });
@@ -924,8 +988,8 @@ test('global search navigates to a compendium entry', async ({ page }) => {
   await page.getByRole('button', { name: 'Search' }).first().click();
   const dialog = page.getByRole('dialog', { name: 'Search' });
   await expect(dialog).toBeVisible();
-  await dialog.getByRole('searchbox').fill('Fireball');
-  await expect(dialog.getByRole('button', { name: /Fireball/ }).first()).toBeVisible();
+  await dialog.getByRole('combobox').fill('Fireball');
+  await expect(dialog.getByRole('option', { name: /Fireball/ }).first()).toBeVisible();
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/\/compendium\/spells\/fireball\/$/);
 });
@@ -941,15 +1005,16 @@ test('Polish global search matches English names and ignores diacritics', async 
   const dialog = page.getByRole('dialog', { name: 'Szukaj' });
   await expect(dialog).toBeVisible();
 
-  await dialog.getByRole('searchbox').fill('Weapon of Warning');
-  await expect(dialog.getByRole('button', { name: /Broń Ostrzegawcza/ })).toBeVisible();
+  await dialog.getByRole('combobox').fill('Weapon of Warning');
+  await expect(dialog.getByRole('option', { name: /Broń Ostrzegawcza/ })).toBeVisible();
 
-  await dialog.getByRole('searchbox').fill('Czlow');
-  await expect(dialog.getByRole('button', { name: /Człowiek/ }).first()).toBeVisible();
+  await dialog.getByRole('combobox').fill('Czlow');
+  await expect(dialog.getByRole('option', { name: /Człowiek/ }).first()).toBeVisible();
 });
 
 test('homebrew creates, filters and edits an entry', async ({ page }) => {
   await page.goto('/homebrew');
+  await page.getByRole('button', { name: 'New entry' }).click();
   await page.getByPlaceholder('e.g. Blade of the Rift').fill('Moon Blade');
   await page
     .getByPlaceholder('e.g. Rare weapon (requires attunement)')
@@ -974,7 +1039,7 @@ test('homebrew creates, filters and edits an entry', async ({ page }) => {
 
 test('homebrew imports and deletes a 5etools entry', async ({ page }) => {
   await page.goto('/homebrew');
-  await page.getByRole('button', { name: 'Paste JSON' }).click();
+  await page.getByRole('button', { name: 'Import', exact: true }).click();
   await page
     .getByRole('textbox', {
       name: 'Paste 5etools homebrew JSON (or a Fumble export)',
@@ -992,8 +1057,10 @@ test('homebrew imports and deletes a 5etools entry', async ({ page }) => {
         ],
       }),
     );
-  await page.getByRole('button', { name: 'Import', exact: true }).click();
-  await expect(page.getByText(/Imported 1 entry from 5etools homebrew/)).toBeVisible();
+  await page.getByRole('button', { name: 'Preview pasted JSON' }).click();
+  await expect(page.getByRole('heading', { name: 'Review the file' })).toBeVisible();
+  await page.getByRole('button', { name: 'Add entries' }).click();
+  await expect(page.getByText('Imported 1 entry.')).toBeVisible();
   await expect(page.getByText('Starlight Dart', { exact: true })).toBeVisible();
 
   await page.getByRole('button', { name: 'Delete Starlight Dart' }).click();
@@ -1003,9 +1070,10 @@ test('homebrew imports and deletes a 5etools entry', async ({ page }) => {
 
 test('homebrew creates a subclass attached to a compendium class', async ({ page }) => {
   await page.goto('/homebrew');
+  await page.getByRole('button', { name: 'New entry' }).click();
   await page.getByRole('button', { name: 'Subclass', exact: true }).click();
   await page.getByPlaceholder(/^Search for a class/).fill('Wizard');
-  await page.getByRole('button', { name: 'Wizard', exact: true }).click();
+  await page.getByRole('option', { name: 'Wizard', exact: true }).first().click();
   await page.getByPlaceholder('e.g. Oath of the Rift').fill('School of Stars');
   await page.getByPlaceholder('e.g. Homebrew').fill('STARS');
   await page
@@ -1020,23 +1088,20 @@ test('homebrew creates a subclass attached to a compendium class', async ({ page
 
 test('homebrew validates pasted JSON and imports a Fumble export', async ({ page }) => {
   await page.goto('/homebrew');
-  await page.getByRole('button', { name: 'Paste JSON' }).click();
+  await page.getByRole('button', { name: 'Import', exact: true }).click();
   const input = page.getByRole('textbox', {
     name: 'Paste 5etools homebrew JSON (or a Fumble export)',
   });
   await input.fill('{');
-  await page.getByRole('button', { name: 'Import', exact: true }).click();
-  await expect(page.getByText(/invalid JSON/)).toBeVisible();
-
-  await page.getByRole('button', { name: 'Paste JSON' }).click();
+  await page.getByRole('button', { name: 'Preview pasted JSON' }).click();
+  await expect(page.getByText(/not valid JSON/)).toBeVisible();
+  await expect(input).toHaveValue('{');
   const unrecognizedInput = page.getByRole('textbox', {
     name: 'Paste 5etools homebrew JSON (or a Fumble export)',
   });
   await unrecognizedInput.fill(JSON.stringify({ notes: [] }));
-  await page.getByRole('button', { name: 'Import', exact: true }).click();
-  await expect(page.getByText(/Unrecognized data/)).toBeVisible();
-
-  await page.getByRole('button', { name: 'Paste JSON' }).click();
+  await page.getByRole('button', { name: 'Preview pasted JSON' }).click();
+  await expect(page.getByRole('alert')).toContainText('Choose a 5etools');
   await page
     .getByRole('textbox', {
       name: 'Paste 5etools homebrew JSON (or a Fumble export)',
@@ -1056,7 +1121,8 @@ test('homebrew validates pasted JSON and imports a Fumble export', async ({ page
         ],
       }),
     );
-  await page.getByRole('button', { name: 'Import', exact: true }).click();
+  await page.getByRole('button', { name: 'Preview pasted JSON' }).click();
+  await page.getByRole('button', { name: 'Add entries' }).click();
   await expect(page.getByText('Imported 1 entry.')).toBeVisible();
   await expect(page.getByText('Exported Feat', { exact: true })).toBeVisible();
 });

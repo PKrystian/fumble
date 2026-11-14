@@ -1,143 +1,148 @@
-import { Button } from '@/features/ui/primitives';
-import { type ReactNode, useState } from 'react';
-import { Minus, Plus, Trash2 } from 'lucide-react';
+import { useId, useRef, type KeyboardEvent, type ReactNode } from 'react';
+import { Button, ToggleChip } from '@/features/ui/primitives';
+import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
+import { useT } from '@/i18n/useT';
 import {
   ABILITY_KEYS,
-  MAX_SPELL_LEVEL,
   SKILLS,
-  type AbilityKey,
   abilityModifier,
   formatModifier,
-  getSpellSlot,
   initiativeBonus,
   savingThrowBonus,
-  setSpellSlot,
   skillBonus,
-  spellAttackBonus,
-  spellSaveDc,
   uid,
-  parseArmorType,
+  type Character,
 } from './model';
-import { NumberField, TextArea, TextField } from './fields';
-import { CompendiumPicker } from './CompendiumPicker';
-import { useT } from '@/i18n/useT';
-import { type RollMode, type RollOutcome, rollParsed } from '@/features/dice/engine';
-import type { UpdateCharacter } from './sections';
-import type { Character } from './model';
-import type {
-  FeatEntry,
-  ItemEntry,
-  SpellEntry as CompendiumSpell,
-} from '@/data/compendium/types';
+import { Panel, TextArea, TextField } from './fields';
+import type { SectionProps } from './sections';
+import { AddButton, RemoveButton, RemovedNotice } from './rows';
+import { focusNewRow, useRowRemoval } from './rowRemoval';
+import { ROLL_MODES, ROLL_MODE_KEYS, useSheetRoll, useSheetRollMode } from './rolls';
+import { SpellsTab } from './SpellsTab';
+import { InventoryTab } from './InventoryTab';
+import { FeaturesTab } from './FeaturesTab';
 
-interface TabProps {
-  character: Character;
-  update: UpdateCharacter;
-}
+const SHEET_TABS = [
+  'actions',
+  'spells',
+  'inventory',
+  'features',
+  'rolls',
+  'notes',
+] as const;
+type SheetTab = (typeof SHEET_TABS)[number];
 
-const TABS = ['Actions', 'Spells', 'Inventory', 'Features', 'Rolls', 'Notes'] as const;
-type TabName = (typeof TABS)[number];
-
-const TAB_LABEL_KEYS: Record<TabName, string> = {
-  Actions: 'character.sheet.tabs.actions',
-  Spells: 'character.sheet.tabs.spells',
-  Inventory: 'character.sheet.tabs.inventory',
-  Features: 'character.sheet.tabs.features',
-  Rolls: 'character.sheet.tabs.rolls',
-  Notes: 'character.sheet.tabs.notes',
-};
-
-export function SheetTabs({ character, update }: TabProps) {
+export function SheetTabs({ character, update }: SectionProps) {
   const { t } = useT();
-  const [active, setActive] = useState<TabName>('Actions');
+  const baseId = useId();
+  const { params, update: updateParams } = useUrlSearchState();
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const requested = params.get('tab');
+  const active: SheetTab = (SHEET_TABS as readonly string[]).includes(requested ?? '')
+    ? (requested as SheetTab)
+    : 'actions';
+
+  const select = (tab: SheetTab, focus = false) => {
+    updateParams({ tab: tab === 'actions' ? null : tab }, true);
+    if (focus) tabRefs.current[SHEET_TABS.indexOf(tab)]?.focus();
+  };
+
+  const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    const keys: Record<string, number> = {
+      ArrowRight: (index + 1) % SHEET_TABS.length,
+      ArrowLeft: (index - 1 + SHEET_TABS.length) % SHEET_TABS.length,
+      Home: 0,
+      End: SHEET_TABS.length - 1,
+    };
+    const next = keys[event.key];
+    if (next === undefined) return;
+    event.preventDefault();
+    select(SHEET_TABS[next]!, true);
+  };
 
   return (
-    <div className="flex flex-col gap-4 rounded-xl border border-ink-700 bg-ink-900 p-4">
-      <nav className="ui-tabs" aria-label={t('character.list.title')}>
-        {TABS.map((tab) => (
+    <Panel title={t('character.sheet.panels.details')}>
+      <div role="tablist" aria-label={t('character.sheet.tabsLabel')} className="ui-tabs">
+        {SHEET_TABS.map((tab, index) => (
           <button
             key={tab}
+            ref={(element) => {
+              tabRefs.current[index] = element;
+            }}
+            id={`${baseId}-tab-${tab}`}
             type="button"
-            onClick={() => setActive(tab)}
+            role="tab"
+            aria-selected={tab === active}
+            aria-controls={`${baseId}-panel`}
+            tabIndex={tab === active ? 0 : -1}
+            onClick={() => select(tab)}
+            onKeyDown={(event) => onKeyDown(event, index)}
             className="ui-tab"
-            aria-pressed={tab === active}
           >
-            {t(TAB_LABEL_KEYS[tab])}
+            {t(`character.sheet.tabs.${tab}`)}
           </button>
         ))}
-      </nav>
-
-      {active === 'Actions' && <ActionsTab character={character} update={update} />}
-      {active === 'Spells' && <SpellsTab character={character} update={update} />}
-      {active === 'Inventory' && <InventoryTab character={character} update={update} />}
-      {active === 'Features' && <FeaturesTab character={character} update={update} />}
-      {active === 'Rolls' && <RollsTab character={character} />}
-      {active === 'Notes' && <NotesTab character={character} update={update} />}
-    </div>
+      </div>
+      <div
+        id={`${baseId}-panel`}
+        role="tabpanel"
+        aria-labelledby={`${baseId}-tab-${active}`}
+        className="min-w-0"
+      >
+        {active === 'actions' && <ActionsTab character={character} update={update} />}
+        {active === 'spells' && <SpellsTab character={character} update={update} />}
+        {active === 'inventory' && <InventoryTab character={character} update={update} />}
+        {active === 'features' && <FeaturesTab character={character} update={update} />}
+        {active === 'rolls' && <RollsTab character={character} />}
+        {active === 'notes' && <NotesTab character={character} update={update} />}
+      </div>
+    </Panel>
   );
 }
 
-function AddButton({ label, onClick }: { label: string; onClick: () => void }) {
-  return (
-    <Button
-      type="button"
-      onClick={onClick}
-      variant="secondary"
-      size="sm"
-      className="self-start"
-    >
-      <Plus size={14} /> {label}
-    </Button>
-  );
-}
-
-function RemoveButton({ onClick, label }: { onClick: () => void; label: string }) {
-  return (
-    <Button
-      type="button"
-      aria-label={label}
-      onClick={onClick}
-      variant="ghost"
-      size="sm"
-      iconOnly
-    >
-      <Trash2 size={16} />
-    </Button>
-  );
-}
-
-function ActionsTab({ character, update }: TabProps) {
+function ActionsTab({ character, update }: SectionProps) {
   const { t } = useT();
-  const add = () =>
-    update({ actions: [...character.actions, { id: uid(), name: '', notes: '' }] });
+  const removal = useRowRemoval(character, 'actions', update);
+  const add = () => {
+    const id = uid();
+    update({ actions: [...character.actions, { id, name: '', notes: '' }] });
+    focusNewRow(id);
+  };
   const patch = (id: string, key: 'name' | 'notes', value: string) =>
     update({
       actions: character.actions.map((a) => (a.id === id ? { ...a, [key]: value } : a)),
     });
-  const remove = (id: string) =>
-    update({ actions: character.actions.filter((a) => a.id !== id) });
 
   return (
     <div className="flex flex-col gap-3">
+      <RemovedNotice name={removal.removed?.name ?? null} onUndo={removal.undo} />
+      {character.actions.length === 0 && (
+        <p className="empty-state">{t('character.sheet.actionsTab.empty')}</p>
+      )}
       {character.actions.map((action) => (
-        <div key={action.id} className="flex gap-2 rounded-lg border border-ink-700 p-3">
-          <div className="flex flex-1 flex-col gap-2">
+        <div
+          key={action.id}
+          data-row={action.id}
+          className="flex gap-2 rounded-lg border border-ink-700 p-3"
+        >
+          <div className="flex min-w-0 flex-1 flex-col gap-2">
             <TextField
+              label={t('character.sheet.actionsTab.nameLabel')}
+              hideLabel
               value={action.name}
               onChange={(v) => patch(action.id, 'name', v)}
               placeholder={t('character.sheet.actionsTab.namePlaceholder')}
             />
             <TextArea
+              label={t('character.sheet.actionsTab.detailsLabel')}
+              hideLabel
               value={action.notes}
               onChange={(v) => patch(action.id, 'notes', v)}
               rows={2}
               placeholder={t('character.sheet.actionsTab.detailsPlaceholder')}
             />
           </div>
-          <RemoveButton
-            onClick={() => remove(action.id)}
-            label={t('character.sheet.actionsTab.remove')}
-          />
+          <RemoveButton onClick={() => removal.remove(action)} name={action.name} />
         </div>
       ))}
       <AddButton label={t('character.sheet.actionsTab.add')} onClick={add} />
@@ -145,454 +150,41 @@ function ActionsTab({ character, update }: TabProps) {
   );
 }
 
-function InventoryTab({ character, update }: TabProps) {
+export function RollModeChips() {
   const { t } = useT();
-  const add = () =>
-    update({
-      inventory: [
-        ...character.inventory,
-        { id: uid(), name: '', quantity: 1, notes: '' },
-      ],
-    });
-  const patch = (id: string, patchObj: Partial<(typeof character.inventory)[number]>) =>
-    update({
-      inventory: character.inventory.map((i) =>
-        i.id === id ? { ...i, ...patchObj } : i,
-      ),
-    });
-  const remove = (id: string) =>
-    update({ inventory: character.inventory.filter((i) => i.id !== id) });
-  const addFromCompendium = (entry: ItemEntry) => {
-    const armorType = parseArmorType(entry.type);
-    const baseAc = Number.parseInt(entry.ac, 10);
-    update({
-      inventory: [
-        ...character.inventory,
-        {
-          id: uid(),
-          name: entry.name,
-          quantity: 1,
-          notes: [entry.type, entry.rarity].filter(Boolean).join(' - '),
-          itemId: entry.id,
-          ...(armorType ? { armorType } : {}),
-          ...(Number.isFinite(baseAc) ? { baseAc } : {}),
-          ...(armorType ? { equipped: true } : {}),
-        },
-      ],
-    });
-  };
-
+  const mode = useSheetRollMode((state) => state.mode);
+  const setMode = useSheetRollMode((state) => state.setMode);
   return (
-    <div className="flex flex-col gap-3">
-      <CompendiumPicker
-        categoryId="items"
-        placeholder={t('character.sheet.inventoryTab.addFromCompendium')}
-        onPick={(item) => addFromCompendium(item as ItemEntry)}
-      />
-      {character.inventory.map((item) => (
-        <div
-          key={item.id}
-          className="flex items-start gap-2 rounded-lg border border-ink-700 p-3"
-        >
-          <div className="w-16">
-            <NumberField
-              value={item.quantity}
-              min={0}
-              onChange={(quantity) => patch(item.id, { quantity })}
-            />
-          </div>
-          <div className="flex flex-1 flex-col gap-2">
-            <TextField
-              value={item.name}
-              onChange={(name) => patch(item.id, { name })}
-              placeholder={t('character.sheet.inventoryTab.namePlaceholder')}
-            />
-            <TextField
-              value={item.notes}
-              onChange={(notes) => patch(item.id, { notes })}
-              placeholder={t('character.sheet.inventoryTab.descPlaceholder')}
-            />
-            {item.armorType && (
-              <label className="flex items-center gap-2 text-xs text-ink-300">
-                <input
-                  type="checkbox"
-                  checked={item.equipped ?? false}
-                  onChange={(e) => patch(item.id, { equipped: e.target.checked })}
-                  className="accent-arcane-500"
-                />
-                {t('character.sheet.fields.equipped')}
-              </label>
-            )}
-          </div>
-          <RemoveButton
-            onClick={() => remove(item.id)}
-            label={t('character.sheet.inventoryTab.remove')}
-          />
-        </div>
+    <div
+      role="group"
+      aria-label={t('character.sheet.rollMode')}
+      className="flex flex-wrap gap-1"
+    >
+      {ROLL_MODES.map((option) => (
+        <ToggleChip key={option} active={option === mode} onClick={() => setMode(option)}>
+          {t(ROLL_MODE_KEYS[option])}
+        </ToggleChip>
       ))}
-      <AddButton label={t('character.sheet.inventoryTab.add')} onClick={add} />
     </div>
   );
-}
-
-function FeaturesTab({ character, update }: TabProps) {
-  const { t } = useT();
-  const add = () =>
-    update({
-      features: [...character.features, { id: uid(), name: '', source: '', notes: '' }],
-    });
-  const patch = (id: string, patchObj: Partial<(typeof character.features)[number]>) =>
-    update({
-      features: character.features.map((f) => (f.id === id ? { ...f, ...patchObj } : f)),
-    });
-  const remove = (id: string) =>
-    update({ features: character.features.filter((f) => f.id !== id) });
-  const addFromCompendium = (entry: FeatEntry) =>
-    update({
-      features: [
-        ...character.features,
-        { id: uid(), name: entry.name, source: 'Feat', notes: '' },
-      ],
-    });
-
-  return (
-    <div className="flex flex-col gap-3">
-      <CompendiumPicker
-        categoryId="feats"
-        placeholder={t('character.sheet.featuresTab.addFromCompendium')}
-        onPick={(item) => addFromCompendium(item as FeatEntry)}
-      />
-      {character.features.map((feature) => (
-        <div key={feature.id} className="flex gap-2 rounded-lg border border-ink-700 p-3">
-          <div className="flex flex-1 flex-col gap-2">
-            <div className="flex gap-2">
-              <div className="flex-1">
-                <TextField
-                  value={feature.name}
-                  onChange={(name) => patch(feature.id, { name })}
-                  placeholder={t('character.sheet.featuresTab.namePlaceholder')}
-                />
-              </div>
-              <div className="w-40">
-                <TextField
-                  value={feature.source}
-                  onChange={(source) => patch(feature.id, { source })}
-                  placeholder={t('character.sheet.featuresTab.sourcePlaceholder')}
-                />
-              </div>
-            </div>
-            <TextArea
-              value={feature.notes}
-              onChange={(notes) => patch(feature.id, { notes })}
-              rows={2}
-              placeholder={t('character.sheet.featuresTab.descPlaceholder')}
-            />
-          </div>
-          <RemoveButton
-            onClick={() => remove(feature.id)}
-            label={t('character.sheet.featuresTab.remove')}
-          />
-        </div>
-      ))}
-      <AddButton label={t('character.sheet.featuresTab.add')} onClick={add} />
-    </div>
-  );
-}
-
-function SpellsTab({ character, update }: TabProps) {
-  const { t } = useT();
-  const dc = spellSaveDc(character);
-  const attack = spellAttackBonus(character);
-
-  const configuredLevels = Array.from(
-    { length: MAX_SPELL_LEVEL },
-    (_, i) => i + 1,
-  ).filter((level) => {
-    const slot = getSpellSlot(character, level);
-    return slot.longRestMax > 0 || slot.shortRestMax > 0;
-  });
-
-  const spendSlot = (level: number) => {
-    const slot = getSpellSlot(character, level);
-    if (slot.usedLongRest < slot.longRestMax) {
-      update({
-        spellSlots: setSpellSlot(character.spellSlots, level, {
-          usedLongRest: slot.usedLongRest + 1,
-        }),
-      });
-    } else {
-      update({
-        spellSlots: setSpellSlot(character.spellSlots, level, {
-          usedShortRest: slot.usedShortRest + 1,
-        }),
-      });
-    }
-  };
-  const recoverSlot = (level: number) => {
-    const slot = getSpellSlot(character, level);
-    if (slot.usedShortRest > 0) {
-      update({
-        spellSlots: setSpellSlot(character.spellSlots, level, {
-          usedShortRest: slot.usedShortRest - 1,
-        }),
-      });
-    } else {
-      update({
-        spellSlots: setSpellSlot(character.spellSlots, level, {
-          usedLongRest: slot.usedLongRest - 1,
-        }),
-      });
-    }
-  };
-  const shortRest = () =>
-    update({
-      spellSlots: character.spellSlots.map((s) => ({ ...s, usedShortRest: 0 })),
-    });
-  const longRest = () =>
-    update({
-      spellSlots: character.spellSlots.map((s) => ({
-        ...s,
-        usedShortRest: 0,
-        usedLongRest: 0,
-      })),
-    });
-
-  const addSpell = () =>
-    update({
-      spells: [...character.spells, { id: uid(), name: '', level: 0, prepared: false }],
-    });
-  const patchSpell = (id: string, patchObj: Partial<(typeof character.spells)[number]>) =>
-    update({
-      spells: character.spells.map((s) => (s.id === id ? { ...s, ...patchObj } : s)),
-    });
-  const removeSpell = (id: string) =>
-    update({ spells: character.spells.filter((s) => s.id !== id) });
-  const addFromCompendium = (entry: CompendiumSpell) =>
-    update({
-      spells: [
-        ...character.spells,
-        { id: uid(), name: entry.name, level: entry.level, prepared: false },
-      ],
-    });
-
-  return (
-    <div className="flex flex-col gap-4">
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-        <label className="flex flex-col gap-1 text-sm">
-          <span className="text-xs font-semibold text-ink-400">
-            {t('character.sheet.spellsTab.spellcastingAbility')}
-          </span>
-          <select
-            className="ui-field"
-            value={character.spellcastingAbility ?? ''}
-            onChange={(event) =>
-              update({
-                spellcastingAbility: (event.target.value || null) as AbilityKey | null,
-              })
-            }
-          >
-            <option value="">{t('character.sheet.spellsTab.none')}</option>
-            {ABILITY_KEYS.map((key) => (
-              <option key={key} value={key}>
-                {t(`character.sheet.abilities.${key}`)}
-              </option>
-            ))}
-          </select>
-        </label>
-        <div className="flex flex-col items-center justify-center rounded-lg border border-ink-700 bg-ink-800 p-2">
-          <span className="text-xs font-semibold uppercase text-ink-400">
-            {t('character.sheet.spellsTab.saveDc')}
-          </span>
-          <span className="font-display text-xl font-bold text-ink-50">{dc ?? '-'}</span>
-        </div>
-        <div className="flex flex-col items-center justify-center rounded-lg border border-ink-700 bg-ink-800 p-2">
-          <span className="text-xs font-semibold uppercase text-ink-400">
-            {t('character.sheet.spellsTab.attack')}
-          </span>
-          <span className="font-display text-xl font-bold text-ink-50">
-            {attack == null ? '-' : formatModifier(attack)}
-          </span>
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
-          <h3 className="text-sm font-semibold text-ink-200">
-            {t('character.sheet.spellsTab.slots')}
-          </h3>
-          <div className="flex gap-2">
-            <Button type="button" onClick={shortRest} variant="secondary" size="sm">
-              {t('character.sheet.spellsTab.shortRest')}
-            </Button>
-            <Button type="button" onClick={longRest} variant="secondary" size="sm">
-              {t('character.sheet.spellsTab.longRest')}
-            </Button>
-          </div>
-        </div>
-        {configuredLevels.length === 0 && (
-          <p className="text-sm text-ink-400">
-            {t('character.sheet.spellsTab.noSlotsHint')}
-          </p>
-        )}
-        {configuredLevels.map((level) => {
-          const slot = getSpellSlot(character, level);
-          const max = slot.longRestMax + slot.shortRestMax;
-          const remaining = max - slot.usedLongRest - slot.usedShortRest;
-          return (
-            <div key={level} className="flex items-center gap-2 text-sm">
-              <span className="w-16 text-ink-300">
-                {t('character.sheet.spellsTab.level', { level })}
-              </span>
-              <Button
-                type="button"
-                aria-label={t('character.sheet.spellsTab.spendSlot', { level })}
-                onClick={() => spendSlot(level)}
-                disabled={remaining <= 0}
-                variant="secondary"
-                size="sm"
-                iconOnly
-              >
-                <Minus size={14} />
-              </Button>
-              <span className="w-16 text-center font-mono text-ink-50">
-                {remaining} / {max}
-              </span>
-              <Button
-                type="button"
-                aria-label={t('character.sheet.spellsTab.recoverSlot', { level })}
-                onClick={() => recoverSlot(level)}
-                disabled={remaining >= max}
-                variant="secondary"
-                size="sm"
-                iconOnly
-              >
-                <Plus size={14} />
-              </Button>
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <h3 className="text-sm font-semibold text-ink-200">
-          {t('character.sheet.spellsTab.spells')}
-        </h3>
-        <CompendiumPicker
-          categoryId="spells"
-          placeholder={t('character.sheet.spellsTab.addFromCompendium')}
-          onPick={(item) => addFromCompendium(item as CompendiumSpell)}
-        />
-        {character.spells.map((spell) => (
-          <div key={spell.id} className="flex items-center gap-2">
-            <label className="flex items-center gap-1 text-xs text-ink-300">
-              <input
-                type="checkbox"
-                checked={spell.prepared}
-                onChange={(event) =>
-                  patchSpell(spell.id, { prepared: event.target.checked })
-                }
-                className="accent-arcane-500"
-              />
-              {t('character.sheet.spellsTab.prep')}
-            </label>
-            <div className="w-16">
-              <NumberField
-                value={spell.level}
-                min={0}
-                max={9}
-                onChange={(level) => patchSpell(spell.id, { level })}
-              />
-            </div>
-            <div className="flex-1">
-              <TextField
-                value={spell.name}
-                onChange={(name) => patchSpell(spell.id, { name })}
-                placeholder={t('character.sheet.spellsTab.namePlaceholder')}
-              />
-            </div>
-            <RemoveButton
-              onClick={() => removeSpell(spell.id)}
-              label={t('character.sheet.spellsTab.remove')}
-            />
-          </div>
-        ))}
-        <AddButton label={t('character.sheet.spellsTab.add')} onClick={addSpell} />
-      </div>
-    </div>
-  );
-}
-
-const ROLL_MODES: RollMode[] = ['normal', 'advantage', 'disadvantage'];
-const ROLL_MODE_KEYS: Record<RollMode, string> = {
-  normal: 'dice.modeNormal',
-  advantage: 'dice.modeAdvantage',
-  disadvantage: 'dice.modeDisadvantage',
-};
-
-interface NamedRoll {
-  label: string;
-  outcome: RollOutcome;
 }
 
 function RollsTab({ character }: { character: Character }) {
   const { t } = useT();
-  const [mode, setMode] = useState<RollMode>('normal');
-  const [last, setLast] = useState<NamedRoll | null>(null);
-  const [history, setHistory] = useState<NamedRoll[]>([]);
-  const modeLabel = (m: RollMode) => t(ROLL_MODE_KEYS[m]);
-
-  const roll = (label: string, bonus: number) => {
-    const outcome = rollParsed(
-      { terms: [{ count: 1, sides: 20 }], modifier: bonus },
-      mode,
-    );
-    setLast({ label, outcome });
-    setHistory((prev) => [{ label, outcome }, ...prev].slice(0, 8));
-  };
-
+  const { rollCheck } = useSheetRoll(character, t('character.unnamed'));
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex gap-2">
-        {ROLL_MODES.map((m) => (
-          <button
-            key={m}
-            type="button"
-            onClick={() => setMode(m)}
-            className={[
-              'rounded-md px-3 py-1 text-sm font-medium transition-colors',
-              m === mode
-                ? 'bg-arcane-700 text-white ring-1 ring-arcane-300'
-                : 'bg-ink-800 text-ink-200 hover:bg-ink-700',
-            ].join(' ')}
-          >
-            {modeLabel(m)}
-          </button>
-        ))}
+      <div className="flex flex-col gap-2">
+        <span className="field-label">{t('character.sheet.rollMode')}</span>
+        <RollModeChips />
+        <p className="text-xs text-ink-400">{t('character.sheet.rollsTab.dockHint')}</p>
       </div>
-
-      {last && (
-        <div className="rounded-xl border border-arcane-700 bg-ink-950 p-4 text-center">
-          <p className="text-sm text-ink-300">
-            {last.label}
-            {last.outcome.mode !== 'normal' && ` (${modeLabel(last.outcome.mode)})`}
-          </p>
-          <p className="my-1 font-display text-4xl font-bold text-ember-400">
-            {last.outcome.total}
-          </p>
-          <p className="text-xs text-ink-400">
-            d20 [{last.outcome.groups[0]?.rolls.join(', ')}]{' '}
-            {last.outcome.modifier
-              ? `${last.outcome.modifier > 0 ? '+' : ''}${last.outcome.modifier}`
-              : ''}
-          </p>
-        </div>
-      )}
 
       <RollGroup title={t('character.sheet.rollsTab.quick')}>
         <RollButton
           label={t('character.sheet.combat.initiative')}
           bonus={initiativeBonus(character)}
-          onRoll={roll}
+          onRoll={rollCheck}
         />
       </RollGroup>
 
@@ -600,9 +192,11 @@ function RollsTab({ character }: { character: Character }) {
         {ABILITY_KEYS.map((key) => (
           <RollButton
             key={key}
-            label={t(`character.sheet.abilities.${key}`)}
+            label={t('character.sheet.checkLabel', {
+              ability: t(`character.sheet.abilities.${key}`),
+            })}
             bonus={abilityModifier(character.abilities[key])}
-            onRoll={roll}
+            onRoll={rollCheck}
           />
         ))}
       </RollGroup>
@@ -615,7 +209,7 @@ function RollsTab({ character }: { character: Character }) {
               ability: t(`character.sheet.abilities.${key}`),
             })}
             bonus={savingThrowBonus(character, key)}
-            onRoll={roll}
+            onRoll={rollCheck}
           />
         ))}
       </RollGroup>
@@ -626,38 +220,20 @@ function RollsTab({ character }: { character: Character }) {
             key={skill.id}
             label={t(`character.sheet.skillNames.${skill.id}`)}
             bonus={skillBonus(character, skill)}
-            onRoll={roll}
+            onRoll={rollCheck}
           />
         ))}
       </RollGroup>
-
-      {history.length > 1 && (
-        <div>
-          <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-ink-400">
-            {t('character.sheet.rollsTab.recent')}
-          </h3>
-          <ul className="flex flex-col gap-0.5 text-sm">
-            {history.slice(1).map((entry, index) => (
-              <li key={index} className="roll-history-row">
-                <span>{entry.label}</span>
-                <span className="roll-value">{entry.outcome.total}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 }
 
 function RollGroup({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <h3 className="text-xs font-semibold uppercase tracking-wide text-ink-400">
-        {title}
-      </h3>
+    <section className="flex flex-col gap-1.5">
+      <h3 className="field-label uppercase tracking-wide">{title}</h3>
       <div className="flex flex-wrap gap-1.5">{children}</div>
-    </div>
+    </section>
   );
 }
 
@@ -671,21 +247,21 @@ function RollButton({
   onRoll: (label: string, bonus: number) => void;
 }) {
   return (
-    <Button
-      type="button"
-      onClick={() => onRoll(label, bonus)}
-      variant="secondary"
-      size="sm"
-    >
-      {label} <span className="font-mono text-arcane-300">{formatModifier(bonus)}</span>
+    <Button size="sm" onClick={() => onRoll(label, bonus)}>
+      {label}
+      <span className="font-mono tabular-nums text-arcane-300">
+        {formatModifier(bonus)}
+      </span>
     </Button>
   );
 }
 
-function NotesTab({ character, update }: TabProps) {
+function NotesTab({ character, update }: SectionProps) {
   const { t } = useT();
   return (
     <TextArea
+      label={t('character.sheet.tabs.notes')}
+      hideLabel
       value={character.notes}
       onChange={(notes) => update({ notes })}
       rows={12}

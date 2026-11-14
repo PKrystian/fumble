@@ -1,5 +1,7 @@
 import DOMPurify from 'dompurify';
 import { translate } from '@/i18n/translate';
+import { prepareWikiRoot } from './content';
+import type { Locale } from '@/i18n/locales';
 
 function prepareWikiImages(html: string): string {
   let first = true;
@@ -18,20 +20,24 @@ function prepareWikiImages(html: string): string {
 export function sanitizeWikiHtml(
   html: string,
   imageLabel = translate('en', 'common.imageViewer'),
+  locale: Locale = 'en',
+  search = '',
 ): string {
   const root = document.createElement('div');
   root.innerHTML = DOMPurify.sanitize(prepareWikiImages(html), {
     ADD_ATTR: ['target', 'loading', 'fetchpriority', 'decoding'],
   });
-  for (const image of root.querySelectorAll('img')) {
-    if (image.closest('a')) continue;
-    const link = document.createElement('a');
-    link.href = image.getAttribute('src') ?? '';
-    link.className = 'artwork-trigger';
-    link.dataset.imageViewer = '';
-    link.setAttribute('aria-label', image.alt || imageLabel);
-    image.replaceWith(link);
-    link.append(image);
-  }
+  prepareWikiRoot(
+    root,
+    locale,
+    {
+      image: imageLabel,
+      table: translate(locale, 'wiki.tableScroll'),
+      locked: translate(locale, 'wiki.notYetUnlocked'),
+      empty: translate(locale, 'wiki.emptyPage'),
+    },
+    import.meta.env.BASE_URL,
+    search,
+  );
   return root.innerHTML;
 }

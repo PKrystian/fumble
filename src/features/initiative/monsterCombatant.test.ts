@@ -24,10 +24,14 @@ describe('initiative from a stat block', () => {
 
   it('uses the initiative modifier, falling back to Dexterity, and handles special armor or hit points', () => {
     const entry = { name: 'Creature', initiative: '', dex: 7, hp: 'Special', ac: '-' };
-    expect(monsterCombatant(entry)).toMatchObject({ initiative: 8, hpMax: 0, ac: null });
+    expect(monsterCombatant(entry)).toMatchObject({
+      initiative: 8,
+      hpMax: null,
+      ac: null,
+    });
     expect(monsterCombatant({ ...entry, initiative: '+5' }).initiative).toBe(15);
     expect(
       monsterCombatant({ ...entry, hp: '20 (Air) or 30 (Land)', ac: '11 + spell level' }),
-    ).toMatchObject({ hpMax: 0, ac: null });
+    ).toMatchObject({ hpMax: null, ac: null });
   });
 });

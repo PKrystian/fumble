@@ -12,6 +12,19 @@ describe('book reader anchors', () => {
     expect(bookAnchorHash(Number.NaN, undefined)).toBe('');
   });
 
+  it('reads a stable section while ignoring malformed identifiers', () => {
+    expect(bookAnchorHash(undefined, undefined, 'a-01')).toBe('#section=a-01');
+    expect(readBookAnchor('#section=a-01', '?page=10')).toEqual({
+      section: 'a-01',
+      page: null,
+      name: null,
+    });
+    expect(readBookAnchor('#section=bad%20id&page=', '')).toEqual({
+      page: null,
+      name: null,
+    });
+  });
+
   it('reads the new hash format before the legacy query format', () => {
     expect(readBookAnchor('#page=12&name=First+Chapter', '?page=4')).toEqual({
       page: 12,

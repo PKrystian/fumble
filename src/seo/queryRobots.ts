@@ -20,5 +20,3 @@ export function applyQueryRobots(
     robots.setAttribute('content', 'noindex, follow');
   }
 }
-
-applyQueryRobots(window.location.search);

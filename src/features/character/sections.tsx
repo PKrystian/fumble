@@ -1,13 +1,22 @@
-import { Button } from '@/features/ui/primitives';
-import { useRef, useState } from 'react';
-import { Send, UserRound, X } from 'lucide-react';
+import { useMemo, useRef, useState } from 'react';
+import { ChevronDown, ChevronRight, RotateCcw, Send, UserRound, X } from 'lucide-react';
 import { useSessionStore } from '@/features/session-log/store';
+import { getCategory } from '@/features/compendium/categories';
+import { useCategoryItems } from '@/features/compendium/useCategoryItems';
+import { sourceRank } from '@/data/compendium/sources';
+import type { ClassSubclass } from '@/data/compendium/types';
+import { ImageCropperModal } from '@/features/ui/ImageCropperModal';
+import { Button, IconButton, Select } from '@/features/ui/primitives';
+import { panelClass } from '@/features/ui/styles';
 import { Link } from '@/i18n/path';
+import { useT } from '@/i18n/useT';
 import {
   ABILITY_KEYS,
+  LIMITS,
   MAX_SPELL_LEVEL,
   SKILLS,
   type Character,
+  type SyncedField,
   abilityModifier,
   armorClassBreakdown,
   formatModifier,
@@ -21,39 +30,44 @@ import {
   spellSaveDc,
 } from './model';
 import { NumberField, Panel, TextArea, TextField } from './fields';
-import { CompendiumSelectModalField } from './CompendiumPicker';
-import { getCategory } from '@/features/compendium/categories';
-import { useCategoryItems } from '@/features/compendium/useCategoryItems';
-import { useT } from '@/i18n/useT';
-import { sourceRank } from '@/data/compendium/sources';
-import type { ClassSubclass } from '@/data/compendium/types';
+import { CompendiumSelectField } from './CompendiumPicker';
 import { findSubclass, subclassKey, useClassEntry } from './compendiumSync';
-import { ImageCropperModal } from '@/features/ui/ImageCropperModal';
+import { markManual, restoreSyncedField, useSyncedComputed } from './sync';
+import { useSheetRoll } from './rolls';
+import { useWideLayout } from './layoutMeta';
 
 export type UpdateCharacter = (patch: Partial<Character>) => void;
 
-interface SectionProps {
+export interface SectionProps {
   character: Character;
   update: UpdateCharacter;
 }
 
+function useLabelId(prefix: string, character: Character) {
+  return `${prefix}-${character.id}`;
+}
+
 function ClassField({ character, update }: SectionProps) {
-  const { t } = useT();
+  const { t, locale } = useT();
   const { items } = useCategoryItems(getCategory('classes'));
   const cls = useClassEntry(character.className);
-  const options = items
-    .filter((i) => !i.hidden)
-    .sort((a, b) => a.name.localeCompare(b.name));
+  const id = useLabelId('class', character);
+  const options = useMemo(() => {
+    const collator = new Intl.Collator(locale);
+    return items
+      .filter((item) => !item.hidden)
+      .sort((a, b) => collator.compare(a.name, b.name));
+  }, [items, locale]);
 
   return (
-    <label className="flex flex-col gap-1 text-sm">
-      <span className="text-xs font-semibold text-ink-400">
+    <div className="flex min-w-0 flex-col gap-1 text-sm">
+      <label htmlFor={id} className="field-label">
         {t('character.sheet.fields.class')}
-      </span>
-      <select
+      </label>
+      <Select
+        id={id}
         value={cls?.id ?? ''}
         onChange={(event) => update({ className: event.target.value, subclass: '' })}
-        className="ui-field"
       >
         <option value="">{t('character.sheet.fields.noneSelected')}</option>
         {options.map((item) => (
@@ -61,14 +75,15 @@ function ClassField({ character, update }: SectionProps) {
             {item.name}
           </option>
         ))}
-      </select>
-    </label>
+      </Select>
+    </div>
   );
 }
 
 function SubclassField({ character, update }: SectionProps) {
-  const { t } = useT();
+  const { t, locale } = useT();
   const cls = useClassEntry(character.className);
+  const id = useLabelId('subclass', character);
   const selected = findSubclass(cls, character.subclass);
   const byName = new Map<string, ClassSubclass>();
   for (const sub of cls?.subclasses ?? []) {
@@ -77,18 +92,19 @@ function SubclassField({ character, update }: SectionProps) {
       byName.set(sub.name, sub);
     }
   }
-  const options = [...byName.values()].sort((a, b) => a.name.localeCompare(b.name));
+  const collator = new Intl.Collator(locale);
+  const options = [...byName.values()].sort((a, b) => collator.compare(a.name, b.name));
 
   return (
-    <label className="flex flex-col gap-1 text-sm">
-      <span className="text-xs font-semibold text-ink-400">
+    <div className="flex min-w-0 flex-col gap-1 text-sm">
+      <label htmlFor={id} className="field-label">
         {cls?.subclassTitle || t('character.sheet.fields.subclass')}
-      </span>
-      <select
+      </label>
+      <Select
+        id={id}
         value={selected ? subclassKey(selected) : ''}
         onChange={(event) => update({ subclass: event.target.value })}
         disabled={options.length === 0}
-        className="ui-field"
       >
         <option value="">{t('character.sheet.fields.noneSelected')}</option>
         {options.map((item) => (
@@ -96,8 +112,8 @@ function SubclassField({ character, update }: SectionProps) {
             {item.name}
           </option>
         ))}
-      </select>
-    </label>
+      </Select>
+    </div>
   );
 }
 
@@ -107,11 +123,16 @@ function PortraitField({ character, update }: SectionProps) {
   const [pendingFile, setPendingFile] = useState<File | null>(null);
 
   return (
-    <div className="relative shrink-0">
+    <div className="relative shrink-0 self-start">
       <button
         type="button"
         onClick={() => fileInput.current?.click()}
         aria-label={
+          character.portrait
+            ? t('character.sheet.changePortrait')
+            : t('character.sheet.addPortrait')
+        }
+        title={
           character.portrait
             ? t('character.sheet.changePortrait')
             : t('character.sheet.addPortrait')
@@ -134,7 +155,8 @@ function PortraitField({ character, update }: SectionProps) {
         ref={fileInput}
         type="file"
         accept="image/*"
-        className="hidden"
+        hidden
+        tabIndex={-1}
         onChange={(event) => {
           const file = event.target.files?.[0];
           if (file) setPendingFile(file);
@@ -142,17 +164,15 @@ function PortraitField({ character, update }: SectionProps) {
         }}
       />
       {character.portrait && (
-        <Button
-          type="button"
-          aria-label={t('character.sheet.removePortrait')}
+        <IconButton
+          label={t('character.sheet.removePortrait')}
           onClick={() => update({ portrait: '' })}
-          variant="ghost"
+          variant="secondary"
           size="sm"
-          iconOnly
-          className="absolute -right-1.5 -top-1.5"
+          className="absolute -right-3 -top-3"
         >
-          <X size={12} />
-        </Button>
+          <X size={14} aria-hidden="true" />
+        </IconButton>
       )}
       {pendingFile && (
         <ImageCropperModal
@@ -173,8 +193,39 @@ function PortraitField({ character, update }: SectionProps) {
 
 export function IdentityHeader({ character, update }: SectionProps) {
   const { t } = useT();
+  const wide = useWideLayout();
+  const [open, setOpen] = useState(!character.className);
+  if (!wide && !open) {
+    return (
+      <section aria-label={t('character.sheet.identity')} className={panelClass('p-2')}>
+        <button
+          type="button"
+          aria-expanded={false}
+          onClick={() => setOpen(true)}
+          className="selection-row flex items-center gap-2"
+        >
+          <ChevronRight size={16} aria-hidden="true" />
+          {t('character.sheet.editIdentity')}
+        </button>
+      </section>
+    );
+  }
   return (
-    <div className="flex flex-col gap-4 rounded-xl border border-ink-700 bg-ink-900 p-4 sm:flex-row">
+    <section
+      aria-label={t('character.sheet.identity')}
+      className="flex flex-col gap-4 rounded-xl border border-ink-700 bg-ink-900 p-4 sm:flex-row"
+    >
+      {!wide && (
+        <button
+          type="button"
+          aria-expanded
+          onClick={() => setOpen(false)}
+          className="selection-row flex items-center gap-2"
+        >
+          <ChevronDown size={16} aria-hidden="true" />
+          {t('character.sheet.editIdentity')}
+        </button>
+      )}
       <PortraitField character={character} update={update} />
       <div className="grid min-w-0 flex-1 grid-cols-1 gap-3 min-[380px]:grid-cols-2 sm:grid-cols-3 xl:grid-cols-6">
         <div className="min-[380px]:col-span-2 sm:col-span-3 xl:col-span-2">
@@ -189,18 +240,18 @@ export function IdentityHeader({ character, update }: SectionProps) {
         <NumberField
           label={t('character.sheet.fields.level')}
           value={character.level}
-          min={1}
-          max={20}
+          min={LIMITS.level.min}
+          max={LIMITS.level.max}
           onChange={(level) => update({ level })}
         />
-        <CompendiumSelectModalField
+        <CompendiumSelectField
           label={t('character.sheet.fields.species')}
           categoryId="species"
           value={character.species}
           onChange={(species) => update({ species })}
           placeholder={t('character.sheet.fields.searchSpecies')}
         />
-        <CompendiumSelectModalField
+        <CompendiumSelectField
           label={t('character.sheet.fields.background')}
           categoryId="backgrounds"
           value={character.background}
@@ -208,7 +259,62 @@ export function IdentityHeader({ character, update }: SectionProps) {
           placeholder={t('character.sheet.fields.searchBackgrounds')}
         />
       </div>
-    </div>
+    </section>
+  );
+}
+
+export function RestoreSyncButton({
+  character,
+  update,
+  field,
+}: SectionProps & { field: SyncedField }) {
+  const { t } = useT();
+  const computed = useSyncedComputed();
+  if (!computed || !character.manualFields.includes(field)) return null;
+  return (
+    <Button
+      size="sm"
+      variant="ghost"
+      className="self-start"
+      onClick={() => update(restoreSyncedField(character, computed, field))}
+    >
+      <RotateCcw size={14} aria-hidden="true" />
+      {t(`character.sheet.sync.restore.${field}`)}
+    </Button>
+  );
+}
+
+function useManualUpdate(character: Character, update: UpdateCharacter) {
+  const computed = useSyncedComputed();
+  return (field: SyncedField, patch: Partial<Character>) =>
+    update({ ...patch, ...markManual(character, field, computed) });
+}
+
+export function RollValue({
+  label,
+  bonus,
+  onRoll,
+  className,
+}: {
+  label: string;
+  bonus: number;
+  onRoll: () => void;
+  className?: string;
+}) {
+  const { t } = useT();
+  return (
+    <button
+      type="button"
+      onClick={onRoll}
+      aria-label={t('character.sheet.rollAria', {
+        label,
+        bonus: formatModifier(bonus),
+      })}
+      title={t('character.sheet.rollAria', { label, bonus: formatModifier(bonus) })}
+      className={`roll-value-button ${className ?? ''}`.trim()}
+    >
+      {formatModifier(bonus)}
+    </button>
   );
 }
 
@@ -220,60 +326,67 @@ function ArmorClassField({ character, update }: SectionProps) {
   });
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex min-w-0 flex-col gap-1">
       <NumberField
         label={t('character.sheet.fields.armorClass')}
         value={breakdown.total}
+        min={LIMITS.ac.min}
+        max={LIMITS.ac.max}
         onChange={(value) => update({ acOverride: value })}
-      />
-      <button
-        type="button"
-        onClick={() => update({ acOverride: breakdown.manual ? null : breakdown.total })}
-        title={
+        inputClassName="text-center"
+        hint={
           breakdown.manual
-            ? t('character.sheet.fields.acAuto')
+            ? t('character.sheet.fields.acManualHint')
             : breakdown.parts.join(' + ')
         }
-        className="text-center text-xs text-ink-400 hover:text-arcane-300"
-      >
-        {breakdown.manual
-          ? t('character.sheet.fields.acManual')
-          : breakdown.parts.join(' + ')}
-      </button>
+      />
+      {breakdown.manual && (
+        <Button
+          size="sm"
+          variant="ghost"
+          className="self-start"
+          onClick={() => update({ acOverride: null })}
+        >
+          <RotateCcw size={14} aria-hidden="true" />
+          {t('character.sheet.fields.acAuto')}
+        </Button>
+      )}
     </div>
   );
 }
 
 export function AbilityScoresPanel({ character, update }: SectionProps) {
   const { t } = useT();
+  const { rollCheck } = useSheetRoll(character, t('character.unnamed'));
   return (
     <Panel title={t('character.sheet.panels.abilityScores')}>
-      <div className="grid grid-cols-3 gap-2 sm:grid-cols-6 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-2 gap-2 min-[380px]:grid-cols-3 sm:grid-cols-6 lg:grid-cols-2 xl:grid-cols-3">
         {ABILITY_KEYS.map((key) => {
           const mod = abilityModifier(character.abilities[key]);
+          const name = t(`character.sheet.abilities.${key}`);
           return (
-            <div
-              key={key}
-              className="flex flex-col items-center gap-1 rounded-lg border border-ink-700 bg-ink-800 p-2"
-            >
-              <span className="text-xs font-semibold uppercase text-ink-400">
+            <div key={key} className="stat-tile gap-1">
+              <span className="stat-tile-label" aria-hidden="true">
                 {t(`character.sheet.abilityAbbr.${key}`)}
               </span>
-              <span className="font-display text-2xl font-bold text-ink-50">
-                {formatModifier(mod)}
-              </span>
-              <input
-                type="number"
-                aria-label={t(`character.sheet.abilities.${key}`)}
-                className="ui-field w-14 text-center"
+              <RollValue
+                label={t('character.sheet.checkLabel', { ability: name })}
+                bonus={mod}
+                onRoll={() =>
+                  rollCheck(t('character.sheet.checkLabel', { ability: name }), mod)
+                }
+                className="text-2xl"
+              />
+              <NumberField
+                label={t('character.sheet.scoreLabel', { ability: name })}
+                hideLabel
                 value={character.abilities[key]}
-                onChange={(event) =>
-                  update({
-                    abilities: {
-                      ...character.abilities,
-                      [key]: event.target.valueAsNumber || 0,
-                    },
-                  })
+                min={LIMITS.ability.min}
+                max={LIMITS.ability.max}
+                inputClassName="text-center"
+                className="w-full max-w-20"
+                onChange={(value) =>
+                  update({ abilities: { ...character.abilities, [key]: value } })
                 }
               />
             </div>
@@ -292,44 +405,53 @@ function toggle<T>(list: T[], value: T): T[] {
 
 export function SavingThrowsPanel({ character, update }: SectionProps) {
   const { t } = useT();
+  const { rollCheck } = useSheetRoll(character, t('character.unnamed'));
+  const updateManual = useManualUpdate(character, update);
   return (
     <Panel title={t('character.sheet.panels.savingThrows')}>
       <ul className="flex flex-col gap-1">
         {ABILITY_KEYS.map((key) => {
-          const proficient = character.savingThrowProficiencies.includes(key);
           const abilityName = t(`character.sheet.abilities.${key}`);
+          const bonus = savingThrowBonus(character, key);
+          const label = t('character.sheet.rollsTab.saveLabel', { ability: abilityName });
           return (
             <li key={key} className="flex items-center gap-2 text-sm">
-              <input
-                type="checkbox"
-                aria-label={t('character.sheet.skillsPanel.savingThrowProficiencyAria', {
-                  ability: abilityName,
-                })}
-                checked={proficient}
-                onChange={() =>
-                  update({
-                    savingThrowProficiencies: toggle(
-                      character.savingThrowProficiencies,
-                      key,
-                    ),
-                  })
-                }
-                className="accent-arcane-500"
+              <RollValue
+                label={label}
+                bonus={bonus}
+                onRoll={() => rollCheck(label, bonus)}
               />
-              <span className="w-12 font-mono text-ink-50">
-                {formatModifier(savingThrowBonus(character, key))}
-              </span>
-              <span className="text-ink-200">{abilityName}</span>
+              <label className="flex min-w-0 flex-1 items-center gap-2 text-ink-200">
+                <input
+                  type="checkbox"
+                  checked={character.savingThrowProficiencies.includes(key)}
+                  onChange={() =>
+                    updateManual('savingThrows', {
+                      savingThrowProficiencies: toggle(
+                        character.savingThrowProficiencies,
+                        key,
+                      ),
+                    })
+                  }
+                  className="accent-arcane-500"
+                />
+                <span className="min-w-0 [overflow-wrap:anywhere]">{abilityName}</span>
+                <span className="sr-only">
+                  {t('character.sheet.skillsPanel.proficientSuffix')}
+                </span>
+              </label>
             </li>
           );
         })}
       </ul>
+      <RestoreSyncButton character={character} update={update} field="savingThrows" />
     </Panel>
   );
 }
 
 export function SkillsPanel({ character, update }: SectionProps) {
   const { t } = useT();
+  const { rollCheck } = useSheetRoll(character, t('character.unnamed'));
   const cycleSkill = (id: string) => {
     const isProf = character.skillProficiencies.includes(id);
     const isExp = character.skillExpertise.includes(id);
@@ -347,37 +469,47 @@ export function SkillsPanel({ character, update }: SectionProps) {
 
   return (
     <Panel title={t('character.sheet.panels.skills')}>
-      <ul className="flex flex-col gap-0.5">
+      <p className="text-xs text-ink-400">
+        {t('character.sheet.skillsPanel.cycleTitle')}
+      </p>
+      <ul className="flex flex-col gap-1">
         {SKILLS.map((skill) => {
           const isProf = character.skillProficiencies.includes(skill.id);
           const isExp = character.skillExpertise.includes(skill.id);
           const skillName = t(`character.sheet.skillNames.${skill.id}`);
+          const bonus = skillBonus(character, skill);
+          const state = isExp ? 'expertise' : isProf ? 'proficient' : 'none';
           return (
-            <li key={skill.id} className="flex items-center gap-2 text-sm">
+            <li
+              key={skill.id}
+              className="grid grid-cols-[auto_auto_minmax(0,1fr)_auto] items-center gap-2 text-sm"
+            >
               <button
                 type="button"
                 aria-label={t('character.sheet.skillsPanel.proficiencyAria', {
                   skill: skillName,
+                  state: t(`character.sheet.skillsPanel.states.${state}`),
                 })}
-                aria-pressed={isProf || isExp}
+                title={t(`character.sheet.skillsPanel.states.${state}`)}
                 onClick={() => cycleSkill(skill.id)}
-                title={t('character.sheet.skillsPanel.cycleTitle')}
-                className={[
-                  'ui-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs',
-                  isExp
-                    ? 'border-ember-400 bg-ember-400 text-ink-950'
-                    : isProf
-                      ? 'border-arcane-500 bg-arcane-500 text-ink-950'
-                      : 'border-ink-600',
-                ].join(' ')}
+                data-state={state}
+                className="skill-cycle"
               >
-                {isExp ? 'E' : isProf ? '●' : ''}
+                <span aria-hidden="true">
+                  {state === 'none'
+                    ? ''
+                    : t(`character.sheet.skillsPanel.symbols.${state}`)}
+                </span>
               </button>
-              <span className="w-10 font-mono text-ink-50">
-                {formatModifier(skillBonus(character, skill))}
+              <RollValue
+                label={skillName}
+                bonus={bonus}
+                onRoll={() => rollCheck(skillName, bonus)}
+              />
+              <span className="min-w-0 text-ink-200 [overflow-wrap:anywhere]">
+                {skillName}
               </span>
-              <span className="text-ink-200">{skillName}</span>
-              <span className="ml-auto text-xs uppercase text-ink-500">
+              <span className="text-xs uppercase text-ink-400">
                 {t(`character.sheet.abilityAbbr.${skill.ability}`)}
               </span>
             </li>
@@ -390,119 +522,65 @@ export function SkillsPanel({ character, update }: SectionProps) {
 
 function StatBox({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex flex-col items-center rounded-lg border border-ink-700 bg-ink-800 px-2 py-1">
-      <span className="break-words text-center text-xs font-semibold uppercase text-ink-400">
-        {label}
-      </span>
-      <span className="font-display text-lg font-bold text-ink-50">{value}</span>
+    <div className="stat-tile">
+      <span className="stat-tile-label">{label}</span>
+      <span className="stat-tile-value">{value}</span>
     </div>
   );
 }
 
 export function CombatPanel({ character, update }: SectionProps) {
   const { t } = useT();
+  const { rollCheck } = useSheetRoll(character, t('character.unnamed'));
+  const updateManual = useManualUpdate(character, update);
+  const initiative = initiativeBonus(character);
+  const speeds = ['walk', 'swim', 'climb', 'fly'] as const;
   return (
     <Panel title={t('character.sheet.panels.combat')}>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 gap-2 min-[380px]:grid-cols-3">
         <StatBox
           label={t('character.sheet.combat.profBonus')}
           value={formatModifier(proficiencyBonus(character))}
         />
-        <StatBox
-          label={t('character.sheet.combat.initiative')}
-          value={formatModifier(initiativeBonus(character))}
-        />
+        <div className="stat-tile">
+          <span className="stat-tile-label">
+            {t('character.sheet.combat.initiative')}
+          </span>
+          <RollValue
+            label={t('character.sheet.combat.initiative')}
+            bonus={initiative}
+            className="text-lg"
+            onRoll={() => rollCheck(t('character.sheet.combat.initiative'), initiative)}
+          />
+        </div>
         <ArmorClassField character={character} update={update} />
       </div>
 
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-        <NumberField
-          label={t('character.sheet.combat.walk')}
-          value={character.speed.walk}
-          onChange={(walk) => update({ speed: { ...character.speed, walk } })}
-        />
-        <NumberField
-          label={t('character.sheet.combat.swim')}
-          value={character.speed.swim}
-          onChange={(swim) => update({ speed: { ...character.speed, swim } })}
-        />
-        <NumberField
-          label={t('character.sheet.combat.climb')}
-          value={character.speed.climb}
-          onChange={(climb) => update({ speed: { ...character.speed, climb } })}
-        />
-        <NumberField
-          label={t('character.sheet.combat.fly')}
-          value={character.speed.fly}
-          onChange={(fly) => update({ speed: { ...character.speed, fly } })}
-        />
+        {speeds.map((speed) => (
+          <NumberField
+            key={speed}
+            label={t(`character.sheet.combat.${speed}`)}
+            value={character.speed[speed]}
+            min={LIMITS.speed.min}
+            max={LIMITS.speed.max}
+            onChange={(value) =>
+              updateManual('speed', { speed: { ...character.speed, [speed]: value } })
+            }
+          />
+        ))}
       </div>
+      <RestoreSyncButton character={character} update={update} field="speed" />
 
       <label className="flex items-center gap-2 text-sm text-ink-200">
         <input
           type="checkbox"
           checked={character.inspiration}
           onChange={(event) => update({ inspiration: event.target.checked })}
-          className="accent-ember-400"
+          className="accent-arcane-500"
         />
         {t('character.sheet.combat.heroicInspiration')}
       </label>
-    </Panel>
-  );
-}
-
-export function HitPointsPanel({ character, update }: SectionProps) {
-  const { t } = useT();
-  const [amount, setAmount] = useState(0);
-  const { hp } = character;
-
-  const heal = () =>
-    update({ hp: { ...hp, current: Math.min(hp.max, hp.current + amount) } });
-  const damage = () => {
-    const fromTemp = Math.min(hp.temp, amount);
-    const remaining = amount - fromTemp;
-    update({
-      hp: {
-        ...hp,
-        temp: hp.temp - fromTemp,
-        current: Math.max(0, hp.current - remaining),
-      },
-    });
-  };
-
-  return (
-    <Panel title={t('character.sheet.panels.hitPoints')}>
-      <div className="grid grid-cols-3 gap-2">
-        <NumberField
-          label={t('character.sheet.hpFields.current')}
-          value={hp.current}
-          onChange={(current) => update({ hp: { ...hp, current } })}
-        />
-        <NumberField
-          label={t('character.sheet.hpFields.max')}
-          value={hp.max}
-          onChange={(max) => update({ hp: { ...hp, max } })}
-        />
-        <NumberField
-          label={t('character.sheet.hpFields.temp')}
-          value={hp.temp}
-          onChange={(temp) => update({ hp: { ...hp, temp } })}
-        />
-      </div>
-      <div className="flex items-end gap-2">
-        <NumberField
-          label={t('character.sheet.hpFields.amount')}
-          value={amount}
-          onChange={setAmount}
-          min={0}
-        />
-        <Button type="button" onClick={heal} variant="success" size="sm">
-          {t('character.sheet.hpFields.heal')}
-        </Button>
-        <Button type="button" onClick={damage} variant="danger" size="sm">
-          {t('character.sheet.hpFields.damage')}
-        </Button>
-      </div>
     </Panel>
   );
 }
@@ -511,43 +589,40 @@ export function PassivesPanel({ character }: { character: Character }) {
   const { t } = useT();
   return (
     <Panel title={t('character.sheet.panels.passiveSenses')}>
-      <div className="grid grid-cols-3 gap-2">
-        <StatBox
-          label={t('character.sheet.passives.perception')}
-          value={`${passiveScore(character, 'perception')}`}
-        />
-        <StatBox
-          label={t('character.sheet.passives.insight')}
-          value={`${passiveScore(character, 'insight')}`}
-        />
-        <StatBox
-          label={t('character.sheet.passives.investigation')}
-          value={`${passiveScore(character, 'investigation')}`}
-        />
-      </div>
+      <dl className="flex flex-col gap-1">
+        {(['perception', 'insight', 'investigation'] as const).map((skill) => (
+          <div key={skill} className="stat-row">
+            <dt className="min-w-0 [overflow-wrap:anywhere]">
+              {t(`character.sheet.passives.${skill}`)}
+            </dt>
+            <dd className="stat-tile-value">{passiveScore(character, skill)}</dd>
+          </div>
+        ))}
+      </dl>
     </Panel>
   );
 }
 
 export function ProficienciesPanel({ character, update }: SectionProps) {
   const { t } = useT();
+  const updateManual = useManualUpdate(character, update);
+  const fields = [
+    ['armorProficiencies', 'armor'],
+    ['weaponProficiencies', 'weapons'],
+    ['toolProficiencies', 'tools'],
+  ] as const;
   return (
     <Panel title={t('character.sheet.panels.proficienciesLanguages')}>
-      <TextField
-        label={t('character.sheet.proficiencies.armor')}
-        value={character.armorProficiencies}
-        onChange={(armorProficiencies) => update({ armorProficiencies })}
-      />
-      <TextField
-        label={t('character.sheet.proficiencies.weapons')}
-        value={character.weaponProficiencies}
-        onChange={(weaponProficiencies) => update({ weaponProficiencies })}
-      />
-      <TextField
-        label={t('character.sheet.proficiencies.tools')}
-        value={character.toolProficiencies}
-        onChange={(toolProficiencies) => update({ toolProficiencies })}
-      />
+      {fields.map(([field, label]) => (
+        <div key={field} className="flex flex-col gap-1">
+          <TextField
+            label={t(`character.sheet.proficiencies.${label}`)}
+            value={character[field]}
+            onChange={(value) => updateManual(field, { [field]: value })}
+          />
+          <RestoreSyncButton character={character} update={update} field={field} />
+        </div>
+      ))}
       <TextField
         label={t('character.sheet.proficiencies.languages')}
         value={character.languages}
@@ -595,8 +670,6 @@ export function SpellcastingPanel({ character }: { character: Character }) {
     );
   }
 
-  const dc = spellSaveDc(character);
-  const attack = spellAttackBonus(character);
   const configuredLevels = Array.from(
     { length: MAX_SPELL_LEVEL },
     (_, i) => i + 1,
@@ -607,49 +680,46 @@ export function SpellcastingPanel({ character }: { character: Character }) {
 
   return (
     <Panel title={t('character.sheet.panels.spellcasting')}>
-      <div className="grid grid-cols-3 gap-2">
-        <StatBox
-          label={t('character.sheet.spellcasting.ability')}
-          value={t(`character.sheet.abilities.${character.spellcastingAbility}`)}
-        />
-        <StatBox label={t('character.sheet.spellcasting.saveDc')} value={`${dc!}`} />
-        <StatBox
-          label={t('character.sheet.spellcasting.attack')}
-          value={formatModifier(attack!)}
-        />
-      </div>
+      <dl className="flex flex-col gap-1">
+        {[
+          [
+            t('character.sheet.spellcasting.ability'),
+            t(`character.sheet.abilities.${character.spellcastingAbility}`),
+          ],
+          [t('character.sheet.spellcasting.saveDc'), `${spellSaveDc(character)!}`],
+          [
+            t('character.sheet.spellcasting.attack'),
+            formatModifier(spellAttackBonus(character)!),
+          ],
+        ].map(([label, value]) => (
+          <div key={label} className="stat-row">
+            <dt className="min-w-0 [overflow-wrap:anywhere]">{label}</dt>
+            <dd className="stat-tile-value">{value}</dd>
+          </div>
+        ))}
+      </dl>
       {configuredLevels.length === 0 ? (
         <p className="text-sm text-ink-400">
           {t('character.sheet.spellcasting.noSlots')}
         </p>
       ) : (
-        <div className="flex flex-col gap-1.5">
+        <ul className="flex flex-col gap-1.5">
           {configuredLevels.map((level) => {
             const slot = getSpellSlot(character, level);
             const max = slot.longRestMax + slot.shortRestMax;
-            const used = slot.usedLongRest + slot.usedShortRest;
+            const remaining = Math.max(0, max - slot.usedLongRest - slot.usedShortRest);
             return (
-              <div key={level} className="flex items-center gap-2 text-sm">
-                <span className="w-14 shrink-0 text-ink-300">
-                  {t('character.sheet.spellcasting.spellLevelShort', { level })}
+              <li key={level} className="flex items-center justify-between gap-2 text-sm">
+                <span className="text-ink-300">
+                  {t('character.sheet.spellsTab.level', { level })}
                 </span>
-                <div className="flex flex-wrap gap-1">
-                  {Array.from({ length: max }, (_, i) => (
-                    <span
-                      key={i}
-                      className={[
-                        'h-2.5 w-2.5 rounded-full border',
-                        i < max - used
-                          ? 'border-arcane-500 bg-arcane-500'
-                          : 'border-ink-600 bg-transparent',
-                      ].join(' ')}
-                    />
-                  ))}
-                </div>
-              </div>
+                <span className="tabular-nums text-ink-50">
+                  {t('character.sheet.spellcasting.remaining', { remaining, max })}
+                </span>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
     </Panel>
   );
@@ -658,40 +728,66 @@ export function SpellcastingPanel({ character }: { character: Character }) {
 export function SessionLogQuickPanel() {
   const { t } = useT();
   const [text, setText] = useState('');
+  const [status, setStatus] = useState<string | null>(null);
   const sessions = useSessionStore((s) => s.sessions);
+  const selectedSessionId = useSessionStore((s) => s.selectedSessionId);
   const addSession = useSessionStore((s) => s.addSession);
   const appendNote = useSessionStore((s) => s.appendNote);
+  const target =
+    sessions.find((session) => session.id === selectedSessionId) ?? sessions[0];
+  const targetName = target?.title.trim() || t('character.sheet.sessionQuick.untitled');
 
   const send = () => {
     const trimmed = text.trim();
     if (!trimmed) return;
-    const id = sessions[0]?.id ?? addSession();
+    const id = target?.id ?? addSession();
     appendNote(id, trimmed);
     setText('');
+    setStatus(
+      target
+        ? t('character.sheet.sessionQuick.added', { session: targetName })
+        : t('character.sheet.sessionQuick.addedNew'),
+    );
   };
 
   return (
     <Panel title={t('character.sheet.panels.sessionLog')}>
-      <div className="flex items-center gap-2">
-        <input
-          value={text}
-          onChange={(event) => setText(event.target.value)}
-          onKeyDown={(event) => event.key === 'Enter' && send()}
-          placeholder={t('character.sheet.sessionQuick.placeholder')}
-          className="ui-field flex-1"
-        />
-        <Button
-          type="button"
-          onClick={send}
-          aria-label={t('character.sheet.sessionQuick.addNote')}
+      <form
+        className="flex items-end gap-2"
+        onSubmit={(event) => {
+          event.preventDefault();
+          send();
+        }}
+      >
+        <label className="flex min-w-0 flex-1 flex-col gap-1 text-sm">
+          <span className="field-label">
+            {target
+              ? t('character.sheet.sessionQuick.target', { session: targetName })
+              : t('character.sheet.sessionQuick.targetNew')}
+          </span>
+          <input
+            value={text}
+            onChange={(event) => {
+              setText(event.target.value);
+              setStatus(null);
+            }}
+            placeholder={t('character.sheet.sessionQuick.placeholder')}
+            className="ui-field"
+          />
+        </label>
+        <IconButton
+          type="submit"
+          label={t('character.sheet.sessionQuick.addNote')}
           variant="primary"
-          size="sm"
-          iconOnly
+          disabled={!text.trim()}
         >
-          <Send size={16} />
-        </Button>
-      </div>
-      <Link to="/session-log" className="text-xs text-arcane-300 hover:underline">
+          <Send size={16} aria-hidden="true" />
+        </IconButton>
+      </form>
+      <p role="status" className="text-xs text-ink-300">
+        {status}
+      </p>
+      <Link to="/session-log" className="back-link mb-0 self-start">
         {t('character.sheet.sessionQuick.openFull')}
       </Link>
     </Panel>

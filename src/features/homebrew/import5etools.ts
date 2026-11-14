@@ -133,7 +133,10 @@ export const SUPPORTED_KEYS = Object.keys(KEY_MAP);
 export function looks5etools(obj: unknown): boolean {
   if (!obj || typeof obj !== 'object') return false;
   const keys = Object.keys(obj as Record<string, unknown>);
-  return keys.includes('_meta') || keys.some((k) => k in KEY_MAP || CLASS_KEYS.has(k));
+  return (
+    keys.includes('_meta') ||
+    keys.some((k) => Object.hasOwn(KEY_MAP, k) || CLASS_KEYS.has(k))
+  );
 }
 
 interface ParseResult {
@@ -142,6 +145,9 @@ interface ParseResult {
   subclasses: Array<{ className: string; subclass: ClassSubclass }>;
 
   skipped: string[];
+  unsupported: number;
+  invalid: number;
+  copied: number;
 }
 
 export function parse5etoolsHomebrew(
@@ -151,11 +157,50 @@ export function parse5etoolsHomebrew(
   const entries: ImportedEntry[] = [];
   const subclasses: Array<{ className: string; subclass: ClassSubclass }> = [];
   const skipped: string[] = [];
+  let unsupported = 0;
+  let invalid = 0;
+  let copied = 0;
 
-  if (Array.isArray(obj.class) && obj.class.length) {
+  const usable = (raw: unknown): boolean => {
+    if (
+      !raw ||
+      typeof raw !== 'object' ||
+      !('name' in raw) ||
+      typeof raw.name !== 'string' ||
+      !raw.name.trim()
+    ) {
+      invalid += 1;
+      return false;
+    }
+    if ('_copy' in raw) {
+      copied += 1;
+      return false;
+    }
+    return true;
+  };
+  const classFile = { ...obj };
+  for (const key of CLASS_KEYS) {
+    if (obj[key] === undefined) continue;
+    if (Array.isArray(obj[key])) classFile[key] = obj[key].filter(usable);
+    else {
+      delete classFile[key];
+      invalid += 1;
+    }
+  }
+  const classes = (classFile.class ?? []) as NonNullable<RawClassFile['class']>;
+  const allSubclasses = (classFile.subclass ?? []) as NonNullable<
+    RawClassFile['subclass']
+  >;
+  const parents = new Set(classes.map((entry) => entry.name.toLowerCase()));
+  const standalone = allSubclasses.filter(
+    (entry) =>
+      typeof entry.className !== 'string' || !parents.has(entry.className.toLowerCase()),
+  );
+
+  if (classes.length) {
     try {
       for (const cls of normalizeClasses(
-        obj as RawClassFile,
+        classFile as RawClassFile,
         undefined,
         undefined,
         locale,
@@ -164,38 +209,49 @@ export function parse5etoolsHomebrew(
       }
     } catch {
       skipped.push('class');
+      invalid += classes.length + allSubclasses.length - standalone.length;
     }
-  } else if (Array.isArray(obj.subclass) && obj.subclass.length) {
+  }
+  if (standalone.length) {
     try {
       subclasses.push(
-        ...normalizeStandaloneSubclasses(obj as RawClassFile, undefined, locale),
+        ...normalizeStandaloneSubclasses(
+          { ...classFile, subclass: standalone } as RawClassFile,
+          undefined,
+          locale,
+        ),
       );
+      invalid += standalone.length - subclasses.length;
     } catch {
       skipped.push('subclass');
+      invalid += standalone.length;
     }
   }
 
   for (const [key, value] of Object.entries(obj)) {
-    if (key === '_meta' || CLASS_KEYS.has(key) || !Array.isArray(value)) continue;
-    const mapping = KEY_MAP[key];
+    if (key === '_meta' || CLASS_KEYS.has(key)) continue;
+    const mapping = Object.hasOwn(KEY_MAP, key) ? KEY_MAP[key] : undefined;
+    if (!Array.isArray(value)) {
+      if (mapping) invalid += 1;
+      continue;
+    }
     if (!mapping) {
       skipped.push(key);
+      unsupported += value.length;
       continue;
     }
     for (const raw of value) {
-      if (!raw || typeof raw !== 'object' || typeof raw.name !== 'string') continue;
-
-      if ('_copy' in raw) continue;
+      if (!usable(raw)) continue;
       try {
         entries.push({
           category: mapping.category,
           data: mapping.normalize(raw, locale),
         });
       } catch {
-        // Ignore malformed imported entry
+        invalid += 1;
       }
     }
   }
 
-  return { entries, subclasses, skipped };
+  return { entries, subclasses, skipped, unsupported, invalid, copied };
 }

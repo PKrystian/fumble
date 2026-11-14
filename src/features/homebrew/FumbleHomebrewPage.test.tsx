@@ -16,7 +16,7 @@ describe('FumbleHomebrewPage', () => {
 
   it('renders the campaign homebrew library as its own page', () => {
     render(
-      <MemoryRouter initialEntries={['/pl/fumble-homebrew']}>
+      <MemoryRouter initialEntries={['/pl/fumble-homebrew?q=Witch']}>
         <FumbleHomebrewPage />
       </MemoryRouter>,
     );
@@ -29,7 +29,7 @@ describe('FumbleHomebrewPage', () => {
     ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /^WiedźmaWitch/ })).toHaveAttribute(
       'href',
-      '/pl/compendium/classes/witch/',
+      '/pl/compendium/classes/witch/?library=q%3DWitch',
     );
     expect(screen.getByRole('searchbox', { name: 'Szukaj' })).toBeInTheDocument();
     expect(

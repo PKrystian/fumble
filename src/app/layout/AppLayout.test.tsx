@@ -1,7 +1,8 @@
-import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useSearchStore } from '@/features/search/searchStore';
+import { STORAGE_ERROR_EVENT } from '@/features/storage/safeStorage';
 import { useSidebarStore } from '@/features/ui/sidebarStore';
 
 vi.mock('./Sidebar', () => ({
@@ -46,6 +47,15 @@ function NavigationProbe() {
         Select subclass
       </button>
     </>
+  );
+}
+
+function NavigationOutside() {
+  const navigate = useNavigate();
+  return (
+    <button type="button" onClick={() => navigate('/dice')}>
+      Open dice
+    </button>
   );
 }
 
@@ -107,10 +117,96 @@ describe('AppLayout', () => {
     expect(screen.getByRole('button', { name: 'Open menu' })).toBeInTheDocument();
   });
 
+  it('keeps the skip link out of the page flow', () => {
+    renderLayout();
+    const link = screen.getByRole('link', { name: 'Skip to content' });
+    expect(link).toHaveAttribute('href', '#main-content');
+    expect(link).toHaveClass('skip-link');
+    expect(link).not.toHaveClass('sr-only');
+  });
+
   it('lazy-loads the search palette when opened', async () => {
     useSearchStore.setState({ open: true });
     renderLayout();
     await waitFor(() => expect(screen.getByText('Search palette')).toBeInTheDocument());
+  });
+
+  it('shows a dismissible storage notice with a link to Data backup', () => {
+    renderLayout('/pl/dice');
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    act(() => {
+      window.dispatchEvent(
+        new CustomEvent(STORAGE_ERROR_EVENT, { detail: { key: 'fumble-test' } }),
+      );
+    });
+    const notice = screen.getByRole('alert');
+    expect(within(notice).getByRole('link')).toHaveAttribute('href', '/pl/data/');
+    const close = within(notice).getByRole('button', { name: 'Zamknij' });
+    expect(close.className).not.toContain('red');
+    fireEvent.click(close);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+  });
+
+  it('opens search and returns home from the mobile header', () => {
+    renderLayout('/dice');
+    expect(screen.getByRole('link', { name: 'Return to home page' })).toHaveAttribute(
+      'href',
+      '/',
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Search' }));
+    expect(useSearchStore.getState().open).toBe(true);
+  });
+
+  it('announces a new page and moves focus to the content between sections', async () => {
+    render(
+      <MemoryRouter initialEntries={['/compendium/classes/wizard']}>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="*" element={<NavigationProbe />} />
+          </Route>
+        </Routes>
+        <NavigationOutside />
+      </MemoryRouter>,
+    );
+    const main = document.getElementById('main-content')!;
+    const status = screen
+      .getAllByRole('status')
+      .find((node) => node.classList.contains('sr-only'))!;
+    expect(status).toBeEmptyDOMElement();
+
+    document.title = 'Evoker - Fumble';
+    const subclass = screen.getByRole('button', { name: 'Select subclass' });
+    subclass.focus();
+    fireEvent.click(subclass);
+    expect(status).toHaveTextContent('Evoker - Fumble');
+    expect(subclass).toHaveFocus();
+
+    const inside = screen.getByRole('button', { name: 'Next page' });
+    inside.focus();
+    fireEvent.click(inside);
+    expect(inside).toHaveFocus();
+
+    const outside = screen.getByRole('button', { name: 'Open dice' });
+    outside.focus();
+    fireEvent.click(outside);
+    expect(main).toHaveFocus();
+
+    document.title = 'Dice Roller - Fumble';
+    await waitFor(() => expect(status).toHaveTextContent('Dice Roller - Fumble'));
+
+    inside.blur();
+    fireEvent.click(inside);
+    expect(main).toHaveFocus();
+  });
+
+  it('does not announce title changes before the first navigation', async () => {
+    renderLayout('/dice');
+    document.title = 'Loaded - Fumble';
+    await Promise.resolve();
+    const status = screen
+      .getAllByRole('status')
+      .find((node) => node.classList.contains('sr-only'))!;
+    expect(status).toBeEmptyDOMElement();
   });
 
   it('returns the app scroll container to the top after navigation', () => {
@@ -124,7 +220,7 @@ describe('AppLayout', () => {
       </MemoryRouter>,
     );
 
-    const main = document.getElementById('main-content');
+    const main = document.getElementById('app-scroll');
     expect(main).not.toBeNull();
     main!.scrollTop = 480;
 
@@ -152,7 +248,7 @@ describe('AppLayout', () => {
       </MemoryRouter>,
     );
 
-    const main = document.getElementById('main-content');
+    const main = document.getElementById('app-scroll');
     expect(main).not.toBeNull();
     main!.scrollTop = 480;
 

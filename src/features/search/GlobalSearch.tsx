@@ -6,9 +6,12 @@ import { useSearchStore } from './searchStore';
 
 interface GlobalSearchProps {
   compact?: boolean;
+  placeholder?: string;
 }
 
-export function GlobalSearch({ compact = false }: GlobalSearchProps) {
+const preloadPalette = () => void import('./SearchPalette').catch(() => undefined);
+
+export function GlobalSearch({ compact = false, placeholder }: GlobalSearchProps) {
   const { t } = useT();
   const setOpen = useSearchStore((s) => s.setOpen);
 
@@ -27,6 +30,8 @@ export function GlobalSearch({ compact = false }: GlobalSearchProps) {
     return (
       <IconButton
         onClick={() => setOpen(true)}
+        onPointerEnter={preloadPalette}
+        onFocus={preloadPalette}
         label={t('search.title')}
         title={t('search.title')}
       >
@@ -38,11 +43,15 @@ export function GlobalSearch({ compact = false }: GlobalSearchProps) {
   return (
     <Button
       onClick={() => setOpen(true)}
+      onPointerEnter={preloadPalette}
+      onFocus={preloadPalette}
       aria-label={t('search.title')}
       className="w-full justify-start text-ink-400"
     >
       <Search size={16} aria-hidden="true" />
-      <span className="flex-1 text-left">{t('search.placeholder')}</span>
+      <span className="min-w-0 flex-1 truncate text-left">
+        {placeholder ?? t('search.placeholder')}
+      </span>
       <kbd className="rounded border border-ink-600 px-1.5 py-0.5 text-xs font-medium text-ink-400">
         {t('search.shortcut')}
       </kbd>

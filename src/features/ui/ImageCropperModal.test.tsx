@@ -75,7 +75,13 @@ describe('image cropper', () => {
     fireEvent.change(zoom, { target: { value: '2' } });
     expect(zoom).toHaveValue('2');
 
-    const frame = image.parentElement!;
+    const frame = screen.getByRole('group', { name: 'Image crop area' });
+    fireEvent.keyDown(frame, { key: 'ArrowRight' });
+    expect(image.style.transform).toContain('translate(6px, 0px)');
+    fireEvent.keyDown(frame, { key: 'ArrowUp', shiftKey: true });
+    expect(image.style.transform).toContain('translate(6px, -24px)');
+    fireEvent.keyDown(frame, { key: 'Tab' });
+    expect(image.style.transform).toContain('translate(6px, -24px)');
     Object.defineProperty(frame, 'setPointerCapture', {
       configurable: true,
       value: vi.fn(),
@@ -240,5 +246,23 @@ describe('image cropper', () => {
       expect(screen.getByRole('button', { name: 'Save' })).toBeEnabled(),
     );
     expect(onSave).not.toHaveBeenCalled();
+  });
+  it('shows a named recovery action when the selected file cannot be opened', () => {
+    const choose = vi.fn();
+    vi.mocked(URL.createObjectURL).mockReturnValueOnce('invalid');
+    render(
+      <MemoryRouter>
+        <ImageCropperModal
+          file={new Blob()}
+          onCancel={vi.fn()}
+          onSave={vi.fn()}
+          onChooseAnother={choose}
+        />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole('alert')).toHaveTextContent('could not be opened');
+    expect(screen.getByRole('button', { name: 'Save' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: 'Choose another image' }));
+    expect(choose).toHaveBeenCalledOnce();
   });
 });

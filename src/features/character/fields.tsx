@@ -1,17 +1,31 @@
-import { type ReactNode } from 'react';
+import { useContext, useId, useState, type ReactNode } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { inputClass, panelClass } from '@/features/ui/styles';
+import { useT } from '@/i18n/useT';
+import { PanelFrameContext, parseWholeNumber } from './panelFrame';
+
+function FieldLabel({ text, hidden }: { text: string; hidden?: boolean | undefined }) {
+  return <span className={hidden ? 'sr-only' : 'field-label'}>{text}</span>;
+}
 
 interface TextFieldProps {
-  label?: string;
+  label: string;
+  hideLabel?: boolean;
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
 }
 
-export function TextField({ label, value, onChange, placeholder }: TextFieldProps) {
+export function TextField({
+  label,
+  hideLabel,
+  value,
+  onChange,
+  placeholder,
+}: TextFieldProps) {
   return (
-    <label className="flex flex-col gap-1 text-sm">
-      {label && <span className="text-xs font-semibold text-ink-400">{label}</span>}
+    <label className="flex min-w-0 flex-col gap-1 text-sm">
+      <FieldLabel text={label} hidden={hideLabel} />
       <input
         type="text"
         className={inputClass()}
@@ -24,42 +38,78 @@ export function TextField({ label, value, onChange, placeholder }: TextFieldProp
 }
 
 interface NumberFieldProps {
-  label?: string;
+  label: string;
+  hideLabel?: boolean;
   value: number;
   onChange: (value: number) => void;
-  min?: number;
-  max?: number;
+  min: number;
+  max: number;
   className?: string;
+  inputClassName?: string;
+  hint?: ReactNode;
 }
 
 export function NumberField({
   label,
+  hideLabel,
   value,
   onChange,
   min,
   max,
   className,
+  inputClassName,
+  hint,
 }: NumberFieldProps) {
+  const { t } = useT();
+  const id = useId();
+  const [draft, setDraft] = useState<string | null>(null);
+  const shown = draft ?? (Number.isFinite(value) ? String(value) : '');
+  const invalid = draft !== null && parseWholeNumber(draft, min, max) === null;
+  const errorId = `${id}-error`;
+  const hintId = `${id}-hint`;
+  const describedBy = [invalid ? errorId : null, hint ? hintId : null]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <label className="flex flex-col gap-1 text-sm">
-      {label && <span className="text-xs font-semibold text-ink-400">{label}</span>}
+    <div className={`flex min-w-0 flex-col gap-1 text-sm ${className ?? ''}`.trim()}>
+      <label htmlFor={id} className={hideLabel ? 'sr-only' : 'field-label'}>
+        {label}
+      </label>
       <input
-        type="number"
-        className={inputClass(className)}
-        value={Number.isNaN(value) ? '' : value}
-        min={min}
-        max={max}
+        id={id}
+        type="text"
+        inputMode="numeric"
+        autoComplete="off"
+        className={inputClass(`tabular-nums ${inputClassName ?? ''}`.trim())}
+        value={shown}
+        aria-invalid={invalid || undefined}
+        aria-describedby={describedBy || undefined}
         onChange={(event) => {
-          const next = event.target.valueAsNumber;
-          onChange(Number.isNaN(next) ? 0 : next);
+          const text = event.target.value;
+          setDraft(text);
+          const next = parseWholeNumber(text, min, max);
+          if (next !== null && next !== value) onChange(next);
         }}
+        onBlur={() => setDraft(null)}
       />
-    </label>
+      {invalid && (
+        <span id={errorId} className="text-xs text-red-300">
+          {t('character.sheet.validation.range', { min, max })}
+        </span>
+      )}
+      {hint && (
+        <span id={hintId} className="text-xs text-ink-400">
+          {hint}
+        </span>
+      )}
+    </div>
   );
 }
 
 interface TextAreaProps {
-  label?: string;
+  label: string;
+  hideLabel?: boolean;
   value: string;
   onChange: (value: string) => void;
   rows?: number;
@@ -68,14 +118,15 @@ interface TextAreaProps {
 
 export function TextArea({
   label,
+  hideLabel,
   value,
   onChange,
   rows = 4,
   placeholder,
 }: TextAreaProps) {
   return (
-    <label className="flex flex-col gap-1 text-sm">
-      {label && <span className="text-xs font-semibold text-ink-400">{label}</span>}
+    <label className="flex min-w-0 flex-col gap-1 text-sm">
+      <FieldLabel text={label} hidden={hideLabel} />
       <textarea
         className={inputClass('resize-y')}
         rows={rows}
@@ -94,13 +145,49 @@ interface PanelProps {
 }
 
 export function Panel({ title, children, action }: PanelProps) {
+  const frame = useContext(PanelFrameContext);
+  const headingId = useId();
+  const bodyId = useId();
+  const collapsed = Boolean(frame?.collapsible && frame.collapsed);
+
   return (
-    <section className={panelClass('flex flex-col gap-3 border-ink-700 p-4')}>
-      <header className="flex items-center justify-between">
-        <h2 className="text-ember-400 panel-title">{title}</h2>
-        {action}
+    <section
+      aria-labelledby={headingId}
+      className={panelClass('flex min-w-0 flex-col gap-3 p-4')}
+    >
+      <header className="flex min-h-8 items-center justify-between gap-2">
+        <h2 id={headingId} className="panel-title min-w-0 [overflow-wrap:anywhere]">
+          {frame?.collapsible ? (
+            <button
+              type="button"
+              className="panel-toggle"
+              aria-expanded={!collapsed}
+              aria-controls={bodyId}
+              onClick={frame.toggle}
+            >
+              <ChevronDown
+                size={16}
+                aria-hidden="true"
+                className={collapsed ? '-rotate-90' : ''}
+              />
+              {title}
+            </button>
+          ) : (
+            title
+          )}
+        </h2>
+        {(action || frame?.layoutMenu) && (
+          <div className="flex shrink-0 items-center gap-1">
+            {action}
+            {frame?.layoutMenu}
+          </div>
+        )}
       </header>
-      {children}
+      {!collapsed && (
+        <div id={bodyId} className="flex min-w-0 flex-col gap-3">
+          {children}
+        </div>
+      )}
     </section>
   );
 }
