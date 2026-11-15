@@ -1,13 +1,15 @@
-import { Button } from '@/features/ui/primitives';
+import { Button, IconButton } from '@/features/ui/primitives';
 import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, Search, X } from 'lucide-react';
 import { RollResultDock } from '@/features/dice/RollResultDock';
 import { ConfirmDialog } from '@/features/ui/ConfirmDialog';
 import { Lightbox } from '@/features/ui/Lightbox';
 import { useSidebarStore } from '@/features/ui/sidebarStore';
 import { Logo } from '@/features/ui/Logo';
 import { useSearchStore } from '@/features/search/searchStore';
+import { Link } from '@/i18n/path';
+import { stripLocale } from '@/i18n/pathUtils';
 import { useT } from '@/i18n/useT';
 import { LegalFooter } from '@/features/legal/LegalFooter';
 import { revealApp } from '@/seo/prerendered';
@@ -38,11 +40,15 @@ function StorageNotice() {
       role="alert"
       className="fixed bottom-4 left-4 right-4 z-[90] flex items-center justify-between gap-3 rounded-lg border border-red-400/50 bg-ink-900 p-3 text-sm text-red-200 shadow-xl md:left-auto md:max-w-md"
     >
-      <span>{t('common.storageError')}</span>
+      <span>
+        {t('common.storageError')}{' '}
+        <Link to="/data" className="font-medium text-ink-50 underline">
+          {t('home.backupReminder.open')}
+        </Link>
+      </span>
       <Button
         type="button"
         onClick={() => setVisible(false)}
-        variant="danger"
         size="sm"
         className="shrink-0"
       >
@@ -64,13 +70,21 @@ function classRouteKey(pathname: string): string | undefined {
   return segments[compendiumIndex + 2];
 }
 
+function sectionOf(pathname: string): string {
+  return stripLocale(pathname).rest.split('/')[1] ?? '';
+}
+
 export function AppLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const mobileDialogRef = useDialogFocus(mobileOpen, () => setMobileOpen(false));
   const collapsed = useSidebarStore((s) => s.collapsed);
   const searchOpen = useSearchStore((s) => s.open);
+  const setSearchOpen = useSearchStore((s) => s.setOpen);
   const location = useLocation();
   const previousPathname = useRef(location.pathname);
+  const announcedPathname = useRef(location.pathname);
+  const initialPathname = useRef(location.pathname);
+  const [announcement, setAnnouncement] = useState('');
   const { t } = useT();
 
   useEffect(() => {
@@ -96,18 +110,43 @@ export function AppLayout() {
     )
       return;
 
-    const main = document.getElementById('main-content');
+    const main = document.getElementById('app-scroll');
     if (!main) return;
     main.scrollTop = 0;
     main.scrollLeft = 0;
   }, [location.pathname]);
 
+  useEffect(() => {
+    const previous = announcedPathname.current;
+    if (previous === location.pathname) return;
+    announcedPathname.current = location.pathname;
+    setAnnouncement(document.title);
+    const main = document.getElementById('main-content');
+    const active = document.activeElement;
+    if (
+      main &&
+      (active === document.body ||
+        (sectionOf(previous) !== sectionOf(location.pathname) && !main.contains(active)))
+    )
+      main.focus({ preventScroll: true });
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      if (announcedPathname.current !== initialPathname.current)
+        setAnnouncement(document.title);
+    });
+    observer.observe(document.head, {
+      subtree: true,
+      childList: true,
+      characterData: true,
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="flex h-full">
-      <a
-        href="#main-content"
-        className="sr-only fixed left-3 top-3 z-[100] rounded-md bg-ink-50 px-3 py-2 text-ink-950 focus:not-sr-only"
-      >
+      <a href="#main-content" className="skip-link">
         {t('common.skipToContent')}
       </a>
       <aside
@@ -163,22 +202,37 @@ export function AppLayout() {
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </Button>
-          <span className="flex items-center gap-1.5 font-display text-xl font-black tracking-tight text-ink-50">
+          <Link
+            to="/"
+            aria-label={t('common.returnHome')}
+            className="flex items-center gap-1.5 rounded-md font-display text-xl font-black tracking-tight text-ink-50"
+          >
             <Logo className="h-7 w-7 text-ink-50" />
             Fumble
-          </span>
+          </Link>
+          <IconButton
+            label={t('search.title')}
+            variant="ghost"
+            size="sm"
+            className="ml-auto"
+            onClick={() => setSearchOpen(true)}
+          >
+            <Search size={20} aria-hidden="true" />
+          </IconButton>
         </header>
 
-        <main
-          id="main-content"
-          className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto"
-          tabIndex={-1}
-        >
-          <div className="flex-1">
-            <Outlet />
-          </div>
+        <div id="app-scroll" className="app-scroll">
+          <main
+            id="main-content"
+            className="flex min-h-min min-w-0 flex-col focus:outline-none"
+            tabIndex={-1}
+          >
+            <div className="flex-1">
+              <Outlet />
+            </div>
+          </main>
           <LegalFooter />
-        </main>
+        </div>
       </div>
 
       {searchOpen && (
@@ -186,6 +240,9 @@ export function AppLayout() {
           <SearchPalette />
         </Suspense>
       )}
+      <p className="sr-only" role="status" aria-live="polite">
+        {announcement}
+      </p>
       <RollResultDock />
       <Lightbox />
       <ConfirmDialog />

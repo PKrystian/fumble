@@ -22,6 +22,11 @@ import {
 } from './transform';
 
 describe('parseFrontmatter', () => {
+  it('rejects an unclosed frontmatter block', () => {
+    expect(() => parseFrontmatter('---\nvisibility: dm\nPrivate')).toThrow(
+      'Unclosed frontmatter',
+    );
+  });
   it('extracts key/value pairs and the body', () => {
     const { data, body } = parseFrontmatter(
       '---\ntitle: Silverhaven\nvisibility: player\npublish: false\n---\nThe city.',
@@ -67,6 +72,10 @@ describe('escapeHtml', () => {
 });
 
 describe('isPlayerVisible', () => {
+  it('rejects ambiguous privacy settings', () => {
+    expect(() => isPlayerVisible({ visibility: 'DM' })).toThrow('Invalid visibility');
+    expect(() => isPlayerVisible({ publish: 'yes' })).toThrow('Invalid publish');
+  });
   it('hides DM-only and unpublished pages', () => {
     expect(isPlayerVisible({ visibility: 'dm' })).toBe(false);
     expect(isPlayerVisible({ publish: false })).toBe(false);
@@ -75,6 +84,19 @@ describe('isPlayerVisible', () => {
 });
 
 describe('processSecrets', () => {
+  it('rejects unclosed or unmatched private blocks and hides nested content', () => {
+    expect(() => processSecrets(':::secret\nPrivate')).toThrow('Unclosed');
+    expect(() => processSecrets('Public\n:::')).toThrow('Unexpected');
+    expect(() =>
+      processSecrets(':::secret\nPrivate\n:::Secret\nMore private text'),
+    ).toThrow('Invalid private block ending');
+    expect(processSecrets('Before\n:::secret\nA\n:::locked\nB\n:::\nC\n:::\nAfter')).toBe(
+      'Before\n\nAfter',
+    );
+    expect(processSecrets(':::locked\nA\n:::secret\nB\n:::\nC\n:::')).not.toMatch(
+      /[ABC]/,
+    );
+  });
   it('removes :::secret blocks entirely', () => {
     const out = processSecrets('Before\n:::secret\nhidden lore\n:::\nAfter');
     expect(out).not.toContain('hidden lore');
@@ -214,6 +236,24 @@ describe('slugify', () => {
 });
 
 describe('renderInfobox', () => {
+  it('omits blank facts and cards with no meaningful fields', () => {
+    expect(
+      renderInfobox(
+        { facts: { Blank: ' ' } },
+        'Name',
+        (file) => file,
+        () => null,
+      ),
+    ).toBe('');
+    expect(
+      renderInfobox(
+        { summary: 'Summary', facts: { Blank: ' ', '': 'value', Home: 'Town' } },
+        'Name',
+        (file) => file,
+        () => null,
+      ),
+    ).not.toContain('Blank');
+  });
   const resolveAsset = (f: string) => `${BASE_TOKEN}wiki-assets/${f}`;
   const resolveSlug = (title: string) => (title === 'Silverhaven' ? 'silverhaven' : null);
 
@@ -232,7 +272,7 @@ describe('renderInfobox', () => {
     expect(html).toContain(`src="${BASE_TOKEN}wiki-assets/aria.png"`);
     expect(html).toContain('<h3>Aria</h3>');
     expect(html).toContain('A traveling mage.');
-    expect(html).toContain('<th>Race</th><td>Elf</td>');
+    expect(html).toContain('<th scope="row">Race</th><td>Elf</td>');
   });
 
   it('resolves [[wikilinks]] inside fact values', () => {
@@ -244,7 +284,7 @@ describe('renderInfobox', () => {
     );
     expect(html).toContain('data-wiki-link="silverhaven"');
     expect(html).toContain(`href="${BASE_TOKEN}wiki/silverhaven">Silverhaven</a>`);
-    expect(html).toContain('<th>Rival</th><td>Nobody</td>');
+    expect(html).toContain('<th scope="row">Rival</th><td>Nobody</td>');
   });
 
   it('renders fact aliases with empty targets as plain text', () => {
@@ -288,7 +328,7 @@ describe('processBoxes', () => {
     const html = processBoxes(block, resolveAsset, resolveSlug);
     expect(html).toContain('wiki-box');
     expect(html).toContain('<h3>Quick Stats</h3>');
-    expect(html).toContain('<th>Str</th><td>18 (+4)</td>');
+    expect(html).toContain('<th scope="row">Str</th><td>18 (+4)</td>');
   });
 
   it('supports box images and ignores malformed lines', () => {

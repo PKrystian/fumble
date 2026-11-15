@@ -18,8 +18,13 @@ describe('LegalFooter', () => {
       }),
     ).toHaveAttribute(
       'href',
-      'https://github.com/PKrystian/Fumble/blob/main/CHANGELOG.md',
+      `/changelog/#version-${packageInfo.version.replaceAll('.', '-')}`,
     );
+    expect(screen.getByRole('link', { name: 'Site map' })).toHaveAttribute(
+      'href',
+      '/site-map/',
+    );
+    expect(screen.getAllByRole('navigation')).toHaveLength(2);
     expect(screen.getByRole('link', { name: 'Report issue' })).toHaveAttribute(
       'href',
       'https://github.com/PKrystian/Fumble/issues/new/choose',

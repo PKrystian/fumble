@@ -121,7 +121,18 @@ export function useCategoryItems(
       return classes.length === (spell.classes ?? []).length &&
         classes.every((value, index) => value === spell.classes?.[index])
         ? item
-        : ({ ...item, classes } as SpellEntry);
+        : ({
+            ...item,
+            classes,
+            ...(item._filterData
+              ? {
+                  _filterData: {
+                    ...item._filterData,
+                    classes: classes.map(canonicalClassFilterValue),
+                  },
+                }
+              : {}),
+          } as SpellEntry);
     };
     const selectedFumbleSubclass = fumbleCatalog.find(
       (item) => item.id === selectedId && item.isSubclass,

@@ -1,127 +1,92 @@
-import { Button } from '@/features/ui/primitives';
-import { RotateCw, X } from 'lucide-react';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import { useT } from '@/i18n/useT';
-import { type RollMode, describeRolls } from './engine';
+import { stripLocale } from '@/i18n/pathUtils';
+import { Button, IconButton } from '@/features/ui/primitives';
 import { useRollStore } from './rollStore';
+import { RollResult } from './RollResult';
 
 export function RollResultDock() {
   const { t } = useT();
-  const MODE_LABELS: Record<RollMode, string> = {
-    normal: t('dice.modeNormal'),
-    advantage: t('dice.modeAdvantage'),
-    disadvantage: t('dice.modeDisadvantage'),
-  };
-  const log = useRollStore((s) => s.log);
-  const dockOpen = useRollStore((s) => s.dockOpen);
-  const closeDock = useRollStore((s) => s.closeDock);
-  const clearLog = useRollStore((s) => s.clearLog);
-  const roll = useRollStore((s) => s.roll);
-
-  const latest = log[0];
-  if (!dockOpen || !latest) return null;
-
-  const { outcome, label } = latest;
-  const reroll = (mode: RollMode) => roll(outcome.expression, mode, label);
-  const hasD20 = outcome.groups.some((g) => g.sides === 20);
-
+  const { pathname } = useLocation();
+  const latest = useRollStore((state) => state.log[0]);
+  const open = useRollStore((state) => state.dockOpen);
+  const close = useRollStore((state) => state.closeDock);
+  const reroll = useRollStore((state) => state.reroll);
+  const [expanded, setExpanded] = useState(false);
+  if (stripLocale(pathname).rest.replace(/\/$/, '') === '/dice' || !open || !latest)
+    return null;
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-80">
-      <div className="animate-fade-in-up rounded-t-2xl border border-ink-700 bg-ink-900 shadow-2xl sm:rounded-xl">
-        <div className="flex items-center justify-between border-b border-ink-700 px-4 py-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-ink-400">
+    <aside aria-label={t('dice.diceResult')} className="dock">
+      <div className="dock-panel">
+        <div className="dock-header">
+          <h2 id="dock-roll-title" tabIndex={-1} className="dock-title">
             {t('dice.diceResult')}
-          </span>
-          <Button
-            type="button"
-            onClick={closeDock}
-            aria-label={t('dice.closeDiceResult')}
-            variant="ghost"
-            size="sm"
-            iconOnly
-          >
-            <X size={16} />
-          </Button>
-        </div>
-
-        <div className="px-4 py-3 text-center">
-          {label && (
-            <p className="text-xs font-medium uppercase tracking-wide text-arcane-300">
-              {label}
-            </p>
-          )}
-          <p className="text-sm text-ink-300">
-            {outcome.expression}
-            {outcome.mode !== 'normal' && ` (${MODE_LABELS[outcome.mode]})`}
-          </p>
-          <p className="my-1 font-display text-5xl font-black text-ember-400">
-            {outcome.total}
-          </p>
-          <p className="text-xs text-ink-400">{describeRolls(outcome)}</p>
-
-          <div className="mt-3 flex items-center justify-center gap-2">
-            <Button
-              type="button"
-              onClick={() => reroll('normal')}
-              variant="primary"
+          </h2>
+          <div className="flex gap-1">
+            <IconButton
+              label={t(expanded ? 'dice.collapseResult' : 'dice.expandResult')}
               size="sm"
+              variant="ghost"
+              aria-expanded={expanded}
+              onClick={() => setExpanded(!expanded)}
             >
-              <RotateCw size={14} /> {t('dice.reroll')}
-            </Button>
-            {hasD20 && (
-              <>
-                <Button
-                  type="button"
-                  onClick={() => reroll('advantage')}
-                  variant="secondary"
-                  size="sm"
-                  title={t('dice.rollWithAdvantage')}
-                >
-                  {t('dice.adv')}
-                </Button>
-                <Button
-                  type="button"
-                  onClick={() => reroll('disadvantage')}
-                  variant="secondary"
-                  size="sm"
-                  title={t('dice.rollWithDisadvantage')}
-                >
-                  {t('dice.dis')}
-                </Button>
-              </>
-            )}
+              {expanded ? (
+                <ChevronDown size={16} aria-hidden="true" />
+              ) : (
+                <ChevronUp size={16} aria-hidden="true" />
+              )}
+            </IconButton>
+            <IconButton
+              label={t('dice.closeDiceResult')}
+              size="sm"
+              variant="ghost"
+              onClick={close}
+            >
+              <X size={16} aria-hidden="true" />
+            </IconButton>
           </div>
         </div>
-
-        {log.length > 1 && (
-          <div className="max-h-40 overflow-y-auto border-t border-ink-700 px-4 py-2">
-            <div className="mb-1 flex items-center justify-between">
-              <span className="text-xs font-semibold uppercase tracking-wider text-ink-400">
-                {t('dice.recent')}
-              </span>
-              <button
-                type="button"
-                onClick={clearLog}
-                className="text-xs text-ink-400 hover:text-ink-50"
-              >
-                {t('dice.clear')}
-              </button>
+        <p role="status" aria-atomic="true" className="sr-only">
+          {t('dice.announcedResult', {
+            expression: latest.outcome.expression,
+            total: latest.outcome.total,
+          })}
+        </p>
+        <div className="max-h-[60dvh] overflow-y-auto px-4 py-3">
+          {expanded ? (
+            <>
+              <RollResult key={latest.id} entry={latest} compact />
+              {latest.outcome.groups.some((group) => group.sides === 20) && (
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <Button size="sm" onClick={() => reroll(latest, 'advantage')}>
+                    {t('dice.modeAdvantage')}
+                  </Button>
+                  <Button size="sm" onClick={() => reroll(latest, 'disadvantage')}>
+                    {t('dice.modeDisadvantage')}
+                  </Button>
+                </div>
+              )}
+            </>
+          ) : (
+            <div>
+              <p className="break-words text-sm text-ink-300 [overflow-wrap:anywhere]">
+                {latest.label ? latest.label + ': ' : ''}
+                {latest.outcome.expression}
+              </p>
+              <div className="mt-2 flex items-center justify-between gap-2">
+                <strong className="text-3xl text-ink-50 tabular-nums">
+                  {latest.outcome.total}
+                </strong>
+                <Button size="sm" onClick={() => reroll(latest)}>
+                  {t('dice.reroll')}
+                </Button>
+              </div>
             </div>
-            <ul className="flex flex-col gap-0.5">
-              {log.slice(1, 12).map((entry) => (
-                <li key={entry.id} className="roll-history-row">
-                  <span className="min-w-0 truncate">
-                    {entry.label ? `${entry.label}: ` : ''}
-                    {entry.outcome.expression}
-                    {entry.outcome.mode !== 'normal' &&
-                      ` (${MODE_LABELS[entry.outcome.mode][0]})`}
-                  </span>
-                  <span className="roll-value">{entry.outcome.total}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </aside>
   );
 }

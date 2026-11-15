@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import type { CompendiumCategoryId } from '@/data/compendium/types';
 import { Button, IconButton } from '@/features/ui/primitives';
 import { useT } from '@/i18n/useT';
+import { useLocale } from '@/i18n/pathUtils';
 import { useDialogFocus } from '@/features/ui/useDialogFocus';
 import {
   FUMBLE_CAMPAIGNS,
@@ -22,15 +23,20 @@ interface FumbleVisibilityModalProps {
 export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalProps) {
   const dialogRef = useDialogFocus(true, onClose);
   const { t } = useT();
+  const locale = useLocale();
+  const showInCompendium = useFumbleHomebrewStore((s) => s.showInCompendium);
   const compendiumCampaigns = useFumbleHomebrewStore((s) => s.compendiumCampaigns);
   const compendiumCategories = useFumbleHomebrewStore((s) => s.compendiumCategories);
   const setCompendiumFilters = useFumbleHomebrewStore((s) => s.setCompendiumFilters);
   const categoryOptions = useMemo(
     () =>
       [...new Set(items.map((item) => item.category))].sort((a, b) =>
-        t(`compendium.categories.${a}`).localeCompare(t(`compendium.categories.${b}`)),
+        t(`compendium.categories.${a}`).localeCompare(
+          t(`compendium.categories.${b}`),
+          locale,
+        ),
       ),
-    [items, t],
+    [items, locale, t],
   );
   const campaignOptions = FUMBLE_CAMPAIGNS.map((campaign) => campaign.id);
   const [draftCampaigns, setDraftCampaigns] = useState<FumbleCampaignId[]>(
@@ -101,16 +107,19 @@ export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalP
           <p className="text-sm text-ink-300">
             {t('homebrew.fumbleVisibilityDescription')}
           </p>
+          {!showInCompendium && (
+            <p className="notice">{t('homebrew.fumbleVisibilityInactive')}</p>
+          )}
 
           <fieldset className="flex flex-col gap-3">
             <legend className="font-display text-sm font-bold uppercase tracking-wide text-ember-400">
               {t('homebrew.fumbleVisibilityCampaigns')}
             </legend>
-            <div className="flex justify-end gap-2 text-xs">
+            <div className="flex flex-wrap justify-end gap-2 text-xs">
               <Button
                 variant="ghost"
                 size="sm"
-                className=""
+                className="max-w-full whitespace-normal text-left"
                 onClick={() => setDraftCampaigns(campaignOptions)}
               >
                 {t('homebrew.fumbleVisibilitySelectAllCampaigns')}
@@ -118,30 +127,32 @@ export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalP
               <Button
                 variant="ghost"
                 size="sm"
-                className=""
+                className="max-w-full whitespace-normal text-left"
                 onClick={() => setDraftCampaigns([])}
               >
                 {t('homebrew.fumbleVisibilityClearCampaigns')}
               </Button>
             </div>
             <div className="grid gap-2 sm:grid-cols-2">
-              {FUMBLE_CAMPAIGNS.map((campaign) => {
-                const label = t(campaign.labelKey);
-                return (
-                  <label
-                    key={campaign.id}
-                    className="flex items-start gap-2 rounded-lg border border-ink-700 bg-ink-950 px-3 py-2 text-sm text-ink-200"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={draftCampaigns.includes(campaign.id)}
-                      onChange={() => toggleCampaign(campaign.id)}
-                      className="mt-0.5 accent-arcane-500"
-                    />
-                    <span>{label}</span>
-                  </label>
-                );
-              })}
+              {[...FUMBLE_CAMPAIGNS]
+                .sort((a, b) => t(a.labelKey).localeCompare(t(b.labelKey), locale))
+                .map((campaign) => {
+                  const label = t(campaign.labelKey);
+                  return (
+                    <label
+                      key={campaign.id}
+                      className="flex items-start gap-2 rounded-lg border border-ink-700 bg-ink-950 px-3 py-2 text-sm text-ink-200"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={draftCampaigns.includes(campaign.id)}
+                        onChange={() => toggleCampaign(campaign.id)}
+                        className="mt-0.5 accent-arcane-500"
+                      />
+                      <span>{label}</span>
+                    </label>
+                  );
+                })}
             </div>
           </fieldset>
 
@@ -149,11 +160,11 @@ export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalP
             <legend className="font-display text-sm font-bold uppercase tracking-wide text-ember-400">
               {t('homebrew.fumbleVisibilityCategories')}
             </legend>
-            <div className="flex justify-end gap-2 text-xs">
+            <div className="flex flex-wrap justify-end gap-2 text-xs">
               <Button
                 variant="ghost"
                 size="sm"
-                className=""
+                className="max-w-full whitespace-normal text-left"
                 onClick={() => setDraftCategories(categoryOptions)}
               >
                 {t('homebrew.fumbleVisibilitySelectAllCategories')}
@@ -161,7 +172,7 @@ export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalP
               <Button
                 variant="ghost"
                 size="sm"
-                className=""
+                className="max-w-full whitespace-normal text-left"
                 onClick={() => setDraftCategories([])}
               >
                 {t('homebrew.fumbleVisibilityClearCategories')}
@@ -193,12 +204,12 @@ export function FumbleVisibilityModal({ items, onClose }: FumbleVisibilityModalP
               {t('homebrew.fumbleVisibilityNoSelection')}
             </p>
           )}
-          <p className="text-xs text-ink-400">
+          <p role="status" className="text-xs text-ink-400">
             {t('homebrew.fumbleVisibilitySelected', { count: selectedCount })}
           </p>
         </div>
 
-        <div className="flex justify-end gap-2 border-t border-ink-700 p-3">
+        <div className="flex flex-wrap justify-end gap-2 border-t border-ink-700 p-3">
           <Button variant="ghost" onClick={onClose}>
             {t('homebrew.fumbleVisibilityCancel')}
           </Button>

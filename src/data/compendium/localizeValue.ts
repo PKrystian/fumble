@@ -1159,6 +1159,18 @@ function localizeBonusList(value: string, values: Record<string, string>): strin
   );
 }
 
+const habitatByLabel = new Map<string, string>();
+for (const [name, label] of Object.entries(POLISH_HABITATS)) {
+  const key = label.toLowerCase();
+  const canonical = habitatByLabel.get(key) ?? name;
+  habitatByLabel.set(key, canonical);
+  habitatByLabel.set(name.toLowerCase(), canonical);
+}
+
+export function canonicalHabitat(value: string): string {
+  return habitatByLabel.get(value.toLowerCase()) ?? value;
+}
+
 function localizeHabitat(value: string): string {
   const withLabels = localizeFilterLabels(value, POLISH_HABITATS);
   return localizeOutsideMarkup(withLabels, (part) =>
@@ -1195,6 +1207,12 @@ function localizeDamageValue(value: string): string {
 }
 
 function localizeFieldValue(value: string, field: string): string {
+  if (field === 'actionTime')
+    return value === 'Free'
+      ? 'Bez akcji'
+      : value === 'Varies'
+        ? 'Zmienny'
+        : localizeFieldValue(value, 'castingTime');
   if (field === 'creatureType') return localizeCreatureType(value);
   if (DAMAGE_FIELDS.has(field)) return localizeDamageValue(value);
   if (field === 'languages') return localizeLanguages(value);
@@ -1280,6 +1298,7 @@ export function localizeCompendiumValue(
   locale: Locale,
   field: string,
 ): string | undefined {
+  if ((field === 'size' || field === 'objectSize') && value === 'V') value = 'Varies';
   if (!value || locale !== 'pl') return value;
   const lookupField =
     field === 'kind' ? 'conditionKind' : field === 'size' ? 'objectSize' : field;

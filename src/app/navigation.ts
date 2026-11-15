@@ -1,4 +1,5 @@
 import {
+  Backpack,
   BookMarked,
   Calculator,
   CircleAlert,
@@ -7,6 +8,7 @@ import {
   FlaskConical,
   GraduationCap,
   HardDriveDownload,
+  LibraryBig,
   ListTree,
   Mic,
   MousePointerClick,
@@ -34,7 +36,6 @@ export interface NavItem {
 
 export interface NavSection {
   titleKey: string;
-  descriptionKey: string;
   accent: NavAccent;
   items: NavItem[];
 }
@@ -42,7 +43,6 @@ export interface NavSection {
 export const navSections: NavSection[] = [
   {
     titleKey: 'nav.sectionPlayer',
-    descriptionKey: 'home.sections.player',
     accent: 'arcane',
     items: [
       {
@@ -67,7 +67,7 @@ export const navSections: NavSection[] = [
         labelKey: 'nav.backgrounds',
         descriptionKey: 'home.cards.backgrounds',
         to: '/compendium/backgrounds',
-        icon: BookMarked,
+        icon: Backpack,
       },
       {
         labelKey: 'nav.feats',
@@ -97,7 +97,6 @@ export const navSections: NavSection[] = [
   },
   {
     titleKey: 'nav.sectionRules',
-    descriptionKey: 'home.sections.rules',
     accent: 'teal',
     items: [
       {
@@ -128,7 +127,6 @@ export const navSections: NavSection[] = [
   },
   {
     titleKey: 'nav.sectionDm',
-    descriptionKey: 'home.sections.dm',
     accent: 'violet',
     items: [
       {
@@ -165,7 +163,6 @@ export const navSections: NavSection[] = [
   },
   {
     titleKey: 'nav.sectionCampaign',
-    descriptionKey: 'home.sections.campaign',
     accent: 'ember',
     items: [
       {
@@ -190,7 +187,6 @@ export const navSections: NavSection[] = [
   },
   {
     titleKey: 'nav.sectionUtilities',
-    descriptionKey: 'home.sections.utilities',
     accent: 'slate',
     items: [
       {
@@ -208,5 +204,20 @@ export const navSections: NavSection[] = [
     ],
   },
 ];
+
+export const navAccentText: Record<NavAccent, string> = {
+  arcane: 'text-arcane-300',
+  teal: 'text-cyan-300',
+  violet: 'text-violet-300',
+  ember: 'text-ember-400',
+  slate: 'text-ink-300',
+};
+
+export const compendiumNavItem: NavItem = {
+  labelKey: 'nav.compendium',
+  descriptionKey: 'home.cards.compendium',
+  to: '/compendium',
+  icon: LibraryBig,
+};
 
 export const allNavItems: NavItem[] = navSections.flatMap((section) => section.items);

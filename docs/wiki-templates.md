@@ -28,6 +28,8 @@ interactively - asks for the path. Non-interactive runs (CI) fall back to the bu
 
 - `--watch` rebuilds automatically whenever a file in the vault changes. Stop with Ctrl+C.
 - `--force` ignores the incremental cache and rebuilds every page from scratch.
+- Repeat `--campaign <campaign-id>` to publish only selected campaigns. The output
+  contains exactly that selection; source vault files are never changed.
 
 This regenerates `src/data/generated/wiki.json` and copies referenced images to
 `public/wiki-assets/<campaign-id>/`. Commit both so they deploy. A full working example lives in
@@ -63,6 +65,16 @@ and image references with no matching file. A clean build prints "No issues foun
 Builds are **incremental** - only changed pages are re-rendered (the rest come from a local
 cache). Add `--force` to rebuild everything from scratch.
 
+Unclosed or unmatched `:::secret` and `:::locked` blocks stop the build before changing
+the published wiki. Invalid visibility, publish values, and unclosed frontmatter also
+stop publication. Keep the documented lowercase visibility values and boolean publish
+values. Generated metadata does not include your local vault path.
+
+Only assets referenced by player-visible generated HTML are copied. Unused files are
+removed from `public/wiki-assets`; keep source artwork in the vault, never in that generated
+directory. Hidden page and secret-block images are not published unless a visible page
+also references them. This does not change the separate Chult map or its visual masks.
+
 ## Page frontmatter
 
 Every note may begin with a YAML-ish frontmatter block (a small documented subset, not full
@@ -70,15 +82,15 @@ YAML - see the field reference below for what each key does):
 
 ```markdown
 ---
-title: Silverhaven # display title (defaults to the file name)
-category: Locations # sidebar grouping (defaults to the top folder)
-visibility: player # "player" (default) or "dm"
-publish: true # set false to exclude this page
-type: location # free-form; documents the page kind, no enforced list
-image: silverhaven.svg # infobox avatar/cover, resolved like an image embed
-summary: A bustling port city on the Argent Coast. # infobox subtitle
-tags: [city, coastal] # inline array, shown as-is; useful for your own search/organizing
-facts: # nested map -> infobox facts table
+title: Silverhaven
+category: Locations
+visibility: player
+publish: true
+type: location
+image: silverhaven.svg
+summary: A bustling port city on the Argent Coast.
+tags: [city, coastal]
+facts:
   Region: The Argent Coast
   Population: ~4,000
 ---
@@ -86,6 +98,9 @@ facts: # nested map -> infobox facts table
 
 - **`visibility: dm`** or **`publish: false`** -> the page is **never built**. DM-only notes
   simply stay in your vault.
+- `title` defaults to the file name. `category` groups pages in the catalog. Visibility
+  defaults to `player`; use `dm` for private notes. Do not put inline comments after
+  frontmatter values: this parser treats them as part of the value.
 - `type`, `tags`, `image`, `summary`, and `facts` are all optional - a page with none of them
   renders exactly like before, with no infobox.
 

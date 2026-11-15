@@ -1,267 +1,419 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { useState } from 'react';
-import { describe, expect, it, vi } from 'vitest';
-import type { CompendiumCategoryId } from '@/data/compendium/types';
-import { createCharacter, setSpellSlot, type Character } from './model';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { useRollStore } from '@/features/dice/rollStore';
+import { useDialogStore } from '@/features/ui/confirmStore';
+import { createCharacter, type Character } from './model';
+import { useSheetRollMode } from './rolls';
+import { SheetHarness } from './sheetTestHarness';
+import { currentCharacter } from './sheetTestState';
 import { SheetTabs } from './tabs';
 
-vi.mock('@/i18n/useT', () => ({
-  useT: () => ({
-    t: (key: string, values?: Record<string, unknown>) =>
-      values ? `${key} ${Object.values(values).join(' ')}` : key,
-  }),
+const picks = vi.hoisted(() => ({
+  spells: { id: 'shield', name: 'Shield', level: 1, concentration: false },
+  cantrip: { id: 'light', name: 'Light', level: 0, concentration: false },
+  items: {
+    id: 'chain-mail',
+    name: 'Chain Mail',
+    type: 'Heavy Armor',
+    rarity: '',
+    ac: '16',
+  },
+  trinket: { id: 'rope', name: 'Rope', type: '', rarity: 'common', ac: '' },
+  feats: { id: 'alert', name: 'Alert' },
 }));
 
 vi.mock('./CompendiumPicker', () => ({
   CompendiumPicker: ({
     categoryId,
+    label,
     onPick,
+    describe,
   }: {
-    categoryId: CompendiumCategoryId;
-    onPick: (entry: unknown) => void;
-  }) => (
-    <>
-      <button
-        type="button"
-        onClick={() =>
-          onPick(
-            categoryId === 'items'
-              ? {
-                  id: 'plate',
-                  name: 'Plate',
-                  source: 'XPHB',
-                  srd: false,
-                  type: 'Heavy Armor',
-                  rarity: 'Rare',
-                  ac: '18',
-                }
-              : categoryId === 'spells'
-                ? {
-                    id: 'shield',
-                    name: 'Shield',
-                    source: 'XPHB',
-                    srd: false,
-                    level: 1,
-                  }
-                : {
-                    id: 'alert',
-                    name: 'Alert',
-                    source: 'XPHB',
-                    srd: false,
-                  },
-          )
-        }
-      >
-        pick-{categoryId}
-      </button>
-      {categoryId === 'items' && (
-        <button
-          type="button"
-          onClick={() =>
-            onPick({
-              id: 'rope',
-              name: 'Rope',
-              source: 'XPHB',
-              srd: false,
-              type: 'Adventuring Gear',
-              rarity: '',
-              ac: '',
-            })
-          }
-        >
-          pick-items-plain
+    categoryId: 'spells' | 'items' | 'feats';
+    label: string;
+    onPick: (item: unknown) => void;
+    describe?: (item: unknown) => string;
+  }) => {
+    const extra =
+      categoryId === 'spells'
+        ? picks.cantrip
+        : categoryId === 'items'
+          ? picks.trinket
+          : null;
+    return (
+      <div>
+        <button type="button" onClick={() => onPick(picks[categoryId])}>
+          {label}
         </button>
-      )}
-    </>
-  ),
+        {extra && (
+          <button type="button" onClick={() => onPick(extra)}>
+            {`${label} extra`}
+          </button>
+        )}
+        <span>{describe?.(picks[categoryId])}</span>
+        <span>{extra && describe?.(extra)}</span>
+      </div>
+    );
+  },
 }));
 
-function Harness({ initial }: { initial: Character }) {
-  const [character, setCharacter] = useState(initial);
-  return (
-    <>
-      <span data-testid="state">{JSON.stringify(character)}</span>
-      <SheetTabs
-        character={character}
-        update={(patch) => setCharacter((current) => ({ ...current, ...patch }))}
-      />
-    </>
-  );
+function mount(character: Character = createCharacter('Hero'), path = '/character/x') {
+  render(<SheetHarness initial={character} component={SheetTabs} path={path} />);
 }
 
-function state(): Character {
-  return JSON.parse(screen.getByTestId('state').textContent ?? '') as Character;
-}
-
-function open(name: string) {
-  fireEvent.click(screen.getByText(`character.sheet.tabs.${name}`));
-}
-
-describe('character sheet tabs', () => {
-  it('adds, edits and removes actions, inventory and features', () => {
-    render(<Harness initial={createCharacter('Hero')} />);
-
-    fireEvent.click(screen.getByText('character.sheet.actionsTab.add'));
-    fireEvent.click(screen.getByText('character.sheet.actionsTab.add'));
-    fireEvent.change(
-      screen.getAllByPlaceholderText('character.sheet.actionsTab.namePlaceholder')[0]!,
-      {
-        target: { value: 'Strike' },
-      },
-    );
-    fireEvent.change(
-      screen.getAllByPlaceholderText('character.sheet.actionsTab.detailsPlaceholder')[0]!,
-      { target: { value: 'One target' } },
-    );
-    expect(state().actions[0]).toMatchObject({ name: 'Strike', notes: 'One target' });
-    fireEvent.click(screen.getAllByLabelText('character.sheet.actionsTab.remove')[0]!);
-    expect(state().actions).toHaveLength(1);
-
-    open('inventory');
-    fireEvent.click(screen.getByText('pick-items'));
-    expect(state().inventory[0]).toMatchObject({
-      name: 'Plate',
-      quantity: 1,
-      armorType: 'heavy',
-      baseAc: 18,
-      equipped: true,
-    });
-    fireEvent.click(screen.getByText('character.sheet.fields.equipped'));
-    fireEvent.change(screen.getByDisplayValue('1'), { target: { value: '3' } });
-    expect(state().inventory[0]).toMatchObject({ quantity: 3, equipped: false });
-    fireEvent.click(screen.getByText('character.sheet.inventoryTab.add'));
-    expect(state().inventory).toHaveLength(2);
-    fireEvent.change(
-      screen.getAllByPlaceholderText('character.sheet.inventoryTab.namePlaceholder')[0]!,
-      { target: { value: 'Polished Plate' } },
-    );
-    fireEvent.change(
-      screen.getAllByPlaceholderText('character.sheet.inventoryTab.descPlaceholder')[0]!,
-      { target: { value: 'Heavy' } },
-    );
-    fireEvent.click(screen.getByText('pick-items-plain'));
-    expect(state().inventory[2]).not.toHaveProperty('armorType');
-    fireEvent.click(screen.getAllByLabelText('character.sheet.inventoryTab.remove')[0]!);
-    expect(state().inventory).toHaveLength(2);
-
-    open('features');
-    fireEvent.click(screen.getByText('pick-feats'));
-    expect(state().features[0]).toMatchObject({ name: 'Alert', source: 'Feat' });
-    fireEvent.click(screen.getByText('character.sheet.featuresTab.add'));
-    fireEvent.change(
-      screen.getAllByPlaceholderText('character.sheet.featuresTab.namePlaceholder')[1]!,
-      { target: { value: 'Custom Feature' } },
-    );
-    fireEvent.change(
-      screen.getAllByPlaceholderText('character.sheet.featuresTab.sourcePlaceholder')[1]!,
-      { target: { value: 'Class' } },
-    );
-    fireEvent.change(
-      screen.getAllByPlaceholderText('character.sheet.featuresTab.descPlaceholder')[1]!,
-      { target: { value: 'Description' } },
-    );
-    expect(state().features[1]).toMatchObject({
-      name: 'Custom Feature',
-      source: 'Class',
-      notes: 'Description',
-    });
-    fireEvent.click(screen.getAllByLabelText('character.sheet.featuresTab.remove')[0]!);
-    expect(state().features).toHaveLength(1);
+describe('SheetTabs', () => {
+  beforeEach(() => {
+    useRollStore.setState({ log: [], dockOpen: false, error: null });
+    useSheetRollMode.setState({ mode: 'normal' });
   });
 
-  it('manages spellcasting, spell slots and spells', () => {
-    const character = createCharacter('Mage');
-    character.spellSlots = setSpellSlot([], 1, {
-      longRestMax: 1,
-      shortRestMax: 1,
+  it('uses the tablist pattern with keyboard navigation', () => {
+    mount();
+    const actions = screen.getByRole('tab', { name: 'Actions' });
+    expect(actions).toHaveAttribute('aria-selected', 'true');
+    expect(actions).toHaveAttribute('tabindex', '0');
+    expect(screen.getByRole('tabpanel')).toHaveAttribute('aria-labelledby', actions.id);
+    fireEvent.keyDown(actions, { key: 'ArrowLeft' });
+    expect(screen.getByRole('tab', { name: 'Notes' })).toHaveFocus();
+    fireEvent.keyDown(screen.getByRole('tab', { name: 'Notes' }), { key: 'ArrowRight' });
+    expect(screen.getByRole('tab', { name: 'Actions' })).toHaveFocus();
+    fireEvent.keyDown(screen.getByRole('tab', { name: 'Actions' }), { key: 'End' });
+    expect(screen.getByRole('tab', { name: 'Notes' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    fireEvent.keyDown(screen.getByRole('tab', { name: 'Notes' }), { key: 'Home' });
+    fireEvent.keyDown(screen.getByRole('tab', { name: 'Actions' }), { key: 'a' });
+    expect(screen.getByRole('tab', { name: 'Actions' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    fireEvent.click(screen.getByRole('tab', { name: 'Spells' }));
+    expect(screen.getByRole('tab', { name: 'Spells' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+  });
+
+  it('opens the tab named in the URL and edits notes', () => {
+    mount(createCharacter('Hero'), '/character/x?tab=notes');
+    fireEvent.change(screen.getByRole('textbox', { name: 'Notes' }), {
+      target: { value: 'Backstory' },
+    });
+    expect(currentCharacter().notes).toBe('Backstory');
+  });
+
+  it('adds, edits, removes and restores actions', () => {
+    mount();
+    expect(screen.getByText(/No actions yet/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Add action' }));
+    fireEvent.change(screen.getByRole('textbox', { name: 'Action name' }), {
+      target: { value: 'Longsword' },
+    });
+    fireEvent.change(screen.getByRole('textbox', { name: 'Action details' }), {
+      target: { value: '1d8 slashing' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Add action' }));
+    expect(currentCharacter().actions).toHaveLength(2);
+    fireEvent.change(screen.getAllByRole('textbox', { name: 'Action name' })[1]!, {
+      target: { value: 'Bow' },
+    });
+    fireEvent.change(screen.getAllByRole('textbox', { name: 'Action name' })[1]!, {
+      target: { value: '' },
+    });
+    expect(currentCharacter().actions[0]!.name).toBe('Longsword');
+    fireEvent.click(screen.getByRole('button', { name: 'Remove Longsword' }));
+    expect(screen.getByText('Longsword removed.')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Undo' }));
+    expect(currentCharacter().actions[0]).toMatchObject({
+      name: 'Longsword',
+      notes: '1d8 slashing',
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Remove Unnamed entry' }));
+    expect(screen.getByText('Unnamed entry removed.')).toBeInTheDocument();
+  });
+
+  it('rolls through the shared dock in the selected mode', () => {
+    mount(createCharacter('Hero'), '/character/x?tab=rolls');
+    fireEvent.click(screen.getByRole('button', { name: 'Disadvantage' }));
+    expect(screen.getByRole('button', { name: 'Disadvantage' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+    fireEvent.click(screen.getByRole('button', { name: /^Initiative/ }));
+    fireEvent.click(screen.getByRole('button', { name: /^Wisdom check/ }));
+    fireEvent.click(screen.getByRole('button', { name: /^Charisma save/ }));
+    fireEvent.click(screen.getByRole('button', { name: /^Survival/ }));
+    const log = useRollStore.getState().log;
+    expect(log.map((entry) => entry.label)).toEqual([
+      'Hero: Survival',
+      'Hero: Charisma save',
+      'Hero: Wisdom check',
+      'Hero: Initiative',
+    ]);
+    expect(log[0]!.outcome.mode).toBe('disadvantage');
+    expect(useRollStore.getState().dockOpen).toBe(true);
+  });
+
+  it('manages coins and inventory items', () => {
+    const owner = createCharacter('Hero');
+    owner.inventory = [
+      { id: 'shield', name: 'Shield', notes: '', quantity: 1, armorType: 'shield' },
+    ];
+    mount(owner, '/character/x?tab=inventory');
+    expect(screen.getByRole('checkbox', { name: 'Equipped' })).not.toBeChecked();
+    fireEvent.click(screen.getByRole('button', { name: 'Remove Shield' }));
+    expect(screen.getByText('No items yet.')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Undo' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Remove Shield' }));
+    fireEvent.change(screen.getByRole('textbox', { name: 'Gold (gp)' }), {
+      target: { value: '25' },
+    });
+    expect(currentCharacter().currency.gp).toBe(25);
+    expect(screen.getByText('Heavy Armor')).toBeInTheDocument();
+    expect(screen.getByText('common')).toBeInTheDocument();
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Add an item from the compendium...' }),
+    );
+    expect(currentCharacter().inventory[0]).toMatchObject({
+      name: 'Chain Mail',
+      armorType: 'heavy',
+      baseAc: 16,
+      equipped: true,
+      itemId: 'chain-mail',
+      notes: 'Heavy Armor',
+    });
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Add an item from the compendium... extra' }),
+    );
+    expect(currentCharacter().inventory[1]).toEqual(
+      expect.not.objectContaining({ armorType: expect.anything() }),
+    );
+    fireEvent.click(screen.getByRole('checkbox', { name: 'Equipped' }));
+    expect(currentCharacter().inventory[0]!.equipped).toBe(false);
+    expect(
+      screen.getByRole('link', { name: 'Open Chain Mail in the compendium' }),
+    ).toHaveAttribute('href', '/compendium/items/chain-mail/');
+    fireEvent.change(screen.getByRole('textbox', { name: 'Quantity of Chain Mail' }), {
+      target: { value: '2' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Add item' }));
+    const names = screen.getAllByRole('textbox', { name: 'Item name' });
+    fireEvent.change(names[2]!, { target: { value: 'Torch' } });
+    fireEvent.change(screen.getAllByRole('textbox', { name: 'Item description' })[2]!, {
+      target: { value: 'Lights' },
+    });
+    expect(currentCharacter().inventory[2]).toMatchObject({
+      name: 'Torch',
+      notes: 'Lights',
+      quantity: 1,
+    });
+    expect(currentCharacter().inventory[0]!.quantity).toBe(2);
+    fireEvent.click(screen.getByRole('button', { name: 'Remove Torch' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Undo' }));
+    expect(currentCharacter().inventory).toHaveLength(3);
+  });
+
+  it('separates synchronized and personal features', () => {
+    const character = createCharacter('Hero');
+    character.autoSyncFeatures = false;
+    character.features = [
+      {
+        id: 'auto-feature-0',
+        name: 'Rage',
+        source: 'Barbarian 1',
+        notes: 'Fury',
+        auto: true,
+      },
+      { id: 'auto-feature-1', name: 'Dwarf', source: 'Species', notes: '', auto: true },
+    ];
+    mount(character, '/character/x?tab=features');
+    expect(screen.getByText(/Synchronization is off/)).toBeInTheDocument();
+    expect(screen.getByText('No personal features yet.')).toBeInTheDocument();
+    expect(screen.getByText('No description.')).toBeInTheDocument();
+    fireEvent.click(screen.getAllByRole('button', { name: 'Copy to my features' })[0]!);
+    expect(screen.getByText('Rage copied to your features.')).toBeInTheDocument();
+    expect(currentCharacter().features.at(-1)).toMatchObject({
+      name: 'Rage',
+      notes: 'Fury',
+    });
+    expect(currentCharacter().features.at(-1)).not.toHaveProperty('auto');
+
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Add a feat from the compendium...' }),
+    );
+    expect(currentCharacter().features.at(-1)).toMatchObject({
+      name: 'Alert',
+      source: 'Feat',
+      featId: 'alert',
+    });
+    expect(
+      screen.getByRole('link', { name: 'Open Alert in the compendium' }),
+    ).toHaveAttribute('href', '/compendium/feats/alert/');
+
+    fireEvent.click(screen.getByRole('button', { name: 'Add feature' }));
+    const name = screen.getAllByRole('textbox', { name: 'Feature name' }).at(-1)!;
+    fireEvent.change(name, { target: { value: 'Lucky' } });
+    fireEvent.change(screen.getAllByRole('textbox', { name: 'Feature source' }).at(-1)!, {
+      target: { value: 'Custom' },
+    });
+    fireEvent.change(
+      screen.getAllByRole('textbox', { name: 'Feature description' }).at(-1)!,
+      {
+        target: { value: 'Reroll' },
+      },
+    );
+    expect(currentCharacter().features.at(-1)).toMatchObject({
+      name: 'Lucky',
+      source: 'Custom',
+      notes: 'Reroll',
+    });
+
+    const search = screen.getByRole('searchbox', { name: 'Search features' });
+    fireEvent.change(search, { target: { value: 'fury' } });
+    expect(screen.getByText('2 matching features.')).toBeInTheDocument();
+    expect(screen.queryByText('No features match your search.')).toBeNull();
+    fireEvent.change(search, { target: { value: 'zzz' } });
+    expect(screen.getAllByText('No features match your search.')).toHaveLength(2);
+    fireEvent.click(screen.getByRole('button', { name: 'Clear search' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Remove Lucky' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Undo' }));
+    expect(currentCharacter().features.some((f) => f.name === 'Lucky')).toBe(true);
+  });
+
+  it('shows the synchronization note for active characters', () => {
+    const character = createCharacter('Hero');
+    character.features = [
+      {
+        id: 'auto-feature-0',
+        name: 'Rage',
+        source: 'Barbarian 1',
+        notes: '',
+        auto: true,
+      },
+    ];
+    mount(character, '/character/x?tab=features');
+    expect(screen.getByText(/These entries update/)).toBeInTheDocument();
+  });
+
+  it('manages spellcasting, slots, concentration and spells', async () => {
+    const character = createCharacter('Hero');
+    character.spells = [
+      {
+        id: 'auto-spell-light',
+        name: 'Granted light',
+        level: 0,
+        prepared: true,
+        auto: true,
+      },
+      {
+        id: 'auto-spell-bless',
+        name: 'Bless',
+        level: 1,
+        prepared: true,
+        auto: true,
+        source: 'Cleric',
+        spellId: 'bless',
+        concentration: true,
+      },
+    ];
+    mount(character, '/character/x?tab=spells');
+    expect(
+      screen.getByText('No spell slots configured yet. Use Edit slots to add them.'),
+    ).toBeInTheDocument();
+    fireEvent.change(screen.getByRole('combobox', { name: 'Spellcasting Ability' }), {
+      target: { value: 'wis' },
+    });
+    expect(currentCharacter().spellcastingAbility).toBe('wis');
+    expect(screen.getByText('Granted by')).toBeInTheDocument();
+    expect(screen.getByText('Spell Save DC').nextSibling).toHaveTextContent('10');
+    expect(screen.getByText('Granted by Cleric')).toBeInTheDocument();
+    expect(screen.getByText('Level 1', { selector: 'span' })).toBeInTheDocument();
+    expect(screen.getByText('Cantrips', { selector: 'span' })).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Concentrating on Bless' }));
+    expect(currentCharacter().concentration).toBe('Bless');
+    fireEvent.click(screen.getByRole('button', { name: 'Concentrating on Bless' }));
+    expect(currentCharacter().concentration).toBe('');
+    expect(
+      screen.getByRole('link', { name: 'Open Bless in the compendium' }),
+    ).toHaveAttribute('href', '/compendium/spells/bless/');
+
+    fireEvent.click(screen.getByRole('button', { name: 'Edit slots' }));
+    fireEvent.change(screen.getByRole('textbox', { name: 'Level 1 long rest slots' }), {
+      target: { value: '2' },
+    });
+    fireEvent.change(screen.getByRole('textbox', { name: 'Level 1 short rest slots' }), {
+      target: { value: '1' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Done' }));
+    expect(screen.getByText('3 of 3')).toBeInTheDocument();
+    const spend = screen.getByRole('button', { name: 'Spend a level 1 slot' });
+    const recover = screen.getByRole('button', { name: 'Recover a level 1 slot' });
+    expect(recover).toBeDisabled();
+    fireEvent.click(spend);
+    fireEvent.click(spend);
+    fireEvent.click(spend);
+    expect(currentCharacter().spellSlots[0]).toMatchObject({
+      usedLongRest: 2,
+      usedShortRest: 1,
+    });
+    expect(spend).toBeDisabled();
+    fireEvent.click(recover);
+    fireEvent.click(recover);
+    expect(currentCharacter().spellSlots[0]).toMatchObject({
+      usedLongRest: 1,
+      usedShortRest: 0,
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Edit slots' }));
+    fireEvent.change(screen.getByRole('textbox', { name: 'Level 1 long rest slots' }), {
+      target: { value: '0' },
+    });
+    fireEvent.change(screen.getByRole('textbox', { name: 'Level 1 short rest slots' }), {
+      target: { value: '0' },
+    });
+    expect(currentCharacter().spellSlots[0]).toMatchObject({
       usedLongRest: 0,
       usedShortRest: 0,
     });
-    render(<Harness initial={character} />);
-    open('spells');
+    await act(async () => fireEvent.keyDown(document.activeElement!, { key: 'Escape' }));
 
-    fireEvent.change(screen.getByRole('combobox'), { target: { value: 'int' } });
-    expect(state().spellcastingAbility).toBe('int');
-
-    fireEvent.click(screen.getByLabelText('character.sheet.spellsTab.spendSlot 1'));
-    expect(state().spellSlots[0]).toMatchObject({ usedLongRest: 1, usedShortRest: 0 });
-    fireEvent.click(screen.getByLabelText('character.sheet.spellsTab.spendSlot 1'));
-    expect(state().spellSlots[0]).toMatchObject({ usedLongRest: 1, usedShortRest: 1 });
-    fireEvent.click(screen.getByLabelText('character.sheet.spellsTab.spendSlot 1'));
-    fireEvent.click(screen.getByLabelText('character.sheet.spellsTab.recoverSlot 1'));
-    expect(state().spellSlots[0]).toMatchObject({ usedLongRest: 1, usedShortRest: 0 });
-    fireEvent.click(screen.getByLabelText('character.sheet.spellsTab.recoverSlot 1'));
-    fireEvent.click(screen.getByLabelText('character.sheet.spellsTab.recoverSlot 1'));
-    fireEvent.click(screen.getByText('character.sheet.spellsTab.shortRest'));
-    fireEvent.click(screen.getByText('character.sheet.spellsTab.longRest'));
-    expect(state().spellSlots[0]).toMatchObject({ usedLongRest: 0, usedShortRest: 0 });
-
-    fireEvent.click(screen.getByText('pick-spells'));
-    expect(state().spells[0]).toMatchObject({
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Add a spell from the compendium...' }),
+    );
+    expect(currentCharacter().spells.at(-1)).toMatchObject({
       name: 'Shield',
       level: 1,
+      spellId: 'shield',
       prepared: false,
     });
-    fireEvent.click(screen.getByText('character.sheet.spellsTab.prep'));
-    fireEvent.change(screen.getByDisplayValue('Shield'), { target: { value: 'Ward' } });
-    expect(state().spells[0]).toMatchObject({ name: 'Ward', prepared: true });
-    fireEvent.click(screen.getByText('character.sheet.spellsTab.add'));
-    expect(state().spells).toHaveLength(2);
-    fireEvent.change(screen.getAllByRole('spinbutton')[1]!, {
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Add a spell from the compendium... extra' }),
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Add spell' }));
+    fireEvent.change(screen.getAllByRole('textbox', { name: 'Spell name' }).at(-1)!, {
+      target: { value: 'Custom' },
+    });
+    fireEvent.change(screen.getByRole('textbox', { name: 'Level of Custom' }), {
       target: { value: '3' },
     });
-    fireEvent.click(screen.getAllByLabelText('character.sheet.spellsTab.remove')[0]!);
-    expect(state().spells).toHaveLength(1);
-    fireEvent.change(screen.getByRole('combobox'), { target: { value: '' } });
-    expect(state().spellcastingAbility).toBeNull();
+    fireEvent.click(screen.getAllByRole('checkbox', { name: 'Prepared' })[0]!);
+    fireEvent.click(screen.getByRole('button', { name: 'Prepared (3)' }));
+    expect(screen.queryByText('Light')).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'All (5)' }));
+    fireEvent.change(screen.getByRole('combobox', { name: 'Spellcasting Ability' }), {
+      target: { value: '' },
+    });
+    expect(currentCharacter().spellcastingAbility).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'Remove Custom' }));
+    expect(screen.getByText('Custom removed.')).toBeInTheDocument();
   });
 
-  it('rolls in different modes and edits notes', () => {
-    const character = createCharacter('Scout');
-    character.abilities.str = 14;
-    character.abilities.int = 8;
-    render(<Harness initial={character} />);
-    open('rolls');
-
-    fireEvent.click(screen.getByText('dice.modeAdvantage'));
-    fireEvent.click(screen.getByText(/character\.sheet\.combat\.initiative/));
-    expect(screen.getAllByText(/dice\.modeAdvantage/)).toHaveLength(2);
-    fireEvent.click(screen.getByText('dice.modeDisadvantage'));
-    fireEvent.click(screen.getAllByText(/character\.sheet\.abilities\.str/)[0]!);
-    expect(screen.getByText('character.sheet.rollsTab.recent')).toBeInTheDocument();
-    fireEvent.click(screen.getByText('dice.modeNormal'));
-    fireEvent.click(screen.getAllByText(/character\.sheet\.abilities\.str/)[0]!);
-    fireEvent.click(screen.getAllByText(/character\.sheet\.abilities\.int/)[0]!);
-
-    open('notes');
-    fireEvent.change(
-      screen.getByPlaceholderText('character.sheet.notesTab.placeholder'),
-      {
-        target: { value: 'Met a dragon.' },
-      },
-    );
-    expect(state().notes).toBe('Met a dragon.');
-  });
-
-  it('shows the empty spell slot state', () => {
-    render(<Harness initial={createCharacter('Commoner')} />);
-    open('spells');
-    expect(screen.getByText('character.sheet.spellsTab.noSlotsHint')).toBeInTheDocument();
-  });
-
-  it('treats missing equipped state as unequipped', () => {
-    const character = createCharacter('Fighter');
-    character.inventory = [
-      {
-        id: 'armor',
-        name: 'Armor',
-        quantity: 1,
-        notes: '',
-        armorType: 'heavy',
-      },
-    ];
-    render(<Harness initial={character} />);
-    open('inventory');
-    expect(screen.getByRole('checkbox')).not.toBeChecked();
+  it('explains empty spell lists', () => {
+    mount(createCharacter('Hero'), '/character/x?tab=spells');
+    expect(screen.getByText('No spells yet.')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Prepared (0)' }));
+    expect(screen.getByText('No prepared spells.')).toBeInTheDocument();
+    expect(useDialogStore.getState().request).toBeNull();
   });
 });

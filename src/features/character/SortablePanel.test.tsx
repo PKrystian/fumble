@@ -1,93 +1,133 @@
-import { render, screen } from '@testing-library/react';
+import { act, fireEvent, render, renderHook, screen } from '@testing-library/react';
+import { DndContext } from '@dnd-kit/core';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect, it, vi } from 'vitest';
-
-const { useSortable, sortableContext } = vi.hoisted(() => ({
-  useSortable: vi.fn(),
-  sortableContext: vi.fn(),
-}));
-
-vi.mock('@dnd-kit/sortable', () => ({
-  SortableContext: ({
-    children,
-    ...props
-  }: {
-    children: React.ReactNode;
-    items: string[];
-    strategy: unknown;
-  }) => {
-    sortableContext(props);
-    return <section>{children}</section>;
-  },
-  useSortable,
-  verticalListSortingStrategy: 'vertical',
-}));
-
-vi.mock('@dnd-kit/utilities', () => ({
-  CSS: {
-    Transform: {
-      toString: (value: unknown) => (value ? 'translate3d(1px, 2px, 0)' : undefined),
-    },
-  },
-}));
-
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { Panel } from './fields';
+import { useWideLayout } from './layoutMeta';
+import { DEFAULT_MOBILE_ORDER, useLayoutStore } from './layoutStore';
 import { SortablePanel, SortableZone } from './SortablePanel';
 
-describe('sortable character panels', () => {
-  it('binds the drag handle and renders a normal panel', () => {
-    const setNodeRef = vi.fn();
-    useSortable.mockReturnValue({
-      attributes: { 'data-attribute': 'bound' },
-      listeners: { onPointerDown: vi.fn() },
-      setNodeRef,
-      transform: { x: 1, y: 2 },
-      transition: 'transform 1s',
-      isDragging: false,
-    });
+function mount(wide: boolean, onMoved = vi.fn()) {
+  const ids = wide ? useLayoutStore.getState().zones.center : DEFAULT_MOBILE_ORDER;
+  render(
+    <MemoryRouter initialEntries={['/character/x']}>
+      <DndContext>
+        <SortableZone panelIds={ids}>
+          {['hitPoints', 'tabs'].map((id) => (
+            <SortablePanel key={id} id={id} wide={wide} onMoved={onMoved}>
+              <Panel title={id === 'tabs' ? 'Details' : 'Hit Points'}>
+                <p>{`${id} body`}</p>
+              </Panel>
+            </SortablePanel>
+          ))}
+        </SortableZone>
+      </DndContext>
+    </MemoryRouter>,
+  );
+  return onMoved;
+}
 
-    const { container } = render(
-      <MemoryRouter>
-        <SortablePanel id="notes">
-          <p>Notes</p>
-        </SortablePanel>
-      </MemoryRouter>,
-    );
-
-    expect(useSortable).toHaveBeenCalledWith({ id: 'notes' });
-    expect(setNodeRef).toHaveBeenCalled();
-    expect(screen.getByRole('button', { name: 'Drag to reorder' })).toHaveAttribute(
-      'data-attribute',
-      'bound',
-    );
-    expect(container.firstChild).toHaveStyle({
-      transform: 'translate3d(1px, 2px, 0)',
-      transition: 'transform 1s',
-    });
-    expect(container.firstChild).not.toHaveClass('opacity-50');
+describe('sortable sheet panels', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    useLayoutStore.getState().reset();
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
   });
 
-  it('marks a dragged panel and renders a sortable zone', () => {
-    useSortable.mockReturnValue({
-      attributes: {},
-      listeners: {},
-      setNodeRef: vi.fn(),
-      transform: null,
-      transition: undefined,
-      isDragging: true,
-    });
+  it('moves panels within and between columns from the layout menu', () => {
+    const onMoved = mount(true);
+    expect(document.querySelector('.drag-grip')).toHaveAttribute('aria-hidden', 'true');
+    fireEvent.click(screen.getByRole('button', { name: 'Arrange Hit Points' }));
+    expect(screen.getByRole('menuitem', { name: 'Move up' })).not.toBeDisabled();
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Move up' }));
+    expect(useLayoutStore.getState().zones.center[0]).toBe('hitPoints');
+    expect(onMoved).toHaveBeenLastCalledWith(
+      'Hit Points moved to position 1 in the center column.',
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Arrange Hit Points' }));
+    expect(screen.getByRole('menuitem', { name: 'Move up' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Move down' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Arrange Hit Points' }));
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Move to right column' }));
+    expect(useLayoutStore.getState().zones.right.at(-1)).toBe('hitPoints');
+    expect(onMoved).toHaveBeenLastCalledWith(
+      'Hit Points moved to position 6 in the right column.',
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Arrange Details' }));
+    expect(screen.getByRole('menuitem', { name: 'Move down' })).toBeDisabled();
+    expect(
+      screen.getByRole('menuitem', { name: 'Move to left column' }),
+    ).toBeInTheDocument();
+    expect(screen.queryByRole('menuitem', { name: 'Move to center column' })).toBeNull();
+    expect(screen.queryByRole('button', { name: 'Details' })).toBeNull();
+  });
 
-    const { container } = render(
+  it('collapses panels and moves them in the narrow order', () => {
+    const onMoved = mount(false);
+    expect(document.querySelector('.drag-grip')).toBeNull();
+    const details = screen.getByText('Details');
+    expect(details.tagName).toBe('H2');
+    const hp = screen.getByRole('button', { name: 'Hit Points' });
+    expect(hp).toHaveAttribute('aria-expanded', 'true');
+    fireEvent.click(hp);
+    expect(screen.queryByText('hitPoints body')).toBeNull();
+    expect(useLayoutStore.getState().collapsed).toContain('hitPoints');
+    fireEvent.click(screen.getByRole('button', { name: 'Arrange Hit Points' }));
+    expect(screen.queryByRole('menuitem', { name: /column/ })).toBeNull();
+    expect(screen.getByRole('menuitem', { name: 'Move up' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Move down' }));
+    expect(useLayoutStore.getState().mobileOrder.slice(0, 2)).toEqual([
+      'combat',
+      'hitPoints',
+    ]);
+    expect(onMoved).toHaveBeenLastCalledWith('Hit Points moved to position 2.');
+  });
+
+  it('keeps a panel unknown to the layout menu safe', () => {
+    render(
       <MemoryRouter>
-        <SortableZone panelIds={['stats']}>
-          <SortablePanel id="stats">Stats</SortablePanel>
-        </SortableZone>
+        <DndContext>
+          <SortablePanel id="mystery" wide onMoved={vi.fn()}>
+            <Panel title="Mystery">
+              <p>body</p>
+            </Panel>
+          </SortablePanel>
+        </DndContext>
       </MemoryRouter>,
     );
+    fireEvent.click(screen.getByRole('button', { name: 'Arrange mystery' }));
+    expect(screen.getByRole('menuitem', { name: 'Move up' })).toBeDisabled();
+    expect(screen.getByRole('menuitem', { name: 'Move down' })).toBeDisabled();
+  });
 
-    expect(container.querySelector('.opacity-50')).toBeInTheDocument();
-    expect(sortableContext).toHaveBeenCalledWith({
-      items: ['stats'],
-      strategy: 'vertical',
-    });
+  it('tracks the wide layout media query', () => {
+    const listeners: Array<() => void> = [];
+    let matches = true;
+    const remove = vi.fn();
+    vi.stubGlobal(
+      'matchMedia',
+      vi.fn(() => ({
+        get matches() {
+          return matches;
+        },
+        addEventListener: (_event: string, listener: () => void) =>
+          listeners.push(listener),
+        removeEventListener: remove,
+      })),
+    );
+    const { result, unmount } = renderHook(() => useWideLayout());
+    expect(result.current).toBe(true);
+    matches = false;
+    act(() => listeners.forEach((listener) => listener()));
+    expect(result.current).toBe(false);
+    unmount();
+    expect(remove).toHaveBeenCalled();
+  });
+
+  it('assumes a wide layout without media queries', () => {
+    vi.stubGlobal('matchMedia', undefined);
+    expect(renderHook(() => useWideLayout()).result.current).toBe(true);
   });
 });

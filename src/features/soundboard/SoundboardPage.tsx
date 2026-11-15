@@ -1,534 +1,597 @@
-import { Button, ToggleChip } from '@/features/ui/primitives';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
-  closestCenter,
   DndContext,
-  type DragEndEvent,
-  DragOverlay,
-  type DragStartEvent,
   PointerSensor,
   TouchSensor,
+  KeyboardSensor,
+  closestCenter,
   useSensor,
   useSensors,
+  type DragEndEvent,
 } from '@dnd-kit/core';
-import { rectSortingStrategy, SortableContext, useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
 import {
-  Eraser,
-  GripVertical,
-  Pencil,
-  Play,
-  Plus,
-  RotateCcw,
-  Settings2,
-  Trash2,
-  X,
-} from 'lucide-react';
+  SortableContext,
+  rectSortingStrategy,
+  sortableKeyboardCoordinates,
+} from '@dnd-kit/sortable';
+import { Button, SearchField, Select, ToggleChip } from '@/features/ui/primitives';
 import { confirmDialog } from '@/features/ui/confirmStore';
-import plBardifyNames from '@/data/generated/pl/bardify.json';
-import type { Locale } from '@/i18n/locales';
+import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
+import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
-import { type SoundboardCategory, type Track, useSoundboardStore } from './store';
-import { embedUrl, parseYouTubeId, thumbnailUrl } from './youtube';
-import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
+import { useSoundboardStore } from './store';
+import {
+  allowSoundboardReplacement,
+  saveSoundboard,
+  useSoundboardSaveStatus,
+} from './persistence';
+import { downloadSoundboard, downloadSoundboardFile } from './files';
+import { categoryName, selectTracks, trackName, type TrackSort } from './catalog';
+import { TrackForm } from './TrackForm';
+import { TrackCard } from './TrackCard';
+import { SoundboardDialog } from './SoundboardDialog';
+import { CategoryManager } from './CategoryManager';
+import { SoundboardPlayer } from './SoundboardPlayer';
+import type { SoundboardCategory, SoundboardData, Track } from './validation';
 
-const DEFAULT_TRACK_NAME_KEYS: Record<string, string> = {
-  'bardify-playlist-places': 'soundboard.defaultTrack.places',
-  'bardify-playlist-planes': 'soundboard.defaultTrack.planes',
-  'bardify-playlist-situations': 'soundboard.defaultTrack.situations',
-  'bardify-playlist-settlements': 'soundboard.defaultTrack.settlements',
-  'bardify-playlist-ambience': 'soundboard.defaultTrack.ambience',
-  'bardify-playlist-travel': 'soundboard.defaultTrack.travel',
-  'bardify-playlist-dungeons': 'soundboard.defaultTrack.dungeons',
-  'bardify-playlist-tavern': 'soundboard.defaultTrack.tavern',
-  'bardify-playlist-combat': 'soundboard.defaultTrack.combat',
-};
-
-function displayTrackName(
-  track: Track,
-  t: (key: string) => string,
-  locale: Locale,
-): string {
-  if (locale === 'pl') {
-    const localized = (plBardifyNames as Record<string, string>)[track.id];
-    if (localized) return localized;
-  }
-  const key = DEFAULT_TRACK_NAME_KEYS[track.id];
-  return key ? t(key) : track.name;
-}
-
-interface SortableTrackProps {
-  track: Track;
-  categories: SoundboardCategory[];
-  selected: boolean;
-  editing: boolean;
-  onPlay: () => void;
-  onEdit: () => void;
-  onFinishEditing: () => void;
-  onRemove: () => void;
-  onCategoryChange: (category: string) => void;
-}
-
-function SortableTrack({
-  track,
-  categories,
-  selected,
-  editing,
-  onPlay,
-  onEdit,
-  onFinishEditing,
-  onRemove,
-  onCategoryChange,
-}: SortableTrackProps) {
-  const { t, locale } = useT();
-  const displayName = displayTrackName(track, t, locale);
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
-    useSortable({ id: track.id });
-
-  return (
-    <li
-      ref={setNodeRef}
-      style={{ transform: CSS.Transform.toString(transform), transition }}
-      className={[
-        'group relative overflow-hidden rounded-xl border bg-ink-900 will-change-transform',
-        isDragging ? 'z-10 opacity-35' : '',
-        selected
-          ? 'border-arcane-300 ring-2 ring-arcane-700'
-          : 'border-ink-700 hover:border-arcane-500',
-      ].join(' ')}
-    >
-      <button type="button" onClick={onPlay} className="block w-full text-left">
-        <div className="relative aspect-video bg-ink-800">
-          <img
-            src={thumbnailUrl(track.videoId)}
-            alt=""
-            loading="lazy"
-            width={320}
-            height={180}
-            className="h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
-          />
-          <span className="absolute inset-0 flex items-center justify-center">
-            <Play className="text-ink-50 drop-shadow" size={36} />
-          </span>
-        </div>
-        <span className="block truncate px-3 py-2 text-sm font-medium text-ink-50">
-          {displayName}
-        </span>
-      </button>
-
-      {editing && (
-        <div className="border-t border-ink-700 p-3">
-          <label className="flex flex-col gap-1 text-xs font-semibold text-ink-400">
-            {t('soundboard.categoryLabel')}
-            <select
-              value={track.category}
-              onChange={(event) => onCategoryChange(event.target.value)}
-              aria-label={t('soundboard.changeTrackCategory', { name: displayName })}
-              className="ui-field font-normal"
-            >
-              {categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.name ?? t(`soundboard.category.${category.id}`)}
-                </option>
-              ))}
-            </select>
-          </label>
-          <Button
-            type="button"
-            onClick={onFinishEditing}
-            variant="primary"
-            size="sm"
-            className="mt-2 w-full"
-          >
-            {t('soundboard.done')}
-          </Button>
-        </div>
-      )}
-
-      <button
-        type="button"
-        {...attributes}
-        {...listeners}
-        aria-label={t('common.dragToReorder')}
-        className="drag-handle left-1 top-1"
-      >
-        <GripVertical size={14} />
-      </button>
-      <div className="absolute right-1 top-1 flex gap-1 opacity-100 sm:opacity-0 sm:group-focus-within:opacity-100 sm:group-hover:opacity-100">
-        <Button
-          type="button"
-          aria-label={t('soundboard.editTrack', { name: displayName })}
-          onClick={onEdit}
-          variant="ghost"
-          size="sm"
-          iconOnly
-        >
-          <Pencil size={14} />
-        </Button>
-        <Button
-          type="button"
-          aria-label={t('soundboard.removeTrack', { name: displayName })}
-          onClick={onRemove}
-          variant="ghost"
-          size="sm"
-          iconOnly
-        >
-          <Trash2 size={14} />
-        </Button>
-      </div>
-    </li>
-  );
-}
-
-function TrackOverlay({ track }: { track: Track }) {
-  const { t, locale } = useT();
-  return (
-    <div className="w-56 rotate-1 overflow-hidden rounded-xl border border-arcane-400 bg-ink-900 shadow-2xl shadow-black/60">
-      <img
-        src={thumbnailUrl(track.videoId)}
-        alt=""
-        width={320}
-        height={180}
-        className="aspect-video w-full object-cover"
-      />
-      <div className="truncate px-3 py-2 text-sm font-medium text-ink-50">
-        {displayTrackName(track, t, locale)}
-      </div>
-    </div>
-  );
-}
-
+const PAGE_SIZE = 50;
 export function SoundboardPage() {
   const { t, locale } = useT();
   useSeo(t('seo.pageTitles.soundboard'), t('seo.pageDescriptions.soundboard'), false);
-  const tracks = useSoundboardStore((s) => s.tracks);
-  const categories = useSoundboardStore((s) => s.categories);
-  const addTrack = useSoundboardStore((s) => s.addTrack);
-  const removeTrack = useSoundboardStore((s) => s.removeTrack);
-  const moveTrack = useSoundboardStore((s) => s.moveTrack);
-  const setTrackCategory = useSoundboardStore((s) => s.setTrackCategory);
-  const addCategory = useSoundboardStore((s) => s.addCategory);
-  const renameCategory = useSoundboardStore((s) => s.renameCategory);
-  const removeCategory = useSoundboardStore((s) => s.removeCategory);
-  const resetEmpty = useSoundboardStore((s) => s.resetEmpty);
-  const resetToExamples = useSoundboardStore((s) => s.resetToExamples);
-
-  const [active, setActive] = useState<Track | null>(null);
-  const [name, setName] = useState('');
-  const [url, setUrl] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('custom');
-  const [newCategory, setNewCategory] = useState('');
-  const [managingCategories, setManagingCategories] = useState(false);
-  const [editingTrackId, setEditingTrackId] = useState<string | null>(null);
-  const [draggedTrackId, setDraggedTrackId] = useState<string | null>(null);
-  const [error, setError] = useState('');
+  const state = useSoundboardStore();
+  const { tracks, categories } = state;
+  const saved = useSoundboardSaveStatus();
   const { params, update } = useUrlSearchState();
+  const [query, setQuery] = useState('');
+  const [page, setPage] = useState(1);
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const [adding, setAdding] = useState(false);
+  const [editing, setEditing] = useState<Track | null>(null);
+  const [managing, setManaging] = useState(false);
+  const [feedback, setFeedback] = useState('');
+  const [downloadError, setDownloadError] = useState(false);
+  const [undo, setUndo] = useState<SoundboardData | null>(null);
+  const [added, setAdded] = useState<string | null>(null);
+  useEffect(() => {
+    if (saved.saved) return;
+    const beforeUnload = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+    };
+    window.addEventListener('beforeunload', beforeUnload);
+    return () => window.removeEventListener('beforeunload', beforeUnload);
+  }, [saved.saved]);
+  const resultsRef = useRef<HTMLHeadingElement>(null);
+  const requestedCategory = params.get('category');
+  const category = categories.some((item) => item.id === requestedCategory)
+    ? requestedCategory!
+    : 'all';
+  const favorites = params.get('favorites') === '1';
+  const requestedSort = params.get('sort');
+  const sort: TrackSort =
+    requestedSort === 'name' || requestedSort === 'recent' ? requestedSort : 'manual';
+  const filtered = selectTracks(tracks, { query, category, favorites, sort, locale, t });
+  const currentPage = Math.min(page, Math.max(1, Math.ceil(filtered.length / PAGE_SIZE)));
+  const visible = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  const active = tracks.find((track) => track.id === activeId);
+  const manual = sort === 'manual';
+  const nameOf = (track: Track) => trackName(track, locale, t);
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
-    useSensor(TouchSensor, {
-      activationConstraint: { delay: 180, tolerance: 6 },
-    }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 180, tolerance: 6 } }),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
   );
-  const requestedCategory = params.get('category');
-  const category =
-    requestedCategory &&
-    categories.some((soundboardCategory) => soundboardCategory.id === requestedCategory)
-      ? requestedCategory
-      : 'all';
-  const visibleTracks =
-    category === 'all' ? tracks : tracks.filter((track) => track.category === category);
-  const categoryLabel = (id: string, customName: string | null = null) =>
-    customName ?? t(`soundboard.category.${id}`);
-
-  const add = () => {
-    const videoId = parseYouTubeId(url);
-    if (!videoId) {
-      setError(t('soundboard.invalidLink'));
-      return;
+  const mutate = (action: () => void) => {
+    setUndo(null);
+    setAdded(null);
+    action();
+  };
+  const snapshot = () => ({
+    tracks: useSoundboardStore.getState().tracks,
+    categories: useSoundboardStore.getState().categories,
+  });
+  const download = (original = false) => {
+    try {
+      if (original && saved.raw !== null)
+        downloadSoundboardFile(saved.raw, 'fumble-soundboard-original.json');
+      else downloadSoundboard(snapshot());
+      setDownloadError(false);
+      setFeedback(t('soundboard.downloaded'));
+    } catch {
+      setDownloadError(true);
     }
-    addTrack(name.trim() || t('soundboard.untitledTrack'), videoId, selectedCategory);
-    setName('');
-    setUrl('');
-    setError('');
   };
-
-  const onDragStart = (event: DragStartEvent) => {
-    setDraggedTrackId(event.active.id as string);
+  const confirm = (message: string, label: string) =>
+    confirmDialog(message, {
+      title: t('soundboard.confirmTitle'),
+      confirmLabel: label,
+      tone: 'danger',
+      initialFocus: 'cancel',
+    });
+  const removeTrack = async (track: Track) => {
+    if (
+      !(await confirm(
+        t('soundboard.removeTrackConfirm', { name: nameOf(track) }),
+        t('common.delete'),
+      ))
+    )
+      return;
+    const previous = snapshot();
+    state.removeTrack(track.id);
+    setUndo(previous);
+    if (activeId === track.id) setActiveId(null);
+    setFeedback(t('soundboard.removed', { name: nameOf(track) }));
   };
-
+  const removeCategory = async (item: SoundboardCategory) => {
+    if (
+      !(await confirm(
+        t('soundboard.removeCategoryConfirm', {
+          name: categoryName(item, t),
+          count: tracks.filter((track) => track.category === item.id).length,
+        }),
+        t('common.delete'),
+      ))
+    )
+      return;
+    const previous = snapshot();
+    state.removeCategory(item.id);
+    setUndo(previous);
+    if (category === item.id) update({ category: null });
+    setFeedback(t('soundboard.removed', { name: categoryName(item, t) }));
+  };
+  const reset = async (examples: boolean) => {
+    if (
+      !(await confirm(
+        t(examples ? 'soundboard.examplesConfirm' : 'soundboard.clearConfirm'),
+        t(examples ? 'soundboard.restoreExamples' : 'soundboard.clear'),
+      ))
+    )
+      return;
+    const previous = saved.blocked ? null : snapshot();
+    allowSoundboardReplacement();
+    if (examples) state.resetToExamples();
+    else state.resetEmpty();
+    setActiveId(null);
+    setUndo(previous);
+    setAdded(null);
+    update({ category: null, favorites: null });
+    setQuery('');
+    setPage(1);
+    setFeedback(t('soundboard.resetDone'));
+  };
+  const move = (fromId: string, toId: string) => {
+    const from = tracks.findIndex((track) => track.id === fromId);
+    const to = tracks.findIndex((track) => track.id === toId);
+    const destinationIndex = filtered.findIndex((track) => track.id === toId);
+    if (from < 0 || to < 0 || destinationIndex < 0) return;
+    mutate(() => state.moveTrack(from, to));
+    const destinationPage = Math.floor(destinationIndex / PAGE_SIZE) + 1;
+    if (destinationPage !== currentPage) {
+      setPage(destinationPage);
+      resultsRef.current?.focus();
+    }
+    setFeedback(t('soundboard.moved', { name: nameOf(tracks[from]!) }));
+  };
   const onDragEnd = (event: DragEndEvent) => {
-    setDraggedTrackId(null);
-    if (!event.over || event.active.id === event.over.id) return;
-    const from = tracks.findIndex((track) => track.id === event.active.id);
-    const to = tracks.findIndex((track) => track.id === event.over?.id);
-    if (from >= 0 && to >= 0) moveTrack(from, to);
+    if (event.over && event.active.id !== event.over.id)
+      move(String(event.active.id), String(event.over.id));
   };
-
+  const undoNotice = undo && (
+    <div className="notice mt-3 flex flex-wrap items-center justify-between gap-3">
+      <span>{t('soundboard.undoHelp')}</span>
+      <Button
+        onClick={() => {
+          state.replaceData(undo);
+          setUndo(null);
+          setFeedback(t('soundboard.undone'));
+        }}
+      >
+        {t('soundboard.undo')}
+      </Button>
+    </div>
+  );
+  const addedTrack = tracks.find((track) => track.id === added);
   return (
     <div className="page-shell">
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-ink-50 page-title">{t('soundboard.title')}</h1>
-        <div className="flex flex-wrap gap-2">
-          <Button
-            type="button"
-            onClick={() => setManagingCategories((open) => !open)}
-            aria-expanded={managingCategories}
-            variant="secondary"
-          >
-            <Settings2 size={14} /> {t('soundboard.manageCategories')}
-          </Button>
-          <Button
-            type="button"
-            onClick={async () => {
-              const ok = await confirmDialog(t('soundboard.clearConfirm'), {
-                confirmLabel: t('soundboard.clear'),
-              });
-              if (ok) {
-                resetEmpty();
-                setActive(null);
-                update({ category: null });
-                setSelectedCategory('custom');
-              }
-            }}
-            variant="secondary"
-          >
-            <Eraser size={14} /> {t('soundboard.clear')}
-          </Button>
-          <Button
-            type="button"
-            onClick={async () => {
-              const ok = await confirmDialog(t('soundboard.examplesConfirm'), {
-                confirmLabel: t('soundboard.restoreExamples'),
-              });
-              if (ok) {
-                resetToExamples();
-                setActive(null);
-                update({ category: null });
-                setSelectedCategory('custom');
-              }
-            }}
-            variant="secondary"
-          >
-            <RotateCcw size={14} /> {t('soundboard.restoreExamples')}
-          </Button>
-        </div>
-      </div>
-
-      {active && (
-        <div className="mb-6 overflow-hidden rounded-xl border border-arcane-700 bg-ink-900">
-          <div className="flex items-center justify-between px-4 py-2">
-            <span className="font-medium text-ink-50">
-              {t('soundboard.nowPlaying', { name: displayTrackName(active, t, locale) })}
-            </span>
-            <Button
-              type="button"
-              aria-label={t('soundboard.stop')}
-              onClick={() => setActive(null)}
-              variant="ghost"
-              size="sm"
-              iconOnly
-            >
-              <X size={18} />
-            </Button>
-          </div>
-          <iframe
-            key={active.id}
-            title={displayTrackName(active, t, locale)}
-            src={embedUrl(active.videoId, active.playlistId)}
-            allow="autoplay; encrypted-media"
-            className="aspect-video w-full"
-          />
-        </div>
-      )}
-
-      {managingCategories && (
-        <section className="mb-6 rounded-xl border border-ink-700 bg-ink-900 p-4">
-          <h2 className="text-ink-50 section-title">
-            {t('soundboard.manageCategories')}
-          </h2>
-          <div className="mt-4 flex gap-2">
-            <input
-              value={newCategory}
-              onChange={(event) => setNewCategory(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' && newCategory.trim()) {
-                  addCategory(newCategory.trim());
-                  setNewCategory('');
-                }
-              }}
-              aria-label={t('soundboard.newCategory')}
-              placeholder={t('soundboard.newCategoryPlaceholder')}
-              className="ui-field min-w-0 flex-1"
-            />
-            <Button
-              type="button"
-              disabled={!newCategory.trim()}
-              onClick={() => {
-                addCategory(newCategory.trim());
-                setNewCategory('');
-              }}
-              variant="primary"
-            >
-              <Plus size={16} /> {t('soundboard.addCategory')}
-            </Button>
-          </div>
-          <ul className="mt-4 divide-y divide-ink-800">
-            {categories.map((soundboardCategory) => (
-              <li key={soundboardCategory.id} className="flex items-center gap-2 py-2">
-                <input
-                  value={categoryLabel(soundboardCategory.id, soundboardCategory.name)}
-                  onChange={(event) =>
-                    renameCategory(soundboardCategory.id, event.target.value)
-                  }
-                  aria-label={t('soundboard.renameCategory', {
-                    name: categoryLabel(soundboardCategory.id, soundboardCategory.name),
-                  })}
-                  className="ui-field min-w-0 flex-1"
-                />
-                {soundboardCategory.id !== 'custom' && (
-                  <Button
-                    type="button"
-                    onClick={() => {
-                      removeCategory(soundboardCategory.id);
-                      if (selectedCategory === soundboardCategory.id) {
-                        setSelectedCategory('custom');
-                      }
-                      if (category === soundboardCategory.id) {
-                        update({ category: null });
-                      }
-                    }}
-                    aria-label={t('soundboard.removeCategory', {
-                      name: categoryLabel(soundboardCategory.id, soundboardCategory.name),
-                    })}
-                    variant="ghost"
-                    size="sm"
-                    iconOnly
-                  >
-                    <Trash2 size={16} />
-                  </Button>
-                )}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      <div className="mb-6 flex flex-wrap items-end gap-2 rounded-xl border border-ink-700 bg-ink-900 p-4">
-        <label className="flex flex-1 flex-col gap-1 text-sm">
-          <span className="text-xs font-semibold text-ink-400">
-            {t('soundboard.name')}
-          </span>
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder={t('soundboard.namePlaceholder')}
-            className="ui-field"
-          />
-        </label>
-        <label className="flex min-w-40 flex-col gap-1 text-sm">
-          <span className="text-xs font-semibold text-ink-400">
-            {t('soundboard.categoryLabel')}
-          </span>
-          <select
-            value={selectedCategory}
-            onChange={(event) => setSelectedCategory(event.target.value)}
-            className="ui-field"
-          >
-            {categories.map((soundboardCategory) => (
-              <option key={soundboardCategory.id} value={soundboardCategory.id}>
-                {categoryLabel(soundboardCategory.id, soundboardCategory.name)}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="flex flex-[2] flex-col gap-1 text-sm">
-          <span className="text-xs font-semibold text-ink-400">
-            {t('soundboard.youtubeLink')}
-          </span>
-          <input
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && add()}
-            placeholder="https://www.youtube.com/watch?v=..."
-            className="ui-field"
-          />
-        </label>
-        <Button type="button" onClick={add} variant="primary">
-          <Plus size={16} /> {t('soundboard.add')}
-        </Button>
-      </div>
-      {error && <p className="mb-4 text-sm text-red-400">{error}</p>}
-
-      <div className="mb-4 flex flex-wrap gap-2" aria-label={t('soundboard.categories')}>
-        {[
-          { id: 'all', name: t('soundboard.category.all') },
-          ...categories.map((item) => ({
-            id: item.id,
-            name: categoryLabel(item.id, item.name),
-          })),
-        ].map((item) => {
-          const selected = category === item.id;
-          return (
-            <ToggleChip
-              key={item.id}
-              type="button"
-              active={selected}
-              onClick={() => update({ category: item.id === 'all' ? null : item.id })}
-            >
-              {item.name}
-            </ToggleChip>
-          );
-        })}
-      </div>
-
-      {visibleTracks.length === 0 && (
-        <p className="empty-state">{t('soundboard.emptyState')}</p>
-      )}
-
-      <DndContext
-        sensors={sensors}
-        collisionDetection={closestCenter}
-        onDragStart={onDragStart}
-        onDragEnd={onDragEnd}
-        onDragCancel={() => setDraggedTrackId(null)}
-      >
-        <SortableContext
-          items={visibleTracks.map((track) => track.id)}
-          strategy={rectSortingStrategy}
+      <h1 className="page-title">{t('soundboard.title')}</h1>
+      <p className="page-description">{t('soundboard.description')}</p>
+      <div className="my-6 flex flex-wrap gap-2">
+        <Button
+          variant="primary"
+          disabled={saved.blocked}
+          onClick={() => setAdding(true)}
         >
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {visibleTracks.map((track) => (
-              <SortableTrack
-                key={track.id}
-                track={track}
-                categories={categories}
-                selected={active?.id === track.id}
-                editing={editingTrackId === track.id}
-                onPlay={() => setActive(track)}
-                onEdit={() =>
-                  setEditingTrackId((current) => (current === track.id ? null : track.id))
-                }
-                onFinishEditing={() => setEditingTrackId(null)}
-                onRemove={() => {
-                  removeTrack(track.id);
-                  if (editingTrackId === track.id) setEditingTrackId(null);
+          {t('soundboard.addTrack')}
+        </Button>
+        <Button onClick={() => setManaging(true)} disabled={saved.blocked}>
+          {t('soundboard.manageCategories')}
+        </Button>
+        <details className="w-full">
+          <summary className="back-link cursor-pointer">{t('soundboard.tools')}</summary>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Button onClick={() => void reset(false)} variant="danger">
+              {t('soundboard.clear')}
+            </Button>
+            <Button onClick={() => void reset(true)} variant="danger">
+              {t('soundboard.restoreExamples')}
+            </Button>
+          </div>
+          <p className="mt-3 text-sm text-ink-400">
+            {t('soundboard.backupHelp')}{' '}
+            <Link to="/data" className="text-arcane-300 underline">
+              {t('nav.data')}
+            </Link>
+          </p>
+        </details>
+      </div>
+      <div className="mb-6" role={saved.saved ? 'status' : 'alert'}>
+        <p className={saved.saved ? 'text-sm text-ink-400' : 'notice notice-error'}>
+          {t(
+            saved.blocked
+              ? 'soundboard.corruptStorage'
+              : saved.saved
+                ? 'soundboard.saved'
+                : 'soundboard.unsaved',
+          )}
+        </p>
+        {!saved.saved && (
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            {saved.blocked ? (
+              <Button
+                onClick={() => {
+                  void useSoundboardStore.persist.rehydrate();
                 }}
-                onCategoryChange={(nextCategory) =>
-                  setTrackCategory(track.id, nextCategory)
-                }
-              />
-            ))}
-          </ul>
-        </SortableContext>
-        <DragOverlay dropAnimation={{ duration: 200, easing: 'ease-out' }}>
-          {draggedTrackId ? (
-            <TrackOverlay track={tracks.find((track) => track.id === draggedTrackId)!} />
-          ) : null}
-        </DragOverlay>
-      </DndContext>
-
-      <p className="mt-6 text-xs text-ink-500">{t('soundboard.footerNote')}</p>
+              >
+                {t('soundboard.retryRead')}
+              </Button>
+            ) : (
+              <Button onClick={() => saveSoundboard(snapshot())}>
+                {t('soundboard.retrySave')}
+              </Button>
+            )}
+            <Button
+              disabled={saved.blocked && saved.raw === null}
+              onClick={() => download(saved.blocked)}
+            >
+              {t(
+                saved.blocked
+                  ? 'soundboard.downloadOriginal'
+                  : 'soundboard.emergencyExport',
+              )}
+            </Button>
+            <Link to="/data" className="back-link">
+              {t('nav.data')}
+            </Link>
+          </div>
+        )}
+      </div>
+      <div aria-live="polite" aria-atomic="true" className="mb-4 min-h-6">
+        <p className="text-sm text-ink-300">{feedback}</p>
+      </div>
+      {downloadError && (
+        <p role="alert" className="notice notice-error mb-4">
+          {t('soundboard.downloadError')}
+        </p>
+      )}
+      {undoNotice}
+      {!saved.blocked && (
+        <>
+          {active && (
+            <SoundboardPlayer
+              key={`${active.id}:${active.videoId}:${active.playlistId ?? ''}`}
+              track={active}
+              name={nameOf(active)}
+              onStop={() => setActiveId(null)}
+            />
+          )}
+          {addedTrack && (
+            <Button
+              className="mb-4"
+              onClick={() => {
+                setQuery('');
+                update({ category: addedTrack.category, favorites: null });
+                const list = selectTracks(tracks, {
+                  query: '',
+                  category: addedTrack.category,
+                  favorites: false,
+                  sort,
+                  locale,
+                  t,
+                });
+                setPage(
+                  Math.floor(
+                    list.findIndex((track) => track.id === addedTrack.id) / PAGE_SIZE,
+                  ) + 1,
+                );
+                setAdded(null);
+              }}
+            >
+              {t('soundboard.showAdded')}
+            </Button>
+          )}
+          <section className="catalog-toolbar mb-4" aria-labelledby="soundboard-results">
+            <h2
+              ref={resultsRef}
+              tabIndex={-1}
+              id="soundboard-results"
+              className="section-title"
+            >
+              {t('soundboard.library')}
+            </h2>
+            <div className="mt-3 grid items-end gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(160px,220px)]">
+              <div className="min-w-0">
+                <SearchField
+                  label={t('soundboard.search')}
+                  placeholder={t('soundboard.search')}
+                  value={query}
+                  onChange={(event) => {
+                    setQuery(event.target.value);
+                    setPage(1);
+                  }}
+                  onClear={() => {
+                    setQuery('');
+                    setPage(1);
+                  }}
+                  clearLabel={t('common.clearSearch')}
+                />
+              </div>
+              <label>
+                <span className="field-label">{t('soundboard.sort')}</span>
+                <Select
+                  value={sort}
+                  onChange={(event) => {
+                    update({
+                      sort: event.target.value === 'manual' ? null : event.target.value,
+                    });
+                    setPage(1);
+                  }}
+                >
+                  <option value="manual">{t('soundboard.sortManual')}</option>
+                  <option value="name">{t('soundboard.sortName')}</option>
+                  <option value="recent">{t('soundboard.sortRecent')}</option>
+                </Select>
+              </label>
+            </div>
+            <div
+              className="mt-4 flex flex-wrap gap-2"
+              aria-label={t('soundboard.categories')}
+            >
+              <ToggleChip
+                active={category === 'all'}
+                onClick={() => {
+                  update({ category: null });
+                  setPage(1);
+                }}
+              >
+                {t('soundboard.category.all')} ({tracks.length})
+              </ToggleChip>
+              {categories.map((item) => (
+                <ToggleChip
+                  key={item.id}
+                  active={category === item.id}
+                  onClick={() => {
+                    update({ category: item.id });
+                    setPage(1);
+                  }}
+                >
+                  {categoryName(item, t)} (
+                  {tracks.filter((track) => track.category === item.id).length})
+                </ToggleChip>
+              ))}
+            </div>
+            <div className="mt-3 flex flex-wrap items-center gap-3">
+              <ToggleChip
+                active={favorites}
+                onClick={() => {
+                  update({ favorites: favorites ? null : '1' });
+                  setPage(1);
+                }}
+              >
+                {t('soundboard.favorites')} (
+                {tracks.filter((track) => track.favorite).length})
+              </ToggleChip>
+              {(favorites || category !== 'all') && (
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    update({ category: null, favorites: null });
+                    setPage(1);
+                  }}
+                >
+                  {t('soundboard.resetFilters')}
+                </Button>
+              )}
+              <p role="status" className="text-sm text-ink-300">
+                {t('soundboard.results', {
+                  count: filtered.length,
+                  from: filtered.length ? (currentPage - 1) * PAGE_SIZE + 1 : 0,
+                  to: Math.min(currentPage * PAGE_SIZE, filtered.length),
+                })}
+              </p>
+            </div>
+            {!manual && (
+              <p className="mt-3 text-sm text-ink-400">{t('soundboard.reorderHelp')}</p>
+            )}
+          </section>
+          {visible.length === 0 && (
+            <p className="empty-state">
+              {t(
+                tracks.length === 0
+                  ? 'soundboard.emptyPanel'
+                  : query.trim()
+                    ? 'soundboard.noMatches'
+                    : favorites
+                      ? 'soundboard.noFavorites'
+                      : 'soundboard.emptyState',
+              )}
+            </p>
+          )}
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={onDragEnd}
+            accessibility={{
+              screenReaderInstructions: { draggable: t('soundboard.dragInstructions') },
+              announcements: {
+                onDragStart: ({ active: item }) =>
+                  t('soundboard.dragStarted', {
+                    name: nameOf(tracks.find((track) => track.id === item.id)!),
+                  }),
+                onDragOver: ({ active: dragging, over }) =>
+                  over && over.id !== dragging.id
+                    ? t('soundboard.dragOver', {
+                        name: nameOf(tracks.find((track) => track.id === over.id)!),
+                      })
+                    : undefined,
+                onDragEnd: ({ active: item, over }) =>
+                  t(over ? 'soundboard.dragFinished' : 'soundboard.dragCancelled', {
+                    name: nameOf(tracks.find((track) => track.id === item.id)!),
+                  }),
+                onDragCancel: () => t('soundboard.dragCancelled'),
+              },
+            }}
+          >
+            <SortableContext
+              items={visible.map((track) => track.id)}
+              strategy={rectSortingStrategy}
+            >
+              <ul className="grid grid-cols-1 gap-4 min-[400px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {visible.map((track) => {
+                  const index = filtered.findIndex((item) => item.id === track.id);
+                  return (
+                    <TrackCard
+                      key={`${track.id}:${track.videoId}`}
+                      track={track}
+                      name={nameOf(track)}
+                      category={categoryName(
+                        categories.find((item) => item.id === track.category)!,
+                        t,
+                      )}
+                      selected={activeId === track.id}
+                      manual={manual}
+                      first={index === 0}
+                      last={index === filtered.length - 1}
+                      onPlay={() => setActiveId(track.id)}
+                      onEdit={() => setEditing(track)}
+                      onRemove={() => void removeTrack(track)}
+                      onFavorite={() => mutate(() => state.toggleFavorite(track.id))}
+                      onMove={(direction) =>
+                        move(track.id, filtered[index + direction]!.id)
+                      }
+                    />
+                  );
+                })}
+              </ul>
+            </SortableContext>
+          </DndContext>
+          {filtered.length > PAGE_SIZE && (
+            <nav
+              className="my-6 flex flex-wrap items-center justify-between gap-3"
+              aria-label={t('soundboard.pagination')}
+            >
+              <Button
+                disabled={currentPage === 1}
+                onClick={() => {
+                  setPage(currentPage - 1);
+                  resultsRef.current?.focus();
+                }}
+              >
+                {t('soundboard.previous')}
+              </Button>
+              <span className="text-sm text-ink-300">
+                {currentPage} / {Math.ceil(filtered.length / PAGE_SIZE)}
+              </span>
+              <Button
+                disabled={currentPage * PAGE_SIZE >= filtered.length}
+                onClick={() => {
+                  setPage(currentPage + 1);
+                  resultsRef.current?.focus();
+                }}
+              >
+                {t('soundboard.next')}
+              </Button>
+            </nav>
+          )}
+        </>
+      )}
+      {managing && (
+        <SoundboardDialog
+          title={t('soundboard.manageCategories')}
+          onClose={() => setManaging(false)}
+        >
+          <CategoryManager
+            categories={categories}
+            tracks={tracks}
+            onAdd={(name) => mutate(() => state.addCategory(name))}
+            onRename={(id, name) => mutate(() => state.renameCategory(id, name))}
+            onRemove={(item) => void removeCategory(item)}
+          />
+          {undoNotice}
+        </SoundboardDialog>
+      )}
+      {adding && (
+        <SoundboardDialog
+          title={t('soundboard.addTrack')}
+          onClose={() => setAdding(false)}
+        >
+          <TrackForm
+            categories={categories}
+            category={category === 'all' ? 'custom' : category}
+            onCancel={() => setAdding(false)}
+            onSave={(name, source, nextCategory) => {
+              let id = '';
+              mutate(() => {
+                id = state.addTrack(
+                  name,
+                  source.videoId,
+                  nextCategory,
+                  source.playlistId,
+                );
+              });
+              setAdded(id);
+              setAdding(false);
+              setFeedback(
+                t('soundboard.added', {
+                  name,
+                  category: categoryName(
+                    categories.find((item) => item.id === nextCategory)!,
+                    t,
+                  ),
+                }),
+              );
+            }}
+          />
+        </SoundboardDialog>
+      )}
+      {editing && (
+        <SoundboardDialog
+          title={t('soundboard.editTrack', { name: nameOf(editing) })}
+          onClose={() => setEditing(null)}
+        >
+          <TrackForm
+            categories={categories}
+            category={editing.category}
+            track={editing}
+            displayName={nameOf(editing)}
+            onCancel={() => setEditing(null)}
+            onSave={(name, source, nextCategory) => {
+              const renamed = name !== nameOf(editing);
+              mutate(() =>
+                state.updateTrack(
+                  editing.id,
+                  renamed ? name : editing.name,
+                  source,
+                  nextCategory,
+                  Boolean(editing.customName) || renamed,
+                ),
+              );
+              setEditing(null);
+              setFeedback(t('soundboard.updated', { name }));
+            }}
+          />
+        </SoundboardDialog>
+      )}
+      <p className="mt-6 text-sm text-ink-400">{t('soundboard.footerNote')}</p>
     </div>
   );
 }

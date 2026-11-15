@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { configureCatalog, codeLabel } from './catalogFacets';
 import type {
   ActionEntry,
   BackgroundEntry,
@@ -82,6 +83,7 @@ export interface CategoryFilter {
   id: string;
   label: string;
   includeAny?: boolean;
+  description?: string;
 
   valuesFor: (item: CompendiumEntryBase) => string[];
 
@@ -108,6 +110,7 @@ export interface CompendiumCategory {
   renderDetail: (item: CompendiumEntryBase) => ReactNode;
 
   filters?: CategoryFilter[];
+  sorts?: CategoryFilter[];
 }
 
 function field<T>(
@@ -250,9 +253,7 @@ export const categories: CompendiumCategory[] = [
     load: loader<FeatEntry>('feats'),
     subtitle: (item, t, locale = 'en') =>
       t('compendium.detail.featCategory', {
-        category:
-          localizeCompendiumValue((item as FeatEntry).category, locale, 'featCategory') ??
-          (item as FeatEntry).category,
+        category: codeLabel((item as FeatEntry).category, locale),
       }),
     renderDetail: (item) => <FeatDetail feat={item as FeatEntry} />,
   },
@@ -261,11 +262,7 @@ export const categories: CompendiumCategory[] = [
     label: 'Options & Features',
     load: loader<OptionalFeatureEntry>('optionalfeatures'),
     subtitle: (item, _, locale = 'en') =>
-      localizeCompendiumValue(
-        (item as OptionalFeatureEntry).featureType,
-        locale,
-        'featureType',
-      ) ?? '',
+      codeLabel((item as OptionalFeatureEntry).featureType, locale),
     renderDetail: (item) => (
       <OptionalFeatureDetail feature={item as OptionalFeatureEntry} />
     ),
@@ -326,7 +323,9 @@ export const categories: CompendiumCategory[] = [
     id: 'actions',
     label: 'Actions',
     load: loader<ActionEntry>('actions'),
-    subtitle: (item, t) => (item as ActionEntry).time || t('compendium.detail.action'),
+    subtitle: (item, t, locale = 'en') =>
+      localizeCompendiumValue((item as ActionEntry).time, locale, 'actionTime') ||
+      t('compendium.detail.action'),
     renderDetail: (item) => <ActionDetail action={item as ActionEntry} />,
   },
   {
@@ -588,7 +587,10 @@ function isFightingStyle(item: CompendiumEntryBase): boolean {
   const featureType = (item as OptionalFeatureEntry).featureType ?? '';
   return featureType
     .split(', ')
-    .some((value) => value === 'Fighting Style' || value === 'Styl walki');
+    .some(
+      (value) =>
+        value === 'Fighting Style' || value === 'Styl walki' || value.startsWith('FS:'),
+    );
 }
 
 const FILTERS_BY_ID: Partial<Record<CompendiumCategoryId, CategoryFilter[]>> = {
@@ -922,6 +924,7 @@ for (const category of categories) {
       (category.id === 'firearms' ? FILTERS_BY_ID.items! : [])),
     sourceFilter,
   ];
+  configureCatalog(category);
 }
 
 export function getCategory(id: string | undefined): CompendiumCategory | undefined {

@@ -1,13 +1,15 @@
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import {
   ArrowDownWideNarrow,
   ArrowUpNarrowWide,
+  ChevronDown,
   RotateCcw,
   Shuffle,
   SlidersHorizontal,
   X,
 } from 'lucide-react';
 import type { CompendiumEntryBase } from '@/data/compendium/types';
+import { normalizeSearchText } from '@/data/compendium/searchText';
 import { HOMEBREW_SOURCE } from '@/features/homebrew/store';
 import { useT } from '@/i18n/useT';
 import { useDialogFocus } from '@/features/ui/useDialogFocus';
@@ -20,13 +22,19 @@ import {
   ToggleChip,
 } from '@/features/ui/primitives';
 import type { CategoryFilter } from './categories';
-import { filterValuesFor, type SortDir, displayValue } from './filterSort';
+import {
+  filterValuesFor,
+  facetCounts,
+  matchesFilters,
+  type SortDir,
+  displayValue,
+} from './filterSort';
 
 type TranslateFn = (key: string, vars?: Record<string, string | number>) => string;
-
 interface FilterBarProps {
   filters: CategoryFilter[];
   items: CompendiumEntryBase[];
+  queryItems?: CompendiumEntryBase[];
   selected: Record<string, string[]>;
   includeAny?: Record<string, boolean>;
   onToggle: (filterId: string, value: string) => void;
@@ -36,18 +44,20 @@ interface FilterBarProps {
   onRandom: () => void;
   sortField: string;
   sortDir: SortDir;
+  sortOptions?: CategoryFilter[];
   onSortField: (field: string) => void;
   onToggleSortDir: () => void;
 }
-
 interface FilterGroup {
   filter: CategoryFilter;
   values: string[];
+  available: Set<string>;
 }
 
 function FacetSection({
   group,
   selected,
+  counts,
   onToggle,
   onSet,
   includeAny,
@@ -59,6 +69,7 @@ function FacetSection({
 }: {
   group: FilterGroup;
   selected: string[];
+  counts: Map<string, number>;
   onToggle: (value: string) => void;
   onSet: (values: string[]) => void;
   includeAny?: boolean;
@@ -68,15 +79,20 @@ function FacetSection({
   t: TranslateFn;
   locale: Locale;
 }) {
-  const { filter, values } = group;
+  const { filter, values, available } = group;
   const [expanded, setExpanded] = useState(false);
-  const term = search.trim().toLowerCase();
-  const visible = term
-    ? values.filter((v) =>
-        displayValue(filter, v, t, locale).toLowerCase().includes(term),
-      )
-    : values;
-  if (visible.length === 0) return null;
+  const [collapsed, setCollapsed] = useState(false);
+  const term = normalizeSearchText(search.trim());
+  const groupMatches = normalizeSearchText(t(filter.label)).includes(term);
+  const visible =
+    term && !groupMatches
+      ? values.filter((value) =>
+          normalizeSearchText(
+            `${displayValue(filter, value, t, locale)} ${value}`,
+          ).includes(term),
+        )
+      : values;
+  if (!visible.length) return null;
   const shown =
     term || expanded
       ? visible
@@ -85,82 +101,147 @@ function FacetSection({
           ...visible.slice(16).filter((value) => selected.includes(value)),
         ];
   const hasMore = !term && (expanded || shown.length < visible.length);
-
+  const list = values.length > 40;
   return (
-    <div role="group" aria-label={t(filter.label)} className="flex flex-col gap-1">
+    <section
+      role="group"
+      aria-label={t(filter.label)}
+      className="flex min-w-0 flex-col gap-2 border-b border-ink-800 pb-4 last:border-0"
+    >
       <div className="flex flex-wrap items-center justify-between gap-2">
         {!hideLabel && (
-          <div className="flex items-baseline gap-1.5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">
-              {t(filter.label)}
-            </p>
-            <span className="text-xs tabular-nums text-ink-500">{visible.length}</span>
-          </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="max-w-full whitespace-normal text-left"
+            aria-expanded={!collapsed}
+            onClick={() => setCollapsed(!collapsed)}
+          >
+            <ChevronDown
+              size={14}
+              aria-hidden="true"
+              className={collapsed ? 'shrink-0 -rotate-90' : 'shrink-0'}
+            />
+            <span className="font-semibold">{t(filter.label)}</span>
+            <span aria-hidden="true" className="text-xs text-ink-400">
+              {visible.length}
+            </span>
+          </Button>
         )}
-        <div className="ml-auto flex flex-wrap items-center gap-2 text-xs text-ink-400">
+        <div className="ml-auto flex flex-wrap items-center gap-1">
           {filter.includeAny && (
-            <label className="inline-flex cursor-pointer items-center gap-1.5 text-xs text-ink-300">
+            <label className="flex min-h-10 items-center gap-2 text-xs text-ink-300">
               <input
                 type="checkbox"
                 checked={includeAny}
-                disabled={selected.length === 0}
+                disabled={!selected.length}
                 onChange={onToggleIncludeAny}
                 aria-label={t('compendium.filters.includeAny')}
-                className="h-4 w-4 rounded border-ink-600 bg-ink-950 text-arcane-500 accent-arcane-500 focus:ring-arcane-400"
+                className="accent-arcane-500"
               />
               {t('compendium.filters.includeAny')}
             </label>
           )}
           <Button
-            type="button"
-            onClick={() => onSet([...new Set([...selected, ...visible])])}
             variant="ghost"
             size="sm"
-            className=""
+            onClick={() => onSet([...new Set([...selected, ...visible])])}
           >
             {t('compendium.filters.all')}
           </Button>
           <Button
-            type="button"
-            onClick={() => onSet(selected.filter((value) => !visible.includes(value)))}
             variant="ghost"
             size="sm"
-            className=""
+            disabled={!selected.length}
+            onClick={() => onSet([])}
           >
             {t('compendium.filters.clear')}
           </Button>
         </div>
       </div>
-      <div className="flex flex-wrap gap-1">
-        {shown.map((value) => (
-          <ToggleChip
-            key={value}
-            onClick={() => onToggle(value)}
-            active={selected.includes(value)}
+      {!collapsed && (
+        <>
+          {filter.description && (
+            <p className="text-xs text-ink-400">{t(filter.description)}</p>
+          )}
+          <div
+            className={
+              list
+                ? 'flex max-h-56 flex-col gap-1 overflow-y-auto'
+                : 'flex flex-wrap gap-1'
+            }
           >
-            {displayValue(filter, value, t, locale)}
-          </ToggleChip>
-        ))}
-      </div>
-      {hasMore && (
-        <Button
-          onClick={() => setExpanded((value) => !value)}
-          variant="ghost"
-          size="sm"
-          className="mt-1 w-fit px-1 text-arcane-300 hover:text-arcane-200"
-        >
-          {expanded
-            ? t('compendium.filters.showLess')
-            : t('compendium.filters.showAllCount', { count: visible.length })}
-        </Button>
+            {shown.map((value) => {
+              const active = selected.includes(value),
+                count = counts.get(value) ?? 0,
+                label = displayValue(filter, value, t, locale);
+              return list ? (
+                <label
+                  key={value}
+                  className="flex min-h-10 cursor-pointer items-center gap-2 rounded-lg px-2 text-sm text-ink-200 hover:bg-ink-800"
+                >
+                  <input
+                    type="checkbox"
+                    checked={active}
+                    onChange={() => onToggle(value)}
+                    className="accent-arcane-500"
+                  />
+                  <span className="min-w-0 flex-1 break-words">
+                    {label}
+                    {!available.has(value) && (
+                      <span className="ml-1 text-xs text-ink-400">
+                        {t('compendium.catalog.unavailable')}
+                      </span>
+                    )}
+                  </span>
+                  <span aria-hidden="true" className="text-xs tabular-nums text-ink-400">
+                    {count}
+                  </span>
+                </label>
+              ) : (
+                <ToggleChip
+                  key={value}
+                  active={active}
+                  onClick={() => onToggle(value)}
+                  className="max-w-full gap-2 whitespace-normal text-left"
+                >
+                  <span>
+                    {label}
+                    {!available.has(value) && (
+                      <span className="ml-1 text-xs">
+                        {t('compendium.catalog.unavailable')}
+                      </span>
+                    )}
+                  </span>
+                  <span aria-hidden="true" className="text-xs tabular-nums opacity-75">
+                    {count}
+                  </span>
+                </ToggleChip>
+              );
+            })}
+          </div>
+          {hasMore && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="self-start"
+              onClick={() => setExpanded(!expanded)}
+            >
+              {expanded
+                ? t('compendium.filters.showLess')
+                : t('compendium.filters.showAllCount', { count: visible.length })}
+            </Button>
+          )}
+        </>
       )}
-    </div>
+    </section>
   );
 }
 
 export function FilterBar({
   filters,
   items,
+  queryItems = items,
   selected,
   includeAny = {},
   onToggle,
@@ -170,93 +251,146 @@ export function FilterBar({
   onRandom,
   sortField,
   sortDir,
+  sortOptions = filters,
   onSortField,
   onToggleSortDir,
 }: FilterBarProps) {
   const { t, locale } = useT();
-  const [modalOpen, setModalOpen] = useState(false);
-  const [summaryOpen, setSummaryOpen] = useState(true);
-  const [search, setSearch] = useState('');
+  const id = useId();
+  const [modalOpen, setModalOpen] = useState(false),
+    [summaryOpen, setSummaryOpen] = useState(true),
+    [search, setSearch] = useState('');
   const dialogRef = useDialogFocus(modalOpen, () => setModalOpen(false));
-
+  const counts = useMemo(
+    () => facetCounts(queryItems, filters, selected, includeAny),
+    [queryItems, filters, selected, includeAny],
+  );
+  const resultCount = useMemo(
+    () =>
+      queryItems.filter((item) => matchesFilters(item, filters, selected, includeAny))
+        .length,
+    [queryItems, filters, selected, includeAny],
+  );
   const groups = useMemo(
     () =>
-      filters.map((filter) => {
-        const values = new Set<string>();
-        for (const item of items)
-          for (const value of filterValuesFor(filter, item)) values.add(value);
-        const sorted = [...values].sort((a, b) =>
-          filter.sortKey
-            ? filter.sortKey(a) - filter.sortKey(b)
-            : displayValue(filter, a, t, locale).localeCompare(
-                displayValue(filter, b, t, locale),
-              ),
-        );
-        return { filter, values: sorted };
-      }),
-    [filters, items, t, locale],
+      filters
+        .map((filter) => {
+          const classFilter = filters.find((candidate) => candidate.id === 'class');
+          const matchingItems =
+            filter.id === 'subclass' && classFilter && selected.class?.length
+              ? items.filter((item) => matchesFilters(item, [classFilter], selected))
+              : items;
+          const available = new Set(
+            matchingItems.flatMap((item) => filterValuesFor(filter, item)),
+          );
+          const values = [
+            ...new Set([...available, ...(selected[filter.id] ?? [])]),
+          ].sort((a, b) =>
+            filter.sortKey
+              ? filter.sortKey(a) - filter.sortKey(b)
+              : displayValue(filter, a, t, locale).localeCompare(
+                  displayValue(filter, b, t, locale),
+                  locale,
+                ),
+          );
+          return { filter, values, available };
+        })
+        .filter(
+          (group) =>
+            group.values.length > 1 || (selected[group.filter.id]?.length ?? 0) > 0,
+        ),
+    [filters, items, selected, t, locale],
   );
-
-  const sourceGroup = groups.find((g) => g.filter.id === 'source');
-  const otherGroups = groups.filter((g) => g.filter.id !== 'source');
-  const coreValues = sourceGroup?.values.filter((v) => v !== HOMEBREW_SOURCE) ?? [];
-  const homebrewValues = sourceGroup?.values.filter((v) => v === HOMEBREW_SOURCE) ?? [];
-
-  const activeChips = groups.flatMap(({ filter, values }) =>
-    values
-      .filter((v) => selected[filter.id]?.includes(v))
-      .map((value) => ({
-        filterId: filter.id,
-        value,
-        label: displayValue(filter, value, t, locale),
-      })),
+  const activeChips = filters.flatMap((filter) =>
+    (selected[filter.id] ?? []).map((value) => ({
+      filterId: filter.id,
+      value,
+      label: displayValue(filter, value, t, locale),
+    })),
   );
-  const activeAnyFilters = groups.filter(
-    ({ filter }) =>
+  const activeAnyFilters = filters.filter(
+    (filter) =>
       filter.includeAny &&
       includeAny[filter.id] &&
       (selected[filter.id]?.length ?? 0) > 0,
   );
   const activeCount = activeChips.length + activeAnyFilters.length;
-
+  const term = normalizeSearchText(search.trim());
+  const matchingGroups = groups.filter(
+    ({ filter, values }) =>
+      !term ||
+      normalizeSearchText(t(filter.label)).includes(term) ||
+      values.some((value) =>
+        normalizeSearchText(
+          `${displayValue(filter, value, t, locale)} ${value}`,
+        ).includes(term),
+      ),
+  );
+  const sourceGroup = matchingGroups.find((group) => group.filter.id === 'source');
+  const coreValues =
+    sourceGroup?.values.filter((value) => value !== HOMEBREW_SOURCE) ?? [];
+  const homebrewValues =
+    sourceGroup?.values.filter((value) => value === HOMEBREW_SOURCE) ?? [];
+  const renderGroup = (group: FilterGroup, hideLabel = false) => (
+    <FacetSection
+      key={group.filter.id + String(hideLabel) + group.values.join('|')}
+      group={group}
+      selected={selected[group.filter.id] ?? []}
+      counts={counts.get(group.filter.id)!}
+      onToggle={(value) => onToggle(group.filter.id, value)}
+      onSet={(values) => onSetFilter(group.filter.id, values)}
+      {...(group.filter.includeAny
+        ? {
+            includeAny: Boolean(includeAny[group.filter.id]),
+            onToggleIncludeAny: () => onToggleIncludeAny?.(group.filter.id),
+          }
+        : {})}
+      search={search}
+      hideLabel={hideLabel}
+      t={t}
+      locale={locale}
+    />
+  );
   return (
     <div className="border-b border-ink-700">
-      <div className="flex items-center justify-between gap-2 px-3 py-2">
-        <Button onClick={() => setModalOpen(true)} variant="ghost" size="sm">
-          <SlidersHorizontal size={15} />
-          {t('compendium.filters.button')}
-          {activeCount > 0 && (
-            <span className="rounded-full bg-arcane-700 px-1.5 text-xs text-ink-50">
-              {activeCount}
-            </span>
-          )}
-        </Button>
-        <div className="flex items-center gap-1">
+      <div className="flex flex-wrap items-center gap-2 px-3 py-2">
+        {groups.length > 0 && (
+          <Button
+            variant="ghost"
+            size="sm"
+            className="w-full sm:w-auto"
+            onClick={() => setModalOpen(true)}
+          >
+            <SlidersHorizontal size={15} aria-hidden="true" />
+            {t('compendium.filters.button')}
+            {activeCount > 0 && <span className="badge tabular-nums">{activeCount}</span>}
+          </Button>
+        )}
+        <div className="flex w-full min-w-0 flex-1 flex-wrap items-center justify-end gap-1 sm:w-auto">
           <Select
             size="sm"
             value={sortField}
-            onChange={(e) => onSortField(e.target.value)}
+            onChange={(event) => onSortField(event.target.value)}
             aria-label={t('compendium.sort.label')}
-            title={t('compendium.sort.label')}
-            className="max-w-[8rem] truncate"
+            className="max-w-40 flex-1 truncate"
           >
             <option value="name">{t('compendium.sort.byName')}</option>
-            {filters.map((filter) => (
+            {sortOptions.map((filter) => (
               <option key={filter.id} value={filter.id}>
                 {t(filter.label)}
               </option>
             ))}
           </Select>
           <IconButton
-            onClick={onToggleSortDir}
-            title={t('compendium.sort.toggleDirection')}
+            variant="ghost"
+            size="sm"
             label={t(
               sortDir === 'asc'
                 ? 'compendium.sort.ascending'
                 : 'compendium.sort.descending',
             )}
-            variant="ghost"
-            size="sm"
+            title={t('compendium.sort.toggleDirection')}
+            onClick={onToggleSortDir}
           >
             {sortDir === 'asc' ? (
               <ArrowUpNarrowWide size={14} />
@@ -264,67 +398,65 @@ export function FilterBar({
               <ArrowDownWideNarrow size={14} />
             )}
           </IconButton>
+          {activeCount > 0 && (
+            <>
+              <IconButton
+                variant="ghost"
+                size="sm"
+                label={t('compendium.filters.toggleSummary')}
+                aria-pressed={summaryOpen}
+                onClick={() => setSummaryOpen(!summaryOpen)}
+              >
+                <SlidersHorizontal size={14} />
+              </IconButton>
+              <IconButton
+                variant="ghost"
+                size="sm"
+                label={t('compendium.filters.resetFilters')}
+                onClick={onClear}
+              >
+                <RotateCcw size={14} />
+              </IconButton>
+            </>
+          )}
           <IconButton
-            onClick={() => setSummaryOpen((v) => !v)}
-            aria-pressed={summaryOpen}
-            title={t('compendium.filters.toggleSummary')}
-            label={t('compendium.filters.toggleSummary')}
             variant="ghost"
             size="sm"
-            className={summaryOpen ? 'bg-ink-800 text-ink-50' : ''}
-          >
-            <SlidersHorizontal size={14} className="rotate-90" />
-          </IconButton>
-          <IconButton
-            onClick={onRandom}
-            title={t('compendium.filters.randomEntry')}
             label={t('compendium.filters.jumpRandom')}
-            variant="ghost"
-            size="sm"
+            title={t('compendium.filters.randomEntry')}
+            onClick={onRandom}
+            disabled={resultCount === 0}
           >
             <Shuffle size={14} />
           </IconButton>
-          {activeCount > 0 && (
-            <IconButton
-              onClick={onClear}
-              title={t('compendium.filters.resetFilters')}
-              label={t('compendium.filters.resetFilters')}
-              variant="ghost"
-              size="sm"
-            >
-              <RotateCcw size={14} />
-            </IconButton>
-          )}
         </div>
       </div>
-
       {summaryOpen && activeCount > 0 && (
         <div className="flex flex-wrap gap-1 border-t border-ink-800 px-3 py-2">
           {activeChips.map((chip) => (
             <ToggleChip
               key={`${chip.filterId}:${chip.value}`}
-              onClick={() => onToggle(chip.filterId, chip.value)}
               active
-              className="gap-1"
+              onClick={() => onToggle(chip.filterId, chip.value)}
+              className="max-w-full gap-1 whitespace-normal text-left"
             >
-              {chip.label}
-              <X size={10} />
+              <span>{chip.label}</span>
+              <X size={12} aria-hidden="true" />
             </ToggleChip>
           ))}
-          {activeAnyFilters.map(({ filter }) => (
+          {activeAnyFilters.map((filter) => (
             <ToggleChip
-              key={`${filter.id}:include-any`}
-              onClick={() => onToggleIncludeAny?.(filter.id)}
+              key={filter.id}
               active
+              onClick={() => onToggleIncludeAny?.(filter.id)}
               className="gap-1"
             >
               {t('compendium.filters.includeAny')}
-              <X size={10} />
+              <X size={12} />
             </ToggleChip>
           ))}
         </div>
       )}
-
       {modalOpen && (
         <div
           role="dialog"
@@ -335,101 +467,73 @@ export function FilterBar({
           onClick={() => setModalOpen(false)}
           className="dialog-overlay"
         >
-          <div onClick={(e) => e.stopPropagation()} className="dialog-panel">
-            <div className="flex items-center justify-between gap-3 border-b border-ink-700 p-3">
-              <SearchField
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                onClear={() => setSearch('')}
-                placeholder={t('compendium.filters.searchPlaceholder')}
-                label={t('compendium.filters.searchAria')}
-                clearLabel={t('common.clearSearch')}
-              />
-              {activeCount > 0 && (
-                <Button
-                  onClick={onClear}
+          <div className="dialog-panel" onClick={(event) => event.stopPropagation()}>
+            <div className="flex flex-col gap-2 border-b border-ink-700 p-3">
+              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2">
+                <SearchField
+                  value={search}
+                  onChange={(event) => setSearch(event.target.value)}
+                  onClear={() => setSearch('')}
+                  placeholder={t('compendium.filters.searchPlaceholder')}
+                  label={t('compendium.filters.searchAria')}
+                  clearLabel={t('common.clearSearch')}
+                />
+                <IconButton
                   variant="ghost"
                   size="sm"
-                  className="whitespace-nowrap"
+                  label={t('compendium.filters.close')}
+                  onClick={() => setModalOpen(false)}
+                >
+                  <X size={16} />
+                </IconButton>
+              </div>
+              {activeCount > 0 && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="self-start"
+                  onClick={onClear}
                 >
                   {t('compendium.filters.clearAll')}
                 </Button>
               )}
-              <IconButton
-                onClick={() => setModalOpen(false)}
-                label={t('compendium.filters.close')}
-                variant="ghost"
-                size="sm"
-              >
-                <X size={16} />
-              </IconButton>
             </div>
-
-            <div className="flex flex-col gap-4 overflow-y-auto p-4">
-              {otherGroups.map((group) => (
-                <FacetSection
-                  key={group.filter.id}
-                  group={group}
-                  selected={selected[group.filter.id] ?? []}
-                  onToggle={(value) => onToggle(group.filter.id, value)}
-                  onSet={(values) => onSetFilter(group.filter.id, values)}
-                  {...(group.filter.includeAny
-                    ? {
-                        includeAny: Boolean(includeAny[group.filter.id]),
-                        ...(onToggleIncludeAny
-                          ? {
-                              onToggleIncludeAny: () =>
-                                onToggleIncludeAny(group.filter.id),
-                            }
-                          : {}),
-                      }
-                    : {})}
-                  search={search}
-                  t={t}
-                  locale={locale}
-                />
-              ))}
-              {sourceGroup && (coreValues.length > 0 || homebrewValues.length > 0) && (
-                <div className="flex flex-col gap-3">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">
-                    {t('compendium.filters.sourceHeading')}
-                  </p>
+            <div className="flex min-h-0 flex-col gap-4 overflow-y-auto p-4" id={id}>
+              {matchingGroups
+                .filter((group) => group.filter.id !== 'source')
+                .map((group) => renderGroup(group))}
+              {sourceGroup && (
+                <div className="flex flex-col gap-2">
+                  <p className="field-label">{t('compendium.filters.sourceHeading')}</p>
                   {coreValues.length > 0 && (
-                    <div className="flex flex-col gap-1">
-                      <p className="text-xs italic text-ink-400">
+                    <>
+                      <p className="text-xs text-ink-400">
                         {t('compendium.filters.coreSupplements')}
                       </p>
-                      <FacetSection
-                        group={{ filter: sourceGroup.filter, values: coreValues }}
-                        selected={selected.source ?? []}
-                        onToggle={(value) => onToggle('source', value)}
-                        onSet={(values) => onSetFilter('source', values)}
-                        search={search}
-                        hideLabel
-                        t={t}
-                        locale={locale}
-                      />
-                    </div>
+                      {renderGroup({ ...sourceGroup, values: coreValues }, true)}
+                    </>
                   )}
                   {homebrewValues.length > 0 && (
-                    <div className="flex flex-col gap-1">
-                      <p className="text-xs italic text-ink-400">
+                    <>
+                      <p className="text-xs text-ink-400">
                         {t('compendium.homebrewLabel')}
                       </p>
-                      <FacetSection
-                        group={{ filter: sourceGroup.filter, values: homebrewValues }}
-                        selected={selected.source ?? []}
-                        onToggle={(value) => onToggle('source', value)}
-                        onSet={(values) => onSetFilter('source', values)}
-                        search={search}
-                        hideLabel
-                        t={t}
-                        locale={locale}
-                      />
-                    </div>
+                      {renderGroup({ ...sourceGroup, values: homebrewValues }, true)}
+                    </>
                   )}
                 </div>
               )}
+              {matchingGroups.length === 0 && (
+                <p className="empty-state">{t('compendium.catalog.noFilterMatches')}</p>
+              )}
+            </div>
+            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-ink-700 p-3">
+              <p role="status" aria-atomic="true" className="text-sm text-ink-300">
+                {t('compendium.catalog.resultCount', { count: resultCount })}
+              </p>
+              <Button variant="primary" onClick={() => setModalOpen(false)}>
+                {t('compendium.catalog.showResults', { count: resultCount })}
+              </Button>
             </div>
           </div>
         </div>

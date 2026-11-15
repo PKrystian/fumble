@@ -1,3 +1,4 @@
+import fontkit from '@pdf-lib/fontkit';
 import { PDFDocument } from 'pdf-lib';
 import {
   ABILITY_KEYS,
@@ -17,6 +18,22 @@ import {
 } from './model';
 
 export type SheetEdition = '2024' | '2014';
+
+export interface SheetNames {
+  className: string;
+  subclass: string;
+  species: string;
+  background: string;
+}
+
+export function defaultSheetNames(character: Character): SheetNames {
+  return {
+    className: character.className,
+    subclass: character.subclass.replace(/\|.*$/, ''),
+    species: character.species,
+    background: character.background,
+  };
+}
 
 type FieldMap = Record<string, string | boolean>;
 
@@ -92,12 +109,13 @@ const ARMOR_BOX_2024: Record<string, string> = {
 const ATTACK_NAME_FIELDS_2024 = ['Text30', 'Text34', 'Text38', 'Text42'];
 const ATTACK_NOTES_FIELDS_2024 = ['Text33', 'Text37', 'Text41', 'Text45'];
 
-function build2024Fields(character: Character): FieldMap {
+function build2024Fields(character: Character, names: SheetNames): FieldMap {
   const fields: FieldMap = {
     Text1: character.name,
-    Text6: character.species,
-    Text7: [character.className, character.subclass].filter(Boolean).join(' / '),
-    Text8: character.background,
+    Text6: names.background,
+    Text7: names.className,
+    Text8: names.species,
+    Text9: names.subclass,
     Text11: String(character.level),
     Text19: formatModifier(proficiencyBonus(character)),
     Text13: String(character.ac),
@@ -105,9 +123,10 @@ function build2024Fields(character: Character): FieldMap {
     Text27: `${character.speed.walk} ft.`,
     Text29: String(passiveScore(character, 'perception')),
     Text14: String(character.hp.current),
-    Text15: String(character.hp.max),
-    Text16: String(character.hp.temp),
-    Text18: character.hitDice,
+    Text15: String(character.hp.temp),
+    Text16: String(character.hp.max),
+    Text17: character.hitDice,
+    Text18: String(character.hitDiceUsed),
     Text59: character.weaponProficiencies,
     Text60: character.toolProficiencies,
     Text55: formatNamedList(character.features),
@@ -198,15 +217,15 @@ const SKILL_FIELD_2014: Record<string, { text: string; box: string }> = {
   survival: { text: 'Survival', box: 'Check Box 40' },
 };
 
-function build2014Fields(character: Character): FieldMap {
+function build2014Fields(character: Character, names: SheetNames): FieldMap {
   const fields: FieldMap = {
     CharacterName: character.name,
     'CharacterName 2': character.name,
-    ClassLevel: [character.className, character.subclass, `${character.level}`]
+    ClassLevel: [names.className, names.subclass, `${character.level}`]
       .filter(Boolean)
       .join(' '),
-    Background: character.background,
-    'Race ': character.species,
+    Background: names.background,
+    'Race ': names.species,
     ProfBonus: formatModifier(proficiencyBonus(character)),
     AC: String(character.ac),
     Initiative: formatModifier(initiativeBonus(character)),
@@ -254,23 +273,37 @@ function build2014Fields(character: Character): FieldMap {
   return fields;
 }
 
-function buildFields(character: Character, edition: SheetEdition): FieldMap {
-  return edition === '2024' ? build2024Fields(character) : build2014Fields(character);
+function buildFields(
+  character: Character,
+  edition: SheetEdition,
+  names: SheetNames,
+): FieldMap {
+  return edition === '2024'
+    ? build2024Fields(character, names)
+    : build2014Fields(character, names);
 }
 
 export async function fillCharacterSheetPdf(
   character: Character,
   edition: SheetEdition,
+  names: SheetNames = defaultSheetNames(character),
 ): Promise<Blob> {
   const url = `${import.meta.env.BASE_URL}character-sheets/dnd${edition}.pdf`;
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Could not load the ${edition} sheet template.`);
   const bytes = await response.arrayBuffer();
+  const fontResponse = await fetch(
+    `${import.meta.env.BASE_URL}fonts/fumble-sheet-sans.ttf`,
+  );
+  if (!fontResponse.ok) throw new Error('Could not load the character sheet font.');
+  const fontBytes = await fontResponse.arrayBuffer();
 
   const doc = await PDFDocument.load(bytes);
+  doc.registerFontkit(fontkit);
+  const font = await doc.embedFont(fontBytes, { subset: false });
   const form = doc.getForm();
 
-  for (const [name, value] of Object.entries(buildFields(character, edition))) {
+  for (const [name, value] of Object.entries(buildFields(character, edition, names))) {
     try {
       if (typeof value === 'boolean') {
         const checkbox = form.getCheckBox(name);
@@ -283,7 +316,8 @@ export async function fillCharacterSheetPdf(
     }
   }
 
-  const filled = await doc.save();
+  form.updateFieldAppearances(font);
+  const filled = await doc.save({ updateFieldAppearances: false });
   const blobBytes = Uint8Array.from(filled);
   return new Blob([blobBytes.buffer], { type: 'application/pdf' });
 }

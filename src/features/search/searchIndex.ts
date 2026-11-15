@@ -1,3 +1,4 @@
+import { allNavItems, compendiumNavItem } from '@/app/navigation';
 import type { CompendiumEntryBase } from '@/data/compendium/types';
 import { loadLocalizedItems } from '@/data/compendium/overlay';
 import { categories, getCategory } from '@/features/compendium/categories';
@@ -19,7 +20,7 @@ import {
   type FumbleHomebrewItem,
 } from '@/features/homebrew/fumbleHomebrew';
 
-export type SearchKind = 'compendium' | 'homebrew' | 'wiki';
+export type SearchKind = 'tool' | 'compendium' | 'homebrew' | 'wiki';
 
 export interface SearchResult {
   kind: SearchKind;
@@ -29,6 +30,7 @@ export interface SearchResult {
   subtitle: string;
   categoryLabel: string;
   to: string;
+  keywords?: string;
 }
 
 type TranslateFn = (key: string, vars?: Record<string, string | number>) => string;
@@ -248,6 +250,26 @@ export function buildPool(
   return [...compendium, ...index.wiki];
 }
 
+export function buildToolResults(locale: Locale): SearchResult[] {
+  const t = translator(locale);
+  const english = translator('en');
+  return [compendiumNavItem, ...allNavItems].map((item) => {
+    const name = t(item.labelKey);
+    const englishName = english(item.labelKey);
+    const subtitle = t(item.descriptionKey);
+    return {
+      kind: 'tool',
+      id: item.to,
+      name,
+      ...(englishName === name ? {} : { englishName }),
+      subtitle,
+      categoryLabel: t('search.toolCategory'),
+      to: item.to,
+      keywords: subtitle,
+    };
+  });
+}
+
 export function buildHomebrewResults(
   entries: HomebrewEntry[],
   locale: Locale,
@@ -282,6 +304,12 @@ export function scoreResult(result: SearchResult, term: string): number {
   )
     return 60;
   if (name.includes(normalizedTerm) || english.includes(normalizedTerm)) return 40;
+  if (
+    result.keywords &&
+    normalizedTerm.length >= 3 &&
+    ` ${normalizeSearchText(result.keywords)}`.includes(` ${normalizedTerm}`)
+  )
+    return 20;
   return 0;
 }
 
@@ -298,6 +326,8 @@ export function searchResults(
     if (score > 0) scored.push({ result, score });
   }
   scored.sort((a, b) => {
+    const tools = Number(b.result.kind === 'tool') - Number(a.result.kind === 'tool');
+    if (tools !== 0) return tools;
     if (a.score !== b.score) return b.score - a.score;
     if (a.result.name.length !== b.result.name.length) {
       return a.result.name.length - b.result.name.length;

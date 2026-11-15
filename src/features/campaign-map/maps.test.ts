@@ -36,6 +36,7 @@ describe('campaign maps', () => {
 
   it('compresses editor cells into sorted inclusive ranges', () => {
     expect(compressRevealedRanges(new Set())).toEqual([]);
+    expect(compressRevealedRanges(new Set([1, 3]))).toEqual(['1', '3']);
     expect(compressRevealedRanges(new Set([8, 3, 4, 6, 7, 10]))).toEqual([
       '3-4',
       '6-8',

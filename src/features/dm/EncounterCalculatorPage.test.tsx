@@ -1,240 +1,196 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { formatMonsterCrDisplay } from '@/data/transform/format';
+import { emptyEncounterData } from './encounterModel';
+import { useEncounterStore } from './encounterStore';
 import { EncounterCalculatorPage } from './EncounterCalculatorPage';
 
 const mocks = vi.hoisted(() => ({
+  items: [] as unknown[],
   status: 'ready',
-  rating: 'Trivial',
-  items: [] as Array<{
-    id: string;
-    name: string;
-    cr: string;
-    hidden?: boolean;
-  }>,
+  retryKey: 0,
 }));
-
-vi.mock('./xp', async (importOriginal) => {
-  const original = await importOriginal<typeof import('./xp')>();
-  return {
-    ...original,
-    rateEncounter: () => mocks.rating,
-  };
-});
-
 vi.mock('@/features/compendium/useCategoryItems', () => ({
-  useCategoryItems: () => ({ status: mocks.status, items: mocks.items }),
+  useCategoryItems: (
+    _category: unknown,
+    _include: boolean,
+    _id: unknown,
+    _other: unknown,
+    retryKey: number,
+  ) => {
+    mocks.retryKey = retryKey;
+    return { status: mocks.status, items: mocks.items };
+  },
 }));
+vi.mock('@/seo/useSeo', () => ({ useSeo: vi.fn() }));
 
-vi.mock('@/features/compendium/categories', () => ({
-  getCategory: () => ({ id: 'bestiary' }),
-}));
-
-vi.mock('@/i18n/useT', () => ({
-  useT: () => ({
-    locale: 'en',
-    t: (key: string, values?: Record<string, string | number>) =>
-      values?.name ? `${key}:${values.name}` : key,
-  }),
-}));
-
-vi.mock('@/seo/useSeo', () => ({
-  useSeo: vi.fn(),
-}));
-
-const monster = (id: string, name: string, hidden = false, habitat = '', cr = '1') => ({
+const monster = (id: string, name: string, cr = '1', habitat = 'Forest') => ({
   id,
   name,
   cr,
-  hidden,
   habitat,
+  source: 'XMM',
+  ac: '14',
+  hp: '20 (4d8 + 2)',
+  dex: 14,
 });
 
 describe('EncounterCalculatorPage', () => {
-  const renderPage = (path = '/dm/encounter') =>
+  const renderPage = (path = '/dm/encounter/') =>
     render(
       <MemoryRouter initialEntries={[path]}>
         <EncounterCalculatorPage />
       </MemoryRouter>,
     );
+  const search = (value: string) =>
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value } });
+  const add = (name: string) =>
+    fireEvent.click(screen.getByRole('button', { name: name + ' - add to encounter' }));
+  const summary = () => screen.getByRole('region', { name: 'Current draft' });
 
   beforeEach(() => {
-    mocks.status = 'ready';
-    mocks.rating = 'Trivial';
+    const raw = localStorage.getItem('fumble-encounter');
+    if (raw === null && useEncounterStore.getState().blocked)
+      useEncounterStore.getState().retryRead();
+    useEncounterStore.getState().restore(emptyEncounterData());
     mocks.items = [];
+    mocks.status = 'ready';
+    mocks.retryKey = 0;
   });
 
-  it('edits party groups and handles numeric fallbacks', () => {
+  it('keeps malformed party fields editable and restores the budget after correction', async () => {
     renderPage();
+    const level = screen.getByRole('spinbutton', { name: 'Level' });
+    const count = screen.getByRole('spinbutton', { name: 'Count' });
+    fireEvent.change(level, { target: { value: '1.5' } });
+    fireEvent.change(count, { target: { value: '-1' } });
+    expect(level).toHaveAttribute('aria-invalid', 'true');
+    expect(count).toHaveAttribute('aria-invalid', 'true');
+    expect(within(summary()).getByText('Budget comparison unavailable')).toBeVisible();
+    fireEvent.change(level, { target: { value: '99' } });
+    expect(level).toHaveAttribute('aria-invalid', 'true');
+    fireEvent.change(level, { target: { value: '1' } });
+    fireEvent.change(count, { target: { value: '4' } });
+    expect(within(summary()).getByText('400 XP remaining')).toBeVisible();
+    const addGroup = screen.getByRole('button', { name: 'Add level group' });
+    fireEvent.click(addGroup);
+    expect(within(summary()).getByText('500 XP remaining')).toBeVisible();
+    fireEvent.click(screen.getByRole('button', { name: 'Remove party group 2' }));
+    await waitFor(() => expect(addGroup).toHaveFocus());
+  });
 
-    const count = screen.getByLabelText('encounter.count');
-    const level = screen.getByLabelText('encounter.level');
-    fireEvent.change(count, { target: { value: '' } });
-    fireEvent.change(level, { target: { value: '' } });
-    expect(count).toHaveValue(0);
-    expect(level).toHaveValue(1);
-
-    fireEvent.click(screen.getByRole('button', { name: 'encounter.addLevelGroup' }));
-    expect(screen.getAllByLabelText('encounter.count')).toHaveLength(2);
-    fireEvent.change(screen.getAllByLabelText('encounter.count')[1]!, {
-      target: { value: '3' },
-    });
-    fireEvent.change(screen.getAllByLabelText('encounter.level')[1]!, {
-      target: { value: '5' },
-    });
+  it('handles zero, missing, and alternative XP and moves focus after roster edits', async () => {
+    mocks.items = [
+      { ...monster('shrieker', 'Shrieker', '0'), crDisplay: '0 (XP 0; PB +2)' },
+      { id: 'manual', name: 'Manual entry', source: 'HB' },
+      {
+        ...monster('dragon', 'Dragon', '14'),
+        crDisplay: '14 (XP 11,500, or 13,000 in lair; PB +5)',
+      },
+    ];
+    renderPage();
+    search('shrieker');
+    add('Shrieker');
+    expect(screen.getByRole('searchbox')).toHaveFocus();
+    expect(screen.getByRole('searchbox')).toHaveValue('shrieker');
+    expect(within(summary()).getByText('400 XP remaining')).toBeVisible();
+    search('manual');
+    add('Manual entry');
+    expect(within(summary()).getByText('Known encounter XP')).toBeVisible();
+    expect(within(summary()).getByText(/unknown XP/)).toBeVisible();
+    search('dragon');
+    add('Dragon');
     fireEvent.click(
-      screen.getAllByRole('button', { name: 'encounter.removePartyGroup' })[0]!,
+      screen.getByRole('checkbox', { name: 'In its lair (13,000 XP each)' }),
     );
-    expect(screen.getAllByLabelText('encounter.count')).toHaveLength(1);
-    expect(screen.getByLabelText('encounter.count')).toHaveValue(3);
+    fireEvent.click(screen.getByRole('button', { name: 'More Dragon' }));
+    expect(within(summary()).getByText('26,000')).toBeVisible();
+    const removeDragon = screen.getByRole('button', { name: 'Remove Dragon' });
+    fireEvent.click(screen.getByRole('button', { name: 'Remove Manual entry' }));
+    await waitFor(() => expect(removeDragon).toHaveFocus());
+    expect(within(summary()).getByText('Above the high budget')).toBeVisible();
   });
 
-  it('filters search results, adds counts and removes monsters', () => {
+  it('uses the active habitat and only the XP left in the selected budget', () => {
     mocks.items = [
-      monster('hidden', 'Hidden Goblin', true),
-      ...Array.from({ length: 10 }, (_, index) =>
-        monster(`goblin-${index}`, `Goblin ${index}`),
+      monster('expensive', 'Forest boss', '2'),
+      monster('fits', 'Forest creature', '1'),
+      monster('urban', 'Town creature', '1', 'Urban'),
+    ];
+    renderPage();
+    fireEvent.change(screen.getByRole('combobox', { name: 'Habitat' }), {
+      target: { value: 'Forest' },
+    });
+    fireEvent.change(screen.getByRole('combobox', { name: 'Target difficulty' }), {
+      target: { value: 'moderate' },
+    });
+    const roll = screen.getByRole('button', { name: 'Add random monster' });
+    fireEvent.click(roll);
+    expect(within(summary()).getByText('100 XP remaining')).toBeVisible();
+    fireEvent.click(roll);
+    expect(
+      screen.getByText(
+        'No matching creature can be added within the remaining XP budget.',
       ),
-    ];
-    renderPage();
-
-    const search = screen.getByLabelText('encounter.searchMonsters');
-    fireEvent.change(search, { target: { value: '  GOBLIN  ' } });
-    expect(screen.getAllByRole('button', { name: /Goblin/ })).toHaveLength(8);
-    expect(screen.queryByText('Hidden Goblin')).not.toBeInTheDocument();
-
-    fireEvent.click(screen.getByRole('button', { name: /Goblin 0/ }));
-    expect(screen.getByText('Goblin 0')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Goblin 0' })).toHaveAttribute(
-      'href',
-      expect.stringContaining('/compendium/bestiary/goblin-0'),
-    );
-    fireEvent.change(search, { target: { value: 'goblin 1' } });
-    fireEvent.click(screen.getByRole('button', { name: /Goblin 1/ }));
-    fireEvent.change(search, { target: { value: 'goblin 0' } });
-    fireEvent.click(screen.getAllByRole('button', { name: /Goblin 0/ })[0]!);
-    expect(screen.getByText('2')).toBeInTheDocument();
-
-    fireEvent.click(screen.getByRole('button', { name: 'encounter.more:Goblin 0' }));
-    expect(screen.getByText('3')).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: 'encounter.fewer:Goblin 0' }));
-    fireEvent.click(screen.getByRole('button', { name: 'encounter.fewer:Goblin 0' }));
-    fireEvent.click(screen.getByRole('button', { name: 'encounter.fewer:Goblin 0' }));
-    fireEvent.click(screen.getByRole('button', { name: 'encounter.fewer:Goblin 1' }));
-    expect(screen.getByText('encounter.noMonstersYet')).toBeInTheDocument();
+    ).toBeVisible();
+    expect(useEncounterStore.getState().data.draft.monsters).toMatchObject([
+      { id: 'fits', count: 1 },
+    ]);
   });
 
-  it('restores the bestiary search from the URL', () => {
-    mocks.items = [monster('dragon', 'Dragon'), monster('goblin', 'Goblin')];
-    renderPage('/dm/encounter?q=dragon');
-    expect(screen.getByRole('searchbox')).toHaveValue('dragon');
-    expect(screen.getByText('Dragon')).toBeInTheDocument();
-    expect(screen.queryByText('Goblin')).not.toBeInTheDocument();
-  });
-
-  it.each([
-    ['dragon', 'Dragon'],
-    ['allied-hunter', 'Allied Hunter'],
-    ['missing', null],
-  ])('looks up a creature linked by its exact bestiary ID (%s)', (id, name) => {
-    mocks.items = [monster('dragon', 'Dragon')];
-    renderPage(`/dm/encounter?monster=${id}`);
-    if (name) {
-      expect(screen.getByRole('button', { name: new RegExp(name) })).toBeInTheDocument();
-    } else {
-      expect(screen.queryByText('Dragon')).not.toBeInTheDocument();
-      expect(screen.queryByText('Allied Hunter')).not.toBeInTheDocument();
-    }
-  });
-
-  it('filters monsters and options by habitat', () => {
+  it('paginates, sorts and searches localized and original names', () => {
     mocks.items = [
-      monster('urban', 'Urban Goblin', false, 'Urban'),
-      monster('mountain', 'Mountain Goblin', false, 'Mountain'),
-      monster('both', 'Both Goblin', false, 'Mountain, Urban'),
+      ...Array.from({ length: 12 }, (_, index) =>
+        monster('frog-' + index, 'Żaba ' + index, '1/4', 'Any'),
+      ),
+      { ...monster('frog', 'Żaba', '0', 'Swamp'), englishName: 'Frog' },
     ];
-    renderPage('/dm/encounter?habitat=Urban&q=goblin');
-
-    const habitat = screen.getByLabelText('encounter.habitat');
-    expect(habitat).toHaveValue('Urban');
-    expect(screen.getByText('Urban Goblin')).toBeInTheDocument();
-    expect(screen.getByText('Both Goblin')).toBeInTheDocument();
-    expect(screen.queryByText('Mountain Goblin')).not.toBeInTheDocument();
-
-    fireEvent.change(habitat, { target: { value: 'Mountain' } });
-    expect(screen.getByText('Mountain Goblin')).toBeInTheDocument();
-    expect(screen.getByText('Both Goblin')).toBeInTheDocument();
-    expect(screen.queryByText('Urban Goblin')).not.toBeInTheDocument();
-
-    fireEvent.change(habitat, { target: { value: '' } });
-    expect(habitat).toHaveValue('');
-    expect(screen.getByText('Mountain Goblin')).toBeInTheDocument();
-  });
-
-  it('includes monsters with Any habitat when enabled', () => {
-    mocks.items = [
-      monster('urban', 'Urban Goblin', false, 'Urban'),
-      monster('any', 'Any Goblin', false, 'Any'),
-      monster('mountain', 'Mountain Goblin', false, 'Mountain'),
-    ];
-    renderPage('/dm/encounter?habitat=Urban&includeAny=1&q=goblin');
-
-    const includeAny = screen.getByLabelText('encounter.includeAny');
-    expect(includeAny).toBeChecked();
-    expect(screen.getByText('Urban Goblin')).toBeInTheDocument();
-    expect(screen.getByText('Any Goblin')).toBeInTheDocument();
-    expect(screen.queryByText('Mountain Goblin')).not.toBeInTheDocument();
-
-    fireEvent.click(includeAny);
-    expect(screen.getByText('Urban Goblin')).toBeInTheDocument();
-    expect(screen.queryByText('Any Goblin')).not.toBeInTheDocument();
-  });
-
-  it('adds a random monster from the party budget and selected habitat', () => {
-    mocks.items = [
-      monster('weaker', 'Weaker Goblin', false, 'Urban', '3'),
-      monster('matching', 'Matching Goblin', false, 'Urban', '4'),
-      monster('other-habitat', 'Mountain Goblin', false, 'Mountain', '4'),
-      monster('stronger', 'Stronger Goblin', false, 'Urban', '5'),
-    ];
-    renderPage('/dm/encounter?habitat=Urban');
-
-    fireEvent.change(screen.getByLabelText('encounter.count'), {
-      target: { value: '2' },
+    renderPage('/pl/dm/encounter/');
+    search(' zaba ');
+    expect(screen.getByText('Pasujące stworzenia: 13')).toBeVisible();
+    fireEvent.click(screen.getByRole('button', { name: 'Następna strona' }));
+    expect(screen.getByText('Strona 2 z 2')).toBeVisible();
+    fireEvent.change(screen.getByRole('combobox', { name: 'Sortuj wyniki' }), {
+      target: { value: 'cr' },
     });
-    fireEvent.change(screen.getByLabelText('encounter.level'), {
-      target: { value: '4' },
+    expect(
+      screen.getAllByRole('button', { name: /dodaj do starcia/ })[0],
+    ).toHaveAccessibleName('Żaba - dodaj do starcia');
+    search('frog');
+    expect(screen.getByRole('button', { name: 'Żaba - dodaj do starcia' })).toBeVisible();
+    fireEvent.change(screen.getByRole('combobox', { name: 'Siedlisko' }), {
+      target: { value: 'Any' },
     });
-    fireEvent.click(screen.getByRole('button', { name: 'encounter.addRandomMonster' }));
-
-    expect(screen.getByText('Matching Goblin')).toBeInTheDocument();
-    expect(screen.queryByText('Mountain Goblin')).not.toBeInTheDocument();
-    expect(screen.queryByText('Weaker Goblin')).not.toBeInTheDocument();
+    expect(screen.getByText(/Brak pasujących stworzeń/)).toBeVisible();
   });
 
-  it('reports when no stronger random monster is available', () => {
-    mocks.items = [monster('weaker', 'Weaker Goblin', false, '', '1')];
-    renderPage();
-
-    fireEvent.click(screen.getByRole('button', { name: 'encounter.addRandomMonster' }));
-
-    expect(screen.getByText('encounter.randomMonsterUnavailable')).toBeInTheDocument();
+  it('counts Polish Homebrew lair XP and excludes variants that exceed the remainder', () => {
+    mocks.items = [
+      {
+        ...monster('creature', 'Potwór', '2', 'Las'),
+        source: 'Homebrew',
+        crDisplay: formatMonsterCrDisplay({ cr: '2', xp: 450, xpLair: 650 }, 'pl'),
+      },
+    ];
+    renderPage('/pl/dm/encounter/?habitat=Forest');
+    fireEvent.change(screen.getByRole('spinbutton', { name: 'Liczba' }), {
+      target: { value: '11' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Potwór - dodaj do starcia' }));
+    fireEvent.click(screen.getByRole('checkbox', { name: /W legowisku/ }));
+    expect(screen.getByText('Pozostało 450 PD')).toBeVisible();
+    fireEvent.click(screen.getByRole('button', { name: 'Dodaj losowego potwora' }));
+    expect(screen.getByText(/Żadne pasujące stworzenie/)).toBeVisible();
   });
 
-  it('shows the loading placeholder and clears empty searches', () => {
-    mocks.status = 'loading';
-    mocks.rating = 'Unknown';
-    mocks.items = [monster('dragon', 'Dragon')];
-    renderPage();
-
-    const search = screen.getByLabelText('encounter.searchMonsters');
-    expect(search).toHaveAttribute('placeholder', 'encounter.loadingBestiary');
-    fireEvent.change(search, { target: { value: 'dragon' } });
-    expect(screen.getByText('Dragon')).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: 'common.clearSearch' }));
-    expect(search).toHaveValue('');
-    fireEvent.change(search, { target: { value: ' ' } });
-    expect(screen.queryByText('Dragon')).not.toBeInTheDocument();
-    expect(screen.getByText('encounter.trivial')).toBeInTheDocument();
+  it('offers retry on load error and explains a missing linked creature', () => {
+    mocks.status = 'error';
+    renderPage('/dm/encounter/?monster=missing');
+    expect(screen.getByRole('alert')).toHaveTextContent('The Bestiary could not load');
+    mocks.status = 'ready';
+    fireEvent.click(screen.getByRole('button', { name: 'Retry Bestiary' }));
+    expect(mocks.retryKey).toBe(1);
+    expect(screen.getByText('The linked creature could not be found.')).toBeVisible();
   });
 });

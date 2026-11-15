@@ -49,6 +49,7 @@ describe('LanguageSwitcher', () => {
     expect(screen.getByRole('listbox')).toBeInTheDocument();
     fireEvent.keyDown(window, { key: 'Escape' });
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(trigger).toHaveFocus();
     fireEvent.click(trigger);
     fireEvent.click(document.body);
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();

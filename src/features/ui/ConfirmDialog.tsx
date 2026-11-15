@@ -9,11 +9,12 @@ export function ConfirmDialog() {
   const request = useDialogStore((s) => s.request);
   const respond = useDialogStore((s) => s.respond);
   const confirmRef = useRef<HTMLButtonElement>(null);
+  const cancelRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useDialogFocus(Boolean(request), () => respond(false));
 
   useEffect(() => {
     if (!request) return;
-    confirmRef.current?.focus();
+    (request.initialFocus === 'cancel' ? cancelRef : confirmRef).current?.focus();
   }, [request, respond]);
 
   if (!request) return null;
@@ -39,9 +40,15 @@ export function ConfirmDialog() {
         className="dialog-panel max-w-sm p-5"
       >
         <h2 className="text-ink-50 section-title">{title}</h2>
-        <p className="mt-2 whitespace-pre-line text-sm text-ink-300">{request.message}</p>
+        <p className="mt-2 whitespace-pre-line text-sm text-ink-300 [overflow-wrap:anywhere]">
+          {request.message}
+        </p>
         <div className="mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
-          {!isAlert && <Button onClick={() => respond(false)}>{cancelLabel}</Button>}
+          {!isAlert && (
+            <Button ref={cancelRef} onClick={() => respond(false)}>
+              {cancelLabel}
+            </Button>
+          )}
           <Button
             ref={confirmRef}
             onClick={() => respond(true)}

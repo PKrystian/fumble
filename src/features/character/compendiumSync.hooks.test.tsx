@@ -81,6 +81,7 @@ describe('compendium entry hooks', () => {
     expect(blank.result.current).toEqual({
       localized: undefined,
       english: undefined,
+      ready: true,
     });
   });
 
@@ -111,6 +112,7 @@ describe('compendium entry hooks', () => {
     const backgroundResult = renderHook(() => useBackgroundEntryPair('wizard'));
 
     await waitFor(() => expect(classResult.result.current.localized).toBe(englishClass));
+    expect(classResult.result.current.ready).toBe(true);
     await waitFor(() =>
       expect(speciesResult.result.current.localized).toBe(englishClass),
     );
@@ -126,6 +128,7 @@ describe('compendium entry hooks', () => {
     expect(result.current).toEqual({
       localized: undefined,
       english: undefined,
+      ready: false,
     });
     expect(mocks.loadLocalizedItems).not.toHaveBeenCalled();
   });
@@ -156,13 +159,15 @@ describe('useSpellIndex', () => {
     mocks.loadLocalizedItems.mockResolvedValue([spell]);
     const { result } = renderHook(() => useSpellIndex());
 
-    await waitFor(() => expect(result.current.get('magic-missile')).toBe(spell));
+    await waitFor(() => expect(result.current.index.get('magic-missile')).toBe(spell));
+    expect(result.current.ready).toBe(true);
   });
 
   it('keeps an empty index without a spell category', () => {
     mocks.getCategory.mockReturnValue(undefined);
     const { result } = renderHook(() => useSpellIndex());
-    expect(result.current.size).toBe(0);
+    expect(result.current.index.size).toBe(0);
+    expect(result.current.ready).toBe(false);
   });
 
   it('does not update the index after unmounting', async () => {

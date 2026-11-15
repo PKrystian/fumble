@@ -1,36 +1,64 @@
-import { Button, SearchField, ToggleChip } from '@/features/ui/primitives';
-import { useMemo, useState } from 'react';
-import { Pencil, SlidersHorizontal, X } from 'lucide-react';
-import { useDialogFocus } from '@/features/ui/useDialogFocus';
+import { useId, useMemo, useRef, useState, type KeyboardEvent } from 'react';
+import { ChevronDown, SlidersHorizontal, X } from 'lucide-react';
 import type { CompendiumCategoryId, CompendiumEntryBase } from '@/data/compendium/types';
-import { getCategory } from '@/features/compendium/categories';
-import { useCategoryItems } from '@/features/compendium/useCategoryItems';
-import { applyContentMode } from '@/features/compendium/contentFilter';
-import { useContentModeStore } from '@/features/ui/contentModeStore';
-import { useT } from '@/i18n/useT';
 import { sourceName } from '@/data/compendium/sources';
+import { normalizeSearchText } from '@/data/compendium/searchText';
+import { getCategory } from '@/features/compendium/categories';
+import { applyContentMode } from '@/features/compendium/contentFilter';
+import { useCategoryItems } from '@/features/compendium/useCategoryItems';
+import { useContentModeStore } from '@/features/ui/contentModeStore';
+import { Button, IconButton, SearchField, ToggleChip } from '@/features/ui/primitives';
+import { inputClass } from '@/features/ui/styles';
+import { useDialogFocus } from '@/features/ui/useDialogFocus';
+import { useT } from '@/i18n/useT';
+
+export const PICKER_LIMIT = 20;
+
+function matches(item: CompendiumEntryBase, term: string): boolean {
+  return (
+    normalizeSearchText(item.name).includes(term) ||
+    normalizeSearchText(item.englishName ?? '').includes(term)
+  );
+}
+
+function byName(a: CompendiumEntryBase, b: CompendiumEntryBase, term: string) {
+  const aStarts = normalizeSearchText(a.name).startsWith(term) ? 0 : 1;
+  const bStarts = normalizeSearchText(b.name).startsWith(term) ? 0 : 1;
+  return aStarts - bStarts || a.name.localeCompare(b.name);
+}
 
 interface CompendiumPickerProps {
   categoryId: CompendiumCategoryId;
+  label?: string;
   placeholder: string;
   onPick: (item: CompendiumEntryBase) => void;
+  describe?: (item: CompendiumEntryBase) => string;
+  accept?: (item: CompendiumEntryBase) => boolean;
 }
 
 export function CompendiumPicker({
   categoryId,
+  label = '',
   placeholder,
   onPick,
+  describe,
+  accept,
 }: CompendiumPickerProps) {
   const { t, locale } = useT();
+  const listId = useId();
+  const statusId = useId();
+  const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState('');
+  const [active, setActive] = useState(0);
   const [showFilters, setShowFilters] = useState(false);
   const [selectedSources, setSelectedSources] = useState<string[]>([]);
+  const [added, setAdded] = useState<string | null>(null);
   const { status, items } = useCategoryItems(getCategory(categoryId));
   const contentMode = useContentModeStore((s) => s.mode);
 
   const visibleItems = useMemo(
-    () => applyContentMode(items, contentMode),
-    [items, contentMode],
+    () => applyContentMode(items, contentMode).filter((item) => !accept || accept(item)),
+    [items, contentMode, accept],
   );
 
   const availableSources = useMemo(
@@ -41,158 +69,282 @@ export function CompendiumPicker({
     [visibleItems, locale],
   );
 
-  const toggleSource = (source: string) =>
-    setSelectedSources((prev) =>
-      prev.includes(source) ? prev.filter((s) => s !== source) : [...prev, source],
-    );
+  const term = normalizeSearchText(query.trim());
+  const allResults = useMemo(
+    () =>
+      term
+        ? visibleItems
+            .filter(
+              (item) =>
+                matches(item, term) &&
+                (selectedSources.length === 0 || selectedSources.includes(item.source)),
+            )
+            .sort((a, b) => byName(a, b, term))
+        : [],
+    [visibleItems, term, selectedSources],
+  );
+  const results = allResults.slice(0, PICKER_LIMIT);
+  const open = term.length > 0 && status !== 'loading';
+  const activeIndex = Math.min(active, Math.max(0, results.length - 1));
 
-  const results = useMemo(() => {
-    const term = query.trim().toLowerCase();
-    if (!term) return [];
-    return visibleItems
-      .filter(
-        (item) =>
-          item.name.toLowerCase().includes(term) &&
-          (selectedSources.length === 0 || selectedSources.includes(item.source)),
-      )
-      .slice(0, 8);
-  }, [visibleItems, query, selectedSources]);
+  const pick = (item: CompendiumEntryBase) => {
+    onPick(item);
+    setAdded(item.name);
+    setQuery('');
+    setActive(0);
+    inputRef.current?.focus();
+  };
+
+  const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Escape' && query) {
+      event.preventDefault();
+      event.stopPropagation();
+      setQuery('');
+      return;
+    }
+    if (!open || results.length === 0) return;
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault();
+      const offset = event.key === 'ArrowDown' ? 1 : -1;
+      setActive((activeIndex + offset + results.length) % results.length);
+    } else if (event.key === 'Home' || event.key === 'End') {
+      event.preventDefault();
+      setActive(event.key === 'Home' ? 0 : results.length - 1);
+    } else if (event.key === 'Enter') {
+      event.preventDefault();
+      pick(results[activeIndex]!);
+    }
+  };
 
   return (
-    <div className="relative">
-      <div className="flex items-center gap-2">
+    <div className="flex min-w-0 flex-col gap-2">
+      <div className="flex items-start gap-2">
         <SearchField
+          ref={inputRef}
+          role="combobox"
+          aria-expanded={open}
+          aria-controls={listId}
+          aria-autocomplete="list"
+          aria-activedescendant={
+            open && results.length > 0 ? `${listId}-${activeIndex}` : undefined
+          }
+          aria-describedby={statusId}
           value={query}
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={(event) => {
+            setQuery(event.target.value);
+            setActive(0);
+            setAdded(null);
+          }}
+          onKeyDown={onKeyDown}
           placeholder={
             status === 'loading'
               ? t('character.sheet.picker.loadingCompendium')
               : placeholder
           }
-          label={placeholder}
-          onClear={() => setQuery('')}
+          label={label || placeholder}
+          onClear={() => {
+            setQuery('');
+            inputRef.current?.focus();
+          }}
           clearLabel={t('common.clearSearch')}
         />
         {availableSources.length > 1 && (
           <Button
-            type="button"
-            onClick={() => setShowFilters((v) => !v)}
-            aria-pressed={showFilters}
+            onClick={() => setShowFilters((value) => !value)}
+            aria-expanded={showFilters}
             aria-label={t('character.sheet.picker.filterBySource')}
-            variant="secondary"
-            iconOnly
+            title={t('character.sheet.picker.filterBySource')}
           >
-            <SlidersHorizontal size={14} />
+            <SlidersHorizontal size={16} aria-hidden="true" />
             {selectedSources.length > 0 && (
-              <span className="ml-1 rounded-full bg-arcane-700 px-1 text-xs text-ink-50">
-                {selectedSources.length}
-              </span>
+              <span className="tabular-nums">{selectedSources.length}</span>
             )}
           </Button>
         )}
       </div>
       {showFilters && availableSources.length > 1 && (
-        <div className="mt-1 flex flex-wrap gap-1 rounded-md border border-ink-700 bg-ink-900 p-2">
-          {availableSources.map((source) => {
-            const active = selectedSources.includes(source);
-            return (
-              <ToggleChip
-                key={source}
-                type="button"
-                onClick={() => toggleSource(source)}
-                active={active}
-              >
-                {sourceName(source, locale)}
-              </ToggleChip>
-            );
-          })}
+        <div
+          role="group"
+          aria-label={t('character.sheet.picker.filterBySource')}
+          className="flex flex-wrap gap-1 rounded-lg border border-ink-700 bg-ink-950 p-2"
+        >
+          {availableSources.map((source) => (
+            <ToggleChip
+              key={source}
+              active={selectedSources.includes(source)}
+              onClick={() =>
+                setSelectedSources((prev) =>
+                  prev.includes(source)
+                    ? prev.filter((entry) => entry !== source)
+                    : [...prev, source],
+                )
+              }
+            >
+              {sourceName(source, locale)}
+            </ToggleChip>
+          ))}
+          {selectedSources.length > 0 && (
+            <Button size="sm" variant="ghost" onClick={() => setSelectedSources([])}>
+              {t('character.sheet.picker.clearSources')}
+            </Button>
+          )}
         </div>
       )}
-      {results.length > 0 && (
-        <ul className="absolute z-10 mt-1 max-h-64 w-full overflow-y-auto rounded-md border border-ink-700 bg-ink-800 shadow-xl">
-          {results.map((item) => (
-            <li key={item.id}>
-              <button
-                type="button"
-                onClick={() => {
-                  onPick(item);
-                  setQuery('');
-                }}
-                className="block w-full px-3 py-1.5 text-left text-sm text-ink-100 hover:bg-ink-700"
+      <div
+        id={listId}
+        role="listbox"
+        aria-label={label || placeholder}
+        hidden={!open}
+        className="max-h-72 overflow-y-auto rounded-lg border border-ink-700 bg-ink-950 p-1"
+      >
+        {results.map((item, index) => {
+          const meta = [describe?.(item), sourceName(item.source, locale)]
+            .filter(Boolean)
+            .join(' - ');
+          return (
+            <div
+              key={item.id}
+              id={`${listId}-${index}`}
+              role="option"
+              aria-selected={index === activeIndex}
+              aria-labelledby={`${listId}-${index}-name`}
+              aria-describedby={meta ? `${listId}-${index}-meta` : undefined}
+              onMouseDown={(event) => event.preventDefault()}
+              onMouseMove={() => setActive(index)}
+              onClick={() => pick(item)}
+              className="selection-row cursor-pointer"
+            >
+              <span
+                id={`${listId}-${index}-name`}
+                className="block [overflow-wrap:anywhere]"
               >
                 {item.name}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+              </span>
+              {meta && (
+                <span
+                  id={`${listId}-${index}-meta`}
+                  className="block text-xs font-normal text-ink-400"
+                >
+                  {meta}
+                </span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      <p id={statusId} role="status" className="text-xs text-ink-400">
+        {open && results.length === 0
+          ? t('character.sheet.picker.noMatches')
+          : open && allResults.length > PICKER_LIMIT
+            ? t('character.sheet.picker.limited', {
+                shown: PICKER_LIMIT,
+                count: allResults.length,
+              })
+            : added
+              ? t('character.sheet.picker.added', { name: added })
+              : ''}
+      </p>
     </div>
   );
 }
 
-interface CompendiumSelectModalFieldProps {
+interface CompendiumSelectFieldProps {
   label: string;
   categoryId: CompendiumCategoryId;
   value: string;
-  onChange: (name: string) => void;
+  onChange: (id: string) => void;
   placeholder: string;
 }
 
-export function CompendiumSelectModalField({
+export function CompendiumSelectField({
   label,
   categoryId,
   value,
   onChange,
   placeholder,
-}: CompendiumSelectModalFieldProps) {
-  const { t } = useT();
+}: CompendiumSelectFieldProps) {
+  const { t, locale } = useT();
+  const titleId = useId();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const dialogRef = useDialogFocus(open, () => setOpen(false));
+  const close = () => {
+    setOpen(false);
+    setQuery('');
+  };
+  const dialogRef = useDialogFocus(open, close);
   const { status, items } = useCategoryItems(getCategory(categoryId));
 
+  const lower = value.trim().toLowerCase();
   const selected =
     items.find((item) => item.id === value) ??
-    items.find((item) => item.name.toLowerCase() === value.trim().toLowerCase());
+    (lower
+      ? items.find(
+          (item) =>
+            item.name.toLowerCase() === lower ||
+            item.englishName?.toLowerCase() === lower,
+        )
+      : undefined);
   const displayName = selected?.name ?? value;
 
   const results = useMemo(() => {
-    const term = query.trim().toLowerCase();
+    const term = normalizeSearchText(query.trim());
     const visible = items.filter((item) => !item.hidden);
-    const filtered = term
-      ? visible.filter((item) => item.name.toLowerCase().includes(term))
-      : visible;
-    return [...filtered].sort((a, b) => a.name.localeCompare(b.name));
+    const filtered = term ? visible.filter((item) => matches(item, term)) : visible;
+    return [...filtered].sort((a, b) => byName(a, b, term));
   }, [items, query]);
 
+  const choose = (id: string) => {
+    onChange(id);
+    close();
+  };
+
   return (
-    <div className="flex flex-col gap-1 text-sm">
-      <span className="text-xs font-semibold text-ink-400">{label}</span>
-      <Button
+    <div className="flex min-w-0 flex-col gap-1 text-sm">
+      <span className="field-label" aria-hidden="true">
+        {label}
+      </span>
+      <button
         type="button"
         onClick={() => setOpen(true)}
+        aria-haspopup="dialog"
         aria-label={`${label}: ${displayName || t('character.sheet.fields.noneSelected')}`}
-        variant="secondary"
-        className="w-full justify-between text-left"
+        className={inputClass('relative flex items-center pr-10 text-left')}
       >
-        <span className="min-w-0 truncate">
+        <span className={`min-w-0 truncate ${displayName ? '' : 'text-ink-400'}`.trim()}>
           {displayName || t('character.sheet.fields.noneSelected')}
         </span>
-        <Pencil size={13} className="shrink-0 text-ink-400" />
-      </Button>
+        <ChevronDown
+          size={16}
+          aria-hidden="true"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-300"
+        />
+      </button>
 
       {open && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={label}
-          ref={dialogRef}
-          tabIndex={-1}
-          onClick={() => setOpen(false)}
-          className="dialog-overlay"
-        >
-          <div onClick={(e) => e.stopPropagation()} className="dialog-panel">
-            <div className="flex items-center justify-between gap-2 border-b border-ink-700 p-3">
+        <div className="dialog-overlay" onClick={close}>
+          <div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={titleId}
+            tabIndex={-1}
+            onClick={(event) => event.stopPropagation()}
+            className="dialog-panel"
+          >
+            <header className="flex items-start justify-between gap-2 border-b border-ink-700 p-4">
+              <h2 id={titleId} className="section-title">
+                {label}
+              </h2>
+              <IconButton
+                label={t('common.close')}
+                variant="ghost"
+                size="sm"
+                onClick={close}
+              >
+                <X size={16} aria-hidden="true" />
+              </IconButton>
+            </header>
+            <div className="border-b border-ink-700 p-3">
               <SearchField
                 autoFocus
                 value={query}
@@ -202,36 +354,43 @@ export function CompendiumSelectModalField({
                 onClear={() => setQuery('')}
                 clearLabel={t('common.clearSearch')}
               />
-              <Button
-                type="button"
-                onClick={() => setOpen(false)}
-                aria-label={t('common.close')}
-                variant="ghost"
-                size="sm"
-                iconOnly
-              >
-                <X size={16} />
-              </Button>
             </div>
-            <ul className="flex-1 overflow-y-auto p-1">
+            <ul className="min-h-0 flex-1 overflow-y-auto p-1" aria-label={label}>
+              {value && (
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => choose('')}
+                    className="selection-row text-ink-300"
+                  >
+                    {t('character.sheet.fields.clearSelection')}
+                  </button>
+                </li>
+              )}
               {results.length === 0 && (
-                <li className="px-3 py-2 text-sm text-ink-400">
-                  {t('compendium.noMatches')}
+                <li className="px-3 py-2 text-sm text-ink-400" role="status">
+                  {status === 'loading' ? t('common.loading') : t('compendium.noMatches')}
                 </li>
               )}
               {results.map((item) => (
                 <li key={item.id}>
                   <button
                     type="button"
-                    onClick={() => {
-                      onChange(item.id);
-                      setQuery('');
-                      setOpen(false);
-                    }}
+                    onClick={() => choose(item.id)}
                     className="selection-row"
                     aria-pressed={item.id === selected?.id}
                   >
-                    {item.name}
+                    <span className="block [overflow-wrap:anywhere]">{item.name}</span>
+                    <span className="block text-xs font-normal text-ink-400">
+                      {[
+                        item.englishName && item.englishName !== item.name
+                          ? item.englishName
+                          : '',
+                        sourceName(item.source, locale),
+                      ]
+                        .filter(Boolean)
+                        .join(' - ')}
+                    </span>
                   </button>
                 </li>
               ))}

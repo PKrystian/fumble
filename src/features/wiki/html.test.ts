@@ -33,7 +33,7 @@ describe('sanitizeWikiHtml', () => {
     );
 
     expect(html).toContain('data-wiki-link="silverhaven"');
-    expect(html).toContain('href="%BASE%wiki/silverhaven"');
+    expect(html).toContain('href="/wiki/silverhaven/"');
     expect(html).toContain('style="left:28%;top:38%"');
   });
 

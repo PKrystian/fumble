@@ -7,6 +7,70 @@ function makeEntry(id: string, name: string): CompendiumEntryBase {
 }
 
 describe('localizeEntry', () => {
+  it('preserves structural fields and original facet values', () => {
+    const entry = {
+      ...makeEntry('life', 'Fighter'),
+      collection: 'lifeClass',
+      data: { type: 'D', level: 'I', entries: ['Text'] },
+      size: 'Medium',
+      creatureType: 'Humanoid',
+    };
+    const result = localizeEntry(entry, {
+      life: {
+        id: 'wrong',
+        source: 'wrong',
+        collection: 'klasa',
+        name: 'Wojownik',
+        size: '',
+        creatureType: '',
+      },
+    });
+    expect(result).toMatchObject({
+      id: 'life',
+      source: 'XPHB',
+      collection: 'lifeClass',
+      size: 'Średni',
+      creatureType: 'Humanoidalny',
+      _filterData: { name: 'Fighter', size: 'Medium', data: { type: 'D', level: 'I' } },
+    });
+    expect(result._filterData?.data).not.toHaveProperty('entries');
+  });
+  it('inherits missing species mechanics from the same source only', () => {
+    const base = {
+      ...makeEntry('aasimar', 'Aasimar'),
+      source: 'VGM',
+      size: 'Medium',
+      speed: '30 ft.',
+      walkSpeed: 30,
+      creatureType: 'Humanoid',
+    };
+    const recent = {
+      ...base,
+      id: 'aasimar-new',
+      source: 'XPHB',
+      size: 'Small or Medium',
+    };
+    const child = {
+      ...base,
+      id: 'protector',
+      parentRace: 'Aasimar',
+      size: '',
+      speed: '',
+      walkSpeed: 0,
+      creatureType: '',
+    };
+    const orphan = { ...child, id: 'orphan', source: 'OTHER' };
+    const own = { ...child, id: 'own', size: 'Small', speed: '20 ft.', walkSpeed: 20 };
+    const result = localizeItems([recent, base, child, orphan, own], undefined);
+    expect(result[2]).toMatchObject({
+      size: 'Medium',
+      speed: '30 ft.',
+      walkSpeed: 30,
+      creatureType: 'Humanoid',
+    });
+    expect(result[3]).toBe(orphan);
+    expect(result[4]).toMatchObject({ size: 'Small', speed: '20 ft.', walkSpeed: 20 });
+  });
   it('falls back to the English entry when there is no overlay', () => {
     const entry = makeEntry('blinded', 'Blinded');
     expect(localizeEntry(entry, undefined)).toBe(entry);

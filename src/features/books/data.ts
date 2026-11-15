@@ -4,7 +4,7 @@ import type { Entry } from '@/data/compendium/entry';
 import type { BookIndexEntry } from '@/data/compendium/types';
 import type { Locale } from '@/i18n/locales';
 import { bookDataUrl, readBookData } from './dataCompression';
-import { normalizeBookChapterTitles } from './chapterTitle';
+import { bookChapterTitle } from './chapterTitle';
 
 export const books = (booksIndex as BookIndexEntry[]).filter((b) => b.type === 'book');
 export const adventures = (booksIndex as BookIndexEntry[]).filter(
@@ -25,6 +25,7 @@ export function localizedBookStoryline(
 
 export interface OutlineNode {
   name: string;
+  section?: string;
   children: OutlineNode[];
 }
 
@@ -39,6 +40,7 @@ export function buildOutline(entries: Entry[] | undefined, maxDepth = 2): Outlin
     ) {
       nodes.push({
         name: entry.name,
+        ...(typeof entry.id === 'string' ? { section: entry.id } : {}),
         children: buildOutline(entry.entries, maxDepth - 1),
       });
     }
@@ -47,6 +49,11 @@ export function buildOutline(entries: Entry[] | undefined, maxDepth = 2): Outlin
 }
 
 export type BookOverlay = Record<string, { name?: string; entries?: Entry[] }>;
+export interface BookData {
+  chapters: Entry[];
+  overlay?: BookOverlay;
+  language: Locale;
+}
 
 const COMPRESSED_BOOK_DATA = import.meta.env.VITE_COMPRESSED_BOOK_DATA === 'true';
 
@@ -67,9 +74,19 @@ function localizeBookEntry(
     : merged;
 }
 
-function localizeChapters(chapters: Entry[], overlay: BookOverlay | undefined): Entry[] {
-  if (!overlay) return chapters;
-  return chapters.map((chapter, index) => localizeBookEntry(chapter, index, overlay));
+export function readBookChapter(
+  data: BookData,
+  bookId: string,
+  index: number,
+): Entry | undefined {
+  const original = data.chapters[index];
+  if (original === undefined || typeof original === 'string') return original;
+  const chapter = data.overlay
+    ? localizeBookEntry(original, index, data.overlay)
+    : original;
+  if (typeof chapter === 'string') return chapter;
+  const name = bookChapterTitle(bookId, chapter, index, data.language, '');
+  return name && name !== chapter.name ? { ...chapter, name } : chapter;
 }
 
 async function loadBookOverlay(
@@ -84,38 +101,83 @@ async function loadBookOverlay(
   try {
     const res = await fetch(url);
     const body = await readBookData<{ data?: BookOverlay }>(res, COMPRESSED_BOOK_DATA);
-    return body.data;
+    const data = body.data;
+    return data &&
+      typeof data === 'object' &&
+      !Array.isArray(data) &&
+      Object.keys(data).length
+      ? data
+      : undefined;
   } catch {
     return undefined;
   }
 }
 
-const cache = new Map<string, Promise<Entry[]>>();
+const baseCache = new Map<string, Promise<Entry[]>>();
+const cache = new Map<string, Promise<BookData>>();
 
-export function loadBookData(entry: BookIndexEntry, locale: string): Promise<Entry[]> {
-  const key = `${locale}/${entry.type}/${entry.id}`;
-  const existing = cache.get(key);
-  if (existing) return existing;
+function boundedCache<T>(entries: Map<string, T>, key: string, value: T, limit: number) {
+  entries.delete(key);
+  entries.set(key, value);
+  if (entries.size > limit) entries.delete(entries.keys().next().value!);
+  return value;
+}
+
+function loadBaseBook(entry: BookIndexEntry): Promise<Entry[]> {
+  const key = `${entry.type}/${entry.id}`;
+  const existing = baseCache.get(key);
+  if (existing) return boundedCache(baseCache, key, existing, 6);
   const url = bookDataUrl(
-    `${import.meta.env.BASE_URL}data/${entry.type}/${entry.id}.json`,
+    `${import.meta.env.BASE_URL}data/${key}.json`,
     COMPRESSED_BOOK_DATA,
   );
-  const promise = Promise.all([
-    fetch(url)
-      .then((r) => readBookData<{ data?: Entry[] }>(r, COMPRESSED_BOOK_DATA))
-      .then((d: { data?: Entry[] }) => d.data ?? []),
-    loadBookOverlay(entry, locale),
-  ]).then(
-    ([chapters, overlay]) =>
-      normalizeBookChapterTitles(
-        entry.id,
-        localizeChapters(chapters, overlay),
-        locale === 'pl' ? 'pl' : 'en',
-      ) as Entry[],
+  const promise = fetch(url)
+    .then((response) => readBookData<{ data?: Entry[] }>(response, COMPRESSED_BOOK_DATA))
+    .then(({ data }) => {
+      if (data === undefined) return [];
+      if (
+        !Array.isArray(data) ||
+        data.some(
+          (chapter) =>
+            typeof chapter !== 'string' &&
+            (!chapter || typeof chapter !== 'object' || typeof chapter.type !== 'string'),
+        )
+      )
+        throw new Error('Invalid book data');
+      return data;
+    });
+  boundedCache(baseCache, key, promise, 6);
+  void promise.then(
+    (chapters) => {
+      if (!chapters.length && baseCache.get(key) === promise) baseCache.delete(key);
+    },
+    () => {
+      if (baseCache.get(key) === promise) baseCache.delete(key);
+    },
   );
-  cache.set(key, promise);
-  void promise.catch(() => {
-    if (cache.get(key) === promise) cache.delete(key);
-  });
+  return promise;
+}
+
+export function loadBookData(entry: BookIndexEntry, locale: Locale): Promise<BookData> {
+  const key = `${locale}/${entry.type}/${entry.id}`;
+  const existing = cache.get(key);
+  if (existing) return boundedCache(cache, key, existing, 4);
+  const promise = Promise.all([loadBaseBook(entry), loadBookOverlay(entry, locale)]).then(
+    ([chapters, overlay]): BookData =>
+      overlay ? { chapters, overlay, language: 'pl' } : { chapters, language: 'en' },
+  );
+  boundedCache(cache, key, promise, 4);
+  void promise.then(
+    ({ chapters, overlay }) => {
+      if (
+        (!chapters.length || (locale === 'pl' && !overlay)) &&
+        cache.get(key) === promise
+      )
+        cache.delete(key);
+    },
+    () => {
+      if (cache.get(key) === promise) cache.delete(key);
+    },
+  );
   return promise;
 }

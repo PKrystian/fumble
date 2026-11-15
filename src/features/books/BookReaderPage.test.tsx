@@ -2,6 +2,9 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { BookReaderPage } from './BookReaderPage';
+import { useBookReading } from './readingStore';
+import { emptyBookReading } from './readingData';
+import type { BookData } from './data';
 
 const mocks = vi.hoisted(() => ({
   getBook: vi.fn(),
@@ -14,7 +17,11 @@ const mocks = vi.hoisted(() => ({
 
 vi.mock('./data', () => ({
   getBook: (...args: unknown[]) => mocks.getBook(...args),
-  loadBookData: (...args: unknown[]) => mocks.loadBookData(...args),
+  loadBookData: async (...args: unknown[]) => ({
+    chapters: await mocks.loadBookData(...args),
+    language: args[1],
+  }),
+  readBookChapter: (data: BookData, _id: string, index: number) => data.chapters[index],
   buildOutline: (...args: unknown[]) => mocks.buildOutline(...args),
 }));
 
@@ -50,7 +57,12 @@ const book = {
 };
 
 const chapters = [
-  { type: 'entries', name: 'First Chapter', page: 10, entries: [] },
+  {
+    type: 'entries',
+    name: 'First Chapter',
+    page: 10,
+    entries: [{ type: 'entries', name: 'Topic' }],
+  },
   { type: 'entries', name: 'Second Chapter', page: 20, entries: [] },
 ];
 
@@ -77,6 +89,8 @@ function renderPolishReader(path = '/pl/books/test-book/0') {
 
 describe('BookReaderPage', () => {
   beforeEach(() => {
+    localStorage.clear();
+    useBookReading.setState({ data: emptyBookReading, status: 'ready', raw: null });
     mocks.getBook.mockReset();
     mocks.loadBookData.mockReset();
     mocks.buildOutline.mockReset();
@@ -97,7 +111,7 @@ describe('BookReaderPage', () => {
     HTMLElement.prototype.scrollTo = vi.fn();
   });
 
-  it('keeps the generated chapter and canonical after a failed fetch', async () => {
+  it('keeps the generated chapter after a failed fetch and never asks to be indexed', async () => {
     const fallback = document.createElement('main');
     fallback.id = 'prerendered-content';
     fallback.dataset.path = '/books/test-book/0/';
@@ -112,9 +126,12 @@ describe('BookReaderPage', () => {
     renderReader();
     await waitFor(() => expect(fallback.firstElementChild).not.toHaveAttribute('hidden'));
     expect(fallback).toBeInTheDocument();
-    expect(canonical).toBeInTheDocument();
+    expect(canonical).not.toBeInTheDocument();
+    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      'noindex, nofollow',
+    );
     fallback.remove();
-    canonical.remove();
   });
 
   it('loads a chapter, renders its outline and toggles reader controls', async () => {
@@ -129,13 +146,13 @@ describe('BookReaderPage', () => {
     expect(screen.queryByRole('link', { name: 'Topic' })).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Expand First Chapter' }));
 
-    fireEvent.click(screen.getByRole('button', { name: 'This chapter' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Whole book' }));
     expect(screen.getAllByRole('heading', { name: /Chapter/ })).toHaveLength(2);
     fireEvent.click(screen.getByRole('button', { name: 'Whole book' }));
     expect(screen.getAllByRole('heading', { name: 'First Chapter' })).toHaveLength(1);
 
     fireEvent.click(screen.getByRole('button', { name: 'Full width' }));
-    expect(screen.getByRole('button', { name: 'Comfortable width' })).toHaveAttribute(
+    expect(screen.getByRole('button', { name: 'Full width' })).toHaveAttribute(
       'aria-pressed',
       'true',
     );
@@ -153,7 +170,7 @@ describe('BookReaderPage', () => {
   it('selects a chapter from a target page and supports previous navigation', async () => {
     renderReader('/books/test-book?chapter=ignored&page=21');
     await screen.findByRole('heading', { name: 'Second Chapter' });
-    expect(screen.getByRole('link', { name: '<- First Chapter' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'First Chapter' })).toHaveAttribute(
       'href',
       '/books/test-book/0/',
     );
@@ -175,12 +192,10 @@ describe('BookReaderPage', () => {
     expect(heading.getAttribute('data-page')).toBe('10');
   });
 
-  it('returns to the top when no heading or page target exists', async () => {
+  it('focuses the chapter heading for an explicit chapter link', async () => {
     renderReader();
-    await screen.findByRole('heading', { name: 'First Chapter' });
-    await waitFor(() =>
-      expect(HTMLElement.prototype.scrollTo).toHaveBeenCalledWith({ top: 0 }),
-    );
+    const heading = await screen.findByRole('heading', { name: 'First Chapter' });
+    await waitFor(() => expect(heading).toHaveFocus());
   });
 
   it('returns to the top when a named heading is missing', async () => {
@@ -188,9 +203,8 @@ describe('BookReaderPage', () => {
     renderReader('/books/test-book/0?name=Missing');
     const heading = await screen.findByRole('heading', { name: 'First Chapter' });
     Object.defineProperty(heading, 'textContent', { configurable: true, value: null });
-    await waitFor(() =>
-      expect(HTMLElement.prototype.scrollTo).toHaveBeenCalledWith({ top: 0 }),
-    );
+    await waitFor(() => expect(heading).toHaveFocus());
+    expect(screen.getByText(/showing the start of the chapter/i)).toBeVisible();
   });
 
   it('ignores chapters without page metadata when selecting by page', async () => {
@@ -220,7 +234,7 @@ describe('BookReaderPage', () => {
     renderReader('/books/test-book/1');
     await screen.findByRole('heading', { name: 'Second Chapter' });
     vi.mocked(Element.prototype.scrollIntoView).mockClear();
-    fireEvent.click(screen.getByRole('button', { name: 'This chapter' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Whole book' }));
     await waitFor(() => expect(Element.prototype.scrollIntoView).toHaveBeenCalled());
   });
 
@@ -270,6 +284,33 @@ describe('BookReaderPage', () => {
     mocks.loadBookData.mockRejectedValue(new Error('failed'));
     renderReader();
     expect(await screen.findByText('Could not load this document.')).toBeInTheDocument();
+  });
+
+  it('reports an empty document and lets the reader try again', async () => {
+    mocks.loadBookData.mockResolvedValueOnce([]).mockResolvedValueOnce(chapters);
+    renderReader('/books/test-book/');
+    expect(
+      await screen.findByText('There is no readable content in this document.'),
+    ).toBeVisible();
+    expect(screen.queryByRole('article')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Try again' }));
+    expect(await screen.findByRole('heading', { name: 'First Chapter' })).toBeVisible();
+  });
+
+  it('offers a saved section when opening the book without a chapter', async () => {
+    useBookReading.setState({
+      data: {
+        ...emptyBookReading,
+        positions: { 'test-book': { chapter: 1, section: 'abc', updatedAt: 1 } },
+      },
+    });
+    renderReader('/books/test-book/');
+    await screen.findByRole('heading', { name: 'First Chapter' });
+    expect(screen.getByRole('link', { name: 'Continue reading' })).toHaveAttribute(
+      'href',
+      '/books/test-book/1/#section=abc',
+    );
+    expect(useBookReading.getState().data.positions['test-book']?.chapter).toBe(1);
   });
 
   it('shows a not found page when the book is unknown', async () => {

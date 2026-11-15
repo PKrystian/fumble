@@ -1,6 +1,13 @@
 import { Button } from '@/features/ui/primitives';
 import { ChevronLeft, ChevronRight, Home } from 'lucide-react';
-import { navSections, type NavAccent } from '@/app/navigation';
+import { useLocation } from 'react-router-dom';
+import {
+  allNavItems,
+  compendiumNavItem,
+  navAccentText,
+  navSections,
+} from '@/app/navigation';
+import { stripLocale } from '@/i18n/pathUtils';
 import { Link, NavLink } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { LanguageSwitcher } from '@/features/ui/LanguageSwitcher';
@@ -15,19 +22,21 @@ interface SidebarProps {
   collapsible?: boolean;
 }
 
-const sectionColors: Record<NavAccent, string> = {
-  arcane: 'text-arcane-300',
-  teal: 'text-cyan-300',
-  violet: 'text-violet-300',
-  ember: 'text-ember-400',
-  slate: 'text-ink-300',
-};
+function isCompendiumHub(pathname: string): boolean {
+  const rest = stripLocale(pathname).rest.replace(/\/+$/, '');
+  if (rest === compendiumNavItem.to) return true;
+  return (
+    rest.startsWith(`${compendiumNavItem.to}/`) &&
+    !allNavItems.some((item) => rest === item.to || rest.startsWith(`${item.to}/`))
+  );
+}
 
 export function Sidebar({ onNavigate, collapsible = true }: SidebarProps) {
   const collapsed = useSidebarStore((s) => s.collapsed);
   const toggle = useSidebarStore((s) => s.toggle);
   const { t } = useT();
   const showLabels = !collapsed || !collapsible;
+  const compendiumActive = isCompendiumHub(useLocation().pathname);
 
   return (
     <nav
@@ -92,13 +101,6 @@ export function Sidebar({ onNavigate, collapsible = true }: SidebarProps) {
         {({ isActive }) => (
           <>
             <span
-              aria-hidden="true"
-              className={[
-                'absolute inset-y-0.5 left-0 w-[3px] rounded-r-sm',
-                isActive ? 'bg-arcane-500' : 'bg-transparent',
-              ].join(' ')}
-            />
-            <span
               className={[
                 'flex flex-1 items-center gap-3 rounded-md py-2',
                 showLabels ? 'mx-2 px-3' : 'mx-1 justify-center px-2',
@@ -114,6 +116,27 @@ export function Sidebar({ onNavigate, collapsible = true }: SidebarProps) {
         )}
       </NavLink>
 
+      <Link
+        to={compendiumNavItem.to}
+        onClick={onNavigate}
+        aria-current={compendiumActive ? 'page' : undefined}
+        title={showLabels ? undefined : t(compendiumNavItem.labelKey)}
+        className="group relative mb-1 flex w-full items-center text-sm"
+      >
+        <span
+          className={[
+            'flex flex-1 items-center gap-3 rounded-md py-2',
+            showLabels ? 'mx-2 px-3' : 'mx-1 justify-center px-2',
+            compendiumActive
+              ? 'bg-arcane-700 font-semibold text-white'
+              : 'font-medium text-ink-200 group-hover:bg-ink-800/60 group-hover:text-ink-50',
+          ].join(' ')}
+        >
+          <compendiumNavItem.icon size={18} aria-hidden="true" className="shrink-0" />
+          {showLabels && <span>{t(compendiumNavItem.labelKey)}</span>}
+        </span>
+      </Link>
+
       {navSections.map((section, index) => (
         <div key={section.titleKey} className="flex w-full flex-col gap-0.5">
           <div
@@ -125,7 +148,7 @@ export function Sidebar({ onNavigate, collapsible = true }: SidebarProps) {
           />
           {showLabels && (
             <p
-              className={`mb-1 px-4 text-[0.68rem] font-bold uppercase tracking-[0.14em] ${sectionColors[section.accent]}`}
+              className={`mb-1 px-4 text-xs font-bold uppercase tracking-[0.14em] ${navAccentText[section.accent]}`}
             >
               {t(section.titleKey)}
             </p>
@@ -140,13 +163,6 @@ export function Sidebar({ onNavigate, collapsible = true }: SidebarProps) {
             >
               {({ isActive }) => (
                 <>
-                  <span
-                    aria-hidden="true"
-                    className={[
-                      'absolute inset-y-0.5 left-0 w-[3px] rounded-r-sm transition-colors',
-                      isActive ? 'bg-arcane-500' : 'bg-transparent',
-                    ].join(' ')}
-                  />
                   <span
                     className={[
                       'flex flex-1 items-center gap-3 rounded-md py-1.5 transition-colors',

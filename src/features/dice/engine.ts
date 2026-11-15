@@ -1,3 +1,17 @@
+import type { DamageOutcome } from './damage';
+
+export const MAX_EXPRESSION_LENGTH = 500;
+export const MAX_DICE = 1000;
+export const MAX_SIDES = 1_000_000;
+export type RollError = 'invalid' | 'limit' | 'division' | 'overflow';
+export class DiceError extends Error {
+  readonly code: RollError;
+  constructor(code: RollError) {
+    super(code);
+    this.code = code;
+  }
+}
+
 export type RollMode = 'normal' | 'advantage' | 'disadvantage';
 
 export interface DiceTerm {
@@ -14,6 +28,7 @@ export interface RolledGroup {
   sides: number;
   rolls: number[];
   kept: number[];
+  keptIndices?: number[];
 }
 
 export interface RollOutcome {
@@ -22,6 +37,8 @@ export interface RollOutcome {
   groups: RolledGroup[];
   modifier: number;
   total: number;
+  calculation?: string;
+  damage?: DamageOutcome;
 }
 
 export type Rng = () => number;
@@ -47,6 +64,8 @@ export function rollDie(sides: number, rng: Rng = Math.random): number {
 
 class Parser {
   private position = 0;
+  private diceCount = 0;
+  private depth = 0;
   private readonly input: string;
 
   constructor(input: string) {
@@ -85,6 +104,13 @@ class Parser {
   }
 
   private parseUnary(): ExpressionNode | null {
+    if (++this.depth > 40) throw new DiceError('limit');
+    const result = this.parseSigned();
+    this.depth -= 1;
+    return result;
+  }
+
+  private parseSigned(): ExpressionNode | null {
     if (this.peek() === '+' || this.peek() === '-') {
       const operator = this.take() as '+' | '-';
       const value = this.parseUnary();
@@ -109,13 +135,24 @@ class Parser {
       if (!sidesText) return null;
       const count = countText ? Number(countText) : 1;
       const sides = Number(sidesText);
+      this.diceCount += count;
+      if (
+        !Number.isSafeInteger(count) ||
+        !Number.isSafeInteger(sides) ||
+        this.diceCount > MAX_DICE ||
+        sides > MAX_SIDES
+      )
+        throw new DiceError('limit');
       return count > 0 && sides > 0 ? { type: 'dice', count, sides } : null;
     }
     if (!countText) {
       this.position = start;
       return null;
     }
-    return { type: 'number', value: Number(countText) };
+    const value = Number(countText);
+    if (!Number.isSafeInteger(value) || value > 1_000_000_000)
+      throw new DiceError('limit');
+    return { type: 'number', value };
   }
 
   private takeDigits(): string {
@@ -162,18 +199,61 @@ function collectDice(node: ExpressionNode): DiceTerm[] {
 }
 
 export function parseExpression(input: string): ParsedExpression | null {
+  return validateExpression(input).parsed;
+}
+
+export function validateExpression(input: string): {
+  parsed: ParsedExpression | null;
+  error: RollError | null;
+} {
+  if (input.length > MAX_EXPRESSION_LENGTH) return { parsed: null, error: 'limit' };
   const cleaned = input.replace(/\s+/g, '').replace(/k/gi, 'd');
-  if (!cleaned) return null;
-  const node = new Parser(cleaned).parse();
-  if (!node) return null;
-  const parsed = summarize(node);
-  parsedMetadata.set(parsed, { node, expression: formatNode(node) });
-  return parsed;
+  try {
+    const node = new Parser(cleaned).parse();
+    if (!node) return { parsed: null, error: 'invalid' };
+    constantValue(node);
+    const parsed = summarize(node);
+    parsedMetadata.set(parsed, { node, expression: formatNode(node) });
+    return { parsed, error: null };
+  } catch (error) {
+    if (error instanceof DiceError) return { parsed: null, error: error.code };
+    throw error;
+  }
+}
+
+function calculate(operator: Operator, left: number, right: number): number {
+  if (operator === '/' && right === 0) throw new DiceError('division');
+  const result =
+    operator === '+'
+      ? left + right
+      : operator === '-'
+        ? left - right
+        : operator === '*'
+          ? left * right
+          : Math.floor(left / right);
+  if (!Number.isSafeInteger(result)) throw new DiceError('overflow');
+  return result;
+}
+
+function constantValue(node: ExpressionNode): number | undefined {
+  if (node.type === 'dice') return undefined;
+  if (node.type === 'number') return node.value;
+  if (node.type === 'unary') {
+    const value = constantValue(node.value);
+    return value === undefined ? undefined : node.operator === '-' ? -value : value;
+  }
+  const left = constantValue(node.left);
+  const right = constantValue(node.right);
+  if (node.operator === '/' && right === 0) throw new DiceError('division');
+  return left === undefined || right === undefined
+    ? undefined
+    : calculate(node.operator, left, right);
 }
 
 function rollGroup(term: DiceTerm, mode: RollMode, rng: Rng): RolledGroup {
   const rolls: number[] = [];
   const kept: number[] = [];
+  const keptIndices: number[] = [];
   const negative = term.count < 0;
   const count = Math.abs(term.count);
   const useAdv = mode !== 'normal' && term.sides === 20;
@@ -184,14 +264,16 @@ function rollGroup(term: DiceTerm, mode: RollMode, rng: Rng): RolledGroup {
       const b = rollDie(term.sides, rng);
       rolls.push(a, b);
       const chosen = mode === 'advantage' ? Math.max(a, b) : Math.min(a, b);
+      keptIndices.push(rolls.length - 2 + (chosen === a ? 0 : 1));
       kept.push(negative ? -chosen : chosen);
     } else {
       const value = rollDie(term.sides, rng);
       rolls.push(value);
+      keptIndices.push(rolls.length - 1);
       kept.push(negative ? -value : value);
     }
   }
-  return { sides: term.sides, rolls, kept };
+  return { sides: term.sides, rolls, kept, keptIndices };
 }
 
 function evaluate(
@@ -213,10 +295,34 @@ function evaluate(
 
   const left = evaluate(node.left, mode, rng, groups);
   const right = evaluate(node.right, mode, rng, groups);
-  if (node.operator === '+') return left + right;
-  if (node.operator === '-') return left - right;
-  if (node.operator === '*') return left * right;
-  return right === 0 ? 0 : Math.floor(left / right);
+  return calculate(node.operator, left, right);
+}
+
+function calculationNode(
+  node: ExpressionNode,
+  groups: RolledGroup[],
+  cursor: { index: number },
+): ExpressionNode {
+  if (node.type === 'number') return node;
+  if (node.type === 'dice') {
+    const kept = groups[cursor.index++]!.kept;
+    return kept.slice(1).reduce<ExpressionNode>(
+      (left, value) => ({
+        type: 'binary',
+        operator: '+',
+        left,
+        right: { type: 'number', value },
+      }),
+      { type: 'number', value: kept[0]! },
+    );
+  }
+  if (node.type === 'unary')
+    return { ...node, value: calculationNode(node.value, groups, cursor) };
+  return {
+    ...node,
+    left: calculationNode(node.left, groups, cursor),
+    right: calculationNode(node.right, groups, cursor),
+  };
 }
 
 export function rollParsed(
@@ -224,29 +330,44 @@ export function rollParsed(
   mode: RollMode = 'normal',
   rng: Rng = Math.random,
 ): RollOutcome {
+  if (
+    !Number.isSafeInteger(parsed.modifier) ||
+    parsed.terms.reduce((sum, term) => sum + Math.abs(term.count), 0) > MAX_DICE ||
+    parsed.terms.some(
+      (term) =>
+        !Number.isSafeInteger(term.count) ||
+        !Number.isSafeInteger(term.sides) ||
+        term.sides < 1 ||
+        term.sides > MAX_SIDES,
+    )
+  )
+    throw new DiceError('limit');
+  const effectiveMode = parsed.terms.some((term) => term.sides === 20) ? mode : 'normal';
   const metadata = parsedMetadata.get(parsed);
   if (metadata) {
     const groups: RolledGroup[] = [];
+    const total = evaluate(metadata.node, effectiveMode, rng, groups);
     return {
       expression: metadata.expression,
-      mode,
+      mode: effectiveMode,
       groups,
       modifier: parsed.modifier,
-      total: evaluate(metadata.node, mode, rng, groups),
+      total,
+      calculation: formatNode(calculationNode(metadata.node, groups, { index: 0 })),
     };
   }
 
-  const groups = parsed.terms.map((term) => rollGroup(term, mode, rng));
+  const groups = parsed.terms.map((term) => rollGroup(term, effectiveMode, rng));
   const diceTotal = groups.reduce(
     (sum, group) => sum + group.kept.reduce((acc, value) => acc + value, 0),
     0,
   );
   return {
     expression: formatExpression(parsed),
-    mode,
+    mode: effectiveMode,
     groups,
     modifier: parsed.modifier,
-    total: diceTotal + parsed.modifier,
+    total: calculate('+', diceTotal, parsed.modifier),
   };
 }
 
@@ -298,7 +419,7 @@ export function formatExpression(parsed: ParsedExpression): string {
     return `${sign}${Math.abs(term.count)}d${term.sides}`;
   });
   let expr = parts.join(' + ').replace(/\+ -/g, '- ');
-  if (parsed.modifier > 0) expr += ` + ${parsed.modifier}`;
+  if (parsed.modifier > 0) expr += `${expr ? ' + ' : ''}${parsed.modifier}`;
   else if (parsed.modifier < 0) expr += ` - ${Math.abs(parsed.modifier)}`;
   return expr || '0';
 }

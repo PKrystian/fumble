@@ -1,133 +1,48 @@
-import { Button } from '@/features/ui/primitives';
-import { useEffect, useMemo, useState } from 'react';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import {
-  ArrowLeft,
-  BookOpenText,
-  ChevronDown,
-  ChevronRight,
-  Maximize2,
-  Minimize2,
-} from 'lucide-react';
-import type { Entry, EntryNode } from '@/data/compendium/entry';
+import { ArrowLeft, ArrowRight, BookOpenText, List, Maximize2 } from 'lucide-react';
+import type { Entry } from '@/data/compendium/entry';
 import { EntryRenderer } from '@/features/compendium/EntryRenderer';
-import { localizePlainText, parseMarkup } from '@/features/compendium/markup';
+import { EntryLanguage } from '@/features/compendium/entryLanguage';
+import { localizePlainText } from '@/features/compendium/markup';
 import { NotFoundPage } from '@/features/NotFoundPage';
 import { localizedBookName } from '@/data/compendium/sources';
 import { Link } from '@/i18n/path';
 import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
 import { hasPrerenderedPage, revealApp, showPrerenderedRetry } from '@/seo/prerendered';
-import { type OutlineNode, buildOutline, getBook, loadBookData } from './data';
-import { isBookChapterDuplicate, isBookChapterIndexable } from './chapterSeo';
+import { Button } from '@/features/ui/primitives';
+import { BookContents } from './BookContents';
+import { BooksDialog } from './BooksDialog';
+import { getBook, loadBookData, readBookChapter, type BookData } from './data';
 import { bookChapterTitle } from './chapterTitle';
 import { bookAnchorHash, readBookAnchor } from './readerAnchor';
+import { chapterForAnchor, resolveReaderTarget } from './readerNavigation';
+import { ReadingStatus } from './ReadingStatus';
+import { useBookReading } from './readingStore';
 
-function slug(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
+const BATCH_SIZE = 3;
+type JumpNotice = 'page' | 'chapter' | 'reference';
 
-function scrollToHeading(name: string): boolean {
-  const anchor = document.querySelector(
-    `#book-content [data-entry-name="${slug(name)}"]`,
-  );
-  if (anchor) {
-    anchor.scrollIntoView({ block: 'start' });
-    return true;
-  }
-  const target = name.trim().toLowerCase();
-  for (const h of document.querySelectorAll(
-    '#book-content h2, #book-content h3, #book-content h4',
-  )) {
-    if ((h.textContent ?? '').trim().toLowerCase() === target) {
-      h.scrollIntoView({ block: 'start' });
-      return true;
-    }
-  }
-  return false;
-}
-
-function scrollToPage(page: number): void {
-  let target = document.getElementById(`page-${page}`) as Element | null;
-  if (!target) {
-    let best = -1;
-    for (const el of document.querySelectorAll('#book-content [data-page]')) {
-      const p = Number(el.getAttribute('data-page'));
-      if (p <= page && p > best) {
-        best = p;
-        target = el;
-      }
-    }
-  }
-  target?.scrollIntoView({ block: 'start' });
-}
-
-function pageOf(chapter: Entry): number | undefined {
-  return chapter && typeof chapter === 'object' && typeof chapter.page === 'number'
-    ? chapter.page
-    : undefined;
-}
-
-function displayedChapterTitle(
-  bookId: string,
-  chapter: unknown,
-  index: number,
-  locale: 'en' | 'pl',
-  fallback: string,
-): string {
-  return localizePlainText(
-    bookChapterTitle(bookId, chapter, index, locale, fallback),
-    locale,
-  );
-}
-
-function OutlineList({
-  nodes,
-  bookId,
-  chapterIndex,
-  depth,
-  locale,
+const ChapterText = memo(function ChapterText({
+  entry,
+  index,
 }: {
-  nodes: OutlineNode[];
-  bookId: string;
-  chapterIndex: number;
-  depth: number;
-  locale: 'en' | 'pl';
+  entry: Entry;
+  index: number;
 }) {
-  if (nodes.length === 0) return null;
   return (
-    <ul className="flex flex-col">
-      {nodes.map((node) => (
-        <li key={node.name}>
-          <Link
-            to={{
-              pathname: `/books/${bookId}/${chapterIndex}`,
-              hash: bookAnchorHash(undefined, node.name),
-            }}
-            className={[
-              'flex items-center gap-1 truncate rounded-md py-1.5 pr-3 text-xs text-ink-400 transition-colors hover:bg-ink-800/60 hover:text-ink-100',
-              depth === 0 ? 'pl-6' : 'pl-9',
-            ].join(' ')}
-          >
-            {depth > 0 && <span aria-hidden="true">-</span>}
-            <span className="truncate">
-              {parseMarkup(localizePlainText(node.name, locale), locale)}
-            </span>
-          </Link>
-          <OutlineList
-            nodes={node.children}
-            bookId={bookId}
-            chapterIndex={chapterIndex}
-            depth={depth + 1}
-            locale={locale}
-          />
-        </li>
-      ))}
-    </ul>
+    <div data-book-chapter={index} className="space-y-3">
+      <EntryRenderer entries={[entry]} />
+    </div>
   );
+});
+
+function focusPassage(target: HTMLElement, toolbar: HTMLElement | null) {
+  target.style.scrollMarginTop = `${(toolbar?.offsetHeight ?? 0) + 16}px`;
+  if (target.tabIndex < 0) target.tabIndex = -1;
+  target.focus({ preventScroll: true });
+  target.scrollIntoView({ block: 'start' });
 }
 
 export function BookReaderPage() {
@@ -135,353 +50,433 @@ export function BookReaderPage() {
   const { id, chapter } = useParams();
   const location = useLocation();
   const book = id ? getBook(id) : undefined;
-  const { page: targetPage, name: targetName } = readBookAnchor(
-    location.hash,
-    location.search,
+  const anchor = useMemo(
+    () => readBookAnchor(location.hash, location.search),
+    [location.hash, location.search],
   );
-  const requestedChapter = chapter == null ? null : Number(chapter);
-  const invalidChapterParam =
-    requestedChapter != null
-      ? !Number.isInteger(requestedChapter) || requestedChapter < 0
-      : chapter != null;
-  const validRequestedChapter =
-    requestedChapter != null && !invalidChapterParam ? requestedChapter : null;
+  const requestedChapter = chapter === undefined ? null : Number(chapter);
+  const invalidChapter =
+    chapter !== undefined &&
+    (!/^\d+$/.test(chapter) || !Number.isSafeInteger(requestedChapter));
+  const loadKey = `${locale}/${id}`;
 
-  const [chapters, setChapters] = useState<Entry[] | null>(null);
-  const [error, setError] = useState(false);
+  const [load, setLoad] = useState<{ key: string; data?: BookData } | null>(null);
   const [retryKey, setRetryKey] = useState(0);
+  const [retrying, setRetrying] = useState(false);
+  const [contentsOpen, setContentsOpen] = useState(false);
+  const [jumpNotice, setJumpNotice] = useState<JumpNotice | undefined>();
+  const data = load?.key === loadKey ? load.data : undefined;
+  const error = load?.key === loadKey && !data;
   const prerendered = hasPrerenderedPage(location.pathname);
+  const content = useRef<HTMLElement>(null);
+  const toolbar = useRef<HTMLDivElement>(null);
+  const ignoreScrollUntil = useRef(0);
+  const batchTarget = useRef<number | null>(null);
 
   useEffect(() => {
-    if (!book) return;
+    if (!book || invalidChapter) return;
     let cancelled = false;
-    setChapters(null);
-    setError(false);
-    loadBookData(book, locale)
-      .then((data) => {
-        if (!cancelled) setChapters(data);
-      })
-      .catch(() => {
-        if (!cancelled) setError(true);
-      });
+    void loadBookData(book, locale).then(
+      (result) => {
+        if (cancelled) return;
+        setLoad({ key: loadKey, data: result });
+        setRetrying(false);
+      },
+      () => {
+        if (cancelled) return;
+        setLoad({ key: loadKey });
+        setRetrying(false);
+      },
+    );
     return () => {
       cancelled = true;
     };
-  }, [book, locale, retryKey]);
+  }, [book, invalidChapter, locale, loadKey, retryKey]);
 
-  const chapterFromPage = useMemo(() => {
-    if (chapters == null || targetPage == null) return null;
-    let best = 0;
-    let bestPage = -1;
-    chapters.forEach((c, i) => {
-      const p = pageOf(c);
-      if (p != null && p <= targetPage && p > bestPage) {
-        bestPage = p;
-        best = i;
-      }
-    });
-    return best;
-  }, [chapters, targetPage]);
-
-  const chapterIndex = validRequestedChapter ?? chapterFromPage ?? 0;
-
-  const [fullBook, setFullBook] = useState(false);
-  const [wide, setWide] = useState(false);
-
-  useEffect(() => {
-    if (chapters == null) return;
-    const timer = setTimeout(() => {
-      if (targetName && scrollToHeading(targetName)) return;
-      if (targetPage != null) {
-        scrollToPage(targetPage);
-        return;
-      }
-      if (
-        fullBook &&
-        scrollToHeading(
-          displayedChapterTitle(
-            book?.id ?? '',
-            chapters[chapterIndex]!,
-            chapterIndex,
-            locale,
-            t('books.chapterFallback', { n: chapterIndex + 1 }),
-          ),
-        )
-      ) {
-        return;
-      }
-      document.getElementById('book-content')?.scrollTo({ top: 0 });
-    }, 60);
-    return () => clearTimeout(timer);
-  }, [chapters, chapterIndex, targetPage, targetName, fullBook, book?.id, locale, t]);
-
-  const chapterOutlines = useMemo(
-    () => (chapters ?? []).map((c) => buildOutline((c as EntryNode).entries)),
-    [chapters],
+  const total = data?.chapters.length ?? 0;
+  const chapterIndex = useMemo(
+    () => requestedChapter ?? (data ? chapterForAnchor(data.chapters, anchor) : 0),
+    [requestedChapter, data, anchor],
   );
-  const fallbackChapters = useMemo(
-    () =>
-      (book?.contents ?? []).map(
-        (_, index) =>
-          ({
-            type: 'section',
-            name: t('books.chapterFallback', { n: index + 1 }),
-            entries: [],
-          }) as Entry,
-      ),
-    [book, t],
-  );
-
-  const [expandedChapters, setExpandedChapters] = useState<Set<number>>(
-    () => new Set([chapterIndex]),
-  );
-  useEffect(() => {
-    setExpandedChapters((prev) =>
-      prev.has(chapterIndex) ? prev : new Set(prev).add(chapterIndex),
+  const originalChapter = data?.chapters[chapterIndex];
+  const language = data?.language ?? locale;
+  const title = book ? localizedBookName(book, locale) : '';
+  const titles = useMemo(() => {
+    if (!book) return [];
+    return Array.from(
+      { length: data?.chapters.length ?? book.contents.length },
+      (_, index) => {
+        const original = data?.chapters[index];
+        const translated =
+          typeof original === 'object' && typeof original.id === 'string'
+            ? data?.overlay?.[`${index}:${original.id}`]?.name
+            : undefined;
+        const entry = translated
+          ? { name: translated }
+          : (original ?? book.contents[index]);
+        const fallback = t('books.chapterFallback', { n: index + 1 });
+        return localizePlainText(
+          bookChapterTitle(book.id, entry, index, language, fallback),
+          language,
+        );
+      },
     );
-  }, [chapterIndex]);
-  const toggleChapter = (index: number) =>
-    setExpandedChapters((prev) => {
-      const next = new Set(prev);
-      if (next.has(index)) next.delete(index);
-      else next.add(index);
-      return next;
-    });
+  }, [book, data, language, t]);
 
-  const active = useMemo(
-    () => (chapters ? chapters[chapterIndex] : undefined),
-    [chapters, chapterIndex],
-  );
+  const wholeBook = useBookReading((state) => state.data.wholeBook);
+  const wide = useBookReading((state) => state.data.wide);
+  const saved = useBookReading((state) => state.data.positions[id ?? '']);
+  const setPreference = useBookReading((state) => state.setPreference);
+  const readerKey = `${id}/${chapterIndex}`;
+  const [expansion, setExpansion] = useState<{ key: string; chapters: Set<number> }>();
+  const expanded =
+    expansion?.key === readerKey ? expansion.chapters : new Set([chapterIndex]);
+  const toggleChapter = (index: number) => {
+    const chapters = new Set(expanded);
+    if (chapters.has(index)) chapters.delete(index);
+    else chapters.add(index);
+    setExpansion({ key: readerKey, chapters });
+  };
+
+  const [range, setRange] = useState<{ key: string; first: number; last: number }>();
+  const first = wholeBook && range?.key === readerKey ? range.first : chapterIndex;
+  const last = !wholeBook
+    ? chapterIndex
+    : range?.key === readerKey
+      ? range.last
+      : Math.min(total - 1, chapterIndex + BATCH_SIZE - 1);
+  const shown = useMemo(() => {
+    if (!data || !book || first >= total) return [];
+    return Array.from({ length: last - first + 1 }, (_, offset) =>
+      readBookChapter(data, book.id, first + offset),
+    );
+  }, [data, book, first, last, total]);
 
   const routeNotFound =
-    !book ||
-    invalidChapterParam ||
-    (chapters != null && chapter != null && active == null);
+    !book || invalidChapter || (total > 0 && originalChapter === undefined);
+  const hasAnchor = anchor.page !== null || !!anchor.name || !!anchor.section;
+  const bookId = book?.id;
+  const jumpKey = location.key;
+  useEffect(() => {
+    if (!bookId || !total || routeNotFound) return;
+    let focusFrame = 0;
+    const frame = requestAnimationFrame(() => {
+      const root = content.current?.querySelector<HTMLElement>(
+        `[data-book-chapter="${chapterIndex}"]`,
+      );
+      if (!root) return;
+      const passage = resolveReaderTarget(root, originalChapter, anchor);
+      setJumpNotice(passage.notice);
+      const reading = useBookReading.getState();
+      if (chapter !== undefined || hasAnchor || !reading.data.positions[bookId])
+        reading.record(bookId, chapterIndex, passage.section);
+      if (passage.target && (chapter !== undefined || hasAnchor || wholeBook)) {
+        const target = passage.target;
+        focusFrame = requestAnimationFrame(() => {
+          ignoreScrollUntil.current = performance.now() + 400;
+          focusPassage(target, toolbar.current);
+        });
+      }
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      cancelAnimationFrame(focusFrame);
+    };
+  }, [
+    bookId,
+    total,
+    routeNotFound,
+    chapterIndex,
+    originalChapter,
+    anchor,
+    hasAnchor,
+    chapter,
+    wholeBook,
+    jumpKey,
+    data,
+  ]);
 
   useEffect(() => {
-    if (error && prerendered) showPrerenderedRetry();
-    else if (!prerendered || chapters != null || routeNotFound) revealApp();
-  }, [chapters, error, prerendered, routeNotFound]);
+    if (batchTarget.current === null) return;
+    const index = batchTarget.current;
+    batchTarget.current = null;
+    const target = content.current?.querySelector<HTMLElement>(
+      `[data-book-chapter="${index}"] .entry-heading`,
+    );
+    if (target) focusPassage(target, toolbar.current);
+  }, [first, last]);
 
+  useEffect(() => {
+    const scroller = document.getElementById('app-scroll');
+    if (!scroller || !bookId || !total) return;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const onScroll = () => {
+      if (performance.now() < ignoreScrollUntil.current) return;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        const cutoff = (toolbar.current?.getBoundingClientRect().bottom ?? 0) + 48;
+        const chapters =
+          content.current?.querySelectorAll<HTMLElement>('[data-book-chapter]');
+        const current = [...(chapters ?? [])].findLast(
+          (item) => item.getBoundingClientRect().top <= cutoff,
+        );
+        if (!current || current.getBoundingClientRect().bottom < cutoff - 48) return;
+        const section = [
+          ...current.querySelectorAll<HTMLElement>('[data-entry-id] > .entry-heading'),
+        ].findLast((item) => item.getBoundingClientRect().top <= cutoff)?.parentElement
+          ?.dataset.entryId;
+        useBookReading
+          .getState()
+          .record(bookId, Number(current.dataset.bookChapter), section);
+      }, 240);
+    };
+    scroller.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      clearTimeout(timer);
+      scroller.removeEventListener('scroll', onScroll);
+    };
+  }, [bookId, total, jumpKey]);
+
+  useEffect(() => {
+    if (prerendered && (error || (data && !total))) showPrerenderedRetry();
+    else if (!prerendered || total > 0 || routeNotFound) revealApp();
+  }, [data, error, prerendered, routeNotFound, total]);
+
+  const chapterTitle = titles[chapterIndex];
   useSeo(
     routeNotFound
       ? t('notFound.title')
-      : book
-        ? active
-          ? `${localizedBookName(book, locale)} - ${displayedChapterTitle(book.id, active, chapterIndex, locale, t('books.chapterFallback', { n: chapterIndex + 1 }))}`
-          : localizedBookName(book, locale)
-        : '',
+      : data && chapterTitle
+        ? `${title} - ${chapterTitle}`
+        : title,
     routeNotFound
       ? t('notFound.message')
-      : book
-        ? active
-          ? t('seo.bookChapterDescription', {
-              chapter: displayedChapterTitle(
-                book.id,
-                active,
-                chapterIndex,
-                locale,
-                t('books.chapterFallback', { n: chapterIndex + 1 }),
-              ),
-              book: localizedBookName(book, locale),
-            })
-          : t('seo.bookDescription', { name: localizedBookName(book, locale) })
-        : undefined,
-    prerendered && !routeNotFound && chapters == null
-      ? 'pending'
-      : !routeNotFound &&
-          !error &&
-          (chapter == null ||
-            (!isBookChapterDuplicate(book?.id ?? '', chapterIndex) &&
-              (active == null || isBookChapterIndexable(active)))),
+      : data && chapterTitle
+        ? t('seo.bookChapterDescription', { chapter: chapterTitle, book: title })
+        : t('seo.bookDescription', { name: title }),
+    false,
   );
 
-  if (routeNotFound) return <NotFoundPage />;
+  if (routeNotFound || !book) return <NotFoundPage />;
+
+  const search: unknown = location.state?.catalogSearch;
+  const catalogSearch =
+    typeof search === 'string' && search.startsWith('?') ? search : '';
+  const catalogPath = `/books${catalogSearch}`;
+  const closeContents = () => setContentsOpen(false);
+  const goTo = (index: number) => `/books/${book.id}/${index}`;
+  const retry = () => {
+    if (data && total) setRetrying(true);
+    else setLoad(null);
+    setRetryKey((value) => value + 1);
+  };
+  const loadEarlier = () => {
+    const next = Math.max(0, first - BATCH_SIZE);
+    batchTarget.current = next;
+    setRange({ key: readerKey, first: next, last });
+  };
+  const loadLater = () => {
+    batchTarget.current = last + 1;
+    setRange({ key: readerKey, first, last: Math.min(total - 1, last + BATCH_SIZE) });
+  };
+  const renderContents = () => (
+    <BookContents
+      bookId={book.id}
+      titles={titles}
+      data={data}
+      chapter={chapterIndex}
+      expanded={expanded}
+      onToggle={toggleChapter}
+      catalogSearch={catalogSearch}
+      onNavigate={closeContents}
+    />
+  );
+  const resume =
+    saved &&
+    saved.chapter < total &&
+    (saved.chapter !== chapterIndex || saved.section) &&
+    chapter === undefined &&
+    !hasAnchor;
 
   return (
-    <div className="flex h-full min-h-0">
-      <aside className="hidden w-72 shrink-0 flex-col border-r border-ink-700 md:flex">
+    <div className="flex min-w-0">
+      <aside className="sticky top-0 hidden max-h-dvh w-64 shrink-0 self-start border-r border-ink-700 md:flex md:flex-col xl:w-72">
         <div className="border-b border-ink-700 p-3">
-          <Link to="/books" className="back-link">
+          <Link to={catalogPath} className="back-link">
             <ArrowLeft size={16} aria-hidden="true" /> {t('common.allBooks')}
           </Link>
-          <h2 className="section-title">{localizedBookName(book, locale)}</h2>
-          {book.author && <p className="text-xs text-ink-400">{book.author}</p>}
+          <p className="section-title [overflow-wrap:anywhere]">{title}</p>
         </div>
-        <nav
-          className="min-h-0 flex-1 overflow-y-auto p-2"
-          aria-label={t('books.chaptersNav')}
-        >
-          {(chapters ?? fallbackChapters).map((entry, index) => {
-            const title = displayedChapterTitle(
-              book.id,
-              entry as Entry,
-              index,
-              locale,
-              t('books.chapterFallback', { n: index + 1 }),
-            );
-            const outline = chapters != null ? (chapterOutlines[index] ?? []) : [];
-            const isExpanded = expandedChapters.has(index);
-            return (
-              <div key={index}>
-                <div className="flex items-center gap-0.5">
-                  {outline.length > 0 ? (
-                    <Button
-                      type="button"
-                      onClick={() => toggleChapter(index)}
-                      aria-label={
-                        isExpanded
-                          ? t('books.collapseChapter', { title })
-                          : t('books.expandChapter', { title })
-                      }
-                      aria-expanded={isExpanded}
-                      variant="ghost"
-                      size="sm"
-                      iconOnly
-                      className="shrink-0"
-                    >
-                      {isExpanded ? (
-                        <ChevronDown size={14} aria-hidden="true" />
-                      ) : (
-                        <ChevronRight size={14} aria-hidden="true" />
-                      )}
-                    </Button>
-                  ) : (
-                    <span className="w-6 shrink-0" aria-hidden="true" />
-                  )}
-                  <Link
-                    to={`/books/${book.id}/${index}`}
-                    className={[
-                      'block flex-1 truncate rounded-md px-2 py-2 text-sm transition-colors',
-                      index === chapterIndex
-                        ? 'bg-arcane-700 font-semibold text-white'
-                        : 'text-ink-200 hover:bg-ink-800/60 hover:text-ink-50',
-                    ].join(' ')}
-                  >
-                    {index + 1}. {title}
-                  </Link>
-                </div>
-                {isExpanded && (
-                  <OutlineList
-                    nodes={outline}
-                    bookId={book.id}
-                    chapterIndex={index}
-                    depth={0}
-                    locale={locale}
-                  />
-                )}
-              </div>
-            );
-          })}
-        </nav>
+        {renderContents()}
       </aside>
 
-      <section id="book-content" className="min-w-0 flex-1 overflow-y-auto">
-        {chapters != null && (
-          <div className="sticky top-0 z-10 flex justify-end gap-2 border-b border-ink-800 bg-ink-950/95 px-4 py-2 backdrop-blur">
-            <Button
-              type="button"
-              onClick={() => setFullBook((v) => !v)}
-              aria-pressed={fullBook}
-              size="sm"
-              variant={fullBook ? 'primary' : 'secondary'}
-            >
-              <BookOpenText size={14} aria-hidden="true" />
-              {fullBook ? t('books.wholeBook') : t('books.thisChapter')}
-            </Button>
-            <Button
-              type="button"
-              onClick={() => setWide((v) => !v)}
-              aria-pressed={wide}
-              size="sm"
-              variant={wide ? 'primary' : 'secondary'}
-            >
-              {wide ? (
-                <Minimize2 size={14} aria-hidden="true" />
-              ) : (
-                <Maximize2 size={14} aria-hidden="true" />
-              )}
-              {wide ? t('books.comfortableWidth') : t('books.fullWidth')}
-            </Button>
+      <section ref={content} id="book-content" className="min-w-0 flex-1">
+        {total > 0 && (
+          <div
+            ref={toolbar}
+            className="sticky top-0 z-10 border-b border-ink-800 bg-ink-950 px-4 py-2"
+          >
+            <div className="flex flex-wrap items-center gap-2">
+              <Button
+                size="sm"
+                className="md:hidden"
+                aria-expanded={contentsOpen}
+                aria-haspopup="dialog"
+                onClick={() => setContentsOpen(true)}
+              >
+                <List size={16} aria-hidden="true" /> {t('books.tableOfContents')}
+              </Button>
+              <Button
+                size="sm"
+                aria-pressed={wholeBook}
+                variant={wholeBook ? 'primary' : 'secondary'}
+                onClick={() => {
+                  setRange(undefined);
+                  setPreference('wholeBook', !wholeBook);
+                }}
+              >
+                <BookOpenText size={16} aria-hidden="true" /> {t('books.wholeBook')}
+              </Button>
+              <Button
+                size="sm"
+                aria-pressed={wide}
+                variant={wide ? 'primary' : 'secondary'}
+                onClick={() => setPreference('wide', !wide)}
+              >
+                <Maximize2 size={16} aria-hidden="true" /> {t('books.fullWidth')}
+              </Button>
+            </div>
+            {jumpNotice && (
+              <p role="status" className="mt-2 text-sm text-ink-300">
+                {jumpNotice === 'reference'
+                  ? t('books.referenceLocation')
+                  : jumpNotice === 'page'
+                    ? t('books.approximatePage', { page: anchor.page ?? '' })
+                    : t('books.approximateChapter')}
+              </p>
+            )}
           </div>
         )}
 
-        <div
-          className={['mx-auto px-6 py-8', wide ? 'max-w-none' : 'max-w-3xl'].join(' ')}
+        <BooksDialog
+          open={contentsOpen}
+          onClose={closeContents}
+          title={t('books.tableOfContents')}
         >
-          <Link to="/books" className="back-link md:hidden">
+          {renderContents()}
+        </BooksDialog>
+
+        <div className={`page-shell ${wide ? 'max-w-none' : 'page-shell-reading'}`}>
+          <Link to={catalogPath} className="back-link md:hidden">
             <ArrowLeft size={16} aria-hidden="true" /> {t('common.allBooks')}
           </Link>
-
-          <h1 className="page-title mb-6">{localizedBookName(book, locale)}</h1>
+          <h1 className="page-title mb-4 [overflow-wrap:anywhere]">{title}</h1>
+          {book.author && <p className="mb-4 text-sm text-ink-400">{book.author}</p>}
+          <ReadingStatus />
+          {resume && (
+            <Link
+              to={
+                goTo(saved.chapter) + bookAnchorHash(undefined, undefined, saved.section)
+              }
+              state={{ catalogSearch }}
+              className="back-link"
+            >
+              <BookOpenText size={16} aria-hidden="true" /> {t('books.resume')}
+            </Link>
+          )}
           {error && (
-            <div className="flex flex-wrap items-center gap-3 text-red-400" role="alert">
+            <div
+              className="notice notice-error flex flex-wrap items-center gap-3"
+              role="alert"
+            >
               <span>{t('books.couldNotLoad')}</span>
-              <Button
-                type="button"
-                onClick={() => setRetryKey((value) => value + 1)}
-                variant="danger"
-                size="sm"
-              >
+              <Button onClick={retry} size="sm">
                 {t('common.retry')}
               </Button>
             </div>
           )}
-          {!error && chapters == null && (
-            <p className="text-ink-400">{t('common.loading')}</p>
+          {!error && !data && (
+            <p className="notice" role="status">
+              {t('common.loading')}
+            </p>
+          )}
+          {data && !total && (
+            <div className="empty-state">
+              <p>{t('books.noContent')}</p>
+              <Button onClick={retry} className="mt-3">
+                {t('common.retry')}
+              </Button>
+            </div>
+          )}
+          {total > 0 && locale === 'pl' && language === 'en' && (
+            <div className="notice notice-warning mb-4 space-y-2">
+              <p role="status">{t('books.translationUnavailable')}</p>
+              <Button onClick={retry} disabled={retrying} size="sm">
+                {retrying ? t('common.loading') : t('books.retryTranslation')}
+              </Button>
+            </div>
           )}
 
-          {chapters != null && fullBook && (
-            <article className="reading-content flex flex-col gap-3">
-              {chapters.map((c, index) => (
-                <div
-                  key={index}
-                  className={index > 0 ? 'mt-8 border-t border-ink-800 pt-8' : ''}
-                >
-                  <EntryRenderer entries={[c]} />
-                </div>
-              ))}
-            </article>
-          )}
-
-          {!fullBook && active != null && (
-            <article className="reading-content flex flex-col gap-3">
-              <EntryRenderer entries={[active]} />
-            </article>
-          )}
-
-          {chapters != null && !fullBook && (
-            <nav className="mt-10 flex items-center justify-between border-t border-ink-800 pt-4 text-sm">
-              {chapterIndex > 0 ? (
-                <Link
-                  to={`/books/${book.id}/${chapterIndex - 1}`}
-                  className="text-arcane-300 hover:text-arcane-500"
-                >
-                  {'<- '}
-                  {displayedChapterTitle(
-                    book.id,
-                    chapters[chapterIndex - 1]!,
-                    chapterIndex - 1,
-                    locale,
-                    t('books.chapterFallback', { n: chapterIndex }),
-                  )}
-                </Link>
-              ) : (
-                <span />
+          {wholeBook && total > 0 && (
+            <div className="mb-6 flex flex-wrap items-center gap-3">
+              <p role="status" className="text-sm text-ink-300">
+                {t('books.chapterRange', { first: first + 1, last: last + 1, total })}
+              </p>
+              {first > 0 && (
+                <Button onClick={loadEarlier}>{t('books.loadEarlier')}</Button>
               )}
-              {chapterIndex < chapters.length - 1 && (
+            </div>
+          )}
+
+          {shown.length > 0 && (
+            <EntryLanguage.Provider value={language}>
+              <article
+                lang={language}
+                className="reading-content flex flex-col gap-8 [overflow-wrap:anywhere]"
+              >
+                {shown.map(
+                  (entry, offset) =>
+                    entry !== undefined && (
+                      <ChapterText
+                        key={`${book.id}/${first + offset}`}
+                        entry={entry}
+                        index={first + offset}
+                      />
+                    ),
+                )}
+              </article>
+            </EntryLanguage.Provider>
+          )}
+
+          {wholeBook && last < total - 1 && (
+            <Button onClick={loadLater} className="mt-8">
+              {t('books.loadLater')}
+            </Button>
+          )}
+
+          {!wholeBook && total > 1 && (
+            <nav
+              aria-label={t('books.chapterNavigation')}
+              className="mt-10 flex flex-wrap justify-between gap-3 border-t border-ink-800 pt-4"
+            >
+              {chapterIndex > 0 && (
                 <Link
-                  to={`/books/${book.id}/${chapterIndex + 1}`}
-                  className="text-arcane-300 hover:text-arcane-500"
+                  to={goTo(chapterIndex - 1)}
+                  state={{ catalogSearch }}
+                  className="back-link mb-0 min-w-0 [overflow-wrap:anywhere]"
                 >
-                  {displayedChapterTitle(
-                    book.id,
-                    chapters[chapterIndex + 1]!,
-                    chapterIndex + 1,
-                    locale,
-                    t('books.chapterFallback', { n: chapterIndex + 2 }),
-                  )}{' '}
-                  {'->'}
+                  <ArrowLeft size={16} className="shrink-0" aria-hidden="true" />{' '}
+                  {titles[chapterIndex - 1]}
+                </Link>
+              )}
+              {chapterIndex < total - 1 && (
+                <Link
+                  to={goTo(chapterIndex + 1)}
+                  state={{ catalogSearch }}
+                  className="back-link mb-0 ml-auto min-w-0 [overflow-wrap:anywhere]"
+                >
+                  {titles[chapterIndex + 1]}{' '}
+                  <ArrowRight size={16} className="shrink-0" aria-hidden="true" />
                 </Link>
               )}
             </nav>

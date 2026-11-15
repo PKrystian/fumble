@@ -20,7 +20,6 @@ import {
   type KnownSpell,
   type UnarmoredDefense,
 } from './model';
-import { uid } from './model';
 
 const ABILITY_NAME_TO_KEY: Record<string, AbilityKey> = {
   strength: 'str',
@@ -79,6 +78,7 @@ function resolveEntry<T extends Identifiable>(
 export interface EntryPair<T> {
   localized: T | undefined;
   english: T | undefined;
+  ready?: boolean;
 }
 
 function useCompendiumEntry<T extends Identifiable>(
@@ -88,6 +88,7 @@ function useCompendiumEntry<T extends Identifiable>(
   const locale = useLocale();
   const [localized, setLocalized] = useState<T[]>([]);
   const [english, setEnglish] = useState<T[]>([]);
+  const [loaded, setLoaded] = useState<string | null>(null);
 
   useEffect(() => {
     const category = getCategory(categoryId);
@@ -101,6 +102,7 @@ function useCompendiumEntry<T extends Identifiable>(
       if (cancelled) return;
       setLocalized(localizedItems as unknown as T[]);
       setEnglish(englishItems as unknown as T[]);
+      setLoaded(locale);
     });
     return () => {
       cancelled = true;
@@ -111,6 +113,7 @@ function useCompendiumEntry<T extends Identifiable>(
   return {
     localized: resolved,
     english: resolved ? english.find((i) => i.id === resolved.id) : undefined,
+    ready: !value.trim() || loaded === locale,
   };
 }
 
@@ -132,9 +135,18 @@ export function useClassEntry(className: string): ClassEntry | undefined {
 
 export type SpellIndex = Map<string, SpellEntry>;
 
-export function useSpellIndex(): SpellIndex {
+export interface SpellIndexState {
+  index: SpellIndex;
+  ready: boolean;
+}
+
+export function useSpellIndex(): SpellIndexState {
   const locale = useLocale();
-  const [index, setIndex] = useState<SpellIndex>(new Map());
+  const [state, setState] = useState<SpellIndexState & { locale: string | null }>({
+    index: new Map(),
+    ready: false,
+    locale: null,
+  });
 
   useEffect(() => {
     const category = getCategory('spells');
@@ -142,14 +154,18 @@ export function useSpellIndex(): SpellIndex {
     let cancelled = false;
     void loadLocalizedItems('spells', category.load, locale).then((items) => {
       if (cancelled) return;
-      setIndex(new Map((items as SpellEntry[]).map((s) => [s.id, s])));
+      setState({
+        index: new Map((items as SpellEntry[]).map((s) => [s.id, s])),
+        ready: true,
+        locale,
+      });
     });
     return () => {
       cancelled = true;
     };
   }, [locale]);
 
-  return index;
+  return { index: state.index, ready: state.ready && state.locale === locale };
 }
 
 export function findSubclassPair(
@@ -301,12 +317,13 @@ export function syncClassFeatures(
   const backgroundMechanics = mechanics.background ?? background;
   const manualFeatures = character.features.filter((f) => !f.auto);
   const autoFeatures: FeatureItem[] = [];
+  const autoId = () => `auto-feature-${autoFeatures.length}`;
 
   if (cls) {
     for (const feature of cls.features) {
       if (feature.level > character.level) continue;
       autoFeatures.push({
-        id: uid(),
+        id: autoId(),
         name: feature.name,
         source: `${cls.name} ${feature.level}`,
         notes: entriesToPlainText(feature.entries),
@@ -317,7 +334,7 @@ export function syncClassFeatures(
       for (const feature of subclass.features) {
         if (feature.level > character.level) continue;
         autoFeatures.push({
-          id: uid(),
+          id: autoId(),
           name: feature.name,
           source: `${subclass.name} ${feature.level}`,
           notes: entriesToPlainText(feature.entries),
@@ -329,7 +346,7 @@ export function syncClassFeatures(
 
   if (species) {
     autoFeatures.push({
-      id: uid(),
+      id: autoId(),
       name: species.name,
       source: 'Species',
       notes: entriesToPlainText(species.entries),
@@ -339,7 +356,7 @@ export function syncClassFeatures(
 
   if (background?.feat) {
     autoFeatures.push({
-      id: uid(),
+      id: autoId(),
       name: background.feat,
       source: 'Background',
       notes: entriesToPlainText(background.entries),
@@ -410,12 +427,14 @@ export function syncClassFeatures(
       const spell = spellIndex.get(slug);
       if (!spell || manualIds.has(spell.name.toLowerCase())) continue;
       autoSpells.push({
-        id: uid(),
+        id: `auto-spell-${slug}`,
         name: spell.name,
         level: spell.level,
         prepared: true,
         auto: true,
         source,
+        spellId: spell.id,
+        concentration: spell.concentration,
       });
     }
     patch.spells = [...manualSpells, ...autoSpells];

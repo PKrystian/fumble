@@ -7,6 +7,7 @@ import type {
 } from './types';
 import { localizeCompendiumValue, repairLocalizedMeasurements } from './localizeValue';
 import type { Locale } from '../../i18n/locales';
+import { repairSourceMetadata } from './sourceMetadata';
 
 export type EntryOverlay = Record<string, unknown>;
 export type CategoryOverlay = Record<string, EntryOverlay>;
@@ -237,6 +238,7 @@ export function localizeEntry<T extends CompendiumEntryBase>(
   overlay: CategoryOverlay | undefined,
   locale: Locale = 'pl',
 ): T {
+  entry = repairSourceMetadata(entry);
   const translation = overlay?.[entry.id];
   if (!translation) return entry;
   const merged = mergeSubclassMedia(entry, translation, {
@@ -263,6 +265,58 @@ export function localizeEntry<T extends CompendiumEntryBase>(
   if (typeof translatedName === 'string' && translatedName !== entry.name) {
     localized.englishName = entry.name;
   }
+  const sourceFields = entry as unknown as Record<string, unknown>;
+  const translatedFields = localized as unknown as Record<string, unknown>;
+  for (const field of [
+    'entries',
+    'lore',
+    'traits',
+    'actions',
+    'bonusActions',
+    'legendaryActions',
+    'lairActions',
+    'regionalEffects',
+    'spellcasting',
+  ]) {
+    const original = sourceFields[field];
+    const translated = translatedFields[field];
+    if (
+      Array.isArray(original) &&
+      original.length > 0 &&
+      Array.isArray(translated) &&
+      translated.length === 0
+    )
+      translatedFields[field] = original;
+  }
+  for (const field of ['size', 'creatureType']) {
+    const value = sourceFields[field];
+    if (!translatedFields[field] && typeof value === 'string' && value) {
+      translatedFields[field] =
+        localizeCompendiumValue(value, locale, field === 'size' ? 'objectSize' : field) ??
+        value;
+    }
+  }
+  localized.id = entry.id;
+  localized.source = entry.source;
+  if ('collection' in entry) {
+    (localized as unknown as Record<string, unknown>).collection = entry.collection;
+  }
+  localized._filterData = Object.fromEntries(
+    Object.entries(entry).filter(
+      ([, value]) =>
+        typeof value === 'string' ||
+        typeof value === 'number' ||
+        typeof value === 'boolean' ||
+        isStringArray(value),
+    ),
+  );
+  if (isRecord(sourceFields.data)) {
+    localized._filterData.data = Object.fromEntries(
+      Object.entries(sourceFields.data).filter(
+        ([, value]) => typeof value === 'string' || typeof value === 'number',
+      ),
+    );
+  }
   return localized;
 }
 
@@ -271,6 +325,34 @@ export function localizeItems<T extends CompendiumEntryBase>(
   overlay: CategoryOverlay | undefined,
   locale: Locale = 'pl',
 ): T[] {
-  if (!overlay) return items;
-  return items.map((item) => localizeEntry(item, overlay, locale));
+  const resolved = items.map((original) => {
+    const item = repairSourceMetadata(original);
+    const species = item as T & {
+      parentRace?: string;
+      size?: string;
+      speed?: string;
+      creatureType?: string;
+    };
+    if (!species.parentRace) return item;
+    const parent = items.find(
+      (candidate) =>
+        candidate !== item &&
+        !('parentRace' in candidate && candidate.parentRace) &&
+        candidate.name === species.parentRace &&
+        candidate.source === item.source,
+    );
+    if (!parent) return item;
+    const result = { ...item } as Record<string, unknown>;
+    const base = parent as T & Record<string, unknown>;
+    for (const key of ['size', 'creatureType'])
+      if (!result[key] && base[key]) result[key] = base[key];
+    if (!species.speed)
+      for (const key of ['speed', 'walkSpeed', 'flySpeed', 'swimSpeed', 'climbSpeed']) {
+        if (base[key] !== undefined) result[key] = base[key];
+      }
+    return result as T;
+  });
+  if (!overlay)
+    return resolved.every((item, index) => item === items[index]) ? items : resolved;
+  return resolved.map((item) => localizeEntry(item, overlay, locale));
 }

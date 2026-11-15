@@ -16,7 +16,7 @@ export interface WikiData {
   meta: {
     pageCount: number;
     generatedAt: string;
-    source: string;
+    source?: string;
   };
   campaigns: WikiCampaign[];
 }

@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { fumbleHomebrewItems } from '@/features/homebrew/fumbleHomebrew';
 import {
   buildPool,
+  buildToolResults,
   loadSearchIndex,
   scoreResult,
   searchResults,
@@ -25,6 +26,43 @@ describe('search index scoring', () => {
     expect(scoreResult(result('Greater Fire Shield'), 'fire')).toBe(60);
     expect(scoreResult(result('Wildfire Spirit'), 'fire')).toBe(40);
     expect(scoreResult(result('Magic Missile'), 'fire')).toBe(0);
+  });
+
+  it('lists tools in both languages and finds them by description', () => {
+    const english = buildToolResults('en');
+    expect(english[0]).toEqual({
+      kind: 'tool',
+      id: '/compendium',
+      name: 'Compendium',
+      subtitle: 'Open every available reference category from one searchable index.',
+      categoryLabel: 'Tool',
+      to: '/compendium',
+      keywords: 'Open every available reference category from one searchable index.',
+    });
+    expect(searchResults(english, 'dice roller')[0]?.to).toBe('/dice');
+    expect(searchResults(english, 'treasure').map((item) => item.to)).toEqual([
+      '/dm/loot',
+    ]);
+    expect(searchResults(english, 'zzz')).toEqual([]);
+
+    const polish = buildToolResults('pl');
+    const dice = polish.find((item) => item.to === '/dice');
+    expect(dice).toMatchObject({
+      name: 'Rzuty kośćmi',
+      englishName: 'Dice Roller',
+      categoryLabel: 'Narzędzie',
+    });
+    expect(polish.find((item) => item.to === '/wiki')).not.toHaveProperty('englishName');
+    expect(searchResults(polish, 'kosci').map((item) => item.to)).toContain('/dice');
+    expect(searchResults(polish, 'inicjatywa')[0]?.to).toBe('/dm/initiative');
+    expect(scoreResult(dice!, 'skroty')).toBe(20);
+    expect(scoreResult(dice!, 'sk')).toBe(0);
+    expect(
+      searchResults(
+        [result('Kości Roc'), result('Kościana Naga'), ...polish],
+        'kosci',
+      ).map((item) => item.name),
+    ).toEqual(['Rzuty kośćmi', 'Kości Roc', 'Kościana Naga']);
   });
 
   it('matches localized entries by their English names and respects the limit', () => {

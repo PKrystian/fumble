@@ -1,10 +1,6 @@
-import { Button } from '@/features/ui/primitives';
-import { type ReactNode, useEffect, useState } from 'react';
+import { useCallback, useState, type ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArrowLeft, Download, FileText, Settings } from 'lucide-react';
-import { Link } from '@/i18n/path';
-import { useT } from '@/i18n/useT';
-import { useSeo } from '@/seo/useSeo';
 import {
   DndContext,
   type DragEndEvent,
@@ -14,13 +10,27 @@ import {
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
-import { alertDialog } from '@/features/ui/confirmStore';
-import { type Character } from './model';
-import { useCharacter, useCharacterStore } from './store';
+import { ActionMenu } from '@/features/ui/ActionMenu';
+import { downloadBlob, downloadTextFile } from '@/features/storage/downloadFile';
+import { Button } from '@/features/ui/primitives';
+import { buttonClass } from '@/features/ui/styles';
+import { Link } from '@/i18n/path';
+import { useT } from '@/i18n/useT';
+import { useSeo } from '@/seo/useSeo';
+import { characterFileText, safeFilename } from './characterData';
+import { CharacterDataNotice } from './CharacterDataNotice';
+import { CharacterSettingsModal } from './CharacterSettingsModal';
+import { HitPointsPanel } from './HitPointsPanel';
+import {
+  LAYOUT_ZONES,
+  findPanelZone,
+  layoutSnapshot,
+  useLayoutStore,
+} from './layoutStore';
+import type { Character } from './model';
 import {
   AbilityScoresPanel,
   CombatPanel,
-  HitPointsPanel,
   IdentityHeader,
   PassivesPanel,
   ProficienciesPanel,
@@ -31,141 +41,84 @@ import {
   TrackingPanel,
   type UpdateCharacter,
 } from './sections';
-import { SheetTabs } from './tabs';
-import {
-  findSubclassPair,
-  syncClassFeatures,
-  useSpellIndex,
-  useBackgroundEntryPair,
-  useClassEntryPair,
-  useSpeciesEntryPair,
-} from './compendiumSync';
-import { CharacterSettingsModal } from './CharacterSettingsModal';
-import { type LayoutZone, useLayoutStore } from './layoutStore';
+import { SheetStatusBar } from './SheetStatusBar';
 import { SortablePanel, SortableZone } from './SortablePanel';
-import { type SheetEdition, fillCharacterSheetPdf } from './pdfExport';
+import { useWideLayout } from './layoutMeta';
+import { SheetSyncContext, useSheetSync } from './sync';
+import { SheetTabs } from './tabs';
+import { useCharacter, useCharacterStore } from './store';
+import { useCharacterLabels } from './useCharacterLabels';
 
-function findZone(
-  zones: Record<LayoutZone, string[]>,
-  id: string,
-): LayoutZone | undefined {
-  return (Object.keys(zones) as LayoutZone[]).find((zone) => zones[zone].includes(id));
-}
-
-function downloadBlob(blob: Blob, filename: string) {
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = filename;
-  link.click();
-  URL.revokeObjectURL(url);
-}
-
-function exportCharacter(character: Character) {
-  const payload = {
-    version: 1,
-    character,
-
-    layout: useLayoutStore.getState().zones,
-  };
-  const blob = new Blob([JSON.stringify(payload, null, 2)], {
-    type: 'application/json',
-  });
-  downloadBlob(blob, `${character.name || 'character'}.json`);
-}
-
-async function exportCharacterSheetPdf(
-  character: Character,
-  edition: SheetEdition,
-  t: (key: string, vars?: Record<string, string | number>) => string,
-) {
-  try {
-    const blob = await fillCharacterSheetPdf(character, edition);
-    downloadBlob(blob, `${character.name || 'character'}-${edition}.pdf`);
-  } catch {
-    await alertDialog(t('character.sheet.pdfFailedMessage', { edition }), {
-      title: t('character.sheet.pdfFailedTitle'),
-    });
-  }
-}
+type SheetEdition = '2024' | '2014';
 
 export function CharacterSheetPage() {
   const { t } = useT();
   const { id } = useParams();
   const character = useCharacter(id);
   const updateCharacter = useCharacterStore((state) => state.updateCharacter);
-
-  const classPair = useClassEntryPair(character?.className ?? '');
-  const speciesPair = useSpeciesEntryPair(character?.species ?? '');
-  const backgroundPair = useBackgroundEntryPair(character?.background ?? '');
-  const spellIndex = useSpellIndex();
+  const update = useCallback<UpdateCharacter>(
+    (patch) => updateCharacter(id!, patch),
+    [id, updateCharacter],
+  );
+  const sync = useSheetSync(character, update);
   useSeo(character?.name || t('character.unnamed'), undefined, false);
-  const cls = classPair.localized;
-  const species = speciesPair.localized;
-  const background = backgroundPair.localized;
-  const subclassPair = findSubclassPair(classPair, character?.subclass ?? '');
-  const subclassEntry = subclassPair.localized;
-
-  useEffect(() => {
-    if (!character || !character.autoSyncFeatures) return;
-    const patch = syncClassFeatures(character, cls, subclassEntry, species, background, {
-      cls: classPair.english,
-      background: backgroundPair.english,
-      subclass: subclassPair.english,
-      spellIndex,
-    });
-    updateCharacter(character.id, patch);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    character?.className,
-    character?.subclass,
-    character?.level,
-    character?.species,
-    character?.background,
-    character?.autoSyncFeatures,
-    cls,
-    subclassEntry,
-    species,
-    background,
-    spellIndex,
-  ]);
 
   if (!character) {
     return (
-      <div className="text-center page-shell page-shell-wide">
-        <p className="mb-4 text-ink-200">{t('character.sheet.notFound')}</p>
-        <Link
-          to="/character"
-          className="rounded-lg bg-arcane-700 px-4 py-2 font-medium text-ink-50 hover:bg-arcane-600"
-        >
+      <div className="page-shell page-shell-wide">
+        <h1 className="page-title">{t('character.sheet.notFoundTitle')}</h1>
+        <p className="page-description mb-6">{t('character.sheet.notFound')}</p>
+        <CharacterDataNotice />
+        <Link to="/character" className={buttonClass({ variant: 'primary' })}>
           {t('character.sheet.backToCharacters')}
         </Link>
       </div>
     );
   }
 
-  const update: UpdateCharacter = (patch) => updateCharacter(character.id, patch);
-
-  return <CharacterSheetBody character={character} update={update} />;
+  return (
+    <SheetSyncContext.Provider value={sync.computed}>
+      <CharacterSheetBody
+        character={character}
+        update={update}
+        computed={sync.computed}
+      />
+    </SheetSyncContext.Provider>
+  );
 }
 
 function CharacterSheetBody({
   character,
   update,
+  computed,
 }: {
   character: Character;
   update: UpdateCharacter;
+  computed: Partial<Character> | null;
 }) {
   const { t } = useT();
+  const labels = useCharacterLabels();
+  const wide = useWideLayout();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
-  const [pdfExporting, setPdfExporting] = useState<SheetEdition | null>(null);
+  const [message, setMessage] = useState<{ text: string; error: boolean } | null>(null);
+  const [layoutMessage, setLayoutMessage] = useState('');
+  const [exporting, setExporting] = useState<SheetEdition | null>(null);
   const zones = useLayoutStore((s) => s.zones);
+  const mobileOrder = useLayoutStore((s) => s.mobileOrder);
   const movePanel = useLayoutStore((s) => s.movePanel);
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 4 } }),
   );
+  const name = character.name.trim() || t('character.unnamed');
+  const label = labels(character);
+  const summary = [
+    t('character.list.level', { level: character.level }),
+    label.className,
+    label.species,
+  ]
+    .filter(Boolean)
+    .join(' - ');
 
   const panelElements: Record<string, ReactNode> = {
     abilities: <AbilityScoresPanel character={character} update={update} />,
@@ -181,121 +134,167 @@ function CharacterSheetBody({
     sessionLog: <SessionLogQuickPanel />,
   };
 
-  const resolveOverZone = (
-    overId: string,
-  ): { zone: LayoutZone; index: number } | undefined => {
-    const zone = findZone(zones, overId);
-    if (!zone) return undefined;
-    return { zone, index: zones[zone].indexOf(overId) };
+  const exportJson = () => {
+    try {
+      downloadTextFile(
+        characterFileText([character], layoutSnapshot()),
+        `${safeFilename(name, 'character')}.json`,
+      );
+      setMessage({ text: t('character.sheet.exported'), error: false });
+    } catch {
+      setMessage({ text: t('character.data.downloadFailed'), error: true });
+    }
   };
 
-  const handleDragStart = (event: DragStartEvent) => {
-    setActiveId(event.active.id as string);
+  const exportPdf = async (edition: SheetEdition) => {
+    setExporting(edition);
+    setMessage({ text: t('character.sheet.filling'), error: false });
+    try {
+      const { fillCharacterSheetPdf } = await import('./pdfExport');
+      const blob = await fillCharacterSheetPdf(character, edition, {
+        className: label.className,
+        subclass: character.subclass.replace(/\|.*$/, ''),
+        species: label.species,
+        background: label.background,
+      });
+      downloadBlob(blob, `${safeFilename(name, 'character')}-${edition}.pdf`);
+      setMessage({ text: t('character.sheet.pdfReady', { edition }), error: false });
+    } catch {
+      setMessage({
+        text: t('character.sheet.pdfFailedMessage', { edition }),
+        error: true,
+      });
+    } finally {
+      setExporting(null);
+    }
   };
 
+  const handleDragStart = (event: DragStartEvent) => setActiveId(String(event.active.id));
   const handleDragEnd = (event: DragEndEvent) => {
     setActiveId(null);
     const { active, over } = event;
     if (!over) return;
-    const target = resolveOverZone(over.id as string);
-    if (!target) return;
-    movePanel(active.id as string, target.zone, target.index);
+    const zone = findPanelZone(zones, String(over.id));
+    if (!zone) return;
+    movePanel(String(active.id), zone, zones[zone].indexOf(String(over.id)));
   };
 
   return (
     <div className="page-shell page-shell-wide">
-      <h1 className="page-title mb-6">{character.name || t('character.unnamed')}</h1>
-      <div className="mb-6 flex flex-col gap-4 sm:mb-4 sm:flex-row sm:items-center sm:justify-between">
-        <Link to="/character" className="back-link">
-          <ArrowLeft size={16} /> {t('character.list.title')}
-        </Link>
-        <div className="flex w-full flex-wrap items-start gap-2 sm:w-auto sm:justify-end">
-          <Button
-            type="button"
-            onClick={() => setSettingsOpen(true)}
-            variant="secondary"
-            className="flex-1 sm:flex-none"
-          >
-            <Settings size={16} /> {t('character.sheet.settings')}
-          </Button>
-          <details className="relative flex-1 sm:flex-none">
-            <summary className="ui-tab min-h-10 cursor-pointer border border-ink-600 bg-ink-900">
-              {t('common.exportOptions')}
-            </summary>
-            <div className="absolute right-0 z-20 mt-2 flex w-52 flex-col gap-2 rounded-xl border border-ink-700 bg-ink-900 p-3 shadow-xl">
-              <Button
-                type="button"
-                onClick={() => exportCharacter(character)}
-                variant="secondary"
-                className="w-full sm:w-auto"
-              >
-                <Download size={16} /> {t('character.sheet.export')}
-              </Button>
-              {(['2024', '2014'] as const).map((edition) => (
-                <Button
-                  key={edition}
-                  type="button"
-                  disabled={pdfExporting !== null}
-                  onClick={async () => {
-                    setPdfExporting(edition);
-                    await exportCharacterSheetPdf(character, edition, t);
-                    setPdfExporting(null);
-                  }}
-                  variant="secondary"
-                  className="w-full sm:w-auto"
-                >
-                  <FileText size={16} />
-                  {pdfExporting === edition
-                    ? t('character.sheet.filling')
-                    : t('character.sheet.sheetEdition', { edition })}
-                </Button>
-              ))}
-            </div>
-          </details>
+      <Link to="/character" className="back-link">
+        <ArrowLeft size={16} aria-hidden="true" /> {t('character.list.title')}
+      </Link>
+      <header className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <h1 className="page-title">{name}</h1>
+          {summary && <p className="page-description mt-1">{summary}</p>}
         </div>
-      </div>
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-end">
+          <Button onClick={() => setSettingsOpen(true)}>
+            <Settings size={16} aria-hidden="true" /> {t('character.sheet.settings')}
+          </Button>
+          <ActionMenu
+            label={t('common.exportOptions')}
+            buttonClassName="w-full"
+            items={[
+              {
+                id: 'json',
+                label: t('character.sheet.export'),
+                icon: <Download size={16} aria-hidden="true" />,
+                onSelect: exportJson,
+              },
+              ...(['2024', '2014'] as const).map((edition) => ({
+                id: `pdf-${edition}`,
+                label: t('character.sheet.sheetEdition', { edition }),
+                icon: <FileText size={16} aria-hidden="true" />,
+                disabled: exporting !== null,
+                onSelect: () => void exportPdf(edition),
+              })),
+            ]}
+          />
+        </div>
+      </header>
+
+      <CharacterDataNotice />
+      {message && (
+        <p
+          role={message.error ? 'alert' : 'status'}
+          className={`mb-4 ${message.error ? 'notice notice-error' : 'notice'}`}
+        >
+          {message.text}
+        </p>
+      )}
+
+      <SheetStatusBar character={character} update={update} />
 
       {settingsOpen && (
         <CharacterSettingsModal
           character={character}
           update={update}
+          computed={computed}
           onClose={() => setSettingsOpen(false)}
         />
       )}
 
+      <p role="status" className="sr-only">
+        {layoutMessage}
+      </p>
+
       <div className="flex flex-col gap-4">
         <IdentityHeader character={character} update={update} />
 
-        <DndContext
-          sensors={sensors}
-          onDragStart={handleDragStart}
-          onDragEnd={handleDragEnd}
-          onDragCancel={() => setActiveId(null)}
-        >
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
-            {(['left', 'center', 'right'] as const).map((zone) => (
-              <div
-                key={zone}
-                className={zone === 'center' ? 'lg:col-span-6' : 'lg:col-span-3'}
-              >
-                <SortableZone panelIds={zones[zone]}>
-                  {zones[zone].map((panelId) => (
-                    <SortablePanel key={panelId} id={panelId}>
-                      {panelElements[panelId]}
-                    </SortablePanel>
-                  ))}
-                </SortableZone>
-              </div>
-            ))}
-          </div>
-          <DragOverlay dropAnimation={{ duration: 200, easing: 'ease-out' }}>
-            {activeId && (
-              <div className="rotate-1 rounded-xl opacity-95 shadow-2xl shadow-black/50">
-                {panelElements[activeId]}
-              </div>
-            )}
-          </DragOverlay>
-        </DndContext>
+        {wide ? (
+          <DndContext
+            sensors={sensors}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+            onDragCancel={() => setActiveId(null)}
+          >
+            <div className="grid grid-cols-12 gap-4">
+              {LAYOUT_ZONES.map((zone) => (
+                <div
+                  key={zone}
+                  className={zone === 'center' ? 'col-span-6' : 'col-span-3'}
+                >
+                  <SortableZone panelIds={zones[zone]}>
+                    {zones[zone].map((panelId) => (
+                      <SortablePanel
+                        key={panelId}
+                        id={panelId}
+                        wide
+                        onMoved={setLayoutMessage}
+                      >
+                        {panelElements[panelId]}
+                      </SortablePanel>
+                    ))}
+                  </SortableZone>
+                </div>
+              ))}
+            </div>
+            <DragOverlay dropAnimation={{ duration: 200, easing: 'ease-out' }}>
+              {activeId && (
+                <div className="opacity-95 shadow-2xl shadow-black/50">
+                  {panelElements[activeId]}
+                </div>
+              )}
+            </DragOverlay>
+          </DndContext>
+        ) : (
+          <DndContext>
+            <SortableZone panelIds={mobileOrder}>
+              {mobileOrder.map((panelId) => (
+                <SortablePanel
+                  key={panelId}
+                  id={panelId}
+                  wide={false}
+                  onMoved={setLayoutMessage}
+                >
+                  {panelElements[panelId]}
+                </SortablePanel>
+              ))}
+            </SortableZone>
+          </DndContext>
+        )}
       </div>
     </div>
   );

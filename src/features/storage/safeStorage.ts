@@ -72,3 +72,10 @@ export function removeLocalStorage(key: string): boolean {
     return false;
   }
 }
+
+export function followStoredChanges(key: string, reload: () => void): void {
+  if (typeof window === 'undefined') return;
+  window.addEventListener('storage', (event) => {
+    if (event.key === key || event.key === null) reload();
+  });
+}

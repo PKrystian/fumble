@@ -11,6 +11,7 @@ export function useWiki(retryKey = 0): WikiState {
 
   useEffect(() => {
     let cancelled = false;
+    setState({ status: 'loading', data: null });
     import('@/data/generated/wiki.json')
       .then((mod) => {
         if (!cancelled) {

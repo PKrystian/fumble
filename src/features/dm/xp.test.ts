@@ -2,76 +2,56 @@ import { describe, expect, it } from 'vitest';
 import { crToXp, partyBudget, pickRandomMonster, rateEncounter } from './xp';
 
 describe('encounter math', () => {
-  it('maps challenge ratings to XP, including fractional CRs', () => {
+  it('maps standard challenge ratings to XP', () => {
     expect(crToXp('1/4')).toBe(50);
     expect(crToXp('5')).toBe(1800);
     expect(crToXp('30')).toBe(155000);
     expect(crToXp('unknown')).toBe(0);
   });
 
-  it('sums per-character XP budgets across the party', () => {
-    expect(partyBudget([{ level: 5, count: 4 }])).toEqual({
-      low: 2000,
-      moderate: 3000,
-      high: 4400,
+  it('combines mixed-level party members using the 2024 budgets', () => {
+    expect(
+      partyBudget([
+        { level: 5, count: 4 },
+        { level: 1, count: 2 },
+      ]),
+    ).toEqual({
+      low: 2100,
+      moderate: 3150,
+      high: 4600,
     });
-  });
-
-  it('combines mixed-level party members', () => {
-    const budget = partyBudget([
-      { level: 1, count: 2 },
-      { level: 3, count: 1 },
-    ]);
-    expect(budget.moderate).toBe(75 * 2 + 225);
-  });
-
-  it('clamps party levels to the supported range', () => {
     expect(
       partyBudget([
         { level: -5, count: 1 },
         { level: 99, count: 1 },
       ]),
     ).toEqual({
-      low: 50 + 6400,
-      moderate: 75 + 13200,
-      high: 100 + 22000,
+      low: 6450,
+      moderate: 13275,
+      high: 22100,
     });
   });
 
-  it('rates encounters against the budget thresholds', () => {
-    const budget = { low: 2000, moderate: 3000, high: 4400 };
-    expect(rateEncounter(0, budget)).toBe('Trivial');
-    expect(rateEncounter(1000, budget)).toBe('Trivial');
-    expect(rateEncounter(2000, budget)).toBe('Low');
-    expect(rateEncounter(2500, budget)).toBe('Moderate');
-    expect(rateEncounter(3000, budget)).toBe('Moderate');
-    expect(rateEncounter(4000, budget)).toBe('High');
-    expect(rateEncounter(9000, budget)).toBe('Deadly');
+  it('treats the difficulty budgets as ceilings', () => {
+    const budget = { low: 200, moderate: 300, high: 400 };
+    expect(rateEncounter(50, budget)).toBe('low');
+    expect(rateEncounter(200, budget)).toBe('low');
+    expect(rateEncounter(250, budget)).toBe('moderate');
+    expect(rateEncounter(300, budget)).toBe('moderate');
+    expect(rateEncounter(400, budget)).toBe('high');
+    expect(rateEncounter(450, budget)).toBe('overBudget');
   });
 
-  it('prefers a random monster within the high budget tolerance', () => {
+  it('rolls only from candidates with positive XP that fit the remainder', () => {
     const candidates = [
-      { item: 'weaker', xp: 999 },
-      { item: 'allowed', xp: 1100 },
-      { item: 'tooStrong', xp: 1110 },
+      { item: 'zero', xp: 0 },
+      { item: 'small', xp: 25 },
+      { item: 'exact', xp: 100 },
+      { item: 'too strong', xp: 101 },
     ];
-
-    expect(pickRandomMonster(candidates, 1000, () => 0)).toBe('allowed');
-  });
-
-  it('uses the closest stronger monster when the tolerance range is empty', () => {
-    const candidates = [
-      { item: 'weaker', xp: 900 },
-      { item: 'closest', xp: 1200 },
-      { item: 'farther', xp: 2000 },
-    ];
-
-    expect(pickRandomMonster(candidates, 1000, () => 0)).toBe('closest');
-  });
-
-  it('returns no monster when the party has no positive budget or only weaker choices', () => {
-    expect(pickRandomMonster([], 1000)).toBeUndefined();
-    expect(pickRandomMonster([{ item: 'weaker', xp: 900 }], 1000)).toBeUndefined();
-    expect(pickRandomMonster([{ item: 'monster', xp: 1000 }], 0)).toBeUndefined();
+    expect(pickRandomMonster(candidates, 100, () => 0)).toBe('small');
+    expect(pickRandomMonster(candidates, 100, () => 0.99)).toBe('exact');
+    expect(pickRandomMonster(candidates, 24)).toBeUndefined();
+    expect(pickRandomMonster(candidates, 0)).toBeUndefined();
   });
 });

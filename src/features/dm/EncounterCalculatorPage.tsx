@@ -1,411 +1,449 @@
-import { useMemo, useState } from 'react';
-import { Minus, Plus, Shuffle, Trash2 } from 'lucide-react';
-import type { MonsterEntry } from '@/data/compendium/types';
-import { getCategory } from '@/features/compendium/categories';
-import { useCategoryItems } from '@/features/compendium/useCategoryItems';
-import { fumbleHomebrewItems } from '@/features/homebrew/fumbleHomebrew';
-import { useT } from '@/i18n/useT';
+import { useMemo, useRef, useState } from 'react';
+import { Minus, Plus, Trash2 } from 'lucide-react';
+import { sourceName } from '@/data/compendium/sources';
 import { Link } from '@/i18n/path';
+import { useT } from '@/i18n/useT';
 import { useSeo } from '@/seo/useSeo';
-import {
-  type PartyMember,
-  crToXp,
-  partyBudget,
-  pickRandomMonster,
-  rateEncounter,
-} from './xp';
-import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
-import { localizeCompendiumValue } from '@/data/compendium/localizeValue';
-import {
-  Button,
-  IconButton,
-  SearchField,
-  Select,
-  TextInput,
-} from '@/features/ui/primitives';
+import { OriginalName } from '@/features/ui/OriginalName';
+import { Button, IconButton, Select, TextInput } from '@/features/ui/primitives';
 import { panelClass } from '@/features/ui/styles';
-
-interface EncounterMonster {
-  id: string;
-  name: string;
-  cr: string;
-  xp: number;
-  count: number;
-}
-
-const RATING_COLORS: Record<string, string> = {
-  Trivial: 'text-ink-300',
-  Low: 'text-green-400',
-  Moderate: 'text-ember-400',
-  High: 'text-orange-400',
-  Deadly: 'text-red-400',
-};
-
-const RATING_LABEL_KEYS: Record<string, string> = {
-  Trivial: 'encounter.trivial',
-  Low: 'encounter.low',
-  Moderate: 'encounter.moderate',
-  High: 'encounter.high',
-  Deadly: 'encounter.deadly',
-};
-
-function habitatValues(value: string | undefined): string[] {
-  return (value ?? '')
-    .split(',')
-    .map((part) => part.trim())
-    .filter(Boolean);
-}
-
-function matchesHabitat(
-  item: MonsterEntry,
-  selectedHabitat: string,
-  includeAny: boolean,
-): boolean {
-  if (!selectedHabitat) return true;
-  const selected = selectedHabitat.toLowerCase();
-  return habitatValues(item._englishHabitat ?? item.habitat).some((value) => {
-    const habitat = value.toLowerCase();
-    return habitat === selected || (includeAny && habitat === 'any');
-  });
-}
+import { useUrlSearchState } from '@/features/ui/useUrlSearchState';
+import { EncounterCatalog } from './EncounterCatalog';
+import { useEncounterCatalog } from './useEncounterCatalog';
+import { EncounterDataControls } from './EncounterDataControls';
+import { EncounterLibrary } from './EncounterLibrary';
+import { EncounterTransfer } from './EncounterTransfer';
+import { useEncounterStore } from './encounterStore';
+import {
+  DIFFICULTIES,
+  ENCOUNTER_COUNT_LIMIT,
+  ENCOUNTER_GROUP_LIMIT,
+  ENCOUNTER_ROSTER_LIMIT,
+  monsterXp,
+  partyNumber,
+  type EncounterCreature,
+  type EncounterMonster,
+} from './encounterModel';
+import { partyBudget, rateEncounter, type Difficulty } from './xp';
 
 export function EncounterCalculatorPage() {
   const { t, locale } = useT();
   useSeo(t('seo.pageTitles.encounter'), t('seo.pageDescriptions.encounter'));
-  const [party, setParty] = useState<PartyMember[]>([{ level: 1, count: 4 }]);
-  const [monsters, setMonsters] = useState<EncounterMonster[]>([]);
-  const [randomMonsterError, setRandomMonsterError] = useState(false);
-  const { params, update } = useUrlSearchState();
-  const query = params.get('q') ?? '';
-  const monsterId = params.get('monster');
-  const selectedHabitat = params.get('habitat') ?? '';
-  const includeAny = params.get('includeAny') === '1';
-
-  const { status, items } = useCategoryItems(getCategory('bestiary'));
-
-  const habitatOptions = useMemo(() => {
-    const values = new Set<string>();
-    for (const item of items) {
-      if (item.hidden) continue;
-      for (const value of habitatValues(
-        (item as MonsterEntry)._englishHabitat ?? (item as MonsterEntry).habitat,
-      ))
-        values.add(value);
-    }
-    return [...values].sort((a, b) => {
-      const aLabel = localizeCompendiumValue(a, locale, 'habitat') ?? a;
-      const bLabel = localizeCompendiumValue(b, locale, 'habitat') ?? b;
-      return aLabel.localeCompare(bLabel, locale);
-    });
-  }, [items, locale]);
-
-  const randomMonsterCandidates = useMemo(
-    () =>
-      items
-        .filter((item) => {
-          if (item.hidden) return false;
-          return matchesHabitat(item as MonsterEntry, selectedHabitat, includeAny);
-        })
-        .map((item) => {
-          const monster = item as MonsterEntry;
-          return { item: monster, xp: crToXp(monster.cr) };
-        })
-        .filter(({ xp }) => xp > 0),
-    [items, selectedHabitat, includeAny],
+  const { data, edit } = useEncounterStore();
+  const { party, monsters, target, name } = data.draft;
+  const { params } = useUrlSearchState();
+  const [retry, setRetry] = useState(0);
+  const [feedback, setFeedback] = useState('');
+  const [transferOpen, setTransferOpen] = useState(false);
+  const [transferred, setTransferred] = useState<{ count: number; saved: boolean }>();
+  const catalog = useEncounterCatalog(params.get('monster') ?? undefined, retry);
+  const addGroup = useRef<HTMLButtonElement>(null);
+  const rosterTitle = useRef<HTMLHeadingElement>(null);
+  const draftTitle = useRef<HTMLHeadingElement>(null);
+  const rosterControls = useRef(new Map<string, HTMLButtonElement>());
+  const names = useMemo(
+    () => new Map(catalog.items.map((item) => [item.id, item.name])),
+    [catalog.items],
   );
+  const roster = monsters.map((monster) => ({
+    ...monster,
+    name:
+      names.get(monster.id) ??
+      (locale === 'en' ? monster.original || monster.name : monster.name),
+  }));
+  const groups = party.map((group) => ({
+    count: partyNumber(group.count, ENCOUNTER_COUNT_LIMIT),
+    level: partyNumber(group.level, 20),
+  }));
+  const valid = groups.every((group) => group.count !== null && group.level !== null);
+  const budget = valid
+    ? partyBudget(groups.map(({ count, level }) => ({ count: count!, level: level! })))
+    : null;
+  const incomplete = monsters.some((monster) => monsterXp(monster) === null);
+  const total = monsters.reduce(
+    (sum, monster) => sum + (monsterXp(monster) ?? 0) * monster.count,
+    0,
+  );
+  const remaining = budget && !incomplete ? budget[target] - total : null;
+  const difficulty =
+    budget && !incomplete && monsters.length ? rateEncounter(total, budget) : null;
+  const xp = (value: number) =>
+    t('encounter.xpValue', { xp: value.toLocaleString(locale) });
 
-  const results = useMemo(() => {
-    if (monsterId && !query.trim()) {
-      const monster =
-        items.find((item) => item.id === monsterId) ??
-        fumbleHomebrewItems(locale).find(
-          (item) => item.category === 'bestiary' && item.id === monsterId,
-        );
-      return monster ? [monster] : [];
+  const addMonster = (creature: EncounterCreature) => {
+    const current = monsters.find((monster) => monster.id === creature.id);
+    if (
+      current
+        ? current.count >= ENCOUNTER_COUNT_LIMIT
+        : monsters.length >= ENCOUNTER_ROSTER_LIMIT
+    ) {
+      setFeedback(
+        t(current ? 'encounter.countLimit' : 'encounter.rosterLimit', {
+          limit: current ? ENCOUNTER_COUNT_LIMIT : ENCOUNTER_ROSTER_LIMIT,
+        }),
+      );
+      return false;
     }
-    const term = query.trim().toLowerCase();
-    if (!term) return [];
-    return items
-      .filter((item) => {
-        if (item.hidden) return false;
-        if (!matchesHabitat(item as MonsterEntry, selectedHabitat, includeAny))
-          return false;
-        return !term || item.name.toLowerCase().includes(term);
-      })
-      .slice(0, 8);
-  }, [items, query, selectedHabitat, includeAny, monsterId, locale]);
-
-  const budget = partyBudget(party);
-
-  const addMonster = (item: MonsterEntry) => {
-    setRandomMonsterError(false);
-    setMonsters((prev) => {
-      const existing = prev.find((m) => m.id === item.id);
-      if (existing) {
-        return prev.map((m) => (m.id === item.id ? { ...m, count: m.count + 1 } : m));
-      }
-      return [
-        ...prev,
-        { id: item.id, name: item.name, cr: item.cr, xp: crToXp(item.cr), count: 1 },
-      ];
+    edit({
+      monsters: current
+        ? monsters.map((monster) =>
+            monster.id === creature.id
+              ? { ...monster, count: monster.count + 1 }
+              : monster,
+          )
+        : [...monsters, { ...creature, count: 1, inLair: false }],
     });
-    update({ q: null, monster: null }, true);
+    setFeedback(t('encounter.creatureAdded', { name: creature.name }));
+    return true;
   };
 
-  const setCount = (id: string, count: number) =>
-    setMonsters((prev) =>
-      count <= 0
-        ? prev.filter((m) => m.id !== id)
-        : prev.map((m) => (m.id === id ? { ...m, count } : m)),
-    );
-
-  const addRandomMonster = () => {
-    const candidate = pickRandomMonster(randomMonsterCandidates, budget.high);
-    if (!candidate) {
-      setRandomMonsterError(true);
-      return;
-    }
-    addMonster(candidate);
+  const randomCost = (creature: EncounterCreature) => {
+    const current = monsters.find((monster) => monster.id === creature.id);
+    if (current) return current.count < ENCOUNTER_COUNT_LIMIT ? monsterXp(current) : null;
+    return monsters.length < ENCOUNTER_ROSTER_LIMIT ? creature.xp : null;
   };
 
-  const totalXp = monsters.reduce((sum, m) => sum + m.xp * m.count, 0);
-  const rating = rateEncounter(totalXp, budget);
+  const patchMonster = (
+    id: string,
+    patch: Partial<Pick<EncounterMonster, 'count' | 'inLair'>>,
+  ) =>
+    edit({
+      monsters: monsters.map((monster) =>
+        monster.id === id ? { ...monster, ...patch } : monster,
+      ),
+    });
+
+  const removeMonster = (monster: EncounterMonster, index: number) => {
+    const neighbor = monsters[index + 1] ?? monsters[index - 1];
+    edit({ monsters: monsters.filter((row) => row.id !== monster.id) });
+    setFeedback(t('encounter.creatureRemoved', { name: monster.name }));
+    requestAnimationFrame(() => {
+      (
+        (neighbor && rosterControls.current.get(neighbor.id)) ||
+        rosterTitle.current
+      )?.focus();
+    });
+  };
 
   return (
-    <div className="page-shell">
-      <h1 className="mb-6 text-ink-50 page-title">{t('encounter.title')}</h1>
+    <div className="page-shell page-shell-wide space-y-6">
+      <header>
+        <h1 className="page-title">{t('encounter.title')}</h1>
+        <p className="page-description">{t('encounter.description')}</p>
+      </header>
+      <section
+        className={panelClass('space-y-4 p-4 sm:p-5')}
+        aria-labelledby="encounter-draft-title"
+      >
+        <h2
+          ref={draftTitle}
+          tabIndex={-1}
+          id="encounter-draft-title"
+          className="section-title [overflow-wrap:anywhere]"
+        >
+          {name.trim() || t('encounter.draft')}
+        </h2>
+        <div role="status" className="grid gap-3 sm:grid-cols-3">
+          <div>
+            <p className="field-label">
+              {t(incomplete ? 'encounter.knownXp' : 'encounter.totalXp')}
+            </p>
+            <p className="roll-value text-2xl">{total.toLocaleString(locale)}</p>
+          </div>
+          <div>
+            <p className="field-label">{t('encounter.difficulty')}</p>
+            <p className="font-semibold text-ink-50">
+              {t(difficulty ? 'encounter.' + difficulty : 'encounter.notRated')}
+            </p>
+          </div>
+          <div>
+            <p className="field-label">{t('encounter.targetBudget')}</p>
+            <p className="font-semibold text-ink-50">
+              {remaining === null
+                ? t('encounter.budgetPending')
+                : t(remaining < 0 ? 'encounter.overTarget' : 'encounter.remainingXp', {
+                    xp: xp(Math.abs(remaining)),
+                  })}
+            </p>
+          </div>
+        </div>
+        {incomplete && (
+          <p className="notice" role="status">
+            {t('encounter.incompleteXp')}
+          </p>
+        )}
+        <p role="status" className="text-sm text-ink-300">
+          {feedback}
+        </p>
+      </section>
+      <EncounterDataControls />
+      <EncounterLibrary
+        valid={valid}
+        focusDraft={() => draftTitle.current?.focus()}
+        announce={setFeedback}
+      />
 
-      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
-        <section className={panelClass('flex h-full flex-col gap-4 border-ink-700 p-5')}>
-          <h2 className="text-ember-400 panel-title">{t('encounter.party')}</h2>
-          {party.map((member, index) => (
-            <div key={index} className="party-row">
-              <label className="flex flex-col gap-1 text-sm">
-                <span className="text-xs text-ink-400">{t('encounter.count')}</span>
-                <TextInput
-                  type="number"
-                  min={1}
-                  value={member.count}
-                  onChange={(e) =>
-                    setParty((p) =>
-                      p.map((m, i) =>
-                        i === index ? { ...m, count: e.target.valueAsNumber || 0 } : m,
-                      ),
-                    )
-                  }
-                  className="w-full"
-                />
-              </label>
-              <label className="flex flex-col gap-1 text-sm">
-                <span className="text-xs text-ink-400">{t('encounter.level')}</span>
-                <TextInput
-                  type="number"
-                  min={1}
-                  max={20}
-                  value={member.level}
-                  onChange={(e) =>
-                    setParty((p) =>
-                      p.map((m, i) =>
-                        i === index ? { ...m, level: e.target.valueAsNumber || 1 } : m,
-                      ),
-                    )
-                  }
-                  className="w-full"
-                />
-              </label>
-              {party.length > 1 && (
-                <IconButton
-                  label={t('encounter.removePartyGroup')}
-                  onClick={() => setParty((p) => p.filter((_, i) => i !== index))}
-                  variant="ghost"
-                  size="sm"
-                  className="text-ink-400 hover:text-red-400"
-                >
-                  <Trash2 size={16} />
-                </IconButton>
-              )}
-            </div>
-          ))}
-          <Button
-            onClick={() => setParty((p) => [...p, { level: 1, count: 1 }])}
-            size="md"
-            className="w-full self-start sm:w-auto"
-          >
-            <Plus size={14} /> {t('encounter.addLevelGroup')}
-          </Button>
-
-          <dl className="mt-auto grid grid-cols-3 gap-2 border-t border-ink-700 pt-4 text-center">
-            <Budget label={t('encounter.low')} value={budget.low} />
-            <Budget label={t('encounter.moderate')} value={budget.moderate} />
-            <Budget label={t('encounter.high')} value={budget.high} />
-          </dl>
-        </section>
-
-        <section className={panelClass('flex h-full flex-col gap-4 border-ink-700 p-5')}>
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 className="text-ember-400 panel-title">{t('encounter.monsters')}</h2>
+      <section
+        className={panelClass('space-y-4 p-4 sm:p-5')}
+        aria-labelledby="encounter-party-title"
+      >
+        <h2 id="encounter-party-title" className="panel-title">
+          {t('encounter.party')}
+        </h2>
+        <div className="grid items-start gap-4 lg:grid-cols-2">
+          <div className="space-y-3">
+            {party.map((group, index) => (
+              <div
+                key={group.id}
+                className="flex flex-wrap items-start gap-2 rounded-lg border border-ink-700 p-3"
+              >
+                {(['count', 'level'] as const).map((field) => {
+                  const invalid = groups[index]![field] === null;
+                  const errorId = 'encounter-' + group.id + '-' + field;
+                  return (
+                    <label key={field} className="min-w-0 flex-1 basis-20">
+                      <span className="field-label">{t('encounter.' + field)}</span>
+                      <TextInput
+                        type="number"
+                        min={1}
+                        max={field === 'count' ? ENCOUNTER_COUNT_LIMIT : 20}
+                        step={1}
+                        className="w-full"
+                        value={group[field]}
+                        aria-invalid={invalid}
+                        aria-describedby={invalid ? errorId : undefined}
+                        onChange={(event) => {
+                          const value = event.target.value.slice(0, 64);
+                          edit({
+                            party: party.map((item) =>
+                              item.id === group.id ? { ...item, [field]: value } : item,
+                            ),
+                          });
+                        }}
+                      />
+                      {invalid && (
+                        <span className="mt-1 block text-xs text-red-300" id={errorId}>
+                          {t(
+                            field === 'count'
+                              ? 'encounter.invalidCount'
+                              : 'encounter.invalidLevel',
+                            { limit: ENCOUNTER_COUNT_LIMIT },
+                          )}
+                        </span>
+                      )}
+                    </label>
+                  );
+                })}
+                {party.length > 1 && (
+                  <IconButton
+                    variant="ghost"
+                    label={t('encounter.removePartyGroup', { n: index + 1 })}
+                    onClick={() => {
+                      edit({ party: party.filter((item) => item.id !== group.id) });
+                      requestAnimationFrame(() => addGroup.current?.focus());
+                    }}
+                  >
+                    <Trash2 size={16} aria-hidden="true" />
+                  </IconButton>
+                )}
+              </div>
+            ))}
             <Button
-              onClick={addRandomMonster}
-              size="md"
-              disabled={status !== 'ready'}
-              title={t('encounter.addRandomMonsterHint')}
-              className="w-full sm:w-auto"
+              ref={addGroup}
+              disabled={party.length >= ENCOUNTER_GROUP_LIMIT}
+              onClick={() =>
+                edit({
+                  party: [...party, { id: crypto.randomUUID(), count: '1', level: '1' }],
+                })
+              }
             >
-              <Shuffle size={14} /> {t('encounter.addRandomMonster')}
+              <Plus size={16} aria-hidden="true" /> {t('encounter.addLevelGroup')}
             </Button>
           </div>
-          {randomMonsterError && (
-            <p
-              role="status"
-              className="rounded-lg border border-red-900/70 bg-red-950/30 p-3 text-sm text-red-300"
-            >
-              {t('encounter.randomMonsterUnavailable')}
-            </p>
-          )}
-          <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_13rem]">
-            <SearchField
-              value={query}
-              onChange={(e) => update({ q: e.target.value, monster: null }, true)}
-              onClear={() => update({ q: null, monster: null }, true)}
-              placeholder={
-                status === 'loading'
-                  ? t('encounter.loadingBestiary')
-                  : t('encounter.searchMonsters')
-              }
-              label={t('encounter.searchMonsters')}
-              clearLabel={t('common.clearSearch')}
-              className="sm:mt-5"
-            />
-            <div className="flex flex-col gap-2">
-              <label className="flex flex-col gap-1 text-sm">
-                <span className="text-xs text-ink-400">{t('encounter.habitat')}</span>
-                <Select
-                  aria-label={t('encounter.habitat')}
-                  value={selectedHabitat}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    update(
-                      {
-                        habitat: value || null,
-                        includeAny: value && includeAny ? '1' : null,
-                      },
-                      true,
-                    );
-                  }}
-                >
-                  <option value="">{t('encounter.allHabitats')}</option>
-                  {habitatOptions.map((value) => (
-                    <option key={value} value={value}>
-                      {localizeCompendiumValue(value, locale, 'habitat') ?? value}
-                    </option>
-                  ))}
-                </Select>
-              </label>
-              <label className="flex items-center gap-2 text-xs text-ink-300">
-                <input
-                  type="checkbox"
-                  checked={includeAny && Boolean(selectedHabitat)}
-                  disabled={!selectedHabitat}
-                  onChange={() => update({ includeAny: includeAny ? null : '1' }, true)}
-                  aria-label={t('encounter.includeAny')}
-                  className="h-4 w-4 rounded border-ink-600 bg-ink-950 text-arcane-500 accent-arcane-500 focus:ring-arcane-400"
-                />
-                {t('encounter.includeAny')}
-              </label>
-            </div>
-          </div>
-          <div className="relative">
-            {results.length > 0 && (
-              <ul className="absolute left-0 right-0 top-full z-10 mt-2 overflow-hidden rounded-lg border border-ink-700 bg-ink-800 shadow-xl">
-                {results.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      type="button"
-                      onClick={() => addMonster(item as MonsterEntry)}
-                      className="flex min-h-10 w-full items-center justify-between gap-3 px-3 py-2 text-left text-sm hover:bg-ink-700"
-                    >
-                      <span className="text-ink-50">{item.name}</span>
-                      <span className="text-ink-400">
-                        {t('encounter.crXp', {
-                          cr: (item as MonsterEntry).cr,
-                          xp: crToXp((item as MonsterEntry).cr),
-                        })}
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          <ul className="flex min-h-32 flex-1 flex-col gap-2">
-            {monsters.map((m) => (
-              <li
-                key={m.id}
-                className="flex flex-wrap items-center gap-2 rounded-lg border border-ink-800 bg-ink-950/40 px-2 py-2 text-sm"
+          <div className="space-y-3">
+            <label className="block">
+              <span className="field-label">{t('encounter.targetDifficulty')}</span>
+              <Select
+                className="w-full"
+                value={target}
+                onChange={(event) => edit({ target: event.target.value as Difficulty })}
               >
-                <IconButton
-                  label={t('encounter.fewer', { name: m.name })}
-                  onClick={() => setCount(m.id, m.count - 1)}
-                  size="sm"
-                >
-                  <Minus size={12} />
-                </IconButton>
-                <span className="w-6 text-center font-mono text-ink-50">{m.count}</span>
-                <IconButton
-                  label={t('encounter.more', { name: m.name })}
-                  onClick={() => setCount(m.id, m.count + 1)}
-                  size="sm"
-                >
-                  <Plus size={12} />
-                </IconButton>
-                <Link
-                  to={`/compendium/bestiary/${m.id}`}
-                  className="min-w-0 flex-1 truncate text-arcane-300 hover:text-arcane-200 hover:underline"
-                  title={m.name}
-                >
-                  {m.name}
-                </Link>
-                <span className="text-ink-400">
-                  {t('encounter.crValue', { cr: m.cr })}
-                </span>
-                <span className="w-16 text-right text-ink-300">
-                  {t('encounter.xpValue', { xp: m.xp * m.count })}
-                </span>
-              </li>
-            ))}
-            {monsters.length === 0 && (
-              <li className="empty-state">{t('encounter.noMonstersYet')}</li>
+                {DIFFICULTIES.map((key) => (
+                  <option key={key} value={key}>
+                    {t('encounter.' + key)}
+                  </option>
+                ))}
+              </Select>
+            </label>
+            {budget ? (
+              <dl className="grid grid-cols-3 gap-2 text-sm">
+                {DIFFICULTIES.map((key) => (
+                  <div className="min-w-0 [overflow-wrap:anywhere]" key={key}>
+                    <dt className="field-label">{t('encounter.' + key)}</dt>
+                    <dd className="font-semibold tabular-nums">{xp(budget[key])}</dd>
+                  </div>
+                ))}
+              </dl>
+            ) : (
+              <p role="status" className="notice notice-error">
+                {t('encounter.invalidParty')}
+              </p>
             )}
-          </ul>
+          </div>
+        </div>
+      </section>
+
+      <div className="grid items-start gap-6 lg:grid-cols-2">
+        <EncounterCatalog
+          catalog={catalog}
+          retry={() => setRetry((value) => value + 1)}
+          add={addMonster}
+          remaining={remaining}
+          randomCost={randomCost}
+        />
+        <section
+          className={panelClass('min-w-0 space-y-4 p-4 sm:p-5')}
+          aria-labelledby="encounter-monsters-title"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2
+              className="panel-title"
+              id="encounter-monsters-title"
+              ref={rosterTitle}
+              tabIndex={-1}
+            >
+              {t('encounter.monsters')}
+            </h2>
+            <Button disabled={!monsters.length} onClick={() => setTransferOpen(true)}>
+              {t('encounter.transferTitle')}
+            </Button>
+          </div>
+          {transferred && (
+            <div
+              role={transferred.saved ? 'status' : 'alert'}
+              className={transferred.saved ? 'notice' : 'notice notice-error'}
+            >
+              <p>
+                {t(
+                  transferred.saved
+                    ? 'encounter.transferred'
+                    : 'encounter.transferUnsaved',
+                  { count: transferred.count },
+                )}
+              </p>
+              <Link className="back-link" to="/dm/initiative">
+                {t('encounter.openInitiative')}
+              </Link>
+            </div>
+          )}
+          {roster.length === 0 ? (
+            <p className="empty-state">{t('encounter.noMonstersYet')}</p>
+          ) : (
+            <ul className="space-y-2">
+              {roster.map((monster, index) => {
+                const known = names.has(monster.id);
+                const value = monsterXp(monster);
+                const metadata = [
+                  monster.source && sourceName(monster.source, locale),
+                  monster.cr && t('encounter.crValue', { cr: monster.cr }),
+                  value === null ? t('encounter.unknownXp') : xp(value * monster.count),
+                ].filter(Boolean);
+                return (
+                  <li
+                    key={monster.id}
+                    className={panelClass(
+                      'space-y-2 p-3 text-sm [overflow-wrap:anywhere]',
+                    )}
+                  >
+                    <div>
+                      {known ? (
+                        <Link
+                          className="font-semibold text-arcane-300 hover:underline"
+                          to={'/compendium/bestiary/' + encodeURIComponent(monster.id)}
+                        >
+                          {monster.name}
+                        </Link>
+                      ) : (
+                        <p className="font-semibold text-ink-50">{monster.name}</p>
+                      )}
+                      <OriginalName
+                        className="block text-xs"
+                        name={
+                          monster.name !== monster.original ? monster.original : undefined
+                        }
+                      />
+                      <p className="mt-1 text-xs text-ink-300">{metadata.join(' · ')}</p>
+                      {!known && catalog.status === 'ready' && (
+                        <p className="text-xs text-ink-300">{t('encounter.snapshot')}</p>
+                      )}
+                    </div>
+                    {monster.lairXp !== null && (
+                      <label className="flex min-h-10 items-center gap-2">
+                        <input
+                          className="accent-arcane-500"
+                          type="checkbox"
+                          checked={monster.inLair}
+                          onChange={(event) =>
+                            patchMonster(monster.id, { inLair: event.target.checked })
+                          }
+                        />
+                        {t('encounter.inLair', { xp: xp(monster.lairXp) })}
+                      </label>
+                    )}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <IconButton
+                        size="sm"
+                        disabled={monster.count === 1}
+                        label={t('encounter.fewer', { name: monster.name })}
+                        onClick={() =>
+                          patchMonster(monster.id, { count: monster.count - 1 })
+                        }
+                      >
+                        <Minus size={14} aria-hidden="true" />
+                      </IconButton>
+                      <span className="min-w-6 text-center tabular-nums">
+                        {monster.count}
+                      </span>
+                      <IconButton
+                        size="sm"
+                        disabled={monster.count >= ENCOUNTER_COUNT_LIMIT}
+                        label={t('encounter.more', { name: monster.name })}
+                        onClick={() =>
+                          patchMonster(monster.id, { count: monster.count + 1 })
+                        }
+                      >
+                        <Plus size={14} aria-hidden="true" />
+                      </IconButton>
+                      <Button
+                        ref={(element) => {
+                          if (element) rosterControls.current.set(monster.id, element);
+                          else rosterControls.current.delete(monster.id);
+                        }}
+                        size="sm"
+                        variant="danger"
+                        aria-label={t('encounter.removeCreature', { name: monster.name })}
+                        onClick={() => removeMonster(monster, index)}
+                      >
+                        <Trash2 size={14} aria-hidden="true" /> {t('common.delete')}
+                      </Button>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </section>
       </div>
-
-      <div className="mt-5 grid gap-4 rounded-xl border border-arcane-700 bg-ink-900 p-5 sm:grid-cols-2 sm:gap-6 sm:p-6">
-        <div>
-          <p className="text-sm text-ink-400">{t('encounter.totalXp')}</p>
-          <p className="font-display text-3xl font-bold tabular-nums text-ink-50">
-            {totalXp}
-          </p>
-        </div>
-        <div className="text-right">
-          <p className="text-sm text-ink-400">{t('encounter.difficulty')}</p>
-          <p className={`font-display text-3xl font-bold ${RATING_COLORS[rating]}`}>
-            {t(RATING_LABEL_KEYS[rating] ?? 'encounter.trivial')}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Budget({ label, value }: { label: string; value: number }) {
-  return (
-    <div>
-      <dt className="text-xs font-semibold uppercase tracking-wide text-ink-400">
-        {label}
-      </dt>
-      <dd className="font-display text-xl font-bold tabular-nums text-ink-50">{value}</dd>
+      {transferOpen && (
+        <EncounterTransfer
+          monsters={roster}
+          onClose={() => setTransferOpen(false)}
+          onTransfer={(count, saved) => {
+            setTransferred({ count, saved });
+            setTransferOpen(false);
+          }}
+        />
+      )}
     </div>
   );
 }

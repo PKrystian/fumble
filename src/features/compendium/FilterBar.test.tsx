@@ -72,14 +72,47 @@ function setup(
 }
 
 describe('FilterBar', () => {
+  it('uses checkbox lists for large facets and collapses sections', () => {
+    const many = Array.from({ length: 45 }, (_, index) => ({
+      ...items[0]!,
+      id: String(index),
+      size: `Size ${index + 1}`,
+    }));
+    const { props } = setup({}, [sizeFilter], many);
+    fireEvent.click(screen.getByRole('button', { name: 'Filters' }));
+    fireEvent.click(screen.getByRole('checkbox', { name: 'Size 1' }));
+    expect(props.onToggle).toHaveBeenCalledWith('size', 'Size 1');
+    fireEvent.click(screen.getByRole('button', { name: 'Show all (45)' }));
+    expect(screen.getAllByRole('checkbox')).toHaveLength(45);
+    fireEvent.click(screen.getByRole('button', { name: 'Size' }));
+    expect(screen.queryByRole('checkbox')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Size' }));
+    expect(screen.getAllByRole('checkbox')).toHaveLength(45);
+  });
+  it('keeps unavailable URL selections removable with zero results', () => {
+    const { props } = setup({ size: ['Missing size'] });
+    expect(screen.getByRole('button', { name: 'Jump to a random entry' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: 'Missing size' }));
+    expect(props.onToggle).toHaveBeenCalledWith('size', 'Missing size');
+    fireEvent.click(screen.getByRole('button', { name: /^Filters/ }));
+    expect(
+      screen.getByRole('button', { name: /Missing size.*unavailable/ }),
+    ).toBeInTheDocument();
+    fireEvent.change(screen.getByRole('searchbox'), {
+      target: { value: 'no such option' },
+    });
+    expect(screen.getByText('No matching filter options.')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Show results (0)' }));
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
   it('opens facets, expands values, searches and invokes selection actions', () => {
-    const { props } = setup({ size: ['Size 1'], source: ['XPHB'] });
+    const { props } = setup({ size: ['Size 1'], source: ['Homebrew'] });
     fireEvent.click(screen.getByRole('button', { name: /^Filters/ }));
     expect(screen.getByRole('dialog', { name: 'Filters' })).toBeInTheDocument();
     expect(screen.getByText('Core/Supplements')).toBeInTheDocument();
-    expect(screen.getAllByText('Homebrew')).toHaveLength(2);
+    expect(screen.getAllByText('Homebrew')).toHaveLength(3);
     const dialog = screen.getByRole('dialog', { name: 'Filters' });
-    fireEvent.click(within(dialog).getByRole('button', { name: 'Core Book' }));
+    fireEvent.click(within(dialog).getByRole('button', { name: 'Homebrew' }));
     fireEvent.click(within(dialog).getByRole('button', { name: 'Homebrew' }));
 
     fireEvent.click(screen.getByRole('button', { name: 'Show all (18)' }));
@@ -116,7 +149,7 @@ describe('FilterBar', () => {
   });
 
   it('controls sorting, random choice, reset and active summary chips', () => {
-    const { props } = setup({ size: ['Size 1'], source: ['XPHB'] });
+    const { props } = setup({ size: ['Size 1'], source: ['Homebrew'] });
     fireEvent.change(screen.getByRole('combobox', { name: 'Sort by' }), {
       target: { value: 'size' },
     });
@@ -129,9 +162,9 @@ describe('FilterBar', () => {
     expect(props.onClear).toHaveBeenCalled();
 
     fireEvent.click(screen.getByRole('button', { name: 'Size 1' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Core Book' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Homebrew' }));
     expect(props.onToggle).toHaveBeenCalledWith('size', 'Size 1');
-    expect(props.onToggle).toHaveBeenCalledWith('source', 'XPHB');
+    expect(props.onToggle).toHaveBeenCalledWith('source', 'Homebrew');
     fireEvent.click(screen.getByRole('button', { name: 'Toggle filter summary' }));
     expect(screen.queryByRole('button', { name: 'Size 1' })).not.toBeInTheDocument();
   });
@@ -207,7 +240,7 @@ describe('FilterBar', () => {
     const optionLabels = () =>
       within(screen.getByRole('dialog', { name: 'Filters' }))
         .getAllByRole('button')
-        .map((button) => button.textContent ?? '')
+        .map((button) => button.querySelector('span')?.textContent ?? '')
         .filter((label) => /^Size \d+$/.test(label));
 
     expect(optionLabels().slice(0, 4)).toEqual(['Size 1', 'Size 2', 'Size 3', 'Size 4']);
@@ -237,9 +270,7 @@ describe('FilterBar', () => {
       [sourceFilter],
       items.filter((item) => item.source === 'XPHB'),
     );
-    fireEvent.click(screen.getByRole('button', { name: 'Filters' }));
-    expect(screen.getByText('Core/Supplements')).toBeInTheDocument();
-    expect(screen.queryByText('Homebrew')).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Filters' })).not.toBeInTheDocument();
     core.unmount();
 
     setup(
@@ -247,8 +278,6 @@ describe('FilterBar', () => {
       [sourceFilter],
       items.filter((item) => item.source === 'Homebrew'),
     );
-    fireEvent.click(screen.getByRole('button', { name: 'Filters' }));
-    expect(screen.getAllByText('Homebrew')).not.toHaveLength(0);
-    expect(screen.queryByText('Core/Supplements')).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Filters' })).not.toBeInTheDocument();
   });
 });

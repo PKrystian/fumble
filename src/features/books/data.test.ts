@@ -4,6 +4,7 @@ import {
   books,
   getBook,
   loadBookData,
+  readBookChapter,
   localizedBookStoryline,
   type BookOverlay,
 } from './data';
@@ -54,7 +55,10 @@ describe('book data localization', () => {
     const entry = { id: 'cache-test', type: 'book' } as never;
     const first = loadBookData(entry, 'en');
     expect(loadBookData(entry, 'en')).toBe(first);
-    await expect(first).resolves.toEqual([{ type: 'section', name: 'Chapter' }]);
+    await expect(first).resolves.toEqual({
+      chapters: [{ type: 'section', name: 'Chapter' }],
+      language: 'en',
+    });
     expect(fetchMock).toHaveBeenCalledOnce();
   });
 
@@ -90,9 +94,11 @@ describe('book data localization', () => {
         }),
       });
 
-    await expect(
-      loadBookData({ id: 'overlay-test', type: 'book' } as never, 'pl'),
-    ).resolves.toEqual([
+    const data = await loadBookData({ id: 'overlay-test', type: 'book' } as never, 'pl');
+    expect(data.language).toBe('pl');
+    expect(
+      data.chapters.map((_, index) => readBookChapter(data, 'overlay-test', index)),
+    ).toEqual([
       {
         type: 'section',
         id: 'chapter',
@@ -121,7 +127,10 @@ describe('book data localization', () => {
       .mockResolvedValueOnce({ ok: false, status: 404 });
     await expect(
       loadBookData({ id: 'overlay-missing', type: 'book' } as never, 'pl'),
-    ).resolves.toEqual([{ type: 'section', name: 'Original' }]);
+    ).resolves.toEqual({
+      chapters: [{ type: 'section', name: 'Original' }],
+      language: 'en',
+    });
 
     fetchMock
       .mockResolvedValueOnce({
@@ -133,7 +142,35 @@ describe('book data localization', () => {
       .mockRejectedValueOnce(new Error('offline'));
     await expect(
       loadBookData({ id: 'overlay-failed', type: 'book' } as never, 'pl'),
-    ).resolves.toEqual([{ type: 'section', name: 'Original' }]);
+    ).resolves.toEqual({
+      chapters: [{ type: 'section', name: 'Original' }],
+      language: 'en',
+    });
+  });
+
+  it('retries a failed overlay without downloading the source again', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(
+        new Response(
+          JSON.stringify({ data: [{ type: 'section', id: '000', name: 'Original' }] }),
+        ),
+      )
+      .mockResolvedValueOnce(new Response('', { status: 503 }))
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ data: { '0:000': { name: 'Rozdział' } } })),
+      );
+    vi.stubGlobal('fetch', fetchMock);
+    const entry = { id: 'overlay-retry', type: 'book' } as never;
+    const fallback = await loadBookData(entry, 'pl');
+    expect(fallback.language).toBe('en');
+    const data = await loadBookData(entry, 'pl');
+    expect(data.language).toBe('pl');
+    expect(readBookChapter(data, 'overlay-retry', 0)).toMatchObject({
+      name: 'Rozdział',
+      id: '000',
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(3);
   });
 
   it('rejects failed book requests and accepts missing data arrays', async () => {
@@ -150,6 +187,6 @@ describe('book data localization', () => {
     });
     await expect(
       loadBookData({ id: 'book-empty', type: 'book' } as never, 'en'),
-    ).resolves.toEqual([]);
+    ).resolves.toEqual({ chapters: [], language: 'en' });
   });
 });

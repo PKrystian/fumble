@@ -5,6 +5,7 @@ import type { Entry } from '@/data/compendium/entry';
 import { useLightbox } from '@/features/ui/lightboxStore';
 import { useRollStore } from '@/features/dice/rollStore';
 import { EntryRenderer } from './EntryRenderer';
+import { PrivateArtwork } from '@/features/homebrew/artworkPolicy';
 import {
   renderBookChapter,
   renderMonster,
@@ -204,7 +205,7 @@ describe('entry renderer', () => {
     ] as Entry[];
     const view = show(entries);
     expect(view.container).toHaveTextContent('Plain text.');
-    expect(view.container.querySelector('#page-12')).toHaveAttribute(
+    expect(view.container.querySelector('[data-page="12"]')).toHaveAttribute(
       'data-entry-name',
       'section-name',
     );
@@ -231,6 +232,25 @@ describe('entry renderer', () => {
       'data-entry-name',
       'adult-black-dragon',
     );
+  });
+
+  it('requires a request for external images embedded in personal entries', () => {
+    const url = 'https://homebrew.invalid/detail.png';
+    render(
+      <MemoryRouter>
+        <PrivateArtwork.Provider value>
+          <EntryRenderer entries={[{ type: 'image', title: 'Detail', href: { url } }]} />
+        </PrivateArtwork.Provider>
+      </MemoryRouter>,
+    );
+    expect(screen.queryByRole('img', { name: 'Detail' })).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'Show external image' }));
+    expect(screen.getByRole('img', { name: 'Detail' })).toHaveAttribute(
+      'referrerPolicy',
+      'no-referrer',
+    );
+    fireEvent.click(screen.getByRole('img', { name: 'Detail' }));
+    expect(useLightbox.getState().src).toBe(url);
   });
 
   it('renders images, galleries and opens the lightbox', () => {
@@ -321,6 +341,31 @@ describe('entry renderer', () => {
 
     const buttons = screen.getAllByRole('button');
     expect(buttons).toHaveLength(1);
-    expect(buttons[0]).toHaveAttribute('title', 'Roll 1d12');
+    expect(buttons[0]).toHaveAttribute('title', 'Roll 1d12 on this table');
+  });
+  it('matches percentile zero endpoints and renders unique page anchors', () => {
+    useRollStore.setState({ roll: () => ({ total: 100 }) as never });
+    const view = show([
+      { type: 'entries', name: 'First', page: 12 },
+      { type: 'entries', name: 'Second', page: 12 },
+      {
+        type: 'table',
+        caption: 'Percentile',
+        colLabels: ['{@dice 1d100}', 'Result'],
+        rows: [
+          ['99-00', 'Range'],
+          ['00', 'Exact'],
+          [{ type: 'cell', roll: { min: 97, max: 0 } }, 'Cell'],
+          [{ type: 'cell', roll: { exact: 0 } }, 'Zero'],
+          ['Text', 'No match'],
+        ],
+      },
+    ] as Entry[]);
+    const anchors = [...view.container.querySelectorAll('[data-page="12"]')];
+    expect(new Set(anchors.map((node) => node.id)).size).toBe(2);
+    fireEvent.click(screen.getByRole('button', { name: 'd100' }));
+    expect(view.container.querySelectorAll('tr.bg-arcane-700\\/30')).toHaveLength(4);
+    expect(screen.getByRole('status')).toHaveTextContent('Result: 100');
+    expect(view.container).toHaveTextContent('97-00');
   });
 });

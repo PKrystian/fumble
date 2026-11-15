@@ -25,7 +25,7 @@ export function filterValuesFor(
   const cached = cachedItems.get(item);
   if (cached) return cached;
   const values = filter
-    .valuesFor(item)
+    .valuesFor(item._filterData ? { ...item, ...item._filterData } : item)
     .map((value) => normalizeFilterValue(filter, value));
   cachedItems.set(item, values);
   return values;
@@ -63,6 +63,28 @@ export function displayValue(
   return value;
 }
 
+export function facetCounts(
+  items: CompendiumEntryBase[],
+  filters: CategoryFilter[],
+  selected: Record<string, string[]>,
+  includeAny: Record<string, boolean> = {},
+): Map<string, Map<string, number>> {
+  const counts = new Map(filters.map((filter) => [filter.id, new Map<string, number>()]));
+  for (const item of items) {
+    const failed = filters.filter(
+      (filter) => !matchesFilters(item, [filter], selected, includeAny),
+    );
+    if (failed.length > 1) continue;
+    for (const filter of filters) {
+      if (failed.length === 1 && failed[0]!.id !== filter.id) continue;
+      const values = counts.get(filter.id)!;
+      for (const value of new Set(filterValuesFor(filter, item)))
+        values.set(value, (values.get(value) ?? 0) + 1);
+    }
+  }
+  return counts;
+}
+
 function compareByFilter(
   a: CompendiumEntryBase,
   b: CompendiumEntryBase,
@@ -72,10 +94,6 @@ function compareByFilter(
 ): number {
   const av = filterValuesFor(filter, a);
   const bv = filterValuesFor(filter, b);
-  if (av.length === 0 || bv.length === 0) {
-    if (av.length === 0 && bv.length === 0) return 0;
-    return av.length === 0 ? 1 : -1;
-  }
   if (filter.sortKey) {
     const an = Math.min(...av.map((v) => filter.sortKey!(v)));
     const bn = Math.min(...bv.map((v) => filter.sortKey!(v)));
@@ -103,6 +121,12 @@ export function compareItems(
   const filter =
     sortField === 'name' ? undefined : filters.find((f) => f.id === sortField);
   if (filter) {
+    const av = filterValuesFor(filter, a);
+    const bv = filterValuesFor(filter, b);
+    if (av.length === 0 || bv.length === 0) {
+      if (av.length === 0 && bv.length === 0) return a.name.localeCompare(b.name, locale);
+      return av.length === 0 ? 1 : -1;
+    }
     const primary = compareByFilter(a, b, filter, t, locale);
     if (primary !== 0) return primary * dir;
     return a.name.localeCompare(b.name, locale);

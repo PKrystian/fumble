@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { FlaskConical, Search, Shield, X } from 'lucide-react';
+import { FlaskConical, LayoutGrid, Search, Shield, X } from 'lucide-react';
 import { useHomebrewStore } from '@/features/homebrew/store';
 import { useFumbleHomebrewStore } from '@/features/homebrew/fumbleHomebrewStore';
 import { OriginalName } from '@/features/ui/OriginalName';
@@ -13,6 +13,7 @@ import { useSearchStore } from './searchStore';
 import {
   buildHomebrewResults,
   buildPool,
+  buildToolResults,
   loadSearchIndex,
   searchResults,
   type SearchIndex,
@@ -23,6 +24,11 @@ function KindIcon({ kind }: { kind: SearchResult['kind'] }) {
   if (kind === 'homebrew') {
     return (
       <FlaskConical size={14} className="shrink-0 text-ember-400" aria-hidden="true" />
+    );
+  }
+  if (kind === 'tool') {
+    return (
+      <LayoutGrid size={14} className="shrink-0 text-arcane-300" aria-hidden="true" />
     );
   }
   if (kind === 'wiki') {
@@ -49,6 +55,7 @@ export function SearchPalette() {
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const dialogRef = useDialogFocus(open, () => setOpen(false));
+  const listId = useId();
 
   useEffect(() => {
     if (!open) return;
@@ -78,10 +85,13 @@ export function SearchPalette() {
   }, [open]);
 
   const pool = useMemo(() => {
-    const homebrewResults = buildHomebrewResults(homebrew, locale);
+    const local = [
+      ...buildToolResults(locale),
+      ...buildHomebrewResults(homebrew, locale),
+    ];
     return index
-      ? [...homebrewResults, ...buildPool(index, contentMode, locale, showFumbleHomebrew)]
-      : homebrewResults;
+      ? [...local, ...buildPool(index, contentMode, locale, showFumbleHomebrew)]
+      : local;
   }, [homebrew, index, contentMode, locale, showFumbleHomebrew]);
 
   const results = useMemo(() => searchResults(pool, query), [pool, query]);
@@ -148,6 +158,13 @@ export function SearchPalette() {
             placeholder={t('search.placeholder')}
             label={t('search.title')}
             clearLabel={t('common.clearSearch')}
+            role="combobox"
+            aria-autocomplete="list"
+            aria-expanded={results.length > 0}
+            aria-controls={listId}
+            {...(results.length > 0
+              ? { 'aria-activedescendant': `${listId}-${active}` }
+              : {})}
           />
           <IconButton
             onClick={() => setOpen(false)}
@@ -158,61 +175,69 @@ export function SearchPalette() {
           </IconButton>
         </div>
 
-        <ul ref={listRef} className="min-h-0 flex-1 overflow-y-auto">
-          {loadError && (
-            <li
-              className="flex items-center justify-between gap-3 p-4 text-sm text-red-400"
-              role="alert"
+        {loadError && (
+          <div
+            className="flex items-center justify-between gap-3 p-4 text-sm text-red-400"
+            role="alert"
+          >
+            <span>{t('search.couldNotLoad')}</span>
+            <Button
+              type="button"
+              onClick={() => setRetry((value) => value + 1)}
+              size="sm"
+              className="shrink-0"
             >
-              <span>{t('search.couldNotLoad')}</span>
-              <Button
-                type="button"
-                onClick={() => setRetry((value) => value + 1)}
-                variant="danger"
-                size="sm"
-                className="shrink-0"
-              >
-                {t('common.retry')}
-              </Button>
-            </li>
-          )}
-          {query.trim() === '' && (
-            <li className="px-4 py-6 text-center text-sm text-ink-400">
-              {t('search.hint')}
-            </li>
-          )}
-          {query.trim() !== '' && results.length === 0 && (
-            <li className="px-4 py-6 text-center text-sm text-ink-400">
-              {t('search.noResults')}
-            </li>
-          )}
+              {t('common.retry')}
+            </Button>
+          </div>
+        )}
+        <p
+          role="status"
+          className={
+            results.length > 0 ? 'sr-only' : 'px-4 py-6 text-center text-sm text-ink-400'
+          }
+        >
+          {query.trim() === ''
+            ? t('search.hint')
+            : results.length === 0
+              ? t('search.noResults')
+              : t('search.resultCount', { count: results.length })}
+        </p>
+        <ul
+          ref={listRef}
+          id={listId}
+          role="listbox"
+          aria-label={t('search.results')}
+          className="min-h-0 flex-1 overflow-y-auto"
+        >
           {results.map((result, i) => (
-            <li key={`${result.kind}-${result.to}`}>
-              <button
-                type="button"
-                onClick={() => select(result)}
-                onMouseMove={() => setActive(i)}
-                className={[
-                  'flex w-full items-center gap-3 border-b border-ink-800 px-4 py-2.5 text-left transition-colors',
-                  i === active ? 'bg-arcane-700 text-white' : 'hover:bg-ink-800/60',
-                ].join(' ')}
-              >
-                <KindIcon kind={result.kind} />
-                <span className="min-w-0 flex-1">
-                  <span className="flex flex-wrap items-baseline gap-x-2">
-                    <span className="font-medium text-ink-50">{result.name}</span>
-                    <OriginalName name={result.englishName} className="text-xs" />
+            <li
+              key={`${result.kind}-${result.to}`}
+              id={`${listId}-${i}`}
+              role="option"
+              aria-selected={i === active}
+              onClick={() => select(result)}
+              onMouseMove={() => setActive(i)}
+              className={[
+                'flex w-full cursor-pointer items-center gap-3 border-b border-ink-800 px-4 py-2.5 text-left transition-colors',
+                i === active ? 'bg-arcane-700 text-white' : 'hover:bg-ink-800/60',
+              ].join(' ')}
+            >
+              <KindIcon kind={result.kind} />
+              <span className="min-w-0 flex-1">
+                <span className="flex flex-wrap items-baseline gap-x-2">
+                  <span className="font-medium text-ink-50">{result.name}</span>
+                  <OriginalName name={result.englishName} className="text-xs" />
+                </span>
+                {result.subtitle && (
+                  <span className="block truncate text-xs text-ink-400">
+                    {result.subtitle}
                   </span>
-                  {result.subtitle && (
-                    <span className="block truncate text-xs text-ink-400">
-                      {result.subtitle}
-                    </span>
-                  )}
-                </span>
-                <span className="shrink-0 rounded-full bg-ink-800 px-2 py-0.5 text-xs uppercase tracking-wide text-ink-300">
-                  {result.categoryLabel}
-                </span>
-              </button>
+                )}
+              </span>
+              <span className="shrink-0 rounded-full bg-ink-800 px-2 py-0.5 text-xs uppercase tracking-wide text-ink-300">
+                {result.categoryLabel}
+              </span>
             </li>
           ))}
         </ul>

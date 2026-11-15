@@ -1594,7 +1594,7 @@ function bookReference(
       key={key}
       to={{
         pathname: `/books/${book.id}${chapterPath}`,
-        ...(parts[3] ? { hash: bookAnchorHash(undefined, display) } : {}),
+        ...(parts[3] ? { hash: bookAnchorHash(undefined, parts[3]) } : {}),
       }}
       className="text-arcane-300 underline decoration-arcane-500/50 underline-offset-2 hover:text-arcane-200"
       data-reference-type={tag}

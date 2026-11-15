@@ -165,12 +165,14 @@ describe('rarityAtMost', () => {
     expect(rarityAtMost('', 'Common')).toBe(true);
   });
 
-  it('allows unknown rarity values and unknown ceilings', () => {
-    expect(rarityAtMost('Unknown', 'Common')).toBe(true);
-    expect(rarityAtMost('Rare', 'Unknown')).toBe(true);
+  it('rejects unknown rarity values and unknown ceilings', () => {
+    expect(rarityAtMost('Unknown', 'Common')).toBe(false);
+    expect(rarityAtMost('Rare', 'Unknown')).toBe(false);
   });
 
   it('matches localized rarity labels', () => {
+    expect(rarityMatches('Pospolita', ['Common'])).toBe(true);
+    expect(rarityMatches('Pospolity', ['Common'])).toBe(true);
     expect(rarityMatches('Niezwykły', ['Uncommon'])).toBe(true);
     expect(rarityMatches('Bardzo Rzadka', ['Very Rare'])).toBe(true);
     expect(rarityMatches('Legendarna', ['Rare'])).toBe(false);

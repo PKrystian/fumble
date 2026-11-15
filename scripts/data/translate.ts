@@ -102,7 +102,7 @@ Rules - follow exactly, this output feeds a running app and must not break it:
    display text>}. If a tag already has a third segment, replace only that segment.
 3. Tags with no display text at all ({@dice 1d6}, {@hit 5}, {@dc 15}, table dice
    headers, etc.) are numbers/mechanics, not prose - leave them completely untouched.
-4. Do not translate the "id" field, "source" field, or any other non-prose keys.
+4. Do not translate the "id", "source", "collection", or any other non-prose keys.
 5. Some entries include a "data" object containing the original 5etools record. Translate
    human-readable strings inside it, including nested arrays and objects, but preserve all
    object keys, mechanics, markup references, and array lengths.
@@ -122,6 +122,7 @@ interface TranslationEntry {
 
 const GOOGLE_CACHE_PATH = join(ROOT, '.cache/google-translate-pl-cache.json');
 const GOOGLE_IGNORED_KEYS = new Set([
+  'collection',
   'id',
   'source',
   'page',

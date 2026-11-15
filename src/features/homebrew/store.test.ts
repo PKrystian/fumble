@@ -1,6 +1,17 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { CompendiumEntryBase } from '@/data/compendium/types';
-import { bodyToEntries, homebrewToItem, isHomebrew, useHomebrewStore } from './store';
+import {
+  bodyToEntries,
+  createHomebrewStore,
+  HOMEBREW_KEY,
+  homebrewSubclassesFor,
+  homebrewToItem,
+  isHomebrew,
+  parseStoredHomebrew,
+  serializeHomebrew,
+  useHomebrewStore,
+  withHomebrewWrite,
+} from './store';
 import type { HomebrewEntry } from './store';
 
 describe('homebrew store', () => {
@@ -285,7 +296,7 @@ describe('homebrew store', () => {
     ).toBe(false);
   });
 
-  it('handles imported non-spells and missing optional data', () => {
+  it('uses the safe detail fallback for malformed legacy imported data', () => {
     useHomebrewStore.getState().addImported(
       [
         {
@@ -306,7 +317,7 @@ describe('homebrew store', () => {
     expect(homebrewToItem(entry, 'en')).toMatchObject({
       name: 'Plain Item',
       entries: [],
-      _manual: false,
+      _manual: true,
     });
   });
 
@@ -423,26 +434,27 @@ describe('homebrew store', () => {
     useHomebrewStore.getState().updateManual('missing', { name: 'Ignored' });
     expect(useHomebrewStore.getState().entries[0]).toBe(manual);
 
-    const migrate = useHomebrewStore.persist.getOptions().migrate!;
-    expect((migrate(undefined, 2) as { entries: unknown[] }).entries).toEqual([]);
-    const migrated = migrate(
-      {
-        entries: [
-          {
-            kind: 'imported',
-            id: 'legacy',
-            category: 'items',
-            name: 'Legacy',
-            data: { id: 'legacy', name: 'Legacy', source: 'HB', srd: false },
-            createdAt: 1,
-          },
-          manual,
-        ],
-      },
-      2,
-    ) as { entries: HomebrewEntry[] };
-    expect(migrated.entries[0]).toMatchObject({ baseLocale: 'en' });
-    expect(migrated.entries[1]).toBe(manual);
+    expect(parseStoredHomebrew(null)).toEqual([]);
+    const migrated = parseStoredHomebrew(
+      JSON.stringify({
+        version: 2,
+        state: {
+          entries: [
+            {
+              kind: 'imported',
+              id: 'legacy',
+              category: 'items',
+              name: 'Legacy',
+              data: { id: 'legacy', name: 'Legacy', source: 'HB', srd: false },
+              createdAt: 1,
+            },
+            manual,
+          ],
+        },
+      }),
+    );
+    expect(migrated?.[0]).toMatchObject({ baseLocale: 'en' });
+    expect(migrated?.[1]).toEqual(manual);
   });
 
   it('rejects malformed manual, imported and subclass exports', () => {
@@ -515,5 +527,247 @@ describe('homebrew store', () => {
       useHomebrewStore.getState().importOwn(invalid as unknown as HomebrewEntry[]),
     ).toBe(0);
     expect(useHomebrewStore.getState().entries).toEqual([]);
+  });
+});
+
+describe('Homebrew persistence', () => {
+  const draft = { name: 'Ember', category: 'items' as const, body: '', subtitle: '' };
+
+  beforeEach(() => {
+    vi.restoreAllMocks();
+    localStorage.clear();
+  });
+
+  it('keeps unsaved writes in memory and retries without creating another entry', () => {
+    const store = createHomebrewStore();
+    const quota = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new DOMException('quota');
+    });
+    const id = store.getState().addManual(draft);
+    expect(id).toBeTruthy();
+    expect(store.getState()).toMatchObject({
+      status: 'unsaved',
+      dirty: true,
+      entries: [{ id }],
+    });
+    expect(localStorage.getItem(HOMEBREW_KEY)).toBeNull();
+    expect(store.getState().retry()).toBe(false);
+    quota.mockRestore();
+    expect(store.getState().retry()).toBe(true);
+    expect(createHomebrewStore().getState()).toMatchObject({
+      status: 'saved',
+      entries: [{ id }],
+    });
+  });
+
+  it('blocks stale writes and rejects replacement if storage changed during confirmation', () => {
+    const first = createHomebrewStore();
+    const second = createHomebrewStore();
+    first.getState().addManual(draft);
+    expect(second.getState().addManual({ ...draft, name: 'Second' })).toBe('');
+    expect(second.getState().status).toBe('conflict');
+    const expected = second.getState().raw;
+    first.getState().addManual({ ...draft, name: 'Third' });
+    expect(second.getState().restore([], expected)).toBe(false);
+    expect(second.getState().loadStored()).toBe(true);
+    expect(second.getState().entries).toHaveLength(2);
+    second.getState().addManual({ ...draft, name: 'Fourth' });
+    expect(first.getState().checkStorage()).toBe(false);
+  });
+
+  it('preserves corrupted bytes and the previous library after failed restoration', () => {
+    localStorage.setItem(HOMEBREW_KEY, '{damaged');
+    const store = createHomebrewStore();
+    expect(store.getState()).toMatchObject({ status: 'unreadable', raw: '{damaged' });
+    expect(store.getState().loadStored()).toBe(false);
+    const quota = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new DOMException('quota');
+    });
+    expect(store.getState().restore([], '{damaged')).toBe(false);
+    expect(localStorage.getItem(HOMEBREW_KEY)).toBe('{damaged');
+    quota.mockRestore();
+    expect(store.getState().restore([], '{damaged')).toBe(true);
+    expect(localStorage.getItem(HOMEBREW_KEY)).toBe(serializeHomebrew([]));
+  });
+
+  it('uses Web Locks when available and handles restored storage after a conflict', async () => {
+    const store = createHomebrewStore();
+    const request = vi.fn(async (_name: string, write: () => string) => write());
+    Object.defineProperty(navigator, 'locks', { configurable: true, value: { request } });
+    try {
+      await expect(
+        withHomebrewWrite(() => store.getState().addManual(draft)),
+      ).resolves.toMatch(/^hb-/);
+      expect(request).toHaveBeenCalledWith(HOMEBREW_KEY, expect.any(Function));
+    } finally {
+      Reflect.deleteProperty(navigator, 'locks');
+    }
+    const saved = localStorage.getItem(HOMEBREW_KEY)!;
+    localStorage.removeItem(HOMEBREW_KEY);
+    expect(store.getState().checkStorage()).toBe(false);
+    localStorage.setItem(HOMEBREW_KEY, saved);
+    expect(store.getState().checkStorage()).toBe(true);
+    expect(store.getState().status).toBe('saved');
+  });
+
+  it('resolves older Polish subclasses and retains updated data after reload', () => {
+    const store = createHomebrewStore();
+    const entry = {
+      kind: 'subclass' as const,
+      id: 'legacy-sub',
+      className: 'Czarodziej',
+      createdAt: 1,
+      subclass: { name: 'School', source: 'HB', features: [] },
+    };
+    store.getState().append([entry]);
+    expect(
+      homebrewSubclassesFor(store.getState().entries, { id: 'wizard', name: 'Wizard' }),
+    ).toMatchObject([{ id: 'legacy-sub', name: 'School' }]);
+    expect(
+      homebrewSubclassesFor(store.getState().entries, { id: 'druid', name: 'Druid' }),
+    ).toEqual([]);
+    expect(
+      store.getState().updateSubclass(entry.id, {
+        className: 'Druid',
+        parentClassId: 'druid',
+        name: 'Circle',
+        source: '',
+        features: [],
+      }),
+    ).toBe(true);
+    expect(createHomebrewStore().getState().entries).toMatchObject([
+      { parentClassId: 'druid', subclass: { name: 'Circle' } },
+    ]);
+  });
+
+  it('protects a pending deletion from another tab and restores it when the baseline returns', () => {
+    const store = createHomebrewStore();
+    expect(store.getState().deleteEntry('missing')).toBe(false);
+    expect(store.getState().undoDelete()).toBe(false);
+    const id = store.getState().addManual(draft);
+    const entry = store.getState().entries[0]!;
+    const saved = localStorage.getItem(HOMEBREW_KEY)!;
+    localStorage.setItem(HOMEBREW_KEY, serializeHomebrew([]));
+    expect(store.getState().deleteEntry(id)).toBe(false);
+    expect(
+      store.getState().addSubclass({ className: 'Wizard', name: 'School', source: '' }),
+    ).toBe('');
+    localStorage.setItem(HOMEBREW_KEY, saved);
+    expect(store.getState().deleteEntry(id)).toBe(true);
+    const deleted = localStorage.getItem(HOMEBREW_KEY)!;
+    localStorage.setItem(HOMEBREW_KEY, saved);
+    expect(store.getState().undoDelete()).toBe(false);
+    localStorage.setItem(HOMEBREW_KEY, deleted);
+    expect(store.getState().append([entry])).toBe(true);
+    expect(store.getState().deleted).toBeNull();
+    expect(store.getState().entries).toEqual([entry]);
+  });
+
+  it('does not treat denied storage reads as an empty writable library', () => {
+    const getItem = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+      throw new DOMException('denied');
+    });
+    const store = createHomebrewStore();
+    expect(store.getState()).toMatchObject({ status: 'unreadable', raw: null });
+    expect(store.getState().loadStored()).toBe(false);
+    expect(store.getState().restore([], null)).toBe(false);
+    getItem.mockRestore();
+    expect(store.getState().loadStored()).toBe(true);
+  });
+
+  it('recovers the unsaved status when the original bytes return', () => {
+    const store = createHomebrewStore();
+    const quota = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new DOMException('quota');
+    });
+    store.getState().addManual(draft);
+    quota.mockRestore();
+    localStorage.setItem(HOMEBREW_KEY, serializeHomebrew([]));
+    expect(store.getState().checkStorage()).toBe(false);
+    expect(store.getState().status).toBe('conflict');
+    localStorage.removeItem(HOMEBREW_KEY);
+    expect(store.getState().checkStorage()).toBe(true);
+    expect(store.getState().status).toBe('unsaved');
+  });
+
+  it('finds an older custom class by original name and keeps subclass media and lore', () => {
+    const store = createHomebrewStore();
+    store.getState().addManual(draft);
+    const id = store
+      .getState()
+      .addSubclass({ className: 'Sage', name: 'School', source: '' });
+    const entry = store.getState().entries[0]!;
+    if (entry.kind !== 'subclass') throw new Error('Expected a subclass');
+    const legacy = {
+      ...entry,
+      subclass: {
+        ...entry.subclass,
+        englishName: 'School',
+        image: 'art.png',
+        lore: ['Old lore'],
+      },
+    };
+    const all = [legacy, ...store.getState().entries.slice(1)];
+    expect(
+      homebrewSubclassesFor(all, { id: 'sage', name: 'Mędrzec', englishName: 'Sage' }),
+    ).toMatchObject([
+      { id, image: 'art.png', englishName: 'School', lore: ['Old lore'] },
+    ]);
+    expect(
+      store.getState().updateSubclass(id, {
+        className: 'Sage',
+        name: 'New school',
+        source: '',
+        features: [],
+      }),
+    ).toBe(true);
+    expect(store.getState().entries[0]).not.toHaveProperty('parentClassId');
+  });
+
+  it('uses a compatible fallback ID and exposes safe artwork for an older malformed import', () => {
+    vi.stubGlobal('crypto', {});
+    const store = createHomebrewStore();
+    try {
+      expect(store.getState().addManual(draft)).toMatch(/^hb-ember-/);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+    const entry = {
+      kind: 'imported' as const,
+      id: 'old',
+      category: 'spells' as const,
+      name: 'Older spell',
+      baseLocale: 'en' as const,
+      createdAt: 1,
+      data: {
+        id: 'old',
+        name: 'Older spell',
+        srd: false,
+        source: 'HB',
+        image: 'art.png',
+        entries: [null],
+      },
+    };
+    expect(parseStoredHomebrew(serializeHomebrew([entry]))).toEqual([entry]);
+    expect(homebrewToItem(entry)).toMatchObject({
+      _manual: true,
+      image: 'art.png',
+      entries: [],
+    });
+    expect(parseStoredHomebrew(serializeHomebrew([entry, entry]))).toBeNull();
+  });
+  it('recovers duplicate identifiers in legacy snapshots without discarding entries', () => {
+    const entry = { kind: 'manual', id: 'one', ...draft, createdAt: 1 };
+    const legacy = {
+      version: 3,
+      state: {
+        entries: [entry, { ...entry, name: 'Two' }, { ...entry, id: 'one-legacy-1' }],
+      },
+    };
+    expect(parseStoredHomebrew(JSON.stringify(legacy))).toMatchObject([
+      { id: 'one' },
+      { id: 'one-legacy-1-copy', name: 'Two' },
+      { id: 'one-legacy-1' },
+    ]);
   });
 });

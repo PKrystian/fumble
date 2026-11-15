@@ -1,93 +1,85 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { createCharacter } from './model';
+import { useDialogStore } from '@/features/ui/confirmStore';
 import { CharacterSettingsModal } from './CharacterSettingsModal';
+import { DEFAULT_ZONES, useLayoutStore } from './layoutStore';
+import { createCharacter, type Character } from './model';
 
-const mocks = vi.hoisted(() => ({
-  reset: vi.fn(),
-}));
+function mount(character: Character, computed: Partial<Character> | null) {
+  const update = vi.fn();
+  const onClose = vi.fn();
+  render(
+    <MemoryRouter initialEntries={['/character/x']}>
+      <CharacterSettingsModal
+        character={character}
+        update={update}
+        computed={computed}
+        onClose={onClose}
+      />
+    </MemoryRouter>,
+  );
+  return { update, onClose };
+}
 
-vi.mock('./layoutStore', () => ({
-  useLayoutStore: (selector: (state: typeof mocks) => unknown) => selector(mocks),
-}));
-
-vi.mock('@/i18n/useT', () => ({
-  useT: () => ({ t: (key: string) => key }),
-}));
+async function answer(value: boolean) {
+  await act(async () => useDialogStore.getState().respond(value));
+}
 
 describe('CharacterSettingsModal', () => {
   beforeEach(() => {
-    mocks.reset.mockReset();
+    useLayoutStore.getState().reset();
   });
 
-  it('updates spellcasting, slots and preferences', () => {
-    const character = createCharacter('Hero');
-    const update = vi.fn();
-    const view = render(
-      <CharacterSettingsModal character={character} update={update} onClose={vi.fn()} />,
-    );
-
-    const ability = screen.getByRole('combobox');
-    fireEvent.change(ability, { target: { value: 'int' } });
-    expect(update).toHaveBeenCalledWith({ spellcastingAbility: 'int' });
-    fireEvent.change(ability, { target: { value: '' } });
-    expect(update).toHaveBeenCalledWith({ spellcastingAbility: null });
-
-    const slots = screen.getAllByRole('spinbutton');
-    fireEvent.change(slots[0]!, { target: { value: '-3' } });
-    fireEvent.change(slots[1]!, { target: { value: '4' } });
-    fireEvent.change(slots[0]!, { target: { value: '' } });
-    fireEvent.change(slots[1]!, { target: { value: '' } });
-    expect(update).toHaveBeenCalledWith(
-      expect.objectContaining({ spellSlots: expect.any(Array) }),
-    );
-
-    const preferences = screen.getAllByRole('checkbox');
-    fireEvent.click(preferences[0]!);
-    fireEvent.click(preferences[1]!);
+  it('changes preferences and applies synchronization on request', async () => {
+    const character = {
+      ...createCharacter('Hero'),
+      className: 'barbarian',
+      manualFields: ['speed' as const],
+    };
+    const computed = { speed: { walk: 25, swim: 0, climb: 0, fly: 0 } };
+    const { update, onClose } = mount(character, computed);
+    expect(
+      screen.getByRole('dialog', { name: 'Character Settings' }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('checkbox', { name: /Automatically fill/ })).toHaveFocus();
+    fireEvent.click(screen.getByRole('checkbox', { name: /Automatically fill/ }));
     expect(update).toHaveBeenCalledWith({ autoSyncFeatures: false });
+    fireEvent.click(screen.getByRole('checkbox', { name: /DM/ }));
     expect(update).toHaveBeenCalledWith({ role: 'dm' });
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: 'character.sheet.settingsModal.resetLayout',
-      }),
-    );
-    expect(mocks.reset).toHaveBeenCalled();
 
-    view.rerender(
-      <CharacterSettingsModal
-        character={{ ...character, role: 'dm' }}
-        update={update}
-        onClose={vi.fn()}
-      />,
+    fireEvent.click(screen.getByRole('button', { name: 'Apply data now' }));
+    expect(useDialogStore.getState().request?.initialFocus).toBe('cancel');
+    await answer(false);
+    expect(update).not.toHaveBeenCalledWith(
+      expect.objectContaining({ manualFields: [] }),
     );
-    fireEvent.click(screen.getAllByRole('checkbox')[1]!);
-    expect(update).toHaveBeenCalledWith({ role: 'party' });
+    fireEvent.click(screen.getByRole('button', { name: 'Apply data now' }));
+    await answer(true);
+    expect(update).toHaveBeenCalledWith(
+      expect.objectContaining({ speed: computed.speed, manualFields: [] }),
+    );
+    expect(
+      screen.getByText('Class, species, and background data applied.'),
+    ).toBeInTheDocument();
+
+    useLayoutStore.getState().movePanel('skills', 'left', 0);
+    fireEvent.click(screen.getByRole('button', { name: 'Reset panel layout' }));
+    await answer(false);
+    expect(useLayoutStore.getState().zones).not.toEqual(DEFAULT_ZONES);
+    fireEvent.click(screen.getByRole('button', { name: 'Reset panel layout' }));
+    await answer(true);
+    expect(useLayoutStore.getState().zones).toEqual(DEFAULT_ZONES);
+    expect(screen.getByText('Panel layout reset.')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Done' }));
+    expect(onClose).toHaveBeenCalled();
   });
 
-  it('closes from the backdrop, button and Escape but not inner clicks', () => {
-    const onClose = vi.fn();
-    const view = render(
-      <CharacterSettingsModal
-        character={createCharacter()}
-        update={vi.fn()}
-        onClose={onClose}
-      />,
-    );
-    fireEvent.click(screen.getByRole('heading', { level: 2 }).parentElement!);
-    expect(onClose).not.toHaveBeenCalled();
-    fireEvent.click(screen.getByRole('dialog'));
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: 'character.sheet.settingsModal.close',
-      }),
-    );
-    fireEvent.keyDown(window, { key: 'Escape' });
-    fireEvent.keyDown(window, { key: 'Enter' });
-    expect(onClose).toHaveBeenCalledTimes(3);
-
-    view.unmount();
-    fireEvent.keyDown(window, { key: 'Escape' });
-    expect(onClose).toHaveBeenCalledTimes(3);
+  it('disables applying data until it is available', () => {
+    const { update } = mount({ ...createCharacter('Hero'), role: 'dm' }, null);
+    expect(screen.getByRole('button', { name: 'Apply data now' })).toBeDisabled();
+    fireEvent.click(screen.getByRole('checkbox', { name: /DM/ }));
+    expect(update).toHaveBeenCalledWith({ role: 'party' });
   });
 });

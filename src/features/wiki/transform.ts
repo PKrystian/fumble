@@ -40,7 +40,10 @@ function parseScalar(value: string): string | boolean {
 
 export function parseFrontmatter(raw: string): { data: Frontmatter; body: string } {
   const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(raw);
-  if (!match) return { data: {}, body: raw };
+  if (!match) {
+    if (/^---\r?\n/.test(raw)) throw new Error('Unclosed frontmatter');
+    return { data: {}, body: raw };
+  }
 
   const data: Frontmatter = {};
   let mapKey: string | null = null;
@@ -89,18 +92,47 @@ export function parseFrontmatter(raw: string): { data: Frontmatter; body: string
 }
 
 export function isPlayerVisible(data: Frontmatter): boolean {
+  if (
+    data.visibility !== undefined &&
+    data.visibility !== 'player' &&
+    data.visibility !== 'dm'
+  )
+    throw new Error('Invalid visibility');
+  if (data.publish !== undefined && typeof data.publish !== 'boolean')
+    throw new Error('Invalid publish value');
   if (data.visibility === 'dm') return false;
   if (data.publish === false) return false;
   return true;
 }
 
 export function processSecrets(body: string): string {
-  return body
-    .replace(/:::secret\b[\s\S]*?:::/g, '')
-    .replace(
-      /:::locked\b[\s\S]*?:::/g,
-      '\n<div class="wiki-locked" data-wiki-locked="true">Not yet unlocked</div>\n',
-    );
+  const stack: string[] = [];
+  let result = '';
+  let offset = 0;
+  for (const match of body.matchAll(/:::(secret|locked)\b|:::/g)) {
+    if (
+      !match[1] &&
+      body
+        .slice(match.index + 3)
+        .split(/\r?\n/, 1)[0]!
+        .trim()
+    ) {
+      throw new Error('Invalid private block ending');
+    }
+    if (stack.length === 0) result += body.slice(offset, match.index);
+    if (match[1]) {
+      if (stack.length === 0 && match[1] === 'locked') {
+        result +=
+          '\n<div class="wiki-locked" data-wiki-locked="true">Not yet unlocked</div>\n';
+      }
+      stack.push(match[1]);
+    } else if (!stack.pop()) {
+      throw new Error('Unexpected private block ending');
+    }
+    offset = match.index + match[0].length;
+  }
+  if (stack.length) throw new Error('Unclosed private block');
+  return result + body.slice(offset);
 }
 
 export type AssetResolver = (file: string) => string;
@@ -139,9 +171,10 @@ function linkifyFactValue(value: string, resolveSlug: SlugResolver): string {
 
 function renderFactsCard(opts: FactsCardOptions): string {
   const rows = Object.entries(opts.facts)
+    .filter(([key, value]) => key.trim() && value.trim())
     .map(
       ([key, value]) =>
-        `<tr><th>${escapeHtml(key)}</th><td>${linkifyFactValue(value, opts.resolveSlug)}</td></tr>`,
+        `<tr><th scope="row">${escapeHtml(key)}</th><td>${linkifyFactValue(value, opts.resolveSlug)}</td></tr>`,
     )
     .join('');
   const parts = [
@@ -169,7 +202,12 @@ export function renderInfobox(
     typeof data.image === 'string' && data.image ? resolveAsset(data.image) : '';
   const summary = typeof data.summary === 'string' ? data.summary : '';
   const facts = factsMap(data.facts);
-  if (!image && !summary && Object.keys(facts).length === 0) return '';
+  if (
+    !image &&
+    !summary.trim() &&
+    !Object.entries(facts).some(([key, value]) => key.trim() && value.trim())
+  )
+    return '';
   return renderFactsCard({
     className: 'wiki-infobox',
     title,

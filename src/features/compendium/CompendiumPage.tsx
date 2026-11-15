@@ -1,5 +1,5 @@
 import { DetailPresentation } from '@/features/ui/detailPresentationContext';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import {
@@ -11,6 +11,8 @@ import {
 import { useCategoryItems } from './useCategoryItems';
 import { applyContentMode } from './contentFilter';
 import { EntryRenderer } from './EntryRenderer';
+import { DetailContents } from './DetailContents';
+import { catalogSearchText } from './catalogSearch';
 import { FilterBar } from './FilterBar';
 import {
   type SortDir,
@@ -24,7 +26,13 @@ import {
   PRIMARY_IMAGE_WIDTH,
 } from '@/data/compendium/images';
 import { isUaSource, sourceName } from '@/data/compendium/sources';
-import { isHomebrew } from '@/features/homebrew/store';
+import {
+  homebrewSubclassesFor,
+  isHomebrew,
+  useHomebrewStore,
+} from '@/features/homebrew/store';
+import { HomebrewArtwork } from '@/features/homebrew/HomebrewImage';
+import { PrivateArtwork } from '@/features/homebrew/artworkPolicy';
 import { HomebrewDetail } from '@/features/homebrew/HomebrewDetail';
 import { FumbleBadge } from '@/features/homebrew/FumbleBadge';
 import { FumbleDetail } from '@/features/homebrew/FumbleDetail';
@@ -55,9 +63,11 @@ import {
 import { getCompendiumCategorySeo, getCompendiumEntrySeo } from '@/data/compendium/seo';
 import type { ClassEntry, MonsterEntry } from '@/data/compendium/types';
 import { monsterCombatant } from '@/features/initiative/monsterCombatant';
-import { useInitiativeStore } from '@/features/initiative/store';
+import { BestiaryInitiativeAction } from '@/features/initiative/BestiaryInitiativeDialog';
 import { readMonsterSnapshot } from '@/data/compendium/monsterSnapshot';
 import { findSubclassByRouteKey, subclassRouteKey } from './subclassRoute';
+
+const OWN_CONTENT_SEO: ReturnType<typeof compendiumPrintingSeo> = { indexable: true };
 import { localizePlainText, parseMarkup } from './markup';
 import { hasPrerenderedPage, revealApp, showPrerenderedRetry } from '@/seo/prerendered';
 import packageInfo from '../../../package.json';
@@ -144,6 +154,7 @@ function CompendiumBrowser({
 }) {
   const category = getCategory(categoryId)!;
   const categoryNavRef = useRef<HTMLElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
   useEffect(() => {
     categoryNavRef.current
       ?.querySelector<HTMLElement>('[aria-current="page"]')
@@ -177,7 +188,7 @@ function CompendiumBrowser({
     clearQueryUpdate();
     queryUpdateTimerRef.current = window.setTimeout(() => {
       queryUpdateTimerRef.current = null;
-      updateRef.current({ q: value || null }, true);
+      updateRef.current({ q: value || null, page: null }, true);
     }, 0);
   };
 
@@ -188,6 +199,11 @@ function CompendiumBrowser({
       'sort',
       'order',
       'includeAny',
+      'view',
+      'page',
+      'searchIn',
+      'library',
+      'homebrewLibrary',
       ...filters.map((filter) => filter.id),
     ]);
     for (const key of new Set(search.keys())) {
@@ -205,7 +221,8 @@ function CompendiumBrowser({
     ? [selectedSubclassId]
     : params.getAll('subclass');
   const requestedSubclassId = requestedSubclassIds[0];
-  const sortFields = new Set(['name', ...filters.map((filter) => filter.id)]);
+  const sortOptions = category.sorts ?? filters;
+  const sortFields = new Set(['name', ...sortOptions.map((filter) => filter.id)]);
   const sortField = sortFields.has(requestedSort ?? '') ? requestedSort! : 'name';
   const sortDir: SortDir = params.get('order') === 'desc' ? 'desc' : 'asc';
   const selectedFilters = useMemo(
@@ -281,6 +298,7 @@ function CompendiumBrowser({
   const toggleFilter = (filterId: string, value: string) => {
     const current = selectedFilters[filterId] ?? [];
     update({
+      page: null,
       [filterId]: current.includes(value)
         ? current.filter((item) => item !== value)
         : [...current, value],
@@ -288,7 +306,7 @@ function CompendiumBrowser({
   };
 
   const setFilter = (filterId: string, values: string[]) => {
-    update({ [filterId]: values.length > 0 ? values : null });
+    update({ [filterId]: values.length > 0 ? values : null, page: null });
   };
 
   const toggleIncludeAny = (filterId: string) => {
@@ -297,7 +315,7 @@ function CompendiumBrowser({
       (selectedFilters[filterId]?.length ?? 0) === 0
     )
       return;
-    update({ includeAny: includeAny[filterId] ? null : '1' });
+    update({ includeAny: includeAny[filterId] ? null : '1', page: null });
   };
 
   const contentMode = useContentModeStore((s) => s.mode);
@@ -328,21 +346,35 @@ function CompendiumBrowser({
     [visibleItems],
   );
 
-  const filtered = useMemo(() => {
+  const searchContent = params.get('searchIn') === 'content';
+  const queryItems = useMemo(() => {
     const term = normalizeSearchText(query.trim());
     return visibleItems.filter((item) => {
       const [name, englishName] = normalizedNames.get(item)!;
-      if (term && !name.includes(term) && !englishName.includes(term)) return false;
-      return matchesFilters(item, filters, selectedFilters, includeAny);
+      if (
+        term &&
+        !name.includes(term) &&
+        !englishName.includes(term) &&
+        !(searchContent && catalogSearchText(item).includes(term))
+      )
+        return false;
+      return true;
     });
-  }, [visibleItems, normalizedNames, query, filters, selectedFilters, includeAny]);
+  }, [visibleItems, normalizedNames, query, searchContent]);
+  const filtered = useMemo(
+    () =>
+      queryItems.filter((item) =>
+        matchesFilters(item, filters, selectedFilters, includeAny),
+      ),
+    [queryItems, filters, selectedFilters, includeAny],
+  );
 
   const sorted = useMemo(() => {
     if (sortField === 'name' && sortDir === 'asc') return filtered;
     return [...filtered].sort((a, b) =>
-      compareItems(a, b, sortField, sortDir, filters, t, locale),
+      compareItems(a, b, sortField, sortDir, sortOptions, t, locale),
     );
-  }, [filtered, sortField, sortDir, filters, t, locale]);
+  }, [filtered, sortField, sortDir, sortOptions, t, locale]);
 
   const listResetKey = [
     query,
@@ -362,14 +394,30 @@ function CompendiumBrowser({
   const selectedIndex = selectedId
     ? sorted.findIndex((item) => item.id === selectedId)
     : -1;
-  const listItems = sorted.slice(0, Math.max(visibleCount, selectedIndex + 1));
+  const browseAll = params.get('view') === 'all';
+  const fullCatalog = browseAll && !selectedId;
+  const requestedPage = Number(params.get('page') ?? '1');
+  const pageCount = Math.max(1, Math.ceil(sorted.length / 50));
+  const pageNumber =
+    Number.isSafeInteger(requestedPage) && requestedPage > 0
+      ? Math.min(requestedPage, pageCount)
+      : 1;
+  useEffect(() => {
+    if (listRef.current) listRef.current.scrollTop = 0;
+  }, [pageNumber]);
+  const listItems = browseAll
+    ? sorted.slice((pageNumber - 1) * 50, pageNumber * 50)
+    : sorted.slice(0, Math.max(visibleCount, selectedIndex + 1));
   const remainingCount = sorted.length - listItems.length;
 
   const categoryTitle = categoryLabel(category, t);
+  const homebrew = useHomebrewStore((state) => state.entries);
+  const localSubclasses =
+    categoryId === 'classes' && selected ? homebrewSubclassesFor(homebrew, selected) : [];
   const selectedSubclass =
     categoryId === 'classes' && selected && requestedSubclassId
       ? findSubclassByRouteKey(
-          (selected as Partial<ClassEntry>).subclasses ?? [],
+          [...((selected as Partial<ClassEntry>).subclasses ?? []), ...localSubclasses],
           requestedSubclassId,
         )
       : undefined;
@@ -404,20 +452,35 @@ function CompendiumBrowser({
   const baseItem = baseItems?.find((item) => item.id === selectedId);
   const printing =
     selected &&
-    compendiumPrintingSeo(baseItem ?? selected, baseItems ?? items, categoryId);
+    (isFumbleHomebrew(selected)
+      ? OWN_CONTENT_SEO
+      : compendiumPrintingSeo(baseItem ?? selected, baseItems ?? items, categoryId));
   const hasTranslation = locale !== 'pl' || !baseItem || Boolean(overlay?.[baseItem.id]);
   const privateEntry = selected && isHomebrew(selected) && !isFumbleHomebrew(selected);
+  const artwork = (source: string, render: (url: string) => ReactNode) =>
+    privateEntry ? (
+      <HomebrewArtwork key={source} src={source}>
+        {render}
+      </HomebrewArtwork>
+    ) : (
+      render(imageUrl(source))
+    );
+  const privateSubclass = Boolean(
+    selectedSubclass && localSubclasses.includes(selectedSubclass),
+  );
   const indexable =
     status === 'ready'
       ? !routeNotFound &&
         hasTranslation &&
         (!selected ||
           (!privateEntry &&
+            !privateSubclass &&
             Boolean(printing?.indexable) &&
             (!selectedSubclass ||
               isCompendiumSubclassIndexable(
                 selected,
                 Boolean(hasVisibleSubclassParent),
+                subclassRouteKey(selectedSubclass),
               ))))
       : prerendered
         ? 'pending'
@@ -499,11 +562,35 @@ function CompendiumBrowser({
         </nav>
         {!selectedId && (
           <Link
-            to={`/compendium/${categoryId}/browse/1`}
-            reloadDocument
-            className="mt-2 inline-block text-sm text-arcane-300 underline"
+            to={{
+              pathname: `/compendium/${categoryId}`,
+              search: (() => {
+                const next = currentSearch();
+                next.delete('page');
+                if (browseAll) next.delete('view');
+                else next.set('view', 'all');
+                return next.toString();
+              })(),
+            }}
+            className="document-link text-sm"
           >
-            {t('compendium.browseAll')}
+            {t(browseAll ? 'compendium.catalog.compactView' : 'compendium.browseAll')}
+          </Link>
+        )}
+        {params.has('library') && (
+          <Link
+            to={{ pathname: '/fumble-homebrew', search: params.get('library') ?? '' }}
+            className="mt-2 block text-sm text-arcane-300 underline"
+          >
+            {t('compendium.catalog.returnLibrary')}
+          </Link>
+        )}
+        {params.has('homebrewLibrary') && (
+          <Link
+            to={{ pathname: '/homebrew', search: params.get('homebrewLibrary') ?? '' }}
+            className="back-link mt-2"
+          >
+            {t('homebrew.returnPersonal')}
           </Link>
         )}
       </div>
@@ -511,7 +598,9 @@ function CompendiumBrowser({
       <div className="flex min-h-0 flex-1">
         <section
           className={[
-            'flex min-h-0 w-full flex-col border-r border-ink-700 md:w-80 lg:w-96',
+            fullCatalog
+              ? 'flex min-h-0 w-full flex-col'
+              : 'flex min-h-0 w-full flex-col border-r border-ink-700 md:w-80 lg:w-96',
             selectedId ? 'hidden md:flex' : 'flex',
           ].join(' ')}
         >
@@ -540,6 +629,20 @@ function CompendiumBrowser({
               })}
               clearLabel={t('common.clearSearch')}
             />
+            <label className="mt-2 flex min-h-10 items-center gap-2 text-xs text-ink-300">
+              <input
+                type="checkbox"
+                className="accent-arcane-500"
+                checked={searchContent}
+                onChange={(event) =>
+                  update({
+                    searchIn: event.target.checked ? 'content' : null,
+                    page: null,
+                  })
+                }
+              />
+              {t('compendium.catalog.searchContent')}
+            </label>
           </div>
 
           {entrySnapshot && (
@@ -568,6 +671,8 @@ function CompendiumBrowser({
             <FilterBar
               filters={filters}
               items={visibleItems}
+              queryItems={queryItems}
+              sortOptions={sortOptions}
               selected={selectedFilters}
               includeAny={includeAny}
               onToggle={toggleFilter}
@@ -577,17 +682,41 @@ function CompendiumBrowser({
                 update({
                   ...Object.fromEntries(filters.map((filter) => [filter.id, null])),
                   includeAny: null,
+                  page: null,
                 })
               }
               onRandom={pickRandom}
               sortField={sortField}
               sortDir={sortDir}
-              onSortField={(value) => update({ sort: value === 'name' ? null : value })}
-              onToggleSortDir={() => update({ order: sortDir === 'asc' ? 'desc' : null })}
+              onSortField={(value) =>
+                update({ sort: value === 'name' ? null : value, page: null })
+              }
+              onToggleSortDir={() =>
+                update({ order: sortDir === 'asc' ? 'desc' : null, page: null })
+              }
             />
           )}
 
-          <ul className="min-h-0 flex-1 overflow-y-auto" data-category={categoryId}>
+          {status === 'ready' && (
+            <p
+              role="status"
+              aria-atomic="true"
+              className="px-3 py-2 text-xs text-ink-400"
+            >
+              {t('compendium.catalog.resultCount', { count: sorted.length })}
+              {browseAll &&
+                ` · ${t('compendium.catalog.page', { page: pageNumber, total: pageCount })}`}
+            </p>
+          )}
+          <ul
+            ref={listRef}
+            className={
+              fullCatalog
+                ? 'grid min-h-0 grid-cols-1 gap-2 overflow-y-auto p-3 md:grid-cols-2 xl:grid-cols-3'
+                : 'min-h-0 flex-1 overflow-y-auto'
+            }
+            data-category={categoryId}
+          >
             {status === 'loading' && (
               <li className="p-4 text-sm text-ink-400">{t('common.loading')}</li>
             )}
@@ -606,7 +735,17 @@ function CompendiumBrowser({
               </li>
             )}
             {!entrySnapshot && status === 'ready' && sorted.length === 0 && (
-              <li className="p-4 text-sm text-ink-400">{t('compendium.noMatches')}</li>
+              <li className="flex flex-col items-start gap-3 p-4 text-sm text-ink-400">
+                <p>{t('compendium.noMatches')}</p>
+                {categoryId === 'firearms' && !showFumbleHomebrew && (
+                  <>
+                    <p>{t('compendium.catalog.homebrewDisabled')}</p>
+                    <Link to="/fumble-homebrew" className="text-arcane-300 underline">
+                      {t('homebrew.editFumbleVisibility')}
+                    </Link>
+                  </>
+                )}
+              </li>
             )}
             {listItems.map((item) => (
               <li key={item.id}>
@@ -628,7 +767,11 @@ function CompendiumBrowser({
                       search: currentSearch().toString(),
                     });
                   }}
-                  className="selection-row rounded-none border-b border-ink-800"
+                  className={
+                    fullCatalog
+                      ? 'catalog-card h-full'
+                      : 'selection-row rounded-none border-b border-ink-800'
+                  }
                   aria-current={item.id === selectedId ? 'page' : undefined}
                 >
                   <span className="flex flex-wrap items-baseline gap-x-2">
@@ -656,7 +799,7 @@ function CompendiumBrowser({
                 </Link>
               </li>
             ))}
-            {status === 'ready' && remainingCount > 0 && (
+            {status === 'ready' && !browseAll && remainingCount > 0 && (
               <li className="p-3">
                 <Button
                   type="button"
@@ -671,12 +814,36 @@ function CompendiumBrowser({
               </li>
             )}
           </ul>
+          {browseAll && pageCount > 1 && (
+            <nav
+              aria-label={t('compendium.catalog.pagination')}
+              className="flex flex-wrap items-center justify-center gap-2 border-t border-ink-700 p-3"
+            >
+              <Button
+                disabled={pageNumber === 1}
+                onClick={() =>
+                  update({ page: pageNumber === 2 ? null : String(pageNumber - 1) })
+                }
+              >
+                {t('compendium.browsePrevious')}
+              </Button>
+              <span className="text-sm text-ink-300">
+                {t('compendium.catalog.page', { page: pageNumber, total: pageCount })}
+              </span>
+              <Button
+                disabled={pageNumber === pageCount}
+                onClick={() => update({ page: String(pageNumber + 1) })}
+              >
+                {t('compendium.browseNext')}
+              </Button>
+            </nav>
+          )}
         </section>
 
         <section
           className={[
             'min-h-0 flex-1 overflow-y-auto p-5',
-            selectedId ? 'block' : 'hidden md:block',
+            fullCatalog ? 'hidden' : selectedId ? 'block' : 'hidden md:block',
           ].join(' ')}
         >
           <Link
@@ -684,230 +851,241 @@ function CompendiumBrowser({
               pathname: `/compendium/${categoryId}`,
               search: currentSearch().toString(),
             }}
-            className="back-link md:hidden"
+            className={browseAll ? 'back-link mb-4' : 'back-link md:hidden'}
           >
             <ArrowLeft size={16} aria-hidden="true" /> {t('compendium.back')}
           </Link>
 
           {selected ? (
-            <DetailPresentation
-              value={{
-                badge: (
-                  <>
-                    {isHomebrew(selected) && !selected._manual && (
-                      <span className="badge border-ember-500/50 text-ember-400">
-                        {t('compendium.homebrewLabel')}
-                      </span>
-                    )}
-                    {(isUaSource(selected.source) || selected.ua) && (
-                      <span className="badge border-arcane-500/50 text-arcane-300">
-                        {t('compendium.uaLabel')}
-                      </span>
-                    )}
-                  </>
-                ),
-                artwork: selected.image && (
-                  <div className="relative mb-4 inline-block max-w-full">
-                    <a
-                      href={imageUrl(selected.image)}
-                      className="artwork-trigger"
-                      aria-label={selected.name}
-                      onClick={(event) => {
-                        event.preventDefault();
-                        openLightbox(imageUrl(selected.image!), selected.name);
-                      }}
-                    >
-                      <img
-                        src={imageUrl(selected.image)}
-                        alt={selected.name}
-                        width={PRIMARY_IMAGE_WIDTH}
-                        height={PRIMARY_IMAGE_HEIGHT}
-                        loading="eager"
-                        fetchPriority="high"
-                        decoding="async"
-
-                        onError={(e) => {
-                          e.currentTarget.parentElement!.parentElement!.style.display =
-                            'none';
-                        }}
-                        className="h-auto max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
-                      />
-                    </a>
-                    {selected.token && selected.token !== selected.image && (
-                      <a
-                        href={imageUrl(selected.token)}
-                        className="artwork-trigger"
-                        aria-label={`${selected.name} ${t('compendium.token')}`}
-                        onClick={(event) => {
-                          event.preventDefault();
-                          openLightbox(
-                            imageUrl(selected.token!),
-                            `${selected.name} (token)`,
-                          );
-                        }}
-                      >
-                        <img
-                          src={imageUrl(selected.token)}
-                          alt={`${selected.name} ${t('compendium.token')}`}
-                          title={t('compendium.token')}
-                          loading="lazy"
-
-                          onError={(e) => {
-                            e.currentTarget.parentElement!.style.display = 'none';
+            <PrivateArtwork.Provider value={Boolean(privateEntry)}>
+              <DetailPresentation
+                value={{
+                  badge: (
+                    <>
+                      {isHomebrew(selected) && !selected._manual && (
+                        <span className="badge border-ember-500/50 text-ember-400">
+                          {t('compendium.homebrewLabel')}
+                        </span>
+                      )}
+                      {(isUaSource(selected.source) || selected.ua) && (
+                        <span className="badge border-arcane-500/50 text-arcane-300">
+                          {t('compendium.uaLabel')}
+                        </span>
+                      )}
+                    </>
+                  ),
+                  artwork: selected.image && (
+                    <div className="relative mb-4 inline-block max-w-full">
+                      {artwork(selected.image, (url) => (
+                        <a
+                          href={url}
+                          className="artwork-trigger"
+                          aria-label={selected.name}
+                          onClick={(event) => {
+                            event.preventDefault();
+                            openLightbox(url, selected.name);
                           }}
-                          className="absolute -bottom-3 -right-3 h-16 w-16 cursor-zoom-in rounded-full border-2 border-ink-900 bg-ink-950 object-cover shadow-lg"
-                        />
-                      </a>
-                    )}
+                        >
+                          <img
+                            src={url}
+                            referrerPolicy={privateEntry ? 'no-referrer' : undefined}
+                            alt={selected.name}
+                            width={PRIMARY_IMAGE_WIDTH}
+                            height={PRIMARY_IMAGE_HEIGHT}
+                            loading="eager"
+                            fetchPriority="high"
+                            decoding="async"
+
+                            onError={(e) => {
+                              e.currentTarget.parentElement!.parentElement!.style.display =
+                                'none';
+                            }}
+                            className="h-auto w-auto max-h-80 max-w-full cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+                          />
+                        </a>
+                      ))}
+                      {selected.token &&
+                        selected.token !== selected.image &&
+                        artwork(selected.token, (url) => (
+                          <a
+                            href={url}
+                            className="artwork-trigger"
+                            aria-label={`${selected.name} ${t('compendium.token')}`}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              openLightbox(url, `${selected.name} (token)`);
+                            }}
+                          >
+                            <img
+                              src={url}
+                              referrerPolicy={privateEntry ? 'no-referrer' : undefined}
+                              alt={`${selected.name} ${t('compendium.token')}`}
+                              title={t('compendium.token')}
+                              loading="lazy"
+
+                              onError={(e) => {
+                                e.currentTarget.parentElement!.style.display = 'none';
+                              }}
+                              className="absolute -bottom-3 -right-3 h-16 w-16 cursor-zoom-in rounded-full border-2 border-ink-900 bg-ink-950 object-cover shadow-lg"
+                            />
+                          </a>
+                        ))}
+                    </div>
+                  ),
+                }}
+              >
+                <DetailContents key={selected.id}>
+                  {isFumbleHomebrew(selected) ? (
+                    <FumbleDetail item={selected} />
+                  ) : isHomebrew(selected) && selected._manual ? (
+                    <HomebrewDetail item={selected} />
+                  ) : (
+                    category.renderDetail(selected)
+                  )}
+                </DetailContents>
+
+                {categoryId === 'bestiary' && !isHomebrew(selected) && (
+                  <div className="mt-4 flex flex-wrap gap-4 text-sm text-arcane-300">
+                    <Link
+                      to={{
+                        pathname: '/dm/encounter',
+                        search: new URLSearchParams({ monster: selected.id }).toString(),
+                      }}
+                      className="underline"
+                    >
+                      {t('encounter.openForMonster')}
+                    </Link>
+                    <BestiaryInitiativeAction
+                      key={selected.id}
+                      row={monsterCombatant(selected as MonsterEntry)}
+                      onAdded={() => navigate('/dm/initiative')}
+                    />
                   </div>
-                ),
-              }}
-            >
-              {isFumbleHomebrew(selected) ? (
-                <FumbleDetail item={selected} />
-              ) : isHomebrew(selected) && selected._manual ? (
-                <HomebrewDetail item={selected} />
-              ) : (
-                category.renderDetail(selected)
-              )}
+                )}
 
-              {categoryId === 'bestiary' && !isHomebrew(selected) && (
-                <div className="mt-4 flex flex-wrap gap-4 text-sm text-arcane-300">
-                  <Link
-                    to={{
-                      pathname: '/dm/encounter',
-                      search: new URLSearchParams({ monster: selected.id }).toString(),
-                    }}
-                    className="underline"
-                  >
-                    {t('encounter.openForMonster')}
-                  </Link>
-                  <button
-                    type="button"
-                    className="underline"
-                    onClick={() => {
-                      useInitiativeStore
-                        .getState()
-                        .addCombatant(monsterCombatant(selected as MonsterEntry));
-                      navigate('/dm/initiative');
-                    }}
-                  >
-                    {t('initiative.addMonster')}
-                  </button>
-                </div>
-              )}
-
-              {selected.lore && selected.lore.length > 0 && (
-                <section className="mt-6 flex flex-col gap-3 border-t border-ink-800 pt-4">
-                  <h3 className="font-display text-lg font-bold text-ember-400">
-                    {t('compendium.lore')}
-                  </h3>
-                  <div className="flex flex-col gap-3">
-                    <EntryRenderer entries={selected.lore} />
-                  </div>
-                </section>
-              )}
-
-              {selected.gallery &&
-                selected.gallery.filter((g) => g.path !== selected.image).length > 0 && (
+                {selected.lore && selected.lore.length > 0 && (
                   <section className="mt-6 flex flex-col gap-3 border-t border-ink-800 pt-4">
                     <h3 className="font-display text-lg font-bold text-ember-400">
-                      {t('compendium.gallery')}
+                      {t('compendium.lore')}
                     </h3>
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                      {selected.gallery
-                        .filter((g) => g.path !== selected.image)
-                        .map((img) => {
-                          const title = img.title
-                            ? localizePlainText(stripMarkup(img.title), locale)
-                            : selected.name;
-                          return (
-                            <figure key={img.path} className="flex flex-col gap-1">
-                              <a
-                                href={imageUrl(img.path)}
-                                className="artwork-trigger"
-                                aria-label={title}
-                                onClick={(event) => {
-                                  event.preventDefault();
-                                  openLightbox(imageUrl(img.path), title);
-                                }}
-                              >
-                                <img
-                                  src={imageUrl(img.path)}
-                                  alt={title}
-                                  loading="lazy"
-
-                                  onError={(e) => {
-                                    e.currentTarget.closest('figure')!.style.display =
-                                      'none';
-                                  }}
-                                  className="h-auto cursor-zoom-in rounded-lg border border-ink-700 object-contain"
-                                />
-                              </a>
-                              {(img.title || img.credit) && (
-                                <figcaption className="text-xs text-ink-400">
-                                  {img.title && parseMarkup(img.title, locale)}
-                                  {img.credit && (
-                                    <span className="italic"> - {img.credit}</span>
-                                  )}
-                                </figcaption>
-                              )}
-                            </figure>
-                          );
-                        })}
+                    <div className="flex flex-col gap-3">
+                      <EntryRenderer entries={selected.lore} />
                     </div>
                   </section>
                 )}
 
-              <div className="mt-6 border-t border-ink-800 pt-3 text-sm">
-                <p className="text-ink-400">
-                  {t('compendium.source')}{' '}
-                  {getBook(selected.source.toLowerCase()) ? (
-                    <Link
-                      to={{
-                        pathname: `/books/${selected.source.toLowerCase()}`,
-                        hash: bookAnchorHash(selected.page, selected.name),
-                      }}
-                      className="text-arcane-300 hover:text-arcane-500"
-                    >
-                      {sourceName(selected.source, locale)}
-                      {selected.page
-                        ? `, ${t('seo.sourcePage', { page: selected.page })}`
-                        : ''}
-                    </Link>
-                  ) : (
-                    <span className="text-ink-200">
-                      {sourceName(selected.source, locale)}
-                      {selected.page
-                        ? `, ${t('seo.sourcePage', { page: selected.page })}`
-                        : ''}
-                    </span>
+                {selected.gallery &&
+                  selected.gallery.filter((g) => g.path !== selected.image).length >
+                    0 && (
+                    <section className="mt-6 flex flex-col gap-3 border-t border-ink-800 pt-4">
+                      <h3 className="font-display text-lg font-bold text-ember-400">
+                        {t('compendium.gallery')}
+                      </h3>
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        {selected.gallery
+                          .filter((g) => g.path !== selected.image)
+                          .map((img) => {
+                            const title = img.title
+                              ? localizePlainText(stripMarkup(img.title), locale)
+                              : selected.name;
+                            return (
+                              <figure key={img.path} className="flex flex-col gap-1">
+                                {artwork(img.path, (url) => (
+                                  <a
+                                    href={url}
+                                    className="artwork-trigger"
+                                    aria-label={title}
+                                    onClick={(event) => {
+                                      event.preventDefault();
+                                      openLightbox(url, title);
+                                    }}
+                                  >
+                                    <img
+                                      src={url}
+                                      referrerPolicy={
+                                        privateEntry ? 'no-referrer' : undefined
+                                      }
+                                      alt={title}
+                                      loading="lazy"
+
+                                      onError={(e) => {
+                                        e.currentTarget.closest('figure')!.style.display =
+                                          'none';
+                                      }}
+                                      className="h-auto cursor-zoom-in rounded-lg border border-ink-700 object-contain"
+                                    />
+                                  </a>
+                                ))}
+                                {(img.title || img.credit) && (
+                                  <figcaption className="text-xs text-ink-400">
+                                    {img.title && parseMarkup(img.title, locale)}
+                                    {img.credit && (
+                                      <span className="italic"> - {img.credit}</span>
+                                    )}
+                                  </figcaption>
+                                )}
+                              </figure>
+                            );
+                          })}
+                      </div>
+                    </section>
                   )}
-                  {!isHomebrew(selected) && (
-                    <>
-                      {' - '}
-                      <Link to="/legal/licenses" className="text-arcane-300 underline">
-                        {t('legal.licenses.title')}
-                      </Link>
-                    </>
-                  )}
-                </p>
-                {selected.otherVersions && selected.otherVersions.length > 0 && (
-                  <div className="mt-2 flex flex-wrap items-center gap-2">
-                    <span className="text-ink-400">{t('compendium.otherPrintings')}</span>
-                    {selected.otherVersions.map((version) => (
+
+                <div className="mt-6 border-t border-ink-800 pt-3 text-sm">
+                  <p className="text-ink-400">
+                    {t('compendium.source')}{' '}
+                    {getBook(selected.source.toLowerCase()) ? (
                       <Link
-                        key={version.id}
-                        to={`/compendium/${categoryId}/${version.id}`}
-                        className="rounded-full bg-ink-800 px-2.5 py-0.5 text-xs text-arcane-300 hover:bg-ink-700"
+                        to={{
+                          pathname: `/books/${selected.source.toLowerCase()}`,
+                          hash: bookAnchorHash(
+                            selected.page,
+                            selected.englishName ?? selected.name,
+                          ),
+                        }}
+                        className="text-arcane-300 hover:text-arcane-500"
                       >
-                        {sourceName(version.source, locale)}
+                        {sourceName(selected.source, locale)}
+                        {selected.page
+                          ? `, ${t('seo.sourcePage', { page: selected.page })}`
+                          : ''}
                       </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </DetailPresentation>
+                    ) : (
+                      <span className="text-ink-200">
+                        {sourceName(selected.source, locale)}
+                        {selected.page
+                          ? `, ${t('seo.sourcePage', { page: selected.page })}`
+                          : ''}
+                      </span>
+                    )}
+                    {!isHomebrew(selected) && (
+                      <>
+                        {' - '}
+                        <Link to="/legal/licenses" className="text-arcane-300 underline">
+                          {t('legal.licenses.title')}
+                        </Link>
+                      </>
+                    )}
+                  </p>
+                  {selected.otherVersions && selected.otherVersions.length > 0 && (
+                    <div className="mt-2 flex flex-wrap items-center gap-2">
+                      <span className="text-ink-400">
+                        {t('compendium.otherPrintings')}
+                      </span>
+                      {selected.otherVersions.map((version) => (
+                        <Link
+                          key={version.id}
+                          to={`/compendium/${categoryId}/${version.id}`}
+                          className="rounded-full bg-ink-800 px-2.5 py-0.5 text-xs text-arcane-300 hover:bg-ink-700"
+                        >
+                          {sourceName(version.source, locale)}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </DetailPresentation>
+            </PrivateArtwork.Provider>
           ) : selectedId && status === 'loading' ? (
             <div
               className="min-h-80 animate-pulse rounded-lg border border-ink-800 bg-ink-900/50 p-5"

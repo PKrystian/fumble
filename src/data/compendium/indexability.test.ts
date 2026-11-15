@@ -15,7 +15,7 @@ const entry = (
   options: Partial<Parameters<typeof compendiumPrintingSeo>[0]> & {
     entries?: string[];
   } = {},
-) => ({ id, name: 'Acid Splash', source: 'PHB', ...options });
+) => ({ id, name: 'Acid Splash', source: 'PHB', srd: true, ...options });
 
 describe('compendium entry indexability', () => {
   it('indexes visible entries', () => {
@@ -109,9 +109,35 @@ describe('compendium entry indexability', () => {
     ).toEqual({ indexable: false });
   });
 
-  it('keeps duplicate subclass routes under a hidden parent out of indexes', () => {
-    expect(isCompendiumSubclassIndexable({ hidden: true }, true)).toBe(false);
-    expect(isCompendiumSubclassIndexable({ hidden: true }, false)).toBe(true);
-    expect(isCompendiumSubclassIndexable({ hidden: false }, true)).toBe(true);
+  it('indexes only entries from the SRD', () => {
+    expect(compendiumPrintingSeo(entry('acid-splash-xphb', { srd: false }), [])).toEqual({
+      indexable: false,
+    });
+    expect(
+      compendiumPrintingSeo(entry('acid-splash-phb', { srd: false, hidden: true }), []),
+    ).toEqual({ indexable: false });
+  });
+
+  it('indexes only SRD subclasses and skips duplicate routes under a hidden parent', () => {
+    const subclass = 'champion-xphb';
+    expect(
+      isCompendiumSubclassIndexable({ hidden: true, srd: true }, true, subclass),
+    ).toBe(false);
+    expect(
+      isCompendiumSubclassIndexable({ hidden: true, srd: true }, false, subclass),
+    ).toBe(true);
+    expect(
+      isCompendiumSubclassIndexable({ hidden: false, srd: true }, true, subclass),
+    ).toBe(true);
+    expect(
+      isCompendiumSubclassIndexable(
+        { hidden: false, srd: true },
+        true,
+        'battle-master-xphb',
+      ),
+    ).toBe(false);
+    expect(
+      isCompendiumSubclassIndexable({ hidden: false, srd: false }, true, subclass),
+    ).toBe(false);
   });
 });

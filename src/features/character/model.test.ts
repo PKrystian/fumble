@@ -3,6 +3,17 @@ import {
   SKILLS,
   abilityModifier,
   applyDamage,
+  applyDeathSave,
+  clamp,
+  damageCharacter,
+  deathSaveResult,
+  healCharacter,
+  hitDiceRemaining,
+  hitDieSize,
+  longRest,
+  longRestHitDice,
+  shortRest,
+  spendHitDie,
   applyHealing,
   armorClass,
   armorClassBreakdown,
@@ -146,5 +157,108 @@ describe('character math', () => {
     const legacy = make();
     delete legacy.role;
     expect(isDmCharacter(legacy)).toBe(false);
+  });
+});
+
+describe('hit points, rests and death saves', () => {
+  const hero = () => {
+    const character = createCharacter('Hero');
+    character.level = 5;
+    character.hp = { current: 10, max: 40, temp: 0 };
+    character.hitDice = '5d10';
+    return character;
+  };
+
+  it('ignores negative and fractional amounts', () => {
+    expect(applyDamage({ current: 10, max: 10, temp: 0 }, -5)).toEqual({
+      current: 10,
+      max: 10,
+      temp: 0,
+    });
+    expect(applyHealing({ current: 50, max: 10, temp: 0 }, 3.7)).toEqual({
+      current: 50,
+      max: 10,
+      temp: 0,
+    });
+    expect(clamp(5, 1, 3)).toBe(3);
+    expect(clamp(-1, 0, 3)).toBe(0);
+  });
+
+  it('clears death saves after healing above zero', () => {
+    const character = hero();
+    character.hp.current = 0;
+    character.deathSaves = { successes: 1, failures: 2 };
+    expect(healCharacter(character, 0)).toEqual({ hp: character.hp });
+    expect(healCharacter(character, 4)).toEqual({
+      hp: { current: 4, max: 40, temp: 0 },
+      deathSaves: { successes: 0, failures: 0 },
+    });
+    expect(damageCharacter(character, 3)).toEqual({ hp: character.hp });
+  });
+
+  it('applies every death save result', () => {
+    expect(deathSaveResult(20)).toBe('critical');
+    expect(deathSaveResult(1)).toBe('fumble');
+    expect(deathSaveResult(10)).toBe('success');
+    expect(deathSaveResult(9)).toBe('failure');
+    const character = hero();
+    character.hp.current = 0;
+    character.deathSaves = { successes: 2, failures: 2 };
+    expect(applyDeathSave(character, 'critical')).toEqual({
+      hp: { ...character.hp, current: 1 },
+      deathSaves: { successes: 0, failures: 0 },
+    });
+    expect(applyDeathSave(character, 'success').deathSaves).toEqual({
+      successes: 3,
+      failures: 2,
+    });
+    expect(applyDeathSave(character, 'failure').deathSaves).toEqual({
+      successes: 2,
+      failures: 3,
+    });
+    expect(applyDeathSave(character, 'fumble').deathSaves).toEqual({
+      successes: 2,
+      failures: 3,
+    });
+  });
+
+  it('spends hit dice and recovers them on a long rest', () => {
+    const character = hero();
+    expect(hitDieSize(character)).toBe(10);
+    expect(hitDieSize({ ...character, hitDice: '' })).toBeNull();
+    expect(hitDieSize({ ...character, hitDice: '1d0' })).toBeNull();
+    expect(hitDiceRemaining(character)).toBe(5);
+    expect(spendHitDie(character, 7)).toMatchObject({
+      hp: { current: 17 },
+      hitDiceUsed: 1,
+    });
+    expect(spendHitDie({ ...character, hitDiceUsed: 5 }, -2)).toMatchObject({
+      hp: { current: 10 },
+      hitDiceUsed: 5,
+    });
+    expect(hitDiceRemaining({ ...character, hitDiceUsed: 9 })).toBe(0);
+
+    character.hitDiceUsed = 4;
+    character.hp.temp = 3;
+    character.deathSaves = { successes: 1, failures: 1 };
+    character.spellSlots = [
+      { level: 1, longRestMax: 2, usedLongRest: 2, shortRestMax: 1, usedShortRest: 1 },
+    ];
+    expect(longRestHitDice(character)).toBe(2);
+    expect(longRest(character)).toEqual({
+      hp: { current: 40, max: 40, temp: 0 },
+      deathSaves: { successes: 0, failures: 0 },
+      hitDiceUsed: 2,
+      spellSlots: [
+        { level: 1, longRestMax: 2, usedLongRest: 0, shortRestMax: 1, usedShortRest: 0 },
+      ],
+    });
+    expect(shortRest(character)).toEqual({
+      spellSlots: [
+        { level: 1, longRestMax: 2, usedLongRest: 2, shortRestMax: 1, usedShortRest: 0 },
+      ],
+    });
+    expect(longRestHitDice({ ...character, level: 1, hitDiceUsed: 1 })).toBe(1);
+    expect(longRestHitDice({ ...character, hitDiceUsed: 0 })).toBe(0);
   });
 });

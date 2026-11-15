@@ -1,177 +1,106 @@
+import { useState } from 'react';
+import { confirmDialog } from '@/features/ui/confirmStore';
+import { FormDialog } from '@/features/ui/FormDialog';
 import { Button } from '@/features/ui/primitives';
-import { X } from 'lucide-react';
 import { useT } from '@/i18n/useT';
-import {
-  ABILITY_KEYS,
-  MAX_SPELL_LEVEL,
-  type AbilityKey,
-  type Character,
-  getSpellSlot,
-  isDmCharacter,
-  setSpellSlot,
-} from './model';
+import { type Character, isDmCharacter } from './model';
 import type { UpdateCharacter } from './sections';
 import { useLayoutStore } from './layoutStore';
-import { useDialogFocus } from '@/features/ui/useDialogFocus';
+import { buildSyncPatch } from './sync';
 
 interface CharacterSettingsModalProps {
   character: Character;
   update: UpdateCharacter;
+  computed: Partial<Character> | null;
   onClose: () => void;
 }
 
 export function CharacterSettingsModal({
   character,
   update,
+  computed,
   onClose,
 }: CharacterSettingsModalProps) {
   const { t } = useT();
-  const resetLayout = useLayoutStore((s) => s.reset);
-  const dialogRef = useDialogFocus(true, onClose);
+  const [status, setStatus] = useState<string | null>(null);
 
-  const levels = Array.from({ length: MAX_SPELL_LEVEL }, (_, i) => i + 1);
+  const applyNow = async (data: Partial<Character>) => {
+    const ok = await confirmDialog(t('character.sheet.settingsModal.applyConfirm'), {
+      confirmLabel: t('character.sheet.settingsModal.apply'),
+      initialFocus: 'cancel',
+    });
+    if (!ok) return;
+    update(buildSyncPatch(character, data, true));
+    setStatus(t('character.sheet.settingsModal.applied'));
+  };
+
+  const resetLayout = async () => {
+    const ok = await confirmDialog(t('character.sheet.settingsModal.resetConfirm'), {
+      confirmLabel: t('character.sheet.settingsModal.resetLayout'),
+      initialFocus: 'cancel',
+    });
+    if (!ok) return;
+    useLayoutStore.getState().reset();
+    setStatus(t('character.sheet.settingsModal.layoutReset'));
+  };
 
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={t('character.sheet.settingsModal.title')}
-      ref={dialogRef}
-      tabIndex={-1}
-      onClick={onClose}
-      className="dialog-overlay"
+    <FormDialog
+      title={t('character.sheet.settingsModal.title')}
+      onClose={onClose}
+      actions={
+        <Button variant="primary" onClick={onClose}>
+          {t('character.sheet.done')}
+        </Button>
+      }
     >
-      <div onClick={(e) => e.stopPropagation()} className="dialog-panel">
-        <div className="flex items-center justify-between border-b border-ink-700 p-3">
-          <h2 className="text-ink-50 section-title">
-            {t('character.sheet.settingsModal.title')}
-          </h2>
+      <div className="flex flex-col gap-6 text-sm text-ink-200">
+        <section className="flex flex-col gap-3">
+          <h3 className="panel-title">{t('character.sheet.settingsModal.syncTitle')}</h3>
+          <label className="flex items-start gap-2">
+            <input
+              type="checkbox"
+              data-dialog-focus
+              checked={character.autoSyncFeatures}
+              onChange={(event) => update({ autoSyncFeatures: event.target.checked })}
+              className="mt-1 accent-arcane-500"
+            />
+            {t('character.sheet.settingsModal.autoSync')}
+          </label>
+          <p className="text-ink-400">{t('character.sheet.settingsModal.syncHelp')}</p>
           <Button
-            type="button"
-            onClick={onClose}
-            aria-label={t('character.sheet.settingsModal.close')}
-            variant="ghost"
-            size="sm"
-            iconOnly
+            className="self-start"
+            disabled={!computed || !character.autoSyncFeatures}
+            onClick={() => void applyNow(computed!)}
           >
-            <X size={16} />
+            {t('character.sheet.settingsModal.apply')}
           </Button>
-        </div>
+        </section>
 
-        <div className="flex flex-col gap-6 overflow-y-auto p-4">
-          <section className="flex flex-col gap-3">
-            <h3 className="font-display text-sm font-bold uppercase tracking-wide text-ember-400">
-              {t('character.sheet.settingsModal.spellcasting')}
-            </h3>
+        <section className="flex flex-col gap-3">
+          <h3 className="panel-title">
+            {t('character.sheet.settingsModal.preferences')}
+          </h3>
+          <label className="flex items-start gap-2">
+            <input
+              type="checkbox"
+              checked={isDmCharacter(character)}
+              onChange={(event) =>
+                update({ role: event.target.checked ? 'dm' : 'party' })
+              }
+              className="mt-1 accent-arcane-500"
+            />
+            {t('character.sheet.settingsModal.dmCharacter')}
+          </label>
+          <Button className="self-start" onClick={() => void resetLayout()}>
+            {t('character.sheet.settingsModal.resetLayout')}
+          </Button>
+        </section>
 
-            <label className="flex max-w-xs flex-col gap-1 text-sm">
-              <span className="text-xs font-semibold text-ink-400">
-                {t('character.sheet.settingsModal.spellcastingAbility')}
-              </span>
-              <select
-                value={character.spellcastingAbility ?? ''}
-                onChange={(event) =>
-                  update({
-                    spellcastingAbility: (event.target.value ||
-                      null) as AbilityKey | null,
-                  })
-                }
-                className="ui-field"
-              >
-                <option value="">{t('character.sheet.settingsModal.none')}</option>
-                {ABILITY_KEYS.map((key) => (
-                  <option key={key} value={key}>
-                    {t(`character.sheet.abilities.${key}`)}
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            <div className="flex flex-col gap-1">
-              <div className="grid grid-cols-3 gap-2 text-xs font-semibold text-ink-400">
-                <span>{t('character.sheet.settingsModal.spellSlots')}</span>
-                <span className="text-center">
-                  {t('character.sheet.settingsModal.shortRest')}
-                </span>
-                <span className="text-center">
-                  {t('character.sheet.settingsModal.longRest')}
-                </span>
-              </div>
-              {levels.map((level) => {
-                const slot = getSpellSlot(character, level);
-                return (
-                  <div key={level} className="grid grid-cols-3 items-center gap-2">
-                    <span className="text-sm text-ink-300">
-                      {t('character.sheet.settingsModal.level', { level })}
-                    </span>
-                    <input
-                      type="number"
-                      min={0}
-                      value={slot.shortRestMax}
-                      onChange={(event) =>
-                        update({
-                          spellSlots: setSpellSlot(character.spellSlots, level, {
-                            shortRestMax: Math.max(0, event.target.valueAsNumber || 0),
-                          }),
-                        })
-                      }
-                      className="ui-field w-full text-center"
-                    />
-                    <input
-                      type="number"
-                      min={0}
-                      value={slot.longRestMax}
-                      onChange={(event) =>
-                        update({
-                          spellSlots: setSpellSlot(character.spellSlots, level, {
-                            longRestMax: Math.max(0, event.target.valueAsNumber || 0),
-                          }),
-                        })
-                      }
-                      className="ui-field w-full text-center"
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          <section className="flex flex-col gap-3">
-            <h3 className="font-display text-sm font-bold uppercase tracking-wide text-ember-400">
-              {t('character.sheet.settingsModal.preferences')}
-            </h3>
-            <label className="flex items-center gap-2 text-sm text-ink-200">
-              <input
-                type="checkbox"
-                checked={character.autoSyncFeatures}
-                onChange={(event) => update({ autoSyncFeatures: event.target.checked })}
-                className="accent-arcane-500"
-              />
-              {t('character.sheet.settingsModal.autoSync')}
-            </label>
-            <label className="flex items-center gap-2 text-sm text-ink-200">
-              <input
-                type="checkbox"
-                checked={isDmCharacter(character)}
-                onChange={(event) =>
-                  update({ role: event.target.checked ? 'dm' : 'party' })
-                }
-                className="accent-arcane-500"
-              />
-              {t('character.sheet.settingsModal.dmCharacter')}
-            </label>
-            <Button
-              type="button"
-              onClick={resetLayout}
-              variant="secondary"
-              size="sm"
-              className="w-fit"
-            >
-              {t('character.sheet.settingsModal.resetLayout')}
-            </Button>
-          </section>
-        </div>
+        <p role="status" className="empty:hidden notice notice-success">
+          {status}
+        </p>
       </div>
-    </div>
+    </FormDialog>
   );
 }

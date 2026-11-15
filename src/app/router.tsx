@@ -3,6 +3,7 @@ import type { RouteObject } from 'react-router-dom';
 import type { ComponentType } from 'react';
 import { LocaleEntryLayout } from '@/app/layout/LocaleEntryLayout';
 import { LocaleLayout } from '@/app/layout/LocaleLayout';
+import { RouteErrorPage } from '@/app/RouteErrorPage';
 import { RouterFallback } from '@/app/RouterFallback';
 import { HomePage } from '@/features/home/HomePage';
 
@@ -15,6 +16,14 @@ function lazyComponent<T extends Record<string, unknown>>(
 
 const appRouteChildren: RouteObject[] = [
   { index: true, element: <HomePage /> },
+  {
+    path: 'site-map',
+    lazy: lazyComponent(() => import('@/features/legal/SiteMapPage'), 'SiteMapPage'),
+  },
+  {
+    path: 'changelog',
+    lazy: lazyComponent(() => import('@/features/legal/ChangelogPage'), 'ChangelogPage'),
+  },
   {
     path: 'character',
     lazy: lazyComponent(
@@ -185,19 +194,23 @@ const appRouteChildren: RouteObject[] = [
   },
 ];
 
+const guardedChildren: RouteObject[] = [
+  { errorElement: <RouteErrorPage />, children: appRouteChildren },
+];
+
 export const router = createBrowserRouter(
   [
     {
       path: '/',
       element: <LocaleEntryLayout />,
       hydrateFallbackElement: <RouterFallback />,
-      children: appRouteChildren,
+      children: guardedChildren,
     },
     {
       path: '/pl',
       element: <LocaleLayout locale="pl" />,
       hydrateFallbackElement: <RouterFallback />,
-      children: appRouteChildren,
+      children: guardedChildren,
     },
 
     { path: '*', element: <Navigate to="/" replace /> },

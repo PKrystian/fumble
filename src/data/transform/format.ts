@@ -25,6 +25,7 @@ const PL_ABILITIES: Record<string, string> = {
 };
 
 const PL_SIZES: Record<string, string> = {
+  V: 'Zmienny',
   T: 'Maleńki',
   S: 'Mały',
   M: 'Średni',
@@ -112,12 +113,20 @@ interface TimeEntry {
 }
 
 export function formatCastingTime(
-  time: TimeEntry[] | undefined,
+  time: (TimeEntry | string)[] | undefined,
   locale: Locale = 'en',
 ): string {
   if (!time?.length) return '-';
   return time
     .map((t) => {
+      if (typeof t === 'string')
+        return locale === 'pl'
+          ? t === 'Free'
+            ? 'Bez akcji'
+            : t === 'Varies'
+              ? 'Zmienny'
+              : t
+          : t;
       const units = PLURAL_UNITS[t.unit];
       if (locale === 'pl' && units) {
         const [singular, plural] = units;
@@ -285,6 +294,7 @@ const SIZES: Record<string, string> = {
   L: 'Large',
   H: 'Huge',
   G: 'Gargantuan',
+  V: 'Varies',
 };
 
 export const FEAT_CATEGORIES: Record<string, string> = {

@@ -14,6 +14,9 @@ export function LocaleLayout({ locale }: { locale: Locale }) {
       title={translate(locale, 'errors.appTitle')}
       message={translate(locale, 'errors.appMessage')}
       reloadLabel={translate(locale, 'errors.reload')}
+      backupLabel={translate(locale, 'errors.downloadBackup')}
+      backupDoneMessage={translate(locale, 'errors.backupDownloaded')}
+      backupFailedMessage={translate(locale, 'errors.backupFailed')}
     >
       <AppLayout />
     </AppErrorBoundary>

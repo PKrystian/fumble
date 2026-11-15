@@ -3,11 +3,14 @@ import {
   BACKUP_VERSION,
   MAX_BACKUP_BYTES,
   MAX_BACKUP_KEYS,
+  STORAGE_CHARACTER_LIMIT,
   backupFilename,
   createBackup,
   parseBackup,
   restoreBackup,
   serializeBackup,
+  storageUsage,
+  summarizeBackup,
 } from './backup';
 import type { FumbleBackup } from './backup';
 
@@ -81,7 +84,7 @@ describe('data backup', () => {
     );
     expect(() =>
       parseBackup(
-        '{"app":"fumble","version":1,"exportedAt":"x","data":{"fumble-x":"bad"}}',
+        '{"app":"fumble","version":1,"exportedAt":"2026-07-29T00:00:00.000Z","data":{"fumble-x":"bad"}}',
       ),
     ).toThrow(SyntaxError);
   });
@@ -142,5 +145,115 @@ describe('data backup', () => {
     expect(() => restoreBackup(storage, backup)).toThrow('write-failed');
     expect(storage.removeItem).toHaveBeenCalledWith('fumble-new');
     expect(storage.setItem).toHaveBeenCalledWith('fumble-old', '{"state":"old"}');
+  });
+
+  it('rejects unsupported formats, invalid dates and invalid storage entries', () => {
+    const backup = {
+      app: 'fumble',
+      version: 1,
+      exportedAt: '2026-11-07T00:00:00.000Z',
+      data: {},
+    };
+    for (const exportedAt of ['', 'bad', '1', '2026-02-30T00:00:00.000Z']) {
+      expect(() => parseBackup(JSON.stringify({ ...backup, exportedAt }))).toThrow(
+        'backup-invalid',
+      );
+    }
+    expect(() => parseBackup(JSON.stringify({ ...backup, version: 2 }))).toThrow(
+      'backup-version',
+    );
+    for (const data of [{ other: '{}' }, { 'fumble-test': 1 }]) {
+      expect(() => parseBackup(JSON.stringify({ ...backup, data }))).toThrow(
+        'backup-invalid',
+      );
+    }
+    expect(() =>
+      parseBackup(
+        JSON.stringify({
+          ...backup,
+          data: {
+            'fumble-characters': JSON.stringify({
+              version: 2,
+              state: { characters: null },
+            }),
+          },
+        }),
+      ),
+    ).toThrow('backup-invalid-data');
+    const data = Object.fromEntries(
+      Array.from({ length: MAX_BACKUP_KEYS + 1 }, (_, i) => [`fumble-${i}`, '{}']),
+    );
+    expect(() => serializeBackup({ ...backup, app: 'fumble', version: 1, data })).toThrow(
+      'backup-too-many-keys',
+    );
+  });
+
+  it('summarizes saved collections, maps, settings and unknown data without changing them', () => {
+    const data = {
+      'fumble-characters': JSON.stringify({ state: { characters: { a: {}, b: {} } } }),
+      'fumble-sessions': JSON.stringify({ state: { sessions: [{}, {}] } }),
+      'fumble-homebrew': JSON.stringify({ state: { entries: [{}] } }),
+      'fumble-initiative': JSON.stringify({ state: { combatants: [{}] } }),
+      'fumble-soundboard': JSON.stringify({ state: { tracks: [{}, {}, {}] } }),
+      'fumble-custom-rolls': JSON.stringify({ state: {} }),
+      'fumble-campaign-map-editor:one': '[0,1]',
+      'fumble-campaign-map-editor:two': '[]',
+      'fumble-locale': '{"state":{"locale":"pl"},"version":1}',
+      'fumble-backup-reminder': '{"state":{"lastBackupAt":1},"version":1}',
+      'fumble-new-tool': '{}',
+      'fumble-roll-history': JSON.stringify({ state: { log: [{}] } }),
+    };
+    const backup: FumbleBackup = {
+      app: 'fumble',
+      version: 1,
+      exportedAt: '2026-11-07T00:00:00.000Z',
+      data,
+    };
+    expect(summarizeBackup(backup)).toEqual({
+      characters: 2,
+      sessions: 2,
+      contexts: 0,
+      homebrew: 1,
+      combatants: 1,
+      tracks: 3,
+      customRolls: 0,
+      rolls: 1,
+      loot: 0,
+      encounters: 0,
+      encounterDraft: 0,
+      reading: 0,
+      maps: 2,
+      settings: 2,
+      other: 1,
+    });
+    for (const raw of ['null', '{"state":null}']) {
+      expect(() =>
+        summarizeBackup({ ...backup, data: { 'fumble-sessions': raw } }),
+      ).toThrow('backup-invalid-data');
+    }
+  });
+
+  it('round trips all saved groups and leaves other site data untouched', () => {
+    localStorage.setItem('fumble-locale', '{"state":{"locale":"pl"},"version":1}');
+    localStorage.setItem('fumble-campaign-map-editor:test', '[0,5]');
+    localStorage.setItem('other-app', 'keep');
+    const backup = createBackup(localStorage);
+    const restored = parseBackup(serializeBackup(backup));
+    localStorage.setItem('fumble-added-later', '{}');
+    restoreBackup(localStorage, restored);
+    expect(createBackup(localStorage).data).toEqual(backup.data);
+    expect(localStorage.getItem('other-app')).toBe('keep');
+    restoreBackup(localStorage, { ...restored, data: {} });
+    expect(createBackup(localStorage).data).toEqual({});
+    expect(localStorage.getItem('other-app')).toBe('keep');
+  });
+
+  it('measures how much of the browser storage is used', () => {
+    localStorage.clear();
+    expect(storageUsage(localStorage)).toBe(0);
+    localStorage.setItem('fumble-a', 'x'.repeat(STORAGE_CHARACTER_LIMIT / 2 - 8));
+    localStorage.setItem('other', 'y');
+    expect(storageUsage(localStorage)).toBeCloseTo(0.5, 3);
+    localStorage.clear();
   });
 });

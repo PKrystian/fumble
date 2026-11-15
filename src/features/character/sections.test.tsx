@@ -1,13 +1,12 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { useState } from 'react';
+import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { useRollStore } from '@/features/dice/rollStore';
 import { useSessionStore } from '@/features/session-log/store';
 import { createCharacter, setSpellSlot, type Character } from './model';
 import {
   AbilityScoresPanel,
   CombatPanel,
-  HitPointsPanel,
   IdentityHeader,
   PassivesPanel,
   ProficienciesPanel,
@@ -17,13 +16,9 @@ import {
   SpellcastingPanel,
   TrackingPanel,
 } from './sections';
-
-vi.mock('@/i18n/useT', () => ({
-  useT: () => ({
-    t: (key: string, values?: Record<string, unknown>) =>
-      values ? `${key} ${Object.values(values).join(' ')}` : key,
-  }),
-}));
+import { useSheetRollMode } from './rolls';
+import { SheetHarness } from './sheetTestHarness';
+import { currentCharacter } from './sheetTestState';
 
 vi.mock('@/features/compendium/categories', () => ({
   getCategory: (id: string) => ({ id }),
@@ -33,7 +28,7 @@ vi.mock('@/features/compendium/useCategoryItems', () => ({
   useCategoryItems: () => ({
     items: [
       { id: 'wizard', name: 'Wizard', hidden: false },
-      { id: 'fighter', name: 'Fighter', hidden: false },
+      { id: 'barbarian', name: 'Barbarian', hidden: false },
       { id: 'hidden', name: 'Hidden', hidden: true },
     ],
   }),
@@ -48,6 +43,7 @@ vi.mock('./compendiumSync', async (importOriginal) => {
     srd: false,
     subclassTitle: 'Tradition',
     subclasses: [
+      { name: 'Evoker', source: 'PHB', features: [] },
       { name: 'Evoker', source: 'XPHB', features: [] },
       { name: 'Evoker', source: 'PHB', features: [] },
       { name: 'Illusionist', source: 'XPHB', features: [] },
@@ -60,7 +56,7 @@ vi.mock('./compendiumSync', async (importOriginal) => {
 });
 
 vi.mock('./CompendiumPicker', () => ({
-  CompendiumSelectModalField: ({
+  CompendiumSelectField: ({
     label,
     onChange,
   }: {
@@ -81,307 +77,305 @@ vi.mock('@/features/ui/ImageCropperModal', () => ({
     onSave: (value: string) => void;
     onCancel: () => void;
   }) => (
-    <>
-      <button type="button" onClick={() => onSave('data:image/png;base64,test')}>
-        save-crop
+    <div>
+      <button type="button" onClick={() => onSave('data:image/jpeg;base64,x')}>
+        save crop
       </button>
       <button type="button" onClick={onCancel}>
-        cancel-crop
+        cancel crop
       </button>
-    </>
+    </div>
   ),
 }));
 
-function Harness({
-  initial,
-  children,
-}: {
-  initial: Character;
-  children: (
-    character: Character,
-    update: (patch: Partial<Character>) => void,
-  ) => React.ReactNode;
-}) {
-  const [character, setCharacter] = useState(initial);
-  const update = (patch: Partial<Character>) =>
-    setCharacter((current) => ({ ...current, ...patch }));
-  return (
-    <>
-      <span data-testid="state">{JSON.stringify(character)}</span>
-      {children(character, update)}
-    </>
+function mount(
+  component: Parameters<typeof SheetHarness>[0]['component'],
+  initial?: Character,
+  computed: Partial<Character> | null = null,
+) {
+  return render(
+    <SheetHarness
+      initial={initial ?? createCharacter('Hero')}
+      component={component}
+      computed={computed}
+    />,
   );
 }
 
-function state(): Character {
-  return JSON.parse(screen.getByTestId('state').textContent ?? '') as Character;
+function setWide(wide: boolean) {
+  vi.stubGlobal(
+    'matchMedia',
+    vi.fn(() => ({
+      matches: wide,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    })),
+  );
 }
 
 describe('character sheet sections', () => {
-  beforeEach(() => useSessionStore.setState({ sessions: [] }));
-
-  it('renders identity fields without a selected class', () => {
-    render(
-      <Harness initial={createCharacter('Hero')}>
-        {(character, update) => <IdentityHeader character={character} update={update} />}
-      </Harness>,
-    );
-
-    expect(screen.getByText('character.sheet.fields.subclass')).toBeInTheDocument();
-    expect(screen.getAllByRole('combobox')[1]).toBeDisabled();
+  beforeEach(() => {
+    useRollStore.setState({ log: [], dockOpen: false, error: null });
+    useSheetRollMode.setState({ mode: 'normal' });
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
   });
 
-  it('edits identity selections and portrait', () => {
-    const character = createCharacter('Hero');
-    character.className = 'wizard';
-    render(
-      <Harness initial={character}>
-        {(current, update) => <IdentityHeader character={current} update={update} />}
-      </Harness>,
-    );
-
-    fireEvent.change(screen.getByLabelText('character.sheet.fields.name'), {
-      target: { value: 'Merlin' },
+  it('edits identity, class, subclass, level and portrait', () => {
+    mount(IdentityHeader);
+    fireEvent.change(screen.getByRole('textbox', { name: 'Name' }), {
+      target: { value: 'Mira' },
     });
-    fireEvent.change(screen.getByDisplayValue('Wizard'), {
-      target: { value: 'wizard' },
-    });
-    const selects = screen.getAllByRole('combobox');
-    fireEvent.change(selects[1]!, { target: { value: 'Evoker|XPHB' } });
-    fireEvent.change(screen.getByLabelText('character.sheet.fields.level'), {
+    const classSelect = screen.getByRole('combobox', { name: 'Class' });
+    expect(within(classSelect).queryByText('Hidden')).toBeNull();
+    fireEvent.change(classSelect, { target: { value: 'wizard' } });
+    const subclass = screen.getByRole('combobox', { name: 'Tradition' });
+    expect(within(subclass).getAllByRole('option')).toHaveLength(3);
+    fireEvent.change(subclass, { target: { value: 'Evoker|XPHB' } });
+    fireEvent.change(screen.getByRole('textbox', { name: 'Level' }), {
       target: { value: '5' },
     });
-    fireEvent.click(screen.getByText('character.sheet.fields.species'));
-    fireEvent.click(screen.getByText('character.sheet.fields.background'));
-    expect(state()).toMatchObject({
-      name: 'Merlin',
+    fireEvent.click(screen.getByRole('button', { name: 'Species' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Background' }));
+    expect(currentCharacter()).toMatchObject({
+      name: 'Mira',
       className: 'wizard',
       subclass: 'Evoker|XPHB',
       level: 5,
-      species: 'picked-character.sheet.fields.species',
-      background: 'picked-character.sheet.fields.background',
+      species: 'picked-Species',
+      background: 'picked-Background',
     });
 
-    fireEvent.click(screen.getByLabelText('character.sheet.addPortrait'));
-    const file = new File(['portrait'], 'portrait.png', { type: 'image/png' });
-    fireEvent.change(document.querySelector('input[type="file"]')!, {
-      target: { files: [] },
-    });
-    fireEvent.change(document.querySelector('input[type="file"]')!, {
-      target: { files: [file] },
-    });
-    fireEvent.click(screen.getByText('cancel-crop'));
-    fireEvent.change(document.querySelector('input[type="file"]')!, {
-      target: { files: [file] },
-    });
-    fireEvent.click(screen.getByText('save-crop'));
-    expect(state().portrait).toBe('data:image/png;base64,test');
-    fireEvent.click(screen.getByLabelText('character.sheet.removePortrait'));
-    expect(state().portrait).toBe('');
+    const file = new File(['x'], 'portrait.png', { type: 'image/png' });
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    fireEvent.click(screen.getByRole('button', { name: 'Add portrait' }));
+    fireEvent.change(input, { target: { files: [] } });
+    fireEvent.change(input, { target: { files: [file] } });
+    fireEvent.click(screen.getByText('cancel crop'));
+    fireEvent.change(input, { target: { files: [file] } });
+    fireEvent.click(screen.getByText('save crop'));
+    expect(currentCharacter().portrait).toBe('data:image/jpeg;base64,x');
+    expect(screen.getByRole('button', { name: 'Change portrait' })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Remove portrait' }));
+    expect(currentCharacter().portrait).toBe('');
   });
 
-  it('updates abilities, saving throws and skill proficiency levels', () => {
-    render(
-      <Harness initial={createCharacter('Hero')}>
-        {(character, update) => (
-          <>
-            <AbilityScoresPanel character={character} update={update} />
-            <SavingThrowsPanel character={character} update={update} />
-            <SkillsPanel character={character} update={update} />
-          </>
-        )}
-      </Harness>,
+  it('collapses identity details on narrow screens once a class is set', () => {
+    setWide(false);
+    const character = { ...createCharacter('Hero'), className: 'wizard' };
+    mount(IdentityHeader, character);
+    const open = screen.getByRole('button', {
+      name: 'Name, class, species, and background',
+    });
+    expect(open).toHaveAttribute('aria-expanded', 'false');
+    fireEvent.click(open);
+    expect(screen.getByRole('textbox', { name: 'Name' })).toBeInTheDocument();
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Name, class, species, and background' }),
     );
+    expect(screen.queryByRole('textbox', { name: 'Name' })).toBeNull();
+  });
 
-    fireEvent.change(screen.getByLabelText('character.sheet.abilities.str'), {
+  it('edits ability scores and rolls checks and saves through the shared dock', () => {
+    mount((props) => (
+      <>
+        <AbilityScoresPanel {...props} />
+        <SavingThrowsPanel {...props} />
+      </>
+    ));
+    fireEvent.change(screen.getByRole('textbox', { name: 'Strength score' }), {
       target: { value: '16' },
     });
-    expect(state().abilities.str).toBe(16);
-    fireEvent.change(screen.getByLabelText('character.sheet.abilities.str'), {
-      target: { value: '' },
-    });
-    expect(state().abilities.str).toBe(0);
+    expect(currentCharacter().abilities.str).toBe(16);
+    act(() => useSheetRollMode.setState({ mode: 'advantage' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Roll Strength check +3' }));
+    const entry = useRollStore.getState().log[0]!;
+    expect(entry.label).toBe('Hero: Strength check');
+    expect(entry.outcome.mode).toBe('advantage');
+    expect(entry.outcome.expression).toBe('1d20 + 3');
 
-    const savingThrow = screen.getByLabelText(
-      'character.sheet.skillsPanel.savingThrowProficiencyAria character.sheet.abilities.str',
-    );
-    fireEvent.click(savingThrow);
-    expect(state().savingThrowProficiencies).toEqual(['str']);
-    fireEvent.click(savingThrow);
-    expect(state().savingThrowProficiencies).toEqual([]);
-
-    const skill = screen.getByLabelText(
-      'character.sheet.skillsPanel.proficiencyAria character.sheet.skillNames.acrobatics',
-    );
-    fireEvent.click(skill);
-    expect(state().skillProficiencies).toContain('acrobatics');
-    fireEvent.click(skill);
-    expect(state().skillExpertise).toContain('acrobatics');
-    fireEvent.click(skill);
-    expect(state().skillExpertise).not.toContain('acrobatics');
+    fireEvent.click(screen.getByRole('checkbox', { name: /Dexterity/ }));
+    expect(currentCharacter().savingThrowProficiencies).toEqual(['dex']);
+    fireEvent.click(screen.getByRole('button', { name: 'Roll Dexterity save +2' }));
+    expect(useRollStore.getState().log[0]!.label).toBe('Hero: Dexterity save');
+    fireEvent.click(screen.getByRole('checkbox', { name: /Dexterity/ }));
+    expect(currentCharacter().savingThrowProficiencies).toEqual([]);
   });
 
-  it('updates combat values and toggles automatic armor class', () => {
-    const character = createCharacter('Fighter');
-    character.abilities.dex = 12;
-    render(
-      <Harness initial={character}>
-        {(character, update) => <CombatPanel character={character} update={update} />}
-      </Harness>,
+  it('marks synchronized saving throws as manual and restores them', () => {
+    const computed = { savingThrowProficiencies: ['str', 'con'] } as Partial<Character>;
+    mount(SavingThrowsPanel, createCharacter('Hero'), computed);
+    fireEvent.click(screen.getByRole('checkbox', { name: /Wisdom/ }));
+    expect(currentCharacter().manualFields).toEqual(['savingThrows']);
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Restore saving throws from class' }),
     );
+    expect(currentCharacter()).toMatchObject({
+      manualFields: [],
+      savingThrowProficiencies: ['str', 'con'],
+    });
+  });
 
-    fireEvent.change(screen.getByLabelText('character.sheet.combat.walk'), {
+  it('cycles skill proficiency and rolls skills', () => {
+    const character = createCharacter('');
+    mount(SkillsPanel, character);
+    const button = screen.getByRole('button', {
+      name: 'Arcana proficiency: Not proficient',
+    });
+    fireEvent.click(button);
+    expect(currentCharacter().skillProficiencies).toEqual(['arcana']);
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Arcana proficiency: Proficient' }),
+    );
+    expect(currentCharacter().skillExpertise).toEqual(['arcana']);
+    expect(
+      screen.getByRole('button', { name: 'Arcana proficiency: Expertise' }),
+    ).toHaveTextContent('E');
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Arcana proficiency: Expertise' }),
+    );
+    expect(currentCharacter()).toMatchObject({
+      skillProficiencies: [],
+      skillExpertise: [],
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Roll Stealth +0' }));
+    expect(useRollStore.getState().log[0]!.label).toBe('Unnamed: Stealth');
+    expect(useRollStore.getState().log[0]!.outcome.expression).toBe('1d20');
+  });
+
+  it('edits combat values, speeds and armor class overrides', () => {
+    const computed = {
+      speed: { walk: 25, swim: 0, climb: 0, fly: 0 },
+    } as Partial<Character>;
+    const fighter = createCharacter('Hero');
+    fighter.abilities.dex = 14;
+    mount(CombatPanel, fighter, computed);
+    fireEvent.change(screen.getByRole('textbox', { name: 'Walk' }), {
       target: { value: '35' },
     });
-    fireEvent.change(screen.getByLabelText('character.sheet.combat.swim'), {
-      target: { value: '20' },
+    expect(currentCharacter()).toMatchObject({
+      speed: { walk: 35 },
+      manualFields: ['speed'],
     });
-    fireEvent.change(screen.getByLabelText('character.sheet.combat.climb'), {
-      target: { value: '15' },
+    fireEvent.click(screen.getByRole('button', { name: 'Restore speed from species' }));
+    expect(currentCharacter().speed.walk).toBe(25);
+    fireEvent.change(screen.getByRole('textbox', { name: 'Swim' }), {
+      target: { value: '10' },
     });
-    fireEvent.change(screen.getByLabelText('character.sheet.combat.fly'), {
-      target: { value: '60' },
-    });
-    fireEvent.click(screen.getByText('character.sheet.combat.heroicInspiration'));
-    expect(state()).toMatchObject({
-      speed: { walk: 35, swim: 20, climb: 15, fly: 60 },
-      inspiration: true,
-    });
+    expect(currentCharacter().speed.swim).toBe(10);
 
-    fireEvent.click(screen.getByTitle(/character\.sheet\.acBase/));
-    expect(state().acOverride).toBe(11);
-    fireEvent.click(screen.getByTitle('character.sheet.fields.acAuto'));
-    expect(state().acOverride).toBeNull();
-    fireEvent.change(screen.getAllByRole('spinbutton')[0]!, {
-      target: { value: '16' },
-    });
-    expect(state().acOverride).toBe(16);
+    const ac = screen.getByRole('textbox', { name: 'Armor Class' });
+    expect(ac).toHaveAccessibleDescription('Base 10 + DEX +2');
+    fireEvent.change(ac, { target: { value: '17' } });
+    expect(currentCharacter().acOverride).toBe(17);
+    expect(ac).toHaveAccessibleDescription('Set manually');
+    fireEvent.click(screen.getByRole('button', { name: 'Use calculated value' }));
+    expect(currentCharacter().acOverride).toBeNull();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Roll Initiative +2' }));
+    expect(useRollStore.getState().log[0]!.label).toBe('Hero: Initiative');
+    fireEvent.click(screen.getByRole('checkbox', { name: 'Heroic Inspiration' }));
+    expect(currentCharacter().inspiration).toBe(true);
   });
 
-  it('applies healing and damage through temporary hit points', () => {
-    const character = createCharacter('Tank');
-    character.hp = { current: 5, max: 12, temp: 3 };
-    render(
-      <Harness initial={character}>
-        {(current, update) => <HitPointsPanel character={current} update={update} />}
-      </Harness>,
+  it('shows passives, proficiencies, tracking and spellcasting summaries', () => {
+    const character = createCharacter('Hero');
+    character.spellcastingAbility = 'int';
+    character.abilities.int = 16;
+    character.spellSlots = setSpellSlot([], 1, { longRestMax: 2, usedLongRest: 1 });
+    const computed = { toolProficiencies: 'Smith' } as Partial<Character>;
+    mount(
+      (props) => (
+        <>
+          <PassivesPanel character={props.character} />
+          <ProficienciesPanel {...props} />
+          <TrackingPanel {...props} />
+          <SpellcastingPanel character={props.character} />
+        </>
+      ),
+      character,
+      computed,
     );
-
-    fireEvent.change(screen.getByLabelText('character.sheet.hpFields.current'), {
-      target: { value: '6' },
-    });
-    fireEvent.change(screen.getByLabelText('character.sheet.hpFields.max'), {
-      target: { value: '14' },
-    });
-    fireEvent.change(screen.getByLabelText('character.sheet.hpFields.temp'), {
-      target: { value: '4' },
-    });
-    fireEvent.change(screen.getByLabelText('character.sheet.hpFields.amount'), {
-      target: { value: '5' },
-    });
-    fireEvent.click(screen.getByText('character.sheet.hpFields.heal'));
-    expect(state().hp.current).toBe(11);
-    fireEvent.click(screen.getByText('character.sheet.hpFields.damage'));
-    expect(state().hp).toMatchObject({ current: 10, temp: 0 });
-
-    fireEvent.change(screen.getByLabelText('character.sheet.hpFields.amount'), {
-      target: { value: '20' },
-    });
-    fireEvent.click(screen.getByText('character.sheet.hpFields.heal'));
-    expect(state().hp.current).toBe(14);
-  });
-
-  it('edits proficiencies and tracking fields and renders passive scores', () => {
-    render(
-      <Harness initial={createCharacter('Scout')}>
-        {(character, update) => (
-          <>
-            <PassivesPanel character={character} />
-            <ProficienciesPanel character={character} update={update} />
-            <TrackingPanel character={character} update={update} />
-          </>
-        )}
-      </Harness>,
-    );
-
-    fireEvent.change(screen.getByLabelText('character.sheet.proficiencies.armor'), {
-      target: { value: 'Light armor' },
-    });
-    fireEvent.change(screen.getByLabelText('character.sheet.proficiencies.weapons'), {
-      target: { value: 'Simple weapons' },
-    });
-    fireEvent.change(screen.getByLabelText('character.sheet.proficiencies.tools'), {
+    expect(screen.getByText('Investigation').nextSibling).toHaveTextContent('13');
+    expect(screen.getByText('Save DC').nextSibling).toHaveTextContent('13');
+    expect(screen.getByText('1 of 2')).toBeInTheDocument();
+    fireEvent.change(screen.getByRole('textbox', { name: 'Tools' }), {
       target: { value: 'Thieves tools' },
     });
-    fireEvent.change(screen.getByLabelText('character.sheet.proficiencies.languages'), {
-      target: { value: 'Common' },
-    });
-    fireEvent.change(screen.getByLabelText('character.sheet.tracking.concentration'), {
-      target: { value: 'Bless' },
-    });
-    fireEvent.change(screen.getByLabelText('character.sheet.tracking.activeConditions'), {
-      target: { value: 'Prone' },
-    });
-    fireEvent.change(
-      screen.getByLabelText('character.sheet.tracking.resistancesImmunities'),
-      { target: { value: 'Fire resistance' } },
+    expect(currentCharacter().manualFields).toEqual(['toolProficiencies']);
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Restore tools from class and background' }),
     );
-    expect(state()).toMatchObject({
-      armorProficiencies: 'Light armor',
-      weaponProficiencies: 'Simple weapons',
-      toolProficiencies: 'Thieves tools',
+    expect(currentCharacter().toolProficiencies).toBe('Smith');
+    for (const [name, value] of [
+      ['Armor', 'Light'],
+      ['Weapons', 'Simple'],
+      ['Languages', 'Common'],
+      ['Concentration', 'Bless'],
+      ['Active Conditions', 'Poisoned'],
+      ['Resistances / Immunities', 'Fire'],
+    ]) {
+      fireEvent.change(screen.getByRole('textbox', { name: name! }), {
+        target: { value },
+      });
+    }
+    expect(currentCharacter()).toMatchObject({
+      armorProficiencies: 'Light',
+      weaponProficiencies: 'Simple',
       languages: 'Common',
       concentration: 'Bless',
-      conditions: 'Prone',
-      defenses: 'Fire resistance',
+      conditions: 'Poisoned',
+      defenses: 'Fire',
     });
-    expect(screen.getByText('character.sheet.passives.perception')).toBeInTheDocument();
   });
 
-  it('renders non-casters and configured spell slots', () => {
-    const caster = createCharacter('Mage');
-    caster.spellcastingAbility = 'int';
-    caster.spellSlots = setSpellSlot([], 2, {
-      longRestMax: 2,
-      shortRestMax: 1,
-      usedLongRest: 1,
-      usedShortRest: 0,
-    });
+  it('explains missing spellcasting and empty slots', () => {
     const { rerender } = render(
-      <SpellcastingPanel character={createCharacter('Commoner')} />,
-    );
-    expect(
-      screen.getByText('character.sheet.spellcasting.notSpellcaster'),
-    ).toBeInTheDocument();
-
-    rerender(<SpellcastingPanel character={caster} />);
-    expect(
-      screen.getByText('character.sheet.spellcasting.spellLevelShort 2'),
-    ).toBeInTheDocument();
-    expect(screen.getByText('character.sheet.abilities.int')).toBeInTheDocument();
-
-    caster.spellSlots = [];
-    rerender(<SpellcastingPanel character={caster} />);
-    expect(screen.getByText('character.sheet.spellcasting.noSlots')).toBeInTheDocument();
-  });
-
-  it('creates a session and appends quick notes', () => {
-    render(
       <MemoryRouter>
-        <SessionLogQuickPanel />
+        <SpellcastingPanel character={createCharacter('Hero')} />
       </MemoryRouter>,
     );
-    const input = screen.getByPlaceholderText('character.sheet.sessionQuick.placeholder');
-    fireEvent.change(input, { target: { value: '  Found the key  ' } });
-    fireEvent.keyDown(input, { key: 'Enter' });
-
-    expect(useSessionStore.getState().sessions[0]?.notes).toBe('Found the key');
-    expect(input).toHaveValue('');
-    fireEvent.click(screen.getByLabelText('character.sheet.sessionQuick.addNote'));
-    expect(useSessionStore.getState().sessions[0]?.notes).toBe('Found the key');
-    expect(screen.getByText('character.sheet.sessionQuick.openFull')).toHaveAttribute(
-      'href',
-      '/session-log/',
+    expect(screen.getByText(/Not a spellcaster/)).toBeInTheDocument();
+    rerender(
+      <MemoryRouter>
+        <SpellcastingPanel
+          character={{ ...createCharacter('Hero'), spellcastingAbility: 'wis' }}
+        />
+      </MemoryRouter>,
     );
+    expect(screen.getByText('No spell slots configured.')).toBeInTheDocument();
+  });
+
+  it('adds quick notes to the selected session or a new one', () => {
+    useSessionStore.setState({ sessions: [], selectedSessionId: null });
+    mount(() => <SessionLogQuickPanel />);
+    const input = screen.getByRole('textbox', { name: 'Note for a new session' });
+    const add = screen.getByRole('button', { name: 'Add note to session log' });
+    expect(add).toBeDisabled();
+    fireEvent.change(input, { target: { value: '  Found a key  ' } });
+    fireEvent.click(add);
+    expect(screen.getByText('Note added to a new session.')).toBeInTheDocument();
+    const [session] = useSessionStore.getState().sessions;
+    expect(session!.notes).toContain('Found a key');
+
+    useSessionStore.getState().addSession('Second');
+    useSessionStore.getState().selectSession(session!.id);
+    fireEvent.change(screen.getByRole('textbox', { name: 'Note for Untitled session' }), {
+      target: { value: 'More' },
+    });
+    fireEvent.submit(
+      screen.getByRole('textbox', { name: 'Note for Untitled session' }).closest('form')!,
+    );
+    expect(screen.getByText('Note added to Untitled session.')).toBeInTheDocument();
+    expect(
+      useSessionStore.getState().sessions.find((s) => s.id === session!.id)!.notes,
+    ).toContain('More');
+    fireEvent.submit(
+      screen.getByRole('textbox', { name: 'Note for Untitled session' }).closest('form')!,
+    );
+    expect(
+      screen.getByRole('link', { name: 'Open full session log' }),
+    ).toBeInTheDocument();
   });
 });
