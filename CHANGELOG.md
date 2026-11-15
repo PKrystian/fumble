@@ -8,6 +8,10 @@ This project follows Semantic Versioning.
 
 - Fix older Compendium printing metadata, mobile filter controls, and E2E selectors after page announcements were added.
 
+## 1.17.2 - 2026-11-15
+
+- Expand the ability scores panel before editing core stats in the mobile end-to-end test.
+
 ## 1.17.0 - 2026-11-14
 
 - Download or restore the data of a single tool on the Data backup page: characters, session journal, soundboard, initiative, encounters, loot, and personal Homebrew. Tool pages now show only their saved status and recovery actions. Character import and Export all moved there from the Characters page.

@@ -448,6 +448,15 @@ test('can create a character and edit core stats', async ({ page }) => {
   await page.getByRole('button', { name: 'New Character' }).click();
   await expect(page).toHaveURL(/\/character\/[a-f0-9-]+\/$/);
 
+  if ((page.viewportSize()?.width ?? 0) < 1024) {
+    const abilityScores = page.getByRole('button', {
+      name: 'Ability Scores',
+      exact: true,
+    });
+    await expect(abilityScores).toHaveAttribute('aria-expanded', 'false');
+    await abilityScores.click();
+  }
+
   const strength = page.getByRole('textbox', { name: 'Strength score' });
   await strength.fill('16');
   await expect(
